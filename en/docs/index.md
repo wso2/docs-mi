@@ -30,83 +30,75 @@ template: templates/single-column.html
 <div class="homePage">
     <div class="section01">
         <div class="leftContent">
-            <h2>Learn to build and manage your APIs with ease  </h2>
+            <h2>Robust, Lightweight, Powerful Integration  </h2>
             <p>
-                WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+                WSO2 Micro Integratoer is a comprehensive integration solution that simplifies your digital transformation journey. 
             </p>
             <p>
-                It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
-                managers to create API products from one or more APIs.
+                The Micro Integrator streamlines connectivity among applications, services, data, and cloud using a user-friendly low-code graphical designing experience. 
             </p>
+            <p>Deployment options include both microservices and ESB style for better flexibility.</p>
             </br>
+           <!--
             <h2>Download</h2>
-            <a href="https://wso2.com/api-manager/#">
-                <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
+            <a href="https://wso2.com/micro-integrator/">
+                <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 Micro Integrator" width="35%" alt="Download WSO2 Micro Integrator"/>
             </a>
-        </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
-        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            -->
         </div>
     </div>
-    <!--<div class="leftContent">
-        <h2>Download</h2>
-        <a href="https://wso2.com/api-manager/#">
-            <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="18%" alt="Download WSO2 API Manager"/>
-        </a>
-    </div>
-    </br>-->
     </br>
     </br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/quick-start-guide';">
+         <!-- <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/quick-start-guide';">
                 <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
                 <h4>Design and implement APIs</h4>
                 <p>
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+            </div> -->
+            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
                 <img src="{{base_path}}/assets/img/home/landing-page/write-your-first-integration-service.svg" title="Integration Service" width="75" alt="Integration Service"/>
                 <h4>Write your first Integration Service</h4>
                 <p>
                     Create an integration service and expose it as a managed API. Let's get started by running a simple use case. 
                 </p>
-            </div>
+            <!-- </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
                 <img src="{{base_path}}/assets/img/home/landing-page/write-a-streaming-integration.svg" title="Streaming Integration" width="75" alt="Streaming Integration"/>
                 <h4>Write a Streaming Integration</h4>
                 <p>
                     Create and deploy a Siddhi application in 5 minutes and expose it as a Streaming API. Let's get started by running a simple use case.
                 </p>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="section03">
         <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/overview';">
             <h3>Overview</h3>
             <p>
-                Introduces WSO2 API Manager and quickly describes what it can do.
+                Introduces WSO2 Micro Integrator and quickly describes what it can do.
             </p>
             <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
         </div>
         <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/key-concepts';">
             <h3>Concepts</h3>
             <p>
-                The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
+                The key concepts of WSO2 Micro Integrator give you a brief introduction to the terminology.
             </p>
             <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
         </div>
         <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/architecture';">
             <h3>Architecture</h3>
             <p>
-                The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
+                The WSO2 Micro Integrator consists of a integration runtime, a graphical integration designing tool, and a dashboard, along with multiple developer-friendly tools to help you work with the various components.
             </p>
             <a href='{{base_path}}/get-started/architecture'><h4>View Architecture</h4></a>
         </div>
     </div>
-    <div class="section04">
+    <!--div class="section04">
         <h3>APIM Scenarios</h3>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario1-create-rest-api';">
@@ -249,5 +241,5 @@ template: templates/single-column.html
                 <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2'><h4>Deploy the Streaming Integrator Runtime</h4></a>
             </div>
         </div>
-    </div>
+    </div-->
 </div>
