@@ -1,0 +1,58 @@
+# Set Passwords using Environment Variables or System Properties
+
+The instructions on this page explain how you can set the passwords of system users, keystores, and truststores, etc. using system properties and environment variable, rather than hard coding them in the configuration file itself. 
+
+## Set passwords using environment variables 
+
+1.  Set the password to an environment variable. 
+
+2.  Open `<APIM_HOME>/repository/deployment.toml` file and refer the password value in the configuration using the `$env{<environment_variable_name>}` placeholder. 
+
+       ``` tab="Format"
+        [super_admin]
+        username="admin"
+        password="$env{<environment_variable_name>}"
+       ```
+       
+       ``` tab="Example"
+        [super_admin]
+        username="admin"
+        password="$env{ADMIN_PASSWORD}"
+       ```
+
+3.  Start the server to apply the changes.
+
+      * On Linux: `./api-manager.sh`
+      * On Windows: `./api-manager.bat`
+ 
+## Set passwords using system properties
+ 
+ 1.  Open the `<APIM_HOME>/repository/deployment.toml` file and refer the required password value in the configuration using the `$sys{system.property}` placeholder. 
+ 
+    ``` tab="Format"
+    [super_admin]
+    username="admin"
+    password="$sys{system.property}"
+    ```
+        
+    ``` tab="Example"
+    [super_admin]
+    username="admin"
+    password="$sys{admin.password}"
+    ```
+    
+2.  Pass the above-configured system property to the runtime by using one of the following options.
+     
+     Let's use `admin.password` here as a sample system property.
+
+     -   During the server startup time
+
+        * On Linux: `./api-manager.sh -Dadmin.password=admin`
+        * On Windows: `./api-manager.bat -Dadmin.password=admin`
+      
+     -   Configure the system property in the `<APIM_HOME>/bin/api-manager.sh` file.
+        
+        ```bash
+        -Dadmin.password=admin \
+        ```
+        
