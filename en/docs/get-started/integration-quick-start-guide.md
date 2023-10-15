@@ -1,4 +1,4 @@
-# Quick Start Guide - Integration
+# Quick Start Guide
 
 Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment. 
 
