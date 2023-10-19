@@ -26,13 +26,13 @@ The WSO2 Micro Integrator is coupled with [WSO2 Integration Studio](../../develo
 
 ## Administration
 
-The [Micro Integrator Dashboard](../../administer-and-observe/working-with-monitoring-dashboard) and [CLI](../../administer-and-observe/using-the-command-line-interface) are specifically designed for monitoring and administration of the Micro Integrator instances. Each of these tools are capable of binding to a single server instance by invoking the [management API](../../administer-and-observe/working-with-management-api) that is exposed by the server. This allows you to view and manage artifacts, logs/log configurations, and users of a server instance.
+The [Micro Integrator Dashboard](../observe-and-manage/working-with-monitoring-dashboard) and [CLI](../../administer-and-observe/using-the-command-line-interface) are specifically designed for monitoring and administration of the Micro Integrator instances. Each of these tools are capable of binding to a single server instance by invoking the [management API](../../administer-and-observe/working-with-management-api) that is exposed by the server. This allows you to view and manage artifacts, logs/log configurations, and users of a server instance.
 
 <img src="../../assets/img/get-started/cli-dashboard.png" alt="CLI and dashboard" name="CLI and dashboard" width="700">
 
 ## Streaming integration
 
-The [Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/overview/overview/) of WSO2 EI 7.1 is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
+The [Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/overview/overview/) of WSO2 EI is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
 
 <img src="../../assets/img/get-started/streaming-integrator.png" alt="Streaming Integrator" name="Streaming Integrator" width="600">
 
