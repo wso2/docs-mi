@@ -1,0 +1,13 @@
+{
+  "4.2.0": "4.2.0",
+  "current": "4.2.0",
+  "list": [
+    "4.2.0"
+   ],
+  "all": {
+    "4.2.0":{
+        "doc": "4.2.0",
+        "notes": "4.2.0/get-started/about-this-release"
+    }
+  }
+}
