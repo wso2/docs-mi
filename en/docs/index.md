@@ -59,7 +59,7 @@ template: templates/single-column.html
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
             </div> -->
-            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide';">
                 <img src="{{base_path}}/assets/img/home/landing-page/write-your-first-integration-service.svg" title="Integration Service" width="75" alt="Integration Service"/>
                 <h4>Write your first Integration Service</h4>
                 <p>
@@ -76,12 +76,12 @@ template: templates/single-column.html
         </div>
     </div>
     <div class="section03">
-        <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/overview';">
+        <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/introduction';">
             <h3>Overview</h3>
             <p>
                 Introduces WSO2 Micro Integrator and quickly describes what it can do.
             </p>
-            <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
+            <a href='{{base_path}}/get-started/introduction'><h4>Read a Short Overview</h4></a>
         </div>
         <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/key-concepts';">
             <h3>Concepts</h3>
@@ -90,12 +90,12 @@ template: templates/single-column.html
             </p>
             <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
         </div>
-        <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/architecture';">
+        <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/introduction';">
             <h3>Architecture</h3>
             <p>
-                The WSO2 Micro Integrator consists of a integration runtime, a graphical integration designing tool, and a dashboard, along with multiple developer-friendly tools to help you work with the various components.
+                The WSO2 Micro Integrator consists of an integration runtime, a graphical integration designing tool, and a dashboard, along with multiple developer-friendly tools to help you work with the various components.
             </p>
-            <a href='{{base_path}}/get-started/architecture'><h4>View Architecture</h4></a>
+            <a href='{{base_path}}/get-started/introduction'><h4>View Architecture</h4></a>
         </div>
     </div>
     <!--div class="section04">

@@ -150,7 +150,7 @@ theme/material/assets/stylesheets/application.*.css
 theme/material/base.html
 ```
 
-5. Copy the new files back to your `docs-apim` clone from the `mkdocs-material` clone you built at step 3.
+5. Copy the the new files back to your `docs-apim` clone from the `mkdocs-material` clone you built at step 3.
 
 ```
 material/assets/javascripts/application.*.js
@@ -158,3 +158,7 @@ material/assets/javascripts/modernizr.*.js
 material/assets/stylesheets/application*
 material/base.html
 ```
+# Customizations done to the top navigation tabs-item.html for navigation seperation
+
+Top navigation seperation is achieved through matching the titles of pages which are on the right.
+If titles needs to be changed in right floted nav links, tabs-item.html has to be changed as well.
