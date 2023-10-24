@@ -7,8 +7,8 @@ The installation guide of the Micro Integrator explains how to set up the Micro 
 <table>
 	<tr>
 		<td>
-			<a href="../../setup/installation/install_prerequisites">Installation Prerequisites</a>
-		</td>
+			<a href="../install/installation-prerequisites">Installation Prerequisites</a>
+		</td> 
 		<td>
 			See the system requirements for setting up and using the Micro Integrator of WSO2 EI 7.
 		</td>
@@ -41,11 +41,7 @@ The installation guide of the Micro Integrator explains how to set up the Micro 
 
 ## Migrate
 
-Follow the topics in this section to migrate to the latest version of WSO2 EI 7 from a previous version.
-
--	[Migrating from WSO2 ESB 5.x](../../setup/deployment/migrating-from-esb-5.x.x)
--	[Migrating from WSO2 EI 6.x](../../setup/deployment/migrating-from-ei-6.x.x)
--	[Migrating from WSO2 EI 7.0](../../setup/deployment/migrating-from-ei-7.0.x)
+Follow the [Upgrade WSO2 Micro Integrator](upgrading-wso2-mi.md) documentation to migrate WSO2 Micro Integrator to the latest version.
 
 ## Deploy
 
@@ -76,7 +72,7 @@ Follow the topics in this section if you are setting up a Micro Integrator deplo
 	-->
 	<tr>
 		<td>
-			Building a CICD Pipeline
+			<a href="">Building a CI/CD Pipeline</a>
 		</td>
 		<td>
 			Follow the step-by-step instructions on how to build a pipeline to manage the continuous integration and continuous deployment process.

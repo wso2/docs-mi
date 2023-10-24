@@ -64,4 +64,4 @@ The log4j2 configurations in the `log4j2.properties` file does not create logs f
 
 ## Dynamically changing log level
 
-See the instructions on [updating the log level]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#updating-the-log4j2-log-level).
+See the instructions on [updating the log level]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#updating-the-log4j2-log-level).

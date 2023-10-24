@@ -8,7 +8,7 @@ The Kubernetes Exporter allows you to package multiple [integration modules]({{b
 
 Follow the steps given below.   
 
-1. [Create a new integration project]({{base_path}}/integrate/develop/create-integration-project) and create a Kubernetes Exporter project by doing one of the following.
+1. [Create a new integration project]({{base_path}}/develop/create-integration-project) and create a Kubernetes Exporter project by doing one of the following.
 
     1. As part of creating an integration project, you can select the **Kubernetes Exporter** check box.
 
@@ -226,7 +226,7 @@ Expand the **Kubernetes Exporter** in the project explorer. See that the followi
 
 Before you begin:
 
--   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/integrate/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/integrate/develop/packaging-artifacts). For example, see the HelloWorld sample given below.
+-   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/integrate/develop/packaging-artifacts). For example, see the HelloWorld sample given below.
 
     <img alt="Integration artifacts for Docker" src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/integration-projects-for-k8s.png" width="300">
 

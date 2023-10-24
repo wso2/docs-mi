@@ -297,7 +297,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     2.  Click **Encrypt Secrets**. 
     
     !!! Tip
-        See [Encrypt static (embedded) server secrets]({{base_path}}/integrate/develop/using-embedded-micro-integrator/#encrypt-static-embedded-server-secrets) for details.
+        See [Encrypt static (embedded) server secrets]({{base_path}}/develop/using-embedded-micro-integrator/#encrypt-static-embedded-server-secrets) for details.
 
 4.  Save the configurations.
 
@@ -312,7 +312,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     ```
 
     !!! Tip
-        See the instructions on [injecting environment variables to the embedded Micro Integrator]({{base_path}}/integrate/develop/using-embedded-micro-integrator/#injecting-environment-variables-to-embedded-micro-integrator).
+        See the instructions on [injecting environment variables to the embedded Micro Integrator]({{base_path}}/develop/using-embedded-micro-integrator/#injecting-environment-variables-to-embedded-micro-integrator).
 
 ### Step 4 - Package the artifacts
 

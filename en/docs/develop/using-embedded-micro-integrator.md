@@ -4,7 +4,7 @@ WSO2 Integration Studio contains an embedded Micro Integrator instance, which yo
 
 ## Deploy and run artifacts in the (embedded) server
 
-Once you have the [integration artifacts packaged]({{base_path}}/integrate/develop/packaging-artifacts) in a composite application, you can deploy and run them in the embedded Micro Integrator using a single click. 
+Once you have the [integration artifacts packaged]({{base_path}}/develop/packaging-artifacts) in a composite application, you can deploy and run them in the embedded Micro Integrator using a single click. 
 
 1.  Select the composite application in the project explorer.
 2.  Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.jpg" width="20"> icon in the menu palette to open the <b>Run As</b> dialog box.
@@ -20,7 +20,7 @@ Once you have the [integration artifacts packaged]({{base_path}}/integrate/devel
 	See the startup log in the **Console** tab:  
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/testing_log.png" width="700">
 
-6.  If you find errors in your mediation sequence, use the [debugging features]({{base_path}}/integrate/develop/debugging-mediation) to troubleshoot.
+6.  If you find errors in your mediation sequence, use the [debugging features]({{base_path}}/develop/debugging-mediation) to troubleshoot.
 
 ## View deployed endpoints in the (embedded) server
 
@@ -41,7 +41,7 @@ For some integrations, it is necessary to update the server configurations. For 
 Click the <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel-icon.png" width="20"> icon to open the <b>Embedded Micro Integrator Configuration</b> dialog box shown below.
 
 !!! Note 
-	You can also paramterize configurations as [environment variables]({{base_path}}/install-and-setup/setup/mi-setup/dynamic_server_configurations) and later [inject environment variables to the embedded Micro Integrator](#injecting-environment-variables-to-embedded-micro-integrator).
+	You can also paramterize configurations as [environment variables]({{base_path}}/install-and-setup/setup/dynamic_server_configurations) and later [inject environment variables to the embedded Micro Integrator](#injecting-environment-variables-to-embedded-micro-integrator).
 
 <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel.png">
 
@@ -52,7 +52,7 @@ In the upper section, update the server configuration file (`deployment.toml` fi
 If you have secrets in the `deployment.toml` file, you can encrypt them using the <b>Cipher Tool</b>. 
 
 1.  Open the [<b>Embedded Micro Integrator Configuration</b>](#update-embedded-server-configs-and-libraries) dialog box. 
-2.  Update the static secrets in the `deployment.toml` file as explained in [encrypting server secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text).
+2.  Update the static secrets in the `deployment.toml` file as explained in [encrypting server secrets]({{base_path}}/install-and-setup/setup/security/encrypting_plain_text).
 3.  Click <b>Encrypt Secrets</b>.
 	
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/encrypt-secrets.png">

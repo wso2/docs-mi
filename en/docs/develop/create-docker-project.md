@@ -10,7 +10,7 @@ Create a Docker Exporter if you want to deploy your integration solutions inside
 
 Follow the steps given below.   
 
-1. [Create a new integration project]({{base_path}}/integrate/develop/create-integration-project) and create a Docker Exporter by doing one of the following.
+1. [Create a new integration project]({{base_path}}/develop/create-integration-project) and create a Docker Exporter by doing one of the following.
 
     1. As part of creating an integration project, you can select the **Docker Exporter** check box.
 
@@ -180,7 +180,7 @@ Expand the **Docker Exporter** in the project explorer. See that the following f
 
 Before you begin:
 
--   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/integrate/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/integrate/develop/packaging-artifacts/#sub-projects). For example, see the HelloWorld sample given below.
+-   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/integrate/develop/packaging-artifacts/#sub-projects). For example, see the HelloWorld sample given below.
 
     <img alt="Integration artifacts for Docker" src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/integration-projects-for-docker.png" width="300">
 

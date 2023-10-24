@@ -14,7 +14,7 @@ Develop a REST API artifact using WSO2 Integration Studio. This is your integrat
 !!! Tip
     For instructions on creating a new integration service, use the following documentation: 
 
-    -   [Developing your First Integration Service]({{base_path}}/integrate/develop/integration-development-kickstart).
+    -   [Developing your First Integration Service]({{base_path}}/develop/integration-development-kickstart).
     -   [Integration Tutorials]({{base_path}}/tutorials/tutorials-overview/#integration-tutorials).
 
 ## Step 1 - Update the service metadata

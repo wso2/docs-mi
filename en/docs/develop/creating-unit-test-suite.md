@@ -2,9 +2,9 @@
 
 Once you have developed an integration solution, WSO2 Integration Studio allows you to build unit tests for the following:
 
-- Test [mediation sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences), [proxy services]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), and [REST apis]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with multiple test cases
-- Test the artifacts with [registry resources]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources).
-- Test the artifacts with [Connectors]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors).
+- Test [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [proxy services]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), and [REST apis]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with multiple test cases
+- Test the artifacts with [registry resources]({{base_path}}/develop/creating-artifacts/creating-registry-resources).
+- Test the artifacts with [Connectors]({{base_path}}/develop/creating-artifacts/adding-connectors).
 
     !!! Note
         [Scheduled Tasks]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task) are not supported by the Unit Testing framework.
