@@ -2,7 +2,7 @@
 ## Introduction
 Persists messages in a JMS queue inside a JMS Broker. Since messages are persisted in an orderly manner, JMS message stores implement the <b>Store and Forward</b> integration pattern. This message store can be configured by specifying the class as <code>org.apache.synapse.message.store.impl.jms.JmsStore</code>.
 
-To try this out quickly, see the [JMS Message Store example]({{base_path}}/integrate/examples/message_store_processor_examples/using-jms-message-stores/).
+To try this out quickly, see the [JMS Message Store example]({{base_path}}/integrate/examples/message-store-processor-examples/using-jms-message-stores/).
 
 ## Properties
 

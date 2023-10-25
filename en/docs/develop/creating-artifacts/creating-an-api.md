@@ -400,12 +400,12 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 
 ## Examples
 
--   [Using a Simple Rest API]({{base_path}}/integrate/examples/rest_api_examples/introduction-rest-api)
--   [Working with Query Parameters]({{base_path}}/integrate/examples/rest_api_examples/setting-query-params-outgoing-messages)
--   [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/integrate/examples/rest_api_examples/enabling-rest-to-soap)
--   [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/integrate/examples/rest_api_examples/configuring-non-http-endpoints)
--   [Handling Non Matching Resources]({{base_path}}/integrate/examples/rest_api_examples/handling-non-matching-resources)
--   [Handling HTTP Status Codes]({{base_path}}/integrate/examples/rest_api_examples/setting-https-status-codes)
--   [Manipulating Content Types]({{base_path}}/integrate/examples/rest_api_examples/transforming-content-type)
--   [Securing a REST API]({{base_path}}/integrate/examples/rest_api_examples/securing-rest-apis)
--   [Special Cases]({{base_path}}/integrate/examples/rest_api_examples/special-cases)
+-   [Using a Simple Rest API]({{base_path}}/integrate/examples/rest-api-examples/introduction-rest-api)
+-   [Working with Query Parameters]({{base_path}}/integrate/examples/rest-api-examples/setting-query-params-outgoing-messages)
+-   [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/integrate/examples/rest-api-examples/enabling-rest-to-soap)
+-   [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/integrate/examples/rest-api-examples/configuring-non-http-endpoints)
+-   [Handling Non Matching Resources]({{base_path}}/integrate/examples/rest-api-examples/handling-non-matching-resources)
+-   [Handling HTTP Status Codes]({{base_path}}/integrate/examples/rest-api-examples/setting-https-status-codes)
+-   [Manipulating Content Types]({{base_path}}/integrate/examples/rest-api-examples/transforming-content-type)
+-   [Securing a REST API]({{base_path}}/integrate/examples/rest-api-examples/securing-rest-apis)
+-   [Special Cases]({{base_path}}/integrate/examples/rest-api-examples/special-cases)

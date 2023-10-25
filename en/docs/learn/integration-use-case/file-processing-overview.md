@@ -31,7 +31,7 @@ In many business domains, there are different use cases related to managing file
 					<a href="{{base_path}}/learn/examples/file-processing/vfs-transport-examples">VFS Transport
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport">Accessing a Windows Share using VFS</a>
+					<a href="{{base_path}}/learn/examples/file-processing/Accessing-Windows-Share-Using-VFS-Transport">Accessing a Windows Share using VFS</a>
 				</li>
 				<li>
 					<a href="{{base_path}}/learn/examples/file-processing/mailto-transport-examples">Using the MailTo Transport</a>

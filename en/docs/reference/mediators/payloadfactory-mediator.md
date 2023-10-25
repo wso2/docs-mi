@@ -347,7 +347,7 @@ assumed by default. For example:
     ```xml
     <arg expression="$ctx:property.user.id" evaluator="json" />
     ```
-    Learn more about the [json-path syntax]({{base_path}}/integrate/examples/json_examples/json-examples).
+    Learn more about the [json-path syntax]({{base_path}}/integrate/examples/json-examples/json-examples).
 
 ### Adding arguments
 

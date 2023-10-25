@@ -120,7 +120,7 @@ Given below is a checklist that will guide you to set up your production environ
             If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topics for instructions:
             <ul>
                <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer">proxy server for the API-M runtime</a>.</li>
-               <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/mi-setup/configuring_proxy_servers">proxy server for the Micro Integrator runtime</a>.</li>
+               <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/mi-setup/configuring-proxy-servers">proxy server for the Micro Integrator runtime</a>.</li>
             </ul>
          </td>
       </tr>

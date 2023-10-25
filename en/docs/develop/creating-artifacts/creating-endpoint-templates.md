@@ -72,4 +72,4 @@ When you have an Endpoint template defined, you can use a **Template Endpoint** 
 
 ## Examples
 
-- [Using Endpoint Templates]({{base_path}}/integrate/examples/template_examples/using-endpoint-templates)
+- [Using Endpoint Templates]({{base_path}}/integrate/examples/template-examples/using-endpoint-templates)

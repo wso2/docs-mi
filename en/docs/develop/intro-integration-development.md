@@ -192,7 +192,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/install-and-setup/setup/security/encrypting_plain_text/">Encrpting Secrets</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/creating-artifacts/using_docker_secrets/">Docker Secrets</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/using-docker-secrets/">Docker Secrets</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/develop/creating-artifacts/using_k8s_secrets/">Kubernetes Secrets</a>

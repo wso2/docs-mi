@@ -87,7 +87,7 @@ Follow the topics in this section if you are setting up a Micro Integrator deplo
 <table>
 	<tr>
 		<td>
-			<a href="../../setup/deployment/deploying_wso2_ei">Clustered Deployment</a>
+			<a href="../../setup/deployment/deploying-wso2-ei">Clustered Deployment</a>
 		</td>
 		<td>
 			Follow the instructions on how to set up a clustered deployment in a VM environment.
@@ -95,7 +95,7 @@ Follow the topics in this section if you are setting up a Micro Integrator deplo
 	</tr>
 	<tr>
 		<td>
-			<a href="../../setup/deployment/deployment_synchronization">Deployment Synchronization</a>
+			<a href="../../setup/deployment/deployment-synchronization">Deployment Synchronization</a>
 		</td>
 		<td>
 			Follow the instructions on configuring deployment synchronization for the nodes in your cluster.
@@ -103,7 +103,7 @@ Follow the topics in this section if you are setting up a Micro Integrator deplo
 	</tr>
 	<tr>
 		<td>
-			<a href="../../setup/deployment/setting_up_lb">Load Balancing</a>
+			<a href="../../setup/deployment/setting-up-lb">Load Balancing</a>
 		</td>
 		<td>
 			Follow the instructions on configuring an external load balancer to front the nodes in a cluster.
@@ -111,7 +111,7 @@ Follow the topics in this section if you are setting up a Micro Integrator deplo
 	</tr>
 	<tr>
 		<td>
-			<a href="../../setup/configuring_proxy_servers">Configuring a Proxy Server</a>
+			<a href="../../setup/configuring-proxy-servers">Configuring a Proxy Server</a>
 		</td>
 		<td>
 			Follow the instructions on configuring a proxy server to front your Micro Integrator deployment.
@@ -191,7 +191,7 @@ Follow the topics for best practices to follow when setting up a Micro Integrato
 	<table>
 		<tr>
 			<td>
-				<a href="../../setup/user_stores/setting_up_a_userstore">Configuring a User Store</a>
+				<a href="../../setup/user-stores/setting-up-a-userstore">Configuring a User Store</a>
 			</td>
 			<td>
 				Set up an LDAP or RDBMS to store user credentials.
@@ -199,7 +199,7 @@ Follow the topics for best practices to follow when setting up a Micro Integrato
 		</tr>
 		<tr>
 			<td>
-				<a href="../../setup/user_stores/managing_users">Managing Users</a>
+				<a href="../../setup/user-stores/managing-users">Managing Users</a>
 			</td>
 			<td>
 				Add, remove, or update users in the user store.
@@ -246,7 +246,7 @@ Follow the topics in this section to configure security for your Micro Integrato
 <table>
 	<tr>
 		<td>
-		   <a href="../../setup/security/creating_keystores">Creating New Keystores</a>
+		   <a href="../../setup/security/creating-keystores">Creating New Keystores</a>
 		</td>
 		<td>
 			Create new kestores to replace the default keystores in your Micro Integrator.
@@ -262,7 +262,7 @@ Follow the topics in this section to configure security for your Micro Integrato
 	</tr>
 	<tr>
 		<td>
-		   <a href="../../setup/security/configuring_keystores">Configuring Keystores</a>
+		   <a href="../../setup/security/configuring-keystores">Configuring Keystores</a>
 		</td>
 		<td>
 			Update the keystore configurations by pointing to the new keystores.
@@ -278,7 +278,7 @@ Follow the topics in this section to configure security for your Micro Integrato
 	</tr>
 	<tr>
 		<td>
-			 <a href="../../setup/security/about_forgetme_tool">Identity Anonymization Tool</a>
+			 <a href="../../setup/security/about-forgetme-tool">Identity Anonymization Tool</a>
 		</td>
 		<td>
 			 Find out more about the ForgetMe tool, which is used for anonymizing personal data saved in the Micro Integrator.
@@ -324,14 +324,14 @@ You can have a look at the result of **performance tests** conducted for the Mic
 
 Follow the topics in this section to optimize the performance of your Micro Integrator instance.
 
--	<a href='../../setup/performance_tuning/tuning_jvm_performance'>Tuning JVM Performance</a>
--	<a href='../../setup/performance_tuning/network_os_performance'>Tuning Network and OS Performance</a>
--	<a href='../../setup/performance_tuning/jdbc_tuning'>Tuning JDBC Performance</a>
--	<a href='../../setup/performance_tuning/http_transport_tuning'>Tuning the HTTP Transport</a>
--	<a href='../../setup/performance_tuning/jms_transport_tuning'>Tuning the JMS Transport</a>
--	<a href='../../setup/performance_tuning/tuning-the-VFS-Transport'>Tuning the VFS Transport</a>
--	<a href='../../setup/performance_tuning/rabbitmq_transport_tuning'>Tuning the RabbitMQ Transport</a>
--	<a href='../../setup/performance_tuning/tuning-inbound-endpoints'>Tuning the Inbound Endpoints</a>
+-	<a href='../../setup/performance-tuning/tuning_jvm_performance'>Tuning JVM Performance</a>
+-	<a href='../../setup/performance-tuning/network-os-performance'>Tuning Network and OS Performance</a>
+-	<a href='../../setup/performance-tuning/jdbc-tuning'>Tuning JDBC Performance</a>
+-	<a href='../../setup/performance-tuning/http_transport_tuning'>Tuning the HTTP Transport</a>
+-	<a href='../../setup/performance-tuning/jms-transport-tuning'>Tuning the JMS Transport</a>
+-	<a href='../../setup/performance-tuning/tuning-the-VFS-Transport'>Tuning the VFS Transport</a>
+-	<a href='../../setup/performance-tuning/rabbitmq-transport-tuning'>Tuning the RabbitMQ Transport</a>
+-	<a href='../../setup/performance-tuning/tuning-inbound-endpoints'>Tuning the Inbound Endpoints</a>
 
 ### Message Brokers
 
@@ -406,7 +406,7 @@ The following topics explain how to connect the Micro Integrator with an externa
 		<td>
 			<ul>
 				<li>
-					<a href='../../setup/feature_configs/configuring-kafka'>Configuring Kafka</a>
+					<a href='../../setup/feature-configs/configuring-kafka'>Configuring Kafka</a>
 				</li>
 			</ul>
 		</td>
@@ -424,8 +424,8 @@ The following topics explain how to connect the Micro Integrator with an externa
 
 The follow topics explain configurations specific to various scenarios and features of the Micro Integrator.
 
--	<a href='../../setup/feature_configs/configuring_timestamp_conversion_for_rdbms'>Configuring Time Stamp Conversion for RDBMS</a>
--	<a href='../../setup/message_builders_formatters/message-builders-and-formatters'>Configuring Message Builders and Formatters</a>
--	<a href='../../setup/message_builders_formatters/message-relay'>Configuring Message Relay</a>
--	<a href='../../setup/transport_configurations/configuring-transports'>Configuring Transports</a>
--	<a href='../../setup/transport_configurations/multi-https-transport'>Configuring Multi-HTTPS</a>
+-	<a href='../../setup/feature-configs/configuring_timestamp_conversion_for_rdbms'>Configuring Time Stamp Conversion for RDBMS</a>
+-	<a href='../../setup/message-builders-formatters/message-builders-and-formatters'>Configuring Message Builders and Formatters</a>
+-	<a href='../../setup/message-builders-formatters/message-relay'>Configuring Message Relay</a>
+-	<a href='../../setup/transport-configurations/configuring-transports'>Configuring Transports</a>
+-	<a href='../../setup/transport-configurations/multi-https-transport'>Configuring Multi-HTTPS</a>

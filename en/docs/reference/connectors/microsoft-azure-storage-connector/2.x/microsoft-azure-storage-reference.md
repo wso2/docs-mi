@@ -456,4 +456,4 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 | 700708 | MS_AZURE_BLOB:FILE_PERMISSION_ERROR |
 | 700709 | MS_AZURE_BLOB:GENERAL_ERROR |
 
-In addition to the above `ERROR_DETAIL` property will contain detail information about the error. For more information refer [Using Fault Sequences]({{base_path}}/integrate/examples/sequence_examples/using-fault-sequences/).
+In addition to the above `ERROR_DETAIL` property will contain detail information about the error. For more information refer [Using Fault Sequences]({{base_path}}/integrate/examples/sequence-examples/using-fault-sequences/).

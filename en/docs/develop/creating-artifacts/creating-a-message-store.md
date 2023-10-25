@@ -62,10 +62,10 @@ Open the new message store artifact from the project explorer. You can use the *
 
 ## Examples
 
--   [Introduction to Message Stores and Processors]({{base_path}}/integrate/examples/message_store_processor_examples/intro-message-stores-processors)
--   [JDBC Message Store]({{base_path}}/integrate/examples/message_store_processor_examples/using-jdbc-message-store)
--   [JMS Message Store]({{base_path}}/integrate/examples/message_store_processor_examples/using-jms-message-stores)
--   [RabbitMQ Message Store]({{base_path}}/integrate/examples/message_store_processor_examples/using-rabbitmq-message-stores)
+-   [Introduction to Message Stores and Processors]({{base_path}}/integrate/examples/message-store-processor-examples/intro-message-stores-processors)
+-   [JDBC Message Store]({{base_path}}/integrate/examples/message-store-processor-examples/using-jdbc-message-store)
+-   [JMS Message Store]({{base_path}}/integrate/examples/message-store-processor-examples/using-jms-message-stores)
+-   [RabbitMQ Message Store]({{base_path}}/integrate/examples/message-store-processor-examples/using-rabbitmq-message-stores)
 
 ## Tutorials
 

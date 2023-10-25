@@ -83,137 +83,137 @@ nav:
               - Integrate with SAP: learn/integration-tutorials/sap-integration.md
         - Examples:
             - Message Routing:
-                - Route Based on Message Headers: learn/examples/routing_examples/routing_based_on_headers.md
-                - Route Based on Message Payload: learn/examples/routing_examples/routing_based_on_payloads.md
-                - Split Messages and Aggregating Responses: learn/examples/routing_examples/splitting_aggregating_messages.md
+                - Route Based on Message Headers: learn/examples/routing-examples/routing-based-on-headers.md
+                - Route Based on Message Payload: learn/examples/routing-examples/routing-based-on-payloads.md
+                - Split Messages and Aggregating Responses: learn/examples/routing-examples/splitting-aggregating-messages.md
             - Message Transformation:
-                - Convert JSON Messages to SOAP: learn/examples/message_transformation_examples/json-to-soap-conversion.md
-                - Convert POX Messages to JSON: learn/examples/message_transformation_examples/pox-to-json-conversion.md
+                - Convert JSON Messages to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
+                - Convert POX Messages to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
             - Protocol Switching:
-                - JMS to HTTP/S: learn/examples/protocol-switching/switching_from_jms_to_http.md
-                - HTTP/S to JMS: learn/examples/protocol-switching/switching_from_https_to_jms.md
-                - FTP Listener to Mail Sender: learn/examples/protocol-switching/switching_from_ftp_listener_to_mail_sender.md
-                - HTTP to FIX: learn/examples/protocol-switching/switching_from_http_to_fix.md
-                - FIX to HTTP: learn/examples/protocol-switching/switching_from_fix_to_http.md
-                - FIX to AMQP: learn/examples/protocol-switching/switching_from_fix_to_amqp.md
-                - FIX Versions: learn/examples/protocol-switching/switching_between_fix_versions.md
-                - TCP to HTTP/S: learn/examples/protocol-switching/switching_from_tcp_to_https.md
-                - UDP to HTTP/S: learn/examples/protocol-switching/switching_from_udp_to_https.md
-                - HTTP to MSMQ: learn/examples/protocol-switching/switching_between_http_and_msmq.md
+                - JMS to HTTP/S: learn/examples/protocol-switching/switching-from-jms-tohttp.md
+                - HTTP/S to JMS: learn/examples/protocol-switching/switching-from-https-to-jms.md
+                - FTP Listener to Mail Sender: learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender.md
+                - HTTP to FIX: learn/examples/protocol-switching/switching-from-http-to-fix.md
+                - FIX to HTTP: learn/examples/protocol-switching/switching-from-fix-to-http.md
+                - FIX to AMQP: learn/examples/protocol-switching/switching-from-fix-to-amqp.md
+                - FIX Versions: learn/examples/protocol-switching/switching-between-fix-versions.md
+                - TCP to HTTP/S: learn/examples/protocol-switching/switching-from-tcp-to-https.md
+                - UDP to HTTP/S: learn/examples/protocol-switching/switching-from-udp-to-https.md
+                - HTTP to MSMQ: learn/examples/protocol-switching/switching-between-http-and-msmq.md
             - File Processing:
                 - Use VFS for File Transferring: learn/examples/file-processing/vfs-transport-examples.md
-                - Access a Windows Share Using VFS: learn/examples/file-processing/accessing_windows_share_using_vfs_transport.md
+                - Access a Windows Share Using VFS: learn/examples/file-processing/accessing-windows-share-using-vfs-transport.md
                 - Send and Receive Emails: learn/examples/file-processing/mailto-transport-examples.md
             - Data Integration:
-                - Expose an RDBMS datasource: learn/examples/data_integration/rdbms-data-service.md
+                - Expose an RDBMS datasource: learn/examples/data-integration/rdbms-data-service.md
                 - Expose Other Datasources:
-                    - CSV datasource: learn/examples/data_integration/csv-data-service.md
-                    - Mongo datasource: learn/examples/data_integration/mongo-data-service.md
-                    - Carbon datasource: learn/examples/data_integration/carbon-data-service.md
-                - Expose Data in JSON Format: learn/examples/data_integration/json-with-data-service.md
-                - Use an OData Service: learn/examples/data_integration/odata-service.md
-                - Use Nested Data Queries: learn/examples/data_integration/nested-queries-in-data-service.md
-                - Batch Requesting: learn/examples/data_integration/batch-requesting.md
-                - Invoke Multiple Operations as a Request Box: learn/examples/data_integration/request-box.md
-                - Use Distributed Transactions in Data Services: learn/examples/data_integration/distributed-trans-data-service.md
-                - Validate Data Input: learn/examples/data_integration/data-input-validator.md
-                - Swagger Documents of RESTful Data Services: learn/examples/data_integration/swagger-data-services.md
+                    - CSV datasource: learn/examples/data-integration/csv-data-service.md
+                    - Mongo datasource: learn/examples/data-integration/mongo-data-service.md
+                    - Carbon datasource: learn/examples/data-integration/carbon-data-service.md
+                - Expose Data in JSON Format: learn/examples/data-integration/json-with-data-service.md
+                - Use an OData Service: learn/examples/data-integration/odata-service.md
+                - Use Nested Data Queries: learn/examples/data-integration/nested-queries-in-data-service.md
+                - Batch Requesting: learn/examples/data-integration/batch-requesting.md
+                - Invoke Multiple Operations as a Request Box: learn/examples/data-integration/request-box.md
+                - Use Distributed Transactions in Data Services: learn/examples/data-integration/distributed-trans-data-service.md
+                - Validate Data Input: learn/examples/data-integration/data-input-validator.md
+                - Swagger Documents of RESTful Data Services: learn/examples/data-integration/swagger-data-services.md
             - Asynchronous Messaging:
                 - RabbitMQ Examples:
-                    - Point to Point: learn/examples/rabbitmq_examples/point-to-point-rabbitmq.md
-                    - Publish/Subscribe: learn/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                    - Point to Point: learn/examples/rabbitmq-examples/point-to-point-rabbitmq.md
+                    - Publish/Subscribe: learn/examples/rabbitmq-examples/pub-sub-rabbitmq.md
                     - Guaranteed Delivery:
-                        - Message Store and Message Processor: learn/examples/rabbitmq_examples/store-forward-rabbitmq.md
-                        - Retry failed messages with a delay: learn/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
-                        - Requeue a message preserving the order: learn/examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md
-                        - Publish messages to DLX: learn/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md
-                    - Dual Channel: learn/examples/rabbitmq_examples/request-response-rabbitmq.md
+                        - Message Store and Message Processor: learn/examples/rabbitmq-examples/store-forward-rabbitmq.md
+                        - Retry failed messages with a delay: learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq.md
+                        - Requeue a message preserving the order: learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq.md
+                        - Publish messages to DLX: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
+                    - Dual Channel: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
                 - JMS Examples:
-                    - Consume JMS Messages: learn/examples/jms_examples/consuming-jms.md
-                    - Produce JMS Messages: learn/examples/jms_examples/producing-jms.md
-                    - Consume and Produce JMS Messages: learn/examples/jms_examples/consume-produce-jms.md
-                    - Dual Channel HTTP-to-JMS: learn/examples/jms_examples/dual-channel-http-to-jms.md
-                    - Quad Channel JMS-to-JMS: learn/examples/jms_examples/quad-channel-jms-to-jms.md
-                    - Guaranteed Delivery with Failover: learn/examples/jms_examples/guaranteed-delivery-with-failover.md
-                    - Publish and Subscribe with JMS: learn/examples/jms_examples/publish-subscribe-with-jms.md
-                    - Shared Topic Subscription: learn/examples/jms_examples/shared-topic-subscription.md
-                    - Detect Repeatedly Redelivered Messages: learn/examples/jms_examples/detecting-repeatedly-redelivered-messages.md
-                    - Specify Delivery Delay on Messages: learn/examples/jms_examples/specifying-a-delivery-delay-on-messages.md
-                    #- 'JMS Map Messaging': 'use-cases/examples/jms_examples/jms-map-message.md'
+                    - Consume JMS Messages: learn/examples/jms-examples/consuming-jms.md
+                    - Produce JMS Messages: learn/examples/jms-examples/producing-jms.md
+                    - Consume and Produce JMS Messages: learn/examples/jms-examples/consume-produce-jms.md
+                    - Dual Channel HTTP-to-JMS: learn/examples/jms-examples/dual-channel-http-to-jms.md
+                    - Quad Channel JMS-to-JMS: learn/examples/jms-examples/quad-channel-jms-to-jms.md
+                    - Guaranteed Delivery with Failover: learn/examples/jms-examples/guaranteed-delivery-with-failover.md
+                    - Publish and Subscribe with JMS: learn/examples/jms-examples/publish-subscribe-with-jms.md
+                    - Shared Topic Subscription: learn/examples/jms-examples/shared-topic-subscription.md
+                    - Detect Repeatedly Redelivered Messages: learn/examples/jms-examples/detecting-repeatedly-redelivered-messages.md
+                    - Specify Delivery Delay on Messages: learn/examples/jms-examples/specifying-a-delivery-delay-on-messages.md
+                    #- 'JMS Map Messaging': 'use-cases/examples/jms-examples/jms-map-message.md'
             - Examples of Components:
                 - REST APIs:
-                    - Use a Simple REST API: learn/examples/rest_api_examples/introduction-rest-api.md
-                    - Set Query Parameters on Outgoing Messages: learn/examples/rest_api_examples/setting-query-params-outgoing-messages.md
-                    - Expose a SOAP Endpoint as a RESTful API: learn/examples/rest_api_examples/enabling-rest-to-soap.md
-                    - Expose Non-HTTP Services as RESTful APIs: learn/examples/rest_api_examples/configuring-non-http-endpoints.md
-                    - Handle Non-Matching Resources: learn/examples/rest_api_examples/handling-non-matching-resources.md
-                    - Handle HTTP Status Codes: learn/examples/rest_api_examples/setting-https-status-codes.md
-                    - Transform Content Types: learn/examples/rest_api_examples/transforming-content-type.md
-                    - Secure a REST API: learn/examples/rest_api_examples/securing-rest-apis.md
-                    - Publish a Custom Swagger Document: learn/examples/rest_api_examples/publishing-a-swagger-api.md
-                    - Special Cases: learn/examples/rest_api_examples/special-cases.md
+                    - Use a Simple REST API: learn/examples/rest-api-examples/introduction-rest-api.md
+                    - Set Query Parameters on Outgoing Messages: learn/examples/rest-api-examples/setting-query-params-outgoing-messages.md
+                    - Expose a SOAP Endpoint as a RESTful API: learn/examples/rest-api-examples/enabling-rest-to-soap.md
+                    - Expose Non-HTTP Services as RESTful APIs: learn/examples/rest-api-examples/configuring-non-http-endpoints.md
+                    - Handle Non-Matching Resources: learn/examples/rest-api-examples/handling-non-matching-resources.md
+                    - Handle HTTP Status Codes: learn/examples/rest-api-examples/setting-https-status-codes.md
+                    - Transform Content Types: learn/examples/rest-api-examples/transforming-content-type.md
+                    - Secure a REST API: learn/examples/rest-api-examples/securing-rest-apis.md
+                    - Publish a Custom Swagger Document: learn/examples/rest-api-examples/publishing-a-swagger-api.md
+                    - Special Cases: learn/examples/rest-api-examples/special-cases.md
                 - Proxy Services:
-                    - Use a Simple Proxy Service: learn/examples/proxy_service_examples/introduction-to-proxy-services.md
-                    - Publish a Custom WSDL: learn/examples/proxy_service_examples/publishing-a-custom-wsdl.md
-                    #- 'Configure Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
-                    - Expose a Proxy Service via Inbound Endpoints: learn/examples/proxy_service_examples/exposing-proxy-via-inbound.md
-                    - Secure a Proxy Service: learn/examples/proxy_service_examples/securing-proxy-services.md
+                    - Use a Simple Proxy Service: learn/examples/proxy-service-examples/introduction-to-proxy-services.md
+                    - Publish a Custom WSDL: learn/examples/proxy-service-examples/publishing-a-custom-wsdl.md
+                    #- 'Configure Pinned Servers': 'use-cases/examples/proxy-service-examples/using-pinned-servers.md'
+                    - Expose a Proxy Service via Inbound Endpoints: learn/examples/proxy-service-examples/exposing-proxy-via-inbound.md
+                    - Secure a Proxy Service: learn/examples/proxy-service-examples/securing-proxy-services.md
                 - Inbound Endpoints:
-                    - JMS Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol.md
-                    - File Inbound Endpoint: learn/examples/inbound_endpoint_examples/file-inbound-endpoint.md
-                    - HTTP Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol.md
-                    - HTTPS Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol.md
-                    - HL7 Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack.md
-                    - MQTT Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol.md
-                    - RabbitMQ Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol.md
-                    #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound_endpoint_examples/using-CXF-WS-RM-Inbound.md'
-                    - Kafka Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-kafka.md
-                    - Secured WebSocket Inbound Endpoint: learn/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket.md
-                    - Use Inbound Endpoints with Registry: learn/examples/inbound_endpoint_examples/inbound-endpoint-with-registry.md
+                    - JMS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol.md
+                    - File Inbound Endpoint: learn/examples/inbound-endpoint-examples/file-inbound-endpoint.md
+                    - HTTP Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol.md
+                    - HTTPS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol.md
+                    - HL7 Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack.md
+                    - MQTT Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol.md
+                    - RabbitMQ Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol.md
+                    #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound-endpoint-examples/using-CXF-WS-RM-Inbound.md'
+                    - Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
+                    - Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
+                    - Use Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
                 - Scheduled Tasks:
                     - Task Scheduling Using a Simple Trigger: learn/examples/scheduled-tasks/task-scheduling-simple-trigger.md
                     - Inject Messages to a RESTful Endpoint: learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
-                - Local Registry Entries: learn/examples/registry_examples/local-registry-entries.md
+                - Local Registry Entries: learn/examples/registry-examples/local-registry-entries.md
                 - Templates:
-                    - Use Sequence Templates: learn/examples/template_examples/using-sequence-templates.md
-                    - Use Endpoint Templates: learn/examples/template_examples/using-endpoint-templates.md
+                    - Use Sequence Templates: learn/examples/template-examples/using-sequence-templates.md
+                    - Use Endpoint Templates: learn/examples/template-examples/using-endpoint-templates.md
                 - Message Stores & Processors:
-                    - Introduction to Message Stores and Processors: learn/examples/message_store_processor_examples/intro-message-stores-processors.md
-                    - JDBC Message Store: learn/examples/message_store_processor_examples/using-jdbc-message-store.md
-                    - JMS Message Store: learn/examples/message_store_processor_examples/using-jms-message-stores.md
-                    - RabbitMQ Message Store: learn/examples/message_store_processor_examples/using-rabbitmq-message-stores.md
-                    - Message Sampling Processor: learn/examples/message_store_processor_examples/using-message-sampling-processor.md
-                    - Message Forwarding Processor: learn/examples/message_store_processor_examples/using-message-forwarding-processor.md
-                    - Secure the Message Forwarding Processor: learn/examples/message_store_processor_examples/securing-message-processor.md
-                    - Load Balancing with Message Forwarding Processor: learn/examples/message_store_processor_examples/loadbalancing-with-message-processor.md
+                    - Introduction to Message Stores and Processors: learn/examples/message-store-processor-examples/intro-message-stores-processors.md
+                    - JDBC Message Store: learn/examples/message-store-processor-examples/using-jdbc-message-store.md
+                    - JMS Message Store: learn/examples/message-store-processor-examples/using-jms-message-stores.md
+                    - RabbitMQ Message Store: learn/examples/message-store-processor-examples/using-rabbitmq-message-stores.md
+                    - Message Sampling Processor: learn/examples/message-store-processor-examples/using-message-sampling-processor.md
+                    - Message Forwarding Processor: learn/examples/message-store-processor-examples/using-message-forwarding-processor.md
+                    - Secure the Message Forwarding Processor: learn/examples/message-store-processor-examples/securing-message-processor.md
+                    - Load Balancing with Message Forwarding Processor: learn/examples/message-store-processor-examples/loadbalancing-with-message-processor.md
                 - Endpoints:
-                    - Address Endpoint: learn/examples/endpoint_examples/using-address-endpoints.md
-                    - Failover Endpoints: learn/examples/endpoint_examples/using-failover-endpoints.md
-                    - HTTP Endpoint: learn/examples/endpoint_examples/using-http-endpoints.md
-                    - WebSocket Endpoint: learn/examples/endpoint_examples/using-websocket-endpoints.md
-                    - WSDL Endpoint: learn/examples/endpoint_examples/using-wsdl-endpoints.md
-                    - Load Balance Endpoint: learn/examples/endpoint_examples/using-loadbalancing-endpoints.md
+                    - Address Endpoint: learn/examples/endpoint-examples/using-address-endpoints.md
+                    - Failover Endpoints: learn/examples/endpoint-examples/using-failover-endpoints.md
+                    - HTTP Endpoint: learn/examples/endpoint-examples/using-http-endpoints.md
+                    - WebSocket Endpoint: learn/examples/endpoint-examples/using-websocket-endpoints.md
+                    - WSDL Endpoint: learn/examples/endpoint-examples/using-wsdl-endpoints.md
+                    - Load Balance Endpoint: learn/examples/endpoint-examples/using-loadbalancing-endpoints.md
                     - Recipient List of Endpoints:
-                        - Static List of Recepients: learn/examples/endpoint_examples/using-static-recepient-list-endpoints.md
-                        - Dynamic List of Recepients: learn/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-1.md
-                        - Dynamic List of Recepients with Aggregated Responses: learn/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-2.md
-                    - Reuse Endpoints: learn/examples/endpoint_examples/reusing-endpoints.md
-                    - Endpoint Error Handling: learn/examples/endpoint_examples/endpoint-error-handling.md
-                    - MTOM and SwA Optimizations: learn/examples/endpoint_examples/mtom-swa-with-endpoints.md
+                        - Static List of Recepients: learn/examples/endpoint-examples/using-static-recepient-list-endpoints.md
+                        - Dynamic List of Recepients: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-1.md
+                        - Dynamic List of Recepients with Aggregated Responses: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-2.md
+                    - Reuse Endpoints: learn/examples/endpoint-examples/reusing-endpoints.md
+                    - Endpoint Error Handling: learn/examples/endpoint-examples/endpoint-error-handling.md
+                    - MTOM and SwA Optimizations: learn/examples/endpoint-examples/mtom-swa-with-endpoints.md
                 - Sequences:
-                    - Break Complex Flows into Multiple Sequences: learn/examples/sequence_examples/using-multiple-sequences.md
-                    - Use Fault Sequences: learn/examples/sequence_examples/using-fault-sequences.md
-                    - Reuse Sequences: learn/examples/sequence_examples/custom-sequences-with-proxy-services.md
+                    - Break Complex Flows into Multiple Sequences: learn/examples/sequence-examples/using-multiple-sequences.md
+                    - Use Fault Sequences: learn/examples/sequence-examples/using-fault-sequences.md
+                    - Reuse Sequences: learn/examples/sequence-examples/custom-sequences-with-proxy-services.md
             - Transports:
-                - Use the TCP Transport: learn/examples/transport_examples/tcp-transport-examples.md
-                - Use the FIX Transport: learn/examples/transport_examples/fix-transport-examples.md
-                - Use the MQTT Transport: learn/examples/transport_examples/pub-sub-using-mqtt.md
+                - Use the TCP Transport: learn/examples/transport-examples/tcp-transport-examples.md
+                - Use the FIX Transport: learn/examples/transport-examples/fix-transport-examples.md
+                - Use the MQTT Transport: learn/examples/transport-examples/pub-sub-using-mqtt.md
                 - HL7 Examples:
-                    - Mediate HL7 Messages: learn/examples/hl7-examples/hl7_proxy_service.md
-                    - Acknowledge HL7 Messages: learn/examples/hl7-examples/acknowledge_hl7_messages.md
-                    - Use HL7 Messages with File Systems: learn/examples/hl7-examples/file_transfer_using_hl7.md
+                    - Mediate HL7 Messages: learn/examples/hl7-examples/hl7-proxy-service.md
+                    - Acknowledge HL7 Messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
+                    - Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
             - Work with Transactions: learn/examples/working-with-transactions.md
-            - JSON Examples: learn/examples/json_examples/json-examples.md
+            - JSON Examples: learn/examples/json-examples/json-examples.md
             - Integrate MI with SI: learn/examples/integrating-mi-with-si.md
 
     - Develop:
@@ -229,7 +229,7 @@ nav:
                 - Create Data Service Configs: develop/create-data-services-configs.md
                 - Create Datasource Configs: develop/create-datasources.md
                 - Import Projects: develop/importing-projects.md
-                - Export Projects: develop/export_project.md
+                - Export Projects: develop/export-project.md
                 - Create Docker Exporter: develop/create-docker-project.md
                 - Create Kubernetes Exporter: develop/create-kubernetes-project.md
           - Create Artifacts:
@@ -259,8 +259,8 @@ nav:
                 - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
           - Exporting Artifacts: develop/exporting-artifacts.md
           - Securing Artifacts:
-                - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using_docker_secrets.md
-                - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using_k8s_secrets.md
+                - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
+                - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
                 - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
                 - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
                 - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
@@ -300,68 +300,67 @@ nav:
           - Migrate:
                 - Upgrade WSO2 Micro Integrator: install-and-setup/upgrading-wso2-mi.md
           - Setup:
-                - Set up Micro Integrator:
-                      - Update WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
-                      - Data Stores:
-                            - Configure a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
-                            - Configure Databases:
-                                  - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
-                                  - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
-                                  - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
-                                  - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
-                                  - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
-                            - Configure the File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
-                      - Security:
-                            - Set up Keystores:
-                                  - Create New Keystores: install-and-setup/setup/mi-setup/security/creating_keystores.md
-                                  - Add SSL certificates to keystores: install-and-setup/setup/mi-setup/security/importing_ssl_certificate.md
-                                  - Renew a CA-signed Certificate: install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore.md
-                                  - Configure Keystores: install-and-setup/setup/mi-setup/security/configuring_keystores.md
-                            - Comply with GDPR:
-                                  - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/mi-setup/security/gdpr_ei.md
-                                  - About the Identity Anonymization Tool: install-and-setup/setup/mi-setup/security/about_forgetme_tool.md
-                            - Use Secrets:
-                                  - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/mi-setup/security/encrypting_plain_text.md
-                                  - Use Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
-                                  - Use Symmetric Encryption: install-and-setup/setup/mi-setup/security/single_key_encryption.md
-                            - Secure the Management API: install-and-setup/setup/mi-setup/security/securing_management_api.md
-                      - Message Brokers:
-                            - AMQP (RabbitMQ):
-                                  - Deploy RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
-                                  - Connect to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq.md
-                            - JMS:
-                                  - Connect to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-activemq.md
-                                  - Connect to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis.md
-                                  - Connect to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-hornetq.md
-                                  - Connect to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server.md
-                                  - Connect to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq.md
-                                  - Connect to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq.md
-                                  - Connect to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-msmq.md
-                                  - Connect to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq.md
-                                  - Connect to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems.md
-                                  - Connect to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-weblogic.md
-                                  - Connect to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb.md
-                                  - Connect to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
-                            - Kafka: install-and-setup/setup/mi-setup/feature_configs/configuring-kafka.md
-                            - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
-                      - Transports: install-and-setup/setup/mi-setup/transport_configurations/configuring-transports.md
-                      - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport_configurations/multi-https-transport.md
-                      - Message Builders and Formatters: install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters.md
-                      - Message Relay: install-and-setup/setup/mi-setup/message_builders_formatters/message-relay.md
-                      - Manage Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
-                      - Load Balancer and Proxy Server:
-                            - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
-                            - Configure a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                            - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_ssl_tunneling_thru_proxy_server.md
-                      - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
+                - Update WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
+                - Data Stores:
+                      - Configure a User Store: install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore.md
+                      - Configure Databases:
+                            - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
+                            - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
+                            - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
+                            - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
+                            - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
+                      - Configure the File-Based Registry: install-and-setup/setup/mi-setup/deployment/file-based-registry.md
+                - Security:
+                      - Set up Keystores:
+                            - Create New Keystores: install-and-setup/setup/mi-setup/security/creating-keystores.md
+                            - Add SSL certificates to keystores: install-and-setup/setup/mi-setup/security/importing-ssl-certificate.md
+                            - Renew a CA-signed Certificate: install-and-setup/setup/mi-setup/security/renewing-ca-signed-certificate-in-keystore.md
+                            - Configure Keystores: install-and-setup/setup/mi-setup/security/configuring-keystores.md
+                      - Comply with GDPR:
+                            - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/mi-setup/security/gdpr-ei.md
+                            - About the Identity Anonymization Tool: install-and-setup/setup/mi-setup/security/about-forgetme-tool.md
+                      - Use Secrets:
+                            - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/mi-setup/security/encrypting-plain-text.md
+                            - Use Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
+                            - Use Symmetric Encryption: install-and-setup/setup/mi-setup/security/single-key-encryption.md
+                      - Secure the Management API: install-and-setup/setup/mi-setup/security/securing-management-api.md
+                - Message Brokers:
+                      - AMQP (RabbitMQ):
+                            - Deploy RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
+                            - Connect to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq.md
+                      - JMS:
+                            - Connect to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-activemq.md
+                            - Connect to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis.md
+                            - Connect to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-hornetq.md
+                            - Connect to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server.md
+                            - Connect to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq.md
+                            - Connect to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq.md
+                            - Connect to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-msmq.md
+                            - Connect to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq.md
+                            - Connect to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems.md
+                            - Connect to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-weblogic.md
+                            - Connect to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb.md
+                            - Connect to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
+                      - Kafka: install-and-setup/setup/mi-setup/feature-configs/configuring-kafka.md
+                      - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
+                - Transports: install-and-setup/setup/mi-setup/transport-configurations/configuring-transports.md
+                - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport-configurations/multi-https-transport.md
+                - Message Builders and Formatters: install-and-setup/setup/mi-setup/message-builders-formatters/message-builders-and-formatters.md
+                - Message Relay: install-and-setup/setup/mi-setup/message-builders-formatters/message-relay.md
+                - Manage Configurations across Environments: install-and-setup/setup/mi-setup/dynamic-server-configurations.md
+                - Load Balancer and Proxy Server:
+                      - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting-up-lb.md
+                      - Configure a Proxy Server: install-and-setup/setup/mi-setup/configuring-proxy-servers.md
+                      - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling-ssl-tunneling-thru-proxy-server.md
+                - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
           - Deploy:
                 - Deploy the Micro Integrator:
-                      - Configure a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                      - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
+                      - Configure a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei.md
+                      - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment-synchronization.md
                 - Deploy on Kubernetes:
                       - Micro Integrator on K8s:
-                            - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                            - Deploy the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
+                            - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes-deployment-patterns.md
+                            - Deploy the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes-deployment.md
                       - Integrations on K8s:
                             - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                             - Deploy Integrations Using Helm Resources: install-and-setup/setup/mi-setup/deployment/deploying-micro-integrator-with-helm.md
@@ -379,19 +378,18 @@ nav:
                       - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                       - Performance Tuning:
                             - Micro Integrator Performance Tuning:
-                                  - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
-                                  - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
-                                  - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
-                                  - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
-                                  - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
-                                  - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-vfs-transport.md
-                                  - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
-                                  - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
+                                  - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance-tuning/tuning-jvm-performance.md
+                                  - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance-tuning/network-os-performance.md
+                                  - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance-tuning/jdbc-tuning.md
+                                  - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance-tuning/http-transport-tuning.md
+                                  - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance-tuning/jms-transport-tuning.md
+                                  - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance-tuning/tuning-the-vfs-transport.md
+                                  - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance-tuning/rabbitmq-transport-tuning.md
+                                  - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance-tuning/tuning-inbound-endpoints.md
           - CI/CD:
-                - CI/CD - Integrations:
-                      - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/integration-cicd-overview.md
-                      - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
-                      - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+                - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/integration-cicd-overview.md
+                - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
+                - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
           - Reference:
                 - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
                 - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -404,7 +402,7 @@ nav:
                 - Administer Overview: administer/admin-overview.md
                 - Manage Users and Roles:
                       - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
-                      - Manage Users for Micro Integrator: install-and-setup/setup/mi-setup/user_stores/managing_users.md
+                      - Manage Users for Micro Integrator: install-and-setup/setup/mi-setup/user-stores/managing-users.md
                 - Manage User Stores:
                       - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
                       - Configure Secondary User Stores:
@@ -435,9 +433,14 @@ nav:
                             - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
                       - Traces:
                             - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
-                      - Metrics:
-                            - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
-                            - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+          - Integration with External Tools:
+                - Metrics:
+                    - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
+                    - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+                - TCP Messages:
+                    - Starting TCPMon: observe-and-manage/tcp/message-monitoring-with-tcpmon.md
+                    - Message Monitoring with TCPMon: observe-and-manage/tcp/other-usages-of-tcpmon.md
+                    - Other Usages of TCPMon: observe-and-manage/tcp/starting-tcp-mon.md
           - Analytics:
                 - ELK Based Analytics:
                       - Setup: mi-analytics/mi-elk-installation-guide.md
@@ -797,7 +800,7 @@ nav:
                       - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
           - Security References:
                 - Customize Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
-                - Use Keystores: reference/mi-security-reference/using_keystores.md
+                - Use Keystores: reference/mi-security-reference/using-keystores.md
                 - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
           - Troubleshooting:
                 - Error Handling in Micro Integrator: reference/troubleshooting/error-handling-mi.md

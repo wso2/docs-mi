@@ -47,4 +47,4 @@ This section describes how to configure WSO2 Micro Integrator to connect with Sw
     !!! Info
         For details on the JMS configuration parameters used in the code segments above, see [JMS connection factory parameters]({{base_path}}/reference/config-catalog-mi/#jms-transport-listener-non-blocking-mode).
 
-You have now configured an instance of SwiftMQ and WSO2 Micro Integrator. Refer [JMS Consumer]({{base_path}}/integrate/examples/jms_examples/consuming-jms) and [JMS Producer]({{base_path}}/integrate/examples/jms_examples/producing-jms) section for implementation details of JMS consumer and producer.
+You have now configured an instance of SwiftMQ and WSO2 Micro Integrator. Refer [JMS Consumer]({{base_path}}/integrate/examples/jms-examples/consuming-jms) and [JMS Producer]({{base_path}}/integrate/examples/jms-examples/producing-jms) section for implementation details of JMS consumer and producer.

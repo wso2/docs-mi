@@ -445,7 +445,7 @@ The following table contains examples of how some of the commonly used methods c
 <span id="cb5-14"><a href="#cb5-14"></a><span class="op">}</span></span></code></pre></div>
 </div>
 </div>
-<p><code>               mc.getPayloadJSON()              </code> returns the JSON payload (received as the response) as a JavaScript object. This object can be manipulated as a normal JavaScript variable within a script as shown in the above JavaScript code. See <a href="{{base_path}}/integrate/examples/json_examples/json-examples/#script-mediator">JSON Support</a> for further information about how this script is used.</p>
+<p><code>               mc.getPayloadJSON()              </code> returns the JSON payload (received as the response) as a JavaScript object. This object can be manipulated as a normal JavaScript variable within a script as shown in the above JavaScript code. See <a href="{{base_path}}/integrate/examples/json-examples/json-examples/#script-mediator">JSON Support</a> for further information about how this script is used.</p>
 <p><br />
 </p>
 </div></td>
@@ -454,7 +454,7 @@ The following table contains examples of how some of the commonly used methods c
 <td>No</td>
 <td>setPayloadJSON(payload)</td>
 <td><p>See the example script for the <code>              getPayloadJSON()             </code> method.</p>
-<p>The <code>              mc.setPayloadJSON()             </code> method can be used to replace the existing payload with a new payload. In the above script, we build a new array object by using the fields of the incoming JSON payload and set that array object as the new payload. See <a href="{{base_path}}/integrate/examples/json_examples/json-examples/#script-mediator">JSON Support</a> for further information about how this script is used</p></td>
+<p>The <code>              mc.setPayloadJSON()             </code> method can be used to replace the existing payload with a new payload. In the above script, we build a new array object by using the fields of the incoming JSON payload and set that array object as the new payload. See <a href="{{base_path}}/integrate/examples/json-examples/json-examples/#script-mediator">JSON Support</a> for further information about how this script is used</p></td>
 </tr>
 <tr class="odd">
 <td>Yes</td>
