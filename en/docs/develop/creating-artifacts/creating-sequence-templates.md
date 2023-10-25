@@ -60,4 +60,4 @@ When you have a Sequence template defined, you can use a [Call Template Mediator
 
 ## Examples
 
-- [Using Sequence Templates]({{base_path}}/integrate/examples/template_examples/using-sequence-templates)
+- [Using Sequence Templates]({{base_path}}/integrate/examples/template-examples/using-sequence-templates)

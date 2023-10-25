@@ -88,4 +88,4 @@ reference the local entry as follows:
 
 ## Examples
 
-- [Sequences and Endpoints as Local Registry Entries]({{base_path}}/integrate/examples/registry_examples/local-registry-entries)
+- [Sequences and Endpoints as Local Registry Entries]({{base_path}}/integrate/examples/registry-examples/local-registry-entries)

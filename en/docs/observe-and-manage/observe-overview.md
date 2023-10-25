@@ -94,6 +94,6 @@ You can integrate with external tools to do the following:
 
 **TCP Message Monitoring**
 
-- [Starting TCPMon](tcp/starting_tcp_mon.md)
-- [Message Monitoring with TCPMon](tcp/message_monitoring_with_tcpmon.md)
-- [Other Usages of TCPMon](tcp/other_usages_of_tcpmon.md)
+- [Starting TCPMon](tcp/starting-tcp-mon.md)
+- [Message Monitoring with TCPMon](tcp/message-monitoring-with-tcpmon.md)
+- [Other Usages of TCPMon](tcp/other-usages-of-tcpmon.md)

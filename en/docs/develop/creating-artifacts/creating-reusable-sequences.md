@@ -88,6 +88,6 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [Breaking Complex Flows into Multiple Sequences]({{base_path}}/integrate/examples/sequence_examples/using-multiple-sequences)
--   [Using Fault Sequences]({{base_path}}/integrate/examples/sequence_examples/using-fault-sequences)
--   [Reusing Sequences]({{base_path}}/integrate/examples/sequence_examples/custom-sequences-with-proxy-services)
+-   [Breaking Complex Flows into Multiple Sequences]({{base_path}}/integrate/examples/sequence-examples/using-multiple-sequences)
+-   [Using Fault Sequences]({{base_path}}/integrate/examples/sequence-examples/using-fault-sequences)
+-   [Reusing Sequences]({{base_path}}/integrate/examples/sequence-examples/custom-sequences-with-proxy-services)

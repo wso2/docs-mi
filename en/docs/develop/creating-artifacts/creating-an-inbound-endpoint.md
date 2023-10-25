@@ -89,16 +89,16 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [JMS Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol)
--   [File Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/file-inbound-endpoint)
--   [HTTP Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol)
--   [HTTPS Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol)
--   [HL7 Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack)
--   [MQTT Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol)
--   [RabbitMQ Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol)
--   [Kafka Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-kafka)
--   [WebSocket Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket)
--   [Using Inbound Endpoints with Registry]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-with-registry)
+-   [JMS Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol)
+-   [File Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/file-inbound-endpoint)
+-   [HTTP Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol)
+-   [HTTPS Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol)
+-   [HL7 Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack)
+-   [MQTT Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol)
+-   [RabbitMQ Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol)
+-   [Kafka Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-kafka)
+-   [WebSocket Inbound Endpoint example]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket)
+-   [Using Inbound Endpoints with Registry]({{base_path}}/integrate/examples/inbound-endpoint-examples/inbound-endpoint-with-registry)
 
 ## Tutorial
 

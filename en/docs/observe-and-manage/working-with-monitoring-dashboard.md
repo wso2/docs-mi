@@ -49,7 +49,7 @@ You can use the dashboard to perform the following administration tasks related 
 
 -   <b>Manage users</b>
 
-    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). You can also add new users to the specified cluster/group.
+    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/managing-users). You can also add new users to the specified cluster/group.
 
 ## Using the MI Dashboard
 
@@ -124,7 +124,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 node_id
             </th>
             <td>
-                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
+                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
             </td>
         </tr>
         <tr>
@@ -145,14 +145,14 @@ Follow the steps given below to configure the MI servers to publish data to the 
         </tr>
     </table> 
 
-2.  **Optionally**, configure the [Micro Integrator user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+2.  **Optionally**, configure the [Micro Integrator user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore).
 
     !!! Tip
         Note the following about your user store configurations.
 
         -   The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
-        -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
-        -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. You will not be able to sign in without the driver.
+        -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/managing-users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
+        -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. You will not be able to sign in without the driver.
 
 3.  Regardless of the user who logs in, the dashboard uses the user configured in its `deployment.toml` to fetch the data to the dashboard server. Then the dashboard renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<MI-DASHBOARD_HOME>/conf/` folder).
 
@@ -220,7 +220,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
             <td>
                 The user name to sign in.</br></br>
                 <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
-                See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
+                See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>

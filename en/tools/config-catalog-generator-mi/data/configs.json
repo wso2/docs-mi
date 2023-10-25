@@ -6,7 +6,7 @@
                 {
                     "name": "server",
                     "required": true,
-                    "description": "This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei\">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.",
+                    "description": "This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei\">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.",
                     "params": [
                         {
                             "name": "hostname",
@@ -161,7 +161,7 @@
                 {
                     "name": "keystore.primary",
                     "required": true,
-                    "description": "This configuration header is required for configuring the parameters that connect the Micro Integrator to the <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores/#changing-the-default-primary-keystore\">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href=\"#internal-keystore\">separate keystore</a> for internal data encryption.",
+                    "description": "This configuration header is required for configuring the parameters that connect the Micro Integrator to the <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/security/configuring-keystores/#changing-the-default-primary-keystore\">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href=\"#internal-keystore\">separate keystore</a> for internal data encryption.",
                     "params": [
                         {
                             "name": "file_name",
@@ -211,7 +211,7 @@
                 {
                     "name": "keystore.internal",
                     "required": true,
-                    "description": "This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores/#separating-the-internal-keystore\">configuring the internal keystore</a>.",
+                    "description": "This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/security/configuring-keystores/#separating-the-internal-keystore\">configuring the internal keystore</a>.",
                     "params": [
                         {
                             "name": "file_name",
@@ -280,7 +280,7 @@
                 {
                     "name": "truststore",
                     "required": true,
-                    "description": "This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores/#optional-changing-the-default-truststore\">configuring the truststore</a>.",
+                    "description": "This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href=\"{{base_path}}/install-and-setup/setup/mi-setup/security/configuring-keystores/#optional-changing-the-default-truststore\">configuring the truststore</a>.",
                     "params": [
                         {
                             "name": "file_name",
@@ -323,7 +323,7 @@
                 {
                     "name": "internal_apis.file_user_store",
                     "required": true,
-                    "description": "This configuration header is required for disabling the default file-based user store of the Micro Integrator's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.",
+                    "description": "This configuration header is required for disabling the default file-based user store of the Micro Integrator's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting-up-a-userstore'>configuring user stores</a>.",
                     "params": [
                         {
                             "name": "enable",
@@ -338,7 +338,7 @@
                 {
                     "name": "[internal_apis.users]",
                     "required": true,
-                    "description": "This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.",
+                    "description": "This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting-up-a-userstore'>configuring user stores</a>.",
                     "params": [
                         {
                             "name": "user.name",
@@ -375,7 +375,7 @@
                 {
                     "name": "user_store",
                     "required": true,
-                    "description": "This configuration header is required for conencting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore'>external user store</a>.",
+                    "description": "This configuration header is required for conencting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting-up-a-userstore'>external user store</a>.",
                     "params": [
                         {
                             "name": "type",
@@ -627,7 +627,7 @@
                 {
                     "name": "[datasource]",
                     "required": true,
-                    "description": "This configuration header is required for connecting to a database from the Micro Integrator. Databases are only required if you are connecting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_ro_ldap/#configuring-an-rdbms-user-store-optional'>RDBMS user store</a>.",
+                    "description": "This configuration header is required for connecting to a database from the Micro Integrator. Databases are only required if you are connecting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting_up_ro_ldap/#configuring-an-rdbms-user-store-optional'>RDBMS user store</a>.",
                     "params": [
                         {
                             "name": "id",
@@ -1014,7 +1014,7 @@
                 {
                     "name": "message_builders",
                     "required": true,
-                    "description": "This configuration header is required for configuring the <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the Micro Integrator in the default non-blocking mode. If you are using the Micro Integrator in blocking mode, see the <a href='#message-builders-blocking-mode'>message builder configurations for blocking mode</a>.",
+                    "description": "This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the Micro Integrator in the default non-blocking mode. If you are using the Micro Integrator in blocking mode, see the <a href='#message-builders-blocking-mode'>message builder configurations for blocking mode</a>.",
                     "params": [
                         {
                             "name": "application_xml",
@@ -1099,7 +1099,7 @@
                 {
                     "name": "blocking.message_builders",
                     "required": true,
-                    "description": "This configuration header is required for configuring the <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the Micro Integrator in <b>blocking</b> mode. You can use the <a href='#message-builders-non-blocking-mode'>same list of parameters</a> that are available for message builders in non-blocking mode."
+                    "description": "This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the Micro Integrator in <b>blocking</b> mode. You can use the <a href='#message-builders-non-blocking-mode'>same list of parameters</a> that are available for message builders in non-blocking mode."
                 }
             ],
             "exampleFile": "_message-builders-blocking.toml"
@@ -1110,7 +1110,7 @@
                 {
                     "name": "message_formatters",
                     "required": true,
-                    "description": "This configuration header is required for configuring the <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>message formatting</a> implementation that is used for formatting messages that are sent out of the Micro Integrator in <b>non-blocking</b> mode. If you are using the Micro Integrator in <b>blocking</b> mode, see the <a href='#message-formatter-blocking-mode'>message formatter configurations for blocking mode</a>.",
+                    "description": "This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message formatting</a> implementation that is used for formatting messages that are sent out of the Micro Integrator in <b>non-blocking</b> mode. If you are using the Micro Integrator in <b>blocking</b> mode, see the <a href='#message-formatter-blocking-mode'>message formatter configurations for blocking mode</a>.",
                     "params": [
                         {
                             "name": "application_xml",
@@ -1211,7 +1211,7 @@
                 {
                     "name": "blocking.message_formatters",
                     "required": true,
-                    "description": "This configuration header is required for configuring the <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>message formatter</a> implementations that are used to format messages that are sent out from the Micro Integrator in <b>blocking</b> mode. You can use the <a href='#message-formatters-non-blocking-mode'>same list of parameters</a> that are available for message formatters in non-blocking mode."
+                    "description": "This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message formatter</a> implementations that are used to format messages that are sent out from the Micro Integrator in <b>blocking</b> mode. You can use the <a href='#message-formatters-non-blocking-mode'>same list of parameters</a> that are available for message formatters in non-blocking mode."
                 }
             ],
             "exampleFile": "_message-formatters-blocking.toml"
@@ -1222,7 +1222,7 @@
                 {
                     "name": "[custom_message_builders]",
                     "required": true,
-                    "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>custom message builders and formatters</a>.",
+                    "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>.",
                     "params": [
                         {
                             "name": "content_type",
@@ -1251,7 +1251,7 @@
                 {
                     "name": "[blocking.custom_message_builders]",
                     "required": true,
-                    "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-builder-non-blocking-mode'>same list of parameters</a> that are available for custom message builders in non-blocking mode."
+                    "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-builder-non-blocking-mode'>same list of parameters</a> that are available for custom message builders in non-blocking mode."
                 }
             ],
             "exampleFile": "_message-builders-custom-blocking.toml"
@@ -1262,7 +1262,7 @@
                 {
                     "name": "[custom_message_formatters]",
                     "required": true,
-                    "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>custom message builders and formatters</a>.",
+                    "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>.",
                     "params": [
                         {
                             "name": "content_type",
@@ -1291,7 +1291,7 @@
                 {
                     "name": "[blocking.custom_message_formatters]",
                     "required": true,
-                    "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../setup/message_builders_formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-formatter-non-blocking-mode'>same list of parameters</a> that are available for custom message formatters in non-blocking mode."
+                    "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-formatter-non-blocking-mode'>same list of parameters</a> that are available for custom message formatters in non-blocking mode."
                 }
             ],
             "exampleFile": "_message-formatters-custom-blocking.toml"
@@ -1331,7 +1331,7 @@
                 {
                     "name": "transport.http",
                     "required": true,
-                    "description": "This configuration header is required for configuring the parameters that are used for <a href='../../setup/performance_tuning/http_transport_tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.",
+                    "description": "This configuration header is required for configuring the parameters that are used for <a href='../../setup/performance-tuning/http_transport_tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.",
                     "params": [
                         {
                             "name": "socket_timeout",
@@ -1681,7 +1681,7 @@
                 {
                     "name": "transport.blocking.http",
                     "required": true,
-                    "description": "This configuration header is required for configuring the parameters that are used for configuring the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport'>default HTTP/S passthrough transport in blocking mode</a>.",
+                    "description": "This configuration header is required for configuring the parameters that are used for configuring the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-httphttps-transport'>default HTTP/S passthrough transport in blocking mode</a>.",
                     "params": [
                         {
                             "name": "listener.enable",
@@ -1838,7 +1838,7 @@
                 {
                     "name": "[transport.http.proxy_profile]",
                     "required": true,
-                    "description": "This configuration header is required for configuring <a href='../../setup/configuring_proxy_servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>HTTP proxy profiles</a> when you use multiple proxy servers to route messages to different endpoints.",
+                    "description": "This configuration header is required for configuring <a href='../../setup/configuring-proxy-servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>HTTP proxy profiles</a> when you use multiple proxy servers to route messages to different endpoints.",
                     "params": [
                         {
                             "name": "target_hosts",
@@ -1891,7 +1891,7 @@
                 {
                     "name": "[transport.http.secured_proxy_profile]",
                     "required": true,
-                    "description": "This configuration header is required for configuring <a href='../../setup/configuring_proxy_servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>secured HTTP proxy profiles</a> when you use multiple (secured) proxy servers to route messages to different endpoints.",
+                    "description": "This configuration header is required for configuring <a href='../../setup/configuring-proxy-servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>secured HTTP proxy profiles</a> when you use multiple (secured) proxy servers to route messages to different endpoints.",
                     "params": [
                         {
                             "name": "target_hosts",
@@ -1952,7 +1952,7 @@
                 {
                     "name": "transport.vfs",
                     "required": true,
-                    "description": "This configuration header is required for configuring how the Micro Integrator communicates through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-vfs-transport'>VFS transport</a>.",
+                    "description": "This configuration header is required for configuring how the Micro Integrator communicates through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport'>VFS transport</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -2021,7 +2021,7 @@
                 {
                     "name": "[transport.http.secured_proxy_profile]",
                     "required": true,
-                    "description": "This configuration header is required for configuring the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#mail-transport-listener-blocking-mode'>blocking transport listener</a>.",
+                    "description": "This configuration header is required for configuring the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#mail-transport-listener-blocking-mode'>blocking transport listener</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -2119,7 +2119,7 @@
                 {
                     "name": "transport.blocking.mail.listener",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener in blocking mode. You can use the <a href='#mail-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender."
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener in blocking mode. You can use the <a href='#mail-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender."
                 }
             ],
             "exampleFile": "_mailto-transport-listener-blocking.toml"
@@ -2130,7 +2130,7 @@
                 {
                     "name": "[transport.mail.sender]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport sender as well as the <a href='#mail-transport-sender-blocking-mode'>blocking transport sender</a>.",
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport sender as well as the <a href='#mail-transport-sender-blocking-mode'>blocking transport sender</a>.",
                     "params": [
                         {
                             "name": "name",
@@ -2199,7 +2199,7 @@
                 {
                     "name": "[transport.blocking.mail.sender]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender in blocking mode. You can use the <a href='#mail-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender."
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender in blocking mode. You can use the <a href='#mail-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender."
                 }
             ],
             "exampleFile": "_mailto-transport-listener-blocking.toml"
@@ -2210,7 +2210,7 @@
                 {
                     "name": "[transport.jms.listener]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#jms-transport-listener-blocking-mode'>blocking transport listener</a>.",
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#jms-transport-listener-blocking-mode'>blocking transport listener</a>.",
                     "params": [
                         {
                             "name": "name",
@@ -2503,7 +2503,7 @@
                 {
                     "name": "[transport.blocking.jms.listener]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener in blocking mode. You can use the <a href='#jms-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS listener."
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener in blocking mode. You can use the <a href='#jms-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS listener."
                 }
             ],
             "exampleFile": "_jms-transport-listener-blocking.toml"
@@ -2514,7 +2514,7 @@
                 {
                     "name": "[transport.jms.sender]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender implementation of the Micro Integrator in non-blocking mode.",
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender implementation of the Micro Integrator in non-blocking mode.",
                     "params": [
                         {
                             "name": "name",
@@ -2831,7 +2831,7 @@
                 {
                     "name": "[transport.blocking.jms.sender]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender in blocking mode. You can use the <a href='#jms-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS sender."
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender in blocking mode. You can use the <a href='#jms-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS sender."
                 }
             ],
             "exampleFile": "_jms-transport-sender-blocking.toml"
@@ -3361,7 +3361,7 @@
                 {
                     "name": "transport.fix",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-fix-transport'>FIX transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-fix-transport'>FIX transport</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -3390,7 +3390,7 @@
                 {
                     "name": "transport.mqtt",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-mqtt-transport'>MQTT transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport'>MQTT transport</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -3552,7 +3552,7 @@
                 {
                     "name": "transport.msmq",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-msmq-transport'>MSMQ transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-msmq-transport'>MSMQ transport</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -3589,7 +3589,7 @@
                 {
                     "name": "transport.tcp",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#tcp-transport-blocking-mode'>blocking transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#tcp-transport-blocking-mode'>blocking transport</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -3650,7 +3650,7 @@
                 {
                     "name": "transport.blocking.tcp",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a> in blocking mode. You can use the <a href='#tcp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking TCP transport."
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a> in blocking mode. You can use the <a href='#tcp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking TCP transport."
                 }
             ],
             "exampleFile": "_tcp-transport-blocking.toml"
@@ -3661,7 +3661,7 @@
                 {
                     "name": "transport.ws",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-websocket-transport'>Websocket transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>Websocket transport</a>.",
                     "params": [
                         {
                             "name": "sender.enable",
@@ -3706,7 +3706,7 @@
                 {
                     "name": "transport.wss",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-websocket-transport'>secured Websocket transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>secured Websocket transport</a>.",
                     "params": [
                         {
                             "name": "sender.enable",
@@ -3767,7 +3767,7 @@
                 {
                     "name": "transport.udp",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#udp-transport-blocking-mode'>blocking transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#udp-transport-blocking-mode'>blocking transport</a>.",
                     "params": [
                         {
                             "name": "listener.enabled",
@@ -3796,7 +3796,7 @@
                 {
                     "name": "transport.blocking.tcp",
                     "required": true,
-                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport_configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a> in blocking mode. You can use the <a href='#udp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking UDP transport."
+                    "description": "This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a> in blocking mode. You can use the <a href='#udp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking UDP transport."
                 }
             ],
             "exampleFile": "_udp-transport-blocking.toml"
@@ -3807,7 +3807,7 @@
                 {
                     "name": "[custom_transport.listener]",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to receive messages through a <a href='../../setup/transport_configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to receive messages through a <a href='../../setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.",
                     "params": [
                         {
                             "name": "class",
@@ -3836,7 +3836,7 @@
                 {
                     "name": "transport.udp",
                     "required": true,
-                    "description": "This configuration header groups the parameters that configure the Micro Integrator to send messages through a <a href='../../setup/transport_configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.",
+                    "description": "This configuration header groups the parameters that configure the Micro Integrator to send messages through a <a href='../../setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.",
                     "params": [
                         {
                             "name": "class",

@@ -2,7 +2,7 @@
 ## Introduction
 Used for storing and retrieving messages more efficiently in comparison with other message stores. This is a variation of the already existing synapse message store implementation and is designed in a manner similar to the same message store. The JDBC message store uses a JDBC connector to connect to external relational databases.
 
-To try this out quickly, see the [JDBC Message Store example]({{base_path}}/integrate/examples/message_store_processor_examples/using-jdbc-message-store/).
+To try this out quickly, see the [JDBC Message Store example]({{base_path}}/integrate/examples/message-store-processor-examples/using-jdbc-message-store/).
 
 The advantages of using a JDBC message store instead of any other message store are as follows:
 <ul>

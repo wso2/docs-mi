@@ -49,16 +49,16 @@ See the links given below for descriptions of properties for each processor type
 
 <ul>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
+		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
+		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/securing-message-processor">Securing the Message Forwarding Processor</a>
+		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/securing-message-processor">Securing the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
+		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
 	</li>
 </ul>
 
