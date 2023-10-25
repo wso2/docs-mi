@@ -9,7 +9,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/integrate/develop/wso2-integration-studio">Quick Tour of WSO2 Integration Studio</a>
+            <a href="{{base_path}}/develop/wso2-integration-studio">Quick Tour of WSO2 Integration Studio</a>
         </td>
         <td>
             Get introduced to the main functions of WSO2 Integration Studio.
@@ -17,7 +17,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/integrate/develop/installing-wso2-integration-studio">Installing WSO2 Integration Studio</a>
+            <a href="{{base_path}}/develop/installing-wso2-integration-studio">Installing WSO2 Integration Studio</a>
         </td>
         <td>
             Find the instructions on how to download and install the tool on your operating system.
@@ -25,7 +25,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/integrate/develop/troubleshooting-wso2-integration-studio">Troubleshooting WSO2 Integration Studio</a>
+            <a href="{{base_path}}/develop/troubleshooting-wso2-integration-studio">Troubleshooting WSO2 Integration Studio</a>
         </td>
         <td>
             Find details on how to troubleshoot errors you might encounter as you use WSO2 Integration Studio.
@@ -50,7 +50,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
     <table>
         <tr>
             <td>
-                <a href="{{base_path}}/integrate/develop/create-integration-project/#integration-project">Create an Integration project</a>
+                <a href="{{base_path}}/develop/create-integration-project/#integration-project">Create an Integration project</a>
             </td>
             <td>
                 An integration project is a maven multi module project that will include all the modules (sub projects) of your integration solution.
@@ -58,7 +58,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
         </tr>
         <tr>
             <td>
-                <a href="{{base_path}}/integrate/develop/create-integration-project/#sub-projects">Add sub projects to Integration project</a>
+                <a href="{{base_path}}/develop/create-integration-project/#sub-projects">Add sub projects to Integration project</a>
             </td>
             <td>
                 Once you have created an integration project, you can add new sub projects if required.
@@ -66,7 +66,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
         </tr>
         <tr>
             <td>
-                <a href="{{base_path}}/integrate/develop/create-integration-project/#moving-sub-projects-to-mmm-project">Move sub projects to Integration project</a>
+                <a href="{{base_path}}/develop/create-integration-project/#moving-sub-projects-to-mmm-project">Move sub projects to Integration project</a>
             </td>
             <td>
                 You can move sub projects to the required integration project from any location in the workspace.
@@ -82,16 +82,16 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Message Entry Points</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-an-api/">REST API</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-an-api/">REST API</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/">Proxy Service</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-a-proxy-service/">Proxy Service</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint/">Inbound Endpoint</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint/">Inbound Endpoint</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task/">Scheduled Task</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-scheduled-task/">Scheduled Task</a>
                     </li>
                 </ul>
             </td>
@@ -99,22 +99,22 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Message Processing Units</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store/">Message Store</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-a-message-store/">Message Store</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-a-message-processor/">Message Processor</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-a-message-processor/">Message Processor</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoints/">Endpoint</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-endpoints/">Endpoint</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoint-templates/">Endpoint Template</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-endpoint-templates/">Endpoint Template</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates/">Sequence Template</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-sequence-templates/">Sequence Template</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences/">Reusable Sequences</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-reusable-sequences/">Reusable Sequences</a>
                     </li>
                 </ul>
             </td>
@@ -122,13 +122,13 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Registry Resources</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/">Registry Resource</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-registry-resources/">Registry Resource</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/">Local Entry</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries/">Local Entry</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-smooks-artifacts/">Smooks</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-smooks-artifacts/">Smooks</a>
                     </li>
                 </ul>
             </td>
@@ -137,13 +137,13 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Data Services Resources</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/">Data Service</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/data-services/creating-data-services/">Data Service</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/data-services/creating-datasources/">Datasource</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/data-services/creating-datasources/">Datasource</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/data-services/creating-input-validators/">Input Validator</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/data-services/creating-input-validators/">Input Validator</a>
                     </li>
                 </ul>
             </td>
@@ -151,19 +151,19 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Custom Artifacts</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/customizations/creating-custom-mediators/">Custom Mediator</a>
+                        <a href="{{base_path}}/develop/customizations/creating-custom-mediators/">Custom Mediator</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/customizations/creating-custom-Inbound-endpoint/">Custom Inbound Enpoint</a>
+                        <a href="{{base_path}}/develop/customizations/creating-custom-Inbound-endpoint/">Custom Inbound Enpoint</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/customizations/creating-new-connector/">Custom Connector</a>
+                        <a href="{{base_path}}/develop/customizations/creating-new-connector/">Custom Connector</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/customizations/creating-custom-task-scheduling/">Custom Scheduled Task</a>
+                        <a href="{{base_path}}/develop/customizations/creating-custom-task-scheduling/">Custom Scheduled Task</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/customizations/creating-synapse-handlers/">Synapse Handler</a>
+                        <a href="{{base_path}}/develop/customizations/creating-synapse-handlers/">Synapse Handler</a>
                     </li>
                 </ul>
             </td>
@@ -171,10 +171,10 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Other</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/exporting-artifacts/">Export Artifacts</a>
+                        <a href="{{base_path}}/develop/exporting-artifacts/">Export Artifacts</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/importing-artifacts/">Import Artifacts</a>
+                        <a href="{{base_path}}/develop/importing-artifacts/">Import Artifacts</a>
                     </li>
                 </ul>
             </td>
@@ -189,16 +189,16 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Encrypting Sensitive Data</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/">Encrpting Secrets</a>
+                        <a href="{{base_path}}/install-and-setup/setup/security/encrypting_plain_text/">Encrpting Secrets</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/using_docker_secrets/">Docker Secrets</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/using_docker_secrets/">Docker Secrets</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/using_k8s_secrets/">Kubernetes Secrets</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/using_k8s_secrets/">Kubernetes Secrets</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/single_key_encryption/">Symmetric Encryption</a>
+                        <a href="{{base_path}}/install-and-setup/setup/security/single_key_encryption/">Symmetric Encryption</a>
                     </li>
                 </ul>
             </td>
@@ -206,13 +206,13 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Securing APIs and Services</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/advanced-development/applying-security-to-an-api/">Securing REST APIs</a>
+                        <a href="{{base_path}}/develop/advanced-development/applying-security-to-an-api/">Securing REST APIs</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/advanced-development/applying-security-to-a-proxy-service/">Securing Proxy Services</a>
+                        <a href="{{base_path}}/develop/advanced-development/applying-security-to-a-proxy-service/">Securing Proxy Services</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/data-services/securing-data-services/">Securing Data Services</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/data-services/securing-data-services/">Securing Data Services</a>
                     </li>
                 </ul>
             </td>
@@ -221,11 +221,11 @@ To start developing integration solutions, you need to first <a href="{{base_pat
 
 ### Build and run
 
-1.  <a href="{{base_path}}/integrate/develop/packaging-artifacts">Package</a>
+1.  <a href="{{base_path}}/develop/packaging-artifacts">Package</a>
 
     The artifacts and modules should be packaged in a <b>Composite Exporter</b> before they can be deployed in any environment.
 
-2.  <a href="{{base_path}}/integrate/develop/deploy-artifacts">Deploy</a>
+2.  <a href="{{base_path}}/develop/deploy-artifacts">Deploy</a>
 
     You can easily deploy and try out the packaged integration artifacts on your preferred environment:
 
@@ -234,23 +234,23 @@ To start developing integration solutions, you need to first <a href="{{base_pat
             <td>
                 <ul>
                     <li>
-                        Deploy on the <a href="{{base_path}}/integrate/develop/using-embedded-micro-integrator">Embedded Micro Integrator</a>
+                        Deploy on the <a href="{{base_path}}/develop/using-embedded-micro-integrator">Embedded Micro Integrator</a>
                     </li>
                     <li>
-                        Deploy on a <a href="{{base_path}}/integrate/develop/using-remote-micro-integrator">Remote Micro Integrator</a>
+                        Deploy on a <a href="{{base_path}}/develop/using-remote-micro-integrator">Remote Micro Integrator</a>
                     </li>
                     <li>
-                        Deploy on <a href="{{base_path}}/integrate/develop/create-docker-project">Docker</a>
+                        Deploy on <a href="{{base_path}}/develop/create-docker-project">Docker</a>
                     </li>
                     <li>
-                        Deploy on <a href="{{base_path}}/integrate/develop/create-kubernetes-project">Kubernetes</a>
+                        Deploy on <a href="{{base_path}}/develop/create-kubernetes-project">Kubernetes</a>
                     </li>
                 </ul>
             </td>
         </tr>
     </table>
 
-3.  <a href="{{base_path}}/integrate/develop/creating-unit-test-suite/#run-unit-test-suites">Unit Tests</a>
+3.  <a href="{{base_path}}/develop/creating-unit-test-suite/#run-unit-test-suites">Unit Tests</a>
 
     Use the <b>integration test suite</b> of WSO2 Integration Studio to run unit tests on the developed integration solution.
 
@@ -264,7 +264,7 @@ As you build and run the integration flow, you may identify errors that need to 
             Debug Mediations
         </td>
         <td>
-            Use the <a href="{{base_path}}/integrate/develop/debugging-mediation">Mediation Debug</a> function in WSO2 Integration Studio to debug errors while you develop the integration solutions.
+            Use the <a href="{{base_path}}/develop/debugging-mediation">Mediation Debug</a> function in WSO2 Integration Studio to debug errors while you develop the integration solutions.
         </td>
     </tr>
     <tr>
@@ -275,13 +275,13 @@ As you build and run the integration flow, you may identify errors that need to 
             You can enable and analyze the following logs to debug various errors:
             <ul>
                 <li>
-                    <a href="{{base_path}}/integrate/develop/using-wire-logs">Wire Logs</a>
+                    <a href="{{base_path}}/develop/using-wire-logs">Wire Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/integrate/develop/monitoring-service-level-logs">Proxy Service Access Logs</a>
+                    <a href="{{base_path}}/develop/monitoring-service-level-logs">Proxy Service Access Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/integrate/develop/monitoring-api-level-logs">REST API Access Logs</a>
+                    <a href="{{base_path}}/develop/monitoring-api-level-logs">REST API Access Logs</a>
                 </li>
             </ul>
         </td>
@@ -290,8 +290,8 @@ As you build and run the integration flow, you may identify errors that need to 
 
 You must redeploy the integration artifacts after applying changes.
 
--   If you are testing on a VM, the artifacts will be instantly deployed when you <a href="{{base_path}}/integrate/develop/deploy-artifacts">redeploy the synapse artifacts</a>.
--   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/integrate/develop/create-docker-project">Docker images</a> or <a href="{{base_path}}/integrate/develop/create-kubernetes-project">Kubernetes artifacts</a>.
+-   If you are testing on a VM, the artifacts will be instantly deployed when you <a href="{{base_path}}/develop/deploy-artifacts">redeploy the synapse artifacts</a>.
+-   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/create-docker-project">Docker images</a> or <a href="{{base_path}}/integrate/develop/create-kubernetes-project">Kubernetes artifacts</a>.
 
 ### Push to production
 
@@ -311,7 +311,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
             <b>Kubernetes Environment</b>
         </td>
         <td>
-            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s"> Kubernetes CICD pipeline</a>.
+            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/deployment/mi-cicd-k8s"> Kubernetes CICD pipeline</a>.
         </td>
     </tr>
 </table>
@@ -321,7 +321,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
 <table>
     <tr>
         <td>
-            <b><a href="{{base_path}}/integrate/develop/integration-development-kickstart">Develop your first integration</a></b>
+            <b><a href="{{base_path}}/develop/integration-development-kickstart">Develop your first integration</a></b>
         </td>
         <td>
             Try the development workflow end-to-end by running a simple use case.

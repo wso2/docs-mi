@@ -16,9 +16,9 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
-4. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
-5. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
-6. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
+5. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
+6. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
+7. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
 
 ## What you'll build
 
@@ -26,11 +26,10 @@ This is a simple service orchestration scenario. The scenario is about a basic h
 
 Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated to a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
 
-<a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png" width="1600" height="600"></a>
+<a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"></a>
 
-
-    !!! Tip
-        You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
+!!! Tip
+    You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
 In the above scenario, the following takes place:
 
@@ -183,9 +182,9 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
             - Start the back-end services.
 
-                Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
+                - Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
     
-                To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
+                - To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
     
                 ```bash
                 java -jar DoctorInfo.jar
@@ -193,7 +192,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
    
             - Deploy the Healthcare service.
 
-                Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+                - Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
               
 2. Start the Micro Integrator.
 

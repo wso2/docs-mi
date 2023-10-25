@@ -8,7 +8,7 @@ deploying them in your production environment.
 
 ## What you'll build
 
-We are going to use the same use case we considered in the [Quick Start Guide]({{base_path}}/get-started/integration-quick-start-guide). 
+We are going to use the same use case we considered in the [Quick Start Guide]({{base_path}}/get-started/quick-start-guide). 
 In the quick start guide, we just executed the already-built integration scenario. 
 Here, we are going to build the integration scenario from scratch. Let’s recall the 
 business scenario:
@@ -498,5 +498,5 @@ There are two ways to invoke the service:
 
 ## What's Next?
 
-- [Publish Integrations to the API Manager]({{base_path}}/integrate/develop/working-with-service-catalog).
-- [Writing a unit test for integration artifacts]({{base_path}}/integrate/develop/creating-unit-test-suite).
+- [Publish Integrations to the API Manager]({{base_path}}/develop/working-with-service-catalog).
+- [Writing a unit test for integration artifacts]({{base_path}}/develop/creating-unit-test-suite).

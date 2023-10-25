@@ -7,13 +7,13 @@ The following instructions can be used to run your artifacts in a remote Micro I
 ## Deploy and run artifacts in a remote instance
 
 1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator server and on your computer. 
-2.	[Package your Synapse artifacts]({{base_path}}/integrate/develop/packaging-artifacts) from WSO2 Integration Studio.
+2.	[Package your Synapse artifacts]({{base_path}}/develop/packaging-artifacts) from WSO2 Integration Studio.
 
 However, when your solutions are ready to be moved to your production environments, it is recommended to use a **CICD pipeline**.
 
 !!! Note
     As an alternative, you can skip the steps given below and manually copy the exported CAR file to the `<MI_HOME>/repository/deployment/server/carbonapps/` folder, where `<MI_HOME>` is the root folder of your Micro Integrator installation.
-    For more information on how to export a CAR file, see [Exporting Artifacts]({{base_path}}/integrate/develop/exporting-artifacts).
+    For more information on how to export a CAR file, see [Exporting Artifacts]({{base_path}}/develop/exporting-artifacts).
 
 ## Add a new remote instance
 
