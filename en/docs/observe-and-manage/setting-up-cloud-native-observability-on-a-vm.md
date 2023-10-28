@@ -97,7 +97,7 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
 ### Scaling Prometheus
 
-In a [clustered deployment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei), you can add the IP address and the port of each server in the respective `prometheus.yml` file.
+In a [clustered deployment]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-ei), you can add the IP address and the port of each server in the respective `prometheus.yml` file.
 
 ### Scaling Grafana
 

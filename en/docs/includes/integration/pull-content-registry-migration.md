@@ -1,10 +1,10 @@
 !!! Info "Before you begin"
 		Note the following:
 
-	-	The Micro Integrator uses a [file-based registry](../../../install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in your WSO2 EI version). 
-	-	Your WSO2 EI registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator](../../../install-and-setup/setup/mi-setup/deployment/file_based_registry).
+	-	The Micro Integrator uses a [file-based registry](../../../install-and-setup/setup/deployment/file_based_registry) instead of a database (which is used in your WSO2 EI version). 
+	-	Your WSO2 EI registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator](../../../install-and-setup/setup/deployment/file_based_registry).
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
-	-	If you have shared the registry of your WSO2 EI among multiple nodes, you can do the same for the file-based registry of the Micro Integrator. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of the Micro Integrator](../../../install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei/#registry-synchronization-sharing).
+	-	If you have shared the registry of your WSO2 EI among multiple nodes, you can do the same for the file-based registry of the Micro Integrator. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of the Micro Integrator](../../../install-and-setup/setup/deployment/deploying-wso2-ei/#registry-synchronization-sharing).
 	-    Since the recommended approach to deploying Datasources in MI is to create a Datasources project in the Integration Studio and deploy them as CAR files, if you have any Datasources deployed in the EI registry, you need to manually download the content from the EI Management Console and create the data source definitions in Integration Studio and export them as a CAR app. See the instructions on [Create Datasource Configs](../../../integrate/develop/create-datasources).
 	
 	

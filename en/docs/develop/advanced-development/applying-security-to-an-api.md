@@ -9,7 +9,7 @@ If required, you can implement a custom basic auth handler (instead of the defau
 
 ### Prerequisites
 
-**Before you begin**, be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
+**Before you begin**, be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
 
 ### Creating the custom handler
 

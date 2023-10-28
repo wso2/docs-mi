@@ -31,7 +31,7 @@ The following are the transport receiver properties.
 
 ## Prerequisites
 
-[Enable the TCP transport]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport). 
+[Enable the TCP transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport). 
 
 ## Example 1: Splitting by a character
 

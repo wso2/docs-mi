@@ -37,7 +37,7 @@ Create the artifacts:
 3. [Create the rest API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) with your Micro Integrator.
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) with your Micro Integrator.
 
 Set up the back-end service:
 

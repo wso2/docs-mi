@@ -311,7 +311,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
                   <p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p>
                </li>
             </ul>
-            See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/creating-keystores/">Creating New Keystores</a> for information on how to create and configure your own keys.
+            See <a href="{{base_path}}/install-and-setup/setup/security/creating-keystores/">Creating New Keystores</a> for information on how to create and configure your own keys.
             </p>
          </td>
       </tr>
@@ -319,7 +319,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          <td>Encrypt passwords in configuration files</td>
          <td>
             <p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
-            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/">Securing Passwords in Configuration Files</a> for instructions.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/security/encrypting_plain_text/">Securing Passwords in Configuration Files</a> for instructions.</p>
          </td>
       </tr>
       <tr class="even">
@@ -338,7 +338,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
         </td>
         <td>
             <p>If your product runtimes are connecting to an external user store for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
-            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore">Configuring a User Store</a> for the Micro Integrator runtime.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">Configuring a User Store</a> for the Micro Integrator runtime.</p>
         </td>
       </tr>
       <tr class="even">
@@ -363,7 +363,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0 and 1.1. The TLS protocol and strong ciphers are configured for the passthrough transport in the <code>deployment.toml</code> file. See the following links for instructions:</p>
-            <p><a href="{{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
+            <p><a href="{{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
             <p>Note the following:</p>
             <ul>
                <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
@@ -388,7 +388,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployement.toml</code> file.
-            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -459,8 +459,8 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p> Note that you can easily use the management API to <b>add, update, and delete</b> admins and regular users in the user store. However, the super admin users created from the <code>deployment.toml</code> file should be managed manually.</p>
             <p>See the following topics for instructions to correctly create your administrators and other users in the Micro Integrator.</p>       
             <ul>
-               <li><a href="{{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore/">Configuring a User Store</a> for the Micro Integrator.</li>
-               <li><a href="{{base_path}}/install-and-setup/setup/mi-setup/user-stores/managing-users/">Managing Users</a> for the Micro Integrator.</li>
+               <li><a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/">Configuring a User Store</a> for the Micro Integrator.</li>
+               <li><a href="{{base_path}}/install-and-setup/setup/user-stores/managing-users/">Managing Users</a> for the Micro Integrator.</li>
             </ul>                   
          </td>
       </tr>
