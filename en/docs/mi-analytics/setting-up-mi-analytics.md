@@ -1,8 +1,8 @@
 # Set up MI Analytics
 
-!!! note
+!!! info
 
-    - This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
+    The MI Analytics feature has been deprecated. This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
 
 ## How it works
 
