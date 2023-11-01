@@ -156,8 +156,8 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Transformation</b> 
             <ul>
-                <li><a href="{{base_path}}/learn/examples/message_transformation_examples/json-to-soap-conversion">Converting JSON Messages to SOAP</a></li>
-                <li><a href="{{base_path}}/learn/examples/message_transformation_examples/pox-to-json-conversion/">Converting POX Messages to JSON</a></li>
+                <li><a href="{{base_path}}/learn/examples/message-transformation-examples/json-to-soap-conversion">Converting JSON Messages to SOAP</a></li>
+                <li><a href="{{base_path}}/learn/examples/message-transformation-examples/pox-to-json-conversion/">Converting POX Messages to JSON</a></li>
             </ul>
         </td>
     </tr>
@@ -199,8 +199,8 @@ Learn how to implement various integration use cases, deploy them in the Micro I
             <ul>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-JMS-to-HTTP/">Switching from JMS to HTTP/S</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-HTTPS-to-JMS">Switching from HTTP/S to JMS</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender">Switching from FTP Listener to Mail Sender</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching_from_HTTP_to_FIX">Switching from HTTP to FIX</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FTP-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-HTTP-to-FIX">Switching from HTTP to FIX</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FIX-to-HTTP">Switch from FIX to HTTP</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FIX-to-AMQP">Switch from FIX to AMQP</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-FIX-versions">Switching between FIX Versions</a></li>
@@ -255,10 +255,10 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis">Securing a REST API</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/publishing-a-swagger-api">Publishing a Custom Swagger Document</a></li>
                         <li>Handling Special Cases
-                            <ul>
-                                <li><a href="{{base_path}}/learn/examples/rest-api-examples/using-get-with-a-body">Using GET with a Message Body</a></li>
-                                <li><a href="{{base_path}}/learn/examples/rest-api-examples/using-post-with-no-body">Using POST with Empty Message Body</a></li>
-                                <li><a href="{{base_path}}/learn/examples/rest-api-examples/using-post-with-query-param">Using POST with Query Parameters</a></li>
+                            <ul> 
+                                <li><a href="{{base_path}}/learn/examples/rest-api-examples/special-cases/#get-request-with-a-message-body">Using GET with a Message Body</a></li>
+                                <li><a href="{{base_path}}/learn/examples/rest-api-examples/special-cases/#using-post-with-an-empty-body">Using POST with Empty Message Body</a></li>
+                                <li><a href="{{base_path}}/learn/examples/rest-api-examples/special-cases/#using-post-with-query-parameters">Using POST with Query Parameters</a></li>
                             </ul>
                         </li>
                     </ul>
