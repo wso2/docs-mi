@@ -1,5 +1,8 @@
 # About this Release
 
+!!! Info
+    This page is still under development. Please check back for updates.
+
 WSO2 Micro Integrator (MI) version 4.2.0 is the latest release of the WSO2 Micro Integrator, which provides a powerful solution for integrating systems.
 
 !!! Tip
@@ -9,10 +12,10 @@ WSO2 Micro Integrator (MI) version 4.2.0 is the latest release of the WSO2 Micro
 
 WSO2 Micro Integrator is continuously improving in every new release. Listed below are the new features and improvements that are introduced with the MI 4.2.0 release.
 
+
 ### New in the Micro Integrator
 
 The following features and improvements are available for the <b>Micro Integrator</b> runtime of MI 4.2.0:
-
 
 
 ### New in WSO2 Integration Studio
@@ -27,7 +30,7 @@ Given below is a comparison of the Micro Integrator of EI 7.1 and the previous W
 If you are migrating from a previous ESB, this comparison will help you understand the important changes in the Micro Integrator that will impact your migration.
 
 !!! Note
-The following comparison is applicable to the following versions of the WSO2 ESB runtime:
+    The following comparison is applicable to the following versions of the WSO2 ESB runtime:
 
 	-	[WSO2 ESB 5.0](https://docs.wso2.com/display/ESB500/WSO2+Enterprise+Service+Bus+Documentation)
 	-	[ESB profile of WSO2 EI 6.x.x series](https://docs.wso2.com/display/EI660/WSO2+Enterprise+Integrator+Documentation)
