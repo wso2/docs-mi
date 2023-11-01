@@ -210,8 +210,8 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
     If you want to view the integration artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
-    1.  [Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) the MI dashboard.
-    2.  [Start]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) the MI dashboard.
+    1.  [Install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the MI dashboard.
+    2.  [Start]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) the MI dashboard.
     
  You can now test the **HealthcareIntegrationService** that you just generated.
  
@@ -378,7 +378,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
    
 ## What's next?
 
-- [Develop your first integration solution]({{base_path}}/integrate/develop/integration-development-kickstart).
-- Try out the **examples** available in the [Integrate section of our documentation]({{base_path}}/integrate/integration-overview/).
-- Try out the entire developer guide on [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/).
-- Try out the entire developer guide on [Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/).
+- [Develop your first integration solution]({{base_path}}/get-started/development-kickstart).
+- Try out the [examples](({{base_path}}/learn/learn-overview/#integration-examples)) available in the documentation.
+- Try out the entire developer guide on [Exposing an Integration Service as a Managed API]({{base_path}}/learn/integration-tutorials/service-catalog-tutorial/).
+- Try out the entire developer guide on [Exposing an Integration SOAP Service as a Managed API]({{base_path}}/learn/integration-tutorials/service-catalog-tutorial-for-proxy-services/).
