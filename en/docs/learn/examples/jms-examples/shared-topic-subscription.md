@@ -96,14 +96,14 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
     
     -   Be sure to create a sample topic by editing the `HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml` file as follows:
         ```xml  

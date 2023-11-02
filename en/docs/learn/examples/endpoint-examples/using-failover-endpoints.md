@@ -60,7 +60,7 @@ property (i.e., `         10        ` milliseconds in the above example).
 
 For all the other errors, it will be marked as
 `         Suspended        ` . For more information about these states
-and properties, see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint_error_handling).
+and properties, see [Endpoint Error Handling]({{base_path}}/learn/examples/endpoint-examples/endpoint-error-handling).
 
 !!! Info
     The retry count is per endpoint, not per message. The retry happens in parallel. Since messages come to this endpoint via many threads, the same message may not be retried three times. Another message may fail and can reduce the retry count.
@@ -71,10 +71,10 @@ and properties, see [Endpoint Error Handling]({{base_path}}/integrate/examples/e
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Send the following request to invoke the API:
 
@@ -110,7 +110,7 @@ send the requests using the next endpoint, which is in the
 Nevertheless, when the first endpoint becomes ready to send again, it
 will try again on the first endpoint, even though the second endpoint is
 still active. For more information about these states and properties,
-see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint_error_handling).
+see [Endpoint Error Handling]({{base_path}}/learn/examples/endpoint-examples/endpoint-error-handling).
 
 ### Synapse configuration
 
@@ -179,10 +179,10 @@ Multiple address endpoints are used in this example.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
-2. [Create an ESB Solution project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
-3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
+2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
+3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-and-run) in your Micro Integrator.
 
 Invoke the sample API by executing the following command:
 

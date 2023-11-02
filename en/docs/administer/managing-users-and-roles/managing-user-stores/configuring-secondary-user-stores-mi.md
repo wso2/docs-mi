@@ -6,7 +6,7 @@ Users from the primary and secondary user store(s) can be authenticated and auth
 
 !!! info
     **Note** : It's mandatory to have a primary user store configured before adding secondary user stores. Refer
-    [configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store)
+    [configuring an LDAP user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store)
 
 ## Enabling the user-core feature
 

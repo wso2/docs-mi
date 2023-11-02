@@ -11,8 +11,8 @@ See the following topics for information and instructions:
 !!! Tip
     If you do not know which dashboard to download when setting up cloud-native observability, check the "Downloading the dashboard" section in the respective sub-sections below for details on the dashboard.
 
--	Setting up [cloud-native observability for a VM environment]({{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm).
--	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes).
+-	Setting up [cloud-native observability for a VM environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm).
+-	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes).
 
 ## Cluster dashboard
 

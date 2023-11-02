@@ -6,7 +6,7 @@ Follow the instructions given below to create a new [Message Processor]({{base_p
 
 ### Creating the Message Processor artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/select-message-processor.jpg">
 
@@ -49,19 +49,19 @@ See the links given below for descriptions of properties for each processor type
 
 <ul>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
+		<a href="{{base_path}}/learn/examples/message-store-processor-examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
+		<a href="{{base_path}}/learn/examples/message-store-processor-examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/securing-message-processor">Securing the Message Forwarding Processor</a>
+		<a href="{{base_path}}/learn/examples/message-store-processor-examples/securing-message-processor">Securing the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/message-store-processor-examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
+		<a href="{{base_path}}/learn/examples/message-store-processor-examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
 	</li>
 </ul>
 
 ## Tutorials
 
--	See the tutorial on [using message stores and processors]({{base_path}}/integrate/tutorials/storing-and-forwarding-messages)
+-	See the tutorial on [using message stores and processors]({{base_path}}/learn/integration-tutorials/storing-and-forwarding-messages)

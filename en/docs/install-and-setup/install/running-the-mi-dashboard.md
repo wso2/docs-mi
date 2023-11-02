@@ -8,8 +8,8 @@ Follow the steps given below before you start.
 
 1.  Download and install the servers:
 
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) the Micro Integrator dashboard.
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the Micro Integrator dashboard.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
 
 2.  Set up the Micro Integrator:
 
@@ -164,7 +164,7 @@ Once you have [started the dashboard server](#starting-the-dashboard-server):
             <td>
                 The user name to sign in.</br></br>
                 <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
-                See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore">configuring user stores</a> for information.
+                See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>

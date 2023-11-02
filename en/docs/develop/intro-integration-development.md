@@ -41,7 +41,7 @@ Integration developers will follow the workflow illustrated by the following dia
 
 ### Set up the workspace
 
-To start developing integration solutions, you need to first <a href="{{base_path}}/integrate/develop/installing-wso2-integration-studio">install and set up WSO2 Integration Studio</a>.
+To start developing integration solutions, you need to first <a href="{{base_path}}/develop/installing-wso2-integration-studio">install and set up WSO2 Integration Studio</a>.
 
 ### Develop
 
@@ -189,16 +189,16 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                 <b>Encrypting Sensitive Data</b>
                 <ul>
                     <li>
-                        <a href="{{base_path}}/install-and-setup/setup/security/encrypting_plain_text/">Encrpting Secrets</a>
+                        <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text/">Encrpting Secrets</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/develop/creating-artifacts/using-docker-secrets/">Docker Secrets</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/creating-artifacts/using_k8s_secrets/">Kubernetes Secrets</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/using-k8s-secrets/">Kubernetes Secrets</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/install-and-setup/setup/security/single_key_encryption/">Symmetric Encryption</a>
+                        <a href="{{base_path}}/install-and-setup/setup/security/single-key-encryption/">Symmetric Encryption</a>
                     </li>
                 </ul>
             </td>
@@ -291,7 +291,7 @@ As you build and run the integration flow, you may identify errors that need to 
 You must redeploy the integration artifacts after applying changes.
 
 -   If you are testing on a VM, the artifacts will be instantly deployed when you <a href="{{base_path}}/develop/deploy-artifacts">redeploy the synapse artifacts</a>.
--   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/create-docker-project">Docker images</a> or <a href="{{base_path}}/integrate/develop/create-kubernetes-project">Kubernetes artifacts</a>.
+-   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/create-docker-project">Docker images</a> or <a href="{{base_path}}/develop/create-kubernetes-project">Kubernetes artifacts</a>.
 
 ### Push to production
 
@@ -303,7 +303,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
             <b>On-Premise Environment</b>
         </td>
         <td>
-            You can easily push your integration solutions to a CICD pipeline because the developer tool (WSO2 Integration Studio) consists of Maven support. See the details on <a href="{{base_path}}/integrate/develop/create-integration-project">Integration Project</a>.
+            You can easily push your integration solutions to a CICD pipeline because the developer tool (WSO2 Integration Studio) consists of Maven support. See the details on <a href="{{base_path}}/develop/create-integration-project">Integration Project</a>.
         </td>
     </tr>
     <tr>
@@ -321,7 +321,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
 <table>
     <tr>
         <td>
-            <b><a href="{{base_path}}/develop/integration-development-kickstart">Develop your first integration</a></b>
+            <b><a href="{{base_path}}/get-started/development-kickstart/">Develop your first integration</a></b>
         </td>
         <td>
             Try the development workflow end-to-end by running a simple use case.
@@ -329,7 +329,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
     </tr>
     <tr>
         <td>
-            <b><a href="{{base_path}}/integrate/integration-overview">Integration Use Cases</a></b>
+            <b><a href="{{base_path}}/learn/learn-overview/#integration-use-cases">Integration Use Cases</a></b>
         </td>
         <td>
             Read about the integration use cases supported by the Micro Integrator.
@@ -337,7 +337,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
     </tr>
     <tr>
         <td>
-            <b><a href="{{base_path}}/integrate/integration-overview/#tutorials">Tutorials</a></b>
+            <b><a href="{{base_path}}/learn/learn-overview/#integration-examples">Tutorials</a></b>
         </td>
         <td>
             Develop and try out each integration use case end-to-end.
@@ -345,7 +345,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
     </tr>
     <tr>
         <td>
-            <b><a href="{{base_path}}/integrate/integration-overview/#examples">Examples</a></b>
+            <b><a href="{{base_path}}/learn/learn-overview/#integration-examples">Examples</a></b>
         </td>
         <td>
             Try out specific integration scenarios by running the samples.

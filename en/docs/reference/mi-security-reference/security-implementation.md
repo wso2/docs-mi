@@ -19,12 +19,12 @@ or both.
 
 See the following resources on how to apply WS security to integration artifacts:
 
--	[Securing a proxy service]({{base_path}}/integrate/develop/advanced-development/applying-security-to-a-proxy-service)
--	[Securing a data service]({{base_path}}/integrate/develop/creating-artifacts/data-services/securing-data-services)
--	[Securing a REST API]({{base_path}}/integrate/develop/advanced-development/applying-security-to-an-api)
+-	[Securing a proxy service]({{base_path}}/develop/advanced-development/applying-security-to-a-proxy-service)
+-	[Securing a data service]({{base_path}}/develop/creating-artifacts/data-services/securing-data-services)
+-	[Securing a REST API]({{base_path}}/develop/advanced-development/applying-security-to-an-api)
 
 !!! Note
-	An [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore/) should be configured for the Micro Integrator in order to use these security implementation.
+	An [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) should be configured for the Micro Integrator in order to use these security implementation.
 
 ## Security scenarios
 

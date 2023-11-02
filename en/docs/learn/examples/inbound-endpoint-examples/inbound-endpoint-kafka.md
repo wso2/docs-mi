@@ -48,14 +48,14 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create a [mediation sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-an-inbound-endpoint) with configurations given in the above example.
-4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service.
 
--   Apache Kafka inbound endpoint should be configured. The recommended version for the customized Kafka inbound endpoint is `kafka_2.12-2.2.1`. See [Configuring Kafka]({{base_path}}/install-and-setup/setup/mi-setup/feature-configs/configuring-kafka) for more information. 
+-   Apache Kafka inbound endpoint should be configured. The recommended version for the customized Kafka inbound endpoint is `kafka_2.12-2.2.1`. See [Configuring Kafka]({{base_path}}/install-and-setup/setup/feature-configs/configuring-kafka) for more information. 
 
 -   Go to the [WSO2 Connector Store](https://store.wso2.com/store/assets/esbconnector/details/b15e9612-5144-4c97-a3f0-179ea583be88) and click **Download Inbound Endpoint** to download the inbound JAR file. Add the downloaded JAR file to the <MI_HOME>/dropins directory.
 

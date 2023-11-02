@@ -81,7 +81,7 @@ The sample scenario can be depicted as follows:
 
 -   Windows, Linux or Solaris operating systems with WSO2 MI
     installed. For instructions on downloading and installing WSO2 MI,
-    see [Installation Guide]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) .
+    see [Installation Guide]({{base_path}}/install-and-setup/install/installing-mi) .
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
     see [Configure with ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)
     .
@@ -274,7 +274,7 @@ entire transaction should be rolled back.
 -   Windows, Linux or Solaris operating systems with WSO2 MI
     installed. For instructions on downloading and installing WSO2 MI,
     see [Installation
-    Guide]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) .
+    Guide]({{base_path}}/install-and-setup/install/installing-mi) .
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
     see [Configure with
     ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)
@@ -397,7 +397,7 @@ depicted as follows.
 ##### Prerequisites
 
 -   Install WSO2 MI. For instructions , see [Installation
-    Guide]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) .
+    Guide]({{base_path}}/install-and-setup/install/installing-mi) .
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
         see [Configure with
         ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)

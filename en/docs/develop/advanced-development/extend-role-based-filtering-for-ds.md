@@ -9,7 +9,7 @@ only accessible to a given type of users.
 
 Follow the steps below to filter a data service according to a specific user role.
 
-1. [Secure the dataservice]({{base_path}}/integrate/develop/creating-artifacts/data-services/securing-data-services) using `UsernameToken` for user authentication.
+1. [Secure the dataservice]({{base_path}}/develop/creating-artifacts/data-services/securing-data-services) using `UsernameToken` for user authentication.
 2. Add `requiredRoles` attribute to the output mapping with the comma separated list of user roles.
     ```xml
     <query id="getEmployeesQuery" useConfig="datasource">
@@ -25,7 +25,7 @@ Follow the steps below to filter a data service according to a specific user rol
 ## Extend role-based filtering via a custom authorization provider
 
 In the Micro Integrator, you can filter content to specific user roles by taking roles from
-the [user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore/) connected to the server. However, this extension provides
+the [user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) connected to the server. However, this extension provides
 the flexibility for you to develop data services by plugging in a
 mechanism to provide those role details from any preferred external
 source (e.g., third party identity provider, JWT token etc.). Hence, in

@@ -50,8 +50,9 @@ nav:
     - Get Started:
         - Introduction: get-started/introduction.md
         - Quick Start Guide: get-started/quick-start-guide.md
-        - Key Concepts: get-started/key-concepts.md
         - Develop Your First Integration: get-started/development-kickstart.md
+        - Key Concepts: get-started/key-concepts.md
+        - About this Release: get-started/about-this-release.md
     - Learn:
         - Overview: learn/learn-overview.md
         - Use Cases:
@@ -64,6 +65,9 @@ nav:
               - File Processing: learn/integration-use-case/file-processing-overview.md
               - Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
         - Tutorials:
+              - Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
+              - Develop an Integration From a Managed API: learn/integration-tutorials/develop-an-integration-with-a-managed-api.md
+              - Expose an Integration SOAP Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
               - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
               - Message Routing:
                   - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
@@ -90,7 +94,7 @@ nav:
                 - Convert JSON Messages to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
                 - Convert POX Messages to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
             - Protocol Switching:
-                - JMS to HTTP/S: learn/examples/protocol-switching/switching-from-jms-tohttp.md
+                - JMS to HTTP/S: learn/examples/protocol-switching/switching-from-jms-to-http.md
                 - HTTP/S to JMS: learn/examples/protocol-switching/switching-from-https-to-jms.md
                 - FTP Listener to Mail Sender: learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender.md
                 - HTTP to FIX: learn/examples/protocol-switching/switching-from-http-to-fix.md
@@ -300,70 +304,71 @@ nav:
           - Migrate:
                 - Upgrade WSO2 Micro Integrator: install-and-setup/upgrading-wso2-mi.md
           - Setup:
-                - Update WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
+                - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
                 - Data Stores:
-                      - Configure a User Store: install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore.md
+                      - Configure a User Store: install-and-setup/setup/user-stores/setting-up-a-userstore.md
                       - Configure Databases:
-                            - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
-                            - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
-                            - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
-                            - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
-                            - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
-                      - Configure the File-Based Registry: install-and-setup/setup/mi-setup/deployment/file-based-registry.md
+                            - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
+                            - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
+                            - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
+                            - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
+                            - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+                      - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
                 - Security:
                       - Set up Keystores:
-                            - Create New Keystores: install-and-setup/setup/mi-setup/security/creating-keystores.md
-                            - Add SSL certificates to keystores: install-and-setup/setup/mi-setup/security/importing-ssl-certificate.md
-                            - Renew a CA-signed Certificate: install-and-setup/setup/mi-setup/security/renewing-ca-signed-certificate-in-keystore.md
-                            - Configure Keystores: install-and-setup/setup/mi-setup/security/configuring-keystores.md
+                            - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
+                            - Add SSL certificates to keystores: install-and-setup/setup/security/importing-ssl-certificate.md
+                            - Renew a CA-signed Certificate: install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore.md
+                            - Configure Keystores: install-and-setup/setup/security/configuring-keystores.md
                       - Comply with GDPR:
-                            - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/mi-setup/security/gdpr-ei.md
-                            - About the Identity Anonymization Tool: install-and-setup/setup/mi-setup/security/about-forgetme-tool.md
+                            - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/security/gdpr-ei.md
+                            - About the Identity Anonymization Tool: install-and-setup/setup/security/about-forgetme-tool.md
                       - Use Secrets:
-                            - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/mi-setup/security/encrypting-plain-text.md
-                            - Use Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
-                            - Use Symmetric Encryption: install-and-setup/setup/mi-setup/security/single-key-encryption.md
-                      - Secure the Management API: install-and-setup/setup/mi-setup/security/securing-management-api.md
+                            - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/security/encrypting-plain-text.md
+                            - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
+                            - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
+                      - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
                 - Message Brokers:
                       - AMQP (RabbitMQ):
-                            - Deploy RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
-                            - Connect to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq.md
+                            - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
+                            - Connect to RabbitMQ: install-and-setup/setup/brokers/configure-with-rabbitmq.md
                       - JMS:
-                            - Connect to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-activemq.md
-                            - Connect to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis.md
-                            - Connect to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-hornetq.md
-                            - Connect to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server.md
-                            - Connect to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq.md
-                            - Connect to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq.md
-                            - Connect to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-msmq.md
-                            - Connect to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq.md
-                            - Connect to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems.md
-                            - Connect to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-weblogic.md
-                            - Connect to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb.md
-                            - Connect to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
-                      - Kafka: install-and-setup/setup/mi-setup/feature-configs/configuring-kafka.md
-                      - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
-                - Transports: install-and-setup/setup/mi-setup/transport-configurations/configuring-transports.md
-                - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport-configurations/multi-https-transport.md
-                - Message Builders and Formatters: install-and-setup/setup/mi-setup/message-builders-formatters/message-builders-and-formatters.md
-                - Message Relay: install-and-setup/setup/mi-setup/message-builders-formatters/message-relay.md
-                - Manage Configurations across Environments: install-and-setup/setup/mi-setup/dynamic-server-configurations.md
+                            - Connect to ActiveMQ: install-and-setup/setup/brokers/configure-with-activemq.md
+                            - Connect to Apache Artemis: install-and-setup/setup/brokers/configure-with-apache-artemis.md
+                            - Connect to HornetQ: install-and-setup/setup/brokers/configure-with-hornetq.md
+                            - Connect to IBM Websphere App Server: install-and-setup/setup/brokers/configure-with-ibm-websphere-app-server.md
+                            - Connect to IBM WebSphere MQ: install-and-setup/setup/brokers/configure-with-ibm-webspheremq.md
+                            - Connect to JBoss MQ: install-and-setup/setup/brokers/configure-with-jbossmq.md
+                            - Connect to MSMQ: install-and-setup/setup/brokers/configure-with-msmq.md
+                            - Connect to Swift MQ: install-and-setup/setup/brokers/configure-with-swiftmq.md
+                            - Connect to TIBCO EMS: install-and-setup/setup/brokers/configure-with-tibco-ems.md
+                            - Connect to Weblogic: install-and-setup/setup/brokers/configure-with-weblogic.md
+                            - Connect to WSO2 MB: install-and-setup/setup/brokers/configure-with-wso2-mb.md
+                            - Connect to Multiple Brokers: install-and-setup/setup/brokers/configure-with-multiple-brokers.md
+                      - Kafka: install-and-setup/setup/feature-configs/configuring-kafka.md
+                      - Azure Service Bus: install-and-setup/setup/brokers/configure-with-azureservicebus.md
+                - Transports: install-and-setup/setup/transport-configurations/configuring-transports.md
+                - Multi-HTTPS Transport: install-and-setup/setup/transport-configurations/multi-https-transport.md
+                - Message Builders and Formatters: install-and-setup/setup/message-builders-formatters/message-builders-and-formatters.md
+                - Message Relay: install-and-setup/setup/message-builders-formatters/message-relay.md
+                - Manage Configurations across Environments: install-and-setup/setup/dynamic-server-configurations.md
                 - Load Balancer and Proxy Server:
-                      - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting-up-lb.md
-                      - Configure a Proxy Server: install-and-setup/setup/mi-setup/configuring-proxy-servers.md
-                      - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling-ssl-tunneling-thru-proxy-server.md
-                - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
+                      - Load Balancing: install-and-setup/setup/deployment/setting-up-lb.md
+                      - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
+                      - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/enabling-ssl-tunneling-thru-proxy-server.md
+                - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
           - Deploy:
                 - Deploy the Micro Integrator:
-                      - Configure a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei.md
-                      - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment-synchronization.md
+                      - Deployment Patterns Overview: install-and-setup/setup/deployment/deployment-overview.md
+                      - Configure a Micro Integrator Cluster: install-and-setup/setup/deployment/deploying-wso2-mi.md
+                      - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
                 - Deploy on Kubernetes:
                       - Micro Integrator on K8s:
-                            - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes-deployment-patterns.md
-                            - Deploy the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes-deployment.md
+                            - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
+                            - Deploy the Micro Integrator on K8s: install-and-setup/setup/deployment/kubernetes-deployment.md
                       - Integrations on K8s:
                             - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
-                            - Deploy Integrations Using Helm Resources: install-and-setup/setup/mi-setup/deployment/deploying-micro-integrator-with-helm.md
+                            - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
                             - Integration Deployment Samples:
                                   - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
                                   - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
@@ -378,18 +383,18 @@ nav:
                       - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                       - Performance Tuning:
                             - Micro Integrator Performance Tuning:
-                                  - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance-tuning/tuning-jvm-performance.md
-                                  - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance-tuning/network-os-performance.md
-                                  - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance-tuning/jdbc-tuning.md
-                                  - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance-tuning/http-transport-tuning.md
-                                  - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance-tuning/jms-transport-tuning.md
-                                  - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance-tuning/tuning-the-vfs-transport.md
-                                  - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance-tuning/rabbitmq-transport-tuning.md
-                                  - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance-tuning/tuning-inbound-endpoints.md
+                                  - Tuning JVM Performance: install-and-setup/setup/performance-tuning/tuning-jvm-performance.md
+                                  - Tuning Network and OS Performance: install-and-setup/setup/performance-tuning/network-os-performance.md
+                                  - Tuning JDBC Configurations: install-and-setup/setup/performance-tuning/jdbc-tuning.md
+                                  - Tuning the HTTP Transport: install-and-setup/setup/performance-tuning/http-transport-tuning.md
+                                  - Tuning the JMS Transport: install-and-setup/setup/performance-tuning/jms-transport-tuning.md
+                                  - Tuning the VFS Transport: install-and-setup/setup/performance-tuning/tuning-the-vfs-transport.md
+                                  - Tuning the RabbitMQ Transport: install-and-setup/setup/performance-tuning/rabbitmq-transport-tuning.md
+                                  - Tuning the Inbound Endpoints: install-and-setup/setup/performance-tuning/tuning-inbound-endpoints.md
           - CI/CD:
-                - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/integration-cicd-overview.md
-                - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
-                - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+                - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
+                - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
+                - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
           - Reference:
                 - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
                 - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -397,25 +402,6 @@ nav:
                 - Performance Test Results:
                       - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
                 - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
-          
-          - Administer:
-                - Administer Overview: administer/admin-overview.md
-                - Manage Users and Roles:
-                      - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
-                      - Manage Users for Micro Integrator: install-and-setup/setup/mi-setup/user-stores/managing-users.md
-                - Manage User Stores:
-                      - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-                      - Configure Secondary User Stores:
-                            - Micro Integrator: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi.md
-                      - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
-                - Manage Micro Integrator:
-                      - Runtime:
-                            - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
-                            - Management API: observe-and-manage/working-with-management-api.md
-                      - Logs:
-                            - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
-                            - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-          
     - Observe and Manage:
           - Overview: observe-and-manage/observe-overview.md
           - Observability:
@@ -445,9 +431,27 @@ nav:
                 - ELK Based Analytics:
                       - Setup: mi-analytics/mi-elk-installation-guide.md
                       - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
-                - EI Analytics:
+                - MI Analytics:
                       - Setup: mi-analytics/setting-up-mi-analytics.md
                       - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
+          - Administer:
+              - Administer Overview: administer/admin-overview.md
+              - Manage Users and Roles:
+                  - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
+                  - Manage Users for Micro Integrator: install-and-setup/setup/user-stores/managing-users.md
+              - Manage User Stores:
+                  - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
+                  - Configure Secondary User Stores:
+                      - Micro Integrator: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi.md
+                  - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+              - Manage Micro Integrator:
+                  - Runtime:
+                      - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
+                      - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
+                      - Management API: observe-and-manage/working-with-management-api.md
+                  - Logs:
+                      - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                      - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
     - References:
           - Product Configurations:
                 - MI Configuration Catalog: reference/config-catalog-mi.md

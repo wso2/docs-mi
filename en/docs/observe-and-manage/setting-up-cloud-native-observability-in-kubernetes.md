@@ -86,7 +86,7 @@ This deployment installs Jaeger-Operator. To install the Jaeger deployment, foll
 
 ##### Configuring Grafana to visualize tracing information
 
-The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine]({{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm), it is not required to add it manually. However, to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
+The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm), it is not required to add it manually. However, to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
 
 1. Access Grafana via `localhost:3000` and sign in.
 2. Navigate to the settings section of the service level dashboard by clicking the cog wheel icon in the top right corner.
@@ -148,7 +148,7 @@ To integrate with the observability deployment, you are required to perform the 
     class="org.wso2.micro.integrator.observability.metric.handler.MetricHandler"
     ``` 
     
-    For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns/).
+    For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/deployment/kubernetes_deployment_patterns/).
 
 - **Enabling the metrics endpoint**
 
@@ -205,8 +205,8 @@ jaeger.sender.agent_host="hostname"
 
 These settings enable the tracing data instrumentation and publishing to a Jaeger instance.
 
-For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns).
+For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/deployment/kubernetes_deployment_patterns).
 
 ## What's Next?
 
-If you have successfully set up your analytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe/micro-integrator/viewing-cloud-native-observability-statistics/).
+If you have successfully set up your analytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).

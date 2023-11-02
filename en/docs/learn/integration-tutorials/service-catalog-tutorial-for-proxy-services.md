@@ -9,7 +9,7 @@ Also, this demonstrates how the integration components and API management compon
 Follow the steps given below to build this use case and try it out.
 
 !!! Note
-    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata).
+    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/develop/generate-service-catalog-metadata).
 
 ### Step 1: Develop the integration service
 
@@ -39,7 +39,7 @@ Follow the instructions given in this section to create and configure the requir
 6. Create a **Proxy Service** artifact.
 
     1.  In the project explorer, right-click **ProxyServiceSampleConfigs** and click **New -> Proxy Service**.
-    2.  Follow the [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy-service-examples/introduction-to-proxy-services.md) to create the StockQuoteProxy Proxy Service.
+    2.  Follow the [Using a Simple Proxy Service]({{base_path}}/learn/examples/proxy-service-examples/introduction-to-proxy-services) to create the StockQuoteProxy Proxy Service.
     3.  Enter the details given below to create a new Proxy Service.
         <table>
         <tr>
@@ -162,7 +162,7 @@ Let's update the metadata of the integration service.
     </table>
 
     !!! Tip
-        See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
+        See the [Service Catalog API documentation](https://apim.docs.wso2.com/en/latest/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
 3.  <b>Important</b>: Be sure to change the `serviceUrl` from HTTPS to HTTP. This is required because the StockQuoteProxy is not secured.
 
@@ -207,7 +207,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     2.  Click **Encrypt Secrets**. 
     
     !!! Tip
-        See [Encrypt static (embedded) server secrets]({{base_path}}/integrate/develop/using-embedded-micro-integrator/#encrypt-static-embedded-server-secrets) for details.
+        See [Encrypt static (embedded) server secrets]({{base_path}}/develop/using-embedded-micro-integrator/#encrypt-static-embedded-server-secrets) for details.
 
 4.  Save the configurations.
 
@@ -222,7 +222,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     ```
 
     !!! Tip
-        See the instructions on [injecting environment variables to the embedded Micro Integrator]({{base_path}}/integrate/develop/using-embedded-micro-integrator/#injecting-environment-variables-to-embedded-micro-integrator).
+        See the instructions on [injecting environment variables to the embedded Micro Integrator]({{base_path}}/develop/using-embedded-micro-integrator/#injecting-environment-variables-to-embedded-micro-integrator).
 
 ### Step 4: Package the artifacts
 
@@ -330,7 +330,7 @@ Let's deploy the API in a gateway environment.
 2.  Click **Default** to specify the gateway environment and host.
 
     !!! Tip
-        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways).
+        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/api-deployment-revision.png" alt="select gateways for the deployment">
 
@@ -372,7 +372,7 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/developer-portal-api-subscription.png">
 
 !!! Tip
-    For detailed instructions, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
+    For detailed instructions, see [Subscribe to an API](https://apim.docs.wso2.com/en/latest/consume/manage-subscription/subscribe-to-an-api/).
 
 ### Step 10: Use the SOAP Pass-Through API
 
@@ -520,4 +520,4 @@ INFO - LogMediator Message = "You have successfully invoked the StockQuoteProxy"
 ```
 
 !!! Tip
-    For detailed instructions see [Invoke an API using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).
+    For detailed instructions see [Invoke an API using the Integrated API Console](https://apim.docs.wso2.com/en/latest/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).

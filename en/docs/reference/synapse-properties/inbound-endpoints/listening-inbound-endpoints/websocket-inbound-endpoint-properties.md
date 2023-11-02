@@ -34,11 +34,11 @@ The WebSocket Inbound protocol is based on the <a href="http://tools.ietf.org/ht
 
 ## Properties
 
-Listed below are the properties used for [creating a WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating a WebSocket inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a WebSocket inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -81,7 +81,7 @@ The following properties are required when [creating a WebSocket inbound endpoin
 
 ### Required Properties (for Secured WebSocket)
 
-In addition to the [common WebSocket inbound properties](#common-websocket-inbound-required-properties) listed above, the following properties are required when [creating a **secured** WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+In addition to the [common WebSocket inbound properties](#common-websocket-inbound-required-properties) listed above, the following properties are required when [creating a **secured** WebSocket inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -132,7 +132,7 @@ In addition to the [common WebSocket inbound properties](#common-websocket-inbou
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating a WebSocket inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
    <thead>
@@ -181,7 +181,7 @@ The following optional properties can be configured when [creating a WebSocket i
 
 ### Optional Properties (for Secured WebSocket)
 
-The following optional properties can be configured when [creating a **Secured** WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating a **Secured** WebSocket inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>

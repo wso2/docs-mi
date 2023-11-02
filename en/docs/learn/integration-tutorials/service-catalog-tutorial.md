@@ -35,7 +35,7 @@ The following concepts and artifacts are used in this tutorial:
 Follow the steps given below to build this use case and try it out.
 
 !!! Note
-    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata).
+    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/develop/generate-service-catalog-metadata).
 
 
 ### Step 1 - Develop the integration service
@@ -252,7 +252,7 @@ Let's update the metadata of the integration service.
     </table>
 
     !!! Tip
-        See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
+        See the [Service Catalog API documentation](https://apim.docs.wso2.com/en/4.2.0/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
 3.  <b>Important</b>: Be sure to change the `serviceUrl` from HTTPS to HTTP. This is required because the HealthcareAPI is not secured.
 
@@ -420,7 +420,7 @@ Let's deploy the API in a gateway environment.
 2.  Click **Default** to specify the gateway environment and host.
 
     !!! Tip
-        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways).
+        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
 
     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment"></a>
 
@@ -462,7 +462,7 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png"></a>
 
 !!! Tip
-    For detailed instructions, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
+    For detailed instructions, see [Subscribe to an API](https://apim.docs.wso2.com/en/4.2.0/consume/manage-subscription/subscribe-to-an-api).
 
 ### Step 10 - Use the API
 
@@ -592,4 +592,4 @@ INFO - LogMediator message = "Welcome to HealthcareService"
 ```
 
 !!! Tip
-    For detailed instructions see [Invoke an API using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).
+    For detailed instructions see [Invoke an API using the Integrated API Console](https://apim.docs.wso2.com/en/4.2.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).

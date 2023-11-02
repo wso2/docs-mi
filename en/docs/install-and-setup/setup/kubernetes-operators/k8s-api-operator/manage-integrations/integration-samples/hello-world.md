@@ -3,7 +3,7 @@ Let's define a basic Hello World scenario using WSO2 Micro Integrator and deploy
 
 ## Prerequisites
 
--   Install and set up [WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+-   Install and set up [WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
 -   Install a [Kubernetes](https://kubernetes.io/docs/setup/) cluster and **v1.11+** client. Alternatively, you can [run Kubernetes locally via Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/).
 -   Install [Docker](https://docs.docker.com/).
 -   Install the [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install).

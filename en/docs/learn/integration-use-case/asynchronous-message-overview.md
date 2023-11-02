@@ -27,8 +27,8 @@ Disadvantages of asynchronous messaging includes the additional component of a m
 		<td>
 			<b>RabbitMQ Examples</b>
             <ul>
-                <li><a href="{{base_path}}/integrate/examples/rabbitmq-examples/point-to-point-rabbitmq">Point to Point</a></li>
-                <li><a href="{{base_path}}/integrate/examples/rabbitmq-examples/pub-sub-rabbitmq">Publish/Subscribe</a></li>
+                <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/point-to-point-rabbitmq">Point to Point</a></li>
+                <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/pub-sub-rabbitmq">Publish/Subscribe</a></li>
                 <li>Guaranteed Delivery 
                     <ul>
                         <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/store-forward-rabbitmq">Message Store and Message Processor</a></li>

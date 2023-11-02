@@ -4,7 +4,7 @@ Follow the steps given below to run the WSO2 Micro Integrator (MI) runtime.
 
 ## Before you begin
 
-[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator.
+[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
 
 ## Starting the MI server
 
@@ -61,4 +61,4 @@ Follow the steps given below to start the server.
 
 ## See Also
 
--   [Running the MI as a Windows Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service)
+-   [Running the MI as a Windows Service]({{base_path}}/install-and-setup/install/installing-mi-as-a-windows-service)

@@ -2,7 +2,7 @@
 
 Create a Kubernetes Exporter if you want to deploy your integration solutions in a Kubernetes environment. 
 
-The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [API K8s Operator]({{base_path}}/setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator).
+The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [API K8s Operator]({{base_path}}/setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator).
 
 ## Creating the Kubernetes project
 
@@ -226,7 +226,7 @@ Expand the **Kubernetes Exporter** in the project explorer. See that the followi
 
 Before you begin:
 
--   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/integrate/develop/packaging-artifacts). For example, see the HelloWorld sample given below.
+-   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/develop/packaging-artifacts). For example, see the HelloWorld sample given below.
 
     <img alt="Integration artifacts for Docker" src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/integration-projects-for-k8s.png" width="300">
 

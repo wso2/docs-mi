@@ -5,11 +5,11 @@ The Kafka inbound endpoint provides the functionalities of the <a href="http://k
 
 ## Properties
 
-Listed below are the properties used for [creating an Kafka inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating an Kafka inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a Kafka inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a Kafka inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -96,7 +96,7 @@ The following properties are required when [creating a Kafka inbound endpoint]({
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a Kafka inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating a Kafka inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
    <thead>

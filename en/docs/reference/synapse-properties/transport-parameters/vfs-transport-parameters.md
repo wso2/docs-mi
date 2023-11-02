@@ -1,13 +1,13 @@
 # VFS Parameters
 
-When you implement an integration use case that requires file processing, you can use the following VFS parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that requires file processing, you can use the following VFS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The VFS transport is enabled and configured for the Micro Integrator by default, which allows you to run VFS use cases without any server configurations. Read about the [VFS transport]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport).
+    The VFS transport is enabled and configured for the Micro Integrator by default, which allows you to run VFS use cases without any server configurations. Read about the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
-See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
+See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
 ## Service-Level Parameters
 

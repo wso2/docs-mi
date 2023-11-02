@@ -363,7 +363,7 @@ The service's metadata is used by the API management runtime to generate the API
 </table>
 
 !!! Tip
-    See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
+    See the [Service Catalog API documentation](https://apim.docs.wso2.com/en/latest/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
 ### Updating properties
 
@@ -400,12 +400,12 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 
 ## Examples
 
--   [Using a Simple Rest API]({{base_path}}/integrate/examples/rest-api-examples/introduction-rest-api)
--   [Working with Query Parameters]({{base_path}}/integrate/examples/rest-api-examples/setting-query-params-outgoing-messages)
--   [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/integrate/examples/rest-api-examples/enabling-rest-to-soap)
--   [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/integrate/examples/rest-api-examples/configuring-non-http-endpoints)
--   [Handling Non Matching Resources]({{base_path}}/integrate/examples/rest-api-examples/handling-non-matching-resources)
--   [Handling HTTP Status Codes]({{base_path}}/integrate/examples/rest-api-examples/setting-https-status-codes)
--   [Manipulating Content Types]({{base_path}}/integrate/examples/rest-api-examples/transforming-content-type)
--   [Securing a REST API]({{base_path}}/integrate/examples/rest-api-examples/securing-rest-apis)
--   [Special Cases]({{base_path}}/integrate/examples/rest-api-examples/special-cases)
+-   [Using a Simple Rest API]({{base_path}}/learn/examples/rest-api-examples/introduction-rest-api)
+-   [Working with Query Parameters]({{base_path}}/learn/examples/rest-api-examples/setting-query-params-outgoing-messages)
+-   [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/learn/examples/rest-api-examples/enabling-rest-to-soap)
+-   [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/learn/examples/rest-api-examples/configuring-non-http-endpoints)
+-   [Handling Non Matching Resources]({{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources)
+-   [Handling HTTP Status Codes]({{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes)
+-   [Manipulating Content Types]({{base_path}}/learn/examples/rest-api-examples/transforming-content-type)
+-   [Securing a REST API]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
+-   [Special Cases]({{base_path}}/learn/examples/rest-api-examples/special-cases)

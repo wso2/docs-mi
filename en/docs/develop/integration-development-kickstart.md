@@ -43,7 +43,7 @@ from all the available healthcare centers.
 
 ## Step 1 - Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) based on your operating system. For more information, see [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) based on your operating system. For more information, see [Installing WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
 
 ## Step 2 - Develop the integration artifacts
 
@@ -408,7 +408,7 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
 
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) to observe details of the deployed artifacts.
 
 If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashboard</b> in the <b>Runtime Services</b> tab as shown below.
 

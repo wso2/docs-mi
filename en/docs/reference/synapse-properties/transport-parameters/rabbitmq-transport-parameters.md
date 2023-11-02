@@ -1,6 +1,6 @@
 # RabbitMQ Parameters
 
-When you implement an integration use case that requires a RabbitMQ connection, you can use the following RabbitMQ parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that requires a RabbitMQ connection, you can use the following RabbitMQ parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
       The Micro Integrator can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport]({{base_path}}/install-and-setup/brokers/configure-with-rabbitMQ).
@@ -9,7 +9,7 @@ When you implement an integration use case that requires a RabbitMQ connection, 
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
-See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
+See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
 ### Required Parameters
 
@@ -231,7 +231,7 @@ To enable SSL support in RabbitMQ, you need to configure the following paramet
 
 ## Service-Level Parameters (Sending Messages)
 
-In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints).
+In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/develop/creating-artifacts/creating-endpoints).
 
 **Example**:
 

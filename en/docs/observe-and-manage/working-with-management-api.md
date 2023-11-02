@@ -10,7 +10,7 @@ obtain administrative information of the server instance and to perform various 
 The management API is secured using JWT authentication by default. Therefore, when you directly access the management API, you must first acquire a JWT token with your valid username and password.
 
 !!! Tip
-    See [Securing the Management API]({{base_path}}/install-and-setup/setup/mi-setup/security/securing_management_api) for information on configuring **users**, **JWT authentication**, and other security options for the management API.
+    See [Securing the Management API]({{base_path}}/install-and-setup/setup/security/securing-management-api) for information on configuring **users**, **JWT authentication**, and other security options for the management API.
 
 ### Getting a JWT token
 
@@ -55,7 +55,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Retrieves a list of all users stored in an [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore).
+	**Description**: Retrieves a list of all users stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
 
@@ -94,7 +94,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users/{user_id}`
 
-	**Description**: Retrieves information related to a specified user stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore).
+	**Description**: Retrieves information related to a specified user stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
 
@@ -119,7 +119,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users/pattern=”*”&role=admin`
 
-	**Description**: Retrieves information related to user names (stored in an [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore) that match a specific pattern and user role.
+	**Description**: Retrieves information related to user names (stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) that match a specific pattern and user role.
 
 	**Example**:
 
@@ -143,7 +143,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Adds a user to the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore). Note that only admin users can create other users with admin access.
+	**Description**: Adds a user to the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). Note that only admin users can create other users with admin access.
 
 	**Example**:
 
@@ -180,7 +180,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Removes a user from the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore). Note that only admin users can remove other users with admin access.
+	**Description**: Removes a user from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). Note that only admin users can remove other users with admin access.
 
 	**Example**:
 
@@ -216,7 +216,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Update the password of a user from the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
+	**Description**: Update the password of a user from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
 
 	**Example**:
 
@@ -247,7 +247,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/roles`
 
-	**Description**: Retrieves a list of all roles stored in an [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore).
+	**Description**: Retrieves a list of all roles stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
 
@@ -288,7 +288,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/roles/{role_name}`
 
-	**Description**: Retrieves information related to a specified role stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore).
+	**Description**: Retrieves information related to a specified role stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
 
@@ -316,7 +316,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/roles`
 
-	**Description**: Adds a role to the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore).
+	**Description**: Adds a role to the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
 
@@ -351,7 +351,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Removes a role from the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore). 
+	**Description**: Removes a role from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). 
 
 	**Example**:
 
@@ -375,7 +375,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/roles`
 
-	**Description**: Assign/remove set of roles to/from a given user in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user-stores/setting-up-a-userstore). 
+	**Description**: Assign/remove set of roles to/from a given user in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). 
 
 	**Example**:
 

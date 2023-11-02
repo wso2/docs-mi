@@ -32,7 +32,7 @@ Monitoring Info : OID branch "1.3.6.1.4.1.18060.14" with the following sub-branc
 
 ## MBean OID mappings
 
-Following are the OID equivalents of the server manager and transport MBeans, which are described in [JMX Monitoring]({{base_path}}/observe/micro-integrator/classic-observability-metrics/jmx-monitoring):
+Following are the OID equivalents of the server manager and transport MBeans, which are described in [JMX Monitoring]({{base_path}}/observe-and-manage/classic-observability-metrics/jmx-monitoring):
 
 ```
 Name=ServerManager@ServerState as OID: 

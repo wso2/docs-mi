@@ -51,7 +51,7 @@ Apart from defining a schema, you can also add properties to control XML to JSON
 <tbody>
 <tr class="odd">
 <td><strong>Schema</strong></td>
-<td><p>The name of the property that needs to be overridden in the sequence. The <b>JSON Transform mediator</b> supports only the parameters related to XML to JSON conversion. The list of properties that are supported can be found <a href="{{base_path}}/integrate/examples/json-examples/json-examples/#xml-to-json-transformation-parameters">here</a>.</p>
+<td><p>The name of the property that needs to be overridden in the sequence. The <b>JSON Transform mediator</b> supports only the parameters related to XML to JSON conversion. The list of properties that are supported can be found <a href="{{base_path}}/learn/examples/json-examples/json-examples/#xml-to-json-transformation-parameters">here</a>.</p>
 </td>
 </tr>
 <tr class="even">
@@ -177,7 +177,7 @@ With this schema correction, the JSON payload would come out as below. This give
 
 Given below is a sample schema file (Schema.json) file that you can use for running the examples given below. 
 Add this sample schema file (i.e. Schema.json) to the following registry path: conf:/Schema.json. 
-For instructions on adding the schema file to the Registry Resources Project, see [Creating Registry Resource]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources).
+For instructions on adding the schema file to the Registry Resources Project, see [Creating Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources).
 
 ```json
 {

@@ -25,7 +25,7 @@ This is useful for the type of static content often found in XSLT files, WSDL fi
 
 Follow these steps to create a new local entry.
 
-1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Local Entry** to open the **New Local Entry** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Local Entry** to open the **New Local Entry** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/select-local-entry.jpg">
 
@@ -88,4 +88,4 @@ reference the local entry as follows:
 
 ## Examples
 
-- [Sequences and Endpoints as Local Registry Entries]({{base_path}}/integrate/examples/registry-examples/local-registry-entries)
+- [Sequences and Endpoints as Local Registry Entries]({{base_path}}/learn/examples/registry-examples/local-registry-entries)

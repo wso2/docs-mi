@@ -2,15 +2,15 @@
 ## Introduction
 Persists messages in a JMS queue inside a JMS Broker. Since messages are persisted in an orderly manner, JMS message stores implement the <b>Store and Forward</b> integration pattern. This message store can be configured by specifying the class as <code>org.apache.synapse.message.store.impl.jms.JmsStore</code>.
 
-To try this out quickly, see the [JMS Message Store example]({{base_path}}/integrate/examples/message-store-processor-examples/using-jms-message-stores/).
+To try this out quickly, see the [JMS Message Store example]({{base_path}}/learn/examples/message-store-processor-examples/using-jms-message-stores/).
 
 ## Properties
 
-Listed below are the properties used for [creating a JMS Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store/).
+Listed below are the properties used for [creating a JMS Message Store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/).
 
 ### Required Properties
 
-The following properties are required when [creating a JMS Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store/).
+The following properties are required when [creating a JMS Message Store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/).
 
 <table>
   <tr>
@@ -41,7 +41,7 @@ The following properties are required when [creating a JMS Message Store]({{base
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a JMS Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store/).
+The following optional properties can be configured when [creating a JMS Message Store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/).
 
 <table>
   <tr>

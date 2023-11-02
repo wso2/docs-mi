@@ -36,7 +36,7 @@ Now when you start the Micro Integrator, the `correlation.log` file is created i
 
 ## Sending an HTTP request with a Correlation ID
 
-When the client sends an HTTP request to the Micro Integrator, a Correlation ID for the request can be passed using the Correlation header that is configured in the Micro Integrator. By default, the Correlation header is `activity_id`. If you want to change the default Correlation header, see the topic on [configuring Correlation logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#correlations-logs). If the client does not pass a Correlation ID in the request, the Micro Integrator will generate an internal value and assign it to the request. The Correlation ID assigned to the incoming request is assigned to all the log entries that are related to the same request.
+When the client sends an HTTP request to the Micro Integrator, a Correlation ID for the request can be passed using the Correlation header that is configured in the Micro Integrator. By default, the Correlation header is `activity_id`. If you want to change the default Correlation header, see the topic on [configuring Correlation logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#correlations-logs). If the client does not pass a Correlation ID in the request, the Micro Integrator will generate an internal value and assign it to the request. The Correlation ID assigned to the incoming request is assigned to all the log entries that are related to the same request.
 
 Shown below is the POST request that is sent using the CURL client. Note that the Correlation ID is set in this request.
 
@@ -231,4 +231,4 @@ The detail recorded in a log entry is described below.
 
 ## Configuring Correlation Logs (Optional)
 
-For information, see [Configuring Correlation Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#correlations-logs).
+For information, see [Configuring Correlation Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#correlations-logs).

@@ -94,7 +94,6 @@ Given the unique data handling methods across different systems, the expeditious
 and utilization of this data is paramount for the development of contemporary applications and services 
 that underpin your organization's digital ecosystem."
 
-
 ### Efficient Data Exposure
 Effortlessly transform your data sources into API endpoints or services with WSO2 Integration Studio, 
 a streamlined process that takes just minutes. 
@@ -111,4 +110,3 @@ and expeditiously convert and transfer data between various systems
 This comprehensive solution includes an intuitive visual data mapper designed to facilitate data transformation 
 from diverse formats, such as JSON, XML, and CSV. The drag-and-drop graphical interface empowers users to effortlessly 
 create data transformation workflows without the necessity for manual coding.
-

@@ -2,7 +2,7 @@
 
 API documentation is important to guide the users on what they can do using specific APIs. 
 
-When you create a REST API artifact or a RESTful data service from WSO2 Integration Studio, a default Swagger 3.0 (OpenAPI) definition is generated. For [REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) artifacts, you can also attach an additional custom Swagger definition for the API.
+When you create a REST API artifact or a RESTful data service from WSO2 Integration Studio, a default Swagger 3.0 (OpenAPI) definition is generated. For [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) artifacts, you can also attach an additional custom Swagger definition for the API.
 
 ## Swagger documents of API artifacts
 

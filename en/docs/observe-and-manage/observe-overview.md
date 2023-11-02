@@ -89,8 +89,8 @@ You can integrate with external tools to do the following:
 
 **Monitoring Metrics**
 
-- [JMX Monitoring](jmx_monitoring.md)
-- [SNMP Monitoring](snmp_monitoring.md)
+- [JMX Monitoring](classic-observability-metrics/jmx-monitoring.md)
+- [SNMP Monitoring](classic-observability-metrics/snmp-monitoring.md)
 
 **TCP Message Monitoring**
 

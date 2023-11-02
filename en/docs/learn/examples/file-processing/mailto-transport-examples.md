@@ -2,7 +2,7 @@
 
 ## Globally setting the email sender
 
-When the [MailTo transport sender is enabled]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for the Micro Integrator, you can configure your mediation sequences to send emails. In this example, the email sender credentials are set globally in the `deployment.toml` file (stored in the `MI_HOME/conf` directory). You need to specify a valid email address prefixed with the transport sender name (which is specified in the deployment.toml file) in your mediation flow. For example, if the transport sender is 'mailto', the endpoint URL in the synapse configuration should be as follows: `mailto:targetemail@mail.com`
+When the [MailTo transport sender is enabled]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for the Micro Integrator, you can configure your mediation sequences to send emails. In this example, the email sender credentials are set globally in the `deployment.toml` file (stored in the `MI_HOME/conf` directory). You need to specify a valid email address prefixed with the transport sender name (which is specified in the deployment.toml file) in your mediation flow. For example, if the transport sender is 'mailto', the endpoint URL in the synapse configuration should be as follows: `mailto:targetemail@mail.com`
 
 ### Synapse configuration
 
@@ -32,10 +32,10 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
-2. Open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf` directory, and [enable the MailTo transport sender]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
-4. [Create the proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator. 
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+2. Open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf` directory, and [enable the MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+4. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
 Invoke the proxy service by sending a request. For example use SOAP UI. Check the inbox of your email account, which is configured as the target endpoint. You will receive an email from the email sender that is configured globally in the deployment.toml file.
 
@@ -80,16 +80,16 @@ Enter a valid email address prefixed with the transport sender name (specified i
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
-2. Open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf` directory, and [enable the MailTo transport sender]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
-4. [Create the proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator. 
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+2. Open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf` directory, and [enable the MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+4. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
 Invoke the proxy service by sending a request. Check your inbox. You will receive an email from the email sender that you configured for the proxy service.
 
 ## Receiving emails
 
-When the [MailTo transport listener is enabled]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for the Micro Integrator, you can configure your mediation sequences to send emails.
+When the [MailTo transport listener is enabled]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for the Micro Integrator, you can configure your mediation sequences to send emails.
 
 In this example, let's configure your mediation sequence to receive emails and then process the email contents. The MailTo transport receiver should be configured at service level and each service configuration should explicitly state the mail transport receiver configuration. This is required to enable different services to receive mails over different mail accounts and configurations.
 
@@ -143,10 +143,10 @@ In this sample, we used the `transport.mail.ContentType` property to make sure t
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
-2. Open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf` directory, and [enable the MailTo transport sender]({{base_path}}/install-and-setup/setup/mi-setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
-3. [Create the proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources). Change the registry path of the proxy accordingly. 
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+2. Open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf` directory, and [enable the MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+4. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources). Change the registry path of the proxy accordingly. 
 5. Set up the back-end service.
    - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip)
    
@@ -162,7 +162,7 @@ Create the artifacts:
       axis2server.bat
       ```
       
-6. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator. 
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
 Send a plain/text e-mail (Make sure you switch to **Plain text** **mode** when you are composing the email) with the following body and any custom Subject from your mail account to the mail address `synapse.demo.1@gmail.com`. 
 

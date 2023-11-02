@@ -361,7 +361,7 @@ This builds the connector and generates a ZIP file named `sample-connector-1.0.0
 
 ### Step 4: Testing the connector
 
-1. Open WSO2 Integration Studio and [create an integration project]({{base_path}}/integrate/develop/create-integration-project) by clicking **New Integration Project**.
+1. Open WSO2 Integration Studio and [create an integration project]({{base_path}}/develop/create-integration-project) by clicking **New Integration Project**.
 
 2. In the window that appears, make sure you select **Connector Exporter Project"** as a module of the project.
 
@@ -785,7 +785,7 @@ Connection timeout is an environment dependent configuration. Developers may def
 **Handle errors meaningfully. Use ERROR CODES**
 Sometimes it is required to handle errors within the connector. Sometimes it is required to let the calling template handle the error. Sometimes it is required to forward the error message back to the connector operation invoker as it is. It is good to analyze use cases, and then design which errors need to be handled at which instance. However, it is a good practice to define and use error codes. 
 
-Please read the [WSO2 Error Code guide]({{base_path}}/reference/error_handling/). 
+Please read the [WSO2 Error Code guide]({{base_path}}/reference/troubleshooting/error-handling-mi). 
 
 **Write test cases**
 

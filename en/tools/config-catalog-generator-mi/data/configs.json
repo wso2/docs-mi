@@ -880,7 +880,7 @@
                 {
                     "name": "management_api.jwt_token_security_handler",
                     "required": true,
-                    "description": "This configuration header is required for configuring the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.",
+                    "description": "This configuration header is required for configuring the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.",
                     "params": [
                         {
                             "name": "enable",
@@ -941,7 +941,7 @@
                 {
                     "name": "management_api.authorization_handler",
                     "required": true,
-                    "description": "This configuration header is required for disabling authorization for the Micro Integrator's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.",
+                    "description": "This configuration header is required for disabling authorization for the Micro Integrator's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.",
                     "params": [
                         {
                             "name": "enable",
@@ -956,7 +956,7 @@
                 {
                     "name": "[management_api.authorization_handler.resources]",
                     "required": true,
-                    "description": "This configuration header is required for enabling authorization for additional resources (other than 'users') of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.",
+                    "description": "This configuration header is required for enabling authorization for additional resources (other than 'users') of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.",
                     "params": [
                         {
                             "name": "path",
@@ -977,7 +977,7 @@
                 {
                     "name": "[management_api.cors]",
                     "required": true,
-                    "description": "This configuration header is required for configuring CORs for the Management API of the Micro Integrator. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.",
+                    "description": "This configuration header is required for configuring CORs for the Management API of the Micro Integrator. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.",
                     "params": [
                         {
                             "name": "enabled",
@@ -1331,7 +1331,7 @@
                 {
                     "name": "transport.http",
                     "required": true,
-                    "description": "This configuration header is required for configuring the parameters that are used for <a href='../../setup/performance-tuning/http_transport_tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.",
+                    "description": "This configuration header is required for configuring the parameters that are used for <a href='../../setup/performance-tuning/http-transport-tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.",
                     "params": [
                         {
                             "name": "socket_timeout",
