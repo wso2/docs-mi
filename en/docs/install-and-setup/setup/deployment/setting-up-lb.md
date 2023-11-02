@@ -1,6 +1,6 @@
 # Setting up a Load balancer
 
-When you have a [clustered deployment]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-ei), you need to set up a load balancer to manage the incoming traffic. The load balancer automatically distributes incoming traffic across the
+When you have a [clustered deployment]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi), you need to set up a load balancer to manage the incoming traffic. The load balancer automatically distributes incoming traffic across the
 multiple nodes in your cluster, which enables better fault tolerance in your deployment.
 
 ## Introduction

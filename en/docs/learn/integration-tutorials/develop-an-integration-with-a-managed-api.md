@@ -62,7 +62,7 @@ Let’s create an API in WSO2 API Manager.
 
 	 [![Add GET resource]({{base_path}}/assets/img/tutorials/querydocter-resource.png)]({{base_path}}/assets/img/tutorials/querydocter-resource.png)
 
-5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation]({{base_path}}/design/prototype-api/create-mocked-js-api).
+5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation](https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-mocked-js-api/).
 
 ## Step 2 - Develop the integration service
 
@@ -394,7 +394,7 @@ Let's start the back-end hospital service.
 
 ## Step 10 - Subscribe to the API and test it
 
-Subscribe to the `HealthcareAPI` REST API and invoke it. For more information, see [Test a REST API Using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+Subscribe to the `HealthcareAPI` REST API and invoke it. For more information, see [Test a REST API Using the Integrated API Console](https://apim.docs.wso2.com/en/4.2.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).
 
 You will get the response message from the Healthcare service, if you send the category as `surgery`:
 

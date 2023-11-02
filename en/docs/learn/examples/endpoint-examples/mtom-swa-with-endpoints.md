@@ -64,7 +64,7 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
 2.  Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following configurations:
 
     - To enable MTOM:
@@ -95,9 +95,9 @@ Create the artifacts:
     ```
 
 
-3. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-4. Create the [main sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
+3. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+4. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 When your client executes successfully, it will upload a file containing
 the ASF logo, receive its response, and save the response to a

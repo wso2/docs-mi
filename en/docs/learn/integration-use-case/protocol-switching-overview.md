@@ -19,10 +19,10 @@ For example, messages that are received via HTTP may need to be sent to a JMS qu
 					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-HTTPS-to-JMS">Switching from HTTP/S to JMS</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender">Switching from FTP Listener to Mail Sender</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FTP-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching_from_HTTP_to_FIX">Switching from HTTP to FIX</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-HTTP-to-FIX">Switching from HTTP to FIX</a>
 				</li>
 				<li>
 					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FIX-to-HTTP">Switching from FIX to HTTP</a>

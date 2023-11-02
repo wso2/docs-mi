@@ -24,7 +24,7 @@ Follow the steps below to import the Salesforce certificate into the integration
      <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="90%" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
-4. Import the certificate to the integration runtime's client keystore using the following [command]({{base_path}}/install-and-setup/security/importing_ssl_certificate/).
+4. Import the certificate to the integration runtime's client keystore using the following [command]({{base_path}}/install-and-setup/security/importing-ssl-certificate/).
 
     ```
     keytool -importcert -file <certificate file> -keystore <PRODUCT_HOME>/repository/resources/security/client-truststore.jks -alias "Salesforce"
@@ -41,11 +41,11 @@ Follow the steps below to import the Salesforce certificate into the integration
      </salesforce.init>
     ```
 
-> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/security/encrypting_plain_text/). See, Working with Passwords on integrating and using Secure Vault.
+> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/security/encrypting-plain-text/). See, Working with Passwords on integrating and using Secure Vault.
 
 ## Re-using Salesforce configurations
 
-You can save the Salesforce connection configuration as a [local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above <salesforce.init> entry as a local entry named MySFConfig, you could reference it from an operation like getUserInfo as follows:
+You can save the Salesforce connection configuration as a [local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries/) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above <salesforce.init> entry as a local entry named MySFConfig, you could reference it from an operation like getUserInfo as follows:
 
 ```
 <salesforce.getUserInformation configKey="MySFConfig"/>

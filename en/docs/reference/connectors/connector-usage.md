@@ -24,7 +24,7 @@ However, the recommended approach to use connectors for integration logic develo
 
 1. Open [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/).
 
-2. [Create an Integration Project]({{base_path}}/integrate/develop/create-integration-project).
+2. [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 3. Right-click the ESB Configs folder and select **New** -> **Add/Remove Connector**. Search for the connector and follow the steps in the wizard to import the connector.
 
@@ -85,7 +85,7 @@ You can refer to the documentation of the relevant connector and configure the `
 
 <img src="{{base_path}}/assets/img/integrate/connectors/old-connection-config.png" title="Connection configuration with init" width="500" alt="Connection configuration with init"/>
 
-Instead of having the `init` operation before each connector operation, you can create an [inline XML local-entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/) with the XML configuration of the `init` operation configuration and refer to it at the beginning of each connector operation.
+Instead of having the `init` operation before each connector operation, you can create an [inline XML local-entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries/) with the XML configuration of the `init` operation configuration and refer to it at the beginning of each connector operation.
 
 ### Externalizing connector initialization parameters 
 
@@ -105,11 +105,11 @@ The following are some other ways to externalize connection initialization param
 
 There are no special requirements when deploying the integration runtime with artifacts that has connectors. However, the following facts need to be considered. 
 
-To seamlessly refresh tokens, use a registry location that is visible to all [cluster members]({{base_path}}/install-and-setup/deployment/deploying-wso2-ei/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant connectors, see the relevant documentation.
+To seamlessly refresh tokens, use a registry location that is visible to all [cluster members]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant connectors, see the relevant documentation.
 
 ## Performance tuning and monitoring
 
-SaaS connectors use HTTP/HTTPS protocol to communicate. They use the WSO2 mediation engine itself. Hence [HTTP protocol related tunings]({{base_path}}/install-and-setup/performance-tuning/http_transport_tuning/) are applied. 
+SaaS connectors use HTTP/HTTPS protocol to communicate. They use the WSO2 mediation engine itself. Hence [HTTP protocol related tunings]({{base_path}}/install-and-setup/setup/performance-tuning/http-transport-tuning/) are applied. 
 
 Technology connectors use protocols that are custom. Thus their tuning needs to be done at the connector itself. All connection related tunings are present in the form you get when you create a new connection for the connector. For the older connectors, configurations will be present in the `init` operation. 
 
@@ -121,7 +121,7 @@ Please refer to the reference documentation of the connector for details.
 
 Connector implementations will have DEBUG and TRACE level logs. You can enable them to see in detail what is going on with the connector. 
 
-* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
+* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
 
 * To get the package name of the connector implementation, refer the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
 
@@ -130,7 +130,7 @@ Connector implementations will have DEBUG and TRACE level logs. You can enable t
 
 ### Enable wire logging 
 
-For SaaS connectors that use the HTTP transport of the integration runtime, developers can enable wire logs to see details of the messages that are sent from the runtime to the back-end service and the response sent back. This is useful to check the exact message that is sent out by the connector to the back-end service. See [documentation on monitoring wire logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-logs/#wire-logs) for instructions on how to enable wire logs. 
+For SaaS connectors that use the HTTP transport of the integration runtime, developers can enable wire logs to see details of the messages that are sent from the runtime to the back-end service and the response sent back. This is useful to check the exact message that is sent out by the connector to the back-end service. See [documentation on monitoring wire logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs/#wire-logs) for instructions on how to enable wire logs. 
 
 ### Mediation debug 
 
@@ -140,7 +140,7 @@ WSO2 Integration Studio provides debugging capabilities. You cannot use mediatio
 * Whether your input parameters for connector operations contain the expected values.
 * What is the response message after using connector cooperation.
 
-Please refer to [the Debugging Mediation documentation]({{base_path}}/integrate/develop/debugging-mediation/) for instructions on how to use mediation debugging. 
+Please refer to [the Debugging Mediation documentation]({{base_path}}/develop/debugging-mediation/) for instructions on how to use mediation debugging. 
 
 ### Debugging connector code 
 

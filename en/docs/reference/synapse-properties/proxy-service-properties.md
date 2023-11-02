@@ -9,11 +9,11 @@ Any available transport can be used to receive and send messages from the proxy 
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/).
+See the topics given below for the list of properties that can be configured when [creating a proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service/).
 
 ### General Properties
 
-Listed below are the main properties that are required when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/) of any type.
+Listed below are the main properties that are required when [creating a proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service/) of any type.
 
 <table>
   <tr>
@@ -36,7 +36,7 @@ Listed below are the main properties that are required when [creating a proxy se
       The proxy service uses an <b>Endpoint</b> artifact inline to define the location to which messages should be routed. You can choose one of the following options to specify the endpoint.
       <ul>
         <li>Enter the URL of the endpoint.</li>
-        <li>If you have a <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Integration Studio, provide the name of the artifact.</li>
+        <li>If you have a <a href="{{base_path}}/develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Integration Studio, provide the name of the artifact.</li>
         <li>If you have a predefined <b>Endpoint</b> artifact that is saved in the <a href="{{base_path}}/concepts/registry-concepts">registry</a>, provide the link to the artifact.</li>
       </ul>
       See <a href="{{base_path}}/reference/synapse-properties/endpoint-properties">Endpoint Properties</a> for the complete list of properties you can define for the Endpoint artifact.
@@ -46,7 +46,7 @@ Listed below are the main properties that are required when [creating a proxy se
 
 ### Logging Properties
 
-The following properties are required when [creating a logging proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/):
+The following properties are required when [creating a logging proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service/):
 
 <table>
   <tr>
@@ -97,7 +97,7 @@ The following properties are required when [creating a logging proxy service]({{
 
 ### WSDL Properties
 
-The following properties are required when [creating a WSDL-based proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/):
+The following properties are required when [creating a WSDL-based proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service/):
 
 <table>
   <tr>
@@ -138,7 +138,7 @@ The following properties are required when [creating a WSDL-based proxy service]
 
 ### Transformer Proxy Properties
 
-The following properties are required when [creating a transformer proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/):
+The following properties are required when [creating a transformer proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service/):
 
 <table>
   <tr>

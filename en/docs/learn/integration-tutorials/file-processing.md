@@ -52,7 +52,7 @@ Create an integration project with the following modules: **ESB Configs** and **
 
 #### Create the Main and Fault sequences
 
-1.  Create the Main sequence with the following configuration. See the instructions on [creating a sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences).
+1.  Create the Main sequence with the following configuration. See the instructions on [creating a sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences).
     ```xml
     <sequence name="main" xmlns="http://ws.apache.org/ns/synapse">
         <in>

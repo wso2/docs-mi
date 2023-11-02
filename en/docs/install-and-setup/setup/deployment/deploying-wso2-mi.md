@@ -9,7 +9,7 @@ This deployment scenario is a two-node Micro Integrator deployment. That is, two
 
 ## Install the Micro Integrator
 
-[Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
+[Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
 
 Let's set up two instances of the Micro Integrator server.
 
@@ -297,7 +297,7 @@ You could observe the following member removal log in other servers when one nod
 
 ##  Testing task coordination
 
-Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two Micro Integrator servers. See the instructions on [creating a scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task).
+Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two Micro Integrator servers. See the instructions on [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

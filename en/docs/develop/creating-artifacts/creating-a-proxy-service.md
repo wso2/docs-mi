@@ -128,7 +128,7 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy-service-examples/introduction-to-proxy-services)
--   [Publishing a Custom WSDL]({{base_path}}/integrate/examples/proxy-service-examples/publishing-a-custom-wsdl)
--   [Exposing a Proxy Service via Inbound Endpoint]({{base_path}}/integrate/examples/proxy-service-examples/exposing-proxy-via-inbound)
--   [Securing Proxy Services]({{base_path}}/integrate/examples/proxy-service-examples/securing-proxy-services)
+-   [Using a Simple Proxy Service]({{base_path}}/learn/examples/proxy-service-examples/introduction-to-proxy-services)
+-   [Publishing a Custom WSDL]({{base_path}}/learn/examples/proxy-service-examples/publishing-a-custom-wsdl)
+-   [Exposing a Proxy Service via Inbound Endpoint]({{base_path}}/learn/examples/proxy-service-examples/exposing-proxy-via-inbound)
+-   [Securing Proxy Services]({{base_path}}/learn/examples/proxy-service-examples/securing-proxy-services)

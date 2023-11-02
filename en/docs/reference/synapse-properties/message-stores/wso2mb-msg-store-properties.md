@@ -4,7 +4,7 @@ WSO2 Message Broker is used as the <b>message store</b> for the Micro Integrator
 
 ## Properties
 
-The following properties can be configured when [creating a WSO2 MB Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store/).
+The following properties can be configured when [creating a WSO2 MB Message Store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/).
 
 <table>
    <thead>

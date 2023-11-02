@@ -1,12 +1,12 @@
 # Using a Remote Micro Integrator
 
-The light-weight Micro Integrator is already included in your WSO2 Integration Studio package, which allows you to [deploy and run the artifacts instantly]({{base_path}}/integrate/develop/using-embedded-micro-integrator). 
+The light-weight Micro Integrator is already included in your WSO2 Integration Studio package, which allows you to [deploy and run the artifacts instantly]({{base_path}}/develop/using-embedded-micro-integrator). 
 
 The following instructions can be used to run your artifacts in a remote Micro Integrator instance.
 
 ## Deploy and run artifacts in a remote instance
 
-1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator server and on your computer. 
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator server and on your computer. 
 2.	[Package your Synapse artifacts]({{base_path}}/develop/packaging-artifacts) from WSO2 Integration Studio.
 
 However, when your solutions are ready to be moved to your production environments, it is recommended to use a **CICD pipeline**.

@@ -334,7 +334,7 @@ When generating a data service, the server takes its table structure according t
 datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE operations.
 
 1. 	Create a datasource project and add a datasource in the current workspace. You can 
-	refer [Creating a Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-datasources) for more information.
+	refer [Creating a Datasource]({{base_path}}/develop/creating-artifacts/data-services/creating-datasources) for more information.
 
 2.	In the **New Data Service** wizard that opens, select **Generate Data Service from Datasource** and click **Next**.
 	  <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png" width="700"></a>
@@ -370,33 +370,33 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 
 <ul>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/rdbms-data-service">Exposing an RDBMS Datasource</a>
+		<a href="{{base_path}}/learn/examples/data-integration/rdbms-data-service">Exposing an RDBMS Datasource</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/json-with-data-service">Exposing Data in JSON Format</a>
+		<a href="{{base_path}}/learn/examples/data-integration/json-with-data-service">Exposing Data in JSON Format</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/odata-service">Using an OData Service</a>
+		<a href="{{base_path}}/learn/examples/data-integration/odata-service">Using an OData Service</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/nested-queries-in-data-service">Using Nested Data Queries</a>
+		<a href="{{base_path}}/learn/examples/data-integration/nested-queries-in-data-service">Using Nested Data Queries</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/batch-requesting">Batch Requesting</a>
+		<a href="{{base_path}}/learn/examples/data-integration/batch-requesting">Batch Requesting</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/request-box">Invoking Multiple Operations via Request Box</a>
+		<a href="{{base_path}}/learn/examples/data-integration/request-box">Invoking Multiple Operations via Request Box</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/distributed-trans-data-service">Using Distributed Transactions in Data Services</a>
+		<a href="{{base_path}}/learn/examples/data-integration/distributed-trans-data-service">Using Distributed Transactions in Data Services</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data-integration/data-input-validator">Validating Data Input</a>
+		<a href="{{base_path}}/learn/examples/data-integration/data-input-validator">Validating Data Input</a>
 	</li>
 </ul>
 
 ## Tutorials
 
 <li>
-	See the tutorial on <a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
+	See the tutorial on <a href="{{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
 </li>

@@ -10,7 +10,7 @@ Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-s
 
 Follow the instructions given below to create a **WS-Policy** resource in your registry project. This will be your security policy file.
 
-1. Create a [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project).
+1. Create a [registry resource project]({{base_path}}/develop/create-integration-project/#registry-resource-project).
 
 2. Right-click on the registry resource project in the left navigation panel, click **New**, and then click **Registry Resource**. 
     
@@ -92,8 +92,8 @@ Either define the user roles inline or retrieve the user roles from the server.
 
      You can do either one of the following actions for this purpose.
 
-    - [Create a new proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service)
-    - [Import an existing proxy service]({{base_path}}/integrate/develop/importing-artifacts)
+    - [Create a new proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service)
+    - [Import an existing proxy service]({{base_path}}/develop/importing-artifacts)
 
 2.  Double-click the proxy service on the project explorer to open the file and click on the service on design view.
 
@@ -113,11 +113,11 @@ Either define the user roles inline or retrieve the user roles from the server.
 
 ## Step 3 - Package the artifacts
 
-[Package the artifacts into a composite application project]({{base_path}}/integrate/develop/packaging-artifacts).
+[Package the artifacts into a composite application project]({{base_path}}/develop/packaging-artifacts).
 
 ## Step 4 - Build and run the artifacts
 
-[Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts).
+[Deploy the artifacts]({{base_path}}/develop/deploy-artifacts).
 
 ## Step 5 - Testing the service
 

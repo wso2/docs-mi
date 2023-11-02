@@ -1,13 +1,13 @@
 # FIX Parameters
 
-When you implement an integration use case that requires a FIX connection, you can use the following FIX parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that requires a FIX connection, you can use the following FIX parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
     The Micro Integrator can use the FIX transport only if the FIX transport listener and sender are enabled and configured at the server level. Read about the [FIX transport]({{base_path}}/install-and-setup/transport-configurations/configuring-transports/#configuring-the-fix-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
-See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
+See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
 ## Service-Level Parameters
 

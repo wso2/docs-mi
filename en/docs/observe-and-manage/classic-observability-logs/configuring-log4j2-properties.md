@@ -168,7 +168,7 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
     logger.SERVICE_LOGGER.name = SERVICE_LOGGER.TestProxy
     ```
 
-    See the instructions on [monitoring per-service logs]({{base_path}}/integrate/develop/monitoring-service-level-logs).
+    See the instructions on [monitoring per-service logs]({{base_path}}/develop/monitoring-service-level-logs).
 
 ```xml tab='SERVICE_LOGGER'
 logger.SERVICE_LOGGER.name= SERVICE_LOGGER
@@ -304,7 +304,7 @@ If required, you can change the default HTTP header (which is 'activity_id'), wh
 correlation_header_name="<correlation_id>"
 ```
 
-Once you have configured this logger, see the instructions on [monitoring correlation logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs).
+Once you have configured this logger, see the instructions on [monitoring correlation logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-correlation-logs).
 
 ### Message Tracing Logs
 
@@ -369,7 +369,7 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
     logger.httpclient-wire-content.level=OFF
     ```
 
-See the instructions on [using wire logs to debug]({{base_path}}/integrate/develop/using-wire-logs) your integration solution during development.
+See the instructions on [using wire logs to debug]({{base_path}}/develop/using-wire-logs) your integration solution during development.
 
 ## Configuring HTTP Access Logs
 
@@ -753,5 +753,5 @@ However, since WSO2 Micro Integrator works in an OSGi environment, such Log4j2 e
 
 ## What's Next?
 
-Once you have configured the logs, you can start [using the logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-logs).
+Once you have configured the logs, you can start [using the logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs).
 

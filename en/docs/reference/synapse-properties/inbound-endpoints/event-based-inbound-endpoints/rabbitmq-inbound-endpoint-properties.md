@@ -28,7 +28,7 @@ Listed below are the properties used for [creating a RabbitMQ inbound endpoint](
 
 ### Required Properties
 
-The following properties are required when [creating a RabbitMQ inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a RabbitMQ inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -89,7 +89,7 @@ The following properties are required when [creating a RabbitMQ inbound endpoint
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating an RabbitMQ inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating an RabbitMQ inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 Note that the optional properties related to defining a **queue** should contain the `rabbitmq.queue.optional.` prefix,
 and the optional properties related to defining an **exchange** should contain the `rabbitmq.exchange.optional.` prefix.
 

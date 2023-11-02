@@ -8,8 +8,8 @@ Follow the steps given below before you start.
 
 1.  Download and install the servers:
 
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) the Micro Integrator dashboard.
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the Micro Integrator dashboard.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
 
 2.  Set up the Micro Integrator:
 

@@ -58,7 +58,7 @@ enable_swa=false
                             <code>[server]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-ei">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
+                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -824,7 +824,7 @@ alias="symmetric.key.value"</code></pre>
                             <code>[truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setu/security/configuring-keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
+                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1193,7 +1193,7 @@ connection_retry_delay = "120000"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href='{{base_path}}/install-and-setup/setup/security/importing_ssl_certificate/'>add certificates to the truststore</a>.</p>
+                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href='{{base_path}}/install-and-setup/setup/security/importing-ssl-certificate/'>add certificates to the truststore</a>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2449,7 +2449,7 @@ token_config.size= "2048"
                             <code>[management_api.jwt_token_security_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../install-and-setup/setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for configuring the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2617,7 +2617,7 @@ path = "/apis"
                             <code>[management_api.authorization_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling authorization for the Micro Integrator's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../install-and-setup/setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for disabling authorization for the Micro Integrator's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2647,7 +2647,7 @@ path = "/apis"
                             <code>[[management_api.authorization_handler.resources]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the Micro Integrator's Management API. Read more about <a href='../../install-and-setup/setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the Micro Integrator's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2705,7 +2705,7 @@ allowed_headers = "Authorization"</code></pre>
                             <code>[management_api.cors]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring CORs for the Management API of the Micro Integrator. Read more about <a href='../../install-and-setup/setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for configuring CORs for the Management API of the Micro Integrator. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3760,7 +3760,7 @@ force_json_validation = false</code></pre>
                             <code>[transport.http]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that are used for <a href='../../install-and-setup/setup/performance-tuning/http_transport_tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.
+                                This configuration header is required for configuring the parameters that are used for <a href='../../install-and-setup/setup/performance-tuning/http-transport-tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9759,7 +9759,7 @@ sender.bapi.parameter.customParameter = ""</code></pre>
                             <code>[transport.sap]</code>
                             
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to <a href='../../tutorials/integration-tutorials/sap-integration'>communicate with SAP</a>.
+                                This configuration header groups the parameters that configure the Micro Integrator to <a href='../../learn/integration-tutorials/sap-integration'>communicate with SAP</a>.
                             </p>
                         </div>
                         <div class="params-wrap">

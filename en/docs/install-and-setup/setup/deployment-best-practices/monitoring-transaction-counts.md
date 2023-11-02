@@ -1,6 +1,6 @@
 # Monitoring Integration Transactions Counts
 
-A **Transaction** in WSO2 Micro Integrator is typically defined as an inbound request (a request coming to the server). That is, any inbound request to a [REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api), [Proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), or [Inbound Endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint) is considered as one transaction.
+A **Transaction** in WSO2 Micro Integrator is typically defined as an inbound request (a request coming to the server). That is, any inbound request to a [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api), [Proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), or [Inbound Endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) is considered as one transaction.
 
 However, when the Micro Integrator is configured as both the message producer and consumer to handle **asynchronous** messaging scenarios, the two requests (listening request and sending request) are considered as a single transaction.
 

@@ -10,7 +10,7 @@ obtain administrative information of the server instance and to perform various 
 The management API is secured using JWT authentication by default. Therefore, when you directly access the management API, you must first acquire a JWT token with your valid username and password.
 
 !!! Tip
-    See [Securing the Management API]({{base_path}}/install-and-setup/setup/security/securing_management_api) for information on configuring **users**, **JWT authentication**, and other security options for the management API.
+    See [Securing the Management API]({{base_path}}/install-and-setup/setup/security/securing-management-api) for information on configuring **users**, **JWT authentication**, and other security options for the management API.
 
 ### Getting a JWT token
 

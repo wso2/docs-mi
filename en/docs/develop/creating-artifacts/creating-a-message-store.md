@@ -6,7 +6,7 @@ Follow the instructions given below to create a new [Message Store]({{base_path}
 
 ### Creating the Message Store artifact
 
-1.	Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Message Store** to open the **New Message Store Artifact** dialog box.
+1.	Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Message Store** to open the **New Message Store Artifact** dialog box.
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_store/select-message-store.png" width="600">
 
@@ -62,11 +62,11 @@ Open the new message store artifact from the project explorer. You can use the *
 
 ## Examples
 
--   [Introduction to Message Stores and Processors]({{base_path}}/integrate/examples/message-store-processor-examples/intro-message-stores-processors)
--   [JDBC Message Store]({{base_path}}/integrate/examples/message-store-processor-examples/using-jdbc-message-store)
--   [JMS Message Store]({{base_path}}/integrate/examples/message-store-processor-examples/using-jms-message-stores)
--   [RabbitMQ Message Store]({{base_path}}/integrate/examples/message-store-processor-examples/using-rabbitmq-message-stores)
+-   [Introduction to Message Stores and Processors]({{base_path}}/learn/examples/message-store-processor-examples/intro-message-stores-processors)
+-   [JDBC Message Store]({{base_path}}/learn/examples/message-store-processor-examples/using-jdbc-message-store)
+-   [JMS Message Store]({{base_path}}/learn/examples/message-store-processor-examples/using-jms-message-stores)
+-   [RabbitMQ Message Store]({{base_path}}/learn/examples/message-store-processor-examples/using-rabbitmq-message-stores)
 
 ## Tutorials
 
--	See the tutorial on [using message stores and processors]({{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages)
+-	See the tutorial on [using message stores and processors]({{base_path}}/learn/integration-tutorials/storing-and-forwarding-messages)

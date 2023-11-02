@@ -62,7 +62,7 @@ You will be running three servers (Analytics server, MI Analytics portal, and th
     !!! Info
         The location of your Analytics installation will be referred to as `<MI_ANALYTICS_HOME>`.
 
--   **Download and [install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi)**.
+-   **Download and [install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi)**.
 
 ## Step 2 - Configure the Micro Integrator
     
@@ -112,16 +112,16 @@ Alternatively, you can enable statistics for selected artifacts as explained bel
 
 ### Step 2.4 - Optionally, enable statistics for specific artifacts
 
-Let's use the integration artifacts from the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial.
+Let's use the integration artifacts from the [service chaining]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service) tutorial.
 
 !!! Warning
     It is **not recommended to enable tracing in production environments** as it generates a large number of events that reduces the performance of the analytics profile. Therefore, tracing should only be enabled in development environments.
 
 !!! info "If you do not have the integration artifacts from the service chaining tutorial"
-    If you did not try the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial yet:
+    If you did not try the [service chaining]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service) tutorial yet:
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/service-orchestration-tutorial.zip) for the **service chaining** use case.
-    2.  [Open WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_patgh}}/integrate/develop/importing-projects).
+    2.  [Open WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_patgh}}/develop/importing-projects).
 
 #### REST API artifact
 

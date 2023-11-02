@@ -1,6 +1,6 @@
 # Deploying Artifacts
 
-Once you have your integration artifacts developed and [packaged in a composite exporter]({{base_path}}/integrate/develop/packaging-artifacts), you can deploy the composite exporter in your Micro Integrator server or your container environment.
+Once you have your integration artifacts developed and [packaged in a composite exporter]({{base_path}}/develop/packaging-artifacts), you can deploy the composite exporter in your Micro Integrator server or your container environment.
 
 ## Deploy artifacts in the embedded Micro Integrator
 

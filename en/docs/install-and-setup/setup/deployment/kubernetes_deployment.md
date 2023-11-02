@@ -41,5 +41,5 @@ WSO2 releases Helm resources for all product deployments. You can get the [Helm 
 
 Integration developers can directly generate the Kubernetes artifacts that are required for a Kubernetes deployment using WSO2 Integration Studio. After you have generated these resources, you can set a Kubernetes deployment by following the Kubernetes documentation.
 
--   For information on the Kubernetes Exporter in WSO2 Integration Studio, see [Create Kubernetes project]({{base_path}}/integrate/develop/create-kubernetes-project).
+-   For information on the Kubernetes Exporter in WSO2 Integration Studio, see [Create Kubernetes project]({{base_path}}/develop/create-kubernetes-project).
 

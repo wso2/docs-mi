@@ -29,7 +29,7 @@ See the topics given below for the list of properties that can be configured whe
 
 ## Sequence Template Properties
 
-The parameters available to [configure the Sequence Template]({{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates/) are as follows.
+The parameters available to [configure the Sequence Template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates/) are as follows.
 
 <table>
     <tr>
@@ -88,7 +88,7 @@ The parameters available to [configure the Sequence Template]({{base_path}}/inte
             Set this parameter to 'true' if a value is required to be passed for the configuration.</br></br>
             When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="{{base_path}}/reference/synapse-properties/template-properties/call-Template-Mediator">Call Template mediator</a> will be called.</br></br>
             If an empty value is passed in the Call Template mediator, the empty value will be used instead of using the default value.</br></br>
-            See the <a href="{{base_path}}/integrate/examples/template-examples/using-sequence-templates/">example use cases</a> for details.
+            See the <a href="{{base_path}}/learn/examples/template-examples/using-sequence-templates/">example use cases</a> for details.
         </td>
     </tr>
     <tr id="defaultValue">
@@ -96,14 +96,14 @@ The parameters available to [configure the Sequence Template]({{base_path}}/inte
             defaultValue
         </td>
         <td>
-            Specifies a default value that should apply when a value is not passed when calling the template. See the <a href="{{base_path}}/integrate/examples/template-examples/using-sequence-templates/">example use cases</a> for details.
+            Specifies a default value that should apply when a value is not passed when calling the template. See the <a href="{{base_path}}/learn/examples/template-examples/using-sequence-templates/">example use cases</a> for details.
         </td>
     </tr>
 </table>
 
 ## Endpoint Template Properties
 
-The basic parameters available to [configure the Endpoint template]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoint-templates/) are as follows.
+The basic parameters available to [configure the Endpoint template]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates/) are as follows.
 
 <table>
   <tr>

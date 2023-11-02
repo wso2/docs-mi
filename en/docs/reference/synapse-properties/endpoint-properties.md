@@ -218,7 +218,7 @@ See the topics given below for the list of properties that can be configured for
 
 ### Basic Properties
 
-Listed below are the basic properties that used to [define an endpoint artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints).
+Listed below are the basic properties that used to [define an endpoint artifact]({{base_path}}/develop/creating-artifacts/creating-endpoints).
 
 <table>
     <tr>
@@ -246,7 +246,7 @@ Listed below are the basic properties that used to [define an endpoint artifact]
     <tr>
         <td>Trace Enabled</td>
         <td>
-            This enables tracing for the endpoint. You can <a href="{{base_path}}/integrate/develop/endpoint-trace-logs">use trace logs to debug</a> mediation errors.
+            This enables tracing for the endpoint. You can <a href="{{base_path}}/develop/endpoint-trace-logs">use trace logs to debug</a> mediation errors.
         </td>
     </tr>
     <tr>
@@ -540,7 +540,7 @@ The following is an HTTP endpoint configured with basic authentication.
 The following properties <b>only</b> apply to HTTP endpoint. 
 
 !!! Note
-      1. You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters).
+      1. You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/develop/injecting-parameters).
       2. You can use dynamic values for OAuth configurations such as XPATH, JSON expressions or vault-lookup. For more information, see [Define dynamic expressions]({{base_path}}/reference/synapse-properties/endpoint-properties/#define-dynamic-expressions).
       3. You can send additional parameters as well in the OAuth request body. For more information, see [Send additional parameters in the OAuth request body]({{base_path}}/reference/synapse-properties/endpoint-properties/#send-additional-parameters-in-the-oauth-request-body).
 

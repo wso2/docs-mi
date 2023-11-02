@@ -1,6 +1,6 @@
 # Creating Docker Exporter
 
-Create a Docker Exporter if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image and then build and push to the Docker registries.
+Create a Docker Exporter if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple [integration modules]({{base_path}}/develop/create-integration-project) into a single Docker image and then build and push to the Docker registries.
 
 !!! note 
     When using Kubernetes/Docker exporter project, make sure to use Integration Studio 8.0.0 with the latest WUM update. 
@@ -180,7 +180,7 @@ Expand the **Docker Exporter** in the project explorer. See that the following f
 
 Before you begin:
 
--   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/integrate/develop/packaging-artifacts/#sub-projects). For example, see the HelloWorld sample given below.
+-   Create your integration artifacts in an [ESB Config sub project]({{base_path}}/develop/create-integration-project/#sub-projects) and package the artifacts in a [Composite Exporter]({{base_path}}/develop/packaging-artifacts/#sub-projects). For example, see the HelloWorld sample given below.
 
     <img alt="Integration artifacts for Docker" src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/integration-projects-for-docker.png" width="300">
 

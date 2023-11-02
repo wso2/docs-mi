@@ -317,7 +317,7 @@ Note that we have used the [Property mediator]({{base_path}}/reference/mediators
 !!! Info
     If you need to convert complex XML responses (e.g., XML with with `         xsi:type        ` values), you will need to set the message type using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) as follows:
     `<property name="messageType" value="application/json/badgerfish" scope="axis2" type="STRING"/>`
-    You will also need to ensure you register the following message builder and formatter as specified in [Message Builders and Formatters](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message-builders-formatters/message-builders-and-formatters/).
+    You will also need to ensure you register the following message builder and formatter as specified in [Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters).
     ```
     <messageBuilder contentType="text/javascript" class="org.apache.axis2.json.JSONBadgerfishOMBuilder"/>
     <messageFormatter contentType="text/javascript" class="org.apache.axis2.json.JSONBadgerfishMessageFormatter"/> 
@@ -528,7 +528,7 @@ To log JSON payloads as XML, use the Log mediator as shown below:
 <log level="full"/>
 ```
 
-For more information on logging, see [Troubleshooting, debugging, and logging]({{base_path}}/integrate/examples/json_examples/json-examples/#validating-json-messages) below.
+For more information on logging, see [Troubleshooting, debugging, and logging]({{base_path}}/learn/examples/json-examples/json-examples/#validating-json-messages) below.
 
 ### Constructing and transforming JSON payloads
 
@@ -1075,7 +1075,7 @@ file (i.e. `         StockQuoteSchema.json        ` ) to the following
 Registry path:
 `                   conf:/schema/StockQuoteSchema                  .        `
 json. For instructions on adding the schema file to the Registry path,
-see [Adding a Resource]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries).
+see [Adding a Resource]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries).
 
 !!! Tip
     When adding this sample schema file to the Registry, specify the **Media Type** as application/json.
@@ -1177,4 +1177,4 @@ For example:
  logger.JsonStreamBuilder.name = org.apache.synapse.commons.json.JsonStreamBuilder
  logger.JsonStreamBuilder.level = DEBUG
  ```
-For more instructions on adding loggers, see [Configuring Log4j Properties]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties).
+For more instructions on adding loggers, see [Configuring Log4j Properties]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties).

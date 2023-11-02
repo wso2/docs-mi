@@ -6,7 +6,7 @@ Follow the instructions given below to create a new **Sequence Template** in WSO
 
 ### Creating the Sequence Template artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/select-template.png">
 
@@ -60,4 +60,4 @@ When you have a Sequence template defined, you can use a [Call Template Mediator
 
 ## Examples
 
-- [Using Sequence Templates]({{base_path}}/integrate/examples/template-examples/using-sequence-templates)
+- [Using Sequence Templates]({{base_path}}/learn/examples/template-examples/using-sequence-templates)

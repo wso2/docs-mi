@@ -59,8 +59,8 @@ Follow the steps given below to get started with the Micro Integrator Dashboard.
 
 Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
 
--   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
--   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard).
+-   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
+-   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-mi-dashboard).
 
 ### Step 2 - Configure the MI servers
 
@@ -124,7 +124,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 node_id
             </th>
             <td>
-                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
+                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
             </td>
         </tr>
         <tr>

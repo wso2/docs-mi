@@ -16,7 +16,7 @@ Registry artifacts (such as security policy files) should be stored in a
 **Registry Resource** module. Follow the steps given below to create a
 module:
 
-1.  Right click on the [Integration project]({{base_path}}/integrate/develop/create-integration-project) 
+1.  Right click on the [Integration project]({{base_path}}/develop/create-integration-project) 
     and go to **New → Registry Resource**. 
     
     !!! Tip Alternatively, you can go to **File → New → Others** and 
@@ -91,17 +91,17 @@ the source of the data service.
 
 ## Step 3: Package the artifacts
 
-See the instructions on [packaging the artifacts]({{base_path}}/integrate/develop/packaging-artifacts) into a composite exporter.
+See the instructions on [packaging the artifacts]({{base_path}}/develop/packaging-artifacts) into a composite exporter.
 
 ## Step 4: Build and run the artifacts
 
-See the instructions [deploying the artifacts]({{base_path}}/integrate/develop/deploy-artifacts).
+See the instructions [deploying the artifacts]({{base_path}}/develop/deploy-artifacts).
 
 ## Step 5: Testing the service
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
 
-For guidelines on using SoapUI, see [general guidelines on testing with SOAP UI]({{base_path}}/integrate/develop/advanced-development/applying-security-to-a-proxy-service/#general-guidelines-on-testing-with-soap-ui).
+For guidelines on using SoapUI, see [general guidelines on testing with SOAP UI]({{base_path}}/develop/advanced-development/applying-security-to-a-proxy-service/#general-guidelines-on-testing-with-soap-ui).
 
 ## Using an encrypted datasource password
 
