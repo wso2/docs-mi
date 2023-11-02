@@ -10,15 +10,14 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
     !!! Info
         For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
 
-3. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
-4. Optionally, navigate to the [API Manager Tooling web page](https://wso2.com/api-management/tooling/), and download WSO2 Integration Studio.
+3. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** under the 'Latest Release' section to download the Micro Integrator distribution as a ZIP file.
+4. In the same page click on **Integration Studio** under the 'Other Components' section to download WSO2 Integration Studio.
 
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
 5. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
 6. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
-7. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
 
 ## What you'll build
 
@@ -257,128 +256,9 @@ Follow the steps given below to run the integration artifacts we developed on a 
     ```
     **Congratulations!**
     Now you have created your first integration service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
-    
-## Exposing an Integration Service as a Managed API
-
-The REST API you deployed in the Micro Integrator is an **integration service** for the API Manager. Now, let's look at how you can expose the integration service to the API Management layer and generate a managed API by using the service.
-
-### Step 1 - Expose your integration as a service 
-
-1. Start the API Manager runtime:
-
-    1.  Extract the API Manager ZIP file.
-    3.  Start WSO2 API Manager:
-    
-        Open a terminal, navigate to the `<API-M_HOME>/bin` directory, and execute the relevant command. 
-   
-        
-        ```bash tab="On MacOS/Linux"
-        ./api-manager.sh
-        ```
-        
-        ```bash tab="On Windows"
-        api-manager.bat --run
-        ```
-
-2. Update and start the Micro Integrator runtime:
-
-    1. Stop the Micro Integrator.
-
-    2. Uncomment the following configuration from the `<MI_HOME>/conf/deployment.toml` file of the Micro Integrator.
-
-        !!! Tip
-            The default username and password for connecting to the API gateway is `admin:admin`.
-
-
-        ```toml
-        [[service_catalog]]
-        apim_host = "https://localhost:9443"
-        enable = true
-        username = "admin"
-        password = "admin"
-        ```
-    
-    3.  Start the Micro Integrator again.
-
-        You will see the following in the server start-up log.
-
-        ```bash
-        Successfully updated the service catalog
-        ```
-
-3. Access the integration service from the **API Publisher**:
-
-    1. Sign in to the **API Publisher**: `https://localhost:9443/publisher`
-
-        !!! Tip
-            Use `admin` as the user name and password.
-
-    2. Select the **Services** from the menu.
-    
-        <img src="{{base_path}}/assets/img/integrate/quick-start-guide/select-services.png" width="500">
-        
-    3. See that the `HealthcareAPI` is listed as a service.
-`   `
-### Step 2 - Create a managed API using the Integration Service
-
-1.  Click on the `HealthcareAPI` that is in the service catalog.
-
-2.  Click **Create API**.
-
-     This opens the **Create API** dialog box with the API details that are generated based on the service.
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/create-api-from-healthcare-service.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/create-api-from-healthcare-service.png" width="800" alt="create api dialog box"></a>
-
-3.  Update the API name, context, and version if required, and click **Create API**. 
-
-    The overview page of the API that you just created appears. 
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/new-healthcareapi-view.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/new-healthcareapi-view.png" alt="apis list"></a>
-
-4.  Navigate to **Develop -> API Configurations -> Endpoints** from the left menu. You will see that **Service Endpoint** is already selected and the production endpoint is already provided.
-
-     Select the `Sandbox Endpoint`, add the endpoint `http://localhost:8290/healthcare`, and **Save**.
-     
-5.  Update the portal configurations and API configurations as required.
-
-     Now, you have successfully created an API using the service.
-
-### Step 3 - Publish the managed API
-
-1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
-
-2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"></a>
-    
-    If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
-
-### Step 4 - Invoke the Managed `HealthcareAPI` via Developer Portal
-
-1. Navigate to  the **Developer Portal** by clicking on the `View In Dev Portal` at the top menu.
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/view-in-dev-portal.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/view-in-dev-portal.png"></a>
-
-2. Sign in using the default username/password `admin/admin`. You will be redirected to the **APIs**.
-
-3. Under **APIs**, you will see the published `HealthcareAPI`. Click on it to navigate to the Overview of the API.
-
-4. Click `Try Out`. This will create a subscription to the API using `Default Application`.
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-tryout.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-tryout.png" size="800"></a>
-
-5. Click `GET TEST KEY` to get a test token to invoke the API.
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-get-test-key.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-get-test-key.png" size="800"></a>
-
-6. Click **GET** resource `/doctor​/{doctorType}`. Click on **Try It Out**. Enter `Ophthalmologist` in the doctorType field and click **Execute**.
-
-    <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-invoke.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-invoke.png" size="800"></a>
 
    
 ## What's next?
 
-- [Develop your first integration solution]({{base_path}}/get-started/development-kickstart).
-- Try out the [examples](({{base_path}}/learn/learn-overview/#integration-examples)) available in the documentation.
-- Try out the entire developer guide on [Exposing an Integration Service as a Managed API]({{base_path}}/learn/integration-tutorials/service-catalog-tutorial/).
-- Try out the entire developer guide on [Exposing an Integration SOAP Service as a Managed API]({{base_path}}/learn/integration-tutorials/service-catalog-tutorial-for-proxy-services/).
+- [Develop your first integration solution]({{base_path}}/get-started/development-kickstart/).
+- [Learn more..]({{base_path}}/learn/learn-overview/).
