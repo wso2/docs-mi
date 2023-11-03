@@ -172,7 +172,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
             <code>9201</code>
         </td>
         <td>
-            The HTTP port of the <a href="{{base_path}}/observe/mi-observe/working-with-management-api">Management API</a> of WSO2 Micro Integrator.</br></br>
+            The HTTP port of the <a href="{{base_path}}/observe-and-manage/working-with-management-api">Management API</a> of WSO2 Micro Integrator.</br></br>
             <b>Configuring the default HTTP port</b></br>
             If required, you can manually change the HTTP port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.</br></br>
             <div>
@@ -187,7 +187,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
             <code>9164</code>
         </td>
         <td>
-            The HTTPS port of the <a href="{{base_path}}/observe/mi-observe/working-with-management-api">Management API</a> of WSO2 Micro Integrator.</br></br>
+            The HTTPS port of the <a href="{{base_path}}/observe-and-manage/working-with-management-api">Management API</a> of WSO2 Micro Integrator.</br></br>
             <b>Configuring the default HTTPS port</b></br>
             If required, you can manually change the HTTPS port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.</br></br>
             <div>
@@ -198,181 +198,6 @@ By default, the Micro Integrator is **internally** configured with a port offset
         </td>
     </tr>
 </table>
-
-## Streaming Integrator Ports
-
-Listed below are the default ports used by the Streaming Integrator runtime and the Streaming Integrator Tooling runtime. The default port offset in these runtimes are `0` and `3` respectively.
-
-!!! Info
-    See the instructions on [changing the default SI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-si-ports).
-
--  Thrift and Binary ports:
-
-      <table>
-         <tr>
-            <th>
-                  Default Port
-            </th>
-            <th>
-                  Description
-            </th>
-         </tr>
-         <tr>
-            <td>
-                  <code>7611</code>
-            </td>
-            <td>
-                  Thrift TCP port to receive events from clients.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>7711</code>
-            </td>
-            <td>
-                  Thrift SSL port for the secure transport where the client is authenticated.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9611</code>
-            </td>
-            <td>
-                  Binary TCP port to receive events from clients.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9711 </code>
-            </td>
-            <td>
-                  Binary SSL port for the secure transport where the client is authenticated.
-            </td>
-         </tr>
-      </table>
-
-
--  Management ports:
-
-    **Streaming Integrator runtime**
-
-      <table>
-         <tr>
-            <th>
-                  Default Port
-            </th>
-            <th>
-                  Description
-            </th>
-         </tr>
-         <tr>
-            <td>
-                  <code>9090</code>
-            </td>
-            <td>
-                  HTTP netty transport.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9443</code>
-            </td>
-            <td>
-                  HTTPS netty transport.
-            </td>
-         </tr>
-      </table>
-
-    **Streaming Integrator Tooling runtime**:
-
-      <table>
-         <tr>
-            <th>
-                  Default Port
-            </th>
-            <th>
-                  Description
-            </th>
-         </tr>
-         <tr>
-            <td>
-                  <code>9390</code>
-            </td>
-            <td>
-                  HTTP netty transport.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9743</code>
-            </td>
-            <td>
-                  HTTPS netty transport.
-            </td>
-         </tr>
-      </table>
-
--  Streaming Integrator clustering ports:
-
-      **Minimum High Availability (HA) Deployment**
-
-      <table>
-         <tr>
-            <th>
-                  Default Port
-            </th>
-            <th>
-                  Description
-            </th>
-         </tr>
-         <tr>
-            <td>
-                  <code>9090</code>
-            </td>
-            <td>
-                  HTTP netty transport.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9090</code>
-            </td>
-            <td>
-                  The port of the node for the <code>advertisedPort</code> parameter in the <code>liveSync</code> section. The HTTP netty transport port is considered the default port.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9443</code>
-            </td>
-            <td>
-                  HTTPS netty transport.
-            </td>
-         </tr>
-      </table>
-
-      **Multi Datacenter High-Availability Deployment**
-
-      In addition to the ports used in clustering setups (i.e. a minimum HA deployment or a scalable cluster), the following port is required:
-
-      <table>
-         <tr>
-            <th>
-                  Default Port
-            </th>
-            <th>
-                  Description
-            </th>
-         </tr>
-         <tr>
-            <td>
-                  <code>9092</code>
-            </td>
-            <td>
-                  Ports of the two separate instances of the broker deployed in each data center (e.g., `bootstrap.servers= 'host1:9092, host2:9092'. The default is `9092` where the external kafka servers start.).
-            </td>
-         </tr>
-      </table>
 
 ## Random ports
 
