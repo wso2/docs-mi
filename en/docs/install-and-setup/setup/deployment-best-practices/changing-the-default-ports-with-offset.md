@@ -148,44 +148,6 @@ listenerConfigurations:
   port: http_port
 ```
 
-## Changing the default SI ports
-
-The default port offset in the WSO2 Streaming Integrator (SI) runtime and the SI Tooling runtime are `0` and `3` respectively. Setting a port offset changes the **thrift**, **binary**, and **management** [ports of the SI runtimes]({{base_path}}/install-and-setup/setup/reference/default-product-ports/#streaming-integrator-ports).
-
-Follow the steps given below.
-
-1.  Open the `deployment.toml` file of the SI runtime or the SI Tooling runtime (stored in the `<SI_HOME>|<SI_TOOLING_HOME>/conf/server/deployment.yaml` directory). 
-
-2.  Update the port offset parameters in the following configurations:
-
-    ```yaml tab="SI runtime"
-    # Carbon Configuration Parameters
-    wso2.carbon:
-        # value to uniquely identify a server
-    id: wso2-si
-        # server name
-    name: WSO2 Streaming Integrator
-        # server type
-    type: wso2-si
-        # ports used by this server
-    ports:
-        # port offset
-        offset: 0
-    ```
-
-    ```yaml tab="SI Tooling runtime"
-      # Carbon Configuration Parameters
-    wso2.carbon:
-        # value to uniquely identify a server
-    id: wso2-si
-        # server name
-    name: WSO2 Streaming Integrator Tooling
-        # ports used by this server
-    ports:
-        # port offset
-        offset: 3
-    ```
-
 ## What's Next?
 
 You need to restart the server for these changes to take effect.
