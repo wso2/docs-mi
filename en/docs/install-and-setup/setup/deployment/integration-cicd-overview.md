@@ -9,8 +9,6 @@ This guide contains three parts.
 
 2. [Kubernetes based CI/CD - MI]({{base_path}}/install-and-setup/setup/deployment/mi-cicd-k8s).
 
-3. [Kubernetes based CI/CD - SI]({{base_path}}/install-and-setup/setup/si-setup/si-cicd-k8s).
-
 ## Phases of SDLC
 
 Let's consider a deployment that has three typical environments as follows:
