@@ -124,8 +124,7 @@ straightforward and can be derived from the curl requests.
 
 ### GET the address information of an employee in Dayforce
 
-* Invoke the API as shown below using the curl command. Curl Application can be downloaded from 
-[here] (https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 ```
 curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/getEmployeeAddress' \
@@ -140,8 +139,8 @@ curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/getE
 ```
 
 **Note**
-* You may have to change the 'http://192.168.8.100:8290' part depending on the ip address on which your integration server instance is running.
-* You may have to change the 'clientNamespace' in the request body as Dayforce developer instance gets moved around by Ceridian. The address can be obtained ad mentioned in section Setting up the environment 
+* You may have to change the `http://192.168.8.100:8290` part depending on the ip address on which your integration server instance is running.
+* You may have to change the clientNamespace' in the request body as Dayforce developer instance gets moved around by Ceridian. The address can be obtained ad mentioned in section Setting up the environment 
  
 **Expected Response**:
 
@@ -185,7 +184,7 @@ You should receive 200 OK response with the response body as follows,
     
 ### POST the contact information of an employee in Dayforce
 
-* Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 ```
 curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/postEmployeeContact' \

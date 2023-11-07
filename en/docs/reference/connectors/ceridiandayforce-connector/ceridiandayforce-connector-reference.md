@@ -1,7 +1,5 @@
 # Configuring Ceridian Dayforce REST Operations
 
-[[Prerequisites]](#Prerequisites) [[Initializing the connector]](#initializing-the-connector)
-
 ## Prerequisites
 
 > NOTE: For development purposes we can use test credentials provided by Dayforce. However, to understand the Dayforce API and the request responses handled by Dayforce it is recommended that you create a developer account. If you do not have a Dayforce account, go to [https://developers.dayforce.com/Special-Pages/Registration.aspx](https://developers.dayforce.com/Special-Pages/Registration.aspx) and create a Dayforce developer account.

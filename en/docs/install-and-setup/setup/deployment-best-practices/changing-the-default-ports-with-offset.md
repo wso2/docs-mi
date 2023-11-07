@@ -35,7 +35,7 @@ The default port offset in the WSO2 API-M runtime is `0`. Use one of the followi
     offset=1
     ```
 
-4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
+4. [Restart the server](https://apim.docs.wso2.com/en/4.2.0/install-and-setup/install/installing-the-product/running-the-api-m/).
 
 #### Pass the port offset during server startup
 
@@ -94,7 +94,7 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
     offset = 3
     ```
 
-4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi).
+4. [Restart the server]({{base_path}}/install-and-setup/install/running-the-mi).
 
 #### Pass the port offset during server startup
 
