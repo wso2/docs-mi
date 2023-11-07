@@ -13,7 +13,7 @@ See [Configuring Logs]({{base_path}}/observe-and-manage/classic-observability-lo
 
 ## Downloading Log Files
 
-You can easily download them from the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard). 
+You can easily download them from the [Micro Integrator Dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard). 
 
 !!! Info
     Alternatively, you can open the log file from the `<MI_HOME>/repository/logs` directory.

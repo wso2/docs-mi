@@ -1,7 +1,5 @@
 # Working with Employee Properties
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve, create or update properties of an employee

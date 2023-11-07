@@ -1,7 +1,5 @@
 # Working with Employee Clock Device Groups
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operation allows you to retrieve an employee's clock device group

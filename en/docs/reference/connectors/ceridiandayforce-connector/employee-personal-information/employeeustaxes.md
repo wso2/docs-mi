@@ -1,7 +1,5 @@
 # Working with US Employee Taxes
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve tax details of a US employee

@@ -1,8 +1,8 @@
 # Security Guidelines for Production Deployment
 
-Given below are the common security guidelines for deploying a WSO2 API Manager in a **production environment**.
+Given below are the common security guidelines for deploying a WSO2 Micro Integrator in a **production environment**.
 
-In addition, see the [production deployment checklist]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines) and any other product-specific guidelines in the respective product's documentation.
+In addition, see the [production deployment checklist]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines) and any other product-specific guidelines in the documentation.
 
 -   [Runtime-level security](#runtime-level-security)
 -   [OS-level security](#os-level-security)

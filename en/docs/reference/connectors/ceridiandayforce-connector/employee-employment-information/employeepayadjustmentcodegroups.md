@@ -1,7 +1,5 @@
 # Working with Employee Pay Adjustment Code Groups
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve, create or update addresses of an employee

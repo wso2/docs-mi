@@ -20,7 +20,7 @@ Before you start configuring the FHIR connector, you also need to download the r
 
 Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the integration service.
 
-If you are using **EI7** or **APIM 4.0.0**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/message-builders-formatters/message-builders-and-formatters/) documentations.
+If you are using **EI7** or **APIM 4.0.0**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters/) and [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport) documentations. 
 
 ```toml
 [[custom_message_builders]]

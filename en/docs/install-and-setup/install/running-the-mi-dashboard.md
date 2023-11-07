@@ -26,9 +26,9 @@ Follow the steps given below before you start.
     2.  Be sure to change the host and port number of the `dashboard_url` in the above configuration if you have changed the default host and port for the dashboard.
 
     !!! Info
-        See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers) for more information.
+        See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers) for more information.
 
-3.  [Start the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi).
+3.  [Start the Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi).
 
 ## Configuring Single Sign-on with OpenID Connect
 
@@ -179,7 +179,7 @@ Once you have [started the dashboard server](#starting-the-dashboard-server):
 
 2.  Be sure that the Micro Integrator servers are [already configured and started](#before-you-begin) before you sign in.
 
-See the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) documentation for information on the dashboard's capabilities and how to use them.
+See the [Micro Integrator Dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) documentation for information on the dashboard's capabilities and how to use them.
 
 ## Stopping the dashboard server
 

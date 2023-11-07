@@ -28,7 +28,7 @@ Now when you start the Micro Integrator, the `correlation.log` file is created i
 ### During the runtime 
 
 - You can enable correlation logging by invoking the configs resource of the Management API. For more information, see 
-[enable/disable correlation logs using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api/#enabledisable-correlation-logging-during-runtime).
+[enable/disable correlation logs using the Management API]({{base_path}}/observe-and-manage/working-with-management-api/#enabledisable-correlation-logging-during-runtime).
 
 - Alternatively, you can enable correlation logging using the MI dashboard. 
 

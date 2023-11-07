@@ -1,7 +1,5 @@
 # Working with Employees
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to work with Employee where you can retrieve employee human resources data and update it.

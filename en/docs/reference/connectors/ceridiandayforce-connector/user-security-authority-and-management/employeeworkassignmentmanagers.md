@@ -1,7 +1,5 @@
 # Working with Employee Work Assignment Managers
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve, create or update work assignment managers of an employee

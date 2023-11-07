@@ -110,7 +110,7 @@ option of encrypting the datasource connection password. This ensures
 that the password is encrypted in the configuration file (.dbs file) of
 the data service.
 
-See the instructions on [encrypting plain-text passwords]({{base_path}}/install-and-setup/setup/security/encrypting_plain_text)
+See the instructions on [encrypting plain-text passwords]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text)
 
 Once you have encrypted the datasource password, you can update the data
 service as explained below.

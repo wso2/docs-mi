@@ -22,14 +22,14 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 
 ### Admin users
 
-Micro Integrator users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/user_stores/setting-up-a-userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/user_stores/setting-up-a-userstore/#configuring-an-rdbms-user-store) user store that is connected to the Micro Integrator server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
+Micro Integrator users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store) user store that is connected to the Micro Integrator server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
 
 !!! Tip
 	Admin users can basically access any resource (of the Micro Integrator's management API) that has <b>authorization</b> privileges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
 
 	Read more about about [authorization in the management API]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authorization).
 
-If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the Micro Integrator's [management API]({{base_path}}/observe/mi-observe/working-with-management-api) for the first time. That is, when you log in to the Micro Integrator server from the <b>CLI tool</b>/<b>dashboard</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
+If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the Micro Integrator's [management API]({{base_path}}/observe-and-manage/working-with-management-api) for the first time. That is, when you log in to the Micro Integrator server from the <b>CLI tool</b>/<b>dashboard</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
 
 An existing admin user can log in to the Micro Integrator server from the CLI tool or the dashboard to add new users with admin privileges. An admin user can only be removed by the creator.
 
@@ -41,11 +41,11 @@ Users that do not have admin privileges can access the management API, the CLI, 
 
 You can use the WSO2 API Controller (APICTL) to view details of users, add new users, and remove users from the user store.
 
-For more information, see [Manage Users]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#manage-users)
+For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#manage-users)
 
 ## Managing users from the Dashboard
 
-See the [Micro Integrator Dashboard documentation]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
+See the [Micro Integrator Dashboard documentation]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
 
 Select <b>Users</b> in the left-hand navigator to view the list of existing users.
 

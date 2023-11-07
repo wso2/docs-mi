@@ -1,7 +1,5 @@
 # Working with Employee Labor Defaults
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve the default labour of an employee

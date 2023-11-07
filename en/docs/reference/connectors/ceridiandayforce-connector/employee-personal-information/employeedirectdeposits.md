@@ -1,7 +1,5 @@
 # Working with Employee Direct Deposits
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve direct deposit information of an employee

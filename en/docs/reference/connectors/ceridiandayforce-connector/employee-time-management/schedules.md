@@ -1,7 +1,5 @@
 # Working with Employee Schedules
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve schedules of an employee

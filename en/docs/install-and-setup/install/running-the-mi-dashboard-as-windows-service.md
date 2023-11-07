@@ -4,7 +4,7 @@ Follow the instructions given below to run the Micro Integrator Dashboard as a W
 
 ## Prerequisites
 
-- Setup Micro Integrator runtime and Dashboard according to the instructions given [here]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#before-you-begin).
+- Setup Micro Integrator runtime and Dashboard according to the instructions given [here]({{base_path}}/install-and-setup/install/running-the-mi-dashboard/#before-you-begin).
 
 - Point the `wso2mi_dashboard_home` environment variable to the `MI_DASHBOARD_HOME` directory.
 

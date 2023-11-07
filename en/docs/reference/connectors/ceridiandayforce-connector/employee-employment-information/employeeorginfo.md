@@ -1,7 +1,5 @@
 # Working with Employee Org Info
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve organizational information of an employee

@@ -121,5 +121,5 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's Next?
 
--   [Running the MI Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi).
+-   [Running the MI Runtime]({{base_path}}/install-and-setup/install/running-the-mi).
 

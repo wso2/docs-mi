@@ -1,7 +1,5 @@
 # Working with User Pay Adjustment Code Groups
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve User Pay Adjustment Code Groups of an employee

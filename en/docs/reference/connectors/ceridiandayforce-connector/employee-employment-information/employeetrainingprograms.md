@@ -1,7 +1,5 @@
 # Working with Employee Training Programs
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve training programs of an employee

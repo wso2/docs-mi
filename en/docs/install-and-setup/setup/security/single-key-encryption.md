@@ -14,4 +14,4 @@ key = "value"
 ## Encrypt the symmetric key
 
 For better security, the symmetric key in the deployment.toml file should be encrypted.
-See [Encrypting Passwords]({{base_path}}/install-and-setup/setup/security/encrypting_plain_text) to replace this key with an encrypted value.
+See [Encrypting Passwords]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text) to replace this key with an encrypted value.

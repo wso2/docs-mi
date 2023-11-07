@@ -1,7 +1,5 @@
 # Working with Employee Raw Punches
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve, create raw punches of an employee

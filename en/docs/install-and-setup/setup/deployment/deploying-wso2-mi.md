@@ -243,7 +243,7 @@ resolving_frequency = "3"
 
 When you have a cluster of nodes, the integration artifacts deployed in each server node needs to be identical. This can be achieved by synchronizing the deployment directories of each server.
 
-See [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment_synchronization) for instructions.
+See [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment-synchronization) for instructions.
 
 ## Registry synchronization (sharing)
 
@@ -252,8 +252,8 @@ See [deployment synchronization]({{base_path}}/install-and-setup/setup/deploymen
 
 The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor artifact. This ensures that the same state is maintained for Message Processor in all the Micro Integrator nodes of the cluster.
 
-1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/deployment/file_based_registry) for a two-node deployment of the Micro Integrator.
-2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment_synchronization).
+1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) for a two-node deployment of the Micro Integrator.
+2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment-synchronization).
 
 ## Load balancing
 

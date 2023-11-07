@@ -1,7 +1,5 @@
 # Working with Employee Highly Compensated Employees
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve the high compensation status of an employee

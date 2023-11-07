@@ -1,7 +1,5 @@
 # Working with Employee Union Memberships
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve union memberships of an employee

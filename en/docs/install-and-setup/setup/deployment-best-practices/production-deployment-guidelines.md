@@ -70,7 +70,7 @@ Given below is a checklist that will guide you to set up your production environ
                <p>The Micro Integrator runtime uses a file-based registry instead of a database.</p>
                <ul>
                   <li>
-                     <a href="{{base_path}}/install-and-setup/setup/deployment/file_based_registry">File-based registry</a> for the Micro Integrator. runtime.
+                     <a href="{{base_path}}/install-and-setup/setup/deployment/file-based-registry">File-based registry</a> for the Micro Integrator runtime.
                   </li>
                </ul>
             </div>
@@ -119,7 +119,7 @@ Given below is a checklist that will guide you to set up your production environ
          <td>
             If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topics for instructions:
             <ul>
-               <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer">proxy server for the API-M runtime</a>.</li>
+               <li>Configuring a <a href="https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/">proxy server for the API-M runtime</a>.</li>
                <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/configuring-proxy-servers">proxy server for the Micro Integrator runtime</a>.</li>
             </ul>
          </td>
@@ -127,7 +127,7 @@ Given below is a checklist that will guide you to set up your production environ
       <tr class="odd">
          <td>High availability</td>
          <td>
-            <p>Configure your deployment with high availability. Refer the <a href="{{base_path}}/install-and-setup/setup/deployment-overview">recommended deployment patterns</a> and select an option that fits your requirements.</p>
+            <p>Configure your deployment with high availability. Refer the <a href="{{base_path}}/install-and-setup/setup/deployment/deployment-overview">recommended deployment patterns</a> and select an option that fits your requirements.</p>
             <p>In the cloud native deployment, high availability should be achieved via the container orchestration system (Kubernetes).</p>
          </td>
       </tr>

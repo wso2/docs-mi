@@ -1,7 +1,5 @@
 # Working with Org Unit Details
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve details of a specific Org Unit

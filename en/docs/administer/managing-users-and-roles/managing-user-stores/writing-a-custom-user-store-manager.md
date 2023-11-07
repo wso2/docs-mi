@@ -516,7 +516,7 @@ in your WSO2 product.
         configure this as a secondary user store if you already have a
         different primary user store configured. For more information
         configuring user stores in WSO2 products, see [Configuring User
-        Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
+        Stores](https://apim.docs.wso2.com/en/4.2.0/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
     
 
     You do not need to change anything else since you extend the

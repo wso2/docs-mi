@@ -1,7 +1,5 @@
 # Working with Document Management Security Groups
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve Document Management Security Groups

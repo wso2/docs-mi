@@ -16,7 +16,7 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
     group_id = "mi_dev"
     node_id = "dev_node_2"
     ```
-    For more information, see [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
+    For more information, see [Micro Integrator Dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
 
 
 
@@ -129,5 +129,5 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's Next?
 
--   [Running the MI Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard).
+-   [Running the MI Dashboard]({{base_path}}/install-and-setup/install/running-the-mi-dashboard).
 

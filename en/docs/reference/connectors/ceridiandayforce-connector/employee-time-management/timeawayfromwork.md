@@ -1,7 +1,5 @@
 # Working with Employee Time Away from Work
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve time away from work of an employee

@@ -1,7 +1,5 @@
 # Working with Employee Work Assignments
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to retrieve, create or update work assignments of an employee

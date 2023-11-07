@@ -121,7 +121,7 @@ Let's use the integration artifacts from the [service chaining]({{base_path}}/le
     If you did not try the [service chaining]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service) tutorial yet:
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/service-orchestration-tutorial.zip) for the **service chaining** use case.
-    2.  [Open WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_patgh}}/develop/importing-projects).
+    2.  [Open WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_path}}/develop/importing-projects).
 
 #### REST API artifact
 
@@ -253,4 +253,4 @@ ei_analytics.password = "admin"
 
 ## What's Next?
 
-If you have successfully set up your analytics deployment, see the instructions on [using the analytics portal]({{base_path}}/observe/mi-observe/using-the-analytics-dashboard).
+If you have successfully set up your analytics deployment, see the instructions on [using the analytics portal]({{base_path}}/mi-analytics/using-the-analytics-dashboard).

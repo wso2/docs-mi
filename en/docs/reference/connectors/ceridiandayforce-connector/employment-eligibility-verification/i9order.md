@@ -1,7 +1,5 @@
 # Working with I-9 Order
 
-[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
-
 ### Overview 
 
 The following operations allow you to update i-9 employment eligibility of an employee

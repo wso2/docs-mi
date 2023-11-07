@@ -9,7 +9,7 @@ Any user management system has the following basic components:
 Following sections explain how easily you can manage users and roles using inbuilt user management features provided 
 within WSO2 API Manager.
 
-[Managing User Roles]({{base_path}}/administer/managing-users-and-roles/managing-user-roles)
+[Managing User Roles](https://apim.docs.wso2.com/en/4.2.0/administer/managing-users-and-roles/managing-user-roles/)
 
-[Managing Users]({{base_path}}/administer/managing-users-and-roles/managing-users)
+[Managing Users](https://apim.docs.wso2.com/en/4.2.0/administer/managing-users-and-roles/managing-users/)
 
