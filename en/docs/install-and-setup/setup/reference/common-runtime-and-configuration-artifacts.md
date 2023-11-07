@@ -13,7 +13,7 @@ These are directories in API Manager that includes deployable files, which are v
 
 -   `<API-M_HOME>/repository/deployment/server` -  Contains webapps that are related to customizing WSO2 API Manager during deployment. Required for deploying a super tenant. Also contains Synapse configurations and custom sequences, throttling execution plans.
 
--   `<API-M_HOME>/repository/tenants` - This is only used when the deployment involves multi-tenancy. For more information, see [Configuring Multiple Tenants]({{base_path}}/administer/multitenancy/introduction-to-multitenancy).
+-   `<API-M_HOME>/repository/tenants` - This is only used when the deployment involves multi-tenancy. For more information, see [Configuring Multiple Tenants](https://apim.docs.wso2.com/en/4.2.0/administer/multitenancy/introduction-to-multitenancy/).
 
 -   `<API-M_HOME>/repository/database` - H2 database (For solr indexing).
 
