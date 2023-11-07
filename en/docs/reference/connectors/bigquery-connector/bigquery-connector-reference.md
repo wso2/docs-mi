@@ -8,7 +8,7 @@ The following operations allow you to work with the BigQuery Connector. Click an
 
 To use the BigQuery connector, add the <bigquery.init> or <bigquery.getAccessTokenFromServiceAccount> element in your configuration before carrying out any other BigQuery operations.
 
-The BigQuery API requires all requests to be authenticated as a user or a service account. For more information, see https://cloud.google.com/bigquery/authentication. See https://developers.google.com/identity/protocols/OAuth2ServiceAccount for information on service account authentication. For more information, see [related BigQuery documentation](https://developers.google.com/identity/protocols/OAuth2WebServer).
+The BigQuery API requires all requests to be authenticated as a user or a service account. For more information, see [Introduction to authentication](https://cloud.google.com/bigquery/authentication) documentation. See [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) documentation for information on service account authentication. For more information, see [related BigQuery documentation](https://developers.google.com/identity/protocols/OAuth2WebServer).
 
 ??? note "init"
     The init operation is used to initialize the connection to BigQuery.
@@ -492,7 +492,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         </tr>
         <tr>
             <td>useLegacySql</td>
-            <td>Specifies whether to use BigQuery's legacy SQL dialect for this query. The default value is true. If set to false, the query will use BigQuery's standard SQL. For information on BigQuery's standard SQL, see https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql.</td>
+            <td>Specifies whether to use BigQuery's legacy SQL dialect for this query. The default value is true. If set to false, the query will use BigQuery's standard SQL. For information on BigQuery's standard SQL, see [Migrating to GoogleSQL](https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql).</td>
             <td>Yes.</td>
         </tr>
     </table>
