@@ -2,6 +2,9 @@
 
 Micro Integrator can run on automation mode where it triggers, runs and stops an integration job on demand.
 
+!!! attention "Update Level 29"
+    Note that the **Running MI in Automation Mode** is only available from update level 29 onwards for WSO2 Micro Integrator 4.2.0 (wso2mi-4.2.0.29 was released on 19th of September, 2023).
+
 ## Before you begin
 
 - [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
@@ -16,8 +19,7 @@ Micro Integrator can run on automation mode where it triggers, runs and stops an
 3. Create a sequence with your integration scenario.
 4. Define the configured sequence as a main sequence for the composite application.
    <img src="{{base_path}}/assets/img/setup-and-install/select-main-sequence.png" title="Select Main Sequence" width="700" alt="Select Main Sequence"/>
-
-   <img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" title="Add Main Sequence" width="700" alt="Add Main Sequence"/>
+   <img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" title="Add Main Sequence" width="600" alt="Add Main Sequence"/>
 5. Deploy the composite application.
 
 ## Starting the MI in Automation Mode
@@ -49,7 +51,8 @@ Follow the steps given below to start the server.
        ```bash tab="On Windows"
        micro-integrator.bat --car <composite_application_name>
        ```
-       For example:
+       
+      For example:
 
        ```bash tab="On macOS/Linux"
        sh micro-integrator.sh --car TaskExecutingServiceCompositeExporter
