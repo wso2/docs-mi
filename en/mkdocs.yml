@@ -441,8 +441,7 @@ nav:
                   - Manage Users for Micro Integrator: install-and-setup/setup/user-stores/managing-users.md
               - Manage User Stores:
                   - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-                  - Configure Secondary User Stores:
-                      - Micro Integrator: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi.md
+                  - Configure Secondary User Stores for Micro Integrator: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi.md
                   - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
               - Manage Micro Integrator:
                   - Runtime:
