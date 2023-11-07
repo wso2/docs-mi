@@ -83,7 +83,7 @@ Following diagram shows the overall solution we are going to build. The Simple Q
   
 2. Copy the exported carbon application to the **<PRODUCT-HOME>/repository/deployment/server/carbonapps** folder. 
 
-3. [Start the integration server]({{base_path}}/get-started/quick-start-guide/integration-qsg/#start-the-micro-integrator). 
+3. [Start the integration server]({{base_path}}/get-started/quick-start-guide/#start-the-micro-integrator). 
 
 ## Testing  
 
