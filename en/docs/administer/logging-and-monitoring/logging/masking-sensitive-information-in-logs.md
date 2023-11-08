@@ -8,21 +8,21 @@ To configure this feature, follow the instructions below.
 
 ### Enabling log masking
 
-1. Log masking in not enabled by default in API Manager. Therefore, you need to manually enable it and configure the required masking patterns. 
+1. Log masking in not enabled by default in WSO2 Micro Integrator. Therefore, you need to manually enable it and configure the required masking patterns. 
 
-2. To enable log masking, navigate to `<API-M_HOME>/repository/conf/log4j2.properties` and do the necessary changes. The masking feature can be enabled by adding an additional `m` after the `%m` in the `layout.pattern`. Therefore you can add an additional `m` to the log files in which you want the values to be masked, as shown below.
+2. To enable log masking, navigate to `<MI_HOME>/conf/log4j2.properties` and do the necessary changes. The masking feature can be enabled by adding an additional `m` after the `%m` in the `layout.pattern`. Therefore you can add an additional `m` to the log files in which you want the values to be masked, as shown below.
 
     ```java
     appender.CARBON_CONSOLE.layout.pattern = [%d{DEFAULT}] %5p - %c{1} %mm%n
     ``` 
  
-3. The masking patterns are configured in `<API-M_HOME>/repository/conf/wso2-log-masking.properties`. You can change its default configurations in `<API-M_HOME>/repository/conf/deployment.toml`
+3. The masking patterns are configured in `<MI_HOME>/conf/wso2-log-masking.properties`. You can change its default configurations in `<MI-HOME>/conf/deployment.toml`
 
-### The masking pattern file
+### Masking patterns
 
-The masking pattern file is a property file that can contain one or more masking patterns. The following is a sample configuration that showcases how to mask the credit card numbers from the logs.
+You can specify one or more masking patterns in the `<MI-HOME>/conf/deployment.toml` file. The following is a sample configuration that showcases how to mask the credit card numbers from the logs.
 
-Navigate to `<API-M_HOME>/repository/conf/deployment.toml` and add the following configuration.
+Navigate to `<MI-HOME>/conf/deployment.toml` and add the following configuration.
 
 ```properties
 [masking_pattern.properties]
@@ -37,9 +37,9 @@ With this configuration, each log line is checked for all the configured pattern
     If the strings defined in the `deployment.toml` file are within double quotes, it is parsed along with the escape characters. To avoid this, use single quotes when you need to add escape characters as shown in the example below.
     ```
     [masking_pattern.properties]
-    "ACCT_ID" = '(?<=accountId\':)(.*)(?=\')' 
-    "ACCT_ID.replace_pattern"='(.?).(?=.*)'
-    "ACCT_ID.replacer"="*"
+    "XML_NAME"='(?<=<Code>).*?(?=<\/Code>)'
+    "XML_NAME.replace_pattern"='(.?).(?=.*)'
+    "XML_NAME.replacer"="*"
     ```
 
 !!! warning
