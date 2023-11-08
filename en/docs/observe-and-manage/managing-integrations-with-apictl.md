@@ -1,15 +1,235 @@
 # Managing Integrations with apictl
 
-[WSO2 API Controller](https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/), **apictl** allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
+WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
+
+## Download and initialize the apictl
+
+1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
+
+    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-windows-x64.zip)
+
+2.  Extract the downloaded archive of the apictl to the desired location.
+3.  Navigate to the working directory where the executable apictl resides.
+4.  Add the current working directory to your system's `$PATH` variable to be able to access the executable from anywhere.
+5.  Execute the following command to start the apictl.
+
+    !!! Warn
+        If you have previously used an apictl old version, backup and remove `/home/<user>/.wso2apictl` directory and reconfigure the environments using the commands as explained below in [Add an environment](#add-an-environment) section.
+
+    ``` go
+    apictl
+    ```
+
+    The directory structure for the configuration files (`<USER_HOME>/.wso2apictl`) will be created upon the execution of the `apictl` command.
+
+    !!! Tip
+        If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
+
+        ```go tab="Linux/Mac"
+        export APICTL_CONFIG_DIR="/home/wso2user/CLI"
+        ```
+
+        ```go tab="Windows"
+        set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
+        ```
+
+
+    !!! Tip    
+        For further instructions, execute the following command.
+        
+        ``` go
+        apictl --help
+        ```
+
+## Global flags for apictl
+
+The following are some global flags that you can use with any apictl command.
+
+``` go
+--verbose
+    Enable verbose logs (Provides more information on execution)
+--insecure, -k
+    Allow connections to SSL sites without certs
+--help, -h
+    Display information and example usage of a command
+```
+
+## Check the version of the apictl
+
+Run the following apictl command to check the version.
+
+-   **Command**
+    ```bash
+    apictl version
+    ```
+-   **Response**
+
+    ```bash
+    Version: 4.2.2
+    Build Date: 2023-09-12 06:59:52 UTC
+    ```
+## Set proxy environment variables for apictl
+
+You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
+
+-   **Formats**
+
+    ``` bash tab="Without Basic Authentication"
+    export HTTP_PROXY="http://<host-name>:<port>"
+
+    export HTTPS_PROXY="https://<host-name>:<port>"
+
+    export http_proxy="http://<host-name>:<port>"
+
+    export https_proxy="https://<host-name>:<port>"
+    ```
+
+    ``` bash tab="With Basic Authentication"
+    export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
+
+    export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
+
+    export http_proxy="http://<username>:<password>@<host-name>:<port>"
+
+    export https_proxy="https://<username>:<password>@<host-name>:<port>"
+    ```
+
+-   **Examples**
+
+    ``` bash tab="Without Basic Authentication"
+    export HTTP_PROXY="http://localhost:3128"
+
+    export HTTPS_PROXY="https://localhost:3128"
+
+    export http_proxy="http://localhost:3128"
+
+    export https_proxy="https://localhost:3128"
+    ```
+
+    ``` bash tab="With Basic Authentication"
+    export HTTP_PROXY="http://testuser:password@localhost:3128"
+
+    export HTTPS_PROXY="https://testuser:password@localhost:3128"
+
+    export http_proxy="http://testuser:password@localhost:3128"
+
+    export https_proxy="https://testuser:password@localhost:3128"
+    ```
+
+## Add an environment
+        
+You can add environments by either manually editing the `<USER_HOME>/.wso2apictl/main_config.yaml` file or by running the following apictl command.
+
+``` go
+apictl add env <environment-name>
+```
+
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.     
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
+2.  Run the following apictl command to add an environment.
+
+    -   **Command**
+
+        ``` bash
+        apictl add env <environment-name> --mi <mi-management-endpoint>
+        ```
+
+        !!! info
+            **Flags:**
+            -    Required :     
+                `--mi` : Management endpoint of the Micro Integrator
+
+    -   Adding a WSO2 MI to an environment using `--mi` flag
+
+        !!! example
+
+            ``` bash
+            apictl add env dev --mi https://localhost:9164
+            ```
+
+    -   **Response**
+    
+        ``` bash tab="Response Format"
+        Successfully added environment '<environment-name>'
+        ```
+
+        ``` bash tab="Example Response"
+        Successfully added environment 'production'
+        ```
+
+## Remove an environment
+
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.  
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
+2.  Run the following apictl command to remove an environment.
+
+    -   **Command**
+
+        ```bash
+        apictl remove env <environment-name> 
+        ``` 
+  
+        !!! example
+            ```bash
+            apictl remove env production
+            ```
+
+    -   **Response**
+
+        ``` bash tab="Response Format"
+        Successfully removed environment '<environment-name>'
+        Execute 'apictl add env --help' to see how to add a new environment
+        ```
+
+        ``` bash tab="Example Response"
+        Successfully removed environment 'production'
+        Execute 'apictl add env --help' to see how to add a new environment
+        ```
+
+## Get environments
+
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.    
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
+2.  Run the following apictl command to list the environments.  
+
+    -   **Command**
+
+        ```bash
+        apictl get envs
+        ``` 
+
+        !!! info
+            **Flags:**  
+            
+            -    Optional :
+                `--format` : pretty-print environments using Go templates 
+
+    -   **Response**
+
+        ``` bash tab="Response Format"
+        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
+        <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
+        ```
+
+        ```bash tab="Example Response"
+        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
+        dev-mi                                                                                                                                                                      https://localhost:9164
+        ```
 
 !!! info
     **Before you begin** 
 
     -  Ensure that WSO2 Micro Integrator is started. See the instructions on [installing the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
 
-    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl](https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
-    -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, see [Add an Environment](https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+    -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, see [Add an environment](#add-an-environment) section.
 
 ## Login to a Micro Integrator
 
