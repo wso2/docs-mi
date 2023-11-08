@@ -51,29 +51,18 @@ The cloud-native and classic observability solution are suitable for the followi
         <td>Classic deployment</td>
         <td>
             <ul>
-                <li>Metrics only</li>
-                <li>Tracing only</li>
-                <li>Metrics and Tracing</li>
-                <li>Logging separately</li>
+                <li>Metrics</li>
+                <li>Tracing</li>
+                <li>Logging</li>
             </ul>
         </td>
-        <td>This solution uses the Analytics profile of WSO2 EI 6.x.x and if can be configured to have metrics and tracing by enabling them once set up. You will have to configure logging separately by setting it up in the Micro Integrator itself. This is useful if you require more business analytics and less operation observability and also if you already have an observability stack such as ELK.. This is a more simpler solution.</td>
+        <td>This solution allows you to monitor the requests and the responses that correspond to a specific API call, monitor your application's usage, enable tracing and monitor WSO2 Micro Integrator via the JConsole tool. This is a more simpler solution.</td>
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions](../setup/observability/setting-up-minimum-basic-observability-deployment.md) or [Setting up classic observability solution](../setup/observability/setting-up-classic-observability-deployment.md)
+* For instructions to set up the above observability solutions, see [Setting up Cloud Native Observability on a VM](setting-up-cloud-native-observability-on-a-vm.md) or [Setting up Cloud Native Observability on Kubernetes](setting-up-cloud-native-observability-in-kubernetes.md)
 
-* For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution](cloud-native-observability-dashboards.md).
-
-* For more information on how to use the classic observability solution, see [Classic Observability Deployment](using-the-analytics-dashboard.md).
-
-### Understanding observability solutions
-
-WSO2 Micro Integrator offers an analytics distribution that mainly provides business analytics functionality together with a few observability related features. Clients with comprehensive observability requirements had to rely on external tools/stacks such as ELK, Prometheus, AppDynamics, Jaeger, Zipkin, etc. This resulted in multiple scattered systems to observe the system where debugging and troubleshooting were not sufficiently stream-lined.
-
-To address that limitation, WSO2 Micro Integrator introduced an observability solution that utilizes a selected set of external tools together with the older analytic distribution intact. This section explains the features and usage of both solutions.
-
-The older analytics distribution is referred to as the Classic Observability Deployment, and the newer solution introduced with WSO2 Micro Integrator is referred to as the Cloud Native Observability Deployment.
+* For more information on how to use the cloud-native solution, see [Viewing Cloud Native Observability Statistics](viewing-cloud-native-observability-statistics.md).
 
 ## Management
 
@@ -94,6 +83,6 @@ You can integrate with external tools to do the following:
 
 **TCP Message Monitoring**
 
-- [Starting TCPMon](tcp/starting-tcp-mon.md)
-- [Message Monitoring with TCPMon](tcp/message-monitoring-with-tcpmon.md)
-- [Other Usages of TCPMon](tcp/other-usages-of-tcpmon.md)
+- [Starting TCPMon](classic-observability-tcp/starting-tcp-mon.md)
+- [Message Monitoring with TCPMon](classic-observability-tcp/message-monitoring-with-tcpmon.md)
+- [Other Usages of TCPMon](classic-observability-tcp/other-usages-of-tcpmon.md)
