@@ -78,7 +78,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
     
     If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
 
-    <br/>Limitation: When there are replicas in the deployment, the write operations will not work properly.
+    **Limitation**: When there are replicas in the deployment, the write operations will not work properly.
 
     If communicating via Ingress, use the following configuration:
     ```toml
@@ -194,7 +194,7 @@ Follow the steps given below.
       
 ### Step 5 - Sign in to the Dashboard
 
-Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
+Once you have [set up and started the dashboard](#using-the-mi-dashboard), you can access the dashboard URL.
 
 !!! Note "Before you begin"
     Be sure to have at least one Micro Integrator server connected to the dashboard before attempting to sign in to it. This can be verified by checking the presence of the following log.

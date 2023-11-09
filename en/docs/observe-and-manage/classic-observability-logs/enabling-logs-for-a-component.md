@@ -46,7 +46,7 @@ There are two ways to enable logs for a component: using the Micro Integrator [d
  
 ### Using the CLI
 
-1.  Download and set up the [API Controller](https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/).
+1.  Download and set up the [API Controller]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl).
 
 2.  Use the commands for [adding a new logger]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#add-a-new-logger) to the Micro Integrator.
 

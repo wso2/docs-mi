@@ -314,6 +314,7 @@ nav:
                             - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
                             - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
                             - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+                      - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
                       - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
                 - Security:
                       - Set up Keystores:
@@ -420,14 +421,13 @@ nav:
                             - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
                       - Traces:
                             - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
-          - Integration with External Tools:
-                - Metrics:
-                    - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
-                    - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
-                - TCP Messages:
-                    - Starting TCPMon: observe-and-manage/tcp/message-monitoring-with-tcpmon.md
-                    - Message Monitoring with TCPMon: observe-and-manage/tcp/other-usages-of-tcpmon.md
-                    - Other Usages of TCPMon: observe-and-manage/tcp/starting-tcp-mon.md
+                      - Metrics:
+                            - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
+                            - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+                      - TCP Messages:
+                            - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
+                            - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
+                            - Other Usages of TCPMon: observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon.md
           - Analytics:
                 - ELK Based Analytics:
                       - Setup: mi-analytics/mi-elk-installation-guide.md
@@ -437,13 +437,8 @@ nav:
                       - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
           - Administer:
               - Administer Overview: administer/admin-overview.md
-              - Manage Users and Roles:
-                  - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
-                  - Manage Users for Micro Integrator: install-and-setup/setup/user-stores/managing-users.md
-              - Manage User Stores:
-                  - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-                  - Configure Secondary User Stores for Micro Integrator: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi.md
-                  - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+              - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
+              - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
               - Manage Micro Integrator:
                   - Runtime:
                       - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md

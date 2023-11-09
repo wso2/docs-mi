@@ -1,4 +1,6 @@
-# Managing Users
+# Managing Users and Roles
+
+The WSO2 Micro Integrator has limited role support without fine-grained permission tree support as in the Enterprise Integrator. In Micro Integrator, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
 
 See the topics given below to understand **user management** in the Micro Integrator.
 
@@ -37,13 +39,13 @@ An existing admin user can log in to the Micro Integrator server from the CLI to
 
 Users that do not have admin privileges can access the management API, the CLI, and the dashboard to view and monitor integration artifacts and logs.
 
-## Managing users from the CLI
+## Managing users and roles from the CLI
 
 You can use the WSO2 API Controller (APICTL) to view details of users, add new users, and remove users from the user store.
 
-For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#manage-users)
+For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#manage-users) and see [Manage Roles]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#manage-roles).
 
-## Managing users from the Dashboard
+## Managing users and roles from the Dashboard
 
 See the [Micro Integrator Dashboard documentation]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
 
@@ -54,3 +56,11 @@ Select <b>Users</b> in the left-hand navigator to view the list of existing user
 Click <b>Add User</b> to create new users. Note that you can assign admin privileges during user creation.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-users-2.png">
+
+Select <b>Roles</b> in the left-hand navigator to view the list of existing roles.
+
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi_dashboard_list_roles.png">
+
+Click <b>Add Role</b> to create new role.
+
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi_dashboard_add_role_sc.png">

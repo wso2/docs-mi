@@ -60,7 +60,7 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 
   	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/users?pattern=”*us*”&role=”role”" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+	curl -X GET "https://localhost:9164/management/users?pattern=*us*&role=role" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
   	```
 
     ```bash tab='Response'
@@ -117,14 +117,14 @@ The management API has multiple resources to provide information regarding the d
 	!!! note
 		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 
--	**Resource**: `/users/pattern=”*”&role=admin`
+-	**Resource**: `/users?pattern=*&role=admin`
 
 	**Description**: Retrieves information related to user names (stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) that match a specific pattern and user role.
 
 	**Example**:
 
   	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/users?pattern=”*us*”&role=”role”" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+	curl -X GET "https://localhost:9164/management/users?pattern=*us*&role=role" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
   	```
 
     ```bash tab='Response'
@@ -159,9 +159,9 @@ The management API has multiple resources to provide information regarding the d
     ```
 
 	!!! note
-		When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
+		- When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
 
-		We cannot add admin users to the secondary user stores. 
+		- We cannot add admin users to the secondary user stores.
 
     Execute the following request and receive the response:
 
@@ -172,7 +172,7 @@ The management API has multiple resources to provide information regarding the d
   	```bash tab='Response'
     {
       "userId":"user4",
-      “status”:added
+      "status":"Added"
     }
   	```
 
@@ -180,7 +180,10 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Removes a user from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). Note that only admin users can remove other users with admin access.
+	**Description**: Removes a user from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). 
+
+	!!! note
+		Only super admin user can remove other users with admin access.
 
 	**Example**:
 
@@ -193,7 +196,7 @@ The management API has multiple resources to provide information regarding the d
   	```bash tab='Response'
     {
       "userId":"user1",
-      “status”:deleted
+      "status":"Deleted"
     }
   	```
 
@@ -208,7 +211,7 @@ The management API has multiple resources to provide information regarding the d
   	```bash tab='Response'
     {
       "userId":"user1",
-      “status”:deleted
+      "status":"Deleted"
     }
   	```
 
@@ -216,7 +219,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/users`
 
-	**Description**: Update the password of a user from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
+	**Description**: Update the password of a user from the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore). Any user with admin access can update the own password and the passwords of non-admin users.
 
 	**Example**:
 
@@ -627,6 +630,22 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+### ADD CARBON APPLICATIONS
+
+-	**Resource**: `/applications`
+
+	**Description**: Adds a carbon application to the deployment folder. Once added it will be hot deployed to the server.
+
+	**Example**:
+
+	```bash tab='Request'
+	curl -X POST "https://localhost:9164/management/applications" --form "file=@path_to_car_file" -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+	```bash tab='Response'
+	{"Message":"Successfully added Carbon Application HelloWorldCompositeExporter_1.0.0.car"}
 	```
 
 ### DOWNLOAD CARBON APPLICATION
