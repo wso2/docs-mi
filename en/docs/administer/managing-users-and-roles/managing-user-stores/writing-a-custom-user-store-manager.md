@@ -1,15 +1,14 @@
 # Writing a Custom User Store Manager
 
 This page demonstrates the process of writing a simple custom user store
-manager for WSO2 products.
+manager for WSO2 Micro Integrator.
 
 In enterprise systems, some key components are centralized for painless
 management. User management is one such component that is centralized
 and carefully monitored. There may be user management systems that use a
-database or LDAP as the data sources. Any WSO2 product based on WSO2
-Carbon can be configured to use these existing centralized user
+database or LDAP as the data sources. WSO Micro Integrator can be configured to use these existing centralized user
 management systems as the user store. This topic demonstrates how to
-integrate an existing JDBC user store with a WSO2 product.
+integrate an existing JDBC user store with a WSO2 Micro Integrator.
 
 The following sections provide information that you need to be aware of
 when writing a custom user store manager.
@@ -61,11 +60,6 @@ options.
 <td><p>If you want to change the authentication logic you can override this method and write your own implementation. The default task of this method is to compare the given password with the stored password. The given credentials are passed to the <code>                preparePassword               </code> method to do the salting or encryption before the comparison takes place.</p></td>
 </tr>
 <tr class="even">
-<td><p><code>                String preparePassword(Object password, String saltValue)               </code></p></td>
-<td>This returns the encrypted or plain-text password based on the configurations.</td>
-<td><p>You can override this method if you need to change the way you encrypt the password. If you want to change the algorithm that is used for encryption, you can configure it.</p></td>
-</tr>
-<tr class="odd">
 <td><p><code>                Properties getDefaultUserStoreProperties()               </code></p></td>
 <td><div class="content-wrapper">
 <p>The default properties of the user store are returned using this method. These properties are used in user store related operations.</p>
@@ -82,12 +76,12 @@ options.
 </div></td>
 <td><p>By overriding this method, you can programmatically change the configuration of the user store manager implementation.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><code>                boolean checkUserNameValid(String userName)               </code></p></td>
 <td><p>Returns whether the given username is compatible with the defined criteria.</p></td>
 <td><p>The criteria used for defining a valid username can be configured as a regex in user store configurations. If you want to change the way user name validation is done, override this method.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><code>                boolean checkUserPasswordValid(Object credential)               </code></p></td>
 <td><p>Returns whether the given password is compatible with the defined criteria. This is invoked when creating a user, updating a password and authorization.</p></td>
 <td><p>Similar to the user name, you can configure the format of a valid password in configuration. If you want to change that behavior you can override this method.</p></td>
@@ -189,12 +183,11 @@ options.
 | `                String[] doGetUserListOfRole(String roleName, String filter)               `                                           | This method returns a list of usernames that are mapped with the given rolename.                                                                                                           |
 | `                String[] getAllProfileNames()               `                                                                          | All the profile names are returned including the default profile.                                                                                                                          |
 | `                boolean isValidRememberMeToken(String userName, String token)               `                                          | This method is used to check if the given token exists for the given user.                                                                                                                 |
-| `                boolean isMultipleProfilesAllowed()               `                                                                    | Returns whether this user store is allowed to have multiple profiles per user. The default value is `               false              ` .                                                 |
-| `                boolean isBulkImportSupported()               `                                                                        | This method returns whether this user store allows bulk transactions or not.                                                                                                               |
+| `                boolean isMultipleProfilesAllowed()               `                                                                    | Returns whether this user store is allowed to have multiple profiles per user. The default value is `               false              ` .                                                 |                                                                                                             |
 
 ### Implementations
 
-In WSO2 Carbon-based products, there are four user store manager classes
+In WSO2 Micro Integrator, there are four user store manager classes
 that implement the `           AbstractUserStoreManager          `
 class. You can select one of those classes according to the user store
 that you have in your environment.
@@ -212,19 +205,19 @@ that you have in your environment.
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>               org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager              </code></td>
+<td><code>               org.wso2.micro.integrator.security.user.core.jdbc.JDBCUserStoreManager              </code></td>
 <td><p>If your user details are stored in a database, you must use this user store manager implementation. With the abstraction provided in this implementation, most of the JDBC based scenarios can be handled without writing a custom user store manager.</p></td>
 </tr>
 <tr class="even">
-<td><code>               org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager              </code></td>
+<td><code>               org.wso2.micro.integrator.security.user.core.ldap.ReadOnlyLDAPUserStoreManager              </code></td>
 <td><p>You can use this class if you have an LDAP user store. This implementation does not allow you to insert or update users from the WSO2 product side. Instead you can only read and use them in the product.</p></td>
 </tr>
 <tr class="odd">
-<td><code>               org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager              </code></td>
+<td><code>               org.wso2.micro.integrator.security.user.core.ldap.ReadWriteLDAPUserStoreManager              </code></td>
 <td><p>If you want to allow the WSO2 product to manipulate user store data, you need to use this implementation.</p></td>
 </tr>
 <tr class="even">
-<td><code>               org.wso2.carbon.user.core.ldap.ActiveDirectoryLDAPUserStoreManager              </code></td>
+<td><code>               org.wso2.micro.integrator.security.user.core.ldap.ActiveDirectoryLDAPUserStoreManager              </code></td>
 <td><p>Active Directory also can be used as the user store of a WSO2 product and you can configure it using this user store manager implementation.</p></td>
 </tr>
 </tbody>
@@ -236,7 +229,7 @@ The instructions in this section are focused on implementing a sample
 JDBC user store manager. For this sample, the following tools are used
 to implement the custom user store manager.
 
--   Java 1.6.0
+-   Java 11
 -   IDE (Eclipse, IntelliJ IDEA, etc.)
 -   Apache Maven
 
@@ -245,111 +238,72 @@ to implement the custom user store manager.
 To set up this implementation, do the following.
 
 1.  Create a new Apache Maven project with the help of the IDE that you are using. The project should be a simple Apache Maven project and you can use any desired artifact and group ID.
-2.  Add the WSO2 user store management .jar file as a dependency of our project. Since this .jar file is stored in WSO2's Maven repository, you must add the WSO2 repository to your POM file. Please see the below sample POM file.
-    
-    !!! note
-    
-        Note that the version number of the carbon dependencies
-        seen below have to be updated according to the carbon kernel version
-        that the particular product version is compatible with. For example,
-        WSO2 API Manager is built on top of carbon kernel version **4.6.1**
-        therefore, the version given in the sample POM file below is
-        **4.6.1**. Change this value accordingly based on the relevant
-        carbon kernel version of the product you are using by referring to
-        this [release
-        matrix](https://wso2.com/products/carbon/release-matrix/).
-    
+2.  Add the WSO2 Micro Integrator user store management .jar file as a dependency of our project. Since this .jar file is stored in WSO2's Maven repository, you must add the WSO2 repository to your POM file. Please see the below sample POM file.
 
     ``` xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>org.wso2.sample</groupId>
-        <artifactId>CustomReadOnlyJDBCUserStoreManager</artifactId>
-        <version>1.0.0</version>
+        <groupId>com.wso2.custom.usermgt</groupId>
+        <artifactId>CustomUserStore</artifactId>
+        <version>1.0</version>
+        <name>CustomUserStore</name>
+        <url>http://maven.apache.org</url>
         <packaging>bundle</packaging>
         <repositories>
             <repository>
-                <id>wso2-nexus</id>
-                <name>WSO2 internal Repository</name>
-                <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-                <releases>
-                    <enabled>true</enabled>
-                    <updatePolicy>daily</updatePolicy>
-                    <checksumPolicy>ignore</checksumPolicy>
-                </releases>
+            <id>wso2-nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
             </repository>
         </repositories>
         <dependencies>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.user.core</artifactId>
-                <version>4.5.1</version>
+            <groupId>org.wso2.ei</groupId>
+            <artifactId>org.wso2.micro.integrator.security</artifactId>
+            <version>4.2.0</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.utils</artifactId>
-                <version>4.5.1</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.user.api</artifactId>
-                <version>4.5.1</version>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.2</version>
             </dependency>
         </dependencies>
-
         <build>
             <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.1</version>
-                    <inherited>true</inherited>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-scr-plugin</artifactId>
-                    <version>1.7.2</version>
-                    <executions>
-                        <execution>
-                            <id>generate-scr-scrdescriptor</id>
-                            <goals>
-                                <goal>scr</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>2.3.5</version>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <instructions>
-                            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                            <Bundle-Name>${project.artifactId}</Bundle-Name>
-                            <Private-Package>
-                                org.wso2.sample.user.store.manager.internal
-                            </Private-Package>
-                            <Export-Package>
-                                !org.wso2.sample.user.store.manager.internal,
-                                org.wso2.sample.user.store.manager.*,
-                            </Export-Package>
-                            <Import-Package>
-                                org.wso2.carbon.*,
-                                org.apache.commons.logging.*,
-                                org.osgi.framework.*,
-                                org.osgi.service.component.*
-                            </Import-Package>
-                        </instructions>
-                    </configuration>
-                </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <inherited>true</inherited>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>5.1.9</version>
+                <extensions>true</extensions>
+                <configuration>
+                <instructions>
+                    <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                    <Bundle-Name>${project.artifactId}</Bundle-Name>
+                    <Private-Package>
+                    </Private-Package>
+                    <Export-Package>
+                    com.wso2.custom.usermgt.*,
+                    </Export-Package>
+                    <Import-Package>
+                    org.wso2.micro.integrator.security.*,
+                    org.apache.commons.logging.*,
+                    org.jasypt.util.password.*,
+                    </Import-Package>
+                </instructions>
+                </configuration>
+            </plugin>
             </plugins>
         </build>
     </project>
@@ -387,12 +341,13 @@ Do the following steps to write the custom user store manager.
     import org.apache.commons.logging.Log;
     import org.apache.commons.logging.LogFactory;
     import org.jasypt.util.password.StrongPasswordEncryptor;
-    import org.wso2.carbon.user.api.RealmConfiguration;
-    import org.wso2.carbon.user.core.UserRealm;
-    import org.wso2.carbon.user.core.UserStoreException;
-    import org.wso2.carbon.user.core.claim.ClaimManager;
-    import org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager;
-    import org.wso2.carbon.user.core.profile.ProfileConfigurationManager;
+    import org.wso2.micro.integrator.security.user.api.RealmConfiguration;
+    import org.wso2.micro.integrator.security.user.core.UserRealm;
+    import org.wso2.micro.integrator.security.user.core.UserStoreException;
+    import org.wso2.micro.integrator.security.user.core.claim.ClaimManager;
+    import org.wso2.micro.integrator.security.user.core.jdbc.JDBCUserStoreManager;
+    import org.wso2.micro.integrator.security.user.core.profile.ProfileConfigurationManager;
+    import org.wso2.micro.integrator.security.util.Secret;
 
     import java.sql.Connection;
     import java.sql.PreparedStatement;
@@ -404,15 +359,16 @@ Do the following steps to write the custom user store manager.
     import java.util.Map;
 
     public class CustomUserStoreManager extends JDBCUserStoreManager {
-        private static Log log = LogFactory.getLog(StarkUserStoreManager.class);
+
+        private static Log log = LogFactory.getLog(CustomUserStoreManager.class);
         // This instance is used to generate the hash values
         private static StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
 
         // You must implement at least one constructor
-        public CustomUserStoreManager(RealmConfiguration realmConfig, Map<String, Object> properties, ClaimManager
-                claimManager, ProfileConfigurationManager profileManager, UserRealm realm, Integer tenantId)
-                throws UserStoreException {
-            super(realmConfig, properties, claimManager, profileManager, realm, tenantId);
+        public CustomUserStoreManager(RealmConfiguration realmConfig, Map<String, Object> properties,
+                                    ClaimManager claimManager, ProfileConfigurationManager profileManager, UserRealm realm,
+                                    Integer tenantId, boolean skipInitData) throws UserStoreException {
+            super(realmConfig, properties, claimManager, profileManager, realm, tenantId, skipInitData);
             log.info("CustomUserStoreManager initialized...");
         }
 
@@ -420,10 +376,10 @@ Do the following steps to write the custom user store manager.
         public boolean doAuthenticate(String userName, Object credential) throws UserStoreException {
             boolean isAuthenticated = false;
             if (userName != null && credential != null) {
+                Connection dbConnection = null;
                 try {
                     String candidatePassword = String.copyValueOf(((Secret) credential).getChars());
 
-                    Connection dbConnection = null;
                     ResultSet rs = null;
                     PreparedStatement prepStmt = null;
                     String sql = null;
@@ -461,10 +417,11 @@ Do the following steps to write the custom user store manager.
                     log.info(userName + " is authenticated? " + isAuthenticated);
                 } catch (SQLException exp) {
                     try {
-                        connection.rollback();
+                        if (dbConnection != null)
+                            dbConnection.rollback();
                     } catch (SQLException e1) {
-                        throw new UserStoreException("Transaction rollback connection error occurred while" + 
-                            " retrieving user authentication info. Authentication Failure.", e1);
+                        throw new UserStoreException("Transaction rollback connection error occurred while" +
+                                " retrieving user authentication info. Authentication Failure.", e1);
                     }
                     log.error("Error occurred while retrieving user authentication info.", exp);
                     throw new UserStoreException("Authentication Failure");
@@ -479,7 +436,7 @@ Do the following steps to write the custom user store manager.
                 String candidatePassword = String.copyValueOf(((Secret) password).getChars());
                 // ignore saltValue for the time being
                 log.info("Generating hash value using jasypt...");
-                return passwordEncryptor.encryptPassword(password);
+                return passwordEncryptor.encryptPassword(candidatePassword);
             } else {
                 log.error("Password cannot be null");
                 throw new UserStoreException("Authentication Failure");
@@ -494,46 +451,30 @@ Do the following steps to write the custom user store manager.
 ### Deploying and configuring the custom user store manager
 
 Do the following to deploy and configure the custom user store manager
-in your WSO2 product.
+in your WSO2 Micro Integrator.
 
-1.  Copy the artifact of your project (custom-userstore.jar, in this
-    case) to the
-    `           <API-M_HOME>/repository/components/dropins          `
-    directory. Also copy all OSGI bundles to this location. If you have
-    any dependency .jar files, copy them to the
-    `           <API-M_HOME>/repository/components/lib          `
-    directory.
-2.  Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file to use our custom
+1.  Copy the artifact of your project (CustomUserStore-1.0.jar, in this case) to the `<MI_HOME>/dropins` directory. Also copy all OSGI bundles to this location. If you have
+    any dependency .jar files, copy them to the `<MI_HOME>/lib` directory.
+2.  Add the following configuration to the `<MI_HOME>/conf/deployment.toml` file to use our custom
     implementation for user store management.
     ``` xml
     [user_store]
     class="com.wso2.custom.usermgt.CustomUserStoreManager"
+    type = "database"
     ```
 
     !!! tip
         This step provides instructions on configuring your custom user
         store manager as a primary user store. Alternatively, you can
         configure this as a secondary user store if you already have a
-        different primary user store configured. For more information
-        configuring user stores in WSO2 products, see [Configuring User
-        Stores](https://apim.docs.wso2.com/en/4.2.0/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
+        different primary user store configured. For more information, see [Configuring Secondary User Stores]({{base_path}}/install-and-setup/setup/user-stores/configuring-secondary-user-stores).
     
 
     You do not need to change anything else since you extend the
     JDBCUserStoreManager class, so the configurations will remain the
     same.
 
-You have now implemented a custom user store manager for a WSO2 product.
+You have now implemented a custom user store manager for a WSO2 Micro Integrator.
 Once you have done this, start the product and see the log messages that
 you have placed inside overridden methods when you create a new user or
 login. This ensures that all your configurations work as intended.
-
-!!! note "Do you want to create a custom user store that only has few enabled methods? Follow the steps given below:"
-    1.  Sign in to the WSO2 API management console.
-    2.  Click **Add** under User Stores.
-    3.  Select the custom user store you just created as the value from the
-        **User Store Manager Class** dorp-down.
-    4.  Expand the **Advanced** tab and deselect the **Claim Operations
-        Supported** property that is right at the end of the list.
-    5.  Click Add.
-    
