@@ -1,8 +1,8 @@
-# Setting up Cloud Native Observability on Kubernetes
+# Setting up Grafana based Observability on Kubernetes
 
-Follow the instructions given below to set up a cloud native observability solution in a Kubernetes environment. 
+Follow the instructions given below to set up a Grafana based observability solution in a Kubernetes environment.
 
-To streamline the deployment of the cloud native observability solution in Kubernetes, the Micro Integrator provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a few additional configurations. 
+To streamline the deployment of the Grafana based observability solution in Kubernetes, the Micro Integrator provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a few additional configurations.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ This deployment installs Jaeger-Operator. To install the Jaeger deployment, foll
 
 ##### Configuring Grafana to visualize tracing information
 
-The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm), it is not required to add it manually. However, to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
+The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Grafana based Observability in a Virtual Machine]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm), it is not required to add it manually. However, to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
 
 1. Access Grafana via `localhost:3000` and sign in.
 2. Navigate to the settings section of the service level dashboard by clicking the cog wheel icon in the top right corner.
@@ -109,7 +109,7 @@ Once Grafana is successfully configured to visualize statistics, you should be c
 
 ### Option 4 - Metrics + Logs + Message Tracing
 
-To install the cloud native observability solution with logging and tracing capabilities in your Kubernetes cluster, follow the steps below:
+To install the Grafana based observability solution with logging and tracing capabilities in your Kubernetes cluster, follow the steps below:
 
 1. Clone the [Helm repository](https://github.com/wso2/observability-ei).
 
@@ -209,4 +209,4 @@ For more information about the Micro Integrator Kubernetes development flow, see
 
 ## What's Next?
 
-If you have successfully set up your analytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).
+If you have successfully set up your Grafana based observability deployment, see the instructions on [Viewing Grafana Dashboard]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).

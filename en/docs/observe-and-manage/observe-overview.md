@@ -12,11 +12,11 @@ find the root causes of a system failure.
 
 ### Observability solutions
 
-WSO2 Micro Integrator offers two observability solutions referred to as the cloud-native observability deployment and classic observability deployment.
+WSO2 Micro Integrator offers an observability solution based on Prometheus, Loki, Jaeger and Grafana. You can also monitor basic observability data sources such as metrics, logs, and traces.
 
 [![Observability Solution]({{base_path}}/assets/img/observe/observability.png)]({{base_path}}/assets/img/observe/observability.png)
 
-The cloud-native and classic observability solution are suitable for the following combination of operations.
+The Grafana based observability solution and basic observability solution are suitable for the following combination of operations.
 
 <table>
     <tr>
@@ -25,7 +25,7 @@ The cloud-native and classic observability solution are suitable for the followi
         <th>Description</th>
     </tr>
     <tr>
-        <td>Kubernetes cloud-native solution</td>
+        <td>Grafana based Kubernetes solution</td>
         <td>
             <ul>
                 <li>Metrics only</li>
@@ -34,10 +34,10 @@ The cloud-native and classic observability solution are suitable for the followi
                 <li>Metrics + Logging + Tracing</li>
             </ul>
         </td>
-        <td>The default Kubernetes cloud-native solution comes with metrics enabled. You can also configure logging and tracing in combination with this. This solution is ideal if you want a complete cloud-native solution to observability and you already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools.</td>
+        <td>The default Grafana based Kubernetes solution comes with metrics enabled. You can also configure logging and tracing in combination with this. This solution is ideal if you want a complete solution to observability and you already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools.</td>
     </tr>
     <tr>
-        <td>VM cloud-native deployment</td>
+        <td>Grafana based VM deployment</td>
         <td>
             <ul>
                 <li>Metrics only</li>
@@ -45,10 +45,10 @@ The cloud-native and classic observability solution are suitable for the followi
                 <li>Tracing (add-on)</li>
             </ul>
         </td>
-        <td>The default VM cloud-native solution comes with metrics enabled. You can additionally set up logging or tracing separatly as part of this solution later. This solution is ideal if you want a complete cloud-native solution to observability, but you need to set this up on a VM. Ideally you would already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools.</td>
+        <td>The default Grafana based VM solution comes with metrics enabled. You can additionally set up logging or tracing separatly as part of this solution later. This solution is ideal if you want a complete solution to observability, but you need to set this up on a VM. Ideally you would already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools.</td>
     </tr>
     <tr>
-        <td>Classic deployment</td>
+        <td>Basic Observability</td>
         <td>
             <ul>
                 <li>Metrics</li>
@@ -60,9 +60,11 @@ The cloud-native and classic observability solution are suitable for the followi
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Setting up Cloud Native Observability on a VM](setting-up-cloud-native-observability-on-a-vm.md) or [Setting up Cloud Native Observability on Kubernetes](setting-up-cloud-native-observability-in-kubernetes.md)
+* For instructions to set up the above observability solutions, see [Setting up Grafana based Observability on a VM](setting-up-cloud-native-observability-on-a-vm.md) or [Setting up Grafana based Observability on Kubernetes](setting-up-cloud-native-observability-in-kubernetes.md)
 
-* For more information on how to use the cloud-native solution, see [Viewing Cloud Native Observability Statistics](viewing-cloud-native-observability-statistics.md).
+* For more information on how to use the Grafana based solution, see [Viewing Grafana Dashboard](viewing-cloud-native-observability-statistics.md).
+
+* For more information on monitoring basic observability data sources, see [Monitoring Metrics](classic-observability-metrics/jmx-monitoring.md), [Monitoring Logs](classic-observability-logs/monitoring-logs.md), and [Monitoring Traces](classic-observability-traces/monitoring-with-opentelemetry-mi.md).
 
 ## Management
 
