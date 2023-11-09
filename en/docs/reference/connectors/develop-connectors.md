@@ -347,7 +347,7 @@ Now, let's configure files in the `org.wso2.carbon.esb.connector.sample/src/main
     </connector>
     ```
 
-5. Create a folder named icon in the /src/main/resources directory and add two icons. You can download icons from the following location: http://svn.wso2.org/repos/wso2/scratch/connectors/icons/.
+5. Create a folder named icon in the `/src/main/resources` directory and add two icons. You can download icons from [here](http://svn.wso2.org/repos/wso2/scratch/connectors/icons/).
 
 ### Step 3: Building the connector
 
@@ -649,9 +649,9 @@ Connection Handler contains a map that maintains connections/connection pools. F
     </tr>
     <tr>
         <td>createConnection(String connector, String connectionName, ConnectionFactory factory, Configuration configuration)</td>
-        <td>This method is used to create a connection pool. In order to create a connection pool ConnectionFactory class (https://github.com/wso2/carbon-mediation/blob/master/components/mediation-connector/org.wso2.carbon.connector.core/src/main/java/org/wso2/carbon/connector/core/pool/ConnectionFactory.java) must be implemented as done in https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/java/org/wso2/carbon/connector/connection/EmailConnectionFactory.java. This specifies how the connections are created.</br>
+        <td>This method is used to create a connection pool. In order to create a connection pool, the <a href="https://github.com/wso2/carbon-mediation/blob/master/components/mediation-connector/org.wso2.carbon.connector.core/src/main/java/org/wso2/carbon/connector/core/pool/ConnectionFactory.java">ConnectionFactory class</a> must be implemented as done <a href="https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/java/org/wso2/carbon/connector/connection/EmailConnectionFactory.java">here</a>. This specifies how the connections are created.</br>
         </br>
-        Configurations of the connection pool must be set in the Configurations object to be passed (https://github.com/wso2/carbon-mediation/blob/master/components/mediation-connector/org.wso2.carbon.connector.core/src/main/java/org/wso2/carbon/connector/core/pool/Configuration.java).
+        Configurations of the connection pool must be set in the Configurations object to be passed as shown <a href="https://github.com/wso2/carbon-mediation/blob/master/components/mediation-connector/org.wso2.carbon.connector.core/src/main/java/org/wso2/carbon/connector/core/pool/Configuration.java">here</a>.
         </td>
     </tr>
     <tr>

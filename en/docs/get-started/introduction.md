@@ -92,7 +92,7 @@ enabling a tailored approach that suits your unique needs.
 Data plays a pivotal role in driving business operations. 
 Given the unique data handling methods across different systems, the expeditious extraction 
 and utilization of this data is paramount for the development of contemporary applications and services 
-that underpin your organization's digital ecosystem."
+that underpin your organization's digital ecosystem.
 
 ### Efficient Data Exposure
 Effortlessly transform your data sources into API endpoints or services with WSO2 Integration Studio, 
@@ -103,7 +103,7 @@ Our integrated data integration wizard will provide step-by-step guidance throug
 ### Simplified Complex Data Transformation
 Streamline intricate data transformation tasks without the need for manual coding. 
 By harnessing out-of-the-box tools such as FreeMarker Templates and XSLT, you can efficiently 
-and expeditiously convert and transfer data between various systems
+and expeditiously convert and transfer data between various systems.
 
 
 ### Visual Data Mapping
