@@ -1,18 +1,18 @@
-# Viewing Cloud Native Observability Statistics
+# Viewing Grafana based Observability Statistics
 
-Let's use the **dashboards** from the cloud-native observability deployment to monitor **statistics** from your integration artifacts.
+Let's use the **dashboards** from the Grafana based observability deployment to monitor **statistics** from your integration artifacts.
 
 ## Before you begin
 
-Set up the suitable cloud-native observability deployment. The dashboards described in this section apply to all the cloud-native deployment strategies.
+Set up the suitable Grafana based observability deployment. The dashboards described in this section apply to all the Grafana based deployment strategies.
 
 See the following topics for information and instructions:
 
 !!! Tip
-    If you do not know which dashboard to download when setting up cloud-native observability, check the "Downloading the dashboard" section in the respective sub-sections below for details on the dashboard.
+    If you do not know which dashboard to download when setting up Grafana based observability, check the "Downloading the dashboard" section in the respective sub-sections below for details on the dashboard.
 
--	Setting up [cloud-native observability for a VM environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm).
--	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes).
+-	Setting up [Grafana based observability for a VM environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm).
+-	Setting up [Grafana based observability for a Kubernetes environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes).
 
 ## Cluster dashboard
 

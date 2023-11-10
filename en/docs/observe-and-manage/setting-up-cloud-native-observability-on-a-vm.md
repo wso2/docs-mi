@@ -1,12 +1,12 @@
-# Setting up Cloud Native Observability on a VM
+# Setting up Grafana based Observability on a VM
 
-Follow the instructions given below to set up a cloud native observability solution for your Micro Integrator (MI) deployment in a VM environment. 
+Follow the instructions given below to set up a Grafana based observability solution for your Micro Integrator (MI) deployment in a VM environment.
 
 You need to start with the [minimum deployment](#step-1-set-up-the-minimum-deployment), which enables metric monitoring. Once you have set up the minimum deployment, you can add [log processing](#step-2-optionally-integrate-the-log-processing-add-on) and [message tracing](#step-3-optionally-integrate-the-message-tracing-add-on) capabilities to your solution.
 
 ## Step 1 - Set up the minimum deployment
 
-The minimum cloud native observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
+The minimum Grafana based observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
 
 ### Step 1.1 - Set up Prometheus
 
@@ -414,4 +414,4 @@ Once Grafana is successfully configured to visualize statistics, you should be c
 
 ## What's Next?
 
-If you have successfully set up your analytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).
+If you have successfully set up your Grafana based observability deployment, see the instructions on [Viewing Grafana Dashboard]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).
