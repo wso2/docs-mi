@@ -1,4 +1,4 @@
-# Integration Key Concepts
+# Key Concepts
 
 Listed below are the key concepts of WSO2 Micro Integrator.
 
