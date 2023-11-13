@@ -104,32 +104,36 @@ To set up and configure the Micro Integrator runtime, see the topics given below
         Covers the different ways in which you can secure the Micro Integrator and the data it handles. The topic covered are as follows:
         <ul>
             <li>
-                Setting up Keystores
+                Setting up Keystores:
+                <ul>
+                   <li>
+                       <a href="{{base_path}}/install-and-setup/setup/security/creating-keystores">Creating New Keystores</a>
+                   </li>
+                   <li>
+                       <a href="{{base_path}}/install-and-setup/setup/security/importing-ssl-certificate">Adding SSL certificates to keystores</a>
+                   </li>
+                   <li>
+                       <a href="{{base_path}}/install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore">Renewing a CA-signed Certificate</a>
+                   </li>
+                   <li>
+                       <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores">Configuring Keystores</a>
+                   </li>
+                </ul>
             </li>
-                <li>
-                    <a href="{{base_path}}/install-and-setup/setup/security/creating-keystores">Creating New Keystores</a>
-                </li>
-                <li>
-                    <a href="{{base_path}}/install-and-setup/setup/security/importing-ssl-certificate">Adding SSL certificates to keystores</a>
-                </li>
-                <li>
-                    <a href="{{base_path}}/install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore">Renewing a CA-signed Certificate</a>
-                </li>
-                <li>
-                    <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores">Configuring Keystores</a>
-                </li>                                                                               
             <li>
-                Complying with GDPR
-            </li>
+                Complying with GDPR:
+                <ul>
                 <li>
                     <a href="{{base_path}}/install-and-setup/setup/security/gdpr-ei">GDPR for the WSO2 Micro Integrator</a>
                 </li>
                 <li>
                     <a href="{{base_path}}/install-and-setup/setup/security/about-forgetme-tool">About the Identity Anonymization Tool</a>
-                </li>                               
-            <li>
-                Working with Secrets
+                </li>
+                </ul>
             </li>
+            <li>
+                Working with Secrets:
+                <ul>
                 <li>
                     <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text">Encrypting Secrets using WSO2 Secure Vault</a>
                 </li>
@@ -139,9 +143,11 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <li>
                     <a href="{{base_path}}/install-and-setup/setup/security/single-key-encryption">Using Symmetric Encryption</a>
                 </li>                                                       
-            <li>
+                <li>
                 <a href="{{base_path}}/install-and-setup/setup/security/securing-management-api">Securing the Management API</a>
-            </li> 
+                </li> 
+                </ul>
+            </li>
         </ul>
     </td>
 </tr>
@@ -151,30 +157,32 @@ To set up and configure the Micro Integrator runtime, see the topics given below
     </th>
     <td>
         Explains how to configure the Micro Integrator at different levels to optimize performance.
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-jvm-performance">Tuning JVM Performance</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/network-os-performance">Tuning Network and OS Performance</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/jdbc-tuning">Tuning JDBC Configurations</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/http-transport-tuning">Tuning the HTTP Transport</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/jms-transport-tuning">Tuning the JMS Transport</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-the-vfs-transport">Tuning the VFS Transport</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/rabbitmq-transport-tuning">Tuning the RabbitMQ Transport</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-inbound-endpoints">Tuning the Inbound Endpoints</a>
-        </li>
+        <ul>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-jvm-performance">Tuning JVM Performance</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/network-os-performance">Tuning Network and OS Performance</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/jdbc-tuning">Tuning JDBC Configurations</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/http-transport-tuning">Tuning the HTTP Transport</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/jms-transport-tuning">Tuning the JMS Transport</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-the-vfs-transport">Tuning the VFS Transport</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/rabbitmq-transport-tuning">Tuning the RabbitMQ Transport</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-inbound-endpoints">Tuning the Inbound Endpoints</a>
+            </li>
+        </ul>
     </td>
 </tr>
 <tr>
@@ -183,60 +191,66 @@ To set up and configure the Micro Integrator runtime, see the topics given below
     </th>
     <td>
         Explains how to set up the Micro Integrator component to integrate with message brokers such as RabbitMQ, Kafka, and JMS. The topics covered are as follows:
-        <li>
-            AMQP (RabbitMQ)
-        </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/deploy-rabbitmq">Deploying RabbitMQ</a>
+        <ul>
+            <li> 
+                AMQP (RabbitMQ):
+                <ul>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/deploy-rabbitmq">Deploying RabbitMQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq">Connecting to RabbitMQ</a>
+                    </li>  
+                </ul>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq">Connecting to RabbitMQ</a>
-            </li>                
-        <li>
-            JMS
-        </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-activemq">Connecting to ActiveMQ</a>
+                JMS:
+                <ul>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-activemq">Connecting to ActiveMQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-apache-artemis">Connecting to Apache Artemis</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-hornetq">Connecting to HornetQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-ibm-websphere-app-server">Connecting to IBM Websphere App Server</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-ibm-webspheremq">Connecting to IBM WebSphere MQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-jbossmq">Connecting to JBoss MQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-msmq">Connecting to MSMQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-swiftmq">Connecting to Swift MQ</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-tibco-ems">Connecting to TIBCO EMS</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-weblogic">Connecting to Weblogic</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-wso2-mb">Connecting to WSO2 MB</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-multiple-brokers">Connecting to Multiple Brokers</a>
+                    </li>                                                                                                                                                                
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/feature-configs/configuring-kafka">Kafka</a>
+                    </li>
+                    <li>
+                        <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-azureservicebus">Azure Service Bus</a>
+                    </li>  
+                </ul>
             </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-apache-artemis">Connecting to Apache Artemis</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-hornetq">Connecting to HornetQ</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-ibm-websphere-app-server">Connecting to IBM Websphere App Server</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-ibm-webspheremq">Connecting to IBM WebSphere MQ</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-jbossmq">Connecting to JBoss MQ</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-msmq">Connecting to MSMQ</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-swiftmq">Connecting to Swift MQ</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-tibco-ems">Connecting to TIBCO EMS</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-weblogic">Connecting to Weblogic</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-wso2-mb">Connecting to WSO2 MB</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-multiple-brokers">Connecting to Multiple Brokers</a>
-            </li>                                                                                                                                                                
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/feature-configs/configuring-kafka">Kafka</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/install-and-setup/setup/brokers/configure-with-azureservicebus">Azure Service Bus</a>
-        </li>                                   
+        </ul>
     </td>
 </tr>
 <tr>
@@ -277,15 +291,16 @@ To set up and configure the Micro Integrator runtime, see the topics given below
     </th>
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:
-        <li>
-            <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
-        </li>
-        <li>
-            <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
-        </li>
-        <li>
-                <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
-        </li>
+        <ul>
+            <li>
+                <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
+            </li>
+            <li>
+                <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
+            </li>
+            <li>
+                    <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
+            </li>
             <li>
                 <a href="{{base_path}}/observe-and-manage/classic-observability-logs/enabling-logs-for-a-component">Enabling Logs for a Component</a>
             </li>
@@ -297,7 +312,8 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             </li>
             <li>
                 <a href="{{base_path}}/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs">Masking Sensitive Information in Logs</a>
-            </li>                                                                                           
+            </li>  
+        </ul>
     </td>
 </tr>
 <tr>
