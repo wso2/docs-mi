@@ -1,6 +1,6 @@
 # Production Deployment Checklist
 
-Given below is a checklist that will guide you to set up your production environment for WSO2 API-M.
+Given below is a checklist that will guide you to set up your production environment for WSO2 Micro Integrator.
 
 <table>
    <thead>
@@ -60,13 +60,6 @@ Given below is a checklist that will guide you to set up your production environ
          <td>Registry and governance</td>
          <td>
             <div class="content-wrapper">
-               <p>The API-M runtime uses a database registry for persistent storage of configurations. It is recommended to  switch to a database like Oracle, MySQL, or MSSQL.</p>
-               <p>Note that the default setup does not include database backup procedures. The production setup should obviously need to have regular database backup procedures configured.</p>
-               <ul>
-                  <li>
-                     <a href="{{base_path}}/install-and-setup/setup/setting-up-databases/overview">Database registry</a> for the API-M runtime.
-                  </li>
-               </ul>
                <p>The Micro Integrator runtime uses a file-based registry instead of a database.</p>
                <ul>
                   <li>
@@ -83,9 +76,6 @@ Given below is a checklist that will guide you to set up your production environ
                <p>Most of the performance tuning recommendations are common to all WSO2 products. However, each WSO2 product may have additional guidelines for optimizing the performance of product-specific features.</p>
                <ul>
                   <li>
-                     Performance Tuning - WSO2 API-M runtime
-                  </li>
-                  <li>
                      Performance tuning - WSO2 Micro Integrator
                   </li>
                </ul>
@@ -97,15 +87,6 @@ Given below is a checklist that will guide you to set up your production environ
          <td>
             <div class="content-wrapper">
                <p>The following ports must be accessed when operating within a firewall:</p>
-               <b>API-M Ports</b>
-               <ul>
-                  <li>9443 - Used by the management console and services that use the servlet transport.</li>
-                  <li>9763 - Used by the services that use servlet transport.</li>
-                  <li>9999 - Used for JMX monitoring.</li>
-                  <li>8280 - Default HTTP port used by ESB for proxy services.</li>
-                  <li>8243 - Default HTTPS port used by ESB for proxy services.</li>
-               </ul>
-               <b>Micro Integrator Ports</b>
                <ul>
                   <li>8290 - Default HTTP port used by the Micro Integrator for proxy services and APIs.</li>
                   <li>8253 - Default HTTPS port used by the Micro Integrator for proxy services and APIs.</li>
@@ -119,7 +100,6 @@ Given below is a checklist that will guide you to set up your production environ
          <td>
             If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topics for instructions:
             <ul>
-               <li>Configuring a <a href="https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/">proxy server for the API-M runtime</a>.</li>
                <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/configuring-proxy-servers">proxy server for the Micro Integrator runtime</a>.</li>
             </ul>
          </td>

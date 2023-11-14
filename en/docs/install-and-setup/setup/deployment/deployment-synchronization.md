@@ -15,7 +15,7 @@ Be sure to choose the deployment synchronization method that suits your producti
 
 ### Using Network File Share (NFS)
 
-You can use a common shared file system such as Network File System (NFS) or any other shared file system as the content synchronization mechanism. You need to mount the `<EI_HOME>/repository/deployment/server` folder of the two nodes to the shared file system to share all the artifacts between both nodes. 
+You can use a common shared file system such as Network File System (NFS) or any other shared file system as the content synchronization mechanism. You need to mount the `<MI_HOME>/repository/deployment/server` folder of the two nodes to the shared file system to share all the artifacts between both nodes. 
 
 ### Using Remote Synchronization (Rsync)
 
@@ -31,11 +31,11 @@ If you are unable to maintain a shared file system, you can synchronize the cont
     ubuntu@192.168.1.2:~/setup/192.168.1.2/ei_node/repository/deployment/server
     ```
 
-2.  Create a file to synchronize the  `<EI_HOME>/repository/deployment/server/` directory between the nodes.
+2.  Create a file to synchronize the  `<MI_HOME>/repository/deployment/server/` directory between the nodes.
 
     You must create your own SSH key and define it as the `pem_file`. Alternatively, you can use an existing SSH key. Specify the `ei_server_dir` depending on the location in your local machine. Change the `logs.txt` file path and the lock location based on where they are located in your machine.
 
-    Configure syncing the `<EI_HOME>/repository/tenant/` directory to share the tenant artifacts across the cluster.
+    Configure syncing the `<MI_HOME>/repository/tenant/` directory to share the tenant artifacts across the cluster.
 
     ```bash
     #!/bin/sh

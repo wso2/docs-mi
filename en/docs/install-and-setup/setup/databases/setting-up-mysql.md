@@ -7,7 +7,7 @@ Follow the steps given below to set up the required MySQL databases for your Mic
 
 	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi#cluster-coordination'>cluster coordination</a>
     -	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
-    -	<a href='{{base_path}}/install-and-setup/setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
+    -	<a href='{{base_path}}/install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Setting up a MySQL server
 

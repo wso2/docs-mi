@@ -29,6 +29,14 @@ To install and run the Micro Integrator on a virtual machine, see the topics giv
             Explains how to install and run the Micro Integrator as a Windows service.
         </td>
     </tr>
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/running-the-mi-in-automation-mode">Running the Micro Integrator in Automation Mode</a>
+        </th>
+        <td>
+            Explains how to run the Micro Integrator in Automation Mode.
+        </td>
+    </tr>
 </table>
 
 To install and run the Micro Integrator Dashboard on a virtual machine, see the topics given below.
@@ -305,9 +313,6 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/observe-and-manage/classic-observability-logs/enabling-logs-for-a-component">Enabling Logs for a Component</a>
             </li>
             <li>
-                <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
-            </li>
-            <li>
                 <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth">Managing Log Growth</a>
             </li>
             <li>
@@ -336,7 +341,7 @@ To deploy the Micro Integrator runtime, see the topics given below.
             <a href="{{base_path}}/install-and-setup/setup/deployment/deployment-overview">Deployment Patterns</a>
         </th>
         <td>
-            This explains all the deployment patterns you can follow when you deploy WSO2 API manager. These patterns involve deploying the API Manager component together with Micro Integrator and Streaming Integrator components in clustered setups.
+            This explains all the deployment patterns you can follow when you deploy WSO2 Micro Integrator.
         </td>
     </tr>
     <tr>
@@ -403,4 +408,4 @@ To manage integration artifacts and logs in the Micro Integrator by using the AP
 
 ## Upgrade
 
-The Micro integrator of WSO2 Enterprise Integrator is the predecessor of the Micro Integrator component of WSO2 API Manager. To upgrade from a WSO2 Enterprise Integrator version, follow the [Upgrade WSO2 Micro Integrator](upgrading-wso2-mi.md) documentation.
+To upgrade from a WSO2 Enterprise Integrator version, follow the [Upgrade WSO2 Micro Integrator](upgrading-wso2-mi.md) documentation.

@@ -7,7 +7,7 @@ Follow the steps given below to set up the required IBM databases for your Micro
 
 	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#cluster-coordination'>cluster coordination</a>
 	-	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
-	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
+	-	<a href='{{base_path}}/install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>db2_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 
