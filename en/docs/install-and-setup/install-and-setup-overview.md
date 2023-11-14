@@ -1,4 +1,4 @@
-# Install and Setup Overview
+# Overview
 
 ## Install
 
