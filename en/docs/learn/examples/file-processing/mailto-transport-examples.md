@@ -148,7 +148,7 @@ Create the artifacts:
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources). Change the registry path of the proxy accordingly. 
 5. Set up the back-end service.
-   - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip)
+   - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
    
    - Extract the downloaded zip file.
    - Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
