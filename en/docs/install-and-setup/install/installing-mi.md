@@ -1,6 +1,6 @@
 # Installing the Micro Integrator Runtime
 
-Follow the steps given below to install the Micro Integrator (MI) runtime of WSO2 API Manager.
+Follow the steps given below to install the Micro Integrator (MI).
 
 ## Before you begin
 

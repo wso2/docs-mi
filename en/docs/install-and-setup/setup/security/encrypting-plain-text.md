@@ -43,7 +43,7 @@ Dynamic secrets are specified in configurations as environment variables, system
     server_secret = "$sys{dynamic_secret}"
     ``` 
 
-2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the WSO2 API Controller. For more information, see [Encrypting Secrets with CTL]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl)
+2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the WSO2 API Controller. For more information, see [Encrypting Secrets with CTL]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#encrypting-secrets-with-apictl)
 
 ## Step 2: Running the Cipher Tool
 

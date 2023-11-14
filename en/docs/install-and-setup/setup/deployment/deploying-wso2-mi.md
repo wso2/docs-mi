@@ -263,7 +263,7 @@ Follow the instructions on [setting up a load balancer]({{base_path}}/install-an
 
 ## Deployment hardening
 
-Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines]({{base_path}}/install-and-setup/setup/deployment/deployment_checklist).
+Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines).
 
 ## Testing the cluster
 

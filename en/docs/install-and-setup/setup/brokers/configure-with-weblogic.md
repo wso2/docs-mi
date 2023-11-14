@@ -5,7 +5,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Or
 ## Starting WebLogic and WSO2 Micro Integrator
 
 1.  Download and set up [Oracle WebLogic Server](http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html).
-2.  Download and [start WSO2 Micro Integrator](https://docs.wso2.com/display/EI650/Running+the+Product) .
+2.  Download and [start WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi) .
 3.  Wrap the WebLogic client jar and build a new OSGi bundle using the following [pom.xml](https://svn.wso2.org/repos/wso2/scratch/lasantha/weblogic-wrapper/pom.xml). The exporting of `javax.jms` package and `javax.xml.namespace` package of the client JAR should be prevented.
 4.  Copy the client libraries file (`wlfullclient.jar`) from the `WEBLOGIC_HOME/wlserver_XX/server/lib` directory to the `MI_HOME/dropins` directory.
 
