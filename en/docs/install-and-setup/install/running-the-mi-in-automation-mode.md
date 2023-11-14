@@ -1,6 +1,6 @@
 # Running the Micro Integrator in Automation Mode
 
-The WSO2 Micro Integrator (MI) runtime has introduced a new automation mode that triggers, runs, and stops an integration job on demand. Paired with the latest capabilities of WSO2 Integration Studio, this new mode provides developers with a more efficient way to handle integration tasks, especially in cloud-native environments. This documentation outlines how to utilize the non-server mode in MI using the WSO2 Integration Studio
+The WSO2 Micro Integrator (MI) runtime has introduced a new automation mode that triggers, runs, and stops an integration job on demand. Paired with the latest capabilities of WSO2 Integration Studio, this new mode provides developers with a more efficient way to handle integration tasks, especially in cloud-native environments. This documentation outlines how to utilize the automation mode in MI using the WSO2 Integration Studio
 
 ## Automation mode in MI runtime
 
@@ -12,7 +12,7 @@ WSO2 Micro Integrator runtime offers two operational modes:
 !!! attention "Update Level 29"
     Note that the **Running MI in Automation Mode** is only available from update level 29 onwards for WSO2 Micro Integrator 4.2.0 (wso2mi-4.2.0.29 that  WSO2 released on the 19th of September, 2023).
 
-Historically confined to server mode, MI's exclusive operational mode limited its adaptability, particularly in dynamic cloud environments that demanded short-lived, task-specific executions. The newly introduced non-server mode addresses these constraints by providing a flexible mechanism for streamlined task execution, aligning seamlessly with cloud-native best practices. In this mode, MI executes the specified main sequence from start to finish, allowing for efficient task executions without the need for a persistent server process.
+Historically confined to server mode, MI's exclusive operational mode limited its adaptability, particularly in dynamic cloud environments that demanded short-lived, task-specific executions. The newly introduced automation mode addresses these constraints by providing a flexible mechanism for streamlined task execution, aligning seamlessly with cloud-native best practices. In this mode, MI executes the specified main sequence from start to finish, allowing for efficient task executions without the need for a persistent server process.
 
 ## Before you begin
 
@@ -24,7 +24,7 @@ Before you try out the steps in this guide, complete the following:
 
 ## Design the integration
 
-The main sequence is essential in the non-server mode. It serves as the core of your task's integration logic, dictating its execution path. A well-constructed main sequence ensures a consistent and optimal flow for your tasks in the non-server mode. Follow the steps below to design the main sequence:
+The main sequence is essential in the automation mode. It serves as the core of your task's integration logic, dictating its execution path. A well-constructed main sequence ensures a consistent and optimal flow for your tasks in the automation mode. Follow the steps below to design the main sequence:
 
 1. Open WSO2 Integration Studio.
 2. [Create an Integration Project]({{base_path}}/develop/create-integration-project) with **Create ESB Configs** and **Create Composite Exporter** options enabled.
