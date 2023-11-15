@@ -11,7 +11,7 @@ You can follow the steps in this section to create a new keystore with a private
 !!! Note
     The pubic key certificate we generate for the new keystore is self-signed. If you need a public key certificate that is CA-signed, you can [generate a CA-signed certificate and import it to the keystore]({{base_path}}/install-and-setup/setup/security/importing-ssl-certificate) later. Alternatively, you can follow the instructions to [create a new keystore using a CA-signed public certificate](#creating-a-keystore-using-an-existing-certificate).
 
-1. Open a command prompt and go to the MI_HOME/repository/resources/security/ directory. All keystores should be stored here.
+1. Open a command prompt and go to the `MI_HOME/repository/resources/security/` directory.
 2. Create the keystore that includes the private key by executing the following command:
 
     ```bash

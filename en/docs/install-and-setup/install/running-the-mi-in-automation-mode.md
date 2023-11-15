@@ -30,13 +30,13 @@ The main sequence is essential in the automation mode. It serves as the core of 
 2. [Create an Integration Project]({{base_path}}/develop/create-integration-project) with **Create ESB Configs** and **Create Composite Exporter** options enabled.
 3. Create a sequence with your integration scenario.
 4. Define the configured sequence as a main sequence for the composite application.
-   <img src="{{base_path}}/assets/img/setup-and-install/select-main-sequence.png" title="Select Main Sequence" width="700" alt="Select Main Sequence"/>
-   <img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" title="Add Main Sequence" width="600" alt="Add Main Sequence"/>
-   
-   This sequence, designated as the main sequence, plays a crucial role in guiding the task's operational flow. While WSO2 Integration Studio provides various mediators for assistance, prioritize clarity and efficiency in your logic.
-   
+      <img src="{{base_path}}/assets/img/setup-and-install/select-main-sequence.png" title="Select Main Sequence" width="700" alt="Select Main Sequence"/>
+      <img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" title="Add Main Sequence" width="600" alt="Add Main Sequence"/>
+
+      This sequence, designated as the main sequence, plays a crucial role in guiding the task's operational flow. While WSO2 Integration Studio provides various mediators for assistance, prioritize clarity and efficiency in your logic.
+
 5. Deploy the composite application. Ensure that the main sequence, with other related artifacts, is packaged appropriately in the `Composite Application project`.
-For a detailed guide on packaging, refer to the [WSO2 documentation on packaging synapse artifacts](https://apim.docs.wso2.com/en/latest/integrate/develop/packaging-artifacts/#packaging-synapse-artifacts).
+For a detailed guide on packaging, refer to the [WSO2 documentation on packaging synapse artifacts]({{base_path}}/develop/packaging-artifacts/).
 
 ## Starting the MI in automation mode
 

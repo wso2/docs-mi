@@ -24,7 +24,7 @@ user.name = "user-2"
 user.password = "pwd-2"
 ``` 
 
-The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl). That is, the file-based user store only supports user authentication and authorization for the management API. If you want to use **authentication for integration use cases**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
+The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl)). That is, the file-based user store only supports user authentication and authorization for the management API. If you want to use **authentication for integration use cases**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
 
 ## Disabling the file-based user store
 
@@ -70,7 +70,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 				<code>connection_url</code>
 			</td>
 			<td>
-				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="{{base_path}}/install-and-setup/setup/setup/security/importing-ssl-certificate">add certificates to the truststore</a>.
+				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (client-truststore.jks by default). See the instructions on how to <a href="{{base_path}}/install-and-setup/setup/security/importing-ssl-certificate/#importing-ssl-certificates-to-a-truststore">add certificates to the truststore</a>.
 			</td>
 		</tr>
 		<tr>
@@ -109,7 +109,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 		</tr>
 	</table>
 
-See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#ldap-user-store) you can configure for the ldap user store.
+See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#external-user-store) you can configure for the ldap user store.
 
 If hybrid role support is required, configure a Carbon datasource as in the following example (to create the datasource, use the relevant DB_TYPE_user.sql scripts in `<MI_HOME>/dbscripts/` directory).
 
@@ -130,7 +130,7 @@ pool_options.testOnBorrow = true
 !!! note "Before you begin"
 	[Disable the file-based user store](#disabling-the-file-based-user-store).
 
-If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2.com/enterprise-integrator/6.6.0)), you can connect the same database to the Micro Integrator. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
+If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2docs.atlassian.net/wiki/spaces/EI660/overview)), you can connect the same database to the Micro Integrator. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
 
 1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions. 
 

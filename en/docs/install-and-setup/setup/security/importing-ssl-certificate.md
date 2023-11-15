@@ -12,7 +12,7 @@ Follow the steps given below.
     ```bash
     keytool -certreq -alias certalias -file newcertreq.csr -keystore newkeystore.jks
     ```
-    As mentioned before, use the same alias that you used during the keystore creation process. You will be asked to give the keystore password. Once the password is given, the command will output the newcertreq.csr file to the MI_HOME/repository/resources/security/ directory. This is the CSR that you must submit to a CA.
+    As mentioned before, use the same alias that you used during the keystore creation process. You will be asked to give the keystore password. Once the password is given, the command will output the newcertreq.csr file to the `MI_HOME/repository/resources/security/` directory. This is the CSR that you must submit to a CA.
 
 2. You must provide this CSR file to the Certification Authority (CA) for certification. For testing purposes, try the 90 days trial SSL certificate from Comodo.
 
@@ -56,7 +56,7 @@ Follow the steps given below to import the CA-signed public key certificate into
 !!! Note
     Be sure to update the trust store name and passwords before executing the given commands.
 
-1. Get a copy of the trust store file from the MI_HOME/repository/resources/security/ directory.
+1. Get a copy of the trust store file from the `MI_HOME/repository/resources/security/` directory.
 2. Export the public key from your .jks file using the following command.
     ```bash
     keytool -export -alias certalias -keystore newkeystore.jks -file <public key name>.pem
