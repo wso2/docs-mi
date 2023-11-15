@@ -45,8 +45,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
 
 ## Environment compatibility
 
-- The Micro Integrator is installed with **OpenJDK** by default, which allows you to run the product as soon as it is installed.
-- To use a different JDK, point the `JAVA_HOME` environment variable to the new JDK. Make sure your JDK version is compatible with the WSO2 product.
+- Install a JDK version that is [compatible with this product version]({{base_path}}/install-and-setup/setup/reference/product-compatibility/).
 - It is not recommended to use Apache DS in a production environment due to scalability issues. Instead, use an LDAP like OpenLDAP as your user store.
 - If you have difficulty in setting up the Micro Integrator in a specific platform or database, [contact us](https://wso2.com/contact/).
 

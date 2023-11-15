@@ -81,7 +81,7 @@ Follow the steps below to set up an Oracle database.
 
 ## Setting up the JDBC driver
 
-1.  Copy the Oracle JDBC libraries (for example, \<
+1.  Copy the Oracle JDBC libraries (for example, 
     `ORACLE_HOME/jdbc/lib/ojdbc14.jar)` to the `MI_HOME/lib/`
     directory.
 2.  Remove the old database driver from the

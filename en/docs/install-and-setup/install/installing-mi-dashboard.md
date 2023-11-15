@@ -4,11 +4,11 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 
 ## Installing the MI Dashboard
 
-1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Resources/MI Dashboard** to download the MI Dashboard as a ZIP file.
+1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Components/MI Dashboard** to download the MI Dashboard as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the Micro Integrator Dashboard, which will hereafter be referred to as `<MI-DASHBOARD_HOME>`.
 
 !!! info
-    To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder of each server instance.
+    To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
     ```
     [dashboard_config]
     dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
@@ -16,7 +16,7 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
     group_id = "mi_dev"
     node_id = "dev_node_2"
     ```
-    For more information, see [Micro Integrator Dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
+    For more information, see [Configure the MI servers]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
 
 
 
@@ -118,10 +118,9 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
 ## Setting system properties
 
-If you need to set additional system properties when the server starts, you can take the following approaches:
+If you need to set additional system properties when the server starts, you can take the following approach:
 
 -   **Set the properties from a script** : Setting your system properties in the startup script is ideal because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
--   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a property file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation).
 
 !!! info
 

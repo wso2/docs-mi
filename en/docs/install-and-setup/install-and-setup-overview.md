@@ -84,19 +84,22 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">Configuring a User Store</a>
             </li>
             <li>
+                <a href="{{base_path}}/install-and-setup/setup/user-stores/configuring-secondary-user-stores">Configuring Secondary User Stores</a>
+            </li>
+            <li>
                 <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-mysql">Setting up a MySQL Database</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-MSSQL">Setting up a MSSQL Database</a>
+                <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-mssql">Setting up a MSSQL Database</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-Oracle">Setting up a Oracle Database</a>
+                <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-oracle">Setting up a Oracle Database</a>
             </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-postgresql">Setting up a Postgre SQL Database</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-IBM-DB2">Setting up a IBM Database</a>
+                <a href="{{base_path}}/install-and-setup/setup/databases/setting-up-ibm-db2">Setting up a IBM Database</a>
             </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/deployment/file-based-registry">Configuring the File-based Registry</a>
@@ -295,16 +298,16 @@ To set up and configure the Micro Integrator runtime, see the topics given below
 </tr>
 <tr>
     <th>
-        <a href="{{base_path}}/observe-and-manage/cloud-native-observability-overview">Observability</a>
+        <a href="{{base_path}}/observe-and-manage/observe-overview/">Observability</a>
     </th>
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:
         <ul>
             <li>
-                <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
+                <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm">Setting up Grafana based Observability on a VM</a>
             </li>
             <li>
-                <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
+                <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes/">Setting up Grafana based Observability on Kubernetes</a>
             </li>
             <li>
                     <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
