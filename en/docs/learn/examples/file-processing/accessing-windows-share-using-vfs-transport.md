@@ -64,7 +64,7 @@ To test this sample, the following files and directories should be created:
     
 4.  Set up the back-end service.
         
-    - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip)
+    - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
     - Extract the downloaded zip file.
     - Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
     - Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
