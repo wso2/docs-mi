@@ -2,7 +2,7 @@
 
 Create a Kubernetes Exporter if you want to deploy your integration solutions in a Kubernetes environment. 
 
-The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [API K8s Operator]({{base_path}}/setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator).
+The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [K8s API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/).
 
 ## Creating the Kubernetes project
 
@@ -77,9 +77,6 @@ Follow the steps given below.
                 <b>Required</b>. Select the base Micro Integrator Docker image for your solution. Use one of the following options:
                 <ul>
                     <li>
-                        <b>wso2/wso2mi</b>: This is the community version of the Micro Integrator Docker image, which is stored in the <a href="https://hub.docker.com/r/wso2/wso2mi">public WSO2 Docker registry</a>. This is selected by default.
-                    </li>
-                    <li>
                         <b>docker.wso2.com/wso2mi</b>: This is the Micro Integrator Docker image that includes <b>product updates</b>. This image is stored in the <a href="https://docker.wso2.com/tags.php?repo=wso2mi">private WSO2 Docker registry</a>.
                         Note that you need a valid <a href="https://wso2.com/subscription/free-trial">WSO2 subscription</a> to use the Docker image with updates.
                     </li>
@@ -146,16 +143,8 @@ Follow the steps given below.
     
 4.  Click **Finish**. The Kubernetes exporter is created in the project explorer. 
 
-5.  This step is only required if you already have a Docker image (in your local Docker repository) with the same name as the base image specified above. 
-    
-    !!! Info
-        In this scenario, WSO2 Integration Studio will first check if there is a difference in the two images before pulling the image specified in the **Base Image Repository** field. If the given base image is more updated, the existing image will be overwritten by this new image. Therefore, if you are currently using an older version, or if you have custom changes in your existing image, they will be replaced. 
-        
-    To avoid your existing custom/older images from being replaced, add the following property under **dockerfile-maven-plugin -> executions -> execution -> configurations** in the `pom.xml` file of your Kubernetes Exporter project. This configuration will ensure that the base image will not be pulled when a Docker image already exists with the same name.
-            
-    ```xml
-    <pullNewerImage>false</pullNewerImage>
-    ```
+    !!! Note
+        The base image will only be downloaded if the docker image isn't already present on the local system.
 
 ## The Kubernetes Exporter directory
 
@@ -193,7 +182,7 @@ Expand the **Kubernetes Exporter** in the project explorer. See that the followi
             deployment.toml
         </td>
         <td>
-            The <a href="{{base_path}}/reference/config-catalog">product configuration file</a>.
+            The <a href="{{base_path}}/reference/config-catalog-mi/">product configuration file</a>.
         </td>
     </tr>
     <tr>
@@ -232,14 +221,6 @@ Before you begin:
 
 -   Be sure to start your Docker instance before building the image. If Docker is not started, the build process will fail.
 
--   If you are using a Micro Integrator Docker image from a private registry as your base image:
-
-    1.  Open a terminal and use the following command to log in to Docker:
-        ```bash 
-        docker login -u username -p password 
-        ```
-    2.  In the next step, specify the name of the private Docker registry.
-
 To <b>build</b> and <b>push</b> the Docker image:
 
 !!! Note
@@ -262,6 +243,45 @@ To <b>build</b> and <b>push</b> the Docker image:
     <img alt="Docker Registry Auth Details" src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-auth.png" width="500">
     
 4.  Enter the following details in the wizard:
+
+    **Base Image Docker Authenticaion**
+
+    <table>
+        <tr>
+            <th>
+                Parameter
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Registry Type
+            </td>
+            <td>
+                The Docker image registry type to pull the base image: <b>Private</b> or <b>Public</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                Username of the base registry repository.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                Password of the base registry repository.
+            </td>
+        </tr>
+    </table>
+
+    **Push Image Docker Authenticaion**
 
     <table>
         <tr>
