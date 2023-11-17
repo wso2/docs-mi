@@ -2,10 +2,6 @@
 
 Create a Docker Exporter if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple [integration modules]({{base_path}}/develop/create-integration-project) into a single Docker image and then build and push to the Docker registries.
 
-!!! note 
-    When using Kubernetes/Docker exporter project, make sure to use Integration Studio 8.0.0 with the latest WUM update. 
-    mi-1.2.0 pack we have to change the miVersion of the config-mapper-parser plugin into 1.2.0/1631645406425 in the pom
-
 ## Creating the Docker exporter
 
 Follow the steps given below.   
@@ -47,9 +43,6 @@ Follow the steps given below.
                 <b>Required</b>. Select the base Micro Integrator Docker image for your solution. Use one of the following options:
                 <ul>
                     <li>
-                        <b>wso2/wso2mi</b>: This is the community version of the Micro Integrator Docker image, which is stored in the <a href="https://hub.docker.com/r/wso2/wso2mi">public WSO2 Docker registry</a>. This is selected by default.
-                    </li>
-                    <li>
                         <b>docker.wso2.com</b>: This is the Micro Integrator Docker image that includes <b>product updates</b>. This image is stored in the <a href="https://docker.wso2.com/tags.php?repo=wso2mi">private WSO2 Docker registry</a>.
                         Note that you need a valid <a href="https://wso2.com/subscription/free-trial">WSO2 subscription</a> to use the Docker image with updates.
                     </li>
@@ -57,7 +50,7 @@ Follow the steps given below.
                         You can also use a custom Docker image from a custom repository.
                     </li>
                 </ul>
-                If you specify a Docker image from a private repository, note that you need to log in to your repository from a terminal before you build the image (as explained below).
+                If you specify a Docker image from a private repository, note that you need to log in to your repository before you build the image (as explained below).
             </td>
         </tr>
             <td>
@@ -108,16 +101,9 @@ Follow the steps given below.
     <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/new_docker_project_maven_info.png" width="500">
 
 4.  Click **Finish**. The Docker exporter is created in the project explorer.
-5.  This step is only required if you already have a Docker image (in your local Docker repository) with the same name as the base image specified above. 
     
-    !!! Info
-        In this scenario, WSO2 Integration Studio will first check if there is a difference in the two images before pulling the image specified in the **Base Image Repository** field. If the given base image is more updated, the existing image will be overwritten by this new image. Therefore, if you are currently using an older version, or if you have custom changes in your existing image, they will be replaced. 
-        
-    To avoid your existing custom/older images from being replaced, add the following property under **dockerfile-maven-plugin -> executions -> execution -> configurations** in the `pom.xml` file of your Docker Exporter project. This configuration will ensure that the base image will not be pulled when a Docker image already exists with the same name.
-            
-    ```xml
-    <pullNewerImage>false</pullNewerImage>
-    ```
+    !!! Note
+        The base image will only be downloaded if the docker image isn't already present on the local system.
 
 ## The Docker Exporter directory
 
@@ -155,7 +141,7 @@ Expand the **Docker Exporter** in the project explorer. See that the following f
             deployment.toml
         </td>
         <td>
-            The <a href="{{base_path}}/reference/config-catalog">product configuration file</a>.
+            The <a href="{{base_path}}/reference/config-catalog-mi/">product configuration file</a>.
         </td>
     </tr>
     <tr>
@@ -186,14 +172,6 @@ Before you begin:
 
 -   Be sure to start your Docker instance before building the image. If Docker is not started, the build process will fail.
 
--   If you are using a Micro Integrator Docker image from a private registry as your base image:
-
-    1.  Open a terminal and use the following command to log in to Docker:
-        ```bash 
-        docker login -u username -p password 
-        ```
-    2.  In the next step, specify the name of the private Docker registry.
-
 To <b>build</b> and <b>push</b> the Docker image:
 
 !!! Note
@@ -211,7 +189,10 @@ To <b>build</b> and <b>push</b> the Docker image:
     
 2.  Select the composite exporters that you want to package inside the Docker image.
 3.  If required, you can update the **Target Repository** to which the image should be pushed and the **Target Tag**.
-4.  Save the POM file and click **Build** to start the Docker image build.
+4.  Save the POM file and click **Build Image** to start the Docker image build. If you're using a private Docker registry, you need to enter the credentials in the following window.
+
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/build-image.png" alt="Build Docker Image" width="500">
+
 5.  It will build the Docker image based on the Dockerfile and the Target details. When the image is created, the following message will display. 
 
     <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/build.png" alt="Docker Build Success">
