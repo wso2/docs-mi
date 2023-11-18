@@ -7,8 +7,8 @@ API Manager and Micro Integrator provide the following installation options for 
 
 ## 1. Kubernetes (Helm)
 
-You can follow the guides available in [https://github.com/wso2/kubernetes-mi](https://github.com/wso2/kubernetes-mi/tree/4.2.x) in order to deploy Micro Integrator in Kubernetes using Helm artifacts.
+You can follow the guides available in the [Helm resources repository](https://github.com/wso2/kubernetes-mi/tree/4.2.x) in order to deploy Micro Integrator in Kubernetes using Helm artifacts.
 
 ## 2. Docker/Docker Compose
 
-You can follow the guides available in [https://github.com/wso2/docker-ei](https://github.com/wso2/docker-ei/tree/4.2.x) in order to deploy Micro Integrator using Docker artifacts.
+You can follow the guides available in the [Docker Resources repository](https://github.com/wso2/docker-ei/tree/4.2.x) in order to deploy Micro Integrator using Docker artifacts.
