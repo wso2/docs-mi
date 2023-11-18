@@ -302,8 +302,7 @@ nav:
                       - Run the MI Dashboard: install-and-setup/install/running-the-mi-dashboard.md
                       - Run the MI Dashboard as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
                 - Installation Options: install-and-setup/install/installation-options.md
-          - Migrate:
-                - Upgrade WSO2 Micro Integrator: install-and-setup/upgrading-wso2-mi.md
+          - Migrate: install-and-setup/upgrading-wso2-mi.md
           - Setup:
                 - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
                 - Data Stores:
