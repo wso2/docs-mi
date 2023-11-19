@@ -75,8 +75,7 @@ Create the artifacts:
 4. [Create a Data Service project]({{base_path}}/develop/create-data-services-configs) and then [create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
-The service can be invoked in REST-style via curl (
-[http://curl.haxx.se](http://curl.haxx.se/) ). Shown below is the curl
+The service can be invoked in REST-style via [curl](http://curl.haxx.se/). Shown below is the curl
 command to invoke the GET resource:
 
 ```bash

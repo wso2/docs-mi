@@ -260,7 +260,7 @@ Follow the steps given below to run the example:
             }
     ```
 
-2. Invoke the two proxy services (http://localhost:8290/services/JMSDelivery, http://localhost:8290/services/JMSDeliveryDelayed) with the following payload:
+2. Invoke the two proxy services (`http://localhost:8290/services/JMSDelivery`, `http://localhost:8290/services/JMSDeliveryDelayed`) with the following payload:
 
     ```xml
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
