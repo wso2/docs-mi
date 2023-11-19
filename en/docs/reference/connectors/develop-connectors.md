@@ -406,7 +406,7 @@ This builds the connector and generates a ZIP file named `sample-connector-1.0.0
 
     <img src="{{base_path}}/assets/img/integrate/connectors/select-artifacts.png" title="Select Artifacts" width="500" alt="Select Artifacts"/>
 
-10. Send a POST call to http://localhost:8290/sample/listVolume with the below request payload.
+10. Send a POST call to `http://localhost:8290/sample/listVolume` with the below request payload.
     ```json
     {
 	    "searchQuery": "rabbit"
@@ -422,7 +422,7 @@ This builds the connector and generates a ZIP file named `sample-connector-1.0.0
 
 In cases where you need to provide custom capabilities that cannot be fulfilled using mediators, we are able to implement this logic in Java within the connector itself and invoking them using the Class Mediator. This capability is useful when creating Technology connectors.
 
-These Java classes should reside inside /src/main/java/org.wso2.carbon.connector/ directory.
+These Java classes should reside inside `/src/main/java/org.wso2.carbon.connector/` directory.
 
 ### Sample
 
