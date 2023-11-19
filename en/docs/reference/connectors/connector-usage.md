@@ -63,7 +63,7 @@ The recommended way to run any integration logic is using Carbon applications. C
 
 In order to include a connector into a CApp and export, a **ConnectorExporter project** needs to be created and the connector needs to be added to that. Then you can add the ConnectorExporter project to the exporting artifact list when exporting CApp. 
 
-The exported CApp needs to be copied to the deployment folder of the integration server (<PRODUCT_HOME>/repository/deployment/server/carbonapps). The changes will get hot-deployed if the server is already running.
+The exported CApp needs to be copied to the deployment folder of the integration server (`<PRODUCT_HOME>/repository/deployment/server/carbonapps`). The changes will get hot-deployed if the server is already running.
  
 ## Configuring connectors 
 
