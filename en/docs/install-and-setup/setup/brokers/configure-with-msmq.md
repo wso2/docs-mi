@@ -11,7 +11,7 @@ Follow the steps below to set up and configure WSO2 Micro Integrator with MSMQ.
 
 1.	Download the [axis2-transport-msmq-2.0.0-wso2v2.jar](https://github.com/wso2-docs/WSO2_EI/raw/master/Broker-Setup-Artifacts/MSMQ/axis2-transport-msmq-2.0.0-wso2v2.jar) file and add it to the `MI_HOME/dropins` directory. This file provides the JNI invocation required by MSMQ bridging.
 2.	Install Visual C++ 2008 (VC9). It works with Microsoft Visual Studio 2008 Express.
-3.	Set up MSMQ on a Windows environment. For setup instructions, refer to: [http://msdn.microsoft.com/en-us/library/aa967729.aspx](http://msdn.microsoft.com/en-us/library/aa967729.aspx).
+3.	Set up MSMQ on a Windows environment. For setup instructions, refer to [Installing Message Queuing (MSMQ)](http://msdn.microsoft.com/en-us/library/aa967729.aspx).
 4.	Download and install WSO2 Micro Integrator.
 
 ## Setting up the JMS Listener and Sender
