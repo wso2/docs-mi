@@ -61,25 +61,16 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
         <td>
             <ul>
                 <li>
-                OpenJDK 8
+                CorrettoJDK 11, 17
                 </li>
                 <li>
-                OpenJDK 11
+                AdoptOpenJDK 11, 17
                 </li>
                 <li>
-                CorrettoJDK 8
+                OpenJDK 11, 17
                 </li>
                 <li>
-                AdoptOpenJDK 8
-                </li>
-                <li>
-                AdoptOpenJDK 11
-                </li>
-                <li>
-                Oracle JDK 8
-                </li>
-                <li>
-                Oracle JDK 11
+                Oracle JDK 11, 17
                 </li>
             </ul>
         </td>

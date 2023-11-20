@@ -66,7 +66,7 @@ logic connecting all the systems, data, events, APIs, etc. in your integration e
 <img src="../../assets/img/get-started/mi-esb-architecture.png" alt="centralized ESB" name="centralized ESB" width="600">
 
 When deployed as an ESB, the platform supports message routing, transformation, message mediation, 
-service orchestration, service and API hosting needs, and any enterprise integration pattern.
+service orchestration, and any enterprise integration pattern.
 
 ## Connectors and Templates
 
