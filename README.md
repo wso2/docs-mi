@@ -4,7 +4,7 @@ This repository contains the source code for WSO2 Micro Integrator documentation
 
 This repository is open and we welcome your contributions!
 
-[comment]: <> (To access the WSO2 Micro Integrator documentation site, visit https://mi.docs.wso2.com/.)
+To access the WSO2 Micro Integrator documentation site, visit https://mi.docs.wso2.com/.
 
 Follow the below topics to learn more:
 
