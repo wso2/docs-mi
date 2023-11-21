@@ -1,6 +1,6 @@
 # Installation Options
 
-API Manager and Micro Integrator provide the following installation options for deployments.
+Micro Integrator provide the following installation options for deployments.
 
 1. [Kubernetes(Helm)](#1-kubernetes-helm)
 2. [Docker/Docker Compose](#2-dockerdocker-compose)
