@@ -27,3 +27,6 @@ replay_pid*
 
 # IDE config files
 *.idea
+
+# Node modules directory
+node_modules
