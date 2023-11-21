@@ -111,7 +111,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/), drag and drop the `getEmailBody` operation as shown below and provide the `//email/index/text()` expression as the Email Index.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-10.png" title="Adding getEmailBody operation." width="800" alt="Adding getEmailBody operation."/>
 
-    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation]({{base_path}}/reference/connectors/email-connector/email-connector-config) to learn more.
+    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation](email-connector-config/) to learn more.
 
 16. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/), to add the email content to the same response we received from `list` operation and configure the Payload mediator as shown below.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-11.png" title="Adding payload factory mediator." width="800" alt="Adding payload facotry mediator."/>
@@ -215,7 +215,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
-    2. WSO2 EI server starts and you can login to the Management Console via the `https://localhost:9443/carbon/` URL. Provide login credentials. The default credentials will be admin/admin. 
+    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
 
     3. You can see that the API is deployed under the API section. 
 

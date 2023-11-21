@@ -8,7 +8,7 @@ Before you start performing various operations with the connector, make sure to 
 
 To use the FHIR connector, add the  <fhir.init>  element in your configuration before carrying out any other FHIR operations.
 
-For more information on authentication/security of the FHIR REST API, see the [FHIR Security documentation](http://www.hl7.org/implement/standards/fhir/security.html).
+For more information on authentication/security of the FHIR REST API, see http://www.hl7.org/implement/standards/fhir/security.html.
 
 ??? note "fhir.init"
     The fhir.init operation initializes the connector to interact with the FHIR REST API.
