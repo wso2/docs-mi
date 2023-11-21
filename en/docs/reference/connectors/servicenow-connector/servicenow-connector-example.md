@@ -125,7 +125,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
-    2. WSO2 EI server starts and you can login to the Management Console via the `https://localhost:9443/carbon/` URL. Provide login credentials. The default credentials will be admin/admin. 
+    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
 
     3. You can see that the API is deployed under the API section. 
 
@@ -140,7 +140,7 @@ You can further refer the application deployed through the CLI tool. See the ins
         "contacttype":"email"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" --request POST --data @body.json http://localhost:8290/servicenow/postRecord
     ```
@@ -164,7 +164,7 @@ You should get the following response with the 'sys_id' and keep it saved.
         "sysId":"fd7e0271073f801036baf03c7c1ed0ff"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" --request POST --data @body.json http://localhost:8290/fileconnector/readrecord
     ```
