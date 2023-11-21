@@ -1,4 +1,4 @@
-__# JMS Synchronous Invocations: Quad Channel JMS-to-JMS
+# JMS Synchronous Invocations: Quad Channel JMS-to-JMS
 
 The example demonstrates how WSO2 Micro Integrator handles quad-channel JMS synchronous invocations.
 

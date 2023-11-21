@@ -205,7 +205,7 @@ You can now RESTfully invoke the above resource. To send a JSON message
 to a RESTful resource, you can simply add the “
 `         Accept        ` : `         Application/json        ` ” to the
 request header when you send the request. The service can be invoked in
-REST-style via [curl](http://curl.haxx.se/) .  
+REST-style via [curl](http://curl.haxx.se/).  
 Shown below is the curl command to invoke the GET resource:
 
 ```bash
@@ -227,10 +227,10 @@ As a result, you receive the response in JSON format as shown below.
 ### POST/UPDATE data using JSON
 
 When a client sends a request to change data (POST/PUT/DELETE) in the
-datasource, the HTTP header `         Accept        ` should be set to
-`         application/json        ` .  Also, if the data is sent as a
-JSON payload, the HTTP header `         Content-Type        ` should be
-set to `         application/json        ` .
+datasource, the HTTP header `Accept` should be set to
+`application/json`. Also, if the data is sent as a
+JSON payload, the HTTP header `Content-Type` should be
+set to `application/json`.
 
 The RDBMSDataService that you are using contains the following
 resources for adding and updating data.

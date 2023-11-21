@@ -370,7 +370,7 @@ Follow the steps below to create the task and schedule it.
     <tbody>
     <tr class="odd">
     <td>to</td>
-    <td><a href="http://localhost:9000/soap/SimpleStockQuoteService">http://localhost:9000/soap/SimpleStockQuoteService</a></td>
+    <td><code>http://localhost:9000/soap/SimpleStockQuoteService</code></td>
     </tr>
     <tr class="even">
     <td><pre><code>stockFile</code></pre></td>

@@ -81,16 +81,15 @@ The sample scenario can be depicted as follows:
 
 -   Windows, Linux or Solaris operating systems with WSO2 MI
     installed. For instructions on downloading and installing WSO2 MI,
-    see [Installation Guide]({{base_path}}/install-and-setup/install/installing-mi) .
+    see [Installation Guide]({{base_path}}/install-and-setup/install/installing-mi).
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
-    see [Configure with ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)
-    .
+    see [Configure with ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/).
 
 #### Configuring the sample scenario
 
 1.  Configure the JMS local transaction by defining the following
     parameter in the
-    `           <MI_HOME>/conf/deployment.toml          ` file. By default the session is not transacted. In order to 
+    `<MI_HOME>/conf/deployment.toml` file. By default the session is not transacted. In order to 
     make it transacted, we set the session_transaction parameter to true .
     
     ```
@@ -120,9 +119,7 @@ The sample scenario can be depicted as follows:
     ```
 
 2.  Copy and paste the following configuration into the Synapse
-    configuration in \<
-    `           MI_HOME>/repository/deployment/server/synapse-configs/<node>/synapse.xml          `
-    .
+    configuration in `<MI_HOME>/repository/deployment/server/synapse-configs/<node>/synapse.xml`.
 
     ```xml
        <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="jms" startOnLoad="true">

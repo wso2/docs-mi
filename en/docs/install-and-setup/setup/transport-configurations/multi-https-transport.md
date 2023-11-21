@@ -54,43 +54,43 @@ Dynamic SSL profiles for the Multi-HTTPS **transport sender**:
         Use host names in the `<servers>` list instead of IP addresses to avoid latencies due to DNS lookup. If you 
         are using IP address, make sure to add an entry to the host file with respective host name mapping.
 
-
-Dynamic SSL profiles for the Multi-HTTPS **transport listener**:
+### Dynamic SSL profiles for the Multi-HTTPS transport listener
 
 To dynamically load the SSL profiles at runtime for the Multi-HTTPS transport listener, you can configure 
 `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` (which is the existing implementation of the 
 Multi-HTTPS transport receiver) as a custom transport receiver.
 
-1.   Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following parameter to disable 
+1. Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following parameter to disable 
      the default HTTPS transport receiver.
 
     ```toml
     [transport.http]
     listener.secured_enable = false
     ```
-2.   Add the following parameters to configure `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` 
+   
+2. Add the following parameters to configure `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` 
      as a custom transport receiver.
     
     ```toml
-     [[custom_transport.listener]]
-     class="org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener"
-     protocol = "https"
-     parameter.port = 8243
-     parameter.non_blocking = true
+    [[custom_transport.listener]]
+    class="org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener"
+    protocol = "https"
+    parameter.port = 8243
+    parameter.non_blocking = true
+    
+    keystore.location = "repository/resources/security/wso2carbon.jks"
+    keystore.type = "JKS"
+    keystore.password = "wso2carbon"
+    keystore.key_password = "wso2carbon"
+    truststore.location = "repository/resources/security/client-truststore.jks"
+    truststore.type = "JKS"
+    truststore.password = "wso2carbon"
+    
+    ssl_profile.file_path= "conf/sslprofiles/listenerprofiles.xml"
+    ssl_profile.read_interval = 600000
+    ```
      
-     keystore.location = "repository/resources/security/wso2carbon.jks"
-     keystore.type = "JKS"
-     keystore.password = "wso2carbon"
-     keystore.key_password = "wso2carbon"
-     truststore.location = "repository/resources/security/client-truststore.jks"
-     truststore.type = "JKS"
-     truststore.password = "wso2carbon"
-     
-     ssl_profile.file_path= "conf/sslprofiles/listenerprofiles.xml"
-     ssl_profile.read_interval = 600000
-     ```
-     
-3.   Create the `listenerprofiles.xml` file in the `MI_HOME/conf/sslprofiles` directory and add the following 
+3. Create the `listenerprofiles.xml` file in the `MI_HOME/conf/sslprofiles` directory and add the following 
      configurations:
 
     !!! Info
