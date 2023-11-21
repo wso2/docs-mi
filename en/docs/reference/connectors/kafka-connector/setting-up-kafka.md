@@ -2,7 +2,8 @@
 
 To use the Kafka connector, download and install [Apache Kafka](http://kafka.apache.org/downloads.html). Before you start configuring the Kafka you also need the integration runtime and we refer to that location as <PRODUCT_HOME>.
 
-> **Note**: The recommended version is [Kafka_2.11-2.2.1](https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.11-2.2.1.tgz). For all available versions of Kafka that you can download, see https://kafka.apache.org/downloads. The recommended Java version is 1.8.
+!!! Note 
+    The recommended version is [Kafka_2.11-2.2.1](https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.11-2.2.1.tgz). For all available versions of Kafka that you can download, see [Kafka downloads](https://kafka.apache.org/downloads). The recommended Java version is 1.8.
 
 To configure the Kafka connector, copy the following client libraries from the `<KAFKA_HOME>/lib` directory to the `<MI_HOME>/lib` directory.
 

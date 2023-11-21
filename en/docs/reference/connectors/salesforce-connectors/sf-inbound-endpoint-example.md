@@ -94,7 +94,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 > **Note**: If you want to test this scenario by inserting data manually into the created object records, please follow the steps given under topic `Testing the PushTopic Channel` in the [Salesforce inbound endpoint configuration document]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/).
 
-   Please use the [Salesforce REST Connector example]({{base_path}}/reference/connectors/salesforce-connectors//sf-rest-connector-example/) testing steps to test this Inbound Endpoint scenario;
+   Please use the [Salesforce REST Connector example]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/) testing steps to test this Inbound Endpoint scenario;
    
    Save a file called data.json with the following payload (change the value of `Name` field as `Manager`).
    ```

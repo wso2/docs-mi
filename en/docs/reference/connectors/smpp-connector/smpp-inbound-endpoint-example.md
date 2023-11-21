@@ -118,7 +118,7 @@ You can download the ZIP file and extract the contents to get the project code.
    
 3. Copy the exported carbon application to the **<PRODUCT-HOME>/repository/deployment/server/carbonapps** folder. 
 
-4. [Start the integration server]({{base_path}}/get-started/quick-start-guide/integration-qsg#start-the-micro-integrator). 
+4. [Start the integration server]({{base_path}}/get-started/quick-start-guide). 
 
 ## Testing  
 
