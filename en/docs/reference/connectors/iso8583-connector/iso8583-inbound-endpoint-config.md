@@ -68,4 +68,4 @@ Another parameter in `threadPool` configuration is `keepAliveTime`, which is the
 
 > **Note**: To send ISO8583 Standard messages to an inbound endpoint, you can use Java client applications. The client needs to produce the ISO8583 Standard messages and get the acknowledgement from the inbound endpoint.
 
-A Sample test client program is provided [here](https://github.com/wso2-docs/CONNECTORS/tree/master/ISO8583/ISO8583TestClient). You can use this sample client to test the inbound endpoint.
+A Sample test client program is provided in https://github.com/wso2-docs/CONNECTORS/tree/master/ISO8583/ISO8583TestClient. You can use this sample client to test the inbound endpoint.
