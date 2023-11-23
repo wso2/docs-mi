@@ -361,7 +361,6 @@ nav:
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
           - Deploy:
                 - Deploy the Micro Integrator:
-                      - Deployment Patterns Overview: install-and-setup/setup/deployment/deployment-overview.md
                       - Configure a Micro Integrator Cluster: install-and-setup/setup/deployment/deploying-wso2-mi.md
                       - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
                 - Deploy on Kubernetes:
@@ -802,11 +801,8 @@ nav:
                 - Error Handling in Micro Integrator: reference/troubleshooting/error-handling-mi.md
                 - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
                 - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
-                - Cleaning Up Partially Created Keys: reference/troubleshooting/cleaning-up-partially-created-keys.md
                 - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
-                - Troubleshooting 'Registered callback does not match with the provided url' error: reference/troubleshooting/troubleshooting-invalid-callback-error.md
                 - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
-                - Troubleshooting WebSocket APIs: reference/troubleshooting/troubleshooting-websocket-api.md
 
 # Extensions
 markdown_extensions:

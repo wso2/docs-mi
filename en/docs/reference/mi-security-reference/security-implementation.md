@@ -105,7 +105,7 @@ as follows.
     algorithms etc.
 -   **jaas.conf** - Includes information relevant to authorization.
 
-The above files are located in the `MI_HOMErepository/conf/security` folder.  
+The above files are located in the `MI_HOME/repository/conf/security` folder.  
 
 After selecting scenario 16, fill in the information about the service
 principal to associate the Web service . You must specify the
