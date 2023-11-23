@@ -66,7 +66,7 @@ The Grafana based observability solution and basic observability solution are su
 
 * For more information on monitoring basic observability data sources, see [Monitoring Metrics](classic-observability-metrics/jmx-monitoring.md), [Monitoring Logs](classic-observability-logs/monitoring-logs.md), and [Monitoring Traces](classic-observability-traces/monitoring-with-opentelemetry-mi.md).
 
-## Management
+## Built-in Tools
 
 You can monitor and manage various artifacts that you have deployed. The following are the options that enable you to do this.
 
@@ -82,9 +82,3 @@ You can integrate with external tools to do the following:
 
 - [JMX Monitoring](classic-observability-metrics/jmx-monitoring.md)
 - [SNMP Monitoring](classic-observability-metrics/snmp-monitoring.md)
-
-**TCP Message Monitoring**
-
-- [Starting TCPMon](classic-observability-tcp/starting-tcp-mon.md)
-- [Message Monitoring with TCPMon](classic-observability-tcp/message-monitoring-with-tcpmon.md)
-- [Other Usages of TCPMon](classic-observability-tcp/other-usages-of-tcpmon.md)

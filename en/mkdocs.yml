@@ -402,46 +402,46 @@ nav:
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
                 - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
     - Observe and Manage:
-          - Overview: observe-and-manage/observe-overview.md
-          - Observability:
-                - Grafana based Observability:
-                      - Overview: observe-and-manage/cloud-native-observability-overview.md
-                      - Getting Started Guide - VM Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
-                      - Getting Started Guide - K8s Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
-                      - View Statistics: observe-and-manage/viewing-cloud-native-observability-statistics.md
-                - Basic Observability:
-                  - Logs:
-                        - Configure Logs: observe-and-manage/classic-observability-logs/configuring-log4j2-properties.md
-                        - Enable Logs for a Component: observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md
-                        - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
-                        - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
-                        - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
-                  - Traces:
-                        - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
-                  - Metrics:
-                        - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
-                        - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
-                  - TCP Messages:
-                        - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
-                        - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
-                        - Other Usages of TCPMon: observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon.md
-          - Analytics:
-                - ELK Based Analytics:
-                      - Setup: mi-analytics/mi-elk-installation-guide.md
-                      - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
-                - MI Analytics:
-                      - Setup: mi-analytics/setting-up-mi-analytics.md
-                      - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
-          - Administer:
-              - Administer Overview: administer/admin-overview.md
-              - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
-              - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
-              - Manage Micro Integrator:
-                  - Runtime:
+          - Observe:
+                - Overview: observe-and-manage/observe-overview.md
+                - Observability:
+                    - Grafana based Observability:
+                        - Overview: observe-and-manage/cloud-native-observability-overview.md
+                        - Getting Started Guide - VM Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
+                        - Getting Started Guide - K8s Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+                        - View Statistics: observe-and-manage/viewing-cloud-native-observability-statistics.md
+                    - Basic Observability:
+                        - Logs:
+                            - Configure Logs: observe-and-manage/classic-observability-logs/configuring-log4j2-properties.md
+                            - Enable Logs for a Component: observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md
+                            - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
+                            - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
+                            - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
+                        - Traces:
+                            - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
+                        - Metrics:
+                            - JMX Monitoring: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
+                            - SNMP Monitoring: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+                        - TCP Messages:
+                            - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
+                            - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
+                            - Other Usages of TCPMon: observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon.md
+                - Analytics:
+                    - ELK Based Analytics:
+                        - Setup: mi-analytics/mi-elk-installation-guide.md
+                        - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
+                    - MI Analytics:
+                        - Setup: mi-analytics/setting-up-mi-analytics.md
+                        - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
+          - Manage:
+                - Manage Users:
+                      - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
+                      - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+                - Manage Runtime:
                       - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
                       - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
                       - Management API: observe-and-manage/working-with-management-api.md
-                  - Logs:
+                - Manage Logs:
                       - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
                       - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
     - References:
