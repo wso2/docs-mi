@@ -340,14 +340,6 @@ To deploy the Micro Integrator runtime, see the topics given below.
 
 <table>
     <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/setup/deployment/deployment-overview">Deployment Patterns</a>
-        </th>
-        <td>
-            This explains all the deployment patterns you can follow when you deploy WSO2 Micro Integrator.
-        </td>
-    </tr>
-    <tr>
         <th> 
             <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">Configuring a Micro Integrator Cluster</a>
         </th>
