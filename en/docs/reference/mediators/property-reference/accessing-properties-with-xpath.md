@@ -1,22 +1,22 @@
 # Accessing Properties with XPath
 
-The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default where as the support for XPath 2.0 can be introduced by adding the following property in <MI_HOME>/conf/deployment.toml.
+The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default where as the support for XPath 2.0 can be introduced by adding the following property in `<MI_HOME>/conf/deployment.toml`.
 
 ```toml
 [mediation]
 synapse.enable_xpath_dom_failover=true
 ```
 
-The Micro Integrator also provides custom XPath functions and variables for accessing message properties.
+The Micro Integrator also provides custom XPath functions and variables for accessing message properties.
 
 ## XPath Extension Functions
 
-In addition to standard XPath functions, the Micro Integrator supports the following custom functions for
+In addition to standard XPath functions, the Micro Integrator supports the following custom functions for
 working with XPath expressions:
 
-### base64Encode() function
+### `base64Encode()` function
 
-The base64Encode function returns the base64-encoded value of the
+The `base64Encode` function returns the base64-encoded value of the
 specified string.
 
 Syntax:
@@ -25,9 +25,9 @@ Syntax:
 -   `           base64Encode(string value, string charset)          `
     `                     `
 
-### base64Decode() function
+### `base64Decode()` function
 
-The base64Decode function returns the original value of the specified
+The `base64Decode` function returns the original value of the specified
 base64-encoded value.
 
 Syntax:
@@ -48,13 +48,12 @@ The syntax of the function takes the following format.
 The function accepts scope as an optional parameter. It retrieves a
 message property at the given scope, which can be one of the following.
 
-If you provide only the property name without the scope, the default s
-`         ynapse        ` scope will be used.
+If you provide only the property name without the scope, the default `synapse` scope will be used.
 
 !!! Info
     When the result of an XPath evaluation results in a single XML node, the
     evaluator will return the text content of this node by default
-    (equivalent of doing /root/body/node/text()). If you want to retrieve
+    (equivalent of doing `/root/body/node/text()`). If you want to retrieve
     the node itself, you can configure the [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator) as shown
     in the following example.
     ``` xml
@@ -240,7 +239,7 @@ of various scopes as follows:
 
 ### $body
 
-The SOAP 1.1 or 1.2 body element. For example, the expression **$body//getQuote** refers to the first **getQuote** element in a SOAP body, regardless of whether the message is SOAP-11 or SOAP-12. We have discussed an example below.
+The SOAP 1.1 or 1.2 body element. For example, the expression `$body//getQuote` refers to the first `getQuote` element in a SOAP body, regardless of whether the message is SOAP-11 or SOAP-12. We have discussed an example below.
 
 **Example of $body usage**:
 
@@ -284,7 +283,7 @@ The SOAP 1.1 or 1.2 body element. For example, the expression **$body//getQuote*
 ### $header
 
 The SOAP 1.1 or 1.2 header element. For example, the expression
-**$header/wsa:To** refers to the addressing **To** header regardless of
+`$header/wsa:To` refers to the addressing `To` header regardless of
 whether this message is SOAP-11 or SOAP-12. We have discussed an example
 below.
 
@@ -333,15 +332,15 @@ below.
 
 Prefix for Axis2 MessageContext properties. This is used to get the
 property value at the axis2 scope. For example, to get the value of
-Axis2 message context property with name REST_URL_POSTFIX, use the
-XPath expression **$axis2:REST_URL_POSTFIX**. We have discussed an
+Axis2 message context property with name `REST_URL_POSTFIX`, use the
+XPath expression `$axis2:REST_URL_POSTFIX`. We have discussed an
 example below.
 
 **Example of $axis2 usage** :
 
 1.  Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
       
-    Note the property, `           <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>          ` in the configuration which is used to log the REST_URL_POSTFIX
+    Note the property, `<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>` in the configuration which is used to log the `REST_URL_POSTFIX`
     value of the request message.
 
     ```
@@ -382,11 +381,11 @@ In this example, the property definition,
 is equivalent to
 `         <property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>        `
 
-Similarly, you can use $axis2 prefix with [HTTP Transport Properties](http-transport-properties.md).
+Similarly, you can use `$axis2` prefix with [HTTP Transport Properties](http-transport-properties.md).
 
 ### $ctx
 
-Prefix for Synapse MessageContext properties and gets a property at the default scope. For example, to get the value of Synapse message context property with name ERROR_MESSAGE, use the XPath expression **$ctx:ERROR_MESSAGE**. We have discussed an example below.
+Prefix for Synapse MessageContext properties and gets a property at the default scope. For example, to get the value of Synapse message context property with name `ERROR_MESSAGE`, use the XPath expression `$ctx:ERROR_MESSAGE`. We have discussed an example below.
 
 **Example of $ctx usage**:
 
@@ -432,12 +431,12 @@ mediation fault, which triggers the fault sequence.
     INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:54205f7d-359b-4e82-9099-0f8e3bf9d014, Direction: request, stockerrorprop = Couldn't find the endpoint with the key : ep2 
     ```
 
-In this example, the property definition, \<property
-name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\> is equivalent
-to \<property name="stockerrorprop"
-expression="get-property('ERROR\_MESSAGE')"/\>.  
+In this example, the property definition, `<property
+name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\>` is equivalent
+to `<property name="stockerrorprop"
+expression="get-property('ERROR\_MESSAGE')"/\>`.  
   
-Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-Properties) .
+Similarly, you can use `$ctx` prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-Properties) .
 
 ### $trp
 
@@ -451,9 +450,9 @@ regarded as the same. We have discussed an example below.
 
 1.  Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
       
-    Note the property, \<property name="stockprop"
-    expression="$trp:Content-Type"/\> in the configuration, which is
-    used to log the Content-Type HTTP header of the request message.  
+    Note the property, `<property name="stockprop"
+    expression="$trp:Content-Type"/\>` in the configuration, which is
+    used to log the `Content-Type` HTTP header of the request message.  
 
     ```
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
@@ -488,11 +487,11 @@ regarded as the same. We have discussed an example below.
     [2013-03-18 12:23:14,101] INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:25a3143a-5b18-4cbb-b8e4-27d4dd1895d2, Direction: request, stockprop = text/xml; charset=UTF-8 
     ```
 
-In this example, the property definition, \<property name="stockprop"
-expression="$trp:Content-Type"/\> is equivalent to \<property
+In this example, the property definition, `<property name="stockprop"
+expression="$trp:Content-Type"/\>` is equivalent to `<property
 name="stockprop"
-expression="get-property('transport','Content-Type')"/\>. Similarly, you
-can use $trp prefix with [HTTP Transport
+expression="get-property('transport','Content-Type')"/\>`. Similarly, you
+can use `$trp` prefix with [HTTP Transport
 Properties](_HTTP_Transport_Properties_) .
 
 ### $url
@@ -591,7 +590,7 @@ Mediator](_Call_Template_Mediator_) .
 
 ### $env
 
-Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get the body element from the SOAP envelope, use the expression **$env/\*\[local-name()='Body'\]** .
+Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get the body element from the SOAP envelope, use the expression `$env/\*\[local-name()='Body'\]`.
 
 **Example of $env usage:**
 

@@ -35,7 +35,7 @@ When you use **display scaling** that exceeds 150% (in **Windows** or **Linux** 
 
 When you run WSO2 Integration Studio on MacOS, you will sometimes get the following error when you [generate a Docker image]({{base_path}}/develop/generate-docker-image) of your integration artifacts: "**Error creating Docker image**".
 
-The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log)
+The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log).
 
 ```java
 org.wso2.developerstudio.eclipse.esb.docker.exceptions.DockerImageGenerationException: Could not create the Docker image bundle file.
@@ -77,7 +77,7 @@ This error is because the **Docker UI** installation on your MacOS has a feature
 
 When you build a Docker image either via [Docker Exporter Project]({{base_path}}/develop/create-docker-project) or [Kubernetes Exporter Project]({{base_path}}/develop/create-kubernetes-project) in WSO2 Integration Studio on Windows, you may sometimes get the following error: "**Docker image generation failed**".
 
-The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log)
+The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log).
 
 ```java
 [WARNING] An attempt failed, will retry 1 more times

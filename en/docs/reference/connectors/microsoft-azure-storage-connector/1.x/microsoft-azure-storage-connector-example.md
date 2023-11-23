@@ -24,7 +24,7 @@ All seven operations are exposed via an API. The API with the context `/resource
 * `/deletecontainer` : Remove created container in the Microsoft Azure Storage account.
 * `/listmetadata` : Retrieve the metadata from a file (blob) stored in the Microsoft Azure Storage container.
 
-For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference/).
+For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/).
 
 > **Note**: Before invoking the API, you need to create a **Storage Account** in **Microsoft Azure Storage account**. See [Azure Storage Configuration]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/) documentation for more information.
 
@@ -228,7 +228,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
+    2. WSO2 EI server starts and you can login to the Management Console via the `https://localhost:9443/carbon/` URL. Provide login credentials. The default credentials will be admin/admin. 
 
     3. You can see that the API is deployed under the API section. 
 

@@ -236,7 +236,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     If you are not the bucket owner but have PutBucketPolicy permissions on the bucket, Amazon S3 returns a 405 Method Not Allowed. In all other cases, for a PUT bucket policy request that is not from the bucket owner, Amazon S3 returns 403 Access Denied. There are restrictions about who can create bucket policies and which objects in a bucket they can apply to.
 
-    See the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutBucketPolicyRequest.html) for more information.
+    See the [PutBucketPolicy documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutBucketPolicyRequest.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>

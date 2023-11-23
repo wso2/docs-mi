@@ -6,12 +6,9 @@ example, in this scenario, you have two endpoints to manage two
 environments (i.e., Dev and QA). The endpoint URLs for the services
 hosted in the Dev and QA environments respectively are as follows:
 
--   Dev environment:
-    [http://localhost:8280/services/echo](https://www.google.com/url?q=http://localhost:8280/services/echo&sa=D&source=hangouts&ust=1533987796246000&usg=AFQjCNHGkW_-21LrrGTq7bZTCOqRn_23uw)
+-   Dev environment: `http://localhost:8280/services/echo`
 
--   QA environment:
-    [http://localhost:8281/services/echo](https://www.google.com/url?q=http://localhost:8280/services/echo&sa=D&source=hangouts&ust=1533987796246000&usg=AFQjCNHGkW_-21LrrGTq7bZTCOqRn_23uw)
-
+-   QA environment: `http://localhost:8281/services/echo`
 
 ## Creating the Endpoints
 
@@ -34,7 +31,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
     </table>
 2.  Create two Endpoint artifacts in two projects with the following configurations:
 
-    -   HelloWorldDevResources project
+    -   `HelloWorldDevResources` project
         <table>
             <tr>
                 <th>Endpoint Parameter</th>
@@ -42,7 +39,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
             </tr>
             <tr>
                 <td>Endpoint Name</td>
-                <td>HelloWorldEP</td>
+                <td><code>HelloWorldEP</code></td>
             </tr>
             <tr>
                 <td>Endpoint Type</td>
@@ -50,11 +47,11 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
             </tr>
             <tr>
                 <td>Address URL</td>
-                <td>http://localhost:8280/services/ech</td>
+                <td><code>http://localhost:8280/services/echo</code></td>
             </tr>
         </table>
 
-    -   HelloWorldQAResources project
+    -   `HelloWorldQAResources` project
         <table>
             <tr>
                 <th>Endpoint Parameter</th>
@@ -62,7 +59,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
             </tr>
             <tr>
                 <td>Endpoint Name</td>
-                <td>HelloWorldEP</td>
+                <td><code>HelloWorldEP</code></td>
             </tr>
             <tr>
                 <td>Endpoint Type</td>
@@ -70,7 +67,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
             </tr>
             <tr>
                 <td>Address URL</td>
-                <td>http://localhost:8281/services/ech0</td>
+                <td><code>http://localhost:8281/services/echo</code></td>
             </tr>
         </table>
 
@@ -81,7 +78,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
 
     | Parameter             | Value                                                                                              |
     |--------------------|----------------------------------------------------------------------------------------------------|
-    | Proxy Service Name | HelloWorldProxy                                                                                    |
+    | Proxy Service Name | <code>HelloWorldProxy</code>                                                                                    |
     | Proxy Service Type | Select Pass Through Proxy                                                                          |
     | Endpoint           | Select HelloWorldEP (You need to select **Predefined Endpoint** from the endpoint options listed.) |
 
@@ -101,18 +98,18 @@ See the instructions on packaging artifacts into CApps.
         </tr>
         <tr>
             <td>Dev</td>
-            <td>HelloWorldDevCApp</td>
+            <td><code>HelloWorldDevCApp</code></td>
             <td>
-                HelloWorldServices project and the
-                HelloWorldDevResources project.
+                <code>HelloWorldServices</code> project and the
+                <code>HelloWorldDevResources</code> project.
             </td>
         </tr>
         <tr>
             <td>QA</td>
-            <td>HelloWorldQACApp</td>
+            <td><code>HelloWorldQACApp</code></td>
             <td>
-                HelloWorldServices project and the
-                HelloWorldQAResources project.
+                <code>HelloWorldServices</code> project and the
+                <code>HelloWorldQAResources</code> project.
             </td>
         </tr>
 </table>

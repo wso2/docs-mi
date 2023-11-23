@@ -521,7 +521,6 @@ nav:
                                   - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeunionmemberships.md
                                   - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkassignments.md
                                   - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
-                                  - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
                             - Employee Personal Information:
                                   - employeeAddresses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeaddresses.md
                                   - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecantaxes.md

@@ -74,7 +74,7 @@ Once you have [started the Analytics Server](#starting-the-analytics-server), yo
     portal.bat
     ```
 
-In a new browser window or tab, open the Analytics Portal using the following URL: https://localhost:9645/analytics-dashboard. 
+In a new browser window or tab, open the Analytics Portal using the `https://localhost:9645/analytics-dashboard` URL. 
 Use `admin` for both the username and password.
 
 <img src="{{base_path}}/assets/img/integrate/mi-analytics/dashboard-login.png" width="500">

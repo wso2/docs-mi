@@ -10,8 +10,7 @@ This example demonstrates how an RDBMS can be exposed as an OData service. When 
 Let's create a MySQL database with the required data.
 
 1.  Install the MySQL server.
-2.  Create a MySQL database named `CompanyAccounts`.
-    .  
+2.  Create a MySQL database named `CompanyAccounts`. 
 
     ```bash
     CREATE DATABASE CompanyAccounts;

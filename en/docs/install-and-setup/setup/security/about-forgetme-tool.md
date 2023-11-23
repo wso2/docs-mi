@@ -1,6 +1,7 @@
 # About the Identity Anonymization Tool
 
-> WSO2 Micro Integrator is shipped with the **Forget Me** tool, which is used for anonymizing personally identifiable information (PII) that are stored in the Micro Integrator. See [GDPR Compliance in the WSO2 Micro Integrator]({{base_path}}/install-and-setup/setup/security/gdpr-ei) for instructions.
+!!! info
+    WSO2 Micro Integrator is shipped with the **Forget Me** tool, which is used for anonymizing personally identifiable information (PII) that are stored in the Micro Integrator. See [GDPR Compliance in the WSO2 Micro Integrator]({{base_path}}/install-and-setup/setup/security/gdpr-ei) for instructions.
 
 The following topics will guide you to use the Identity Anonymization tool in **StandAlone** mode.
 
@@ -9,11 +10,10 @@ The following topics will guide you to use the Identity Anonymization tool in **
 The following topics walk you through the process of building the **Forget Me** tool so that you can
 run the tool in standalone mode to successfully remove references to a deleted user's identity from one or more WSO2 products.
 
-!!! Tip
-    **Before you begin** [download](https://maven.apache.org/download.cgi) and install Apache Maven.
+!!! Tip "Before you begin"
+    **Before you begin** download and install [Apache Maven](https://maven.apache.org/download.cgi).
 
-1.  Clone the <https://github.com/wso2/identity-anonymization-tool>
-    repository to a required location.
+1.  Clone the [Identity Anonymization Tool repository](https://github.com/wso2/identity-anonymization-tool) to a required location.
 2.  In the source that you checked out, navigate to
     `          identity-anonymization-tool         ` , and run
     `          mvn clean install         ` . This downloads all
@@ -124,12 +124,8 @@ system:
 -   On Windows: `          forgetme.bat -U <username>         `  
       
 
-> **Note**:
-> The commands specified above use only the
-`          -U <username>         ` option, which is the only mandatory
-option to run the tool. There are several other optional command line
-options that you can specify based on your requirement. The supported
-options are described in detail below.
+!!! Note
+    The commands specified above use only the `-U <username>` option, which is the only mandatory option to run the tool. There are several other optional command line options that you can specify based on your requirement. The supported options are described in detail below.
 
 Following are details of all possible command line options that you can
 use when you run the tool:

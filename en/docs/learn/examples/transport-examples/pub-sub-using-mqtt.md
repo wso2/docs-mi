@@ -44,7 +44,7 @@ sender.enable = true
 
 -   Download the `org.eclipse.paho.client.mqttv3-1.1.0.jar`
     file.
--   Download mosquitto MQTT broker (http://mosquitto.org/)
+-   Download [mosquitto MQTT broker](http://mosquitto.org/).
 -   Copy the `org.eclipse.paho.client.mqttv3-1.1.0.jar` file to the `MI_HOME/lib/` directory.
 -   Start the MQTT broker.
 

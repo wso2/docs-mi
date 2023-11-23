@@ -88,7 +88,7 @@ public class BasicAuthHandler implements Handler {
 }
 ```
 
-You can build the project (mvn clean install) for this handler by accessing its source from here: https://github.com/wso2/product-esb/tree/v5.0.0/modules/samples/integration-scenarios/starbucks_sample/BasicAuth-handler
+You can build the project (`mvn clean install`) for this handler by accessing its source [here](https://github.com/wso2/product-esb/tree/v5.0.0/modules/samples/integration-scenarios/starbucks_sample/BasicAuth-handler).
 
 !!! Note
     When building the sample using the source ensure you update `pom.xml` with the online repository. To do this, add the following section before `<dependencies>` tag in `pom.xml` :
@@ -121,8 +121,8 @@ You can build the project (mvn clean install) for this handler by accessing its
     </repositories>
     ```
 
-Alternatively, you can download the JAR file from the following location, copy it to the `MI_HOME/lib` directory,
-and restart the Micro Integrator: https://github.com/wso2/product-esb/blob/v5.0.0/modules/samples/integration-scenarios/starbucks_sample/bin/WSO2-REST-BasicAuth-Handler-1.0-SNAPSHOT.jar
+Alternatively, you can download the JAR file from [this location](https://github.com/wso2/product-esb/blob/v5.0.0/modules/samples/integration-scenarios/starbucks_sample/bin/WSO2-REST-BasicAuth-Handler-1.0-SNAPSHOT.jar), copy it to the `MI_HOME/lib` directory,
+and restart the Micro Integrator.
 
 ### Creating the REST API
 

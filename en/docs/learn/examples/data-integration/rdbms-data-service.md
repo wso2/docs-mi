@@ -134,9 +134,7 @@ requests for each of the resources:
 
 #### Get data
 
-The service can be invoked in REST-style via curl (
-[http://curl.haxx.se](http://curl.haxx.se/) ). Shown below is the curl
-command to invoke the GET resource:
+The service can be invoked in REST-style via [curl](http://curl.haxx.se/). Shown below is the curl command to invoke the GET resource:
 
 ```bash
 curl -X GET http://localhost:8290/services/RDBMSDataService.HTTPEndpoint/Employee/3
