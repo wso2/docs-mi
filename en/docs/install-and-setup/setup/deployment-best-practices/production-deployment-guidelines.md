@@ -107,8 +107,8 @@ Given below is a checklist that will guide you to set up your production environ
       <tr class="odd">
          <td>High availability</td>
          <td>
-            <p>Configure your deployment with high availability. Refer the <a href="{{base_path}}/install-and-setup/setup/deployment/deployment-overview">recommended deployment patterns</a> and select an option that fits your requirements.</p>
-            <p>In the cloud native deployment, high availability should be achieved via the container orchestration system (Kubernetes).</p>
+            <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/basic-health-checks">readiness and liveness probes</a> available in Micro Integrator.</p>
+            <p>In a VM deployment, we can use a load balancer with multiple nodes as described <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">here</a> to achieve high availability.</p>
          </td>
       </tr>
       <tr class="even">
