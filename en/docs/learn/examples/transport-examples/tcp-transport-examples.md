@@ -175,7 +175,7 @@ Create the artifacts:
 1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
 2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-and-run) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service.
 
@@ -260,7 +260,7 @@ Create the artifacts:
 1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
 2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-and-run) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service.
 

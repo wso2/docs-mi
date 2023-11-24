@@ -139,7 +139,7 @@ Following examples demonstrate the usage of the Callout mediator.
 
 ### Example 1 - Performing a direct service invocation
 
-In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Send Mediator]({{base_path}}/reference/mediators/send-Mediator) to send the message back to the client.
+In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) to send the message back to the client.
 
 ``` java
 <callout serviceURL="http://localhost:9000/services/SimpleStockQuoteService"

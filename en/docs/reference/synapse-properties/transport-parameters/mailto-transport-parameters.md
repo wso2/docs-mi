@@ -3,7 +3,7 @@
 When you implement an integration use case that requires the capability of sending emails (over SMTP) or receive emails (over POP3 or IMAP), you can use the following parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can use the MailTo transport only if the transport listener and sender are enabled and configured at the server level. Read about the [MailTo transport]({{base_path}}/install-and-setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+    The Micro Integrator can use the MailTo transport only if the transport listener and sender are enabled and configured at the server level. Read about the [MailTo transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 

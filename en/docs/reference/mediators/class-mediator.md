@@ -28,7 +28,7 @@ Your class mediator might not be picked up and updated if you use an existing 
 
 ## Example
 
-In this configuration, the Micro Integrator sends the requested message to the endpoint specified via the [Send mediator]({{base_path}}/reference/mediators/send-Mediator). This endpoint is the Axis2server running on port 9000. The response message is passed through a Class mediator before it is sent back to the client. Two parameters named `         variable1        ` and `         variable2        ` are passed to the instance mediator implementation class ( `SimpleClassMediator`).
+In this configuration, the Micro Integrator sends the requested message to the endpoint specified via the [Send mediator]({{base_path}}/reference/mediators/send-mediator). This endpoint is the Axis2server running on port 9000. The response message is passed through a Class mediator before it is sent back to the client. Two parameters named `         variable1        ` and `         variable2        ` are passed to the instance mediator implementation class ( `SimpleClassMediator`).
 
 !!! Info
     If you want, you can pass the same variables as a value or an expression:
@@ -36,7 +36,7 @@ In this configuration, the Micro Integrator sends the requested message to the 
     -   Example for passing the variable as a value: `          <property name="variable1" value="10"/>         `
 
     -   Example for passing the variable as an expression: `          <property name="variable2" expression="get-property('variable1')"/>         `  
-        For more information on using the get property method, see the [Property Mediator]({{base_path}}/reference/mediators/property-Mediator).
+        For more information on using the get property method, see the [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
 
 !!! Warning
         Using the class variables with expressions will lead to the values evaluated being mixed up when there are concurrent requests and will lead to erroneous behaviors. 

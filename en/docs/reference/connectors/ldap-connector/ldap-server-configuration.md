@@ -51,8 +51,7 @@ To use the LDAP connector, add the `<ldap.init>` element in your configuration b
 
 You can follow the steps below to import your LDAP certificate into the Micro Integrator client’s keystore as follows:
 
-1. To encrypt the connections, you need to configure a certificate authority (https://www.digitalocean.com/community/tutorials/how-to-encrypt-openldap-connections-using-starttls) 
-and use it to sign the keys for the LDAP server.
+1. To encrypt the connections, you need to configure a certificate authority and use it to sign the keys for the LDAP server. See the [How To Encrypt OpenLDAP Connections Using STARTTLS](https://www.digitalocean.com/community/tutorials/how-to-encrypt-openldap-connections-using-starttls) documentation for more info.
 2. Use the following command to import the certificate into the integration server's client keystore. 
    ```bash
    keytool -importcert -file <certificate file> -keystore <PRODUCT_HOME>/repository/resources/security/client-truststore.jks -alias "LDAP"
@@ -62,7 +61,7 @@ and use it to sign the keys for the LDAP server.
 **Ensuring secure data**
 
 Secure Vault is supported for encrypting passwords. See, 
-[Working with Secrets]({{base_path}}/install-and-setup/install-and-setup-overview/encrypting-plain-text) on integrating 
+[Working with Secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text) on integrating 
 and using Secure Vault.
 
 **Re-using LDAP configurations**

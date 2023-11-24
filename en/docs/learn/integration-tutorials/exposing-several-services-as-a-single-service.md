@@ -631,7 +631,7 @@ You can now start updating the API resource with the mediation flow.
               <td>New Property Name</td>
               <td>
                   Enter <code>actual_fee</code></br></br>
-                  <b>Note</b>: This value is used when invoking <a src="#ExposingSeveralServicesasaSingleService-Settle">SettlePaymentEP</a>.
+                  <b>Note</b>: This value is used when invoking the SettlePaymentEP.
               </td>
             </tr>
             <tr>

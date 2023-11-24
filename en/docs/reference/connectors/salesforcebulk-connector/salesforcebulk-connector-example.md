@@ -42,7 +42,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
 1. Initialize the connector.
     
-    1. Follow these steps to [generate the Access Tokens for Salesforce](salesforcebulk-connector-configuration/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
+    1. Follow these steps to [generate the Access Tokens for Salesforce]({{base_path}}/includes/reference/connectors/salesforce-connectors/sf-access-token-generation/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforcebulk Connector** section. Then drag and drop the `init` operation into the Design pane.
         
@@ -349,4 +349,4 @@ Invoke the API as shown below using the curl command. Curl application can be do
 
 ## What's Next
 
-- To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-reference/) documentation for all operation details of the connector.
+- To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforcebulk-connector/salesforcebulk-reference) documentation for all operation details of the connector.
