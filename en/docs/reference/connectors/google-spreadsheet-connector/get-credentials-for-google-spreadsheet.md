@@ -11,11 +11,11 @@ To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need 
 
 4. Click **Configure consent screen** in the next screen.
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.png" title="Consent Screen" width="800" alt="Consent Screen" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.jpg" title="Consent Screen" width="800" alt="Consent Screen" />
 
 5. Provide the Application Name as `SpreadsheetConnector` in the Consent Screen.
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen2.png" title="Consent Screen" width="800" alt="Consent Screen" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen2.jpg" title="Consent Screen" width="800" alt="Consent Screen" />
 
 6. Click Create credentials and click OAuth client ID.
 
