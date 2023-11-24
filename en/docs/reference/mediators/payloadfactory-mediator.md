@@ -143,10 +143,10 @@ If you select **default** as the **template-type**, you can define the payload a
 
 ### FreeMarker Template
 
-The payloadFactory mediator of WSO2 APIM 4.0.0 supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **template-type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
+The payloadFactory mediator supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **template-type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
 
 !!! Note
-    -   FreeMarker version 2.3.30 is tested with WSO2 APIM 4.0.0.
+    -   FreeMarker version 2.3.30 is tested with WSO2 MI 4.x.x.
     -   You are not required to specify the CDATA tag manually when defining the payload. WSO2 Integration Studio will apply the tag automatically.
 
 ```xml
