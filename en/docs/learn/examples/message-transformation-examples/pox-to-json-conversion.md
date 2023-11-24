@@ -10,7 +10,7 @@ Let's convert a POX message to JSON using the [messageType property]({{base_path
 Following is a sample proxy service configuration that we can use to implement this scenario. 
 
 !!! Tip
-    Note that after the [messageType property]({{base_path}}/reference/mediators/property-reference/generic-Properties#messagetype) completes the message convertion, we are using the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) to return the converted message back to the JSON client.
+    Note that after the [messageType property]({{base_path}}/reference/mediators/property-reference/generic-properties#messagetype) completes the message convertion, we are using the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) to return the converted message back to the JSON client.
 
 See the instructions on how to [build and run](#build-and-run-example-1) this example.
 

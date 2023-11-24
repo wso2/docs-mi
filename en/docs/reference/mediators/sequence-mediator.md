@@ -64,7 +64,7 @@ The parameters available to configure the Sequence mediator are as follows.
 
 ## Examples
 
-In this example, the following sequence named `         StoreSend        ` is saved in the Configuration registry. It includes a [Store Mediator]({{base_path}}/reference/mediators/store-Mediator) to store the request in a message store named `         JMSMS        ` and a [Send Mediator]({{base_path}}/reference/mediators/send-Mediator) to send it to an endpoint afterwards.
+In this example, the following sequence named `         StoreSend        ` is saved in the Configuration registry. It includes a [Store Mediator]({{base_path}}/reference/mediators/store-Mediator) to store the request in a message store named `         JMSMS        ` and a [Send Mediator]({{base_path}}/reference/mediators/send-mediator) to send it to an endpoint afterwards.
 
 ``` xml
 <sequence xmlns="http://ws.apache.org/ns/synapse" name="conf:/StoreSend">

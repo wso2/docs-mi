@@ -176,7 +176,7 @@ The following properties are available when you want to configure a target prope
 
 ### Example 1 - Service orchestration
 
-In this example, the Call mediator invokes a backend service. An [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator) stores the response received for
+In this example, the Call mediator invokes a backend service. An [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator) stores the response received for
 that service invocation.
 
 The [Filter Mediator]({{base_path}}/reference/mediators/filter-Mediator) added after the Call mediator
@@ -186,7 +186,7 @@ payload of the request to the second backend is the response of the
 first service invocation .
 
 After a successful second backend service invocation, response of the
-first service is retrieved by the [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator)
+first service is retrieved by the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)
 from the property where it was formerly stored. This response is sent to
 the client by the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator).
 

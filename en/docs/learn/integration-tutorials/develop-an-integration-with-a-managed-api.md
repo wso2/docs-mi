@@ -377,7 +377,7 @@ Now let’s add the developed backend service to the API.
 
 ## Step 8 - Deploy the API
 
-Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
+Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
 
 ## Step 9 - Start the backend service
 

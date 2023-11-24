@@ -193,7 +193,7 @@ Expand the **Kubernetes Exporter** in the project explorer. See that the followi
             deployment.toml
         </td>
         <td>
-            The <a href="{{base_path}}/reference/config-catalog">product configuration file</a>.
+            The <a href="{{base_path}}/reference/config-catalog-mi">product configuration file</a>.
         </td>
     </tr>
     <tr>

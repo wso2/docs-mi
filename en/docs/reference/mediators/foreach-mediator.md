@@ -33,7 +33,7 @@ The ForEach mediator creates the following properties during mediation.
         parent element of the message.
     -   In Iterate you need to send the split messages to an endpoint to
         continue the message flow. However, ForEach does not allow using
-        [Call]({{base_path}}/reference/mediators/call-Mediator), [Send]({{base_path}}/reference/mediators/send-Mediator) and
+        [Call]({{base_path}}/reference/mediators/call-Mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and
         [Callout]({{base_path}}/reference/mediators/callout-Mediator) mediators in the sequence.
     -   ForEach does not split the message flow, unlike Iterate Mediator. It
         guarantees to execute in the same thread until all iterations are

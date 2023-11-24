@@ -272,4 +272,4 @@ You should get the following text returned.
 
 ## What's Next
 
-* To customize this example for your own scenario, see [ServiceNow Connector Configuration]({{base_path}}/reference/servicenow-connector/servicenow-connector-config/) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [ServiceNow Connector Configuration]({{base_path}}/reference/connectors/servicenow-connector/servicenow-connector-config/) documentation for all operation details of the connector.

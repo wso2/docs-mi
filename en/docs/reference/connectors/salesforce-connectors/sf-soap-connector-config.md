@@ -41,7 +41,7 @@ Follow the steps below to import the Salesforce certificate into the integration
      </salesforce.init>
     ```
 
-> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/security/encrypting-plain-text/). See, Working with Passwords on integrating and using Secure Vault.
+> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text). See, Working with Passwords on integrating and using Secure Vault.
 
 ## Re-using Salesforce configurations
 

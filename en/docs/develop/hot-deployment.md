@@ -12,4 +12,4 @@ Open the `deployment.toml` file from the `<MI_HOME>/conf` directory and set hot_
 hot_deployment = false
 ```
 
-See the [complete list of server configurations]({{base_path}}/reference/config-catalog/#deployment).
+See the [complete list of server configurations]({{base_path}}/reference/config-catalog-mi).

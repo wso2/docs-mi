@@ -38,7 +38,7 @@ Syntax:
 
 ### get-property() function
 
-The `get-property()` function allows any XPath expression used in a configuration to look up information from the current message context. Using the [Property mediator]({{base_path}}/reference/mediators/property-Mediator), you can retrieve properties from the message context and header.
+The `get-property()` function allows any XPath expression used in a configuration to look up information from the current message context. Using the [Property mediator]({{base_path}}/reference/mediators/property-mediator), you can retrieve properties from the message context and header.
 
 The syntax of the function takes the following format.
 
@@ -54,7 +54,7 @@ If you provide only the property name without the scope, the default `synapse` s
     When the result of an XPath evaluation results in a single XML node, the
     evaluator will return the text content of this node by default
     (equivalent of doing `/root/body/node/text()`). If you want to retrieve
-    the node itself, you can configure the [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator) as shown
+    the node itself, you can configure the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator) as shown
     in the following example.
     ``` xml
     <inSequence>
@@ -103,7 +103,7 @@ scope.
 | OperationName   | Operation name corresponding to the message. A proxy service with a WSDL can have different operations. If the WSDL is not defined, ESB defines fixed operations. |
 
   
-To access a property with the `         synapses        ` cope inside the `         mediate()        ` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-Mediator):
+To access a property with the `         synapses        ` cope inside the `         mediate()        ` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-mediator):
 
 ``` java
 public boolean mediate(org.apache.synapse.MessageContext mc) {  
@@ -126,7 +126,7 @@ using the following syntax.
 Syntax:  
 `         get-property('axis2', String propertyName)        `
 
-To access a property with the `axis2` scope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-Mediator):
+To access a property with the `axis2` scope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-mediator):
 
 ``` java
 public boolean mediate(org.apache.synapse.MessageContext mc) {  
@@ -146,7 +146,7 @@ This is similar to the `         synapse                          `
 scope. The difference is that it can be accessed inside the
 `         mediate()        ` method of a mediator by including one of
 the following configurations in a custom mediator, created using the
-[Class mediator]({{base_path}}/reference/mediators/class-Mediator) :
+[Class mediator]({{base_path}}/reference/mediators/class-mediator) :
 
 ``` java
 public boolean mediate(org.apache.synapse.MessageContext mc) {  
@@ -215,7 +215,7 @@ given property with the `         operation        ` scope only exists
 in a single request and can be accessed by a single resource. The
 properties in this scope are passed to the error handler when the
 `         FORCE_ERROR_ON_SOAP_FAULT        ` property is set to
-`         true        ` . See `FORCE_ERROR_ON_SOAP_FAULT` section in [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-Properties) for more information.
+`         true        ` . See `FORCE_ERROR_ON_SOAP_FAULT` section in [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties) for more information.
 
 Syntax:  
 `         get-property('operation', String propertyName)        `
@@ -436,7 +436,7 @@ name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\>` is equivalent
 to `<property name="stockerrorprop"
 expression="get-property('ERROR\_MESSAGE')"/\>`.  
   
-Similarly, you can use `$ctx` prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-Properties) .
+Similarly, you can use `$ctx` prefix with [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties).
 
 ### $trp
 
@@ -492,7 +492,7 @@ expression="$trp:Content-Type"/\>` is equivalent to `<property
 name="stockprop"
 expression="get-property('transport','Content-Type')"/\>`. Similarly, you
 can use `$trp` prefix with [HTTP Transport
-Properties](_HTTP_Transport_Properties_) .
+Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties) .
 
 ### $url
 
@@ -533,7 +533,7 @@ The prefix used to get the URI element of a request URL.
 
 The prefix used to refer to a particular parameter value passed
 externally by an invoker such as the [Call Template
-Mediator](_Call_Template_Mediator_) .
+Mediator]({{base_path}}/reference/mediators/call-template-mediator).
 
 **Example of $func usage:**
 

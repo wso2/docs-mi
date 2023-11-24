@@ -53,4 +53,4 @@ sender.default_connections_per_host = 100
 ```
 -->
 
-See the [descriptions]({{base_path}}/reference/config-catalog-mi#http-transport) of these parameters.
+See the [descriptions]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode) of these parameters.

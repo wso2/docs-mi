@@ -24,7 +24,7 @@
 
 ## Properties
 
-Listed below are the properties used for [creating a RabbitMQ inbound endpoint]({{base_path}}/integrate//develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating a RabbitMQ inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 

@@ -194,7 +194,7 @@ Create the artifacts:
 2. [Create an ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Create a local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) named **in_transform** with the above XSLT configuration.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-and-run) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
 

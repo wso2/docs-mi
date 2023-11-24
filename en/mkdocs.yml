@@ -583,6 +583,7 @@ nav:
                       - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
                       - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
                       - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
+                      - Gmail Configuration: reference/connectors/gmail-connector/configuring-gmail-api.md
                 - Google Firebase Connector:
                       - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
                       - Set up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
@@ -596,6 +597,7 @@ nav:
                 - Google Spreadsheet Connector:
                       - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
                       - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+                      - Get Credentials for Google Spreadsheet: reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md
                       - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
                 - ISO8583 Connector:
                       - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md

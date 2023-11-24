@@ -62,7 +62,7 @@ You can configure the following endpoint types.
   <tr>
     <td>HTTP Endpoint</td>
     <td>
-      Allows you to define REST endpoints using <b>URI templates</b> similar to the REST API. The URI templates allow a RESTful URI to contain variables that can be populated during mediation runtime using <a href="{{base_path}}/reference/mediators/property-Mediator">property</a> values with the <code>uri.var.</code> prefix. An HTTP endpoint can also define the particular HTTP method to use in the RESTful invocation.
+      Allows you to define REST endpoints using <b>URI templates</b> similar to the REST API. The URI templates allow a RESTful URI to contain variables that can be populated during mediation runtime using <a href="{{base_path}}/reference/mediators/property-mediator">property</a> values with the <code>uri.var.</code> prefix. An HTTP endpoint can also define the particular HTTP method to use in the RESTful invocation.
     </td>
   </tr>
   <tr>
