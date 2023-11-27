@@ -1,6 +1,6 @@
-# Contributing to WSO2 API Manager Documentation
+# Contributing to WSO2 Micro Integrator Documentation
 
-WSO2 API Manager (API-M) documentation is a relavitely new project that involves hosting source documentation on GitHub. This documentation is rendered using [mkdocs](https://www.mkdocs.org/), which is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.
+WSO2 Micro Integrator (MI) documentation is a relavitely new project that involves hosting source documentation on GitHub. This documentation is rendered using [mkdocs](https://www.mkdocs.org/), which is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.
 
 We are an open-source project registered under Apache license.
 
@@ -8,7 +8,7 @@ We appreciate your help and contributions!
 
 ## Getting started with contribution
 
-* Get started with the WSO2 API Manager by accessing the [documentation landing](https://apim.docs.wso2.com/en/latest/). Start trying out our quick start guides and tutorials available in the Get Started and Learn sections.
+* Get started with the WSO2 Micro Integrator by accessing the [documentation landing](https://mi.docs.wso2.com/en/latest/). Start trying out our quick start guides and tutorials available in the Get Started and Learn sections.
 * Submit issues and contribute content. Go to the **Issues** tab of this GitHub repo and click the New Issue button to file a bug report.
 * Fix issues: Use comments on the issue itself to indicate that you will be working on it and get guidance and help.
 
