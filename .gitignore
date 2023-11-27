@@ -30,3 +30,6 @@ replay_pid*
 
 # Node modules directory
 node_modules
+
+# generated docs
+en/site
