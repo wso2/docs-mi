@@ -6,95 +6,80 @@ See the topics in the following sections for details and instructions.
 
 Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
 
-<div>
-    <div class="content">
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/message-routing-overview';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">Message Routing</p>
-                <p class="hint">Explore how messages are routed to different endpoints.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/message-routing-overview';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">Message Transformation</p>
-                <p class="hint">Explore how messages are transformed into different formats.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/data-integration-overview';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">Data Integration</p>
-                <p class="hint">Explore how data from various sources are used during message mediation.</p>
-            </div>
-        </div>
-        <!-- end card -->
-    </div>
-    <div class="content">
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/file-processing-overview';">
-            <div class="line"></div>
-            <div class="card-content">
-                <p class="title">File Processing</p>
-                <p class="hint">Explore how data from file systems are moved and used during message mediation.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/connectors';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">SaaS and B2B Connectivity</p>
-                <p class="hint">Explore how to integrate with third-party systems using WSO2 connectors.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/service-orchestration-overview';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">Service Orchestration</p>
-                <p class="hint">Explore how multiple Restful services are exposed as a single course-grained service.</p>
-            </div>
-        </div>
-        <!-- end card -->
-    </div>
-    <div class="content">
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/asynchronous-message-overview';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">Enterprise Messaging</p>
-                <p class="hint">Explore asynchronous messaging patterns using message brokers.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/scheduled-task-overview';">
-            <div class="line"></div>
-            <div class="card-content" >
-                <p class="title">Scheduled Integration Processes</p>
-                <p class="hint">Explore how integration processes are scheduled and executed periodically.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/learn/integration-use-case/protocol-switching-overview';">
-            <div class="line"></div>
-            <div class="card-content">
-                <p class="title">Protocol Switching</p>
-                <p class="hint">Explore how message protocols are changed during message mediation.</p>
-            </div>
-        </div>
-        <!-- end card -->
-    </div>
-</div>
+<table>
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/message-routing-overview">Message Routing</a>
+        </th>
+        <td>
+            Explore how messages are routed to different endpoints.
+        </td>
+    </tr>   
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/message-routing-overview/#message-transformation">Message Transformation</a>
+        </th>
+        <td>
+            Explore how messages are transformed into different formats.
+        </td>
+    </tr>     
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/data-integration-overview">Data Integration</a>
+        </th>
+        <td>
+            Explore how data from various sources are used during message mediation.
+        </td>
+    </tr>      
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/file-processing-overview">File Processing</a>
+        </th>
+        <td>
+            Explore how data from file systems are moved and used during message mediation.
+        </td>
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/connectors">SaaS and B2B Connectivity</a>
+        </th>
+        <td>
+            Explore how to integrate with third-party systems using WSO2 connectors.
+        </td>
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/service-orchestration-overview">Service Orchestration</a>
+        </th>
+        <td>
+            Explore how multiple Restful services are exposed as a single course-grained service.
+        </td>
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/asynchronous-message-overview">Enterprise Messaging</a>
+        </th>
+        <td>
+            Explore asynchronous messaging patterns using message brokers.
+        </td>
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/scheduled-task-overview">Scheduled Integration Processes</a>
+        </th>
+        <td>
+            Explore how integration processes are scheduled and executed periodically.
+        </td>
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/protocol-switching-overview">Protocol Switching</a>
+        </th>
+        <td>
+            Explore how message protocols are changed during message mediation.
+        </td>
+    </tr>  
+</table>
 
 ### Integration Tutorials
 
