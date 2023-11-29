@@ -52,7 +52,7 @@ Follow the steps below if you need to perform a major modification (For example:
 4. Navigate to the `docs-mi/en/` directory in the terminal and build the repository with the following command:
 
     ```shell
-    $ mkdocs serve
+    mkdocs serve
     ```
 
     > **NOTE:**
@@ -73,7 +73,7 @@ To locally execute the project, ensure that both [Python](https://www.python.org
 1. If you are using MacOS, it is likely that a version of Python is pre-installed on your machine. To confirm this, execute the following command in your terminal:
 
    ```shell
-   $ python --version
+   python --version
    ```
 
       Upon running the command, you should observe an output similar to the following example which is the default version of Python on your machine:
@@ -85,19 +85,19 @@ To locally execute the project, ensure that both [Python](https://www.python.org
 2. You also need to install python3. Check if you have python3 installed by running the following command:
 
    ```shell
-   $ python3 --version
+   python3 --version
    ```
 
    > **NOTE:**
    >
-   > For a seamless experience and compatibility with the versions of MkDocs and other plugins we utilize, it is recommended to use Python 3.8.x or 3.9.x.
+   > For a seamless experience and compatibility with the versions of MkDocs and other plugins we utilize, it is recommended to use Python 3.8.x, 3.9.x, or 3.10.x.
 
 3. If you don't have Python installed, download Python from the [official downloads page](https://www.python.org/downloads/) and install.
 
 4. Verify the python3 version by running the following command:
 
    ```shell
-   $ python3 --version
+   python3 --version
    ```
 
      Upon running the command, you should observe an output similar to the following:
@@ -121,7 +121,7 @@ pip is already installed if you are using Python 3 >=3.4 downloaded from [python
 - Verify the pip3 version by running the following command:
 
    ```shell
-   $ pip3 --version
+   pip3 --version
    ```
 
    Upon running the command, you should observe an output similar to the following:
@@ -133,7 +133,7 @@ pip is already installed if you are using Python 3 >=3.4 downloaded from [python
 - If pip is not already installed on your machine, download `get-pip.py` to install pip by clicking [here](https://bootstrap.pypa.io/get-pip.py). Then run the following command to install it:
 
    ```shell
-   $ python3 get-pip.py
+   python3 get-pip.py
    ```
    
 ### Step 3 - Fork the repository
@@ -145,7 +145,7 @@ Fork the GitHub repository: https://github.com/wso2/docs-mi.git
 Navigate to the location where you want to clone the repository and clone the forked repository.
 
    ```shell
-   $ git clone https://github.com/<git-username>/docs-mi.git
+   git clone https://github.com/<git-username>/docs-mi.git
    ```
     
 ### Step 5 - Install the dependencies
@@ -153,7 +153,7 @@ Navigate to the location where you want to clone the repository and clone the fo
 1. Navigate to the `<language-folder>` inside the folder containing the repository that you cloned.
 
     ```shell
-    $ cd docs-mi/en/
+    cd docs-mi/en/
     ```
 
 2. Install the required pip packages.
@@ -163,7 +163,7 @@ Navigate to the location where you want to clone the repository and clone the fo
     For python3, use the following command:
 
       ```shell
-      $ pip3 install -r requirements.txt
+      pip3 install -r requirements.txt
       ```
 
 ### <a name="run"></a> Step 5 - Run MkDocs
@@ -171,7 +171,7 @@ Navigate to the location where you want to clone the repository and clone the fo
 1. Run the following command to start the server and view the site on your local server.
 
     ```shell
-    $ mkdocs serve
+    mkdocs serve
     ```
 
     > **NOTE:**
