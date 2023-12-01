@@ -859,6 +859,8 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.snippets:
       base_path: docs
+  - pymdownx.tabbed:
+        alternate_style: true
   - attr_list
 plugins:
   - search
