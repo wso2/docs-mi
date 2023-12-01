@@ -6,18 +6,19 @@ By default, WSO2 products identify the hostname of the current machine through t
 
 Follow the steps given below.
 
-1.  Open the `<MI-HOME>/conf/deployment.toml` file 
-2.  Define the `hostname` attribute under server configuration as shown below.
+1. Open the `<MI-HOME>/conf/deployment.toml` file 
+2. Define the `hostname` attribute under server configuration as shown below.
 
-    ``` format tab="Format"
-    [server]
-    hostname = "{hostname}"
-    ```
-
-    ``` example tab="Example"
-    [server]
-    hostname="localhost"
-    ```
+    === "Format"
+        ``` format 
+        [server]
+        hostname = "{hostname}"
+        ```
+    === "Example"        
+        ``` example 
+        [server]
+        hostname="localhost"
+        ```
 
 To configure hostnames for WSDLs and endpoints, it is recommended to add the following parameter for the transport listener in the `deployment.toml` file.
 

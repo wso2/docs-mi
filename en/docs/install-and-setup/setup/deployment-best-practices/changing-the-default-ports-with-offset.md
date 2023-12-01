@@ -30,44 +30,47 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
 2.  Open the `<MI_HOME>/conf/deployment.toml` file.
 
 3.  Uncomment the `offset` parameter under `[server]` and set the offset value.
-
-    ```toml tab="Format"
-    [server]
-    offset=<offset_value>
-    ```
-
-    ```toml  tab="Example"
-    [server]
-    offset = 3
-    ```
+    
+    === "Format"
+        ```toml 
+        [server]
+        offset=<offset_value>
+        ```
+    === "Example"        
+        ```toml 
+        [server]
+        offset = 3
+        ```
 
 4. [Restart the server]({{base_path}}/install-and-setup/install/running-the-mi).
 
 #### Pass the port offset during server startup
 
-1.  Stop the MI server if it is already running.
+1. Stop the MI server if it is already running.
 
-2.  Restart the server with the `-DportOffset` system property.
+2. Restart the server with the `-DportOffset` system property.
 
     - Linux/Mac OS
-    
-        ```toml tab="Format"
-        ./micro-integrator.sh -DportOffset=<offset_value>
-        ```
-        
-        ```toml tab="Example"
-        ./micro-integrator.sh -DportOffset=3
-        ```
+   
+        === "Format"         
+            ```toml 
+            ./micro-integrator.sh -DportOffset=<offset_value>
+            ```
+        === "Example"            
+            ```toml 
+            ./micro-integrator.sh -DportOffset=3
+            ```
         
     - Windows
-    
-        ```toml tab="Format"
-        micro-integrator.bat -DportOffset=<offset_value>
-        ```
-        
-        ```toml tab="Example"
-        micro-integrator.bat -DportOffset=3
-        ```
+   
+        === "Format"        
+            ```toml 
+            micro-integrator.bat -DportOffset=<offset_value>
+            ```
+        === "Example"            
+            ```toml 
+            micro-integrator.bat -DportOffset=3
+            ```
 
 #### Changing the default EI Analytics ports
 
@@ -75,25 +78,26 @@ If required, you can manually change the HTTP/HTTPS ports in the `deployment.yam
 
 !!! Note
     With the default internal port offset, the effective port is <code>https_port + 1</code>.
-
-```yaml tab='HTTPS Port'
-wso2.transport.http:            
-listenerConfigurations:
--
-	id: "msf4j-https"
-	host: "0.0.0.0"
-	port: https_port
-	scheme: https
-```
-
-```yaml tab='HTTP Port'
-wso2.transport.http:
-listenerConfigurations:
--
-  id: "default"
-  host: "0.0.0.0"
-  port: http_port
-```
+ 
+=== "HTTPS Port"
+    ```yaml 
+    wso2.transport.http:            
+    listenerConfigurations:
+    -
+    	id: "msf4j-https"
+    	host: "0.0.0.0"
+    	port: https_port
+    	scheme: https
+    ```
+=== "HTTP Port"    
+    ```yaml 
+    wso2.transport.http:
+    listenerConfigurations:
+    -
+      id: "default"
+      host: "0.0.0.0"
+      port: http_port
+    ```
 
 ## What's Next?
 

@@ -42,7 +42,7 @@ For a detailed guide on packaging, refer to the [WSO2 documentation on packaging
 
 Follow the steps given below to start the server.
 
-1.    Open a command prompt as explained below.
+1. Open a command prompt as explained below.
 
       <table>
             <tr>
@@ -55,25 +55,28 @@ Follow the steps given below to start the server.
             </tr>
       </table>     
 
-2.    Navigate to the `<MI_HOME>/bin` folder from your command line.
-3.    Execute one of the commands given below.
+2. Navigate to the `<MI_HOME>/bin` folder from your command line.
+3. Execute one of the commands given below.
 
-   -   To start in automation Mode:
-
-       ```bash tab="On macOS/Linux"
-       sh micro-integrator.sh --car <composite_application_name>
-       ```
-
-       ```bash tab="On Windows"
-       micro-integrator.bat --car <composite_application_name>
-       ```
-       
-      For example:
-
-       ```bash tab="On macOS/Linux"
-       sh micro-integrator.sh --car TaskExecutingServiceCompositeExporter
-       ```
-
-       ```bash tab="On Windows"
-       micro-integrator.bat --car TaskExecutingServiceCompositeExporter
-       ```
+    - To start in automation Mode:
+        
+        === "On macOS/Linux"
+            ```bash  
+            sh micro-integrator.sh --car <composite_application_name>
+            ```
+        === "On Windows"
+            ```bash 
+            micro-integrator.bat --car <composite_application_name>
+            ```
+        
+    - For example:
+         
+        === "On macOS/Linux"
+            ```bash 
+            sh micro-integrator.sh --car TaskExecutingServiceCompositeExporter
+            ```
+        === "On Windows" 
+            ```bash 
+            micro-integrator.bat --car TaskExecutingServiceCompositeExporter
+            ```
+        

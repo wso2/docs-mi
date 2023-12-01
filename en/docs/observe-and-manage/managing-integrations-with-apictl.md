@@ -31,13 +31,14 @@ WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (dep
     !!! Tip
         If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
 
-        ```go tab="Linux/Mac"
-        export APICTL_CONFIG_DIR="/home/wso2user/CLI"
-        ```
-
-        ```go tab="Windows"
-        set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
-        ```
+        === "Linux/Mac"
+            ```go 
+            export APICTL_CONFIG_DIR="/home/wso2user/CLI"
+            ```
+        === "Windows"
+            ```go 
+            set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
+            ```
 
 
     !!! Tip    
@@ -79,48 +80,50 @@ Run the following apictl command to check the version.
 You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
 
 -   **Formats**
-
-    ``` bash tab="Without Basic Authentication"
-    export HTTP_PROXY="http://<host-name>:<port>"
-
-    export HTTPS_PROXY="https://<host-name>:<port>"
-
-    export http_proxy="http://<host-name>:<port>"
-
-    export https_proxy="https://<host-name>:<port>"
-    ```
-
-    ``` bash tab="With Basic Authentication"
-    export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
-
-    export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
-
-    export http_proxy="http://<username>:<password>@<host-name>:<port>"
-
-    export https_proxy="https://<username>:<password>@<host-name>:<port>"
-    ```
+    
+    === "Without Basic Authentication"
+        ``` bash 
+        export HTTP_PROXY="http://<host-name>:<port>"
+        
+        export HTTPS_PROXY="https://<host-name>:<port>"
+        
+        export http_proxy="http://<host-name>:<port>"
+        
+        export https_proxy="https://<host-name>:<port>"
+        ```
+    === "With Basic Authentication"         
+        ``` bash 
+        export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
+        
+        export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
+        
+        export http_proxy="http://<username>:<password>@<host-name>:<port>"
+        
+        export https_proxy="https://<username>:<password>@<host-name>:<port>"
+        ```
 
 -   **Examples**
-
-    ``` bash tab="Without Basic Authentication"
-    export HTTP_PROXY="http://localhost:3128"
-
-    export HTTPS_PROXY="https://localhost:3128"
-
-    export http_proxy="http://localhost:3128"
-
-    export https_proxy="https://localhost:3128"
-    ```
-
-    ``` bash tab="With Basic Authentication"
-    export HTTP_PROXY="http://testuser:password@localhost:3128"
-
-    export HTTPS_PROXY="https://testuser:password@localhost:3128"
-
-    export http_proxy="http://testuser:password@localhost:3128"
-
-    export https_proxy="https://testuser:password@localhost:3128"
-    ```
+    
+    === "Without Basic Authentication"
+        ``` bash 
+        export HTTP_PROXY="http://localhost:3128"
+        
+        export HTTPS_PROXY="https://localhost:3128"
+        
+        export http_proxy="http://localhost:3128"
+        
+        export https_proxy="https://localhost:3128"
+        ```
+    === "With Basic Authentication"         
+        ``` bash 
+        export HTTP_PROXY="http://testuser:password@localhost:3128"
+        
+        export HTTPS_PROXY="https://testuser:password@localhost:3128"
+        
+        export http_proxy="http://testuser:password@localhost:3128"
+        
+        export https_proxy="https://testuser:password@localhost:3128"
+        ```
 
 ## Add an environment
         
@@ -154,14 +157,15 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             ```
 
     -   **Response**
-    
-        ``` bash tab="Response Format"
-        Successfully added environment '<environment-name>'
-        ```
 
-        ``` bash tab="Example Response"
-        Successfully added environment 'production'
-        ```
+        === "Response Format"    
+            ``` bash  
+            Successfully added environment '<environment-name>'
+            ```
+        === "Example Response"            
+            ``` bash  
+            Successfully added environment 'production'
+            ```
 
 ## Remove an environment
 
@@ -181,16 +185,17 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             ```
 
     -   **Response**
-
-        ``` bash tab="Response Format"
-        Successfully removed environment '<environment-name>'
-        Execute 'apictl add env --help' to see how to add a new environment
-        ```
-
-        ``` bash tab="Example Response"
-        Successfully removed environment 'production'
-        Execute 'apictl add env --help' to see how to add a new environment
-        ```
+    
+        === "Response Format"
+            ``` bash 
+            Successfully removed environment '<environment-name>'
+            Execute 'apictl add env --help' to see how to add a new environment
+            ```
+        === "Example Response"
+            ``` bash 
+            Successfully removed environment 'production'
+            Execute 'apictl add env --help' to see how to add a new environment
+            ```
 
 ## Get environments
 
@@ -212,15 +217,16 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
     -   **Response**
 
-        ``` bash tab="Response Format"
-        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
-        <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
-        ```
-
-        ```bash tab="Example Response"
-        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
-        dev-mi                                                                                                                                                                      https://localhost:9164
-        ```
+        === "Response Format"
+            ``` bash 
+            NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
+            <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
+            ```
+        === "Example Response"             
+            ```bash 
+            NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
+            dev-mi                                                                                                                                                                      https://localhost:9164
+            ```
 
 !!! info
     **Before you begin** 
@@ -276,14 +282,15 @@ After adding an environment, you can login to the Micro Integrator instance of t
             ```
                  
     -   **Response**
-
-        ``` bash tab="Response Format"
-        Logged into MI in '<environment-name>' environment 
-        ```
-
-        ```bash tab="Example Response"
-        Logged into MI in dev environment
-        ```
+        
+        === "Response Format"
+            ``` bash 
+            Logged into MI in '<environment-name>' environment 
+            ```
+        === "Example Response"           
+            ```bash 
+            Logged into MI in dev environment
+            ```
 
     !!! warning
         Using `--password` in CTL is not secure. You can use `--password-stdin` instead. For example,
@@ -307,14 +314,15 @@ After adding an environment, you can login to the Micro Integrator instance of t
             ```
     
     -   **Response**
-
-        ``` bash tab="Response Format"
-        Logged out from MI in '<environment-name>' environment 
-        ```
-
-        ```bash tab="Example Response"
-        Logged out from MI in dev environment
-        ```
+        
+        === "Response Format"
+            ``` bash  
+            Logged out from MI in '<environment-name>' environment 
+            ```
+        === "Example Response"    
+            ```bash 
+            Logged out from MI in dev environment
+            ```
 
 ## Manage Users
 

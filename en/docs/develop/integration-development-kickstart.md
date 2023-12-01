@@ -395,16 +395,17 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
 
 3.  **Start the Micro Integrator**:
 
-    1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
-    2.    Execute one of the commands given below.
-
-          ```bash tab="On MacOS/Linux"
-          ./micro-integrator.sh
-          ```
-
-          ```bash tab="On Windows"
-          micro-integrator.bat
-          ```
+    1. Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+    2. Execute one of the commands given below.
+    
+        === "On MacOS/Linux"
+            ```bash 
+            ./micro-integrator.sh
+            ```
+        === "On Windows"               
+            ```bash 
+            micro-integrator.bat
+            ```
 
 ## Step 4 - Observe deployed artifacts
 
