@@ -10,7 +10,7 @@ Follow the steps given below to run the WSO2 Micro Integrator (MI) runtime.
 
 Follow the steps given below to start the server.
 
-1.    Open a command prompt as explained below.
+1. Open a command prompt as explained below.
 
       <table>
             <tr>
@@ -23,41 +23,44 @@ Follow the steps given below to start the server.
             </tr>
       </table>     
 
-2.    Navigate to the `<MI_HOME>/bin` folder from your command line.
-3.    Execute one of the commands given below.
+2. Navigate to the `<MI_HOME>/bin` folder from your command line.
+3. Execute one of the commands given below.
 
-      -   To start the server:
-          
-          ```bash tab="On macOS/Linux"
-          sh micro-integrator.sh
-          ```
+    -   To start the server:
 
-          ```bash tab="On Windows"
-          micro-integrator.bat
-          ```
-          
-      -   To start the server in background mode:
+        === "On macOS/Linux"          
+            ```bash 
+            sh micro-integrator.sh
+            ```
+        === "On Windows"              
+            ```bash 
+            micro-integrator.bat
+            ```
+            
+    -       To start the server in background mode:
 
-          ```bash tab="On macOS/Linux"
-          sh micro-integrator.sh start
-          ```
-
-          ```bash tab="On Windows"
-          micro-integrator.bat --start
-          ```
+        === ""On macOS/Linux"              
+            ```bash 
+            sh micro-integrator.sh start
+            ```
+        === "On Windows"             
+            ```bash 
+            micro-integrator.bat --start
+            ```
 
 ## Stopping the MI server
 
--     To stop the Micro Integrator standalone application, go to the terminal and press <i>Ctrl+C</i>.
--     To stop the Micro Integrator in background mode:
-
-      ```bash tab="On macOS/Linux"
-      sh micro-integrator.sh stop
-      ```
-
-      ```bash tab="On Windows"
-      micro-integrator.bat --stop
-      ```
+- To stop the Micro Integrator standalone application, go to the terminal and press <i>Ctrl+C</i>.
+- To stop the Micro Integrator in background mode:
+      
+    === "On macOS/Linux"
+        ```bash  
+        sh micro-integrator.sh stop
+        ```
+    === "On Windows"              
+        ```bash 
+        micro-integrator.bat --stop
+        ```
 
 ## See Also
 

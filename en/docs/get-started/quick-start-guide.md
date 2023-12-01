@@ -168,13 +168,14 @@ Follow the steps given below to run the integration artifacts we developed on a 
     1. Open a terminal and navigate to the `<mi-qsg-home>/bin` folder.
     2. Execute the relevant OS specific command:
  
-        ```bash tab='On MacOS/Linux/CentOS'
-        sh run.sh 
-        ```
-            
-        ```bash tab='On Windows'
-        run.bat 
-        ```  
+        === "On MacOS/Linux/CentOS"
+            ```bash 
+            sh run.sh 
+            ```
+        === "On Windows"            
+            ```bash 
+            run.bat 
+            ```  
       
         !!! Tip
             The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. It carries out the following steps.
@@ -196,12 +197,13 @@ Follow the steps given below to run the integration artifacts we developed on a 
 2. Start the Micro Integrator.
 
     1. Execute the relevant command in a terminal based on the OS:
- 
-      ```bash tab='On MacOS/Linux/CentOS'
+       
+      === "On MacOS/Linux/CentOS"
+      ```bash 
       sh micro-integrator.sh
       ```
-          
-      ```bash tab='On Windows'
+      === "On Windows"          
+      ```bash 
       micro-integrator.bat
       ```
 

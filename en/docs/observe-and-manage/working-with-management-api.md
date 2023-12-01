@@ -58,61 +58,64 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of all users stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
-
-  	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/users?pattern=*us*&role=role" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-    ```bash tab='Response'
-    {
-    	count:2
-    	list:
-    	[
-    		userId: user1,
-    		userId: user2,
-    		userId: user3,
-    	]
-    }
-    ```
+    
+    === "Request"
+  	    ```bash 
+	    curl -X GET "https://localhost:9164/management/users?pattern=*us*&role=role" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"        
+        ```bash 
+        {
+        	count:2
+        	list:
+        	[
+        		userId: user1,
+        		userId: user2,
+        		userId: user3,
+        	]
+        }
+        ```
 
 	??? note "Search for a user by name"
 		You can also search for a user by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/users?searchKey=read-only" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"userId": "read-only-user"
-			}]
-		}
-		```
+        
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/users?searchKey=read-only" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"userId": "read-only-user"
+		    	}]
+		    }
+		    ```
 
 -	**Resource**: `/users/{user_id}`
 
 	**Description**: Retrieves information related to a specified user stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
-
-  	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-    ```bash tab='Response'
-    {
-      userid: "WSO2.COM/user1",
-      isAdmin: true/false,
-      roles :
-      [
-          "WSO2.COM/role1",
-          "role2",
-      ]
-    }
-    ```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X GET "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"        
+        ```bash 
+        {
+          userid: "WSO2.COM/user1",
+          isAdmin: true/false,
+          roles :
+          [
+              "WSO2.COM/role1",
+              "role2",
+          ]
+        }
+        ```
 
 	!!! note
 		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
@@ -122,22 +125,23 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves information related to user names (stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) that match a specific pattern and user role.
 
 	**Example**:
-
-  	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/users?pattern=*us*&role=role" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-    ```bash tab='Response'
-    {
-    	count:2
-    	list:
-    	[
-    		userId: user1,
-    		userId: user2,
-    		userId: user3,
-    	]
-    }
-    ```
+ 
+    === "Request"
+  	    ```bash 
+	    curl -X GET "https://localhost:9164/management/users?pattern=*us*&role=role" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"    
+        ```bash 
+        {
+        	count:2
+        	list:
+        	[
+        		userId: user1,
+        		userId: user2,
+        		userId: user3,
+        	]
+        }
+        ```
 
 ### ADD USERS
 
@@ -164,17 +168,18 @@ The management API has multiple resources to provide information regarding the d
 		- We cannot add admin users to the secondary user stores.
 
     Execute the following request and receive the response:
-
-  	```bash tab='Request'
-  	curl -X POST -d @user "https://localhost:9164/management/users" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
-  	```
-
-  	```bash tab='Response'
-    {
-      "userId":"user4",
-      "status":"Added"
-    }
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X POST -d @user "https://localhost:9164/management/users" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	    ```
+    === "Response"        
+  	    ```bash 
+        {
+          "userId":"user4",
+          "status":"Added"
+        }
+  	    ```
 
 ### REMOVE USERS
 
@@ -188,32 +193,34 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 
     The following request deletes the `user1` from the user store:
-
-  	```bash tab='Request'
-  	curl -X DELETE "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-  	```bash tab='Response'
-    {
-      "userId":"user1",
-      "status":"Deleted"
-    }
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X DELETE "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"    
+  	    ```bash 
+        {
+          "userId":"user1",
+          "status":"Deleted"
+        }
+  	    ```
 
 	**Example**:
 
     The following request deletes `user1` from the secondary user store: 
-
-  	```bash tab='Request'
-  	curl -X DELETE "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-  	```bash tab='Response'
-    {
-      "userId":"user1",
-      "status":"Deleted"
-    }
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X DELETE "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"        
+  	    ```bash 
+        {
+          "userId":"user1",
+          "status":"Deleted"
+        }
+  	    ```
 
 ### UPDATE USERS
 
@@ -234,17 +241,18 @@ The management API has multiple resources to provide information regarding the d
     ```
 
     The following request update the password of the `user1` from the user store:
-
-  	```bash tab='Request'
-  	curl -X PATCH -d @user "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k
-  	```
-
-  	```bash tab='Response'
-    {
-	  "userId":"user1",
-      "status":"Password updated"
-    }
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X PATCH -d @user "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k
+  	    ```
+    === "Response"         
+  	    ```bash 
+        {
+	      "userId":"user1",
+          "status":"Password updated"
+        }
+  	    ```
 
 ### GET Roles
 
@@ -253,41 +261,43 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of all roles stored in an [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
 	**Example**:
-
-  	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/roles" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-    ```bash tab='Response'
-    {
-    	count:3
-    	list:
-    	[
-    		{"role": "admin"},
-    		{"role": "Internal/everyone"},
-			{"role": "WSO2.COM/wso2Role"}
-    	]
-    }
-    ```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X GET "https://localhost:9164/management/roles" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"    
+        ```bash
+        {
+        	count:3
+        	list:
+        	[
+        		{"role": "admin"},
+        		{"role": "Internal/everyone"},
+	    		{"role": "WSO2.COM/wso2Role"}
+        	]
+        }
+        ```
 
 	??? note "Search for a role by name"
 		You can also search for a role by name. To do that, use the following example cURL command.
 
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/roles?searchKey=admin" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 2,
-			"list": [{
-				"role": "admin"
-			}, {
-				"role": "super-admin"
-			}]
-		}
-		```
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/roles?searchKey=admin" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"    
+		    ```base 
+		    {
+		    	"count": 2,
+		    	"list": [{
+		    		"role": "admin"
+		    	}, {
+		    		"role": "super-admin"
+		    	}]
+		    }
+		    ```
 
 -	**Resource**: `/roles/{role_name}`
 
@@ -295,20 +305,21 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-  	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-    ```bash tab='Response'
-    {
-      role: "WSO2.COM/wso2role",
-      users :
-      [
-          "WSO2.COM/wso2User1",
-          "user2",
-      ]
-    }
-    ```
+    === "Request"
+  	    ```bash 
+  	    curl -X GET "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"    
+        ```bash 
+        {
+          role: "WSO2.COM/wso2role",
+          users :
+          [
+              "WSO2.COM/wso2User1",
+              "user2",
+          ]
+        }
+        ```
 
 	!!! note
 		When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
@@ -338,17 +349,18 @@ The management API has multiple resources to provide information regarding the d
         When adding a hybrid role, respective hybrid domain (Internal/Application) should be added to the role name Ex: Internal/internalRole 
 
     Execute the following request and receive the response:
-
-  	```bash tab='Request'
-  	curl -X POST -d @role "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
-  	```
-
-  	```bash tab='Response'
-	{
-		"role": "wso2role",
-		"status": "Added"
-	}
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X POST -d @role "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	    ```
+    === "Response"        
+  	    ```bash 
+	    {
+	    	"role": "wso2role",
+	    	"status": "Added"
+	    }
+  	    ```
 
 ### REMOVE Roles
 
@@ -360,16 +372,17 @@ The management API has multiple resources to provide information regarding the d
 
     The following request deletes the `wso2role` from the user store:
 
-  	```bash tab='Request'
-  	curl -X DELETE "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
-  	```
-
-  	```bash tab='Response'
-	{
-		"role": "wso2role",
-		"status": "Deleted"
-	}
-  	```
+    === "Request"
+  	    ```bash 
+  	    curl -X DELETE "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	    ```
+    === "Response"        
+  	    ```bash 
+	    {
+	    	"role": "wso2role",
+	    	"status": "Deleted"
+	    }
+  	    ```
 
 	!!! note
 		When deleting roles from the primary user store, the `domain` can be ignored or set as `primary`.
@@ -401,18 +414,20 @@ The management API has multiple resources to provide information regarding the d
 		Users in secondary user stores cannot have the admin role.
 
     Execute the following request and receive the response:
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X PUT -d @user "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	    ```
+    === "Response"         
+  	    ```bash 
+	    {
+	    	"userId": "wso2user",
+	    	"status": "Added/removed the roles"
+	    }
+        
+  	    ```
 
-  	```bash tab='Request'
-  	curl -X PUT -d @user "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
-  	```
-
-  	```bash tab='Response'
-	{
-		"userId": "wso2user",
-		"status": "Added/removed the roles"
-	}
-
-  	```
 ### GET PROXY SERVICES
 
 -	**Resource**: `/proxy-services`
@@ -420,42 +435,43 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of all deployed proxy services.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/proxy-services" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-
-	```bash tab='Response'
-	{
-	  "count": 1,
-	  "list": [
+    
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/proxy-services" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+	    ```bash 
 	    {
-	      "name": "TestProxy",
-	      "wsdl1_1": "http://ThinkPad-X1-Carbon-3rd:8290/services/TestProxy?wsdl",
-	      "wsdl2_0": "http://ThinkPad-X1-Carbon-3rd:8290/services/TestProxy?wsdl2"
+	      "count": 1,
+	      "list": [
+	        {
+	          "name": "TestProxy",
+	          "wsdl1_1": "http://ThinkPad-X1-Carbon-3rd:8290/services/TestProxy?wsdl",
+	          "wsdl2_0": "http://ThinkPad-X1-Carbon-3rd:8290/services/TestProxy?wsdl2"
+	        }
+	      ]
 	    }
-	  ]
-	}
-	```
+	    ```
 
 	??? note "Search for a proxy by name"
 		You can also search for a proxy by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/proxy-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"name": "HelloProxyService",
-				"wsdl1_1": "http://localhost:8285/services/HelloProxyService?wsdl",
-				"wsdl2_0": "http://localhost:8285/services/HelloProxyService?wsdl2"
-				}]
-		}
-		```
+        
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/proxy-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+		    ```
+        === "Response"            
+		    ```base  
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"name": "HelloProxyService",
+		    		"wsdl1_1": "http://localhost:8285/services/HelloProxyService?wsdl",
+		    		"wsdl2_0": "http://localhost:8285/services/HelloProxyService?wsdl2"
+		    		}]
+		    }
+		    ```
 
 
 
@@ -475,22 +491,22 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Activate and Deactivate a specified proxy service.
 
 	**Example**:
-
-	```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/proxy-services \
-    	  -H 'authorization: Bearer TOKEN
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "HelloWorld",
-    		"status": "inactive"
-    	}' -k -i
-	```
-
-
-	```bash tab='Response'
-    {"Message":"Proxy service HelloWorld stopped successfully"}
-	```
+    
+    === "Request"
+	    ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/proxy-services \
+        	  -H 'authorization: Bearer TOKEN
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HelloWorld",
+        		"status": "inactive"
+        	}' -k -i
+	    ```
+    === "Response" 
+	    ```bash 
+        {"Message":"Proxy service HelloWorld stopped successfully"}
+	    ```
 	
 ### ENABLE/DISABLE MESSAGE TRACING for PROXY SERVICES
 
@@ -499,21 +515,22 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Enable or disable message tracing for a specified proxy service.
 
 	**Example**:
-
-	```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/proxy-services \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "HelloWorld",
-    		"trace": "enable"
-    	}' -k -i
-	```
-
-	```bash tab='Response'
-    {"message":"Enabled tracing for ('HelloWorld')"}
-	```
+    
+    === "Request"
+	    ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/proxy-services \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HelloWorld",
+        		"trace": "enable"
+        	}' -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+        {"message":"Enabled tracing for ('HelloWorld')"}
+	    ```
 
 ### GET CARBON APPLICATIONS
 
@@ -523,105 +540,107 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/applications" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	  "totalCount": 2,
-	  "activeCount": 1,
-	  "faultyCount": 1,
-	  "activeList": [
+    === "Request"    
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/applications" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"          
+	    ```bash 
 	    {
-	      "name": "SampleServicesCompositeApplication",
-	      "version": "1.0.0"
+	      "totalCount": 2,
+	      "activeCount": 1,
+	      "faultyCount": 1,
+	      "activeList": [
+	        {
+	          "name": "SampleServicesCompositeApplication",
+	          "version": "1.0.0"
+	        }
+	      ],
+	      "faultyList": [
+	        {
+	          "name": "FaultyCAppCompositeExporter",
+	          "version": "1.0.0"
+	        }
+	      ]
 	    }
-	  ],
-	  "faultyList": [
-	    {
-	      "name": "FaultyCAppCompositeExporter",
-	      "version": "1.0.0"
-	    }
-	  ]
-	}
-	```
+	    ```
 
 	??? note "Search for a Carbon Application by name"
 		You can also search for a Carbon Application by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/applications?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"name": "helloartifactsPackComposite",
-				"version": "1.0.0-SNAPSHOT",
-				"artifacts": [{
-					"name": "HelloLocalEntry",
-					"type": "local-entry"
-				}, {
-					"name": "HelloLocalEntry",
-					"type": "local-entry"
-				}, {
-					"name": "CSV-connector",
-					"type": "lib"
-				}, {
-					"name": "HelloMessageStore",
-					"type": "message-store"
-				}, {
-					"name": "HelloMessageStore",
-					"type": "message-store"
-				}, {
-					"name": "AbcRestApi",
-					"type": "api"
-				}, {
-					"name": "HelloRestApi",
-					"type": "api"
-				}, {
-					"name": "AbcEndPoint",
-					"type": "endpoint"
-				}, {
-					"name": "HelloEndPoint",
-					"type": "endpoint"
-				}, {
-					"name": "AbcSequence",
-					"type": "sequence"
-				}, {
-					"name": "AbcMessageProcessor",
-					"type": "message-processors"
-				}, {
-					"name": "HelloMessageProcessor",
-					"type": "message-processors"
-				}, {
-					"name": "AbcTemplate",
-					"type": "template"
-				}, {
-					"name": "AbcDataService",
-					"type": "dataservice"
-				}, {
-					"name": "HelloDataService",
-					"type": "dataservice"
-				}, {
-					"name": "AbcProxyService",
-					"type": "proxy-service"
-				}, {
-					"name": "HelloProxyService",
-					"type": "proxy-service"
-				}, {
-					"name": "HttpListenerEP1",
-					"type": "inbound-endpoint"
-				}, {
-					"name": "AbcScheduledTask",
-					"type": "task"
-				}]
-			}]
-		}
-		```
+        
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/applications?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"name": "helloartifactsPackComposite",
+		    		"version": "1.0.0-SNAPSHOT",
+		    		"artifacts": [{
+		    			"name": "HelloLocalEntry",
+		    			"type": "local-entry"
+		    		}, {
+		    			"name": "HelloLocalEntry",
+		    			"type": "local-entry"
+		    		}, {
+		    			"name": "CSV-connector",
+		    			"type": "lib"
+		    		}, {
+		    			"name": "HelloMessageStore",
+		    			"type": "message-store"
+		    		}, {
+		    			"name": "HelloMessageStore",
+		    			"type": "message-store"
+		    		}, {
+		    			"name": "AbcRestApi",
+		    			"type": "api"
+		    		}, {
+		    			"name": "HelloRestApi",
+		    			"type": "api"
+		    		}, {
+		    			"name": "AbcEndPoint",
+		    			"type": "endpoint"
+		    		}, {
+		    			"name": "HelloEndPoint",
+		    			"type": "endpoint"
+		    		}, {
+		    			"name": "AbcSequence",
+		    			"type": "sequence"
+		    		}, {
+		    			"name": "AbcMessageProcessor",
+		    			"type": "message-processors"
+		    		}, {
+		    			"name": "HelloMessageProcessor",
+		    			"type": "message-processors"
+		    		}, {
+		    			"name": "AbcTemplate",
+		    			"type": "template"
+		    		}, {
+		    			"name": "AbcDataService",
+		    			"type": "dataservice"
+		    		}, {
+		    			"name": "HelloDataService",
+		    			"type": "dataservice"
+		    		}, {
+		    			"name": "AbcProxyService",
+		    			"type": "proxy-service"
+		    		}, {
+		    			"name": "HelloProxyService",
+		    			"type": "proxy-service"
+		    		}, {
+		    			"name": "HttpListenerEP1",
+		    			"type": "inbound-endpoint"
+		    		}, {
+		    			"name": "AbcScheduledTask",
+		    			"type": "task"
+		    		}]
+		    	}]
+		    }
+		    ```
 
 -	**Resource**: `/applications?carbonAppName={appname}`
 
@@ -639,14 +658,15 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Adds a carbon application to the deployment folder. Once added it will be hot deployed to the server.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X POST "https://localhost:9164/management/applications" --form "file=@path_to_car_file" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{"Message":"Successfully added Carbon Application HelloWorldCompositeExporter_1.0.0.car"}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X POST "https://localhost:9164/management/applications" --form "file=@path_to_car_file" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"    
+	    ```bash 
+	    {"Message":"Successfully added Carbon Application HelloWorldCompositeExporter_1.0.0.car"}
+	    ```
 
 ### DOWNLOAD CARBON APPLICATION
 
@@ -672,45 +692,47 @@ The management API has multiple resources to provide information regarding the d
 	**Description**:  Retrieves a list of available endpoints.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 2,
-	    "list": [
-		{
-		    "name": "FailOver_EP",
-		    "type": "failover"
-		},
-		{
-		    "name": "WSDL_EP",
-		    "type": "wsdl"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"    
+	    ```bash 
+	    {
+	        "count": 2,
+	        "list": [
+	    	{
+	    	    "name": "FailOver_EP",
+	    	    "type": "failover"
+	    	},
+	    	{
+	    	    "name": "WSDL_EP",
+	    	    "type": "wsdl"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for an endpoint by name"
 		You can also search for an endpoint by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"name": "HelloEndPoint",
-				"type": "http",
-				"isActive": true
-			}]
-		}
-
-		```	
+     
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+		    ```
+        === "Response"    
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"name": "HelloEndPoint",
+		    		"type": "http",
+		    		"isActive": true
+		    	}]
+		    }
+            
+		    ```	
 
 -	**Resource**: `/endpoints?endpointName={endpointname}`
 
@@ -724,14 +746,15 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Activate or deactivate a specified endpoint.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X POST \https://localhost:9164/management/endpoints \ -H 'authorization: Bearer TOKEN -H 'content-type: application/json' \ -d '{"name": "HTTPEP", "status": "inactive"} -k -i
-	```
-
-	```bash tab='Response'
-	{"Message":"HTTPEP : is switched Off"}
-	```
+    
+    === "Request"
+	    ```bash  
+	    curl -X POST \https://localhost:9164/management/endpoints \ -H 'authorization: Bearer TOKEN -H 'content-type: application/json' \ -d '{"name": "HTTPEP", "status": "inactive"} -k -i
+	    ```
+    === "Response" 
+	    ```bash  
+	    {"Message":"HTTPEP : is switched Off"}
+	    ```
 
 ### ENABLE/DISABLE MESSAGE TRACING for ENDPOINTS
 
@@ -741,20 +764,21 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 	
-    ```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/endpoints \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "HTTPEP",
-    		"trace": "enable"
-    	}' -k -i
-	```
-
-	```bash tab='Response'
-    {"message":"Enabled tracing for ('HTTPEP')"}
-	```
+    === "Request"
+        ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/endpoints \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HTTPEP",
+        		"trace": "enable"
+        	}' -k -i
+	    ```
+    === "Response"    
+	    ```bash 
+        {"message":"Enabled tracing for ('HTTPEP')"}
+	    ```
 	
 ### GET APIs
 
@@ -763,46 +787,48 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available APIs.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/apis" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 2,
-	    "list": [
-		{
-		    "name": "api",
-		    "url": "http://localhost:8290/test"
-		},
-		{
-		    "name": "helloApi",
-		    "url": "http://localhost:8290/api"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/apis" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"           
+	    ```bash 
+	    {
+	        "count": 2,
+	        "list": [
+	    	{
+	    	    "name": "api",
+	    	    "url": "http://localhost:8290/test"
+	    	},
+	    	{
+	    	    "name": "helloApi",
+	    	    "url": "http://localhost:8290/api"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for an API by name"
 		You can also search for an API by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/apis?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"tracing": "disabled",
-				"name": "HelloRestApi",
-				"url": "http://localhost:8285/hellorest"
-			}]
-		}
-
-		```	
+        
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/apis?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"tracing": "disabled",
+		    		"name": "HelloRestApi",
+		    		"url": "http://localhost:8285/hellorest"
+		    	}]
+		    }
+            
+		    ```	
 
 -	**Resource**: `/apis?apiName={api}`
 
@@ -815,21 +841,22 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Enable or disable message tracing for a specified API.
 
 	**Example**:
-
-    ```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/apis \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "helloApi",
-    		"trace": "enable"
-    	}' -k -i
-	```
-
-	```bash tab='Response'
-    {"message":"Enabled tracing for ('helloApi')"}
-	```
+    
+    === "Request"
+        ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/apis \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "helloApi",
+        		"trace": "enable"
+        	}' -k -i
+	    ```
+    === "Response"
+	    ```bash 
+        {"message":"Enabled tracing for ('helloApi')"}
+	    ```
 	
 ### GET SEQUENCES
 
@@ -838,59 +865,61 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available sequences.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/sequences" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 3,
-	    "list": [
-		{
-		    "tracing": "disabled",
-		    "stats": "disabled",
-		    "name": "fault"
-		},
-		{
-		    "container": "[ Deployed From Artifact Container: helloCompositeApplication ] ",
-		    "tracing": "disabled",
-		    "stats": "disabled",
-		    "name": "sequenceForSampler"
-		},
-		{
-		    "tracing": "disabled",
-		    "stats": "disabled",
-		    "name": "main"
-		}
-	    ]
-	}
-	```
+     
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/sequences" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"          
+	    ```bash 
+	    {
+	        "count": 3,
+	        "list": [
+	    	{
+	    	    "tracing": "disabled",
+	    	    "stats": "disabled",
+	    	    "name": "fault"
+	    	},
+	    	{
+	    	    "container": "[ Deployed From Artifact Container: helloCompositeApplication ] ",
+	    	    "tracing": "disabled",
+	    	    "stats": "disabled",
+	    	    "name": "sequenceForSampler"
+	    	},
+	    	{
+	    	    "tracing": "disabled",
+	    	    "stats": "disabled",
+	    	    "name": "main"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Sequence by name"
 		You can also search for a Sequence by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/sequences?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 2,
-			"list": [{
-				"tracing": "disabled",
-				"stats": "disabled",
-				"name": "Hello"
-			}, {
-				"tracing": "disabled",
-				"stats": "disabled",
-				"name": "helloworld"
-			}]
-
-		}
-
-		```
+        
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/sequences?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base  
+		    {
+		    	"count": 2,
+		    	"list": [{
+		    		"tracing": "disabled",
+		    		"stats": "disabled",
+		    		"name": "Hello"
+		    	}, {
+		    		"tracing": "disabled",
+		    		"stats": "disabled",
+		    		"name": "helloworld"
+		    	}]
+            
+		    }
+            
+		    ```
 
 -	**Resource**: `/sequences?sequenceName={sequence}`
 
@@ -904,21 +933,22 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Enable or disable message tracing for a specified sequence.
 
 	**Example**:
-
-    ```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/sequences \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "helloSequence",
-    		"trace": "enable"
-    	}' -k -i
-	```
-
-	```bash tab='Response'
-    {"message":"Enabled tracing for ('helloSequence')"}
-	```
+    
+    === "Request"
+        ```bash  
+	    	curl -X POST \
+        	  https://localhost:9164/management/sequences \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "helloSequence",
+        		"trace": "enable"
+        	}' -k -i
+	    ```
+    === "Response" 
+	    ```bash  
+        {"message":"Enabled tracing for ('helloSequence')"}
+	    ```
 	
 ### GET LOCAL ENTRIES
 
@@ -928,49 +958,51 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/local-entries" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 2,
-	    "list": [
-		{
-		    "name": "testEntry1",
-		    "type": "Inline Text"
-		},
-		{
-		    "name": "testentry2",
-		    "type": "Inline XML"
-		}
-	    ]
-	}
-	```
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/local-entries" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"       
+	    ```bash  
+	    {
+	        "count": 2,
+	        "list": [
+	    	{
+	    	    "name": "testEntry1",
+	    	    "type": "Inline Text"
+	    	},
+	    	{
+	    	    "name": "testentry2",
+	    	    "type": "Inline XML"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Local Entry by name"
 		You can also search for a Local Entry by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/local-entries?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 2,
-			"list": [{
-				"name": "HelloLocalEntry",
-				"type": "Inline Text",
-				"value": "0.1"
-			}, {
-				"name": "helloSERVER"
-				"type": "Inline Text",
-				"value": "0.5"
-			}]
-		}
-
-		```
+        
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/local-entries?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"                 
+		    ```base 
+		    {
+		    	"count": 2,
+		    	"list": [{
+		    		"name": "HelloLocalEntry",
+		    		"type": "Inline Text",
+		    		"value": "0.1"
+		    	}, {
+		    		"name": "helloSERVER"
+		    		"type": "Inline Text",
+		    		"value": "0.5"
+		    	}]
+		    }
+            
+		    ```
 
 -	**Resource**: `/local-entries?name={entryName}`
 
@@ -984,38 +1016,40 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/tasks" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 1,
-	    "list": [
-		{
-		    "name": "testTask"
-		}
-	    ]
-	}
-	```
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/tasks" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "count": 1,
+	        "list": [
+	    	{
+	    	    "name": "testTask"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Task by name"
 		You can also search for a Task by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/tasks?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"name": "HelloScheduledTask"
-			}]
-		}
-
-		```
+    
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/tasks?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"                   
+		    ```base  
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"name": "HelloScheduledTask"
+		    	}]
+		    }
+            
+		    ```
 
 -	**Resource**: `/tasks?taskName={taskName}`
 
@@ -1028,49 +1062,51 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available message stores.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/message-stores" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 2,
-	    "list": [
-		{
-		    "size": 0,
-		    "name": "testMessageStore",
-		    "type": "in-memory-message-store"
-		},
-		{
-		    "size": 0,
-		    "name": "jdbc_sample_store",
-		    "type": "jdbc-message-store"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/message-stores" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+	    {
+	        "count": 2,
+	        "list": [
+	    	{
+	    	    "size": 0,
+	    	    "name": "testMessageStore",
+	    	    "type": "in-memory-message-store"
+	    	},
+	    	{
+	    	    "size": 0,
+	    	    "name": "jdbc_sample_store",
+	    	    "type": "jdbc-message-store"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Message Store by name"
 		You can also search for a Message Store by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/message-stores?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"size": 0,
-				"name": "HelloMessageStore",
-				"type": "in-memory-message-store"
-			}]
-
-		}
-
-		```
+    
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/message-stores?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"             
+		    ```base  
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"size": 0,
+		    		"name": "HelloMessageStore",
+		    		"type": "in-memory-message-store"
+		    	}]
+            
+		    }
+            
+		    ```
 
 -	**Resource**: `/message-stores?name={messageStore}`
 
@@ -1083,48 +1119,50 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available message processors.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/message-processors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 2,
-	    "list": [
-		{
-		    "name": "testMessageProcessor",
-		    "type": "Scheduled-message-forwarding-processor",
-		    "status": "active"
-		},
-		{
-		    "name": "TestSamplingProcessor",
-		    "type": "Sampling-processor",
-		    "status": "active"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/message-processors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+	    {
+	        "count": 2,
+	        "list": [
+	    	{
+	    	    "name": "testMessageProcessor",
+	    	    "type": "Scheduled-message-forwarding-processor",
+	    	    "status": "active"
+	    	},
+	    	{
+	    	    "name": "TestSamplingProcessor",
+	    	    "type": "Sampling-processor",
+	    	    "status": "active"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Message Processor by name"
 		You can also search for a Message Processor by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/message-processors?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"name": "HelloMessageProcessor",
-				"type": "Scheduled-message-forwarding-processor",
-				"status": "active"
-			}]
-		}
-
-		```
+        
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/message-processors?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base  
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"name": "HelloMessageProcessor",
+		    		"type": "Scheduled-message-forwarding-processor",
+		    		"status": "active"
+		    	}]
+		    }
+            
+		    ```
 
 -	**Resource**: `/message-processors?name={messageProcessors}`
 
@@ -1156,43 +1194,45 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available inbound endpoints.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 1,
-	    "list": [
-		{
-		    "protocol": "http",
-		    "name": "HTTPIEP"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"         
+	    ```bash  
+	    {
+	        "count": 1,
+	        "list": [
+	    	{
+	    	    "protocol": "http",
+	    	    "name": "HTTPIEP"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for an Inbound Endpoint by name"
 		You can also search for an Inbound Endpoint by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/inbound-endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-		    "list": [
-    		{
-        		"protocol": "http",
-        		"name": "HelloHTTPIEP"
-    		}
-    		]
-		}
-
-		```
+        
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/inbound-endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"                    
+		    ```base  
+		    {
+		    	"count": 1,
+		        "list": [
+    	    	{
+            		"protocol": "http",
+            		"name": "HelloHTTPIEP"
+    	    	}
+    	    	]
+		    }
+            
+		    ```
 
 -	**Resource**: `/inbound-endpoints?inboundEndpointName={inboundEndpoint}`
 
@@ -1205,21 +1245,22 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Enable or disable message tracing for a specified inbound-endpoint.
 
 	**Example**:
-
-    ```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/inbound-endpoints \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "HTTPIEP",
-    		"trace": "enable"
-    	}' -k -i
-	```
-
-	```bash tab='Response'
-    {"message":"Enabled tracing for ('HTTPIEP')"}
-	```
+    
+    === "Request"
+        ```bash  
+	    	curl -X POST \
+        	  https://localhost:9164/management/inbound-endpoints \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HTTPIEP",
+        		"trace": "enable"
+        	}' -k -i
+	    ```
+    === "Response"          
+	    ```bash  
+        {"message":"Enabled tracing for ('HTTPIEP')"}
+	    ```
 	
 ### GET CONNECTORS
 
@@ -1228,51 +1269,53 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available connectors.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/connectors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 2,
-	    "list": [
-		{
-		    "package": "org.wso2.carbon.connector",
-		    "name": "fileconnector",
-		    "description": "wso2 file connector",
-		    "status": "enabled"
-		},
-		{
-		    "package": "org.wso2.carbon.connector",
-		    "name": "gmail",
-		    "description": "WSO2 Gmail connector library",
-		    "status": "enabled"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash
+	    curl -X GET "https://localhost:9164/management/connectors" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"             
+	    ```bash 
+	    {
+	        "count": 2,
+	        "list": [
+	    	{
+	    	    "package": "org.wso2.carbon.connector",
+	    	    "name": "fileconnector",
+	    	    "description": "wso2 file connector",
+	    	    "status": "enabled"
+	    	},
+	    	{
+	    	    "package": "org.wso2.carbon.connector",
+	    	    "name": "gmail",
+	    	    "description": "WSO2 Gmail connector library",
+	    	    "status": "enabled"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Connector by name"
 		You can also search for a Connector by name. To do that, use the following example cURL command.
 
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/connectors?searchKey=csv" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"package": "org.wso2.carbon.module.csv",
-				"name": "CSV",
-				"description": "WSO2 CSV Module",
-				"status": "enabled"
-			}]
-		}
-
-		```
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/connectors?searchKey=csv" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"                 
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"package": "org.wso2.carbon.module.csv",
+		    		"name": "CSV",
+		    		"description": "WSO2 CSV Module",
+		    		"status": "enabled"
+		    	}]
+		    }
+            
+		    ```
 
 ### GET TEMPLATES
 
@@ -1281,50 +1324,51 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves a list of available templates.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/templates" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "sequenceTemplateList": [
-		{
-		    "name": "testSequenceTemplate"
-		}
-	    ],
-	    "endpointTemplateList": [
-		{
-		    "name": "endpointTemplate"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/templates" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"          
+	    ```bash 
+	    {
+	        "sequenceTemplateList": [
+	    	{
+	    	    "name": "testSequenceTemplate"
+	    	}
+	        ],
+	        "endpointTemplateList": [
+	    	{
+	    	    "name": "endpointTemplate"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Template by name"
 		You can also search for a Template by name. To do that, use the following example cURL command.
 
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/templates?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"Parameters": [{
-					"defaultValue": "",
-					"name": "message",
-					"mandatory": false
-				}],
-				"configuration": "<template xmlns=\"http://ws.apache.org/ns/synapse\" name=\"HelloTemplate\"><parameter name=\"message\" isMandatory=\"false\" defaultValue=\"\"/><sequence><log level=\"custom\"><property name=\"GREETING_MESSAGE\" expression=\"$func:message\"/><\/log><\/sequence><\/template>",
-				"name": "HelloTemplate",
-				"type": "sequence"
-			}]
-		}
-
-		```
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/templates?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"                   
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"Parameters": [{
+		    			"defaultValue": "",
+		    			"name": "message",
+		    			"mandatory": false
+		    		}],
+		    		"configuration": "<template xmlns=\"http://ws.apache.org/ns/synapse\" name=\"HelloTemplate\"><parameter name=\"message\" isMandatory=\"false\" defaultValue=\"\"/><sequence><log level=\"custom\"><property name=\"GREETING_MESSAGE\" expression=\"$func:message\"/><\/log><\/sequence><\/template>",
+		    		"name": "HelloTemplate",
+		    		"type": "sequence"
+		    	}]
+		    }            
+		    ```
 
 -	**Resource**: `/templates?type=TYPE`
 
@@ -1333,21 +1377,22 @@ The management API has multiple resources to provide information regarding the d
 	2. sequence
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/templates?type=sequence" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 1,
-	    "list": [
-		{
-		    "name": "testSequenceTemplate"
-		}
-	    ]
-	}
-	```
+    
+    === "Request"
+	    ```bash
+	    curl -X GET "https://localhost:9164/management/templates?type=sequence" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+	    {
+	        "count": 1,
+	        "list": [
+	    	{
+	    	    "name": "testSequenceTemplate"
+	    	}
+	        ]
+	    }
+	    ```
 
 -	**Resource**: `/templates?type={type}&name={template}`
 
@@ -1355,18 +1400,19 @@ The management API has multiple resources to provide information regarding the d
 	request as a query parameter in addition to the template name.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/templates?type=sequence&name=testSequenceTemplate" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "Parameters": [],
-	    "configuration": "<template xmlns=\"http://ws.apache.org/ns/synapse\" name=\"testSequenceTemplate\"><sequence/></template>",
-	    "name": "testSequenceTemplate"
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/templates?type=sequence&name=testSequenceTemplate" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"         
+	    ```bash 
+	    {
+	        "Parameters": [],
+	        "configuration": "<template xmlns=\"http://ws.apache.org/ns/synapse\" name=\"testSequenceTemplate\"><sequence/></template>",
+	        "name": "testSequenceTemplate"
+	    }
+	    ```
 
 ### ENABLE/DISABLE MESSAGE TRACING for SEQUENCE TEMPLATES
 
@@ -1375,22 +1421,23 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Enable or disable message tracing for a specified sequence template.
 
 	**Example**:
-
-    ```bash tab='Request'
-		curl -X POST \
-    	  https://localhost:9164/management/templates \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"name": "testSequenceTemplate",
-    		"type": "sequence",
-    		"trace": "enable"
-    	}' -k -i
-	```
-
-	```bash tab='Response'
-    {"message":"Enabled tracing for ('testSequenceTemplate')"}
-	```
+    
+    === "Request"
+        ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/templates \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "testSequenceTemplate",
+        		"type": "sequence",
+        		"trace": "enable"
+        	}' -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+        {"message":"Enabled tracing for ('testSequenceTemplate')"}
+	    ```
 	
 ### GET SERVER INFORMATION
 
@@ -1399,25 +1446,26 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves information related to the micro integrator server instance.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/server" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "productVersion": "1.1.0",
-	    "repositoryLocation": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT/repository/deployment/client/",
-	    "osVersion": "10.14",
-	    "javaVersion": "1.8.0_171",
-	    "workDirectory": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT/tmp/work",
-	    "carbonHome": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT",
-	    "javaVendor": "Oracle Corporation",
-	    "osName": "Mac OS X",
-	    "productName": "WSO2 Micro Integrator",
-	    "javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre"
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/server" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"
+	    ```bash 
+	    {
+	        "productVersion": "1.1.0",
+	        "repositoryLocation": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT/repository/deployment/client/",
+	        "osVersion": "10.14",
+	        "javaVersion": "1.8.0_171",
+	        "workDirectory": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT/tmp/work",
+	        "carbonHome": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT",
+	        "javaVendor": "Oracle Corporation",
+	        "osName": "Mac OS X",
+	        "productName": "WSO2 Micro Integrator",
+	        "javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre"
+	    }
+	    ```
 
 ### SHUTDOWN SERVER
 
@@ -1426,22 +1474,23 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Shutdown the micro integrator server instance forcefully.
 
 	**Example**:
-
-	```bash tab='Request'
-		curl -X PATCH \
-    	  https://localhost:9164/management/server \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"status": "shutdown"
-    	}' -k -i
-	```
-
-  	```bash tab='Response'
-  	{
-	"Message":"The server will start to shutdown."
-	}
-  	```
+    
+    === "Request"
+	    ```bash 
+	    	curl -X PATCH \
+        	  https://localhost:9164/management/server \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"status": "shutdown"
+        	}' -k -i
+	    ```
+    === "Response"           
+  	    ```bash 
+  	    {
+	    "Message":"The server will start to shutdown."
+	    }
+  	    ```
 
 ### SHUTDOWN SERVER GRACEFULLY
 
@@ -1451,21 +1500,22 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash tab='Request'
-		curl -X PATCH \
-    	  https://localhost:9164/management/server \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"status": "shutdownGracefully"
-    	}' -k -i
-	```
-
-  	```bash tab='Response'
-  	{
-	"Message":"The server will start to shutdown gracefully."
-	}
-  	```
+    === "Request"
+	    ```bash 
+	    	curl -X PATCH \
+        	  https://localhost:9164/management/server \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"status": "shutdownGracefully"
+        	}' -k -i
+	    ```
+    === "Response"         
+  	    ```bash 
+  	    {
+	    "Message":"The server will start to shutdown gracefully."
+	    }
+  	    ```
 
 ### RESTART SERVER
 
@@ -1474,22 +1524,23 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Restart the micro integrator server instance forcefully.
 
 	**Example**:
-
-	```bash tab='Request'
-		curl -X PATCH \
-    	  https://localhost:9164/management/server \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"status": "restart"
-    	}' -k -i
-	```
-
-  	```bash tab='Response'
-  	{
-	"Message":"The server will start to restart."
-	}
-  	```
+ 
+    === "Request"
+	    ```bash 
+	    	curl -X PATCH \
+        	  https://localhost:9164/management/server \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"status": "restart"
+        	}' -k -i
+	    ```
+    === "Response"   
+  	    ```bash 
+  	    {
+	    "Message":"The server will start to restart."
+	    }
+  	    ```
 
 ### RESTART SERVER GRACEFULLY
 
@@ -1498,22 +1549,23 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Restart the micro integrator server instance gracefully.
 
 	**Example**:
-
-	```bash tab='Request'
-		curl -X PATCH \
-    	  https://localhost:9164/management/server \
-    	  -H 'authorization: Bearer TOKEN' \
-    	  -H 'content-type: application/json' \
-    	  -d '{
-    		"status": "restartGracefully"
-    	}' -k -i
-	```
-
-  	```bash tab='Response'
-  	{
-	"Message":"The server will start to restart gracefully."
-	}
-  	```
+     
+    === "Request"
+	    ```bash 
+	    	curl -X PATCH \
+        	  https://localhost:9164/management/server \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"status": "restartGracefully"
+        	}' -k -i
+	    ```
+    === "Response"         
+  	    ```bash 
+  	    {
+	    "Message":"The server will start to restart gracefully."
+	    }
+  	    ```
 
 ### GET DATA SERVICES
 
@@ -1523,42 +1575,44 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/data-services" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
-	```
-
-	```bash tab='Response'
-	{
-	    "count": 1,
-	    "list": [
-		{
-		    "name": "StudentDataService",
-		    "wsdl1_1": "http://Sachiths-MacBook-Pro.local:8290/services/StudentDataService?wsdl",
-		    "wsdl2_0": "http://Sachiths-MacBook-Pro.local:8290/services/StudentDataService?wsdl2"
-		}
-	    ]
-	}
-	```
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/data-services" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
+	    ```
+    === "Response"    
+	    ```bash 
+	    {
+	        "count": 1,
+	        "list": [
+	    	{
+	    	    "name": "StudentDataService",
+	    	    "wsdl1_1": "http://Sachiths-MacBook-Pro.local:8290/services/StudentDataService?wsdl",
+	    	    "wsdl2_0": "http://Sachiths-MacBook-Pro.local:8290/services/StudentDataService?wsdl2"
+	    	}
+	        ]
+	    }
+	    ```
 
 	??? note "Search for a Data Service by name"
 		You can also search for a Data Service by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/data-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 2,
-			"list": [{
-				"name": "HelloDataService",
-				"wsdl1_1": "http://localhost:8285/services/HelloDataService?wsdl",
-				"wsdl2_0": "http://localhost:8285/services/HelloDataService?wsdl2"
-			}]
-		}
-
-		```
+         
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/data-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"     
+		    ```base  
+		    {
+		    	"count": 2,
+		    	"list": [{
+		    		"name": "HelloDataService",
+		    		"wsdl1_1": "http://localhost:8285/services/HelloDataService?wsdl",
+		    		"wsdl2_0": "http://localhost:8285/services/HelloDataService?wsdl2"
+		    	}]
+		    }
+            
+		    ```
 
 -	**Resource**: `/data-services?dataServiceName={dataservice}`
 
@@ -1577,54 +1631,57 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 	
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/data-sources" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
-	```
-	
-	```bash tab='Response'
-	{"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
-	```
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/data-sources" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
+	    ```
+    === "Response"	    
+	    ```bash 
+	    {"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
+	    ```
 
 	??? note "Search for a Data Source by name"
 		You can also search for a Data Source by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/data-sources?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"name": "WSO2CarbonDB",
-				"type": "RDBMS"
-			}]
-		}
-
-		```
+        
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/data-sources?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"name": "WSO2CarbonDB",
+		    		"type": "RDBMS"
+		    	}]
+		    }
+            
+		    ```
 
 -	**Resource**: `/data-sources?name={datasource}`
 
 	**Description**: Retrieves information related to a specific data source.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/data-sources?name=MySQLConnection" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
-	```
-	
-	```bash tab='Response'
-    {
-	"configuration":"<configuration><driverClassName>com.mysql.jdbc.Driver</driverClassName><url>jdbc:mysql://localhost:3307/AccountDetails</url><username>root</username><password>root</password></configuration>",
-	"driverClass":"com.mysql.jdbc.Driver",
-	"name":"MySQLConnection",
-	"description":"MySQL Connection",
-	"type":"RDBMS",
-	"url":"jdbc:mysql://localhost:3307/AccountDetails",
-	"status":"ACTIVE"
-	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/data-sources?name=MySQLConnection" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"  	
+	    ```bash 
+        {
+	    "configuration":"<configuration><driverClassName>com.mysql.jdbc.Driver</driverClassName><url>jdbc:mysql://localhost:3307/AccountDetails</url><username>root</username><password>root</password></configuration>",
+	    "driverClass":"com.mysql.jdbc.Driver",
+	    "name":"MySQLConnection",
+	    "description":"MySQL Connection",
+	    "type":"RDBMS",
+	    "url":"jdbc:mysql://localhost:3307/AccountDetails",
+	    "status":"ACTIVE"
+	    }
+	    ```
 
 ### GET LOG LEVEL
 
@@ -1633,38 +1690,40 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves information related to a specific logger.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/logging?loggerName=org-apache-coyote" -H "accept: application/json" -H 	      "Authorization: Bearer Token" -k
-	```
-
-	```bash tab='Response'
-	{
-      	"loggerName": "org-apache-coyote",
-      	"level":"WARN",
-      	"componentName":"org.apache.coyote"
-    	}
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/logging?loggerName=org-apache-coyote" -H "accept: application/json" -H 	      "Authorization: Bearer Token" -k
+	    ```
+    === "Response"        
+	    ```bash 
+	    {
+          	"loggerName": "org-apache-coyote",
+          	"level":"WARN",
+          	"componentName":"org.apache.coyote"
+        	}
+	    ```
 
 	??? note "Search for a Logger by name"
 		You can also search for a Logger by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/logging?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 1,
-			"list": [{
-				"level": "WARN",
-				"componentName": "org.wso2.carbon.apacheds",
-				"loggerName": "org-wso2-carbon-apacheds"
-			}]
-		}
-
-		```
+        
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/logging?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```base 
+		    {
+		    	"count": 1,
+		    	"list": [{
+		    		"level": "WARN",
+		    		"componentName": "org.wso2.carbon.apacheds",
+		    		"loggerName": "org-wso2-carbon-apacheds"
+		    	}]
+		    }
+            
+		    ```
 
 ### UPDATE ROOT LOG LEVEL
 
@@ -1673,23 +1732,24 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Updates the log level of root logger.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X PATCH \
-      	https://localhost:9164/management/logging \
-      	-H 'authorization: Bearer Token' \
-      	-H 'content-type: application/json' \
-      	-d '{
-        "loggerName": "rootLogger",
-        "loggingLevel": "WARN"
-    	}' -k
-	```
-
-	```bash tab='Response'
-	{
-        "message": "Successfully updated rootLogger.level to WARN"
-    	}
-	```
+   
+    === "Request"
+	    ```bash 
+	    curl -X PATCH \
+          	https://localhost:9164/management/logging \
+          	-H 'authorization: Bearer Token' \
+          	-H 'content-type: application/json' \
+          	-d '{
+            "loggerName": "rootLogger",
+            "loggingLevel": "WARN"
+        	}' -k
+	    ```
+    === "Response"        
+	    ```bash  
+	    {
+            "message": "Successfully updated rootLogger.level to WARN"
+        	}
+	    ```
 
 ### UPDATE LOG LEVEL
 
@@ -1698,23 +1758,24 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Updates the log level of a specific logger.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X PATCH \
-      	https://localhost:9164/management/logging \
-      	-H 'authorization: Bearer Token' \
-      	-H 'content-type: application/json' \
-      	-d '{
-        "loggerName": "org-apache-hadoop-hive",
-        "loggingLevel": "DEBUG"
-    	}' -k
-	```
-
-	```bash tab='Response'
-	{
-        "message": "Successfully updated logger.org-apache-hadoop-hive.level to DEBUG"
-    }
-	```
+    
+    === "Request"
+	    ```bash 
+	    curl -X PATCH \
+          	https://localhost:9164/management/logging \
+          	-H 'authorization: Bearer Token' \
+          	-H 'content-type: application/json' \
+          	-d '{
+            "loggerName": "org-apache-hadoop-hive",
+            "loggingLevel": "DEBUG"
+        	}' -k
+	    ```
+    === "Response"         
+	    ```bash 
+	    {
+            "message": "Successfully updated logger.org-apache-hadoop-hive.level to DEBUG"
+        }
+	    ```
 	
 ### ADD NEW LOGGER
 
@@ -1724,23 +1785,24 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash tab='Request'
-	curl -X PATCH \
-      	https://localhost:9164/management/logging \
-      	-H 'authorization: Bearer Token' \
-      	-H 'content-type: application/json' \
-      	-d '{
-              "loggerName": "synapse-api",
-              "loggingLevel": "DEBUG",
-              "loggerClass":"org.apache.synapse.rest.API"
-            }' -k
-	```
-
-	```bash tab='Response'
-	{
-	  "message":"Successfully added logger for ('synapse-api') with level DEBUG for class org.apache.synapse.rest.API"
-	}
-	```
+    === "Request"
+	    ```bash 
+	    curl -X PATCH \
+          	https://localhost:9164/management/logging \
+          	-H 'authorization: Bearer Token' \
+          	-H 'content-type: application/json' \
+          	-d '{
+                  "loggerName": "synapse-api",
+                  "loggingLevel": "DEBUG",
+                  "loggerClass":"org.apache.synapse.rest.API"
+                }' -k
+	    ```
+    === "Response"        
+	    ```bash
+	    {
+	      "message":"Successfully added logger for ('synapse-api') with level DEBUG for class org.apache.synapse.rest.API"
+	    }
+	    ```
 	
 ### GET CORRELATION LOGGING CONFIGURATION STATUS
 
@@ -1749,45 +1811,46 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves correlation log configuration status.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X GET "https://localhost:9164/management/configs?configName=correlation" -H "accept: application/json" -H "Authorization: Bearer Token" -k
-	```
-
-	```bash tab='Response'
-	{   
-	    "configName": "correlation",
-	    "configs": {
-			“enabled” : “false”
-		   	}
-	}
-
-	```	
+    
+    === "Request"
+	    ```bash 
+	    curl -X GET "https://localhost:9164/management/configs?configName=correlation" -H "accept: application/json" -H "Authorization: Bearer Token" -k
+	    ```
+    === "Response"        
+	    ```bash 
+	    {   
+	        "configName": "correlation",
+	        "configs": {
+	    		“enabled” : “false”
+	    	   	}
+	    }        
+	    ```	
 
 	??? note "Search for a log files by name"
 		You can also search for a log file by name. To do that, use the following example cURL command.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/logs?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"count": 3,
-			"list": [{
-				"Size": "36.1 KB",
-				"FileName": "wso2carbon.log"
-			}, {
-				"Size": "12.7 KB",
-				"FileName": "wso2carbon-09-08-2022.log"
-			}, {
-				"Size": "0 B",
-				"FileName": "wso2carbon-trace-messages.log"
-			}]
-		}
-
-		```
+     
+        === "Request"
+		    ```bash  
+		    curl -X GET "https://localhost:9164/management/logs?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"             
+		    ```base
+		    {
+		    	"count": 3,
+		    	"list": [{
+		    		"Size": "36.1 KB",
+		    		"FileName": "wso2carbon.log"
+		    	}, {
+		    		"Size": "12.7 KB",
+		    		"FileName": "wso2carbon-09-08-2022.log"
+		    	}, {
+		    		"Size": "0 B",
+		    		"FileName": "wso2carbon-trace-messages.log"
+		    	}]
+		    }
+            
+		    ```
 
 
 ### ENABLE/DISABLE CORRELATION LOGGING DURING RUNTIME
@@ -1797,23 +1860,24 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Enable or disable correlation logging in a running server.
 
 	**Example**:
-
-	```bash tab='Request'
-	curl -X PUT \
-	    "https://localhost:9164/management/configs/" \
-	    -H "accept: application/json" -H "authorization: Bearer Token"    -H 'content-type: application/json' \
-	    -d '{
-	    "configName": "correlation",
-	    "configs": {"enabled" : "true"}
-	    }' -k -i
-	```
-
-	```bash tab='Response'
-	{   
-	    "message": "Successfully Updated Correlation Logs Status"
-	}
-
-	```	
+    
+    === "Request"
+	    ```bash 
+	    curl -X PUT \
+	        "https://localhost:9164/management/configs/" \
+	        -H "accept: application/json" -H "authorization: Bearer Token"    -H 'content-type: application/json' \
+	        -d '{
+	        "configName": "correlation",
+	        "configs": {"enabled" : "true"}
+	        }' -k -i
+	    ```
+    === "Response"         
+	    ```bash 
+	    {   
+	        "message": "Successfully Updated Correlation Logs Status"
+	    }
+        
+	    ```	
 
 
 ### GET TRANSACTION COUNT
@@ -1824,35 +1888,37 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-  	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/transactions/count" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-  	{
-  	    "Month": 6,
-  	    "Year": 2020,
-  	    "RequestCount": 74087714
-  	}
-  	```
+    === "Request"
+  	    ```bash 
+  	    curl -X GET "https://localhost:9164/management/transactions/count" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response"          
+  	    ```bash 
+  	    {
+  	        "Month": 6,
+  	        "Year": 2020,
+  	        "RequestCount": 74087714
+  	    }
+  	    ```
 
 -	**Resource**: `/transactions/count?year={year}&month={month}`
 
 	**Description**: Retrieves the transaction count for the specified year and month.
 
     **Example**:
-
-  	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/transactions/count?year=2020&month=5" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-     {
-  	    "Month": 5,
-  	    "Year": 2020,
-  	    "TransactionCount": 25074026
-  	 }
-  	```
+ 
+    === "Request"
+  	    ```bash 
+  	    curl -X GET "https://localhost:9164/management/transactions/count?year=2020&month=5" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response"        
+  	    ```bash 
+         {
+  	        "Month": 5,
+  	        "Year": 2020,
+  	        "TransactionCount": 25074026
+  	     }
+  	    ```
 
 ### GET TRANSACTION REPORT DATA
 
@@ -1861,32 +1927,34 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves the transaction report for the specified period. Generates the transaction report at the `<MI_HOME>/tmp` directory.
 
 	**Example**:
-
-  	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01&end=2020-05" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-  	{
-     "TransactionCountData": [[col1, col2, col3, col4],[val1, val2, val3, val4]]
-    }
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01&end=2020-05" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response"         
+  	    ```bash 
+  	    {
+         "TransactionCountData": [[col1, col2, col3, col4],[val1, val2, val3, val4]]
+        }
+  	    ```
 
 -	**Resource**: `/transactions/report?start={start}`
 
 	**Description**: Retrieves the transaction report for data starting from the specified date. Generates the transaction report at the `<MI_HOME>/tmp` directory.
 
 	**Example**:
-
-    ```bash tab='Request'
-  	 curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
-    ```
-
-    ```bash tab='Response'
-  	 {
-  	  "TransactionCountData": [[col1, col2, col3, col4],[val1, val2, val3, val4]]
-  	 }
-  	```
+    
+    === "Request"
+        ```bash 
+  	     curl -X GET "https://localhost:9164/management/transactions/report?start=2020-01" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+        ```
+    === "Response"        
+        ```bash
+  	     {
+  	      "TransactionCountData": [[col1, col2, col3, col4],[val1, val2, val3, val4]]
+  	     }
+  	    ```
 
 ### GET REGISTRY DIRECTORY DATA
 
@@ -1895,78 +1963,80 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves files and folders under the given parent folder with their media type and properties.
 
 	**Example**:
-
-  	```bash tab='Request'
-  	curl -X GET \ 
-	"https://localhost:9164/management/registry-resources?path=registry/config/testFolder" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-  	{
-		"count":2,
-		"list":
-		[
-			{
-				"name":"name1",
-				"mediaType":"type1",
-				"properties":[]
-			},
-    		{
-				"name":"name2",
-				"mediaType":"type2",
-				"properties":
-				[
-					{
-						"name":"prop1",
-						"value":"val1"
-					}
-				]
-			}
-		]
-	}
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X GET \ 
+	    "https://localhost:9164/management/registry-resources?path=registry/config/testFolder" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response"       
+  	    ```bash 
+  	    {
+	    	"count":2,
+	    	"list":
+	    	[
+	    		{
+	    			"name":"name1",
+	    			"mediaType":"type1",
+	    			"properties":[]
+	    		},
+        		{
+	    			"name":"name2",
+	    			"mediaType":"type2",
+	    			"properties":
+	    			[
+	    				{
+	    					"name":"prop1",
+	    					"value":"val1"
+	    				}
+	    			]
+	    		}
+	    	]
+	    }
+  	    ```
 
 -	**Resource**: `/registry-resources?path={registry path}&expand={true}`
 
 	**Description**: Retrieves a nested JSON containing all the files and folders under the given parent folder.
 
 	**Example**:
-
-  	```bash tab='Request'
-  	curl -X GET \ 
-	"https://localhost:9164/management/registry-resources?path=registry/config/testFolder&expand=true" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-  	{
-		"name":"testFolder",
-		"files":
-		[
-			{
-				"name":"test-text.txt",
-				"files":[],
-				"type":"text/plain"
-			},
-			{
-				"name":"testSubFolder",
-				"files":
-				[
-					{
-						"name":"test-xml.xml",
-						"files":[],
-						"type":"text/xml"
-					}
-				],
-				"type":"directory"
-			}
-		],
-		"type":"directory"
-	}
-  	```
+    
+    === "Request"
+  	    ```bash 
+  	    curl -X GET \ 
+	    "https://localhost:9164/management/registry-resources?path=registry/config/testFolder&expand=true" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response"          
+  	    ```bash 
+  	    {
+	    	"name":"testFolder",
+	    	"files":
+	    	[
+	    		{
+	    			"name":"test-text.txt",
+	    			"files":[],
+	    			"type":"text/plain"
+	    		},
+	    		{
+	    			"name":"testSubFolder",
+	    			"files":
+	    			[
+	    				{
+	    					"name":"test-xml.xml",
+	    					"files":[],
+	    					"type":"text/xml"
+	    				}
+	    			],
+	    			"type":"directory"
+	    		}
+	    	],
+	    	"type":"directory"
+	    }
+  	    ```
 
 ### GET REGISTRY CONTENT
 
@@ -1975,55 +2045,57 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves content of a registry as text.
 
 	**Example**:
-
-  	```bash tab='Request'
-	curl -X GET \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-	<?xml version="1.0" encoding="UTF-8"?>
-	<endpoint name="sampleEP" xmlns="http://ws.apache.org/ns/synapse">
-    <address uri="http://localhost:9000/updatedServices">
-        <suspendOnFailure>
-            <initialDuration>-1</initialDuration>
-            <progressionFactor>1</progressionFactor>
-        </suspendOnFailure>
-        <markForSuspension>
-            <retriesBeforeSuspension>5</retriesBeforeSuspension>
-        </markForSuspension>
-    </address>
-	</endpoint>
-  	```
+    
+    === "Request"
+  	    ```bash 
+	    curl -X GET \ 
+	    "https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response"           
+  	    ```bash 
+	    <?xml version="1.0" encoding="UTF-8"?>
+	    <endpoint name="sampleEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/updatedServices">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>5</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+	    </endpoint>
+  	    ```
 
 	??? note "Search for a Registry Resource by name"
 		You can also search for a Registry Resource by name. To do that, use the following example cURL command. A nested search is possible here to find files inside directories.
-
-		```bash tab='Request'
-		curl -X GET "https://localhost:9164/management/registry-resources?path=registry/config&searchKey=test-text" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
-
-		```
-
-		```base tab='Response'
-		{
-			"list": {
-				"name": "config",
-				"files": [{
-					"name": "testFolder",
-					"files": [{
-						"name": "test-text.txt",
-						"files": [],
-						"type": "testMediaType"
-					}],
-					"type": "directory"
-				}],
-				"type": "directory"
-			}
-		}
-
-		```
+        
+        === "Request"
+		    ```bash 
+		    curl -X GET "https://localhost:9164/management/registry-resources?path=registry/config&searchKey=test-text" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+            
+		    ```
+        === "Response"            
+		    ```bash 
+		    {
+		    	"list": {
+		    		"name": "config",
+		    		"files": [{
+		    			"name": "testFolder",
+		    			"files": [{
+		    				"name": "test-text.txt",
+		    				"files": [],
+		    				"type": "testMediaType"
+		    			}],
+		    			"type": "directory"
+		    		}],
+		    		"type": "directory"
+		    	}
+		    }
+            
+		    ```
 
 
 ### ADD A REGISTRY RESOURCE
@@ -2040,41 +2112,42 @@ The management API has multiple resources to provide information regarding the d
 		Change `Content-Type` header according to the payload.
 
 	**Example**:
-
-  	```bash tab='Request 1'
-	curl -X POST \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
-    -H "accept: application/json" \
-    -H "Content-Type: application/xml" \
-    -H "Authorization: Bearer TOKEN" \
-    -d '<?xml version="1.0" encoding="UTF-8"?>
-	<endpoint name="initialEP" xmlns="http://ws.apache.org/ns/synapse">
-    <address uri="http://localhost:9000/services">
-        <suspendOnFailure>
-            <initialDuration>-1</initialDuration>
-            <progressionFactor>1</progressionFactor>
-        </suspendOnFailure>
-        <markForSuspension>
-            <retriesBeforeSuspension>5</retriesBeforeSuspension>
-        </markForSuspension>
-    </address>
-	</endpoint>' -k -i
-  	```
-
-	```bash tab='Request 2'
-	curl -X POST \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf&mediaType=application/pdf" \
-    -H "accept: application/json" \
-    -H "Content-Type: multipart/form-data" \
-    -H "Authorization: Bearer TOKEN" \
-    -F 'file=@samplePdf.pdf' -k -i
-  	```
-
-  	```bash tab='Response'
-	{
-		"message": "Successfully added the registry resource"
-	}
-  	```
+    
+    === "Request 1"
+  	    ```bash 
+	    curl -X POST \ 
+	    "https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
+        -H "accept: application/json" \
+        -H "Content-Type: application/xml" \
+        -H "Authorization: Bearer TOKEN" \
+        -d '<?xml version="1.0" encoding="UTF-8"?>
+	    <endpoint name="initialEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>5</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+	    </endpoint>' -k -i
+  	    ```
+    === "Request 2"        
+	    ```bash 
+	    curl -X POST \ 
+	    "https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf&mediaType=application/pdf" \
+        -H "accept: application/json" \
+        -H "Content-Type: multipart/form-data" \
+        -H "Authorization: Bearer TOKEN" \
+        -F 'file=@samplePdf.pdf' -k -i
+  	    ```
+    === "Response"        
+  	    ```bash 
+	    {
+	    	"message": "Successfully added the registry resource"
+	    }
+  	    ```
 
 ### MODIFY REGISTRY RESOURCE
 
@@ -2090,41 +2163,42 @@ The management API has multiple resources to provide information regarding the d
 		Changes done to the registry resources will be updated to the cache after the predefined `cachableDuration` time period.
 
 	**Example**:
-
-  	```bash tab='Request 1'
-	curl -X PUT \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
-    -H "accept: application/json" \
-    -H "Content-Type: application/xml" \
-    -H "Authorization: Bearer TOKEN" \
-    -d '<?xml version="1.0" encoding="UTF-8"?>
-	<endpoint name="updatedEP" xmlns="http://ws.apache.org/ns/synapse">
-    <address uri="http://localhost:9000/updatedServices">
-        <suspendOnFailure>
-            <initialDuration>-1</initialDuration>
-            <progressionFactor>1</progressionFactor>
-        </suspendOnFailure>
-        <markForSuspension>
-            <retriesBeforeSuspension>5</retriesBeforeSuspension>
-        </markForSuspension>
-    </address>
-	</endpoint>' -k -i
-  	```
-
-	```bash tab='Request 2'
-	curl -X PUT \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf" \
-    -H "accept: application/json" \
-    -H "Content-Type: multipart/form-data" \
-    -H "Authorization: Bearer TOKEN" \
-    -F 'file=updatedPdf.pdf' -k -i
-  	```
-
-  	```bash tab='Response'
-	{
-		"message": "Successfully modified the registry resource"
-	}
-  	```
+     
+    === "Request 1"
+  	    ```bash  
+	    curl -X PUT \ 
+	    "https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
+        -H "accept: application/json" \
+        -H "Content-Type: application/xml" \
+        -H "Authorization: Bearer TOKEN" \
+        -d '<?xml version="1.0" encoding="UTF-8"?>
+	    <endpoint name="updatedEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/updatedServices">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>5</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+	    </endpoint>' -k -i
+  	    ```
+    === "Request 2"         
+	    ```bash 
+	    curl -X PUT \ 
+	    "https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf" \
+        -H "accept: application/json" \
+        -H "Content-Type: multipart/form-data" \
+        -H "Authorization: Bearer TOKEN" \
+        -F 'file=updatedPdf.pdf' -k -i
+  	    ```
+    === "Response"         
+  	    ```bash 
+	    {
+	    	"message": "Successfully modified the registry resource"
+	    }
+  	    ```
 
 ### DELETE A REGISTRY RESOURCE
 
@@ -2137,18 +2211,19 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-  	```bash tab='Request'
-	curl -X DELETE \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-  	```
-
-  	```bash tab='Response'
-	{
-		"message": "Successfully deleted the registry resource"
-	}
-  	```
+    === "Request"
+  	    ```bash 
+	    curl -X DELETE \ 
+	    "https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+  	    ```
+    === "Response" 
+  	    ```bash 
+	    {
+	    	"message": "Successfully deleted the registry resource"
+	    }
+  	    ```
 
 ### GET PROPERTIES OF A REGISTRY RESOURCE
 
@@ -2157,30 +2232,31 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves all the properties of a registry resource.
 
 	**Example**:
-
-  	```bash tab='Request'
-	curl -X GET \ 
-	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-  	```bash tab='Response'
-	{
-		"count":2,
-		"list":
-		[
-			{
-				"name":"prop1"
-				,"value":"val1"
-			},
-			{
-				"name":"prop2",
-				"value":"val2"
-			}
-		]
-	}
-  	```
+    
+    === "Request"
+  	    ```bash 
+	    curl -X GET \ 
+	    "https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+  	    ```bash 
+	    {
+	    	"count":2,
+	    	"list":
+	    	[
+	    		{
+	    			"name":"prop1"
+	    			,"value":"val1"
+	    		},
+	    		{
+	    			"name":"prop2",
+	    			"value":"val2"
+	    		}
+	    	]
+	    }
+  	    ```
 
 -	**Resource**: `/registry-resources/properties?path={registry path}&name={property name}`
 
@@ -2188,18 +2264,19 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-  	```bash tab='Request'
-	curl -X GET \ 
-	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-  	```bash tab='Response'
-	{
-		"prop1":"val1"
-	}
-  	```
+    === "Request"
+  	    ```bash 
+	    curl -X GET \ 
+	    "https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+  	    ```bash
+	    {
+	    	"prop1":"val1"
+	    }
+  	    ```
 
 ### ADD PROPERTIES TO A REGISTRY RESOURCE
 
@@ -2213,30 +2290,31 @@ The management API has multiple resources to provide information regarding the d
 		New properties should be in a JSON array with JSON objects for each property.
 
 	**Example**:
-
-  	```bash tab='Request'
-	curl -X POST \ 
-	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
-    -H "accept: application/json" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer TOKEN" \
-    -d '[
-		{
-			"name":"prop1",
-			"value":"val1"
-		},
-		{
-			"name":"prop2",
-			"value":"val2"
-		}
-	]' -k -i
-	```
-
-  	```bash tab='Response'
-	{
-		"message": "Successfully added the registry property"
-	}
-  	```
+    
+    === "Request"
+  	    ```bash 
+	    curl -X POST \ 
+	    "https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
+        -H "accept: application/json" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer TOKEN" \
+        -d '[
+	    	{
+	    		"name":"prop1",
+	    		"value":"val1"
+	    	},
+	    	{
+	    		"name":"prop2",
+	    		"value":"val2"
+	    	}
+	    ]' -k -i
+	    ```
+    === "Response"        
+  	    ```bash 
+	    {
+	    	"message": "Successfully added the registry property"
+	    }
+  	    ```
 
 ### DELETE A PROPERTY FROM A REGISTRY RESOURCE
 
@@ -2249,18 +2327,19 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-  	```bash tab='Request'
-	curl -X DELETE\
-	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-  	```bash tab='Response'
-	{
-		"message": "Successfully deleted the registry property"
-	}
-  	```
+    === "Request"
+  	    ```bash 
+	    curl -X DELETE\
+	    "https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"         
+  	    ```bash 
+	    {
+	    	"message": "Successfully deleted the registry property"
+	    }
+  	    ```
 
 ### GET METADATA OF A REGISTRY RESOURCE
 
@@ -2269,17 +2348,18 @@ The management API has multiple resources to provide information regarding the d
 	**Description**: Retrieves the media type of a registry resource.
 
 	**Example**:
-
-  	```bash tab='Request'
-	curl -X GET\ 
-	"https://localhost:9164/management/registry-resources/metadata?path=registry/config/testFolder/test-text.txt" \
-    -H "accept: application/json" \
-    -H "Authorization: Bearer TOKEN" -k -i
-	```
-
-  	```bash tab='Response'
-	{
-		"name":"test-text.txt",
-		"mediaType":"text/plain"
-	}
-  	```
+    
+    === "Request"
+  	    ```bash 
+	    curl -X GET\ 
+	    "https://localhost:9164/management/registry-resources/metadata?path=registry/config/testFolder/test-text.txt" \
+        -H "accept: application/json" \
+        -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"        
+  	    ```bash 
+	    {
+	    	"name":"test-text.txt",
+	    	"mediaType":"text/plain"
+	    }
+  	    ```
