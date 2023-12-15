@@ -6,11 +6,10 @@
                     WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and cloud using a user-friendly low-code graphical designing experience. Deployment options include both microservices and ESB style for better flexibility.
                 </div>
                 <div>
-                    <a href="https://wso2.com/blogs/thesource/announcing-wso2-api-platform-for-kubernetes/" class="banner-link"></a>
+                    <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>
                 </div>
             </div>
         </div>
-
     </div>
     <div class="section02">
         <div class="linkWrapper">
@@ -110,7 +109,7 @@ header.md-header .md-header__button:not([hidden]) {
 }
 .about-home div:first-child {
     width: 50%;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 .about-home div:nth-child(2) {
     width: 50%;
