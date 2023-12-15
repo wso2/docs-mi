@@ -6,16 +6,11 @@
                     WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and cloud using a user-friendly low-code graphical designing experience. Deployment options include both microservices and ESB style for better flexibility.
                 </div>
                 <div>
-                    <a href="https://wso2.com/micro-integrator" class="banner-link"></a>
+                    <a href="https://wso2.com/blogs/thesource/announcing-wso2-api-platform-for-kubernetes/" class="banner-link"></a>
                 </div>
             </div>
-            <div class="download-btn-wrapper">
-                 <h2>Download</h2>
-                <a href="https://wso2.com/micro-integrator/">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                </a>
-            </div>
         </div>
+
     </div>
     <div class="section02">
         <div class="linkWrapper">
@@ -25,21 +20,10 @@
                     Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment.
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/introduction';">
-                <a href="get-started/introduction"><h3>Overview</h3></a>
-                <p>
-                    Introduces WSO2 Micro Integrator and quickly describes what it can do.
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/key-concepts';">
-                <a href="get-started/key-concepts"><h3>Concepts</h3></a>
-                <p>
-                    The key concepts of WSO2 Micro Integrator give you a brief introduction to the terminology.
-                </p>
-            </div>
         </div>
     </div>
     <div class="section03">
+        <h3>What can WSO2 Micro Integrator do?</h3>
         <div class="linkWrapper">
             <div class="linkSet3" onclick="location.href='{{base_path}}/learn/integration-use-case/message-routing-overview';">
                 <a href="learn/integration-use-case/message-routing-overview"><h3>Routing and Transformation</h3></a>
