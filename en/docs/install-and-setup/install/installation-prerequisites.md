@@ -19,6 +19,10 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
         </li>
         <li>
           Minimum 0.5 core per Micro Integrator Docker instance.
+          <div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <p>Micro Integrator can run on a minimum of 0.5 cores per instance, suitable for lightweight integration microservices. For more complex deployments, such as monolithic or modular monolithic setups, it is recommended to allocate a minimum of 2 cores per instance.</p>
+          </div>          
         </li>
       </ul>
     </td>
