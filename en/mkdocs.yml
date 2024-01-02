@@ -1,0 +1,915 @@
+# Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# WSO2 Inc. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# Project information
+site_name: WSO2 Micro Integrator Documentation 4.2.0
+site_description: Documentation for WSO2 Micro Integrator
+site_author: WSO2
+site_url: https://mi.docs.wso2.com/en/latest/
+
+# Repository
+repo_name: wso2/docs-mi
+repo_url: https://github.com/wso2/docs-mi
+edit_uri: https://github.com/wso2/docs-mi/edit/4.2.0/en/docs/
+dev_addr: localhost:8000
+
+# Copyright
+copyright: WSO2 Micro Integrator - Documentation
+
+# Configuration
+theme:
+  name: material
+  custom_dir: theme/material
+  logo: images/logo.svg
+  favicon: images/favicon.png
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.action.edit
+    - content.action.view
+  #highlightjs: true
+  feature:
+    tabs: true
+  language: 'en'
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+#Breaks build if there's a warning
+strict: false
+# Navigation
+nav:
+  - Home: index.md
+  - Get Started:
+      - Introduction: get-started/introduction.md
+      - Quick Start Guide: get-started/quick-start-guide.md
+      - Develop Your First Integration: get-started/development-kickstart.md
+      - Key Concepts: get-started/key-concepts.md
+      - About this Release: get-started/about-this-release.md
+  - Learn:
+      - Overview: learn/learn-overview.md
+      - Use Cases:
+          - Message Routing and Transformation: learn/integration-use-case/message-routing-overview.md
+          - Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
+          - Asynchronous Message Processing: learn/integration-use-case/asynchronous-message-overview.md
+          - SaaS and B2B Connectivity: learn/integration-use-case/connectors.md
+          - Data Integration: learn/integration-use-case/data-integration-overview.md
+          - Protocol Switching: learn/integration-use-case/protocol-switching-overview.md
+          - File Processing: learn/integration-use-case/file-processing-overview.md
+          - Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
+      - Tutorials:
+          - Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
+          - Develop an Integration From a Managed API: learn/integration-tutorials/develop-an-integration-with-a-managed-api.md
+          - Expose an Integration SOAP Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
+          - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
+          - Message Routing:
+              - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
+          - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
+          - Message Transformation:
+              - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
+          - Asynchronous Messaging:
+              - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
+          - Integrate with SaaS Systems:
+              - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+          - Data Integration:
+              - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+          - File Processing: learn/integration-tutorials/file-processing.md
+          - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
+          - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
+          - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
+          - Integrate with SAP: learn/integration-tutorials/sap-integration.md
+      - Examples:
+          - Message Routing:
+              - Route Based on Message Headers: learn/examples/routing-examples/routing-based-on-headers.md
+              - Route Based on Message Payload: learn/examples/routing-examples/routing-based-on-payloads.md
+              - Split Messages and Aggregating Responses: learn/examples/routing-examples/splitting-aggregating-messages.md
+          - Message Transformation:
+              - Convert JSON Messages to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
+              - Convert POX Messages to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
+          - Protocol Switching:
+              - JMS to HTTP/S: learn/examples/protocol-switching/switching-from-jms-to-http.md
+              - HTTP/S to JMS: learn/examples/protocol-switching/switching-from-https-to-jms.md
+              - FTP Listener to Mail Sender: learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender.md
+              - HTTP to FIX: learn/examples/protocol-switching/switching-from-http-to-fix.md
+              - FIX to HTTP: learn/examples/protocol-switching/switching-from-fix-to-http.md
+              - FIX to AMQP: learn/examples/protocol-switching/switching-from-fix-to-amqp.md
+              - FIX Versions: learn/examples/protocol-switching/switching-between-fix-versions.md
+              - TCP to HTTP/S: learn/examples/protocol-switching/switching-from-tcp-to-https.md
+              - UDP to HTTP/S: learn/examples/protocol-switching/switching-from-udp-to-https.md
+              - HTTP to MSMQ: learn/examples/protocol-switching/switching-between-http-and-msmq.md
+          - File Processing:
+              - Use VFS for File Transferring: learn/examples/file-processing/vfs-transport-examples.md
+              - Access a Windows Share Using VFS: learn/examples/file-processing/accessing-windows-share-using-vfs-transport.md
+              - Send and Receive Emails: learn/examples/file-processing/mailto-transport-examples.md
+          - Data Integration:
+              - Expose an RDBMS datasource: learn/examples/data-integration/rdbms-data-service.md
+              - Expose Other Datasources:
+                  - CSV datasource: learn/examples/data-integration/csv-data-service.md
+                  - Mongo datasource: learn/examples/data-integration/mongo-data-service.md
+                  - Carbon datasource: learn/examples/data-integration/carbon-data-service.md
+              - Expose Data in JSON Format: learn/examples/data-integration/json-with-data-service.md
+              - Use an OData Service: learn/examples/data-integration/odata-service.md
+              - Use Nested Data Queries: learn/examples/data-integration/nested-queries-in-data-service.md
+              - Batch Requesting: learn/examples/data-integration/batch-requesting.md
+              - Invoke Multiple Operations as a Request Box: learn/examples/data-integration/request-box.md
+              - Use Distributed Transactions in Data Services: learn/examples/data-integration/distributed-trans-data-service.md
+              - Validate Data Input: learn/examples/data-integration/data-input-validator.md
+              - Swagger Documents of RESTful Data Services: learn/examples/data-integration/swagger-data-services.md
+          - Asynchronous Messaging:
+              - RabbitMQ Examples:
+                  - Point to Point: learn/examples/rabbitmq-examples/point-to-point-rabbitmq.md
+                  - Publish/Subscribe: learn/examples/rabbitmq-examples/pub-sub-rabbitmq.md
+                  - Guaranteed Delivery:
+                      - Message Store and Message Processor: learn/examples/rabbitmq-examples/store-forward-rabbitmq.md
+                      - Retry failed messages with a delay: learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq.md
+                      - Requeue a message preserving the order: learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq.md
+                      - Publish messages to DLX: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
+                  - Dual Channel: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
+              - JMS Examples:
+                  - Consume JMS Messages: learn/examples/jms-examples/consuming-jms.md
+                  - Produce JMS Messages: learn/examples/jms-examples/producing-jms.md
+                  - Consume and Produce JMS Messages: learn/examples/jms-examples/consume-produce-jms.md
+                  - Dual Channel HTTP-to-JMS: learn/examples/jms-examples/dual-channel-http-to-jms.md
+                  - Quad Channel JMS-to-JMS: learn/examples/jms-examples/quad-channel-jms-to-jms.md
+                  - Guaranteed Delivery with Failover: learn/examples/jms-examples/guaranteed-delivery-with-failover.md
+                  - Publish and Subscribe with JMS: learn/examples/jms-examples/publish-subscribe-with-jms.md
+                  - Shared Topic Subscription: learn/examples/jms-examples/shared-topic-subscription.md
+                  - Detect Repeatedly Redelivered Messages: learn/examples/jms-examples/detecting-repeatedly-redelivered-messages.md
+                  - Specify Delivery Delay on Messages: learn/examples/jms-examples/specifying-a-delivery-delay-on-messages.md
+                  #- 'JMS Map Messaging': 'use-cases/examples/jms-examples/jms-map-message.md'
+          - Examples of Components:
+              - REST APIs:
+                  - Use a Simple REST API: learn/examples/rest-api-examples/introduction-rest-api.md
+                  - Set Query Parameters on Outgoing Messages: learn/examples/rest-api-examples/setting-query-params-outgoing-messages.md
+                  - Expose a SOAP Endpoint as a RESTful API: learn/examples/rest-api-examples/enabling-rest-to-soap.md
+                  - Expose Non-HTTP Services as RESTful APIs: learn/examples/rest-api-examples/configuring-non-http-endpoints.md
+                  - Handle Non-Matching Resources: learn/examples/rest-api-examples/handling-non-matching-resources.md
+                  - Handle HTTP Status Codes: learn/examples/rest-api-examples/setting-https-status-codes.md
+                  - Transform Content Types: learn/examples/rest-api-examples/transforming-content-type.md
+                  - Secure a REST API: learn/examples/rest-api-examples/securing-rest-apis.md
+                  - Publish a Custom Swagger Document: learn/examples/rest-api-examples/publishing-a-swagger-api.md
+                  - Special Cases: learn/examples/rest-api-examples/special-cases.md
+              - Proxy Services:
+                  - Use a Simple Proxy Service: learn/examples/proxy-service-examples/introduction-to-proxy-services.md
+                  - Publish a Custom WSDL: learn/examples/proxy-service-examples/publishing-a-custom-wsdl.md
+                  #- 'Configure Pinned Servers': 'use-cases/examples/proxy-service-examples/using-pinned-servers.md'
+                  - Expose a Proxy Service via Inbound Endpoints: learn/examples/proxy-service-examples/exposing-proxy-via-inbound.md
+                  - Secure a Proxy Service: learn/examples/proxy-service-examples/securing-proxy-services.md
+              - Inbound Endpoints:
+                  - JMS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol.md
+                  - File Inbound Endpoint: learn/examples/inbound-endpoint-examples/file-inbound-endpoint.md
+                  - HTTP Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol.md
+                  - HTTPS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol.md
+                  - HL7 Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack.md
+                  - MQTT Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol.md
+                  - RabbitMQ Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol.md
+                  #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound-endpoint-examples/using-CXF-WS-RM-Inbound.md'
+                  - Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
+                  - Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
+                  - Use Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
+              - Scheduled Tasks:
+                  - Task Scheduling Using a Simple Trigger: learn/examples/scheduled-tasks/task-scheduling-simple-trigger.md
+                  - Inject Messages to a RESTful Endpoint: learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
+              - Local Registry Entries: learn/examples/registry-examples/local-registry-entries.md
+              - Templates:
+                  - Use Sequence Templates: learn/examples/template-examples/using-sequence-templates.md
+                  - Use Endpoint Templates: learn/examples/template-examples/using-endpoint-templates.md
+              - Message Stores & Processors:
+                  - Introduction to Message Stores and Processors: learn/examples/message-store-processor-examples/intro-message-stores-processors.md
+                  - JDBC Message Store: learn/examples/message-store-processor-examples/using-jdbc-message-store.md
+                  - JMS Message Store: learn/examples/message-store-processor-examples/using-jms-message-stores.md
+                  - RabbitMQ Message Store: learn/examples/message-store-processor-examples/using-rabbitmq-message-stores.md
+                  - Message Sampling Processor: learn/examples/message-store-processor-examples/using-message-sampling-processor.md
+                  - Message Forwarding Processor: learn/examples/message-store-processor-examples/using-message-forwarding-processor.md
+                  - Secure the Message Forwarding Processor: learn/examples/message-store-processor-examples/securing-message-processor.md
+                  - Load Balancing with Message Forwarding Processor: learn/examples/message-store-processor-examples/loadbalancing-with-message-processor.md
+              - Endpoints:
+                  - Address Endpoint: learn/examples/endpoint-examples/using-address-endpoints.md
+                  - Failover Endpoints: learn/examples/endpoint-examples/using-failover-endpoints.md
+                  - HTTP Endpoint: learn/examples/endpoint-examples/using-http-endpoints.md
+                  - WebSocket Endpoint: learn/examples/endpoint-examples/using-websocket-endpoints.md
+                  - WSDL Endpoint: learn/examples/endpoint-examples/using-wsdl-endpoints.md
+                  - Load Balance Endpoint: learn/examples/endpoint-examples/using-loadbalancing-endpoints.md
+                  - Recipient List of Endpoints:
+                      - Static List of Recepients: learn/examples/endpoint-examples/using-static-recepient-list-endpoints.md
+                      - Dynamic List of Recepients: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-1.md
+                      - Dynamic List of Recepients with Aggregated Responses: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-2.md
+                  - Reuse Endpoints: learn/examples/endpoint-examples/reusing-endpoints.md
+                  - Endpoint Error Handling: learn/examples/endpoint-examples/endpoint-error-handling.md
+                  - MTOM and SwA Optimizations: learn/examples/endpoint-examples/mtom-swa-with-endpoints.md
+              - Sequences:
+                  - Break Complex Flows into Multiple Sequences: learn/examples/sequence-examples/using-multiple-sequences.md
+                  - Use Fault Sequences: learn/examples/sequence-examples/using-fault-sequences.md
+                  - Reuse Sequences: learn/examples/sequence-examples/custom-sequences-with-proxy-services.md
+          - Transports:
+              - Use the TCP Transport: learn/examples/transport-examples/tcp-transport-examples.md
+              - Use the FIX Transport: learn/examples/transport-examples/fix-transport-examples.md
+              - Use the MQTT Transport: learn/examples/transport-examples/pub-sub-using-mqtt.md
+              - HL7 Examples:
+                  - Mediate HL7 Messages: learn/examples/hl7-examples/hl7-proxy-service.md
+                  - Acknowledge HL7 Messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
+                  - Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
+          - Work with Transactions: learn/examples/working-with-transactions.md
+          - JSON Examples: learn/examples/json-examples/json-examples.md
+          - Integrate MI with SI: learn/examples/integrating-mi-with-si.md
+
+  - Develop:
+      - Develop Integration Solutions: develop/intro-integration-development.md
+      - WSO2 Integration Studio:
+          - Quick Tour - WSO2 Integration Studio: develop/wso2-integration-studio.md
+          - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
+          - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
+          - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
+      - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
+      - Create Projects:
+          - Create an Integration Project: develop/create-integration-project.md
+          - Create Data Service Configs: develop/create-data-services-configs.md
+          - Create Datasource Configs: develop/create-datasources.md
+          - Import Projects: develop/importing-projects.md
+          - Export Projects: develop/export-project.md
+          - Create Docker Exporter: develop/create-docker-project.md
+          - Create Kubernetes Exporter: develop/create-kubernetes-project.md
+      - Create Artifacts:
+          - Importing Artifacts: develop/importing-artifacts.md
+          - Create a REST API: develop/creating-artifacts/creating-an-api.md
+          - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
+          - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
+          - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
+          - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
+          - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
+          - Create an Endpoint: develop/creating-artifacts/creating-endpoints.md
+          - Create an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
+          - Create a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
+          - Create a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
+          - Create a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
+          - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
+          - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
+          - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
+          - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
+          - Adding Connectors: develop/creating-artifacts/adding-connectors.md
+          - Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+      - Create Custom Artifacts:
+          - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
+          - Create a Custom Mediator: develop/customizations/creating-custom-mediators.md
+          - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
+          - Create a New Connector: develop/customizations/creating-new-connector.md
+          - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+      - Exporting Artifacts: develop/exporting-artifacts.md
+      - Securing Artifacts:
+          - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
+          - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
+          - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
+          - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
+          - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
+      - Package Artifacts: develop/packaging-artifacts.md
+      - Deploy Artifacts: develop/deploy-artifacts.md
+      - Test Integrations:
+          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
+          - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
+          - Hot Deploying Artifacts: develop/hot-deployment.md
+          - Create a Unit Test Suite: develop/creating-unit-test-suite.md
+          - Generate Docker Images: develop/generate-docker-image.md
+      - Debug Integrations:
+          - Mediation Debugging: develop/debugging-mediation.md
+          - Use Wire Logs: develop/using-wire-logs.md
+          - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
+          - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
+          - Endpoint Trace: develop/endpoint-trace-logs.md
+      - Advanced Development Tasks:
+          - Inject Parameters: develop/injecting-parameters.md
+          - Change the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
+          - Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
+          - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
+          - Dynamic User Authentication: develop/advanced-development/dynamic-user-authentication.md
+  - Install and Setup:
+      - Overview: install-and-setup/install-and-setup-overview.md
+      - Install:
+          - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
+          - Install the Micro Integrator (MI):
+              - Install MI: install-and-setup/install/installing-mi.md
+              - Run the MI Runtime: install-and-setup/install/running-the-mi.md
+              - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
+              - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
+          - Install the MI Dashboard:
+              - Install the MI Dashboard: install-and-setup/install/installing-mi-dashboard.md
+              - Run the MI Dashboard: install-and-setup/install/running-the-mi-dashboard.md
+              - Run the MI Dashboard as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
+          - Installation Options: install-and-setup/install/installation-options.md
+      - Migrate: install-and-setup/upgrading-wso2-mi.md
+      - Setup:
+          - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
+          - Data Stores:
+              - Configure a User Store: install-and-setup/setup/user-stores/setting-up-a-userstore.md
+              - Configure Databases:
+                  - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
+                  - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
+                  - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
+                  - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
+                  - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+              - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
+              - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+          - Security:
+              - Set up Keystores:
+                  - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
+                  - Add SSL certificates to keystores: install-and-setup/setup/security/importing-ssl-certificate.md
+                  - Renew a CA-signed Certificate: install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore.md
+                  - Configure Keystores: install-and-setup/setup/security/configuring-keystores.md
+              - Comply with GDPR:
+                  - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/security/gdpr-ei.md
+                  - About the Identity Anonymization Tool: install-and-setup/setup/security/about-forgetme-tool.md
+              - Use Secrets:
+                  - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/security/encrypting-plain-text.md
+                  - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
+                  - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
+              - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
+          - Message Brokers:
+              - AMQP (RabbitMQ):
+                  - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
+                  - Connect to RabbitMQ: install-and-setup/setup/brokers/configure-with-rabbitmq.md
+              - JMS:
+                  - Connect to ActiveMQ: install-and-setup/setup/brokers/configure-with-activemq.md
+                  - Connect to Apache Artemis: install-and-setup/setup/brokers/configure-with-apache-artemis.md
+                  - Connect to HornetQ: install-and-setup/setup/brokers/configure-with-hornetq.md
+                  - Connect to IBM Websphere App Server: install-and-setup/setup/brokers/configure-with-ibm-websphere-app-server.md
+                  - Connect to IBM WebSphere MQ: install-and-setup/setup/brokers/configure-with-ibm-webspheremq.md
+                  - Connect to JBoss MQ: install-and-setup/setup/brokers/configure-with-jbossmq.md
+                  - Connect to MSMQ: install-and-setup/setup/brokers/configure-with-msmq.md
+                  - Connect to Swift MQ: install-and-setup/setup/brokers/configure-with-swiftmq.md
+                  - Connect to TIBCO EMS: install-and-setup/setup/brokers/configure-with-tibco-ems.md
+                  - Connect to Weblogic: install-and-setup/setup/brokers/configure-with-weblogic.md
+                  - Connect to WSO2 MB: install-and-setup/setup/brokers/configure-with-wso2-mb.md
+                  - Connect to Multiple Brokers: install-and-setup/setup/brokers/configure-with-multiple-brokers.md
+              - Kafka: install-and-setup/setup/feature-configs/configuring-kafka.md
+              - Azure Service Bus: install-and-setup/setup/brokers/configure-with-azureservicebus.md
+          - Transports: install-and-setup/setup/transport-configurations/configuring-transports.md
+          - Multi-HTTPS Transport: install-and-setup/setup/transport-configurations/multi-https-transport.md
+          - Message Builders and Formatters: install-and-setup/setup/message-builders-formatters/message-builders-and-formatters.md
+          - Message Relay: install-and-setup/setup/message-builders-formatters/message-relay.md
+          - Manage Configurations across Environments: install-and-setup/setup/dynamic-server-configurations.md
+          - Load Balancer and Proxy Server:
+              - Load Balancing: install-and-setup/setup/deployment/setting-up-lb.md
+              - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
+              - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/enabling-ssl-tunneling-thru-proxy-server.md
+          - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
+      - Deploy:
+          - Deploy the Micro Integrator:
+              - Configure a Micro Integrator Cluster: install-and-setup/setup/deployment/deploying-wso2-mi.md
+              - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
+          - Deploy on Kubernetes:
+              - Micro Integrator on K8s:
+                  - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
+                  - Deploy the Micro Integrator on K8s: install-and-setup/setup/deployment/kubernetes-deployment.md
+              - Integrations on K8s:
+                  - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
+                  - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
+                  - Integration Deployment Samples:
+                      - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                      - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                      - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
+          - Deployment Best Practices:
+              - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+              - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+              - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
+              - Change the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
+              - Change the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+              - Monitor Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
+              - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
+              - Performance Tuning:
+                  - Tuning JVM Performance: install-and-setup/setup/performance-tuning/tuning-jvm-performance.md
+                  - Tuning Network and OS Performance: install-and-setup/setup/performance-tuning/network-os-performance.md
+                  - Tuning JDBC Configurations: install-and-setup/setup/performance-tuning/jdbc-tuning.md
+                  - Tuning the HTTP Transport: install-and-setup/setup/performance-tuning/http-transport-tuning.md
+                  - Tuning the JMS Transport: install-and-setup/setup/performance-tuning/jms-transport-tuning.md
+                  - Tuning the VFS Transport: install-and-setup/setup/performance-tuning/tuning-the-vfs-transport.md
+                  - Tuning the RabbitMQ Transport: install-and-setup/setup/performance-tuning/rabbitmq-transport-tuning.md
+                  - Tuning the Inbound Endpoints: install-and-setup/setup/performance-tuning/tuning-inbound-endpoints.md
+      - CI/CD:
+          - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
+          - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
+          - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
+      - Reference:
+          - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+          - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
+          - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+          - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
+          - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
+  - Observe and Manage:
+      - Overview: observe-and-manage/observe-overview.md
+      - Observability:
+          - Grafana based Observability:
+              - Overview: observe-and-manage/cloud-native-observability-overview.md
+              - Getting Started Guide - VM Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
+              - Getting Started Guide - K8s Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+              - View Statistics: observe-and-manage/viewing-cloud-native-observability-statistics.md
+          - Basic Observability:
+              - Logs:
+                  - Configure Logs: observe-and-manage/classic-observability-logs/configuring-log4j2-properties.md
+                  - Enable Logs for a Component: observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md
+                  - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
+                  - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
+                  - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
+              - Traces:
+                  - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
+              - Metrics:
+                  - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
+                  - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+              - TCP Messages:
+                  - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
+                  - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
+                  - Other Usages of TCPMon: observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon.md
+      - Analytics:
+          - ELK Based Analytics:
+              - Setup: mi-analytics/mi-elk-installation-guide.md
+              - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
+          - MI Analytics:
+              - Setup: mi-analytics/setting-up-mi-analytics.md
+              - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
+      - Administer:
+          - Administer Overview: administer/admin-overview.md
+          - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
+          - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+          - Manage Micro Integrator:
+              - Runtime:
+                  - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
+                  - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
+                  - Management API: observe-and-manage/working-with-management-api.md
+              - Logs:
+                  - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                  - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+  - References:
+      - Product Configurations:
+          - MI Configuration Catalog: reference/config-catalog-mi.md
+          - MI Dashboard Configuration Catalog: reference/config-catalog-mi-dashboard.md
+      - Connectors:
+          - Connectors Overview: reference/connectors/connectors-overview.md
+          - When to Use Connectors: reference/connectors/why-connectors.md
+          - Connector Usage Guidelines: reference/connectors/connector-usage.md
+          - Connector Developer Guidelines: reference/connectors/develop-connectors.md
+          - Amazon DynamoDB Connector:
+              - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
+              - Set up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
+              - Amazon DynamoDB Example: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md
+              - Amazon DynamoDB Reference: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md
+          - Amazon Lambda Connector:
+              - Amazon Lambda Overview: reference/connectors/amazonlambda-connector/amazonlambda-connector-overview.md
+              - Set up Amazon Lambda: reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md
+              - Amazon Lambda Example: reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md
+              - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md
+          - Amazon S3 Connector:
+              - AmazonS3 Overview: reference/connectors/amazons3-connector/amazons3-connector-overview.md
+              - 2.x:
+                  - Set up Amazon S3: reference/connectors/amazons3-connector/amazons3-connector-config.md
+                  - AmazonS3 Example: reference/connectors/amazons3-connector/amazons3-connector-example.md
+                  - AmazonS3 Reference: reference/connectors/amazons3-connector/amazons3-connector-reference.md
+              - 1.x:
+                  - Set up Amazon S3: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md
+                  - AmazonS3 Example: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md
+                  - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
+          - Amazon SQS Connector:
+              - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
+              - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
+              - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md
+              - Amazon SQS Inbound Endpoint Example: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md
+              - Amazon SQS Inbound Endpoint Reference:
+                  - 1.0.x: reference/connectors/amazonsqs-connector/amazon-inbound-endpoint-1.0.x/amazonsqs-inbound-endpoint-reference-configuration.md
+                  - 1.1.x: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md
+          - BigQuery Connector:
+              - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
+              - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
+              - BigQuery Example: reference/connectors/bigquery-connector/bigquery-connector-example.md
+              - BigQuery Reference: reference/connectors/bigquery-connector/bigquery-connector-reference.md
+          - Ceridian Dayforce Connector:
+              - Ceridian Dayforce Overview: reference/connectors/ceridiandayforce-connector/cerediandayforce-overview.md
+              - Set up the Ceridian Dayforce Connector: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md
+              - Ceridian Dayforce Example: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example.md
+              - Ceridian Dayforce Reference:
+                  - Initializing: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md
+                  - Employee: reference/connectors/ceridiandayforce-connector/employee.md
+                  - Configuration:
+                      - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgunits.md
+                      - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgunitdetails.md
+                  - Employee Documents:
+                      - listOfDocuments: reference/connectors/ceridiandayforce-connector/employee-documents/listofdocuments.md
+                      - documentDetails: reference/connectors/ceridiandayforce-connector/employee-documents/documentdetails.md
+                  - Employee Employment Information:
+                      - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeclockdevicegroups.md
+                      - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeecompensationsummary.md
+                      - employeeCourses: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeecourses.md
+                      - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymentagreements.md
+                      - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymentstatuses.md
+                      - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymenttypes.md
+                      - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeehighlycompensatedemployees.md
+                      - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeehrincidents.md
+                      - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeelabordefaults.md
+                      - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeonboardingpolicies.md
+                      - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeorginfo.md
+                      - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeepayadjustmentcodegroups.md
+                      - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeepaygraderates.md
+                      - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeperformanceratings.md
+                      - employeeProperties: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeproperties.md
+                      - employeeSkills: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeskills.md
+                      - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeetrainingprograms.md
+                      - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeunionmemberships.md
+                      - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkassignments.md
+                      - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
+                  - Employee Personal Information:
+                      - employeeAddresses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeaddresses.md
+                      - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecantaxes.md
+                      - employeeContacts: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecontacts.md
+                      - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeedirectdeposits.md
+                      - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeemergencycontacts.md
+                      - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeehealthandwellness.md
+                      - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeemaritalstatuses.md
+                      - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeustaxes.md
+                  - Employee Time Management:
+                      - availability: reference/connectors/ceridiandayforce-connector/employee-time-management/availability.md
+                      - employeePunches: reference/connectors/ceridiandayforce-connector/employee-time-management/employeepunches.md
+                      - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employee-time-management/employeerawpunches.md
+                      - schedules: reference/connectors/ceridiandayforce-connector/employee-time-management/schedules.md
+                      - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employee-time-management/timeawayfromwork.md
+                  - Employment Eligibility Verification:
+                      - i9Order: reference/connectors/ceridiandayforce-connector/employment-eligibility-verification/i9order.md
+                  - Recruiting:
+                      - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobpostings.md
+                  - Reporting:
+                      - reportMetadataForAListOfReports: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforalistofreports.md
+                      - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforaspecificreport.md
+                      - reports: reference/connectors/ceridiandayforce-connector/reporting/reports.md
+                  - User Security Authority And Management:
+                      - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/documentmanagementsecuritygroups.md
+                      - employeeLocations: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeelocations.md
+                      - employeeManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeemanagers.md
+                      - employeeRoles: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeroles.md
+                      - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
+                      - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
+                      - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+          - DB Event Listener Inbound Endpoint:
+              - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
+              - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
+              - Database Event Listener Reference: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md
+          - Documentum Connector:
+              - Documentum Overview: reference/connectors/documentum/documentum-overview.md
+              - Documentum Example: reference/connectors/documentum/documentum-example.md
+              - Documentum Reference: reference/connectors/documentum/documentum-reference.md
+          - Email Connector:
+              - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
+              - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
+              - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
+          - Jira Connector:
+              - Jira Connector Overview: reference/connectors/jira-connector/jira-connector-overview.md
+              - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
+              - Jira Connector Reference: reference/connectors/jira-connector/jira-connector-config.md
+          - FHIR Connector:
+              - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
+              - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
+              - FHIR Reference: reference/connectors/fhir-connector/fhir-connector-config.md
+          - File Connector:
+              - File Connector Overview: reference/connectors/file-connector/file-connector-overview.md
+              - 4.x:
+                  - File Connector Example: reference/connectors/file-connector/file-connector-example.md
+                  - File Connector Reference: reference/connectors/file-connector/file-connector-config.md
+              - 3.x:
+                  - File Connector Example: reference/connectors/file-connector/3.x/file-connector-3.x-example.md
+                  - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
+          - Gmail Connector:
+              - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
+              - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
+              - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
+              - Gmail Configuration: reference/connectors/gmail-connector/configuring-gmail-api.md
+          - Google Firebase Connector:
+              - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
+              - Set up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
+              - Google Firebase Example: reference/connectors/google-firebase-connector/google-firebase-connector-example.md
+              - Google Firebase Reference: reference/connectors/google-firebase-connector/google-firebase-configuration.md
+          - Google Pub/Sub Connector:
+              - Google PubSub Overview: reference/connectors/google-pubsub-connector/googlepubsub-connector-overview.md
+              - Set up the Google PubSub Environment: reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md
+              - Google PubSub Example: reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md
+              - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
+          - Google Spreadsheet Connector:
+              - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
+              - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+              - Get Credentials for Google Spreadsheet: reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md
+              - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+          - ISO8583 Connector:
+              - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
+              - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
+              - ISO8583 Example: reference/connectors/iso8583-connector/iso8583-connector-example.md
+              - ISO8583 Reference: reference/connectors/iso8583-connector/iso8583-connector-reference.md
+              - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
+              - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
+          - Kafka Connector:
+              - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
+              - Set up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
+              - Enable Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
+              - 3.1.x:
+                  - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
+                  - Kafka Avro Message Example: reference/connectors/kafka-connector/kafka-connector-avro-producer-example.md
+                  - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
+              - 3.0.x:
+                  - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
+                  - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
+              - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+              - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
+          - LDAP Connector:
+              - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
+              - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
+              - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
+              - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+          - Microsoft Azure Storage Connector:
+              - Microsoft Azure Storage Overview: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md
+              - Set up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
+              - 2.x:
+                  - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-connector-example.md
+                  - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference.md
+              - 1.x:
+                  - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
+                  - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
+          - MongoDB Connector:
+              - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
+              - MongoDB Connector Example: reference/connectors/mongodb-connector/mongodb-connector-example.md
+              - MongoDB Connector Reference: reference/connectors/mongodb-connector/mongodb-connector-config.md
+          - Redis Connector:
+              - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
+              - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
+              - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+              - 2.4.x:
+                  - Redis Connector Reference: reference/connectors/redis-connector/2.4.x/redis-connector-reference.md
+              - 2.2.x:
+                  - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
+              - 2.1.x:
+                  - Redis Connector Reference: reference/connectors/redis-connector/2.1.x/redis-connector-reference.md
+              - 1.0.1:
+                  - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
+          - Salesforce Connectors:
+              - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
+              - Salesforce Access Token Generation: includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md
+              - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
+              - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
+              - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
+              - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
+              - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
+              - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
+              - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
+              - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
+              - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example.md
+              - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/salesforcebulk-v2-reference.md
+              - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
+              - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
+              - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
+          - ServiceNow Connector:
+              - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
+              - Set up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
+              - ServiceNow Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
+              - ServiceNow Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
+          - SMPP Connector:
+              - SMPP Overview: reference/connectors/smpp-connector/smpp-connector-overview.md
+              - Set up the SMPP Connector: reference/connectors/smpp-connector/smpp-connector-configuration.md
+              - SMPP Example: reference/connectors/smpp-connector/smpp-connector-example.md
+              - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
+              - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
+              - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+          - Twitter Connector:
+              - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
+              - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
+              - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
+              - Twitter Example: reference/connectors/twitter-connector/twitter-connector-example.md
+              - Twitter Reference: reference/connectors/twitter-connector/twitter-connector-reference.md
+          - Snowflake Connector:
+              - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
+              - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md
+              - Snowflake Connector Reference: reference/connectors/snowflake-connector/snowflake-connector-reference.md
+          - Utility Module:
+              - Utility Module Overview: reference/connectors/utility-module/utility-module-overview.md
+              - Utility Module Reference: reference/connectors/utility-module/utility-module-config.md
+      - Synapse Configurations:
+          - Mediator Catalog:
+              - About Mediators: reference/mediators/about-mediators.md
+              - Aggregate Mediators: reference/mediators/aggregate-mediator.md
+              - Builder Mediator: reference/mediators/builder-mediator.md
+              - Cache Mediator: reference/mediators/cache-mediator.md
+              - Call Mediator: reference/mediators/call-mediator.md
+              - Call Template Mediator: reference/mediators/call-template-mediator.md
+              - Callout Mediator: reference/mediators/callout-mediator.md
+              - Class Mediator: reference/mediators/class-mediator.md
+              - Clone Mediator: reference/mediators/clone-mediator.md
+              - Data Mapping:
+                  - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
+                  - Data Mapper Schema Specification: reference/mediators/data-mapper-json-schema-specification.md
+              - Data Service Call Mediator: reference/mediators/dss-mediator.md
+              - DBLookup  Mediator: reference/mediators/dblookup-mediator.md
+              - DB Report Mediator: reference/mediators/db-report-mediator.md
+              - Drop Mediator: reference/mediators/drop-mediator.md
+              - EJB Mediator: reference/mediators/ejb-mediator.md
+              - Enrich Mediator: reference/mediators/enrich-mediator.md
+              - Entitlement Mediator: reference/mediators/entitlement-mediator.md
+              - FastXSLT Mediator: reference/mediators/fastxslt-mediator.md
+              - Fault Mediator: reference/mediators/fault-mediator.md
+              - Filter Mediator: reference/mediators/filter-mediator.md
+              - ForEach Mediator: reference/mediators/foreach-mediator.md
+              - Header Mediator: reference/mediators/header-mediator.md
+              - Iterate Mediator: reference/mediators/iterate-mediator.md
+              - JSON Transform Mediator: reference/mediators/json-transform-mediator.md
+              - Log Mediator: reference/mediators/log-mediator.md
+              - Loopback Mediator: reference/mediators/loopback-mediator.md
+              - NTLM Mediator: reference/mediators/ntlm-mediator.md
+              - OAuth Mediator: reference/mediators/oauth-mediator.md
+              - PayloadFactory Mediator: reference/mediators/payloadfactory-mediator.md
+              - Property Mediator: reference/mediators/property-mediator.md
+              - Property Group Mediator: reference/mediators/property-group-mediator.md
+              - Respond Mediator: reference/mediators/respond-mediator.md
+              - Script Mediator: reference/mediators/script-mediator.md
+              - Send Mediator: reference/mediators/send-mediator.md
+              - Sequence Mediator: reference/mediators/sequence-mediator.md
+              - Smooks Mediator: reference/mediators/smooks-mediator.md
+              - Store Mediator: reference/mediators/store-mediator.md
+              - Switch Mediator: reference/mediators/switch-mediator.md
+              - Throttle Mediator: reference/mediators/throttle-mediator.md
+              - Transaction Mediator: reference/mediators/transaction-mediator.md
+              - URLRewrite Mediator: reference/mediators/urlrewrite-mediator.md
+              - Validate Mediator: reference/mediators/validate-mediator.md
+              - XQuery Mediator: reference/mediators/xquery-mediator.md
+              - XSLT Mediator: reference/mediators/xslt-mediator.md
+          - Property Catalog:
+              - Generic Properties: reference/mediators/property-reference/generic-properties.md
+              - HTTP Transport Properties: reference/mediators/property-reference/http-transport-properties.md
+              - SOAP Headers: reference/mediators/property-reference/soap-headers.md
+              - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
+              - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
+              - Accessing Properties with XPath: reference/mediators/property-reference/accessing-properties-with-xpath.md
+          - REST API Properties: reference/synapse-properties/rest-api-properties.md
+          - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
+          - Inbound Endpoints:
+              - About Inbound Endpoints: reference/synapse-properties/inbound-endpoints/about-inbound-endpoints.md
+              - HTTP Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties.md
+              - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
+              - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
+              - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
+              - File Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
+              - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
+              - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
+              - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
+              - MQTT Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties.md
+              - Custom Inbound Endpoint: reference/synapse-properties/inbound-endpoints/custom-inbound-endpoint-properties.md
+          - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
+          - Synapse Properties:
+              - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
+              #- Sequence Properties: reference/synapse-properties/sequence-properties.md
+          - Message Stores and Processors:
+              - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
+              - Message Stores:
+                  - JMS Message Store: reference/synapse-properties/message-stores/jms-msg-store-properties.md
+                  - JDBC Message Store: reference/synapse-properties/message-stores/jdbc-msg-store-properties.md
+                  - RabbitMQ Message Store: reference/synapse-properties/message-stores/rabbitmq-msg-store-properties.md
+                  - Resequence Message Store: reference/synapse-properties/message-stores/resequence-msg-store-properties.md
+                  - WSO2 MB Message Store: reference/synapse-properties/message-stores/wso2mb-msg-store-properties.md
+                  - In Memory Message Store: reference/synapse-properties/message-stores/in-memory-msg-store-properties.md
+                  - Custom Message Store: reference/synapse-properties/message-stores/custom-msg-store-properties.md
+              - Message Processors:
+                  - Message Sampling Processor: reference/synapse-properties/message-processors/msg-sampling-processor-properties.md
+                  - Scheduled Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties.md
+                  - Scheduled Failover Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties.md
+          - Templates: reference/synapse-properties/template-properties.md
+          - Endpoints: reference/synapse-properties/endpoint-properties.md
+          - Data Services:
+              - About Data Services: reference/synapse-properties/data-services.md
+              - Elements of a Data Service: reference/synapse-properties/data-services/elements-of-a-data-service.md
+              - Query Parameters: reference/synapse-properties/data-services/query-parameters.md
+              - Datasource Parameters: reference/synapse-properties/data-services/datasource-configuration-parameters.md
+              - Input Validators: reference/synapse-properties/data-services/input-validators.md
+              - Namespaces: reference/synapse-properties/data-services/using-namespaces.md
+              - SQL/Data Types: reference/synapse-properties/data-services/mapping-data-types.md
+              - Sample Queries: reference/synapse-properties/data-services/sample-queries.md
+          - Transport Configs:
+              - VFS Parameters: reference/synapse-properties/transport-parameters/vfs-transport-parameters.md
+              - JMS Parameters: reference/synapse-properties/transport-parameters/jms-transport-parameters.md
+              - RabbitMQ Parameters: reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters.md
+              - HL7 Parameters: reference/synapse-properties/transport-parameters/hl7-transport-parameters.md
+              - FIX Parameters: reference/synapse-properties/transport-parameters/fix-transport-parameters.md
+              - MailTo Parameters: reference/synapse-properties/transport-parameters/mailto-transport-parameters.md
+              - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
+      - Security References:
+          - Customize Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
+          - Use Keystores: reference/mi-security-reference/using-keystores.md
+          - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
+      - Troubleshooting:
+          - Error Handling in Micro Integrator: reference/troubleshooting/error-handling-mi.md
+          - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
+          - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
+          - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
+          - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      linenums: true
+      use_pygments: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - markdown_include.include:
+      base_path: docs
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: docs
+  - pymdownx.tabbed:
+        alternate_style: true
+  - attr_list
+plugins:
+  - search
+  - markdownextradata: {}
+  - exclude:
+      glob:
+        - wip/*
+  - redirects:
+      redirect_maps:
+
+  # Extra
+extra_css:
+  # You can select a different theme for syntax highlighting by simply
+  # selecting a different css file file bellow from the available list.
+  - assets/lib/highlightjs/styles/vs.min.css
+  # Make sure to activate only one palette at a time.
+  # If all the palettes are commented out, the default material theme palette will take over
+  - assets/css/blue-palette-alt1.css
+  # - assets/css/blue-palette-alt2.css
+  # - assets/css/blue-palette.css
+  # - assets/css/green-palette.css
+  # - assets/css/orange-palette.css
+  - assets/css/mitheme.css
+  - assets/lib/json-formatter/json-formatter.css
+  - assets/css/config-catalog.css
+  - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
+  - assets/css/redoc.css
+extra_javascript:
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/lib/json-formatter/json-formatter.umd.js
+  - assets/js/mitheme.js
+  # - assets/lib/backtotop/js/util.js
+  # - assets/lib/backtotop/js/main.js
+extra:
+  social:
+    - type: github
+      link: https://github.com/wso2
+    - type: twitter
+      link: https://twitter.com/wso2
+    - type: linkedin
+      link: https://www.linkedin.com/company/wso2
+  choreo_connect: # not applied in "includes" section, update "includes" separately
+    version: 1.2.0
+    envoy_version: v1.24.1 # for GA release
+    helm_chart:
+      version: 1.2.0-1
+      git_tag: v1.2.0.1
+  site_version: 4.2.0
+  #base_path: http://localhost:8000
+  base_path: https://mi.docs.wso2.com/en/4.2.0
+  envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
