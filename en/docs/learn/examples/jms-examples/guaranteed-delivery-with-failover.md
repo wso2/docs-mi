@@ -160,7 +160,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Invoke the proxy service (http://localhost:8290/services/Proxy1) with the following payload:
+Invoke the proxy service (`http://localhost:8290/services/Proxy1`) with the following payload:
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">

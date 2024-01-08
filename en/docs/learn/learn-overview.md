@@ -182,16 +182,16 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Protocol Switching</b>
             <ul>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-JMS-to-HTTP/">Switching from JMS to HTTP/S</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-HTTPS-to-JMS">Switching from HTTP/S to JMS</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FTP-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-HTTP-to-FIX">Switching from HTTP to FIX</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FIX-to-HTTP">Switch from FIX to HTTP</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-FIX-to-AMQP">Switch from FIX to AMQP</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-FIX-versions">Switching between FIX Versions</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-TCP-to-HTTPS">Switching from TCP to HTTP/S</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-UDP-to-HTTPS">Switching from UDP to HTTP/S</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-HTTP-and-MSMQ">Switching between HTTP to MSMQ</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-jms-to-http/">Switching from JMS to HTTP/S</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-https-to-jms">Switching from HTTP/S to JMS</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-http-to-fix">Switching from HTTP to FIX</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-http">Switch from FIX to HTTP</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-amqp">Switch from FIX to AMQP</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-fix-versions">Switching between FIX Versions</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-tcp-to-https">Switching from TCP to HTTP/S</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-udp-to-https">Switching from UDP to HTTP/S</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-http-and-msmq">Switching between HTTP to MSMQ</a></li>
             </ul>
         </td>
     </tr>
@@ -199,7 +199,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
         <td><b>File Processing</b> 
             <ul>
                 <li><a href="{{base_path}}/learn/examples/file-processing/vfs-transport-examples">Using VFS for File Transferring</a></li>
-                <li><a href="{{base_path}}/learn/examples/file-processing/Accessing-Windows-Share-Using-VFS-Transport">Accessing a Windows Share Using VFS</a></li>
+                <li><a href="{{base_path}}/learn/examples/file-processing/accessing-windows-share-using-vfs-transport">Accessing a Windows Share Using VFS</a></li>
                 <li><a href="{{base_path}}/learn/examples/file-processing/mailto-transport-examples">Sending and Receiving Emails</a></li>
             </ul>
         </td>
