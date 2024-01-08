@@ -151,7 +151,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/develop/customizations/creating-custom-mediators/">Custom Mediator</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/customizations/creating-custom-inbound-endpoint/">Custom Inbound Enpoint</a>
+                        <a href="{{base_path}}/develop/customizations/creating-custom-inbound-endpoint/">Custom Inbound Endpoint</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/develop/customizations/creating-new-connector/">Custom Connector</a>
