@@ -143,7 +143,7 @@ Publishing to the topic:
     INFO {org.apache.axis2.transport.jms.JMSListener} - Started to listen on destination : SimpleStockQuoteService of type topic for service SimpleStockQuoteService1
     ```
  
-2. To invoke the publisher, send a request to `StockQuoteProxy` (http://localhost:8290/services/StockQuoteProxy) with the following payload:
+2. To invoke the publisher, send a request to `StockQuoteProxy` (`http://localhost:8290/services/StockQuoteProxy`) with the following payload:
     ```xml
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
        <soapenv:Header/>
