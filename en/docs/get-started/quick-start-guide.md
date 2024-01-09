@@ -211,8 +211,8 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
     If you want to view the integration artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
-    1.  [Install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the MI dashboard.
-    2.  [Start]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) the MI dashboard.
+    1.  [Install the MI dashboard]({{base_path}}/install-and-setup/install/installing-mi-dashboard).
+    2.  [Start the MI dashboard]({{base_path}}/install-and-setup/install/running-the-mi-dashboard).
     
  You can now test the **HealthcareIntegrationService** that you just generated.
  
