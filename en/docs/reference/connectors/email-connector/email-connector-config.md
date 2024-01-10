@@ -414,11 +414,62 @@ The following operations allow you to work with the Email Connector. Click an op
             <td>Optional</td>
         </tr>
     </table>
+
+    ??? note "inlineImages"
+        The `inlineImages` parameter, is a JSONArray that enables the insertion of inline image details. This parameter can be used to specify the image properties, such as the image URL, size, and alignment, among others. By including inline images in the JSONArray, developers can create more visually appealing and engaging content within their application. Note that this feature is available from Email connector version 1.1.1 onwards.
+        
+        There are 2 methods you can follow to add images, as listed below.
+        
+        **1. Providing file path** 
+        ```
+        {
+            "from": "abc@wso2.com",
+            "to": "xyz@wso2.com",
+            "subject": "Sample email subject",
+            "content": "<H1>Image1</H1><img src=\"cid:image1\" alt=\"this is image of image1\"><br/><H1>Image2</H1><img src=\"cid:image2\" alt=\"this is image of image2\">",
+            "inlineImages": [
+                {
+                    "contentID": "image1",
+                    "filePath": "/Users/user/Documents/images/image1.jpeg"
+                },
+                {
+                    "contentID": "image2",
+                    "filePath": "/Users/user/Documents/images/image2.jpeg"
+                }
+            ],
+            "contentType": "text/html"
+        }   
+        ```
+        
+        **2. Base64Content**
+        ```
+        {
+            "from": "abc@wso2com",
+            "to": "xyz@wso2.com",
+            "subject": "Sample email subject",
+            "content": "<H1>Image1</H1><img src=\"cid:image1\" alt=\"this is image of a image1\"><br/><H1>Image2</H1><img src=\"cid:image2\" alt=\"this is a image2\">",
+            "inlineImages": [
+                {
+                    "contentID": "image1",
+                    "fileName": "image1.jpeg",
+                    "base64Content": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAY......"
+                },
+                {
+                    "contentID": "image2",
+                    "fileName": "image2.jpeg",
+                    "base64Content": "/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBbRXhp...."
+                }
+            ],
+            "contentType": "text/html"
+        }
+        ```
     
-    > NOTE: If there are any custom headers to be added to the email they can be set as Axis2 properties in the context with the prefix "EMAIL-HEADER:" as the property name similar to below.
-    ```
-    <property name="EMAIL-HEADER:myProperty" value="testValue"/>
-    ```
+    !!! note 
+        If there are any custom headers to be added to the email they can be set as Axis2 properties in the context with the prefix "EMAIL-HEADER:" as the property name similar to below.
+    
+        ```
+        <property name="EMAIL-HEADER:myProperty" value="testValue"/>
+        ```
 
     **Sample configuration**
 
@@ -443,13 +494,14 @@ The following operations allow you to work with the Email Connector. Click an op
     	"attachments": "/Users/user1/Desktop/contacts.csv"
     }
     ```
+    !!! note
 
-    > NOTE: The latest Email connector (v1.0.2 onwards) supports the attachments from JSON request payload. The connector is tested with .txt, .pdf and images (.png and .jpg).
-    ```json
-    {
-    	"attachments": [{"name": "sampleimagefile.png", "content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="}]
-    }
-    ```
+        The latest Email connector (v1.0.2 onwards) supports the attachments from JSON request payload. The connector is tested with .txt, .pdf and images (.png and .jpg).
+        ```json
+        {
+        	"attachments": [{"name": "sampleimagefile.png", "content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="}]
+        }
+        ```
 
 ??? note "delete"
     The delete operation deletes an email.
@@ -598,56 +650,6 @@ The following operations allow you to work with the Email Connector. Click an op
     	"folder":"Inbox"
     }
     ```
-
-??? note "inlineImages"
-    The `inlineImages` parameter, is a JSONArray that enables the insertion of inline image details. This parameter can be used to specify the image properties, such as the image URL, size, and alignment, among others. By including inline images in the JSONArray, developers can create more visually appealing and engaging content within their application. Note that this feature is available from Email connector version 1.1.1 onwards.
-
-    There are 2 methods you can follow to add images, as listed below.
-
-    **1. Providing file path** 
-    ```
-    {
-        "from": "abc@wso2.com",
-        "to": "xyz@wso2.com",
-        "subject": "Sample email subject",
-        "content": "<H1>Image1</H1><img src=\"cid:image1\" alt=\"this is image of image1\"><br/><H1>Image2</H1><img src=\"cid:image2\" alt=\"this is image of image2\">",
-        "inlineImages": [
-            {
-                "contentID": "image1",
-                "filePath": "/Users/user/Documents/images/image1.jpeg"
-            },
-            {
-                "contentID": "image2",
-                "filePath": "/Users/user/Documents/images/image2.jpeg"
-            }
-        ],
-        "contentType": "text/html"
-    }   
-    ```
-
-    **2. Base64Content**
-    ```
-    {
-        "from": "abc@wso2com",
-        "to": "xyz@wso2.com",
-        "subject": "Sample email subject",
-        "content": "<H1>Image1</H1><img src=\"cid:image1\" alt=\"this is image of a image1\"><br/><H1>Image2</H1><img src=\"cid:image2\" alt=\"this is a image2\">",
-        "inlineImages": [
-            {
-                "contentID": "image1",
-                "fileName": "image1.jpeg",
-                "base64Content": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAY......"
-            },
-            {
-                "contentID": "image2",
-                "fileName": "image2.jpeg",
-                "base64Content": "/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBbRXhp...."
-            }
-        ],
-        "contentType": "text/html"
-    }
-    ```
-
 
 ### Sample configuration in a scenario
 
