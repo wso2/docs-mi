@@ -59,7 +59,7 @@ If you want to enable message relay, so that messages of a specific content type
 
 ```toml
 [[custom_message_formatters]]
-class = "org.wso2.carbon.relay.BinaryRelayBuilder"
+class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
 content_type = "application/json/badgerfish"
 
 [[custom_message_builders]]
