@@ -1,6 +1,6 @@
 # WSO2 Micro Integrator Documentation
 
-This repository contains the source code for WSO2 Micro Integrator documentation. Please note that this documentation is a work in progress.
+This repository contains the source code for WSO2 Micro Integrator documentation.
 
 This repository is open and we welcome your contributions!
 
