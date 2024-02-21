@@ -263,4 +263,4 @@ Follow the steps given below to run the integration artifacts we developed on a 
 ## What's next?
 
 - [Develop your first integration solution]({{base_path}}/get-started/development-kickstart/).
-- [Learn more..]({{base_path}}/learn/learn-overview/).
+- [Learn more]({{base_path}}/learn/learn-overview/).
