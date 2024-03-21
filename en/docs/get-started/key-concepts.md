@@ -4,7 +4,7 @@ Listed below are the key concepts of WSO2 Micro Integrator.
 
 ![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts.png)
 
-## Message entry points
+## Message Entry Points
 
 Message entry points are the entities that a message can enter into the Micro Integrator mediation flow.
 
