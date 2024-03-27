@@ -266,7 +266,7 @@ There are different connection configurations that can be used for the above pro
             String
         </td>
         <td>
-            User name used to connect with the file server.
+            User name used to connect with the file server. If the user name contains special characters, you will need to use the URL encoded value.
         </td>
         <td>
             -
@@ -286,7 +286,7 @@ There are different connection configurations that can be used for the above pro
             String
         </td>
         <td>
-            Password to connect with the file server.
+            Password to connect with the file server. If the password contains special characters, you will need to use the URL encoded value.
         </td>
         <td>
             -
