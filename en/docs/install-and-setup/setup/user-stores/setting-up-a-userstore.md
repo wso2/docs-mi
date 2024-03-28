@@ -150,7 +150,7 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 	2.	Add the relevant configurations for your RDBMS type.
 
         === "MySQL"
-		```toml 
+		    ```toml 
 		    [[datasource]]
 		    id = "WSO2CarbonDB"
 		    url= "jdbc:mysql://localhost:3306/userdb"
