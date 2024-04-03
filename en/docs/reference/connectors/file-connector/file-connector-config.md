@@ -2931,9 +2931,9 @@ The following operations allow you to work with the File Connector version 4. Cl
        <detail>Target file already exists. Path = file:///Users/hasitha/temp/file-connector-test/copy/kandy/hasitha.txt</detail>
     </writeResult>
     ```
-??? note "fetchDirectoryContent"
-Read the content of files in a given folder to a base64 encoded files stream list. Available in file-connector <b>v4.0.22</b> and above.
 
+??? note "fetchDirectoryContent"
+    Read the content of files in a given folder to a base64 encoded files stream list. Available in file-connector <b>v4.0.22</b> and above.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2963,7 +2963,6 @@ Read the content of files in a given folder to a base64 encoded files stream lis
                 Yes
             </td>
         </tr>
-
         <tr>
             <td>
                 Directory Path
