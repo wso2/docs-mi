@@ -33,7 +33,7 @@ This solution is designed to facilitate the modernization of your enterprise, fo
 and connectivity in your operations.
 
 
-## Low code integration
+## Low Code Integration
 
 The WSO2 Micro Integrator is coupled with WSO2 Integration Studio; a comprehensive graphical integration 
 flow designer for building integrations using a simple drag-and-drop functionality.
