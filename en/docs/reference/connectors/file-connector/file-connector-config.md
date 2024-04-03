@@ -2931,3 +2931,157 @@ The following operations allow you to work with the File Connector version 4. Cl
        <detail>Target file already exists. Path = file:///Users/hasitha/temp/file-connector-test/copy/kandy/hasitha.txt</detail>
     </writeResult>
     ```
+
+??? note "fetchDirectoryContent"
+    Read the content of files in a given folder to a base64 encoded files stream list. Available in file-connector <b>v4.0.22</b> and above.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Element</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default Value</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>
+                File Connection
+            </td>
+            <td>
+                name
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The name of the file connection configuration to use.
+            </td>
+            <td>
+                -
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Directory Path
+            </td>
+            <td>
+                directoryPath
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The path to the directory to list files.
+            </td>
+            <td>
+                -
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Matching Pattern
+            </td>
+            <td>
+                matchingPattern
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Pattern to match when listing files.
+            </td>
+            <td>
+                All Files
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Recursive
+            </td>
+            <td>
+                recursive
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Whether to list files in sub-directories.
+            </td>
+            <td>
+                false
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                File Sort Attribute
+            </td>
+            <td>
+                sortingAttribute
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Sort files when listing.
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sort Order
+            </td>
+            <td>
+                sortingOrder
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                File sorting order.
+            </td>
+            <td>
+                Ascending
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Property Name
+            </td>
+            <td>
+                resultPropertyName
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Name of property to add the list of base64 encoded files operation result.
+            </td>
+            <td>
+                -
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+    </table>
+    
