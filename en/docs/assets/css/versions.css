@@ -1,8 +1,4 @@
----
-template: templates/versions.html
----
-
-<!--
+/*!
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -18,32 +14,30 @@ template: templates/versions.html
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
--->
+ */
 
-### Current Version (Stable)
+.md-content {
+    margin-left: 0;
+    margin-right: 0;
+}
 
-<table>
-    <tbody>
-        <tr>
-            <th id="current-version-number"><!-- latest-version --></th>
-            <td>
-                <a id="current-version-documentation-link">Documentation</a>
-            </td>
-            <td>
-                <a id="current-version-release-notes-link">Release Notes</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+.md-source-code-icon {
+    display: inline-block;
+    width: 1.3rem;
+    height: .95rem;
+    content: "";
+    vertical-align: text-bottom;
+}
 
-This is the current stable version of the project.
+[data-md-component=tabs] {
+    display: none;
+}
 
----
+.md-header {
+    transition: background-color .25s,color .25s, box-shadow .25s;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, .1), 0 0.2rem 0.4rem rgba(0, 0, 0, .2);
+}
 
-### Past Versions
-
-<table>
-    <tbody id="previous-versions">
-        <!-- Will populate from the script -->
-    </tbody>
-</table>
+.md-content__inner h3:first-child {
+    margin-top: 0;
+}
