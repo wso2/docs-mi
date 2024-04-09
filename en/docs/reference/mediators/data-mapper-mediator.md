@@ -574,7 +574,7 @@ configuration.
     
 ![]({{base_path}}/assets/img/integrate/mediators/119131284/119131293.png)
 
-The sample in put XML payload is as follows.
+The sample input XML payload is as follows.
 
 ``` xml
 <?xml version="1.0"?>
@@ -599,7 +599,7 @@ The sample in put XML payload is as follows.
 </PurchaseOrder>
 ```
 
-The sample out put CSV is as follows.
+The sample output CSV is as follows.
 
 ``` text
 Name,Street,City,State,Zip,Country
@@ -613,7 +613,7 @@ This example demonstrates how you can map an XSD payload to JSON format.
 
 ![example 5 mapping]({{base_path}}/assets/img/integrate/mediators/119131284/119131293.png)
 
-The sample in put XSD payload is as follows.
+The sample input XSD payload is as follows.
 
 ``` xml
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -636,7 +636,7 @@ The sample in put XSD payload is as follows.
 </xs:schema>
 ```
 
-The sample out put JSON is as follows.
+The sample output JSON is as follows.
 
 ``` java
 {
