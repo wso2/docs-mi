@@ -11,8 +11,8 @@
         "notes": "staging-4.3.0/get-started/about-this-release"
     },
     "staging-4.2.0":{
-        "doc": "https://mi.docs.wso2.com/en/staging-4.2.0/",
-        "notes": "https://mi.docs.wso2.com/en/staging-4.2.0/get-started/about-this-release/"
+        "doc": "https://mi-docs-stg.wso2.com/en/staging-4.2.0/",
+        "notes": "https://mi-docs-stg.wso2.com/en/staging-4.2.0/get-started/about-this-release/"
     }
   }
 }
