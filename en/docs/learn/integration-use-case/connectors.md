@@ -106,7 +106,7 @@ The following are documented connectors available from the [connector store](htt
         </tr>
         <tr>
             <td><a href="{{base_path}}/reference/connectors/smpp-connector/smpp-connector-overview/">SMPP</a></td>
-            <td>SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS through the integration runtime. It uses the <a href="https://jsmpp.org/">jsmpp API</a> to communicate with an SMSC (Short Message Service Center)</td>
+            <td>SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS through the integration runtime. It uses the <a href="https://jsmpp.org/">jsmpp API</a> to communicate with an SMSC (Short Message Service Center).</td>
         </tr>
 </table>
 
