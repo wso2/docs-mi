@@ -127,7 +127,7 @@ shown below.
 You can load the following input/output message formats:
 
 !!! Info
-    When loading a sample input XML file, you cannot have the default namespace (i.e. without a prefix in the namespace element). Also, you need to use the same prefix in all occurrences that refer to the same namespace within one XML file. For example, see the use of the prefix `         axis2ns11        ` in the example below.
+    When loading a sample input XML file, you cannot have the default namespace (i.e. without a prefix in the namespace element). Also, you need to use the same prefix in all occurrences that refer to the same namespace within one XML file. For example, see the use of the prefix `axis2ns11` in the example below.
 
 Sample input XML file:
 
