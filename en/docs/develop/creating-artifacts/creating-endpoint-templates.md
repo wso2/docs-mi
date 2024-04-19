@@ -51,10 +51,10 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
 
 ### Designing the integration
 
-When you have an Endpoint template defined, you can use a **Template Endpoint** in your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties) to call the parameters in the template.
+When you have an Endpoint template defined, you can use a **Template Endpoint** in your [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences) to call the parameters in the template.
 
-1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
-2.  Drag the [Call Mediator]({{base_path}}/reference/mediators/call-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
+1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
+2.  Drag the [Call Mediator]({{base_path}}/reference/mediators/call-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-temp-graphical-editor-1.png" width="700">
 
