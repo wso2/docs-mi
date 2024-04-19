@@ -785,7 +785,7 @@ nav:
           - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
           - Synapse Properties:
               - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
-              #- Sequence Properties: reference/synapse-properties/sequence-properties.md
+              - Mediation Sequences: reference/synapse-properties/mediation-sequences.md
           - Message Stores and Processors:
               - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
               - Message Stores:
