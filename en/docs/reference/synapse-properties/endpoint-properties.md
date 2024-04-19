@@ -859,7 +859,7 @@ Messages can fail or be lost due to various reasons in a real TCP network. When 
 
 To avoid message loss, you configure error handling at the [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) level. You should also run a few long-running load tests to discover errors and fine-tune the endpoint configurations for errors that can occur intermittently due to various reasons.
 
-At any given time, the state of the endpoint can be one of the following. During an endpoint error, the endpoint will transition between these states and, if required, will initiate a [fault sequence]({{base_path}}/reference/synapse-properties/sequence-properties/#fault-sequences).
+At any given time, the state of the endpoint can be one of the following. During an endpoint error, the endpoint will transition between these states and, if required, will initiate a [fault sequence]({{base_path}}/reference/synapse-properties/mediation-sequences/#fault-sequences).
 
 <table>
   <tr>
