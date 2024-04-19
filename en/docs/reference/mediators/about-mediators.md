@@ -6,7 +6,7 @@ For example, the [Clone]({{base_path}}/reference/mediators/clone-mediator) media
 
 Mediators also include functionality to match incompatible protocols, data formats, and interaction patterns across different resources. [XQuery]({{base_path}}/reference/mediators/xquery-mediator) and [XSLT]({{base_path}}/reference/mediators/xslt-mediator) mediators allow rich transformations on the messages. Content-based routing using XPath filtering is supported in different flavors, allowing users to get the most convenient configuration experience. Built-in capability to handle transactions allow message mediation to be done transactionally inside the Micro Integrator.
 
-Mediators are always defined within a [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
+Mediators are always defined within a [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
 
 ## Classification of Mediators
 
