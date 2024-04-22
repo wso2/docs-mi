@@ -64,7 +64,7 @@ your mediation workflow. For example, if you created a local entry with
 XSLT code, you can add an XSLT mediator to the workflow and then
 reference the local entry as follows:
 
-1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
+1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 2.  Drag and drop an [XSLT Mediator]({{base_path}}/reference/mediators/xslt-mediator) to the mediation flow as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-graphical-editor-1.png" width="700">
