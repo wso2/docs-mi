@@ -46,10 +46,10 @@ Follow the instructions given below to create a new **Sequence Template** in WSO
 
 ### Designing the integration
 
-When you have a Sequence template defined, you can use a [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) in your [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
+When you have a Sequence template defined, you can use a [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) in your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 
-1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
-2.  Drag the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/mediation-sequences).
+1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
+2.  Drag the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/mediation-sequences).
 
 	   <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-temp-graphical-editor-1.png" width="700">
 
