@@ -148,6 +148,9 @@ There are different connection configurations that can be used for the above pro
                 <li>
                     <b>SFTP</b>: Provides access to the files on an SFTP server (that is, an SSH or SCP server).
                 </li>
+                <li>
+                    <b>SMB2</b>: Provides access to the files on a Samba server.
+                </li>
             </ul>
         </td>
         <td>
