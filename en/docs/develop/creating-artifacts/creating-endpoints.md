@@ -36,8 +36,8 @@ The endpoint is created in the `src/main/synapse-config/endpoints` folder under 
 
 To add an endpoint artifact to the integration sequence, use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) or the [Call Mediator]({{base_path}}/reference/mediators/call-mediator).
 
-1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
-2.  Drag the [Call Mediator]({{base_path}}/reference/mediators/call-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties):
+1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
+2.  Drag the [Call Mediator]({{base_path}}/reference/mediators/call-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/mediation-sequences):
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-graphical-editor-1.png" width="700">
 
