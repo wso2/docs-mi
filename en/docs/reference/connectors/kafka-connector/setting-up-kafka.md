@@ -1,6 +1,6 @@
 # Setting up Kafka
 
-## For kafka inbound endpoint
+## For Kafka inbound endpoint
 
 To configure the Kafka inbound endpoint, copy the following orbit bundles to the `<MI_HOME>/dropins` directory.
 
