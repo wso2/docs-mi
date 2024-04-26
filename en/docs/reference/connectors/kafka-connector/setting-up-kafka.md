@@ -14,7 +14,7 @@ Copy the following additional client libraries to the `<MI_HOME>/lib` directory.
 * [avro-1.11.3.jar](https://mvnrepository.com/artifact/org.apache.avro/avro/1.11.3)
 
 !!!Note
-    If you are using the Kafka connector as well, you will need to copy the necessary dependencies according to the following section.
+    If you are also using the Kafka connector, copy the necessary dependencies as outlined in the following section.
 
 ## For connector version 3.2.0 and later
 
