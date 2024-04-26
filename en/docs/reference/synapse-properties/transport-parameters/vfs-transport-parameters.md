@@ -356,7 +356,7 @@ The following service-level parameters are required for Inbound Endpoints.
 When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you can set connection-specific VFS parameters as URL query parameters. For example, to use SFTP with SSL, you could specify the URL as shown below. Note that [transport.vfs.AvoidPermissionCheck](#vfs-transport-avoid_permissions) is a mandatory parameter for this URL when SFTP is used.
 
 ```bash
-<parameter name="transport.vfs.FileURI">vfs:ftps://test:test123@10.200.2.63/vfs/in?vfs.ssl.keystore=/home/user/openssl/keystore.jks&amp;vfs.ssl.truststore=/home/user/openssl/vfs-truststore.jks&amp;vfs.ssl.kspassword=importkey&amp;vfs.ssl.tspassword=wso2vfs&amp;vfs.ssl.keypassword=importkey;transport.vfs.AvoidPermissionCheck=true&amp;transport.vfs.IsMounted=true</parameter>
+<parameter name="transport.vfs.FileURI">vfs:ftps://test:test123@10.200.2.63/vfs/in?vfs.ssl.keystore=/home/user/openssl/keystore.jks&amp;vfs.ssl.truststore=/home/user/openssl/vfs-truststore.jks&amp;vfs.ssl.kspassword=importkey&amp;vfs.ssl.tspassword=wso2vfs&amp;vfs.ssl.keypassword=importkey;transport.vfs.AvoidPermissionCheck=true</parameter>
 ```
 <table>
    <thead>
