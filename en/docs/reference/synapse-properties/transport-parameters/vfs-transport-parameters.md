@@ -481,7 +481,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
           transport.vfs.IsMounted
         </td>
         <td>
-          When a file read/write location is a bind mount volume need to set this property to true.
+          When a file read/write location is a bind mount volume, this property needs to be set to <code>true</code>.
         </td>
       </tr>
    </tbody>
