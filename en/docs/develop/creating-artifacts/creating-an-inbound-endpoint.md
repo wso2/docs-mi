@@ -39,7 +39,7 @@ When you open the inbound endpoint from the **Config** project in the project ex
 
 <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-endpoint-design-view.png" width="800">
 
-The integration flow for an inbound endpoint is defined within [named sequences]({{base_path}}/reference/synapse-properties/sequence-properties/#named-sequences). You can drag and drop **sequences** from the **Palette** to the canvas as shown below.
+The integration flow for an inbound endpoint is defined within [named sequences]({{base_path}}/reference/mediation-sequences/#named-sequences). You can drag and drop **sequences** from the **Palette** to the canvas as shown below.
 
 <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-graphical-editor.png" width="800">
 
