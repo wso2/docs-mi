@@ -245,6 +245,7 @@ nav:
 
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
+      - API-led Integration: develop/api-led-integration.md
       - WSO2 Integration Studio:
           - Quick Tour - WSO2 Integration Studio: develop/wso2-integration-studio.md
           - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
@@ -573,6 +574,8 @@ nav:
                       - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
                       - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                       - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+          - CSV Module:
+              - CSV Module Reference: reference/connectors/csv-module/csv-module-config.md
           - DB Event Listener Inbound Endpoint:
               - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
               - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
@@ -663,6 +666,8 @@ nav:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
               - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+              - 2.7.x:
+                    - Redis Connector Reference: reference/connectors/redis-connector/2.7.x/redis-connector-reference.md
               - 2.4.x:
                   - Redis Connector Reference: reference/connectors/redis-connector/2.4.x/redis-connector-reference.md
               - 2.2.x:
@@ -784,7 +789,7 @@ nav:
           - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
           - Synapse Properties:
               - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
-              #- Sequence Properties: reference/synapse-properties/sequence-properties.md
+          - Mediation Sequences: reference/mediation-sequences.md
           - Message Stores and Processors:
               - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
               - Message Stores:
@@ -871,6 +876,7 @@ plugins:
         - wip/*
   - redirects:
       redirect_maps:
+              'reference/synapse-properties/sequence-properties': 'https://mi.docs.wso2.com/en/4.2.0/reference/mediation-sequences'
 
   # Extra
 extra_css:

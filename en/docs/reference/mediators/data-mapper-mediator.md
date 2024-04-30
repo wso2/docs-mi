@@ -127,7 +127,7 @@ shown below.
 You can load the following input/output message formats:
 
 !!! Info
-    When loading a sample input XML file, you cannot have the default namespace (i.e. without a prefix in the namespace element). Also, you need to use the same prefix in all occurrences that refer to the same namespace within one XML file. For example, see the use of the prefix `         axis2ns11        ` in the example below.
+    When loading a sample input XML file, you cannot have the default namespace (i.e. without a prefix in the namespace element). Also, you need to use the same prefix in all occurrences that refer to the same namespace within one XML file. For example, see the use of the prefix `axis2ns11` in the example below.
 
 Sample input XML file:
 
@@ -574,7 +574,7 @@ configuration.
     
 ![]({{base_path}}/assets/img/integrate/mediators/119131284/119131293.png)
 
-The sample in put XML payload is as follows.
+The sample input XML payload is as follows.
 
 ``` xml
 <?xml version="1.0"?>
@@ -599,7 +599,7 @@ The sample in put XML payload is as follows.
 </PurchaseOrder>
 ```
 
-The sample out put CSV is as follows.
+The sample output CSV is as follows.
 
 ``` text
 Name,Street,City,State,Zip,Country
@@ -613,7 +613,7 @@ This example demonstrates how you can map an XSD payload to JSON format.
 
 ![example 5 mapping]({{base_path}}/assets/img/integrate/mediators/119131284/119131293.png)
 
-The sample in put XSD payload is as follows.
+The sample input XSD payload is as follows.
 
 ``` xml
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -636,7 +636,7 @@ The sample in put XSD payload is as follows.
 </xs:schema>
 ```
 
-The sample out put JSON is as follows.
+The sample output JSON is as follows.
 
 ``` java
 {
