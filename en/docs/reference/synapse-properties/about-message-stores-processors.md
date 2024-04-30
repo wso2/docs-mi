@@ -116,7 +116,7 @@ Multiple message processors can use the same message store. For example, in a cl
       Message Sampling Processor
     </td>
     <td>
-      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="{{base_path}}/reference/synapse-properties/sequence-properties">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
+      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="{{base_path}}/reference/mediation-sequences">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
     </td>
   </tr>
   <tr>

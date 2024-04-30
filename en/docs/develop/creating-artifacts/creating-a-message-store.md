@@ -41,8 +41,8 @@ The message store is created in the `src/main/synapse-config/message-stores` fol
 
 To add a message store to the integration sequence, use the [Store Mediator]({{base_path}}/reference/mediators/store-mediator):
 
-1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
-2.	Drag the [Store Mediator]({{base_path}}/reference/mediators/store-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties):
+1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
+2.	Drag the [Store Mediator]({{base_path}}/reference/mediators/store-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/mediation-sequences):
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_store/message-store-graphical-editor.png" width="700">
 
