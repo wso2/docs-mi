@@ -4,7 +4,7 @@ Given below is a sample scenario that demonstrates how to send messages to a Kaf
 
 ## What you'll build
 
-Given below is a sample API that illustrates how you can connect to a Kafka broker with the `init` operation and then use the `publishMessages` operation to publish messages via the topic. It exposes Kafka functionalities as a RESTful service. Users can invoke the API using HTTP/HTTPs with the required information.
+Given below is a sample API that illustrates how you can connect to a Kafka broker and then use the `publishMessages` operation to publish messages via the topic. It exposes Kafka functionalities as a RESTful service. Users can invoke the API using HTTP/HTTPs with the required information.
 
 API has the context `/publishMessages`. It will publish messages via the topic to the Kafka server.
 
@@ -24,29 +24,63 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 {!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
-5. Create a new Kafka connection by selecting a particular operation.
+7. Specify the API name as `KafkaTransport` and API context as `/publishMessages`. 
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/filecon10.png"><img src="{{base_path}}/assets/img/integrate/connectors/filecon10.png" title="working directory" width="800" alt="working directory"/></a>
+8. To configure the resource click on the API Resource and go to **Properties** view. Select the method POST.
 
+9. Next drag and drop the 'publishMessages' operation of the KafkaTransport Connector to the Design View as shown below.
+   <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connector.png" title="Add publishMessages connector operation" width="800" alt="Add publishMessages connector operation"/></a>
 
-1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
+10. Create a connection from the properties window by clicking on the '+' icon as shown below.
 
-2. Specify the API name as `KafkaTransport` and API context as `/publishMessages`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
+    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
 
+    In the popup window, the following parameters must be provided.
+- Bootstrap Servers - The Kafka brokers listed as host1:port1 and host2:port2.
+- Key Serializer Class - The serializer class for the key that implements the serializer interface.
+- Value Serializer Class - The serializer class for the value that implements the serializer interface.
+
+    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-connection-configuration.png" title="Connection Configuration" width="800" alt="Connection Configuration"/></a>
+
+10. After the connection is successfully created, select the created connection as 'Connection' from the drop down menu in the properties window.
+
+11. Next, configure the following parameters in the properties window
+- Topic - The name of the topic
+- Partition Number - The partition number of the topic
+
+  <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-properties.png" title="Kafka Properties" width="800" alt="Kafka Properties"/></a>
+
+12. You can find the API XML as follows:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST">
             <inSequence>
-                <kafkaTransport.publishMessages>
+                <kafkaTransport.publishMessages configKey="KAFKA_CONNECTION_1">
                     <topic>test</topic>
-                </kafkaTransport.publishMessages configKey="KAFKA_CONNECTION">
+                    <partitionNo>1</partitionNo>
+                </kafkaTransport.publishMessages>
             </inSequence>
             <outSequence/>
             <faultSequence/>
         </resource>
     </api>
     ```
+13. Following is the local entry generated: 
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <localEntry key="KAFKA_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
+        <kafkaTransport.init>
+            <name>KAFKA_CONNECTION_1</name>
+            <valueSerializerClass>org.apache.kafka.common.serialization.StringSerializer</valueSerializerClass>
+            <connectionType>kafka</connectionType>
+            <keySerializerClass>org.apache.kafka.common.serialization.StringSerializer</keySerializerClass>
+            <bootstrapServers>localhost:9092</bootstrapServers>
+            <poolingEnabled>false</poolingEnabled>
+        </kafkaTransport.init>
+    </localEntry>
+    ```
+
 Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
 {!includes/reference/connectors/exporting-artifacts.md!}
