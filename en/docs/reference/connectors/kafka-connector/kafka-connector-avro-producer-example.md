@@ -125,6 +125,10 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       <th>Property Name</th>
       <th>Value</th>
    </tr>
+   <tr>
+      <th>Partition Number</th>
+      <th>1</th>
+   </tr>
 
    <tr>
       <th>Topic</th>
@@ -160,6 +164,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <property expression="json-eval($.topic)" name="topic" scope="default" type="STRING"/>
             <kafkaTransport.publishMessages configKey="KAFKA_CONNECTION_1">
                 <topic>{$ctx:topic}</topic>
+                <partitionNo>1</partitionNo>
                 <key>{ctx:key}</key>
                 <valueSchema>{ctx:valueSchema}</valueSchema>
                 <value>{ctx:value}</value>
@@ -267,6 +272,7 @@ Sample API configuration when the Confluent Schema Registry is secured with basi
                       type="STRING"/>
            <kafkaTransport.publishMessages configKey="KAFKA_CONNECTION_1">
                <topic>{$ctx:topic}</topic>
+               <partitionNo>1</partitionNo>
                <key>{$ctx:key}</key>
                <value>{$ctx:value}</value>
                <valueSchema>{$ctx:valueSchema}</valueSchema>
