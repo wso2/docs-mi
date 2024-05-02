@@ -84,72 +84,68 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-avro-example.png" title="Kafka Avro Example" width="800" alt="Kafka Avro Example"/></a>
 
 7. Create a connection from the properties window by clicking on the '+' icon as shown below.
-
    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
 
-   In the popup window, provide the following parameters and click **Finish**.
-
+8. In the popup window, provide the following parameters and click **Finish**.
    <table>
-     <tr>
+      <tr>
          <th>Property Name</th>
          <th>Value</th>
-     </tr>
-
-     <tr>
-         <th>Bootstrap Servers</th>
-         <th>localhost:9092</th>
-     </tr>
-
-     <tr>
-         <th>Key Serializer Class</th>
-         <th>io.confluent.kafka.serializers.KafkaAvroSerializer</th>
-     </tr>
-
-     <tr>
-         <th>Value Serializer Class</th>
-         <th>io.confluent.kafka.serializers.KafkaAvroSerializer</th>
-     </tr>
-  
-     <tr>
-         <th>Schema Registry URL</th>
-         <th>http://localhost:8081</th>
-     </tr>
+      </tr>
+      <tr>
+         <td>Bootstrap Servers</td>
+         <td>localhost:9092</td>
+      </tr>
+      <tr>
+         <td>Key Serializer Class</td>
+         <td>io.confluent.kafka.serializers.KafkaAvroSerializer</td>
+      </tr>
+      <tr>
+         <td>Value Serializer Class</td>
+         <td>io.confluent.kafka.serializers.KafkaAvroSerializer</td>
+      </tr>
+      <tr>
+         <td>Schema Registry URL</td>
+         <td>http://localhost:8081</td>
+      </tr>
    </table>
+
+    
+    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-connection-configuration.png" title="Connection Configuration" width="500" alt="Connection Configuration"/></a>
 
 10. After the connection is successfully created, select the created connection as 'Connection' from the drop-down menu in the properties window.
 
 11. Next, configure the following parameters in the properties window
-
-<table>
-   <tr>
-      <th>Property Name</th>
-      <th>Value</th>
-   </tr>
-   <tr>
-      <th>Partition Number</th>
-      <th>1</th>
-   </tr>
-
-   <tr>
-      <th>Topic</th>
-      <th>$ctx:topic</th>
-   </tr>
-
-   <tr>
-      <th>Key</th>
-      <th>$ctx:key</th>
-   </tr>
-
-   <tr>
-      <th>Value</th>
-      <th>$ctx:value</th>
-   </tr>
-
-   <tr>
-      <th>Value Schema</th>
-      <th>$ctx:valueSchema</th>
-   </tr>
-</table>
+   <table>
+      <tr>
+         <th>Property Name</th>
+         <th>Value</th>
+      </tr>
+      <tr>
+         <td>Partition Number</td>
+         <td>1</td>
+      </tr>
+   
+      <tr>
+         <td>Topic</td>
+         <td>$ctx:topic</td>
+      </tr>
+   
+      <tr>
+         <td>Key</td>
+         <td>$ctx:key</td>
+      </tr>
+   
+      <tr>
+         <td>Value</td>
+         <td>$ctx:value</td>
+      </tr>
+   
+      <tr>
+         <td>Value Schema</td>
+         <td>$ctx:valueSchema</td>
+      </tr>
+   </table>
 
 12. You can find the complete API XML configuration below.
 

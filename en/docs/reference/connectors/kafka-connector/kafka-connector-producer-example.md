@@ -36,21 +36,20 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
 
     In the popup window, the following parameters must be provided.
-- Bootstrap Servers - The Kafka brokers listed as host1:port1 and host2:port2.
-- Key Serializer Class - The serializer class for the key that implements the serializer interface.
-- Value Serializer Class - The serializer class for the value that implements the serializer interface.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-connection-configuration.png" title="Connection Configuration" width="800" alt="Connection Configuration"/></a>
+    - Bootstrap Servers - The Kafka brokers listed as host1:port1 and host2:port2.
+    - Key Serializer Class - The serializer class for the key that implements the serializer interface.
+    - Value Serializer Class - The serializer class for the value that implements the serializer interface.
 
-10. After the connection is successfully created, select the created connection as 'Connection' from the drop down menu in the properties window.
+11. After the connection is successfully created, select the created connection as 'Connection' from the drop down menu in the properties window.
 
-11. Next, configure the following parameters in the properties window
-- Topic - The name of the topic
-- Partition Number - The partition number of the topic
+12. Next, configure the following parameters in the properties window.
+    - Topic - The name of the topic
+    - Partition Number - The partition number of the topic
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-properties.png" title="Kafka Properties" width="800" alt="Kafka Properties"/></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-properties.png" title="Kafka Properties" width="800" alt="Kafka Properties"/></a>
 
-12. You can find the API XML as follows:
+13. You can find the API XML as follows:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
@@ -66,7 +65,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
         </resource>
     </api>
     ```
-13. Following is the local entry generated: 
+14. Following is the local entry generated: 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <localEntry key="KAFKA_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
@@ -115,7 +114,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 **Create a topic**:
 
 Let’s create a topic named “test” with a single partition and only one replica.
-Navigate to the <KAFKA_HOME> and run following command.
+Navigate to the `<KAFKA_HOME>` and run following command.
    
 ```bash
 bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test     
@@ -131,7 +130,7 @@ curl -X POST -d '{"name":"sample"}' "http://localhost:8290/publishMessages" -H "
 
 **Expected Response**: 
    
-Navigate to the <KAFKA_HOME> and run the following command to verify the messages:
+Navigate to the `<KAFKA_HOME>` and run the following command to verify the messages:
 
 ```bash
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
