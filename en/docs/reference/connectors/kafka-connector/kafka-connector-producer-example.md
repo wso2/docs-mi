@@ -57,7 +57,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <inSequence>
                 <kafkaTransport.publishMessages configKey="KAFKA_CONNECTION_1">
                     <topic>test</topic>
-                    <partitionNo>1</partitionNo>
+                    <partitionNo>0</partitionNo>
                 </kafkaTransport.publishMessages>
             </inSequence>
             <outSequence/>

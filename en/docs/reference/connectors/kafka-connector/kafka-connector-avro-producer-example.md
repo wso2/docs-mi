@@ -10,7 +10,10 @@ API has the `/publishMessages` context. It publishes messages via the topic to t
 
 ## Set up Kafka
 
-Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
+Before you begin, 
+
+1. Set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
+2. Install the [Confluent Platform](https://docs.confluent.io/platform/current/installation/installing_cp/zip-tar.html) according to the Kafka version you are using.
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -160,7 +163,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <property expression="json-eval($.topic)" name="topic" scope="default" type="STRING"/>
             <kafkaTransport.publishMessages configKey="KAFKA_CONNECTION_1">
                 <topic>{$ctx:topic}</topic>
-                <partitionNo>1</partitionNo>
+                <partitionNo>0</partitionNo>
                 <key>{ctx:key}</key>
                 <valueSchema>{ctx:valueSchema}</valueSchema>
                 <value>{ctx:value}</value>
@@ -268,7 +271,7 @@ Sample API configuration when the Confluent Schema Registry is secured with basi
                       type="STRING"/>
            <kafkaTransport.publishMessages configKey="KAFKA_CONNECTION_1">
                <topic>{$ctx:topic}</topic>
-               <partitionNo>1</partitionNo>
+               <partitionNo>0</partitionNo>
                <key>{$ctx:key}</key>
                <value>{$ctx:value}</value>
                <valueSchema>{$ctx:valueSchema}</valueSchema>
