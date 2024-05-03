@@ -26,8 +26,12 @@ Follow one of the following two options to install the MI VSCode extension.
 
 **Option 1**
 
-1. Go to the [Visual Studio Code Marketplace](link-to-the-mi-extension).
-2. Click **Install** to install the MI VSCode extension.
+1. Go to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/).
+2. Install **Micro Integrator for VSCode**.
+
+<!--
+Click **Install** to install the MI VSCode extension.
+-->
 
 **Option 2**
 
