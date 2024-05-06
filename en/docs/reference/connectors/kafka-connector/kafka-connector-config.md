@@ -2,10 +2,7 @@
 
 The following operations allow you to work with the Kafka Connector. Click an operation name to see parameter details and samples on how to use it.
 
----
-
-To use the Kafka connector, add the `<kafkaTransport.init>` element in your configuration before carrying out any other Kafka operations. This can be with or without security depending on your requirements.
-
+To use the Kafka connector, the `<kafkaTransport.init>` element needs to be configured while creating the connection. This can be done with or without security depending on your requirements.
 ??? note "kafkaTransport.init"
     You can configure the kafkaTransport.init operation to setup your Kafka producer with or without security.
     <table>
@@ -321,13 +318,12 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         </tr>
     </table>
 
-    > **Performance Tuning Tip**: For better throughput, configure the parameter as follows in the configuration:
-    >
-    > ```
-    > <maxPoolSize>20</maxPoolSize>
-    > ```
-    >
-    > If you do not specify the maxPoolSizeparameter in the configuration, a Kafka connection is created for each message request.
+    !!!tip "Performance Tuning Tip"
+        For better throughput, configure the parameter as follows in the configuration:    
+        ```
+        <maxPoolSize>20</maxPoolSize>
+        ```    
+        If you do not specify the maxPoolSizeparameter in the configuration, a Kafka connection is created for each message request.
 
     **Sample configuration**
 
