@@ -6,7 +6,7 @@ Given below is a sample scenario that demonstrates how to send Apache Avro messa
 
 Given below is a sample API that illustrates how you can connect to a Kafka broker and then use the `publishMessages` operation to publish messages via the topic. It exposes Kafka functionalities as a RESTful service. Users can invoke the API using HTTP/HTTPS with the required information.
 
-API has the `/publishMessages` context. It publishes messages via the topic to the Kafka server.
+The API has the `/publishMessages` context. It publishes messages via the topic to the Kafka server.
 
 ## Set up Kafka
 
@@ -23,7 +23,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 1. Specify the API name as `KafkaTransport` and API context as `/publishMessages`.
 
-2. To configure the resource, click on the API Resource and go to **Properties** view. Select the POST method.
+2. To configure the resource, click on the API Resource and go to **Properties** view. Select the `POST` method.
 
 3. Drag and drop the property mediator from the mediator palette to the request path of the API resource.
 
@@ -60,7 +60,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       </tr>
     </table>
 
-5. Similarly, drag and drop 3 more property mediators from the mediator palette to the request path of the API resource and specify values as follows.
+5. Similarly, drag and drop three more property mediators from the mediator palette to the request path of the API resource and specify values as follows.
    <table>
       <tr>
          <th>Property Name</th>
@@ -84,10 +84,10 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     </table>
    
 6. Next drag and drop the `publishMessages` operation of the KafkaTransport Connector to the Design View as shown below.
-   <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-avro-example.png" title="Kafka Avro Example" width="800" alt="Kafka Avro Example"/></a>
+   <a href="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-avro-example.png"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-avro-example.png" title="Kafka Avro Example" width="800" alt="Kafka Avro Example"/></a>
 
-7. Create a connection from the properties window by clicking on the `+` icon as shown below.
-   <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
+7. Create a connection from the properties window by clicking on the **+** icon as shown below.
+   <a href="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
 
 8. In the popup window, provide the following parameters and click **Finish**.
    <table>
@@ -116,7 +116,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     
     <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-connection-configuration.png" title="Connection Configuration" width="500" alt="Connection Configuration"/></a>
 
-10. After the connection is successfully created, select the created connection as `Connection` from the drop-down menu in the properties window.
+10. After the connection is successfully created, select the created connection as **Connection** from the drop-down menu in the properties window.
 
 11. Next, configure the following parameters in the properties window.
    <table>
@@ -207,13 +207,13 @@ You can further refer the application deployed through the CLI tool. See the ins
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
+    2. WSO2 EI server starts and you can login to the Management Console via the `https://localhost:9443/carbon/` URL. Provide login credentials. The default credentials will be admin/admin. 
 
     3. You can see that the API is deployed under the API section. 
     
 ## Testing
 
-Invoke the API (http://localhost:8290/publishMessages) with the following payload,
+Invoke the API (`http://localhost:8290/publishMessages`) with the following payload,
 
 ````json
 {
