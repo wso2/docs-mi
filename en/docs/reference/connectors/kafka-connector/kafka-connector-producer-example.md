@@ -26,18 +26,18 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 7. Specify the API name as `KafkaTransport` and API context as `/publishMessages`. 
 
-8. To configure the resource click on the API Resource and go to **Properties** view. Select the method POST.
+8. To configure the resource click on the API Resource and go to **Properties** view. Select the `POST` method.
 
 9. Next drag and drop the `publishMessages` operation of the KafkaTransport Connector to the Design View as shown below.
    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connector.png" title="Add publishMessages connector operation" width="800" alt="Add publishMessages connector operation"/></a>
 
-10. Create a connection from the properties window by clicking on the `+` icon as shown below.
+10. Create a connection from the properties window by clicking on the **+** icon as shown below.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
 
-    In the popup window, the following parameters must be provided.
+    In the popup window, provide the following parameters.
 
-    - Bootstrap Servers - The Kafka brokers listed as host1:port1 and host2:port2.
+    - Bootstrap Servers - The Kafka brokers listed as `host1:port1` and `host2:port2`.
     - Key Serializer Class - The serializer class for the key that implements the serializer interface.
     - Value Serializer Class - The serializer class for the value that implements the serializer interface.
 
@@ -105,7 +105,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
+    2. WSO2 EI server starts and you can login to the Management Console via the `https://localhost:9443/carbon/` URL. Provide login credentials. The default credentials will be `admin/admin`. 
 
     3. You can see that the API is deployed under the API section. 
     
