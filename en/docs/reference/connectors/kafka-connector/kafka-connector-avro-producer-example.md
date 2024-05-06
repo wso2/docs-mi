@@ -151,7 +151,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
    </table>
 
 12. You can find the complete API XML configuration below.
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
@@ -176,7 +175,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 ```
 
 13. The following is the generated KAFKA_CONNECTION_1.xml which has been created in local-entries.
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <localEntry key="KAFKA_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
@@ -191,6 +189,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
    </kafkaTransport.init>
 </localEntry>
 ```
+
 Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
 {!includes/reference/connectors/exporting-artifacts.md!}
