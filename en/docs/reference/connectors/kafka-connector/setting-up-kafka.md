@@ -41,7 +41,13 @@ Copy the following additional client libraries to the `<MI_HOME>/lib` directory 
 * [kafka-schema-registry-client-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client/5.3.0)
 
 ### b. Kafka version 3.7.0
-To configure the Kafka connector with Kafka version 3.7.0, copy the following client libraries from the `<KAFKA_HOME>/lib` directory to the `<MI_HOME>/lib` directory.
+To configure the Kafka connector with Kafka version 3.7.0, copy the following orbit bundles to the `<MI_HOME>/dropins` directory.
+
+* [kafka-avro-serializer](https://mvnrepository.com/artifact/org.wso2.orbit.io.confluent/kafka-avro-serializer/7.6.0.wso2v1)
+* [kafka-schema-serializer](https://mvnrepository.com/artifact/org.wso2.orbit.io.confluent/kafka-schema-serializer/7.6.0.wso2v1)
+* [kafka-schema-registry-client](https://mvnrepository.com/artifact/org.wso2.orbit.io.confluent/kafka-schema-registry-client/7.6.0.wso2v1)
+
+Copy the following client libraries from the `<KAFKA_HOME>/lib` directory to the `<MI_HOME>/lib` directory.
 
 * [kafka_2.13-3.7.0.jar](https://mvnrepository.com/artifact/org.apache.kafka/kafka_2.13/3.7.0)
 * [kafka-clients-3.7.0.jar](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients/3.7.0)
@@ -55,8 +61,6 @@ Copy the following additional client libraries to the `<MI_HOME>/lib` directory 
 * [avro-1.11.3.jar](https://mvnrepository.com/artifact/org.apache.avro/avro/1.11.3)
 * [common-config-7.6.0.jar](https://mvnrepository.com/artifact/io.confluent/common-config/7.6.0)
 * [common-utils-7.6.0.jar](https://mvnrepository.com/artifact/io.confluent/common-utils/7.6.0)
-* [kafka-avro-serializer-7.6.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer/7.6.0)
-* [kafka-schema-registry-client-7.6.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client/7.6.0)
 
 Navigate to `<KAFKA_HOME>` and run the following command to start the ZooKeeper server:
 

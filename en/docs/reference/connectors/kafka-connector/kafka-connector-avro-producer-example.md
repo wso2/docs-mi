@@ -240,7 +240,7 @@ Invoke the API (http://localhost:8290/publishMessages) with the following payloa
    
 Run the following command to verify the messages:
 ````bash
-[confluent_home]/bin/kafka-avro-console-consumer.sh --topic myTopic --bootstrap-server localhost:9092 --property print.key=true --from-beginning
+[confluent_home]/bin/kafka-avro-console-consumer --topic myTopic --bootstrap-server localhost:9092 --property print.key=true --from-beginning
 ````
 See the following message content:
 ````json
@@ -281,6 +281,23 @@ Sample API configuration when the Confluent Schema Registry is secured with basi
         <faultSequence/>
     </resource>
 </api>
+```
+Local entry:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="KAFKA_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
+    <kafkaTransport.init>
+        <name>KAFKA_CONNECTION_1</name>
+        <connectionType>kafka</connectionType>
+		<bootstrapServers>localhost:9092</bootstrapServers>
+        <valueSerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</valueSerializerClass>
+        <keySerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</keySerializerClass>
+        <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
+        <poolingEnabled>false</poolingEnabled>
+        <basicAuthCredentialsSource>USER_INFO</basicAuthCredentialsSource>
+        <basicAuthUserInfo>admin:admin</basicAuthUserInfo>
+    </kafkaTransport.init>
+</localEntry>
 ```
 In the above example, the <b>basicAuthCredentialsSource</b> parameter is configured as <b>USER_INFO</b>. For example, consider a scenario where the <b>basicAuthCredentialsSource</b> parameter is set to <b>URL</b> as follows:
 
