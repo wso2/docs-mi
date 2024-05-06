@@ -23,7 +23,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 1. Specify the API name as `KafkaTransport` and API context as `/publishMessages`.
 
-2. To configure the resource click on the API Resource and go to **Properties** view. Select the method POST.
+2. To configure the resource, click on the API Resource and go to **Properties** view. Select the POST method.
 
 3. Drag and drop the property mediator from the mediator palette to the request path of the API resource.
 
