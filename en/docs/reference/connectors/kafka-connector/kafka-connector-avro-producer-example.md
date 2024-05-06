@@ -174,7 +174,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 </api>
 ```
 
-13. The following is the generated KAFKA_CONNECTION_1.xml which has been created in local-entries.
+13. The following is the generated `KAFKA_CONNECTION_1.xml` which has been created in local-entries.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <localEntry key="KAFKA_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
