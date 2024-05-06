@@ -41,7 +41,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Key Serializer Class - The serializer class for the key that implements the serializer interface.
     - Value Serializer Class - The serializer class for the value that implements the serializer interface.
 
-11. After the connection is successfully created, select the created connection as 'Connection' from the drop down menu in the properties window.
+11. After the connection is successfully created, select the created connection as `Connection` from the drop down menu in the properties window.
 
 12. Next, configure the following parameters in the properties window.
     - Topic - The name of the topic
