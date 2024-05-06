@@ -4,7 +4,7 @@ The following operations allow you to work with the Kafka Connector. Click an op
 
 ---
 
-To use the Kafka connector, the `<kafkaTransport.init>` element needs to be configured while creating the connection. This can be with or without security depending on your requirements.
+To use the Kafka connector, the `<kafkaTransport.init>` element needs to be configured while creating the connection. This can be done with or without security depending on your requirements.
 ??? note "kafkaTransport.init"
     You can configure the kafkaTransport.init operation to setup your Kafka producer with or without security.
     <table>
