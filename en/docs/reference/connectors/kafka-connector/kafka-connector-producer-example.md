@@ -31,7 +31,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 9. Next drag and drop the 'publishMessages' operation of the KafkaTransport Connector to the Design View as shown below.
    <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connector.png" title="Add publishMessages connector operation" width="800" alt="Add publishMessages connector operation"/></a>
 
-10. Create a connection from the properties window by clicking on the '+' icon as shown below.
+10. Create a connection from the properties window by clicking on the `+` icon as shown below.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/kafka"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafka-add-connection.png" title="Create Connection" width="800" alt="Create Connection"/></a>
 
