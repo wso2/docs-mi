@@ -26,12 +26,9 @@ Follow one of the following two options to install the MI VSCode extension.
 
 **Option 1**
 
-1. Go to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/).
-2. Install **Micro Integrator for VSCode**.
+1. Go to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator).
+2. Click **Install** to install the **Micro Integrator** extension.
 
-<!--
-Click **Install** to install the MI VSCode extension.
--->
 
 **Option 2**
 
@@ -40,9 +37,9 @@ Click **Install** to install the MI VSCode extension.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/extensions.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/extensions.png" alt="Extensions" width="700"></a>
 
-3. Type "Micro Integrator for VSCode" in the search bar. 
+3. Type "Micro Integrator" in the search bar. 
 4. Press **Enter** to search. 
-5. Among the results, find the Micro Integrator for VSCode extension.
+5. Among the results, find the **Micro Integrator** extension.
 6. Click **Install** to install the MI for VSCode extension from Visual Studio Marketplace.
 
 !!!note
