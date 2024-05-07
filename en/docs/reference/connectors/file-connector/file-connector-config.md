@@ -670,6 +670,316 @@ There are different connection configurations that can be used for the above pro
     </tr>
 </table>
 
+!!!note
+    The following SFTP connection parameters are available in File Connector version 4.0.21 and later.
+
+<table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Element</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+        <th>Required</th>
+    </tr>
+    <tr>
+        <td>
+           Connection Pool Aged Timeout
+        </td>
+        <td>
+           sftpPoolConnectionAgedTimeout
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           Interval to close connections in the connection pool in seconds.
+        </td>
+        <td>
+           Never
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Max Active Connections
+        </td>
+        <td>
+           maxActiveConnections
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The maximum number of objects (including both idle and active/borrowed) that can exist within the pool at the same time.
+        </td>
+        <td>
+           8
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Max Idle Connections
+        </td>
+        <td>
+           maxIdleConnections
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The maximum number of objects that can remain idle in the pool, awaiting to be borrowed. Excess idle objects may be removed.
+        </td>
+        <td>
+           8
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Max Wait Time
+        </td>
+        <td>
+           maxWaitTime
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The maximum amount of time that the <code>borrowObject()</code> method should block before throwing an exception when the pool is exhausted and no objects are available.
+        </td>
+        <td>
+           indefinite (wait forever)
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Eviction Check Interval
+        </td>
+        <td>
+           evictionCheckInterval
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The time interval between runs of the idle object evictor thread.
+        </td>
+        <td>
+           Eviction doesn't run if this isn't defined.    
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Min Eviction Time
+        </td>
+        <td>
+           minEvictionTime
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The minimum amount of time an object must sit idle in the pool before it is eligible for eviction by the idle object evictor
+        </td>
+        <td>
+           Eviction doesn't run if this and <code>evictionCheckInterval</code> aren't defined.
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Exhausted Action
+        </td>
+        <td>
+           exhaustedAction
+        </td>
+        <td>
+           String
+        </td>
+        <td>
+           Determines the action to take when the <code>borrowObject()</code> method is called, but the pool is exhausted.
+        </td>
+        <td>
+           <code>WHEN_EXHAUSTED_BLOCK</code>
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+</table>
+
+### SMB connection configs
+
+!!!note
+    The following SMB connection parameters are available in File Connector version 4.0.26 and later.
+
+<table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Element</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+        <th>Required</th>
+    </tr>
+    <tr>
+        <td>
+           Connection Pool Aged Timeout
+        </td>
+        <td>
+           sftpPoolConnectionAgedTimeout
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           Interval to close connections in the connection pool in seconds.
+        </td>
+        <td>
+           Never
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Max Active Connections
+        </td>
+        <td>
+           maxActiveConnections
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The maximum number of objects (including both idle and active/borrowed) that can exist within the pool at the same time.
+        </td>
+        <td>
+           8
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Max Idle Connections
+        </td>
+        <td>
+           maxIdleConnections
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The maximum number of objects that can remain idle in the pool, awaiting to be borrowed. Excess idle objects may be removed.
+        </td>
+        <td>
+           8
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Max Wait Time
+        </td>
+        <td>
+           maxWaitTime
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The maximum amount of time that the <code>borrowObject()</code> method should block before throwing an exception when the pool is exhausted and no objects are available.
+        </td>
+        <td>
+           indefinite (wait forever)
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Eviction Check Interval
+        </td>
+        <td>
+           evictionCheckInterval
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The time interval between runs of the idle object evictor thread.
+        </td>
+        <td>
+           Eviction doesn't run if this isn't defined.    
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Min Eviction Time
+        </td>
+        <td>
+           minEvictionTime
+        </td>
+        <td>
+           Integer
+        </td>
+        <td>
+           The minimum amount of time an object must sit idle in the pool before it is eligible for eviction by the idle object evictor
+        </td>
+        <td>
+           Eviction doesn't run if this and <code>evictionCheckInterval</code> aren't defined.
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Exhausted Action
+        </td>
+        <td>
+           exhaustedAction
+        </td>
+        <td>
+           String
+        </td>
+        <td>
+           Determines the action to take when the <code>borrowObject()</code> method is called, but the pool is exhausted.
+        </td>
+        <td>
+           <code>WHEN_EXHAUSTED_BLOCK</code>
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+</table>
+
 ## Operations
 
 The following operations allow you to work with the File Connector version 4. Click an operation name to see parameter details and samples on how to use it.
