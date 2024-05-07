@@ -12,6 +12,7 @@ The File connector can be used to deal with two types of file systems:
     -   FTP
     -   FTPS
     -   SFTP
+    -   SMB2
     
 There are different connection configurations that can be used for the above protocols. They contain a common set of configurations and some additional configurations specific to the protocol.
 
@@ -42,6 +43,11 @@ There are different connection configurations that can be used for the above pro
         sftp://[ username[: password]@] hostname[: port][ relative-path]
         sftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
         ```
+    === "SMB2"         
+        ```bash 
+        smb2://[ username[: password]@] hostname[: port][ relative-path]
+        smb2://myusername:mypassword@somehost:445/SMBTesting
+        ```    
 
 !!! Tip
     There are instances where errors occur when using .csv files and the output is encoded. To overcome this, add the following configuration to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
@@ -141,6 +147,9 @@ There are different connection configurations that can be used for the above pro
                 </li>
                 <li>
                     <b>SFTP</b>: Provides access to the files on an SFTP server (that is, an SSH or SCP server).
+                </li>
+                <li>
+                    <b>SMB2</b>: Provides access to the files on a Samba server.
                 </li>
             </ul>
         </td>
