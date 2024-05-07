@@ -11,6 +11,8 @@ This page walks you through how to get started with the Micro Integrator for VSC
     !!! info
         For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup documentation](https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-mi/#setting-up-java_home).
 
+- Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
+
 - Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
 
     !!! info
