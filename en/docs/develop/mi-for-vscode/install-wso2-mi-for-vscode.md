@@ -18,10 +18,6 @@ This page walks you through how to get started with the Micro Integrator for VSC
     !!! info
         For more information on installing Visual Studio Code, refer to [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
 
-- You need an active MI Copilot account to utilize the AI capabilities of the MI extension in the VSCode editor. Follow the steps below to create an account if you don't already have one:
-    1. Go to [https://accounts.asgardeo.io/t/wso2midev](https://accounts.asgardeo.io/t/wso2midev).
-    2. Create an account by filling out the necessary details.
-
 ## Install the MI VSCode extension
 
 Follow one of the following two options to install the MI VSCode extension.
