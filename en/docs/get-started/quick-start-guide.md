@@ -16,7 +16,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
-5. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
+5. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip)){:download}. From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
 6. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
 ## What you'll build
