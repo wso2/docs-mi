@@ -250,7 +250,7 @@ Package the artifacts in your composite application module to be able to deploy 
 
 ### Step 4: Configure the Micro Integrator server
 
-1.  Click the <b>Embedded Micro Integrator Configuration</b> (<img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20">) icon on the upper menu to open the dialog box.
+1.  Click the **Embedded Micro Integrator Configuration** (<img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20">) icon on the upper menu to open the dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/file-processing/embedded-server-configs.png" width="500">
 
