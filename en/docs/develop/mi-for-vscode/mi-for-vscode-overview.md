@@ -1,11 +1,11 @@
-# Overview - Micro Integrator for VSCode
+# Overview - Micro Integrator for VS Code
 
-WSO2 Micro Integrator Visual Studio Code extension (MI for VSCode) is a comprehensive integration solution that simplifies your digital transformation journey. It streamlines connectivity among applications, services, data, and the cloud using a user-friendly low-code graphical designing experience and revolutionizes your integration development workflow. As an integration developer, you can execute all the development lifecycle phases using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline.
+WSO2 Micro Integrator Visual Studio Code extension (MI for VS Code) is a comprehensive integration solution that simplifies your digital transformation journey. It streamlines connectivity among applications, services, data, and the cloud using a user-friendly low-code graphical designing experience and revolutionizes your integration development workflow. As an integration developer, you can execute all the development lifecycle phases using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline.
 
 !!! note
     This extension is currently in the developer preview state.
 
-!!!info "Why a VSCode extension?"
+!!!info "Why a VS Code extension?"
     - It's free and open-source.
     - It offers speed and robust capabilities.
     - It's compatible across various platforms.
@@ -15,9 +15,9 @@ This page provides a quick overview of the interface of the extension.
 
 ## Getting Started
 
-When the extension is installed properly, you can see the WSO2 icon in the Activity Bar of the VSCode editor.
+When the extension is installed properly, you can see the WSO2 icon in the Activity Bar of the VS Code editor.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VSCode Extension" width="700"></a> 
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="700"></a> 
 
 You can click the WSO2 icon to open the extension.
 
@@ -62,7 +62,7 @@ You can add the artifacts required for your integration using Project Explorer.
 
 WSO2 MI Copilot, a trained language model (LLM), demonstrates the capability to comprehend complex integration concepts and scenarios, allowing it to create tailored artifacts for different situations. This makes it versatile and useful for various integration tasks.
 
-Clicking on the **Open AI Panel** icon located in the top right corner of VSCode will open the WSO2 MI Copilot interface.
+Clicking on the **Open AI Panel** icon located in the top right corner of VS Code will open the WSO2 MI Copilot interface.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" alt="Open AI Panel" width="700"></a>
 
@@ -71,9 +71,9 @@ You can create any integration project by entering your integration scenario in 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" alt="MI Copilot" width="700"></a>
 
 !!!info "What's Next?"
-    - See [Install MI for VSCode]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) for more information on how to install and setup MI VSCode extension.
+    - See [Install MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) for more information on how to install and setup MI VS Code extension.
 
 <!-- 
-    - See [Build and Run]({{base_path}}/develop/mi-for-vscode/build-and-run) to get started with MI VSCode extension.
+    - See [Build and Run]({{base_path}}/develop/mi-for-vscode/build-and-run) to get started with MI VS Code extension.
     - See [Debugging]({{base_path}}/develop/mi-for-vscode/debugging) to learn about debugging.
 -->
