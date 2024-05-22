@@ -13,6 +13,11 @@ This page walks you through how to get started with the Micro Integrator for VSC
 
 - Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
 
+- Set the path for Apache Maven in the system's PATH environment variable.
+
+   !!! info
+       For more information on installing Apache Maven, see the [Apache Maven documentation](https://maven.apache.org/install.html).
+
 - Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
 
     !!! info
