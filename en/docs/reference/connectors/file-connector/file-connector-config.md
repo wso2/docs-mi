@@ -679,9 +679,12 @@ There are different connection configurations that can be used for the above pro
     </tr>
 </table>
 
-!!!note
+!!!info
     The following SFTP connection parameters are available in File Connector version 4.0.21 and later.
 
+!!!note
+    The WSO2 File Connector uses connection pooling for enhanced performance. It uses the Apache Commons Pool as the base framework for connection pooling. For detailed information on the pooling mechanism, refer to the [Apache Commons Pool documentation](https://javadoc.io/doc/commons-pool/commons-pool/1.5.6/org/apache/commons/pool/impl/GenericObjectPool.html). The following parameters can be used to fine-tune the connection pool according to your requirements.
+    
 <table>
     <tr>
         <th>Parameter Name</th>
@@ -722,7 +725,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The maximum number of objects (including both idle and active/borrowed) that can exist within the pool at the same time.
+           The maximum number of connections (including both idle and active/borrowed) that can exist within the pool at a given time.
         </td>
         <td>
            8
@@ -742,7 +745,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The maximum number of objects that can remain idle in the pool, awaiting to be borrowed. Excess idle objects may be removed.
+           The maximum number of connections that can remain idle in the pool at any time, awaiting to be borrowed. Excess idle objects may be removed.
         </td>
         <td>
            8
@@ -762,7 +765,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The maximum amount of time that the <code>borrowObject()</code> method should block before throwing an exception when the pool is exhausted and no objects are available.
+           This parameter determines how long the connector is willing to wait in the queue for a connection to become available. If the wait time exceeds the configured maximum wait time, the pool may throw an exception when it is exhausted and no connections are available.
         </td>
         <td>
            indefinite (wait forever)
@@ -782,7 +785,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The time interval between runs of the idle object evictor thread.
+           This parameter specifies how frequently the evictor thread scans the pool for idle connections eligible for eviction. By configuring this interval, developers can control the frequency of resource checks, optimizing performance without unnecessary overhead.
         </td>
         <td>
            Eviction doesn't run if this isn't defined.    
@@ -802,7 +805,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The minimum amount of time an object must sit idle in the pool before it is eligible for eviction by the idle object evictor
+           Connections in the pool must remain idle for at least this specified duration before the evictor considers them for removal. This ensures that only connections inactive beyond a defined threshold are evicted, preventing premature eviction of frequently used resources.
         </td>
         <td>
            Eviction doesn't run if this and <code>evictionCheckInterval</code> aren't defined.
@@ -835,9 +838,13 @@ There are different connection configurations that can be used for the above pro
 
 ### SMB connection configs
 
-!!!note
+!!!info
     The following SMB connection parameters are available in File Connector version 4.0.26 and later.
 
+!!!note
+    - The WSO2 File Connector uses connection pooling for enhanced performance. It uses the Apache Commons Pool as the base framework for connection pooling. For detailed information on the pooling mechanism, refer to the [Apache Commons Pool documentation](https://javadoc.io/doc/commons-pool/commons-pool/1.5.6/org/apache/commons/pool/impl/GenericObjectPool.html). The following parameters can be used to fine-tune the connection pool according to your requirements.
+    - SMB2 servers will close idle connections forcefully based on their configurations. In such cases, the Micro Integrator may throw connection errors. To avoid these errors, you can fine-tune the connection eviction configurations to remove idle connections from the pool.
+    
 <table>
     <tr>
         <th>Parameter Name</th>
@@ -878,7 +885,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The maximum number of objects (including both idle and active/borrowed) that can exist within the pool at the same time.
+           The maximum number of connections (including both idle and active/borrowed) that can exist within the pool at a given time.
         </td>
         <td>
            8
@@ -898,7 +905,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The maximum number of objects that can remain idle in the pool, awaiting to be borrowed. Excess idle objects may be removed.
+           The maximum number of connections that can remain idle in the pool at any time, awaiting to be borrowed. Excess idle objects may be removed.
         </td>
         <td>
            8
@@ -918,7 +925,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The maximum amount of time that the <code>borrowObject()</code> method should block before throwing an exception when the pool is exhausted and no objects are available.
+           This parameter determines how long the connector is willing to wait in the queue for a connection to become available. If the wait time exceeds the configured maximum wait time, the pool may throw an exception when it is exhausted and no connections are available.
         </td>
         <td>
            indefinite (wait forever)
@@ -938,7 +945,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The time interval between runs of the idle object evictor thread.
+           This parameter specifies how frequently the evictor thread scans the pool for idle connections eligible for eviction. By configuring this interval, developers can control the frequency of resource checks, optimizing performance without unnecessary overhead.
         </td>
         <td>
            Eviction doesn't run if this isn't defined.    
@@ -958,7 +965,7 @@ There are different connection configurations that can be used for the above pro
            Integer
         </td>
         <td>
-           The minimum amount of time an object must sit idle in the pool before it is eligible for eviction by the idle object evictor
+           Connections in the pool must remain idle for at least this specified duration before the evictor considers them for removal. This ensures that only connections inactive beyond a defined threshold are evicted, preventing premature eviction of frequently used resources.
         </td>
         <td>
            Eviction doesn't run if this and <code>evictionCheckInterval</code> aren't defined.
