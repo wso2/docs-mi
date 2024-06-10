@@ -7,7 +7,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
 <table>
   <tr>
     <td>
-      <b>Monolithic deployment</b>
+      <b>Centralized (ESB Style) Deployment</b>
     </td>
     <td>
       <ul>
