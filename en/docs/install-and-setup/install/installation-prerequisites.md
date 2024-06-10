@@ -25,7 +25,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
   </tr>
   <tr>
     <td>
-      <b>Microservices deployment</b>
+      <b>Decentralized (Microservices Style) Deployment</b>
     </td>
     <td>
       <ul>
