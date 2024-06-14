@@ -751,6 +751,28 @@ value = "C123d"
                                     </div>
                                 </div>
                             </div>
+			    <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>send_cookies_in_requests</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type boolean"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true or false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use this paramater to specify whether to include cookies in requests.</p>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="param">
                                 <div class="param-name">
                                   <span class="param-name-wrap"> <code>scope</code> </span>
