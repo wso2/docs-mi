@@ -1,6 +1,6 @@
-# Micro Integrator Dashboard Configuration Catalog
+# Integration Control Plane Configuration Catalog
 
-All the server-level configurations of your Micro Integrator Dashboard can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_DASHBOARD_HOME/conf` directory).
+All the server-level configurations of your Integration Control Plane can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `ICP_HOME/conf` directory).
 
 The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions.
 
@@ -8,10 +8,10 @@ The complete list of configuration parameters that you can use in the `deploymen
 
 To update the product configurations:
 
-1. Open the `deployment.toml` file (stored in the `MI_DASHBOARD_HOME/conf` directory).
+1. Open the `deployment.toml` file (stored in the `ICP_HOME/conf` directory).
 2. Select the required configuration headers and parameters from the list given below and apply them to the `deployment.toml` file.
 
-The **default** `deployment.toml` file of the Micro Integrator Dashboard is as follows:
+The **default** `deployment.toml` file of the Integration Control Plane is as follows:
 
 ```toml
 [server_config]
@@ -20,7 +20,7 @@ port = 9743
 [heartbeat_config]
 pool_size = 15
 
-[mi_user_store]
+[mi_super_admin]
 username = "admin"
 password = "admin"
 
@@ -52,7 +52,7 @@ port = 9743
                             <code>[server_config]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator Dashboard server.
+                                This configuration header is required for configuring the deployment parameters that are used for identifying a Integration Control Plane server.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -71,7 +71,7 @@ port = 9743
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The port of the Micro Integrator Dashboard.</p>
+                                        <p>The port of the Integration Control Plane.</p>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@ pool_size = 15
                             <code>[heartbeat_config]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the Micro Integrator dashboard server to listen to the Micro Inetgrator runtimes.
+                                This configuration header is required for the Integration Control Plane server to listen to the Micro Integrator runtimes.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -124,7 +124,7 @@ pool_size = 15
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The Micro Integrator Dashboard uses a thread pool executor to create threads and to handle incoming requests from Micro Integrator runtimes. This parameter controls the number of threads used by the executor pool.</p>
+                                        <p>The Integration Control Plane uses a thread pool executor to create threads and to handle incoming requests from Micro Integrator runtimes. This parameter controls the number of threads used by the executor pool.</p>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ pool_size = 15
     </section>
 </div>
 
-## Micro Integrator User Store
+## Integration Control Plane User Store
 
 <div class="mb-config-catalog">
     <section>
@@ -147,7 +147,7 @@ pool_size = 15
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[mi_user_store]
+<pre><code class="toml">[mi_super_admin]
 username = "admin"
 password = "admin"
 </code></pre>
@@ -156,10 +156,10 @@ password = "admin"
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[mi_user_store]</code>
+                            <code>[mi_super_admin]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the Micro Integrator dashboard server to connect with the Micro Integrator instances.
+                                This configuration header is required for the Integration Control Plane server to connect with the Micro Integrator instances.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -325,7 +325,7 @@ password="wso2carbon"</code></pre>
                         <div class="config-wrap">
                             <code>[truststore]</code>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator Dashboard to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication.
+                                This configuration header is required for configuring the parameters that connect the Integration Control Plane to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -649,7 +649,7 @@ value = "C123d"
                                         </div>                                        
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL of the Micro Integrator Dashboard. Be sure to replace {hostname/ip} and {port} with the relevant values.</p>
+                                        <p>The URL of the Integration Control Plane. Be sure to replace {hostname/ip} and {port} with the relevant values.</p>
                                     </div>
                                 </div>
                             </div>
@@ -671,7 +671,7 @@ value = "C123d"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The Sign In redirect URL of the Micro Integrator Dashboard. Be sure to replace {hostname/ip} and {port} with the relevant values.</p>
+                                        <p>The Sign In redirect URL of the Integration Control Plane. Be sure to replace {hostname/ip} and {port} with the relevant values.</p>
                                     </div>
                                 </div>
                             </div>
@@ -692,7 +692,7 @@ value = "C123d"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The Sign Out redirect URL of the Micro Integrator Dashboard. Be sure to replace {hostname/ip} and {port} with the relevant values.</p>
+                                        <p>The Sign Out redirect URL of the Integration Control Plane. Be sure to replace {hostname/ip} and {port} with the relevant values.</p>
                                     </div>
                                 </div>
                             </div>
@@ -748,6 +748,28 @@ value = "C123d"
                                     </div>
                                     <div class="param-description">
                                         <p>Use this paramater to specify if a PKCE should be sent with the request for the authorization code.</p>
+                                    </div>
+                                </div>
+                            </div>
+			    <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>send_cookies_in_requests</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type boolean"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true or false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use this paramater to specify whether to include cookies in requests.</p>
                                     </div>
                                 </div>
                             </div>
