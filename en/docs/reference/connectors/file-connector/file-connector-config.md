@@ -1584,6 +1584,46 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+                <tr>
+            <td>
+               Is Source Mounted
+            </td>
+            <td>
+                isSourceMounted
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Whether the source path is a mounted path or not.
+            </td>
+            <td>
+                false
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Is Target Mounted
+            </td>
+            <td>
+                isTargetMounted
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Whether the target path is a mounted path or not.
+            </td>
+            <td>
+                false
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response**
