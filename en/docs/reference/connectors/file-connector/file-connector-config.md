@@ -1388,6 +1388,46 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response**
@@ -2062,6 +2102,46 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response**
@@ -2274,6 +2354,46 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 All files.
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
             </td>
             <td>
                 No
@@ -2746,6 +2866,46 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 Hierarchical
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
             </td>
             <td>
                 No
@@ -3272,6 +3432,46 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 true
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
             </td>
             <td>
                 No
