@@ -64,7 +64,11 @@ The following software and configurations are required to proceed with this tuto
 Let's create an integration project with the required modules (to store artifacts) in VS Code.
 
 1. Launch VS Code with the Micro Integrator extension installed.
-2. Click **Create New Project** on **Design View**.
+2. Click on the WSO2 icon on the Activity Bar of the VS Code editor.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
+
+3. Click **Create New Project** on **Design View**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-view-pane-create-new-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-view-pane-create-new-project.png" alt="Design View Pane Create New Project" width="80%"></a>
 
@@ -73,14 +77,14 @@ Let's create an integration project with the required modules (to store artifact
 
         <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-new-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-new-project.png" alt="Create New Project" width="80%"></a>
 
-    Clicking **Create New Project** will open the **Project Creation Form** interface.
+   Next, the **Project Creation Form** interface will be opened.
 
-3. In the **Project Creation Form**, enter Healthcare as the **Project Name**.
-4. Provide a location under the **Select Project Directory**.
+4. In the **Project Creation Form**, enter `Healthcare` as the **Project Name**.
+5. Provide a location under the **Select Project Directory**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project-details.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project-details.png" alt="New Project Details" width="70%"></a>
 
-5. Click **Create**.
+6. Click **Create**.
 
     Upon clicking **Create**, the **MI Project Overview** interface will be displayed.
 
@@ -99,9 +103,12 @@ Let's create two Endpoint artifacts for the two healthcare services:
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-endpoint.png" alt="Create Endpoint" width="80%"></a>
 
     !!! tip
-        You can also create an endpoint using the Add Artifact pane.
+        You can also create an endpoint using the **Add Artifact** pane.
+
         1. Click **View More** to see all the available artifacts.
         2. Click **Endpoint**.
+
+          <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/view-more-artifacts.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/view-more-artifacts.gif" alt="View more artifacts" width="700"></a>
 
 3. Next, select the endpoint type you want from the **Create Endpoint Artifact** interface.
 
@@ -167,7 +174,7 @@ We are orchestrating multiple services and exposing a single API to the clients.
 
 1. Go to **MI Project Explorer** > **APIs**.
 
-2. Click on the **+** sign next to APIs to open the below Synapse API Artifact creation form.
+2. Click on the **+** sign next to APIs to open the below **Synapse API Artifact** creation form.
 
 3. Specify values for the required REST API properties:
 
@@ -182,7 +189,7 @@ We are orchestrating multiple services and exposing a single API to the clients.
       </tr>
       <tr>
         <td>Context</td>
-        <td><code>/healthcare</code></td>
+        <td><code>healthcare</code></td>
       </tr>
     </table> 
 
@@ -257,13 +264,13 @@ We are orchestrating multiple services and exposing a single API to the clients.
     
     We need to have two branches inside the Clone mediator. 
     
-    d. Click on the + sign to create the first branch.
+    d. Click on the **+** sign to create the first branch.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-branch-1.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-branch-1.png" alt="Add Branch" width="80%"></a>
 
 2. Invoke the GrandOak Endpoint:
 
-    The **Call** mediator is used to invoke a back-end service. In [Step 2](), we have already created an Endpoint to represent the GrandOak endpoint.
+    The **Call** mediator is used to invoke a back-end service. In [Step 2](#create-endpoints), we have already created an Endpoint to represent the GrandOak endpoint.
 
     a. Click on the **+** sign placed on the first branch of the Clone mediator.
     
@@ -271,11 +278,11 @@ We are orchestrating multiple services and exposing a single API to the clients.
     
     b. Select **Call** mediator from the **Core** section under **All Mediators**.
     
-    Upon clicking you will see the **Add Call** pane where you can Invoke external services in blocking/non-blocking mode.
+    Upon clicking you will see the **Call** pane where you can invoke external services in blocking/non-blocking mode.
     
     c. Under **Select Endpoint**, select `GrandOakEndpoint`.
     
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/select-grandoakendpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/select-grandoakendpoint.png" alt="Select Grandoakendpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/select-grandoakendpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/select-grandoakendpoint.png" alt="Select Grandoakendpoint" width="35%"></a>
     
     d. Click **Submit**.
     
@@ -300,52 +307,37 @@ We are orchestrating multiple services and exposing a single API to the clients.
     
     c. Select **Payload** mediator from the **Transformation** section under **All Mediators**.
     
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/payload-mediator.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/payload-mediator.png" alt="Payload mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/payload-mediator.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/payload-mediator.png" alt="Payload mediator" width="35%"></a>
     
-    d. In the **Add Payload** interface, specify the values for the required PayloadFactory properties as shown below:
+    d. In the **Payload** interface, specify the values for the required PayloadFactory properties as shown below:
 
-    <table>
-        <tr>
-           <th>Parameter</th>
-           <th>Value</th>
-        </tr>
-        <tr>
-          <td>Payload Format</td>
-          <td><code>Inline</code></td>
-        </tr>
-        <tr>
-          <td>Media Type</td>
-          <td><code>json</code></td>
-        </tr> 
-        <tr>
-          <td>Payload</td>
-          <td>{ "doctorType": "$1" }</td>
-        </tr>
-        <tr>
-          <td>Args</td>
-          <td>$ctx:uri.var.doctorType</td>
-        </tr>
-    </table>
+      | Parameter      | Value                     |
+      |----------------|---------------------------|
+      | Payload Format | `Inline`                  |
+      | Media Type     | `json`                    |
+      | Payload        | `{ "doctorType": "$1" }`  |
        
     !!! note
         The `$1` in the Payload format denotes a parameter that can get a value assigned dynamically. The value for the parameters 
         needs to be assigned using Arguments (Args).
     
-    e. Specify the **Argument Value** by clicking on **Add Parameter** under **Args**.
+    e. Click on **Add Parameter** under **Args**.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-payload-args.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-payload-args.png" alt="Add payload args" width="30%"></a>
     
-    f. Once you specify the Argument Value, click on the `EX` button next to the input field to enable the button.
+    f. Set the **Argument Value** to `$ctx:uri.var.doctorType`.
+
+    g. Once you specify the Argument Value, click on the `EX` button next to the input field to enable the button.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/argument-value-ex.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/argument-value-ex.png" alt="Argument value expression" width="30%"></a>
     
-    g. Then click on the **Edit** (pen) icon just on top of that.
+    h. Then click on the **Edit** (pen) icon just on top of that.
     
-    h. On the next interface that appears, set the **Expression Value** to `$ctx:uri.var.doctorType` and click **Save**.
+    i. On the next interface that appears, set the **Expression Value** to `$ctx:uri.var.doctorType` and click **Save**.
     
-    i. Click **Save**.
+    j. Click **Save** under the **Args** section.
     
-    j. Click **Submit**.
+    k. Click **Submit**.
 
 4. Invoke the PineValley Endpoint
 
@@ -372,8 +364,10 @@ We are orchestrating multiple services and exposing a single API to the clients.
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-aggregate-mediator.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-aggregate-mediator.png" alt="Add aggregate mediator" width="80%"></a>
     
     b. Select **Aggregate** mediator from the **Flow Control** section under **All Mediators**.
-       
-    c. In the **Add Aggregate** interface, specify values for the required Aggregate mediator properties.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/aggregate-mediator.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/aggregate-mediator.png" alt="Aggregate mediator" width="35%"></a>
+
+    c. In the **Aggregate** pane, specify values for the required Aggregate mediator properties.
     
        <table>
          <tr>
@@ -405,7 +399,7 @@ We are orchestrating multiple services and exposing a single API to the clients.
 
 The final mediation configuration looks similar to the below diagram.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png" alt="Final resource view" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png" alt="Final resource view" width="40%"></a>
 
 Following is what you will see in the **Source View** of the VS Code.
 
@@ -417,45 +411,41 @@ Following is what you will see in the **Source View** of the VS Code.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
-<resource methods="GET" uri-template="/doctor/{doctorType}">
-    <inSequence>
-  <clone>
-      <target>
-    <sequence>
-        <call>
-      <endpoint key="GrandOakEndpoint"/>
-        </call>
-    </sequence>
-      </target>
-      <target>
-    <sequence>
-        <payloadFactory media-type="json">
-      <format>{
-            "doctorType": "$1"
-               }
-      </format>
-      <args>
-          <arg evaluator="xml" expression="$ctx:uri.var.doctorType"/>
-      </args>
-        </payloadFactory>
-        <call>
-      <endpoint key="PineValleyEndpoint"/>
-        </call>
-    </sequence>
-      </target>
-  </clone>
-  <aggregate>
-      <completeCondition>
-    <messageCount max="-1" min="-1"/>
-      </completeCondition>
-      <onComplete expression="json-eval($.doctors.doctor)">
-    <respond/>
-      </onComplete>
-  </aggregate>
-    </inSequence>
-    <outSequence/>
-    <faultSequence/>
-</resource>
+   <resource methods="GET" uri-template="/doctor/{doctorType}">
+      <inSequence>
+         <clone>
+            <target>
+               <sequence>
+                  <call>
+                     <endpoint key="GrandOakEndpoint"/>
+                  </call>
+               </sequence>
+            </target>
+            <target>
+               <sequence>
+                  <payloadFactory media-type="json" template-type="default">
+                     <format>{ "doctorType": "$1" }</format>
+                     <args>
+                        <arg expression="$ctx:uri.var.doctorType" evaluator="xml"/>
+                     </args>
+                  </payloadFactory>
+                  <call>
+                     <endpoint key="PineValleyEndpoint"/>
+                  </call>
+               </sequence>
+            </target>
+         </clone>
+         <aggregate id="">
+            <completeCondition timeout="0">
+               <messageCount max="{-1}" min="{-1}"/>
+            </completeCondition>
+            <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)"></onComplete>
+         </aggregate>
+         <respond/>
+      </inSequence>
+      <faultSequence>
+      </faultSequence>
+   </resource>
 </api>
 ```
 
@@ -505,25 +495,25 @@ There are two main options to build and run the integration scenario.
 
 ### Option 2: Using a local Micro Integrator instance
 
-1. Export the artifacts as a deployable CAR file
+1. Export the artifacts as a deployable CAR file:
 
-    a. Go to the MI Overview pane using the Home icon.
+    a. Go to the MI Overview pane using the **Home** icon.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/home-icon.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/home-icon.png" alt="Home icon" width="25%"></a>
     
-    b. Click the Build icon located in the top right corner of VS Code.
+    b. Click the **Build** icon located in the top right corner of VS Code.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png" alt="Build and export" width="25%"></a>
     
-    c. Click the **Export** icon next to the Build icon.
+    c. Click the **Export** icon next to the **Build** icon.
     
-    d. Select a destination to export the .car file.
+    d. Select a destination to export the `.car` file.
     
-    e. Once you select a folder the artifacts will be exported as a deployable car file to that location.
+    e. Once you select a folder, the artifacts will be exported as a deployable CAR file to that location.
 
 2. Deploy the Healthcare service: Copy the exported CAR file of the Healthcare service to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
-3. Start the Micro Integrator.
+3. Start the Micro Integrator:
 
     a. Open a terminal and navigate to the `<MI_HOME>/bin` folder.  
     b. Execute one of the commands given below.   
@@ -623,6 +613,4 @@ There are two ways to invoke the service:
         ]
     ]
     ```
-
-
-
+  

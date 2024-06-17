@@ -255,8 +255,6 @@ nav:
           - Overview - Micro Integrator for VSCode:  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
           - Developing Your First Integration Solution Using MI for VS Code: develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md
-          #- Build and Run: develop/mi-for-vscode/build-and-run.md
-          #- Debugging: develop/mi-for-vscode/debugging.md
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
