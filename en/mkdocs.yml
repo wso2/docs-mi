@@ -459,6 +459,8 @@ nav:
           - MI Analytics:
               - Setup: mi-analytics/setting-up-mi-analytics.md
               - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
+          - Other Analytics:
+              - Datadog Analytics Installation Guide: mi-analytics/datadog-analytics-installation-guide.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
           - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
