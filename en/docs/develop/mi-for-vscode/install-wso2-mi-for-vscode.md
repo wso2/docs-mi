@@ -51,4 +51,4 @@ Follow one of the following two options to install the MI VS Code extension.
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="700"></a>
 
 !!! info "What's Next?"
-    See [Developing Your First Integration Solution Using MI for VS Code]({{base_path}}/develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md) to build a sample integration scenario.
+    See [Developing Your First Integration Solution Using MI for VS Code]({{base_path}}/develop/mi-for-vscode/quick-start-guide-mi-for-vscode) to build a sample integration scenario.
