@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-This sample demonstrates how to pick a file from a folder and process it within the Micro Integrator. In this sample scenario you pick a file from the local directory, insert the records in the file to a database, send an email with the file content, trace and write the log and finally move the file to another directory.
+This sample demonstrates how to pick a file from a folder and process it within the Micro Integrator. In this sample scenario, you pick a file from the local directory, insert the records in the file to a database, send an email with the file content, trace and write the log and finally move the file to another directory.
 
 <!--
 The result of the query should be as follows when you query to view the records in the `test.info` table. You will see that there is no data in the table.
