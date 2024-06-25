@@ -2,7 +2,7 @@
 
 ## What's new in this release?
 
-The following features and improvements were introduced with <b>Micro Integrator</b> 4.2.0:
+The following features and improvements were introduced with <b>Micro Integrator 4.2.0</b>:
 
 ??? note "JDK 17 support"
     You can now run Micro Integrator with JDK 17.
