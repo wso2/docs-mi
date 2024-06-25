@@ -49,8 +49,7 @@ to the required destination.
 ### Message Stores and Processors
 
 A **Message Store** is used by a [mediation sequence](#mediation-sequences) to temporarily store messages before they are delivered to their destination. This approach is useful for several scenarios.
-1. Serving traffic to back-end services that can only accept messages at a given rate, 
-whereas incoming traffic arrives at different rates. This use case is called **request rate matching**.
+1. Serving traffic to back-end services that can only accept messages at a given rate, whereas incoming traffic arrives at different rates. This use case is called **request rate matching**.
 2. If the back-end service is not available at a particular moment, the message can be kept safely inside the message store until the back-end service becomes available. This use case is called **Guaranteed delivery**. 
 
 The task of the **Message Processor** is to pick the messages stored in the Message Store and deliver 
