@@ -19,6 +19,12 @@ Data Mapper mediator finds the configuration files from the Registry and configu
     The Data Mapper mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
     If you are running JDK 17 or later, NashornJS is not provided by JDK and you need to manually add [org.openjdk.nashorn.nashorn-core version 15.3](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.3) and [org.ow2.asm.asm-util verion 9.3 jars](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.2) to the `<MI_HOME>/lib` directory.
 
+!!! Info
+    If you are using Micro Integrator Visual Studio Code Extension to develop datamapper integration, then you need to add the following system property to the micro-integrator.sh file to enable the JavaScript ES6 syntax.
+    ```sh
+    -Dnashorn.args=--language=es6
+    ```
+
 ## Syntax
 
 ```xml
