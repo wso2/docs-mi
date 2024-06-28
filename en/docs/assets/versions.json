@@ -1,13 +1,18 @@
 {
-  "4.2.0": "4.2.0",
-  "current": "4.2.0",
+  "4.3.0": "4.3.0",
+  "current": "4.3.0",
   "list": [
+    "4.3.0",
     "4.2.0"
    ],
   "all": {
+    "4.3.0":{
+        "doc": "4.3.0",
+        "notes": "4.3.0/get-started/about-this-release"
+    },
     "4.2.0":{
-        "doc": "4.2.0",
-        "notes": "4.2.0/get-started/about-this-release"
+        "doc": "https://mi.docs.wso2.com/en/4.2.0/",
+        "notes": "https://mi.docs.wso2.com/en/4.2.0/get-started/about-this-release/"
     }
   }
 }
