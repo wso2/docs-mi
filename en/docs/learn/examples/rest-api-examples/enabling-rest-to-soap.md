@@ -23,15 +23,12 @@ Following is a sample REST API configuration that we can used to implement this 
            </args>
         </payloadFactory>
         <header name="Action" value="urn:getQuote"/>
-        <send>
+        <call>
           <endpoint>
             <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
           </endpoint>
-        </send>
+        </call>
       </inSequence>
-      <outSequence>
-        <send/>
-      </outSequence>
    </resource>
    <resource url-mapping="/order/*" methods="POST">
       <inSequence>
