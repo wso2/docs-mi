@@ -25,15 +25,12 @@ This is a REST API with two API resources. The GET calls are handled by the firs
             </args>
          </payloadFactory>
          <header name="Action" value="urn:getQuote"/>
-         <send>
+         <call>
            <endpoint>
               <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
            </endpoint>
-         </send>
+         </call>
       </inSequence>
-      <outSequence>
-         <send/>
-      </outSequence>
    </resource>
    <resource methods="POST" url-mapping="/order/*">
       <inSequence>
