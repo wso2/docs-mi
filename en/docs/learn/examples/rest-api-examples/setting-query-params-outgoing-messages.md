@@ -35,17 +35,14 @@ There are two query parameters (customer name and ID) that must be set in the ou
             </args>
          </payloadFactory>
          <property name="SOAPAction" value="urn:getQuote" scope="transport"/>
-         <send>
+         <call>
             <endpoint>
                <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
             </endpoint>
-         </send>
+         </call>
       </inSequence>
-      <outSequence>
-         <send/>
-      </outSequence>
    </resource>
-</api>                  
+</api>
 ```
 
 ## Reading a query or path parameter
