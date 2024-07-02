@@ -1,6 +1,6 @@
 # Deploying Artifacts
 
-Now you have developed an integration using the Micro Integrator VS Code plugin, we have several options to deploy that integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the Micro Integrator Visual Studio Code plugin, you have several options to deploy that integration to the Micro Integrator server runtime.
 
 ## Build and Run
 
