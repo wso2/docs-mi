@@ -53,7 +53,7 @@ We can use the Micro Integrator VS Code extension to build a Docker image of our
     docker run -p 8290:8290 -p 8253:8253 -p 9164:9164 <DOCKER_IMAGE_NAME>
     ```
 
-    Replace `<image-name>` with the name of the Docker image you have built.
+    Replace `<DOCKER_IMAGE_NAME>` with the name of the Docker image you have built.
 
 !!! Note
     You might get the following error depending on the name you have given to the project. 
