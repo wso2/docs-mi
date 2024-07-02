@@ -879,8 +879,8 @@ plugins:
         - wip/*
   - redirects:
       redirect_maps:
-              'reference/synapse-properties/sequence-properties': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
-              'develop/mi-for-vscode/quick-start-guide-mi-for-vscode': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
+              'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
+              'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
 
   # Extra
 extra_css:
