@@ -1,27 +1,67 @@
 # Deploying Artifacts
 
-Once you have your integration artifacts developed and [packaged in a composite exporter]({{base_path}}/develop/packaging-artifacts), you can deploy the composite exporter in your Micro Integrator server or your container environment.
+Now you have developed an integration using the Micro Integrator VS Code plugin, we have several options to deploy that integration to the Micro Integrator server runtime.
 
-## Deploy artifacts in the embedded Micro Integrator
+## Build and Run
 
-The light-weight Micro Integrator is already included in your WSO2 Integration Studio package, which allows you to deploy and run the artifacts instantly.
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator server and on your computer.
+2.  Add the server to the VS Code extension using the following steps (if not already).
+    1. Open the command palette by pressing `Ctrl+Shift+P` and select the command `Add MI Server`.
+    2. In the file selector that opens, select the Micro Integrator server directory.
+       <a href="{{base_path}}/assets/img/develop/add-server.png"><img src="{{base_path}}/assets/img/develop/add-server.png" alt="addServer" width="700"></a>
+    
+3.  Bring the **Project Overview** page by clicking on the **Project Overview** icon.
+    <a href="{{base_path}}/assets/img/develop/open-project-overview.png"><img src="{{base_path}}/assets/img/develop/open-project-overview.png" alt="projectOverview" width="700"></a>
 
-See the instructions in [using the embedded Micro Integrator]({{base_path}}/develop/using-embedded-micro-integrator) of WSO2 Integration Studio. 
+4.  Click on the **Build and Run** button on top right corner of the **Project Overview** page.
 
-## Deploy artifacts in a remote Micro Integrator instance
+    <a href="{{base_path}}/assets/img/develop/build-and-run.png"><img src="{{base_path}}/assets/img/develop/build-and-run.png" alt="buildAndRun" width="300"></a>
 
-Download and set up a Micro Integrator server in your VM and deploy the composite exporter with your integration artifacts. 
+5.  Then the artifacts will get deployed in the Micro Integrator server and you can see the deployment logs in the **Console**.
 
-See the instructions in [using a remote Micro Integrator]({{base_path}}/develop/using-remote-micro-integrator).
+    <a href="{{base_path}}/assets/img/develop/run-overview.png"><img src="{{base_path}}/assets/img/develop/run-overview.png" alt="deploymentLogs" width="700"></a>
 
-## Deploy artifacts in Docker
+## Build and Export the Carbon Application
 
-Use the <b>Docker Exporter</b> module in WSO2 Integration Studio to build a Docker image of your Micro Integrator solution and push it to your Docker registry. You can then use this Docker image from your Docker registry to start Docker containers.
+If we are deploying the Carbon Application in some remote server which we cannot configure as in the **Build and Run** option, we can export the Carbon Application and deploy it in the server manually.
 
-See the instructions on using the [Docker Exporter]({{base_path}}/develop/create-docker-project).
+- Click on the **Build** button on top right corner of the **Project Overview** page to build the Carbon Application.
+  Once the build is finished, you can switch to VS Code default file explorer view and get the Carbon Application file from the target directory. 
 
-## Deploy artifacts in Kubernetes
+    <a href="{{base_path}}/assets/img/develop/build-capp.png"><img src="{{base_path}}/assets/img/develop/build-capp.png" alt="build" width="700"></a>
 
-Use the <b>Kubernetes Exporter</b> module in WSO2 Integration Studio to deploy a Docker image of your Micro Integrator Solution in a Kubernetes environment. 
+- To build and export in single step, click on the **Export** button on top right corner of the **Project Overview** page to export the Carbon Application.
+  Select a directory to save the exported Carbon Application file.
 
-See the instructions on using the [Kubernetes Exporter]({{base_path}}/develop/create-kubernetes-project).
+    <a href="{{base_path}}/assets/img/develop/export-capp.png"><img src="{{base_path}}/assets/img/develop/export-capp.png" alt="export" width="700"></a>
+
+Once the Carbon Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
+
+## Build Docker image
+
+We can use the Micro Integrator VS Code extension to build a Docker image of our integration solution.
+
+1.  Make sure the Docker is installed in your computer and the Docker daemon is running.
+2.  Click on the **Build** button on top right corner of the **Project Overview** page and select docker option to build the Docker image.
+
+    <a href="{{base_path}}/assets/img/develop/build-docker.png"><img src="{{base_path}}/assets/img/develop/build-docker.png" alt="dokcer" width="700"></a>
+
+3. Run `docker images` command to verify the Docker image built correctly.
+4. Run the Docker image using the following command.
+
+    ```bash
+    docker run -p 8290:8290 -p 8253:8253 -p 9164:9164 <image-name>
+    ```
+
+    Replace `<image-name>` with the name of the Docker image you have built.
+
+!!! Note
+    You might get the following error depending on the name you have given to the project. 
+
+    ```image part 'HelloWorld' doesn't match allowed pattern '[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?(?:(?:/[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?)+)?'```
+
+    To resolve this, go to the `pom.xml` file, locate the `io.fabric8` maven plugin and change the `<name>` configuration to match the regex
+    ```xml
+    <name>helloworld:${project.version}</name>
+    ```
+    Then build the Docker image again.
