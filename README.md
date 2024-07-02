@@ -171,7 +171,7 @@ Navigate to the location where you want to clone the repository and clone the fo
 
 2. Update the `base_path` to `http://localhost:8000/en/latest`.
 
-### <a name="run"></a> Step 6 - Run MkDocs
+### <a name="run"></a> Step 7 - Run MkDocs
 
 1. Run the following command to start the server and view the site on your local server.
 
