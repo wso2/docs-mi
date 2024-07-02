@@ -50,7 +50,7 @@ We can use the Micro Integrator VS Code extension to build a Docker image of our
 4. Run the Docker image using the following command.
 
     ```bash
-    docker run -p 8290:8290 -p 8253:8253 -p 9164:9164 <DOCKER_IMAGE-NAME>
+    docker run -p 8290:8290 -p 8253:8253 -p 9164:9164 <DOCKER_IMAGE_NAME>
     ```
 
     Replace `<image-name>` with the name of the Docker image you have built.
