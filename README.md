@@ -166,7 +166,7 @@ Navigate to the location where you want to clone the repository and clone the fo
       pip3 install -r requirements.txt
       ```
 
-### <a name="run"></a> Step 5 - Run MkDocs
+### Step 6 - Run MkDocs
 
 1. Run the following command to start the server and view the site on your local server.
 
@@ -209,7 +209,18 @@ Navigate to the location where you want to clone the repository and clone the fo
     >     `strict: true`
     > 
 
-## <a name="cla"></a> Signing the CLA
+    > **NOTE**:
+    >
+    > If you are adding new images or new pages to the doc space, update the base path when locally running the project. 
+    >  
+    > 1. Open the `mkdocs.yml` file located in the `docs-mi/en/docs/` directory.
+    >
+    > 2. Update the `base_path` to `http://localhost:8000/en/latest`.
+    >
+    > 3. Make sure to undo this change before submitting the pull request.
+    >    
+   
+## Signing the CLA
 
 - Accept and sign the Contributor License Agreement (CLA) before sending pull requests. For any changes to be accepted, the CLA must be signed.
 
