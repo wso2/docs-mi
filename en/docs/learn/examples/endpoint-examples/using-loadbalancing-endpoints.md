@@ -49,9 +49,6 @@ Following is a sample REST API configuration that we can used to implement this 
                 </call>
                 <respond/>
            </inSequence>
-           <outSequence>
-                <send/>
-           </outSequence>
            <faultSequence>
                 <sequence key="errorHandler"/>
            </faultSequence>
@@ -60,7 +57,7 @@ Following is a sample REST API configuration that we can used to implement this 
     ```
 === "Sequence"    
     ```xml
-    <sequence name="errorHandler"> 
+    <sequence name="errorHandler" xmlns="http://ws.apache.org/ns/synapse"> 
         <makefault version="soap11">
             <code value="soap11Env:VersionMismatch" xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/"/>
             <reason value="COULDN'T SEND THE MESSAGE TO THE SERVER."/>
@@ -76,8 +73,7 @@ Following is a sample REST API configuration that we can used to implement this 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the Proxy]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and the Sequence with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -97,7 +93,7 @@ Set up the back-end service:
         axis2server.bat
         ```
       
-3. Open the `tcpmon` application, which is in `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/bin/` (in MacOS) or `MI_TOOLING_HOME/runtime/microesb/bin` (in Windows/Linux) directory.
+3. Open the `tcpmon` application, which is in the `MI_HOME/bin/` directory.
 4. Configure `tcpmon` to listen to ports `9001, 9002, and 9003` and set the target hostname to `localhost` and target port to `9000` in each instance.
 
 Invoking the proxy service:
