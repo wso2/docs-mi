@@ -8,44 +8,52 @@ VFS transport listener will pick the file from the directory in the FTP server. 
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<proxy name="SFTPtoMailToProxy" startOnLoad="true" transports="vfs" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="transport.vfs.FileURI">vfs:sftp://guest:guest@localhost/test?vfs.passive=true</parameter> <!--CHANGE-->
-    <parameter name="transport.vfs.ContentType">text/xml</parameter>
-    <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
-    <parameter name="transport.PollInterval">15</parameter>
-    <target>
-        <inSequence>
-            <header name="Action" value="urn:getQuote"/>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <property action="set" name="OUT_ONLY" value="true"/>
-            <send>
-                <endpoint>
-                    <address uri="mailto:user@host"/>
-                </endpoint>
-            </send>
-        </outSequence>
-    </target>
-    <publishWSDL key="conf:custom/sample_proxy_1.wsdl" preservePolicy="true"/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy name="SFTPtoMailToProxy" startOnLoad="true" transports="vfs" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <header name="Action" value="urn:getQuote" />
+                <call>
+                    <endpoint key="SimpleStockQuoteService" />
+                </call>
+                <property action="set" name="OUT_ONLY" value="true" />
+                <property name="Subject" scope="transport" type="STRING" value="Stock quote response" />
+                <property name="messageType" scope="axis2" type="STRING" value="application/xml" />
+                <send>
+                    <endpoint key="MailEndpoint" />
+                </send>
+            </inSequence>
+        </target>
+        <parameter name="transport.vfs.FileURI">vfs:sftp://guest:guest@localhost/test?vfs.passive=true</parameter> <!--CHANGE-->
+        <parameter name="transport.vfs.ContentType">text/xml</parameter>
+        <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
+        <parameter name="transport.PollInterval">15</parameter>
+    </proxy>
+    ```
+
+=== "SimpleStockQuoteService Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
+
+=== "Mail Endpoint" 
+    ```xml
+    <endpoint name="MailEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="mailto:user@host"/>
+    </endpoint>
+    ```
 
 ## Build and Run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources) (change the registry path of the proxy accordingly). 
-4. Create the proxy service with the [VFS configurations parameters given above]({{base_path}}/reference/config-catalog-mi/#vfs-transport).
-5. Configure [MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator and start the Micro Integrator.
+{!includes/build-and-run.md!} 
+3. Create the proxy service with the [VFS configurations parameters given above]({{base_path}}/reference/config-catalog-mi/#vfs-transport).
+4. Configure [MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator and start the Micro Integrator.
 
 Set up the back-end service.
 
