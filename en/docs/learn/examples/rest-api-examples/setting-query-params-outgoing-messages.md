@@ -35,17 +35,14 @@ There are two query parameters (customer name and ID) that must be set in the ou
             </args>
          </payloadFactory>
          <property name="SOAPAction" value="urn:getQuote" scope="transport"/>
-         <send>
+         <call>
             <endpoint>
                <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
             </endpoint>
-         </send>
+         </call>
       </inSequence>
-      <outSequence>
-         <send/>
-      </outSequence>
    </resource>
-</api>                  
+</api>
 ```
 
 ## Reading a query or path parameter
@@ -82,8 +79,7 @@ The following sample indicates how the expressions can be defined using `get-pro
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
