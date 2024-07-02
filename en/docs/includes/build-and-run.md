@@ -1,5 +1,3 @@
-Create the artifacts:
-
 1. Launch Visual Studio Code with the Micro Integrator extension installed.
 
     !!! info
