@@ -103,7 +103,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
 Let's take a look at the curl commands that are used to send the HTTP
 requests for each of the resources:
