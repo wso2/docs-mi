@@ -25,7 +25,7 @@ Let's create a MySQL database with the required data.
 Given below is the data service configuration you need to build. See the instructions on how to [build and run](#build-and-run) this example.
 
 ```xml
-<data enableBatchRequests="true" name="RDBMSDataService" serviceGroup="" serviceNamespace="">
+<data enableBatchRequests="true" name="RDBMSDataService" serviceGroup="" serviceNamespace="" transports="http">
     <description/>
     <query id="GetEmployeeDetails" useConfig="Datasource">
         <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees where EmployeeNumber=:EmployeeNumber</sql>
@@ -43,7 +43,6 @@ Given below is the data service configuration you need to build. See the instruc
     <property name="url">jdbc:mysql://localhost:3306/Employees</property>
     <property name="username">root</property>
     <property name="password"></property>
-    <property name="dynamicUserAuthClass">com.mysql.jdbc.Driver</property>
   </config>
     <query id="AddEmployeeDetails" useConfig="Datasource">
         <sql>insert into Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values(:EmployeeNumber,:FirstName,:LastName,:Email,:Salary)</sql>
@@ -95,12 +94,11 @@ Given below is the data service configuration you need to build. See the instruc
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
-2.  Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/) and copy it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` (for MacOS) or 
-`MI_TOOLING_HOME/runtime/microesb/lib/` (for Windows) directory. 
+1. Install the Micro Integrator extension in Visual Studio Code. 
+2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/) and copy it to the `deployment/lib/` directory in the project structure. 
 
     !!! Note
-        If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver`.
+        If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
         
 3. [Create a Data Service project]({{base_path}}/develop/create-data-services-configs).
 4. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
@@ -156,8 +154,8 @@ This generates a response as follows.
     ```bash
     <_putemployee>
         <EmployeeNumber>3</EmployeeNumber>
-        <LastName>Smith</LastName>
-        <FirstName>Will</FirstName>
+        <FirstName>Smith</FirstName>
+        <LastName>Will</LastName>
         <Email>will@google.com</Email>
         <Salary>30000.0</Salary>
     </_putemployee>
