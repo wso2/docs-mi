@@ -23,15 +23,12 @@ Following is a sample REST API configuration that we can used to implement this 
            </args>
         </payloadFactory>
         <header name="Action" value="urn:getQuote"/>
-        <send>
+        <call>
           <endpoint>
             <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
           </endpoint>
-        </send>
+        </call>
       </inSequence>
-      <outSequence>
-        <send/>
-      </outSequence>
    </resource>
    <resource url-mapping="/order/*" methods="POST">
       <inSequence>
@@ -64,8 +61,7 @@ In the second resource, we have defined the URL mapping as "/order/\*". Since th
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
