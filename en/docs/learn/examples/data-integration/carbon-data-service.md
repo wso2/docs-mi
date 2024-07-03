@@ -10,7 +10,7 @@ persistent, and can be used whenever required.
 Create a MySQL database with the required data.
 
 1.  Install the MySQL server.
-2.  Create a database named `Employees` .
+2.  Create a database named `Employees`.
 
     ```bash
     CREATE DATABASE Employees;
