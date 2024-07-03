@@ -5,6 +5,25 @@ Micro Integrator. You can simply use
 that as the datasource for a data service. A Carbon datasource is
 persistent, and can be used whenever required.
 
+## Prerequisites
+
+Create a MySQL database with the required data.
+
+1.  Install the MySQL server.
+2.  Create a database named `Employees` .
+
+    ```bash
+    CREATE DATABASE Employees;
+    ```
+
+3.  Create the Employee table inside the Employees database:
+
+    ```bash
+    USE Employees;
+
+    CREATE TABLE Employees (EmployeeNumber int(11) NOT NULL, FirstName varchar(255) NOT NULL, LastName varchar(255) DEFAULT NULL, Email varchar(255) DEFAULT NULL, Salary varchar(255));
+    ```
+
 ## Synapse configurations
 
 Given below is the data service configuration you need to build. See the instructions on how to [build and run](#build-and-run) this example.
