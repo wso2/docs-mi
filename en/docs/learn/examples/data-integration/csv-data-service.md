@@ -49,7 +49,8 @@ Given below is the data service configuration you need to build. See the instruc
 
 Create the artifacts:
 
-1. {!includes/build-and-run.md!}
+{!includes/build-and-run.md!}
+
 2. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
    **Be sure** to update the CSV datasource path.
 3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
