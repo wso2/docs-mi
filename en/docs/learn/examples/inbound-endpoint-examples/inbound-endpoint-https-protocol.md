@@ -35,7 +35,7 @@ Following are the integration artifacts that we can used to implement this scena
         </p:parameters>
     </inboundEndpoint>
     ```
-=== "Sequence 1"    
+=== "Sequence"    
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="TestIn">
@@ -68,9 +68,8 @@ Set up the back-end service:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. See the instructions on [creating mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) to define the two sequences given above ('Sequence 1' and 'Sequence 2'). 
+{!includes/build-and-run.md!}
+3. See the instructions on [creating mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) to define the sequence given above. 
 4. See the instructions on [creating an inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) to define the inbound endpoint given above.
 
     !!! Tip
@@ -89,7 +88,7 @@ Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
 Content-Length: 492
-Host: localhost:8290
+Host: localhost:8085
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 Authorization: Basic YWRtaW46YWRtaW4=
