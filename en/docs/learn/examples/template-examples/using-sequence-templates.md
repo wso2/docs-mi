@@ -280,7 +280,7 @@ Following are the integration artifacts we can use to implement this scenario. S
 Create the artifacts:
 
 1. {!includes/build-and-run.md!}
-2. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api), [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates), [Sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences/), [Message Store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/), and [Message Processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor/) with the configurations given above.
+2. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api), [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates), [sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences/), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor/) with the configurations given above.
 3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Use the following request and payload to invoke the service.
