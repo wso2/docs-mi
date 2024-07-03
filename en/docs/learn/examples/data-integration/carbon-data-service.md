@@ -16,7 +16,7 @@ Create a MySQL database with the required data.
     CREATE DATABASE Employees;
     ```
 
-3.  Create the Employee table inside the Employees database:
+3.  Create the `Employees` table inside the `Employees` database:
 
     ```bash
     USE Employees;
