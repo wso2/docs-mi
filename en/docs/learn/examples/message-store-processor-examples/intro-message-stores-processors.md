@@ -49,15 +49,14 @@ Following are the artifact configurations that we can use to implement this scen
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+1. {!includes/build-and-run.md!}
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Send the following request to invoke the service:
 
 ```xml
-POST http://localhost:9090/services/SampleProxy HTTP/1.1
+POST http://localhost:8290/services/SampleProxy HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
