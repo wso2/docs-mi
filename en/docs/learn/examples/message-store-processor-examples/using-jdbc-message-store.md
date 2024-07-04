@@ -3,7 +3,7 @@ In this sample, the client sends requests to a proxy service. The proxy service 
 
 ## Prerequisites
 
-Setup the database. Use one of the following DB scripts depending on which database type you want to use. 
+Set up the database. Use one of the following DB scripts depending on which database type you want to use. 
 
 === "MySQL"
     ```SQL
