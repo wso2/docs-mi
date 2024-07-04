@@ -1,8 +1,6 @@
 # Task Scheduling using a Simple Trigger
 This example demonstrates the concept of tasks and how a simple trigger works. Here the `MessageInjector` class is used, which injects a specified message to the Micro Integrator environment. You can write your own task class implementing the `org.apache.synapse.startup.Task` interface and implement the `execute` method to run the task.
 
-If the task should send the message directly to the endpoint through the main sequence, the endpoint address should be specified. For example, if the address of the endpoint is `http://localhost:9000/services/SimpleStockQuoteService`, the Synapse configuration of the scheduled task will be as shown below.
-
 ## Synapse configurations
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
@@ -13,7 +11,6 @@ Following are the integration artifacts that we can used to implement this scena
     <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="CheckPrice" xmlns="http://ws.apache.org/ns/synapse">
         <trigger interval="5"/>
         <property name="soapAction" value="urn:getQuote" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-        <property name="to" value="http://localhost:9000/services/SimpleStockQuoteService" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
         <property name="format" value="soap11" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
         <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
             <m0:getQuote xmlns:m0="http://services.samples">
@@ -22,35 +19,43 @@ Following are the integration artifacts that we can used to implement this scena
                 </m0:request>
             </m0:getQuote>
         </property>
+        <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="injectTo" value="sequence"/>
+        <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="sequenceName"   value="main"/>
     </task>
     ```
 === "Main Sequence"    
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="main" xmlns="http://ws.apache.org/ns/synapse">
-        <in>
-                <send/>
-            </in>
-            <out>
-                <log level="custom">
-                    <property name="First_Value" expression="//ns:getQuoteResponse/ns:return/ax21:open/child::text()"
-                              xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
-                    <property name="For_the_organization" expression="//ns:getQuoteResponse/ns:return/ax21:name/child::text()"
-                              xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
-                    <property name="Last_Value" expression="//ns:getQuoteResponse/ns:return/ax21:last/child::text()"
-                              xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
-                </log>
-                <drop/>
-            </out>
+    <sequence name="main" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <call>
+            <endpoint key="SimpleStockQuoteService" />
+        </call>
+        <log level="custom">
+            <property name="First_Value"
+                expression="//ns:getQuoteResponse/ns:return/ax21:open/child::text()"
+                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" />
+            <property name="For_the_organization"
+                expression="//ns:getQuoteResponse/ns:return/ax21:name/child::text()"
+                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" />
+            <property name="Last_Value"
+                expression="//ns:getQuoteResponse/ns:return/ax21:last/child::text()"
+                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" />
+        </log>
+        <drop />
     </sequence>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+     </endpoint>
     ```
 
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
