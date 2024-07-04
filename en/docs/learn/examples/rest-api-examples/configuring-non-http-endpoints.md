@@ -10,18 +10,19 @@ Following is a sample REST API configuration that we can used to implement this 
         <resource methods="POST" url-mapping="/"> 
            <inSequence> 
               <property name="REST_URL_POSTFIX" action="remove" scope="axis2"></property> 
-              <send> 
+              <call> 
                  <endpoint> 
                     <address uri=
-    "jms:/DelayOrderTopic?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&
-    java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&
-    java.naming.provider.url=tcp://localhost:61616&transport.jms.DestinationType=topic">
+    "jms:/DelayOrderTopic?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;
+    java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;
+    java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic">
                   </address> 
                  </endpoint> 
-              </send> 
+              </call> 
            </inSequence> 
         </resource> 
 </api>
+
 ```
 
 When using a non-HTTP endpoint, such as a JMS endpoint, in the API definition, you must remove the `REST_URL_POSTFIX` property to avoid any characters specified after the context (such as a trailing slash) in the request from being appended to the JMS endpoint. 
@@ -32,8 +33,7 @@ Notice that we have specified the `REST_URL_POSTFIX` property with the value set
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
