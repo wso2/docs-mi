@@ -95,12 +95,7 @@ In this example, the endpoint template is configured to invoke the endpoints bas
        <resource methods="GET" uri-template="/foo">
           <inSequence>
              <call>
-                <endpoint template="ep_template"
-                          uri="http://run.mocky.io/v3/8ca6aa42-ee0a-47a8-8007-e93abbb95b87">
-                   <parameter name="codes" value="10001,10002"/>
-                   <parameter name="retries" value="2"/>
-                   <parameter name="factor" value="1.0"/>
-                </endpoint>
+                <endpoint key="ep1"/>
              </call>
              <respond/>
           </inSequence>
@@ -108,12 +103,7 @@ In this example, the endpoint template is configured to invoke the endpoints bas
        <resource methods="GET" uri-template="/bar">
           <inSequence>
              <call>
-                <endpoint template="ep_template"
-                          uri="http://run.mocky.io/v3/c72a5cfd-871b-43fc-8202-54fa18097341">
-                   <parameter name="codes" value="10001,10003"/>
-                   <parameter name="retries" value="3"/>
-                   <parameter name="factor" value="2.0"/>
-                </endpoint>
+                <endpoint key="ep1"/>
              </call>
              <respond/>
           </inSequence>
@@ -125,8 +115,7 @@ In this example, the endpoint template is configured to invoke the endpoints bas
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+1. {!includes/build-and-run.md!}
 3. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [endpoint template]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
