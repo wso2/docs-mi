@@ -95,17 +95,16 @@ Specify the `websocket.accept.contenType` property to inform the WebSocket sende
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
+{!includes/build-and-run.md!}
 
     !!! Note
-        The Websocket sender functionality of the Micro Integrator is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf/` directory and add the following: 
+        The Websocket sender functionality of the Micro Integrator is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_HOME/conf` directory and add the following: 
 
         ```toml
         [transport.ws]
         sender.enable = true
         ```
-        
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+
 3. Create the [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -137,4 +136,4 @@ When you send a sample JSON payload from the client, you will see that a connect
 
 This shows that the sequences are executed by the WebSocket inbound endpoint.
 
-You will also see that the message sent to the WebSocket server is transformed, and that the response injected to the out sequence is also transformed.
+You will also see that the message sent to the WebSocket server is transformed, and that the response is also transformed.
