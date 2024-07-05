@@ -11,12 +11,10 @@ Following are the artifact configurations that we can use to implement this scen
               <description />
         <target>
            <inSequence>
+              <property name="FORCE_SC_ACCEPTED" scope="axis2" value="true"/>
               <property name="OUT_ONLY" value="true" />
               <store messageStore="MSG_STORE" />
            </inSequence>
-           <outSequence>
-              <send />
-           </outSequence>
         </target>
      </proxy>
     ```
@@ -49,13 +47,12 @@ Following are the artifact configurations that we can use to implement this scen
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+1. {!includes/build-and-run.md!}
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 The Micro Integrator is configured to enable WS-Security as per the policy specified by
-'policy_3.xml' for the outgoing messages to the secured backend. The debug logs on the Micro Integrator
+'policy_1.xml' for the outgoing messages to the secured backend. The debug logs on the Micro Integrator
 shows the encrypted message flowing to the service and the encrypted
 response being received by the Micro Integrator.
 
