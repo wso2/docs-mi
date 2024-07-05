@@ -8,23 +8,27 @@ If the previous example on [JMS to HTTP]({{base_path}}/learn/examples/protocol-s
 
 Following are the integration artifacts (proxy service) that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="HTTPtoJMSStockQuoteProxy" transports="http">
-    <target>
-        <endpoint>
-            <address uri="jms:/Queue1?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue"/>
-        </endpoint>
-        <inSequence>
-            <property action="set" name="OUT_ONLY" value="true"/>
-            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-        </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
-    </target>
-    <publishWSDL key="conf:HTTP_JMS/sample_proxy_1.wsdl" preservePolicy="true"/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="HTTPtoJMSStockQuoteProxy" transports="http">
+        <target>
+            <inSequence>
+                <property action="set" name="OUT_ONLY" value="true"/>
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+                <call>
+                    <endpoint key="JMSEndpoint" />
+                </call>
+            </inSequence>
+        </target>
+        <publishWSDL key="conf:HTTP_JMS/sample_proxy_1.wsdl" preservePolicy="true"/>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="JMSEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="jms:/Queue1?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue" />
+    </endpoint>
+    ```
 
 Example JMS connection URL for WSO2 MB
 
@@ -35,8 +39,7 @@ jms:/Queue1?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;j
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources) (change the registry path of the proxy accordingly). 
 4. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
