@@ -30,10 +30,8 @@ Following are the artifact configurations that we can use to implement this scen
                 <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
                 <property name="OUT_ONLY" value="true"/>
                 <store messageStore="MyStore"/>
+                <respond/>
             </inSequence>
-            <outSequence>
-                 <send />
-            </outSequence>
         </target>
     </proxy>
     ```
@@ -56,12 +54,9 @@ Following are the artifact configurations that we can use to implement this scen
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
-
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) and set up the JMS Sender.
+1. {!includes/build-and-run.md!}
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
 
@@ -82,7 +77,7 @@ Set up the back-end service:
 Send the following request to invoke the service:
 
 ```bash
-POST http://localhost:9090/services/StockQuoteProxy HTTP/1.1
+POST http://localhost:8290/services/StockQuoteProxy HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
