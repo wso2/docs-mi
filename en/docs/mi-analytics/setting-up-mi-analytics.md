@@ -117,28 +117,39 @@ Let's use the integration artifacts from the [service chaining]({{base_path}}/le
 !!! Warning
     It is **not recommended to enable tracing in production environments** as it generates a large number of events that reduces the performance of the analytics profile. Therefore, tracing should only be enabled in development environments.
 
-!!! info "If you do not have the integration artifacts from the service chaining tutorial"
+!!! Note "If you do not have the integration artifacts from the service chaining tutorial"
     If you did not try the [service chaining]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service) tutorial yet:
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/service-orchestration-tutorial.zip) for the **service chaining** use case.
-    2.  [Open WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_path}}/develop/importing-projects).
+    2.  Launch Visual Studio Code with the Micro Integrator Extension installed and [import the pre-packaged project]({{base_path}}/develop/importing-projects).
+
+    !!! Info
+        Follow the [Install Micro Integrator for VS Code](../../develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 #### REST API artifact
 
 Follow the steps below to enable statistics and tracing for the **REST API** artifact:
 
-1.  Select `HealthcareAPI` in the canvas of WSO2 Integration Studio to open the **Properties** tab.
-2.  Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
+1. Select `HealthcareAPI` from the project explorer of the MI VS Code Extension by clicking the icon on the right side of the tab as shown below to open the **Service Designer** view.
 
-    <img src="{{base_path}}/assets/img/integrate/mi-analytics/restapi-properties.png" alt="rest api properties" width="500">
+    <img src="{{base_path}}/assets/img/integrate/mi-analytics/show-service-designer.png" alt="api service designer option" width="400">
+
+2. Click on the **Edit** button as shown below to open the **Edit API** view.
+
+    <img src="{{base_path}}/assets/img/integrate/mi-analytics/show-api-edit.png" alt="api edit option" width="700">
+   
+3. Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
+
+    <img src="{{base_path}}/assets/img/integrate/mi-analytics/edit-api-properties.png" alt="api properties" width="700">
 
 #### Endpoint artifacts
 
 Follow the steps below to enable statistics for the **endpoint** artifacts:
 
-1.  Select the required endpoint artifacts from the project explorer. 
-2.  Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
-     [![endpoint properties]({{base_path}}/assets/img/integrate/mi-analytics/endpoint-properties.png){: style="width:80%"}]({{base_path}}/assets/img/integrate/mi-analytics/endpoint-properties.png)
+1. Select the required endpoint artifact from the project explorer of the MI VS Code Extension. 
+2. Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
+   
+    <img src="{{base_path}}/assets/img/integrate/mi-analytics/edit-endpoint-properties.png" alt="endpoint properties" width="700">
      
 ### Step 2.5 - Optionally, set up load balancing
 
