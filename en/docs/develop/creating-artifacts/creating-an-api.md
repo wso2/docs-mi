@@ -10,6 +10,8 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 3. Go to **MI Project Explorer** > **APIs**.
 
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="Create REST API" width="80%"></a>
+
 4. Click on the **+** sign next to APIs to open the below **Synapse API Artifact** creation form.
 
     In the interface that opens, provide details for the synapse API artifact.
