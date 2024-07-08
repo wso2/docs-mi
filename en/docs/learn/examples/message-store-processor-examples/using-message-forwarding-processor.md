@@ -53,7 +53,7 @@ Following are the artifact configurations that we can use to implement this scen
 Create the artifacts:
 
 1. {!includes/build-and-run.md!}
-2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store) and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), [In-Memory message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store) and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
 3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
