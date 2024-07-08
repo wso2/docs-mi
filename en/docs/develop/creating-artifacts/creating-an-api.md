@@ -10,7 +10,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 3. Go to **MI Project Explorer** > **APIs**.
 
-   <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="Create REST API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="Create REST API" width="40%"></a>
 
 4. Click on the **+** sign next to APIs to open the below **Synapse API Artifact** creation form.
 
@@ -188,7 +188,12 @@ When you create the API, an API resource is created by default. If you want to a
 
 ### Updating metadata
 
-When you create the API artifact from MI for VS Code extension, a **resources** folder with metadata files is created.
+When you create the API artifact from MI for VS Code extension, the metadata files are created and stored under the `<PROJECT_NAME>/src/main/wso2mi/resources/metadata` folder. 
+
+!!! note
+    You can view the below folder structure by [switching]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/#mi-project-explorer) to the VS Code default **Explorer** view.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png" alt="Metadata folder" width="30%"></a>
 
 The service's metadata is used by the API management runtime to generate the API proxy for the integration service (which is this API).
 
