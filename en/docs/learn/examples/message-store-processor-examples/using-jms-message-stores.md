@@ -79,6 +79,8 @@ See the descriptions of the above configurations:
 
 ### Build and run (Example 1)
 
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) and set up the JMS Sender.
+
 Create the artifacts:
 
 1. {!includes/build-and-run.md!} 
@@ -100,18 +102,16 @@ Set up the back-end service:
           ```bash 
           axis2server.bat
           ```
-          
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) and set up the JMS Sender.
 
 Invoke the service:
 
 ```bash
-POST http://localhost:9090/services/Proxy1 HTTP/1.1
+POST http://localhost:8290/services/Proxy1 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
 Content-Length: 492
-Host: localhost:9090
+Host: localhost:8290
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
@@ -127,10 +127,10 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 </soapenv:Envelope>
 ```
 
-Note a message similar to the following example:  
+You can observe the following log on the back-end server:  
 
 ```bash
-SimpleStockQuoteService :: Accepted order for : 7482 stocks of IBM at $ 169.27205579038733
+Mon Jul 08 14:27:42 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
 ```
 
 ## Example 2: Using a reply sequence to process response
@@ -139,7 +139,7 @@ In the sample, when the message forwarding processor receives a response from th
 
 ### Synapse configurations
 
-Following are the artifact configurations that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-2) this example.
+Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
 === "Proxy Service"
     ```xml  
@@ -178,7 +178,6 @@ Following are the artifact configurations that we can used to implement this sce
       <log level="full">
         <property name="REPLY" value="MESSAGE" />
       </log>
-      <drop/>
     </sequence>
     ```
 === "Endpoint"    
@@ -229,6 +228,8 @@ See the descriptions of the above configurations:
 
 ### Build and run (Example 2)
 
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
+
 Create the artifacts:
 
 1. {!includes/build-and-run.md!}
@@ -250,7 +251,5 @@ Set up the back-end service:
           ```bash  
           axis2server.bat
           ```
-   
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
 
-Invoke the service. Note a message similar to the following example printed in the backend service.
+Invoke the service using the request provided above. You will see a message similar to the following example printed in the backend service.
