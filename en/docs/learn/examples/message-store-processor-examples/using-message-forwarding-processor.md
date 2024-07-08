@@ -19,17 +19,21 @@ Following are the artifact configurations that we can use to implement this scen
     </proxy>
     ```
 === "Message Store"    
-    ```xml  
-    <messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore"/>
+    ```xml
+    <messageStore name="MyStore" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse"/>
     ```
+
 === "Message Processor"    
     ```xml  
-    <messageProcessor xmlns="http://ws.apache.org/ns/synapse"
-        class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-        messageStore="MyStore" name="ScheduledProcessor" targetEndpoint="StockQuoteServiceEp">
-        <parameter name="interval">10000</parameter>
-        <parameter name="throttle">false</parameter>
-        <parameter name="target.endpoint">StockQuoteServiceEp</parameter>
+    <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="ScheduledProcessor" messageStore="MyStore" targetEndpoint="StockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="client.retry.interval">1000</parameter>
+        <parameter name="member.count">1</parameter>
+        <parameter name="is.active">true</parameter>
+        <parameter name="max.delivery.attempts">4</parameter>
+        <parameter name="store.connection.retry.interval">1000</parameter>
+        <parameter name="max.store.connection.attempts">-1</parameter>
+        <parameter name="max.delivery.drop">Disabled</parameter>
+        <parameter name="interval">1000</parameter>
     </messageProcessor>
     ```
 === "Endpoint"    
