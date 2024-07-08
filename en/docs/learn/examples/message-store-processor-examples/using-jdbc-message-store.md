@@ -90,7 +90,7 @@ The WSDL URI needs to be updated with the path to the `sample_proxy_1.wsdl` file
 Create the artifacts:
 
 1. {!includes/build-and-run.md!}
-2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [JDBC message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
 3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
@@ -112,7 +112,7 @@ Set up the back-end service:
 Send the following request to invoke the sample proxy service:
 
 ```xml
-POST http://localhost:9090/services/MessageStoreProxy HTTP/1.1
+POST http://localhost:8290/services/MessageStoreProxy HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
