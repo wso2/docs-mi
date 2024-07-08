@@ -115,12 +115,12 @@ Set up the back-end service:
 Send the following request to invoke the service:
 
 ```bash
-POST http://localhost:9090/services/StockQuoteProxy HTTP/1.1
+POST http://localhost:8290/services/StockQuoteProxy HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
 Content-Length: 492
-Host: localhost:9090
+Host: localhost:8290
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
