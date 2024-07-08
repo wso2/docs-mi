@@ -135,7 +135,7 @@ If you select **default** as the **template-type**, you can define the payload a
 
 - Payload Format
 
-  As shown above, you can add content to the payload by specifying variables for each value that you want to add. Use the $<em>n</em> format. Start with n=1 and then increment the value for each additional variable as follows: `$1`, `$2`, etc.
+  As shown above, you can add content to the payload by specifying variables for each value that you want to add. Use the `$n` format. Start with n=1 and then increment the value for each additional variable as follows: `$1`, `$2`, etc.
 
 - Arguments
 
@@ -147,7 +147,7 @@ The payloadFactory mediator supports [FreeMarker Templates](https://freemarker.a
 
 !!! Note
     -   FreeMarker version 2.3.30 is tested with WSO2 MI 4.x.x.
-    -   You are not required to specify the CDATA tag manually when defining the payload. WSO2 Integration Studio will apply the tag automatically.
+    -   You are not required to specify the CDATA tag manually when defining the payload. WSO2 Integration Studio or WSO2 Enterprise Integrator VSCode extension will apply the tag automatically.
 
 ```xml
 <property name="user_name" scope="default" type="STRING" value="john"/>
@@ -996,7 +996,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
         <target>
             <inSequence>
                 <payloadFactory media-type="text" template-type="freemarker">
-                    <format key="conf:custom/template.ftl"/>
+                    <format key="conf:template.ftl"/>
                     <args/>
                 </payloadFactory>
                 <respond/>
@@ -1132,11 +1132,10 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 #### Build and run
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the artifacts (proxy service, registry resource) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
-5. Send a POST request to the `xml-to-edi-proxy` with the above given payload.
+1. {!includes/build-and-run.md!}3. Create the artifacts (proxy service, registry resource) with the configurations given above. 
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), and [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+4. Send a POST request to the `xml-to-edi-proxy` with the above given payload.
 	
 -   Output Payload
     ```text
