@@ -23,7 +23,6 @@ Following are the artifact configurations that we can use to implement this scen
                 <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
                 <property name="OUT_ONLY" value="true"/>
                 <store messageStore="MyStore"/>
-                <respond/>
             </inSequence>
         </target>
     </proxy>
