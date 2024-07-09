@@ -57,39 +57,41 @@ Consider an example where the client sending the message only requires an acknow
 
 Given below is a sample proxy service that is configured to send an ACK/NACK as soon as the message is received. 
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="HL7Proxy" transports="hl7" startOnLoad="true" trace="disable">
-    <description/>
-    <target>
-        <inSequence>
-            <property name="HL7_RESULT_MODE" value="ACK" scope="axis2"/>
-            <property name="HL7_GENERATE_ACK" value="true" scope="axis2"/>
-            <send>
-               <endpoint name="hl7_endpoint">
-                    <address uri="hl7://localhost:9988"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <log level="custom">
-                <property name="OUT" value="***********out sequence proxy2***********"/>
-            </log>
-           <drop/>
-        </outSequence>
-     </target>
-     <parameter name="transport.hl7.AutoAck">false</parameter>
-     <parameter name="transport.hl7.ValidateMessage">false</parameter>
-     <parameter name="transport.hl7.Port">9293</parameter>
-</proxy>
-```
+=== "Proxy Service"
+     ```xml
+     <?xml version="1.0" encoding="UTF-8"?>
+     <proxy xmlns="http://ws.apache.org/ns/synapse" name="HL7Proxy" transports="hl7" startOnLoad="true" trace="disable">
+         <description/>
+         <target>
+             <inSequence>
+                 <property name="HL7_RESULT_MODE" value="ACK" scope="axis2"/>
+                 <property name="HL7_GENERATE_ACK" value="true" scope="axis2"/>
+                 <call>
+                    <endpoint key="HL7Endpoint" />
+                 </call>
+                 <log level="custom">
+                     <property name="OUT" value="***********out sequence proxy2***********"/>
+                 </log>
+                 <drop/>
+             </inSequence>
+         </target>
+         <parameter name="transport.hl7.AutoAck">false</parameter>
+         <parameter name="transport.hl7.ValidateMessage">false</parameter>
+         <parameter name="transport.hl7.Port">9293</parameter>
+     </proxy>
+     ```
+=== "HL7Endpoint"
+    ```xml
+    <endpoint name="HL7Endpoint" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="hl7://localhost:9988"/>
+    </endpoint>
+    ```
 
 ### Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
@@ -111,21 +113,17 @@ The following proxy service is configured to send a NACK message after the backe
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="HL7Proxy" transports="hl7" statistics="disable" trace="disable" startOnLoad="true">
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="HL7NackProxy" transports="hl7" statistics="disable" trace="disable" startOnLoad="true">
   <target>
       <inSequence>
            <property name="HL7_APPLICATION_ACK" value="true" scope="axis2"/> 
-            <send>
-                  <endpoint name="endpoint_urn_uuid_9CB8D06C91A1E996796270828144799-1418795938">
-                          <address uri="hl7://localhost:9988"/>
-                  </endpoint>
-            </send>
+            <call>
+                <endpoint key="HL7Endpoint" />
+            </call>
+            <property name="HL7_RESULT_MODE" value="NACK" scope="axis2"/>
+            <property name="HL7_NACK_MESSAGE" value="error msg" scope="axis2"/>
+            <respond />
       </inSequence>
-      <outSequence> 
-           <property name="HL7_RESULT_MODE" value="NACK" scope="axis2"/>
-           <property name="HL7_NACK_MESSAGE" value="error msg" scope="axis2"/>
-           <send/>
-      </outSequence>
   </target>
   <parameter name="transport.hl7.AutoAck">false</parameter>
   <parameter name="transport.hl7.ValidateMessage">true</parameter>
@@ -138,8 +136,7 @@ The following proxy service is configured to send a NACK message after the backe
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
