@@ -40,14 +40,13 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
 
 Set up the MQTT server:
 
 1.  Install Mosquitto. (This sample is tested for [Mosquitto1.6.7 version](https://mosquitto.org/download/)). The Mosquitto server will run automatically in the background.
-2.  Download [MQTT client library](http://repo.spring.io/plugins-release/org/eclipse/paho/mqtt-client/0.4.0/) (i.e. `          mqtt-client-0.4.0.jar         ` ) and add it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` directory.
+2.  Download [MQTT client library](https://maven.wso2.org/nexus/content/groups/wso2-public/org/eclipse/paho/mqtt-client/0.4.0/mqtt-client-0.4.0.jar) (i.e. `          mqtt-client-0.4.0.jar` ) and add it to the `project_path/deployment/libs/` directory.
 
 [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
