@@ -29,6 +29,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
       </target>
       <parameter name="rabbitmq.queue.name">queue1</parameter>
       <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+      <parameter name="rabbitmq.message.content.type">application/xml</parameter>
     </proxy>
     ```
 === "RabbitMQ Producer"    
