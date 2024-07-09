@@ -73,14 +73,19 @@ In a <b>VM environment</b>, you need to manually run the Cipher Tool as follows:
 
 In a <b>Kubernetes environment</b>, you don't need to manually run the Cipher tool. Follow the steps given below.
 
-1. Open your Integration Project in WSO2 Integration Studio, which contains all the integration artifacts and the Kubernetes Exporter.
-2. Open the `pom.xml` of the Kubernetes Exporter module and select the <b>Enable Cipher Tool</b> check box as show below.
+1. Open the `pom.xml` file of your project from the VS Code explorer view and update the `ciphertool.enable` tag to **true** as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/k8s_deployment/enable-cipher-tool-in-k8s.png">
+    <img src="{{base_path}}/assets/img/integrate/k8s_deployment/enable-ciphertool.png" alt="pom file" width="700">
 
-3.  When you build the Docker image from your Kubernetes exporter, the secrets will get encrypted and enabled in the environment.
+2. Switch back to the MI VS Code Extension to view the **Project Overview** page.
+3. Click on the **Build** button on the top right corner of the **Project Overview** page and select the **Create Docker Image** option to build the Docker image.
 
-If you specified any [static secrets](#static-secrets), go back to the `deployment.toml` file and see that the secrets are encrypted.
+    <img src="{{base_path}}/assets/img/integrate/k8s_deployment/build-docker.png" alt="build docker image" width="700">
+
+!!! Note
+    When you build the Docker image from the MI VS Code Extension with the above configurations, the secrets will get encrypted and enabled in the environment.
+
+If you specified any [static secrets](#static-secrets), check the `deployment.toml` file in the created docker image and it will be visible that the secrets are encrypted.
 
 ```toml
 [secrets]
