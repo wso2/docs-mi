@@ -31,6 +31,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
       <parameter name="rabbitmq.exchange.name">amq.topic</parameter>
       <parameter name="rabbitmq.queue.name">queue2</parameter>
       <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+      <parameter name="rabbitmq.message.content.type">application/xml</parameter>
     </proxy>
     
     ```
@@ -55,6 +56,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
       <parameter name="rabbitmq.exchange.name">amq.topic</parameter>
       <parameter name="rabbitmq.queue.name">queue3</parameter>
       <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+      <parameter name="rabbitmq.message.content.type">application/xml</parameter>
     </proxy>
     ```
 === "RabbitMQ Publisher"    
