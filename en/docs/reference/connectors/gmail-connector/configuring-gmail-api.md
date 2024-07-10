@@ -10,13 +10,19 @@
 4. Click **Configure consent screen** in the next screen.
   <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.jpg" title="Consent Screen" width="800" alt="Consent Screen" />
 
-5. Provide the Application Name as `GmailConnector` in the Consent Screen.
-  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen2.jpg" title="Consent Screen" width="800" alt="Consent Screen" />
+5. Provide the Application Name as `GmailConnector`, `User support email` and `email address of Developer contact information`in the Consent Screen, then click `SAVE AND CONTINUE`..
+  <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen2.png" title="Consent Screen" width="800" height="300" alt="Consent Screen" />
 
-6. Click Create credentials and click OAuth client ID.
+6. Add scopes of API, then click `SAVE AND CONTINUE`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen3.png" title="Consent Screen" width="800" alt="Consent Screen" />
+
+7. Click `ADD USERS`, type the email of the account you will be testing with, then click `SAVE AND CONTINUE`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen4.png" title="Consent Screen" width="800" alt="Consent Screen" />
+
+8. Click Create credentials and click OAuth client ID.
   <img src="{{base_path}}/assets/img/integrate/connectors/create-credentials.png" title="Create Credentials" width="800" alt="Create Credentials" />
 
-7. Enter the following details in the Create OAuth client ID screen and click Create.
+9. Enter the following details in the Create OAuth client ID screen and click Create.
 
   | Type                        | Name                                             | 
   | ------------------          | -------------------------------------------------|
@@ -25,12 +31,12 @@
   | Authorized redirect URIs    | https://developers.google.com/oauthplayground    |
 
   
-8. A Client ID and a Client Secret are provided. Keep them saved.
+10. A Client ID and a Client Secret are provided. Keep them saved.
   <img src="{{base_path}}/assets/img/integrate/connectors/credentials.png" title="Credentials" width="800" alt="Credentials" />
 
-9. Click Library on the side menu, search for **Gmail API** and click on it.
+11. Click Library on the side menu, search for **Gmail API** and click on it.
 
-10. Click **Enable** to enable the Gmail API.
+12. Click **Enable** to enable the Gmail API.
 
 
 ## Obtaining Access Token and Refresh Token

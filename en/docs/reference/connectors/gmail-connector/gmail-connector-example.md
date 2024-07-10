@@ -10,86 +10,99 @@ This example demonstrates a scenario where a customer feedback Gmail account of 
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Configure the connector in WSO2 MI VS Code Extension
 
-1. Follow these steps to set up the Integration Project and the Connector Exporter Project. 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+1. {!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
-3. Follow these steps to [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/) and obtain the Client Id, Client Secret, Access Token and Refresh Token. 
+2. Follow the [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)  steps to obtain the Client ID, Client Secret, Access Token, and Refresh Token. 
 
-4. Provide the API name as **SendMails**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<api context="/sendmails" name="SendMails" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="GET">
-        <inSequence>
-            <gmail.init>
-                <userId></userId>
-                <accessToken></accessToken>
-                <apiUrl>https://www.googleapis.com/gmail</apiUrl>
-                <clientId></clientId>
-                <clientSecret></clientSecret>
-                <refreshToken></refreshToken>
-            </gmail.init>
-            <gmail.listAllMails>
-                <includeSpamTrash>false</includeSpamTrash>
-                <maxResults>20</maxResults>
-                <q>is:unread label:customers</q>
-            </gmail.listAllMails>
-            <iterate expression="json-eval($.messages)">
-                <target>
-                    <sequence>
-                        <sequence key="reply"/>
-                    </sequence>
-                </target>
-            </iterate>
-            <respond/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </resource>
-</api>
-```
+3. Click on the `Add API` in the created Integration Project and create the API with the name `SendMails`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-5. Right click on the created Integration Project and select **New** -> **Sequence** to create the defined sequence called **reply**. 
+4. Open the API in the diagram view and click on the `Add button` to add connectors or mediators.
+   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-add-mediator.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-6. Provide the Sequence name as **reply**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence name="reply" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <property expression="json-eval($.id)" name="msgId" scope="default" type="STRING"/>
-    <gmail.getAccessTokenFromRefreshToken>
-        <clientId></clientId>
-        <clientSecret></clientSecret>
-        <refreshToken></refreshToken>
-    </gmail.getAccessTokenFromRefreshToken>
-    <gmail.readMail>
-        <id>{$ctx:msgId}</id>
-    </gmail.readMail>
-    <property expression="json-eval($.payload.headers[6].value)" name="response" scope="default" type="STRING"/>
-    <log level="custom">
-        <property expression="get-property('response')" name="response1"/>
-    </log>
-    <gmail.getAccessTokenFromRefreshToken>
-        <clientId></clientId>
-        <clientSecret></clientSecret>
-        <refreshToken></refreshToken>
-    </gmail.getAccessTokenFromRefreshToken>
-    <gmail.sendMail>
-        <to>{$ctx:response}</to>
-        <subject>Best of Europe - 6 Countries in 9 Days</subject>
-        <from>isurumuy@gmail.com</from>
-        <messageBody>Thank you for your valuable feedback.</messageBody>
-    </gmail.sendMail>
-</sequence>
-```
-7. In the Rest API and in the Sequence, provide your obtained **Client ID**, **Client Secret**, **Access Token**, and **Refresh Token** accordingly. The **userID** should be your Gmail address. 
+5. To add the Gmail init function under the API, click on `Connectors`, select the `Gmail` connector, and choose the `init` function.
+   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-add-connector.png" title="Adding an init function" width="800" height="500" alt="Adding a Rest API"/>
 
-8. Follow these steps to export the artifacts. 
-{!includes/reference/connectors/exporting-artifacts.md!}
+6. Add the following parameters by clicking on `Add Parameter`
+
+      - **Client ID**: Value of the Client Id you obtained when you registered your application with the Gmail API.
+      - **Client Secret**: Value of the Client Secret you obtained when you registered your application with the Gmail API.
+      - **Access Token**: Value of the Access Token to access the Gmail REST API.
+      - **Refresh Token**: Value of the Refresh Token, which generates a new Access Token when the previous one gets expired.
+      - **userID**: User mail ID.
+
+7. Implement the following API as described above.
+   
+=== "Source Code"
+    ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <api context="/sendmails" name="SendMails" xmlns="http://ws.apache.org/ns/synapse">
+         <resource methods="GET">
+           <inSequence>
+               <gmail.init>
+                   <userID></userID>
+                   <accessToken></accessToken>
+                   <apiUrl>https://www.googleapis.com/gmail</apiUrl>
+                   <clientId></clientId>
+                   <clientSecret></clientSecret>
+                   <refreshToken></refreshToken>
+               </gmail.init>
+               <gmail.listAllMails>
+                   <includeSpamTrash>false</includeSpamTrash>
+                   <maxResults>20</maxResults>
+                   <q>is:unread label:customers</q>
+               </gmail.listAllMails>
+               <iterate expression="json-eval($.messages)" id="iterator">
+                   <target>
+                       <sequence>
+                           <sequence key="reply"/>
+                       </sequence>
+                   </target>
+               </iterate>
+               <respond/>
+           </inSequence>
+           <outSequence/>
+           <faultSequence/>
+         </resource>
+      </api>
+    ```
+=== "Diagram View"
+      <img src="{{base_path}}/assets/img/integrate/connectors/gmail-diagram-view.png" title="Adding an init function" width="800" alt="Adding a Rest API"/>
+
+8. Click on the `Add Sequence` in the created integration project and create the sequence called `reply`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-add-sequence.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+
+9. Implement the following sequence as describe above.
+
+=== "Source Code"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="reply" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property expression="json-eval($.id)" name="msgId" scope="default" type="STRING"/>
+        <gmail.getAccessTokenFromRefreshToken/>
+        <gmail.readMail>
+           <id>{$ctx:id}</id>
+        </gmail.readMail>
+        <property expression="json-eval($.payload.headers[6].value)" name="response" scope="default" type="STRING"/>
+        <log level="custom">
+            <property expression="get-property('response')" name="response1"/>
+        </log>
+        <gmail.getAccessTokenFromRefreshToken/>
+        <gmail.sendMail>
+            <to>asd@gmail.com</to>
+            <subject>Best of Europe - 6 Countries in 9 Days</subject>
+            <from>isurumuy@gmail.com</from>
+            <messageBody>Thank you for your valuable feedback.</messageBody>
+        </gmail.sendMail>
+    </sequence>
+    ```
+
+=== "Diagram View"
+    <img src="{{base_path}}/assets/img/integrate/connectors/gamil-diagram-view1.png" title="Adding asequence" width="800" alt="Adding a Rest API"/>
 
 ## Get the project
 
@@ -102,21 +115,24 @@ You can download the ZIP file and extract the contents to get the project code.
 !!! tip
     You may need to update the value of the access token and make other such changes before deploying and running this project.
 
+{!includes/reference/connectors/exporting-artifacts.md!}
+
 ## Deployment
 Follow these steps to deploy the exported CApp in the integration runtime.<br>
 
 **Deploying on Micro Integrator**
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and execute the following command to start the server. Micro Integrator will be started and the composite application will be deployed.
+=== "On MacOS/Linux/CentOS"
+       ```bash
+       sh micro-integrator.sh
+       ```
+=== "On Windows"
+       ```bash
+       micro-integrator.bat
+       ```
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
 
 ## Testing
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
@@ -125,7 +141,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   curl -H "Content-Type: application/json" --request GET http://localhost:8290/sendmails
 ```
 
-The senders should receive an email with a subject of "Best of Europe — 6 Countries in 9 Days", and a body of "Thank you for your valuable feedback."
+The senders should receive an email with a subject of `Best of Europe — 6 Countries in 9 Days`, and a body of `Thank you for your valuable feedback.`
 
 ## What's Next
 
