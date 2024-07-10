@@ -4,7 +4,7 @@ File Connector can be used to perform operations in the local file system as wel
 
 ## What you'll build
 
-This example describes how to use the File Connector to write messages to local files and then read the files. Similarly, the same example can be configured to communicate with a remote file system (i.e FTP server) easily. The example also uses some other WSO2 mediators to manipulate messages. 
+This example describes how to use the File Connector to write messages to local files and then read the files.
 
 <!--
 Following diagram shows the overall solution.
@@ -36,18 +36,17 @@ Follow these steps to set up the Integration Project and the Connector Exporter.
 
 ## Creating the Integration Logic
 
-1.  Create a new integration project. Be sure to enable a Connector Exporter. 
+1.  Create a new integration project. 
     
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon1.png" title="create project" width="500" alt="create project"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/file_create_project.png" title="create project" width="500" alt="create project"/>
 
+2.  Create an API named `TestAPI` with the `/fileTest` context.
 
-2.  Create an API named `TestAPI` with the `/fileTest` context. This API will accept employee information.
+    <img src="{{base_path}}/assets/img/integrate/connectors/file_create_api.png" title="create API" width="500" alt="create API"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon2.png" title="create API" width="500" alt="create API"/>
+3.  In the default resource of the API, enable POST request and update the path. 
 
-3.  In the default resource of the API, enable POST requests. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon3.png" title="select post method" width="500" alt="select post method"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/file_update_resource.png" title="select post method" width="500" alt="select post method"/>
 
 4.  Add the Log mediator to the design canvas and configure a custom log that indicates when the API receives a message.  
 5.  Add the DataMapper mediator and configure it to transform the incoming XML message to a CSV message. 
