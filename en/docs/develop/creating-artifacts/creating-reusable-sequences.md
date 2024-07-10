@@ -1,90 +1,85 @@
 # Creating a Reusable Sequence
 
-Follow these steps to create a new, reusable sequence that you can add to your mediation workflow or refer to from a sequence mediator, or to create a sequence mediator and its underlying sequence all at once.
+Follow these steps to create a new reusable sequence that you can add to your mediation workflow or refer to from a sequence mediator, or to create a sequence mediator and its underlying sequence all at once.
 
 ## Instructions
 
 ### Creating a Sequence Artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Sequence** to open the **New Sequence Artifact** dialog box.  
+{!includes/build-and-run.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/select-sequence.png" width="500">
+3. Go to **MI Project Explorer** > **Sequences**.
 
-2.  Select **Create New Sequence** and click **Next**.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png" alt="Create Sequence" width="35%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/new-sequence-wizard-1.png" width="500">
+4. Click on the **+** sign next to **Sequences** to open the below **Sequence Form**.
 
-3.  Specify a unique name for the sequence.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-new-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-new-sequence.png" alt="Create New Sequence" width="80%"></a>
 
-    !!! Info
-        **Creating a Main Sequence**:
-        If you want to create the default main sequence that just sends messages without mediation, be sure to name it `main`, which automatically populates the sequence with the default **In** and **Out** sequences.
+5. Provide a unique name for the sequence.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/new-sequence-wizard-2-1.png" width="500">
+6. Specify the required values for the sequence.
 
-4.  In the **Save Sequence in** field, specify the location to save the sequence:
-    -   To save the sequence in an existing ESB Config project in your workspace, click **Browse** and select that project. Else, click **Create new Project** and create the new project.
-    -   To save the sequence as a **Dynamic Sequence** in a [registry resource project]({{base_path}}/develop/create-integration-project/#registry-resource-project):
-        1.  Select the **Make this as Dynamic Sequence** check box.
-        2.  Specify the registry space (Governance or Configuration) in the **Registry** field.
-        3.  If a **Registry Resource** project already exist in the workspace, click **Browse** for the **Save Sequence in** field and select the registry resource project.
-            Else, click **Create new Project** to create a new registry project.
-        4.  Type the sequence name in the **Registry Path** field.
+    To save the sequence as a dynamic sequence in a registry resource project:
 
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/new-sequence-wizard-2-2.png" width="500">
+      1. Select the **Save the sequence in registry** check box.
+      2. Type the sequence name in the **Artifact Name** field.
+      3. Specify the registry type (**Governance registry (gov)** or **Configuration registry (conf)**) under **Select registry type**.
+      4. Type the sequence name in the **Registry Path** field.
 
-5.  Click **Finish**. 
+         <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sample-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sample-sequence.png" alt="Sample Sequence" width="80%"></a>
 
-The sequence is created in the `src/main/synapse-config/sequences` folder under the ESB Config or [registry resource project]({{base_path}}/develop/create-integration-project/#registry-resource-project) you specified.
+7. Click **Create**.
 
-The sequence is also available in the **Defined Sequences** section of the **Palette** and ready for [use in other meditation workflows](#using-a-sequence).
+    The sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/sequences` folder. If you opt for the **Save the sequence in registry** option in the previous step, the sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/resources/` directory according to the values you specified.
+
+    The created sequence is available in the **All Mediators** under **Generic** > **Call Sequence** and ready for use in other meditation workflows.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png" alt="Sample Sequence" width="80%"></a>
 
 ### Create from a Sequence Mediator
 
-1.  Open your proxy service, drag the **Sequence Mediator** from the **Palette** to the canvas. This represents a sequence artifact.
+1. Go to the graphical view of your proxy service.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/add-sequence-mediator.png" width="700">
+2. Click on the add (**+**) icon to open the palette to access **All Mediators**.
 
-2.  If required, change the name of the sequence.
-3.  Double-click the sequence mediator you just added. The canvas of the new sequence opens in the graphical editor.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/edit-proxy.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/edit-proxy.png" alt="Edit Proxy" width="80%"></a>
 
-The sequence artifact (with the name you specified) is created in the `src/main/synapse-config/sequences` folder under the ESB Config project.
+3. From the **All Mediators**, select **Call Sequence** under the **Generic** section.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence.png" alt="Call Sequence" width="30%"></a>
+
+4. Select the sequence mediator you just added form **MI Overview**. Then the graphical view of the new sequence opens.
 
 ### Designing the integration
 
-When you create a sequence, it appears in the **Defined Sequences** section of the tool palette. To use this sequence in a mediation flow:
+- If you create a sequence artifact from the **MI Project Explorer**, follow the steps below:
 
-1.  When you sequence artifact from the **Config** project in the project explorer, you will see the default **Design** view.
+    1. Go to **MI Overview**.
+    
+    2. Select the sequence you created. You will see the graphical view of the sequence.
+    
+    3. Click on the **+** sign and add the required integration artifacts from the palette to the canvas and design the integration flow.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/sequence-design-view.png" width="800">
+- To use a sequence from a different project or from the registry, you can use the Sequence Mediator:
 
-2.  Drag and drop the required integration artifacts from the **Palette** to the canvas and design the integration flow.
-
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/sequence-graphical-editor.png" width="800">
-
-To use a sequence from a different project or from the registry, you need to use the [Sequence Mediator]():
-
-1.  Drag and drop the **Sequence Mediator** from the **Palette** to the mediation flow.
-
-2.  Click the **Sequence Mediator** icon to open the **Properties** tab:
-
-3. Click **Static Reference Key**, and then click the browse **\[...\]** button on the right.
-
-4.  In the **Resource Key Editor**, click **Registry** if the sequence is stored in the registry or **Workspace** if it is in another ESB Config project.
-
-5.  If you are trying to select a sequence from the registry and no entries appear in the dialog box, click **Add Registry Connection** and connect to the registry where the sequence reside.
-
-6.  Select the required sequence and click **OK**, and then click **OK** again.
-
-The sequence mediator name and static reference key are updated to point to the sequence you selected.
-
-You can also use the [**Source** view](#using-the-source-view) to update the sequence configuration.
+    1. Add the **Sequence Mediator** from **All Mediators** to the mediation flow.
+      
+    2. When adding a sequence mediator to the integration, you will see the **Call Sequence** panel.
+      
+    3. Under **Referring Sequence**, select the sequence from the list of available sequences. 
+   
+You can also use the [**Source view**](#using-the-source-view) to update the sequence configuration.
 
 ### Using the Source View
 
-Click the **Source** tab to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the sequence using this view.
+Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the API.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/sequence-source-view.png" width="800">
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show Source View" width="30%"></a>
+
+You can update the sequence using this view.
+
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/using-source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/using-source-view.png" alt="Using Source View" width="80%"></a>
 
 ## Examples
 
