@@ -21,7 +21,7 @@ We will use the [maven archetype](https://github.com/wso2-extensions/archetypes/
     ```xml
     mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=org.wso2.carbon.extension.archetype -DarchetypeArtifactId=org.wso2.carbon.extension.esb.connector-archetype -DarchetypeVersion=2.0.4 -DgroupId=org.wso2.carbon.esb.connector -DartifactId=org.wso2.carbon.esb.connector.googlebooks -Dversion=1.0.0 -DarchetypeRepository=http://maven.wso2.org/nexus/content/repositories/wso2-public/
     ```
-2.  When prompted, enter a name for the connector. For example, **googleBooks**.
+2.  When prompted, enter a name for the connector. For example, **googleBooks**.  
 3.  When prompted for confirmation, enter **y**. 
     
 The `org.wso2.carbon.esb.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src`tree, and `repository` tree.
@@ -93,14 +93,14 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 
 ### Step 1: Adding the connector to your mediation sequence
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Config project]({{base_path}}/develop/create-integration-project) and [import the connector]({{base_path}}/develop/creating-artifacts/adding-connectors/#importing-connectors) to your project.
+1. [Set up WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/installing-wso2-integration-studio).
+2. [Create an ESB Config project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
 
     !!! Tip
         Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
 
-3. [Create a custom proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Design View**, you will note that the new connector is added to the tool palette.
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-connector-pallet.png" width="500">
+3. [Create a custom proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Graphical View**, you will see that the new connector is added to the tool palette under the **Local Connectors** section.
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/connector-view-pallet.png" width="500">
 
 4. Now, update the proxy service as shown below. You will be defining a mediation logic using the **Property** mediator, the new **googleBooks** connector, and the **Respond** mediator:
     ```xml
@@ -120,38 +120,14 @@ Now, let's look at how you can use the new connector in a mediation sequence.
              <respond/>
           </inSequence>
        </target>
-       <description/>
     </proxy>
     ```
 
-### Step 2: Packaging all the artifacts
+### Step 2: Building and deploying the artifacts
 
-You need to package the new connector file and the proxy service separately.
+You can click on the **Build and Run** option to build the Composite Application project and deploy the artifacts in the Micro Integrator. Alternatively, you can use the **Build** and **Export** options to build the artifacts and export them as a CAR file.
 
-1. Create a **Connector Exporter project** and add the connector.
-
-    See the instructions on [packaging a new connector file]({{base_path}}/develop/creating-artifacts/adding-connectors/#packaging-connectors).
-
-2. Create a new **Composite Application project** and add the proxy service as well as the connector as dependencies.
-
-    !!! Tip
-        Note that you need to add both the **Connector Exporter project** as well as the **ESB Config project** as dependencies because the connector is referred from the proxy service.
-
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-capp-project-with-depenencies.png" width="500">
-
-    See the instructions on [packaging ESB artifacts]({{base_path}}/develop/packaging-artifacts/#creating-a-new-composite-application).
-
-### Step 3: Deploying the artifacts
-
-1.  Open the POM file for the composite application project and ensure that the **Connector Exporter** project as well as the **ESB Config** project are selected as dependencies.
-    
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/capp-dependencies.png" width="500">
-    
-2.  Right-click the Composite Application project and click **Export Project Artifacts and Run**. 
-
-The embedded Micro Integrator will now start and deploy the artifacts.
-
-### Step 4: Testing the connector
+### Step 3: Testing the connector
 
 Post a request to the proxy service using Curl as shown below.
 
