@@ -26,101 +26,100 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 ## Creating the Integration Logic
 
-1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+### Creating the First Resource
 
-2. Provide the API name as File Connector and the API context as `/fileconnector`.
+1. Click on the `Add API` in the created Integration Project and provide the API name as `FileConnector` and the API context as `/fileConnector`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-3. First we will create the `/create` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/create` as we have two API resources inside single API. The method will be `Post`. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-3.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+2. To create the `/create` resource. Click on the `Edit` and update the value of `URI template` to `/create` and value of `method` to `Post`. 
+   <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-update-resource.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
-4. In this operation we are going to receive input from the user which is `filePath` and `inputContent`. 
-    - filePath - location that the file is going to be created.
-    - inputContent - what needs to be written to the file. 
+3. Open the API in the diagram view and click on the `+` to add connectors or mediators.
+   <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-add-connector.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+   
+4. To add the write operation under the API, click on `Connectors`, select the `file` connector, and choose the `write` operation.
+   <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-add-operation.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
-5. The above two parameters are saved to properties. Drag and drop the Property Mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property mediator]({{base_path}}/reference/mediators/property-mediator/).
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-1.png" title="Adding a property" width="800" alt="Adding a property"/>
+5. Click on `Add new connection` to create the new local file connection.
+   <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-add-new-connection.png" title="Adding createFile operation" width="800" alt="Adding createFile operation"/>
 
-6. Add the another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
-    - property name: InputContent
-    - Value Type: EXPRESSION
-    - Value Expression: json-eval($.inputContent)
+6. After creating the local file connection, update the values for file path and Content for the write operation.
+   <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-write-operation.png" title="First API Resource" width="800" alt="First API Resource"/>
 
-7. Drag and drop the create operation of the File Connector to the Design View as shown below. Set the parameter values as below. We use the property values that we added in step 4 and 5 in this step as `$ctx:filePath` and `$ctx:inputContent`.
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file-con2.png" title="Adding createFile operation" width="800" alt="Adding createFile operation"/>
-
-8. Add a Respond Mediator as the user needs to see the response. Now we are done with creating the first API resource, and it is displayed as shown below. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon9.png" title="First API Resource" width="800" alt="First API Resource"/>
-
-9. Create the next API resource, which is `/read`. From this we are going to read the file content from a user specified location. 
-
-10. As described in step 3, drag and drop another API resource to the design view. Use the URL template as `/read`. The method will be POST. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/apiresource.jpg" title="Adding an API resource" width="800" alt="Adding an API resource"/>
-
-11. In this operation, the user sends the file location as the request payload. It will be written to the property as we did in step 10. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon4.png" title="Adding property mediator" width="800" alt="Adding property mediator"/>
-
-12. Then we are going to check if the file actually exists in the specified location. We can use `isFileExists` operation of the File Connector. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon5.png" title="Adding property mediator" width="800" alt="Adding property mediator"/>
-
-13. Then we copy the `isFileExists` response to a property mediator. Add another property mediator and add values as shown below. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon6.png" title="Adding property mediator" width="800" alt="Adding property mediator"/>
-
-14. Based on its response, we decide if we read the file or print an error to the user. In this case, we use a Switch Mediator.
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon7.png" title="Adding switch mediator" width="800" alt="Adding switch mediator"/>
-
-15. Drag and drop the read operation to the **case** in the Switch mediator. In the default case log an error and drops the message. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon8.png" title="switch mediator" width="800" alt="switch mediator"/>
-
- 16. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config. 
+The following is your implemented API:
 
     ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <api context="/fileconnector" name="FileConnector" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="POST" uri-template="/create">
-            <inSequence>
-                <property expression="json-eval($.filePath)" name="source" scope="default" type="STRING"/>
-                <property expression="json-eval($.inputContent)" name="inputContent" scope="default" type="STRING"/>
-                <fileconnector.create>
-                    <filePath>{$ctx:filePath}</filePath>
-                    <inputContent>{$ctx:inputContent}</inputContent>
-            </fileconnector.create>
-                <respond/>
-            </inSequence>
-            <outSequence/>
-            <faultSequence/>
-        </resource>
-        <resource methods="POST" uri-template="/read">
-            <inSequence>
-                <property expression="json-eval($.source)" name="source" scope="default" type="STRING"/>
-                <fileconnector.isFileExist>
-                    <source>{$ctx:source}</source>
-                </fileconnector.isFileExist>
-                <property expression="json-eval($.fileExist)" name="response" scope="default" type="STRING"/>
-                <log level="custom">
-                    <property expression="get-property('response')" name="responselog"/>
-                </log>
-                <switch source="get-property('response')">
-                    <case regex="true">
-                        <fileconnector.read>
-                            <source>{$ctx:source}</source>
-                        </fileconnector.read>
-                        <respond/>
-                    </case>
-                    <default>
-                        <log>
-                            <property name="notext" value="&quot;File does not exist&quot;"/>
-                        </log>
-                        <drop/>
-                    </default>
-                </switch>
-            </inSequence>
-            <outSequence/>
-            <faultSequence/>
-        </resource>
-    </api>
-
+    <resource methods="POST" uri-template="/create">
+		<inSequence>
+			<file.write configKey="local_file_connection">
+				<filePath>{json-eval($.filePath)}</filePath>
+				<contentOrExpression>{json-eval($.inputContent)}</contentOrExpression>
+				<mimeType>Automatic</mimeType>
+				<writeMode>Overwrite</writeMode>
+				<appendPosition>0</appendPosition>
+				<encoding>UTF-8</encoding>
+				<compress>false</compress>
+				<appendNewLine>false</appendNewLine>
+				<enableStreaming>false</enableStreaming>
+				<enableLock>false</enableLock>
+				<updateLastModified>true</updateLastModified>
+				<includeResultTo>Message Body</includeResultTo>
+			</file.write>
+		</inSequence>
+		<faultSequence>
+		</faultSequence>
+	</resource>
     ```
+=== "Diagram View"
+<img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-write-diagram.png" title="First API Resource" width="800" alt="First API Resource"/>
+
+### Creating the Second Resource
+
+1. Click on the `+ Resource` to add new resource.
+    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file3-add-new-resource.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+
+2. Use the URL template as `/read`. The method will be POST. 
+
+3.  Implement the following API as described above.
+
+=== "Source Code"
+    ```
+    <resource methods="POST" uri-template="/read">
+        <inSequence>
+            <property name="path" expression="json-eval($.filePath)"/>
+            <file.checkExist configKey="local_file_connection">
+                <path>{$ctx:path}</path>
+                <includeResultTo>Message Body</includeResultTo>
+            </file.checkExist>
+            <switch source="json-eval($.checkExistResult.fileExists)">
+                <case regex="true">
+                    <file.read configKey="local_file_connection">
+                        <path>{$ctx:path}</path>
+                        <readMode>Complete File</readMode>
+                        <startLineNum>0</startLineNum>
+                        <endLineNum>0</endLineNum>
+                        <lineNum>0</lineNum>
+                        <encoding>UTF-8</encoding>
+                        <enableStreaming>false</enableStreaming>
+                        <enableLock>false</enableLock>
+                        <includeResultTo>Message Body</includeResultTo>
+                    </file.read>
+                    <respond/>
+                </case>
+                <default>
+                    <log category="INFO" level="simple">
+                        <property name="Status" value="File does not exist"/>
+                    </log>
+                    <drop/>
+                </default>
+            </switch>
+        </inSequence>
+    <faultSequence>
+    </faultSequence>
+    </resource>
+    ```
+=== "Diagram View"
+     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/flie3-diagram-view.png" title="First API Resource" width="800" alt="First API Resource"/>
 
 {!includes/reference/connectors/exporting-artifacts.md!}
 
@@ -129,7 +128,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/filecon-3.x/fileconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/fileconnector3.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -139,49 +138,45 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 
 **Deploying on Micro Integrator**
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and execute the following command to start the server. Micro Integrator will be started and the composite application will be deployed.
+=== "On MacOS/Linux/CentOS"
+```bash
+sh micro-integrator.sh
+```
+=== "On Windows"
+```bash
+micro-integrator.bat
+```
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
 
 ## Testing
 
 ### File Create Operation
 
-1. Create a file called data.json with the following payload. 
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
-    {
-        "filePath":"<file_path>/create.txt",
-        "inputContent": "This is a test file"
-    }
+    curl --location 'http://localhost:8290/fileConnector/write' \
+       --header 'Content-Type: application/json' \
+       --data '{
+       "filePath":"/Users/wso2/Documents/mi_testing/doc/create.txt",
+       "inputContent": "This is a test file"
+       }'
     ```
-    > **Note**: When you configuring this `source` parameter in Windows operating system you need to set this property shown as `<source>C:\\Users\Kasun\Desktop\Salesforcebulk-connector\create.txt</source>`.
-    
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
-    ```
-    curl -H "Content-Type: application/json" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/create
-    ```
+
 **Expected Response**: 
 You should get a 'Success' response, and the file should be created in the specified location in the above payload. 
 
 ### File Read Operation
 
-1. Create a file called data.json with the following payload. 
-    ```
-    {
-        "source":"<file_path>/create.txt"
-    }
-    ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
-    ```
-    curl -H "Content-Type: application/json" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/read
-    ```
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+       ```
+       curl --location 'http://localhost:8290/fileConnector/read' \
+       --header 'Content-Type: application/json' \
+       --data '{
+       "filePath":"/Users/wso2/Documents/mi_testing/doc/create.txt"
+       }'
+       ```
 
 **Expected Response**: 
 You should get the following text returned. 
