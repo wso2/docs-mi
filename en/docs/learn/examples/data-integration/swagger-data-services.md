@@ -24,7 +24,7 @@ Following is a sample data service configuration with a custom Swagger definitio
     The custom Swagger file (JSON file) is saved to the Micro Integrator's registry. The `publishSwagger` element in the data service configuration specifies the registry path. In this example, we are storing the Swagger definition in the <b>governance</b> registry as shown below.
 
 ```xml
-<data enableBatchRequests="true" name="RDBMSDataService" serviceGroup="" serviceNamespace="">
+<data enableBatchRequests="true" name="RDBMSDataService" publishSwagger="gov:swagger-file/simple_petstore.yaml" serviceGroup="" serviceNamespace="">
     <description/>
     <query id="GetEmployeeDetails" useConfig="Datasource">
         <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees where EmployeeNumber=:EmployeeNumber</sql>
@@ -39,7 +39,7 @@ Following is a sample data service configuration with a custom Swagger definitio
     </query>
     <config id="Datasource">
         <property name="org.wso2.ws.dataservice.user">root</property>
-        <property name="org.wso2.ws.dataservice.password"/>
+        <property name="org.wso2.ws.dataservice.password">root</property>
         <property name="org.wso2.ws.dataservice.protocol">jdbc:mysql://localhost:3306/Employees</property>
         <property name="org.wso2.ws.dataservice.driver">com.mysql.jdbc.Driver</property>
         <property name="org.wso2.ws.dataservice.minpoolsize"/>
@@ -92,17 +92,24 @@ Following is a sample data service configuration with a custom Swagger definitio
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with a <b>Registry Resources</b> module and a <b>Composite Exporter</b>.
-3. [Create a Data Service project]({{base_path}}/develop/create-data-services-configs) inside the integration project.
-4. To create the data service with the above configurations:
+{!includes/build-and-run.md!}
+
+2. To create the data service with the above configurations:
     - Download the Swagger file: [custom_data_service_swagger.yaml](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-rest-apis/simple_petstore.yaml).
+    - Create a registry resource and store the Swagger definition in the governance registry.
     - Follow the instructions on [creating a data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services).
+      
+3. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/).
+
+4. Switch to the **EXPLORER** view in VS Code and copy the downloaded driver to the `<PROJECT_NAME>/deployment/lib/` directory in the project structure.
+
+    !!! Note
+        If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 
 Copy the following URLs to your browser to see the Swagger documents of your RESTful data service:
 
-- `http://localhost:8290/services/<data-service name>?swagger.json`
-- `http://localhost:8290/services/<data-service name>?swagger.yaml`
+- `http://localhost:8290/services/RDBMSDataService?swagger.json`
+- `http://localhost:8290/services/RDBMSDataService?swagger.yaml`
