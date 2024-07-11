@@ -8,7 +8,7 @@ Given below is a sample API that illustrates how you can connect to a FHIR serve
 
 1. `/create` : creates a new patient at FHIR server
 2. `/read` : retrieve information about the patient from FHIR server
-3. `/readSpecificResourceById`: map this to the scenario is it read patient by Id
+3. `/readSpecificResourceById`: read patient by Id
 4. `/update` : update patient information from FHIR server.
 5. `/delete` : remove added patient information from FHIR server.
 
@@ -56,15 +56,13 @@ This server is regularly loaded with a standard set of test data sets and also t
 
 <img src="{{base_path}}/assets/img/integrate/connectors/fhirconnector.png" title="FHIR Connector" width="800" alt="FHIR Connector"/>
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+1. Select Micro Integrator and click on `+` in APIs to create a REST API. 
 
-1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
-
-2. Specify the API name as `SendisoTestAPI` and API context as `/resources`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
+2. Specify the API name as `SampleApi` and API context as `/resources`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -100,7 +98,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/read">
@@ -131,7 +128,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/readSpecificResourceById">
@@ -168,7 +164,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/update">
@@ -202,7 +197,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/delete">
@@ -234,16 +228,16 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
    </api>
    ```
-To learn about supported operations and their parameters, please refer to `FHIR connector reference`.
- 
-3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
+    To learn about supported operations and their parameters, please refer to `FHIR connector reference`.
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
+
+## Exporting Integration Logic as a CApp
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -259,17 +253,10 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 
 **Deploying on Micro Integrator**
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-    
 ## Testing
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
