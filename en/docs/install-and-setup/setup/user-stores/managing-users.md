@@ -41,9 +41,9 @@ Users that do not have admin privileges can access the management API, the CLI, 
 
 ## Managing users and roles from the CLI
 
-You can use the WSO2 API Controller (APICTL) to view details of users, add new users, and remove users from the user store.
+You can use the WSO2 MI CLI to view details of users, add new users, and remove users from the user store.
 
-For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#manage-users) and see [Manage Roles]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#manage-roles).
+For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#manage-users) and see [Manage Roles]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#manage-roles).
 
 ## Managing users and roles from the Dashboard
 
