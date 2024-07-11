@@ -883,6 +883,7 @@ plugins:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
+              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
 
   # Extra
 extra_css:
