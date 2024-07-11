@@ -2,14 +2,6 @@
 
 The **Script Mediator** is used to invoke the functions of a variety of scripting languages such as JavaScript, Groovy, or Ruby.
 
-!!! Note
-    The Micro Integrator uses Rhino engine to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
-
-    -   Achieve the same functionality via a [Class mediator]({{base_path}}/reference/mediators/class-mediator).
-    -   If the original message consists of repetitive sections, you can use the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator/) to generate a relatively
-    small payload using those repetitive sections. This will then allow you to use the Script mediator.
-    -   The Script Mediator supports using Nashorn to execute JavaScripts, in addition to its default Rhino engine.
-
 A Script mediator can be created in one of the following methods.
 
 -   With the script program statements stored in a separate file, referenced via the **Local or Remote Registry entry**.
@@ -22,7 +14,7 @@ the Synapse Mediator. With the Script Mediator, you can invoke a
 function in the corresponding script. With these functions, it is
 possible to access the Synapse predefined in a script variable named
 `         mc        ` . The `         mc        ` variable represents an
-implementation of the `         MessageContext        ` , named
+implementation of the `         MessageContext        `, named
 `         ScriptMessageContext.java        ` , which contains the
 following methods that can be accessed within the script as
 `         mc.methodName        ` .
@@ -51,7 +43,7 @@ dynamic nature of scripting languages allow the rapid development and
 prototyping of custom mediators. An additional benefit of some scripting
 languages is that they have very simple and elegant XML manipulation
 capabilities, which make them very usable in a Synapse mediation
-environment. e.g., JavaScript E4X or Ruby REXML.
+environment. e.g., JavaScript E4X with RhinoJS or Ruby REXML.
 
 For both types of script mediator definitions, the
 `         MessageContext        ` passed into the script has additional
@@ -67,13 +59,15 @@ and when using Ruby, REXML documents.
 !!! Important "Limitations and Alternatives to Script Mediator"
     While the Script mediator offers enhanced extensibility in the Synapse configuration, it is important to consider its potential limitations. We highly recommend utilizing the Script mediator only when absolutely necessary. In cases where extension requirements can be fulfilled using alternatives such as the Class mediator, we advise opting for the latter due to several reasons. Notably, the use of a Script mediator in moderately complex to sophisticated mediation flows may introduce significant performance overhead compared to a Java-based Class mediator. Therefore, we suggest prioritizing Class mediators as extensions to the mediation flow over Script mediators. However, for simpler tasks, the Script mediator can still serve as a versatile option.
 
+!!! Note
+    The Micro Integrator uses GraalVM JS by default. If you have specified the language as `rhinoJs`, Rhino engine will be used to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65,536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
+
+    -   Achieve the same functionality via a [Class mediator]({{base_path}}/reference/mediators/class-mediator).
+    -   If the original message consists of repetitive sections, you can use the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator/) to generate a relatively
+    small payload using those repetitive sections. This will then allow you to use the Script mediator.
+    -   The Script Mediator supports using the default GraalVM JS to execute JavaScript.
+
 ## Prerequisites
-
--   If you are using **nashornJS** as the JavaScript language, and also if you have JSON operations defined in the Script mediator, you need to have JDK version `8u112` or a later version in your environment.
-    If your environment has an older JDK version, the Script mediator (that uses nashornJS and JSON operations) will not function properly because of this [JDK bug](https://bugs.openjdk.java.net/browse/JDK-8157160). That is, you will encounter server exceptions in the Micro Integrator.
-
-    !!! Note
-         If you are using JDK 15 or above, you need to manually copy the [nashorn-core](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.4) and [asm-util](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.5) jars to the <code>&lt;MI_HOME&gt;/lib</code> directory since Nashorn was [removed](https://openjdk.org/jeps/372) from the JDK in Java 15.
 
 -   Listed below are the prerequisites for writing a Script mediator using
 JavaScript, Groovy, or Ruby.
@@ -97,10 +91,13 @@ JavaScript, Groovy, or Ruby.
     </tr>
     <tr class="odd">
     <td>JavaScript</td>
-    <td>The JavaScript/E4X support is enabled by default in the Micro Integrator and ready for use.</td>
+    <td>The JavaScript based on GraalVM JS is enabled by default in the Micro Integrator and ready for use.</td>
     </tr>
     </tbody>
     </table>
+
+    !!! Note
+         The `nashornJs` language is deprecated in JDK 15 and above. If you are using JDK 15 or above, you need to manually copy the [nashorn-core](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.4) and [asm-util](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.5) JAR files to the <code>&lt;MI_HOME&gt;/lib</code> directory since Nashorn was [removed](https://openjdk.org/jeps/372) from the JDK.
 
 ## Syntax
 
@@ -214,6 +211,10 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
          </td>
       </tr>
     </table>
+
+!!! Note
+         The Script mediator now utilizes the GraalVM JS engine for the `js` language. The GraalVM JS engine does not provide E4X support for XML. For E4X support, you can use the Rhino engine. To use the Rhino engine, you need to specify the language as `rhinoJs` in the Script mediator language configuration.
+
 
 ## Examples
 
@@ -480,8 +481,6 @@ The following table contains examples of how some of the commonly used methods c
 <td>setProperty(property)</td>
 <td><div class="content-wrapper">
 <p>See the example for the <code>               getProperty              </code> method. The <code>               setProperty              </code> method is used to set the response time calculated from the time durations obtained (using the <code>               getProperty              </code> method) in the message context.</p>
-!!! note
-<p>In the ESB profile due to a Rhino engine upgrade, when strings are concatenated and set as a property in the message context, you need to use the toString() method to convert the result to a string.</p>
 <p>In the following example, <strong>var result = "a"</strong> and then <strong>result = result + "b"</strong> . When concatenating these strings, the script invoked needs to be as follows:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
