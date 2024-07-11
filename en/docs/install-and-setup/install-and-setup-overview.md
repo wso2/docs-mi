@@ -388,7 +388,7 @@ To implement continuous integration and continuous deployment pipelines for inte
     </tr>
 </table>
 
-To manage integration artifacts and logs in the Micro Integrator by using the MI CLI (mi), see the topics given below.
+To manage integration artifacts and logs in the Micro Integrator by using the MI CLI (micli), see the topics given below.
 
 <table>
     <tr>
