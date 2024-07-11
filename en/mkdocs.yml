@@ -837,6 +837,7 @@ nav:
           - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
+          - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
 
 # Extensions
 markdown_extensions:
