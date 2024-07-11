@@ -129,6 +129,6 @@ Configure a relational database to persist transaction count information and the
 
 You can get the transaction count for a particular month or period. This data can be viewed or saved to a report. There are two ways to get transaction count data:
 
--  Start the [APICTL]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl) and use the [mi transaction]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#monitor-transactions) option.
+-  Start the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli) and use the [mi transaction]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#monitor-transactions) option.
 
 -  Directly access the [Management API resources]({{base_path}}/observe-and-manage/working-with-management-api) and invoke the [/transaction/count]({{base_path}}/observe-and-manage/working-with-management-api/#get-transaction-count) and [/transaction/report]({{base_path}}/observe-and-manage/working-with-management-api/#get-transaction-report-data) resources.

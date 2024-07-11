@@ -466,7 +466,7 @@ nav:
           - Manage Micro Integrator:
               - Runtime:
                   - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
-                  - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
+                  - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:
                   - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md

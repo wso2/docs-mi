@@ -388,15 +388,15 @@ To implement continuous integration and continuous deployment pipelines for inte
     </tr>
 </table>
 
-To manage integration artifacts and logs in the Micro Integrator by using the API Controller (apictl), see the topics given below.
+To manage integration artifacts and logs in the Micro Integrator by using the Micro Integrator CLI (micli), see the topics given below.
 
 <table>
     <tr>
         <th>   
-            <a href="{{base_path}}/observe-and-manage/managing-integrations-with-apictl">Managing Integrations</a>
+            <a href="{{base_path}}/observe-and-manage/managing-integrations-with-micli">Managing Integrations</a>
         </th>
         <td>
-            Explains how to manage integrations with the API Controller.
+            Explains how to manage integrations with the MI CLI.
         </td>
     </tr>
 </table>
