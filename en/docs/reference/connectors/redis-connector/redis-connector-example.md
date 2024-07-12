@@ -191,7 +191,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/redis/add-payload-factory.png" title="Add payloadfactory to extract WSO2 details" width="600" alt="Add payloadfactory to extract WSO2 details"/> 
 
-4. Add a header to get a quote from the SimpleStockQuoteService.
+4. Add a header to get a quote from the `SimpleStockQuoteService`.
 
     <table>
          <tr>
