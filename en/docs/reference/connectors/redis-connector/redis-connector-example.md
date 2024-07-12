@@ -335,7 +335,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
     
 1. Navigate to the **Service Designer** view of the API and select the `getstockvolumedetails` resource.
 
-2. Click the **+** under the **start** and select the **Redis** connector from the **Connectors** section.
+2. Click **+** under **start** and select the **Redis** connector from the **Connectors** section.
 
 3. Select **hGetAll** from the connector operations.
 4. Select `REDIS_CONNECTION_1` from the connection dropdown.
