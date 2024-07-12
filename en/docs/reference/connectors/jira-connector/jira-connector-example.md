@@ -16,19 +16,21 @@ You will use two HTTP API resources, which are `createIssue` and `getIssue`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
-
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
 ## Creating the Integration Logic
 
-1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+1. Click `+` on the Extension panel APIs to create the REST API.
 
 2. Provide the API name as `jiraAPI` and the API context as `/jira`. You can go to the source view of the XML configuration file of the API and copy the following configuration.
+   ![Adding a Rest API]({{base_path}}/assets/img/integrate/connectors/jira-conn-1.png "Adding a Rest API")
 
+3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Connectors** and search for the **jira** connector. Click the Jira connector to open the operation panel, then click **init**. This will download the connector.
+   ![Adding a Jira Connector]({{base_path}}/assets/img/integrate/connectors/jira-conn-2.png "Adding a Jira Connector")
+
+4. You can go to the source view (click the `</>` icon on the top right corner) of the XML configuration file of the API and copy the following configuration.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -38,14 +40,13 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <jira.init>
                     <username>****</username>
                     <password>****</password>
-                    <uri>https://<site-url>/jira</uri>
+                    <uri>https://<site-url></uri>
             </jira.init>
             <jira.createIssue>
                 <issueFields>{$ctx:issueFields}</issueFields>
             </jira.createIssue>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
     <resource methods="POST" uri-template="/getIssue">
@@ -53,20 +54,17 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <jira.init>
                     <username>****</username>
                     <password>****</password>
-                    <uri>https://<site-url>/jira</uri>
+                    <uri>https://<site-url></uri>
             </jira.init>
             <jira.getIssue>
                 <issueIdOrKey>{$ctx:id}</issueIdOrKey>
             </jira.getIssue>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
 </api>
 ```
-
-{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -81,17 +79,9 @@ You can download the ZIP file and extract the contents to get the project code.
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
 **Deploying on Micro Integrator**
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
 
 ## Testing
 
