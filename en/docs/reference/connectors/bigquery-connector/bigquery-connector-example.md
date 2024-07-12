@@ -32,13 +32,25 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
- {!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+### Creating the New Project
 
-Open the MI project view and click the **+** button next to the **API**. A form will open to create a new API resources. Specify the API name as **bigquery-testAPI** and API context as **/resources**.
-    
-<img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-api.png" title="Adding a Rest API" width="300" alt="Adding a Rest API"/>
+1. Go to **WSO2 Micro Integrator** in the VS Code.
+
+2. Click on **Create New Project** to create the new integration project.
+
+3. provide the **Project Name** and select the **Project Directory**
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/new-vscode-project.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
+
+4. You have now created the new project with the following structure.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
 #### Configuring the API
+
+Open the MI project view and click the **+** button next to the **API**. A form will open to create a new API resources. Specify the API name as **bigquery-testAPI** and API context as **/resources**.
+
+ <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-api.png" title="Adding a Rest API" width="300" alt="Adding a Rest API"/>
 
 ##### Configure a resource for the gettabledetails operation
 
