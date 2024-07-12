@@ -28,7 +28,6 @@ See the instructions on how to [build and run](#build-and-run-example-1) this ex
          <respond/>
       </inSequence>
    </target>
-   <description/>
 </proxy>
 ```
 
@@ -36,8 +35,7 @@ See the instructions on how to [build and run](#build-and-run-example-1) this ex
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -120,17 +118,17 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
          <payloadFactory media-type="json">
             <format>
             {
-        "name": "$1",
-        "location": {
-            "region": "$2",
-            "latitude": $3,
-            "longitude": $4
-        },
-        "attempted_launches": $5,
-        "successful_launches": $6,
-        "wikipedia": "$7",
-        "site_name_long": "$8"
-        }
+                "name": "$1",
+                "location": {
+                    "region": "$2",
+                    "latitude": $3,
+                    "longitude": $4
+                },
+                "attempted_launches": $5,
+                "successful_launches": $6,
+                "wikipedia": "$7",
+                "site_name_long": "$8"
+            }
             </format>
             <args>
                <arg evaluator="xml" expression="//SpaceX_LaunchPads/Station/Short_Name"/>
@@ -146,7 +144,6 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
          <respond/>
       </inSequence>
    </target>
-   <description/>
 </proxy>
 ```
 
@@ -154,8 +151,7 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
