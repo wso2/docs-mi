@@ -18,38 +18,54 @@ It will have two HTTP API resources, which are `create` and `read`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Setting Up the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+### Creating the New Project
 
-## Creating the Integration Logic
+1. Go to **WSO2 Micro Integrator** in the VS Code.
 
-### Creating the First Resource
+2. Click on **Create New Project** to create the new integration project.
 
-1. Click on the `Add API` in the created Integration Project and provide the API name as `FileConnector` and the API context as `/fileConnector`.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+3. provide the **Project Name** and select the **Project Directory**
 
-2. To create the `/create` resource. Click on the `Edit` and update the value of `URI template` to `/create` and value of `method` to `Post`.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-update-resource.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/new-vscode-project.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-3. Open the API in the diagram view and click on the `+` to add connectors or mediators.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-add-connector.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+4. You have now created the new project with the following structure.
 
-4. To add the write operation under the API, click on `Connectors`, select the `file` connector, and choose the `write` operation.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-add-operation.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-5. Click on `Add new connection` to create the new local file connection.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-add-new-connection.png" title="Adding createFile operation" width="800" alt="Adding createFile operation"/>
+### Creating the Integration Logic
+
+#### Creating the First Resource
+
+1. Click on the **+** button next to the **APIs** and provide the API name as `FileConnector` and the API context as `/fileConnector`.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-api.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
+
+2. To create the `/create` resource. Click on **Edit** and update the value of `URI template` to `/create` and value of `method` to `Post`.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-update-resource.png" title="Adding the API resource." width="500" alt="Adding the API resource."/>
+
+3. Open the API in the diagram view and click on the **+** button below to **START** to add connectors or mediators.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-connector.png" title="Adding the API resource." width="500" alt="Adding the API resource."/>
+
+4. To add the write operation under the API, click on **Connectors**, select the **file** connector, and choose the **write** operation.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-operation.png" title="Adding the API resource." width="500" alt="Adding the API resource."/>
+
+5. Click on **Add new connection** to create the new local file connection.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-new-connection.png" title="Adding createFile operation" width="500" alt="Adding createFile operation"/>
 
 6. After creating the local file connection, update the values for file path and Content for the write operation.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-write-operation.png" title="First API Resource" width="800" alt="First API Resource"/>
 
-The following is your implemented API:
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-write-operation.png" title="First API Resource" width="500" alt="First API Resource"/>
 
-=== "Source Code"
-    ```
+??? note "Source view of the implemented resource"
+    ```xml
         <resource methods="POST" uri-template="/create">
             <inSequence>
                 <file.write configKey="local_file_connection">
@@ -71,19 +87,17 @@ The following is your implemented API:
             </faultSequence>
         </resource>
     ```
-=== "Diagram View"
-    <img src="{{base_path}}/assets/img/integrate/connectors/file-write-diagram.png" title="First API Resource" width="800" alt="First API Resource"/>
+#### Creating the Second Resource
 
-### Creating the Second Resource
+1. Click on **+ Resource** to add new resource.
 
-1. Click on the `+ Resource` to add new resource.
-   <img src="{{base_path}}/assets/img/integrate/connectors/file-add-new-resource.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-new-resource.png" title="Adding an API resource" width="500" alt="Adding an API resource"/>
 
 2. Use the URL template as `/read`. The method will be POST.
 
 3.  Implement the following API as described above.
 
-=== "Source Code"
+??? note "Source view"
     ```
         <resource methods="POST" uri-template="/read">
             <inSequence>
@@ -119,10 +133,6 @@ The following is your implemented API:
             </faultSequence>
         </resource>
     ```
-=== "Diagram View"
-    <img src="{{base_path}}/assets/img/integrate/connectors/flie-diagram-view.png" title="First API Resource" width="800" alt="First API Resource"/>
-
-{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -134,21 +144,14 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime.
+Once you have [built your artifacts]({{base_path}}/develop/packaging-artifacts) into a composite application, you can
+export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension:
 
-**Deploying on Micro Integrator**
+1.  Open the project overview and click on **Export**.
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and execute the following command to start the server. Micro Integrator will be started and the composite application will be deployed.
-=== "On MacOS/Linux/CentOS"
-    ```bash
-    sh micro-integrator.sh
-    ```
-=== "On Windows"
-    ```bash
-    micro-integrator.bat
-    ```
+     <img src="{{base_path}}/assets/img/integrate/connectors/export_artifacts.jpeg" width="300" alt="Download ZIP">
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
 ## Testing
 
@@ -189,4 +192,4 @@ This is a test file.
 
 ## What's Next
 
-* To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/file-connector-config) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [File Connector Reference Guide]({{base_path}}/reference/connectors/file-connector/file-connector-config) documentation for all operation details of the connector.
