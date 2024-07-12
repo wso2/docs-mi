@@ -258,8 +258,6 @@ nav:
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
-          - Create Data Service Configs: develop/create-data-services-configs.md
-          - Create Datasource Configs: develop/create-datasources.md
           - Import Projects: develop/importing-projects.md
           - Export Projects: develop/export-project.md
           - Create Docker Exporter: develop/create-docker-project.md
