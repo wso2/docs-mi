@@ -26,12 +26,12 @@ synapse_secret = "[secret_2]"
 
 ### Dynamic secrets
 
-Dynamic secrets are specified in configurations as environment variables, system properties, Docker secrets, or Kubernetes secrets. The actual secrets is then encrypted using the WSO2 API Controller, **apictl** and injected to the environment.
+Dynamic secrets are specified in configurations as environment variables, system properties, Docker secrets, or Kubernetes secrets. The actual secrets is then encrypted using the WSO2 Micro Integrator CLI, **micli** and injected to the environment.
 
 1.  First, list the dynamic secrets in the `deployment.toml` file under the `[secrets]` section. However, unlike for static secrets, specify the secret value as an environment variable or system property.
 
     !!! Note
-        In this example, `dynamic_secret` is a placeholder for the secret. You will use this placeholder as the secret's alias when you encrypt the plain-text secret using the apictl (in the next step).
+        In this example, `dynamic_secret` is a placeholder for the secret. You will use this placeholder as the secret's alias when you encrypt the plain-text secret using the MI CLI (in the next step).
     
     === "Environment Variable"
         ```toml  
@@ -44,7 +44,7 @@ Dynamic secrets are specified in configurations as environment variables, system
         server_secret = "$sys{dynamic_secret}"
         ``` 
 
-2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the WSO2 API Controller. For more information, see [Encrypting Secrets with CTL]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#encrypting-secrets-with-apictl)
+2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the WSO2 MI CLI. For more information, see [Encrypting Secrets with CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#encrypting-secrets-with-mi-cli)
 
 ## Step 2: Running the Cipher Tool
 
@@ -140,7 +140,7 @@ export env_carbon_sec=<ENCRYPTED_VALUE>
 
 ### In a Kubernetes environment
 
-If you are in a Kubernetes enviroment, you should have generated a .yaml file with the encrypted secrets using the WSO2 API Controller, **apictl**. See [defining dynamic secrets](#dynamic-secrets).
+If you are in a Kubernetes enviroment, you should have generated a .yaml file with the encrypted secrets using the WSO2 MI CLI, **mi**. See [defining dynamic secrets](#dynamic-secrets).
 
 ### Start server as a background job
 

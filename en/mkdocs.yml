@@ -464,7 +464,7 @@ nav:
           - Manage Micro Integrator:
               - Runtime:
                   - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
-                  - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
+                  - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:
                   - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
@@ -835,6 +835,7 @@ nav:
           - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
+          - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
 
 # Extensions
 markdown_extensions:
@@ -882,6 +883,7 @@ plugins:
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
 
   # Extra
 extra_css:
