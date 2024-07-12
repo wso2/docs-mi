@@ -1,82 +1,85 @@
 # Creating an Endpoint
-Follow the instructions given below to create a new [Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) artifact in WSO2 Integration Studio.
+Follow the instructions given below to create a new [Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) artifact in MI for VS Code.
 
 ## Instructions
 
 ### Creating the Endpoint artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Endpoint** to open the **New Endpoint Artifact** dialog box.
+{!includes/build-and-run.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/select-endpoint.png">
+3. Go to **MI Project Explorer** > **Endpoints**.
 
-2.  Select **Create a New Endpoint** and click **Next**.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="Create endpoint" width="35%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/new-endpoint-wizard-1.png" width="500">
+4. Click on the **+** sign next to **Endpoints** to open the below **Endpoint Form**.
 
-3.  Enter a unique name for the endpoint, and then select the type of endpoint you are creating.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" alt="Endpoint form" width="80%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/new-endpoint-wizard-2.png" width="500">
+5. Select the endpoint type you want from the **Create Endpoint Artifact** interface.
 
-4.  Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/endpoint-properties) for the selected endpoint type.
-5.  Specify how you want to save the endpoint:
+6. Enter a unique name for the endpoint.
 
-    - Select **Static Endpoint** to save the endpoint in the current workspace.
-    - Select **Dynamic Endpoint** to save the endpoint as a registry resource.
+7. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/endpoint-properties) for the selected endpoint type.
 
-6.  Specify the location to save the endpoint:
+8. Click **Create** to save the endpoint configuration.
 
-    - To save in an existing ([ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) or [Registry Resource project]({{base_path}}/develop/create-integration-project/#registry-resource-project)) in your workspace, click **Browse** and select that project.
-    - To save in a new project, click **Create new Project** and create the new project.
-
-7.  Click **Finish**. 
-
-The endpoint is created in the `src/main/synapse-config/endpoints` folder under the ESB Config project or [registry resource project]({{base_path}}/develop/create-integration-project/#registry-resource-project) you specified.
+The endpoint will be created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/endpoints` folder.
 
 ### Designing the integration
 
-To add an endpoint artifact to the integration sequence, use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) or the [Call Mediator]({{base_path}}/reference/mediators/call-mediator).
+!!! note
+    Endpoints cannot be added directly to the integration sequence. Instead, they must be invoked using the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) or the [Call Mediator]({{base_path}}/reference/mediators/call-mediator).
 
-1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
-2.  Drag the [Call Mediator]({{base_path}}/reference/mediators/call-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/mediation-sequences):
+    Therefore, to add an endpoint artifact to the integration sequence, use the Send Mediator or the Call Mediator.
 
-	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-graphical-editor-1.png" width="700">
+1.	Open the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
+2.  Add the **Call Endpoint** mediator from the palette under **All Mediators** > **Generic** section to the relevant position in the mediation sequence:
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="30%"></a>
 
     !!! Tip
-        Similarly, you can use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator).
+        Similarly, you can use the Send Mediator instead of the Call Mediator.
 
-3.	Drag the new endpoint artifact from the **Defined Endpoints** section in the **Palette** and drop it to the empty box in the [Call Mediator]({{base_path}}/reference/mediators/call-mediator):
+3. In the **Call Endpoint** form, select the endpoint that you need to invoke under **Select Endpoint**. You can also select **Create New** to create a new endpoint artifact.
 
-	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-graphical-editor-2.png" width="700">
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" alt="Call endpoint" width="30%"></a>
 
 The endpoint artifact is now linked to your integration sequence.
 
 ### Updating the properties
 
-Open the new endpoint artifact from the project explorer. You can use the **Form** view or the **Source** view to update endpoint properties.
+1. Go to **MI Project Explorer**.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-form-view.png" width="700">
+2. Open the new endpoint artifact available under the `<PROJECT_NAME>/Endpoints/`. 
 
-See the descriptions of all [endpoint properties]({{base_path}}/reference/synapse-properties/endpoint-properties).
+You can use the **Form** view or the **Source** view to update endpoint properties.
+
+#### To update from the Form View:
+
+1. Go to **MI Overview**.
+2. Under the **Endpoints** available, select the endpoint that you need to update the properties. The **Endpoint Form** will be opened.
+3. Update the properties.
+4. Click **Save Changes**.
+
+#### To update from the Source View:
+
+1. Go to **MI Overview**.
+2. Under the **Endpoints** available, select the endpoint you want.
+3. Click on the **Show Source** (**<b>&lt;/&gt;</b>**) icon located in the top right corner of the VS Code. 
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/show-source.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/show-source.png" alt="Show source" width="50%"></a>
+
+    This will open the source view of the endpoint artifact.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-source-view.png" alt="Endpoint source view" width="50%"></a>
+
+To learn more about all available endpoint properties, see the [endpoint properties]({{base_path}}/reference/synapse-properties/endpoint-properties) documentation.
 
 ## Examples
 
-<ul>
-	<li>
-		<a href="{{base_path}}/learn/examples/endpoint-examples/using-address-endpoints">Using Address Endpoints</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/endpoint-examples/using-failover-endpoints">Using Failover Endpoints</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/endpoint-examples/using-http-endpoints">Using HTTP Endpoints</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/endpoint-examples/using-websocket-endpoints">Using a Websocket Endpoint</a>
-	</li>
-  <li>
-		<a href="{{base_path}}/learn/examples/endpoint-examples/using-wsdl-endpoints">Using WSDL Endpoints</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/endpoint-examples/using-loadbalancing-endpoints">Using Load Balancing Endpoints</a>
-	</li>
-</ul>
+- [Using Address Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-address-endpoints)
+- [Using Failover Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-failover-endpoints)
+- [Using HTTP Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-http-endpoints)
+- [Using a Websocket Endpoint]({{base_path}}/learn/examples/endpoint-examples/using-websocket-endpoints)
+- [Using WSDL Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-wsdl-endpoints)
+- [Using Load Balancing Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-loadbalancing-endpoints)
