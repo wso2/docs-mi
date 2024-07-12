@@ -16,7 +16,7 @@ This example demonstrates how to use Redis connector to:
 2. Retrieve all stock volume details from the Redis server.
 3. Remove stock volume details from Redis server.
 
-All three operations are exposed via an `StockQuoteAPI` API. The API with the context `/stockquote` has four resources  
+All three operations are exposed via an `StockQuoteAPI` API. The API with the context `/stockquote` has three resources:  
 
 * `/getstockquote/{symbol}`: This is used to get stock volume details while extracting and sending details to the Redis hash map.
 * `/getstockvolumedetails` : Retrieve information about the inserted stock volume details.
@@ -28,235 +28,452 @@ The following diagram shows the overall solution. The user creates a hash map, s
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+{!includes/build-and-run.md!}
 
-### Import the connector
+## Add integration logic
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+### Create the Endpoint
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+1. Navigate to **MI Project Explorer** > **Endpoints** and click on the **+** icon next to **Endpoints**.
 
-### Add integration logic
+3. Select **Address Endpoint**.
 
-First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `SampleRdisAPI` and API context as `/resources`.
+4. In **Endpoint Artifact** interface that appears, specify the following values and click **Create**.
+
+    <table>
+      <tr>
+         <th>Parameter</th>
+         <th>Value</th>
+      </tr>
+      <tr>
+        <td>Endpoint Name</td>
+        <td><code>StockQuoteEP</code></td>
+      </tr>
+      <tr>
+        <td>URI Template</td>
+        <td><code>http://localhost:9000/services/SimpleStockQuoteService</code></td>
+      </tr>
+      <tr>
+        <td>Format</td>
+        <td><code>SOAP 1.1</code></td>
+      </tr>
+    </table>
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/create-endpoint.png" title="Create Endpoint" width="600" alt="Create Endpoint"/> 
+
+### Create the REST API
+
+1. Navigate to **MI Project Explorer** > **APIs** and click on the **+** sign next to APIs to open the **Synapse API Artifact** creation form. 
+
+2. Specify the API name as `SampleRedisAPI` and API context as `/stockquote` and click **Create**.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/create-api.png" title="Create API" width="700" alt="Create API"/>
+
+    After creating the API artifact, the Service Designer pane will be displayed with the default API resource.
+
+4. Click on the **options** icon and select **edit** to edit the resource.
+
+    Specify values for the required resource properties:
+
+    <table>
+      <tr>
+         <th>Parameter</th>
+         <th>Value</th>
+      </tr>
+      <tr>
+        <td>Url Style</td>
+        <td><code>URL_TEMPLATE</code></td>
+      </tr>
+      <tr>
+        <td>Uri Template</td>
+        <td>
+          <code>/getstockquote/{symbol}</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Methods</td>
+        <td><code>GET</code></td>
+      </tr>
+    </table> 
+   
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/edit-resource-option.png" title="Edit API resource" width="500" alt="Edit API resource"/>
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/edit-api-resource.png" title="Edit API resource" width="500" alt="Edit API resource"/>
+
+5. To create the other two resources, click on the **+ Resource** button on the **Service Designer** and configure the following values.
+
+      <table>
+         <tr>
+            <th>Parameter</th>
+            <th>resource 2</th>
+            <th>resource 3</th>
+         </tr>
+         <tr>
+           <td>Url Style</td>
+           <td><code>URL_TEMPLATE</code></td>
+           <td><code>URL_TEMPLATE</code></td>
+         </tr>
+         <tr>
+           <td>Uri Template</td>
+           <td>
+             <code>/getstockvolumedetails</code>
+           </td>
+           <td>
+             <code>/deletestockvolumedetails</code>
+           </td>
+         </tr>
+         <tr>
+           <td>Methods</td>
+           <td><code>GET</code></td>
+           <td><code>POST</code></td>
+         </tr>
+       </table> 
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/add-resource.png" title="Add Resource" width="600" alt="Add Resource"/>
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/resource-overview.png" title="List of Resources" width="600" alt="List of Resources"/>
+
+### Create the mediation logic
+
+#### Configure a resource for the getstockquote operation
+
+Configure a resource that sets up Redis hash map and sets a specific field in a hash to a specified value. In this sample, the user sends the request to invoke the created API to get WSO2 stock volume details. To achieve this, add the follow the steps below.
+
+1. Click on the `GET getstockquote` API resource under available resources on the Service Designer.
+
+    You will now see the graphical view of the `SampleRedisAPI` with its default API Resource.
+
+2. Click on the **+** icon under the **start** to add a mediator.
+
+3. Add a payload factory mediator from the mediator palette to extract the selected stock details. In this sample, we attempt to get WSO2 stock details from the SimpleStockQuoteService.
+    <table>
+      <tr>
+         <th>Parameter</th>
+         <th>Value</th>
+      </tr>
+      <tr>
+        <td>Payload Format</td>
+        <td><code>Inline</code></td>
+      </tr>
+      <tr>
+        <td>Media Type</td>
+        <td>
+          <code>xml</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Template Type</td>
+        <td><code>default</code></td>
+      </tr>
+      <tr>
+        <td>Payload</td>
+        <td>
+         ```
+         <m0:getQuote xmlns:m0="http://services.samples">
+         <m0:request>
+         <m0:symbol>$1</m0:symbol>
+         </m0:request>
+         </m0:getQuote>
+         ```
+        </td>
+      </tr>
+    </table>
+
+    Add parameter:
+    <table>
+      <tr>
+         <td>Argument value</td>
+         <td><code>get-property('uri.var.symbol')</code></td>
+      </tr>
+    </table>
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/add-payload-factory.png" title="Add payloadfactory to extract WSO2 details" width="600" alt="Add payloadfactory to extract WSO2 details"/> 
+
+4. Add a header to get a quote from the SimpleStockQuoteService.
+
+    <table>
+         <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+         </tr>
+         <tr>
+           <td>Header Name</td>
+           <td><code>Action</code></td>
+         </tr>
+         <tr>
+           <td>Header Action</td>
+           <td>
+             <code>set</code>
+           </td>
+         </tr>
+         <tr>
+           <td>Scope</td>
+           <td><code>default</code></td>
+         </tr>
+         <tr>
+           <td>Header Value Type</td>
+           <td><code>LITERAL</code></td>
+         </tr>
+         <tr>
+           <td>Header Value Literal</td>
+           <td><code>urn:getQuote</code></td>
+         </tr>
+       </table> 
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/redis-header.png" title="Add Header to get Quote" width="600" alt="Add Header to get Quote"/>
+
+6. Add an address endpoint using the call mediator to access SimpleStockQuoteService. Select the previously created `StockQuoteEP` from the dropdown.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/call-mediator.png" title="Call mediator" width="600" alt="Call mediator"/>  
+
+8. In this example, we copy the original payload to a property using the Enrich mediator.
+   
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/enrich-mediator-1.png" title="Add enrich mediator" width="600" alt="Add enrich mediator"/> 
+
+9. To get the input values in to the `hSet`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.
+
+   1. Add the property mediator to capture the `symbol` value from the response of SimpleStockQuoteService. The 'symbol' contains the company name of the stock quote.
+
+       <table>
+         <tr>
+           <td>Property Name</td>
+           <td><code>symbol</code></td>
+         </tr>
+         <tr>
+           <td>Property Value</td>
+           <td>
+             <code>$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol</code>
+           </td>
+         </tr>
+       </table> 
+      <img src="{{base_path}}/assets/img/integrate/connectors/redis/property-symbol.png" title="Add property mediators to get symbol" width="600" alt="Add property mediators to get symbol"/>
+
+   2. Add the property mediator to capture the `volume` values. The 'volume' contains stock quote volume of the selected company.
+
+      <table>
+         <tr>
+           <td>Property Name</td>
+           <td><code>volume</code></td>
+         </tr>
+         <tr>
+           <td>Property Value</td>
+           <td>
+             <code>$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume</code>
+           </td>
+         </tr>
+       </table> 
+       <img src="{{base_path}}/assets/img/integrate/connectors/redis/property-volume.png" title="Add property mediators to get volume" width="600" alt="Add property mediators to get volume"/>  
+
+10. Add redis connector operation.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
-
-#### Configuring the API
-
-##### Configure a resource for the getstockquote operation
-
-Create a resource that sets up Redis hash map and sets a specific field in a hash to a specified value. In this sample, the user sends the request to invoke the created API to get WSO2 stock volume details. To achieve this, add the following components to the configuration.
-
-1. Add an address endpoint using the send mediator to access SimpleStockQuoteService.
-   
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-address-endpoint.png" title="Address endpoint" width="500" alt="Address endpoint"/>  
-
-2. Add a header to get a quote from the SimpleStockQuoteService.
-
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-header.png" title="Add Header to get Quote" width="500" alt="Add Header to get Quote"/> 
-
-3. Add a payload factory to extract the selected stock details. In this sample, we attempt to get WSO2 stock details from the SimpleStockQuoteService.
-   
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-payloadfactory.png" title="Add payloadfactory to extract WSO2 details" width="500" alt="Add payloadfactory to extract WSO2 details"/> 
-
-4. In this example, we copy the original payload to a property using the Enrich mediator.
-   
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-enrich1.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
-
-   When we need the original payload, we replace the message body with this property value using the Enrich mediator as follows.
-   
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-enrich2.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
+     1. Click **+** icon under the property mediator.
+     2. Select the **Redis** connector from the **Connectors** section.
     
-5. Initialize the connector.
-    
-    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `init` operation into the Design pane.
+        <img src="{{base_path}}/assets/img/integrate/connectors/redis/redis-mediator.png" title="Redis mediator" width="400" alt="Redis mediator"/>
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-init-drag-and-shop.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
+     3. Select **hSet** from the connector operations.
+     4. Next, you have to create a redis connection. Click the **Add new connection**.
+     5. Configure the values as shown below and click **Add**. 
     
-    2. Add the property values into the `init` operation as shown below. Replace the `redisHost`, `redisPort`, `redisTimeout` with your values.
-        
-        - **redisHost**: The Redis host name (default localhost).
-        - **redisPort**: The port on which the Redis server is running (the default port is 6379).
-        - **redisTimeout** : The server TTL (Time to live) in milliseconds.
+        <table>
+          <tr>
+            <td>redisHost</td>
+            <td><code>The Redis host name (default: localhost)</code></td>
+          </tr>
+          <tr>
+            <td>redisPort</td>
+            <td><code>The port on which the Redis server is running (default: 6379)</code></td>
+          </tr>
+        </table> 
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-init-parameterspng.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/redis/add-redis-connection.png" title="Add redis connection" width="400" alt="Add redis connection"/>
+    
+     6. Navigate to the **Add hSet** form and select the created `redis` connection from the **Connection Type** dropdown.
+     7. In this operation we are going to set a hash map to the Redis server. The hSet operation sets a specific field in a hash to a specified value.
 
-6. Set up the hSet operation. This operation sets a specific field in a hash to a specified value.
-
-    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hSet` operation into the Design pane.
-           
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-hset-drag-and-drop.png" title="Drag and drop hSet operation" width="500" alt="Drag and drop hSet operation"/>    
-
-    2. In this operation we are going to set a hash map to the Redis server. The hSet operation sets a specific field in a hash to a specified value.
-                                                                                 
         - **redisKey** : The name of the key where the hash is stored.
         - **redisField** : The field for which you want to set a value.
         - **redisValue** : The value that you want to set for the field.
         
+        Configure the following values and click **submit**
+         <table>
+         <tr>
+           <td>redisKey</td>
+           <td><code>StockVolume</code></td>
+         </tr>
+         <tr>
+           <td>redisField</td>
+           <td><code>$ctx:symbol</code></td>
+         </tr>
+         <tr>
+           <td>redisValue</td>
+           <td><code>$ctx:volume</code></td>
+         </tr>
+       </table> 
+    
         In this example, `redisKey` value is configured as **StockVolume**. While invoking the API, the above `redisField`,`redisValue` parameter values are extracted from the response of the SimpleStockQuoteService. Then they are populated as an input value for the Redis `hSet` operation.
-        
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-hset-drag-and-drop-parameter.png" title="hSet parameters" width="500" alt="hSet parameters"/> 
-    
-7. To get the input values in to the `hSet`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.    
-      > **Note**: The properties should be added to the pallet before creating the operation.
-        
-        The parameters available for configuring the Property mediator are as follows:
-    
-     1. Add the property mediator to capture the `symbol` value from the response of SimpleStockQuoteService. The 'symbol' contains the company name of the stock quote. 
-   
-        - **name** : symbol
-        - **value expression** : $body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol
-   
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-getsymbol-properties1.png" title="Add property mediators to get symbol" width="600" alt="Add property mediators to get symbol"/>
-    
-    2. Add the property mediator to capture the `volume` values. The 'volume' contains stock quote volume of the selected company.              
-   
-        - **name** : volume
-        - **value expression** : $body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume
-     
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-getvolume-properties1.png" title="Add property mediators to get volume" width="600" alt="Add property mediators to get volume"/>  
-        
-8. Forward the backend response to the API caller.
-    
-    When you are invoking the created resource, the request of the message is going through the `/getstockquote` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
-    
-    1. Drag and drop **respond mediator** to the **Design view**. 
-    
-         <img src="{{base_path}}/assets/img/integrate/connectors/redis-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
 
-    2. Once you have setup the resource, you can see the `getstockquote` resource as shown below.
+        <img src="{{base_path}}/assets/img/integrate/connectors/redis/hset-operation.png" title="Configure hSet operation" width="400" alt="Configure hSet operation"/>
+
+12. Then, to get the original payload, we replace the message body with the property value using the Enrich mediator as follows.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/enrich-mediator-2.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
+
+13. Forward the backend response to the API caller.
     
-         <img src="{{base_path}}/assets/img/integrate/connectors/redis-createstockvolume-resource.png" title="Resource design view" width="600" alt="Resource design view"/>
-
-##### Configure a resource for the getstockvolumedetails operation
+     When you are invoking the created resource, the request of the message is going through the `/getstockquote` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
-1. Initialize the connector.
-   You can use the same configuration to initialize the connector. Please follow the steps given in section 5 for setting up the `init` operation to the `getstockquote` operation.
-   
-      - **redisKey** : The name of the key where the hash is stored.
+     1. Add the **respond mediator** to the **Resource view**. 
 
-2. Set up the lLen operation.
-   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hGetAll` operation into the Design pane. The `hGetAll` operation retrieves all the fields and values in a hash.
-   
-   You only need to send redisKey as parameter. In this example `redisKey` value is configured as **StockVolume**
-
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-hgetall-drag-and-drop.png" title="Drag and drop hGetAll operation" width="500" alt="Drag and drop hGetAll operation"/>
-   
-3. Forward the backend response to the API caller. Please follow the steps given in section 8 in the `getstockquote` operation.   
-
-##### Configure a resource for the deletestockvolumedetails operation
+     2. Once you have setup the resource, you can see the `getstockquote` resource as shown below.
     
-1. Initialize the connector.
-   You can use the same configuration to initialize the connector. Please follow the steps given in section 5 for setting up the `init` operation to the `getstockquote` operation.
-   
-2. Set up the  operation.
-   
-   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane. The `hDel` operation deletes one or more hash fields
-        
-      - **redisKey** : The name of the key where the hash is stored.
-      - **redisFields** : The fields that you want to delete.
+          <img src="{{base_path}}/assets/img/integrate/connectors/redis/getStockQuote-resource.png" title="getStockQuote resource" width="400" alt="getStockQuote resource"/>
+
+#### Configure a resource for the getstockvolumedetails operation
+    
+1. Navigate to the **Service Designer** view of the API and select the `getstockvolumedetails` resource.
+
+2. Click the **+** under the **start** and select the **Redis** connector from the **Connectors** section.
+
+3. Select **hGetAll** from the connector operations.
+4. Select `REDIS_CONNECTION_1` from the connection dropdown.
+5. You only need to send redisKey as parameter. In this example `redisKey` value is configured as **StockVolume**
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/hGetAll-operation.png" title="hGetAll operation" width="600" alt="hGetAll operation"/>
+
+6. To forward the backend response to the API caller add the **Respond** Mediator.
+#### Configure a resource for the deletestockvolumedetails operation
+
+
+1. Navigate to the **Service Designer** view of the API and select the `deletestockvolumedetails` resource.
+
+2. Click the **+** under the **start** and select the **Redis** connector from the **Connectors** section.
+
+3. Select **hDel** from the connector operations. This operation deletes one or more hash fields
+4. Select `REDIS_CONNECTION_1` from the connection dropdown.
+5. Configure the values.
+
+    <table>
+      <tr>
+         <td>redisKey</td>
+         <td><code>StockVolume</code></td>
+      </tr>
+      <tr>
+         <td>redisFields</td>
+         <td><code>$ctx:redisFields</code></td>
+      </tr>
+    </table>
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/hDel-operation.png" title="hDel operation" width="600" alt="hDel operation"/>
+
+8. To forward the backend response to the API caller add the **Respond** Mediator.
+
       
-      <img src="{{base_path}}/assets/img/integrate/connectors/redis-hdell-drag-and-drop.png" title="Drag and drop hDell operation" width="500" alt="Drag and drop hDell operation"/>
-   
-3. Forward the backend response to the API caller. Please follow the steps given in section 8 in the `getstockquote` operation.     
+       
                
-Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
+Now you can switch into the Source view and check the XML configuration files of the created API and endpoint. 
     
-  ??? note "StockQuoteAPI.xml"
-      ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
-            <resource methods="GET" uri-template="/getstockquote/{symbol}">
-                <inSequence>
-                    <payloadFactory media-type="xml">
-                        <format>
-                            <m0:getQuote xmlns:m0="http://services.samples">
-                                <m0:request>
-                                    <m0:symbol>$1</m0:symbol>
-                                </m0:request>
-                            </m0:getQuote>
-                        </format>
-                        <args>
-                            <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
-                        </args>
-                    </payloadFactory>
-                    <header name="Action" scope="default" value="urn:getQuote"/>
-                    <call>
-                        <endpoint>
-                            <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
-                                <suspendOnFailure>
-                                    <initialDuration>-1</initialDuration>
-                                    <progressionFactor>1</progressionFactor>
-                                </suspendOnFailure>
-                                <markForSuspension>
-                                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
-                                </markForSuspension>
-                            </address>
-                        </endpoint>
-                    </call>
-                    <enrich>
-                        <source clone="false" type="body"/>
-                        <target property="ORIGINAL_PAYLOAD" type="property"/>
-                    </enrich>
-                    <property expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol" name="symbol" scope="default" type="STRING" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
-                    <property expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume" name="volume" scope="default" type="STRING" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
-                    <redis.init>
-                        <redisHost>127.0.0.1</redisHost>
-                        <redisPort>6379</redisPort>
-                        <redisTimeout>10000000000</redisTimeout>
-                    </redis.init>
-                    <redis.hSet>
-                        <redisKey>StockVolume</redisKey>
-                        <redisField>{$ctx:symbol}</redisField>
-                        <redisValue>{$ctx:volume}</redisValue>
-                    </redis.hSet>
-                    <enrich>
-                        <source clone="false" property="ORIGINAL_PAYLOAD" type="property"/>
-                        <target type="body"/>
-                    </enrich>
-                    <log level="full"/>
-                    <respond/>
-                </inSequence>
-                <outSequence/>
-                <faultSequence/>
-            </resource>
-            <resource methods="GET" uri-template="/getstockvolumedetails">
-                <inSequence>
-                    <redis.init>
-                        <redisHost>127.0.0.1</redisHost>
-                        <redisPort>6379</redisPort>
-                        <redisTimeout>10000000000</redisTimeout>
-                    </redis.init>
-                    <redis.hGetAll>
-                        <redisKey>StockVolume</redisKey>
-                    </redis.hGetAll>
-                    <respond/>
-                </inSequence>
-                <outSequence/>
-                <faultSequence/>
-            </resource>
-            <resource methods="POST" uri-template="/deletestockvolumedetails">
-                <inSequence>
-                    <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
-                    <redis.init>
-                        <redisHost>127.0.0.1</redisHost>
-                        <redisPort>6379</redisPort>
-                        <redisTimeout>10000000000</redisTimeout>
-                    </redis.init>
-                    <redis.hDel>
-                        <redisKey>StockVolume</redisKey>
-                        <redisFields>{$ctx:redisFields}</redisFields>
-                    </redis.hDel>
-                    <respond/>
-                </inSequence>
-                <outSequence/>
-                <faultSequence/>
-            </resource>
-        </api>
-        ```
+**StockQuoteAPI.xml**
+
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+    <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/resource">
+            <inSequence>
+			<payloadFactory media-type="xml" template-type="default">
+				<format>
+					<m0:getQuote xmlns:m0="http://services.samples">
+						<m0:request>
+							<m0:symbol>$1</m0:symbol>
+						</m0:request>
+					</m0:getQuote>
+				</format>
+				<args>
+					<arg value="get-property('uri.var.symbol')"/>
+				</args>
+			</payloadFactory>
+			<header name="Action" action="set" scope="default" value="urn:getQuote"/>
+			<call>
+				<endpoint key="StockQuoteEP"/>
+			</call>
+			<enrich description="">
+				<source clone="true" type="body"/>
+				<target action="replace" type="property" property="ORIGINAL_PAYLOAD"/>
+			</enrich>
+			<property name="symbol" scope="default" type="STRING" value="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol"/>
+			<property name="volume" scope="default" type="STRING" value="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume"/>
+			<redis.hSet configKey="REDIS_CONNECTION_1">
+				<redisKey>StockVolume</redisKey>
+				<redisField>{$ctx:symbol}</redisField>
+				<redisValue>{$ctx:volume}</redisValue>
+			</redis.hSet>
+			<enrich description="">
+				<source clone="true" property="ORIGINAL_PAYLOAD" type="property"/>
+				<target action="replace" type="body"/>
+			</enrich>
+			<log category="INFO" level="simple"/>
+			
+			<respond/>
+		</inSequence>
+            <faultSequence>
+		</faultSequence>
+        </resource>
+		<resource methods="GET" uri-template="/getstockvolumedetails">
+            <inSequence>
+                <redis.hGetAll configKey="REDIS_CONNECTION_1">
+                    <redisKey>StockVolume</redisKey>
+                </redis.hGetAll>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </resource>
+        <resource methods="POST" uri-template="/deletestockvolumedetails">
+            <inSequence>
+                <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
+			<redis.hDel configKey="REDIS_CONNECTION_1">
+				<redisKey>StockVolume</redisKey>
+				<redisFields>{$ctx:redisFields}</redisFields>
+			</redis.hDel>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </resource>
+    </api>
+```
+
+**StockQuoteEP Endpoint**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="StockQuoteEP" xmlns="http://ws.apache.org/ns/synapse">
+    <address format="soap11"    uri="http://localhost:9000/services/SimpleStockQuoteService">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+        </markForSuspension>
+    </address>
+</endpoint>
+```
+
+**REDIS_CONNECTION_1**
+
+The created redis connection will be saved as a local entry.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="REDIS_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
+   <redis.init>
+      <connectionType>REDIS</connectionType>
+      <name>REDIS_CONNECTION_1</name>
+      <redisHost>127.0.0.1</redisHost>
+      <redisPort>6379</redisPort>
+   </redis.init>
+</localEntry>
+```
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
