@@ -33,7 +33,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 
 2. We need an additional column in order to track new records. If you apply this feature to an existing database table, you can alter the table as shown below. It will add a column of type `TIMESTAMP`, which gets automatically updated when you insert or update of a record. 
   ```sql
-  ALTER TABLE CDC_CUSTOM
+  ALTER TABLE test.CDC_CUSTOM
   ADD COLUMN UPDATED_AT 
     TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
     ON UPDATE CURRENT_TIMESTAMP;
@@ -42,15 +42,43 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
-1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-<img src="{{base_path}}/assets/img/integrate/connectors/solution-project.jpg" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+1. Create an **Integration Project** as below. 
+<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-create-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
-2. Right click on **Source** -> **main** -> **synapse-config** -> **inbound-endpoints** and add a new **custom inbound endpoint**.</br> 
-<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating DB event inbound endpoint" width="400" alt="Creating DB event inbound endpoint" style="border:1px solid black"/>
+2. Create 2 sequences to process the database event and handle the failure of the database event. 
+  <br/>
+  Sequence to process the database event 
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="DBEventProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <log description="event log" level="full">
+            <property name="message" value="event received"/>
+        </log>
+    </sequence>
+    ```
+  <br/>
+  Sequence to handle the failure of the database event
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="eventProcessFailSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property name="SET_DB_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/>
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
+            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
+        </log>
+        <drop/>
+    </sequence>
+    ```
 
-3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.poll.dbeventlistener.DBEventPollingConsumer`. 
-
-4. Navigate to source view and update it with following config. Please note that you need to update url, username and password as required. 
+3. Click on `+` sign beside the `Inbound Endpoints` and select `Custom` to add a new **custom inbound endpoint**.</br> 
+  <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating DB event inbound endpoint" width="800" alt="Creating DB event inbound endpoint" style="border:1px solid black"/>
+  <br/>
+  Configure the custom inbound endpoint as below. Please note that you need to update url, username and password as required. <br/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep-config-1.png" title="Configure DB event inbound endpoint 1" width="600" alt="Configure DB event inbound endpoint 1" style="border:1px solid black"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep-config-2.png" title="Configure DB event inbound endpoint 2" width="600" alt="Configure DB event inbound endpoint 2" style="border:1px solid black"/>
+  <br/>
+  Source view of the created custome inbound endpoint will be as below. 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <inboundEndpoint class="org.wso2.carbon.inbound.poll.dbeventlistener.DBEventPollingConsumer" name="CustomerDBEventEP" onError="eventProcessFailSeq" sequence="DBEventProcessSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
@@ -77,14 +105,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 
 ## Exporting Integration Logic as a CApp
 
-**CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
-
-1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
-
-2. Select an **Export Destination** where you want to save the .car file. 
-
-3. In the next **Create a deployable CAR file** screen, select inbound endpoint and sequence artifacts and click **Finish**. The CApp will get created at the specified location provided at the previous step. 
+Follow the steps provided in the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -119,7 +140,7 @@ Now the integration runtime will start listening to the data changes of `CDC_CUS
   ```
 2. You can see a log entry in WSO2 server console similar to the following. 
   ```
-  [2020-03-26 17:40:00,871]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:4B1D55C3ABCEE82B961585224600739, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>1000</AMOUNT><PAID>false</PAID><UPDATED_AT>2020-03-26 16:57:57.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
+  [2024-07-12 10:46:25,674]  INFO {LogMediator} - To: , MessageID: urn:uuid:C33BFFBFC43BA2E8581720761385599, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>1000</AMOUNT><UPDATED_AT>2024-07-12 10:46:25.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
   ```
 
 3. If you add another new record, only that new record will get notified to the integration runtime and the old records will be ignored.
@@ -133,7 +154,7 @@ Now the integration runtime will start listening to the data changes of `CDC_CUS
   ```
 2. You can see a log entry in WSO2 server console similar to the following.
   ```
-  [2020-03-27 18:13:06,906]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:1958A94F892D158A661585312986834, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>2000</AMOUNT><PAID>false</PAID><UPDATED_AT>2020-03-27 18:13:06.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
+  [2024-07-12 10:53:10,500]  INFO {LogMediator} - To: , MessageID: urn:uuid:C33BFFBFC43BA2E8581720761790499, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>2000</AMOUNT><UPDATED_AT>2024-07-12 10:53:09.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
   ```
 
 > **Note**: You can do any type of advanced integration using the rich mediator catalog, not just logging. 
