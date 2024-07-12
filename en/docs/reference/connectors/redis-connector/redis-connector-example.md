@@ -141,7 +141,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Configure a resource that sets up Redis hash map and sets a specific field in a hash to a specified value. In this sample, the user sends the request to invoke the created API to get WSO2 stock volume details. To achieve this, follow the steps below.
 
-1. Click on the `GET getstockquote` API resource under available resources on the Service Designer.
+1. Click on the `GET getstockquote` API resource under available resources on the **Service Designer**.
 
     You will now see the graphical view of the `SampleRedisAPI` with its default API Resource.
 
