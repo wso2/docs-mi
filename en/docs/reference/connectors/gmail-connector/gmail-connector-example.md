@@ -134,8 +134,6 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime.<br>
-
 Once you have [built your artifacts]({{base_path}}/develop/packaging-artifacts) into a composite application, you can
 export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension:
 

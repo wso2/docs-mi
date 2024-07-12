@@ -241,7 +241,8 @@ nav:
                   - Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
           - Work with Transactions: learn/examples/working-with-transactions.md
           - JSON Examples: learn/examples/json-examples/json-examples.md
-          - Integrate MI with SI: learn/examples/integrating-mi-with-si.md
+          - Integrate MI with SI asdf: learn/examples/integrating-mi-with-si.md
+      - VS Code plugin Samples: learn/samples.md
 
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
@@ -254,11 +255,10 @@ nav:
       - WSO2 MI for VSCode:
           - Overview - Micro Integrator for VSCode:  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
+          - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
-          - Create Data Service Configs: develop/create-data-services-configs.md
-          - Create Datasource Configs: develop/create-datasources.md
           - Import Projects: develop/importing-projects.md
           - Export Projects: develop/export-project.md
           - Create Docker Exporter: develop/create-docker-project.md
@@ -295,7 +295,6 @@ nav:
           - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
           - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
           - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
-      - Package Artifacts: develop/packaging-artifacts.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
@@ -465,7 +464,7 @@ nav:
           - Manage Micro Integrator:
               - Runtime:
                   - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
-                  - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
+                  - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:
                   - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
@@ -836,6 +835,7 @@ nav:
           - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
+          - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
 
 # Extensions
 markdown_extensions:
@@ -881,6 +881,10 @@ plugins:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
+              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
+              'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
 
   # Extra
 extra_css:

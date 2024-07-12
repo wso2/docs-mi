@@ -84,11 +84,11 @@ You can set a value for the `offset` variable as an environment variable or a sy
 
 ### Docker/Kubernetes environments
 
-When you update product configurations for a container deployment (Docker or Kubernetes), you will update the `deployment.toml` file from your Docker Exporter project or Kubernetes Exporter project in WSO2 Integration Studio.
+When you update product configurations for a container deployment (Docker or Kubernetes), you need to update the `deployment.toml` file from the VS Code explorer view of your project.
 
-You can open the `deployment.toml` file from the project explorer and update the parameter values as [system properties](#system-properties) or [environment variables](#environment-variables).
+You can open the `deployment.toml` file from the explorer and update the parameter values as [system properties](#system-properties) or [environment variables](#environment-variables).
 
-<img src="{{base_path}}/assets/img/integrate/env-variable-support/k8s-project-deployment-file.img" width="500">
+<img src="{{base_path}}/assets/img/integrate/env-variable-support/deployment-file.png" alt="deployment file" width="700">
 
 When you execute the `docker run` command to start the container, you can pass the system properties and environment variables. These values will be resolved dynamically during the runtime.
 

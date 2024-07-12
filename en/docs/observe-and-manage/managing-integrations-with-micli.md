@@ -1,56 +1,43 @@
-# Managing Integrations with apictl
+# Managing Integrations with MI CLI
 
-WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
+The Micro Integrator CLI allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
 
-## Download and initialize the apictl
+## Download and initialize the MI CLI
 
-1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
+1.  Download **MI CLI** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-darwin-amd64.tar.gz)
-    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-darwin-arm64.tar.gz)
-    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-i586.tar.gz)
-    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-amd64.tar.gz)
-    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-arm64.tar.gz)
-    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-windows-i586.zip)
-    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-windows-x64.zip)
+    - [For Mac with Intel Chip](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi.exe-4.3.0-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi.exe-4.3.0-windows-x64.zip)
 
-2.  Extract the downloaded archive of the apictl to the desired location.
-3.  Navigate to the working directory where the executable apictl resides.
+2.  Extract the downloaded archive of the mi to the desired location.
+3.  Navigate to the working directory where the executable mi resides.
 4.  Add the current working directory to your system's `$PATH` variable to be able to access the executable from anywhere.
-5.  Execute the following command to start the apictl.
+5.  Execute the following command to start the MI CLI.
 
     !!! Warn
-        If you have previously used an apictl old version, backup and remove `/home/<user>/.wso2apictl` directory and reconfigure the environments using the commands as explained below in [Add an environment](#add-an-environment) section.
+        If you have previously used an MI CLI old version, backup and remove `/home/<user>/.wso2mi` directory and reconfigure the environments using the commands as explained below in [Add an environment](#add-an-environment) section.
 
     ``` go
-    apictl
+    mi
     ```
 
-    The directory structure for the configuration files (`<USER_HOME>/.wso2apictl`) will be created upon the execution of the `apictl` command.
-
-    !!! Tip
-        If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
-
-        === "Linux/Mac"
-            ```go 
-            export APICTL_CONFIG_DIR="/home/wso2user/CLI"
-            ```
-        === "Windows"
-            ```go 
-            set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
-            ```
-
+    The directory structure for the configuration files (`<USER_HOME>/.wso2mi`) will be created upon the execution of the `mi` command.
 
     !!! Tip    
         For further instructions, execute the following command.
         
         ``` go
-        apictl --help
+        mi --help
         ```
 
-## Global flags for apictl
+## Global flags for MI CLI
 
-The following are some global flags that you can use with any apictl command.
+The following are some global flags that you can use with any MI CLI command.
 
 ``` go
 --verbose
@@ -61,13 +48,13 @@ The following are some global flags that you can use with any apictl command.
     Display information and example usage of a command
 ```
 
-## Check the version of the apictl
+## Check the version of the MI CLI
 
-Run the following apictl command to check the version.
+Run the following MI CLI command to check the version.
 
 -   **Command**
     ```bash
-    apictl version
+    mi version
     ```
 -   **Response**
 
@@ -75,9 +62,9 @@ Run the following apictl command to check the version.
     Version: 4.2.2
     Build Date: 2023-09-12 06:59:52 UTC
     ```
-## Set proxy environment variables for apictl
+## Set proxy environment variables for MI CLI
 
-You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
+You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CLI via a proxy server. After one of the following environment variables is set in your environment where CLI is used, all the requests will go through the proxy server specified.
 
 -   **Formats**
     
@@ -127,33 +114,26 @@ You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_
 
 ## Add an environment
         
-You can add environments by either manually editing the `<USER_HOME>/.wso2apictl/main_config.yaml` file or by running the following apictl command.
+You can add environments by either manually editing the `<USER_HOME>/.wso2mi/main_config.yaml` file or by running the following MI CLI command.
 
 ``` go
-apictl add env <environment-name>
+mi add env <environment-name> 
 ```
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.     
-For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
-2.  Run the following apictl command to add an environment.
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.3.0 version is started and that the 4.3.0 version of MI CLI is set up.     
+For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
+2.  Run the following MI CLI command to add an environment.
 
     -   **Command**
 
         ``` bash
-        apictl add env <environment-name> --mi <mi-management-endpoint>
+        mi add env <environment-name> <mi-management-endpoint>
         ```
-
-        !!! info
-            **Flags:**
-            -    Required :     
-                `--mi` : Management endpoint of the Micro Integrator
-
-    -   Adding a WSO2 MI to an environment using `--mi` flag
 
         !!! example
 
             ``` bash
-            apictl add env dev --mi https://localhost:9164
+            mi add env dev https://localhost:9164
             ```
 
     -   **Response**
@@ -167,46 +147,46 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             Successfully added environment 'production'
             ```
 
-## Remove an environment
+## Delete an environment
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.  
-For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
-2.  Run the following apictl command to remove an environment.
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.3.0 version is started and that the 4.3.0 version of MI CLI is set up.  
+For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
+2.  Run the following MI CLI command to delete an environment.
 
     -   **Command**
 
         ```bash
-        apictl remove env <environment-name> 
+        mi delete env <environment-name> 
         ``` 
   
         !!! example
             ```bash
-            apictl remove env production
+            mi delete env production
             ```
 
     -   **Response**
     
         === "Response Format"
             ``` bash 
-            Successfully removed environment '<environment-name>'
-            Execute 'apictl add env --help' to see how to add a new environment
+            Successfully deleted environment '<environment-name>'
+            Execute 'mi add env --help' to see how to add a new environment
             ```
         === "Example Response"
             ``` bash 
-            Successfully removed environment 'production'
-            Execute 'apictl add env --help' to see how to add a new environment
+            Successfully deleted environment 'production'
+            Execute 'mi add env --help' to see how to add a new environment
             ```
 
 ## Get environments
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.    
-For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
-2.  Run the following apictl command to list the environments.  
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.3.0 version is started and that the 4.3.0 version of MI CLI is set up.    
+For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
+2.  Run the following MI CLI command to list the environments.  
 
     -   **Command**
 
         ```bash
-        apictl get envs
+        mi get envs
         ``` 
 
         !!! info
@@ -219,13 +199,13 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
         === "Response Format"
             ``` bash 
-            NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
-            <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
+            NAME                  MI MANAGEMENT ENDPOINT
+            <environment-name>    <mi-management-endpoint>
             ```
         === "Example Response"             
             ```bash 
-            NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
-            dev-mi                                                                                                                                                                      https://localhost:9164
+            NAME         MI MANAGEMENT ENDPOINT
+            dev-mi       https://localhost:9164
             ```
 
 !!! info
@@ -233,33 +213,33 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
     -  Ensure that WSO2 Micro Integrator is started. See the instructions on [installing the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
 
-    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl](#download-and-initialize-the-apictl).
+    -  Make sure the MI CLI is downloaded and initialized, if not follow the steps in [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 
-    -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, see [Add an environment](#add-an-environment) section.
+    -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CLI, before you start working with the following CLI commands. For more information, see [Add an environment](#add-an-environment) section.
 
 ## Login to a Micro Integrator
 
 After adding an environment, you can login to the Micro Integrator instance of that environment using credentials.
 
-1.  Run any of the following CTL commands to login to a Micro Integrator.
+1.  Run any of the following CLI commands to login to a Micro Integrator.
 
     -   **Command**
 
         ```go
-        apictl mi login <environment-name> -k
+        mi login <environment-name> -k
         ```
 
         ```go
-        apictl mi login <environment-name> -u <username> -k
+        mi login <environment-name> -u <username> -k
         ```
 
         ```go
-        apictl mi login <environment-name> -u <username> -p <password> -k
+        mi login <environment-name> -u <username> -p <password> -k
         ``` 
 
         !!! tip
-            If you run `apictl mi login <environment-name>` you are prompted to provide both the username and the password.
-            If you run `apictl mi login <environment-name> --username <username>`, you are prompted to provide the password.
+            If you run `mi login <environment-name>` you are prompted to provide both the username and the password.
+            If you run `mi login <environment-name> --username <username>`, you are prompted to provide the password.
 
         !!! info
             **Flags:**
@@ -271,14 +251,14 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
         !!! example
             ```bash
-            apictl mi login dev -k
+            mi login dev -k
             ```
             ```bash
-            apictl mi login dev -u admin -p admin -k
+            mi login dev -u admin -p admin -k
             ```
             
             ```bash
-            apictl mi login dev --username admin --password admin -k
+            mi login dev --username admin --password admin -k
             ```
                  
     -   **Response**
@@ -293,9 +273,9 @@ After adding an environment, you can login to the Micro Integrator instance of t
             ```
 
     !!! warning
-        Using `--password` in CTL is not secure. You can use `--password-stdin` instead. For example,
+        Using `--password` in CLI is not secure. You can use `--password-stdin` instead. For example,
         ```bash
-        cat ~/.mypassword | ./apictl mi login dev --username admin --password-stdin -k
+        cat ~/.mypassword | ./mi login dev --username admin --password-stdin -k
         ```          
 
 ## Logout from a Micro Integrator
@@ -305,12 +285,12 @@ After adding an environment, you can login to the Micro Integrator instance of t
     -   **Command** 
 
         ```go
-        apictl mi logout <environment-name>
+        mi logout <environment-name>
         ```
 
         !!! example
             ```go
-            apictl mi logout dev
+            mi logout dev
             ```
     
     -   **Response**
@@ -326,7 +306,7 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
 ## Manage Users
 
-You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/managing-users). If you are logged in to the apictl with administrator credentials, you can also add new users, and remove users from the user store.
+You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/managing-users). If you are logged in to the MI CLI with administrator credentials, you can also add new users, and remove users from the user store.
 
 ### Get information about users
 
@@ -334,7 +314,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
     -   **Command**
         ``` bash
-        apictl mi get users -e <environment>
+        mi get users -e <environment>
         ```
 
         !!! info
@@ -349,13 +329,13 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
         !!! example
             ```bash
-            apictl mi get users -e dev
+            mi get users -e dev
             ```
             ```bash
-            apictl mi get users -r admin -e dev
+            mi get users -r admin -e dev
             ```
             ```bash
-            apictl mi get users -p *tester* -e dev
+            mi get users -p *tester* -e dev
             ```
 
     -   **Response**
@@ -370,7 +350,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
     - **Command**
         ``` bash
-        apictl mi get users [user-name] -d [domain] -e <environment>
+        mi get users [user-name] -d [domain] -e <environment>
         ```
 
         !!! info
@@ -384,7 +364,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
         !!! example
             ```bash
-            apictl mi get users capp-tester -d testing.com -e dev
+            mi get users capp-tester -d testing.com -e dev
             ```
 
     - **Response**
@@ -401,7 +381,7 @@ You can use the command below to add a new user to a Micro Integrator.
 
 -   **Command**
     ``` bash
-    apictl mi add user [user-name] -e <environment>
+    mi add user [user-name] -e <environment>
     ```
 
     !!! info
@@ -412,7 +392,7 @@ You can use the command below to add a new user to a Micro Integrator.
 
     !!! example
         ```bash
-        apictl mi add user capp-tester -e dev
+        mi add user capp-tester -e dev
         ```
 
 -   **Response**
@@ -430,7 +410,7 @@ You can use the command below to remove a user from the Micro Integrator.
 
 -   **Command**
     ``` bash
-    apictl mi delete user [user-name] -e <environment>
+    mi delete user [user-name] -e <environment>
     ```
 
     !!! info
@@ -443,7 +423,7 @@ You can use the command below to remove a user from the Micro Integrator.
 
     !!! example
         ```bash
-        apictl mi delete user capp-tester -d testing.com -e dev
+        mi delete user capp-tester -d testing.com -e dev
         ```
 
 -   **Response**
@@ -463,7 +443,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 1. List roles of the Micro Integrator.
     - **Command**
         ``` bash
-        apictl mi get roles -e <environment>
+        mi get roles -e <environment>
         ```
 
         !!! info
@@ -474,7 +454,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 
         !!! example
             ```bash
-            apictl mi get roles -e dev
+            mi get roles -e dev
             ```
     
     - **Response**
@@ -492,7 +472,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 2.  Get information on a specific role.
     - **Command**
         ``` bash
-        apictl mi get roles [role-name] -e <environment>
+        mi get roles [role-name] -e <environment>
         ```
 
         !!! info
@@ -505,7 +485,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 
         !!! example
             ```bash
-            apictl mi get roles tester -d testing.com -e dev
+            mi get roles tester -d testing.com -e dev
             ```
     
     - **Response**
@@ -519,14 +499,14 @@ In Micro Integrator, we have one admin role and all the other roles from primary
     To get hybrid roles (application/internal) specify the role type as the domain.
 
     ```go
-    apictl mi get roles tester -d application -e dev
+    mi get roles tester -d application -e dev
     ```
 
 ### Add a new role
 
 - **Command**
     ``` bash
-    apictl mi add role [role-name] -e <environment>
+   mi add role [role-name] -e <environment>
     ```
 
     !!! info
@@ -537,7 +517,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 
     !!! example
         ```bash
-        apictl mi add role tester -e dev
+        mi add role tester -e dev
         ```
 - **Response**
 
@@ -552,7 +532,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
     To add hybrid roles (application/internal) specify the type in the role name.
 
     ```go
-    apictl mi add role internal/InternalRole -e dev
+    mi add role internal/InternalRole -e dev
     ```
 
 ### Delete a role
@@ -560,7 +540,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 - **Command**
 
     ``` bash
-    apictl mi delete role [role-name] -e <environment>
+    mi delete role [role-name] -e <environment>
     ```
 
     !!! info
@@ -573,7 +553,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 
     !!! example
         ```bash
-        apictl mi delete role tester -d testing.com -e dev
+        mi delete role tester -d testing.com -e dev
         ```
 - **Response**
 
@@ -584,7 +564,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 !!! note
     To delete hybrid roles (application/internal) specify the role type as domain.
     ```go
-    apictl mi delete role InternalRole -d internal -e dev
+    mi delete role InternalRole -d internal -e dev
     ```
 
 ### Assign/revoke roles to/from users
@@ -592,7 +572,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 - **Command**
 
     ``` bash
-    apictl mi update user [user-name] -e <environment>
+    mi update user [user-name] -e <environment>
     ```
 
     !!! info
@@ -603,7 +583,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 
     !!! example
         ```bash
-        apictl mi update user capp-tester -e dev
+        mi update user capp-tester -e dev
         ```
 
 - **Response**
@@ -617,7 +597,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
 
 ## Monitor Integration Artifacts
 
-Follow the instructions below to display a list of artifacts or get information about a specific artifact in an environment using CTL:
+Follow the instructions below to display a list of artifacts or get information about a specific artifact in an environment using CLI:
 
 ### Composite Applications (CApps)
 
@@ -625,7 +605,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get composite-apps -e <environment>
+        mi get composite-apps -e <environment>
         ```
 
         !!! info
@@ -638,7 +618,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get composite-apps -e dev
+            mi get composite-apps -e dev
             ```
 
     -   **Response**
@@ -653,7 +633,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get composite-apps [capp-name] -e <environment>
+        mi get composite-apps [capp-name] -e <environment>
         ```
 
         !!! info
@@ -666,7 +646,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get composite-apps HealthCareCompositeExporter -e dev
+            mi get composite-apps HealthCareCompositeExporter -e dev
             ```
 
     -   **Response**
@@ -697,7 +677,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get apis -e <environment>
+        mi get apis -e <environment>
         ```
 
         !!! info
@@ -710,7 +690,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get apis -e dev
+            mi get apis -e dev
             ```
 
     -   **Response**
@@ -725,7 +705,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get apis [api-name] -e <environment>
+        mi get apis [api-name] -e <environment>
         ```
 
         !!! info
@@ -738,7 +718,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get apis HealthcareAPI -e dev
+            mi get apis HealthcareAPI -e dev
             ```
 
     -   **Response**
@@ -761,7 +741,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get connectors -e <environment>
+        mi get connectors -e <environment>
         ```
 
         !!! info
@@ -774,7 +754,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get connectors -e dev
+            mi get connectors -e dev
             ```
 
     -   **Response**
@@ -790,7 +770,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get data-services -e <environment>
+        mi get data-services -e <environment>
         ```
 
         !!! info
@@ -803,7 +783,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get data-services -e dev
+            mi get data-services -e dev
             ```
 
     -   **Response**
@@ -817,7 +797,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get data-services [data-service-name] -e <environment>
+        mi get data-services [data-service-name] -e <environment>
         ```
 
         !!! info
@@ -830,7 +810,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get data-services RESTDataService -e dev
+            mi get data-services RESTDataService -e dev
             ```
 
     -   **Response**
@@ -853,7 +833,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get endpoints -e <environment>
+        mi get endpoints -e <environment>
         ```
 
         !!! info
@@ -866,7 +846,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get endpoints -e dev
+            mi get endpoints -e dev
             ```
 
     -   **Response**
@@ -881,7 +861,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get endpoints [endpoint-name] -e <environment>
+        mi get endpoints [endpoint-name] -e <environment>
         ```
 
         !!! info
@@ -894,7 +874,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get endpoints GrandOakEndpoint -e dev
+            mi get endpoints GrandOakEndpoint -e dev
             ```
 
     -   **Response**
@@ -913,7 +893,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get inbound-endpoints -e <environment>
+        mi get inbound-endpoints -e <environment>
         ```
 
         !!! info
@@ -926,7 +906,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get inbound-endpoints -e dev
+            mi get inbound-endpoints -e dev
             ```
 
     -   **Response**
@@ -940,7 +920,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get inbound-endpoints [inbound-name] -e <environment>
+        mi get inbound-endpoints [inbound-name] -e <environment>
         ```
 
         !!! info
@@ -953,7 +933,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get inbound-endpoints httpInboundEP -e dev
+            mi get inbound-endpoints httpInboundEP -e dev
             ```
 
     -   **Response**
@@ -979,7 +959,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get local-entries -e <environment>
+        mi get local-entries -e <environment>
         ```
 
         !!! info
@@ -992,7 +972,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get local-entries -e dev
+            mi get local-entries -e dev
             ```
 
     -   **Response**
@@ -1006,7 +986,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get local-entries [local-entry-name] -e <environment>
+        mi get local-entries [local-entry-name] -e <environment>
         ```
 
         !!! info
@@ -1019,7 +999,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get local-entries sample-local-entry -e dev
+            mi get local-entries sample-local-entry -e dev
             ```
 
     -   **Response**
@@ -1036,7 +1016,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get message-processors -e <environment>
+        mi get message-processors -e <environment>
         ```
 
         !!! info
@@ -1049,7 +1029,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get message-processors -e dev
+            mi get message-processors -e dev
             ```
 
     -   **Response**
@@ -1063,7 +1043,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get message-processors [message-processor-name] -e <environment>
+        mi get message-processors [message-processor-name] -e <environment>
         ```
 
         !!! info
@@ -1076,7 +1056,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get message-processors scheduled-msg-processor -e dev
+            mi get message-processors scheduled-msg-processor -e dev
             ```
 
     -   **Response**
@@ -1107,7 +1087,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get message-stores -e <environment>
+        mi get message-stores -e <environment>
         ```
 
         !!! info
@@ -1120,7 +1100,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get message-stores -e dev
+            mi get message-stores -e dev
             ```
 
     -   **Response**
@@ -1134,7 +1114,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get message-stores [message-store-name] -e <environment>
+        mi get message-stores [message-store-name] -e <environment>
         ```
 
         !!! info
@@ -1147,7 +1127,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get message-stores in-memory-message-store -e dev
+            mi get message-stores in-memory-message-store -e dev
             ```
 
     -   **Response**
@@ -1169,7 +1149,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get proxy-services -e <environment>
+        mi get proxy-services -e <environment>
         ```
 
         !!! info
@@ -1182,7 +1162,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get proxy-services -e dev
+            mi get proxy-services -e dev
             ```
 
     -   **Response**
@@ -1196,7 +1176,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get proxy-services [proxy-name] -e <environment>
+        mi get proxy-services [proxy-name] -e <environment>
         ```
 
         !!! info
@@ -1209,7 +1189,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get proxy-services StockQuoteProxy -e dev
+            mi get proxy-services StockQuoteProxy -e dev
             ```
 
     -   **Response**
@@ -1228,7 +1208,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get sequences -e <environment>
+        mi get sequences -e <environment>
         ```
 
         !!! info
@@ -1241,7 +1221,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get sequences -e dev
+            mi get sequences -e dev
             ```
 
     -   **Response**
@@ -1257,7 +1237,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get sequences [sequence-name] -e <environment>
+        mi get sequences [sequence-name] -e <environment>
         ```
 
         !!! info
@@ -1270,7 +1250,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get sequences sample-sequence -e dev
+            mi get sequences sample-sequence -e dev
             ```
 
     -   **Response**
@@ -1289,7 +1269,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get tasks -e <environment>
+        mi get tasks -e <environment>
         ```
 
         !!! info
@@ -1302,7 +1282,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get tasks -e dev
+            mi get tasks -e dev
             ```
 
     -   **Response**
@@ -1317,7 +1297,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get tasks [task-name] -e <environment>
+        mi get tasks [task-name] -e <environment>
         ```
 
         !!! info
@@ -1330,7 +1310,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get tasks sample-cron-task -e dev
+            mi get tasks sample-cron-task -e dev
             ```
 
     -   **Response**
@@ -1347,7 +1327,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get templates -e <environment>
+        mi get templates -e <environment>
         ```
 
         !!! info
@@ -1360,7 +1340,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get templates -e dev
+            mi get templates -e dev
             ```
 
     -   **Response**
@@ -1375,7 +1355,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get templates [template-type] -e <environment>
+        mi get templates [template-type] -e <environment>
         ```
 
         !!! info
@@ -1388,10 +1368,10 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get templates endpoint -e dev
+            mi get templates endpoint -e dev
             ```
             ```bash
-            apictl mi get templates sequence -e dev
+            mi get templates sequence -e dev
             ```
 
     -   **Response**
@@ -1405,7 +1385,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
     -   **Command**
         ``` bash
-        apictl mi get templates [template-type] [template-name] -e <environment>
+        mi get templates [template-type] [template-name] -e <environment>
         ```
 
         !!! info
@@ -1418,7 +1398,7 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get templates endpoint sample_template -e dev
+            mi get templates endpoint sample_template -e dev
             ```
 
     -   **Response**
@@ -1438,7 +1418,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     -   **Command**
         ``` bash
-        apictl mi activate endpoint [endpoint-name] -e <environment>
+        mi activate endpoint [endpoint-name] -e <environment>
         ```
 
         !!! info
@@ -1449,7 +1429,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
         !!! example
             ```bash
-            apictl mi activate endpoint GrandOakEndpoint -e dev
+            mi activate endpoint GrandOakEndpoint -e dev
             ```
 
     -   **Response**
@@ -1462,7 +1442,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     -   **Command**
         ``` bash
-        apictl mi deactivate endpoint [endpoint-name] -e <environment>
+        mi deactivate endpoint [endpoint-name] -e <environment>
         ```
 
         !!! info
@@ -1473,7 +1453,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
         !!! example
             ```bash
-            apictl mi deactivate endpoint GrandOakEndpoint -e dev
+            mi deactivate endpoint GrandOakEndpoint -e dev
             ```
 
     -   **Response**
@@ -1488,7 +1468,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     -   **Command**
         ``` bash
-        apictl mi activate message-processor [message-processor-name] -e <environment>
+        mi activate message-processor [message-processor-name] -e <environment>
         ```
 
         !!! info
@@ -1499,7 +1479,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
         !!! example
             ```bash
-            apictl mi activate message-processor scheduled-msg-processor -e dev
+            mi activate message-processor scheduled-msg-processor -e dev
             ```
 
     -   **Response**
@@ -1512,7 +1492,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     -   **Command**
         ``` bash
-        apictl mi deactivate message-processor [message-processor-name] -e <environment>
+        mi deactivate message-processor [message-processor-name] -e <environment>
         ```
 
         !!! info
@@ -1523,7 +1503,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
         !!! example
             ```bash
-            apictl mi deactivate message-processor scheduled-msg-processor -e dev
+            mi deactivate message-processor scheduled-msg-processor -e dev
             ```
 
     -   **Response**
@@ -1538,7 +1518,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     -   **Command**
         ``` bash
-        apictl mi activate proxy-service [proxy-name] -e <environment>
+        mi activate proxy-service [proxy-name] -e <environment>
         ```
 
         !!! info
@@ -1549,7 +1529,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
         !!! example
             ```bash
-            apictl mi activate proxy-service StockQuoteProxy -e dev
+            mi activate proxy-service StockQuoteProxy -e dev
             ```
 
     -   **Response**
@@ -1562,7 +1542,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     -   **Command**
         ``` bash
-        apictl mi deactivate proxy-service [proxy-name] -e <environment>
+        mi deactivate proxy-service [proxy-name] -e <environment>
         ```
 
         !!! info
@@ -1573,7 +1553,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
         !!! example
             ```bash
-            apictl mi deactivate proxy-service StockQuoteProxy -e dev
+            mi deactivate proxy-service StockQuoteProxy -e dev
             ```
 
     -   **Response**
@@ -1588,7 +1568,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
 -   **Command**
     ``` bash
-    apictl mi get log-levels [logger-name] -e <environment>
+    mi get log-levels [logger-name] -e <environment>
     ```
 
     !!! info
@@ -1601,7 +1581,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
     !!! example
         ```bash
-        apictl mi get log-levels org-apache-coyote -e dev
+        mi get log-levels org-apache-coyote -e dev
         ```
 
 -   **Response**
@@ -1617,7 +1597,7 @@ You can use the command below to add a new logger to a Micro Integrator.
 
 -   **Command**
     ``` bash
-    apictl mi add log-level [logger-name] [class-name] [log-level] -e <environment>
+    mi add log-level [logger-name] [class-name] [log-level] -e <environment>
     ```
 
     !!! info
@@ -1628,7 +1608,7 @@ You can use the command below to add a new logger to a Micro Integrator.
 
     !!! example
         ```bash
-        apictl mi add log-level synapse-api org.apache.synapse.rest.API DEBUG -e dev
+        mi add log-level synapse-api org.apache.synapse.rest.API DEBUG -e dev
         ```
 
 -   **Response**
@@ -1643,7 +1623,7 @@ You can use the command below to update the log level of an existing logger.
 
 -   **Command**
     ``` bash
-    apictl mi update log-level [logger-name] [log-level] -e <environment>
+    mi update log-level [logger-name] [log-level] -e <environment>
     ```
 
     !!! info
@@ -1654,7 +1634,7 @@ You can use the command below to update the log level of an existing logger.
 
     !!! example
         ```bash
-        apictl mi update log-level org-apache-coyote DEBUG -e dev
+        mi update log-level org-apache-coyote DEBUG -e dev
         ```
 
 -   **Response**
@@ -1669,7 +1649,7 @@ You can use the command below to update the log level of an existing logger.
 
 -   **Command**
     ``` bash
-    apictl mi get logs -e <environment>
+    mi get logs -e <environment>
     ```
 
     !!! info
@@ -1682,7 +1662,7 @@ You can use the command below to update the log level of an existing logger.
 
     !!! example
         ```bash
-        apictl mi get logs -e dev
+        mi get logs -e dev
         ```
 
 -   **Response**
@@ -1704,7 +1684,7 @@ You can use the command below to update the log level of an existing logger.
 
 -   **Command**
     ``` bash
-    apictl mi get logs [file-name] -p [download-location] -e <environment>
+    mi get logs [file-name] -p [download-location] -e <environment>
     ```
 
     !!! info
@@ -1718,7 +1698,7 @@ You can use the command below to update the log level of an existing logger.
 
     !!! example
         ```bash
-        apictl mi get logs wso2carbon.log -p log-files -e dev
+        mi get logs wso2carbon.log -p log-files -e dev
         ```
 
 -   **Response**
@@ -1727,12 +1707,12 @@ You can use the command below to update the log level of an existing logger.
     Log file downloaded to log-files/wso2carbon.log
     ```
 
-## Encrypting Secrets with apictl
+## Encrypting Secrets with MI CLI
 
-**WSO2 API Controller (apictl)** allows you to encrypt a plain-text secret. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets. For more information on using dynamic secrets refer [Dynamic secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/#dynamic-secrets).
+**WSO2 MI CLI (mi)** allows you to encrypt a plain-text secret. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets. For more information on using dynamic secrets refer [Dynamic secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/#dynamic-secrets).
 
 
-### Initialize apictl with a key store
+### Initialize MI CLI with a key store
 
 !!! Note    
     Secret encryption supports only JKS Key Stores.
@@ -1740,12 +1720,12 @@ You can use the command below to update the log level of an existing logger.
 !!! Note    
     Key Store used in this step needs to be the same Key Store which is used by the WSO2 Micro Integrator (WSO2 MI) to decrypt secrets.
 
-Run the following command to initialize the apictl with the Key Store used to encrypt the secrets. It will prompt you to input the following,
+Run the following command to initialize the MI CLI with the Key Store used to encrypt the secrets. It will prompt you to input the following,
 
 <table>
     <tr>
         <td>Key Store location</td>
-        <td>Path to the Key Store used by the WSO2 API-M or WSO2 MI to decrypt secrets</td>
+        <td>Path to the Key Store used by the WSO2 MI to decrypt secrets</td>
     </tr>
     <tr>
         <td>Key Store password</td>
@@ -1764,12 +1744,12 @@ Run the following command to initialize the apictl with the Key Store used to en
 -   **Command**
 
     ```go
-    apictl secret init
+    mi secret init
     ```
 
     !!! example
         ```go
-        apictl secret init
+        mi secret init
         Enter Key Store location: /home/wso2mi-4.2.0/repository/resources/security/wso2carbon.jks
         Enter Key Store password:
         Enter Key alias: wso2carbon
@@ -1788,13 +1768,13 @@ Run the following command to initialize the apictl with the Key Store used to en
     Secret encryption supports only **RSA/ECB/OAEPWithSHA1AndMGF1Padding** (default) or **RSA/ECB/PKCS1Padding** as encryption algorithm.
 
 !!! Note    
-    Encrypting algorithm used in this step needs to be the same algorithm used by the WSO2 API-M or WSO2 MI to decrypt secrets.
+    Encrypting algorithm used in this step needs to be the same algorithm used by the WSO2 MI to decrypt secrets.
 
-Run the following command to encrypt secrets with the apictl,
+Run the following command to encrypt secrets with the MI CLI,
 
 -   **Command**
     ``` bash
-    apictl secret create
+    mi secret create
     ```
 
     !!! info
@@ -1810,7 +1790,7 @@ Run the following command to encrypt secrets with the apictl,
     !!! example
 
         ``` bash
-        apictl secret create
+        mi secret create
         Enter plain alias for secret:db_password
         Enter plain text secret:
         Repeat plain text secret:
@@ -1827,7 +1807,7 @@ Run the following command to encrypt secrets with the apictl,
         !!! example
 
             ``` bash
-            apictl secret create -f ./keys/secrets.properties
+            mi secret create -f ./keys/secrets.properties
             ```
 
     -   Response
@@ -1842,13 +1822,13 @@ Run the following command to encrypt secrets with the apictl,
         !!! example
 
             ``` bash
-            apictl secret create -o k8 -f ./keys/secrets.properties
+            mi secret create -o k8 -f ./keys/secrets.properties
             ```
 
     -   Response
 
         ```go
-        Kubernetes secret file created in apictl/security/wso2-secrets.yaml with default name and namespace
+        Kubernetes secret file created in mi/security/wso2-secrets.yaml with default name and namespace
         You can change the default values as required before applying.
         ```
 
@@ -1861,10 +1841,10 @@ You can use the command below to get information about the inbound transactions 
 
 -   **Command**
     ``` bash
-    apictl mi get transaction-counts -e <environment>
+    mi get transaction-counts -e <environment>
     ```
     ``` bash
-    apictl mi get transaction-counts [year] [month] -e <environment>
+    mi get transaction-counts [year] [month] -e <environment>
     ```
 
     !!! info
@@ -1877,10 +1857,10 @@ You can use the command below to get information about the inbound transactions 
 
     !!! example
         ```bash
-        apictl mi get transaction-counts -e dev
+        mi get transaction-counts -e dev
         ```
         ```bash
-        apictl mi get transaction-counts 2021 01 -e dev
+        mi get transaction-counts 2021 01 -e dev
         ```
 
 -   **Response**
@@ -1896,7 +1876,7 @@ You can use the command below to generate the transaction count summary report b
 
 -   **Command**
     ``` bash
-    apictl mi get transaction-reports [start] [end] -e <environment>
+    mi get transaction-reports [start] [end] -e <environment>
     ```
 
     !!! info
@@ -1909,10 +1889,10 @@ You can use the command below to generate the transaction count summary report b
 
     !!! example
         ```bash
-        apictl mi get transaction-reports 2020-05 2020-06 -e dev
+        mi get transaction-reports 2020-05 2020-06 -e dev
         ```
         ```bash
-        apictl mi get transaction-reports 2020-05 -e dev -p reports/mi
+        mi get transaction-reports 2020-05 -e dev -p reports/mi
         ```
 
 -   **Response**
@@ -1933,7 +1913,7 @@ You can use the command below to update the HashiCorp AppRole Pull secret ID tha
 
 -   **Command**
     ``` bash
-    apictl mi update hashicorp-secret [secret_id] -e <environment>
+    mi update hashicorp-secret [secret_id] -e <environment>
     ```
 
     !!! info
@@ -1944,7 +1924,7 @@ You can use the command below to update the HashiCorp AppRole Pull secret ID tha
 
     !!! example
         ```bash
-        apictl mi update hashicorp-secret 47c39b09-c0a9-6ebf-196e-038eb7aad336 -e dev
+        mi update hashicorp-secret 47c39b09-c0a9-6ebf-196e-038eb7aad336 -e dev
         ```
 
 -   **Response**
