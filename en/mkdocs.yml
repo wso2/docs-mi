@@ -294,7 +294,6 @@ nav:
           - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
           - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
           - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
-      - Package Artifacts: develop/packaging-artifacts.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
@@ -884,6 +883,7 @@ plugins:
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
+              'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
 
   # Extra
 extra_css:
