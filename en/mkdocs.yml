@@ -241,7 +241,7 @@ nav:
                   - Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
           - Work with Transactions: learn/examples/working-with-transactions.md
           - JSON Examples: learn/examples/json-examples/json-examples.md
-          - Integrate MI with SI asdf: learn/examples/integrating-mi-with-si.md
+          - Integrate MI with SI: learn/examples/integrating-mi-with-si.md
       - VS Code plugin Samples: learn/samples.md
 
   - Develop:
