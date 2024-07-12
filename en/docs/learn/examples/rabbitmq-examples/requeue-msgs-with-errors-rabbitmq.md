@@ -43,13 +43,13 @@ See the instructions on how to [build and run](#build-and-run) this example.
    <parameter name="rabbitmq.message.requeue.delay">30000</parameter>
    <parameter name="rabbitmq.queue.name">student-registration</parameter>
    <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+   <parameter name="rabbitmq.message.content.type">application/xml</parameter>
 </proxy>
 ```
 
 ## Build and run
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
