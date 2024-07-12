@@ -36,7 +36,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Open the MI project view and click the **+** button next to the **API**. A form will open to create a new API resources. Specify the API name as **bigquery-testAPI** and API context as **/resources**.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-api.png" title="Adding a Rest API" width="300" alt="Adding a Rest API"/>
 
 ### Import the connector
 
@@ -52,9 +52,9 @@ Create a resource that to invoke an API to get created table details from the Bi
 
 1. Initialize the connector.
     
-    1. Go to the **Connector**, select the **BigQuery Connector**, click on the **init** operation.
+    1. Go to the **Connector**, select the **BigQuery Connector**, click on **init** operation.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-init.png" title="Drag and drop init operation" width="600" alt="Drag and drop init operation"/>   
+        <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-init.png" title="Drag and drop init operation" width="400" alt="Drag and drop init operation"/>   
     
     2. Click on **+ Add Parameter** and add the following properties with your corresponding values.
         
@@ -246,15 +246,20 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Once you have [built your artifacts]({{base_path}}/develop/packaging-artifacts) into a composite application, you can
+export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension:
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+1.  Open the project overview and click on **Export**.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/export_artifacts.jpeg" width="300" alt="Download ZIP">
+    
+2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
 ## Testing
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
-1. The user sends the request to invoke an API to get created table details from the BigQuery.
+#### Invoke an API to get created table details from the BigQuery.
  
    **Sample request**
    
@@ -308,7 +313,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      );
    ```     
-2. Insert data in to the created table.
+####  Invoke an API to insert data in to the created table.
  
    **Sample request**
    
@@ -339,7 +344,8 @@ Invoke the API as shown below using the curl command. Curl Application can be do
        "kind": "bigquery#tableDataInsertAllResponse"
    }
    ```
-3. Retrieve inserted details from the BigQuery table.
+
+####  Invoke an API to retrieve inserted details from the BigQuery table.
  
    **Sample request**
    
@@ -358,7 +364,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
    **Expected Response**
     
-     ```json
+   ```
      // API callback
      callBackFunction({
        "kind": "bigquery#tableDataList",
@@ -389,7 +395,8 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      );
    ```
-4. Run an SQL query (BigQuery) and retrieve details from BigQuery table.
+
+####  Invoke an API to run an SQL query (BigQuery) and retrieve details from BigQuery table.
  
    **Sample request**
    
