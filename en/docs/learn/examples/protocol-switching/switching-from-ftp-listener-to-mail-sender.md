@@ -52,8 +52,10 @@ Create the artifacts:
 
 {!includes/build-and-run.md!} 
 3. Create the proxy service with the [VFS configurations parameters given above]({{base_path}}/reference/config-catalog-mi/#vfs-transport).
-4. Configure [MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator and start the Micro Integrator.
+4. Create the [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints/) with the given deatails for SimpleStockQuoteService Endpoint.
+5. Create the [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints/) with the given deatails for Mail Endpoint.
+6. Configure [MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+7. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator and start the Micro Integrator.
 
 Set up the back-end service.
 
