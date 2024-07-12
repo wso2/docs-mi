@@ -20,15 +20,12 @@ For example, while transferring bank and financial sector information using the 
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
-1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-<img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+1. Add a new **custom inbound endpoint** by clicking `+` icon in the `Inbound Endpoints`. </br> 
+<img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
-2. Right click on **Source** -> **main** -> **synapse-config** -> **inbound-endpoints** and add a new **custom inbound endpoint**.</br> 
-<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+2. Under the `Basic` section set the `Class` field to `org.wso2.carbon.inbound.iso8583.listening.ISO8583MessageConsumer`. 
 
-3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.iso8583.listening.ISO8583MessageConsumer`. 
-
-4. Navigate to the source view and update it with the following configuration as required. 
+3. Navigate to the source view and update it with the following configuration as required. 
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?><inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="custom_listener" sequence="requestISO" onError="fault" class="org.wso2.carbon.inbound.iso8583.listening.ISO8583MessageConsumer" suspend="false">
@@ -53,25 +50,16 @@ For example, while transferring bank and financial sector information using the 
    </sequence>
    ```
 ## Exporting Integration Logic as a CApp
-
-**CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
-
-1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
-
-2. Select an **Export Destination** where you want to save the .car file. 
-
-3. In the next **Create a deployable CAR file** screen, select inbound endpoint and sequence artifacts and click **Finish**. The CApp will get created at the specified location provided in the previous step. 
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `ISO8583`. Click on `ISO8583 Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  <PRODUCT-HOME>/lib folder. 
+1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `ISO8583`. Click on `ISO8583 Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  <Project_Home>/deployment/libs folder. 
 
-2. Download [jpos-1.9.4.jar](http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4), [jdom-1.1.3.jar](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3), and [commons-cli-1.3.1.jar](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1) and add it to <PRODUCT-HOME>/lib folder.
+2. Download [jpos-1.9.4.jar](http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4), [jdom-1.1.3.jar](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3), and [commons-cli-1.3.1.jar](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1) and add it to <Project_Home>/deployment/libs folder.
 
-3. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-4. Start the integration server. 
 
 ## Testing  
 
