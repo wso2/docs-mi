@@ -14,13 +14,11 @@ To know the further information about the  `init` and `iso8583.sendMessage` oper
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
-
-1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
+1. Select Micro Integrator and click on `+` in APIs to create a REST API.
 
 2. Specify the API name as `SendisoTestAPI` and API context as `/sendiso`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 
@@ -39,17 +37,14 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <iso8583.sendMessage/>
                <respond/>
            </inSequence>
-           <outSequence>
-               <log/>
-               <send/>
-           </outSequence>
            <faultSequence/>
        </resource>
    </api>
    ```
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Exporting Integration Logic as a CApp
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -61,21 +56,10 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-**Deploying on Micro Integrator**
-
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-    
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+  
 ## Testing
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
