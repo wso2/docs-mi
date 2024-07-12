@@ -28,21 +28,15 @@ The following diagram shows the overall solution. User can invoke the table sche
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in MI VS Code Extension
+## Setting Up the Integration Project
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-### Add integration logic
+ {!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 Open the MI project view and click the **+** button next to the **API**. A form will open to create a new API resources. Specify the API name as **bigquery-testAPI** and API context as **/resources**.
     
 <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-api.png" title="Adding a Rest API" width="300" alt="Adding a Rest API"/>
-
-### Import the connector
-
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
-
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 #### Configuring the API
 
