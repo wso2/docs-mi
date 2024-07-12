@@ -224,7 +224,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/redis/redis-header.png" title="Add Header to get Quote" width="600" alt="Add Header to get Quote"/>
 
-6. Add an address endpoint using the call mediator to access SimpleStockQuoteService. Select the previously created `StockQuoteEP` from the dropdown.
+6. Add an address endpoint using the call mediator to access `SimpleStockQuoteService`. Select the previously created `StockQuoteEP` from the dropdown.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/redis/call-mediator.png" title="Call mediator" width="600" alt="Call mediator"/>  
 
