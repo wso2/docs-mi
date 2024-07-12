@@ -234,7 +234,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
 9. To get the input values in to the `hSet`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.
 
-   1. Add the property mediator to capture the `symbol` value from the response of SimpleStockQuoteService. The 'symbol' contains the company name of the stock quote.
+   1. Add the property mediator to capture the `symbol` value from the response of `SimpleStockQuoteService`. The 'symbol' contains the company name of the stock quote.
 
        <table>
          <tr>
