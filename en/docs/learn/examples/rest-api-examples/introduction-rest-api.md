@@ -55,8 +55,9 @@ This is a REST API with two API resources. The GET calls are handled by the firs
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the API configurations given above.
+4. [Create the endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints/) with the endpoint configurations given above.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
 
