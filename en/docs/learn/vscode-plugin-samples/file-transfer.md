@@ -6,7 +6,7 @@ This sample contains an Inbound Endpoint called `StudentDataFileProcessInboundEP
 
 The file inbound endpoint is listening on file path specified in the `File URI` parameter. The `transport.vfs.FileNamePattern` represent the file pattern to process. Once the inbound endpoint read a file successfully, its content is injected to the sequence for further mediation. In this sample, `StudentDataFileProcessSeq` logs the content of the received message.
 
-Once file reading is successful, the file will be moved to a location defined in the `Move After Process` parameter. If an error occurred while reading, then the file will be moved to the location specified in the transport.vfs.MoveAfterFailure parameter.
+Once file reading is successful, the file will be moved to a location defined in the `Move After Process` parameter. If an error occurred while reading, then the file will be moved to the location specified in the `transport.vfs.MoveAfterFailure` parameter.
 
 ## Deploying the sample
 
