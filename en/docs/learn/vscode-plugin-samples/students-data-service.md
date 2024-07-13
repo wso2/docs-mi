@@ -38,7 +38,7 @@ This sample contains a Data Service called `StudentDataService` that include dat
 1. Open the sample by clicking on the **Students Data Service** card.
 2. Give a folder location to save the sample.
 3. Open the `StudentDataService` data service artifact and update the RDBMS datasource in it by replacing the `URL`, `Username` and `Password` values with your database credentials.
-4. Download the `mysql-connector-j-8.0.32.jar` and add it to the `<PROJECT_WORKSPACE>/deployment/libs` folder.
+4. Download the `mysql-connector-j-8.0.32.jar` and add it to the `<PROJECT_NAME>/deployment/libs` folder.
 5. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
 
 ## Running the sample
