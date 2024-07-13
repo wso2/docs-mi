@@ -19,7 +19,7 @@ The scheduled task runs periodically and injects a dummy payload to the sequence
     GRANT ALL PRIVILEGES ON hospital_db.* TO 'user'@'localhost';
     ```
 
-2. Create table and insert some records.
+2. Create a table and insert some records.
 
     ```bash
     CREATE TABLE `doctors` (
