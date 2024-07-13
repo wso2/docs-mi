@@ -15,7 +15,7 @@ This sample contains a Data Service called `StudentDataService` that include dat
     GRANT ALL PRIVILEGES ON school_db.* TO 'user'@'localhost';
     ```
 
-2. Create table and insert some records.
+2. Create a table and insert some records.
 
     ```bash
     CREATE TABLE `students` (
