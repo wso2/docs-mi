@@ -4,7 +4,7 @@ This sample demonstrates database polling capability in the Micro Integrator.
 
 Four modules get created with this sample which are; a scheduled task called `DoctorsRecordsSyncTask`, a sequence called `DoctorsRecordsSyncSeq`, an endpoint called `DoctorsDataServiceEP` and a data service called `DoctorsDataService`.
 
-The data service module expose three database operations; `ReadDoctors`, `UpdateDoctorsSyncStatus` and `ReadDoctorsNotSync`.
+The data service module exposes three database operations; `ReadDoctors`, `UpdateDoctorsSyncStatus`, and `ReadDoctorsNotSync`.
 
 The scheduled task runs periodically and injects a dummy payload to the sequence to initiate the messaging flow. The first payload is constructed to invoke the data service operation `ReadDoctors` and to retrieve the doctor records that are not synchronized. The second payload is constructed to update the not synchronized doctor records as a transaction. There is a special type of operation called request_box in the data service. The `ReadDoctorsNotSync` and `UpdateDoctorsSyncStatus` operations are wrapped with the request_box in order to run them in transactional manner.
 
