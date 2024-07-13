@@ -2,7 +2,7 @@
 
 This sample demonstrates the exception handling capabilities of the Micro Integrator.
 
-This sample consists of an API called `TimeoutAPI`, an Endpoint called `DelayHttpEP` and a Sequence called `TimeoutFailureSeq`
+This sample consists of an API called `TimeoutAPI`, an endpoint called `DelayHttpEP`, and a sequence called `TimeoutFailureSeq`.
 
 The backend service takes around 60 seconds to respond back. The endpoint timeout is set to 30 seconds and upon timeout, the fault sequence is executed. The sequence logs the proper error and responds back with an error message.
 
