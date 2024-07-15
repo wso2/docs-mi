@@ -101,9 +101,11 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 <api context="/mongodbconnector" name="MongoConnector" xmlns="http://ws.apache.org/ns/synapse">
 	<resource methods="POST" uri-template="/insertmany">
 		<inSequence>
+			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
+			<property expression="json-eval($.documents)" name="documents" scope="default" type="JSON"/>
 			<mongodb.insertMany configKey="connectionURI">
-				<collection>json-eval($.collection)</collection>
-				<documents>json-eval($.documents)</documents>
+				<collection>{$ctx:collection}</collection>
+				<documents>{$ctx:documents}</documents>
 				<ordered>True</ordered>
 			</mongodb.insertMany>
 			<respond/>
@@ -113,9 +115,11 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 	</resource>
 	<resource methods="POST" uri-template="/find">
 		<inSequence>
+			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
+			<property expression="json-eval($.query)" name="query" scope="default" type="JSON"/>
 			<mongodb.find configKey="connectionURI">
-				<collection>json-eval($.collection)</collection>
-				<query>json-eval($.query)</query>
+				<collection>{$ctx:collection}</collection>
+				<query>{$ctx:query}</query>
 			</mongodb.find>
 			<respond/>
 		</inSequence>
