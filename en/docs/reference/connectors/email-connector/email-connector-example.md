@@ -18,7 +18,7 @@ The example consists of an API named as EmailConnector API with two resources `s
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setup the Integration Project
+## Setting up the Integration Project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
