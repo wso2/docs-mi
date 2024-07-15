@@ -30,13 +30,14 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Connectors** and search for the **jira** connector. Click the Jira connector to open the operation panel, then click **init**. This will download the connector.
    ![Adding a Jira Connector]({{base_path}}/assets/img/integrate/connectors/jira-conn-2.png "Adding a Jira Connector")
 
-4. You can go to the source view (click the `</>` icon on the top right corner) of the XML configuration file of the API and copy the following configuration. Update values username,password and site url.
+4. You can go to the source view (click the `</>` icon on the top right corner) of the XML configuration file of the API and copy the following configuration. Update values username,password and site url. For password use api key.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/jira" name="jiraAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/createIssue">
         <inSequence>
+            <property expression="json-eval($.issueFields)" name="issueFields" scope="default" type="JSON"/>
             <jira.init>
                     <username>****</username>
                     <password>****</password>
@@ -51,6 +52,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     </resource>
     <resource methods="POST" uri-template="/getIssue">
         <inSequence>
+        <property expression="json-eval($.id)" name="id" scope="default" type="JSON"/>
             <jira.init>
                     <username>****</username>
                     <password>****</password>
