@@ -6,7 +6,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 ### Creating the API artifact
 
-{!includes/build-and-run.md!}
+{!includes/creating-project.md!}
 
 3. Go to **MI Project Explorer** > **APIs**.
 
