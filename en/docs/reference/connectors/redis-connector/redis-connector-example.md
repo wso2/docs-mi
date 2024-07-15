@@ -184,8 +184,12 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
     Add parameter:
     <table>
       <tr>
-         <td>Argument value</td>
+         <td>Argument value (Expression)</td>
          <td><code>get-property('uri.var.symbol')</code></td>
+      </tr>
+      <tr>
+         <td>Evaluator</td>
+         <td><code>xml</code></td>
       </tr>
     </table>
 
@@ -242,7 +246,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
            <td><code>symbol</code></td>
          </tr>
          <tr>
-           <td>Property Value</td>
+           <td>Property Value (Expression)</td>
            <td>
              <code>$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol</code>
            </td>
@@ -258,7 +262,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
            <td><code>volume</code></td>
          </tr>
          <tr>
-           <td>Property Value</td>
+           <td>Property Value (Expression)</td>
            <td>
              <code>$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume</code>
            </td>
@@ -370,9 +374,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
 8. To forward the backend response to the API caller add the **Respond** Mediator.
 
-      
-       
-               
+
 Now you can switch into the Source view and check the XML configuration files of the created API and endpoint. 
     
 **StockQuoteAPI.xml**
@@ -380,47 +382,46 @@ Now you can switch into the Source view and check the XML configuration files of
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
     <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="GET" uri-template="/resource">
+        <resource methods="GET" uri-template="/getstockquote/{symbol}">
             <inSequence>
-			<payloadFactory media-type="xml" template-type="default">
-				<format>
-					<m0:getQuote xmlns:m0="http://services.samples">
-						<m0:request>
-							<m0:symbol>$1</m0:symbol>
+            <payloadFactory media-type="xml" template-type="default">
+                <format>
+                    <m0:getQuote xmlns:m0="http://services.samples">
+                        <m0:request>
+                            <m0:symbol>$1</m0:symbol>
 						</m0:request>
 					</m0:getQuote>
 				</format>
-				<args>
-					<arg value="get-property('uri.var.symbol')"/>
+                <args>
+					<arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
 				</args>
 			</payloadFactory>
 			<header name="Action" action="set" scope="default" value="urn:getQuote"/>
-			<call>
+            <call>
 				<endpoint key="StockQuoteEP"/>
 			</call>
-			<enrich description="">
+            <enrich description="">
 				<source clone="true" type="body"/>
 				<target action="replace" type="property" property="ORIGINAL_PAYLOAD"/>
 			</enrich>
-			<property name="symbol" scope="default" type="STRING" value="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol"/>
-			<property name="volume" scope="default" type="STRING" value="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume"/>
-			<redis.hSet configKey="REDIS_CONNECTION_1">
-				<redisKey>StockVolume</redisKey>
-				<redisField>{$ctx:symbol}</redisField>
-				<redisValue>{$ctx:volume}</redisValue>
+			<property name="symbol" scope="default" type="STRING" expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
+			<property name="volume" scope="default" type="STRING" expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
+            <redis.hSet configKey="REDIS_CONNECTION_1">
+                <redisKey>StockVolume</redisKey>
+                <redisField>{$ctx:symbol}</redisField>
+                <redisValue>{$ctx:volume}</redisValue>
 			</redis.hSet>
-			<enrich description="">
+            <enrich description="">
 				<source clone="true" property="ORIGINAL_PAYLOAD" type="property"/>
 				<target action="replace" type="body"/>
 			</enrich>
 			<log category="INFO" level="simple"/>
-			
 			<respond/>
 		</inSequence>
             <faultSequence>
 		</faultSequence>
         </resource>
-		<resource methods="GET" uri-template="/getstockvolumedetails">
+        <resource methods="GET" uri-template="/getstockvolumedetails">
             <inSequence>
                 <redis.hGetAll configKey="REDIS_CONNECTION_1">
                     <redisKey>StockVolume</redisKey>
@@ -432,10 +433,10 @@ Now you can switch into the Source view and check the XML configuration files of
         <resource methods="POST" uri-template="/deletestockvolumedetails">
             <inSequence>
                 <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
-			<redis.hDel configKey="REDIS_CONNECTION_1">
-				<redisKey>StockVolume</redisKey>
-				<redisFields>{$ctx:redisFields}</redisFields>
-			</redis.hDel>
+            <redis.hDel configKey="REDIS_CONNECTION_1">
+                <redisKey>StockVolume</redisKey>
+                <redisFields>{$ctx:redisFields}</redisFields>
+            </redis.hDel>
                 <respond/>
             </inSequence>
             <faultSequence/>
@@ -478,7 +479,7 @@ The created redis connection will be saved as a local entry.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/smpp-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/redis-example.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -492,7 +493,7 @@ You can copy the composite application to the `<PRODUCT-HOME>/repository/deploym
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
 
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
+??? note "Click here for instructions on deploying on WSO2 Micro Integrator"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
     2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
@@ -501,18 +502,32 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Testing
 
+Deploy the back-end service `SimpleStockQuoteService`.
+
+ 1. Download the ZIP file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+ 2. Extract the downloaded zip file.
+ 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+ 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+
+    === "On MacOS/Linux/CentOS"   
+        ```bash
+        sh axis2server.sh
+        ```
+    === "On Windows"              
+        ```bash
+        axis2server.bat
+        ```
+
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
-1. Retrieve stock volume details from the Stockquote back-end service.
+### 1. Retrieve stock volume details from the Stockquote back-end service.
  
    **Sample request 1**
-
     ```
-     curl -v GET "http://localhost:8290/stockquote/view/WSO2" -H "Content-Type:application/json"    
+     curl -v GET "http://localhost:8290/stockquote/getstockquote/WSO2" -H "Content-Type:application/json"    
     ```
 
    **Expected Response**
-    
      ```json
      {
          "Envelope": {
@@ -537,14 +552,12 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      ```
      
-   **Sample request 2**
-     
+   **Sample request 2** 
      ```
-      curl -v GET "http://localhost:8290/stockquote/view/IBM" -H "Content-Type:application/json"    
+      curl -v GET "http://localhost:8290/stockquote/getstockquote/IBM" -H "Content-Type:application/json"    
      ```
      
-   **Expected Response**
-         
+   **Expected Response** 
      ```json
      {
          "Envelope": {
@@ -569,10 +582,9 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }      
         
      ```
-   **Inserted hash map can check using `redis-cli`**  
+**Inserted hash map can check using `redis-cli`**  
    
-     Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve inserted hash map details.
-   
+Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve inserted hash map details.
      ```
      127.0.0.1:6379> HGETALL StockVolume
      1) "IBM"
@@ -581,31 +593,28 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      4) "7791"
      127.0.0.1:6379>
      ```
-2. Retrieve all stock volume details from the Redis server.
+     
+### 2. Retrieve all stock volume details from the Redis server.
  
    **Sample request**
-
     ```
      curl -v GET "http://localhost:8290/stockquote/getstockvolumedetails" -H "Content-Type:application/json"    
     ```
 
    **Expected Response**
-    
      ```json
      {
          "output": "{IBM=7791, WSO2=7791}"
      }
      ```
-3. Remove stock volume details.
+### 3. Remove stock volume details.
  
    **Sample request 1**
-
     ```
      curl -v POST -d {"redisFields":"WSO2"}  "http://localhost:8290/stockquote/deletestockvolumedetails" -H "Content-Type:application/json"    
     ```
 
    **Expected Response**
-    
      ```json
      {
          "output": 1
@@ -615,23 +624,20 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    **Sample request 2 : Check the remaining stock volume details**
     
    **Sample request**
-   
      ```
        curl -v GET "http://localhost:8290/stockquote/getstockvolumedetails" -H "Content-Type:application/json"    
      ```
    
    **Expected Response**
-       
      ```json
      {
           "output": "{IBM=7791}"
      }
      ``` 
       
-   **Inserted list can retrieve using `redis-cli`**  
-   
-     Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve list length.
-   
+**Inserted list can retrieve using `redis-cli`**
+
+Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve list length.
      ```
      127.0.0.1:6379> HGETALL StockVolume
      1) "IBM"
