@@ -143,7 +143,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
 1. Click on the `GET getstockquote` API resource under available resources on the **Service Designer**.
 
-    You will now see the graphical view of the `SampleRedisAPI` with its default API Resource.
+    You will now see the graphical view of the `SampleRedisAPI`.
 
 2. Click on the **+** icon under **start** to add a mediator.
 
