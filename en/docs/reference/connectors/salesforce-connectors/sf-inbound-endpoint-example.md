@@ -34,7 +34,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    
 3. Now let's create the Salesforce Inbound Endpoint. Click on `+` in **Inbound Endpoints** and select **Custom** to create the Salesforce Inbound Endpoint.
    
-    <img src="{{base_path}}/assets/img/integrate/connectors/sf-inboundep-create-new.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/sf-inboundep-create-new.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 4. Provide the following details in the form that opens.
 
@@ -92,11 +92,11 @@ In order to export the project, refer to the [build and export the carbon applic
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SalesforceRest`. Click on `Salesforce Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  <PRODUCT-HOME>/lib folder. 
+1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SalesforceRest`. Click on `Salesforce Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  <MI_HOME>/lib folder. 
 
-2. Copy the exported carbon application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder. 
+2. Copy the exported carbon application to the `<MI_HOME>/repository/deployment/server/carbonapps` folder. 
 
-4. Start the integration server. 
+3. Start the integration server. 
 
 ## Testing  
 
