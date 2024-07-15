@@ -13,11 +13,11 @@ Following are the integration artifacts (proxy service) that we can used to impl
         <inSequence>
             <log level="full"/>
             <property name="OUT_ONLY" value="true"/>
-            <send>
+            <call>
                 <endpoint>
                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-            </send>
+            </call>
         </inSequence>
     </target>
     <publishWSDL key="conf:UDP_WSDL/sample_proxy_1.wsdl" preservePolicy="true"/>
@@ -33,6 +33,14 @@ Create the artifacts:
 1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
 2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
 3. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources) (change the registry path of the proxy accordingly). 
+    1. Download [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl)
+    2. Add a registry resource. 
+        <img src="{{base_path}}/assets/img/learn/samples/add-registry-resource.png" title="Add registry resource" width="800" alt="Add registry resource"/>
+        1. Click on `+` sign next to `Registry`.
+        2. Select `Import from the file system`.
+        3. Goto `Browse file` and select the downloaded file. 
+        4. Provide artifact name, registry type, and registry path as in the figure.
+        5. Create the registry resource. 
 4. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -57,6 +65,7 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 
 Send the following message via UDP to the UDP listener port (9999).
 ```xml
+<?xml version='1.0' encoding='utf-8'?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
         <wsa:To>udp://localhost:9999/services/StockQuoteProxy</wsa:To>
