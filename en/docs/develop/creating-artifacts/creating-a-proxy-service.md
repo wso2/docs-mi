@@ -6,7 +6,7 @@ Follow the instructions given below to create a new [Proxy Service]({{base_path}
 
 ### Creating the Proxy Service artifact
 
-{!includes/build-and-run.md!}
+{!includes/creating-project.md!}
 
 3. Go to **MI Project Explorer** > **Proxy Services**.
 

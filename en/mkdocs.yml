@@ -242,8 +242,36 @@ nav:
           - Work with Transactions: learn/examples/working-with-transactions.md
           - JSON Examples: learn/examples/json-examples/json-examples.md
           - Integrate MI with SI: learn/examples/integrating-mi-with-si.md
-      - VS Code plugin Samples: learn/samples.md
-
+      - Samples:
+          - Overview: learn/samples/samples-overview.md
+          - Hello World Service: learn/samples/hello-world-service.md
+          - JMS Integration: learn/samples/jms-integration.md
+          - Content Based Routing: learn/samples/content-based-routing.md
+          - Database Polling: learn/samples/database-polling.md
+          - Email Service: learn/samples/email-service.md
+          - Exception Handling: learn/samples/exception-handling.md
+         # - Fetch SalesForce Accounts: learn/samples/
+          - File Transfer: learn/samples/file-transfer.md
+          - Guaranteed Delivery: learn/samples/guaranteed-delivery.md
+          - Header Based Routing: learn/samples/header-based-routing.md
+         # - Hello Docker: learn/samples/
+         # - Hello Kubernetes: learn/samples/
+         # - API Testing: learn/samples/
+         # - JSON to XML Mapping: learn/samples/
+         # - Kafka Consumer and Producer: learn/samples/
+          - Message Filtering: learn/samples/message-filtering.md
+          - Periodical Scheduled Tasks: learn/samples/periodical-scheduled-tasks.md
+          - Protocol Switching: learn/samples/protocol-switching.md
+          - Proxying a REST Service: learn/samples/proxying-rest-service.md
+          - Proxying a SOAP Service: learn/samples/proxying-soap-service.md
+         # - RabbitMQ Integration: learn/samples/
+          - REST Data Service: learn/samples/rest-data-service.md
+          - REST to SOAP Conversion: learn/samples/rest-to-soap-conversion.md
+          - Scatter Gather Integration Pattern: learn/samples/scatter-gather-integration-pattern.md
+          - Students Data Service: learn/samples/students-data-service.md
+         # - XML to JSON Mapping: learn/samples/
+          - XML To JSON Transformation: learn/samples/xml-to-json-transformation.md
+         # - Unit Test Tutorial: learn/samples/
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
       - API-led Integration: develop/api-led-integration.md
@@ -259,7 +287,7 @@ nav:
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
-          - Import Projects: develop/importing-projects.md
+          - Open Projects: develop/opening-projects.md
           - Export Projects: develop/export-project.md
           - Create Docker Exporter: develop/create-docker-project.md
           - Create Kubernetes Exporter: develop/create-kubernetes-project.md
@@ -885,6 +913,7 @@ plugins:
               'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
               'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
+              'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-projects/'
 
   # Extra
 extra_css:

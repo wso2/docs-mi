@@ -5,7 +5,7 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
 ### Creating the Endpoint artifact
 
-{!includes/build-and-run.md!}
+{!includes/creating-project.md!}
 
 3. Go to **MI Project Explorer** > **Endpoints**.
 
