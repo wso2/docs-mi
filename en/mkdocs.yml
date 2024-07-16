@@ -287,7 +287,7 @@ nav:
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
-          - Import Projects: develop/importing-projects.md
+          - Open Projects: develop/opening-projects.md
           - Export Projects: develop/export-project.md
           - Create Docker Exporter: develop/create-docker-project.md
           - Create Kubernetes Exporter: develop/create-kubernetes-project.md
