@@ -29,16 +29,51 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 3. In this example we use the SimpleStockQuote service backend. Therefore, the SimpleStockQuote service needs to be started. 
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+{!includes/build-and-run.md!}
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+## Creating the Integration Logic
 
-1. First let's create the following sequences, which are buildMessage, createQueue, sendMessage and ReceiveAndForwardMessage. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
+1. First let's create a connection to the Amazon SQS instance. Navigate to **MI Project Explorer** > **Local Entries** > **Connections** and click on the **+** sign next to **Connections** to open the **Add New Connection** view.
+2. Select the **Amazonsqs** connector.
+   Configure the below values.
 
-2. Provide the Sequence name as buildMessage. You can go to the source view of the XML configuration file of the API and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload Factory Mediator. 
+       - Connection Name - Unique name to identify the connection by.
+       - Connection Type - Type of the connection that specifies the protocol to be used.
+       - Access Key ID - Access key associated with your Amazon user account.
+       - Secret Access Key - Secret Access key associated with your Amazon user account.
+       - Region - Region that is used to select a regional endpoint to make requests.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/connectors.png" title="Available connectors" width="500" alt="Available connectors"/>
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/add-new-connection.png" title="Add new connection" width="500" alt="Add new connection"/>
+
+
+    The created connection is saved as a **Local Entry** as below.
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <localEntry key="AMAZON_SQS_CONNECTION" xmlns="http://ws.apache.org/ns/synapse">
+        <amazonsqs.init>
+            <connectionType>amazonsqs</connectionType>
+            <name>AMAZON_SQS_CONNECTION</name>
+            <accessKeyId>access-key-id</accessKeyId>
+            <secretAccessKey>secret-access-key</secretAccessKey>
+            <region>us-east-2</region>
+            <version>2009-02-01</version>
+            <blocking>false</blocking>
+            <enableSSL>false</enableSSL>
+        </amazonsqs.init>
+    </localEntry>
+    ```
+
+5. Then create the following sequences, which are buildMessage, createQueue, sendMessage and ReceiveAndForwardMessage.
+6. Navigate to **MI Project Explorer** > **Sequences** and click on the **+** sign next to Sequences to open the **Create New Sequence** form.
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/create-new-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
+
+7. Provide the Sequence name as `buildMessage` and click **Create**. You can go to the source view of the XML configuration file of the sequence and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload Factory Mediator. 
     ```
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="buildMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -62,17 +97,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
           </enrich>
       </sequence>
     ```
-3. Create the createQueue sequence as shown below. In this sequence, we create a queue in the Amazon SQS instance. 
+8. Create the `createQueue` sequence as shown below. In this sequence, we create a queue in the Amazon SQS instance. 
   ```
-    <?xml version="1.0" encoding="UTF-8"?>
+  <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="createQueue" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <amazonsqs.init>
-            <accessKeyId>AKIAJRM3ROHOPXQ4V6QA</accessKeyId>
-            <secretAccessKey>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</secretAccessKey>
-            <version>2009-02-01</version>
-            <region>us-east-2</region>
-        </amazonsqs.init>
-        <amazonsqs.createQueue>
+        <amazonsqs.createQueue configKey="AMAZON_SQS_CONNECTION">
             <queueName>{$ctx:queueName}</queueName>
         </amazonsqs.createQueue>
         <property expression="json-eval($.CreateQueueResponse.CreateQueueResult.QueueUrl)" name="queueURL" scope="default" type="STRING"/>
@@ -86,35 +115,23 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     </sequence>
   ```
 
-  4. Create sendMessage sequence as shown below. In this sequence, we send the message that we built in step 1 to the Amazon SQS Queue. 
-    ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <sequence name="sendMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-          <amazonsqs.init>
-              <accessKeyId>AKIAJRM3ROJKJJXQ4V6QA</accessKeyId>
-              <secretAccessKey>r7hfmtqVjdwieILi4mq7MJ2kkUZ2GlcCkBNg</secretAccessKey>
-              <version>2009-02-01</version>
-              <region>us-east-2</region>
-          </amazonsqs.init>
-          <amazonsqs.sendMessage>
-              <queueId>{$ctx:queueId}</queueId>
-              <queueName>{$ctx:queueName}</queueName>
-              <messageBody>{$ctx:target_property}</messageBody>
-          </amazonsqs.sendMessage>
-      </sequence>
-    ```
+4. Create `sendMessage` sequence as shown below. In this sequence, we send the message that we built in step 5 to the Amazon SQS Queue. 
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="sendMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <amazonsqs.sendMessage configKey="AMAZON_SQS_CONNECTION">
+            <queueId>{$ctx:queueId}</queueId>
+            <queueName>{$ctx:queueName}</queueName>
+            <messageBody>{$ctx:target_property}</messageBody>
+        </amazonsqs.sendMessage>
+    </sequence>
+  ```
 
-  5. Create the ReceiveAndForwardMessage sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it into the StockQuote Endpoint. 
+5. Create the ReceiveAndForwardMessage sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it into the StockQuote Endpoint. 
     ```
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-          <amazonsqs.init>
-              <accessKeyId>AKIAJRM3ROJKJJXQ4V6QA</accessKeyId>
-              <secretAccessKey>r7hfmtqVjdwieILi4mq7MJ2kkUZ2GlcCkBNg</secretAccessKey>
-              <version>2009-02-01</version>
-              <region>us-east-2</region>
-          </amazonsqs.init>
-          <amazonsqs.receiveMessage>
+          <amazonsqs.receiveMessage configKey="AMAZON_SQS_CONNECTION">
               <maxNumberOfMessages>5</maxNumberOfMessages>
               <queueId>{$ctx:queueId}</queueId>
               <queueName>{$ctx:queueName}</queueName>
@@ -137,34 +154,36 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       </sequence>
     ```
 
-  6. Now right click on the created Integration Project and select **New** -> **Rest API** to create the REST API. 
+6. Navigate to **MI Project Explorer** > **APIs** and click on the **+** sign next to APIs to open the **Synapse API Artifact** creation form.
   
-  7. Provide the API name as SQSAPI and the API context as `/sqs`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
+7. Provide the API name as `SQSAPI` and the API context as `/sqs` and click **Create**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
     ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <api context="/sqs" name="SQSAPI" xmlns="http://ws.apache.org/ns/synapse">
-          <resource methods="POST" uri-template="/sendToQueue">
-              <inSequence>
-                  <property expression="json-eval($.queueName)" name="queueName" scope="default" type="STRING"/>
-                  <sequence key="buildMessage"/>
-                  <sequence key="createQueue"/>
-                  <sequence key="sendMessage"/>
-                  <sequence key="ReceiveAndForwardMessage"/>
-                  <respond/>
-              </inSequence>
-              <outSequence/>
-              <faultSequence/>
-          </resource>
-      </api>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/sqs" name="SQSAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" uri-template="/sendToQueue">
+            <inSequence>
+                <property expression="json-eval($.queueName)" name="queueName" scope="default" type="STRING"/>
+                <sequence key="buildMessage"/>
+                <sequence key="createQueue"/>
+                <sequence key="sendMessage"/>
+                <sequence key="ReceiveAndForwardMessage"/>
+                <respond/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </resource>
+    </api>
     ```
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+Now we can export the artifacts into a CAR application. CAR application is the one we are going to deploy to server runtime.
+
+Next, the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazonsqs.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazon-sqs-example.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
