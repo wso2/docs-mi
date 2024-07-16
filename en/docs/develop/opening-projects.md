@@ -1,8 +1,8 @@
-# Importing projects
+# Opening a Project
 
-If you have an already created Integration project, you can import it to Visual Studio Code. 
+If you have an already created Integration project, you can open it using the Visual Studio Code. 
 
-Follow the steps below to import your integration project.
+Follow the steps below to open your existing integration project.
 
 1. Launch Visual Studio Code with the Micro Integrator extension installed.
 
@@ -15,7 +15,6 @@ Follow the steps below to import your integration project.
 2. Select the folder containing your integration project.
 
 3. Click **Open MI Project**.
-
 
     !!! warning "If you have an integration project created by WSO2 Integration Studio..."
     
