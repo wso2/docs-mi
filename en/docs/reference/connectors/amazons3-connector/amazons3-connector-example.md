@@ -104,7 +104,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     - Object Key - json-eval($.objectKey)
     - File Content - json-eval($.message)
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-putObject-operation.png" title="Configuring put object operation" width="800" alt="Amazon S3 use case"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-putObject-operation.png" title="Configuring put object operation" width="800" alt="Configuring put object operation"/>
 
 12. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the object.
     
