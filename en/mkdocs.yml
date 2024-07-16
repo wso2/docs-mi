@@ -913,6 +913,7 @@ plugins:
               'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
               'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
+              'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-projects/'
 
   # Extra
 extra_css:
