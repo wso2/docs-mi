@@ -256,7 +256,7 @@ nav:
           - Header Based Routing: learn/samples/header-based-routing.md
          # - Hello Docker: learn/samples/
          # - Hello Kubernetes: learn/samples/
-         # - API Testing: learn/samples/
+          - API Testing: learn/samples/api-testing.md
          # - JSON to XML Mapping: learn/samples/
          # - Kafka Consumer and Producer: learn/samples/
           - Message Filtering: learn/samples/message-filtering.md
