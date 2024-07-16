@@ -1,6 +1,6 @@
 # API Testing Sample
 
-This sample contains a simple REST API, with 4 resources for GET, POST, PUT, DELETE methods and their respective test cases.
+This sample contains a simple REST API with four resources for GET, POST, PUT, and DELETE methods with their respective test cases.
 
 When the API gets invoked, a simple message is generated according to the called resource method and sent back to the client as the response.
 
