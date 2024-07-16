@@ -41,20 +41,20 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
    
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-api.png" title="Create API" width="800" alt="Create API"/>
 
-4. First, we will create the `/createbucket` resource. This API resource will retrieve the bucket name from the incoming HTTP PUT request and create a bucket in Amazon S3.
+3. First, we will create the `/createbucket` resource. This API resource will retrieve the bucket name from the incoming HTTP PUT request and create a bucket in Amazon S3.
 
     Click on the **options** icon and select **edit** to edit the resource. We will create a `PUT` resource with URL template `/createbucket` .
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-edit-api-resource-option.png" title="Edit API resource" width="800" alt="Edit API resource"/>
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-edit-api-resource.png" title="Edit API resource" width="400" alt="Edit API resource"/>
 
-5. Next, select the `PUT /createbucket` resource from the **Available resources**. You will now see the graphical view of the `SampleRedisAPI`.
+4. Next, select the `PUT /createbucket` resource from the **Available resources**. You will now see the graphical view of the `SampleRedisAPI`.
 
-6. Click the **+** icon under the **start**. You will see the available mediators and connectors. Click the `amazons3` connector and select the `CreateBucket` operation from the operations list.
+5. Click the **+** icon under the **start**. You will see the available mediators and connectors. Click the `amazons3` connector and select the `CreateBucket` operation from the operations list.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-add-amazon-s3-connector.png" title="Amazon s3 connector" width="800" alt="Amazon s3 connector"/>
 
-7. Create a connection by clicking on the **Add New Connection** as shown below.
+6. Create a connection by clicking on the **Add New Connection** as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-add-new-connection.png" title="Creating a new connection" width="800" alt="Creating a new connection"/>
 
@@ -72,20 +72,21 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-new-connection.png" title="Configuring a new connection" width="500" alt="Configuring a new connection"/>
 
-8. After the connection is successfully created, select the created connection as **Amazon S3Connection** from the drop down menu in the **Add createBucket** form.
+7. After the connection is successfully created, select the created connection as **Amazon S3Connection** from the drop down menu in the **Add createBucket** form.
 
-9. Next, configure the following parameters:
+8. Next, configure the following parameters:
 
     - Bucket Name - json-eval($.bucketName) - Click on the `EX` button to provide the name as an expression.
     - Bucket Region - Select a region from the drop-down menu. Here we are using us-east-2.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-createBucket-operation.png" title="Configuring create bucket operation" width="800" alt="Configuring create bucket operation"/>
 
-10. Next, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from creating the bucket as shown below.
+9. Next, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) from the mediator palette to send back the response from creating the bucket as shown below.
 
-     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-bucket-overview.png" title="Adding a respond mediator" width="400" alt="AAdding a respond mediator"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-bucket-overview.png" title="Adding a respond mediator" width="400" alt="AAdding a respond mediator"/>
 
-11. Navigate to the **Service Designer View** of `S3ConnectorTestAPI` and click on the **+ Resource** button to create the next API resource, which is `/addobject`. This API resource will retrieve information about the object from the incoming HTTP POST request such as the bucketName, objectKey and the file content and upload it to Amazon S3.
+10. Navigate to the **Service Designer View** of `S3ConnectorTestAPI` and click on the **+ Resource** button to create the next API resource, which is `/addobject`. This API resource will retrieve information about the object from the incoming HTTP POST request such as the bucketName, objectKey and the file content and upload it to Amazon S3.
+    
     Configure the following values:
 
     - URI Template - /addobject
@@ -95,7 +96,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-add-new-resource.png" title="Create new resource" width="800" alt="Create new resource"/>
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-add-object-resource.png" title="Adding the addObject resource" width="400" alt="Adding the addObject resource"/>
 
-12. Select the `POST /addObject` resource to open the design view. Click the **+** button under the start and select the  `getObject` operation under the `amazons3` connector from the connector list.
+11. Select the `POST /addObject` resource to open the design view. Click the **+** button under the start and select the  `putObject` operation under the `amazons3` connector from the connector list.
 
     In the **Add putObject** form, select the already created connection as **Amazon S3 Connection** from the dropdown menu and provide the following expressions to the below properties. Make sure to click on the `EX` button to provide the values as expressions.
     
@@ -105,11 +106,11 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-putObject-operation.png" title="Configuring put object operation" width="800" alt="Amazon S3 use case"/>
 
-13. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the object.
+12. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the object.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-add-object-overview.png" title="Add object resource overview" width="400" alt="Add object resource overview"/>
 
-14. To create the next API resource, which is `/info` navigate to the **Service Designer View** of `S3ConnectorTestAPI` and click on the **+ Resource** button . This API resource will retrieve information from the incoming HTTP POST request such as the bucketName, objectKey and get the object from Amazon S3.
+13. To create the next API resource, which is `/info` navigate to the **Service Designer View** of `S3ConnectorTestAPI` and click on the **+ Resource** button . This API resource will retrieve information from the incoming HTTP POST request such as the bucketName, objectKey and get the object from Amazon S3.
 
     Configure the following values:
 
@@ -119,22 +120,20 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-info-resource.png" title="Adding the info resource" width="400" alt="Adding the info resource"/>
 
-15. Select the `POST /info` resource to open the design view. Click the **+** button under the start and select the  `putObject` operation under the `amazons3` connector from the connector list.
+14. Select the `POST /info` resource to open the design view. Click the **+** button under the start and select the  `getObject` operation under the `amazons3` connector from the connector list.
 
-16. Next drag and drop the ‘getObject’ operation of the S3 Connector to the Design View. In the properties view, select the already created connection as 'Connection' from the drop down menu and provide the following expressions to the below properties,
-
-    In the **Add getObject** form, select the already created connection as **Amazon S3 Connection** from the dropdown menu and provide the following expressions to the below properties. Make sure to click on the `EX` button to provide the values as expressions.
+15. In the **Add getObject** form, select the already created connection as **Amazon S3 Connection** from the dropdown menu and provide the following expressions to the below properties. Make sure to click on the `EX` button to provide the values as expressions.
 
     - Bucket Name - json-eval($.bucketName)
     - Object Key - json-eval($.objectKey)
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-getObject-operation.png" title="Configuring get object operation" width="800" alt="Configuring get object operation"/>
 
-17. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the getObject operation.
+16. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the getObject operation.
 
        <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-info-overview.png" title="Info-resource-overview" width="400" alt="Info-resource-overview"/>
 
-18. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
+17. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -172,7 +171,21 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     </resource>
 </api>
 ```
+18. You can find the created `AMAZON_S3_CONNECTION_1` saved as a **local entry**
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="AMAZON_S3_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
+    <amazons3.init>
+        <awsAccessKeyId>replace_with_access_key</awsAccessKeyId>
+        <name>AMAZON_S3_CONNECTION_1</name>
+        <region>us-east-2</region>
+        <connectionType>amazons3</connectionType>
+        <awsSecretAccessKey>replace_with_secret_access_key</awsSecretAccessKey>
+    </amazons3.init>
+</localEntry>
+
+```
 **Note**:
 
 * As `awsAccessKeyId` use the access key obtained from Amazon S3 setup and update the above API configuration.
@@ -180,7 +193,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 * Note that `region`, `connectionName` and credentials are hard coded. Please change them as per the requirement.
 * For more information please refer the [reference guide]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference) for Amazon S3 connector.
 
-Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
+Now we can export the artifacts into a CAR application. CAR application is the one we are going to deploy to server runtime.
 
 Next, the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
@@ -188,7 +201,7 @@ Next, the exported CApp can be deployed in the integration runtime so that we ca
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/s3-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazon-s3-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
