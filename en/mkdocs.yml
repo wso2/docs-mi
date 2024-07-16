@@ -292,7 +292,6 @@ nav:
           - Create Docker Exporter: develop/create-docker-project.md
           - Create Kubernetes Exporter: develop/create-kubernetes-project.md
       - Create Artifacts:
-          - Importing Artifacts: develop/importing-artifacts.md
           - Create a REST API: develop/creating-artifacts/creating-an-api.md
           - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
           - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
@@ -310,6 +309,7 @@ nav:
           - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
           - Adding Connectors: develop/creating-artifacts/adding-connectors.md
           - Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+          - Opening Artifacts: develop/opening-artifacts.md
       - Create Custom Artifacts:
           - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
           - Create a Custom Mediator: develop/customizations/creating-custom-mediators.md
