@@ -6,7 +6,7 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 ### Creating a Sequence Artifact
 
-{!includes/build-and-run.md!}
+{!includes/creating-project.md!}
 
 3. Go to **MI Project Explorer** > **Sequences**.
 
