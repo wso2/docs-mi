@@ -16,40 +16,68 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up Kafka
 
-Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/ksfka-connector/setting-up-kafka/).
+Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/).
 
-## Configure the connector in WSO2 Integration Studio
+## Setting up the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+2. Create a new Kafka connection. 
+    1. Goto `Local Entries` -> `Connections` and click on the `+` sign. 
+    2. Select  `KafkaTransport` connector.
+        <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-new-connection.png" title="Add new kafka connection" width="800" alt="Add new kafka connection"/>
 
-5. Create a new Kafka connection by selecting a particular operation.
+    3. Use following values can to create the connection. 
+        - Connection Name - KafkaConnection
+        - Connection Type - kafka
+        - Bootstrap Servers - localhost:9092 
+        - Key Serializer Class - org.apache.kafka.common.serialization.StringSerializer
+        - Value Serializer Class - org.apache.kafka.common.serialization.StringSerializer
+        - Pooling Enabled - false
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/filecon10.png"><img src="{{base_path}}/assets/img/integrate/connectors/filecon10.png" title="working directory" width="800" alt="working directory"/></a>
+## Creating the Integration Logic
 
+1. Select Micro Integrator and click on `+` in APIs to create a REST API. Provide `KafkaTransport` as name and `publishMessages` as context.
+   <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
+2. Then create a resource with the below configuration.
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-resource.png" title="Adding API Resource" width="400" alt="Adding API Resource"/>
 
-2. Specify the API name as `KafkaTransport` and API context as `/publishMessages`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
+3. Select the created resource and add `PublishMessages` operation.
+    <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-operation.png" title="Adding operation" width="800" alt="Adding operation"/>
+
+    - Use following values to fill the appearing form.
+        - Connection - KafkaConnection
+        - Topic - test
+        - Partition Number - 0
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-config-operation.png" title="Configure operation" width="400" alt="Configure operation"/>
+
+Source view of the XML configuration file of the API will be as below.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST">
             <inSequence>
-                <kafkaTransport.publishMessages>
+                <kafkaTransport.publishMessages configKey="KafkaConnection">
                     <topic>test</topic>
-                </kafkaTransport.publishMessages configKey="KAFKA_CONNECTION">
+                    <partitionNo>0</partitionNo>
+                    <keySchemaSoftDeleted>false</keySchemaSoftDeleted>
+                    <valueSchemaSoftDeleted>false</valueSchemaSoftDeleted>
+                </kafkaTransport.publishMessages>
             </inSequence>
-            <outSequence/>
-            <faultSequence/>
+            <faultSequence>
+            </faultSequence>
         </resource>
-    </api>
+	</api>
     ```
 Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Exporting Integration Logic as a CApp 
+
+To export the project, please refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -61,20 +89,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
-
-**Deploying on Micro Integrator**
-
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+To deploy and run the project, please refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
     
 ## Testing
 
