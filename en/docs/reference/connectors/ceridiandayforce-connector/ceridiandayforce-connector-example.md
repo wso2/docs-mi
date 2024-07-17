@@ -22,7 +22,7 @@ parameters must be passed in the body as we will see below.
 ## Setting up the environment 
 
 Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config/) document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
-Dayforce sample APIs. Keep them saved to be used in the next steps.  
+Dayforce sample APIs. Keep them saved for use in the next steps.  
 
 ## Setting up the integration project
 
@@ -70,7 +70,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | contextDateRangeTo | json-eval($.contextDateRangeTo)   |
     | xRefCode           | json-eval($.xRefCode)             |
 
-    You can add these properties by clicking on **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the `Ex` button to specify the value types as expressions.
+    You can add these properties by clicking on the **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the `Ex` button to specify the value types as expressions.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-parameters-to-property-group.png" title="Add Property Group Mediator" width="800" alt="Add Property Group Mediator"/>
 
@@ -95,7 +95,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-dayforce-get-addresses.png" title="Add Get Employee Addresses" width="800" alt="Add Get Employee Addresses"/>  
 
-9. Click on **Add Parameter** and add the following parameters to the Ceridian Dayforce connector's `getEmployeeAddresses` operation.
+9. Click on the **Add Parameter** and add the following parameters to the Ceridian Dayforce connector's `getEmployeeAddresses` operation.
 
     | Parameter name | Parameter value (as expression) |
     |----------------|---------------------------------|
