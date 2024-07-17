@@ -17,7 +17,7 @@
 
 5. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+    <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
 6. Run the project.
 
@@ -33,4 +33,4 @@
 
     Click the **Build and Run** icon located on the top right corner of the VS Code.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
+    <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
