@@ -27,6 +27,9 @@ echo "dockersecret123456" | docker secret create testdockersecret -
 ```
 This command will create a Docker secret named `testdockersecret` in your Docker environment.
 
+!!! Tip
+        You can view the list of all secrets available in the Docker environment by using the `docker secret ls` command.
+
 ### Step 2: Using Docker secrets in Synapse configurations
 
 Secret can be accessed from the integration artifacts by using the `wso2:vault-lookup` function in the following format.
@@ -87,14 +90,8 @@ Given below is a sample synapse configuration that accesses and prints the file 
 
 ## Enabling secrets in the environment
 
-Once the secrets are added to the environment, you need to enable <b>secure vault</b> in the environment. In a <b>Docker environment</b>, you don't need to manually run the Cipher tool. Follow the steps given below.
-
-1. Open your Integration Project in WSO2 Integration Studio, which contains all the integration artifacts and the Docker Exporter.
-2. Open the `pom.xml` of the Docker Exporter module and select the <b>Enable Cipher Tool</b> check box as shown below.
-
-    <img src="{{base_path}}/assets/img/integrate/enable-cipher-tool-in-docker.png">
-
-3.  When you build the Docker image from your Docker Exporter, the secrets will get enabled in the environment.
+Once the secrets are added to the environment, you need to enable <b>secure vault</b> in the environment. In a <b>Docker environment</b>, you don't need to manually run the Cipher tool. 
+The Cipher tool has been enabled by default in the `pom.xml` file of your integration project, and when you build the Docker image, the secrets will be enabled in the environment.
 
 !!! Tip
      For Docker secrets to be effective, you can create a docker service that includes the image you created in the above step. This can be done by creating a `docker-compose.yml` file and deploying it to the docker swarm. 
