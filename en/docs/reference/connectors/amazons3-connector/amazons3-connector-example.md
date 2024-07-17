@@ -201,7 +201,7 @@ Next, the exported CApp can be deployed in the integration runtime so that we ca
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazon-s3-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazonS3Example.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -234,7 +234,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
 1. Create a file called `data.json` with the following content. Note that the bucket region is `us-east-2`. If you need to create the bucket in a different region, modify the hard coded region of the API configuration accordingly.
     ```json
     {
-        "bucketName":"wso2engineers"
+        "bucketName":"wso2-engineers"
     }
     ```
 2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
@@ -251,13 +251,13 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
             "success": true,
             "Response": {
                 "Status": "200:Optional[OK]",
-                "Location": "http://wso2engineers.s3.amazonaws.com/"
+                "Location": "http://wso2-engineers.s3.amazonaws.com/"
             }
         }
     }
     ```
 
-    Please navigate to [Amazon AWS S3 console](https://s3.console.aws.amazon.com/) and see if a bucket called `wso2engineers` is created. If you tried to create a bucket with a name that already exists, it will reply back with a message indicating the conflict.
+    Please navigate to [Amazon AWS S3 console](https://s3.console.aws.amazon.com/) and see if a bucket called `wso2-engineers` is created. If you tried to create a bucket with a name that already exists, it will reply back with a message indicating the conflict.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
 
@@ -266,7 +266,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
 1. Create a file called `data.json` with the following content.
     ```json
     {
-        "bucketName":"wso2engineers",
+        "bucketName":"wso2-engineers",
         "objectKey":"Julian.txt",
         "message":"Julian Garfield, Software Engineer, Integration Group"
     }
@@ -288,18 +288,18 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         }
     }
     ```
-    Navigate to AWS S3 console and click on the bucket `wso2engineers`. You will note that a file has been created with the name `Julian.txt`.
+    Navigate to AWS S3 console and click on the bucket `wso2-engineers`. You will note that a file has been created with the name `Julian.txt`.
     <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.jpg" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
 ### Read objects from Amazon S3 bucket
 
-Now let us read the information on `wso2engineers` that we stored in the Amazon S3 bucket.
+Now let us read the information on `wso2-engineers` that we stored in the Amazon S3 bucket.
 
 1. Create a file called data.json with the following content. It specifies which bucket to read from and what the filename is. This example assumes that the object is stored at root level inside the bucket. You can also read a object stored in a folder inside the bucket.
 
     ```json
     {
-        "bucketName":"wso2engineers",
+        "bucketName":"wso2-engineers",
         "objectKey":"Julian.txt"
     }
     ```

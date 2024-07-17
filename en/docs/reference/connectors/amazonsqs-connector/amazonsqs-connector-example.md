@@ -18,7 +18,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 2. In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 
-    If you are using the Micro Integrator of **EI 7** or **APIM 4.0.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport).
+    If you are using the Micro Integrator of **EI 7** or **MI 4.x.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport).
     
       ```
         [mediation]
@@ -68,12 +68,32 @@ If you do not want to configure this yourself, you can simply [get the project](
     </localEntry>
     ```
 
-5. Then create the following sequences, which are buildMessage, createQueue, sendMessage and ReceiveAndForwardMessage.
-6. Navigate to **MI Project Explorer** > **Sequences** and click on the **+** sign next to Sequences to open the **Create New Sequence** form.
+3. Navigate to **MI Project Explorer** > **Endpoints** and click on the **+** icon next to **Endpoints**.
+4. Select **Address Endpoint**.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/add-endpoint.png" title="Adding an endpoint" width="800" alt="Adding an endpoint"/>
+
+5. You can go to the source view of the XML configuration file of the endpoint and copy the following configuration.
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <endpoint name="SimpleStockQuote" xmlns="http://ws.apache.org/ns/synapse">
+       <address     uri="http://localhost:9000/services/SimpleStockQuoteService">
+           <suspendOnFailure>
+               <initialDuration>-1</initialDuration>
+               <progressionFactor>1</progressionFactor>
+           </suspendOnFailure>
+           <markForSuspension>
+               <retriesBeforeSuspension>0</retriesBeforeSuspension>
+           </markForSuspension>
+       </address>
+   </endpoint>
+   ```
+6. Then create the following sequences, which are buildMessage, createQueue, sendMessage and ReceiveAndForwardMessage.
+7. Navigate to **MI Project Explorer** > **Sequences** and click on the **+** sign next to Sequences to open the **Create New Sequence** form.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/create-new-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
-7. Provide the Sequence name as `buildMessage` and click **Create**. You can go to the source view of the XML configuration file of the sequence and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload Factory Mediator. 
+8. Provide the Sequence name as `buildMessage` and click **Create**. You can go to the source view of the XML configuration file of the sequence and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload Factory Mediator. 
     ```
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="buildMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -97,7 +117,7 @@ If you do not want to configure this yourself, you can simply [get the project](
           </enrich>
       </sequence>
     ```
-8. Create the `createQueue` sequence as shown below. In this sequence, we create a queue in the Amazon SQS instance. 
+9. Create the `createQueue` sequence as shown below. In this sequence, we create a queue in the Amazon SQS instance. 
   ```
   <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="createQueue" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -169,7 +189,6 @@ If you do not want to configure this yourself, you can simply [get the project](
                 <sequence key="ReceiveAndForwardMessage"/>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
@@ -183,7 +202,7 @@ Next, the exported CApp can be deployed in the integration runtime so that we ca
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazon-sqs-example.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazonSQSExample.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -209,14 +228,31 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Testing
 
-1. Create a file called data.json with the following payload. 
+1. Deploy the back-end service `SimpleStockQuoteService`.
+
+    1. Download the ZIP file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+
+        === "On MacOS/Linux/CentOS"   
+            ```bash
+             sh axis2server.sh
+            ```
+        === "On Windows"              
+            ```bash
+            axis2server.bat
+            ```
+
+
+2. Create a file called data.json with the following payload. 
     ```
     {
       "companyName":"WSO2",
       "queueName":"Queue1"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+3. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" --request POST --data @body.json http://localhost:8290/sqs/sendToQueue
     ```
