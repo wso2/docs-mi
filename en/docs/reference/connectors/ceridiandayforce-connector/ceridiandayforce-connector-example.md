@@ -5,7 +5,7 @@ comprehensive human capital management system that covers the entire employee li
 benefits, talent management, workforce management, and services. The entire system resides on cloud that takes the 
 burden of managing and replicating data on-premise.
 
-## What You'll Build
+## What you'll build
 
 This example depicts how to use Dayforce connector to:
 
@@ -19,16 +19,16 @@ Both of the two operations are exposed via an API. The API with the context `/da
 * `/postEmployeeContact`  - This will create the contact information of an employee when invoked. The relevant 
 parameters must be passed in the body as we will see below.
 
-## Setting Up the Environment 
+## Setting up the environment 
 
 Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config/) document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
 Dayforce sample APIs. Keep them saved to be used in the next steps.  
 
-## Setting Up the Integration Project
+## Setting up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) to set up the Integration Project.
 
-## Creating the Integration Logic
+## Creating the integration logic
 
 1. Select Micro Integrator and click on `+` in APIs to create a REST API. In the form that opens, provide the API name as `DayforceConnectorTestAPI` and the context as `/dayforceconnector` and click on **Create**.
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/create-new-rest-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
@@ -241,7 +241,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     </api>
     ```
 
-## Exporting Integration Logic as a CApp
+## Exporting integration logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
 ## Get the project
