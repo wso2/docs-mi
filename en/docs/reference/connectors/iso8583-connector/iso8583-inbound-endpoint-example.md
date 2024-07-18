@@ -1,12 +1,12 @@
 # ISO8583 Inbound Endpoint Example
 
-In the real world, financial scenarios are happening among thousands of banking systems and networks. In this situation, one system needs to act as a message publisher and another system needs to be capable of receiving messages. Once the message is received, further processing actions are performed based on the logic that is implemented in the internal system.
+In the real world, financial scenarios are happening among thousands of banking systems and networks. In this situation, one system needs to act as a message publisher, and another system needs to be capable of receiving messages. Once the message is received, further processing actions are performed based on the logic that is implemented in the internal system.
 
 The ISO8583 inbound endpoint of WSO2 acts as a message consumer. The ISO8583 inbound endpoint is a listening inbound endpoint that can consume ISO8583 standard messages. It then converts the messages to XML format and injects messages to a sequence in the integration runtime.
 
 ## What you'll build
 
-This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. In this scenario, to generate ISO8583 messages we use a sample Java client program here inside the banking network functionality simulates using the test client program.
+This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. In this scenario, to generate ISO8583 messages we use a sample Java client program.
 
 The ISO8583 inbound endpoint listens on port 5000 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5000, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence in the integration runtime.
 
@@ -18,7 +18,7 @@ For example, while transferring bank and financial sector information using the 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
 
-## Configure inbound endpoint using WSO2 Integration Studio
+## Setting up the integration project
 
 1. Add a new **custom inbound endpoint** by clicking `+` icon in the `Inbound Endpoints`. </br> 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
