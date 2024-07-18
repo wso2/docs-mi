@@ -4,19 +4,19 @@ Given below is a sample scenario that demonstrates how the WSO2 ISO8583 Connecto
 
 ## What you'll build
 
-This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here, the integration runtime acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we used Test mock server.
+This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here, the integration runtime acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we use a test mock server.
 
-Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for the financial transactions.
+Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for financial transactions.
 
-To know the further information about the  `init` and `iso8583.sendMessage` operations please refer this link.
+To know further information about the `init` and `iso8583.sendMessage` operations please refer this link.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-connector.png" title="ISO8583 Connector" width="800" alt="ISO8583 Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setup the Integration Project
+## Setting up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
 1. Select Micro Integrator and click on `+` in APIs to create a REST API.
 
@@ -28,7 +28,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        <resource methods="POST">
            <inSequence>
                <log>
-                   <property name="status" value="Sending_an_ISO8583_Messsage"/>
+                   <property name="status" value="Sending_an_ISO8583_Message"/>
                </log>
                <iso8583.init>
                    <serverHost>localhost</serverHost>
@@ -62,7 +62,7 @@ You can further refer the application deployed through the CLI tool. See the ins
   
 ## Testing
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
       
    ```
           curl -v POST -d 
