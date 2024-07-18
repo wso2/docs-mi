@@ -4,7 +4,7 @@ This sample demonstrates how to integrate WSO2 Micro Integrator (MI) with the Sa
 
 The primary purpose of this integration is to fetch records related to sales leads from the Salesforce system. When a client sends a request, a service within WSO2 MI retrieves the relevant data.
 
-The sample includes an API called SalesforceAccountServiceAPI, which facilitates the connection with the Salesforce system for retrieving sales account data. When this API is invoked, it establishes communication with Salesforce via the connector and responds with the relevant sales account information.
+The sample includes an API called `SalesforceAccountServiceAPI`, which facilitates the connection with the Salesforce system for retrieving sales account data. When this API is invoked, it establishes communication with Salesforce via the connector and responds with the relevant sales account information.
 
 ## Deploying the sample
 
