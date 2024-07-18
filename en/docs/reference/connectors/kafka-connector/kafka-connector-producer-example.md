@@ -46,7 +46,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 3. Select the created resource and add the `PublishMessages` operation.
     <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-operation.png" title="Adding operation" width="800" alt="Adding operation"/>
 
-    - Use following values to fill the appearing form.
+    - Use the following values to fill the appearing form.
         - Connection - `KafkaConnection`
         - Topic - `test`
         - Partition Number - `0`
