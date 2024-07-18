@@ -1,23 +1,23 @@
 # SMPP Inbound Endpoint Example
 
-The SMPP inbound endpoint allows you to consume messages from SMSC. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages to the integration sequence. It will receive alert notifications or will notify when a data short message accepted.
+The SMPP inbound endpoint allows you to consume messages from SMSC. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages into the integration sequence. It will receive alert notifications or will notify when a data short message is accepted.
 
 ## What you'll build
 
-This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. In this scenario, you should have a connectivity with SMSC (Short Message service center) via SMPP protocol. For this we are using **SMSC simulator** to accomplish the required requirements. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation for more information.
+This scenario demonstrates how the SMPP inbound endpoint works as a message consumer. In this scenario, you should have connectivity with SMSC (Short Message Service Center) via the SMPP protocol. For this, we are using **SMSC simulator** to accomplish the required requirements. Please refer to the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation for more information.
 
-The SMPP inbound endpoint is listening to the Short Message service center for consuming messages using defined port number in the Inbound Endpoint configurations. If SMSC generates some message by itself or user injects SMS messages to the SMSC, the WSO2 SMPP Inbound Endpoint will receive and notify. Then just log the SMS message content. In your own scenarios, you can inject that message into the mediation flow for getting the required output.
+The SMPP inbound endpoint is listening to the Short Message Service Center for consuming messages using a defined port number in the inbound endpoint configurations. If the SMSC generates some message by itself or the user injects SMS messages into the SMSC, the WSO2 SMPP inbound endpoint will receive and notify. Then just log the SMS message content. In your own scenarios, you can inject that message into the mediation flow to get the required output.
 
-Following diagram shows the overall solution we are going to build. The SMSC will generate or receive messages from the outside, while the SMPP inbound endpoint will consume messages based on the updates.
+The following diagram shows the overall solution we are going to build. The SMSC will generate or receive messages from the outside, while the SMPP inbound endpoint will consume messages based on the updates.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-example.png" title="SMPP Inbound Endpoint" width="800" alt="SMPP Inbound Endpoint"/>
 
-## Setting up the inbound endpoint using Micro Integrator
+## Set up the inbound endpoint using Micro Integrator
 
 1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-2. Create a sequence to process the messaage.<br/>   
-   In this example for simplicity we will just log the message, but in a real world use case, this can be any type of message mediation.
+2. Create a sequence to process the message.<br/>   
+   In this example, we will just log the message for simplicity, but in a real world use case, this can be any message mediation.
  
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -45,7 +45,7 @@ Following diagram shows the overall solution we are going to build. The SMSC wil
       <log level="full"/>
    </sequence>
    ```
-3. Click `+` button next to Inbound Endpoints and select `Custom` to add a new **custom inbound endpoint**.  
+3. Click `+` button next to `Inbound Endpoints` and select `Custom` to add a new **custom inbound endpoint**.    
    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-create-new-inbound-endpoint.png" title="Creating custom inbound endpoint" width="800" alt="Creating custom inbound endpoint" style="border:1px solid black"/>
 <br/>
 4. Configure the custom inbound endpoint as shown below and click `Create`.
@@ -113,15 +113,15 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Testing  
 
-   Send a SMS message from SMSC to the user `kasun`. 
+   Send an SMS message from SMSC to the user `kasun`. 
       
    1. Open the simulator. 
-   2. Press `Enter` and you will see multiple options. 
+   2. Press `Enter`, and you will see multiple options.
      
       <img src="{{base_path}}/assets/img/integrate/connectors/smsc-simulator-multiple-options.png" title="SMSC simulator multiple options" width="250" alt="SMSC simulator multiple options" style="border:1px solid black"/>
    
    3. Enter `4` to send a message. 
-   4. Then you will get to type the message. Enter the message "Hi! This is the first test SMS message.".
+   4. Then, you will get to type the message. Enter the message "Hi! This is the first test SMS message.".
 
    SMPP Inbound Endpoint will consume message from the SMSC.
    
