@@ -10,7 +10,7 @@ This sample contains a simple REST API called ‘HelloWorld’. When you invoke 
 2.  Give a folder location to save the sample.
 3.  [Build the docker image]({{base_path}}/develop/deploy-artifacts#build-docker-image) using the build options.
 
-## Running the docker image
+## Running the Docker image
 
 1.  Run the `docker images` command and verify that the image is created. (hellodocker:1.0.0)
 2.  Run the docker image using the following command.
