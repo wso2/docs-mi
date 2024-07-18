@@ -4,7 +4,7 @@ The Salesforce SOAP Connector allows you to work with records in Salesforce, a w
 
 ## What you'll build
 
-This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the create sObjects operation. Then execute a SOQL query to retrieve the Account Names in all the existing accounts. All operations are handling as SOAP messages. 
+This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the create sObjects operation. Then execute a SOQL query to retrieve the Account Names in all the existing accounts. All operations are handled as SOAP messages. 
 
 * Create an sObjects in Salesforce.
 
@@ -12,20 +12,20 @@ This example explains how to use the Salesforce client to connect with the Sales
 
 * Execute a SOQL query to retrieve the Account Names in all the existing accounts.
 
-     In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`. 
+     In this example, the Salesforce Object Query Language (SOQL) is used to search stored Salesforce data for specific information which is created under `sObjects`. 
   
-All two operations are exposed via an `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
+All two operations are exposed via a `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
 
 * `/createRecords`: Creates a new `Account` object in Salesforce.
 * `/queryRecords` : Retrieve the Account Names in all the existing accounts in Salesforce.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-connector.png" title="Using Salesforcesoap SOAP Connector" width="800" alt="Using Salesforcesoap SOAP Connector"/>
 
-The user calls the Salesforce SOAP API. It invokes the **createRecords** resource and creates a new account in Salesforce. Then through the **queryRecords** resource, it displays all the existing account details to the user. 
+The user calls the Salesforce SOAP API. It invokes the **createRecords** resource and creates a new account in Salesforce. Then, through the **queryRecords** resource, it displays all the existing account details to the user. 
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the Integration Project
+## Setting up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
@@ -64,7 +64,7 @@ Now follow the steps below to add configurations to the resource.
          - **allowFieldTruncate** : Whether to truncate strings that exceed the field length (see Common Parameters).
          - **allOrNone** : Whether to rollback changes if an object fails (see Common Parameters).
         
-         While invoking the API, the above three parameters values come as a user input.
+         While invoking the API, the above three parameter values come as a user input.
 
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-drag-and-drop-create.png" title="Drag and drop create operation" width="80%" alt="Drag and drop create operations"/>
     
@@ -74,7 +74,7 @@ Now follow the steps below to add configurations to the resource.
 
          The parameters available for configuring the Property mediator are as follows:
     
-         > **Note**: That the properties should be add to the pallet before create the operation.
+         > **Note**: The properties should be added to the pallet before creating the operation.
     
     4. Add the property mediator to capture the sObject `Name` value. In this example we are going to create a new Account object using the POST method.
    
@@ -86,7 +86,7 @@ Now follow the steps below to add configurations to the resource.
 
     5. Add the [payload factory]({{base_path}}/reference/mediators/payloadfactory-mediator) mediator to capture the sObject content.
 
-         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-payloadfactory-mediator-property1-value1.png" title="Add values to capture sObject value" width="80%" alt="Add values to capture sObjec value"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-payloadfactory-mediator-property1-value1.png" title="Add values to capture sObject value" width="80%" alt="Add values to capture sObject value"/>
     
     6. Forward the backend response to the API caller.
         
@@ -108,7 +108,7 @@ Now follow the steps below to add configurations to the resource.
          - **batchSize** : The number of records to return. If more records are available than the batch size, you can use the queryMore operation to get additional results.
          - **queryString** : The SQL query to use to search for records.
 
-         While invoking the API, the above two parameters values come as a user input.            
+         While invoking the API, the above two parameter values come as a user input.
         
     2. Navigate into the **Connectors** pane and select `query` operation listed under **Salesforce Connector** section.
 
@@ -204,12 +204,11 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
-
+In order to deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 ## Testing
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 1. Create a new `Account` object in Salesforce.
  
