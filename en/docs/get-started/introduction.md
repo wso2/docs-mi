@@ -35,10 +35,11 @@ and connectivity in your operations.
 
 ## Low code integration
 
-The WSO2 Micro Integrator is coupled with WSO2 Integration Studio; a comprehensive graphical integration 
-flow designer for building integrations using a simple drag-and-drop functionality.
+The Micro Integrator for Visual Studio Code (MI for VS Code) extension empowers developers to leverage the widely adopted 
+Visual Studio Code editor for integration development, elevating the integration experience to new heights. This AI-assisted 
+development environment delivers a faster, more customizable, easier-to-learn, and highly productive development experience.
 
-<img src="../../assets/img/get-started/integration-studio.png" alt="Integration Studio" name="Integration Studio" width="700">
+<a href="{{base_path}}/assets/img/get-started/mi-for-vscode.png"><img src="{{base_path}}/assets/img/get-started/mi-for-vscode.png" alt="MI for VS Code" width="80%"></a>
 
 ## Flexible Deployment Options
 
@@ -95,7 +96,7 @@ and utilization of this data is paramount for the development of contemporary ap
 that underpin your organization's digital ecosystem.
 
 ### Efficient Data Exposure
-Effortlessly transform your data sources into API endpoints or services with WSO2 Integration Studio, 
+Effortlessly transform your data sources into API endpoints or services with MI for VS Code, 
 a streamlined process that takes just minutes. 
 Our integrated data integration wizard will provide step-by-step guidance throughout the creation process.
 
