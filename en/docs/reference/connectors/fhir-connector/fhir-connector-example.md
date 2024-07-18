@@ -12,7 +12,7 @@ Given below is a sample API that illustrates how you can connect to a FHIR serve
 4. `/update` : update patient information from FHIR server.
 5. `/delete` : remove added patient information from FHIR server.
 
-To know the further information about these operations please refer this link.
+To know further information about these operations please refer this link.
 
 > **Note**: If no ID element is provided, or the value is wrong, the server responds with a HTTP 400 error code and provides an operation outcome identifying the issue.
 
@@ -50,13 +50,13 @@ class="org.wso2.carbon.integrator.core.json.JsonStreamBuilder"/>
 
 The following diagram illustrates all the required functionality of the FHIR API service that you are going to build.
 
-In here FHIR clients can invoke the API with HTTP/HTTPs with required information. The FHIR connector exposes each request to converting to the Health Level Seven International standards and then send to the resources available in the FHIR server.
+In here FHIR clients can invoke the API with HTTP/HTTPs with the required information. The FHIR connector exposes each request by converting to the Health Level Seven International standards and then send to the resources available in the FHIR server.
 
-This server is regularly loaded with a standard set of test data sets and also this server can store any data that related to administrative concepts such as patients, providers, organizations and devices, as well as a variety of clinical concepts including problems, medications, diagnostics, care plans and financial issues, among others.
+This server is loaded with a standard set of test data sets and also this server can store any data that are related to administrative concepts such as patients, providers, organizations, and devices as well as a variety of clinical concepts including problems, medications, diagnostics, care plans, and financial issues, among others.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/fhirconnector.png" title="FHIR Connector" width="800" alt="FHIR Connector"/>
 
-## Setup the Integration Project
+## Setting up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
