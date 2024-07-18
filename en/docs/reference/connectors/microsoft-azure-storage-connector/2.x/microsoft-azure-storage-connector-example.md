@@ -80,7 +80,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_add_blob_operation.png" title="Configuring upload blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-11. Create the next API resource, which is `/downloadblob`, by following the same steps as before. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and download from Microsoft Azure Storage.
+11. Follow the same steps to create the next API resource, '/download blob'. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and download from Microsoft Azure Storage.
 
 12. Next, add the `downloadBlob` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
 
