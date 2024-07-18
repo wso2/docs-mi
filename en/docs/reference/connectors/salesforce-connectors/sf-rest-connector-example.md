@@ -53,8 +53,8 @@ Now follow the steps below to add configurations to the sequence.
 2. Set up the `create` operation.
     1. Setup the `create` sequence configurations. In this operation we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
        
-        - **sObjectName** : Name of the sObject that you need to create in Salesforce.
-        - **fieldAndValue** : The field and value you need to store in the created Salesforce sObject.
+        - **sObject Name** : Name of the sObject that you need to create in Salesforce.
+        - **Field and Value** : The field and value you need to store in the created Salesforce sObject.
         
         While invoking the API, the above two parameters values come as a user input.
     
@@ -71,17 +71,17 @@ Now follow the steps below to add configurations to the sequence.
     
     5. One property mediator to capture the `sObjectName` value. The sObjectName type can be used to retrieve the metadata for the Account object using the GET method, or create a new Account object using the POST method. In this example we are going to create a new Account object using the POST method.
    
-        - **name** : sObjectName
-        - **expression** : json-eval($.sObject)
-        - **type** : STRING
+        - **Property Name** : `sObjectName`
+        - **Property Value** : expression `json-eval($.sObject)`
+        - **Property Data Type** : `STRING`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-property-1-config.png" title="Configure first property mediator" width="800" alt="Configure first property mediator"/>
     
     6. Other property mediator to capture the `fieldAndValue` values. The fieldAndValue contains object fields and values that user need to store.
    
-        - **name** : fieldAndValue
-        - **expression** : json-eval($.fieldAndValue)
-        - **type** : STRING
+        - **Property Name** : `fieldAndValue`
+        - **Property Value** : expression `json-eval($.fieldAndValue)`
+        - **Property Data Type** : `STRING`
      
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-property-2-config.png" title="Configure second property mediator" width="800" alt="Configure second property mediator"/>  
     
@@ -90,7 +90,7 @@ Now follow the steps below to add configurations to the sequence.
 2. Set up the retrieve operation.
     1. To retrieve data from the created objects in the Salesforce account, you need to add the `query` operation to the `retrieve` sequence. 
     
-        - **queryString** :  This variable contains specified SOQL query. In this sample this SOQL query executes to retrieve `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
+        - **Query String** :  This variable contains specified SOQL query. In this sample this SOQL query executes to retrieve `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
 
     2. Add the `query` operation from `Salesforcerest` connector into the design pane of `retrieve` sequence.      
     
