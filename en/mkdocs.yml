@@ -250,28 +250,27 @@ nav:
           - Database Polling: learn/samples/database-polling.md
           - Email Service: learn/samples/email-service.md
           - Exception Handling: learn/samples/exception-handling.md
-         # - Fetch SalesForce Accounts: learn/samples/
+          - Fetch SalesForce Accounts: learn/samples/fetch-salesforce.md
           - File Transfer: learn/samples/file-transfer.md
           - Guaranteed Delivery: learn/samples/guaranteed-delivery.md
           - Header Based Routing: learn/samples/header-based-routing.md
-         # - Hello Docker: learn/samples/
-         # - Hello Kubernetes: learn/samples/
           - API Testing: learn/samples/api-testing.md
+          - Hello Docker: learn/samples/docker-sample.md
          # - JSON to XML Mapping: learn/samples/
-         # - Kafka Consumer and Producer: learn/samples/
+          - Kafka Consumer and Producer: learn/samples/kafka-sample.md
           - Message Filtering: learn/samples/message-filtering.md
           - Periodical Scheduled Tasks: learn/samples/periodical-scheduled-tasks.md
           - Protocol Switching: learn/samples/protocol-switching.md
           - Proxying a REST Service: learn/samples/proxying-rest-service.md
           - Proxying a SOAP Service: learn/samples/proxying-soap-service.md
-         # - RabbitMQ Integration: learn/samples/
+          - RabbitMQ Integration: learn/samples/rabbitmq-integration.md
           - REST Data Service: learn/samples/rest-data-service.md
           - REST to SOAP Conversion: learn/samples/rest-to-soap-conversion.md
           - Scatter Gather Integration Pattern: learn/samples/scatter-gather-integration-pattern.md
           - Students Data Service: learn/samples/students-data-service.md
          # - XML to JSON Mapping: learn/samples/
           - XML To JSON Transformation: learn/samples/xml-to-json-transformation.md
-         # - Unit Test Tutorial: learn/samples/
+          - Unit Test Tutorial: learn/samples/unit-testing.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
       - API-led Integration: develop/api-led-integration.md
