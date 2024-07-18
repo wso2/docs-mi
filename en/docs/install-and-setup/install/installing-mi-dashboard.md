@@ -1,14 +1,14 @@
-# Installing the Micro Integrator Dashboard
+# Installing the Integration Control Plane
 
-Follow the steps given below to install the Micro Integrator (MI) Dashboard.
+Follow the steps given below to install the Integration Control Plane (ICP).
 
-## Installing the MI Dashboard
+## Installing the Integration Control Plane
 
-1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Components/MI Dashboard** to download the MI Dashboard as a ZIP file.
-2.  Extract the archive file to a dedicated directory for the Micro Integrator Dashboard, which will hereafter be referred to as `<MI-DASHBOARD_HOME>`.
+1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Components/MI Dashboard** to download the Integration Control Plane as a ZIP file.
+2.  Extract the archive file to a dedicated directory for the Integration Control Plane, which will hereafter be referred to as `<ICP_HOME>`.
 
 !!! info
-    To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
+    To connect the MI servers with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
     ```
     [dashboard_config]
     dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
@@ -128,5 +128,5 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's Next?
 
--   [Running the MI Dashboard]({{base_path}}/install-and-setup/install/running-the-mi-dashboard).
+-   [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-mi-dashboard).
 
