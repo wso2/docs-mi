@@ -23,7 +23,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 ## Create the Integration Logic
 
-1. Click `+` on the Extension panel APIs to create the REST API. Specify the API name as `MSAzureStorageTestAPI` and the API context as `/azure`. Then delete the default `/resource` endpoint.
+1. Click `+` on the Extension panel APIs to create the REST API. Specify the API name as `MSAzureStorageTestAPI` and the API context as `/azure`. Then, delete the default `/resource` endpoint.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/create_api.png" title="Adding the createbucket resource" width="800" alt="Microsoft Azure Storage use case"/>
     
