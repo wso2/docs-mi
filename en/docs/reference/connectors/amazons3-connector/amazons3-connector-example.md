@@ -6,17 +6,17 @@ The AmazonS3 Connector allows you to access the Amazon Simple Storage Service (A
 
 This example depicts how to use AmazonS3 connector to:
 
-1. Create a S3 bucket (a location for storing your data) in Amazon cloud.
+1. Create an S3 bucket (a location for storing your data) in Amazon cloud.
 2. Upload a message into the created bucket as a text file.
-3. Retrieve created text file back and convert into a message in the integration runtime.
+3. Retrieve the created text file back and convert it into a message in the integration runtime.
 
 All three operations are exposed via an API. The API with the context `/s3connector` has three resources:
 
 * `/createbucket` - Once invoked, it will create a bucket in Amazon with the specified name
-* `/addobject`  - The incoming message will be stored into the specified bucket with the specified name
+* `/addobject`  - The incoming message will be stored in the specified bucket with the specified name
 * `/info` - Once invoked, it will read the specified file from the specified bucket and respond with the content of the file
 
-Following diagram shows the overall solution. The user creates a bucket, stores some message into the bucket, and then receives it back.
+The following diagram shows the overall solution. The user creates a bucket, stores some message in the bucket, and then receives it back.
 
 To invoke each operation, the user uses the same API.
 
@@ -26,7 +26,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setting up the environment
 
-Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-config) document in order to create a Amazon S3 account and obtain credentials you need to access the Amazon APIs. Keep them saved to be used in the next steps.
+Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-config) document in order to create an Amazon S3 account and obtain the credentials you need to access the Amazon APIs. Keep them saved to be used in the next steps.
 
 ## Setup the Integration Project
 
@@ -36,7 +36,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
 1. Navigate to **MI Project Explorer** > **APIs** and click on the **+** sign next to APIs to open the **Synapse API Artifact** creation form.
 
-2. Specify the API name as `S3ConnectorTestAPI` and API context as `/s3connector` and click **Create**.
+2. Specify the API name as `S3ConnectorTestAPI` and the API context as `/s3connector` and click **Create**.
    After creating the API artifact, the Service Designer pane will be displayed with the default API resource.
    
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-api.png" title="Create API" width="800" alt="Create API"/>
@@ -60,7 +60,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
     In the **Add New Connection** form, the following parameters must be provided.
 
-    - Connection Name - Unique name to identify the connection by.
+    - Connection Name - A unique name to identify the connection by.
     - Connection Type - Type of the connection that specifies the protocol to be used.
     - AWS Access Key ID - Access key associated with your Amazon user account.
     - AWS Secret Access Key - Secret Access key associated with your Amazon user account.
@@ -72,7 +72,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-new-connection.png" title="Configuring a new connection" width="500" alt="Configuring a new connection"/>
 
-7. After the connection is successfully created, select the created connection as **Amazon S3Connection** from the drop down menu in the **Add createBucket** form.
+7. After the connection is successfully created, select the created connection as **Amazon S3Connection** from the dropdown menu in the **Add createBucket** form.
 
 8. Next, configure the following parameters:
 
@@ -110,7 +110,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-add-object-overview.png" title="Add object resource overview" width="400" alt="Add object resource overview"/>
 
-13. To create the next API resource, which is `/info` navigate to the **Service Designer View** of `S3ConnectorTestAPI` and click on the **+ Resource** button . This API resource will retrieve information from the incoming HTTP POST request such as the bucketName, objectKey and get the object from Amazon S3.
+13. To create the next API resource, which is `/info` navigate to the **Service Designer View** of `S3ConnectorTestAPI` and click on the **+ Resource** button. This API resource will retrieve information from the incoming HTTP POST request such as the bucketName, objectKey and get the object from Amazon S3.
 
     Configure the following values:
 
@@ -193,9 +193,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 * Note that `region`, `connectionName` and credentials are hard coded. Please change them as per the requirement.
 * For more information please refer the [reference guide]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference) for Amazon S3 connector.
 
-Now we can export the artifacts into a CAR application. CAR application is the one we are going to deploy to server runtime.
-
-Next, the exported CApp can be deployed in the integration runtime so that we can run it and test.
+Now we can export the artifacts into a Carbon Application (CApp) and deploy it to the server runtime to run it and test it.
 
 ## Get the project
 
@@ -210,7 +208,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime.
+Follow these steps to deploy the exported CApp in the integration runtime. For more info on deploying artifacts, refer to the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts.md).
 
 **Deploying on Micro Integrator**
 
@@ -261,7 +259,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
 
     <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
 
-### Post a message into Amazon S3 bucket
+### Post a message into the Amazon S3 bucket
 
 1. Create a file called `data.json` with the following content.
     ```json
@@ -288,14 +286,14 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         }
     }
     ```
-    Navigate to AWS S3 console and click on the bucket `wso2-engineers`. You will note that a file has been created with the name `Julian.txt`.
+    Navigate to the AWS S3 console and click on the bucket `wso2-engineers`. You will note that a file has been created with the name `Julian.txt`.
     <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.jpg" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
-### Read objects from Amazon S3 bucket
+### Read objects from the Amazon S3 bucket
 
 Now let us read the information on `wso2-engineers` that we stored in the Amazon S3 bucket.
 
-1. Create a file called data.json with the following content. It specifies which bucket to read from and what the filename is. This example assumes that the object is stored at root level inside the bucket. You can also read a object stored in a folder inside the bucket.
+1. Create a file called data.json with the following content. It specifies which bucket to read from and what the filename is. This example assumes that the object is stored at the root level inside the bucket. You can also read an object stored in a folder inside the bucket.
 
     ```json
     {
@@ -334,4 +332,4 @@ Now let us read the information on `wso2-engineers` that we stored in the Amazon
     }
     ```
 
-In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference) to learn more about the operations you can perform with the Amazon S3 connector.
+In this example, Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference) to learn more about the operations you can perform with the Amazon S3 connector.

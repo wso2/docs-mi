@@ -4,7 +4,7 @@ The WSO2 Amazon SQS connector allows you to access the exposed Amazon SQS API fr
 
 ## What you'll build
 
-This example explains how to use Amazon SQS Connector to create a queue in the Amazon SQS, send a message to the queue, forward it to Simple Stock Quote Service Backend and send the response to the user. 
+This example explains how to use Amazon SQS Connector to create a queue in the Amazon SQS, send a message to the queue, forward it to Simple Stock Quote Service Backend, and send the response to the user. 
 
 It has a single HTTP API resource, which is `sendToQueue`. 
 
@@ -14,7 +14,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setting up the environment 
 
-1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document in order to create a Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.  
+1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document in order to create an Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.  
 
 2. In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 
@@ -29,7 +29,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 3. In this example we use the SimpleStockQuote service backend. Therefore, the SimpleStockQuote service needs to be started. 
 
-## Setup the Integration Project
+## Set up the Integration Project
 
 {!includes/build-and-run.md!}
 
@@ -147,7 +147,7 @@ If you do not want to configure this yourself, you can simply [get the project](
     </sequence>
   ```
 
-5. Create the ReceiveAndForwardMessage sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it into the StockQuote Endpoint. 
+5. Create the ReceiveAndForwardMessage sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it to the StockQuote Endpoint. 
     ```
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -194,9 +194,7 @@ If you do not want to configure this yourself, you can simply [get the project](
     </api>
     ```
 
-Now we can export the artifacts into a CAR application. CAR application is the one we are going to deploy to server runtime.
-
-Next, the exported CApp can be deployed in the integration runtime so that we can run it and test.
+Now we can export the artifacts into a Carbon Application (CApp) and deploy it to the server runtime to run it and test it.
 
 ## Get the project
 
@@ -211,13 +209,13 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. For more info on deploying artifacts, refer to the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts.md).
 
 **Deploying on Micro Integrator**
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
@@ -232,7 +230,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 
     1. Download the ZIP file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
     2. Extract the downloaded zip file.
-    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    3. Open a terminal and navigate to the `axis2Server/bin/` directory inside the extracted folder.
     4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
 
         === "On MacOS/Linux/CentOS"   

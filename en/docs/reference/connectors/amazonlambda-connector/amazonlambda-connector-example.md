@@ -3,7 +3,7 @@
 Given below is a sample scenario that demonstrates how to create an Amazon Lambda function in the AWS Lambda Service using the WSO2 Amazon Lambda Connector.
 
 ## What you'll build
-To use the Amazon Lambda connector, add the <amazonlambda.init> element in your configuration before carrying out any Amazon Lambda operations. This Amazon Lambda configuration authenticates with Amazon Lambda by specifying the AWS access key ID and secret access key ID, which are used for every operation. The signature is used with every request and thus differs based on the request the user makes.
+To use the Amazon Lambda connector, add the <amazonlambda.init> element in your configuration before carrying out any Amazon Lambda operations. This Amazon Lambda configuration authenticates with Amazon Lambda by specifying the AWS access key ID and secret access key ID, which are used for every operation. The signature is used with every request and thus differs based on the user's request.
 
 This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation.
 
@@ -54,7 +54,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 3. Navigate to **MI Project Explorer** > **APIs** and click on the **+** sign next to APIs to open the **Synapse API Artifact** creation form.
 
-4. Specify the API name as `createFunction` and API context as `/createFunction`. You can go to the XML configuration of the API (source view) and copy the following configuration.
+4. Specify the API name as `createFunction` and the API context as `/createFunction`. You can go to the XML configuration of the API (source view) and copy the following configuration.
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
@@ -118,7 +118,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 5. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
 ## Create Amazon Lambda Deployment Package (Lambda function) 
-In this scenario we created sample AWS Deployment Package (Lambda function) in Python.
+In this scenario, we created a sample AWS Deployment Package (Lambda function) in Python.
 
 1. Our sample Deployment Package would look similar to the following (source view : addingNumbers.py).
     ```
@@ -138,14 +138,14 @@ In this scenario we created sample AWS Deployment Package (Lambda function) in P
 
 2. Create a ZIP archive.
 
-Please use command line terminal or shell to run following commands. Commands are shown in listings preceded by a prompt symbol ($) and the name of the current directory, when appropriate:
+Please use the command line terminal or shell to run the following commands. Commands are shown in listings preceded by a prompt symbol ($) and the name of the current directory, when appropriate:
 
 ```
 ~/Documents$ zip addingNumbers.zip addingNumbers.py
  adding: addingNumbers.py.py (deflated 17%)
 ```
 
-## Upload Amazon Lambda Deployment Package (ZIP archive) in to the AWS S3 bucket
+## Upload Amazon Lambda Deployment Package (ZIP archive) into the AWS S3 bucket
 
 1. Log in to the AWS Management Console.
 2. Navigate to the created S3 bucket (e.g., eiconnectortest).
@@ -169,13 +169,13 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Follow these steps to deploy the exported Carbon Application (CApp) in the integration runtime. For more info on deploying artifacts, refer to the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts.md).
 
 **Deploying on Micro Integrator**
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
