@@ -1,6 +1,6 @@
 # Salesforce Bulk v2.0 Connector Example
 
-The **Salesforce Bulk v2.0 Connector** provides seamless integration with the [Salesforce Bulk v2.0 REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm), enabling easy and efficient handling of large volumes of data. The SalesforceBulk API operates on a RESTful architecture, offering a fast and reliable method to load or delete vast amounts of data from your organization's Salesforce account. With SalesforceBulk, you can perform asynchronous operations like querying, inserting, updating, upserting, or deleting a considerable number of records by submitting them in batches. These batches can be processed by Salesforce in the background, ensuring minimal disruption to your workflow.
+The **Salesforce Bulk v2.0 Connector** provides seamless integration with the [Salesforce Bulk v2.0 REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm), enabling easy and efficient handling of large volumes of data. The SalesforceBulk API operates on a RESTful architecture, offering a fast and reliable method to load or delete vast amounts of data from your organization's Salesforce account. With SalesforceBulk, you can perform asynchronous operations like querying, inserting, updating, or deleting a considerable number of records by submitting them in batches. These batches can be processed by Salesforce in the background, ensuring minimal disruption to your workflow.
 
 ## What you'll build
 
@@ -30,9 +30,9 @@ You can use the following resources to achieve your requirements.
 3. `/getJobInfo` : 
     - Get the bulkJob info identified by the jobId passed through the request body.
 4. `/getSuccessfulResults` : 
-    - Retrive the successful results of the bulk job identified by the `jobId`.
+    - Retrieve the successful results of the bulk job identified by the `jobId`.
 5. `/getUnprocessedResults` : 
-    - Retrive the unprocessed records of the bulk job identified by the `jobId`.
+    - Retrieve the unprocessed records of the bulk job identified by the `jobId`.
     - Store the results to a CSV file.
 6. `/deleteJob` : 
     - Delete the bulkJob identified by the jobId passed through the request body.
@@ -41,12 +41,10 @@ You can use the following resources to achieve your requirements.
 8. `/getQueryJobInfo` : 
     - Get the queryJob info identified by the jobId passed through the request body.
 6. `/getSuccessfulQueryResults` : 
-    - Retrive the successful results of the bulk query job identified by the `queryJobId`.
+    - Retrieve the successful results of the bulk query job identified by the `queryJobId`.
     - Store it in a CSV file.
 
 ## Setting up the environment
-
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
 By default, the `text/csv` message formatter and message builder are not configured in the Micro Integrator settings. To enable this connector to function correctly with `text/csv` data, you will need to follow these steps to add the necessary message formatter and message builder configurations.
 
@@ -59,9 +57,13 @@ By default, the `text/csv` message formatter and message builder are not configu
     - `	<messageBuilder contentType="text/csv" class="org.apache.axis2.format.PlainTextBuilder"/>`
 6. Save the file and restart the Micro Integrator.
 
+## Setting up the integration project
+
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+
 ### Add integration logic
 
-First create a REST API called `Salesforce` in your project
+First, create a REST API called `Salesforce` in your project.
 
 | Name | Context |
 | ---------------- | ---------------- |
@@ -81,14 +83,13 @@ Create the following resources in 'Salesforce' REST API
 | /getQueryJobInfo | POST |
 | /getSuccessfulQueryResults  | POST |
 
-
-Lets add the operations to the resources in `Salesforce` API
+Let's add the operations to the resources in the `Salesforce` API
 
 #### - /createJobAndUploadData
 
   Users can utilize this resource to send CSV content for upload via the request body. The API will utilize an `enrich` mediator to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
 
-  1. In the API insequence select the Enrich mediator. Using the Enrich mediator clone the body content to a property called `csvContent`.
+  1. In the API inSequence select the Enrich mediator. Using the Enrich mediator clone the body content to a property called `csvContent`.
       Enrich source: 
 
       ```xml
@@ -100,7 +101,7 @@ Lets add the operations to the resources in `Salesforce` API
 
   2. Select the `createJob` operation from **Salesforce_bulkapi_v2_Connector** section.
     1. In the form, click the `Add new connection` button.
-        1. In the `Connection configurtion` section give a name for `Salesforce Connection Name`
+        1. In the `Connection configuration` section give a name for `Salesforce Connection Name`
         2. Provide your Salesforce instance URL in the `Instance URL` text box.
         3. Provide your Salesforce connected app's client id in the `Client ID` text box.
         4. Provide your Salesforce connected app's client secret in the `Client Secret` text box.
@@ -109,10 +110,10 @@ Lets add the operations to the resources in `Salesforce` API
             - We recommend not to use `Access Token`.
             - If you are using an `Access Token`, please update it promptly upon expiration.
             - If you are providing an `Access Token` along with `Client ID, Client Secret, and Refresh Token`, and if the `Access Token` has expired, kindly remove the expired `Access Token`. An invalid `Access Token` could lead to poor connector performance.
-        7. Click finish.
+        7. Click Finish.
     3. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
     4. Input `Account` in the `Object` text box
-    5. Select `COMMA` in the `Column Delimeter` dropbox
+    5. Select `COMMA` in the `Column Delimiter` dropbox
     6. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
 
   3. Select the property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
@@ -148,10 +149,10 @@ Lets add the operations to the resources in `Salesforce` API
     1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
     2. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
     3. Input `Account` in the `Object` text box
-    4. Select `COMMA` in the `Column Delimeter` dropbox
+    4. Select `COMMA` in the `Column Delimiter` dropbox
     5. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
 
-  2. Select the a property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
+  2. Select the property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
     
       ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
@@ -188,7 +189,7 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can get the job information.
 
-  1. Select the a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
@@ -211,7 +212,7 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can retrieve the successfully processed records of a particular bulk job.
 
-  1. Select the a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
@@ -237,7 +238,7 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can retrieve the unprocessed records of a particular bulk job.
 
-  1. Select the a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
@@ -268,7 +269,7 @@ Lets add the operations to the resources in `Salesforce` API
 
   Using this resource, users can delete a perticular bulk job
 
-  1. Select the a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
@@ -295,7 +296,7 @@ Lets add the operations to the resources in `Salesforce` API
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
       2. In the properties section, under `Basic`, select `QUERY` in the Operation dropdown.
       3. Input `SELECT Id, name FROM Account` in the `Object` text box
-      4. Select `COMMA` in the `Column Delimeter` dropbox
+      4. Select `COMMA` in the `Column Delimiter` dropbox
       5. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
         
         
@@ -316,7 +317,7 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can get the query job information.
 
-  1. Select the a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
@@ -339,7 +340,7 @@ Lets add the operations to the resources in `Salesforce` API
 
   Using this resource, users can get the successful query results from salesforce
 
-  1. Select the a 'Property' mediator. This mediator will extract the queryJobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the queryJobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="queryJobId" scope="default" type="STRING"/>
         ```
