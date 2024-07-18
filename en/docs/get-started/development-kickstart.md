@@ -1,8 +1,8 @@
-# Developing Your First Integration Solution Using MI for VS Code
+# Developing Your First Integration Solution
                                                
 Integration developers need efficient tools to build and test all the integration use cases required by the enterprise 
 before pushing them into a production environment. The following topics will guide you through the process of building and 
-running an example integration use case using Micro Integrator extension for Visual Studio Code (MI for VS Code). This extension 
+running an example integration use case using the Micro Integrator extension for Visual Studio Code (MI for VS Code). This extension 
 allows you to conveniently design, develop, and test your integration artifacts before deploying them in your production environment.
  
 ## What you'll build    
@@ -26,7 +26,7 @@ is used to integrate two back-end hospital services to provide information to th
     
     Both the Grand Oak service and Pine Valley service are exposed over the HTTP protocol.
     
-    - The Grand Oak service accept GET requests in the following service endpoint URL:
+    - The Grand Oak service accepts GET requests in the following service endpoint URL:
       ```
       http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
       ```
@@ -125,7 +125,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
 
 4. Select **HTTP Endpoint**.
 
-5. In **Endpoint Artifact** interface that appears, specify the following values for the ‘Grand Oak hospital service’.
+5. In the **Endpoint Artifact** interface that appears, specify the following values for the ‘Grand Oak hospital service’.
 
     <table>
       <tr>
@@ -150,7 +150,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
 
 6. Click **Create** to save the endpoint configuration.
 
-7. Follow the same steps to create an endpoint for ‘Pine Valley Hospital’. Use the following parameter values:
+7. Follow the same steps to create an endpoint for the ‘Pine Valley Hospital’. Use the following parameter values:
 
     <table>
       <tr>
@@ -235,7 +235,7 @@ We are orchestrating multiple services and exposing a single API to the clients.
         <td>Uri Template</td>
         <td>
           <code>/doctor/{doctorType}</code></br></br>
-          <b>Note:</b> '{doctorType}' is an URI variable that gets resolved to the path parameter value in the runtime. We can access the value of the URI variable in the mediation flow using the variable (property) called <code>uri.var.doctorType</code>.
+          <b>Note:</b> '{doctorType}' is a URI variable that gets resolved to the path parameter value in the runtime. We can access the value of the URI variable in the mediation flow using the variable (property) called <code>uri.var.doctorType</code>.
         </td>
       </tr>
       <tr>
@@ -366,9 +366,9 @@ We are orchestrating multiple services and exposing a single API to the clients.
 
 5. Aggregating response messages
 
-    Since we are cloning the messages and delivering them into two different services, we will receive two responses. So we need to aggregate those two responses and construct a single response. To do that, we can use the Aggregate mediator.
+    Since we are cloning the messages and delivering them to two different services, we will receive two responses. So we need to aggregate those two responses and construct a single response. To do that, we can use the Aggregate mediator.
 
-    a. Click **+** icon next to the Clone mediator.
+    a. Click the **+** icon next to the Clone mediator.
    
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-aggregate-mediator.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-aggregate-mediator.png" alt="Add aggregate mediator" width="80%"></a>
     
@@ -464,7 +464,7 @@ There are two main options to build and run the integration scenario.
 
 ### Option 1: Using the Visual Studio Code
 
-1. Click on the Command Palette on the top of the VS Code.
+1. Click on the Command Palette at the top of the VS Code.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png" alt="Command palette" width="70%"></a>
 
@@ -474,7 +474,7 @@ There are two main options to build and run the integration scenario.
 
 4. Select **Add MI server**.
 
-5. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+5. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
@@ -483,7 +483,7 @@ There are two main options to build and run the integration scenario.
     !!! tip "Use one of the following two options to build and run the project:"
         **Option 1**
     
-        1. Click on the Command Palette on the top of the VS Code.
+        1. Click on the Command Palette at the top of the VS Code.
         2. Type `>` to show the available commands.
         3. Select **MI: Build and Run**.
     
@@ -564,10 +564,10 @@ There are two ways to invoke the service:
     Let's invoke the API from Postman as follows:
 
     1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
-    2. Create a collection with appropriate name. Ex : 'IntegrationStudio collection'.
+    2. Create a collection with an appropriate name. Ex: 'IntegrationStudio collection'.
     3. Add a new request to this collection and name it appropriately. Ex: 'Healthcare request'.
-    4. In the 'Enter request URL' section paste our endpoint URL : ```http://localhost:8290/healthcare/doctor/Ophthalmologist```
-    5. Select 'GET' as http method and click 'Send' button.
+    4. In the 'Enter request URL' section paste our endpoint URL: ```http://localhost:8290/healthcare/doctor/Ophthalmologist```
+    5. Select 'GET' as the HTTP method and click the 'Send' button.
        <br/><br/>
        <video src="{{base_path}}/assets/vids/healthcare-doctor-ophthalmologist.webm" width="720" height="480" controls></video>
        <br/><br/>
