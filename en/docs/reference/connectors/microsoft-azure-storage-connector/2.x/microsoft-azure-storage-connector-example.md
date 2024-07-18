@@ -49,7 +49,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - **Tenant ID**: The Tenant ID of the application.
     - **Default Endpoints Protocol**: http
     !!! note
-        You can either define the Account Access key or Client Credentials for authentication. For more information, please refer [Initialize the connector guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference/#initialize-the-connector).
+        You can either define the Account Access key or Client Credentials for authentication. For more information, please refer to [Initialize the connector guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference/#initialize-the-connector).
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_new_connection.png" title="Configuring a new connection" width="800" alt="Microsoft Azure Storage use case"/>
 
