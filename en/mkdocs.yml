@@ -350,10 +350,10 @@ nav:
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
               - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
-          - Install the MI Dashboard:
-              - Install the MI Dashboard: install-and-setup/install/installing-mi-dashboard.md
-              - Run the MI Dashboard: install-and-setup/install/running-the-mi-dashboard.md
-              - Run the MI Dashboard as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
+          - Install the Integration Control Plane:
+              - Install the Ingeration Control Plane: install-and-setup/install/installing-mi-dashboard.md
+              - Run the Integration Control Plane: install-and-setup/install/running-the-mi-dashboard.md
+              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:

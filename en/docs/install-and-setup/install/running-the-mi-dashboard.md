@@ -1,6 +1,6 @@
-# Running the Micro Integrator Dashboard
+# Running the Integration Control Plane
 
-Follow the steps given below to run the WSO2 Micro Integrator runtime and its monitoring Dashboard.
+Follow the steps given below to run the WSO2 Micro Integrator runtime and the Integration Control Plane.
 
 ## Before you begin
 
@@ -8,7 +8,7 @@ Follow the steps given below before you start.
 
 1.  Download and install the servers:
 
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the Micro Integrator dashboard.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the Integration Control Plane.
     -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
 
 2.  Set up the Micro Integrator:
@@ -23,7 +23,7 @@ Follow the steps given below before you start.
         node_id = "dev_node_2"
         ```
 
-    2.  Be sure to change the host and port number of the `dashboard_url` in the above configuration if you have changed the default host and port for the dashboard.
+    2.  Be sure to change the host and port number of the `dashboard_url` in the above configuration if you have changed the default host and port for the ICP server.
 
     !!! Info
         See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers) for more information.
@@ -33,13 +33,13 @@ Follow the steps given below before you start.
 ## Configuring Single Sign-on with OpenID Connect
 
 !!! note "Before you begin"
-	- 	This is an **optional** configuration that you can do to enable Single Sign-On for the Micro Integrator Dashboard. By default, the Micro Integrator Dashboard uses the Micro Integrator user store for authentication.
+	- 	This is an **optional** configuration that you can do to enable Single Sign-On for the Integration Control Plane. By default, the Integration Control Plane uses its own user store for authentication.
 	-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
 	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
-Follow the steps given below to connect the Micro Integrator Dashboard to your Identity provider.
+Follow the steps given below to connect the Integration Control Plane to your Identity provider.
 
-1.	Open the `deployment.toml` file stored in the `<MI_DASHBOARD_HOME>/conf/` directory.
+1.	Open the `deployment.toml` file stored in the `<ICP_HOME>/conf/` directory.
 2.	Add the following configurations and update the required values.
 
 	```toml
@@ -96,7 +96,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 				<code>resource_server_URLs</code>
 			</td>
 			<td>
-				The URL of the Micro Integrator Dashboard.
+				The URL of the Integration Control Plane.
 			</td>
 		</tr>
 		<tr>
@@ -104,7 +104,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 				<code>sign_in_redirect_URL</code>
 			</td>
 			<td>
-				The Sign In redirect URL of the Micro Integrator Dashboard.
+				The Sign In redirect URL of the Integration Control Plane.
 			</td>
 		</tr>
 
@@ -112,7 +112,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 
 See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi-dashboard/#single-sign-on) you can configure for the single sign-on.
 
-## Starting the dashboard server
+## Starting the Integration Control Plane
 
 Follow the steps given below.
 
@@ -129,7 +129,7 @@ Follow the steps given below.
             </tr>
       </table>     
 
-2.    Navigate to the `<MI-DASHBOARD_HOME>/bin` folder from your command line.
+2.    Navigate to the `<ICP_HOME>/bin` folder from your command line.
 3.    Execute one of the commands given below.
 
        === "On macOS/Linux"
@@ -141,17 +141,17 @@ Follow the steps given below.
            dashboard.bat
            ```
 
-## Accessing the dashboard
+## Accessing the Integration Control Plane
 
-Once you have [started the dashboard server](#starting-the-dashboard-server):
+Once you have [started the ICP server](#starting-the-dashboard-server):
 
-1.  Access the dashboard using the following URL:
+1.  Access the ICP server using the following URL:
 
     ```bash
     https://localhost:9743/dashboard
     ```
 
-    ![login form for monitoring dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/login.png)
+    ![login form for Integration Control Plane]({{base_path}}/assets/img/integrate/monitoring-dashboard/login.png)
 
 2.  Enter the following details to sign in:
 
@@ -178,8 +178,8 @@ Once you have [started the dashboard server](#starting-the-dashboard-server):
 
 2.  Be sure that the Micro Integrator servers are [already configured and started](#before-you-begin) before you sign in.
 
-See the [Micro Integrator Dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) documentation for information on the dashboard's capabilities and how to use them.
+See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) documentation for information on the control plane's capabilities and how to use them.
 
-## Stopping the dashboard server
+## Stopping the Integration Control Plane
 
-To <b>stop</b> the dashboard standalone application, go to the terminal and press <i>Ctrl+C</i>.
+To <b>stop</b> the ICP standalone application, go to the terminal and press <i>Ctrl+C</i>.
