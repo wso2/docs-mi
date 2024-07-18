@@ -14,6 +14,7 @@ Following is a sample REST API configuration and Sequence configuration that we 
              <call>
                 <endpoint key="CustomerService" />
              </call>
+             <respond />
           </inSequence>
        </resource>
     </api> 
