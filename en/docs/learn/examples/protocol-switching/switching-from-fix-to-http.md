@@ -17,16 +17,14 @@ Following are the integration artifacts that we can used to implement this scena
             <xslt key="{reg_path}/FIX_XSLT.xslt"/>
             <log level="full"/>
             <header name="Action" value="urn:placeOrder"/>
-            <send>
+            <call>
                 <endpoint>
                     <address uri="http://localhost:9000/services/SimpleStockQuoteService">
                     </address>
                 </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
+            </call>
             <log level="full"/>
-        </outSequence>
+        </inSequence>
         <faultSequence/>
     </target>
     <parameter name="transport.fix.AcceptorConfigURL">file:/{file_path}/fix-synapse.cfg</parameter>
@@ -65,9 +63,8 @@ FIX_XSLT:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Add the above XSLT as a registry resource.
+{!includes/build-and-run.md!}
+3. Add the above XSLT as a registry resource. Refer [Creating a Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) guide for further information. 
 4. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 5. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location.
 6. Change the `{reg_path}` with the XSLT registry location. 
@@ -94,6 +91,34 @@ Set up the back-end service:
 Run the quickfixj **Banzai** sample application.
 
 ```bash
-java -jar quickfixj-examples-banzai-2.1.1.jar
+java -jar quickfixj-examples-banzai-2.3.1.jar
 ```
-Send an order request from Banzai to Synapse. For example, Buy DELL 1000 @ 100. User has to send a "Limit" Order because price is a mandatory field for placeOrder operation.
+
+## Testing 
+
+Send an order request from Banzai to Synapse. For example, Buy 1000 DELL @ $100. User has to send a "Limit" Order because price is a mandatory field for placeOrder operation.
+
+<img src="{{base_path}}/assets/img/learn/fix-to-http.png" title="FIX order request" width="800" alt="FIX order request" />
+
+We can see the transformed SOAP message logged as follows. 
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <m0:placeOrder xmlns:m0="http://services.samples" xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
+            <m0:order>
+                <m0:price>100</m0:price>
+                <m0:quantity>1000</m0:quantity>
+                <m0:symbol>DELL</m0:symbol>
+            </m0:order>
+        </m0:placeOrder>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+
+In the axis2server, the accepted order will be as follows:
+
+```
+Tue Jul 16 10:20:23 IST 2024 samples.services.SimpleStockQuoteService  :: Accepted order #1 for : 1000 stocks of DELL at $ 100.0
+```
+
