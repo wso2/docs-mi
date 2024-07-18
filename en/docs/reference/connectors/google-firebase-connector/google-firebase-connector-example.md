@@ -20,13 +20,13 @@ Overall integration scenario would look like below.
 
 ## Setting up the environment
 
-You need to create an application at Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
+You need to create an application in Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
 
-## Setup the Integration Project
+## Setting up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API.
+1. Select Micro Integrator Extension and click on `+` in APIs to create a REST API.
 2. Specify the API name as `FirebaseNotify` and API context as `/firebasenotify`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -157,7 +157,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     </sequence>
    ```
 
-> **Note**: The parameters under `<init>` section of the configuration above are referring to the credentials we obtained from Google Firebase in above steps. The parameters are mapped to the keys of the JSON file that you have downloaded as below. 
+> **Note**: The parameters under `<init>` section of the configuration above are referring to the credentials we obtained from Google Firebase in the above steps. The parameters are mapped to the keys of the JSON file that you have downloaded, as below. 
 
 ```
 accountType --> type
@@ -255,7 +255,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         "webPushNotificationVibrate":"200,100,200"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" --request POST --data @data.xml http://127.0.0.1:8290/firebasenotify/send
     ```
