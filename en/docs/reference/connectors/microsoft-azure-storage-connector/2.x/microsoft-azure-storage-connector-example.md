@@ -67,7 +67,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/adding_respond_mediator.png" title="Adding a respond mediator" width="800" alt="Microsoft Azure Storage use case"/>
 
-8. Create the next API resource, which is `/addblob`, by following the same steps as before. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
+8. Follow the same steps to create the next API resource, '/add blob'. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
 
 9. Next, add the `uploadBlob` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
     - Container Name - json-eval($.containerName)
