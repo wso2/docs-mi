@@ -1,6 +1,6 @@
 # Fetch SalesForce Accounts Sample
 
-This sample demonstrates how to integrate WSO2 Micro Integrator with the Salesforce system.
+This sample demonstrates how to integrate WSO2 Micro Integrator (MI) with the Salesforce system.
 
 The primary purpose of this integration is to fetch records related to sales leads from the Salesforce system. When a client sends a request, a service within WSO2 MI retrieves the relevant data.
 
