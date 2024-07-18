@@ -1,4 +1,4 @@
-# SMPP Inbound Endpoint Example
+# SMPP inbound endpoint example
 
 The SMPP inbound endpoint allows you to consume messages from SMSC. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages into the integration sequence. It will receive alert notifications or will notify when a data short message is accepted.
 
@@ -12,7 +12,7 @@ The following diagram shows the overall solution we are going to build. The SMSC
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-example.png" title="SMPP Inbound Endpoint" width="800" alt="SMPP Inbound Endpoint"/>
 
-## Set up the inbound endpoint using Micro Integrator
+## Set up the inbound endpoint using micro integrator
 
 1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
@@ -86,7 +86,7 @@ The following diagram shows the overall solution we are going to build. The SMSC
 > - **systemId** : username to access the SMSC
 > - **password** : password to access the SMSC 
    
-## Export Integration Logic as a CApp
+## Export integration logic as a CApp
 
 Follow the steps in the [Build and Export the Carbon Application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide to build and export the CApp to a specified location.
 
