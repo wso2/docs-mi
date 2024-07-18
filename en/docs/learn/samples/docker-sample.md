@@ -12,7 +12,7 @@ This sample contains a simple REST API called ‘HelloWorld’. When you invoke 
 
 ## Running the Docker image
 
-1.  Run the `docker images` command and verify that the image is created. (hellodocker:1.0.0)
+1.  Run the `docker images` command and verify that the image is created. (`hellodocker:1.0.0`)
 2.  Run the docker image using the following command.
 
     ```bash
