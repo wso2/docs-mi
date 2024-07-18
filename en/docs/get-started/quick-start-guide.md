@@ -12,7 +12,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
 
 3. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** under the 'Latest Release' section to download the Micro Integrator distribution as a ZIP file.
 4. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
-5. In the Visual Studio Code install the Micro Integrator extension.
+5. Install WSO2 Micro Integrator [Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) (MI for VS Code)
 6. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<MI_QSG_HOME>`.
 7. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
@@ -192,9 +192,9 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
 
 ### Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the Integration Control Plane (ICP)]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) to observe details of the deployed artifacts.
 
-Once you have started the dashboard server, access the dashboard using the following sign in details.
+Once you have started the ICP server, access the ICP server using the following sign in details.
 
 | Username | Password |
 |----------|----------|
@@ -247,7 +247,7 @@ Let's start the mock back-end services for this use case:
     }
     ```
     **Congratulations!**
-    Now you have created your first integration service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
+    Now you have created your first integration service.
 
    
 ## What's next?
