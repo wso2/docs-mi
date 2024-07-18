@@ -86,7 +86,7 @@ The following diagram shows the overall solution we are going to build. The SMSC
 > - **systemId** : username to access the SMSC
 > - **password** : password to access the SMSC 
    
-## Exporting Integration Logic as a CApp
+## Export Integration Logic as a CApp
 
 Follow the steps in the [Build and Export the Carbon Application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide to build and export the CApp to a specified location.
 
@@ -111,7 +111,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 4. [Start the integration server]({{base_path}}/get-started/quick-start-guide/integration-qsg#start-the-micro-integrator). 
 
-## Testing  
+## Test  
 
    Send an SMS message from SMSC to the user `kasun`. 
       
