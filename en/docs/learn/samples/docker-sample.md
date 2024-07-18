@@ -1,6 +1,6 @@
 # Hello Docker Sample
 
-This sample leads you to build a docker image locally in your machine with a given target repository name and tag.
+This sample guides you through building a Docker image on your local machine with a specified target repository name and tag.
 
 This sample contains a simple REST API called ‘HelloWorld’. When you invoke it, it generates a JSON message and sends it to the client.
 
