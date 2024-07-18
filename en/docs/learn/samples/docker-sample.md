@@ -18,7 +18,7 @@ This sample contains a simple REST API called ‘HelloWorld’. When you invoke 
     ```bash
     docker run -p 8290:8290 -p 8253:8253 -p 9164:9164 hellodocker:1.0.0
     ```
-3.  Open a terminal and run the following command to invoke the API deployed in the docker container.
+3.  Open a terminal and run the following command to invoke the API deployed in the Docker container.
 
     ```bash
     curl --location http://localhost:8290/HelloWorld/
