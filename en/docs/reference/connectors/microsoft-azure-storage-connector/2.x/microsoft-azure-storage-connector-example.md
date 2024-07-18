@@ -6,8 +6,8 @@ Given below is a sample scenario that demonstrates how to work with container an
 
 This example demonstrates how to use Microsoft Azure Storage connector to:
 
-1. Create a container (a location for storing employee details) in Microsoft Azure Storage account.
-2. Upload JSON employee details (blob) in to the container.
+1. Create a container (a location for storing employee details) in a Microsoft Azure Storage account.
+2. Upload JSON employee details (blob) into the container.
 3. Download an employee details (blob).
 4. Remove uploaded employee details (blob).
 5. Retrieve the metadata from a specific file (blob). 
@@ -67,7 +67,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/adding_respond_mediator.png" title="Adding a respond mediator" width="800" alt="Microsoft Azure Storage use case"/>
 
-8. Follow the same steps to create the next API resource, '/add blob'. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
+8. Follow the same steps to create the next API resource, `/addblob`. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
 
 9. Next, add the `uploadBlob` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
     - Container Name - json-eval($.containerName)
@@ -80,7 +80,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_add_blob_operation.png" title="Configuring upload blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-11. Follow the same steps to create the next API resource, '/download blob'. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and download from Microsoft Azure Storage.
+11. Follow the same steps to create the next API resource, `/downloadblob`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and download from Microsoft Azure Storage.
 
 12. Next, add the `downloadBlob` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
 
@@ -91,7 +91,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_blob_download_operation.png" title="Configuring download blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-14. Create the next API resource, which is `/deleteblob`, by following the same steps as before. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and delete the blob from Microsoft Azure Storage.
+14. Follow the same steps to create the next API resource, `/deleteblob`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and delete the blob from Microsoft Azure Storage.
 
 15. Next, add the `deleteBlob` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
 
@@ -102,7 +102,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_blob_delete_operation.png" title="Configuring delete blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-17. Create the next API resource, which is `/listmetadata`, by following the same steps as before. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and retrieve the metadata of the blob from Microsoft Azure Storage.
+17. Follow the same steps to create the next API resource, `/listmetadata`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and retrieve the metadata of the blob from Microsoft Azure Storage.
 
 18. Next, add the `listMetadata` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
 
@@ -113,7 +113,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_list_metadata_operation.png" title="Configuring list metadata operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-20. Create the next API resource, which is `/deletecontainer`, by following the same steps as before. This API resource will retrieve information from the incoming HTTP POST request, such as the container name, and delete the container from Microsoft Azure Storage.
+20. Follow the same steps to create the next API resource, `/deletecontainer`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name, and delete the container from Microsoft Azure Storage.
 
 21. Next, add the `deleteContainer` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
 
