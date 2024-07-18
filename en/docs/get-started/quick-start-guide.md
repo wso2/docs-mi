@@ -2,7 +2,7 @@
 
 Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment. 
 
-## Before you begin...
+## Prerequisites
 
 1. Install Java SE Development Kit (JDK) version 11.
 2. In the environment variables, set the `JAVA_HOME` environment variable.
@@ -16,7 +16,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
-5. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
+5. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<MI_QSG_HOME>`.
 6. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
 ## What you'll build
@@ -26,9 +26,6 @@ This is a simple service orchestration scenario. The scenario is about a basic h
 Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated to a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
 
 <a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"></a>
-
-!!! Tip
-    You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
 In the above scenario, the following takes place:
 
@@ -64,19 +61,27 @@ The expected payload should be in the following JSON format:
 
 Let’s implement a simple integration solution that can be used to query the availability of doctors for a particular category from all the available healthcare centers.
 
- 
+!!! info "Prerequisites"
+    Before you begin, install Micro Integrator on your machine:
+
+    1. Go to the WSO2 Micro Integrator web page, click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+    
+    2. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
+
 ### Step 1 - Set up the workspace
 
-To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
+The following software and configurations are required to proceed with this tutorial:
 
-1. Extract the downloaded WSO2 Micro Integrator and sample files into the same directory location.
+- **Visual Studio Code (VS Code):** with the Micro Integrator extension installed.
+- **Java Development Kit (JDK):** Version 11 or 17 is required. Ensure the JDK is properly configured in your system's PATH environment variable.
+- **Apache Maven:** Ensure Apache Maven is installed and its path is correctly set within the system's PATH environment variable.
 
-2. Navigate to the `<mi-qsg-home>` directory. 
-The following project files and executable back-end services are available in the `<mi-qsg-home>`.
+!!! info
+    Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+
+The following project files and executable back-end services are available in the `<MI_QSG_HOME>`.
 
 - **HealthcareIntegrationProject/HealthcareIntegrationProjectConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
-
-      <img src="{{base_path}}/assets/img/integrate/quick-start-guide/qsg-api.png">
 
       <details>
                 <summary>HealthcareAPI.xml</summary>
@@ -126,13 +131,11 @@ The following project files and executable back-end services are available in th
       </details>
       
       
-      It also contains the following two files in the metadata folder.
+      It also contains the following two files in the metadata folder. 
       
-      
-    !!! Tip
+    !!! info
         This data is used later in this guide by the API management runtime to generate the managed API proxy.
-  
-      
+
       <table>
           <tr>
               <th>
@@ -164,8 +167,8 @@ The following project files and executable back-end services are available in th
 
 Follow the steps given below to run the integration artifacts we developed on a Micro Integrator instance that is installed on a VM.
 
-1. Run `run.sh/run.bat` script in `<mi-qsg-home>/bin` based on your operating system to start up the workspace.
-    1. Open a terminal and navigate to the `<mi-qsg-home>/bin` folder.
+1. Run `run.sh/run.bat` script in `<MI_QSG_HOME>/bin` based on your operating system to start up the workspace.
+    1. Open a terminal and navigate to the `<MI_QSG_HOME>/bin` folder.
     2. Execute the relevant OS specific command:
  
         === "On MacOS/Linux/CentOS"
@@ -177,37 +180,37 @@ Follow the steps given below to run the integration artifacts we developed on a 
             run.bat 
             ```  
       
-        !!! Tip
-            The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. It carries out the following steps.
+        !!! info
+            The script assumes `<MI_HOME>` and `<MI_QSG_HOME>` are located in the same directory. It carries out the following steps.
 
-            - Start the back-end services.
+            Starting the back-end services.
 
-                - Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
+            - Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<MI_QSG_HOME>/Backend/` directory. 
     
-                - To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
+            - To manually start the service, open a terminal window, navigate to the `<MI_QSG_HOME>/Backend/` folder, and use the following command to start the services:
     
-                ```bash
-                java -jar DoctorInfo.jar
-                ```
+            ```bash
+            java -jar DoctorInfo.jar
+            ```
    
-            - Deploy the Healthcare service.
+            Deploying the Healthcare service.
 
-                - Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+            - Copying the CAR file of the Healthcare service (`HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car`) from the `<MI_QSG_HOME>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
               
 2. Start the Micro Integrator.
 
     1. Execute the relevant command in a terminal based on the OS:
        
-      === "On MacOS/Linux/CentOS"
-      ```bash 
-      sh micro-integrator.sh
-      ```
-      === "On Windows"          
-      ```bash 
-      micro-integrator.bat
-      ```
+        === "On MacOS/Linux/CentOS"
+        ```bash 
+        sh micro-integrator.sh
+        ```
+        === "On Windows"          
+        ```bash 
+        micro-integrator.bat
+        ```
 
-4. (Optional) Start the Dashboard.
+4. Start the Dashboard. (Optional)     
 
     If you want to view the integration artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
@@ -256,11 +259,12 @@ Follow the steps given below to run the integration artifacts we developed on a 
        ]
     ]
     ```
-    **Congratulations!**
-    Now you have created your first integration service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
+    Congratulations! Now you have created your first integration service.
+
+    Let's get started by developing your first integration solution using Micro Integrator extension for Visual Studio Code (MI for VS Code).
 
    
 ## What's next?
 
 - [Develop your first integration solution]({{base_path}}/get-started/development-kickstart/).
-- [Learn more]({{base_path}}/learn/learn-overview/).
+- [Learn more]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/).
