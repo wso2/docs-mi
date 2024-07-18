@@ -88,9 +88,6 @@ nav:
           - File Processing: learn/integration-use-case/file-processing-overview.md
           - Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
       - Tutorials:
-          - Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
-          - Develop an Integration From a Managed API: learn/integration-tutorials/develop-an-integration-with-a-managed-api.md
-          - Expose an Integration SOAP Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
           - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
           - Message Routing:
               - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
