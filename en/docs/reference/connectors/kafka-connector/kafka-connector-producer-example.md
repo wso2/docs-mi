@@ -1,4 +1,4 @@
-# Kafka Connector Example
+# Kafka connector example
 
 Given below is a sample scenario that demonstrates how to send messages to a Kafka broker via Kafka topics. The publishMessages operation allows you to publish messages to the Kafka brokers via Kafka topics.
 
@@ -14,11 +14,11 @@ The following diagram illustrates all the required functionality of the Kafka se
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Set up Kafka
+## Set up kafka
 
 Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/).
 
-## Setting up the Integration Project
+## Set up the integration project
 
 1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
@@ -27,34 +27,33 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
     2. Select  `KafkaTransport` connector.
         <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-new-connection.png" title="Add new kafka connection" width="800" alt="Add new kafka connection"/>
 
-    3. Use following values can to create the connection. 
-        - Connection Name - KafkaConnection
-        - Connection Type - kafka
-        - Bootstrap Servers - localhost:9092 
-        - Key Serializer Class - org.apache.kafka.common.serialization.StringSerializer
-        - Value Serializer Class - org.apache.kafka.common.serialization.StringSerializer
-        - Pooling Enabled - false
+    3. Use the following values to create the connection. 
+        - Connection Name - `KafkaConnection`
+        - Connection Type - `kafka`
+        - Bootstrap Servers - `localhost:9092` 
+        - Key Serializer Class - `org.apache.kafka.common.serialization.StringSerializer`
+        - Value Serializer Class - `org.apache.kafka.common.serialization.StringSerializer`
+        - Pooling Enabled - `false`
 
-## Creating the Integration Logic
+## Create the integration logic
 
 1. Select Micro Integrator and click on `+` in APIs to create a REST API. Provide `KafkaTransport` as name and `publishMessages` as context.
    <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-2. Then create a resource with the below configuration.
-    
+2. Create a resource with the below configuration.<br/>
     <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-resource.png" title="Adding API Resource" width="400" alt="Adding API Resource"/>
 
-3. Select the created resource and add `PublishMessages` operation.
+3. Select the created resource and add the `PublishMessages` operation.
     <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-operation.png" title="Adding operation" width="800" alt="Adding operation"/>
 
     - Use following values to fill the appearing form.
-        - Connection - KafkaConnection
-        - Topic - test
-        - Partition Number - 0
+        - Connection - `KafkaConnection`
+        - Topic - `test`
+        - Partition Number - `0`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-config-operation.png" title="Configure operation" width="400" alt="Configure operation"/>
 
-Source view of the XML configuration file of the API will be as below.
+The source view of the XML configuration file of the API will be as below.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -73,9 +72,9 @@ Source view of the XML configuration file of the API will be as below.
         </resource>
 	</api>
     ```
-Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
+Now, we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
-## Exporting Integration Logic as a CApp 
+## Export integration logic as a carbon application 
 
 To export the project, please refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
@@ -93,35 +92,31 @@ To deploy and run the project, please refer to the [build and run]({{base_path}}
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
     
-## Testing
+## Test
 
 **Create a topic**:
 
-Let’s create a topic named “test” with a single partition and only one replica.
-Navigate to the <KAFKA_HOME> and run following command.
-   
+Let’s create a topic named `test` with a single partition and only one replica.
+Navigate to the <KAFKA_HOME> and run following command. 
 ```bash
 bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test     
 ```
 
-**Sample Request**:
+**Sample request**:
    
 Send a message to the Kafka broker using a CURL command or sample client.
-
 ```bash
 curl -X POST -d '{"name":"sample"}' "http://localhost:8290/publishMessages" -H "Content-Type:application/json" -v
 ```
 
-**Expected Response**: 
+**Expected response**: 
    
 Navigate to the <KAFKA_HOME> and run the following command to verify the messages:
-
 ```bash
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
 
 See the following message content:
-
 ```bash
 {"name":"sample"}
 ```   
