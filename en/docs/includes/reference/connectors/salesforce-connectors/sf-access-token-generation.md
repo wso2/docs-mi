@@ -40,9 +40,9 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
    
 8. On the page that opens, click the **Edit** button. Under **OAuth policies**, select All users may self-authorize in the Permitted Users list, and then click the **Save** button.   
 
-9. Now we have to obtain the access token and refresh token as indicated below. Enter the following URL in your web browser. **<DOMAIN>** should be replaced with your `domain name`, in my example it is `abcd-1f7-dev-ed`.
+9. Now, we have to obtain the access token and refresh token as indicated below. Enter the following URL in your web browser. **<DOMAIN>** should be replaced with your `domain name`, in this example it is `abcd-1f7-dev-ed`.
 
-    Goto **Settings**->**Company Settings**->**My Domain** to find your `domain name`. 
+    Go to **Settings**->**Company Settings**->**My Domain** to find your `domain name`.
 
     ```
     https://<DOMAIN>.develop.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=<CONSUMER_KEY>&redirect_uri=https://login.salesforce.com
