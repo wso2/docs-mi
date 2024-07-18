@@ -53,7 +53,7 @@ Following is a sample REST API configuration that we can used to implement this 
      ```
 === "HealthCare Endpoint"
      ```xml
-     <endpoint name="GrandOaks" xmlns="http://ws.apache.org/ns/synapse">
+     <endpoint name="HealthCare" xmlns="http://ws.apache.org/ns/synapse">
          <address uri="http://localhost:9090/healthcare"/>
      </endpoint>
      ```
