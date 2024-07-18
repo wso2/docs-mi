@@ -54,7 +54,7 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
     https://login.salesforce.com/?code=aPrxYXyxzkuBzbiNknnlq2OFfWuX.EU66JOpBnNb_.rLpGZu.FdWAZXvDF6PtpoNWUjnrjYX8g%3D%3D
     ```
 
-10. Note down the value of the code. In my case, it is: 
+10. Note down the value of the code. In this case, it is: 
 
     ```
     aPrxYXyxzkuBzbiNknnlq2OFfWuX.EU66JOpBnNb_.rLpGZu.FdWAZXvDF6PtpoNWUjnrjYX8g%3D%3D
