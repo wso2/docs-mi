@@ -12,13 +12,13 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 Goo
 
 To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/) documentation to setup an account.
 
-In this scenario the user needs to create a **Topic** in **Google Cloud Platform account** under **Big Data**. This topic is used to store notifications related to the company updates. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally the user can retrieve the company updates from the subscribed topic while invoking the API.
+In this scenario, the user needs to create a **Topic** in **Google Cloud Platform account** under **Big Data**. This topic is used to store notifications related to company updates. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally, the user can retrieve the company updates from the subscribed topic while invoking the API.
 
 All three operations are exposed via an API. The API with the context `/resources` has three resources.
 
 * `/createTopic` : Used to create a Topic for store company notifications and subscribe to the topic. 
 * `/insertCompanyNotifications` : Used to insert company update notifications to the subscribed topic.
-* `/getCompanyNotifications` : Used to retrieve information about the company updates.
+* `/getCompanyNotifications` : Used to retrieve information about company updates.
 
 > **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. If you are using **EI 7** or **APIM 4.0.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport). If you are using **EI 6**, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
    ```   
@@ -26,13 +26,13 @@ All three operations are exposed via an API. The API with the context `/resource
    synapse.enable_xpath_dom_failover=true
    ```
    
-The following diagram shows the overall solution. The user creates a topic, stores some company update notifications, and then receives it back. To invoke each operation, the user uses the same API.
+The following diagram shows the overall solution. The user creates a topic, stores some company update notifications, and then receives them back. To invoke each operation, the user uses the same API.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-connector1.png" title="pub-sub connector example" width="700" alt="pub-sub connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setup the Integration Project
+## Setting up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
@@ -82,7 +82,7 @@ First create an API, which will be where we configure the integration logic. Spe
     
         > **Note**: The properties should be added to the pallet before creating the operation.
     
-    4. Add the property mediator to capture the `topicName` value. The topicName contains the name that you want to give the topic that you are creating.
+    4. Add the property mediator to capture the `topicName` value. The topicName contains the name that you want to give to the topic that you are creating.
 
         - **name** : topicName
         - **expression** : json-eval($.topicName)
@@ -122,7 +122,7 @@ First create an API, which will be where we configure the integration logic. Spe
 
 4. Forward the backend response to the API caller.
 
-    When you are invoking the created resource, the request of the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.
+    When you are invoke the created resource, the request for the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.
 
     1. Add the **respond mediator** to the **Design view**. 
 
@@ -164,7 +164,7 @@ First create an API, which will be where we configure the integration logic. Spe
 
 1. Initialize the connector.
 
-   1. Initialize the connector. You can use the same configuration to initialize the connector. Please follow the steps given in section 1 for setting up the init operation to the createTopic operation
+   1. Initialize the connector. You can use the same configuration to initialize the connector. Please follow the steps given in section 1 for setting up the init operation for the createTopic operation
 
    2. Set up the `pullMessage` operation. Navigate into the **Connectors** pane and select the **Googlepubsub Connector** section. Then select the `pullMessage` operation.
 
