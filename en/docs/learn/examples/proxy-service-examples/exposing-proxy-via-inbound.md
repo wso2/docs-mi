@@ -8,14 +8,14 @@ Following is a sample proxy service configuration that we can used to implement 
     ```xml
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="InboundProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
             <target>
-                <outSequence>
-                    <send/>
-                </outSequence>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
+                <inSequence>
+                    <call>
+                        <endpoint key="endpoint1"/>
+                    </call>
+                    <respond/>
+                </inSequence>
             </target>
-            <parameter name="inbound.only">true</parameter>
+        <parameter name="inbound.only">true</parameter>
     </proxy>
     ```
 === "Inbound Endpoint"    
@@ -32,13 +32,18 @@ Following is a sample proxy service configuration that we can used to implement 
        </parameters>
     </inboundEndpoint>
     ```
-
+=== "Endpoint"
+    ```
+    <endpoint name="endpoint1" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 ## Build and run
 
 Create the artifacts:
 
 {!includes/build-and-run.md!}   
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with the configurations given above.
+3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
