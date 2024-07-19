@@ -911,6 +911,10 @@ plugins:
               'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
               'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-projects/'
               'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-artifacts/'
+              'learn/integration-tutorials/service-catalog-tutorial.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
 
   # Extra
 extra_css:
