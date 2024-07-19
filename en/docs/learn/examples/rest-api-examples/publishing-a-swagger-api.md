@@ -22,7 +22,6 @@ Following is a sample REST API configuration with a custom Swagger definition. S
                 <format>{"Response" : "Sample Response"}</format>
                 <args/>
             </payloadFactory>
-            <loopback/>
             <respond/>
         </inSequence>
         <faultSequence/>
@@ -35,7 +34,6 @@ Following is a sample REST API configuration with a custom Swagger definition. S
                 <format>{"Response" : "Sample Response"}</format>
                 <args/>
             </payloadFactory>
-            <loopback/>
             <respond/>
         </inSequence>
         <faultSequence/>
