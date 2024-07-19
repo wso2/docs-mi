@@ -11,30 +11,44 @@ This configuration creates two Proxy Services. The first Proxy Service (StockQuo
         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
     </endpoint>
     ```
-=== "Local Entry"    
+=== "Local Entry"
     ```xml
     <localEntry xmlns="http://ws.apache.org/ns/synapse" key="proxy_wsdl" src="file:samples/wsdl/sample_proxy_1.wsdl"/>
     ```
 === "Sequence"    
     ```xml
-    <sequence name="proxy_1"  trace="disable"  xmlns="http://ws.apache.org/ns/synapse">
+    <sequence name="common" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <call>
-            <endpoint key="SimpleStockQuoteService" />
+            <endpoint key="SimpleStockQuoteService"/>
         </call>
-        <respond />
+        <respond/>
     </sequence>
     ```
-=== "Proxy Service 1"    
+=== "Proxy Service 1"
     ```xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy1" transports="http https">
-        <target inSequence="proxy_1"/>
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="Proxy1" transports="http https">
+        <target>
+            <inSequence>
+                <log category="INFO" level="simple">
+                    <property name="name" value="proxy_1"/>
+                </log>
+                <sequence key="common"/>
+            </inSequence>
+        </target>
         <publishWSDL key="publishWSDL" preservePolicy="true"/>
     </proxy>
     ```
-=== "Proxy Service 2"    
+=== "Proxy Service 2"
     ```xml
-    <proxy name="StockQuoteProxy2" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target endpoint="SimpleStockQuoteService"/>
+    <proxy name="Proxy2" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log category="INFO" level="simple">
+                    <property name="name" value="proxy_2"/>
+                </log>
+                <sequence key="common"/>
+            </inSequence>
+        </target>
     </proxy>
     ```
 
