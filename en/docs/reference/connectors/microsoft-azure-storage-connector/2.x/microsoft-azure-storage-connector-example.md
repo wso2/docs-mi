@@ -21,7 +21,7 @@ For more information about these operations, please refer to the [Microsoft Azur
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-## Create the Integration Logic
+## Create the Integration logic
 
 1. Click `+` on the Extension panel APIs to create the REST API. Specify the API name as `MSAzureStorageTestAPI` and the API context as `/azure`. Then, delete the default `/resource` endpoint.
 
