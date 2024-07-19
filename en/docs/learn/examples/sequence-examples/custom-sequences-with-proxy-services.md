@@ -11,11 +11,7 @@ This configuration creates two Proxy Services. The first Proxy Service (StockQuo
         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
     </endpoint>
     ```
-=== "Local Entry"
-    ```xml
-    <localEntry xmlns="http://ws.apache.org/ns/synapse" key="proxy_wsdl" src="file:samples/wsdl/sample_proxy_1.wsdl"/>
-    ```
-=== "Sequence"    
+=== "Sequence"
     ```xml
     <sequence name="common" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <call>
@@ -35,7 +31,6 @@ This configuration creates two Proxy Services. The first Proxy Service (StockQuo
                 <sequence key="common"/>
             </inSequence>
         </target>
-        <publishWSDL key="publishWSDL" preservePolicy="true"/>
     </proxy>
     ```
 === "Proxy Service 2"
