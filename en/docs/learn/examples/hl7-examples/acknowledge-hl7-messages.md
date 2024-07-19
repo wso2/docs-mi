@@ -70,7 +70,7 @@ Given below is a sample proxy service that is configured to send an ACK/NACK as 
                     <endpoint key="HL7Endpoint" />
                  </call>
                  <log level="custom">
-                     <property name="OUT" value="***********out sequence proxy2***********"/>
+                     <property name="AFTER" value="************HL7 Endpoint invoked***********"/>
                  </log>
                  <drop/>
              </inSequence>
