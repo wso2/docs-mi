@@ -165,8 +165,9 @@ Following are the integration artifacts that we can used to implement this scena
                  </payloadFactory>
                  <header name="Action" scope="default" value="urn:getQuote"/>
                  <call>
-                    <endpoint key="SimpleStockQuoteService" />
+                    <endpoint key="SimpleStockQuoteService"/>
                  </call>
+                 <respond/>
                 </inSequence>
                 <faultSequence/>
             </resource>
