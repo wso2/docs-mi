@@ -10,16 +10,16 @@ The Amazon SQS queue will receive messages from a third party system, while the 
 
 The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
-1. Select the Micro Integrator VS Code Extension and click on `+` in Inbound Endpoints to create a new inbound endpoint. Select the 
-creation Type as **custom**.
+1. Select the Micro Integrator VS Code Extension and click on `+` in `Inbound Endpoints` to create a new inbound endpoint. Select the 
+creation Type as `custom`.
    
    <img src="{{base_path}}/assets/img/integrate/connectors/sqs-inbound.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
-2. In the form set the class name to `org.wso2.carbon.inbound.amazonsqs.AmazonSQSPollingConsumer` under the `Basic` section.
+2. In the form, set the class name to `org.wso2.carbon.inbound.amazonsqs.AmazonSQSPollingConsumer` under the `Basic` section.
 
 3. Navigate to the source view and update it with the following configuration as required. 
      
@@ -64,8 +64,8 @@ creation Type as **custom**.
     - **accessKey** : The access key that corresponds to the secret key that you used to sign the request.
     - **destination** : URL of the Amazon SQS Queue from which you want to consume messages.
    
-## Exporting Integration Logic
-In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
+## Export integration logic
+In order to export the project, refer to the [build and export the composite application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Deployment
 
@@ -74,7 +74,7 @@ Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnect
   
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-## Testing  
+## Test 
 
 Please log in to the Amazon **Simple Queue Service**-> created **Queue**. Select the Queue and **right click**-> **Send a Message**-> enter **Message**, or you can even use [AmazonSQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example) we have implemented before.
 
