@@ -40,19 +40,27 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
 
 Set up the MQTT server:
 
-1.  Install Mosquitto. (This sample is tested for [Mosquitto1.6.7 version](https://mosquitto.org/download/)). The Mosquitto server will run automatically in the background.
-2.  Download [MQTT client library](http://repo.spring.io/plugins-release/org/eclipse/paho/mqtt-client/0.4.0/) (i.e. `          mqtt-client-0.4.0.jar         ` ) and add it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` directory.
+1. Install Mosquitto. (This sample is tested for [Mosquitto1.6.7 version](https://mosquitto.org/download/)). The Mosquitto server will run automatically in the background.
+2. Add [MQTT client library](https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client/0.4.0) to pom.xml file in the integration project.
+    ```xml
+    <dependency>
+        <groupId>org.eclipse.paho</groupId>
+        <artifactId>mqtt-client</artifactId>
+        <version>0.4.0</version>
+    </dependency>
+    ```
 
-[Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Open a new terminal and enter the below command to send an MQTT message using mosquitto-pub. Be sure to enter the MQTT Topic Name you entered when creating the inbound endpoint as shown below.
 
-`mosquitto_pub -t <MQTT Topic Name>  -m "<msg><a>Testing123</a></msg>`
+```bash
+mosquitto_pub -t <MQTT Topic Name>  -m "<msg><a>Testing123</a></msg>"
+```
 
 You will see that the Micro Integrator receives a message when the Micro Integrator Inbound is set as the ultimate receiver.
