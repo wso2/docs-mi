@@ -37,6 +37,7 @@ Following are the integration artifacts that we can used to implement this scena
                     <endpoint key="EP" />
                 </call>
                 <log level="full"/>
+                <respond />
             </inSequence>
             <faultSequence/>
         </target>
