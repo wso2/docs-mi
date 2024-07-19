@@ -8,7 +8,7 @@ Following are the integration artifacts that we can used to implement this scena
 === "Inbound Endpoint"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <inboundEndpoint name="Sample1" onError="fault" protocol="hl7" sequence="main" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+    <inboundEndpoint name="Sample1" onError="fault" protocol="hl7" sequence="msgReceiveSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
         <parameters>
             <parameter name="inbound.hl7.Port">20000</parameter>
             <parameter name="inbound.hl7.AutoAck">true</parameter>
@@ -23,7 +23,7 @@ Following are the integration artifacts that we can used to implement this scena
 === "Main Sequence"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="main" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence name="msgReceiveSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <inSequence>
             <log level="full"/>
             <drop/>
