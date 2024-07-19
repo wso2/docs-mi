@@ -1,4 +1,4 @@
-# Snowflake Connector Example
+# Snowflake connector example
 
 The Snowflake Connector allows you to access the [Snowflake JDBC Driver API](https://docs.snowflake.com/developer-guide/jdbc/jdbc) from an integration sequence. This provides functionalities to execute a set of standard Snowflake DDL, DML, and query commands. You can use the connector to perform query, execute and batch execute operations on Snowflake databases. 
 
@@ -42,7 +42,7 @@ create table RESERVATIONS (
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-### Setup the Integration Project
+### Setup the integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
@@ -244,7 +244,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
       </api>
       ```
 
-## Export Integration Logic as a CApp 
+## Export integration logic as a carbon application 
 
 To export the project, please refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
