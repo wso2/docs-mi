@@ -1,4 +1,4 @@
-# DB Event Inbound Endpoint Example 
+# DB event inbound endpoint example 
 
 Following are the main features of the event generator. 
 
@@ -17,7 +17,7 @@ Following diagram shows the overall solution we are going to build. External sys
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the environment 
+## Set up the environment 
 
 First, install [MySQL database](https://www.mysql.com/downloads/) locally. If you have a remote server, please obtain credentials required to connect. In this example, database credentials are assumed as username=`root` and password=`root`. 
 
@@ -40,7 +40,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
   ```
 
 
-## Configure inbound endpoint using WSO2 Integration Studio
+## Configure inbound endpoint using micro integrator
 
 1. Create an **Integration Project** as below. 
 <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-create-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
@@ -78,7 +78,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
     <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep-config-1.png" title="Configure DB event inbound endpoint 1" width="600" alt="Configure DB event inbound endpoint 1" style="border:1px solid black"/>
     <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep-config-2.png" title="Configure DB event inbound endpoint 2" width="600" alt="Configure DB event inbound endpoint 2" style="border:1px solid black"/>
   <br/>
-  Source view of the created custome inbound endpoint will be as below. 
+  Source view of the created custom inbound endpoint will be as below. 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <inboundEndpoint class="org.wso2.carbon.inbound.poll.dbeventlistener.DBEventPollingConsumer" name="CustomerDBEventEP" onError="eventProcessFailSeq" sequence="DBEventProcessSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
@@ -103,7 +103,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
   ```
 
 
-## Exporting Integration Logic as a CApp
+## Export integration logic as a carbon application
 
 Follow the steps provided in the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
@@ -118,7 +118,7 @@ You can download the ZIP file and extract the contents to get the project code.
 !!! tip
     You may need to update the database details and make other such changes before deploying and running this project.
 
-## Deploying on WSO2 Enterprise Integrator
+## Deployment
 
 1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `DB Event Listener`. Click on `DB Event Listener` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into the <PRODUCT-HOME>/lib folder. 
 
@@ -130,9 +130,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Now the integration runtime will start listening to the data changes of `CDC_CUSTOM` table. 
 
-## Testing
+## Test
 
-### Adding a new record
+### Add a new record
 
 1. Using MySQL terminal, execute the following SQL to insert a new customer record into the table. 
   ```sql
@@ -159,6 +159,6 @@ Now the integration runtime will start listening to the data changes of `CDC_CUS
 
 > **Note**: You can do any type of advanced integration using the rich mediator catalog, not just logging. 
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) documentation for all configuration options of the endpoint.
