@@ -12,7 +12,7 @@ Following are the integration artifacts that we can used to implement this scena
 === "Proxy service"
     ```xml
     <proxy name="FaultTestProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target faultSequence="fault">
+        <target>
             <inSequence>
                 <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
                     <case regex="IBM">
@@ -31,6 +31,13 @@ Following are the integration artifacts that we can used to implement this scena
                 </switch>
                 <drop/>
             </inSequence>
+            <faultSequence>
+                <log level="custom">
+                    <property name="text" value="An unexpected error occured"/>
+                    <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+                </log>
+                <drop/>
+            </faultSequence>
         </target>
     </proxy>
     ```
@@ -43,16 +50,6 @@ Following are the integration artifacts that we can used to implement this scena
     
 -   Mediation sequences:
 
-    === "Fault Sequence"
-        ```xml
-        <sequence xmlns="http://ws.apache.org/ns/synapse" name="fault">
-            <log level="custom">
-                <property name="text" value="An unexpected error occured"/>
-                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
-            <drop/>
-        </sequence>
-        ```
     === "Error Handling Sequence with Logs"        
         ```xml
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
