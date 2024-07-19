@@ -136,4 +136,4 @@ When you send a sample JSON payload from the client, you will see that a connect
 
 This shows that the sequences are executed by the WebSocket inbound endpoint.
 
-You will also see that the message sent to the WebSocket server is transformed, and that the response is also transformed.
+You will also see that both of the message sent to the WebSocket server and the response are transformed.
