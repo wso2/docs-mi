@@ -20,26 +20,26 @@ Following are the integration artifacts that we can used to implement this scena
             </m0:getQuote>
         </property>
         <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="injectTo" value="sequence"/>
-        <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="sequenceName"   value="main"/>
+        <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="sequenceName" value="retrieveQuote"/>
     </task>
     ```
 === "Main Sequence"    
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="main" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence name="retrieveQuote" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <call>
-            <endpoint key="SimpleStockQuoteService" />
+            <endpoint key="SimpleStockQuoteService"/>
         </call>
         <log level="custom">
             <property name="First_Value"
                 expression="//ns:getQuoteResponse/ns:return/ax21:open/child::text()"
-                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" />
+                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
             <property name="For_the_organization"
                 expression="//ns:getQuoteResponse/ns:return/ax21:name/child::text()"
-                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" />
+                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
             <property name="Last_Value"
                 expression="//ns:getQuoteResponse/ns:return/ax21:last/child::text()"
-                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" />
+                xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
         </log>
         <drop />
     </sequence>
