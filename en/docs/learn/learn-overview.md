@@ -85,6 +85,8 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
 
 Learn how to implement various integration use cases, deploy them in the Micro Integrator, and test them locally.
 
+<!--
+
 -   API-led Integration tutorials
 
     <table>
@@ -99,6 +101,8 @@ Learn how to implement various integration use cases, deploy them in the Micro I
         </td>
     </tr>
     </table>
+
+-->
 
 -   Message mediation tutorials
 
