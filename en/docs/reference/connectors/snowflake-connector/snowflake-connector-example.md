@@ -244,7 +244,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
       </api>
       ```
 
-## Exporting Integration Logic as a CApp 
+## Export Integration Logic as a CApp 
 
 To export the project, please refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
@@ -264,7 +264,7 @@ To deploy and run the project, please refer to the [build and run]({{base_path}}
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-### Testing the resources
+### Test the resources
 
 Let's test the API. Deploy the carbon application and start the Micro Integrator.
 
