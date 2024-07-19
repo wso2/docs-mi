@@ -1,22 +1,22 @@
 # Snowflake Connector Example
 
-The Snowflake Connector allows you to access the [Snowflake JDBC Driver API](https://docs.snowflake.com/developer-guide/jdbc/jdbc) from an integration sequence. This provides functionalities to execute a set of standard Snowflake DDL, DML and query commands. You can use the connector to perform query, execute and batch execute operations on Snowflake databases. 
+The Snowflake Connector allows you to access the [Snowflake JDBC Driver API](https://docs.snowflake.com/developer-guide/jdbc/jdbc) from an integration sequence. This provides functionalities to execute a set of standard Snowflake DDL, DML, and query commands. You can use the connector to perform query, execute and batch execute operations on Snowflake databases. 
 
 ## What you'll build
 
-This example demonstrates how to use the Snowflake Connector for querying, inserting, batch inserting and deleting data in a Snowflake database. Let's consider a use-case involving a hotel database for managing reservations. Within the hotel database, there exists a table named RESERVATIONS responsible for storing reservation details.
+This example demonstrates how to use the Snowflake Connector for querying, inserting, batch inserting, and deleting data in a Snowflake database. Let's consider a use case involving a hotel database for managing reservations. Within the hotel database, there exists a table named RESERVATIONS responsible for storing reservation details.
 
-1. Insert a single record to the Snowflake database.
-2. Insert multiple records to the Snowflake database.
+1. Insert a single record into the Snowflake database.
+2. Insert multiple records into the Snowflake database.
 3. Query data from the Snowflake database.
 4. Delete data from the Snowflake database.
 
 All operations are exposed via an API. The API with the context `/snowflakeconnector` has 4 resources.
 
-* `/insertReservation` : Insert a single reservation to the Snowflake database.
-* `/insertReservationBatch` : Insert a batch of reservations to the Snowflake database.
-* `/getReservationInfo` : Retrieve all the reservations from the Snowflake database.
-* `/deleteReservation` : Delete a reservation from the Snowflake database.
+* `/insertReservation`: Insert a single reservation to the Snowflake database.
+* `/insertReservationBatch`: Insert a batch of reservations to the Snowflake database.
+* `/getReservationInfo`: Retrieve all the reservations from the Snowflake database.
+* `/deleteReservation`: Delete a reservation from the Snowflake database.
 
 ## Before you begin
 
@@ -44,7 +44,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ### Setup the Integration Project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
    <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-conn-create-project.png" title="Create new Integration Project" width="800" alt="Create new Integration Project"/>
 
@@ -81,7 +81,7 @@ Users can utilize this resource to insert a single record into the Snowflake dat
 
       <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-conn-execute-operation.png" title="Add execute operation from connector" width="800" alt="Add execute operation from connector"/>
       
-      1. Then in appearing window, you see an option to add new connection. Click on `Add new connection` to initiate a new Snowflake Connection. 
+      1. Then in the appearing window, you see an option to add a new connection. Click on `Add new connection` to initiate a new Snowflake Connection. 
          
          <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-conn-connection-config.png" title="Snowflake Connection Config" width="400" alt="Snowflake Connection Config"/>
          
@@ -91,7 +91,7 @@ Users can utilize this resource to insert a single record into the Snowflake dat
          4. Provide your Snowflake password in the `Password` text box.
          5. Click **Add**.
       
-      2. Select the created connection for `execute` operation. 
+      2. Select the created connection for the `execute` operation. 
       3. In the `Execute Query` text box, enter the following query.
          ```sql
          INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -140,7 +140,7 @@ Using this resource users retrieve all records from table `Reservations` of `HOT
 
 #### - /insertReservationBatch
 
-Using this resource users can insert multiple records into table `Reservations` of `HOTEL_DB`. The user will be sending the bulk payload in the request body.
+Using this resource users can insert multiple records into the table `Reservations` of `HOTEL_DB`. The user will be sending the bulk payload in the request body.
 
 1. In the API insequence add the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) to extract the payload from the request body. Let's store the payload in a property called `payload`.
     ```xml
@@ -262,7 +262,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 To deploy and run the project, please refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ### Test the resources
 
