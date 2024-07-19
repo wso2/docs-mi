@@ -10,12 +10,14 @@ An `inSequence` or `endpoint` or both of these would decide how the message woul
 ```xml
 <proxy name="StockQuoteProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
-        <endpoint>
-            <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-        </endpoint>
-        <outSequence>
-            <send/>
-        </outSequence>
+        <inSequence>
+            <call>
+                <endpoint>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService" />
+                </endpoint>
+            </call>
+            <respond />
+        </inSequence>
     </target>
     <publishWSDL uri="file:/path/to/sample_proxy_1.wsdl"/>
 </proxy>
