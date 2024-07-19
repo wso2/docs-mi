@@ -16,7 +16,7 @@ An `inSequence` or `endpoint` or both of these would decide how the message woul
                     <address uri="http://localhost:9000/services/SimpleStockQuoteService" />
                 </endpoint>
             </call>
-            <respond />
+            <respond/>
         </inSequence>
     </target>
     <publishWSDL uri="file:/path/to/sample_proxy_1.wsdl"/>
