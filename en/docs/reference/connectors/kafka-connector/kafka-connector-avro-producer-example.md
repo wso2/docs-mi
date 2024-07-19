@@ -1,4 +1,4 @@
-# Avro Message with Kafka Connector Example
+# Avro message with Kafka connector example
 
 Given below is a sample scenario that demonstrates how to send Apache Avro messages to a Kafka broker via Kafka topics. The `publishMessages` operation allows you to publish messages to the Kafka brokers via Kafka topics.
 
@@ -12,10 +12,10 @@ API has the `/publishMessages` context. It publishes messages via the topic to t
 
 Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
 
-## Setup the Integration Project
+## Set up the Integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
-## Creating the Integration Logic
+## Creating the Integration logic
 
 1. Click `+` on the Extension panel APIs to create the REST API.
 
