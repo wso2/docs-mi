@@ -46,7 +46,7 @@ Create the artifacts:
 Set up the MQTT server:
 
 1. Install Mosquitto. (This sample is tested for [Mosquitto1.6.7 version](https://mosquitto.org/download/)). The Mosquitto server will run automatically in the background.
-2.  Add [MQTT client library](https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client/0.4.0) to pom.xml file in the integration project.
+2. Add [MQTT client library](https://mvnrepository.com/artifact/org.eclipse.paho/mqtt-client/0.4.0) to pom.xml file in the integration project.
     ```xml
     <dependency>
         <groupId>org.eclipse.paho</groupId>
