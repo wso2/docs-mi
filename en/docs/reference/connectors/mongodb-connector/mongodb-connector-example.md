@@ -1,4 +1,4 @@
-# MongoDB Connector Example
+# MongoDB connector example
 
 The MongoDB Connector can be used to perform CRUD operations in the local database as well as in MongoDB Atlas (cloud version of MongoDB).
 
@@ -35,7 +35,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 6. Clear the **Include full driver code example** check box to get the connection string.
 
 
-## Creating the Integration Project in WSO2 MI VS Code Extension
+## Creating the Integration project in WSO2 MI VS code extension
 
 1.  Create a new integration project named `MongodbConnector`.
 
@@ -235,6 +235,6 @@ You can further refer the application deployed through the CLI tool. See the ins
     ]
     ```
 
-## What's Next
+## What's next
 
 - To customize this example for your own scenario, see [MongoDB Connector Configuration]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-config/) documentation for all operation details of the connector.
