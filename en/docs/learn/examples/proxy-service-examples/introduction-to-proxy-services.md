@@ -13,7 +13,7 @@ An `inSequence` or `endpoint` or both of these would decide how the message woul
         <inSequence>
             <call>
                 <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService" />
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
             </call>
             <respond/>
