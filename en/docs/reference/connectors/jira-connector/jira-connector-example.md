@@ -1,4 +1,4 @@
-# Jira Connector Example
+# Jira Connector example
 
 The Jira REST API enables you to interact with Jira programmatically. The WSO2 JIRA Connector allows you to access the REST resources available in Jira Cloud [API Version v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/) from an integration sequence.
 
@@ -16,11 +16,11 @@ You will use two HTTP API resources, which are `createIssue` and `getIssue`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setup the Integration Project
+## Setup the Integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-## Creating the Integration Logic
+## Creating the Integration logic
 
 1. Click `+` on the Extension panel APIs to create the REST API.
 
@@ -88,7 +88,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 ## Testing
 
 
-### Create Issue Operation
+### Create issue operation
 
 1.  Create a file named `createIssue.json` with the following payload:
     ```json
@@ -126,7 +126,7 @@ You can further refer the application deployed through the CLI tool. See the ins
     }
     ```
 
-### Read Issue Operation
+### Read issue operation
 
 1.  Create a file named `getIssue.json` with the following payload:
 
@@ -340,7 +340,7 @@ You can further refer the application deployed through the CLI tool. See the ins
     }
     ```
 
-## What's Next
+## What's next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Deploying your Integrations on Containers]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/).
 * To customize this example for your own scenario, see [Jira Connector Configuration]({{base_path}}/reference/connectors/jira-connector/jira-connector-config) documentation for all operation details of the connector.
