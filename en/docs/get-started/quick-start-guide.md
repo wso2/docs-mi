@@ -183,7 +183,7 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
 
     === "On MacOS/Linux"
         ```bash 
-        ./micro-integrator.sh
+        sh micro-integrator.sh
         ```         
     === "On Windows"
         ```bash 
