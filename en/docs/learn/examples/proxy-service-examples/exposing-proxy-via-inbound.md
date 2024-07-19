@@ -15,7 +15,7 @@ Following is a sample proxy service configuration that we can used to implement 
                     <respond/>
                 </inSequence>
             </target>
-        <parameter name="inbound.only">true</parameter>
+            <parameter name="inbound.only">true</parameter>
     </proxy>
     ```
 === "Inbound Endpoint"    
