@@ -45,7 +45,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 1. Create an **Integration Project** as below. 
 <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-create-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
-2. Create 2 sequences to process the database event and handle the failure of the database event. 
+2. Create two sequences to process the database event and handle the failure of the database event. 
   <br/>
   Sequence to process the database event 
     ```
