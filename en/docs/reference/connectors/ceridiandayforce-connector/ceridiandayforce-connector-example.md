@@ -106,7 +106,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     Click on **Submit** to save the configurations.
 
-10. Add a **Send** mediator to the mediation logic to send the response back to the client.
+10. Add a **[Respond]({{base_path}}/reference/mediators/respond-mediator/)** mediator to the mediation logic to respond back to the client.
 
 11. Let's add the logic to create contacts of an employee. Click on the **Service Designer** and add a new resource method with the following configurations as shown below.
 
@@ -174,7 +174,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     Click on **Submit** to save the configurations.
 
-19. Add a **Send** mediator to the mediation logic to send the response back to the client.
+19. Add a **[Respond]({{base_path}}/reference/mediators/respond-mediator/)** mediator to the mediation logic to respond back to the client.
 
 20. The complete XML configuration of the API is as follows.
 
@@ -205,7 +205,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 				    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
 				    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
 			    </ceridiandayforce.getEmployeeAddresses>
-			    <send/>
+			    <respond/>
 		    </inSequence>
 		    <faultSequence>
 		    </faultSequence>
@@ -233,7 +233,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 				    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
 				    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
 			    </ceridiandayforce.postEmployeeContacts>
-			    <send/>
+			    <respond/>
 		    </inSequence>
 		    <faultSequence>
 		    </faultSequence>
@@ -242,7 +242,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     ```
 
 ## Exporting integration logic as a CApp
-In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
+In order to export the project, refer to the [build and export the composite application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
 ## Get the project
 
@@ -256,7 +256,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.  
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ## Testing
 
