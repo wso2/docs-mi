@@ -1,4 +1,4 @@
-# DB event inbound endpoint example 
+# DB Event Inbound Endpoint Example 
 
 The following are the main features of the event generator. 
 
