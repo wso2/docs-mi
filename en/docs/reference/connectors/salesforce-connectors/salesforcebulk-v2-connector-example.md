@@ -57,9 +57,9 @@ By default, the `text/csv` message formatter and message builder are not configu
     - `	<messageBuilder contentType="text/csv" class="org.apache.axis2.format.PlainTextBuilder"/>`
 6. Save the file and restart the Micro Integrator.
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
 ### Add integration logic
 
@@ -517,7 +517,7 @@ Let's add the operations to the resources in the `Salesforce` API
     </api>
     ```
 
-### Testing the resources
+### Test the resources
 
 Let's test the API. Start the MI and deploy the API. 
 
