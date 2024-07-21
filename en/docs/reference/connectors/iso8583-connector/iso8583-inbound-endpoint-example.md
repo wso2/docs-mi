@@ -18,7 +18,7 @@ For example, while transferring bank and financial sector information using the 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
 
-## Setting up the integration project
+## Set up the integration project
 
 1. Add a new **custom inbound endpoint** by clicking `+` icon in the `Inbound Endpoints`. </br> 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
@@ -49,7 +49,7 @@ For example, while transferring bank and financial sector information using the 
        </log>
    </sequence>
    ```
-## Exporting Integration Logic as a CApp
+## Export integration logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Deployment
@@ -61,7 +61,7 @@ In order to export the project, refer to the [build and export the carbon applic
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 
-## Testing  
+## Test
 
 1. Run Test Client program. Use a ISO8583 standard message as input;
 
