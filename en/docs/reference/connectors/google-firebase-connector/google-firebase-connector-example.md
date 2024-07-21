@@ -22,11 +22,11 @@ Overall integration scenario would look like below.
 
 You need to create an application in Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-1. Select Micro Integrator Extension and click on `+` in APIs to create a REST API.
+1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
 2. Specify the API name as `FirebaseNotify` and API context as `/firebasenotify`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -174,7 +174,7 @@ clientCertUrl --> client_x509_cert_url
 
 Now we can export the imported connector, sequence, and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
 
-## Exporting Integration Logic as a CApp
+## Export integration logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
@@ -203,7 +203,7 @@ and place those into `<Project_Home>/deployment/libs` folder.
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-## Testing
+## Test
 
 We can use Curl or Postman to try the API. The testing steps are provided for curl. Steps for Postman should be straightforward and can be derived from the curl requests.
 
