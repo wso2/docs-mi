@@ -32,9 +32,9 @@ The following diagram shows the overall solution. The user creates a topic, stor
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
 ### Add integration logic
 
@@ -42,7 +42,7 @@ First create an API, which will be where we configure the integration logic. Spe
 
 <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-#### Configuring the API
+#### Configure the API
 
 **Configure a resource for the createTopic operation**
 
@@ -58,8 +58,8 @@ First create an API, which will be where we configure the integration logic. Spe
         
         - **accessToken** : The access token that grants access to the Google Pub/Sub API on behalf of a user.
         - **apiUrl** : The application URL of Google Pub/Sub.
-        - **apiVersion** : The version of the Google Pub/Sub API.     
-    
+        - **apiVersion** : The version of the Google Pub/Sub API.
+
 
 2. Set up the **createTopic** operation.
 
@@ -84,8 +84,8 @@ First create an API, which will be where we configure the integration logic. Spe
     
     4. Add the property mediator to capture the `topicName` value. The topicName contains the name that you want to give to the topic that you are creating.
 
-        - **name** : topicName
-        - **expression** : json-eval($.topicName)
+        - **name** : `topicName`
+        - **expression** : `json-eval($.topicName)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property1-value1.png" title="Add property mediators topicName" width="800" alt="Add property mediators topicName"/>
 
@@ -101,22 +101,22 @@ First create an API, which will be where we configure the integration logic. Spe
 
     2. Add the property mediator to capture the `subscriptionName` values. This contains the name of the subscription.
 
-        - **name** : subscriptionName
-        - **expression** : json-eval($.subscriptionName)
+        - **name** : `subscriptionName`
+        - **expression** : `json-eval($.subscriptionName)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property2-value2.png" title="Add values to capture subscriptionName" width="800" alt="Add values to capture subscriptionName"/>  
 
     3. Add the property mediator to store the name of the created Topic value from the response of the createTopic operation. 
 
-        - **name** : nameforsubscription
-        - **expression** : json-eval($.name)
+        - **name** : `nameforsubscription`
+        - **expression** : `json-eval($.name)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-nameforsubscription.png" title="Add values to capture nameforsubscription" width="800" alt="Add values to capture nameforsubscription"/>
 
     4. Add the property mediator to capture the Topic name from the response using the splitting separators in the results.  
 
-         - **name** : test
-         - **expression** : fn:tokenize($ctx:nameforsubscription,'/')[last()]
+         - **name** : `test`
+         - **expression** : `fn:tokenize($ctx:nameforsubscription,'/')[last()]`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-splitting.png" title="Add values to capture splitting value" width="800" alt="Add values to capture splitting value"/>
 
@@ -145,18 +145,18 @@ First create an API, which will be where we configure the integration logic. Spe
        - **data** :  The message payload.
 
        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-publishmessage-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
-               
+
    3. Add the property mediator to capture the `topicName` values.
 
-       - **name** : topicName
-       - **expression** : json-eval($.topicName)
+       - **name** : `topicName`
+       - **expression** : `json-eval($.topicName)`
 
        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-topicname1.png" title="Add values to the topicName operation" width="800" alt="Add values to the topicName operation"/>
        
    4. Add the property mediator to capture the `data` values.    
 
-       - **name** : data
-       - **expression** : json-eval($.data)
+       - **name** : `data`
+       - **expression** : `json-eval($.data)`
 
        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-data.png" title="Add values to the data operation" width="800" alt="Add values to the data operation"/>
 
@@ -266,9 +266,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-## Testing
+## Test
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 1. Create a Topic for store company update notifications.
 
