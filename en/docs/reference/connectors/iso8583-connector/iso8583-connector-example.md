@@ -14,11 +14,11 @@ To know further information about the `init` and `iso8583.sendMessage` operation
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the integration project
+## Set up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API.
+1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
 
 2. Specify the API name as `SendisoTestAPI` and API context as `/sendiso`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 
@@ -43,7 +43,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    ```
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-## Exporting Integration Logic as a CApp
+## Export integration logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
@@ -60,10 +60,10 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
   
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
-      
+
    ```
           curl -v POST -d 
           '<ISOMessage>
@@ -75,7 +75,7 @@ Invoke the API as shown below using the curl command. Curl application can be do
                 <field id="127">01581200F230040102B000000000000004000000</field>
                </data>
            </ISOMessage>' "http://localhost:8290/sendiso" -H "Content-Type:application/xml"
-   ```        
+   ```
 **Expected Response**:
    
    ```
@@ -86,4 +86,4 @@ Invoke the API as shown below using the curl command. Curl application can be do
           <field id="23">000</field>
           </data>
           </ISOMessage>  
-   ```                           
+   ```
