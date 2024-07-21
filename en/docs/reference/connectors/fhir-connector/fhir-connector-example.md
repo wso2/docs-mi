@@ -56,9 +56,9 @@ This server is loaded with a standard set of test data sets and also this server
 
 <img src="{{base_path}}/assets/img/integrate/connectors/fhirconnector.png" title="FHIR Connector" width="800" alt="FHIR Connector"/>
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
 1. Select Micro Integrator and click on `+` in APIs to create a REST API. 
 
@@ -236,7 +236,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
-## Exporting Integration Logic as a CApp
+## Export integration logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
@@ -251,15 +251,15 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-**Deploying on Micro Integrator**
+**Deployment on Micro Integrator**
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-## Testing
+## Test
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 ### Add patient information
    
