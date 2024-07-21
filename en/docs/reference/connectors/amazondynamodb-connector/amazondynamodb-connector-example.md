@@ -18,9 +18,9 @@ This example explains how to use Amazon DynamoDB Connector to:
 
 All seven operations are exposed via an API. The API with the context `/resources` has seven resources.
 
-* `/addtable` : Creates a new table in the Amazon DynamoDB with the specified table name to store employee details.
+* `/addtable` : Create a new table in the Amazon DynamoDB with the specified table name to store employee details.
 * `/insertdetails` : Insert employee data (items) and store in the specified table.
-* `/updatetable` : Update specified table (provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a specified table).
+* `/updatetable` : Update the specified table (provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a specified table).
 * `/listdetails` : Retrieve information about the added employee details (items).
 * `/deletedetails` : Remove added employee details from the specified table (items).
 * `/listtable` : Retrieve information about the created tables.
@@ -36,9 +36,9 @@ The following diagram shows the overall solution. The user creates a table, stor
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
 ### Add integration logic
 
@@ -46,7 +46,7 @@ Select the Micro Integrator extension and click on the `+` on APIs to create a R
 
 <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-#### Configuring the API
+#### Configure the API
 
 Now follow the steps below to add resources to the API.
 
@@ -95,36 +95,36 @@ Now follow the steps below to add resources to the API.
 
     4. Add the property mediator to capture the `attributeDefinitions` value.
 
-        - **name** : attributeDefinitions
-        - **expression** : json-eval($.attributeDefinitions)
+        - **name** : `attributeDefinitions`
+        - **expression** : `json-eval($.attributeDefinitions)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property1-value1.png" title="Add property mediators attributeDefinitions" width="800" alt="Add property mediators attributeDefinitions"/>
 
     5. Add the property mediator to capture the `tableName` value.
 
-        - **name** : tableName
-        - **expression** : json-eval($.tableName)
+        - **name** : `tableName`
+        - **expression** : `json-eval($.tableName)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property2-value2.png" title="Add values to capture tableName" width="800" alt="Add values to capture tableName"/>  
       
     6. Add the property mediator to capture the `keySchema` value.
 
-        - **name** : keySchema
-        - **expression** : json-eval($.keySchema)
+        - **name** : `keySchema`
+        - **expression** : `json-eval($.keySchema)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property3-value3.png" title="Add values to capture keySchema" width="800" alt="Add values to capture keySchema"/>  
 
     7. Add the property mediator to capture the `localSecondaryIndexes` value.
 
-        - **name** : localSecondaryIndexes
-        - **expression** : json-eval($.localSecondaryIndexes)
+        - **name** : `localSecondaryIndexes`
+        - **expression** : `json-eval($.localSecondaryIndexes)`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property4-value4.png" title="Add values to capture localSecondaryIndexes" width="800" alt="Add values to capture localSecondaryIndexes"/>  
 
     8. Add the property mediator to capture the `provisionedThroughput` value.
 
-        - **name** : provisionedThroughput
-        - **expression** : json-eval($.provisionedThroughput)
+        - **name** : `provisionedThroughput`
+        - **expression** : `json-eval($.provisionedThroughput)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property5-value5.png" title="Add values to capture provisionedThroughput" width="800" alt="Add values to capture provisionedThroughput"/>  
     
@@ -151,15 +151,15 @@ Now follow the steps below to add resources to the API.
     
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `item` value.  
 
-        - **name** : item
-        - **expression** : json-eval($.item)
+        - **name** : `item`
+        - **expression** : `json-eval($.item)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-put-items-table-property1-value1.png" title="Add property mediators to capture item" width="800" alt="Add property mediators to capture item"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
-        - **name** : tableName
-        - **expression** : json-eval($.tableName)     
+        - **name** : `tableName`
+        - **expression** : `json-eval($.tableName)`
      
 #### Configure a resource for the updatetable operation
 
@@ -184,15 +184,15 @@ Now follow the steps below to add resources to the API.
     
     3. Select the `Property` mediators as mentioned in the `addtable` operation. Add the property mediator to capture the `provisionedThroughput` value.  
 
-        - **name** : provisionedThroughput
-        - **expression** : json-eval($.provisionedThroughput)
+        - **name** : `provisionedThroughput`
+        - **expression** : `json-eval($.provisionedThroughput)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-update-table-property1-value1.png" title="Add property mediators to capture provisionedThroughput" width="800" alt="Add property mediators to capture provisionedThroughput"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
-        - **name** : tableName
-        - **expression** : json-eval($.tableName)
+        - **name** : `tableName`
+        - **expression** : `json-eval($.tableName)`
 
 #### Configure a resource for the listdetails operation
 
@@ -217,15 +217,15 @@ Now follow the steps below to add resources to the API.
 
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `key` value.
 
-        - **name** : key
-        - **expression** : json-eval($.key)
+        - **name** : `key`
+        - **expression** : `json-eval($.key)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-get-item-property1-value1.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture key"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
-        - **name** : tableName
-        - **expression** : json-eval($.tableName)
+        - **name** : `tableName`
+        - **expression** : `json-eval($.tableName)`
 
 #### Configure a resource for the deletedetails operation
 
@@ -252,13 +252,13 @@ Now follow the steps below to add resources to the API.
     
     3. Select the `Property` mediator as mentioned in the `addtable` operation. Add the property mediator to capture the `key` value.
 
-        - **name** : key
-        - **expression** : json-eval($.key)
+        - **name** : `key`
+        - **expression** : `json-eval($.key)`
        
     4. Add the property mediator to capture the `tableName` value.
 
-        - **name** : tableName
-        - **expression** : json-eval($.tableName)     
+        - **name** : `tableName`
+        - **expression** : `json-eval($.tableName)`
         
 #### Configure a resource for the listtable operation
 
@@ -283,15 +283,15 @@ Now follow the steps below to add resources to the API.
     
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `exclusiveStartTableName` value.
 
-        - **name** : exclusiveStartTableName
-        - **expression** : json-eval($.exclusiveStartTableName)
+        - **name** : `exclusiveStartTableName`
+        - **expression** : `json-eval($.exclusiveStartTableName)`
         
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-list-table-property1-value1.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture exclusiveStartTableName"/>
        
     4. Add the property mediator to capture the `limit` value.
 
-        - **name** : limit
-        - **expression** : json-eval($.limit)
+        - **name** : `limit`
+        - **expression** : `json-eval($.limit)`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-list-table-property2-value2.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture limit"/>
         
@@ -318,8 +318,8 @@ Now follow the steps below to add resources to the API.
 
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `tableName` value.
 
-        - **name** : tableName
-        - **expression** : json-eval($.tableName)
+        - **name** : `tableName`
+        - **expression** : `json-eval($.tableName)`
     
 #### Get a response.   
  
@@ -483,7 +483,7 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
