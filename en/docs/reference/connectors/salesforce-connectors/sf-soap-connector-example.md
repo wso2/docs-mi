@@ -25,9 +25,9 @@ The user calls the Salesforce SOAP API. It invokes the **createRecords** resourc
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the integration project
+## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
 ### Add integration logic
 
@@ -35,7 +35,7 @@ First create an API, which will be where we configure the integration logic. Sel
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/adding-an-api.png" title="Adding a Rest API" alt="Adding a Rest API"/>
 
-#### Configuring the createRecords resource
+#### Configure the createRecords resource
 
 Now follow the steps below to add configurations to the resource.
 
@@ -77,10 +77,10 @@ Now follow the steps below to add configurations to the resource.
          > **Note**: The properties should be added to the pallet before creating the operation.
     
     4. Add the property mediator to capture the sObject `Name` value. In this example we are going to create a new Account object using the POST method.
-   
-         - **name** : Name
-         - **expression** : //Name/text()
-         - **type** : STRING
+
+         - **name** : `Name`
+         - **expression** : `//Name/text()`
+         - **type** : `STRING`
 
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="80%" alt="Add values to capture sObjectName value"/>
 
@@ -95,8 +95,8 @@ Now follow the steps below to add configurations to the resource.
          Select the **respond mediator**. 
 
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
-             
-#### Configuring the queryRecords resource
+
+#### Configure the queryRecords resource
 
 
 1. Set up the salesforce.query operation.
@@ -117,21 +117,21 @@ Now follow the steps below to add configurations to the resource.
     3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Mediators** pane and select the `Property` mediator.
         
     4. Add the property mediator to capture the sObject `queryString` value. In this example we are going to create a new Account object using the POST method.
-     
-         - **name** : queryString
-         - **expression** : //queryString/text()
-         - **type** : STRING
+
+         - **name** : `queryString`
+         - **expression** : `//queryString/text()`
+         - **type** : `STRING`
 
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-api-property-querystring-mediator-property1-value1.png" title="Add values to capture queryString value" width="80%" alt="Add values to capture queryString value"/>
 
     5. Forward the backend response to the API caller.
-            
-         When you are invoking the created resource, the request of the message is going through the `/createRecords` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
-            
+
+         When you are invoking the created resource, the request of the message is going through the `/createRecords` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.
+
          Select the **respond mediator**.
-           
+
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
-                        
+
      Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
 
     ??? note "create.xml"
@@ -164,9 +164,6 @@ Now follow the steps below to add configurations to the resource.
                     </salesforce.create>
                     <respond/>
                 </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
                 <faultSequence/>
             </resource>
             <resource methods="POST" url-mapping="/queryRecords">
@@ -184,9 +181,6 @@ Now follow the steps below to add configurations to the resource.
                     </salesforce.query>
                     <respond/>
                 </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
                 <faultSequence/>
             </resource>
         </api>
@@ -206,7 +200,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 In order to deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
