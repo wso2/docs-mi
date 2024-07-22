@@ -68,7 +68,7 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 **Deploying on Micro Integrator**
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
     
-## Testing
+## Test
 
 Invoke the API (http://localhost:8290/publishMessages) with the following payload,
 
