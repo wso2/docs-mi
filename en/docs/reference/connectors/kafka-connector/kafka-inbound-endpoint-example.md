@@ -12,7 +12,7 @@ The following diagram illustrates all the required functionality of the Kafka se
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Set up kafka
+## Set up Kafka
 
 Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/).
 
@@ -117,7 +117,7 @@ You can download the ZIP file and extract the contents to get the project code.
    ```
    The Kafka inbound endpoint gets the messages from the Kafka brokers and logs the messages in the Micro Integrator.
 
-## Set up the inbound endpoint with kafka avro message
+## Set up the inbound endpoint with Kafka Avro message
 You can set up the WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging format as well. Follow the instructions on [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/) to set up Kafka on the Micro Integrator. In inbound endpoint XML configurations, change the `value.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer` and `key.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer`. Add a new parameter `schema.registry.url` and add schema registry URL in there. The following is the modified sample of the Kafka inbound endpoint:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
