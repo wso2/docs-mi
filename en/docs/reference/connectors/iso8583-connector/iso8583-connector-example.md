@@ -8,7 +8,7 @@ This example demonstrates how to expose core banking system functionality workin
 
 Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for financial transactions.
 
-To know further information about the `init` and `iso8583.sendMessage` operations please refer this link.
+To know further information about the `init` and `iso8583.sendMessage` operations please refer to this link.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-connector.png" title="ISO8583 Connector" width="800" alt="ISO8583 Connector"/>
 
@@ -58,7 +58,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
   
 ## Test
 
