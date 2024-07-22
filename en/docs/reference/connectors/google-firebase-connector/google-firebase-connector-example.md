@@ -18,7 +18,7 @@ Overall integration scenario would look like below.
 <br/><br/>
 <img src="{{base_path}}/assets/img/integrate/connectors/google-firebase-scenario.png" title="Google Firebase Connector scenario" width="800" alt="Google Firebase Connector scenario"/>
 
-## Setting up the environment
+## Set up the environment
 
 You need to create an application in Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
 
@@ -107,7 +107,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
         </resource>
     </api>
    ```
-3.Create a new sequence, defining the logic how the push notification should be constructed. You can extract the information from the incoming HTTP message and set to the properties so that they will be picked up by the connector to construct push notification message. All the fields are not mandatory - some are specific to Android devices and some are specific to Web apps.  Note how this sequence is called by the API. 
+3.Create a new sequence, defining the logic how the push notification should be constructed. You can extract the information from the incoming HTTP message and set to the properties so that they will be picked up by the connector to construct push notification message. All the fields are not mandatory - some are specific to Android devices and some are specific to Web apps. Note how this sequence is called by the API. 
    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="MessageCreateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -269,6 +269,6 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     ```
 If you have registered some devices to your application, the notification will appear on that device. 
 
-## What's Next
+## What's next
 
 * Please read the [Google Firebase Connector reference guide]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration/) to learn more about the operations you can perform with the connector.
