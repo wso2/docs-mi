@@ -27,7 +27,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 2. Provide the API name as `jiraAPI` and the API context as `/jira`. You can go to the source view of the XML configuration file of the API and copy the following configuration.
    ![Adding a Rest API]({{base_path}}/assets/img/integrate/connectors/jira-conn-1.png "Adding a Rest API")
 
-3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Connectors** and search for the **jira** connector. Click the Jira connector to open the operation panel, then click **init**. This will download the connector.
+3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Connectors** and search for the **Jira** connector. Click the Jira connector to open the operation panel, then click **init**. This will download the connector.
    ![Adding a Jira Connector]({{base_path}}/assets/img/integrate/connectors/jira-conn-2.png "Adding a Jira Connector")
 
 4. You can go to the source view (click the `</>` icon on the top right corner) of the XML configuration file of the API and copy the following configuration. Update values username,password and site url. For password use api key.
