@@ -141,7 +141,7 @@ By default, the HL7 transport validates messages before building their XML repre
          transport.hl7.BuildInvalidMessages
       </td>
       <td>
-         When transport.hl7.ValidateMessage is set to false, you can set this parameter to handle invalid messages.</br></br> When this parameter is set to true, builds a SOAP envelope with the contents of the raw HL7 message inside the element.
+         When transport.hl7.ValidateMessage is set to false, you can set this parameter to handle invalid messages.</br></br> When this parameter is set to true, it builds a SOAP envelope with the contents of the raw HL7 message inside the element.
       </td>
    </tr>
    <tr>

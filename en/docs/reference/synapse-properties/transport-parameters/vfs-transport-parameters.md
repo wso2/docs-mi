@@ -73,7 +73,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
            transport.vfs.ActionAfterProcess
          </td>
          <td>
-           Whether to move, delete or take no action on the files after the transport has processed them. Possible values are <code>MOVE</code>, <code>DELETE</code>, or <code>NONE</code>. The default value is <code>DELETE</code>.
+           Whether to move, delete, or take no action on the files after the transport has processed them. Possible values are <code>MOVE</code>, <code>DELETE</code>, or <code>NONE</code>. The default value is <code>DELETE</code>.
          </td>
       </tr>
       <tr>
@@ -81,7 +81,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.vfs.ActionAfterFailure
          </td>
          <td>
-            Whether to move, delete or take no action on the files if a failure occurs. Possible values are <code>MOVE</code>, <code>DELETE</code>, or <code>NONE</code>. The default value is <code>DELETE</code>.
+            Whether to move, delete, or take no action on the files if a failure occurs. Possible values are <code>MOVE</code>, <code>DELETE</code>, or <code>NONE</code>. The default value is <code>DELETE</code>.
          </td>
       </tr>
       <tr>
@@ -137,7 +137,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.vfs.ReconnectTimeout
          </td>
          <td>
-            Reconnect timeout value in seconds to be used in case of an error when transferring files. Specify a positive integer. The default values is <code>30</code> seconds.
+            Reconnect timeout value in seconds to be used in case of an error when transferring files. Specify a positive integer. The default value is <code>30</code> seconds.
          </td>
       </tr>
       <tr>
@@ -145,7 +145,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.vfs.MaxRetryCount
          </td>
          <td>
-            Maximum number of retry attempts to carry out in case of errors. Specify a positive integer. The default values is <code>3</code>.
+            Maximum number of retry attempts to carry out in case of errors. Specify a positive integer. The default value is <code>3</code>.
          </td>
       </tr>
       <tr>
@@ -230,7 +230,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>transport.vfs.AutoLockReleaseInterval</td>
          <td>
-            The timeout value for stale locks where the VFS transport will ignore those file locks once the defined time period is reached. The time period is calculated from the time the lock is created to the time you attempt to access it. If you need stale locks to never timeout provide -1 as the timeout value. Specify the time in miliseconds. The default value is <code>20000</code>.
+            The timeout value for stale locks where the VFS transport will ignore those file locks once the defined time period is reached. The time period is calculated from the time the lock is created to the time you attempt to access it. If you need stale locks to never timeout, provide -1 as the timeout value. Specify the time in miliseconds. The default value is <code>20000</code>.
          </td>
       </tr>
       <tr>
@@ -248,7 +248,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>transport.vfs.ResolveHostsDynamically</td>
          <td>
-            Whether hostnames should be resolved at the time of deployment or whether it is necessary to resolve hostnames dynamically at runtime. By default hostnames are resolved at the time of deployment. If you want to resolve hostnames at runtime, set this parameter to <code>true</code>.
+            Whether hostnames should be resolved at the time of deployment or whether it is necessary to resolve hostnames dynamically at runtime. By default, hostnames are resolved at the time of deployment. If you want to resolve hostnames at runtime, set this parameter to <code>true</code>.
             <b>Note</b>: Resolving hostnames at runtime is only possible for the Server Message Block (SMB) protocol. </br>
             By default, this setting is <code>false</code>.
          </td>
@@ -428,7 +428,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
       </tr>
       <tr>
          <td>transport.vfs.CreateFolder</td>
-         <td>If the directory does not exists create and write the file. The default setting is <code>false</code>.</td>
+         <td>If the directory does not exists, create and write the file. The default setting is <code>false</code>.</td>
       </tr>
       <tr>
          <td>transport. vfs.SendFileSynchronously</td>
@@ -486,7 +486,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
 
 ## Configuring a Proxy Server over FTP and SFTP
 
-Proxy server specific parameters can be set as URL query parameters. For example, to use Proxy over FTP, you could specify the URL as follows:
+Proxy server specific parameters can be set as URL query parameters. For example, to use proxy over FTP, you could specify the URL as follows:
 
 ```bash
 ftp://username:password@127.0.0.1/home/wso2/res?proxyServer=127.0.0.1&proxyPort=3128&proxyUsername=proxyuser&proxyPassword=proxyPass&timeout=2500&retryCount=3

@@ -47,7 +47,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
          <td>
             Defines how the message processor sends the acknowledgement when consuming messages recived from the RabbitMQ message store. If you set this to true, the message processor automatically sends the acknowledgement to the messages store as soon as it receives messages from it. This is called an auto acknowledgement.
             If you set it to <code>false</code>, the message processor waits until it receives the response from the backend to send the acknowledgement to the mssage store. This is called a client acknowledgement.</br>
-            However, you can increase performance of message processors either by increasing the member count or by having multiple message processors. If you increase the member count, it will create multiple child processors of the message processor.
+            However, you can increase the performance of message processors either by increasing the member count or by having multiple message processors. If you increase the member count, it will create multiple child processors of the message processor.
          </td>
       </tr>
       <tr>
@@ -57,7 +57,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>rabbitmq.channel.consumer.qos</td>
          <td>
-            The consumer QoS value. You need to specify this parameter only if the <code>rabbitmq.queue.auto.ack</code> parameter is set to <code>false</code>.
+            The consumer's QoS value. You need to specify this parameter only if the <code>rabbitmq.queue.auto.ack</code> parameter is set to <code>false</code>.
          </td>
       </tr>
       <tr>
@@ -143,7 +143,7 @@ In case of a network failure or broker shutdown, the Micro Integrator will try t
     <td>rabbitmq.server.retry.interval</td>
     <td>
       This parameter is <b>optional</b>.</br>
-      The parameters specified above sets the retry interval with which the RabbitMQ client tries to reconnect. Generally having this value less than the value specified as <code>rabbitmq.connection.retry.interval</code> will help synchronize the reconnection of the Micro Integrator and the RabbitMQ client.
+      The parameters specified above set the retry interval with which the RabbitMQ client tries to reconnect. Generally, having this value less than the value specified as <code>rabbitmq.connection.retry.interval</code> will help synchronize the reconnection of the Micro Integrator and the RabbitMQ client.
     </td>
   </tr>
 </table>
@@ -288,7 +288,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
       </tr>
       <tr>
          <td>rabbitmq.replyto.name</td>
-         <td>The name of the call back­ queue. Specify this parameter if you expect a response.</td>
+         <td>The name of the callback­ queue. Specify this parameter if you expect a response.</td>
       </tr>
       <tr>
          <td>rabbitmq.queue.delivery.mode</td>
