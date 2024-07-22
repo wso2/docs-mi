@@ -4,23 +4,21 @@ Given below is a sample scenario that demonstrates how the WSO2 ISO8583 Connecto
 
 ## What you'll build
 
-This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here, the integration runtime acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we used Test mock server.
+This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here, the integration runtime acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we use a test mock server.
 
-Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for the financial transactions.
+Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for financial transactions.
 
-To know the further information about the  `init` and `iso8583.sendMessage` operations please refer this link.
+To know further information about the `init` and `iso8583.sendMessage` operations please refer to this link.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-connector.png" title="ISO8583 Connector" width="800" alt="ISO8583 Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
-
-1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
+1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
 
 2. Specify the API name as `SendisoTestAPI` and API context as `/sendiso`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 
@@ -30,7 +28,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
        <resource methods="POST">
            <inSequence>
                <log>
-                   <property name="status" value="Sending_an_ISO8583_Messsage"/>
+                   <property name="status" value="Sending_an_ISO8583_Message"/>
                </log>
                <iso8583.init>
                    <serverHost>localhost</serverHost>
@@ -39,17 +37,14 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <iso8583.sendMessage/>
                <respond/>
            </inSequence>
-           <outSequence>
-               <log/>
-               <send/>
-           </outSequence>
            <faultSequence/>
        </resource>
    </api>
    ```
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Export integration logic as a CApp
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -61,25 +56,14 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
-
-**Deploying on Micro Integrator**
-
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+  
+## Test
 
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-    
-## Testing
-
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
-      
    ```
           curl -v POST -d 
           '<ISOMessage>
@@ -91,7 +75,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
                 <field id="127">01581200F230040102B000000000000004000000</field>
                </data>
            </ISOMessage>' "http://localhost:8290/sendiso" -H "Content-Type:application/xml"
-   ```        
+   ```
 **Expected Response**:
    
    ```
@@ -102,4 +86,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
           <field id="23">000</field>
           </data>
           </ISOMessage>  
-   ```                           
+   ```
