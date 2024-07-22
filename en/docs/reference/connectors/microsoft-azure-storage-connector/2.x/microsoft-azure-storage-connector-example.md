@@ -210,7 +210,7 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 **Deploying on Micro Integrator**
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
