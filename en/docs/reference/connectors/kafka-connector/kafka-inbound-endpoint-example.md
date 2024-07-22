@@ -12,13 +12,13 @@ The following diagram illustrates all the required functionality of the Kafka se
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Set up Kafka
+## Set up kafka
 
 Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/).
 
-## Configure inbound endpoint using Micro Integrator
+## Set up the inbound endpoint using micro integrator
 
-1. Create a new **Project** by providing a project name and selecting project directory. 
+1. Create a new **Project** by providing a project name and selecting the project directory. 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-create-new-project.png" title="Creating a new Project" width="800" alt="Creating a new Project" /><br/>
 Refer [create an integration project]({{base_path}}/develop/create-integration-project/) guide for more details. 
 
@@ -43,7 +43,7 @@ Refer [create an integration project]({{base_path}}/develop/create-integration-p
 3. Click on `+` mark beside the `Inbound Endpoints` then select `Custom` to add a new **custom inbound endpoint**.</br> 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-create-new-inbound-endpoint.png" title="Creating custom inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
-4. Configure the custom inbound endpoint as indicated in the given figures. 
+4. Configure the custom inbound endpoint as mentioned below.  
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-custom-endpoint-config-1.png" title="Creating custom inbound endpoint" width="600" alt="Creating inbound endpoint" style="border:1px solid black"/>
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-custom-endpoint-config-2.png" title="Creating custom inbound endpoint" width="600" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
@@ -69,7 +69,7 @@ The source view for the inbound endpoint will be as below.
    ```
    
 
-## Exporting Integration Logic as a CApp
+## Export integration logic as a carbon application
 
 Follow the steps provided in the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.  
 
@@ -89,7 +89,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 3. Start the integration server.
 
-## Testing  
+## Test 
    
    **Sample request**
    
@@ -117,7 +117,7 @@ You can download the ZIP file and extract the contents to get the project code.
    ```
    The Kafka inbound endpoint gets the messages from the Kafka brokers and logs the messages in the Micro Integrator.
 
-## Configure inbound endpoint with Kafka Avro message
+## Set up the inbound endpoint with kafka avro message
 You can setup WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging format as well. Follow the instructions on [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/) to setup Kafka on the Micro Integrator. In inbound endpoint XML configurations, change the `value.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer` and `key.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer`. Add new parameter `schema.registry.url` and add schema registry URL in there. The following is the modiefied sample of the Kafka inbound endpoint:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
