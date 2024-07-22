@@ -16,7 +16,7 @@ You will use two HTTP API resources, which are `createIssue` and `getIssue`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setup the Integration project
+## Set up the integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
