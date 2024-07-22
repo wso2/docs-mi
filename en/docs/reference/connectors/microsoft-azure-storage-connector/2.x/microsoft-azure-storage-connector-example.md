@@ -115,7 +115,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 20. Follow the same steps to create the next API resource, `/deletecontainer`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name, and delete the container from Microsoft Azure Storage.
 
-21. Next, add the `deleteContainer` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
+21. Next, add the `deleteContainer` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
     - Container Name - json-eval($.containerName)
 
