@@ -35,7 +35,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 6. Clear the **Include full driver code example** check box to get the connection string.
 
 
-## Creating the Integration project in WSO2 MI VS code extension
+## Set up the integration project
 
 1.  Create a new integration project named `MongodbConnector`.
 
@@ -94,7 +94,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 14. Add [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
-15. You can find the complete API XML configuration below. Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
+15. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
