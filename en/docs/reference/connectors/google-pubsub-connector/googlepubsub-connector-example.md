@@ -106,14 +106,14 @@ First create an API, which will be where we configure the integration logic. Spe
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property2-value2.png" title="Add values to capture subscriptionName" width="800" alt="Add values to capture subscriptionName"/>  
 
-    3. Add the property mediator to store the name of the created Topic value from the response of the createTopic operation. 
+    3. Add the property mediator to store the name of the created topic value from the response of the createTopic operation. 
 
         - **name** : `nameforsubscription`
         - **expression** : `json-eval($.name)`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-nameforsubscription.png" title="Add values to capture nameforsubscription" width="800" alt="Add values to capture nameforsubscription"/>
 
-    4. Add the property mediator to capture the Topic name from the response using the splitting separators in the results.  
+    4. Add the property mediator to capture the topic name from the response using the splitting separators in the results.  
 
          - **name** : `test`
          - **expression** : `fn:tokenize($ctx:nameforsubscription,'/')[last()]`
