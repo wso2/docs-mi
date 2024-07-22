@@ -35,7 +35,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - Max Pool Size - 100
 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-avro-example-3.png" title="Create a kafka Connection" alt="Create a kafka Connection"/>
-5. Click `</>` button to open source view of the XML configuration file of the API and copy the following configuration (source view).
+5. You can go to the XML configuration of the API (source view) and copy the following configuration.
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
