@@ -93,7 +93,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 14. Follow the same steps to create the next API resource, `/deleteblob`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and delete the blob from Microsoft Azure Storage.
 
-15. Next, add the `deleteBlob` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
+15. Next, add the `deleteBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
     - Container Name - json-eval($.containerName)
     - Blob name - json-eval($.fileName)
