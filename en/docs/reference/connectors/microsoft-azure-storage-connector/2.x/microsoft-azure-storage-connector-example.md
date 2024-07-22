@@ -104,7 +104,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 17. Follow the same steps to create the next API resource, `/listmetadata`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and retrieve the metadata of the blob from Microsoft Azure Storage.
 
-18. Next, add the `listMetadata` operation from the **Externals** tab using the newly created connection. In the properties view, provide the following expressions for the below properties:
+18. Next, add the `listMetadata` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
     - Container Name - json-eval($.containerName)
     - Blob name - json-eval($.fileName)
