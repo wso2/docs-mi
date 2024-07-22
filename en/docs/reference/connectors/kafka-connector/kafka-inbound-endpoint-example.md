@@ -3,10 +3,10 @@
 The Kafka inbound endpoint acts as a message consumer. It creates a connection to ZooKeeper and requests messages for either a topic/s or topic filters.
 
 ## What you'll build
-This sample demonstrates how one way message bridging from Kafka to HTTP can be done using the inbound Kafka endpoint.
+This sample demonstrates how one-way message bridging from Kafka to HTTP can be done using the inbound Kafka endpoint.
 See [Configuring Kafka Inbound Endpoint]({{base_path}}/reference/connectors/kafka-connector/kafka-inbound-endpoint-config/) for more information.
 
-The following diagram illustrates all the required functionality of the Kafka service that you are going to build. In this example, you only need to consider about the scenario of message consuming.
+The following diagram illustrates all the required functionality of the Kafka service that you are going to build. In this example, you only need to consider the scenario of message consumption.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafkainboundendpoint.png" title="Kafka inbound endpoint" width="800" alt="Kafka inbound endpoint"/>
 
@@ -23,7 +23,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 Refer [create an integration project]({{base_path}}/develop/create-integration-project/) guide for more details. 
 
 2. Create a sequence to process the message with the following configurations. 
-   In this example for simplicity we will just log the message, but in a real world use case, this can be any type of message mediation. <br/>
+   In this example, for simplicity, we will just log the message, but in a real-world use case, this can be any type of message mediation. <br/>
    ```xml
    <?xml version="1.0" encoding="ISO-8859-1"?>
       <sequence xmlns="http://ws.apache.org/ns/synapse" name="kafka_process_seq">
@@ -118,7 +118,7 @@ You can download the ZIP file and extract the contents to get the project code.
    The Kafka inbound endpoint gets the messages from the Kafka brokers and logs the messages in the Micro Integrator.
 
 ## Set up the inbound endpoint with kafka avro message
-You can setup WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging format as well. Follow the instructions on [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/) to setup Kafka on the Micro Integrator. In inbound endpoint XML configurations, change the `value.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer` and `key.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer`. Add new parameter `schema.registry.url` and add schema registry URL in there. The following is the modiefied sample of the Kafka inbound endpoint:
+You can set up the WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging format as well. Follow the instructions on [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/) to set up Kafka on the Micro Integrator. In inbound endpoint XML configurations, change the `value.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer` and `key.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer`. Add a new parameter `schema.registry.url` and add schema registry URL in there. The following is the modified sample of the Kafka inbound endpoint:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <inboundEndpoint name="KAFKAListenerEP" sequence="kafka_process_seq" onError="fault" class="org.wso2.carbon.inbound.kafka.KafkaMessageConsumer" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
@@ -139,12 +139,12 @@ You can setup WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging f
 </inboundEndpoint>
 ```
 
-Add following configs when the Confluent Schema Registry is secured with basic auth,
+Add the following configs when the Confluent Schema Registry is secured with basic auth,
 ```
 <parameter name="basic.auth.credentials.source">source_of_basic_auth_credentials</parameter>
 <parameter name="basic.auth.user.info">username:password</parameter>
 ```
-Make sure to start Kafka Schema Registry before starting up the Micro Integrator.
+Make sure to start the Kafka Schema Registry before starting up the Micro Integrator.
 
 ## What's next
 
