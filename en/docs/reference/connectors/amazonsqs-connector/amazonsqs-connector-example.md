@@ -18,14 +18,15 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 2. In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 
-    If you are using the Micro Integrator of **EI 7** or **MI 4.x.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport).
+    Add the following to the `PRODUCT-HOME/conf/deployment.toml` file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog-mi/#message-mediation).
     
       ```
         [mediation]
         synapse.enable_xpath_dom_failover="true"
       ```
 
-    If you are using **EI 6**, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
+    ??? note "Click here for instructions on configuring WSO2 Enterprise Integrator 6"
+        1. Uncomment the `synapse.xpath.dom.failover.enabled=true` property in PRODUCT-HOME/conf/synapse.properties file.
 
 3. In this example we use the SimpleStockQuote service backend. Therefore, the SimpleStockQuote service needs to be started. 
 
