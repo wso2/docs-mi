@@ -26,58 +26,58 @@ If you do not want to configure this yourself, you can simply [get the project](
     2. Select  `Salesforcerest` connector.
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-connection.png" title="Add new salesforce connection" width="800" alt="Add new salesforce connection"/>
 
-    3. Use following values can to create the connection. 
-        - Connection Name - `SalesforceRestConnection`
-        - Connection Type - `init` 
-        - Access Token - Value of the access token to access the API via request.
-        - Refresh Token - Value of the refresh token.
-        - Client Secret - Value of your client secret given when you registered your application with Salesforce.
-        - Client ID - Value of your client ID given when you registered your application with Salesforce.
-        - API Version - `v44.0`
-        - API URL - Value of the instance url.
-        - Host Name - `https://login.salesforce.com`
+    3. Use the following values to create the connection. 
+        - **Connection Name** - `SalesforceRestConnection`
+        - **Connection Type** - `init` 
+        - **Access Token** - Value of the access token to access the API via request.
+        - **Refresh Token** - Value of the refresh token.
+        - **Client Secret** - The value of your client secret given when you registered your application with Salesforce.
+        - **Client ID** - Value of your client ID given when you registered your application with Salesforce.
+        - **API Version** - `v44.0`
+        - **API URL** - Value of the instance URL.
+        - **Host Name** - `https://login.salesforce.com`
 
 ### Add integration logic
-Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforcerest` and API context as `/salesforcerest`.
+Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforcerest` and the API context as `/salesforcerest`.
    
    <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-Create the sequence needed to create Salesforce object. We will create two defined sequences called `create.xml` and  `retrieve.xml` to create an account and retrieve data. 
+Create the sequence needed to create a Salesforce object. We will create two defined sequences called `create.xml` and  `retrieve.xml` to create an account and retrieve data. 
 Select `Sequences` under the project and click on the `+` sign to create a sequence. 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
 #### Configure a sequence for the create operation
 Now follow the steps below to add configurations to the sequence.
 
-1. Provide `create` as name and create the sequence. 
+1. Provide `create` as the name and create the sequence. 
 2. Set up the `create` operation.
-    1. Setup the `create` sequence configurations. In this operation we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
+    1. Set up the `create` sequence configurations. In this operation, we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
        
-        - **sObject Name** : Name of the sObject that you need to create in Salesforce.
-        - **Field and Value** : The field and value you need to store in the created Salesforce sObject.
+        - **sObject Name**: Name of the sObject that you need to create in Salesforce.
+        - **Field and Value**: The field and value you need to store in the created Salesforce sObject.
         
-        While invoking the API, the above two parameters values come as a user input.
+        While invoking the API, the above two parameter values come as a user input.
     
     2. Select the created `create` sequence. 
     3. Add the `create` operation from the `Salesforcerest` connector. 
 
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-create-operation.png" title="Add create operation" width="800" alt="Add create operations"/>
     
-    4. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Add the `Property` mediators into the design pane as shown bellow.
+    4. To get the input values into the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Add the `Property` mediators into the design pane as shown below.
 
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-properties.png" title="Add property mediators" width="800" alt="Add property mediators"/>
     
-        > **Note**: That the properties should be add to the pallet before create the operation.
+        > **Note**: The properties should be added to the pallet before creating the operation.
     
-    5. One property mediator to capture the `sObjectName` value. The sObjectName type can be used to retrieve the metadata for the Account object using the GET method, or create a new Account object using the POST method. In this example we are going to create a new Account object using the POST method.
+    5. One property mediator to capture the `sObjectName` value. The sObjectName type can be used to retrieve the metadata for the Account object using the GET method or create a new Account object using the POST method. In this example, we are going to create a new Account object using the POST method.
    
-        - **Property Name** : `sObjectName`
-        - **Property Value** : expression `json-eval($.sObject)`
-        - **Property Data Type** : `STRING`
+        - **Property Name**: `sObjectName`
+        - **Property Value**: expression `json-eval($.sObject)`
+        - **Property Data Type**: `STRING`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-property-1-config.png" title="Configure first property mediator" width="800" alt="Configure first property mediator"/>
     
-    6. Other property mediator to capture the `fieldAndValue` values. The fieldAndValue contains object fields and values that user need to store.
+    6. Other property mediator to capture the `fieldAndValue` values. The fieldAndValue contains object fields and values that the user needs to store.
    
         - **Property Name** : `fieldAndValue`
         - **Property Value** : expression `json-eval($.fieldAndValue)`
@@ -86,22 +86,22 @@ Now follow the steps below to add configurations to the sequence.
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-property-2-config.png" title="Configure second property mediator" width="800" alt="Configure second property mediator"/>  
     
 #### Configure a sequence for the retrieve operation
-1. Provide `retrieve` as name and create the sequence.
+1. Provide `retrieve` as the name and create the sequence.
 2. Set up the retrieve operation.
     1. To retrieve data from the created objects in the Salesforce account, you need to add the `query` operation to the `retrieve` sequence. 
     
-        - **Query String** :  This variable contains specified SOQL query. In this sample this SOQL query executes to retrieve `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
+        - **Query String**:  This variable contains a specified SOQL query. In this sample, this SOQL query executes to retrieve `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
 
-    2. Add the `query` operation from `Salesforcerest` connector into the design pane of `retrieve` sequence.      
+    2. Add the `query` operation from the `Salesforcerest` connector into the design pane of the `retrieve` sequence.      
     
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-query-operation.png" title="Add query operation to retrieve sequence" width="800" alt="Add query operation to retrieve sequence"/> 
     
-    3. Select the query operation connection to `SalesforceRestConnection` and add `select id, name from Account` query to the properties section shown as bellow.
+    3. Select the query operation connection to `SalesforceRestConnection` and add the `select id, name from Account` query to the properties section shown below.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-query-operation-config.png" title="Configure query operation" width="400" alt="Configure query operation"/>
     
 #### Configure the API
-1. Create a resource with below configuration. 
+1. Create a resource with the below configuration. 
     
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-resource.png" title="Resource configuration" width="400" alt="Resource configuration"/>
 
@@ -112,27 +112,27 @@ Now follow the steps below to add configurations to the sequence.
             
             <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-call-sequence-1.png" title="Add call sequence 1" width="800" alt="Add call sequence 1"/> 
         
-        2. Select `create` sequence from the drop down given for `Referring Sequence`.
+        2. Select the `create` sequence from the drop-down given for `Referring Sequence`.
     
     3. Add the created `retrieve` sequence.
-        1. Add another `Call Sequence` to the design pane. Below the previous `Call Sequence`.
+        1. Add another `Call Sequence` to the design pane below the previous `Call Sequence`.
 
             <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-call-sequence-2.png" title="Add call sequence 2" width="800" alt="Add call sequence 2"/> 
 
-        2. Select `retrieve` sequence from the drop down given for `Referring Sequence`. 
+        2. Select the `retrieve` sequence from the drop-down given for `Referring Sequence`. 
  
     4. Get a response from the user.
         
-        When you invoking the created API the request of the message is going through the `create` and `retrieve` sequences. Finally pass to the the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). In here the Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+        When you invoke the created API the request of the message goes through the `create` and `retrieve` sequences. Finally, pass to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). Here the Respond Mediator stops the processing of the current message and sends the message back to the client as a response.            
         
         1. Add **respond mediator** to the **design view** at the end. 
         
 
-3. Once you have setup the sequences and the API, you can see the `salesforcerest` API as shown below.
+3. Once you have set up the sequences and the API, you can see the `salesforcerest` API as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-api-design.png" title="API design view" width="800" alt="API design view"/>
        
-4.  Now you can switch into the Source view and check the XML configuration files of the created API, connection and sequences. 
+4.  Now you can switch to the Source view and check the XML configuration files of the created API, connection, and sequences. 
 
     ??? note "create.xml"
         ```
@@ -205,7 +205,7 @@ You can download the ZIP file and extract the contents to get the project code.
 ## Deployment
 To deploy and run the project, please refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli). 
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli). 
 
 ## Test
 Save a file called data.json with the following payload. 
@@ -341,5 +341,5 @@ You will get a set of account names and the respective IDs as the output. Below 
 }
 ```
 
-## What's Next
+## What's next
 * To customize this example for your own scenario, see [Salesforce REST Connector Configuration]({{base_path}}/reference/connectorssalesforce-connectors/sf-rest-connector-config/) documentation for all operation details of the connector.
