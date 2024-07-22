@@ -15,7 +15,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 ## Set up the integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
-## Creating the Integration logic
+## Create the integration logic
 
 1. Click `+` on the Extension panel APIs to create the REST API.
 
