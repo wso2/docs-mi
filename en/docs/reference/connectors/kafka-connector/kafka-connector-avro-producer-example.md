@@ -12,7 +12,7 @@ API has the `/publishMessages` context. It publishes messages via the topic to t
 
 Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
 
-## Set up the Integration project
+## Set up the integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 ## Creating the Integration logic
