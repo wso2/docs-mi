@@ -20,7 +20,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-## Creating the Integration logic
+## Create the integration logic
 
 1. Click `+` on the Extension panel APIs to create the REST API.
 
