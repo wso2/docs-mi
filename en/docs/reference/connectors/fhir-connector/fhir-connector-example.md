@@ -6,7 +6,7 @@ In this example the connector uses the FHIR REST API to interact with FHIR.
 
 Given below is a sample API that illustrates how you can connect to a FHIR server and invoke operations. It exposes FHIR functionalities as a restful service. Users can invoke the API with HTTP/HTTPs with required information.
 
-1. `/create` : creates a new patient at FHIR server
+1. `/create` : create a new patient at FHIR server
 2. `/read` : retrieve information about the patient from FHIR server
 3. `/readSpecificResourceById`: read patient by Id
 4. `/update` : update patient information from FHIR server.
@@ -14,7 +14,7 @@ Given below is a sample API that illustrates how you can connect to a FHIR serve
 
 To know further information about these operations please refer this link.
 
-> **Note**: If no ID element is provided, or the value is wrong, the server responds with a HTTP 400 error code and provides an operation outcome identifying the issue.
+> **Note**: If the ID element is not provided, or the value is wrong, the server responds with a HTTP 400 error code and provides an operation outcome identifying the issue.
 
 Before you start configuring the FHIR connector, you also need to download the relevant integration runtime of WSO2, and we refer to that location as `<PRODUCT_HOME>`.
 
@@ -50,7 +50,7 @@ class="org.wso2.carbon.integrator.core.json.JsonStreamBuilder"/>
 
 The following diagram illustrates all the required functionality of the FHIR API service that you are going to build.
 
-In here FHIR clients can invoke the API with HTTP/HTTPs with the required information. The FHIR connector exposes each request by converting to the Health Level Seven International standards and then send to the resources available in the FHIR server.
+In here FHIR clients can invoke the API with HTTP/HTTPs with the required information. The FHIR connector processes each request by converting to the Health Level Seven International standards and then sends it to the resources available on the FHIR server.
 
 This server is loaded with a standard set of test data sets and also this server can store any data that are related to administrative concepts such as patients, providers, organizations, and devices as well as a variety of clinical concepts including problems, medications, diagnostics, care plans, and financial issues, among others.
 
@@ -251,7 +251,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-**Deployment on Micro Integrator**
+**Deploy on Micro Integrator**
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
