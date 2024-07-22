@@ -26,13 +26,13 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Externals** and click **Add new Connection**. Search `kafkaTransport` and click.
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-avro-example-2.png" title="Adding a kafka Connection" alt="Adding a kafka Connection"/>
 4. Provide values as below and click **Add**.
-    - Connection Name - Sample_Kafka
-    - Connection Type - kafka
-    - Boostrap Servers - localhost:9092
-    - Key Serializer Class - io.confluent.kafka.serializers.KafkaAvroSerializer
-    - Value Serializer Class - io.confluent.kafka.serializers.KafkaAvroSerializer
-    - Schema Registry URL - http://localhost:8081
-    - Max Pool Size - 100
+    - **Connection Name** - Sample_Kafka
+    - **Connection Type** - kafka
+    - **Boostrap Servers** - localhost:9092
+    - **Key Serializer Class** - io.confluent.kafka.serializers.KafkaAvroSerializer
+    - **Value Serializer Class** - io.confluent.kafka.serializers.KafkaAvroSerializer
+    - **Schema Registry URL** - http://localhost:8081
+    - **Max Pool Size** - 100
 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-avro-example-3.png" title="Create a kafka Connection" alt="Create a kafka Connection"/>
 5. You can go to the XML configuration of the API (source view) and copy the following configuration.
@@ -41,10 +41,10 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST" uri-template="/">
             <inSequence>
-                <property name="valueSchema" expression="json-eval($.test)" scope="default" type="STRING" />
-                <property name="value" expression="json-eval($.value)" scope="default" type="STRING" />
-                <property name="key" expression="json-eval($.key)" scope="default" type="STRING" />
-                <property name="topic" expression="json-eval($.topic)" scope="default" type="STRING" />
+                <property name="valueSchema" expression="json-eval($.test)" scope="default" type="STRING"/>
+                <property name="value" expression="json-eval($.value)" scope="default" type="STRING"/>
+                <property name="key" expression="json-eval($.key)" scope="default" type="STRING"/>
+                <property name="topic" expression="json-eval($.topic)" scope="default" type="STRING"/>
                 <kafkaTransport.publishMessages configKey="Sample_Kafka">
                     <topic>{$ctx:topic}</topic>
                     <partitionNo>0</partitionNo>
@@ -55,8 +55,6 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                     <valueSchemaSoftDeleted>false</valueSchemaSoftDeleted>
                 </kafkaTransport.publishMessages>
 		    </inSequence>
-            <faultSequence>
-            </faultSequence>
         </resource>
     </api>
     ```
