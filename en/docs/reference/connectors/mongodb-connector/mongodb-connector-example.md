@@ -35,7 +35,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 6. Clear the **Include full driver code example** check box to get the connection string.
 
 
-## Set up the integration project
+## Create the integration project
 
 1.  Create a new integration project named `MongodbConnector`.
 
