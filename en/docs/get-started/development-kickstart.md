@@ -448,7 +448,7 @@ Following is what you will see in the **Source View** of MI for VS Code.
                 <completeCondition>
                     <messageCount max="-1" min="-1"/>
                 </completeCondition>
-                <onComplete expression="json-eval($.doctors.doctor)">
+                <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)">
                     <respond/>
                 </onComplete>
             </aggregate>
