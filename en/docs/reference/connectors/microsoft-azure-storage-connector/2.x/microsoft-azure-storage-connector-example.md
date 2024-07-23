@@ -58,7 +58,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 6. Next, configure the following parameters in the properties window,
 
-    - Container Name - json-eval($.containerName)
+    - **Container Name** - json-eval($.containerName)
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_create_container_operation.png" title="Configuring create container operation" width="800" alt="Microsoft Azure Storage use case"/>
 
@@ -70,11 +70,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 8. Follow the same steps to create the next API resource, `/addblob`. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
 
 9. Next, add the `uploadBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
-    - Content Type - json-eval($.contentType)
-    - Text Content - json-eval($.textContent)
-    - Metadata - json-eval($.metadata)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
+    - **Content Type** - json-eval($.contentType)
+    - **Text Content** - json-eval($.textContent)
+    - **Metadata** - json-eval($.metadata)
 
 10. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the blob.
 
@@ -84,8 +84,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 12. Next, add the `downloadBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
 
 13. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `downloadBlob` operation.
 
@@ -95,8 +95,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 15. Next, add the `deleteBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
 
 16. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `deleteBlob` operation.
 
@@ -106,8 +106,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 18. Next, add the `listMetadata` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
 
 19. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `listMetadata` operation.
 
@@ -117,7 +117,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 21. Next, add the `deleteContainer` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
+    - **Container Name** - json-eval($.containerName)
 
 22. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `deleteContainer` operation.
 
