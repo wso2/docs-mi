@@ -26,7 +26,7 @@ Following are the integration artifacts (proxy service) that we can used to impl
 </proxy>
 ```
 
-## Build and Run
+## Build and run
 
 Create the artifacts:
 
@@ -90,4 +90,9 @@ In Linux, we can save the above request in a <strong>request.xml</strong> file a
 
 ```bash
 nc -u localhost 9999 < request.xml
+```
+
+You will see the following response in the back-end service's console:
+```bash
+Tue Jul 23 17:30:16 IST 2024 samples.services.SimpleStockQuoteService  :: Accepted order #1 for : 18398 stocks of IBM at $ 172.23182849731984
 ```
