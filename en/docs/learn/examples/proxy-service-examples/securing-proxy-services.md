@@ -12,16 +12,12 @@ Following is a sample proxy service configuration that we can used to implement 
         <target>
             <inSequence>
                 <header name="wsse:Security" action="remove"
-                        xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
-                <send>
-                    <endpoint>
-                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                    </endpoint>
-                </send>
+                    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteService"/>
+                </call>
+                <respond />
             </inSequence>
-            <outSequence>
-                <send/>
-            </outSequence>
         </target>
         <publishWSDL uri="file:/path/to/sample_proxy_1.wsdl"/>
         <policy key="sec_policy"/>
@@ -32,7 +28,12 @@ Following is a sample proxy service configuration that we can used to implement 
     ```xml 
     <localEntry xmlns="http://ws.apache.org/ns/synapse" key="sec_policy" src="file:/path/to/policy1.xml"/>
     ```
-
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 ## Build and run
 
 The wsdl file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
@@ -44,9 +45,8 @@ This sample security policy file validates username token and admin role is allo
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) with the configurations given above.
+{!includes/build-and-run.md!}
+3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
