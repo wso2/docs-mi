@@ -49,7 +49,7 @@ is used to integrate two back-end hospital services to provide information to th
 !!! info "Prerequisites"
     Before you begin, install Micro Integrator on your machine:
 
-    1. Go to the WSO2 Micro Integrator web page, click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+    1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/micro-integrator/), click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
     
     2. Extract the ZIP file. Hereafter, this extracted folder will be referred to as the `<MI_HOME>` folder.
     
