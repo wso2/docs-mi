@@ -103,7 +103,7 @@ in above sample is given below.
 
 ```xml
 <wsdl:service name="SimpleStockQuoteService">
-   <wsdl:port name="SimpleStockQuoteServiceHttpSoapDefaultEndpoint" binding="ns:SimpleStockQuoteServiceSoap11Binding">
+   <wsdl:port name="SimpleStockQuoteServiceHttpSoap11Endpoint" binding="ns:SimpleStockQuoteServiceSoap11Binding">
             <soap:address location="http://localhost:9000/services/SimpleStockQuoteService"/>
    </wsdl:port>
    <wsdl:port name="SimpleStockQuoteServiceHttpSoap12Endpoint" binding="ns:SimpleStockQuoteServiceSoap12Binding">
