@@ -417,41 +417,44 @@ Following is what you will see in the **Source View** of MI for VS Code.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
-   <resource methods="GET" uri-template="/doctor/{doctorType}">
-      <inSequence>
-         <clone>
-            <target>
-               <sequence>
-                  <call>
-                     <endpoint key="GrandOakEndpoint"/>
-                  </call>
-               </sequence>
-            </target>
-            <target>
-               <sequence>
-                  <payloadFactory media-type="json" template-type="default">
-                     <format>{ "doctorType": "$1" }</format>
-                     <args>
-                        <arg expression="$ctx:uri.var.doctorType" evaluator="xml"/>
-                     </args>
-                  </payloadFactory>
-                  <call>
-                     <endpoint key="PineValleyEndpoint"/>
-                  </call>
-               </sequence>
-            </target>
-         </clone>
-         <aggregate id="">
-            <completeCondition timeout="0">
-               <messageCount max="{-1}" min="{-1}"/>
-            </completeCondition>
-            <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)"></onComplete>
-         </aggregate>
-         <respond/>
-      </inSequence>
-      <faultSequence>
-      </faultSequence>
-   </resource>
+    <resource methods="GET" uri-template="/doctor/{doctorType}">
+        <inSequence>
+            <clone>
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint key="GrandOakEndpoint"/>
+                        </call>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <payloadFactory media-type="json">
+                            <format>{
+                                "doctorType": "$1"
+                                }
+                            </format>
+                            <args>
+                                <arg evaluator="xml" expression="$ctx:uri.var.doctorType"/>
+                            </args>
+                        </payloadFactory>
+                        <call>
+                            <endpoint key="PineValleyEndpoint"/>
+                        </call>
+                    </sequence>
+                </target>
+            </clone>
+            <aggregate>
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete expression="json-eval($.doctors.doctor)">
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <faultSequence/>
+    </resource>
 </api>
 ```
 
