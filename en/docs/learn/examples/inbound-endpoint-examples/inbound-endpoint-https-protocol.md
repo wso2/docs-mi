@@ -12,10 +12,11 @@ Following are the integration artifacts that we can used to implement this scena
 === "Inbound Endpoint"
     ```xml 
     <?xml version="1.0" encoding="UTF-8"?>
-    <inboundEndpoint name="HttpsListenerEP"
+    <inboundEndpoint xmlns:p="http://ws.apache.org/ns/synapse"
+                     name="HttpsListenerEP"
                      protocol="https"
                      suspend="false" sequence="TestIn" onError="fault" >
-        <p:parameters xmlns:p="http://ws.apache.org/ns/synapse">
+        <p:parameters>
             <p:parameter  name="inbound.http.port">8085</p:parameter>
             <p:parameter name="keystore">
                 <KeyStore xmlns="">
