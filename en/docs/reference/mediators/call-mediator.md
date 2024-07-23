@@ -194,63 +194,78 @@ If it is not successful, a custom JSON error message is sent with HTTP
 500. If the first call itself is not successful, the output is just sent
 back with the relevant error code.
 
-``` xml
-<target>
-      <inSequence>
-         <log/>
-         <call>
-            <endpoint>
-               <http method="get" uri-template="http://192.168.1.10:8088/mockaxis2service"/>
-            </endpoint>
-         </call>
-         <enrich>
-            <source type="body" clone="true"/>
-            <target type="property" action="child" property="body_of_first_call"/>
-         </enrich>
-         <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
-            <then>
-               <log level="custom">
-                  <property name="switchlog" value="Case: first call successful"/>
-               </log>
-               <call>
-                  <endpoint>
-                     <http method="get" uri-template="http://localhost:8080/MockService1"/>
-                  </endpoint>
-               </call>
-               <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
-                  <then>
-                     <log level="custom">
-                        <property name="switchlog" value="Case: second call successful"/>
-                     </log>
-                     <enrich>
-                        <source type="property" clone="true" property="body_of_first_call"/>
-                        <target type="body"/>
-                     </enrich>
-                     <respond/>
-                  </then>
-                  <else>
-                     <log level="custom">
-                        <property name="switchlog" value="Case: second call unsuccessful"/>
-                     </log>
-                     <property name="HTTP_SC" value="500" scope="axis2"/>
-                     <payloadFactory media-type="json">
-                        <format>{ "status": "ERROR!"}</format>
-                        <args/>
-                     </payloadFactory>
-                     <respond/>
-                  </else>
-               </filter>
-            </then>
-            <else>
-               <log level="custom">
-                  <property name="switchlog" value="Case: first call unsuccessful"/>
-               </log>
-               <respond/>
-            </else>
-         </filter>
-      </inSequence>
-   </target>
-```
+=== "Proxy Service"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SampleProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log/>
+                <call>
+                    <endpoint key="MockAxis2ServiceEndpoint"/>
+                </call>
+                <enrich>
+                    <source type="body" clone="true"/>
+                    <target type="property" action="child" property="body_of_first_call"/>
+                </enrich>
+                <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
+                    <then>
+                        <log level="custom">
+                            <property name="switchlog" value="Case: first call successful"/>
+                        </log>
+                        <call>
+                            <endpoint key="MockService1Endpoint"/>
+                        </call>
+                        <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
+                            <then>
+                                <log level="custom">
+                                    <property name="switchlog" value="Case: second call successful"/>
+                                </log>
+                                <enrich>
+                                    <source type="property" clone="true" property="body_of_first_call"/>
+                                    <target type="body"/>
+                                </enrich>
+                                <respond/>
+                            </then>
+                            <else>
+                                <log level="custom">
+                                    <property name="switchlog" value="Case: second call unsuccessful"/>
+                                </log>
+                                <property name="HTTP_SC" value="500" scope="axis2"/>
+                                <payloadFactory media-type="json">
+                                    <format>{ "status": "ERROR!"}</format>
+                                    <args/>
+                                </payloadFactory>
+                                <respond/>
+                            </else>
+                        </filter>
+                    </then>
+                    <else>
+                        <log level="custom">
+                            <property name="switchlog" value="Case: first call unsuccessful"/>
+                        </log>
+                        <respond/>
+                    </else>
+                </filter>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint 1"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="MockAxis2ServiceEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
+=== "Endpoint 2"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="MockService1Endpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ### Example 2 - Continuing mediation without waiting for responses
 
@@ -313,36 +328,33 @@ If you want to receive the response message headers, when you use the Call media
 !!! Info
     Set the value of the `BLOCKING_SENDER_PRESERVE_REQ_HEADERS` property to `false` to receive the response message headers. If you set it to `true`, you cannot get the response headers, but the request headers will be preserved.
 
-```
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="sample"
-       transports="https"
-       statistics="enable"
-       trace="enable"
-       startOnLoad="true">
-   <target>
-      <inSequence>
-         <property name="FORCE_ERROR_ON_SOAP_FAULT"
-                   value="true"
-                   scope="default"
-                   type="STRING"/>
-         <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
-         <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
-         <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
-         <call blocking="true">
-            <endpoint>
-               <address uri="https://localhost:8243/services/sampleBE"
-                        trace="enable"
-                        statistics="enable"/>
-            </endpoint>
-         </call>
-         
-      </inSequence>
-      <outSequence/>
-   </target>
-   <description/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="sample" trace="enable" startOnLoad="true" statistics="enable" transports="https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="FORCE_ERROR_ON_SOAP_FAULT" value="true" scope="default" type="STRING"/>
+                <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
+                <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
+                <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
+                <call blocking="true">
+                    <endpoint key="sampleBE_Endpoint"/>
+                </call>
+            </inSequence>
+            <outSequence>
+            </outSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="sampleBE_Endpoint">
+        <address uri="https://localhost:8243/services/sampleBE" trace="enable" statistics="enable"/>
+    </endpoint>
+    ```
 
 ## Examples - Using Source and Target configurations
 
