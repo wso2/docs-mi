@@ -87,7 +87,7 @@ You will see that the sequence and the endpoint are fetched from the local entry
 INFO {org.apache.synapse.mediators.builtin.LogMediator} - Text = Sending quote request, direction = incoming
 ```
 
-You will get the following response:
+You will get the following sample response:
 
 ```xml
 HTTP/1.1 200 OK
