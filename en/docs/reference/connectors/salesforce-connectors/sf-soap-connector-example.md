@@ -16,7 +16,7 @@ This example explains how to use the Salesforce client to connect with the Sales
   
 All two operations are exposed via a `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
 
-* `/createRecords`: Creates a new `Account` object in Salesforce.
+* `/createRecords`: Create a new `Account` object in Salesforce.
 * `/queryRecords` : Retrieve the Account Names in all the existing accounts in Salesforce.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-connector.png" title="Using Salesforcesoap SOAP Connector" width="800" alt="Using Salesforcesoap SOAP Connector"/>
@@ -248,6 +248,6 @@ Invoke the API as shown below using the curl command. Curl application can be do
 
     You will get a set of account names and the respective IDs as the output.
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [Salesforce SOAP Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-soap-connector-config/) documentation for all operation details of the connector.
