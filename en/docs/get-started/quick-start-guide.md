@@ -71,50 +71,50 @@ The following project files and executable back-end services are available in th
 
     - **HealthcareIntegrationProject**: This folder contains the integration artifacts for the healthcare service. This service consists of the following REST API:
 
-        <img src="{{base_path}}/assets/img/integrate/quick-start-guide/qsg-api.png">
+        <img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png" alt="Final resource view"></a>
 
         <details>
                     <summary>HealthcareAPI.xml</summary>
                 ```xml
                 <?xml version="1.0" encoding="UTF-8"?>
-                    <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
-                    <resource methods="GET" uri-template="/doctor/{doctorType}">
-                        <inSequence>
-                            <clone>
-                                <target>
-                                <sequence>
-                                    <call>
-                                        <endpoint key="GrandOakEndpoint"/>
-                                    </call>
-                                </sequence>
-                                </target>
-                                <target>
-                                <sequence>
-                                    <payloadFactory media-type="json" template-type="default">
-                                        <format>{ "doctorType": "$1" }</format>
-                                        <args>
-                                            <arg expression="$ctx:uri.var.doctorType" evaluator="xml"/>
-                                        </args>
-                                    </payloadFactory>
-                                    <call>
-                                        <endpoint key="PineValleyEndpoint"/>
-                                    </call>
-                                </sequence>
-                                </target>
-                            </clone>
-                            <aggregate id="">
-                                <completeCondition timeout="0">
-                                <messageCount max="{-1}" min="{-1}"/>
-                                </completeCondition>
-                                <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)"></onComplete>
-                            </aggregate>
-                            <respond/>
-                        </inSequence>
-                        <faultSequence>
-                        </faultSequence>
-                    </resource>
-                    </api>
-                ```    
+                <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET" uri-template="/doctor/{doctorType}">
+                    <inSequence>
+                    <clone>
+                        <target>
+                        <sequence>
+                            <call>
+                            <endpoint key="GrandOakEndpoint" />
+                            </call>
+                        </sequence>
+                        </target>
+                        <target>
+                        <sequence>
+                            <payloadFactory media-type="json">
+                            <format>{ "doctorType": "$1" } </format>
+                            <args>
+                                <arg evaluator="xml" expression="$ctx:uri.var.doctorType" />
+                            </args>
+                            </payloadFactory>
+                            <call>
+                            <endpoint key="PineValleyEndpoint" />
+                            </call>
+                        </sequence>
+                        </target>
+                    </clone>
+                    <aggregate>
+                        <completeCondition>
+                            <messageCount max="-1" min="-1" />
+                        </completeCondition>
+                        <onComplete expression="json-eval($.doctors.doctor)">
+                            <respond />
+                        </onComplete>
+                    </aggregate>
+                    </inSequence>
+                    <faultSequence />
+                </resource>
+                </api>
+                ```
         </details>
 
     - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
@@ -229,22 +229,32 @@ Let's start the mock back-end services for this use case:
     Upon invocation, you should be able to observe the following response:
 
     ```bash
-    {
-        "doctors": {
-            "doctor": [
-                {
-                    "name": "John Mathew",
-                    "time": "03:30 PM",
-                    "hospital": "Grand Oak"
-                },
-                {
-                    "name": "Allan Silvester",
-                    "time": "04:30 PM",
-                    "hospital": "Grand Oak"
-                }
-            ]
-        }
-    }
+    [
+        [
+            {
+                "name":"John Mathew",
+                "time":"03:30 PM",
+                "hospital":"Grand Oak"
+            },
+            {
+                "name":"Allan Silvester",
+                "time":"04:30 PM",
+                "hospital":"Grand Oak"
+            }
+        ],
+        [
+            {
+                "name":"John Mathew",
+                "time":"07:30 AM",
+                "hospital":"pineValley"
+            },
+            {
+                "name":"Roma Katherine",
+                "time":"04:30 PM",
+                "hospital":"pineValley"
+            }
+        ]
+    ]
     ```
     **Congratulations!**
     Now you have created your first integration service.
