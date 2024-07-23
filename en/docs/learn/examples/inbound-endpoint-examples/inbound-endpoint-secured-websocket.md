@@ -1,35 +1,23 @@
 # Using the secure WebSocket inbound endpoint
 
-If you need to read and transform the content of WebSocket frames, the
-information in incoming WebSocket frames is not sufficient because the
-WebSocket protocol does not specify any information about the
-content-type of frames that flow through WebSocket channels. Hence, the
-Micro Integrator supports a WebSocket
-subprotocol extension to determine the content type of WebSocket frames.
+If you need to read and transform the content of WebSocket frames, the information in incoming WebSocket frames is not sufficient because the WebSocket protocol does not specify any information about the content-type of frames that flow through WebSocket channels. Hence, the Micro Integrator supports a WebSocket subprotocol extension to determine the content type of WebSocket frames.
 
 The **WebSocket inbound endpoint** of the Micro Integrator supports the following Synapse subprotocols by default:
 
--   `          synapse(contentType='application/json')         `
--   `          synapse(contentType='application/xml')         `
--   `          synapse(contentType='text/xml')         `
+-   `synapse(contentType='application/json')`
+-   `synapse(contentType='application/xml')`
+-   `synapse(contentType='text/xml')`
 
-Now let's look at a sample scenario that demonstrates WebSocket to
-WebSocket integration using subprotocols to support content handling.
+Now let's look at a sample scenario that demonstrates WebSocket to WebSocket integration using subprotocols to support content handling.
 
 ## Example use case
 
-Let's say you need to send messages between two WebSocket-based systems
-using the Micro Integrator as a WebSocket gateway that facilitates
-the messaging. Let's also assume that you need to read and transform the
-content of WebSocket frames that are sent and received.
+Let's say you need to send messages between two WebSocket based systems using the Micro Integrator as a WebSocket gateway that facilitates the messaging. Let's also assume that you need to read and transform the content of WebSocket frames that are sent and received.
 
 The following should take place in this scenario:
 
 -   The WebSocket Client sends WebSocket frames to the Micro Integrator.
--   When the initial handshake happens between the WebSocket client and
-    the WebSocket inbound endpoint of the Micro Integrator, the WebSocket client sends a `Sec-WebSockets-Protocol` header
-    that specifies the content type of the WebSocket frame. In this sample it is
-    `synapse(contentType='application/json')`.
+-   When the initial handshake happens between the WebSocket client and the WebSocket inbound endpoint of the Micro Integrator, the WebSocket client sends a `Sec-WebSockets-Protocol` header that specifies the content type of the WebSocket frame. In this sample it is `synapse(contentType='application/json')`.
 -   The WebSocket inbound endpoint of the Micro Integrator determines the content type of the incoming WebSocket frame using the subprotocol.
 -   Once the handshake is complete, the WebSocket inbound endpoint builds all the subsequent WebSocket frames based on the content-type specified during the initial handshake.
 -   The Micro Integrator sends the transformed message in the form of WebSocket frames.
@@ -113,12 +101,12 @@ Starting the WebSocket client:
 -  Download the netty artifacts zip file from [here](https://github.com/wso2-docs/ESB) and extract it. The extracted folder will be shown as `ESB`
 -  Open a terminal, navigate to `ESB/ESB-Artifacts/Netty_artifacts_for_WebSocket_samples`, and execute the following command to start the WebSocket server on port 8082:
     ```bash
-    java -cp netty-example-4.0.30.Final.jar:lib/*:. io.netty.example.http.websocketx.server.WebSocketServer
+    java -cp 'netty-example-4.0.30.Final.jar:lib/*:.' io.netty.example.http.websocketx.server.WebSocketServer
     ```
 -   Open a terminal, navigate to `ESB/ESB-Artifacts/Netty_artifacts_for_WebSocket_samples`, and execute the following command to start the WebSocket client:
 
     ```bash
-    java -DsubProtocol="synapse(contentType='application/json')" -DclientPort=9092 -cp netty-example-4.0.30.Final.jar:lib/*:. io.netty.example.http.websocketx.client.WebSocketClient
+    java -DsubProtocol="synapse(contentType='application/json')" -DclientPort=9092 -cp 'netty-example-4.0.30.Final.jar:lib/*:.' io.netty.example.http.websocketx.client.WebSocketClient
     ```
 
     You will see the following message on the client terminal:
