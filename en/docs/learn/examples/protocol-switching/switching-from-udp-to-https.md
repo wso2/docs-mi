@@ -6,25 +6,41 @@ This example demonstrates how WSO2 Micro Integrator receives SOAP messages over 
 
 Following are the integration artifacts (proxy service) that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml 
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy name="StockQuoteProxy" startOnLoad="true" transports="udp" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence>
-            <log level="full"/>
-            <property name="OUT_ONLY" value="true"/>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </call>
-        </inSequence>
-    </target>
-    <publishWSDL key="conf:UDP_WSDL/sample_proxy_1.wsdl" preservePolicy="true"/>
-    <parameter name="transport.udp.port">9999</parameter>
-    <parameter name="transport.udp.contentType">text/xml</parameter>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml 
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StockQuoteProxy" startOnLoad="true" transports="udp" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log category="INFO" level="full"/>
+                <property name="OUT_ONLY" scope="default" type="BOOLEAN" value="true"/>
+                <call>
+                    <endpoint key="SimpleStockEp"/>
+                </call>
+            </inSequence>
+            <faultSequence/>
+        </target>
+        <publishWSDL key="conf:UDP_WSDL/sample_proxy_1.wsdl" preservePolicy="true">
+        </publishWSDL>
+        <parameter name="transport.udp.port">9999</parameter>
+        <parameter name="transport.udp.contentType">text/xml</parameter>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ## Build and run
 
