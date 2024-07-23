@@ -12,12 +12,11 @@ The following diagram shows the overall solution we are going to build. The SMSC
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-example.png" title="SMPP Inbound Endpoint" width="800" alt="SMPP Inbound Endpoint"/>
 
-## Set up the inbound endpoint using micro integrator
+## Set up the inbound endpoint
 
 1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-2. Create a sequence to process the message.<br/>   
-   In this example, we will just log the message for simplicity, but in a real world use case, this can be any message mediation.
+2. Create a sequence to process the message. In this example, we will just log the message for simplicity, but in a real-world use case, this can be any message mediation.
  
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -123,7 +122,7 @@ You can download the ZIP file and extract the contents to get the project code.
    3. Enter `4` to send a message. 
    4. Then, you will get to type the message. Enter the message "Hi! This is the first test SMS message.".
 
-   SMPP Inbound Endpoint will consume message from the SMSC.
+   SMPP Inbound Endpoint will consume messages from the SMSC.
    
    **Expected response**
    
