@@ -1,20 +1,20 @@
 # Switch Mediator
 
-The **Switch Mediator** is an XPath or JSONPath filter. The XPath or JSONPath is evaluated and returns a string. This string is matched against the regular expression in each switch case mediator, in the specified order. If a matching case is found, it will be executed, and the remaining switch case mediators are not processed. If none of the case statements are matching, and a default case is specified, the default will be executed.
+The **Switch Mediator** is an XPath or JSONPath filter. The XPath or JSONPath is evaluated and returns a string. This string is matched against the regular expression in each switch case, in the specified order. If a matching case is found, it will be executed, and the remaining cases are not processed. If none of the case statements match, and a default case is specified, the default will be executed.
 
 !!! Info
     The Switch mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
-``` java
+```xml
     <switch source="[XPath|json-eval(JSON Path)]">
-       <case regex="string">
-         mediator+
-       </case>+
-       <default>
-         mediator+
-       </default>?
+        <case regex="string">
+            mediator+
+        </case>+
+        <default>
+            mediator+
+        </default>
     </switch>
 ```
 
@@ -32,7 +32,7 @@ The parameters available to configure the Switch mediator are as follows.
 <tbody>
 <tr class="odd">
 <td><strong>Source XPath</strong></td>
-<td>The source XPath or JSONPath to be evaluated. When specifying a JSONPath, use the format <code>             json-eval(&lt;JSON_PATH&gt;)            </code> , such as <code>             json-eval(getQuote.request.symbol)            </code> . If you use namespaces in the expression, click <strong>Namespaces</strong> and map the namespace prefix to the correct URI.</td>
+<td>The source XPath or JSONPath to be evaluated. When specifying a JSONPath, use the format <code>json-eval(&lt;JSON_PATH&gt;)</code> , such as <code>json-eval(getQuote.request.symbol)</code> . If you use namespaces in the expression, click the <strong>edit icon</strong>, then click <strong>Add Namespace</strong> to map the namespace prefix to the correct URI.
 </tr>
 <tr class="even">
 <td><strong>Number of cases</strong></td>
@@ -42,41 +42,33 @@ The parameters available to configure the Switch mediator are as follows.
 </tr>
 <tr class="odd">
 <td><strong>Specify default case</strong></td>
-<td>Click this link to add a default switch-case mediator. Adding a default switch case mediator is optional. If it is specified, it will be executed if no matching switch-case is identified.</td>
+<td>Adding a default case is optional. If it is specified, it will be executed if no matching case is identified.</td>
 </tr>
 </tbody>
 </table>
 
 ## Switch-case mediator
 
-1.  To add a case, click **Add case** , which adds an empty switch-case
-    mediator under the Switch mediator. A switch-case mediator would
-    appear as a child of the Switch mediator.
-2.  Click **Case** to configure the switch-case mediator. The page will
-    expand to display the section shown below where a regular expression
-    can be added in the **Case Value (Regular Expression)** parameter.
-3.  Click **Case** again and click **Add Child** , and add the
-    mediator(s) you want to execute when this case matches the switching
-    value.
+1.  To add a case, go to edit the switch and click **Add parameter** under **Case Branches**. 
+2.  It will open a form where a regular expression can be added in the **Case Regex** parameter. By submitting, it will add an empty case under the switch mediator as a child. 
+3.  Click on the `+` mark under a chase to add the mediator(s) you want to execute when this case matches the switching value.
 
 ## Examples
 
-In this example the [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the local property named `         symbol        ` on the current message depending on the evaluation of the string. It will get the text of symbol element and match it against the values `         MSFT        ` and `         IBM        ` . If the text does not match either of these symbols, the default case will be executed.
+In this example, the [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the local property named `symbol` on the current message depending on the evaluation of the string. It will get the text of the symbol element and match it against the values `MSFT` and `IBM`. If the text does not match either of these symbols, the default case will be executed.
 
-``` java
-<switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples/xsd">
-      <case regex="IBM">
-          <!-- the property mediator sets a local property on the *current* message -->
-          <property name="symbol" value="Great stock - IBM"/>
-      </case>
-      <case regex="MSFT">
-          <property name="symbol" value="Are you sure? - MSFT"/>
-      </case>
-      <default>
-          <!-- it is possible to assign the result of an XPath or JSON Path expression as well -->
-          <property name="symbol"
-                expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)"
-                xmlns:m0="http://services.samples/xsd"/>
-      </default>
-  </switch>
+```xml
+<switch source="//m0:getQuote/m0:request/m0:symbol">
+    <case regex="IBM">
+        <!-- the property mediator sets a local property on the *current* message -->
+        <property name="symbol" scope="default" type="STRING" value="Great stock - IBM"/>
+    </case>
+    <case regex="MSFT">
+        <property name="symbol" scope="default" type="STRING" value="Are you sure? - MSFT"/>
+    </case>
+    <default>
+        <!-- it is possible to assign the result of an XPath or JSON Path expression as well -->
+        <property name="symbol" scope="default" type="STRING" expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)"/>
+    </default>
+</switch>
 ```
