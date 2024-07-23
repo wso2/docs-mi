@@ -1,4 +1,4 @@
-# FIX Parameters
+# FIX parameters
 
 When you implement an integration use case that requires a FIX connection, you can use the following FIX parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,7 +9,7 @@ When you implement an integration use case that requires a FIX connection, you c
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level Parameters
+## Service-Level parameters
 
 <table>
       <tr>

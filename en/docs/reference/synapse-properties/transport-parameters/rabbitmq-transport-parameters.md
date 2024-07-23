@@ -1,17 +1,17 @@
-# RabbitMQ Parameters
+# RabbitMQ parameters
 
 When you implement an integration use case that requires a RabbitMQ connection, you can use the following RabbitMQ parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
       The Micro Integrator can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq).
 
-## Service-Level Parameters (Receiving Messages)
+## Service-Level parameters (receiving messages)
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-### Required Parameters
+### Required parameters
 
 <table>
   <tr>
@@ -34,7 +34,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
   </tr>
 </table>
 
-### Other Parameters (Optional)
+### Other parameters (optional)
 
 <table>
    <tr>
@@ -118,7 +118,7 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
    </tbody>
 </table>
 
-### Connection Recovery Parameters (Optional)
+### Connection recovery parameters (optional)
 
 In case of a network failure or broker shutdown, the Micro Integrator will try to recreate the connection.
 
@@ -148,7 +148,7 @@ In case of a network failure or broker shutdown, the Micro Integrator will try t
   </tr>
 </table>
 
-### SSL Parameters (Optional)
+### SSL parameters (optional)
 
 To enable SSL support in RabbitMQ, you need to configure the following parameters.
 
@@ -229,7 +229,7 @@ To enable SSL support in RabbitMQ, you need to configure the following paramet
 </table>
 
 
-## Service-Level Parameters (Sending Messages)
+## Service-Level parameters (sending messages)
 
 In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/develop/creating-artifacts/creating-endpoints).
 
@@ -250,7 +250,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
     </endpoint>
     ```
 
-### Required Parameters
+### Required parameters
 
 <table>
   <tr>
@@ -268,7 +268,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
 </table>
 
 
-### Optional Parameters
+### Optional parameters
 
 <table>
    <tr>
@@ -359,6 +359,6 @@ In your integration solution, the following RabbitMQ send parameters can be spec
    </tbody>
 </table>
 
-### Mediator Properties
+### Mediator properties
 
 In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/).

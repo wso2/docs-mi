@@ -1,4 +1,4 @@
-# VFS Parameters
+# VFS parameters
 
 When you implement an integration use case that requires file processing, you can use the following VFS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,7 +9,7 @@ When you implement an integration use case that requires file processing, you ca
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level Parameters
+## Service-Level parameters
 
 <table>
    <thead>
@@ -351,7 +351,7 @@ The following service-level parameters are required for Inbound Endpoints.
    </tbody>
 </table>
 
-### VFS URL Parameters
+### VFS URL parameters
 
 When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you can set connection-specific VFS parameters as URL query parameters. For example, to use SFTP with SSL, you could specify the URL as shown below. Note that [transport.vfs.AvoidPermissionCheck](#vfs-transport-avoid_permissions) is a mandatory parameter for this URL when SFTP is used.
 
@@ -484,7 +484,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
    </tbody>
 </table>
 
-## Configuring a Proxy Server over FTP and SFTP
+## Configure a proxy server over FTP and SFTP
 
 Proxy server specific parameters can be set as URL query parameters. For example, to use proxy over FTP, you could specify the URL as follows:
 

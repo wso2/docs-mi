@@ -1,4 +1,4 @@
-# JMS Parameters
+# JMS parameters
 
 When you implement an integration use case that requires a JMS connection, you can use the following JMS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,7 +9,7 @@ When you implement an integration use case that requires a JMS connection, you c
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level JMS Parameters
+## Service-Level JMS parameters
 
 <table>
       <tr>

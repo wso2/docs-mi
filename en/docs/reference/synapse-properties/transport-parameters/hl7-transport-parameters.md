@@ -1,4 +1,4 @@
-# HL7 Parameters
+# HL7 parameters
 
 When you implement an integration use case that handles HL7 messages, you can use the following HL7 parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,9 +9,9 @@ When you implement an integration use case that handles HL7 messages, you can us
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-level Parameters
+## Service-level parameters
 
-### HL7 receiver port (Required)
+### HL7 receiver port (required)
 
 <table>
   <tr>
@@ -32,7 +32,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
   </tr>
 </table>
 
-### HL7 Conformance profile path
+### HL7 conformance profile path
 
 <table>
   <tr>
