@@ -1,10 +1,10 @@
 # Snowflake connector example
 
-The Snowflake Connector allows you to access the [Snowflake JDBC Driver API](https://docs.snowflake.com/developer-guide/jdbc/jdbc) from an integration sequence. This provides functionalities to execute a set of standard Snowflake DDL, DML, and query commands. You can use the connector to perform query, execute and batch execute operations on Snowflake databases. 
+The Snowflake Connector allows you to access the [Snowflake JDBC Driver API](https://docs.snowflake.com/developer-guide/jdbc/jdbc) from an integration sequence. This provides functionalities to execute a set of standard Snowflake DDL, DML, and query commands. You can use the connector to perform query, execute, and batch-execute operations on Snowflake databases. 
 
 ## What you'll build
 
-This example demonstrates how to use the Snowflake Connector for querying, inserting, batch inserting, and deleting data in a Snowflake database. Let's consider a use case involving a hotel database for managing reservations. Within the hotel database, there exists a table named RESERVATIONS responsible for storing reservation details.
+This example demonstrates how to use the Snowflake Connector for querying, inserting, batch-inserting, and deleting data in a Snowflake database. Let's consider a use case involving a hotel database for managing reservations. Within the hotel database, there is a table named RESERVATIONS that stores reservation details.
 
 1. Insert a single record into the Snowflake database.
 2. Insert multiple records into the Snowflake database.
@@ -13,15 +13,14 @@ This example demonstrates how to use the Snowflake Connector for querying, inser
 
 All operations are exposed via an API. The API with the context `/snowflakeconnector` has 4 resources.
 
-* `/insertReservation`: Insert a single reservation to the Snowflake database.
+* `/insertReservation`: Insert a single reservation into the Snowflake database.
 * `/insertReservationBatch`: Insert a batch of reservations to the Snowflake database.
 * `/getReservationInfo`: Retrieve all the reservations from the Snowflake database.
 * `/deleteReservation`: Delete a reservation from the Snowflake database.
 
 ## Before you begin
 
-Before you begin, you must have a valid Snowflake account.
-To use the Snowflake database, you must have a valid Snowflake account. To create a snowflake account, please visit the official Snowflake website and complete the registration process. Once registered you will obtain a username and password with which you can log in to your Snowflake account, and the account identifier which is the unique identifier for your Snowflake account within your business entity and the Snowflake network.
+Before you begin, you must have a valid Snowflake account. To use the Snowflake database, you must have a valid Snowflake account. To create a snowflake account, please visit the official Snowflake website and complete the registration process. Once registered you will obtain a username and password with which you can log in to your Snowflake account, and the account identifier which is the unique identifier for your Snowflake account within your business entity and the Snowflake network.
 
 1. Create a database named `HOTEL_DB` in Snowflake.
 2. Select the `PUBLIC` schema and create a table named `RESERVATIONS` with the following columns.
@@ -42,7 +41,7 @@ create table RESERVATIONS (
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-### Setup the integration project
+### Set up the integration project
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
@@ -70,7 +69,7 @@ Let's add the operations to the resources in the `SnowflakeConnectorApi` API.
 
 #### - /insertReservation
 
-Users can utilize this resource to insert a single record into the Snowflake database. The user will be sending the reservation payload in the request body.
+Users can utilize this resource to insert a single record into the Snowflake database. The user will send the reservation payload in the request body.
 
 1. In the API insequence add the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) to extract the payload from the request body. Let's store the payload in a property named `payload`.
     ```xml
@@ -140,7 +139,7 @@ Using this resource users retrieve all records from table `Reservations` of `HOT
 
 #### - /insertReservationBatch
 
-Using this resource users can insert multiple records into the table `Reservations` of `HOTEL_DB`. The user will be sending the bulk payload in the request body.
+Using this resource users can insert multiple records into the table `Reservations` of `HOTEL_DB`. The user will send the bulk payload in the request body.
 
 1. In the API insequence add the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) to extract the payload from the request body. Let's store the payload in a property called `payload`.
     ```xml
@@ -399,6 +398,6 @@ Let's test the API. Deploy the carbon application and start the Micro Integrator
         }
         ```
 
-## What's Next
+## What's next
 
 - To customize this example for your own scenario, see [Snowflake Connector Configuration]({{base_path}}/reference/connectors/snowflake-connector/snowflake-connector-reference/) documentation for all operation details of the connector.
