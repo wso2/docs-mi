@@ -26,11 +26,11 @@ sender.transfer_encoding = "chunked"
 
 This will disable chunking for all Callout mediators present in the Micro Integrator.
 
-If you want to disable chunking for only a single Callout mediator instance, create a new `axis2.xml` file by copying the `         MI_HOME/conf/axis2/axis2_blocking_client.xml        ` file, set the `         Transfer-Encoding        ` parameter as shown, and then configure that Callout mediator to use this new `         axis2.xml        ` file as described below.
+If you want to disable chunking for only a single Callout mediator instance, create a new `axis2.xml` file by copying the `MI_HOME/conf/axis2/axis2_blocking_client.xml` file, set the `Transfer-Encoding` parameter as shown, and then configure that Callout mediator to use this new `axis2.xml` file as described below.
 
 ## Syntax
 
-``` java
+```xml
 <callout [serviceURL="string"] [action="string"] [initAxis2ClientOptions="true|false"] [endpointKey="string"]>
       <configuration [axis2xml="string"] [repository="string"]/>?
       <source xpath="expression" | key="string" | type="envelope"/>
@@ -60,7 +60,7 @@ The parameters available for configuring the Callout mediator are as follows.
 <li><strong>URL</strong> : Select <strong>URL</strong> if you want to call the external service by specifying its URL in the Call mediator configuration.</li>
 <li><strong>Address Endpoint</strong>: Select <strong>Address Endpoint</strong> if you want to call the external service via an <b>Endpoint</b>, which is already saved in the <b>Registry</b>. This option should be selected if you want to make use of the WSO2 functionality related to endpoints such as format conversions, security etc. Note that only Leaf endpoint types (i.e. <code>                Address               </code>, <code>WSDL</code>, <code>Default</code> and <code>Http</code>) are supported for the Callout mediator.</li>
 </ul>
-<p>If neither a URL or an address endpoint is specified, the <code>To</code> header on the request is used as the target endpoint.</p>
+<p>If neither a URL nor an address endpoint is specified, the <code>To</code> header on the request is used as the target endpoint.</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -117,7 +117,7 @@ The parameters available for configuring the Callout mediator are as follows.
 <tr class="even">
 <td><strong>WS-Security</strong></td>
 <td><div class="content-wrapper">
-<p>If you select the check box, WS-Security is enabled for the Callout mediator. This section would expand as shown below when you select this check box.</p>
+<p>If you select the checkbox, WS-Security is enabled for the Callout mediator. This section would expand as shown below when you select this check box.</p>
 </div></td>
 </tr>
 <tr class="odd">
@@ -141,7 +141,7 @@ Following examples demonstrate the usage of the Callout mediator.
 
 In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) to send the message back to the client.
 
-``` java
+```xml
 <callout serviceURL="http://localhost:9000/services/SimpleStockQuoteService"
          action="urn:getQuote">
     <source xmlns:s11="http://schemas.xmlsoap.org/soap/envelope/"
@@ -158,9 +158,9 @@ In this example, the Callout Mediator does the direct service invocation to the 
 The below example uses a Callout mediator to set a HTTP method when invoking a REST service.
 
 !!! Info
-    For this, you need to define the following property: `         <property name="HTTP_METHOD" expression="$axis2:HTTP_METHOD" scope="axis2-client"/>        `
+    For this, you need to define the following property: `<property name="HTTP_METHOD" expression="$axis2:HTTP_METHOD" scope="axis2-client"/>`
 
-``` java
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="CalloutProxy"
        startOnLoad="true"
@@ -201,7 +201,7 @@ The below example uses a Callout mediator to set a HTTP method when invoking a R
                <arg evaluator="xml" expression="$ctx:res"/>
             </args>
          </payloadFactory>
-         <send/>
+         <call/>
       </inSequence>
    </target>
    <description/>
