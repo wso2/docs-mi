@@ -47,7 +47,7 @@ For more information, see [Manage Users]({{base_path}}/observe-and-manage/managi
 
 ## Managing users and roles from the Dashboard
 
-See the [Micro Integrator Dashboard documentation]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
+See the [Micro Integrator Dashboard documentation]({{base_path}}/observe-and-manage/working-with-integration-control-plane) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
 
 Select <b>Users</b> in the left-hand navigator to view the list of existing users.
 
