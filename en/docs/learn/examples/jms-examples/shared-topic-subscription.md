@@ -97,8 +97,7 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -309,4 +308,4 @@ Follow the steps given below to create the topic consumer and publisher to run t
 
 You will see that the 5 messages are shared between the inbound listener and `TopicConsumer.java`. This is because both the inbound listener and `TopicConsumer.java` are configured as shared subscribers.
 
-The total number of consumed messages between the inbound listener and `TopicConsumer.java` will be equal to the number messages published by `         TopicPublisher.java`.
+The total number of consumed messages between the inbound listener and `TopicConsumer.java` will be equal to the number messages published by `TopicPublisher.java`.
