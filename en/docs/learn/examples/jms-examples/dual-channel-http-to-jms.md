@@ -2,10 +2,10 @@
 
 A JMS synchronous invocation takes place when a JMS producer receives a response to a JMS request produced by it when invoked. The WSO2 Micro Integrator uses an internal **JMS correlation ID** to correlate the request and the response. See [JMSRequest/ReplyExample](http://www.eaipatterns.com/RequestReplyJmsExample.html) for more information. JMS synchronous invocations are further explained in the following use case.
 
-When the proxy service named `SMSSenderProxy` receives an HTTP request, it publishes that request in a JMS queue named `SMSStore` . Another proxy service named `SMSForwardProxy` subscribes to messages published in this queue and forwards them to a back-end service named `         SimpleStockQuoteService        ` . When this back-end service returns an HTTP response, internal ESB logic is used to save that
+When the proxy service named `SMSSenderProxy` receives an HTTP request, it publishes that request in a JMS queue named `SMSStore`. Another proxy service named `SMSForwardProxy` subscribes to messages published in this queue and forwards them to a back-end service named `SimpleStockQuoteService`. When this back-end service returns an HTTP response, internal ESB logic is used to save that
 message as a JMS message in a JMS queue named `SMSReceiveNotification`. The `SMSSenderProxy` proxy service picks the response from the `SMSReceiveNotification` queue and delivers it to the client as an HTTP message using the internal mediation logic.
 
-**Note** that the `         SMSSenderProxy        ` proxy service is able to pick up the message from the `         SMSReceiveNotification        ` queue because the `         transport.jms.ReplyDestination        ` parameter of the `         SMSSenderProxy        ` proxy service is set to the same `         SMSReceiveNotification        ` queue.
+**Note** that the `SMSSenderProxy` proxy service is able to pick up the message from the `SMSReceiveNotification` queue because the `transport.jms.ReplyDestination` parameter of the `SMSSenderProxy` proxy service is set to the same `SMSReceiveNotification` queue.
 
 !!! Info
     **Correlation between request and response**:
@@ -34,11 +34,9 @@ Shown below is the `SMSSenderProxy` proxy service.
              <property name="transport.jms.ContentTypeProperty"
                        value="Content-Type"
                        scope="axis2"/>
-          </inSequence>
-          <outSequence>
              <property name="TRANSPORT_HEADERS" scope="axis2" action="remove"/>
-             <send/>
-          </outSequence>
+             <respond/>
+          </inSequence>
           <endpoint>
              <address uri="jms:/SMSStore?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue&amp;transport.jms.ReplyDestination=SMSReceiveNotificationStore"/>
           </endpoint>
@@ -63,8 +61,8 @@ Listed below are some of the properties that can be used with the **Property** m
 <tbody>
 <tr class="odd">
 <td><pre><code>TRANSPORT_HEADERS</code></pre></td>
-<td><p>This property is used in the out sequence to make sure that transport headers (which are JMS headers in this example) are removed from the message when it is passed to the back-end client.</p>
-<p>It is recommended to set this property because (according to the JMS specification) a property name can contain any character for which the <code>              Character.isJavaIdentifierPart             </code> Java method returns 'true'. Therefore when there are headers that contain special characters (e.g accept-encoding), some JMS brokers will give errors.</p></td>
+<td><p>This property is used to make sure that transport headers (which are JMS headers in this example) are removed from the message when it is passed to the back-end client.</p>
+<p>It is recommended to set this property because (according to the JMS specification) a property name can contain any character for which the <code>Character.isJavaIdentifierPart</code> Java method returns 'true'. Therefore when there are headers that contain special characters (e.g accept-encoding), some JMS brokers will give errors.</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>transport.jms.ContentTypeProperty</code></pre></td>
@@ -83,7 +81,7 @@ Listed below are some of the properties that can be used with the **Property** m
 </div></td>
 </tr>
 <tr class="even">
-<td><p><code>              JMS_TIME_TO_LIVE             </code></p></td>
+<td><p><code>JMS_TIME_TO_LIVE</code></p></td>
 <td><div class="content-wrapper">
 <p>This property can be set in the InSequence of the proxy service to specify the maximum time period for which a message can live without being consumed.</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -109,7 +107,7 @@ The endpoint of this proxy service uses the properties listed below to connect t
 <tbody>
 <tr class="odd">
 <td><p><strong>address URI</strong></p></td>
-<td><p><code>              jms:/SMSStore             </code></p></td>
+<td><p><code>jms:/SMSStore</code></p></td>
 <td>The destination in which the request received by the proxy service is stored. Note that there are two ways to define the URL: </br>
   <ul>
     <li>
@@ -126,7 +124,7 @@ The endpoint of this proxy service uses the properties listed below to connect t
 </tr>
 <tr class="even">
 <td><p><strong>java.naming.factory.initial</strong></p></td>
-<td><p><code>              org.wso2.andes.jndi.PropertiesFileInitialContextFactory             </code></p></td>
+<td><p><code>org.wso2.andes.jndi.PropertiesFileInitialContextFactory</code></p></td>
 <td><div class="itemizedlist">
 <p>The initial context factory to use.<br />
 The value specified here should be the same as that specified in the <code>&lt;MI_HOME&gt;/conf/deployment.toml</code> `parameter.initial_naming_factory` for the JMS transport receiver (Under <code>[[transport.jms.listener]]</code> section. Make sure that this section is uncommented.).</p>
@@ -134,17 +132,17 @@ The value specified here should be the same as that specified in the <code>&lt;M
 </tr>
 <tr class="odd">
 <td><strong>java.naming.provider.url</strong></td>
-<td><p><code>              conf/jndi.properties             </code></p></td>
+<td><p><code>conf/jndi.properties</code></p></td>
 <td>The location of the JNDI service provider.</td>
 </tr>
 <tr class="even">
 <td><p><strong>transport.jms.DestinationType</strong></p></td>
-<td><code>             queue            </code></td>
+<td><code>queue</code></td>
 <td>The destination type of the JMS message that will be generated by the proxy service.</td>
 </tr>
 <tr class="odd">
 <td><strong>transport.jms.ReplyDestination</strong></td>
-<td><p><code>              SMSReceiveNotificationStore             </code></p></td>
+<td><p><code>SMSReceiveNotificationStore</code></p></td>
 <td>The destination in which the response generated by the back-end service is stored.</td>
 </tr>
 </tbody>
@@ -152,7 +150,7 @@ The value specified here should be the same as that specified in the <code>&lt;M
 
 ### JMS consumer configuration
 
-Create a proxy service named `         SMSForwardProxy        ` with the configuration given below. This proxy service will consume messages from the `         SMSStore        ` queue of the Message Broker Profile, and forward the messages to the back-end service.
+Create a proxy service named `SMSForwardProxy` with the configuration given below. This proxy service will consume messages from the `SMSStore` queue of the Message Broker Profile, and forward the messages to the back-end service.
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
@@ -164,15 +162,13 @@ Create a proxy service named `         SMSForwardProxy        ` with the configu
        <target>
           <inSequence>
             <header name="Action" value="urn:getQuote"/>
-             <send>
+             <call>
                 <endpoint>
                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </send>
+             </call>
+             <respond/>
           </inSequence>
-          <outSequence>
-             <send/>
-          </outSequence>
        </target>
        <parameter name="transport.jms.ContentType">
           <rules>
@@ -187,15 +183,14 @@ Create a proxy service named `         SMSForwardProxy        ` with the configu
 </proxy>
 ```
 
-The `         transport.jms.ConnectionFactory        ` , `         transport.jms.DestinationType        ` parameter and the
-`         transport.jms.Destination properties        ` parameter map the proxy service to the `         SMSStore        ` queue.
+The `transport.jms.ConnectionFactory` , `transport.jms.DestinationType` parameter and the
+`transport.jms.Destination properties` parameter map the proxy service to the `SMSStore` queue.
 
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
