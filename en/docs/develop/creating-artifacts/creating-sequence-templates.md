@@ -1,63 +1,67 @@
-# Creating Sequence Templates
+# Create a Sequence Template
 
-Follow the instructions given below to create a new **Sequence Template** in WSO2 Integration Studio.
+Follow the instructions given below to create a new Sequence Template in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the Sequence Template artifact
+### Create the Sequence Template artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
+{!includes/creating-project.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/select-template.png">
+3. Go to **Micro Integrator Project Explorer** > **Templates**.
 
-2.  Select **Create a New Template** and click **Next**.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/create-sequence-template.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/create-sequence-template.png" alt="Create sequence template" width="30%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/new-template-wizard-1.png" width="500">
+4. Hover over **Templates** and click the **+** icon that appears to open the below **Template Form**.
 
-3.  Enter a unique name for the template and select **Sequence Template** from the list.
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-template.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-template.png" alt="Add API" width="30%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/new-template-wizard-2-2.png" width="500">
+5. In the **Template Form**, select **Sequence Template**.
 
-    Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png" alt="Create sequence template" width="80%"></a>
 
-5.  Do one of the following to save the artifact:
+6. Enter a unique name for the template.
 
-  	-   To save the template in an existing ESB Config project in your workspace, click **Browse** and select that project.
-  	-   To save the template in a new ESB Config project, click **Create new Project** and create the new project.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/template-artifact.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/template-artifact.png" alt="Template artifact" width="80%"></a>
 
-6.  Click **Finish**. 
+7. Specify the vales for the [required parameters]({{base_path}}/reference/synapse-properties/template-properties/#sequence-template-properties) for the sequence template.
 
-    The template is created in the `src/main/synapse-config/templates` folder under the ESB Config project you specified.
+8. Click **Create**.
 
-7.  To use the sequence template, [update the properties](#updating-properties).
+    The template is created in the `/src/main/wso2mi/artifacts/templates` folder under the integration project you created.
 
-### Updating properties
+### Update properties
 
-1.	Open the **Design View** of the sequence template you created.
+1.	Open the **Resource View** of the sequence template you created.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-template-design-view-1.png" width="700">
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-view.png" alt="Sequence template view" width="50%"></a>
 
-2.  Drag-and-drop the required mediators from the **Palette**.
+2.  Add the required mediators from the **Palette**.
+
 3.  Specify parameter values as an XPATH.
 
     In the following example, the `GREETING_MESSAGE` property of the **Log** mediator is specified using the `$func:message` expression.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-template-design-view-2.png" width="700">
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-design-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-design-view.png" alt="Sequence template design view" width="60%"></a>
 
-### Designing the integration
+### Design the integration
 
-When you have a Sequence template defined, you can use a [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) in your [mediation sequence]({{base_path}}/reference/mediation-sequences).
+When you have a Sequence template defined, you can use a Call Template Mediator in your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 
-1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
-2.  Drag the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/mediation-sequences).
+1.  Open the **Resource View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 
-	   <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-temp-graphical-editor-1.png" width="700">
+2.  Add the **Call Template Mediator** from the **Palette** under **Mediators** > **Generic** to the relevant position in the mediation sequence.
 
-3.   Double-click the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) icon to open the **Properties** tab.
-4.  Select your sequence template from the list in the **Available Templates** field and then add values using the template parameters.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-resource-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-resource-view.png" alt="Sequence template resource view" width="70%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-temp-graphical-editor-2.png" width="500">
+3.  In the **Call Template** pane, select the previously-created sequence template from the **Target Template** dropdown..
 
-## Examples
+4.  Add required values using the **Call-Template Parameters**.
 
-- [Using Sequence Templates]({{base_path}}/learn/examples/template-examples/using-sequence-templates)
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/call-template-pane.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/call-template-pane.png" alt="Call template pane" width="30%"></a>
+
+!!! abstract "Learn more about sequence templates"
+
+    Follow our examples on sequence templates:
+
+    - [Using Sequence Templates]({{base_path}}/learn/examples/template-examples/using-sequence-templates)
