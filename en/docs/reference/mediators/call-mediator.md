@@ -195,7 +195,7 @@ If it is not successful, a custom JSON error message is sent with HTTP
 back with the relevant error code.
 
 === "Proxy Service"
-    ``` xml
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <proxy name="SampleProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
@@ -253,14 +253,14 @@ back with the relevant error code.
     </proxy>
     ```
 === "Endpoint 1"
-    ``` xml
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <endpoint name="MockAxis2ServiceEndpoint" xmlns="http://ws.apache.org/ns/synapse">
         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
     </endpoint>
     ```
 === "Endpoint 2"
-    ``` xml
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <endpoint name="MockService1Endpoint" xmlns="http://ws.apache.org/ns/synapse">
         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
@@ -272,7 +272,7 @@ back with the relevant error code.
 In this example, the message will be cloned by the [Clone Mediator]({{base_path}}/reference/mediators/clone-Mediator) and sent via the Call mediator. The Drop mediator drops the response so that no further mediation is carried out for the cloned message. However, since the `         continueParent        ` attribute of the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator) is set to `         true        ` , the original message is mediated in parallel. Therefore, the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) at the end of the configuration will log the `         After call mediator        ` log message without waiting for
 the Call mediator response.
 
-``` xml
+```xml
 ...
 <log level="full"/>
 <clone continueParent="true">
@@ -297,7 +297,7 @@ the Call mediator response.
 
 In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
-```
+```xml
 <target>
    <inSequence>
       <header name="Action" value="urn:getQuote" />
@@ -356,7 +356,7 @@ If you want to receive the response message headers, when you use the Call media
     </endpoint>
     ```
 
-## Examples - Using Source and Target configurations
+## Examples - Using source and target configurations
 
 Consider the following payload that is sent to the example sequences listed below. 
 The content type used for this request is `application/json`.
