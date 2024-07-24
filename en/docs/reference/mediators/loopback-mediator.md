@@ -26,10 +26,10 @@ PayloadFactory mediator configuration to skip the second PayloadFactory mediator
 with the first payload factory and then immediately move to the out flow, skipping the second payload factory in the in flow.
 
 ``` java
-<proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+<proxy name="SimpleProxy" transports="http https" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <target>
       <inSequence>
-      <payloadFactory>
+      <payloadFactory media-type="xml">
         <format>
           <m:messageBeforeLoopBack xmlns:m="http://services.samples">
             <m:messageBeforeLoopBackSymbol>
@@ -46,7 +46,7 @@ with the first payload factory and then immediately move to the out flow, skippi
 
       <loopback/>
 
-      <payloadFactory>
+      <payloadFactory media-type="xml">
         <format>
           <m:messageAfterLoopBack xmlns:m="http://services.samples">
             <m:messageAfterLoopBackSymbol>
