@@ -1,5 +1,5 @@
 # Creating an Endpoint
-Follow the instructions given below to create a new [Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) artifact in MI for VS Code.
+Follow the instructions given below to create a new [Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
@@ -9,13 +9,15 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
 3. Go to **MI Project Explorer** > **Endpoints**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="Create endpoint" width="35%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="Create endpoint" width="30%"></a>
 
-4. Click on the **+** sign next to **Endpoints** to open the below **Endpoint Form**.
+3. Hover over **Endpoints** and click the **+** icon that appears to open the below **Endpoint Form**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+
+5. Select the endpoint type you want from the **Endpoint Form**.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" alt="Endpoint form" width="80%"></a>
-
-5. Select the endpoint type you want from the **Create Endpoint Artifact** interface.
 
 6. Enter a unique name for the endpoint.
 
@@ -23,7 +25,7 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
 8. Click **Create** to save the endpoint configuration.
 
-The endpoint will be created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/endpoints` folder.
+The endpoint will be created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/endpoints` folder under the integration project you created.
 
 ### Designing the integration
 
@@ -50,7 +52,7 @@ The endpoint artifact is now linked to your integration sequence.
 
 1. Go to **MI Project Explorer**.
 
-2. Open the new endpoint artifact available under the `<PROJECT_NAME>/Endpoints/`. 
+2. Select the endpoint artifact available under `<PROJECT_NAME>/Endpoints/`. 
 
 You can use the **Form** view or the **Source** view to update endpoint properties.
 
@@ -75,11 +77,13 @@ You can use the **Form** view or the **Source** view to update endpoint properti
 
 To learn more about all available endpoint properties, see the [endpoint properties]({{base_path}}/reference/synapse-properties/endpoint-properties) documentation.
 
-## Examples
+!!! abstract "Learn more about reusable sequences"
 
-- [Using Address Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-address-endpoints)
-- [Using Failover Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-failover-endpoints)
-- [Using HTTP Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-http-endpoints)
-- [Using a Websocket Endpoint]({{base_path}}/learn/examples/endpoint-examples/using-websocket-endpoints)
-- [Using WSDL Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-wsdl-endpoints)
-- [Using Load Balancing Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-loadbalancing-endpoints)
+    Follow our examples on endpoints:
+
+    - [Using Address Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-address-endpoints)
+    - [Using Failover Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-failover-endpoints)
+    - [Using HTTP Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-http-endpoints)
+    - [Using a Websocket Endpoint]({{base_path}}/learn/examples/endpoint-examples/using-websocket-endpoints)
+    - [Using WSDL Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-wsdl-endpoints)
+    - [Using Load Balancing Endpoints]({{base_path}}/learn/examples/endpoint-examples/using-loadbalancing-endpoints)
