@@ -9,7 +9,7 @@ within a specified period of time. This is done by evaluating the hash value of 
 
 ## Syntax
 
-``` java
+```xml
 <cache [timeout="seconds"] [collector=(true | false)] [maxMessageSize="in-bytes"] >
    <onCacheHit [sequence="key"]>
     (mediator)+
@@ -214,19 +214,15 @@ to the first finder:
 
 ### Example 2
 
-In this example configuration, when the first message is sent to the endpoint, 
-the cache is not hit because it is the initial request and the cache is empty. 
-The Cache mediator, configured in the main sequence, caches the response to this message. 
-When a similar message is sent to the endpoint for the second time, the response is directly fetched from the cache 
-and sent to the requester. This caching behavior by the onCacheHit element defined within the Cache mediator 
-configuration. The onCacheHit element specifies that a cached response should be immediately returned if a cache hit 
-occurs, without forwarding the request to the backend service again. This mechanism significantly improves 
-the performance for repeated requests with the same cache key.
+In this example configuration, when the first message is sent to the endpoint, the cache is not hit because it is the initial request and the cache is empty. 
+The Cache mediator, configured in the inSequence, caches the response to this message. 
+When a similar message is sent to the endpoint for the second time, the response is directly fetched from the cache and sent to the requester. This caching behavior by the onCacheHit element defined within the Cache mediator configuration. 
+The onCacheHit element specifies that a cached response should be immediately returned if a cache hit occurs, without forwarding the request to the backend service again. This mechanism significantly improves the performance for repeated requests with the same cache key.
 
 === "Sequence"
-    ``` xml
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="main" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence name="cacheSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <cache id="simpleCache" scope="per-host" collector="false" hashGenerator="org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator" timeout="20" maxMessageSize="10000">
             <implementation type="memory" maxSize="100"/>
             <onCacheHit>
@@ -243,6 +239,7 @@ the performance for repeated requests with the same cache key.
         <call>
             <endpoint key="SimpleStockQuoteEndpoint"/>
         </call>
+        <respond/>
     </sequence>
     ```
 === "Endpoint"
@@ -263,7 +260,7 @@ response message.
 === "API"
     ``` xml
     <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/cache" name="cacheAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <api context="/cache" name="cacheAPI" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="GET POST" uri-template="/headerapi/*">
             <inSequence>
                 <cache collector="false" maxMessageSize="2000" timeout="5000">
@@ -307,7 +304,7 @@ response message.
     </endpoint>
     ```
 
-### Invalidating cached responses remotely
+### Invalidate cached responses remotely
 
 You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole]({{base_path}}/observe-and-manage/classic-observability-metrics/jmx-monitoring) via the exposed MBeans. You can use the `         invalidateTheWholeCache()        ` operation of the `         org.wso2.carbon.mediation        ` MBean for this as shown below.
 
