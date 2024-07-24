@@ -11,11 +11,11 @@ Given below is the synapse configuration of the proxy service that mediates the 
     <target>
         <inSequence>
             <property action="set" name="OUT_ONLY" value="true"/>
-            <send>
+            <call>
                 <endpoint>
                     <address uri=""/> <!-- Specify the JMS connection URL here -->
                 </endpoint>
-            </send>
+            </call>
         </inSequence>
     </target>
 </proxy>
@@ -43,7 +43,7 @@ The Synapse artifacts used are explained below.
         </td>
     </tr>
     <tr>
-        <td>Send Mediator</td>
+        <td>Call Mediator</td>
         <td>
            To send a message to a JMS queue, you should define the JMS connection URL as the endpoint address (which should be invoked via the **Send** mediator). There are two ways to specify the endpoint URL: 
            <ul>
@@ -87,8 +87,7 @@ The Synapse artifacts used are explained below.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
