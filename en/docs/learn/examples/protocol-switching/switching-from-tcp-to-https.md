@@ -8,26 +8,39 @@ TCP is not an application layer protocol. Hence there are no application-level h
 
 Following are the integration artifacts (proxy service) that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="StockQuoteProxy"
-       transports="tcp"
-       startOnLoad="true">
-   <target>
-      <inSequence>
-         <log level="full"/>
-         <property name="OUT_ONLY" value="true"/>
-         <call>
-            <endpoint>
-               <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-            </endpoint>
-         </call>
-      </inSequence>
-   </target>
-</proxy>
-```
-## Build and Run
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StockQuoteProxy" startOnLoad="true" transports="tcp" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log category="INFO" level="full"/>
+                <property name="OUT_ONLY" scope="default" type="BOOLEAN" value="true"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEp"/>
+                </call>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+
+## Build and run
 
 Create the artifacts:
 
@@ -76,9 +89,9 @@ Send the following message via TCP to the TCP listener port.
     </soapenv:Body>
 </soapenv:Envelope>
 ``` 
-In Linux, we can save the above request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
+In Mac, we can save the above request in a <strong>request.xml</strong> file and use Netcat to send the TCP request. 
 ```
-netcat localhost 6060 < request.xml
+nc localhost 6060 < request.xml
 ```
 
 You will see the following response in the back-end service's console:
