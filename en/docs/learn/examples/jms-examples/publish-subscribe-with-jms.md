@@ -25,10 +25,8 @@ Shown below are the synapse artifacts that are used to define this use case. See
         <inSequence>
             <property name="OUT_ONLY" value="true"/>
             <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+            <respond/>
         </inSequence>
-        <outSequence>
-          <send/>
-        </outSequence>
       </target>
     </proxy> 
     ```
@@ -43,9 +41,6 @@ Shown below are the synapse artifacts that are used to define this use case. See
               </log>
               <drop/>
             </inSequence>
-            <outSequence>
-               <send/>
-            </outSequence>
           </target>
       <parameter name="transport.jms.ContentType">
           <rules>
@@ -69,9 +64,6 @@ Shown below are the synapse artifacts that are used to define this use case. See
           </log>
           <drop/>
         </inSequence>
-        <outSequence>
-          <send/>
-        </outSequence>
       </target>
       <parameter name="transport.jms.ContentType">
         <rules>
@@ -124,8 +116,7 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -160,4 +151,4 @@ Publishing to the topic:
     When the stockquote client sends the message to the `StockQuoteProxy` service, the publisher is invoked and sends the message to the JMS topic. The topic delivers the message to all the subscribers of that topic. In this case, the subscribers are proxy services deployed in the Micro Integrator.
 
     !!! Note
-        There can be many types of publishers and subscribers for a given JMS topic. The following [article in the WSO2 library](http://wso2.org/library/articles/2011/12/wso2-esb-example-pubsub-soa) provides more information on different types of publishers and subscribers.
+        There can be many types of publishers and subscribers for a given JMS topic. The following [article in the WSO2 library](https://wso2.com/library/articles/2011/12/wso2-esb-example-pubsub-soa/) provides more information on different types of publishers and subscribers.
