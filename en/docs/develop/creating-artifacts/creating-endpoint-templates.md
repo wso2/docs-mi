@@ -1,4 +1,4 @@
-# Creating an Endpoint Template
+# Create an Endpoint Template
 
 Follow the instructions given below to create a new Endpoint Template in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 

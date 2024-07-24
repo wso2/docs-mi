@@ -1,9 +1,10 @@
-# Creating an Endpoint
+# Create an Endpoint
+
 Follow the instructions given below to create a new [Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the Endpoint artifact
+### Create the endpoint artifact
 
 {!includes/creating-project.md!}
 
@@ -11,7 +12,7 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="Create endpoint" width="30%"></a>
 
-3. Hover over **Endpoints** and click the **+** icon that appears to open the below **Endpoint Form**.
+4. Hover over **Endpoints** and click the **+** icon that appears to open the below **Endpoint Form**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
 
@@ -27,7 +28,7 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
 The endpoint will be created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/endpoints` folder under the integration project you created.
 
-### Designing the integration
+### Design the integration
 
 !!! note
     Endpoints cannot be added directly to the integration sequence. Instead, they must be invoked using the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) or the [Call Mediator]({{base_path}}/reference/mediators/call-mediator).
@@ -48,7 +49,7 @@ The endpoint will be created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/en
 
 The endpoint artifact is now linked to your integration sequence.
 
-### Updating the properties
+### Update the properties
 
 1. Go to **MI Project Explorer**.
 

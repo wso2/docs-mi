@@ -1,10 +1,10 @@
-# Creating a REST API
+# Create a REST API
 
 Follow the instructions given below to create a new REST API artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the API artifact
+### Create the API artifact
 
 {!includes/creating-project.md!}
 
@@ -139,7 +139,7 @@ Follow the instructions given below to create a new REST API artifact in the Mic
 
    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/service-designer-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/service-designer-view.png" alt="service designer view" width="80%"></a>
 
-### Adding new API resources
+### Add new API resources
 
 When you create the API, an API resource is created by default. If you want to add a new resource:
 
@@ -176,7 +176,7 @@ When you create the API, an API resource is created by default. If you want to a
         </api>
         ```    
 
-### Updating metadata
+### Update metadata
 
 When you create the API artifact from MI for VS Code extension, the metadata files will be created and stored under the `<PROJECT_NAME>/src/main/wso2mi/resources/metadata` folder.
 
@@ -233,7 +233,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 -->
 
-### Designing the integration
+### Design the integration
 
 1. On the **Service Designer**, click on the API resource and go to the **Resource View**.
 
@@ -241,7 +241,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 You can also use the [**Source View**](#using-the-source-view) or the [**Swagger View**](#using-the-swagger-editor) to update the API configuration.
 
-### Updating properties
+### Update properties
 
 To update API level properties:
 
@@ -261,7 +261,7 @@ To update API level properties:
 
     See the complete list of [API Resource properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
 
-### Using the Source View
+### Use the Source View
 
 Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the API.
 
@@ -271,7 +271,7 @@ You can update the API using this view.
 
 <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png" alt="source view" width="80%"></a>
 
-### Using the Swagger View
+### Use the Swagger View
 
 1. Go to **Service Designer**.
 

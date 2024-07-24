@@ -1,10 +1,10 @@
-# Creating a Proxy Service
+# Create a Proxy Service
 
 Follow the instructions given below to create a new [Proxy Service]({{base_path}}/reference/synapse-properties/proxy-service-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the proxy service artifact
+### Create the proxy service artifact
 
 {!includes/creating-project.md!}
 
@@ -22,7 +22,7 @@ Follow the instructions given below to create a new [Proxy Service]({{base_path}
 
 The proxy service is created in the `src/main/wso2mi/artifacts/proxy-services` folder under the project you created.
 
-### Designing the integration
+### Design the integration
 
 1. Go to the **MI Overview** interface.
 
@@ -38,7 +38,7 @@ The proxy service is created in the `src/main/wso2mi/artifacts/proxy-services` f
 
    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-graphical-editor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-graphical-editor.png" alt="source view" width="80%"></a>
 
-### Updating the properties
+### Update the properties
 
 #### To update from the Form View:
 

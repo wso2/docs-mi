@@ -1,10 +1,10 @@
-# Creating a Message Processor
+# Create a Message Processor
 
 Follow the instructions given below to create a new [Message Processor]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the message processor artifact
+### Create the message processor artifact
 
 {!includes/creating-project.md!}
 
@@ -34,7 +34,7 @@ Follow the instructions given below to create a new [Message Processor]({{base_p
 
 The message processor is created in the `src/main/wso2mi/artifacts/message-processors` folder under the integration project you created.
 
-### Updating the properties
+### Update the properties
 
 Open the above-created message processor artifact from the **MI Project Explorer**. You can use the **Form** view or the **Source** view to update message processor properties.
 

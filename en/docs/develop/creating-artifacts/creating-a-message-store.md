@@ -1,10 +1,10 @@
-# Creating a Message Store
+# Create a Message Store
 
 Follow the instructions given below to create a new [Message Store]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the message store artifact
+### Create the message store artifact
 
 {!includes/creating-project.md!}
 
@@ -40,7 +40,7 @@ Follow the instructions given below to create a new [Message Store]({{base_path}
 
 The message store is created in the `src/main/wso2mi/artifacts/message-stores` folder under the integration project you created.
 
-### Designing the integration
+### Design the integration
 
 To add a message store to the integration sequence, use the [Store Mediator]({{base_path}}/reference/mediators/store-mediator):
 
@@ -56,7 +56,7 @@ To add a message store to the integration sequence, use the [Store Mediator]({{b
 
 The message store is now linked to your integration sequence.
 
-### Updating the properties
+### Update the properties
 
 Open the above-created message store artifact from the **MI Project Explorer**. You can use the **Form** view or the **Source** view to update message store properties.
 
