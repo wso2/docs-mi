@@ -139,7 +139,7 @@ Following examples demonstrate the usage of the Callout mediator.
 
 ### Example 1 - Performing a direct service invocation
 
-In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) to send the message back to the client.
+In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send the message back to the client.
 
 ```xml
 <callout serviceURL="http://localhost:9000/services/SimpleStockQuoteService"
@@ -161,50 +161,41 @@ The below example uses a Callout mediator to set a HTTP method when invoking a R
     For this, you need to define the following property: `<property name="HTTP_METHOD" expression="$axis2:HTTP_METHOD" scope="axis2-client"/>`
 
 ```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="CalloutProxy"
-       startOnLoad="true"
-       statistics="disable"
-       trace="disable"
-       transports="http,https">
-   <target>
-      <inSequence>
-         <property name="enableREST"
-                   scope="axis2-client"
-                   type="BOOLEAN"
-                   value="true"/>
-         <property expression="$axis2:HTTP_METHOD"
-                   name="HTTP_METHOD"
-                   scope="axis2-client"/>
-         <callout initAxis2ClientOptions="false"
-                  serviceURL="http://localhost:8280/callout/CalloutRESTApi">
-            <source type="envelope"/>
-            <target key="response"/>
-         </callout>
-         <log level="custom">
-            <property expression="$ctx:response" name="MESSAGE###########################3"/>
-         </log>
-         <property expression="$ctx:response" name="res" type="OM"/>
-         <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
-         <property name="RESPONSE" value="true"/>
-         <property name="messageType" scope="axis2" value="application/xml"/>
-         <header action="remove" name="To"/>
-         <payloadFactory media-type="xml">
-            <format>
-               <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-                  <soapenv:Header/>
-                  <soapenv:Body>$1
-                  </soapenv:Body>
-               </soapenv:Envelope>
-            </format>
-            <args>
-               <arg evaluator="xml" expression="$ctx:res"/>
-            </args>
-         </payloadFactory>
-         <call/>
-      </inSequence>
-   </target>
-   <description/>
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="CalloutProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="enableREST" scope="axis2-client" type="BOOLEAN" value="true"/>
+            <property name="HTTP_METHOD" scope="axis2-client" type="STRING" expression="$axis2:HTTP_METHOD"/>
+            <callout serviceURL="http://localhost:8280/callout/CalloutRESTApi">
+                <source type="envelope"/>
+                <target key="response"/>
+            </callout>
+            <log category="INFO" level="custom">
+                <property name="MESSAGE###########################3" expression="$ctx:response"/>
+            </log>
+            <property expression="$ctx:response" name="res" type="OM"/>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
+            <property name="RESPONSE" scope="default" type="STRING" value="true"/>
+            <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+            <header name="To" action="remove" scope="default"/>
+            <payloadFactory media-type="xml" template-type="default">
+                <format>
+                    <format>
+                        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                            <soapenv:Header/>
+                            <soapenv:Body>$1
+                            </soapenv:Body>
+                        </soapenv:Envelope>
+                    </format>
+                </format>
+                <args>
+                    <arg expression="$ctx:res" evaluator="xml"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <faultSequence/>
+    </target>
 </proxy>
 ```
-
