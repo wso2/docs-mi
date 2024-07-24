@@ -16,7 +16,6 @@ See the instructions on how to [build and run](#build-and-run) this example.
 === "Proxy Service 1"
     ```xml
     <proxy name="JMSDelivery" startOnLoad="true" trace="disable" transports="https http">
-                <description/>
                 <target>
                     <inSequence>
                         <property name="OUT_ONLY" value="true"/>
@@ -29,23 +28,20 @@ See the instructions on how to [build and run](#build-and-run) this example.
                         <property name="messageType" scope="axis2" value="application/xml"/>
                         <property action="remove" name="Content-Type" scope="transport"/>
                         <log level="full"/>
-                        <send>
+                        <call>
                             <endpoint>
                                 <address uri="jms:transport.jms.ConnectionFactory=myQueueConnectionFactory"/>
                             </endpoint>
-                        </send>
+                        </call>
+                        <respond/>
                     </inSequence>
-                    <outSequence>
-                        <send/>
-                    </outSequence>
                 </target>
-                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl" preservePolicy="true"/>
     </proxy>
     ```
 === "Proxy Service 2"
     ```xml
     <proxy name="JMSDeliveryDelayed" startOnLoad="true" trace="disable" transports="https http">
-                <description/>
                 <target>
                     <inSequence>
                         <property name="OUT_ONLY" value="true"/>
@@ -59,17 +55,15 @@ See the instructions on how to [build and run](#build-and-run) this example.
                         <property action="remove" name="Content-Type" scope="transport"/>
                         <property name="JMS_MESSAGE_DELAY" scope="axis2" value="10000"/>
                         <log level="full"/>
-                        <send>
+                        <call>
                             <endpoint>
                                 <address uri="jms:/transport.jms.ConnectionFactory=myQueueConnectionFactory"/>
                             </endpoint>
-                        </send>
+                        </call>
+                        <respond/>
                     </inSequence>
-                    <outSequence>
-                        <send/>
-                    </outSequence>
                 </target>
-                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl" preservePolicy="true"/>
     </proxy>
     ```
 === "Main Sequence"
@@ -139,8 +133,7 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -278,4 +271,4 @@ Follow the steps given below to run the example:
 
 You will see that two messages are received by the Java consumer with a time difference of more than 10 seconds.
 
-This is because the `         JMSDeliveryDelayed        ` proxy service sets a delivery delay of 10 seconds on the message that it forwards, whereas the `         JMSDelivery        ` proxy service does not set a delivery delay on the message.
+This is because the `JMSDeliveryDelayed` proxy service sets a delivery delay of 10 seconds on the message that it forwards, whereas the `JMSDelivery` proxy service does not set a delivery delay on the message.
