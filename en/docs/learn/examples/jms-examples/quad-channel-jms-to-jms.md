@@ -14,15 +14,13 @@ See the instructions on how to [build and run](#build-and-run) this example.
               <inSequence>
                   <property action="set" name="transport.jms.ContentTypeProperty" value="Content-Type" scope="axis2"/>
                   <log level="full" xmlns="http://ws.apache.org/ns/synapse"/>
-                  <send>
+                  <call>
                       <endpoint>
                           <address uri="jms:/BEReq?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue&amp;transport.jms.ReplyDestination=BERes"/>
                       </endpoint>
-                  </send>
+                  </call>
+                  <respond/>
               </inSequence>
-              <outSequence>
-                  <send/>
-              </outSequence>
           </target>
           <parameter name="transport.jms.ContentType">
               <rules>
@@ -65,7 +63,7 @@ The Synapse artifacts used are explained below.
         </td>
     </tr>
     <tr>
-        <td>Send Mediator</td>
+        <td>Call Mediator</td>
         <td>
            To send a message to a JMS queue, you should define the JMS connection URL as the endpoint address (which should be invoked via the <b>Send</b> mediator). There are two ways to specify the endpoint URL: 
            <ul>
@@ -94,8 +92,7 @@ The Synapse artifacts used are explained below.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
