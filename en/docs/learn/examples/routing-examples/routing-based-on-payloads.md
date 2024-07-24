@@ -11,25 +11,21 @@ Listed below are the synapse configurations (proxy service) for implementing thi
 === "Proxy Service"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <proxy name="ContentBasedRoutingProxy" startOnLoad="true" transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+    <proxy name="ContentBasedRoutingProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <!-- The content of the incoming message will be isolated -->
-                <!-- it is possible to assign the result of an XPath expression as well -->
-                <!-- Will Route the content to the appropriate destination -->
                 <switch source="$body//ser:getQuote/ser:request/xsd:symbol" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-                    <case regex="IBM">
-                        <sequence key="sequence1"/>
-                    </case>
                     <case regex="MSFT">
                         <sequence key="sequence2"/>
                     </case>
+                    <case regex="IBM">
+                        <sequence key="sequence1"/>
+                    </case>
                     <default>
-                        <log level="custom">
-                            <property expression="fn:concat('Invalid request for symbol - ', //ser:getQuote/ser:request/xsd:symbol)" name="Error"/>
+                        <log category="INFO" level="custom">
+                            <property name="Error" expression="fn:concat('Invalid request for symbol - ', //ser:getQuote/ser:request/xsd:symbol)"/>
                         </log>
                     </default>
-                    <!-- The isolated content will be filtered -->
                 </switch>
             </inSequence>
             <faultSequence/>
@@ -39,32 +35,45 @@ Listed below are the synapse configurations (proxy service) for implementing thi
 === "Sequence 1"    
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="sequence1"> 
-            <sequence key="send_seq"/> 
-            <property name="messageType" value="application/json" scope="axis2"/>
-            <respond/>
+    <sequence name="sequence1" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <sequence key="send_seq"/>
+        <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+        <respond/>
     </sequence>
     ```
 === "Sequence 2"    
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="sequence2"> 
-            <sequence key="send_seq"/> 
-            <property name="messageType" value="text/xml" scope="axis2"/>
-            <respond/>
+    <sequence name="sequence2" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <sequence key="send_seq"/>
+        <property name="messageType" scope="axis2" type="STRING" value="text/xml"/>
+        <respond/>
     </sequence>
     ```   
 === "Send Seq"    
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="send_seq"> 
-        <header name="Action" scope="default" value="urn:getQuote"/>
-        <call> 
-          <endpoint name="simple">
-           <address uri="http://localhost:9000/services/SimpleStockQuoteService"/> 
-          </endpoint> 
-        </call> 
+    <sequence name="send_seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+        <call>
+            <endpoint key="simple"/>
+        </call>
     </sequence>
+    ```
+=== "Endpoint" 
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="simple" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
     ```
 
 ## Build and run
