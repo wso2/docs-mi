@@ -1,20 +1,20 @@
-# Creating a Reusable Sequence
+# Create a Reusable Sequence
 
 Follow these steps to create a new reusable sequence that you can add to your mediation workflow or refer to from a sequence mediator, or to create a sequence mediator and its underlying sequence all at once.
 
 ## Instructions
 
-### Creating a Sequence Artifact
+### Create a sequence artifact
 
 {!includes/creating-project.md!}
 
 3. Go to **MI Project Explorer** > **Sequences**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png" alt="Create Sequence" width="35%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png" alt="Create Sequence" width="30%"></a>
 
 4. Hover over **Sequences** and click the **+** icon that appears to open the **Sequence Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-sequence.png" alt="Add sequence" width="35%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-sequence.png" alt="Add sequence" width="30%"></a>
 
 5. Provide a unique name for the sequence.
 
@@ -33,13 +33,17 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 7. Click **Create**.
 
-    The sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/sequences` folder. If you opt for the **Save the sequence in registry** option in the previous step, the sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/resources/` directory according to the values you specified.
+<br/>
 
-    The created sequence is available in the **Palette**, under **All Mediators** > **Generic** > **Call Sequence** and ready for use in other meditation workflows.
+- The sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/sequences` folder. 
+
+- If you opt for the **Save the sequence in registry** option in the previous step, the sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/resources/` directory according to the values you specified.
+
+- The created sequence is also available in the **Palette**, under **All Mediators** > **Generic** > **Call Sequence** and ready for use in other meditation workflows.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png" alt="Sample Sequence" width="80%"></a>
 
-### Create from a Sequence Mediator
+### Create from a sequence mediator
 
 1. Go to the graphical view of your proxy service.
 
@@ -51,29 +55,31 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence.png" alt="Call Sequence" width="30%"></a>
 
-4. In the Call Sequence pane, select the previously-created sequence. Then the sequence will be linked to the integration.
+4. In the **Call Sequence** pane, select the previously-created sequence from the **Referring Sequence** dropdown. Then the sequence will be linked to the integration.
 
-### Designing the integration
+### Design the integration
 
-- If you create a sequence artifact from the **MI Project Explorer**, follow the steps below:
+1. Once you create a sequence artifact, open its **Resource View** from **MI Overview**. Given below is the default view:
 
-    1. Go to **MI Overview**.
-    
-    2. From the **Referring Sequence** dropdown, select the sequence you created to open the graphical view of the sequence.
-    
-    3. Click on the **+** sign and add the required integration artifacts from the palette to the canvas and design the integration flow.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-design-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-design-view.png" alt="Sequence design view" width="80%"></a>
+
+2. Add the required integration artifacts from the **Palette** and design the integration flow.    
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-graphical-editor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-graphical-editor.png" alt="Sequence graphical editor" width="80%"></a>
+
+<br/>
 
 - To use a sequence from a different project or from the registry, you can use the Sequence Mediator:
 
-    1. Add the **Sequence Mediator** from **All Mediators** to the mediation flow.
+    1. From the **Palette**, add **Call Sequence** from **Mediators** > **Generic** to the mediation flow. This will open the **Call Sequence** pane.
       
-    2. When creating the sequence mediator, the **Call Sequence** pane will be opened.
-      
-    3. Under **Referring Sequence**, select the sequence from the list of available sequences. 
-   
+    2. Under **Referring Sequence**, select the sequence from the list of available sequences.
+       
+       <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence-pane.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence-pane.png" alt="Call sequence pane" width="40%"></a>
+
 You can also use the [**Source view**](#using-the-source-view) to update the sequence configuration.
 
-### Using the Source View
+### Use the Source View
 
 Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the reusable sequence.
 
