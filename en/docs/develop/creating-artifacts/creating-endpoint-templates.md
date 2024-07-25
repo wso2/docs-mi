@@ -16,7 +16,7 @@ Follow the instructions below to create a new Endpoint Template in the Micro Int
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-template.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-template.png" alt="Add-template" width="30%"></a>
 
-5. This will open the **Template Form** shown below, from which you can select the **Template Artifact**. Select the endpoint template type.
+5. This will open the **Template Form** shown below, where you can select the **Template Artifact**. Select the endpoint template type.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png" alt="Template form" width="80%"></a>
 
