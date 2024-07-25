@@ -14,7 +14,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-### Creating the New Project
+### Create a new project
 
 1. Go to **WSO2 Micro Integrator** in the VS Code.
 
