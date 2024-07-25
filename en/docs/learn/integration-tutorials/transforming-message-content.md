@@ -50,7 +50,7 @@ The client message format must be transformed to the back-end service message fo
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
 ### Step 2: Develop the integration artifacts
 
@@ -58,119 +58,50 @@ Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/
 
 An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
 
-1.  Open **WSO2 Integration Studio**.
-2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
+{!includes/create-new-project.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
+4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
 
-    This will open the <b>New Integration Project</b> dialog box.
+5. Provide a location under **Select Project Directory**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/create-new-project.png" alt="create new project" width="80%"></a>
 
-3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
-    -   **Create ESB Configs**
-    -   **Create Composite Exporter**
-    -   **Create Registry Resources**
+6. Click **Create**.
 
-4.  Click **Finish**. 
-
-You will now see the projects listed in the **Project Explorer**.
-
-#### Create a REST API
-
-1.  In the Project Explorer, right-click **SampleServicesConfigs** and click **New -> REST API**.
-2.  Ensure **Create A New API Artifact** is selected and click **Next**.
-3.  Enter the details given below to create a new REST API.
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Value</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td><code>HealthcareAPI</code></td>
-        <td>
-          The name of the REST API.
-        </td>
-      </tr>
-      <tr>
-        <td>Context</td>
-        <td><code>/healthcare </code></td>
-        <td>
-          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
-        </td>
-      </tr>
-      <tr>
-        <td>Save location</td>
-        <td>
-          SampleServicesConfigs
-        </td>
-        <td>
-          This is the <b>ESB Config</b> module where the artifact will be saved.
-        </td>
-      </tr>
-    </table>                                                                   
-
-4.  Click the default API Resource to access the **Properties** tab and enter the following details:
-
-    <table>
-    <tr>
-        <th>Property</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>Url Style</td>
-        <td>
-            Click in the <b>Value</b> field, click the down arrow, and select <b>URI_TEMPLATE</b> from the list.
-        </td>
-    </tr>
-    <tr>
-        <td>URI-Template</td>
-        <td>
-            Enter <code>/categories/{category}/reserve</code>.
-        </td>
-    </tr>
-    <tr>
-        <td>Methods</td>
-        <td>
-            From the list of methods, select <b>POST</b>.
-        </td>
-    </tr>
-    </table>
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132164.png">
+Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create new Endpoint
 
-Let's create an Endpoint to represent the Hospital Service back-end service.
+An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
 
-1.  Right click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**. 
-2.  Ensure **Create a New Endpoint** is selected and click **Next**.
-3.  Let's create the hospital service endpoint (**HospitalServicesEP**) using the following values:
+1. Navigate to the **MI Project Explorer** > **Endpoints**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+
+2. Hover over **Endpoints** and click the **+** icon that appears.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+
+3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
+
+4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
 
     <table>
+      <thead>
         <tr>
             <th>Property</th>
             <th>Value</th>
             <th>Description</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
             <td>Endpoint Name </td>
-            <td>
-                <code>HospitalServicesEP</code>
-            </td>
+            <td><code>HospitalServicesEP</code></td>
             <td>
                 This is a single endpoint configured to forward requests to the relevant hospital by reading the hospital specified in the request payload.
-            </td>
-        </tr>
-        <tr>
-            <td>Endpoint Type </td>
-            <td>
-                <code>HTTP Endpoint</code>
-            </td>
-            <td>
-                Indicates that the back-end service is HTTP.
             </td>
         </tr>
         <tr>
@@ -195,25 +126,24 @@ Let's create an Endpoint to represent the Hospital Service back-end service.
                 Endpoint HTTP REST Method.
             </td>
         </tr>
-      <tr>
-         <td>Save Endpoint in</td>
-         <td><code>               SampleServicesConfigs              </code></td>
-         <td>This is the ESB Config module we created in the last section.</td>
-      </tr>
+      </tbody>
     </table>
 
-4.  Click **Finish**.
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/endpoint-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/endpoint-artifact.png" alt="endpoint artifact" width="80%"></a>
 
-#### Define the mediation flow
+5.  Click **Create**.
 
-Let's configure the API resource with the data transformation logic.
+#### Create a REST API
 
-1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. 
+1. Go to **MI Project Explorer** > **APIs**.
 
-    !!! Info
-        This is used to extract the hospital name that is sent in the request payload. 
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
 
-2.  With the **Property** mediator selected, access the **Properties** tab and give the following details:
+2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
+
+3. Enter the details given below to create a new REST API.
 
     <table>
       <tr>
@@ -222,18 +152,106 @@ Let's configure the API resource with the data transformation logic.
         <th>Description</th>
       </tr>
       <tr>
-        <td>Property Name</td>
-        <td><code>New Property...</code></td>
-        <td>Specifies that a new property is created.</td>
+        <td>Name</td>
+        <td><code>HealthcareAPI</code></td>
+        <td>
+          The name of the REST API.
+        </td>
       </tr>
       <tr>
-        <td>New Property Name</td>
+        <td>Context</td>
+        <td><code>/healthcare </code></td>
+        <td>
+          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+        </td>
+      </tr>
+    <table>
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/synapse-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>      
+
+4.  Click **Create**. This will open the **Service Designer** interface.
+
+    You can now start configuring the API resource.
+
+5. Click on the `GET` API resource under **Available resources** on the **Service Designer**.
+
+    You will now see the graphical view of the `HealthcareAPI` with its default API Resource.
+
+6. Click the **Edit** icon to edit the API resource.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit-icon.png" alt="edit icon" width="80%"></a>
+
+7. Specify values for the required resource properties:
+
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>URI-Template</td>
+        <td>
+          <code>/categories/{category}/reserve</code></br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/categories/{category}/reserve</code> where <code>{category}</code> is a variable.
+        </td>
+      </tr>
+      <tr>
+        <td>Url Style</td>
+        <td>
+          <code>URI_TEMPLATE</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Methods</td>
+        <td>
+          <code>POST</code> <br> This defines that the API resource only handles requests where the HTTP method is POST.
+        </td>
+      </tr>
+    </table>
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit-api-resource.png" alt="edit API resource" width="40%"></a>
+
+8. Click **Update**.
+
+
+#### Create the mediation logic
+
+Let's configure the API resource with the data transformation logic.
+
+1. To get started, click on the **+** icon to add the first mediator to the sequence.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-property.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-property.png" alt="add property" width="80%"></a>
+
+2. Select **Property** mediator.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/property-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/property-mediator.png" alt="property mediator" width="30%"></a>
+
+    !!! Info
+        This is used to extract the hospital name that is sent in the request payload. 
+
+3.  Once you select the Property mediator, the **Property** panel will be opened. Fill in the information in the table below:
+
+    <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Property Name</td>
         <td><code>uri.var.hospital</code></td>
         <td>The name that will be used to refer this property's values.</td>
       </tr>
       <tr>
         <td>Property Action</td>
         <td><code>set</code></td>
+        <td>The property action.</td>
+      </tr>
+      <tr>
+        <td>Property Data Type</td>
+        <td><code>STRING</code></td>
         <td>The property action.</td>
       </tr>
       <tr>
@@ -247,13 +265,9 @@ Let's configure the API resource with the data transformation logic.
         <td>
           <div class="content-wrapper">
             <p>Follow the steps given below to specify the expression value:</p>
-            <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/expression-value.png">
           <ol>
               <li>
                 Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.
-              </li>
-              <li>
-                Now, click the <strong>f</strong> button to open the <b>Expression Selector</b> dialog box.
               </li>
               <li>
                 Enter <code>json-eval($.hospital_id)</code> as the expression value.
@@ -264,37 +278,20 @@ Let's configure the API resource with the data transformation logic.
           </div>
         </td>
       </tr>
+      </tbody>
     </table>
 
-3.  Add a **Data Mapper** mediator just after
-    the Property mediator in the In Sequence of the API resource.
+4.  Click **Submit** to save the Property mediator configuration.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/add-data-mapper.png">
+5.  Click on the **+** icon under **Property** mediator. Add a **Data Mapper** mediator just after the Property mediator in the In Sequence of the API resource.
 
-4.  Double-click the Data Mapper mediator icon and specify the following details:
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>Configuration Name</td>
-        <td>Enter <code>RequestMapping</code> as the name.</td>
-      </tr>
-      <tr>
-        <td>Save in project</td>
-        <td>Specify the <b>Registry Resource module</b> where the data mapper configuration should be saved. The <b>SampleServicesRegistryResources</b> module created at the time of creating the integration project will selected by default.
-      </td>
-      </tr>
-    </table>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-data-mapper.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-data-mapper.png" alt="add data mapper" width="30%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132196/119132224.png" width="500">
+6.  Once you select the **Data Mapper** mediator, the **Property** panel will be opened. Select **New Mapping** and Fill name as <code>RequestMapping</code>. Click **Create Mapping**. You can view the data mapping editor.  
 
-    Click **OK**. You can view the data mapping editor.  
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/data-mapper-canvas.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/data-mapper-canvas.png" alt="data mapper canvas" width="80%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/data-mapper-canvas.png">
-
-5.  Create a JSON file (e.g., `input.json`) by copying the following sample content of the request message sent to the API resource and save it in your local file system.
+7.  Click **+** on **Import Input Schema**. Then, click **Import from JSON**. Copy the following sample content of the request message sent to the API resource and click **Save**.
 
     ```json
     { "name": "John Doe",
@@ -311,18 +308,7 @@ Let's configure the API resource with the data transformation logic.
     }
     ```
 
-    !!! Info
-        You can create a JSON schema manually for input and output using the **Data Mapper Diagram** editor.
-
-6.  Click **Load Input File** in the **Input** box to open the **Load Input** dialog box.
-
-7.  Select **JSON** as the **Resource Type**.
-
-8.  Click **file system** link in **Select resource from**, select the JSON file (i.e., `input.json` ) you saved in your local file system, and click **Open**. You can view the input format loaded in the **Input** box of the editor as shown below.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/load-data-input-data-mapper.png" width="300">
-
-9.  Create another JSON file (e.g., `output.json`) by copying the following sample content of the request message expected by the back-end service and save it in your local file system.
+8.  Click **+** on **Import Output Schema**. Then, click **Import from JSON**. Copy the following sample content of the request message expected by the back-end service and click **Save**.
 
     ```json
     {
@@ -340,97 +326,32 @@ Let's configure the API resource with the data transformation logic.
       "appointment_date": "2025-04-02"
     }
     ```
-    
-10. Click **Load Output File** in the **Output** box to open the **Load Output** dialog box.
 
-11. Select **JSON** as the **Resource Type**.
-
-12. Click the **file system** link in **Select resource from**, select the JSON file you saved in your local file system, and click **Open**. You can view the input format loaded in the **Output** box in the editor as shown below. 
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/load-data-output-data-mapper.png" width="300">
-
-    !!! Info
-        Check the **Input** and **Output** boxes with the sample messages to see if the element types (i.e. Arrays, Objects and Primitive values) are correctly identified. The following symbols will help you identify them correctly.
-      
-          -  {} : represents object elements
-          -  [] : represents array elements
-          -  <> : represents primitive field values
-          -  A : represents XML attribute value
-
-13. Now, you need to map the input message with the output message. There are two ways to do the mapping:
-    - If you click **Apply**, the mapping will be generated by the **AI Data Mapper**. You have the option to manually change the mapping after it is generated.
-    - You can also manually draw the mapping by dragging arrows from the values in the **Input** box to the relevant values in the **Output** box.  
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/input-output-data-mapper.png">
+9. Now, you can draw the mapping by clicking the values in the **Input** box to the relevant values in the **Output** box.  
 
     The completed mapping will look as follows:
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/mapping-data-input-output.png">
+    <img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/mapping-data-input-output.png">
 
-14. Save and close the configuration.
+10. Save and close the configuration. Go back to **HealthcareAPI** resource.
 
-15. Go back to the **Design View** of the API Resource and select the **Data Mapper** mediator and edit the following in the **Properties** tab:
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>Input Type</td>
-        <td>
-          Select <b>JSON</b>.
-        </td>
-      </tr>
-      <tr>
-        <td>Output Type</td>
-        <td>
-          Select <b>JSON</b>.
-        </td>
-      </tr>
-    </table>
+11.  Open API resource. Add a **Call mediator** next to Data mapper from the **Mediators** palette and select the `HospitalServicesEP` endpoint from the dropdown list. Click **Submit**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/data-mapper-properties.png">
+      <img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-call-mediator-for-transformation.png">
 
-16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+12. Add a **Respond mediator** next to the **Call mediator** to return the response from the health care service back to the client. Click **Submit**.
 
-      <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/add-call-mediator-for-transformation.png">
-
-17. Add a **Respond mediator** next to the **Call** mediator to return the response from the health care service back to the client.
-
-      <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/add-respond-mediator-for-transformation.png">
+      <img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-respond-mediator-for-transformation.png">
     
 18. Save the REST API configuration.
 
 You have successfully created all the artifacts that are required for this use case. 
 
-### Step 3: Package the artifacts
+### Step 3: Build and run the artifacts
 
-Package the artifacts in your composite exporter module (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
+{!includes/build-and-run-artifacts.md!}
 
-1.  Open the `          pom.xml         ` file in the composite exporter module.
-2.  Ensure that the following projects and artifacts are selected in the POM file.
-
-    -   SampleServicesCompositeExporter
-        -   `HealthcareAPI`
-        -   `HospitalServicesEP`
-    -   SampleServicesRegistryResources
-
-3.  Save the changes.
-
-### Step 4: Build and run the artifacts
-
-To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
-
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.     
-4.  Click **Finish**. 
-
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
-
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab.
-
-### Step 5: Test the use case
+### Step 4: Test the use case
 
 Let's test the use case by sending a simple client request that invokes the service.
 
@@ -538,22 +459,25 @@ If you want to send the client request from your terminal:
 You will see the following response received to your <b>HTTP Client</b>:
 
 ```json
-{"appointmentNumber":1,
-    "doctor":
-          {"name":"thomas collins",
-           "hospital":"grand oak community hospital",
-           "category":"surgery","availability":"9.00 a.m - 11.00 a.m",
-                "fee":7000.0},
-    "patient":
-      {"name":"John Doe",
-       "dob":"1990-03-19",
-       "ssn":"234-23-525",
-       "address":"California",
-       "phone":"8770586755",
-       "email":"johndoe@gmail.com"},
-  "fee":7000.0,
-  "confirmed":false,
-  "appointmentDate":"2025-04-02"
+{
+    "appointmentNumber": 5,
+    "doctor": {
+        "name": "thomas collins",
+        "hospital": "grand oak community hospital",
+        "category": "surgery",
+        "availability": "9.00 a.m - 11.00 a.m",
+        "fee": 7000.0
+    },
+    "patient": {
+        "name": "John Doe",
+        "dob": "1990-03-19",
+        "ssn": "234-23-525",
+        "address": "California",
+        "phone": "8770586755",
+        "email": "johndoe@gmail.com"
+    },
+    "fee": 7000.0,
+    "confirmed": false
 }
 ```
 
