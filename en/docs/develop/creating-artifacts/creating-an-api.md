@@ -282,7 +282,7 @@ You can update the API using this view.
 You can interact with the API using the **Swagger View**.
 
 !!! Note
-    If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition and not the custom Swagger definition that you added.
+    If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition, not the custom Swagger definition that you added.
 
 !!! abstract "Learn more about REST APIs"
 
