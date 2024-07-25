@@ -1,6 +1,6 @@
 # Create Scheduled Tasks
 
-Follow the instructions given below to create a Scheduled Task in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions below to create a Scheduled Task in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
