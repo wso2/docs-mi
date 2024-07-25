@@ -70,7 +70,7 @@ Follow the steps below to add the already-created endpoint template to your medi
     !!! Tip
         Similarly, you can use the Send Mediator instead of the Call Mediator.
 
-3. In the **Call Endpoint** form, select the endpoint that you need to invoke under **Select Endpoint**.
+3. In the **Call Endpoint** form, select the endpoint you need to invoke under **Select Endpoint**.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" alt="Call endpoint" width="30%"></a>
 
