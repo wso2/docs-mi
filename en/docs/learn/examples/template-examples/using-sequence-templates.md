@@ -222,6 +222,9 @@ Following are the integration artifacts we can use to implement this scenario. S
             <log>
                 <property name="status" value="Start"/>
             </log>
+            <log category="INFO" level="simple">
+                <property name="STORE_NAME" expression="$func:message_store/ns1:store/ns1:request/ns2:storeName" xmlns:ns1="http://services.samples" xmlns:ns2="http://services.samples/ns2"/>
+            </log>
             <call-template target="TestTemp">
                 <with-param name="message_store" value="{$body}"/>
             </call-template>
@@ -239,9 +242,6 @@ Following are the integration artifacts we can use to implement this scenario. S
 <template name="Testtemp" xmlns="http://ws.apache.org/ns/synapse">
     <parameter isMandatory="false" name="message_store"/>
     <sequence>
-        <log category="INFO" level="simple">
-            <property name="STORENAME" expression="$func:message_store/ns1:store/ns1:request/ns2:storeName" xmlns:ns1="http://services.samples" xmlns:ns2="http://services.samples/ns2"/>
-        </log>
         <store messageStore="{$func:message_store/ns1:store/ns1:request/ns2:storeName}" xmlns:ns1="http://services.samples" xmlns:ns2="http://services.samples/ns2"/>
     </sequence>
 </template>
