@@ -16,7 +16,7 @@ Listed below are the synapse configurations (proxy service) for implementing thi
     <proxy name="SplitAggregateProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <iterate attachPath="//m0:getQuote" expression="//m0:getQuote/m0:request" id="" preservePayload="true" xmlns:m0="http://services.samples">
+                <iterate attachPath="//m0:getQuote" expression="//m0:getQuote/m0:request" preservePayload="true" xmlns:m0="http://services.samples">
                     <target>
                         <sequence>
                             <header name="Action" action="set" scope="default" value="urn:getQuote"/>
@@ -26,17 +26,17 @@ Listed below are the synapse configurations (proxy service) for implementing thi
                             <property name="enclose" scope="default" type="OM">
                                 <ns:Results xmlns:ns="http://services.samples"/>
                             </property>
-                            <aggregate id="">
-                                <completeCondition timeout="0">
-                                    <messageCount max="-1" min="-1"/>
-                                </completeCondition>
-                                <onComplete aggregateElementType="root" enclosingElementProperty="enclose" expression="$body/*[1]">
-                                    <respond />
-                                </onComplete>
-                            </aggregate>
                         </sequence>
                     </target>
                 </iterate>
+                <aggregate>
+                    <completeCondition timeout="0">
+                        <messageCount max="-1" min="-1"/>
+                    </completeCondition>
+                    <onComplete aggregateElementType="root" enclosingElementProperty="enclose" expression="$body/*[1]">
+                        <respond/>
+                    </onComplete>
+                </aggregate>
             </inSequence>
             <faultSequence/>
         </target>
