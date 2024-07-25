@@ -54,7 +54,7 @@ The client message format must be transformed to the back-end service message fo
 
 ### Step 2: Develop the integration artifacts
 
-#### Create an Integration project
+#### Create an integration project
 
 An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
 
