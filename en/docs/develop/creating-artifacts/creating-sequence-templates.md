@@ -54,7 +54,7 @@ When you have a Sequence template defined, you can use a Call Template Mediator 
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-resource-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-resource-view.png" alt="Sequence template resource view" width="70%"></a>
 
-3.  In the **Call Template** pane, select the previously-created sequence template from the **Target Template** dropdown..
+3.  In the **Call Template** pane, select the previously-created sequence template from the **Target Template** dropdown.
 
 4.  Add required values using the **Call-Template Parameters**.
 
