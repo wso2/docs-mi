@@ -71,14 +71,14 @@ Listed below are the synapse configurations for implementing this scenario. See 
     <sequence name="send_seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <header name="Action" action="set" scope="default" value="urn:getQuote"/>
         <call>
-            <endpoint key="simple"/>
+            <endpoint key="stockQuoteEndpoint"/>
         </call>
     </sequence>
     ```   
 === "Endpoint"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <endpoint name="simple" xmlns="http://ws.apache.org/ns/synapse">
+    <endpoint name="stockQuoteEndpoint" xmlns="http://ws.apache.org/ns/synapse">
         <address uri="http://localhost:9000/services/SimpleStockQuoteService">
             <suspendOnFailure>
                 <initialDuration>-1</initialDuration>
