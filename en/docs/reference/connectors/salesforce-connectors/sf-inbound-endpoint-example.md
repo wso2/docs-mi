@@ -38,27 +38,27 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 4. Provide the following details in the form that opens.
 
-    - **Name**: SalesforceInboundEP
-    - **Sequence**: test
-    - **Error Sequence**: test
-    - **Class Name**: org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData
+    - **Name**: `SalesforceInboundEP`
+    - **Sequence**: `test`
+    - **Error Sequence**: `test`
+    - **Class Name**: `org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData`
     - **Behavior**: Polling Inbound Endpoint
-    - **Interval**: 100
+    - **Interval**: `100`
    
 5. Click on **Add Parameter** and enter the following key-value pairs one by one. 
 
-    | Parameter Name | Parameter Value                         |
-    |----------------|-----------------------------------------|
-    | connection.salesforce.replay | false                                   |
-    | connection.salesforce.EventIDStoredFilePath | /Users/myname/SalesForceConnector/a.txt |
-    | connection.salesforce.packageVersion | 37.0                                    |
-    | connection.salesforce.salesforceObject | /topic/Account                          |
-    | connection.salesforce.loginEndpoint | https://login.salesforce.com            |
-    | connection.salesforce.userName | Username                                |
-    | connection.salesforce.password | test123XXXXXXXXXX                       |
-    | connection.salesforce.waitTime | 5000                                    |
-    | connection.salesforce.connectionTimeout | 20000                                   |
-    | connection.salesforce.soapApiVersion | 22.0                                    |
+    | Parameter Name                              | Parameter Value                            |
+    |---------------------------------------------|--------------------------------------------|
+    | connection.salesforce.replay                | `false`                                    |
+    | connection.salesforce.EventIDStoredFilePath | `/Users/myname/SalesForceConnector/a.txt`  |
+    | connection.salesforce.packageVersion        | `37.0`                                     |
+    | connection.salesforce.salesforceObject      | `/topic/Account`                           |
+    | connection.salesforce.loginEndpoint         | https://login.salesforce.com               |
+    | connection.salesforce.userName              | Username                                   |
+    | connection.salesforce.password              | test123XXXXXXXXXX                          |
+    | connection.salesforce.waitTime              | `5000`                                     |
+    | connection.salesforce.connectionTimeout     | `20000`                                    |
+    | connection.salesforce.soapApiVersion        | `22.0`                                     |
 
 6. Click on **Submit** to complete the inbound endpoint creation. The Salesforce Inbound Endpoint will be created and listed in the **Inbound Endpoints** section.
 
@@ -86,7 +86,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    
 > **Note**: To configure the `connection.salesforce.password` parameter value, please use the steps given under the topic `Reset Security Token` in the [Salesforce inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) document.
    
-## Exporting Integration Logic as a CApp
+## Exporting integration logic as a CApp
 
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
@@ -98,7 +98,7 @@ In order to export the project, refer to the [build and export the carbon applic
 
 3. Start the integration server. 
 
-## Testing  
+## Test
 
 > **Note**: If you want to test this scenario by inserting data manually into the created object records, please follow the steps given under topic `Testing the PushTopic Channel` in the [Salesforce inbound endpoint configuration document]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/).
 
