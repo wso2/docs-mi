@@ -55,7 +55,7 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence.png" alt="Call Sequence" width="30%"></a>
 
-4. In the **Call Sequence** pane, select the previously-created sequence from the **Referring Sequence** dropdown. Then the sequence will be linked to the integration.
+4. In the **Call Sequence** pane, select the previously created sequence from the **Referring Sequence** dropdown. Then the sequence will be linked to the integration.
 
 ### Design the integration
 
