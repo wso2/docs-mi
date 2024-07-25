@@ -12,7 +12,7 @@ Follow the instructions given below to create a new [Message Processor]({{base_p
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/create-message-processor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/create-message-processor.png" alt="Create message processor" width="30%"></a>
 
-3. Hover over **Message Processors** and click the **+** icon that appears to open the below **Message Processor Form**.
+3. Hover over **Message Processors** and click the **+** icon that appears to open the **Message Processor Form** below.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-message-processor.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-message-processor.png" alt="Add message processor" width="30%"></a>
 
