@@ -50,7 +50,7 @@ Follow the instructions below to create a new REST API artifact in the Micro Int
              Select one of the given options:
              <ul>
                  <li>None: This option is selected by default. Use it to create a new REST API artifact from scratch.</li>
-                 <li>From OpenAPI definition: Select this option if you want to generate the REST API artifact from an existing Swagger definition (YAML/JSON file). That is, the synapse configuration (XML) of the REST API will be generated using the Swagger definition.</li>
+                 <li>From OpenAPI definition: Select this option to generate the REST API artifact from an existing Swagger definition (YAML/JSON file). The Synapse configuration (XML) of the REST API will be generated using the Swagger definition.</li>
                  <li>From WSDL file: Select this option to generate Synapse API from a WSDL endpoint.</li>
              </ul>
          </td>
