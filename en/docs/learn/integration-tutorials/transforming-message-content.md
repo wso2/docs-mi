@@ -72,7 +72,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create new endpoint
 
-An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
+An Endpoint artifact is required to expose the URL that connects to the back-end service.
 
 1. Navigate to the **MI Project Explorer** > **Endpoints**.
 
