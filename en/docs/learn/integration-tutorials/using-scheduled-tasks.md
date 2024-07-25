@@ -117,7 +117,7 @@ Shown below is the complete source configuration of the Sequence (i.e., the `Inj
 
     - **Task Name:** `InjectXMLTask`
     - **Count:** `-1`
-    - **Interval (in seconds):** 5
+    - **Interval (in seconds):** `5`
     - **Message inject destination**: `sequence`
     - **Sequence name**: `InjectXMLSequence`
     - **Message** : Check **message format is XML** and enter the following as the message:
