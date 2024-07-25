@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-The sections below demonstrate an example of scheduling a task (using the default implementation) to inject an XML message and to print it in the logs of the server.
+The sections below demonstrate an example of scheduling a task (using the default implementation) to inject an XML message and print it in the server logs.
 
 ### Concepts and artifacts used
 
