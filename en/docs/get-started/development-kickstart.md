@@ -530,7 +530,7 @@ There are two main options to build and run the integration scenario.
         
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) and [start the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/running-the-integration-control-plane) to observe details of the deployed artifacts.
 
 Once you have started the dashboard server, access the dashboard using the following sign in details.
 

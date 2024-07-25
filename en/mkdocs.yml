@@ -348,9 +348,9 @@ nav:
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
               - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
           - Install the Integration Control Plane:
-              - Install the Ingeration Control Plane: install-and-setup/install/installing-mi-dashboard.md
-              - Run the Integration Control Plane: install-and-setup/install/running-the-mi-dashboard.md
-              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
+              - Install the Ingeration Control Plane: install-and-setup/install/installing-integration-control-plane.md
+              - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
+              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
@@ -487,7 +487,7 @@ nav:
           - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
           - Manage Micro Integrator:
               - Runtime:
-                  - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
+                  - Integration Control Plane: observe-and-manage/working-with-integration-control-plane.md
                   - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:

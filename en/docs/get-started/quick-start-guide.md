@@ -192,7 +192,7 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
 
 ### Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the Integration Control Plane (ICP)]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) and [start the Integration Control Plane (ICP)]({{base_path}}/install-and-setup/install/running-the-integration-control-plane) to observe details of the deployed artifacts.
 
 Once you have started the ICP server, access the ICP server using the following sign in details.
 

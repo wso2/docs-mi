@@ -44,7 +44,7 @@ To install and run the Micro Integrator Dashboard on a virtual machine, see the 
 <table>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-mi-dashboard">Installing the Integration Control Plane</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-integration-control-plane">Installing the Integration Control Plane</a>
         </th>
         <td>
             Explains how to download the Micro Integrator Dashboard as a binary and install it on a virtual machine.
@@ -52,7 +52,7 @@ To install and run the Micro Integrator Dashboard on a virtual machine, see the 
     </tr>   
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/running-the-mi-dashboard">Running the Integration Control Plane</a>
+            <a href="{{base_path}}/install-and-setup/install/running-the-integration-control-plane">Running the Integration Control Plane</a>
         </th>
         <td>
             Explains how you can execute the Micro Integrator Dashboard and start using its features.
