@@ -70,7 +70,7 @@ An Integration project is a maven multi module project, which will contain all t
 
 Now let's start designing the integration by adding the necessary artifacts.
 
-#### Create new Endpoint
+#### Create new endpoint
 
 An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
 
