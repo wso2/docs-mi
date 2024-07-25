@@ -12,7 +12,7 @@ Follow the instructions below to create a new [Proxy Service]({{base_path}}/refe
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/create-proxy-service.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/create-proxy-service.png" alt="Create proxy service" width="35%"></a>
    
-4. Hover over **Proxy Services** and click the **+** icon that appears to open the below **Proxy Service Form**.
+4. Hover over **Proxy Services** and click the **+** icon that appears to open the **Proxy Service Form** below.
 
 5. Enter a unique name for the proxy service.
 
