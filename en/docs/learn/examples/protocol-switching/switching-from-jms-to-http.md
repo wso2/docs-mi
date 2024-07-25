@@ -6,35 +6,42 @@ This example demonstrates how the Micro Integrator receives a messages over the 
 
 Following are the integration artifacts (proxy service) that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="JMStoHTTPStockQuoteProxy" transports="jms">
-      <target>
-          <inSequence>
-              <property action="set" name="OUT_ONLY" value="true"/>
-              <send>
-                  <endpoint>
-                      <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                  </endpoint>
-              </send>
-          </inSequence>
-      </target>
-      <parameter name="transport.jms.ContentType">
-          <rules>
-              <jmsProperty>contentType</jmsProperty>
-              <default>text/xml</default>
-          </rules>
-      </parameter>
-      <parameter name="transport.jms.Destination">Queue1</parameter>
-      <parameter name="transport.jms.ConnectionFactory">myQueueListener</parameter>
-  </proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="JMStoHTTPStockQuoteProxy" startOnLoad="true" transports="jms"
+        xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property action="set" name="OUT_ONLY" value="true" />
+                <call>
+                    <endpoint key="SimpleStockQuoteService" />
+                </call>
+            </inSequence>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.jms.ContentType">
+            <rules>
+                <jmsProperty>contentType</jmsProperty>
+                <default>text/xml</default>
+            </rules>
+        </parameter>
+        <parameter name="transport.jms.Destination">Queue1</parameter>
+        <parameter name="transport.jms.ConnectionFactory">myQueueListener</parameter>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ## Build and Run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}.
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 5. Start the selected message broker and create a queue with name <strong>Queue1</strong>. 
@@ -51,7 +58,7 @@ Set up the back-end service:
           ```bash 
           sh axis2server.sh
           ```
-    === "On Windows"              
+    === "On Windows"
           ```bash 
           axis2server.bat
           ```
