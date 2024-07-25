@@ -46,7 +46,7 @@ The following proxy service splits the message by a character. It receives a mes
         <target>
             <inSequence>
                 <property name="symbol" scope="default" type="STRING" value="IBM"/>
-                <enrich description="">
+                <enrich description="Replace the body content.">
                     <source clone="true" type="inline">
                         <m:getQuote xmlns:m="http://services.samples">
                             <m:request>
@@ -56,7 +56,7 @@ The following proxy service splits the message by a character. It receives a mes
                     </source>
                     <target action="replace" type="body"/>
                 </enrich>
-                <enrich description="">
+                <enrich description="Replace the symbol value with the value from the 'symbol' property.">
                     <source clone="true" property="symbol" type="property"/>
                     <target action="replace" xpath="//m:getQuote/m:request/m:symbol" xmlns:m="http://services.samples"/>
                 </enrich>
@@ -141,7 +141,7 @@ The sample proxy below splits the input message by appending a special characte
         <target>
             <inSequence>
                 <property name="symbol" scope="default" type="STRING" value="IBM"/>
-                <enrich description="">
+                <enrich description="Replace the body content.">
                     <source clone="true" type="inline">
                         <m:getQuote xmlns:m="http://services.samples">
                             <m:request>
@@ -151,7 +151,7 @@ The sample proxy below splits the input message by appending a special characte
                     </source>
                     <target action="replace" type="body"/>
                 </enrich>
-                <enrich description="">
+                <enrich description="Replace the symbol value with the value from the 'symbol' property.">
                     <source clone="true" property="symbol" type="property"/>
                     <target action="replace" xpath="//m:getQuote/m:request/m:symbol" xmlns:m="http://services.samples"/>
                 </enrich>
@@ -236,7 +236,7 @@ The sample proxy below splits the input message by a sequence of characters.
         <target>
             <inSequence>
                 <property name="symbol" scope="default" type="STRING" value="IBM"/>
-                <enrich description="">
+                <enrich description="Replace the body content.">
                     <source clone="true" type="inline">
                         <m:getQuote xmlns:m="http://services.samples">
                             <m:request>
@@ -246,7 +246,7 @@ The sample proxy below splits the input message by a sequence of characters.
                     </source>
                     <target action="replace" type="body"/>
                 </enrich>
-                <enrich description="">
+                <enrich description="Replace the symbol value with the value from the 'symbol' property.">
                     <source clone="true" property="symbol" type="property"/>
                     <target action="replace" xpath="//m:getQuote/m:request/m:symbol" xmlns:m="http://services.samples"/>
                 </enrich>
