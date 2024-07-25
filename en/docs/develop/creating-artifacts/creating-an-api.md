@@ -105,7 +105,7 @@ Follow the instructions below to create a new REST API artifact in the Micro Int
         <tbody>
           <tr>
             <td>WSDL Type</td>
-            <td>Select <b>File</b> to generate API from WSDL file or Zip file contain a valid WSDL file or <b>URL</b> to generate API using a remote WSDL file.</td>
+            <td>Select <b>File</b> to generate the API from a WSDL file or a Zip file containing a valid WSDL file, or select <b>URL</b> to generate the API using a remote WSDL file.</td>
           </tr>
           <tr>
             <td>WSDL File</td>
