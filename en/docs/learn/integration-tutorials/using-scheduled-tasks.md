@@ -128,7 +128,7 @@ Shown below is the complete source configuration of the Sequence (i.e., the `Inj
 
 4. Click **Create**.
 
-Shown below is the complete source configuration of the scheduled task.
+Below is the complete source configuration of the scheduled task.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
