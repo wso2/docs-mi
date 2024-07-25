@@ -89,9 +89,9 @@ Send the following message via TCP to the TCP listener port.
     </soapenv:Body>
 </soapenv:Envelope>
 ``` 
-In Mac, we can save the above request in a <strong>request.xml</strong> file and use Netcat to send the TCP request. 
+In Linux, we can save the above request in a <strong>request.xml</strong> file and use Netcat to send the TCP request. 
 ```
-nc localhost 6060 < request.xml
+netcat localhost 6060 < request.xml
 ```
 
 You will see the following response in the back-end service's console:
