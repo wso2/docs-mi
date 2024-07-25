@@ -15,11 +15,11 @@ Listed below are the synapse configurations (proxy service) for implementing thi
         <target>
             <inSequence>
                 <switch source="$body//ser:getQuote/ser:request/xsd:symbol" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-                    <case regex="MSFT">
-                        <sequence key="sequence2"/>
-                    </case>
                     <case regex="IBM">
                         <sequence key="sequence1"/>
+                    </case>
+                    <case regex="MSFT">
+                        <sequence key="sequence2"/>
                     </case>
                     <default>
                         <log category="INFO" level="custom">
@@ -54,16 +54,16 @@ Listed below are the synapse configurations (proxy service) for implementing thi
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="send_seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+        <header name="Action" action="set" scope="default" value="urn:getQuote"/>
         <call>
-            <endpoint key="simple"/>
+            <endpoint key="SimpleStockQuoteServiceEp"/>
         </call>
     </sequence>
     ```
 === "Endpoint" 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <endpoint name="simple" xmlns="http://ws.apache.org/ns/synapse">
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
         <address uri="http://localhost:9000/services/SimpleStockQuoteService">
             <suspendOnFailure>
                 <initialDuration>-1</initialDuration>
