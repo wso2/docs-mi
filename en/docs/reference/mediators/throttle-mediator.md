@@ -1,11 +1,9 @@
 # Throttle Mediator
 
 The **Throttle Mediator** can be used to restrict access to services.
-This is useful when services used at the enterprise level and it is
-required to avoid heavy loads that can cause performance issues in the
-system. It can also be used when you want to avoid certain user groups
-(i.e. IP addresses and domains) accessing your system. The Throttle
-mediator defines a throttle group which includes the following.
+This is useful when services used at the enterprise level, and it is required to avoid heavy loads that can cause performance issues in the system. 
+It can also be used when you want to avoid certain user groups (i.e. IP addresses and domains) accessing your system. 
+The Throttle mediator defines a throttle group which includes the following.
 
 -   A throttle policy which defines the extent to which, individuals and groups of IP addresses/domains should be allowed to access the
     service.
@@ -17,7 +15,7 @@ mediator defines a throttle group which includes the following.
 
 ## Syntax
 
-``` java
+```xml
 <throttle [onReject="string"] [onAccept="string"] id="string">
     (<policy key="string"/> | <policy>..</policy>)
     <onReject>..</onReject>?
@@ -27,16 +25,12 @@ mediator defines a throttle group which includes the following.
 
 ## Configuration
 
-The configuration of the Throttle mediator are divided into following
-sections. Before you edit these sections, enter an ID for the Throttle
-group in the **Throttle Group ID** parameter.
+The configuration of the Throttle mediator are divided into following sections. Before you edit these sections, enter an ID for the Throttle group in the **Throttle Group ID** parameter.
 
 ### Throttle Policy
 
-This section is used to specify the throttle policy that should apply to
-the requests passing through the Throttle mediator. A throttle policy
-has a number of entries defining the extent to which, an individual or a
-group of IP addresses/domains should be allowed to access the service.
+This section is used to specify the throttle policy that should apply to the requests passing through the Throttle mediator. 
+A throttle policy has a number of entries defining the extent to which, an individual or a group of IP addresses/domains should be allowed to access the service.
 
 The parameters available to be configured in this section are as follows.
 
@@ -200,85 +194,99 @@ number of concurrent requests that can pass through Synapse on a single
 unit of time, and this value applies to all the IP addresses and
 domains.
 
-``` java
-<in>
-    <throttle id="A">
-        <policy>
-            <!-- define throttle policy -->
-            <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
-                        xmlns:throttle="http://www.wso2.org/products/wso2commons/throttle">
-                <throttle:ThrottleAssertion>
-                    <throttle:MaximumConcurrentAccess>10</throttle:MaximumConcurrentAccess>
-                </throttle:ThrottleAssertion>
-            </wsp:Policy>
-        </policy>
-        <onAccept>
-            <log level="custom">
-                <property name="text" value="**Access Accept**"/>
-            </log>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </onAccept>
-        <onReject>
-            <log level="custom">
-                <property name="text" value="**Access Denied**"/>
-            </log>
-            <makefault>
-                <code value="tns:Receiver"
-                      xmlns:tns="http://www.w3.org/2003/05/soap-envelope"/>
-                <reason value="**Access Denied**"/>
-            </makefault>
-            <respond/>
-            <drop/>
-        </onReject>
-    </throttle>
-</in>
-```
+=== "REST API"
+    ```xml
+    <api xmlns="http://ws.apache.org/ns/synapse" name="ThrottleAPI" context="/throttle">
+        <resource methods="GET" uri-template="/getQuote">
+            <inSequence>
+                <throttle id="A">
+                    <policy>
+                        <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                                    xmlns:throttle="http://www.wso2.org/products/wso2commons/throttle">
+                            <throttle:ThrottleAssertion>
+                                <throttle:MaximumConcurrentAccess>10</throttle:MaximumConcurrentAccess>
+                            </throttle:ThrottleAssertion>
+                        </wsp:Policy>
+                    </policy>
+                    <onAccept>
+                        <log level="custom">
+                            <property name="text" value="**Access Accept**"/>
+                        </log>
+                        <call>
+                            <endpoint key="SimpleStockQuoteServiceEndpoint"/>
+                        </call>
+                    </onAccept>
+                    <onReject>
+                        <log level="custom">
+                            <property name="text" value="**Access Denied**"/>
+                        </log>
+                        <makefault response="true" description="" version="soap12">
+                            <code value="soap12Env:Receiver" xmlns:soap12Env="http://www.w3.org/2003/05/soap-envelope"/>
+                            <reason value="**Access Denied**"/>
+                        </makefault>
+                        <drop/>
+                    </onReject>
+                </throttle>
+            </inSequence>
+        </resource>
+    </api>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteServiceEndpoint">
+        <address uri="http://localhost:9000/soap/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ### Example for a rates-based policy
 
-This sample policy only contains a rates-based policy. This indicates
-the maximum number of concurrent requests that can pass through Synapse
-on a single unit of time, and this value applies to all the IP addresses
-and domains.
+This sample policy only contains a rates-based policy. This indicates the maximum number of concurrent requests that can pass through Synapse on a single unit of time, and this value applies to all the IP addresses and domains.
 
-``` java
-<in>
-    <throttle id="A">
-        <policy>
-            <!-- define throttle policy -->
-            <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
-                        xmlns:throttle="http://www.wso2.org/products/wso2commons/throttle">
-                       <throttle:MaximumCount>4</throttle:MaximumCount>
-                       <throttle:UnitTime>800000</throttle:UnitTime>
-                       <throttle:ProhibitTimePeriod wsp:Optional="true">1000</throttle:ProhibitTimePeriod>
-            </wsp:Policy>
-        </policy>
-        <onAccept>
-            <log level="custom">
-                <property name="text" value="**Access Accept**"/>
-            </log>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </onAccept>
-        <onReject>
-            <log level="custom">
-                <property name="text" value="**Access Denied**"/>
-            </log>
-            <makefault>
-                <code value="tns:Receiver"
-                      xmlns:tns="http://www.w3.org/2003/05/soap-envelope"/>
-                <reason value="**Access Denied**"/>
-            </makefault>
-            <respond/>
-            <drop/>
-        </onReject>
-    </throttle>
-</in>
-```
+=== "REST API"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/throttle" name="ThrottleAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/getQuote">
+            <inSequence>
+                <throttle description="" id="A">
+                    <policy>
+                        <!-- define throttle policy -->
+                        <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                            xmlns:throttle="http://www.wso2.org/products/wso2commons/throttle">
+                            <throttle:MaximumCount>4</throttle:MaximumCount>
+                            <throttle:UnitTime>800000</throttle:UnitTime>
+                            <throttle:ProhibitTimePeriod wsp:Optional="true">1000</throttle:ProhibitTimePeriod>
+                        </wsp:Policy>
+                    </policy>
+                    <onAccept>
+                        <log category="INFO" level="custom">
+                            <property name="text" value="**Access Accept**"/>
+                        </log>
+                        <call>
+                            <endpoint key="SimpleStockQuoteServiceEP"/>
+                        </call>
+                    </onAccept>
+                    <onReject>
+                        <log category="INFO" level="custom">
+                            <property name="text" value="**Access Denied**"/>
+                        </log>
+                        <makefault response="true" description="" version="soap12">
+                            <code value="soap12Env:Receiver" xmlns:soap12Env="http://www.w3.org/2003/05/soap-envelope"/>
+                            <reason value="**Access Denied**"/>
+                        </makefault>
+                        <drop/>
+                    </onReject>
+                </throttle>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address     uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
