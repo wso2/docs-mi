@@ -53,7 +53,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 5. Click on `InjectXMLSequence` under **Sequences** that you have just created to open its diagram view.
 
-6. Next, let's add a Log mediator to the sequence. Click on the **+** icon and select **Log mediator** from the **Palette** under **Mediators** > **Generic**.
+6. Next, add a Log mediator to the sequence. Click the **+** icon and select **Log mediator** from the **Palette** under **Mediators** > **Generic**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-log-mediator.png" alt="Add log mediator" width="80%"></a>
 
