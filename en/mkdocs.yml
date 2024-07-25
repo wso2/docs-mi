@@ -280,6 +280,7 @@ nav:
           - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
           - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
+          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
@@ -321,7 +322,6 @@ nav:
           - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
-          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
           - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
           - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
