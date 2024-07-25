@@ -196,7 +196,7 @@ Follow the steps given below.
       
 ### Step 5 - Sign in to the ICP server
 
-Once you have [set up and started the ICP server](#using-the-mi-dashboard), you can access the ICP server URL.
+Once you have [set up and started the ICP server](#using-the-integration-control-plane), you can access the ICP server URL.
 
 !!! Note "Before you begin"
     Be sure to have at least one Micro Integrator server connected to the ICP server before attempting to sign in to it. This can be verified by checking the presence of the following log.
