@@ -119,13 +119,11 @@ The following project files and executable back-end services are available in th
 
     - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
-
 ### Step 2 - Running the integration artifacts
 
 First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder in VS Code. There are two main options to build and run the integration scenario.
 
 #### Option 1: Using the Visual Studio Code
-
 
 1. Click on the Command Palette on the top of the VS Code.
 
@@ -160,7 +158,7 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
 
 1. Export the artifacts as a deployable CAR file:
 
-    a. Go to the MI Overview pane using the **Home** icon.
+    a. Go to **MI Overview** using the **Home** icon.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/home-icon.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/home-icon.png" alt="Home icon" width="25%"></a>
     
@@ -190,19 +188,95 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
         micro-integrator.bat
         ```
 
-### Step 4 - Observe deployed artifacts
+### Step 3 - Observe deployed artifacts (Optional)
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the Integration Control Plane (ICP)]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) to observe details of the deployed artifacts.
+You can install and start the Integration Control Plane (ICP) to observe details of the deployed artifacts by following the steps below:
 
-Once you have started the ICP server, access the ICP server using the following sign in details.
+1. Once you have deployed the artifacts and started the Micro Integrator server, you need to stop it before starting the ICP server.
 
-| Username | Password |
-|----------|----------|
-| admin    | admin    |
+    - If you are running the Micro Integrator runtime [using the Visual Studio Code](#option-1-using-the-visual-studio-code), stop the server using the **Stop** icon.
+    
+          <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/stop-mi-runtime.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/stop-mi-runtime.png" alt="Build and run" width="25%"></a>
+    
+    - If you are [using a local Micro Integrator instance](#option-2-using-a-local-micro-integrator-instance), use the below command:
 
-Once you sign in, click the required artifact type to view details.
+        === "On macOS/Linux"              
+            ```bash 
+            sh micro-integrator.sh stop
+            ```
+        === "On Windows"             
+            ```bash 
+            micro-integrator.bat --stop
+            ```
 
-### Step 5 - Testing the integration service
+2. Install and start the Integration Control Plane (ICP) by following the steps below:
+
+     1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-mi-dashboard/#installing-the-integration-control-plane_1).
+
+     2. Set up the Micro Integrator: 
+   
+         1. Open the `deployment.toml` file (stored in the `<MI_HOME>/conf/` directory) of the Micro Integrator. 
+         2. Add the following configuration:
+      
+             ```
+             [dashboard_config]
+             dashboard_url = "https://localhost:9743/dashboard/api/"
+             heartbeat_interval = 5
+             group_id = "mi_dev"
+             node_id = "dev_node_2"
+             ```
+
+3. Start the Integration Control Plane:
+
+     1. Open a command prompt as explained below.
+
+          <table>
+                <tr>
+                      <th>On <b>Linux/macOS</b></td>
+                      <td>Establish an SSH connection to the server, log on to the text Linux console or open a terminal.</td>
+                </tr>
+                <tr>
+                      <th>On <b>Windows</b></td>
+                      <td>Click <b>Start &gt;Run</b>, type <b>cmd</b> at the prompt, and then press <b>Enter</b>.</td>
+                </tr>
+          </table> 
+    
+     2. Navigate to the `<ICP_HOME>/bin` folder from your command line.
+   
+     3. Execute one of the commands given below:
+
+        === "On macOS/Linux"
+            ```bash
+            sh dashboard.sh
+            ```
+        === "On Windows"
+            ```bash
+            dashboard.bat
+            ```
+
+4. Next, restart the Micro Integrator server to register itself with the ICP. Follow the same steps you performed in the [Step 2](#step-2-running-the-integration-artifacts).
+
+5. Access the Integration Control Plane:
+
+     1. Once you have started the ICP server, access the ICP server using the following URL:
+
+         ```bash
+         https://localhost:9743/login
+         ```
+
+         <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png" alt="ICP login" width="80%"></a>
+
+     2. Use the following sign in details.
+
+        | Username  | Password |
+        |-----------|----------|
+        | `admin`   | `admin`  |
+
+Once you sign in, click on the required artifact type to view its details.
+
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png" alt="View API artifacts" width="80%"></a>
+
+### Step 4 - Test the integration service
 
 Now, let's test the integration service.
 
@@ -259,7 +333,6 @@ Let's start the mock back-end services for this use case:
     **Congratulations!**
     Now you have created your first integration service.
 
-   
 ## What's next?
 
 - [Develop your first integration solution]({{base_path}}/get-started/development-kickstart/).
