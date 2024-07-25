@@ -12,7 +12,7 @@ Follow the instructions below to create a new [Endpoint]({{base_path}}/reference
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="Create endpoint" width="30%"></a>
 
-4. Hover over **Endpoints** and click the **+** icon that appears to open the below **Endpoint Form**.
+4. Hover over **Endpoints** and click the **+** icon that appears to open the **Endpoint Form** below.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
 
