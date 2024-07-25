@@ -34,7 +34,7 @@ Follow the instructions below to create a new Endpoint Template in the Micro Int
 
 7. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
 
-8. Also, update the endpoint parameter values with placeholders that are prefixed by `$`.
+8. Also, update the endpoint parameter values with placeholders prefixed by `$`.
 
 9. Click **Create**.
 
