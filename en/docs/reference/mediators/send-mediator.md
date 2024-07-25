@@ -9,23 +9,23 @@ The **Send Mediator** is used to send messages out of Synapse to an endpoint. Th
 
 ## Syntax
 
-``` java
+```xml
 <send/>
 ```
 
 If the message is to be sent to one or more endpoints, use the following syntax:
 
-``` java
+```xml
 <send>
    (endpointref | endpoint)+
 </send>
 ```
 
--   The `          endpointref         ` token refers to the following:
-    ``` java
+-   The `endpointref` token refers to the following:
+    ```xml
     <endpoint key="name"/>
     ```
--   The `          endpoint         ` token refers to an anonymous endpoint definition.
+-   The `endpoint` token refers to an anonymous endpoint definition.
 
 ## Configuration
 
@@ -47,7 +47,7 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 <li><strong>Pick from Registry</strong>: If this is selected, the message can be sent to a predefined endpoint which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
 <li><p><strong>XPath</strong>: If this is selected, the endpoint to which the message should be sent will be derived via an XPath expression. You are required to enter the relevant XPath expression in the text field that appears when this option is selected.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
-</p></li>
+</li>
 </ul>
 </div></td>
 </tr>
@@ -60,7 +60,7 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 <li><strong>Static</strong>: If this is selected, the sequence will be static. You can select a predefined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
 <li><p><strong>Dynamic</strong>: If this is selected, the sequence will be derived via an XPath expression. The XPath expression should be entered in the <strong>Receiving Sequence</strong> parameter which appears when this option is selected.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
-</p></li>
+</li>
 </ul>
 </div></td>
 </tr>
@@ -79,55 +79,41 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 
 ### Send mediator used in the In sequence and Out sequence
 
-In this example, the first send operation is included in the In
-mediator. Both the request and response will go through the main
-sequence, but only request messages will go through the In mediator.
-Similarly, only response messages will go through the Out mediator. The
-request will be forwarded to the endpoint with the given address. The
-response will go through the second send operation, which in this
-example just sends it back to the client because there is no Out
-endpoint specified.
+In this example, the proxy service forwards the incoming requests to an endpoint and sends the response back to the client. 
+The inSequence handles the incoming messages by sending them to the specified endpoint, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) ensures that the responses are returned to the client.
 
-``` java
-<proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="SimpleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
-         <inSequence>
-        <send>
-            <endpoint>
-                <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-            </endpoint>
-        </send>
-    </inSequence>
-    <outSequence>
-        <send/>
-    </outSequence>
+        <inSequence>
+            <send>
+                <endpoint key="SimpleStockQuoteServiceEP"/>
+            </send>
+            <respond/>
+        </inSequence>
+        <faultSequence/>
     </target>
 </proxy>
 ```
 
 ### Specifying a response handling sequence (service chaining) 
 
-```
+```xml
 <send receive="personInfoSeq">
     <endpoint key="PersonInfoEpr"/>
 </send>
 ```
 
-In this example, requests are sent to the
-`         PersonInfoEpr        ` endpoint, and responses from the
-service at that endpoint are handled by a sequence named personInfoSeq.
-This approach is particularly useful for service chaining. For example,
-if you want to take the responses from the
-`         PersonInfoEpr        ` service and send them to the
-`         CreditEpr        ` service for additional processing before
-sending the final response back to the client. In this case, you can
-configure the `         personInfoSeq        ` sequence to send the
-response to the `         CreditEpr        ` service and also specify
-another receive sequence named `         creditSeq        ` that sends
-the response from the `         CreditEpr        ` service back to the
-client. Following is the configuration of these sequences.
+In this example, requests are sent to the `PersonInfoEpr` endpoint, and responses from the
+service at that endpoint are handled by a sequence named `personInfoSeq`.
+This approach is particularly useful for service chaining. For example, if you want to take the responses from the `PersonInfoEpr` service and send them to the
+`CreditEpr` service for additional processing before sending the final response back to the client. 
+In this case, you can configure the `personInfoSeq` sequence to send the response to the `CreditEpr` service and also specify
+another receive sequence named `creditSeq` that sends the response from the `CreditEpr` service back to the client. 
+Following is the configuration of these sequences.
 
-```
+```xml
 <sequence name="personInfoSeq">
     <xslt key="xslt">
         <property name="amount" expression="get-property('ORG_AMOUNT')"/>
@@ -145,17 +131,13 @@ client. Following is the configuration of these sequences.
 
 ### Configuring a blocking/non-blocking send operation
 
-In this example, the Send mediator in a proxy service using the [VFS
-transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport) is
-transferring a file to a VFS endpoint. VFS is a non-blocking transport
-by default, which means a new thread is spawned for each outgoing
-message. The [Property mediator]({{base_path}}/reference/mediators/property-mediator) added before the
-Send mediator removes the [ClientAPINonBlocking]({{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking)
+In this example, the Send mediator in a proxy service using the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport) is transferring a file to a VFS endpoint. 
+VFS is a non-blocking transport by default, which means a new thread is spawned for each outgoing message. 
+The [Property mediator]({{base_path}}/reference/mediators/property-mediator) added before the Send mediator removes the [ClientAPINonBlocking]({{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking)
 property from the message to perform the mediation in a single thread.
-This is required when the file being transferred is large and you want
-to avoid out-of-memory failures.
+This is required when the file being transferred is large, and you want to avoid out-of-memory failures.
 
-```
+```xml
 <inSequence>
    <property name="ClientApiNonBlocking"
            value="true"
