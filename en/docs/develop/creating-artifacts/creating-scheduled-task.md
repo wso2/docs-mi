@@ -26,7 +26,7 @@ Follow the instructions given below to create a Scheduled Task in the Micro Inte
 
 ### Update properties
 
-You can later update the task properties to specify the incoming message that should trigger the task and the destination to which the message should be injected.
+You can later update the task properties to specify the incoming message that should trigger the task and the destination where the message should be injected.
 
 Open the above-created task artifact from the **MI Project Explorer**. You can use the **Form view** or the **Source view** to update task properties.
 
