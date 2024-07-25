@@ -345,7 +345,7 @@ Let's configure the API resource with the data transformation logic.
     
 18. Save the REST API configuration.
 
-You have successfully created all the artifacts that are required for this use case. 
+You have successfully created all the artifacts required for this use case.
 
 ### Step 3: Build and run the artifacts
 
