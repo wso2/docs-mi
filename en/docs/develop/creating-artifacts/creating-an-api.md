@@ -1,6 +1,6 @@
 # Create a REST API
 
-Follow the instructions given below to create a new REST API artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions below to create a new REST API artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
