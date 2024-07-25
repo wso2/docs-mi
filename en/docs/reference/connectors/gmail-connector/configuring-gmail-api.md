@@ -16,7 +16,7 @@
 6. Add scopes of API, then click `SAVE AND CONTINUE`.
    <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen3.png" title="Consent Screen" width="800" alt="Consent Screen" />
 
-7. Click `ADD USERS`, type the email of the account you will be testing with, then click `SAVE AND CONTINUE`.
+7. Click `ADD USERS`, type the email of the account that you will use for testing, then click `SAVE AND CONTINUE`.
    <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen4.png" title="Consent Screen" width="800" alt="Consent Screen" />
 
 8. Click Create credentials and click OAuth client ID.
