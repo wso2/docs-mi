@@ -1,6 +1,6 @@
 # Create a Message Store
 
-Follow the instructions given below to create a new [Message Store]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions below to create a new [Message Store]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
