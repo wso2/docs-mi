@@ -530,15 +530,80 @@ There are two main options to build and run the integration scenario.
         
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) and [start the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/running-the-integration-control-plane) to observe details of the deployed artifacts.
+Optionally, you can install and start the Integration Control Plane (ICP) to observe details of the deployed artifacts by following the steps below:
 
-Once you have started the dashboard server, access the dashboard using the following sign in details.
+1. Once you have deployed the artifacts and started the Micro Integrator server, you need to stop it before starting the ICP server.
 
-| Username | Password |
-|----------|----------|
-| admin    | admin    |
+    - If you are running the Micro Integrator runtime [using the Visual Studio Code](#option-1-using-the-visual-studio-code), stop the server using the **Stop** icon.
 
-Once you sign in, click the required artifact type to view details.
+          <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/stop-mi-runtime.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/stop-mi-runtime.png" alt="Build and run" width="25%"></a>
+
+    - If you are [using a local Micro Integrator instance](#option-2-using-a-local-micro-integrator-instance), use the below command:
+
+        === "On macOS/Linux"              
+            ```bash
+            sh micro-integrator.sh stop
+            ```
+        === "On Windows"             
+            ```bash
+            micro-integrator.bat --stop
+            ```
+
+2. Install and start the Integration Control Plane (ICP) by following the steps below:
+
+    1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-mi-dashboard/#installing-the-integration-control-plane_1).
+
+    2. Set up the Micro Integrator:
+
+        1. Open the `deployment.toml` file (stored in the `<MI_HOME>/conf/` directory) of the Micro Integrator.
+        2. Add the following configuration:
+
+            ```
+            [dashboard_config]
+            dashboard_url = "https://localhost:9743/dashboard/api/"
+            heartbeat_interval = 5
+            group_id = "mi_dev"
+            node_id = "dev_node_2"
+            ```
+
+3. Start the Integration Control Plane:
+
+    1. Open a terminal.
+
+    2. Navigate to the `<ICP_HOME>/bin` directory.
+
+    3. Execute one of the commands given below:
+
+        === "On macOS/Linux"
+            ```bash
+            sh dashboard.sh
+            ```
+        === "On Windows"
+            ```bash
+            dashboard.bat
+            ```
+
+4. Next, restart the Micro Integrator server to register itself with the ICP. Follow the same steps you performed in the [Step 2](#step-2-running-the-integration-artifacts).
+
+5. Access the Integration Control Plane:
+
+    1. Once you have started the ICP server, access the ICP server using the following URL:
+
+        ```bash
+        https://localhost:9743/login
+        ```
+
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png" alt="ICP login" width="80%"></a>
+
+    2. Use the following sign in details.
+
+        | Username  | Password |
+        |-----------|----------|
+        | `admin`   | `admin`  |
+
+Once you sign in, click on the required artifact type to view its details.
+
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png" alt="View API artifacts" width="80%"></a>
 
 ## Step 5 - Test the use case
 
@@ -573,7 +638,7 @@ There are two ways to invoke the service:
     4. In the 'Enter request URL' section paste the below endpoint URL:
   
         ```
-        http://localhost:8290/healthcare/doctor/Ophthalmologist```
+        http://localhost:8290/healthcare/doctor/Ophthalmologist
         ```
          
     5. Select `GET` as the HTTP method and click the **Send** button.
