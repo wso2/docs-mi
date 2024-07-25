@@ -91,7 +91,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 12. Click **Submit**.
 
-Shown below is the complete source configuration of the Sequence (i.e., the `InjectXMLSequence.xml` file).
+Below is the complete source configuration of the Sequence (i.e., the `InjectXMLSequence.xml` file).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
