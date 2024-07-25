@@ -39,7 +39,7 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 - If you select the **Save the sequence in registry** option in the previous step, the sequence is created in the `<PROJECT_NAME>/src/main/wso2mi/resources/` directory according to the values you specified.
 
-- The created sequence is also available in the **Palette**, under **All Mediators** > **Generic** > **Call Sequence** and ready for use in other meditation workflows.
+- The created sequence is also available in the **Palette**, under **All Mediators** > **Generic** > **Call Sequence**, and is ready for use in other meditation workflows.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png" alt="Sample Sequence" width="80%"></a>
 
