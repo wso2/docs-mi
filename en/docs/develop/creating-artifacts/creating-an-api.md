@@ -12,7 +12,7 @@ Follow the instructions below to create a new REST API artifact in the Micro Int
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="Create REST API" width="30%"></a>
 
-4. Hover over **APIs** and click the **+** icon that appears to open the below **Synapse API Artifact** creation form.
+4. Hover over **APIs** and click the **+** icon that appears to open the **Synapse API Artifact** creation form below.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="Add API" width="30%"></a>
 
