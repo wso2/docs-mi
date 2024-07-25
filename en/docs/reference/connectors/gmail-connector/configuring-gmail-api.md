@@ -10,7 +10,7 @@
 4. Click **Configure consent screen** in the next screen.
   <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.jpg" title="Consent Screen" width="800" alt="Consent Screen" />
 
-5. Provide the Application Name as `GmailConnector`, `User support email` and `email address of Developer contact information`in the Consent Screen, then click `SAVE AND CONTINUE`..
+5. Provide the Application Name as `GmailConnector`, and provide your email as `User support email` and `email address of Developer contact information` in the Consent Screen, then click `SAVE AND CONTINUE`..
   <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen2.png" title="Consent Screen" width="800" height="300" alt="Consent Screen" />
 
 6. Add scopes of API, then click `SAVE AND CONTINUE`.
