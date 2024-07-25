@@ -8,31 +8,45 @@ Synapse will create a session with the **Executor** and forward the order reques
 
 Following are the integration artifacts (proxy service) that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse" transports="http,https" name="HTTPToFIXProxy" startOnLoad="true">
-    <description />
-    <target>
-        <inSequence>
-            <log level="full"></log>
-            <property name="transport.fix.ServiceName" value="HTTPToFIXProxy" scope="axis2-client" />
-            <call>
-                <endpoint>
-                    <address uri="fix://localhost:19876?BeginString=FIX.4.0&amp;SenderCompID=SYNAPSE&amp;TargetCompID=EXEC" />
-                </endpoint>
-            </call>
-            <log level="full"></log>
-            <respond />
-        </inSequence>
-    </target>
-    <parameter name="transport.fix.InitiatorConfigURL">file:/{file_path}/synapse-sender.cfg</parameter>
-    <parameter name="transport.fix.InitiatorMessageStore">file</parameter>
-    <parameter name="transport.fix.SendAllToInSequence">false</parameter>
-    <parameter name="transport.fix.DropExtraResponses">true</parameter>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="HTTPToFIXProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log category="INFO" level="full"/>
+                <property name="transport.fix.ServiceName" scope="axis2-client" type="STRING" value="HTTPToFIXProxy"/>
+                <call>
+                    <endpoint key="FixEp"/>
+                </call>
+                <log category="INFO" level="full"/>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.fix.InitiatorConfigURL">file:/{file_path}/synapse-sender.cfg</parameter>
+        <parameter name="transport.fix.InitiatorMessageStore">file</parameter>
+        <parameter name="transport.fix.SendAllToInSequence">false</parameter>
+        <parameter name="transport.fix.DropExtraResponses">true</parameter>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="FixEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="fix://localhost:19876?BeginString=FIX.4.0&amp;SenderCompID=SYNAPSE&amp;TargetCompID=EXEC">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
-## Build and Run
+## Build and run
 
 Create the artifacts:
 
@@ -46,7 +60,7 @@ Create the artifacts:
 Run the quickfixj **Executor** sample application.
 
 ```bash
-java -jar quickfixj-examples-executor-2.1.1.jar
+java -jar quickfixj-examples-executor-2.3.1.jar
 ```
 
 Send the following request to the Micro Integrator.
