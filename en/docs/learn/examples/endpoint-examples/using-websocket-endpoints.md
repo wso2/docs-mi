@@ -6,7 +6,7 @@ WebSocket is a protocol that provides full-duplex communication channels over a 
 
 If you need to send a message from a WebSocket client to a WebSocket endpoint via WSO2 MI, you need to establish a persistent WebSocket connection from the WebSocket client to WSO2 MI as well as from WSO2 MI to the WebSocket back-end.
 
-To demonstrate this scenario, you need to create two dispatching sequences. One for the client to back-end mediation, and another for the back-end to client mediation. Finally you need to configure the WebSocket inbound endpoint of WSO2 MI to use the created sequences and listen on port 9092.
+To demonstrate this scenario, you need to create two dispatching sequences: one for client to back-end mediation and another for back-end to client mediation. Finally, you need to configure the WebSocket inbound endpoint of WSO2 MI to use the created sequences and listen on port 9092.
 
 For sample synapse configurations, see [WebSocket Inbound]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket).
 
@@ -16,7 +16,7 @@ If you analyze the log, you will see that a connection from the WebSocket client
 
 If you need to send a message from a HTTP client to a WebSocket endpoint via the Micro Integrator, you need to establish a persistent WebSocket connection from WSO2 MI to the WebSocket back-end.
 
-To demonstrate this scenario, you need to create two dispatching sequences. One for the client to back-end mediation, and another for the back-end to client mediation. Then you need to create a proxy service to call the created sequences.
+To demonstrate this scenario, you need to create two dispatching sequences: one for the client to back-end mediation, and another for the back-end to client mediation. Then you need to create a proxy service to call the created sequences.
 
 ### Synapse configuration
 Following is a sample proxy service configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
