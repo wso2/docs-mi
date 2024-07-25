@@ -226,7 +226,7 @@ Let's configure the API resource with the data transformation logic.
     <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/property-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/property-mediator.png" alt="property mediator" width="30%"></a>
 
     !!! Info
-        This is used to extract the hospital name that is sent in the request payload. 
+        This is used to extract the hospital name from the request payload. 
 
 3.  Once you select the Property mediator, the **Property** panel will be opened. Fill in the information in the table below:
 
