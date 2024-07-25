@@ -24,7 +24,7 @@ Follow the instructions given below to create a new Sequence Template in the Mic
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/template-artifact.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/template-artifact.png" alt="Template artifact" width="80%"></a>
 
-7. Specify the vales for the [required parameters]({{base_path}}/reference/synapse-properties/template-properties/#sequence-template-properties) for the sequence template.
+7. Specify the vales for the [required parameters]({{base_path}}/reference/synapse-properties/template-properties/#sequence-template-properties) in the sequence template.
 
 8. Click **Create**.
 
