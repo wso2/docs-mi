@@ -10,7 +10,7 @@ This example demonstrates a scenario where a customer feedback Gmail account of 
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting Up the Integration Project
+## Set up the integration project
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
