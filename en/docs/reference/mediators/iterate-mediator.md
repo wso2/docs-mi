@@ -18,8 +18,7 @@ is, the Iterate mediator splits a message into different parts, whereas the Clon
         -   You need to always accompany an Iterate with an Aggregate mediator.
         ForEach loops over the sub-messages and merges them back to the same
         parent element of the message.
-        -   In Iterate you need to send the split messages to an endpoint to continue the message flow. However, ForEach does not allow using [Call]({{base_path}}/reference/mediators/call-mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and
-        [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
+        -   In Iterate you need to send the split messages to an endpoint to continue the message flow. However, ForEach does not allow using [Call]({{base_path}}/reference/mediators/call-mediator) and [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
         -   ForEach does not split the message flow, unlike Iterate Mediator. It
         guarantees to execute in the same thread until all iterations are
         complete.
@@ -163,36 +162,35 @@ follows:
 In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://wso2docs.atlassian.net/wiki/spaces/EI660/pages/6521935/Splitting+Messages+into+Parts+and+Processing+in+Parallel+Iterate+Aggregate).
 
 === "Using an XPath expression"
-    ``` java 
+    ```xml 
         <iterate expression="//m0:getQuote/m0:request" preservePayload="true"
                  attachPath="//m0:getQuote"
                  xmlns:m0="http://services.samples">
             <target>
                 <sequence>
-                    <send>
+                    <call>
                         <endpoint>
                             <address
                                 uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                         </endpoint>
-                    </send>
+                    </call>
                 </sequence>
             </target>
         </iterate>
     ```
 === "Using a JSONpath expression"    
-    ``` java 
+    ```xml 
         <iterate id="jsonIterator" preservePayload="true" 
                  attachPath="json-eval($.placeHolder)" 
                  expression="json-eval($.students.studentlist)">
            <target>
               <sequence>
-                 <send>
+                 <call>
                      <endpoint>
                            <http method="POST" uri-template="http://localhost:8280/iteratesample/echojson"/>
                      </endpoint>
-                 </send>
+                 </call>
               </sequence>
            </target>
         </iterate>
     ```
-
