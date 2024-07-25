@@ -12,7 +12,7 @@ Follow the instructions given below to create a new [Message Store]({{base_path}
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/create-message-store.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/create-message-store.png" alt="create-message-store" width="30%"></a>
 
-4. Hover over **Message Stores** and click the **+** icon that appears to open the below **Message Store Form**.
+4. Hover over **Message Stores** and click the **+** icon that appears to open the **Message Store Form** below. 
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-message-store.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-message-store.png" alt="add message store" width="30%"></a>
 
