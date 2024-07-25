@@ -12,7 +12,7 @@ Follow the instructions given below to create a new Sequence Template in the Mic
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/create-sequence-template.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/create-sequence-template.png" alt="Create sequence template" width="30%"></a>
 
-4. Hover over **Templates** and click the **+** icon that appears to open the below **Template Form**.
+4. Hover over **Templates** and click the **+** icon that appears to open the **Template Form** below.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/add-template.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-template.png" alt="Add API" width="30%"></a>
 
