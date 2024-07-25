@@ -31,7 +31,7 @@ You can later update the task properties to specify the incoming message that sh
 Open the above-created task artifact from the **MI Project Explorer**. You can use the **Form view** or the **Source view** to update task properties.
 
 !!! info
-    See the [Scheduled Tasks Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for all available properties for tasks.
+    Refer to the [Scheduled Tasks Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available properties for tasks.
 
 !!! abstract "Learn more about scheduled tasks"
 
