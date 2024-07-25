@@ -4,7 +4,7 @@
 
 Message transformation is necessary when the message format sent by the client is different from the message format expected by the back-end service. The **Message Translator** architectural pattern in WSO2 Micro Integrator describes how to translate from one data format to another.
 
-**In this tutorial**, you send a request message to a back-end service where the format of the request payload is different to what is expected by the back-end service. The **Data Mapper** mediator is used to transform the request message payload to the format expected by the back-end service.
+**In this tutorial**, you will send a request message to a back-end service where the format of the request payload differs from what the back-end service expects. The **Data Mapper** mediator is used to transform the request message payload to the format expected by the back-end service.
 
 Let’s assume this is the format of the request sent by the client:
 
