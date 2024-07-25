@@ -2,13 +2,20 @@
 
 ## What you'll build
 
-The sections below demonstrate an example of scheduling a task (using the default implementation) to inject an XML message and to print it in the logs of the server.
+The sections below demonstrate an example of scheduling a task (using the default implementation) to inject an XML message and print it in the server logs.
+
+### Concepts and artifacts used
+
+- Sequence
+- Log Mediator
+- Drop Mediator
+- Scheduled Task
 
 ## Let's get started!
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
 ### Step 2: Develop the integration artifacts
 
@@ -16,38 +23,45 @@ Follow the instructions given in this section to create and configure the requir
 
 #### Create an Integration Project
 
-An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
+{!includes/create-new-project.md!}
 
-1.  Open **WSO2 Integration Studio**.
-2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
+4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
+5. Provide a location under **Select Project Directory**.
 
-    This will open the <b>New Integration Project</b> dialog box.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
+6. Click **Create**.
 
-3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
-    -   **Create ESB Configs**
-    -   **Create Composite Exporter**
+Now let's start designing the integration by adding the necessary artifacts.
 
-4.  Click **Finish**. 
+#### Create the Sequence
 
-You will now see the projects listed in the **Project Explorer**.
+1. Navigate to the **MI Project Explorer** > **Sequences**.
 
-#### Creating the Sequence
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png" alt="create sequence" width="40%"></a>
 
-1.  In the **Project Explorer**, right click **ScheduleDefaultTaskConfigs** project, and click **New** → **Sequence**.  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/1-select-sequence.jpg" width="500">
-2.  Click **Create New Sequence** and click **Next**.
-3.  Enter **InjectXMLSequence** as the sequence name and click **Finish**.  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/2-enter-sequence-artifact.png" width="500">  
-4.  Drag and drop a **Log** mediator and a **Drop** mediator from the **Mediators** Palette.  
-    ![]({{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/3-inject-xml.png) 
-5.  Click the **Log** mediator and enter the following details in the **Properties** section.  
+2. Hover over **Sequences** and click the **+** icon that appears.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-sequence.png" alt="add sequence" width="40%"></a>
+
+3. In the Sequence Form that appears, provide `InjectXMLSequence` as the **Name**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-sequence.png" alt="Create new sequence" width="80%"></a>
+
+4. Click **Create**. Then you will be directed to the **MI Overview** page.
+
+5. Click on `InjectXMLSequence` under **Sequences** that you have just created to open its diagram view.
+
+6. Next, add a Log mediator to the sequence. Click the **+** icon and select **Log mediator** from the **Palette** under **Mediators** > **Generic**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-log-mediator.png" alt="Add log mediator" width="80%"></a>
+
+6. Enter the following details in the **Log** details pane.  
     -  **Log Category**: `INFO`
     -  **Log Level**: `CUSTOM`
-    - Add a new property with the following details:
+
+7. Under **Properties**, click **Add Parameter** to add a new property with the following details:
         <table>
            <tr>
               <th>Property</th>
@@ -55,121 +69,101 @@ You will now see the projects listed in the **Project Explorer**.
            </tr>
            <tr>
               <td>Property Name</td>
-              <td>City</td>
-           </tr> 
+              <td><code>City</code></td>
+           </tr>
            <tr>
-              <td>Value Type</td>
-              <td>EXPRESSION</td>
-           </tr> 
-           <tr>
-              <td>Expression</td>
-              <td>//city</td>
+              <td>Property Value</td>
+              <td><code>//city</code></td>
            </tr> 
         </table>
     
-Shown below is the complete source configuration of the Sequence (i.e., the `InjectXMLSequence.xml` file).
+8. Click on `EX` to set the value to the expression type. 
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/log-details.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/log-details.png" alt="Log details" width="40%"></a>
+
+9. Click **Save** to save the properties.
+
+10. Click **Submit** to save the Log details.
+
+11. Next, add the Drop mediator. Click on the **+** icon and select **Drop** mediator from **Mediators** > **Generic**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-drop-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-drop-mediator.png" alt="Add drop mediator" width="80%"></a>
+
+12. Click **Submit**.
+
+Below is the complete source configuration of the Sequence (i.e., the `InjectXMLSequence.xml` file).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="InjectXMLSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-   <log level="custom">
-       <property expression="//city" name="City"/>
-   </log>
-   <drop/>
+    <log category="INFO" level="custom">
+        <property name="City" expression="//city"/>
+    </log>
+    <drop/>
 </sequence>
 ```
-#### Creating the Scheduled Task
 
-1. In the **Project Explorer**, right click **ScheduleDefaultTask**, and click **New → Scheduled Task**.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/4-create-task.jpg"> 
+#### Create the Scheduled Task
 
-2. Select **Create a New Scheduled Task Artifact** and click **Next**.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/5-task-artifact-creation-options.png" width="500"> 
+1. Navigate to the **MI Project Explorer** > **Tasks**.
 
-3.  Enter the following details and click **Next**:
-    -   **Task Name:** `InjectXMLTask`
-    -   **Count:** `-1`
-    -   **Interval (in seconds):** 5
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-tasks.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-tasks.png" alt="create sequence" width="40%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/6-task-artifact-creation-dialog.png" width="500">
+2. Hover over **Tasks** and click the **+** icon that appears.
 
-4.  In the **Form View** of the `InjectXMLTask` task, click **Task Implementation Properties**. 
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-task.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-task.png" alt="add sequence" width="40%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/7-select-task-implementation-prop.png"> 
+3. In the Task Form that appears, enter the following details:
 
-    1.  Enter the following parameters:
-        -   **injectTo:** `sequence`
-        -   **sequenceName:** `InjectXMLSequence`
+    - **Task Name:** `InjectXMLTask`
+    - **Count:** `-1`
+    - **Interval (in seconds):** `5`
+    - **Message inject destination**: `sequence`
+    - **Sequence name**: `InjectXMLSequence`
+    - **Message** : Check **message format is XML** and enter the following as the message:
 
-    2.  Select **XML** as the **Parameter Type** of the **message** parameter, and enter the following as the XML message in the **Value/Expression** field and click **OK**. 
         ```xml
         <request xmlns="">   <location>   <city>London</city>    <country>UK</country>   </location>    </request>
-        ``` 
+        ```
 
-        ![]({{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/8-task-properties.png)
+4. Click **Create**.
 
-Shown below is the complete source configuration of the scheduled task.
+Below is the complete source configuration of the scheduled task.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="InjectXMLTask" xmlns="http://ws.apache.org/ns/synapse">
-   <trigger interval="5"/>
-   <property name="injectTo" value="sequence" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-   <property name="sequenceName" value="InjectXMLSequence" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-   <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
-       <request xmlns="">
-           <location>
-               <city>London</city>
-               <country>UK</country>
-           </location>
-       </request>
+   <trigger count="-1" interval="5"/>
+   <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="message"><request xmlns="">   <location>   <city>London</city>    <country>UK</country>   </location>    </request>
    </property>
+   <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="injectTo" value="sequence"/>
+   <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="sequenceName" value="InjectXMLSequence"/>
 </task>
 ``` 
 
-### Step 3: Package the artifacts
+### Step 3: Build and run the artifacts
 
-Package the artifacts in your composite application module to be able to deploy the artifacts in the server.
+{!includes/build-and-run-artifacts.md!}
 
-1.  Open the `          pom.xml         ` file in the composite exporter module.
-2.  Ensure that the relevant artifacts are selected in the POM file.
-3.  Save the changes.
-
-### Step 4: Build and run the artifacts
-
-To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
-
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.     
-4.  Click **Finish**. 
-
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
-
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab.
-
-### Step 5: Test the use case
+### Step 4: Test the use case
 
 You will view the XML message you injected getting printed in the logs of the Micro Integrator every 5 seconds.
 
 ```xml
-[2019-10-10 19:33:00,602]  INFO {org.wso2.micro.integrator.ntask.core.impl.AbstractQuartzTaskManager} - Task scheduled: [-1234][ESB_TASK][InjectXMLTask]
-[2019-10-10 19:33:00,671]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:05,602]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:10,603]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:15,605]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:20,600]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:25,600]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:30,601]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:35,605]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:40,603]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:45,600]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:50,605]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:33:55,603]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:34:00,605]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:34:05,605]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:34:10,599]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:34:15,607]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:34:20,605]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
-[2019-10-10 19:34:25,603]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - City = London
+   2024-07-17 17:43:06,257]  INFO {AbstractQuartzTaskManager} - Task scheduled: [ESB_TASK][InjectXMLTask].
+   [2024-07-17 17:43:06,285]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:07,944]  INFO {AuthenticationHandlerAdapter} - User admin logged in successfully
+   [2024-07-17 17:43:11,261]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:16,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:21,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:26,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:31,261]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:36,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:41,257]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:46,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:51,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:43:56,260]  INFO {LogMediator} - City = London
+   [2024-07-17 17:44:01,260]  INFO {LogMediator} - City = London
+   [2024-07-17 17:44:06,262]  INFO {LogMediator} - City = London
+   [2024-07-17 17:44:11,261]  INFO {LogMediator} - City = London
 ```
