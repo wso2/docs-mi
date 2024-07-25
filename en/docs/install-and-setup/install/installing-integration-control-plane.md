@@ -16,7 +16,7 @@ Follow the steps given below to install the Integration Control Plane (ICP).
     group_id = "mi_dev"
     node_id = "dev_node_2"
     ```
-    For more information, see [Configure the MI servers]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
+    For more information, see [Configure the MI servers]({{base_path}}/observe-and-manage/working-with-integration-control-plane/#step-2-configure-the-mi-servers).
 
 
 
@@ -128,5 +128,5 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's Next?
 
--   [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-mi-dashboard).
+-   [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane).
 

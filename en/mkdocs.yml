@@ -87,24 +87,24 @@ nav:
           - Protocol Switching: learn/integration-use-case/protocol-switching-overview.md
           - File Processing: learn/integration-use-case/file-processing-overview.md
           - Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
-      - Tutorials:
-          - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
-          - Message Routing:
-              - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
-          - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
-          - Message Transformation:
-              - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
-          - Asynchronous Messaging:
-              - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
-          - Integrate with SaaS Systems:
-              - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
-          - Data Integration:
-              - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
-          - File Processing: learn/integration-tutorials/file-processing.md
-          - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
-          - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
-          - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
-          - Integrate with SAP: learn/integration-tutorials/sap-integration.md
+      #- Tutorials:
+      #    - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
+      #    - Message Routing:
+      #        - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
+      #    - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
+      #    - Message Transformation:
+      #        - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
+      #    - Asynchronous Messaging:
+      #        - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
+      #    - Integrate with SaaS Systems:
+      #        - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+      #    - Data Integration:
+      #        - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+      #    - File Processing: learn/integration-tutorials/file-processing.md
+      #    - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
+      #    - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
+      #    - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
+      #    - Integrate with SAP: learn/integration-tutorials/sap-integration.md
       - Examples:
           - Message Routing:
               - Route Based on Message Headers: learn/examples/routing-examples/routing-based-on-headers.md
@@ -348,9 +348,9 @@ nav:
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
               - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
           - Install the Integration Control Plane:
-              - Install the Ingeration Control Plane: install-and-setup/install/installing-mi-dashboard.md
-              - Run the Integration Control Plane: install-and-setup/install/running-the-mi-dashboard.md
-              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
+              - Install the Ingeration Control Plane: install-and-setup/install/installing-integration-control-plane.md
+              - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
+              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
@@ -487,7 +487,7 @@ nav:
           - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
           - Manage Micro Integrator:
               - Runtime:
-                  - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
+                  - Integration Control Plane: observe-and-manage/working-with-integration-control-plane.md
                   - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:
@@ -915,6 +915,18 @@ plugins:
               'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'learn/integration-tutorials/sending-a-simple-message-to-a-service.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/routing-requests-based-on-message-content.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/exposing-several-services-as-a-single-service.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/transforming-message-content.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/storing-and-forwarding-messages.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-the-gmail-connector.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/file-processing.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-scheduled-tasks.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-inbound-endpoints.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-templates.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:

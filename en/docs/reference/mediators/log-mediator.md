@@ -7,11 +7,11 @@ The **Log mediator** is used to log mediated messages. For more information on l
 
 ## Syntax
 
-The log token refers to a `         <log>        ` element, which may be
+The log token refers to a `<log/>` element, which may be
 used to log messages being mediated.
 
-``` java
-<log [level="string"] [separator="string"]>
+```xml
+<log [category="string"] [level="string"] [separator="string"]>
    <property name="string" (value="literal" | expression="[XPath|json-eval(JSON Path)]")/>*
 </log>
 ```
@@ -103,25 +103,24 @@ The parameters available to configure a property are as follows:
 
 ## Examples
 
-### Using Full log
+### Use full log
 
 In this example, everything is logged including the complete SOAP
 message.
 
-``` java
-<log level="full" xmlns="http://ws.apache.org/ns/synapse"/>
+```xml
+<log category="INFO" level="full"/>
 ```
 
-### Using Custom logs
+### Use custom logs
 
 In this example, the log level is `         custom        ` . A property
 with an XPath expression which is used to get a stock price from a
 message is included. This results in logging the stock, price which is a
 dynamic value.
 
-``` 
-<log level="custom" xmlns="http://ws.apache.org/ns/synapse">
-    <property name="text"
-              expression="fn:concat('Stock price - ',get-property('stock_price'))"/>
+```xml 
+<log category="INFO" level="custom">
+   <property name="text" expression="fn:concat('Stock price - ',get-property('stock_price'))"/>
 </log>
 ```

@@ -200,6 +200,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
     
     - If you are [using a local Micro Integrator instance](#option-2-using-a-local-micro-integrator-instance), use the below command:
 
+
         === "On macOS/Linux"              
             ```bash 
             sh micro-integrator.sh stop

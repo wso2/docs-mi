@@ -1,18 +1,18 @@
 # Monitoring MI Artifacts and Logs
 
-The Micro Integrator (MI) dashboard monitors the MI instances in a deployment. This can be a single MI instance or multiple MI instances in a group (cluster). It provides a graphical view of the integration artifacts that are deployed in the MI instances. You can also perform various management 
-and administration tasks using the dashboard. 
+The WSO2 Integration Control Plane (ICP) monitors the MI instances in a deployment. This can be a single MI instance or multiple MI instances in a group (cluster). It provides a graphical view of the integration artifacts that are deployed in the MI instances. You can also perform various management 
+and administration tasks using the ICP server. 
 
-The dashboard communicates with the management APIs of each Micro Integrator instance in the group (cluster) to get and manipulate data.
+The ICP server communicates with the management APIs of each Micro Integrator instance in the group (cluster) to get and manipulate data.
 
-## Capabilities of the MI dashboard
+## Capabilities of the ICP server
 
-You can use the dashboard to perform the following administration tasks related to your Micro Integrator deployment:
+You can use the ICP server to perform the following administration tasks related to your Micro Integrator deployment:
 
 !!! tip
     You can search for certain artifacts using the specific name of the artifact if there are many such items in the list.
 
-    ![search in monitoring dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/search.png)    
+    ![search in integration control plane]({{base_path}}/assets/img/integrate/monitoring-dashboard/search.png)    
 
 -   <b>View the MI servers in the deployment</b>
 
@@ -29,9 +29,9 @@ You can use the dashboard to perform the following administration tasks related 
 -   <b>Update deployed artifacts</b>
 
     !!! Note
-        When you update an artifact, only the specified MI instance will be updated. Cluster-wide updates are not available with the dashboard.
+        When you update an artifact, only the specified MI instance will be updated. Cluster-wide updates are not available with the ICP server.
 
-    You can activate/deactivate the following artifacts from the dashboard: <i>Proxy Services</i>, <i>Endpoints</i>, and <i>Message Processors</i>.
+    You can activate/deactivate the following artifacts from the ICP server: <i>Proxy Services</i>, <i>Endpoints</i>, and <i>Message Processors</i>.
 
     You can enable/disable tracing for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, <i>APIs</i> <i>Sequences</i> and <i>Inbound Endpoints</i>.
 
@@ -51,22 +51,22 @@ You can use the dashboard to perform the following administration tasks related 
 
     This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/managing-users). You can also add new users to the specified cluster/group.
 
-## Using the MI Dashboard
+## Using the Integration Control Plane
 
-Follow the steps given below to get started with the Micro Integrator Dashboard.
+Follow the steps given below to get started with the WSO2 Integration Control Plane.
 
-### Step 1 - Download the MI Dashboard
+### Step 1 - Download the Integration Control Plane
 
-Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
+Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the ICP server.
 
 -   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
--   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-mi-dashboard).
+-   [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane).
 
 ### Step 2 - Configure the MI servers
 
-Follow the steps given below to configure the MI servers to publish data to the dashboard.
+Follow the steps given below to configure the MI servers to publish data to the ICP server.
 
-1.  To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
+1.  To connect the MI servers with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
 
     ```toml
     [dashboard_config]
@@ -99,7 +99,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 dashboard_url
             </th>
             <td>
-                <b>Required</b>. This is the URL to access dashboard server. Replace the hostname/IP and port (default - 9743) with relevant values from your environment.
+                <b>Required</b>. This is the URL to access ICP server. Replace the hostname/IP and port (default - 9743) with relevant values from your environment.
             </td>
         </tr>
         <tr>
@@ -107,7 +107,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 heartbeat_interval
             </th>
             <td>
-                <b>Optional</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the dashboard server. By default, the heartbeat_interval is set to `5`. 
+                <b>Optional</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the ICP server. By default, the heartbeat_interval is set to `5`. 
             </td>
         </tr>
         <tr>
@@ -116,7 +116,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
             </th>
             <td>
                 <b>Optional</b>. In a clustered deployment, the group ID should be the same in all Micro Integrator Instances. 
-                The dashboard displays information from one group at a time. By default, the group_id is set to `default`. 
+                The ICP server displays information from one group at a time. By default, the group_id is set to `default`. 
             </td>
         </tr>
         <tr>
@@ -150,11 +150,11 @@ Follow the steps given below to configure the MI servers to publish data to the 
     !!! Tip
         Note the following about your user store configurations.
 
-        -   The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
+        -   The user credentials for signing in to the ICP server should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
         -   [User management]({{base_path}}/install-and-setup/setup/user-stores/managing-users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
         -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. You will not be able to sign in without the driver.
 
-3.  Regardless of the user who logs in, the dashboard uses the user configured in its `deployment.toml` to fetch the data to the dashboard server. Then the dashboard renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<MI-DASHBOARD_HOME>/conf/` folder).
+3.  Regardless of the user who logs in, the ICP server uses the user configured in its `deployment.toml` to fetch the data to the ICP server. Then the ICP server renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<ICP_HOME>/conf/` folder).
 
     ```toml
     [mi_user_store]
@@ -162,11 +162,11 @@ Follow the steps given below to configure the MI servers to publish data to the 
     password = "admin"
     ```
     
-### Step 3 - Start the MI Dashboard
+### Step 3 - Start the ICP server
 
 Follow the steps given below.
 
-1.    Open a terminal and navigate to the `<MI-DASHBOARD_HOME>/bin` folder.
+1.    Open a terminal and navigate to the `<ICP_HOME>/bin` folder.
 2.    Execute one of the commands given below.
       
       === "On MacOS/Linux"
@@ -194,17 +194,17 @@ Follow the steps given below.
           micro-integrator.bat
           ```
       
-### Step 5 - Sign in to the Dashboard
+### Step 5 - Sign in to the ICP server
 
-Once you have [set up and started the dashboard](#using-the-mi-dashboard), you can access the dashboard URL.
+Once you have [set up and started the ICP server](#using-the-integration-control-plane), you can access the ICP server URL.
 
 !!! Note "Before you begin"
-    Be sure to have at least one Micro Integrator server connected to the dashboard before attempting to sign in to it. This can be verified by checking the presence of the following log.
+    Be sure to have at least one Micro Integrator server connected to the ICP server before attempting to sign in to it. This can be verified by checking the presence of the following log.
     ```
     New node <node_id> in group : <group_id> is registered. Inserting heartbeat information
     ```
   
-1.  Copy the following dashboard URL to your browser:
+1.  Copy the following ICP server URL to your browser:
 
     ```bash
     https://localhost:9743/login
@@ -212,7 +212,7 @@ Once you have [set up and started the dashboard](#using-the-mi-dashboard), you c
 
 2.  Enter the following details to sign in.
 
-    ![login form for monitoring dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/login.png)
+    ![login form for integration control plane]({{base_path}}/assets/img/integrate/monitoring-dashboard/login.png)
 
     <table>
         <tr>
@@ -237,7 +237,7 @@ Once you have [set up and started the dashboard](#using-the-mi-dashboard), you c
 
 3.  Click <b>Sign In</b>.
 
-You are redirected to the home page of the Micro Integrator dashboard. 
+You are redirected to the home page of the Integration Control Plane. 
      
 <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000"></a>
 
@@ -255,24 +255,20 @@ Follow the steps given below.
     
     <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" width="1000"></a>
 
-3.  Select the set of nodes you want to monitor, as shown in the below figure.
-    
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png" width="1000"></a>
-
 Now you can view details of artifacts, update artifacts, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
 <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
 
-## Monitoring health of MI Dashboard
+## Monitoring health of ICP server
 
 
-The MI Monitoring Dashboard provides a health check endpoint that can be used to monitor the status of the Dashboard. The following API format can be used to invoke the health API.
+The Integration Control Plane provides a health check endpoint that can be used to monitor the status of the ICP server. The following API format can be used to invoke the health API.
 
 ```
 https://localhost:9743/dashboard/api/healthz
 ```
 
-If the MI Dashboard is up and running properly, the following response will appear.
+If the ICP server is up and running properly, the following response will appear.
 
 ```
 {"status":"ready"}

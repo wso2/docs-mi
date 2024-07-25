@@ -8,7 +8,7 @@ Follow the steps given below before you start.
 
 1.  Download and install the servers:
 
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) the Integration Control Plane.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) the Integration Control Plane.
     -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
 
 2.  Set up the Micro Integrator:
@@ -26,7 +26,7 @@ Follow the steps given below before you start.
     2.  Be sure to change the host and port number of the `dashboard_url` in the above configuration if you have changed the default host and port for the ICP server.
 
     !!! Info
-        See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers) for more information.
+        See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane/#step-2-configure-the-mi-servers) for more information.
 
 3.  [Start the Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi).
 
@@ -178,7 +178,7 @@ Once you have [started the ICP server](#starting-the-dashboard-server):
 
 2.  Be sure that the Micro Integrator servers are [already configured and started](#before-you-begin) before you sign in.
 
-See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard) documentation for information on the control plane's capabilities and how to use them.
+See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) documentation for information on the control plane's capabilities and how to use them.
 
 ## Stopping the Integration Control Plane
 

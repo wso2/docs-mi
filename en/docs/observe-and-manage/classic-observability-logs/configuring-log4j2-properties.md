@@ -633,7 +633,7 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
 
 ### Viewing logs via the dashboard
 
-1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard).
+1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
 2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Logging Management</b> window.
 
     <img alt="change log level from dashboard" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/change-log-level-dashboard.png">
