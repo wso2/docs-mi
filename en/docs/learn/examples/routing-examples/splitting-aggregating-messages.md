@@ -10,38 +10,53 @@ When the response messages are received from the backend, the Aggregate mediator
     
 Listed below are the synapse configurations (proxy service) for implementing this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy name="SplitAggregateProxy" xmlns="http://ws.apache.org/ns/synapse" transports="https http" startOnLoad="true" trace="disable">
-    <target>
-        <inSequence>
-            <iterate expression="//m0:getQuote/m0:request" preservePayload="true"
-                     attachPath="//m0:getQuote"
-                     xmlns:m0="http://services.samples">
-                <target>
-                    <sequence>
-                        <header name="Action" scope="default" value="urn:getQuote"/>
-                        <call>
-                            <endpoint>
-                                <address
-                                    uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                            </endpoint>
-                        </call>
-                        <property name="enclose" scope="default">
-                            <ns:Results xmlns:ns="http://services.samples" />
-                        </property>
-                        <aggregate>
-                            <onComplete expression="$body/*[1]" enclosingElementProperty="enclose">
-                                <respond/>
-                            </onComplete>
-                        </aggregate>
-                    </sequence>
-                </target>
-            </iterate>
-        </inSequence>
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SplitAggregateProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <iterate attachPath="//m0:getQuote" expression="//m0:getQuote/m0:request" preservePayload="true" xmlns:m0="http://services.samples">
+                    <target>
+                        <sequence>
+                            <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+                            <call>
+                                <endpoint key="SimpleStockQuoteServiceEp"/>
+                            </call>
+                            <property name="enclose" scope="default" type="OM">
+                                <ns:Results xmlns:ns="http://services.samples"/>
+                            </property>
+                        </sequence>
+                    </target>
+                </iterate>
+                <aggregate>
+                    <completeCondition timeout="0">
+                        <messageCount max="-1" min="-1"/>
+                    </completeCondition>
+                    <onComplete aggregateElementType="root" enclosingElementProperty="enclose" expression="$body/*[1]">
+                        <respond/>
+                    </onComplete>
+                </aggregate>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ## Build and run
 
@@ -100,38 +115,38 @@ You can then observe that the response from the proxy service is the aggregated 
         <ns:Results xmlns:ns="http://services.samples">
             <ns:getQuoteResponse>
                 <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-                    <ax21:change>-2.531918592951604</ax21:change>
-                    <ax21:earnings>-8.095104567449876</ax21:earnings>
-                    <ax21:high>87.90735784009388</ax21:high>
-                    <ax21:last>84.126411441337</ax21:last>
-                    <ax21:lastTradeTimestamp>Thu Jul 04 14:15:41 IST 2024</ax21:lastTradeTimestamp>
-                    <ax21:low>87.41551849107691</ax21:low>
-                    <ax21:marketCap>4.381845921997943E7</ax21:marketCap>
-                    <ax21:name>SUN Company</ax21:name>
-                    <ax21:open>-82.79419834819562</ax21:open>
-                    <ax21:peRatio>23.20493126556557</ax21:peRatio>
-                    <ax21:percentageChange>-2.735192964021126</ax21:percentageChange>
-                    <ax21:prevClose>92.568189018347</ax21:prevClose>
-                    <ax21:symbol>SUN</ax21:symbol>
-                    <ax21:volume>16749</ax21:volume>
+                    <ax21:change>-2.7541403681043874</ax21:change>
+                    <ax21:earnings>13.316362583010434</ax21:earnings>
+                    <ax21:high>-69.86552971310732</ax21:high>
+                    <ax21:last>70.56563752927664</ax21:last>
+                    <ax21:lastTradeTimestamp>Wed Jul 24 21:06:42 IST 2024</ax21:lastTradeTimestamp>
+                    <ax21:low>-70.33199361844859</ax21:low>
+                    <ax21:marketCap>3.731387687008923E7</ax21:marketCap>
+                    <ax21:name>IBM Company</ax21:name>
+                    <ax21:open>-69.18324170577428</ax21:open>
+                    <ax21:peRatio>25.158635261126836</ax21:peRatio>
+                    <ax21:percentageChange>4.1163339082481105</ax21:percentageChange>
+                    <ax21:prevClose>-66.90760345232864</ax21:prevClose>
+                    <ax21:symbol>IBM</ax21:symbol>
+                    <ax21:volume>16901</ax21:volume>
                 </ns:return>
             </ns:getQuoteResponse>
             <ns:getQuoteResponse>
                 <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-                    <ax21:change>3.952584440843535</ax21:change>
-                    <ax21:earnings>12.355822293270984</ax21:earnings>
-                    <ax21:high>150.90185607753006</ax21:high>
-                    <ax21:last>146.84858787406628</ax21:last>
-                    <ax21:lastTradeTimestamp>Thu Jul 04 14:15:41 IST 2024</ax21:lastTradeTimestamp>
-                    <ax21:low>-144.7928057555438</ax21:low>
-                    <ax21:marketCap>5.863608391753769E7</ax21:marketCap>
-                    <ax21:name>IBM Company</ax21:name>
-                    <ax21:open>152.10742941332884</ax21:open>
-                    <ax21:peRatio>24.20098513191582</ax21:peRatio>
-                    <ax21:percentageChange>2.351343942072148</ax21:percentageChange>
-                    <ax21:prevClose>168.09894844053636</ax21:prevClose>
-                    <ax21:symbol>IBM</ax21:symbol>
-                    <ax21:volume>18577</ax21:volume>
+                    <ax21:change>-2.401012800717323</ax21:change>
+                    <ax21:earnings>12.160630064213766</ax21:earnings>
+                    <ax21:high>197.42220037969906</ax21:high>
+                    <ax21:last>189.55943936957652</ax21:last>
+                    <ax21:lastTradeTimestamp>Wed Jul 24 21:06:42 IST 2024</ax21:lastTradeTimestamp>
+                    <ax21:low>195.30882072296137</ax21:low>
+                    <ax21:marketCap>5.364948639721981E7</ax21:marketCap>
+                    <ax21:name>SUN Company</ax21:name>
+                    <ax21:open>194.5745817372284</ax21:open>
+                    <ax21:peRatio>-17.563343313834807</ax21:peRatio>
+                    <ax21:percentageChange>1.328464451789101</ax21:percentageChange>
+                    <ax21:prevClose>-180.73594648948068</ax21:prevClose>
+                    <ax21:symbol>SUN</ax21:symbol>
+                    <ax21:volume>17559</ax21:volume>
                 </ns:return>
             </ns:getQuoteResponse>
         </ns:Results>
