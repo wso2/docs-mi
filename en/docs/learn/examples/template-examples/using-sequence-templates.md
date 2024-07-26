@@ -19,7 +19,7 @@ Using function scope or 'func' in the XPath expression allows us to refer a part
 
 See the examples given below.
 
-## Example 1: Calling a sequence template
+## Example 1: Call a sequence template
 
 Let's illustrate the sequence template with a simple example. Suppose we have a sequence that logs the text "hello" in three different languages. We shall make use of a proxy to which we shall send a payload. The switch statement will log a greeting based on the language.
 
@@ -205,7 +205,7 @@ Create the artifacts:
 
 Invoke this REST API via `http://localhost:8290/test`. See that the default greeting message (`Welcome`) is logged on the console.
 
-## Example 3: Calling the sequence template using dynamic XPATH expression
+## Example 3: Call the sequence template using dynamic XPATH expression
 
 In this example, the sequence template is configured to dynamically determine the name of the Message Store using an XPath expression. It routes messages to a Message Store via the Store mediator by resolving the name of the Message Store from the message context.
 
