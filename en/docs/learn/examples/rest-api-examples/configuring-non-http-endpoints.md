@@ -3,7 +3,7 @@ This example demonstrates how the WSO2 Micro Integrator forwards messages to non
 
 ## Synapse configuration
 
-Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following is a sample REST API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
 ```xml
 <api xmlns="http://ws.apache.org/ns/synapse" name="EventDelayOrderAPI" context="/orderdelayAPI"> 
