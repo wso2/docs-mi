@@ -95,7 +95,11 @@ In this example, the endpoint template is configured to invoke the endpoints bas
        <resource methods="GET" uri-template="/foo">
           <inSequence>
              <call>
-                <endpoint key="ep_template_1"/>
+                <endpoint template="ep_template" uri="http://run.mocky.io/v3/8ca6aa42-ee0a-47a8-8007-e93abbb95b87">
+                    <parameter name="codes" value="10001,10002"/>
+                    <parameter name="retries" value="2"/>
+                    <parameter name="factor" value="1.0"/>
+                </endpoint>
              </call>
              <respond/>
           </inSequence>
@@ -103,7 +107,11 @@ In this example, the endpoint template is configured to invoke the endpoints bas
        <resource methods="GET" uri-template="/bar">
           <inSequence>
              <call>
-                <endpoint key="ep_template_2"/>
+                <endpoint template="ep_template" uri="http://run.mocky.io/v3/c72a5cfd-871b-43fc-8202-54fa18097341">
+                    <parameter name="codes" value="10001,10003"/>
+                    <parameter name="retries" value="3"/>
+                    <parameter name="factor" value="2.0"/>
+                </endpoint>
              </call>
              <respond/>
           </inSequence>
