@@ -28,7 +28,7 @@ Follow these steps to set up the Integration Project using the WSO2 Micro Integr
 
     <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-### Create the Integration Logic 
+### Create the integration logic 
 
 First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)  steps to obtain the `Client ID`, `Client Secret`, `Access Token`, and `Refresh Token`. 
 
@@ -90,7 +90,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
         </api>
     ```
 
-#### Create the Sequence
+#### Create the sequence
 
 1. Click on **+** button next to the **Sequences** in the created integration project and create the sequence called `reply`.
 
@@ -151,10 +151,10 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   curl -H "Content-Type: application/json" --request GET http://localhost:8290/sendmails
 ```
 
-**Expected Response**:
+**Expected response**:
 
 The senders should receive an email with a subject of `Best of Europe — 6 Countries in 9 Days`, and a body of `Thank you for your valuable feedback.`
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [Gmail Connector Reference Guide]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-config/) documentation.

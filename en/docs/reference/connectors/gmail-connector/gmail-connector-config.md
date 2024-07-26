@@ -1,4 +1,4 @@
-# Gmail Connector Reference
+# Gmail connector reference
 
 The following operations allow you to work with the Gmail Connector. Click an operation name to see parameter details and samples on how to use it.
 
@@ -1224,7 +1224,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### User History
+### User history
 
 ??? note "listTheHistory"
     The listTheHistory operation lists the history of changes to the user's mailbox. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/history/list) for more information.
@@ -1272,7 +1272,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### User Profiles
+### User profiles
 
 ??? note "getUserProfile"
     The getUserProfile operation lists all details about the user's profile. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/getProfile) for more information.

@@ -1,4 +1,4 @@
-## Creating the Client ID and Client Secret
+## Create the client ID and client secret
 
 1. Navigate to [API Credentials Page](https://console.developers.google.com/projectselector/apis/credentials) and sign in with your Google account.
 
@@ -39,7 +39,7 @@
 12. Click **Enable** to enable the Gmail API.
 
 
-## Obtaining Access Token and Refresh Token
+## Obtain access token and refresh token
 1. Navigate to [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) and click OAuth 2.0 Configuration button in the Right top corner.
 
 2. Select **Use your own OAuth credentials**, and provide the obtained Client ID and Client Secret values as above click on Close.
