@@ -182,7 +182,7 @@ curl --location 'http://localhost:8290/fileConnector/read' \
 }'
 ```
 
-**Expected eesponse**:
+**Expected response**:
 
 You should get the following text returned.
 
