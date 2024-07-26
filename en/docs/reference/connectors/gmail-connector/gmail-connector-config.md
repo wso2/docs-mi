@@ -148,7 +148,6 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     ```
 
 
-
 ### Drafts
 
 ??? note "listDrafts"

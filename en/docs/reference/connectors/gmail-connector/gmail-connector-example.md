@@ -28,11 +28,11 @@ Follow these steps to set up the Integration Project using the WSO2 Micro Integr
 
     <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-### Creating the Integration Logic 
+### Create the Integration Logic 
 
 First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)  steps to obtain the `Client ID`, `Client Secret`, `Access Token`, and `Refresh Token`. 
 
-#### Creating the API
+#### Create the API
 
 1. Click on the **+** button next to the **APIs** and create the API with the name `SendMails`.
 
@@ -90,7 +90,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
         </api>
     ```
 
-#### Creating the Sequence
+#### Create the Sequence
 
 1. Click on **+** button next to the **Sequences** in the created integration project and create the sequence called `reply`.
 
@@ -143,7 +143,7 @@ export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Stu
     
 2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
