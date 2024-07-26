@@ -4,17 +4,44 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
 
 ## Prerequisites
 
-1. Install Java SE Development Kit (JDK) version 11 or 17.
-2. In the environment variables, set the `JAVA_HOME` environment variable.
+The following software and configurations are required to proceed with this tutorial:
+
+- **Visual Studio Code (VS Code):** with the [Micro Integrator for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator) extension installed.
+- **Java Development Kit (JDK):** Version 11 or 17 is required. Ensure the JDK is properly configured in your system's PATH environment variable.
 
     !!! Info
         For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
 
-3. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** under the 'Latest Release' section to download the Micro Integrator distribution as a ZIP file.
-4. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
-5. Install WSO2 Micro Integrator [Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) (MI for VS Code)
-6. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<MI_QSG_HOME>`.
-7. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
+- **Apache Maven:** Ensure Apache Maven is installed and its path is correctly set within the system's PATH environment variable.
+- **WSO2 Micro Integrator 4.3.0 Runtime:** Set up WSO2 Micro Integrator 4.3.0 runtime on your machine.
+    1. Download the Micro Integrator 4.3.0 distribution as a ZIP file from [here](https://github.com/wso2/micro-integrator/releases/download/v4.3.0/wso2mi-4.3.0.zip).
+    2. Extract the ZIP file. Hereafter, this extracted folder will be referred to as the `<MI_HOME>` folder.
+
+After completing the steps above, follow the instructions below to set up the workspace:
+
+1. Launch VS Code with the Micro Integrator extension installed.
+
+2. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
+
+3. Click on the **Command Palette** on the top of the VS Code.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png" alt="Command palette" width="70%"></a>
+
+4. Type `>` to show the available commands. Alternatively, you can open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
+
+5. Select **MI: Add MI server** from the list of available commands.
+
+6. Click **Add MI server** to add a Micro Integrator server.
+
+7. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+
+8. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<MI_QSG_HOME>`.
+
+9. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
 ## What you'll build
 
@@ -61,8 +88,7 @@ The expected payload should be in the following JSON format:
 
 Let’s implement a simple integration solution that can be used to query the availability of doctors for a particular category from all the available healthcare centers.
 
-
-### Step 1 - Set up the workspace
+## Step 1 - Set up the workspace
 
 The following software and configurations are required to proceed with this tutorial:
 
@@ -119,42 +145,27 @@ The following project files and executable back-end services are available in th
 
     - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
-### Step 2 - Running the integration artifacts
+## Step 2 - Running the integration artifacts
 
 First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder in VS Code. There are two main options to build and run the integration scenario.
 
-#### Option 1: Using the Visual Studio Code
+### Option 1: Using the Visual Studio Code
+
+Use one of the following two options to build and run the project:
+
+**Option 1**
 
 1. Click on the Command Palette on the top of the VS Code.
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png" alt="Command palette" width="70%"></a>
-
 2. Type `>` to show the available commands.
+3. Select **MI: Build and Run**.
 
-3. Select **MI: Add MI server**.
+**Option 2**
 
-4. Select **Add MI server**.
+Click the **Build and Run** icon located on the top right corner of the VS Code.
 
-5. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
-
-6. Run the project.
-
-    !!! tip "Use one of the following two options to build and run the project:"
-        **Option 1**
-    
-        1. Click on the Command Palette on the top of the VS Code.
-        2. Type `>` to show the available commands.
-        3. Select **MI: Build and Run**.
-    
-        **Option 2**
-    
-        Click the **Build and Run** icon located on the top right corner of the VS Code.
-
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
-
-#### Option 2: Using a local Micro Integrator instance
+### Option 2: Using a local Micro Integrator instance
 
 1. Export the artifacts as a deployable CAR file:
 
@@ -188,7 +199,7 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
         micro-integrator.bat
         ```
 
-### Step 3 - Observe deployed artifacts (Optional)
+## Step 3 - Observe deployed artifacts (Optional)
 
 You can install and start the Integration Control Plane (ICP) to observe details of the deployed artifacts by following the steps below:
 
@@ -277,11 +288,11 @@ Once you sign in, click on the required artifact type to view its details.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png" alt="View API artifacts" width="80%"></a>
 
-### Step 4 - Test the integration service
+## Step 4 - Test the integration service
 
 Now, let's test the integration service.
 
-#### Start back-end services
+### Start back-end services
 
 Let's start the mock back-end services for this use case:
  
@@ -291,7 +302,7 @@ Let's start the mock back-end services for this use case:
     java -jar DoctorInfo.jar
     ```
 
-#### Invoke the Healthcare service
+### Invoke the Healthcare service
 
 1. Invoke the healthcare service.
 

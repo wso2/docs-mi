@@ -46,51 +46,62 @@ is used to integrate two back-end hospital services to provide information to th
     Let’s implement a simple Rest API that can be used to query the availability of doctors for a particular category
     from all the available healthcare centers.
 
-!!! info "Prerequisites"
-    Before you begin, install Micro Integrator on your machine:
-
-    1. Go to the WSO2 Micro Integrator web page, click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
-    
-    2. Extract the ZIP file. Hereafter, this extracted folder will be referred to as the `<MI_HOME>` folder.
-    
-    Once you have downloaded and set up the Micro Integrator locally, follow the steps given below. Use one of the below two methods.
-
-## Step 1 - Set up the workspace
+## Prerequisites
 
 The following software and configurations are required to proceed with this tutorial:
 
-- **Visual Studio Code (VS Code):** with the Micro Integrator extension installed.
+- **Visual Studio Code (VS Code):** with the [Micro Integrator for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator) extension installed.
 - **Java Development Kit (JDK):** Version 11 or 17 is required. Ensure the JDK is properly configured in your system's PATH environment variable.
+
+    !!! Info
+        For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
+
 - **Apache Maven:** Ensure Apache Maven is installed and its path is correctly set within the system's PATH environment variable.
+- **WSO2 Micro Integrator 4.3.0 Runtime:** Set up WSO2 Micro Integrator 4.3.0 runtime on your machine.  
+    1. Download the Micro Integrator 4.3.0 distribution as a ZIP file from [here](https://github.com/wso2/micro-integrator/releases/download/v4.3.0/wso2mi-4.3.0.zip).
+    2. Extract the ZIP file. Hereafter, this extracted folder will be referred to as the `<MI_HOME>` folder.
 
-!!! info
-    Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+After completing the steps above, follow the instructions below to set up the workspace:
 
-## Step 2 - Develop the integration artifacts
+1. Launch VS Code with the Micro Integrator extension installed.
+
+2. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
+
+3. Click on the **Command Palette** on the top of the VS Code.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png" alt="Command palette" width="70%"></a>
+
+4. Type `>` to show the available commands. Alternatively, you can open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
+
+5. Select **MI: Add MI server** from the list of available commands.
+
+6. Click **Add MI server** to add a Micro Integrator server.
+
+7. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+
+## Step 1 - Develop the integration artifacts
 
 ### Create the integration project
 
 Let's create an integration project with the required modules (to store artifacts) in VS Code.
 
-1. Launch VS Code with the Micro Integrator extension installed.
-
-2. Click on the WSO2 icon on the Activity Bar of the VS Code editor.
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
-
-3. Click **Create New Project** on **Design View**.
+1. Click **Create New Project** on **Design View**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-view-pane-create-new-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-view-pane-create-new-project.png" alt="Design View Pane Create New Project" width="80%"></a>
 
     Next, the **Project Creation Form** will be opened.
 
-4. In the **Project Creation Form**, enter `Healthcare` as the **Project Name**.
+2. In the **Project Creation Form**, enter `Healthcare` as the **Project Name**.
 
-5. Provide a location under the **Select Project Directory**.
+3. Provide a location under the **Select Project Directory**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project-details.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project-details.png" alt="New Project Details" width="70%"></a>
 
-6. Click **Create**. You will be directed to the following interface:
+4. Click **Create**. You will be directed to the following interface:
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-artifact-pane.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-artifact-pane.png" alt="Add Artifact Pane" width="80%"></a>
 
@@ -458,40 +469,25 @@ Following is what you will see in the **Source View** of MI for VS Code.
 </api>
 ```
 
-## Step 3 - Build and run the artifacts
+## Step 2 - Build and run the artifacts
 
 There are two main options to build and run the integration scenario.
 
 ### Option 1: Using the MI for Visual Studio Code extension
 
-1. Click on the **Command Palette** on the top of the VS Code.
+Use one of the following two options to build and run the project:
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/command-palette.png" alt="Command palette" width="70%"></a>
+**Option 1**
 
-2. Type `>` to show the available commands. Alternatively, you can open the command palette in VS Code by pressing `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
+1. Click on the Command Palette on the top of the VS Code.
+2. Type `>` to show the available commands.
+3. Select **MI: Build and Run**.
 
-3. Select **MI: Add MI server** from the list of available commands.
+**Option 2**
 
-4. Click **Add MI server** to add a Micro Integrator server.
+Click the **Build and Run** icon located on the top right corner of the VS Code.
 
-5. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
-
-6. Run the project.
-
-    !!! tip "Use one of the following two options to build and run the project:"
-        **Option 1**
-    
-        1. Click on the Command Palette on the top of the VS Code.
-        2. Type `>` to show the available commands.
-        3. Select **MI: Build and Run**.
-    
-        **Option 2**
-    
-        Click the **Build and Run** icon located on the top right corner of the VS Code.
-
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
 ### Option 2: Using a local Micro Integrator instance
 
@@ -528,7 +524,7 @@ There are two main options to build and run the integration scenario.
             micro-integrator.bat
             ```
         
-## Step 4 - Observe deployed artifacts
+## Step 3 - Observe deployed artifacts
 
 Optionally, you can install and start the Integration Control Plane (ICP) to observe details of the deployed artifacts by following the steps below:
 
@@ -605,7 +601,7 @@ Once you sign in, click on the required artifact type to view its details.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-api-artifacts.png" alt="View API artifacts" width="80%"></a>
 
-## Step 5 - Test the use case
+## Step 4 - Test the use case
 
 Now, let's test the integration service.
 
