@@ -2,7 +2,7 @@
 
 ## Set the email sender globally
 
-When the [MailTo transport sender is enabled]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for the Micro Integrator, you can configure your mediation sequences to send emails. In this example, the email sender credentials are set globally in the `deployment.toml` file (stored in the `MI_HOME/conf` directory). You need to specify a valid email address prefixed with the transport sender name (which is specified in the deployment.toml file) in your mediation flow. For example, if the transport sender is 'mailto', the endpoint URL in the synapse configuration should be as follows: `mailto:targetemail@mail.com`
+When the [MailTo transport sender is enabled]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for the Micro Integrator, you can configure your mediation sequences to send emails. In this example, the email sender credentials are set globally in the `deployment.toml` file (stored in the `MI_HOME/conf` directory). You need to specify a valid email address prefixed with the transport sender name (as configured in the deployment.toml file) in your mediation flow. For example, if the transport sender is 'mailto', the endpoint URL in the synapse configuration should be as follows: `mailto:targetemail@mail.com`
 
 ### Synapse configuration
 
@@ -53,7 +53,7 @@ In this example, let's set the email sender details by adding **Property** media
 
 Following are the integration artifacts (proxy service) that we can use to implement this scenario.
 
-Enter a valid email address prefixed with the transport sender name (specified in the `deployment.toml` file). For example, if the transport sender is 'mailto', the endpoint URL should be as follows: `mailto:targetemail@mail.com`.
+Enter a valid email address prefixed with the transport sender name (configured in the `deployment.toml` file). For example, if the transport sender is 'mailto', the endpoint URL should be as follows: `mailto:targetemail@mail.com`.
 
 !!! Note
     -   You need to update the property values with the actual values of the mail sender account.
