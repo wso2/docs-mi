@@ -2,9 +2,9 @@
 
 ## What you'll build
 
-Message transformation is necessary when the message format sent by the client is different from the message format expected by the back-end service. The **Message Translator** architectural pattern in WSO2 Micro Integrator describes how to translate from one data format to another.
+Message transformation is necessary when the message format sent by the client differs from the format expected by the back-end service. The **Message Translator** architectural pattern in WSO2 Micro Integrator describes how to translate from one data format to another.
 
-**In this tutorial**, you will send a request message to a back-end service where the format of the request payload differs from what the back-end service expects. The **Data Mapper** mediator is used to transform the request message payload to the format expected by the back-end service.
+**In this tutorial**, you will send a request message to a back-end service where the format of the request payload differs from what the back-end service expects. The **Data Mapper** mediator transforms the request message payload to the format expected by the back-end service.
 
 Let’s assume this is the format of the request sent by the client:
 
@@ -56,7 +56,7 @@ The client message format must be transformed to the back-end service message fo
 
 #### Create an integration project
 
-An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
+An Integration project is a maven multi module project containing all the required modules for the integration solution.
 
 {!includes/create-new-project.md!}
 
@@ -335,7 +335,7 @@ Let's configure the API resource with the data transformation logic.
 
 10. Save and close the configuration. Go back to **HealthcareAPI** resource.
 
-11.  Open API resource. Add a **Call mediator** next to Data mapper from the **Mediators** palette and select the `HospitalServicesEP` endpoint from the dropdown list. Click **Submit**.
+11.  Open API resource. Add a **Call mediator** next to the Data mapper from the **Mediators** palette and select the `HospitalServicesEP` endpoint from the dropdown list. Click **Submit**.
 
       <img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-call-mediator-for-transformation.png">
 
@@ -358,7 +358,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 #### Start the back-end service
 
 1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-2. Open a terminal, navigate to the location where your saved the back-end service.
+2. Open a terminal, navigate to the location where you have saved the back-end service.
 3. Execute the following command to start the service:
 
     ```bash
@@ -367,11 +367,11 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+Let's send a request to the API resource to make a reservation. You can use Postman or any other <b>HTTP Client</b>:
 
 1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
-2. Add the request information as given below and click the <b>Send</b> button.
+2. Add the request information as shown below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -419,7 +419,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
             </div></br>
             <ul>
               <li>
-                This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and data of appointment.
+                This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and date of appointment.
               </li>
             </ul>
         </tr>
@@ -456,7 +456,7 @@ If you want to send the client request from your terminal:
     
 #### Analyze the response
 
-You will see the following response received to your <b>HTTP Client</b>:
+You will see the following response received by your <b>HTTP Client</b>:
 
 ```json
 {
