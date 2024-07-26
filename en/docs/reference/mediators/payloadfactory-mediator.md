@@ -1192,7 +1192,7 @@ This example shows how to access properties using the following variables: `ctx`
     </payloadFactory>
     ```
 
-### Access Arguments
+### Access arguments
 
 This example shows how to use arguments in a freemarker template to pass values to the variables in the payload.
 
