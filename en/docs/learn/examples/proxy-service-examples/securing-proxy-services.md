@@ -1,10 +1,10 @@
 # Securing a Proxy Service
-This sample demonstrates how you can use WS-Security signing and encryption with proxy services through a WS policy.
+This sample demonstrates how to use WS-Security signing and encryption with proxy services through a WS policy.
 
-In this example, the proxy service expects to receive a signed and encrypted message as specified by the security policy. To understand the format of the policy file, have a look at the Apache Rampart and Axis2 documentation. The `engageSec` element specifies that Apache Rampart should be engaged on this proxy service. Hence, if Rampart rejects any request message that does not conform to the specified policy, that message will never reach the `inSequence` for processing. Since the proxy service is forwarding the received request to the simple stock quote service that does not use WS-Security, you are instructing the Micro Integrator to remove the `wsse:Security` header from the outgoing message.
+In this example, the proxy service expects to receive a signed and encrypted message as specified by the security policy. To understand the format of the policy file, have a look at the Apache Rampart and Axis2 documentation. The `enableSec` element specifies that Apache Rampart should be engaged on this proxy service. Hence, if Rampart rejects any request message that does not conform to the specified policy, that message will never reach the `inSequence` for processing. Since the proxy service is forwarding the received request to the simple stock quote service that does not use WS-Security, you are instructing the Micro Integrator to remove the `wsse:Security` header from the outgoing message.
 
 ## Synapse configuration
-Following is a sample proxy service configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following is a sample proxy service configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
 === "Proxy Service"
     ```xml
@@ -71,7 +71,7 @@ Set up the SOAP client:
 
 1. Download and install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
 
-2. Create a new SOAP project in the SoapUI using following wsdl file:
+2. Create a new SOAP project in SoapUI using following wsdl file:
 
     ```bash
     https://localhost:8253/services/StockQuoteProxy?wsdl
