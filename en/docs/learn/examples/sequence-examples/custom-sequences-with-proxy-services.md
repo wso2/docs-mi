@@ -7,40 +7,43 @@ This configuration creates two Proxy Services. The first Proxy Service (StockQuo
 
 === "Endpoint"
     ```xml
-    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="proxy_2_endpoint">
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService">
         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
     </endpoint>
     ```
-=== "Local Entry"    
+=== "Sequence"
     ```xml
-    <localEntry xmlns="http://ws.apache.org/ns/synapse" key="proxy_wsdl" src="file:samples/wsdl/sample_proxy_1.wsdl"/>
-    ```
-=== "Sequence"    
-    ```xml
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="proxy_1">
-        <send>
-            <endpoint><address uri="http://localhost:9000/services/SimpleStockQuoteService"/></endpoint>
-        </send>
+    <sequence name="common" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <call>
+            <endpoint key="SimpleStockQuoteService"/>
+        </call>
+        <respond/>
     </sequence>
     ```
-=== "Out Sequence"    
+=== "Proxy Service 1"
     ```xml
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="out">
-        <send/>
-    </sequence>
-    ```
-=== "Proxy Service 1"    
-    ```xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy1">
-        <publishWSDL key="proxy_wsdl"/>
-        <target inSequence="proxy_1" outSequence="out"/>
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="Proxy1" transports="http https">
+        <target>
+            <inSequence>
+                <log category="INFO" level="simple">
+                    <property name="name" value="proxy_1"/>
+                </log>
+                <sequence key="common"/>
+            </inSequence>
+        </target>
     </proxy>
     ```
-=== "Proxy Service 2"    
+=== "Proxy Service 2"
     ```xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy2">
-        <publishWSDL key="proxy_wsdl"/>
-        <target endpoint="proxy_2_endpoint" outSequence="out"/>
+    <proxy name="Proxy2" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log category="INFO" level="simple">
+                    <property name="name" value="proxy_2"/>
+                </log>
+                <sequence key="common"/>
+            </inSequence>
+        </target>
     </proxy>
     ```
 
@@ -48,8 +51,7 @@ This configuration creates two Proxy Services. The first Proxy Service (StockQuo
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), the [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), the [local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), and the [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -77,13 +79,8 @@ You could send a stock quote request to each of these proxy services and receive
 
     ```bash
     POST http://localhost:8290/services/StockQuoteProxy1.StockQuoteProxy1HttpSoap11Endpoint HTTP/1.1
-    Accept-Encoding: gzip,deflate
     Content-Type: text/xml;charset=UTF-8
     SOAPAction: "urn:getQuote"
-    Content-Length: 416
-    Host: Chanikas-MacBook-Pro.local:8290
-    Connection: Keep-Alive
-    User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
        <soapenv:Header/>
@@ -101,13 +98,8 @@ You could send a stock quote request to each of these proxy services and receive
 
     ```bash
     POST http://localhost:8290/services/StockQuoteProxy2.StockQuoteProxy2HttpSoap11Endpoint HTTP/1.1
-    Accept-Encoding: gzip,deflate
     Content-Type: text/xml;charset=UTF-8
     SOAPAction: "urn:getQuote"
-    Content-Length: 416
-    Host: Chanikas-MacBook-Pro.local:8290
-    Connection: Keep-Alive
-    User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
       <soapenv:Header/>

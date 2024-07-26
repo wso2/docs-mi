@@ -21,19 +21,16 @@ Following is a sample REST API configuration that we can used to implement this 
                             <timeout>
                                 <duration>60000</duration>
                             </timeout>
-            
-                            <markForSuspension>
-                                <errorCodes>101504, 101505, 101500</errorCodes>
-                                <retriesBeforeSuspension>3</retriesBeforeSuspension>
-                                <retryDelay>10</retryDelay>
-                            </markForSuspension>
-            
                             <suspendOnFailure>
                                 <initialDuration>1000</initialDuration>
                                 <progressionFactor>2</progressionFactor>
                                 <maximumDuration>64000</maximumDuration>
                             </suspendOnFailure>
-            
+                            <markForSuspension>
+                                <errorCodes>101504, 101505, 101500</errorCodes>
+                                <retriesBeforeSuspension>3</retriesBeforeSuspension>
+                                <retryDelay>10</retryDelay>
+                            </markForSuspension>
                         </address>
                     </endpoint>
                 </failover>
@@ -71,8 +68,7 @@ and properties, see [Endpoint Error Handling]({{base_path}}/learn/examples/endpo
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -179,8 +175,7 @@ Multiple address endpoints are used in this example.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
+{!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

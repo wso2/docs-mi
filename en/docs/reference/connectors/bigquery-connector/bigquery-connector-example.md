@@ -261,6 +261,7 @@ export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Stu
     
 2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
+
 ## Testing
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).

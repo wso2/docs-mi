@@ -129,7 +129,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/filecon-3.x/fileconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/fileConnector3.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -141,7 +141,7 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.

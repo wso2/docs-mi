@@ -210,7 +210,7 @@ If you want to update the secret token dynamically without restarting the server
     ```
 
 !!! Tip
-    You can use the WSO2 API Controller (APICTL) to update the secret token dynamically. For more information, see [Update HashiCorp AppRole Pull secret ID]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#update-hashicorp-approle-pull-secret-id).
+    You can use the WSO2 MI CLI to update the secret token dynamically. For more information, see [Update HashiCorp AppRole Pull secret ID]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#update-hashicorp-approle-pull-secret-id).
 
 ## Using Namespaces for the HashiCorp connection
 

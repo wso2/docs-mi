@@ -18,11 +18,11 @@ Following are the integration artifacts (proxy service) that we can used to impl
       <inSequence>
          <log level="full"/>
          <property name="OUT_ONLY" value="true"/>
-         <send>
+         <call>
             <endpoint>
                <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
             </endpoint>
-         </send>
+         </call>
       </inSequence>
    </target>
 </proxy>
@@ -31,8 +31,7 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -85,7 +84,5 @@ netcat localhost 6060 < request.xml
 You will see the following response in the back-end service's console:
 
 ```bash
-INFO  [wso2/stockquote_service] - Stock quote service invoked.
-INFO  [wso2/stockquote_service] - Generating placeOrder response
-INFO  [wso2/stockquote_service] - The order was placed.
+samples.services.SimpleStockQuoteService  :: Accepted order #1 for : 18398 stocks of IBM at $ 172.23182849731984
 ```

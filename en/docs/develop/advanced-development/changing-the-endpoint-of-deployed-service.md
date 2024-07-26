@@ -6,15 +6,15 @@ example, in this scenario, you have two endpoints to manage two
 environments (i.e., Dev and QA). The endpoint URLs for the services
 hosted in the Dev and QA environments respectively are as follows:
 
--   Dev environment: `http://localhost:8280/services/echo`
+-   Dev environment: `http://localhost:8290/services/echo`
 
--   QA environment: `http://localhost:8281/services/echo`
+-   QA environment: `http://localhost:8291/services/echo`
 
 ## Creating the Endpoints
 
 You need to create two Endpoint artifacts to represent the Dev and QA environments respectively. Follow the steps given below.
 
-1.  Create two ESB config projects as given below.
+1.  Create two projects as given below.
     <table>
         <tr>
             <th>Project Name</th>
@@ -22,11 +22,11 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
         </tr>
         <tr>
             <td>HelloWorldDevResources</td>
-            <td>The ESB config project will store the Endpoint artifact for the <b>Dev</b> environment.</td>
+            <td>The project will store the Endpoint artifact for the <b>Dev</b> environment.</td>
         </tr>
         <tr>
             <td>HelloWorldQAResources</td>
-            <td>The ESB config project will store the Endpoint artifact for the <b>QA</b> environment.</td>
+            <td>The project will store the Endpoint artifact for the <b>QA</b> environment.</td>
         </tr>
     </table>
 2.  Create two Endpoint artifacts in two projects with the following configurations:
@@ -47,7 +47,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
             </tr>
             <tr>
                 <td>Address URL</td>
-                <td><code>http://localhost:8280/services/echo</code></td>
+                <td><code>http://localhost:8290/services/echo</code></td>
             </tr>
         </table>
 
@@ -67,13 +67,13 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
             </tr>
             <tr>
                 <td>Address URL</td>
-                <td><code>http://localhost:8281/services/echo</code></td>
+                <td><code>http://localhost:8291/services/echo</code></td>
             </tr>
         </table>
 
 ## Creating the Proxy Service
 
-1.  Create an ESB Config project named **HelloWorldServices**.
+1.  Create a project named **HelloWorldServices**.
 2.  Create a proxy service in the HelloWorldServices project with the following configurations:
 
     | Parameter             | Value                                                                                              |
@@ -82,7 +82,7 @@ You need to create two Endpoint artifacts to represent the Dev and QA environmen
     | Proxy Service Type | Select Pass Through Proxy                                                                          |
     | Endpoint           | Select HelloWorldEP (You need to select **Predefined Endpoint** from the endpoint options listed.) |
 
-The projects setup is now complete. 
+The project setup is now complete. 
 
 ## Creating the composite application projects
 
@@ -139,7 +139,7 @@ You view the response from the **HelloWorldProxy**.
 
 Follow the steps below to change the endpoint reference of the **HelloWorldProxy** you deployed, to point it to the QA environment, without changing its configuration.
 
-1.  Set a port offset by changing the following configuration in the `deployment.toml         ` file.
+1.  Set a port offset by changing the following configuration in the `MI_HOME/conf/deployment.toml` file.
 
     ```toml
     offset=2
@@ -165,21 +165,21 @@ You view the response from the **HelloWorldProxy** as seen in the image below.
 
 Once the endpoint has been created, you can update it using any one of the options listed below. The options below describe how you can update the endpoint value for QA environment.
 
-### Option 1: Using WSO2 Integration Studio
+### Option 1: Using WSO2 MI VS Code Extension
 
-1.  Open the `          HelloWorldEP.xml         ` file under
-    **HelloWorldQAResources** project and replace the URL with the QA
-    URL.
-2.  Save all changes.
+1. Open the `HelloWorldEP` endpoint form from the WSO2 MI VS Code extension **Project Overview** page and update the URL with the QA URL.
 
-Your CApp can be deployed to your QA Micro Integrator.
+2. Click on the **Build** button on the top right corner of the **Project Overview** page to build the Carbon Application.
+   <img src="{{base_path}}/assets/img/develop/build-car.png" alt="build car file" width="700">
+   
+3. The resulting CAR file will be stored in the `<Workspace>/HelloWorldQAResources/target` folder and it can be deployed in the MI server.
 
 ### Option 2: From Command Line
 
-1.  Open a Terminal window and navigate to
-    `          <WORKSPACE>/HelloWorldQAResources/src/main/synapse_configendpoints/HelloWorldEP.xml         `
+1. Open a Terminal window and navigate to
+    `          <WORKSPACE>/HelloWorldQAResources/src/main/wso2mi/artifacts/endpoints/HelloWorldEP.xml         `
     file.
-2.  Edit the HelloWorldEP.xml (e.g. using gedit or vi) under
+2. Edit the HelloWorldEP.xml (e.g. using gedit or vi) under
     HelloWorldResources/QA and replace the URL with the QA one.
 
     ``` 
@@ -188,25 +188,13 @@ Your CApp can be deployed to your QA Micro Integrator.
     ...
     ```
 
-3.  Navigate to `<Workspace>/HelloWorldQAResources          ` and build the ESB Config project using the following command:
+3. Navigate to `<Workspace>/HelloWorldQAResources` and build the project using the following command:
 
     ``` 
     mvn clean install
     ```
 
-4.  Navigate to
-    `           <ESB_TOOLING_WORKSPACE>/HelloWorldQACApp          ` and
-    build the CApp project using the following command:
-
-    ```
-    mvn clean install
-    ```
-
-5.  The resulting CAR file can be deployed directly to the QA ESB
-    server. For details, see [Running the ESB profile via WSO2
-    Integration
-    Studio](https://docs.wso2.com/display/EI650/Running+the+Product#RunningtheProduct-RunningtheESBprofileviaWSO2IntegrationStudio)
-    .
+4. The resulting CAR file will be stored in the `<Workspace>/HelloWorldQAResources/target` folder and it can be deployed in the MI server.
 
 !!! Note
     -   To build the projects using the above commands, you need an active network connection.
@@ -221,4 +209,4 @@ created would need to do the following:
 2.  Edit the URL values.
 3.  Re-create the CAR file with new values.
 
-The resulting CAR file can be deployed directly to the QA ESB server.
+The resulting CAR file can be deployed in the QA MI server.

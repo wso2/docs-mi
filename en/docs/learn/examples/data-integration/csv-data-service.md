@@ -49,11 +49,11 @@ Given below is the data service configuration you need to build. See the instruc
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create a Data Service project]({{base_path}}/develop/create-data-services-configs).
-4. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
+{!includes/build-and-run.md!}
+
+2. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
    **Be sure** to update the CSV datasource path.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
 You can send an HTTP GET request to invoke the data service using cURL
 as shown below.

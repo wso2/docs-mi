@@ -64,63 +64,67 @@ Given below is the data service configuration you need to build. See the instruc
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
-2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/) and copy it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` (for MacOS) or 
-`MI_TOOLING_HOME/runtime/microesb/lib/` (for Windows) directory. 
+{!includes/build-and-run.md!}
+
+3. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
+
+4. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/).
+
+5. Switch to the **EXPLORER** view in VS Code and copy the downloaded driver to the `<PROJECT_NAME>/deployment/lib/` directory in the project structure.
 
     !!! Note
-        If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver`.
-        
-3. [Create a Data Service project]({{base_path}}/develop/create-data-services-configs).
-4. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+        If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
+
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Let's send a request with multiple transactions to the data service:
 
 1. Download and Install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
-2. Create a new SOAP project in SoapUI by using the following WSDL file:
-   ```bash
-   http://localhost:8290/services/batch_requesting_sample?wsdl
-   ```
+   1. Create a new SOAP project in SoapUI by using the following WSDL file:
+      ```bash
+      http://localhost:8290/services/batch_requesting_sample?wsdl
+      ```
 
 3. Update the **addEmployeeOp** operation (under **batch_requesting_sampleSOAP11Binding**) with the request body as shown below:
 
-       !!! Tip
-           In this example, we are sending two transactions with details of two employees.
+    !!! Tip
+        In this example, we are sending two transactions with details of two employees.
 
-       ```xml
-       <p:addEmployeeOp_batch_req xmlns:p="http://ws.wso2.org/dataservice">
-          <!--1 or more occurrences-->
-          <addEmployeeOp xmlns="http://ws.wso2.org/dataservice">
-             <!--Exactly 1 occurrence-->
-             <xs:EmployeeNumber xmlns:xs="http://ws.wso2.org/dataservice">1002</xs:EmployeeNumber>
-             <!--Exactly 1 occurrence-->
-             <xs:FirstName xmlns:xs="http://ws.wso2.org/dataservice">John</xs:FirstName>
-             <!--Exactly 1 occurrence-->
-             <xs:LastName xmlns:xs="http://ws.wso2.org/dataservice">Doe</xs:LastName>
-             <!--Exactly 1 occurrence-->
-             <xs:Email xmlns:xs="http://ws.wso2.org/dataservice">johnd@wso2.com</xs:Email>
-             <!--Exactly 1 occurrence-->
-             <xs:JobTitle xmlns:xs="http://ws.wso2.org/dataservice">Consultant</xs:JobTitle>
-             <!--Exactly 1 occurrence-->
-             <xs:Officecode xmlns:xs="http://ws.wso2.org/dataservice">01</xs:Officecode>
-          </addEmployeeOp>
-          <addEmployeeOp xmlns="http://ws.wso2.org/dataservice">
-             <!--Exactly 1 occurrence-->
-             <xs:EmployeeNumber xmlns:xs="http://ws.wso2.org/dataservice">1004</xs:EmployeeNumber>
-             <!--Exactly 1 occurrence-->
-             <xs:FirstName xmlns:xs="http://ws.wso2.org/dataservice">Peter</xs:FirstName>
-             <!--Exactly 1 occurrence-->
-             <xs:LastName xmlns:xs="http://ws.wso2.org/dataservice">Parker</xs:LastName>
-             <!--Exactly 1 occurrence-->
-             <xs:Email xmlns:xs="http://ws.wso2.org/dataservice">peterp@wso2.com</xs:Email>
-             <!--Exactly 1 occurrence-->
-             <xs:JobTitle xmlns:xs="http://ws.wso2.org/dataservice">Consultant</xs:JobTitle>
-             <!--Exactly 1 occurrence-->
-             <xs:Officecode xmlns:xs="http://ws.wso2.org/dataservice">01</xs:Officecode>
-          </addEmployeeOp>
-       </p:addEmployeeOp_batch_req>
-       ```
+    ```xml
+    <p:addEmployeeOp_batch_req xmlns:p="http://ws.wso2.org/dataservice">
+       <!--1 or more occurrences-->
+       <addEmployeeOp xmlns="http://ws.wso2.org/dataservice">
+          <!--Exactly 1 occurrence-->
+          <xs:EmployeeNumber xmlns:xs="http://ws.wso2.org/dataservice">1002</xs:EmployeeNumber>
+          <!--Exactly 1 occurrence-->
+          <xs:FirstName xmlns:xs="http://ws.wso2.org/dataservice">John</xs:FirstName>
+          <!--Exactly 1 occurrence-->
+          <xs:LastName xmlns:xs="http://ws.wso2.org/dataservice">Doe</xs:LastName>
+          <!--Exactly 1 occurrence-->
+          <xs:Email xmlns:xs="http://ws.wso2.org/dataservice">johnd@wso2.com</xs:Email>
+          <!--Exactly 1 occurrence-->
+          <xs:JobTitle xmlns:xs="http://ws.wso2.org/dataservice">Consultant</xs:JobTitle>
+          <!--Exactly 1 occurrence-->
+          <xs:Officecode xmlns:xs="http://ws.wso2.org/dataservice">01</xs:Officecode>
+       </addEmployeeOp>
+       <addEmployeeOp xmlns="http://ws.wso2.org/dataservice">
+          <!--Exactly 1 occurrence-->
+          <xs:EmployeeNumber xmlns:xs="http://ws.wso2.org/dataservice">1004</xs:EmployeeNumber>
+          <!--Exactly 1 occurrence-->
+          <xs:FirstName xmlns:xs="http://ws.wso2.org/dataservice">Peter</xs:FirstName>
+          <!--Exactly 1 occurrence-->
+          <xs:LastName xmlns:xs="http://ws.wso2.org/dataservice">Parker</xs:LastName>
+          <!--Exactly 1 occurrence-->
+          <xs:Email xmlns:xs="http://ws.wso2.org/dataservice">peterp@wso2.com</xs:Email>
+          <!--Exactly 1 occurrence-->
+          <xs:JobTitle xmlns:xs="http://ws.wso2.org/dataservice">Consultant</xs:JobTitle>
+          <!--Exactly 1 occurrence-->
+          <xs:Officecode xmlns:xs="http://ws.wso2.org/dataservice">01</xs:Officecode>
+       </addEmployeeOp>
+    </p:addEmployeeOp_batch_req>
+    ```
+    
+    <a href="{{base_path}}/assets/img/examples/data-integration/batch-requesting-soap-ui.png"><img src="{{base_path}}/assets/img/examples/data-integration/batch-requesting-soap-ui.png" title="Soap UI" width="900" alt="Soap UI"/></a>
     
 4.  Invoke the **addEmployeeOp** operation.
 

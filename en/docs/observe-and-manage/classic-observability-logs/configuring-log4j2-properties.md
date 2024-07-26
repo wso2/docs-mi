@@ -633,7 +633,7 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
 
 ### Viewing logs via the dashboard
 
-1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard).
+1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
 2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Logging Management</b> window.
 
     <img alt="change log level from dashboard" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/change-log-level-dashboard.png">
@@ -642,9 +642,9 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
 
 ### Viewing logs via the CLI
 
-1.  Download and set up the [API Controller]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl).
+1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
 
-2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with apictl]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 
 ## Updating the threshold Level

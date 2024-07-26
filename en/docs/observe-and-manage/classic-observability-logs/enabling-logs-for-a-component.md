@@ -11,7 +11,7 @@ There are two ways to enable logs for a component: using the Micro Integrator [d
 
 ### Using the Dashboard
 
-1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard).
+1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
 2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Logging Management</b> window.
 3.  Go to the <b>Add Loggers</b> tab and define the new logger.
 
@@ -46,9 +46,9 @@ There are two ways to enable logs for a component: using the Micro Integrator [d
  
 ### Using the CLI
 
-1.  Download and set up the [API Controller]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl).
+1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
 
-2.  Use the commands for [adding a new logger]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#add-a-new-logger) to the Micro Integrator.
+2.  Use the commands for [adding a new logger]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#add-a-new-logger) to the Micro Integrator.
 
 ## Printing Logs
 
