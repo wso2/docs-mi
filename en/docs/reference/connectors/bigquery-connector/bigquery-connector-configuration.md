@@ -28,7 +28,7 @@ Follow the steps below to generate user credentials.
 
      <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-consent-screen.png" title="Bigquery-credentials-page" width="300" alt="Bigquery-credentials-page"/>
 
-6. Provide the Application Name as `BigQueryExample`, `User support email` and `email address of Developer contact information`in the Consent Screen, then click on **SAVE AND CONTINUE**.
+6. Provide the Application Name as `BigQueryExample`, and provide your email as `User support email` and `email address of Developer contact information`in the Consent Screen, then click on **SAVE AND CONTINUE**.
 
 7. To add scopes for API, click on **ADD OR REMOVE SCOPES**
 
