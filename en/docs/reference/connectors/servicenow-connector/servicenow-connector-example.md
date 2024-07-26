@@ -16,17 +16,17 @@ It will have two HTTP API resources, which are `postRecord` and `readRecord`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting Up the Environment 
+## Set up the environment 
 
 Please follow the steps mentioned in the [Setting up ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/settingup-servicenow-instance/) document in order to create a ServiceNow Instance and obtain the credentials. Keep them saved to be used in the next steps.  
 
-## Setting Up the Integration Project
+## Set up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) to set up the Integration Project.
 
-## Creating the Mediation Logic
+## Create the mediation logic
 
-1. First let's create the `PostRecord` and `ReadRecord` sequences. Select Micro Integrator and click on `+` in **Sequences** to create the sequences.
+1. First, create the `PostRecord` and `ReadRecord` sequences. Select Micro Integrator and click `+` on **Sequences** to create the sequence.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png"><img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
 
@@ -34,17 +34,17 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-to-sequence.png" title="Adding artifacts to Sequence" width="800" alt="Adding artifacts to Sequence"/>  
 
-3. In the graphical view click on `+` and go to the **Connectors** tab. Click on the `servicenow` connector and select `init` operation.  
+3. In the graphical view click on `+` and go to the **Connectors** tab. Click on the `servicenow` connector and select the `init` operation.  
 
     <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-servicenow-init.png" title="Adding init operation" width="800" alt="Adding init operation"/>
 
-4. Click on `+ Add Parameter` and provide the following key-value pairs. You need to use the ServiceNow instance URL, username, and password that you obtained when setting up the ServiceNow instance.
+4. Click on `+ Add Parameter` and provide the following key-value pairs. You need to use the **ServiceNow instance URL**, **username**, and **password** that you obtained when setting up the ServiceNow instance.
 
-    | Key | Value |
-    | --- | --- |
-    | serviceNowInstanceURL | https://dev55707.service-now.com |
-    | username | admin |
-    | password | Diazo123@ |
+    | Key                       | Value                              |
+    |---------------------------|------------------------------------|
+    | **serviceNowInstanceURL** | `https://dev55707.service-now.com` |
+    | **username**              | `admin`                            |
+    | **password**              | `Diazo123@`                        |
    
     Click on **Submit** to save the configuration.  
 
@@ -54,33 +54,33 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 6. Click on `+ Add Parameter` and provide the following key-value pairs.  
 
-    | Key | Value |
-    | --- | --- |
-    | tableName | incident |
-    | sysparmDisplayValue | true |
-    | sysparmFields | short_description,number,sys_id |
-    | sysparmView | short_description,number,sys_id |
-    | sysparmInputDisplayValue | true |
-    | number | 34 |
-    | shortDescription | {$ctx:shortDescription} |
-    | active | true |
-    | approval | owner |
-    | category | inquiry |
-    | contactType | {$ctx:contactType} |
+    | Key                          | Value                             |
+    |------------------------------|-----------------------------------|
+    | **tableName**                | `incident`                        |
+    | **sysparmDisplayValue**      | `true`                            |
+    | **sysparmFields**            | `short_description,number,sys_id` |
+    | **sysparmView**              | `short_description,number,sys_id` |
+    | **sysparmInputDisplayValue** | `true`                            |
+    | **number**                   | `34`                              |
+    | **shortDescription**         | `{$ctx:shortDescription}`         |
+    | **active**                   | `true`                            |
+    | **approval**                 | `owner`                           |
+    | **category**                 | `inquiry`                         |
+    | **contactType**              | `{$ctx:contactType}`              |
 
     Click on **Submit** to save the configuration.
 
-7. Add a `property` mediator to the sequence to save the `sys_id` of the created incident. Click on `+` and go to the **Mediators** tab. Click on the `property` mediator and provide the following details.  
+7. Add a **[Property]({{base_path}}/reference/mediators/property-mediator/)** mediator to the sequence to save the `sys_id` of the created incident. Click on `+` and go to the **Mediators** tab. Click on the **Property** mediator and provide the following details.  
 
-    | Property           | Value |
-    |--------------------| --- |
-    | Property Name      | sysId |
-    | Property Scope     | default |
-    | Property Data Type | STRING |
-    | Property Action    | Set |
-    | Property Value     | json-eval($.result.sys_id) |
+    | Property               | Value                        |
+    |------------------------|------------------------------|
+    | **Property Name**      | `sysId`                      |
+    | **Property Scope**     | `default`                    |
+    | **Property Data Type** | `STRING`                     |
+    | **Property Action**    | `Set`                        |
+    | **Property Value**     | `json-eval($.result.sys_id)` |
 
-    When entering the `Property Value`, make sure to select the `Ex` button to specify the value type as expression. 
+    When entering the **Property Value**, make sure to select the **EX** button to specify the value type as an expression. 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-postrec-seq-property.png" title="Adding property mediator" width="800" alt="Adding property mediator"/>
 
@@ -113,7 +113,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
       </sequence>
     ```  
    
-8. Similarly, create the `ReadRecord` sequence by click on `+` in **Sequences**. Provide the Sequence name as `ReadRecord` and click on **Create**. Follow the steps 3 and 4 to add the `init` operation of the ServiceNow connector to the sequence.
+8. Similarly, create the `ReadRecord` sequence by click `+` on **Sequences**. Provide the Sequence name as `ReadRecord` and click on **Create**. Follow the steps 3 and 4 to add the `init` operation of the ServiceNow connector to the sequence.
 
 9. Then add the `getRecordById` operation to the sequence. Click on `+` and go to the **Connectors** tab. Click on the `servicenow` connector and select `getRecordById` operation.
 
@@ -121,10 +121,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 10. Click on `+ Add Parameter` and provide the following key-value pairs.
 
-    | Key | Value |
-    | --- | --- |
-    | sysId | {$ctx:sysId} |
-    | tableName | incident |
+    | Key           | Value          |
+    |---------------|----------------|
+    | **sysId**     | `{$ctx:sysId}` |
+    | **tableName** | `incident`     |
 
     Click on **Submit** to save the configuration.
 
@@ -159,40 +159,40 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 13. Add another API resource by clicking on `+ Resource` from the **Service Designer** and enter the following details.
 
-    | Property     | Value        |
-    |--------------|--------------|
-    | URL Style    | URI_TEMPLATE |
-    | URI Template | /readRecord  |
-    | HTTP Method  | POST         |
-    | Protocol     | HTTP, HTTPS  |
+    | Property         | Value          |
+    |------------------|----------------|
+    | **URL Style**    | `URI_TEMPLATE` |
+    | **URI Template** | `/readRecord`  |
+    | **HTTP Method**  | `POST`         |
+    | **Protocol**     | `HTTP, HTTPS`  |
 
 14. Let's update the `/postRecord` resource with the required mediation logic. Click on the `/postRecord` to open the graphical view and a property mediator with the following details.
 
-    | Property           | Value |
-    |--------------------| --- |
-    | Property Name      | shortDescription |
-    | Property Scope     | default |
-    | Property Data Type | STRING |
-    | Property Action    | Set |
-    | Property Value     | json-eval($.shortDescription) |
+    | Property               | Value                           |
+    |------------------------|---------------------------------|
+    | **Property Name**      | `shortDescription`              |
+    | **Property Scope**     | `default`                       |
+    | **Property Data Type** | `STRING`                        |
+    | **Property Action**    | `Set`                           |
+    | **Property Value**     | `json-eval($.shortDescription)` |
 
-    Make sure to select the `Ex` button in the **Property Value** and Click on **Submit**.
+    Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
 15. Add another property mediator with the following details.
 
-    | Property           | Value |
-    |--------------------| --- |
-    | Property Name      | contactType |
-    | Property Scope     | default |
-    | Property Data Type | STRING |
-    | Property Action    | Set |
-    | Property Value     | json-eval($.contactType) |
+    | Property               | Value                      |
+    |------------------------|----------------------------|
+    | **Property Name**      | `contactType`              |
+    | **Property Scope**     | `default`                  |
+    | **Property Data Type** | `STRING`                   |
+    | **Property Action**    | `Set`                      |
+    | **Property Value**     | `json-eval($.contactType)` |
 
-    Make sure to select the `Ex` button in the **Property Value** and Click on **Submit**.
+    Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
-16. Add a **Call Sequence** mediator and select the `PostRecord` sequence as the **Referring sequence**. 
+16. Add a **[Call Sequence]({{base_path}}/reference/mediators/sequence-mediator/)** mediator and select the `PostRecord` sequence as the **Referring sequence**. 
 
-17. Add the **Respond** mediator to respond to the request. 
+17. Add the **[Respond]({{base_path}}/reference/mediators/respond-mediator/)** mediator to respond to the request. 
 
     The final mediation logic of the `/postRecord` resource is shown below.
 
@@ -200,15 +200,15 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 18. similarly, update the `/readRecord` resource with the required mediation logic. Click on the `/readRecord` to open the graphical view and add a property mediator with the following details.
 
-    | Property           | Value |
-    |--------------------| --- |
-    | Property Name      | sysId |
-    | Property Scope     | default |
-    | Property Data Type | STRING |
-    | Property Action    | Set |
-    | Property Value     | json-eval($.sysId) |
+    | Property               | Value                |
+    |------------------------|----------------------|
+    | **Property Name**      | `sysId`              |
+    | **Property Scope**     | `default`            |
+    | **Property Data Type** | `STRING`             |
+    | **Property Action**    | `Set`                |
+    | **Property Value**     | `json-eval($.sysId)` |
 
-    Make sure to select the `Ex` button in the **Property Value** and Click on **Submit**.
+    Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
 19. Add a **Call Sequence** mediator and select the `ReadRecord` sequence as the **Referring sequence**.
 
@@ -221,31 +221,31 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 21. Now you have created the REST API with the required resources and mediation logic. You can view the source view of the API configuration as shown below.
 
     ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <api context="/servicenow" name="ServiceNowAPI" xmlns="http://ws.apache.org/ns/synapse">
-          <resource methods="POST" uri-template="/postRecord">
-              <inSequence>
-                  <property name="shortDescription" scope="default" type="STRING" expression="json-eval($.shortDescription)"/>
-			      <property name="contactType" scope="default" type="STRING" expression="json-eval($.contactType)"/>
-                  <sequence key="PostRecord"/>
-                  <respond/>
-              </inSequence>
-              <faultSequence>
-              </faultSequence>
-          </resource>
-          <resource methods="POST" uri-template="/readRecord">
-              <inSequence>
-                  <property name="sysId" scope="default" type="STRING" expression="json-eval($.sysId)"/>
-                  <sequence key="ReadRecord"/>
-                  <respond/>
-              </inSequence>
-              <faultSequence>
-              </faultSequence>
-          </resource>
-      </api>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/servicenow" name="ServiceNowAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" uri-template="/postRecord">
+            <inSequence>
+                <property name="shortDescription" scope="default" type="STRING" expression="json-eval($.shortDescription)"/>
+                <property name="contactType" scope="default" type="STRING" expression="json-eval($.contactType)"/>
+                <sequence key="PostRecord"/>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+        <resource methods="POST" uri-template="/readRecord">
+            <inSequence>
+                <property name="sysId" scope="default" type="STRING" expression="json-eval($.sysId)"/>
+                <sequence key="ReadRecord"/>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
     ```
 
-## Exporting Integration Logic as a CApp
+## Export integration logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
 ## Get the project
@@ -265,7 +265,7 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
 
-## Testing
+## Test
 
 ### Post Record Operation
 
