@@ -4,7 +4,7 @@ File Connector can be used to perform operations in the local file system as wel
 
 ## What you'll build
 
-This example explains how to use File Connector to create a file in the local file system and read the particular file. The user sends a payload specifying which content is to be written to the file. Based on that content, a file is created in the specified location. Then the content of the file can be read as an HTTP response by invoking the other API resource upon the existence of the file.
+This example explains how to use File Connector to create a file in the local file system and read the particular file. The user sends a payload specifying which content is to be written to the file. Based on that content, a file is created in the specified location. Then the content of the file can be read as an HTTP response by invoking the other API resource upon the existence of the file. Similarly, the same example can be configured to communicate with a remote file system (i.e FTP server) easily. The example also uses some other WSO2 mediators to manipulate messages.
 
 It will have two HTTP API resources, which are `create` and `read`.
 
@@ -18,11 +18,11 @@ It will have two HTTP API resources, which are `create` and `read`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting Up the Integration Project
+## Set up the integration project
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-### Creating the New Project
+### Create the new project
 
 1. Go to **WSO2 Micro Integrator** in the VS Code.
 
@@ -36,9 +36,9 @@ Follow these steps to set up the Integration Project using the WSO2 Micro Integr
 
      <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-### Creating the Integration Logic
+### Create the integration logic
 
-#### Creating the First Resource
+#### Create the first resource
 
 1. Click on the **+** button next to the **APIs** and provide the API name as `FileConnector` and the API context as `/fileConnector`.
 
@@ -87,7 +87,7 @@ Follow these steps to set up the Integration Project using the WSO2 Micro Integr
             </faultSequence>
         </resource>
     ```
-#### Creating the Second Resource
+#### Create the second resource
 
 1. Click on **+ Resource** to add new resource.
 
@@ -153,9 +153,9 @@ export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Stu
 
 2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
-## Testing
+## Test
 
-### File Create Operation
+### File create operation
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 ```
@@ -167,11 +167,11 @@ curl --location 'http://localhost:8290/fileConnector/write' \
 }'
 ```
 
-**Expected Response**:
+**Expected response**:
 
 You should get a 'Success' response, and the file should be created in the specified location in the above payload.
 
-### File Read Operation
+### File read operation
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 ```
@@ -182,7 +182,7 @@ curl --location 'http://localhost:8290/fileConnector/read' \
 }'
 ```
 
-**Expected Response**:
+**Expected eesponse**:
 
 You should get the following text returned.
 
@@ -190,6 +190,6 @@ You should get the following text returned.
 This is a test file.
 ```
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [File Connector Reference Guide]({{base_path}}/reference/connectors/file-connector/file-connector-config) documentation for all operation details of the connector.
