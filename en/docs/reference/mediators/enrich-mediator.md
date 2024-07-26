@@ -30,7 +30,7 @@ The following properties are available:
     -   **Envelope** - Envelope of the original message used for enriching.
     -   **Body** - Body of the original message used for enriching.
     -   **Property** - Specifies a property. For information on how you can use the Property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
-    -   **Key** - Specifies that the target type is key. Specifically used to rename an existing key name in JSON payloads. *(Supported for JSON only)*.
+    -   **Inline** - Specifies a literal value for enriching.
 -   **XPath Expression** - This field is used to specify the custom XPath value if you selected **custom** for the **Type** field.
 
 !!! Tip
@@ -49,11 +49,68 @@ The following properties are available:
     !!! Info
         For the target type ' `envelope` ', the action type should be `'replace` '. Herein, action type ' `child` ' is not acceptable because it adds an envelope within an envelope, and action type ' `sibling` ' is also not acceptable because there will be two envelopes in a message if you use it.
   
--   **Type** and **XPath Expression** - Refer the [Source configuration](#source-configuration) above.
+-   **Type** - The type that the mediator uses from the original message to enrich the modified message that passes through the mediator.
+    -   **Custom** - Custom XPath value.
+    -   **Envelope** - Envelope of the original message used for enriching.
+    -   **Body** - Body of the original message used for enriching.
+    -   **Property** - Specifies a property. For information on how you can use the Property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
+    -   **Inline** - Specifies a literal value for enriching.
+    -   **Key** - Specifies that the target type is key. Specifically used to rename an existing key name in JSON payloads. *(Supported for JSON only)*.
+-   **XPath Expression** - Refer the [Source configuration](#source-configuration) above.
 
     !!! Info
         The target type depends on the source type. For the valid and invalid combinations of source and target types, see below table.
-        
+
+        <table>
+            <tr>
+                <th></th>
+                <th colspan="5" style="horizontal-align: middle; text-align: center;">Target type</th>
+            </tr>
+            <tr>
+                <th rowspan="6" style="vertical-align: middle; text-align: center;">Source type</th>
+                <th></th>
+                <th>custom</th>
+                <th>envelope</th>
+                <th>body</th>
+                <th>property</th>
+            </tr>
+            <tr>
+                <th>custom</th>
+                <td>valid</td>
+                <td>invalid</td>
+                <td>valid</td>
+                <td>valid</td>
+            </tr>
+            <tr>
+                <th>envelope</th>
+                <td>invalid</td>
+                <td>invalid</td>
+                <td>invalid</td>
+                <td>valid</td>
+            </tr>
+            <tr>
+                <th>body</th>
+                <td>valid</td>
+                <td>invalid</td>
+                <td>invalid</td>
+                <td>valid</td>
+            </tr>
+            <tr>
+                <th>property</th>
+                <td>valid</td>
+                <td>valid</td>
+                <td>valid</td>
+                <td>valid</td>
+            </tr>
+            <tr>
+                <th>inline</th>
+                <td>valid</td>
+                <td>valid</td>
+                <td>valid</td>
+                <td>valid</td>
+            </tr>
+        </table>
+
 ## Examples
     
 ### Example 1: Setting the property symbol
@@ -61,7 +118,7 @@ The following properties are available:
 In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) .
     
 ```xml
-<enrich description="">
+<enrich>
     <source clone="false" type="envelope"/>
     <target action="replace" type="property" property="payload"/>
 </enrich>
@@ -75,7 +132,7 @@ In this example, you add a child property named Lamborghini to a property named 
 <proxy name="_TestEnrich" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <inSequence>
-			<enrich description="">
+			<enrich>
 				<source clone="true" type="inline">
 					<Cars/>
 				</source>
@@ -84,7 +141,7 @@ In this example, you add a child property named Lamborghini to a property named 
 			<log category="INFO" level="custom">
 				<property name="PekeCarListBeforeEnrich" expression="get-property('Cars')"/>
 			</log>
-			<enrich description="">
+			<enrich>
 				<source clone="true" type="inline">
 					<Car>Lamborghini</Car>
 				</source>
@@ -104,7 +161,7 @@ In this example, you add a child property named Lamborghini to a property named 
 In this example, you add the SOAP envelope in a SOAP request as a property to a message. The Enrich mediator is useful in this scenario since adding the property directly using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) results in the `SOAPEnvelope` object being created as an `OM` type object. The `OM` type object created cannot be converted back to a `SOAPEnvelope` object.
     
 ```xml
-<enrich description="">
+<enrich>
     <source clone="true" type="envelope"/>
     <target action="replace" type="property" property="ExtractedEnvelope"/>
 </enrich>
@@ -115,7 +172,7 @@ In this example, you add the SOAP envelope in a SOAP request as a property to a 
 In this example, you copy the original payload to a property using the Enrich mediator.
     
 ```xml
-<enrich description="">
+<enrich>
     <source clone="false" type="body"/>
     <target action="replace" type="property" property="ORGINAL_PAYLOAD"/>
 </enrich>
@@ -124,7 +181,7 @@ In this example, you copy the original payload to a property using the Enrich me
 Then whenever you need the original payload, you replace the message body with this property value using the Enrich mediator as follows:
     
 ```xml 
-<enrich description="">
+<enrich>
     <source clone="false" property="ORIGINAL_PAYLOAD" type="property"/>
     <target action="replace" type="body"/>
 </enrich>
@@ -165,7 +222,7 @@ Below is the JSON payload that is sent in the request for the following examples
 In this example, we will extract the content in the `data` object and set it as the message body.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="false" type="custom" xpath="json-eval($.data)"/>
     <target action="replace" type="body"/>
 </enrich>
@@ -198,7 +255,7 @@ In this example, we will enroll the first student in the payload for a new modul
 
 ```xml
 <property name="NewModule" scope="default" type="STRING" value="CS004"/>
-<enrich description="">
+<enrich>
     <source clone="true" property="NewModule" type="property"/>
     <target action="child" xpath="json-eval($.data.students[0].modules)"/>
 </enrich>
@@ -232,7 +289,7 @@ In this example, we will enroll the first student in the payload for a new modul
 In this example, we will define a new student inline and add it to the `students` array in the payload.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="true" type="inline">
         {
         "id": "03",
@@ -279,7 +336,7 @@ In this example, we will define a new student inline and add it to the `students
 In this example, we will assign the first student's name to a property called `Name`.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="true" type="custom" xpath="json-eval($.data.students[0].name)"/>
     <target action="replace" type="property" property="Name"/>
 </enrich>
@@ -303,7 +360,7 @@ INFO {LogMediator} - {proxy:TestEnrich} Student name is :  = "Tom"
 In this example, we will remove the `modules` from every student and also remove the first student in the array.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="true" type="custom" xpath="json-eval($.data.students[*].modules,$.data.students[0])"/>
     <target action="remove" type="body"/>
 </enrich>
@@ -330,11 +387,11 @@ In this example, we will remove the `modules` from every student and also remove
 As you removed selected parts from a payload, you can also remove selected parts synapse properties.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="false" type="body"/>
     <target action="replace" type="property" property="students"/>
 </enrich>
-<enrich description="">
+<enrich>
     <source clone="true" type="custom" xpath="json-eval($.data.students[*].modules,$.data.students[0])"/>
     <target action="remove" type="property" property="students"/>
 </enrich>
@@ -357,7 +414,7 @@ result = {"data":{"students":[{"id":"02","name":"Nick","lastname":"Thameson"}]}}
 In this example, we will replace the `modules` array of every student with `[]`.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="true" type="inline">
         []
     </source>
@@ -396,7 +453,7 @@ In this example, we will replace the `modules` array of every student with `[]`.
 In this example, we will replace the key name `name` of every student with `firstName`.
 
 ```xml
-<enrich description="">
+<enrich>
     <source clone="true" type="inline">
         firstName
     </source>
@@ -452,7 +509,7 @@ You can use Property mediators with `JSON` data type to enrich any JSON primitiv
 
 ```xml
 <property name="NewSubject" value="&quot;CS013 II&quot;" type="JSON"/>	
-<enrich description="">
+<enrich>
     <source clone="false" property="NewSubject" type="property"/>
     <target action="child" xpath="json-eval(data.students[1].modules)"/>
 </enrich>
@@ -484,4 +541,3 @@ You can use Property mediators with `JSON` data type to enrich any JSON primitiv
     }
 }
 ```
-
