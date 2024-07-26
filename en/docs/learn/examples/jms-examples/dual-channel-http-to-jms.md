@@ -35,13 +35,14 @@ Shown below is the `SMSSenderProxy` proxy service.
                        value="Content-Type"
                        scope="axis2"/>
              <property name="TRANSPORT_HEADERS" scope="axis2" action="remove"/>
-             <respond/>
+             <call>
+                <endpoint>
+                  <address uri="jms:/SMSStore?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue&amp;transport.jms.ReplyDestination=SMSReceiveNotificationStore"/>
+                </endpoint>
+			    </call>
+			    <respond/>
           </inSequence>
-          <endpoint>
-             <address uri="jms:/SMSStore?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue&amp;transport.jms.ReplyDestination=SMSReceiveNotificationStore"/>
-          </endpoint>
        </target>
-       <description/>
 </proxy>
 ```
 
@@ -162,11 +163,12 @@ Create a proxy service named `SMSForwardProxy` with the configuration given belo
        <target>
           <inSequence>
             <header name="Action" value="urn:getQuote"/>
-             <call>
+             <call blocking="true">
                 <endpoint>
                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
              </call>
+             <property name="messageType" value="text/xml" scope="axis2"/>
              <respond/>
           </inSequence>
        </target>
@@ -179,12 +181,11 @@ Create a proxy service named `SMSForwardProxy` with the configuration given belo
        <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory</parameter>
        <parameter name="transport.jms.DestinationType">queue</parameter>
        <parameter name="transport.jms.Destination">SMSStore</parameter>
-       <description/>
 </proxy>
 ```
 
-The `transport.jms.ConnectionFactory` , `transport.jms.DestinationType` parameter and the
-`transport.jms.Destination properties` parameter map the proxy service to the `SMSStore` queue.
+The `transport.jms.ConnectionFactory`, `transport.jms.DestinationType`, and
+`transport.jms.Destination properties` parameters map the proxy service to the `SMSStore` queue.
 
 ## Build and run
 
@@ -199,10 +200,6 @@ Set up the broker:
 1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
-
-    !!! Warning
-        If you are using message processor with Active MQ broker add the following configuration to the startup script before starting the server as shown below,
-        For Linux/Mac OS update `micro-integrator.sh` and for Windows update `micro-integrator.bat` with `-Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*"` system property.
 
 Set up the back-end service:
 
