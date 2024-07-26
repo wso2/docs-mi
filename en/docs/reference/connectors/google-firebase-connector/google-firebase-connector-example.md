@@ -18,17 +18,15 @@ Overall integration scenario would look like below.
 <br/><br/>
 <img src="{{base_path}}/assets/img/integrate/connectors/google-firebase-scenario.png" title="Google Firebase Connector scenario" width="800" alt="Google Firebase Connector scenario"/>
 
-## Setting up the environment
+## Set up the environment
 
-You need to create an application at Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
+You need to create an application in Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Follow these steps to set up the Integration Project and import Google Firebase connector into it.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
-
-1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
+1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
 2. Specify the API name as `FirebaseNotify` and API context as `/firebasenotify`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -105,12 +103,11 @@ Follow these steps to set up the Integration Project and import Google Firebase 
                 </log>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
    ```
-3. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create a sequence. Here we will define the logic how the push notification should be constructed. You can extract the information from the incoming HTTP message and set to the properties so that they will be picked up by the connector to construct push notification message. All the fields are not mandatory - some are specific to Android devices and some are specific to Web apps.  Note how this sequence is called by the API. 
+3.Create a new sequence, defining the logic how the push notification should be constructed. You can extract the information from the incoming HTTP message and set to the properties so that they will be picked up by the connector to construct push notification message. All the fields are not mandatory - some are specific to Android devices and some are specific to Web apps. Note how this sequence is called by the API. 
    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="MessageCreateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -160,7 +157,7 @@ Follow these steps to set up the Integration Project and import Google Firebase 
     </sequence>
    ```
 
-> **Note**: The parameters under `<init>` section of the configuration above are referring to the credentials we obtained from Google Firebase in above steps. The parameters are mapped to the keys of the JSON file that you have downloaded as below. 
+> **Note**: The parameters under `<init>` section of the configuration above are referring to the credentials we obtained from Google Firebase in the above steps. The parameters are mapped to the keys of the JSON file that you have downloaded, as below. 
 
 ```
 accountType --> type
@@ -177,8 +174,8 @@ clientCertUrl --> client_x509_cert_url
 
 Now we can export the imported connector, sequence, and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
 
-
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Export integration logic as a CApp
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -195,27 +192,18 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Now the exported CApp can be deployed in the integration runtime so that we can run it and test. 
 
-**Note**: Download the following .jar files. 
+**Note**: Download the following .jar files.
+
 1. [firebase-admin-6.5.0.jar](https://mvnrepository.com/artifact/com.google.firebase/firebase-admin/6.5.0)
 2. [google-auth-library-credentials-0.11.0.jar](https://mvnrepository.com/artifact/com.google.auth/google-auth-library-credentials/0.11.0)
 3. [google-auth-library-oauth2-http-0.11.0.jar](https://mvnrepository.com/artifact/com.google.auth/google-auth-library-oauth2-http/0.11.0)
 4. [api-common-1.7.0.jar](https://mvnrepository.com/artifact/com.google.api/api-common/1.7.0)
-and place those into `<Product_HOME>/lib` folder.
 
-**Deploying on Micro Integrator**
+and place those into `<Project_Home>/deployment/libs` folder.
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-
-## Testing
+## Test
 
 We can use Curl or Postman to try the API. The testing steps are provided for curl. Steps for Postman should be straightforward and can be derived from the curl requests.
 
@@ -267,9 +255,9 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         "webPushNotificationVibrate":"200,100,200"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
-    curl -H "Content-Type: application/json" --request POST --data @data.xml http://127.0.0.1:8280/firebasenotify/send
+    curl -H "Content-Type: application/json" --request POST --data @data.xml http://127.0.0.1:8290/firebasenotify/send
     ```
 **Expected Response**:
     ```
@@ -281,6 +269,6 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     ```
 If you have registered some devices to your application, the notification will appear on that device. 
 
-## What's Next
+## What's next
 
 * Please read the [Google Firebase Connector reference guide]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration/) to learn more about the operations you can perform with the connector.

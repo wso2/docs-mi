@@ -71,8 +71,7 @@ Listed below are the synapse configurations (proxy service) for implementing thi
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -114,24 +113,29 @@ Invoke the proxy service:
         </soapenv:Envelope>
         ```
     === "Response"        
-        ```xml
+        ```json
         {
-        "Envelope": {
-            "Body": {
-                "getQuoteResponse": {
-                    "change": -2.86843917118114,
-                    "earnings": -8.540305401672558,
-                    "high": -176.67958828498735,
-                    "last": 177.66987465262923,
-                    "low": -176.30898912339075,
-                    "marketCap": 56495579.98178506,
-                    "name": "IBM Company",
-                    "open": 185.62740369461244,
-                    "peRatio": 24.341353665128693,
-                    "percentageChange": -1.4930577008849097,
-                    "prevClose": 192.11844053187397,
-                    "symbol": "IBM",
-                    "volume": 7791
+            "Envelope": {
+                "Header": null,
+                "Body": {
+                    "getQuoteResponse": {
+                        "return": {
+                            "@type": "ax21:GetQuoteResponse",
+                            "change": 4.418798707278302,
+                            "earnings": 12.45093399022414,
+                            "high": 168.13771759203115,
+                            "last": 163.47334517802744,
+                            "lastTradeTimestamp": "Wed Jul 03 20:54:49 IST 2024",
+                            "low": -161.50688678590913,
+                            "marketCap": -1473008.7246540487,
+                            "name": "IBM Company",
+                            "open": 170.41169322638817,
+                            "peRatio": 23.793211892043292,
+                            "percentageChange": 2.4421226150197826,
+                            "prevClose": 180.9409028073108,
+                            "symbol": "IBM",
+                            "volume": 5987
+                        }
                     }
                 }
             }
@@ -160,26 +164,26 @@ Invoke the proxy service:
     === "Response"        
         ```xml
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-        <soapenv:Body>
-            <soapenv:Envelope xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples">
-                <soapenv:Body>
-                    <ns:getQuoteResponse>
-                        <ax21:change>-2.86843917118114</ax21:change>
-                        <ax21:earnings>-8.540305401672558</ax21:earnings>
-                        <ax21:high>-176.67958828498735</ax21:high>
-                        <ax21:last>177.66987465262923</ax21:last>
-                        <ax21:low>-176.30898912339075</ax21:low>
-                        <ax21:marketCap>5.649557998178506E7</ax21:marketCap>
+            <soapenv:Header/>
+            <soapenv:Body>
+                <ns:getQuoteResponse xmlns:ns="http://services.samples">
+                    <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                        <ax21:change>-2.528287483710473</ax21:change>
+                        <ax21:earnings>13.431609160481447</ax21:earnings>
+                        <ax21:high>-75.13700429778517</ax21:high>
+                        <ax21:last>76.83898629121823</ax21:last>
+                        <ax21:lastTradeTimestamp>Wed Jul 03 21:07:48 IST 2024</ax21:lastTradeTimestamp>
+                        <ax21:low>80.58269030360869</ax21:low>
+                        <ax21:marketCap>-9230708.531429557</ax21:marketCap>
                         <ax21:name>MSFT Company</ax21:name>
-                        <ax21:open>185.62740369461244</ax21:open>
-                        <ax21:peRatio>24.341353665128693</ax21:peRatio>
-                        <ax21:percentageChange>-1.4930577008849097</ax21:percentageChange>
-                        <ax21:prevClose>192.11844053187397</ax21:prevClose>
+                        <ax21:open>79.72238912842184</ax21:open>
+                        <ax21:peRatio>25.533000687552736</ax21:peRatio>
+                        <ax21:percentageChange>-2.963224683980784</ax21:percentageChange>
+                        <ax21:prevClose>85.32216599633553</ax21:prevClose>
                         <ax21:symbol>MSFT</ax21:symbol>
-                        <ax21:volume>7791</ax21:volume>
-                    </ns:getQuoteResponse>
-                </soapenv:Body>
-                </soapenv:Envelope>
+                        <ax21:volume>15388</ax21:volume>
+                    </ns:return>
+                </ns:getQuoteResponse>
             </soapenv:Body>
         </soapenv:Envelope>
         ```

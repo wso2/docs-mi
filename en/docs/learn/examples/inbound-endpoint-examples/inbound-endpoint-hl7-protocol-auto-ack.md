@@ -8,7 +8,7 @@ Following are the integration artifacts that we can used to implement this scena
 === "Inbound Endpoint"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <inboundEndpoint name="Sample1" onError="fault" protocol="hl7" sequence="main" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+    <inboundEndpoint name="Sample1" onError="fault" protocol="hl7" sequence="msgReceiveSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
         <parameters>
             <parameter name="inbound.hl7.Port">20000</parameter>
             <parameter name="inbound.hl7.AutoAck">true</parameter>
@@ -23,14 +23,11 @@ Following are the integration artifacts that we can used to implement this scena
 === "Main Sequence"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="main" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <in>
+    <sequence name="msgReceiveSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <inSequence>
             <log level="full"/>
             <drop/>
-        </in>
-        <out>
-            <send/>
-        </out>
+        </inSequence>
     </sequence>
     ```
 === "Fault Sequence"
@@ -45,8 +42,7 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create two sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) (Main and Fault) and an [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

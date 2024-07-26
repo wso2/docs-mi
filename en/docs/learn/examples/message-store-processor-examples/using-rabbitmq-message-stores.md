@@ -85,10 +85,11 @@ See the descriptions of the above configurations:
 
 ### Build and run
 
+[Configure the RabbitMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) with the Micro Integrator.
+
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -108,17 +109,15 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-[Configure the RabbitMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) with the Micro Integrator.
-
 Invoke the service:
 
 ```bash
-POST http://localhost:9090/services/Proxy1 HTTP/1.1
+POST http://localhost:8290/services/Proxy1 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"
 Content-Length: 492
-Host: localhost:9090
+Host: localhost:8290
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 

@@ -34,8 +34,7 @@ Following is a sample REST API configuration that we can used to implement this 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create a proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -57,19 +56,19 @@ Set up the back-end service:
 
 Send the following request:
 
-```bash
-POST /services/SimpleStockQuoteProxy/StockQuote HTTP/1.1
-Content-Type: application/xml; charset=UTF-8;action="urn:getQuote";
-SOAPAction: urn:getQuote
-User-Agent: Axis2
-Host: 127.0.0.1
-Transfer-Encoding: chunked
-
-<m0:getQuote xmlns:m0="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-   <m0:request>
-      <m0:symbol>IBM</m0:symbol>
-   </m0:request>
-</m0:getQuote>
+```curl
+curl -X POST \
+     -H "Content-Type: application/xml; charset=UTF-8;action=\"urn:getQuote\"" \
+     -H "SOAPAction: urn:getQuote" \
+     -H "User-Agent: Axis2" \
+     -H "Host: 127.0.0.1" \
+     -H "Transfer-Encoding: chunked" \
+     -d '<m0:getQuote xmlns:m0="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+            <m0:request>
+               <m0:symbol>IBM</m0:symbol>
+            </m0:request>
+          </m0:getQuote>' \
+     http://localhost:8290/services/SimpleStockQuoteProxy/StockQuote
 ```
 
 This HTTP REST request will be transformed into a SOAP request and forwarded to the stock quote service.

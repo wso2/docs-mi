@@ -23,23 +23,22 @@ It will have three HTTP API resources, which are `insert`, `read` and `edit`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
-
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
 ## Creating the Integration Logic
 
 1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
-2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+2. Select Micro Integrator and click on `+` in APIs to create a REST API. 
+   <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-api-creation.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-3. Provide the API name as `SpreadsheetAPI` and the API context as `/insert`.
+3. Provide the API name as `SpreadsheetAPI` and the API context as `/spreadsheet`.
 
-4. First we will create the `/insert` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/insert` as we have two API resources inside single API. The method will be `Post`. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-3.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+4. First we will create the `/insert` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/insert` as we have two API resources inside single API. The method will be `Post`.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-insert.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
 5. In this operation we are going to receive input from the user, which are `properties`, `sheets`, `range` and `values`. 
     - properties - It can provide the spreadsheet properties such as title of the spreadsheet. 
@@ -49,11 +48,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 6. The above four parameters are saved to a property group. Drag and drop the Property Group mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator). You can add set of properties as below. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon1.png" title="Adding a property into a property group" width="800" alt="Adding a property"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-adding-property.png" title="Adding a property into a property group" width="800" alt="Adding a property"/>
 
 7. Once all the properties are added to the Property Group Mediator, it looks as below. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon2.png" title="Property Group Mediator" width="800" alt="Property Group Mediator"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-all-properties.png" title="Property Group Mediator" width="800" alt="Property Group Mediator"/>
 
 8. The `createSpreadsheet` operation is going to be added as a separate sequence. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the `createSpreadsheet` sequence.
 
@@ -64,11 +63,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - clientSecret
     - refreshToken
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon3.png" title="init operation" width="800" alt="init operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-init.png" title="init operation" width="800" alt="init operation"/>
 
 10. Drag and drop **createSpreadsheet** operation to the Canvas next. Parameter values are defined in step 6 and 7 in the property group. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon4.png" title="Parameters" width="800" alt="Parameters"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-createSpreadSheet.png" title="Parameters" width="800" alt="Parameters"/>
 
 11. The complete XML configuration for the `createSpreadsheet.xml` looks as below. 
 ```xml
@@ -117,11 +116,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 14. Now go back to `SpreadsheeetAPI.xml` file, and from **Defined Sequences** drag and drop **createSpreadsheet** sequence, **addData** sequence and finally the Respond Mediator to the canvas. Now we are done with creating the first API resource, and it is displayed as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon5.png" title="insert operation xml config" width="800" alt="insert operation xml config"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-insert-resource.png" title="insert operation xml config" width="800" alt="insert operation xml config"/>
 
 15. Create the next API resource, which is `/read`. From this, we are going to read the specified spreadsheet data. Use the URL template as `/read`. The method will be POST. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/apiresource.jpg" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-read.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
 
 16. Let's create `readData.xml` sequence. The complete XML configuration looks as below. 
 ```xml
@@ -149,7 +148,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 19. In this operation, the user sends the spreadsheetId and range as the request payload. They will be written to properties as we did in step 10.  
 
 20. Go back to SpreadsheetAPI. Drag and drop `readData` sequence from the **Defined Sequences** to the canvas followed by a Respond mediator. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon6.png" title="Adding the read resource" width="800" alt="Adding read resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-read-resource.png" title="Adding the read resource" width="800" alt="Adding read resource"/>
 
 21. Next go to SpreadsheetAPI. To create the next API resource, drag and drop another API resource to the design view. Use the URL template as `/edit`. The method will be POST. 
 
@@ -175,7 +174,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 ```
 23. Go back to SpreadsheetAPI. Drag and drop `editSpeadsheet` sequence from the **Defined Sequences** to the canvas followed by a Respond mediator. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon7.png" title="Adding the edit resource" width="800" alt="Adding edit resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-edit.png" title="Adding the edit resource" width="800" alt="Adding edit resource"/>
 
 24. Below is the complete XML configuration of the SpreadsheetAPI. 
 ```xml
@@ -193,7 +192,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 <sequence description="This sequence will insert the data to the created spreadsheet. " key="addData"/>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/read">
@@ -209,14 +207,14 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 <sequence key="editSpreadsheet"/>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
 
 ```
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Exporting Integration Logic as a CApp
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 
 ## Get the project
@@ -232,20 +230,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-**Deploying on Micro Integrator**
-
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ## Testing
 

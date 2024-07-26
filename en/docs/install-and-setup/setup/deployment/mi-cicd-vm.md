@@ -18,7 +18,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 ##### Prerequisites
 
-1. Integration Studio 8.0.0 or higher
+1. Install [Micro Integrator Extension for VS Code](../../../../develop/mi-for-vscode/install-wso2-mi-for-vscode)
 
 2. Two GitHub repositories 
    
@@ -38,7 +38,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 1. Clone the [samples-apim](https://github.com/wso2/samples-apim/) repository
 
-2. Create Integration Project for your solution via the Integration Studio. By default, Integration studio adds parent maven details in the submodule POMs. You can customize maven details while creating the solution.
+2. Create Integration Project for your solution via the MI VS Code Extension. By default, the MI VS Code Extension adds parent maven details in the submodule POMs. You can customize maven details while creating the solution.
 
 3. Update Project pom scm details by filling the git location.
 
