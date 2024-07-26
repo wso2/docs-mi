@@ -28,11 +28,11 @@ The following diagram shows the overall solution. User can invoke the table sche
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting Up the Integration Project
+## Set up the Integration Project
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-### Creating the New Project
+### Create the New Project
 
 1. Go to **WSO2 Micro Integrator** in the VS Code.
 
@@ -46,7 +46,7 @@ Follow these steps to set up the Integration Project using the WSO2 Micro Integr
 
     <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-#### Configuring the API
+#### Configure the API
 
 Open the MI project view and click the **+** button next to the **API**. A form will open to create a new API resources. Specify the API name as **bigquery-testAPI** and API context as **/resources**.
 
@@ -261,8 +261,7 @@ export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Stu
     
 2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
-
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
@@ -472,6 +471,6 @@ Invoke the API as shown below using the curl command. Curl Application can be do
          }
    ```  
    
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [BigQuery Connector Reference Guide]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-reference) documentation for all operation details of the connector.

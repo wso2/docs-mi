@@ -1,4 +1,4 @@
-# Setting up the BigQuery Environment  
+# Set up the BigQuery environment  
 
 The BigQuery connector allows you to access the [BigQuery REST API](https://cloud.google.com/bigquery/docs/reference/rest) from an integration sequence.
 
@@ -6,7 +6,7 @@ To work with the BigQuery connector, you need to have a Google Cloud Platform ac
 
 BigQuery uses the OAuth 2.0 protocol for authorization. All requests to the BigQuery REST API will be authorized against a registered user. Developers can generate user credentials from the Google Cloud Platform using two different mechanisms. See the following sections for detail.
 
-### Obtaining user credentials 
+### Obtain user credentials 
 
 Follow the steps below to generate user credentials.
 
@@ -62,7 +62,7 @@ Follow the steps below to generate user credentials.
    
 12. Make a note of the **client ID** and **client secret** that is displayed or download the json file, and then **click OK**.   
 
-### Obtaining Access Token and Refresh Token
+### Obtain access token and refresh token
 
 1. Navigate to [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) and click OAuth 2.0 Configuration button in the Right top corner.
 
@@ -80,7 +80,7 @@ Follow the steps below to generate user credentials.
 
 5.  Under Step 2, click **Exchange authorization code for tokens** to generate and display the Access Token and Refresh Token.
 
-### Obtaining credentials using the service account
+### Obtain credentials using the service account
 
 1. Open the [Service Accounts](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) page in the GCP console.
 
@@ -114,7 +114,9 @@ Follow the steps below to generate user credentials.
 
 9. Select the key type as **P12** and click **Create**. Then the created key will be downloaded.
 
-### Creating Dataset and Table
+### Create Dataset and Table
+
+**Create dataset**
 
 1. Open the [BigQuery console](https://console.cloud.google.com/bigquery) and select the created project
 
@@ -128,7 +130,7 @@ Follow the steps below to generate user credentials.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-dataset2.png" title="Bigquery create Dataset step2" width="600" alt="Bigquery create Dataset step2"/> 
 
-**Creating Table**
+**Create table**
 
 1. After creating the Dataset, click on the created **Dataset**. You can see the following details. Then click **Create Table**.  
 
