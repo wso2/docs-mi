@@ -680,7 +680,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
     }
     ```
 
-### Table Data
+### Table data
 
 ??? note "listTabledata"
     The listTabledata operation retrieves table data from a specified set of rows. For more information, see related [BigQuery documentation](https://cloud.google.com/bigquery/docs/reference/v2/tabledata/list).

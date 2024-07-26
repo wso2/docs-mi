@@ -28,11 +28,11 @@ The following diagram shows the overall solution. User can invoke the table sche
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Set up the Integration Project
+## Set up the integration project
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-### Create the New Project
+### Create the new project
 
 1. Go to **WSO2 Micro Integrator** in the VS Code.
 
@@ -122,7 +122,7 @@ Create a resource that to invoke an API to get created table details from the Bi
 
 3. To forward the backend response to the API caller, navigate to the **Mediator** and click on the **Respond** mediator. 
 
-##### Configure a resource for the /runQuery operation
+##### Configure a resource for the runQuery operation
     
 1. Initialize the connector.
    You can use the same configuration to initialize the connector. Please follow the steps given in section 1 for setting up the `init` operation to the `gettabledetails` operation.
@@ -281,7 +281,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    ```
    curl -v POST -d @data.json "http://localhost:8290/resources/getTable" -H "Content-Type:application/json"
    ```
-   **Expected Response**
+   **Expected response**
     
    ```json
      // API callback
@@ -343,7 +343,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    curl -v POST -d @data.json "http://localhost:8290/resources/insertdetails" -H "Content-Type:application/json"
    ```
 
-   **Expected Response**
+   **Expected response**
     
    ```json
    {
@@ -368,7 +368,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    curl -v POST -d @data.json "http://localhost:8290/resources/getdetails" -H "Content-Type:application/json"
    ```
 
-   **Expected Response**
+   **Expected response**
     
    ```
      // API callback
@@ -418,7 +418,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    ```
    curl -v POST -d @data.json "http://localhost:8290/resources/runQuery" -H "Content-Type:application/json"
    ```
-   **Expected Response**
+   **Expected response**
    
    ```json
       {

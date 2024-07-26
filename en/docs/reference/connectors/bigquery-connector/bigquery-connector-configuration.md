@@ -114,7 +114,7 @@ Follow the steps below to generate user credentials.
 
 9. Select the key type as **P12** and click **Create**. Then the created key will be downloaded.
 
-### Create Dataset and Table
+### Create dataset and table
 
 **Create dataset**
 
