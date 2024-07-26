@@ -33,7 +33,7 @@ Notice that we have specified the `REST_URL_POSTFIX` property with the value set
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
+3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) using the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) with your Micro Integrator.
