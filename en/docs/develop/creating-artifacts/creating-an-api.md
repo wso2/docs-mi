@@ -80,7 +80,7 @@ Follow the instructions below to create a new REST API artifact in the Micro Int
                     Swagger File
                 </td>
                 <td>
-                    Click <b>Select Location</b> and select a file for OpenAPI definition. This is a required field.
+                    Click <b>Select Location</b> and select a file for OpenAPI definition. This field is required.
                 </td>
             </tr>
             <tr>
@@ -105,11 +105,11 @@ Follow the instructions below to create a new REST API artifact in the Micro Int
         <tbody>
           <tr>
             <td>WSDL Type</td>
-            <td>Select <b>File</b> to generate the API from a WSDL file or a Zip file containing a valid WSDL file, or select <b>URL</b> to generate the API using a remote WSDL file.</td>
+            <td>Select <b>File</b> to generate API from a WSDL file or a Zip file containing a valid WSDL file, or select <b>URL</b> to generate the API using a remote WSDL file.</td>
           </tr>
           <tr>
             <td>WSDL File</td>
-            <td>Browse and select the WSDL File or Zip file that has a valid WSDL file.</td>
+            <td>Browse and select the WSDL File or Zip file that contains a valid WSDL file.</td>
           </tr>
           <tr>
             <td>WSDL URL</td>
@@ -126,7 +126,7 @@ Follow the instructions below to create a new REST API artifact in the Micro Int
 
         !!! Note
             - Current SOAP to REST Generation has the limitations mentioned [here](https://github.com/wso2/soap-to-rest/blob/main/limitations.md).
-            - All the generated REST Services are not production ready and users need to review them manually using MI for VS Code and edit if needed.
+            - All the generated REST Services are not production-ready and users need to review them manually using MI for VS Code and edit if needed.
             - Since having `.` (dot) in XML element names is not a best practice, you may need to manually change the generated soap payload to include the `.` (dot).
 
 5. Once you complete the **API Form**, click **Create**.
