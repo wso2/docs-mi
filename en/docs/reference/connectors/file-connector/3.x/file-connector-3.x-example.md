@@ -24,7 +24,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 {!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
-## Creating the Integration Logic
+## Creating the integration Logic
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
@@ -150,9 +150,9 @@ You can further refer the application deployed through the CLI tool. See the ins
 
     3. You can see that the API is deployed under the API section. 
 
-## Testing
+## Test
 
-### File Create Operation
+### File create operation
 
 1. Create a file called data.json with the following payload. 
     ```
@@ -167,10 +167,11 @@ You can further refer the application deployed through the CLI tool. See the ins
     ```
     curl -H "Content-Type: application/json" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/create
     ```
-**Expected Response**: 
+**Expected response**: 
+
 You should get a 'Success' response, and the file should be created in the specified location in the above payload. 
 
-### File Read Operation
+### File read operation
 
 1. Create a file called data.json with the following payload. 
     ```
@@ -183,13 +184,13 @@ You should get a 'Success' response, and the file should be created in the speci
     curl -H "Content-Type: application/json" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/read
     ```
 
-**Expected Response**: 
+**Expected response**: 
 You should get the following text returned. 
 
 `
 This is a test file.
 `
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/3.x/file-connector-3.x-config) documentation for all operation details of the connector.
