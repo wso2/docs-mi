@@ -46,7 +46,7 @@ This sample security policy file validates username token and admin role is allo
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
+3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations provided above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
