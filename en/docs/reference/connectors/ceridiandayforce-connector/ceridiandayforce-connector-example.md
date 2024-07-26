@@ -19,30 +19,30 @@ Both of the two operations are exposed via an API. The API with the context `/da
 * `/postEmployeeContact`  - This will create the contact information of an employee when invoked. The relevant 
 parameters must be passed in the body as we will see below.
 
-## Setting up the environment 
+## Set up the environment 
 
 Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config/) document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
 Dayforce sample APIs. Keep them saved for use in the next steps.  
 
-## Setting up the integration project
+## Set up the integration project
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) to set up the Integration Project.
 
-## Creating the integration logic
+## Create the integration logic
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API. In the form that opens, provide the API name as `DayforceConnectorTestAPI` and the context as `/dayforceconnector` and click on **Create**.
+1. Select Micro Integrator and click on `+` in APIs to create a REST API. In the form that opens, provide the API name as `DayforceConnectorTestAPI` and the context as `/dayforceconnector` and click on **Create**.  
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/create-new-rest-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Click on the **Service Designer** and edit the added resource method with the following configurations as shown below. 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/edit-api-resource.png" title="Edit Resource Method" width="800" alt="Edit Resource Method"/>
 
-    | Field        | Value               |
-    |--------------|---------------------|
-    | URI Template | /getEmployeeAddress |
-    | URL Style    | URI_TEMPLATE        |
-    | Methods      | POST                |
-    | Protocol     | HTTP, HTTPS         |
+    | Field            | Value                 |
+    |------------------|-----------------------|
+    | **URI Template** | `/getEmployeeAddress` |
+    | **URL Style**    | `URI_TEMPLATE`        |
+    | **Methods**      | `POST`                |
+    | **Protocol**     | `HTTP, HTTPS`         |
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/edit-api-resource-configuration.png" title="Edit Resource Configuration" width="800" alt="Edit Resource Configuration"/>  
    
@@ -50,27 +50,27 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 3. Click on the `/getEmployeeAddress` resource method from the **Service Designer** to open the graphical view, where you can add mediators and the connector to the mediation logic.
 
-4. Add a **Log** mediator with the following configurations to log the request message.
+4. Add a [Log]({{base_path}}/reference/mediators/log-mediator/) mediator with the following configurations to log the request message.
 
-    | Field       | Value                |
-    |-------------|----------------------|
-    | Log Category| INFO                 |
-    | Log Level   | full                 |
-    | Separator   | ,                    |
+    | Field            | Value                  |
+    |------------------|------------------------|
+    | **Log Category** | `INFO`                 |
+    | **Log Level**    | `full`                 |
+    | **Separator**    | `,`                    |
 
-5. Add a **Property Group** mediator with the following parameters. 
+5. Add a [Property Group]({{base_path}}/reference/mediators/property-group-mediator/) mediator with the following parameters. 
 
-    | Property name       | Property value (as expression)    |
-    |---------------------|-----------------------------------|
-    | username            | json-eval($.username)             |
-    | password           | json-eval($.password)             |
-    | clientNamespace    | json-eval($.clientNamespace)      |
-    | apiVersion         | json-eval($.apiVersion)           |
-    | contextDateRangeFrom | json-eval($.contextDateRangeFrom) |
-    | contextDateRangeTo | json-eval($.contextDateRangeTo)   |
-    | xRefCode           | json-eval($.xRefCode)             |
+    | Property name            | Property value (as expression)      |
+    |--------------------------|-------------------------------------|
+    | **username**             | `json-eval($.username)`             |
+    | **password**             | `json-eval($.password)`             |
+    | **clientNamespace**      | `json-eval($.clientNamespace)`      |
+    | **apiVersion**           | `json-eval($.apiVersion)`           |
+    | **contextDateRangeFrom** | `json-eval($.contextDateRangeFrom)` |
+    | **contextDateRangeTo**   | `json-eval($.contextDateRangeTo)`   |
+    | **xRefCode**             | `json-eval($.xRefCode)`             |
 
-    You can add these properties by clicking on the **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the `Ex` button to specify the value types as expressions.
+    You can add these properties by clicking on the **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the **EX** button to specify the value types as expressions.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-parameters-to-property-group.png" title="Add Property Group Mediator" width="800" alt="Add Property Group Mediator"/>
 
@@ -80,12 +80,12 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 7. Click on **Add Parameter** and add the following parameters to the Ceridian Dayforce connector's `init` operation.
 
-    | Parameter name | Parameter value (as expression) |
-    |----------------|---------------------------------|
-    | username       | $ctx:username                   |
-    | password       | $ctx:password                   |
-    | clientNamespace | $ctx:clientNamespace           |
-    | apiVersion     | $ctx:apiVersion                 |
+    | Parameter name      | Parameter value (as expression)   |
+    |---------------------|-----------------------------------|
+    | **username**        | `$ctx:username`                   |
+    | **password**        | `$ctx:password`                   |
+    | **clientNamespace** | `$ctx:clientNamespace`            |
+    | **apiVersion**      | `$ctx:apiVersion`                 |
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-dayforce-init-param.png" title="Add Parameters to Dayforce Init" width="800" alt="Add Parameters to Dayforce Init"/>
 
@@ -97,53 +97,53 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 9. Click on the **Add Parameter** and add the following parameters to the Ceridian Dayforce connector's `getEmployeeAddresses` operation.
 
-    | Parameter name | Parameter value (as expression) |
-    |----------------|---------------------------------|
-    | xRefCode       | $ctx:xRefCode                   |
-    | contextDate    | $ctx:contextDate                |
-    | contextDateRangeFrom | $ctx:contextDateRangeFrom   |
-    | contextDateRangeTo | $ctx:contextDateRangeTo       |
+    | Parameter name           | Parameter value (as expression)   |
+    |--------------------------|-----------------------------------|
+    | **xRefCode**             | `$ctx:xRefCode`                   |
+    | **contextDate**          | `$ctx:contextDate`                |
+    | **contextDateRangeFrom** | `$ctx:contextDateRangeFrom`       |
+    | **contextDateRangeTo**   | `$ctx:contextDateRangeTo`         |
 
     Click on **Submit** to save the configurations.
 
-10. Add a **[Respond]({{base_path}}/reference/mediators/respond-mediator/)** mediator to the mediation logic to respond back to the client.
+10. Add a [Respond]({{base_path}}/reference/mediators/respond-mediator/) mediator to the mediation logic to respond back to the client.
 
 11. Let's add the logic to create contacts of an employee. Click on the **Service Designer** and add a new resource method with the following configurations as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-resource-post-employee-contacts.png" title="Add New Resource Method" width="800" alt="Add New Resource Method"/>
 
-    | Field        | Value                |
-    |--------------|----------------------|
-    | URI Template | /postEmployeeContact |
-    | URL Style    | URI_TEMPLATE         |
-    | Methods      | POST                 |
-    | Protocol     | HTTP, HTTPS          |
+    | Field            | Value                  |
+    |------------------|------------------------|
+    | **URI Template** | `/postEmployeeContact` |
+    | **URL Style**    | `URI_TEMPLATE`         |
+    | **Methods**      | `POST`                 |
+    | **Protocol**     | `HTTP, HTTPS`          |
 
     Click on **Add** to save the configurations.
 
 12. Click on the `/postEmployeeContact` resource method from the **Service Designer** to open the graphical view, where you can add mediators and the connector to the mediation logic.
 
-13. Add a **Log** mediator with the following configurations to log the request message.
+13. Add a [Log]({{base_path}}/reference/mediators/log-mediator/) mediator with the following configurations to log the request message.
 
-    | Field       | Value                |
-    |-------------|----------------------|
-    | Log Category| INFO                 |
-    | Log Level   | full                 |
-    | Separator   | ,                    |
+    | Field            | Value                  |
+    |------------------|------------------------|
+    | **Log Category** | `INFO`                 |
+    | **Log Level**    | `full`                 |
+    | **Separator**    | `,`                    |
 
-14. Add a **Property Group** mediator with the following parameters.
+14. Add a [Property Group]({{base_path}}/reference/mediators/property-group-mediator/) mediator with the following parameters.
 
-    | Property name       | Property value (as expression)    |
-    |---------------------|-----------------------------------|
-    | username            | json-eval($.username)             |
-    | password           | json-eval($.password)             |
-    | clientNamespace    | json-eval($.clientNamespace)      |
-    | apiVersion         | json-eval($.apiVersion)           |
-    | isValidateOnly     | json-eval($.isValidateOnly)       |
-    | fieldAndValue      | json-eval($.fieldAndValue)        |
-    | xRefCode           | json-eval($.xRefCode)             |
+    | Property name       | Property value (as expression)      |
+    |---------------------|-------------------------------------|
+    | **username**        | `json-eval($.username)`             |
+    | **password**        | `json-eval($.password)`             |
+    | **clientNamespace** | `json-eval($.clientNamespace)`      |
+    | **apiVersion**      | `json-eval($.apiVersion)`           |
+    | **isValidateOnly**  | `json-eval($.isValidateOnly)`       |
+    | **fieldAndValue**   | `json-eval($.fieldAndValue)`        |
+    | **xRefCode**        | `json-eval($.xRefCode)`             |
 
-    You can add these properties by clicking on **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the `Ex` button to specify the value types as expressions.
+    You can add these properties by clicking on **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the **EX** button to specify the value types as expressions.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-property-params-post-contacts.png" title="Add Property Group Mediator" width="800" alt="Add Property Group Mediator"/>
 
@@ -151,12 +151,12 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 16. Click on **Add Parameter** and add the following parameters to the Ceridian Dayforce connector's `init` operation.
 
-    | Parameter name | Parameter value (as expression) |
-    |----------------|---------------------------------|
-    | username       | $ctx:username                   |
-    | password       | $ctx:password                   |
-    | clientNamespace | $ctx:clientNamespace           |
-    | apiVersion     | $ctx:apiVersion                 |
+    | Parameter name      | Parameter value (as expression)   |
+    |---------------------|-----------------------------------|
+    | **username**        | `$ctx:username`                   |
+    | **password**        | `$ctx:password`                   |
+    | **clientNamespace** | `$ctx:clientNamespace`            |
+    | **apiVersion**      | `$ctx:apiVersion`                 |
 
     Click on **Submit** to save the configurations.
 
@@ -166,15 +166,15 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 18. Click on **Add Parameter** and add the following parameters to the Ceridian Dayforce connector's `postEmployeeContacts` operation.
 
-    | Parameter name | Parameter value (as expression) |
-    |----------------|---------------------------------|
-    | xRefCode       | $ctx:xRefCode                   |
-    | isValidateOnly | $ctx:isValidateOnly             |
-    | fieldAndValue  | $ctx:fieldAndValue              |
+    | Parameter name     | Parameter value (as expression)   |
+    |--------------------|-----------------------------------|
+    | **xRefCode**       | `$ctx:xRefCode`                   |
+    | **isValidateOnly** | `$ctx:isValidateOnly`             |
+    | **fieldAndValue**  | `$ctx:fieldAndValue`              |
 
     Click on **Submit** to save the configurations.
 
-19. Add a **[Respond]({{base_path}}/reference/mediators/respond-mediator/)** mediator to the mediation logic to respond back to the client.
+19. Add a [Respond]({{base_path}}/reference/mediators/respond-mediator/) mediator to the mediation logic to respond back to the client.
 
 20. The complete XML configuration of the API is as follows.
 
@@ -241,7 +241,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     </api>
     ```
 
-## Exporting integration logic as a CApp
+## Export integration logic as a CApp
 In order to export the project, refer to the [build and export the composite application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
 ## Get the project
@@ -258,7 +258,7 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-## Testing
+## Test
 
 We can use Curl or Postman to try the API. The testing steps are provided for curl. Steps for Postman should be 
 straightforward and can be derived from the curl requests.  
