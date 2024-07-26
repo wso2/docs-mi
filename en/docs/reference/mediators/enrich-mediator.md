@@ -29,12 +29,12 @@ The following properties are available:
     -   **Custom** - Custom XPath value.
     -   **Envelope** - Envelope of the original message used for enriching.
     -   **Body** - Body of the original message used for enriching.
-    -   **Property** - Specifies a property. For information on how you can use the Property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
+    -   **Property** - Specifies a property. For information on how you can use the property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
     -   **Inline** - Specifies a literal value for enriching.
 -   **XPath Expression** - This field is used to specify the custom XPath value if you selected **custom** for the **Type** field.
 
 !!! Tip
-    You can click the Namespaces link to add namespaces if you are providing an expression. You will be provided another panel named "Namespace Editor" where you can provide any number of namespace prefixes and URL that you have used in the XPath expression.
+    You can click the Namespaces link to add namespaces if you are providing an expression. You will be provided another panel named "Namespace Editor" where you can provide any number of namespace prefixes and URLs that you have used in the XPath expression.
 
 ### Target Configuration
 
@@ -53,13 +53,13 @@ The following properties are available:
     -   **Custom** - Custom XPath value.
     -   **Envelope** - Envelope of the original message used for enriching.
     -   **Body** - Body of the original message used for enriching.
-    -   **Property** - Specifies a property. For information on how you can use the Property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
+    -   **Property** - Specifies a property. For information on how you can use the property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
     -   **Inline** - Specifies a literal value for enriching.
     -   **Key** - Specifies that the target type is key. Specifically used to rename an existing key name in JSON payloads. *(Supported for JSON only)*.
 -   **XPath Expression** - Refer the [Source configuration](#source-configuration) above.
 
     !!! Info
-        The target type depends on the source type. For the valid and invalid combinations of source and target types, see below table.
+        The target type depends on the source type. For the valid and invalid combinations of source and target types, see the below table.
 
         <table>
             <tr>
@@ -115,7 +115,7 @@ The following properties are available:
     
 ### Example 1: Setting the property symbol
 
-In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) .
+In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
     
 ```xml
 <enrich>
@@ -190,7 +190,7 @@ Then whenever you need the original payload, you replace the message body with t
 ## Enriching in JSON format - Examples
 
 !!! Info
-    In JSON enriching scenarios if the enrich mediator source defined as a property it should contain a json object or json array.
+    In JSON enriching scenarios if the enrich mediator source is defined as a property it should contain a JSON object or JSON array.
 
 Below is the JSON payload that is sent in the request for the following examples.
 
@@ -217,7 +217,7 @@ Below is the JSON payload that is sent in the request for the following examples
 }
 ```
 
-### Example 1: Extract content from message payload and set to message body
+### Example 1: Extract content from the message payload and set it to the message body
 
 In this example, we will extract the content in the `data` object and set it as the message body.
 
@@ -331,7 +331,7 @@ In this example, we will define a new student inline and add it to the `students
 }
 ```
 
-### Example 4: Setting a custom path expressions to a property
+### Example 4: Setting a custom path expression to a property
 
 In this example, we will assign the first student's name to a property called `Name`.
 
@@ -462,15 +462,15 @@ In this example, we will replace the key name `name` of every student with `firs
 ```
 
 !!! Info
-    When specifying the json path of the target, it should comply to the below syntax.
+    When specifying the JSON path of the target, it should comply with the below syntax.
     
     ```text
     <json path to locate the key>.<keyname>
     ```
     
     E.g.: 
-    In the above configuration, we are trying to replace the `name` key of the student objects and 
-    json path to locate the student objects would be `$.data.students[*]`. Therefore json path would look like below.
+    In the above configuration, we are trying to replace the `name` key of the student objects, and 
+    JSON path to locate the student objects would be `$.data.students[*]`. Therefore JSON path would look like below.
     
     ```text
     $.data.students[*].name
@@ -501,10 +501,10 @@ In this example, we will replace the key name `name` of every student with `firs
 
 ### Example 9: Enriching JSON primitive values
 
-You can use Property mediators with `JSON` data type to enrich any JSON primitive, object, or an array to a given target.
+You can use property mediators with `JSON` data type to enrich any JSON primitive, object, or array to a given target.
 
 !!! Note 
-    When we use a Property with `STRING` data type in the Enrich mediator, it supports native JSON capabilities 
+    When we use a property with `STRING` data type in the Enrich mediator, it supports native JSON capabilities 
     only if the property contains a JSON object or a JSON array. The rest of the values are considered to be XML.
 
 ```xml
