@@ -10,7 +10,7 @@ service.
 
 Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
 
-## Step 1: Creating a registry resource module and a security policy as a registry resource
+## Step 1: Create a registry resource module and a security policy as a registry resource
 
 Registry artifacts (such as security policy files) should be stored in a
 **Registry Resource** module. Follow the steps given below to create a
@@ -45,12 +45,12 @@ module:
             For certain scenarios, you can specify user roles. After you select the scenario, scroll to the right to see the **User Roles** button. Either define the user roles inline or retrieve the user roles from the server.
                 
         !!! Info
-            Make sure the tokenStoreClass in the source view of the policy file is 'org.wso2.micro.integrator.security.extensions.SecurityTokenStore'.
-            In addition, replace the ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
+            Make sure the `tokenStoreClass` in the source view of the policy file is `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`.
+            In addition, replace the `ServerCrypto` class with `org.wso2.micro.integrator.security.util.ServerCrypto` if present.
         
 5.  Save the policy file.
 
-## Step 2: Adding the security policy to the data service
+## Step 2: Add the security policy to the data service
 
 Once you have configured the policy file, you can add the security
 policy to the data service as explained below.
@@ -77,13 +77,13 @@ See the instructions on [packaging the artifacts]({{base_path}}/develop/packagin
 
 See the instructions [deploying the artifacts]({{base_path}}/develop/deploy-artifacts).
 
-## Step 5: Testing the service
+## Step 5: Test the service
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
 
 For guidelines on using SoapUI, see [general guidelines on testing with SOAP UI]({{base_path}}/develop/advanced-development/applying-security-to-a-proxy-service/#general-guidelines-on-testing-with-soap-ui).
 
-## Using an encrypted datasource password
+## Use an encrypted datasource password
 
 When you create a data service for an RDBMS datasource, you have the
 option of encrypting the datasource connection password. This ensures
@@ -102,5 +102,5 @@ service as explained below.
 3.  Add the datasource to the data service.
 4.  Switch to the source view and add the following element to the datasource `<config>` to use a secret alias for the password.
     ```xml
-    <property xmlns:svns="http://org.wso2.securevault/configuration" name="password" svns:secretAlias="Datasource.Password" />
+    <property xmlns:svns="http://org.wso2.securevault/configuration" name="password" svns:secretAlias="Datasource.Password"/>
     ```
