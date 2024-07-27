@@ -185,7 +185,7 @@ Create the artifacts:
 
 6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
 
-Send a plain/text e-mail (Make sure you switch to **Plain text** **mode** when you are composing the email) with the following body and any custom Subject from your mail account to the mail address `synapse.demo.1@gmail.com`. 
+Send a plain/text e-mail (Ensure you switch to **Plain text** **mode** when composing the email) with the following body and any custom Subject from your mail account to the mail address `synapse.demo.1@gmail.com`. 
 
 ```xml 
 <m0:getQuote xmlns:m0="http://services.samples">
