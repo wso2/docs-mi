@@ -22,13 +22,13 @@ module:
 
 3. Select the **From existing template** option and enter the following details, as shown in the image below.
 
-    | Property      |    Value       |
-    |---------------|----------------|
-    | Resource Name | Sample_Policy  |
-    | Artifact Name | Sample_Policy  |
-    | Template      | WS-Policy      |
-    | Registry      | gov            |
-    | Registry path | ws-policy/     |
+    | Property          | Value           |
+    |-------------------|-----------------|
+    | **Resource Name** | `Sample_Policy` |
+    | **Artifact Name** | `Sample_Policy` |
+    | **Template**      | `WS-Policy`     |
+    | **Registry**      | `gov`           |
+    | **Registry path** | `ws-policy/`    |
 
     ![]({{base_path}}/assets/img/integrate/tutorials/data_services/119130577/create-new-registry-resource.png)
 
