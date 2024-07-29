@@ -33,12 +33,12 @@ The parameters available to configure the Store mediator is as follows.
 <tr class="odd">
 <td><strong>Message Store</strong></td>
 <td><div class="content-wrapper">
-<p>The Message Store, in which messages will be stored. You can give the name of the Message Store either as a <strong>value</strong> or as an <strong><strong>expression</strong> .</strong></p>
+<p>The Message Store, in which messages will be stored. You can give the name of the Message Store either as a <strong>value</strong> or as an <strong><strong>expression</strong>.</strong></p>
 <p>You should add the message store to the ESB profile before you can select it here.</p>
 <ul>
-<li>To give the Message Store name as a value, select <strong>Value</strong> for <strong>Specify As</strong> , and select the name of the Message Store from the drop down of <strong>Value</strong> .</li>
-<li><p>To give the Message Store name as an expression, select <strong>Expression</strong> for <strong>Specify As</strong> , and enter the XPath to derive the Message Store from the message context.</p>
-<p>In the namespace editor, add the namespaces that are used in the XPath.</p></li>
+<li>To give the Message Store name as a value, select <strong>Value</strong> for <strong>Specify As</strong>, and select the name of the Message Store from the drop down of <strong>Value</strong>.</li>
+<li><p>To give the Message Store name as an expression, select <strong>Expression</strong> for <strong>Specify As</strong>, and enter the XPath to derive the Message Store from the message context.</p>
+<p>In the namespace editor, add the namespaces used in the XPath.</p></li>
 </ul>
 </div></td>
 </tr>
@@ -55,10 +55,9 @@ Following are examples demonstrating the usage of the Store mediator.
 
 ### Defining the Message Store as a value
 
-A proxy service can be configured with the Store mediator as follows to
-save messages in a message store named `         JMSMS        ` .
+A proxy service can be configured with the Store mediator as follows to save messages in a message store named `JMSMS`.
 
-```
+```xml
 <proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
    <target>
       <inSequence>
@@ -72,65 +71,98 @@ save messages in a message store named `         JMSMS        ` .
 
 ### Defining the Message Store as an XPath expression
 
-A proxy service can be configured with the Store mediator as follows to
-save messages in a Message Store, which is dynamically set via the
-message context specified using an XPath expression.
+A proxy service can be configured with the Store mediator as follows to save messages in a Message Store, which is dynamically set via the message context specified using an XPath expression.
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StoreMediatorProxy" startOnLoad="true" transports="http https">
-        <description/>
+=== "Proxy Service 1"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StoreMediatorProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <store
-                    messageStore="{//ser:getQuote/ser:request/ser:symbol}" xmlns:ser="http://services.samples"/>
+                <store messageStore="{//ser:getQuote/ser:request/ser:symbol}" xmlns:ser="http://services.samples"/>
             </inSequence>
+            <faultSequence/>
         </target>
     </proxy>
-    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="StoreMediatorEndpoint">
-        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="StoreMediatorEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address     uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
     </endpoint>
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="errorHandler">
+    ```
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="errorHandler"  trace="disable"  xmlns="http://ws.apache.org/ns/synapse">
         <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
-        <log level="full">
+        <log category="INFO" level="full">
             <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+            <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+            <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
         </log>
         <!-- Drops the messages by default if there is a fault -->
         <drop/>
     </sequence>
-    <proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-       <target>
-          <inSequence>
-            <!-- Log all messages passing through -->
-            <log level="full"/>
-            <!-- ensure that the default configuration only sends if it is one of samples -->
-            <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
-            <filter regex="http://localhost:9000.*" source="get-property('To')">
-                <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
-                <send/>
-            </filter>
-         </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
-        <faultSequence>
-             <sequence key="errorHandler"/>
-        </faultSequence>
+    ```
+=== "Proxy Service 2"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SimpleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <!-- Log all messages passing through -->
+                <log category="INFO" level="full"/>
+                <!-- ensure that the default configuration only sends if it is one of samples -->
+                <filter regex="http://localhost:9000.*" source="get-property('To')">
+                    <then>
+                        <!-- Use call mediator for inline message sending and handling the response -->
+                        <call/>
+                    </then>
+                    <else>
+                        <!-- Log or handle messages not matching the filter -->
+                        <log level="custom">
+                            <property name="message" value="URL does not match the allowed pattern"/>
+                        </log>
+                        <!-- Respond with an error or appropriate message -->
+                        <respond/>
+                    </else>
+                </filter>
+                <!-- Use respond mediator to send back responses to non-filtered requests -->
+                <respond/>
+            </inSequence>
+            <faultSequence>
+                <sequence key="errorHandler"/>
+            </faultSequence>
         </target>
     </proxy>
-    <messageStore xmlns="http://ws.apache.org/ns/synapse" name="StoreMediatorStore"/>
-    <messageProcessor xmlns="http://ws.apache.org/ns/synapse"
-        class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-        messageStore="StoreMediatorStore" name="StoreMediatorProcessor" targetEndpoint="StoreMediatorEndpoint">
+    ```
+=== "Message Store"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageStore name="StoreMediatorStore" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse"/>
+    ```
+=== "Message Processor"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="StoreMediatorProcessor" messageStore="StoreMediatorStore" targetEndpoint="StoreMediatorEndpoint" xmlns="http://ws.apache.org/ns/synapse">
         <parameter name="client.retry.interval">1000</parameter>
-        <parameter name="throttle">false</parameter>
-        <parameter name="max.delivery.attempts">4</parameter>
         <parameter name="member.count">1</parameter>
+        <parameter name="is.active">true</parameter>
+        <parameter name="max.delivery.attempts">4</parameter>
+        <parameter name="store.connection.retry.interval">1000</parameter>
+        <parameter name="max.store.connection.attempts">-1</parameter>
         <parameter name="max.delivery.drop">Disabled</parameter>
         <parameter name="interval">1000</parameter>
-        <parameter name="is.active">true</parameter>
-        <parameter name="target.endpoint">StoreMediatorEndpoint</parameter>
+        <parameter name="throttle">false</parameter>
     </messageProcessor>
-```
+    ```
