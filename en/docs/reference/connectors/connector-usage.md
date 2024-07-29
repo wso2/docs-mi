@@ -4,7 +4,7 @@ This document provides a set of guidelines on how to use connectors throughout t
 
 ## Using connectors in your integration project
 
-Connectors can be added and used as part of the integration logic of your integration solution. This helps you configure inbound and outbound connections to third-party applications or to systems that support popular B2B protocols.
+Connectors can be added and used as part of the integration logic of your integration solution. This helps you configure inbound and outbound connections to third-party applications or systems that support popular B2B protocols.
 
 ### New connector versions
 
@@ -47,9 +47,9 @@ Some connectors use message content in the $body to execute the operation. In su
 * **[PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)** - This replaces the current message with a message in the format we specify. We can use the information of the current message to construct this new message.
 * **[Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)** - Enrich the current message modifying or adding new elements. This is also useful to save the current message as a property and to place a message in a property as the current message.
 * **[Datamapper mediator]({{base_path}}/reference/mediators/data-mapper-mediator)** - Transform JSON, XML, CSV messages between formats.
-* **[Script mediator]({{base_path}}/reference/mediators/script-mediator)** - Use JavaScript, Groovy or Ruby scripting languages to transform message in a custom manner.
+* **[Script mediator]({{base_path}}/reference/mediators/script-mediator)** - Use JavaScript, Groovy, or Ruby scripting languages to transform messages in a custom manner.
 * **[Custom class mediator]({{base_path}}/reference/mediators/class-mediator)** - Use Java to transform message in a custom manner (use Axiom, Jackson, or Gson libraries).
-* **Mediator Modules (new)** - Import module and use operations to transform message (currently CSV related transformations only).
+* **Mediator Modules (new)** - Import module and use operations to transform message (currently CSV-related transformations only).
 
 The above mediators are useful to transform the message anywhere in the mediation flow. Hence, the same mediators can be used to transform the result of a certain connector operation in the way the next connector operation needs. 
 
@@ -89,9 +89,9 @@ Instead of having the `init` operation before each connector operation, you can 
 
 ### Externalizing connector initialization parameters 
 
-Externalizing connection `init` parameters is important because it enables you to inject environment specific parameters without modifying the integration logic you deploy. The recommended approach to perform this is using environment specific CAR applications. 
+Externalizing connection `init` parameters is important because it enables you to inject environment-specific parameters without modifying the integration logic you deploy. The recommended approach to perform this is using environment-specific CAR applications. 
 
-No matter whether you create a new connection or create a local entry manually with init operation configuration, at the end you will have connector initialization configurations as local entries. Connector operations will refer them by their names. This enables us to group local entries related to connector configurations as a separate CApp. 
+No matter whether you create a new connection or create a local entry manually with the init operation configuration, in the end, you will have connector initialization configurations as local entries. Connector operations will refer to them by their names. This enables us to group local entries related to connector configurations as a separate CApp. 
 
 Keeping local entry names unchanged, you can create configurations specific to different environments and export them into different CApps. Upon deployment, it is possible to deploy this CApp along with other CApps containing integration logic
 
@@ -103,7 +103,7 @@ The following are some other ways to externalize connection initialization param
 
 ## Deployment 
 
-There are no special requirements when deploying the integration runtime with artifacts that has connectors. However, the following facts need to be considered. 
+There are no special requirements when deploying the integration runtime with artifacts that have connectors. However, the following facts need to be considered. 
 
 To seamlessly refresh tokens, use a registry location that is visible to all [cluster members]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant connectors, see the relevant documentation.
 
@@ -111,7 +111,7 @@ To seamlessly refresh tokens, use a registry location that is visible to all [cl
 
 SaaS connectors use HTTP/HTTPS protocol to communicate. They use the WSO2 mediation engine itself. Hence [HTTP protocol related tunings]({{base_path}}/install-and-setup/setup/performance-tuning/http-transport-tuning/) are applied. 
 
-Technology connectors use protocols that are custom. Thus their tuning needs to be done at the connector itself. All connection related tunings are present in the form you get when you create a new connection for the connector. For the older connectors, configurations will be present in the `init` operation. 
+Technology connectors use protocols that are custom. Thus their tuning needs to be done at the connector itself. All connection-related tunings are present in the form you get when you create a new connection for the connector. For the older connectors, configurations will be present in the `init` operation. 
 
 Please refer to the reference documentation of the connector for details. 
 
@@ -123,7 +123,7 @@ Connector implementations will have DEBUG and TRACE level logs. You can enable t
 
 * See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
 
-* To get the package name of the connector implementation, refer the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
+* To get the package name of the connector implementation, refer to the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
 
 !!! note
     Add fault sequences to the enclosing entities of connector operations (e.g., API resource) to gracefully handle the errors. 
@@ -144,7 +144,7 @@ Please refer to [the Debugging Mediation documentation]({{base_path}}/develop/de
 
 ### Debugging connector code 
 
-You can get the source code of the connector and remotely debug it with your scenario to find out issues. Refer to the ["How to contribute” section of the connector overview page]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project), get the GitHub repository, clone it, checkout the relevant version, and debug. It is open source!
+You can get the source code of the connector and remotely debug it with your scenario to find issues. Refer to the ["How to contribute” section of the connector overview page]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project), get the GitHub repository, clone it, checkout the relevant version, and debug. It is open source!
 
 Start the server with `./integrator.sh -debug <port>` and connect to that port from your IDE (IntelliJ IDEA). 
 
@@ -152,4 +152,4 @@ Start the server with `./integrator.sh -debug <port>` and connect to that port f
 
 Click on the **Report Issue** button on the connector store page for the connector. You will get diverted to the GitHub repository of the connector. Please report your issues there. 
 
-It is preferable to create another issue at WSO2 Micro Integrator project and link that issue. Specify the title of the issue as `[Connector]<title>`.
+It is preferable to create another issue in the WSO2 Micro Integrator project repository and link that issue. Specify the title of the issue as `[Connector]<title>`.
