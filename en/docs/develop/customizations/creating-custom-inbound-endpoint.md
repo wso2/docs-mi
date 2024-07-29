@@ -1,4 +1,4 @@
-# Creating a Custom Inbound Endpoint
+# Create a custom inbound endpoint
 
 WSO2 Micro Integrator supports several inbound endpoints. However, there can be scenarios that require functionality not provided by the existing inbound endpoints. For example, you might need an inbound endpoint to connect to a certain back-end server or vendor specific protocol.
 
@@ -6,7 +6,7 @@ To support such scenarios, you can write your own custom inbound endpoint by ext
 
 ## Instructions
 
-### Step 1: Develop the custom Inbound Endpoint
+### Step 1: Develop the custom inbound endpoint
 
 - To create a **custom listening inbound endpoint**, download the maven artifact used in the [sample custom listening inbound endpoint configuration](https://github.com/wso2-docs/ESB/tree/master/ESB-Artifacts/inbound/custom_inbound_listening) configuration.
 
