@@ -35,7 +35,7 @@ After completing the steps above, follow the instructions below to set up the wo
 
 6. Click **Add MI server** to add a Micro Integrator server.
 
-7. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+7. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
@@ -58,9 +58,9 @@ In the above scenario, the following takes place:
 
 1. The client makes a call to the Healthcare API created using Micro Integrator.
 
-2. The Healthcare API calls the Pine Valley Hospital back-end service and gets the queried information.
+2. The Healthcare API calls the Pine Valley Hospital back-end service to retrieve the requested information.
 
-3. The Healthcare API calls the Grand Oak Hospital back-end service and gets the queried information.
+3. The Healthcare API calls the Grand Oak Hospital back-end service to retrieve the requested information.
 
 4. The response is returned to the client with the required information.
 
@@ -145,27 +145,27 @@ The following project files and executable back-end services are available in th
 
     - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
-## Step 2 - Running the integration artifacts
+## Step 2 - Run the integration artifacts
 
 First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder in VS Code. There are two main options to build and run the integration scenario.
 
-### Option 1: Using the Visual Studio Code
+### Option 1: Use the Visual Studio Code
 
 Use one of the following two options to build and run the project:
 
-**Option 1**
+**Using the Command Palette**
 
 1. Click on the Command Palette on the top of the VS Code.
 2. Type `>` to show the available commands.
 3. Select **MI: Build and Run**.
 
-**Option 2**
+**Using the Build and Run icon**
 
-Click the **Build and Run** icon located on the top right corner of the VS Code.
+Click the **Build and Run** icon located in the top right corner of VS Code.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
-### Option 2: Using a local Micro Integrator instance
+### Option 2: Use a local Micro Integrator instance
 
 1. Export the artifacts as a deployable CAR file:
 
@@ -203,7 +203,7 @@ Click the **Build and Run** icon located on the top right corner of the VS Code.
 
 You can install and start the Integration Control Plane (ICP) to observe details of the deployed artifacts by following the steps below:
 
-1. Once you have deployed the artifacts and started the Micro Integrator server, you need to stop it before starting the ICP server.
+1. After deploying the artifacts and starting the Micro Integrator server, stop it before starting the ICP server.
 
     - If you are running the Micro Integrator runtime [using the Visual Studio Code](#option-1-using-the-visual-studio-code), stop the server using the **Stop** icon.
     
