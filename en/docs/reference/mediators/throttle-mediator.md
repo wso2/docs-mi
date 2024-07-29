@@ -1,14 +1,14 @@
 # Throttle Mediator
 
 The **Throttle Mediator** can be used to restrict access to services.
-This is useful when services used at the enterprise level, and it is required to avoid heavy loads that can cause performance issues in the system. 
+This is useful for enterprise-level services to avoid heavy loads that can cause performance issues in the system. 
 It can also be used when you want to avoid certain user groups (i.e. IP addresses and domains) accessing your system. 
 The Throttle mediator defines a throttle group which includes the following.
 
--   A throttle policy which defines the extent to which, individuals and groups of IP addresses/domains should be allowed to access the
+-   A throttle policy defines the extent to which, individuals and groups of IP addresses or domains should be allowed to access the
     service.
--   A mediation sequence to handle requests that were accepted based on the throttle policy.
--   A mediation sequence to handle requests that were rejected based on the throttle policy.
+-   A mediation sequence to handle requests accepted based on the throttle policy.
+-   A mediation sequence to handle requests rejected based on the throttle policy.
 
 !!! Info
     The Throttle mediator is a [content unaware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
@@ -25,12 +25,12 @@ The Throttle mediator defines a throttle group which includes the following.
 
 ## Configuration
 
-The configuration of the Throttle mediator are divided into following sections. Before you edit these sections, enter an ID for the Throttle group in the **Throttle Group ID** parameter.
+The configuration of the Throttle mediator is divided into the following sections. Before you edit these sections, enter an ID for the Throttle group in the **Throttle Group ID** parameter.
 
 ### Throttle Policy
 
 This section is used to specify the throttle policy that should apply to the requests passing through the Throttle mediator. 
-A throttle policy has a number of entries defining the extent to which, an individual or a group of IP addresses/domains should be allowed to access the service.
+A throttle policy has multiple entries defining the extent to which, an individual or a group of IP addresses/domains should be allowed to access the service.
 
 The parameters available to be configured in this section are as follows.
 
@@ -47,7 +47,7 @@ The parameters available to be configured in this section are as follows.
 <td><p>This section is used to specify the policy for throttling. The following options are available.</p>
 <ul>
 <li><strong>In-Lined Policy</strong>: If this is selected, the Throttle policy can be defined within the Throttle mediator configuration. Click <strong>Throttle Policy Editor</strong> to open the <strong>Mediator Throttling Configuration</strong> dialog box where the details relating to the Throttle policy can be entered. The parameters in this dialog box are described in the table below.</li>
-<li><strong>Referring Policy</strong>: If this is selected, you can refer to a predefined Throttle policy which is saved in the Registry. You can enter the key to access the policy in the <strong>Referring Policy</strong> parameter. Click on either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> to select the relevant policy from the Resource Tree.</li>
+<li><strong>Referring Policy</strong>: If this is selected, you can refer to a predefined Throttle policy saved in the Registry. You can enter the key to access the policy in the <strong>Referring Policy</strong> parameter. Click on either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> to select the relevant policy from the Resource Tree.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -66,7 +66,7 @@ The parameters available in the **Mediator Throttling Configuration** dialog box
 <tr class="odd">
 <td><strong>Maximum Concurrent Accesses</strong></td>
 <td><div class="content-wrapper">
-<p>The maximum number of messages that are served at a given time. The number of messages between the inflow throttle handler and the outflow throttle handler cannot exceed the value entered for this parameter at any given time. This parameter value is applied to the entire system. It is not restricted to one or more specific IP addresses/domains.</p>
+<p>The maximum number of messages served at a given time. The number of messages between the inflow throttle handler and the outflow throttle handler cannot exceed the value entered for this parameter at any given time. This parameter value is applied to the entire system. It is not restricted to one or more specific IP addresses/domains.</p>
 <p>When this parameter is used, the same Throttle mediator ID should be included in the response flow so that the completed responses are deducted from the available limit.</p>
 </div></td>
 </tr>
