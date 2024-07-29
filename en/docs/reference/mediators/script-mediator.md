@@ -8,7 +8,7 @@ A Script mediator can be created in one of the following methods.
 -   With the script program statements embedded inline within the Synapse configuration.
 
 Synapse uses the Apache [Bean Scripting Framework](http://jakarta.apache.org/bsf/) for scripting language support. 
-Any script language supported by BSF may be used to implement the Synapse Mediator. With the Script Mediator, you can invoke a function in the corresponding script. With these functions, it is possible to access the Synapse predefined in a script variable named `mc` . 
+Any script language supported by BSF may be used to implement the Synapse Mediator. With the Script Mediator, you can invoke a function in the corresponding script. With these functions, it is possible to access the Synapse predefined in a script variable named `mc`. 
 The `mc` variable represents an implementation of the `MessageContext`, named `ScriptMessageContext.java`, which contains the following methods that can be accessed within the script as `mc.methodName`.
 
 | Return? | Method Name                        | Description                                                                                                                                                    |
