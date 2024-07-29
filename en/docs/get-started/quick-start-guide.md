@@ -151,16 +151,6 @@ First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder i
 
 ### Option 1: Use the Visual Studio Code
 
-Use one of the following two options to build and run the project:
-
-**Using the Command Palette**
-
-1. Click on the Command Palette on the top of the VS Code.
-2. Type `>` to show the available commands.
-3. Select **MI: Build and Run**.
-
-**Using the Build and Run icon**
-
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
