@@ -28,7 +28,7 @@ echo "dockersecret123456" | docker secret create testdockersecret -
 This command will create a Docker secret named `testdockersecret` in your Docker environment.
 
 !!! Tip
-        You can view the list of all secrets available in the Docker environment by using the `docker secret ls` command.
+        You can view the list of all secrets available in the Docker environment using the `docker secret ls` command.
 
 ### Step 2: Use Docker secrets in Synapse configurations
 
@@ -127,7 +127,7 @@ The Docker secrets and file secrets are stored in default locations in the conta
 -	On **Linux**: `/run/secrets/<secret_name>`
 -	On **Windows**: `C:\ProgramData\Docker\secrets`
 
-The default location for the file secret is the `<MI-HOME>/` directory. Therefore, by default, the server will search for aliases in these directories.
+The default location for the file secret is the `<MI_HOME>/` directory. Therefore, by default, the server will search for aliases in these directories.
 
 However, if you are storing your secrets in a different directory location in the container, you should configure the server to search the secrets in those custom directories by using the following **system properties**.
 
