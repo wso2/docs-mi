@@ -1,4 +1,4 @@
-# Creating a New Connector
+# Create a New Connector
 
 You can write a new connector for a specific requirement that cannot be addressed via any of the existing connectors that can be downloaded from the [connector store](https://store.wso2.com/store/pages/top-assets).
 
@@ -12,7 +12,7 @@ Follow the steps given below to write the new connector.
 
 Download and install Apache Maven.
 
-### Step 1: Creating the Maven project template
+### Step 1: Create the Maven project template
 
 We will use the [maven archetype](https://github.com/wso2-extensions/archetypes/tree/master/esb-connector-archetype) to generate the Maven project template and sample connector code. 
 
@@ -24,9 +24,9 @@ We will use the [maven archetype](https://github.com/wso2-extensions/archetypes/
 2.  When prompted, enter a name for the connector. For example, **googleBooks**.  
 3.  When prompted for confirmation, enter **y**. 
     
-The `org.wso2.carbon.esb.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src`tree, and `repository` tree.
+The `org.wso2.carbon.esb.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src` tree, and `repository` tree.
 
-### Step 2: Adding the new connector resources
+### Step 2: Add the new connector resources
 
 Now, let's configure files in the `org.wso2.carbon.esb.connector.googlebooks/src/main/resources` directory:
 
@@ -77,7 +77,7 @@ Now, let's configure files in the `org.wso2.carbon.esb.connector.googlebooks/src
 
 You are now ready to build the connector.
 
-### Step 3: Building the connector
+### Step 3: Build the connector
 
 Open a terminal, navigate to the `org.wso2.carbon.esb.connector.googlebooks` directory and execute the following maven command:
 
@@ -87,11 +87,11 @@ mvn clean install
 
 This builds the connector and generates a ZIP file named `googleBooks-connector-1.0.0.zip` in the `target` directory.
 
-## Using the new connector
+## Use the new connector
 
 Now, let's look at how you can use the new connector in a mediation sequence.
 
-### Step 1: Adding the connector to your mediation sequence
+### Step 1: Add the connector to your mediation sequence
 
 1. [Set up WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/installing-wso2-integration-studio).
 2. [Create an ESB Config project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
@@ -99,7 +99,7 @@ Now, let's look at how you can use the new connector in a mediation sequence.
     !!! Tip
         Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
 
-3. [Create a custom proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Graphical View**, you will see that the new connector is added to the tool palette under the **Local Connectors** section.
+3. [Create a custom proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Graphical View**, you will see that the new connector has been added to the tool palette under the **Local Connectors** section.
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/connector-view-pallet.png" width="500">
 
 4. Now, update the proxy service as shown below. You will be defining a mediation logic using the **Property** mediator, the new **googleBooks** connector, and the **Respond** mediator:
@@ -123,11 +123,11 @@ Now, let's look at how you can use the new connector in a mediation sequence.
     </proxy>
     ```
 
-### Step 2: Building and deploying the artifacts
+### Step 2: Build and deploy the artifacts
 
 You can click on the **Build and Run** option to build the Composite Application project and deploy the artifacts in the Micro Integrator. Alternatively, you can use the **Build** and **Export** options to build the artifacts and export them as a CAR file.
 
-### Step 3: Testing the connector
+### Step 3: Test the connector
 
 Post a request to the proxy service using Curl as shown below.
 
