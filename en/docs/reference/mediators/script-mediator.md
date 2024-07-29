@@ -2,7 +2,7 @@
 
 The **Script Mediator** is used to invoke the functions of a variety of scripting languages such as JavaScript, Groovy, or Ruby.
 
-A Script mediator can be created in one of the following methods.
+A Script mediator can be created using one of the following methods.
 
 -   With the script program statements stored in a separate file, referenced via the **Local or Remote Registry entry**.
 -   With the script program statements embedded inline within the Synapse configuration.
