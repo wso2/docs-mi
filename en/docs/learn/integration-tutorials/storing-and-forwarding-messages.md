@@ -1,9 +1,9 @@
 # Store and Forward Messages for Guaranteed Delivery
 
 ## What you'll build
-Store and forward messaging is used to serve traffic to back-end services that can only accept request messages at a given rate. This is also used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store and available for future reference.
+Store and forward messaging is used to serve traffic to back-end services that can only accept request messages at a given rate. This method also ensures guaranteed delivery of messages. Messages are never lost since they are stored in the message store and available for future reference.
 
-**In this tutorial**, instead of sending the request directly to the back-end service, you store the request message in the RabbitMQ broker. You will then use a **Message Processor** to retrieve the message from the store before delivering it to the back-end service.
+**In this tutorial**, instead of sending the request directly to the back-end service, you store the request message in the RabbitMQ broker. You then use a **Message Processor** to retrieve the message from the store before delivering it to the back-end service.
 
 ## Let's get started!
 
@@ -518,7 +518,7 @@ If you want to send the client request from your terminal:
 
 You will see the same request JSON as the response received by your **HTTP Client**.
 
-Now check the **Console** tab of WSO2 Integration Studio and you will see the following message:
+Now check the **OUTPUT** tab of VS code and you will see the following message:
 
 ```log
 [2024-07-26 11:45:56,798]  INFO {LogMediator} - {api:HealthcareAPI} To: http://www.w3.org/2005/08/addressing/anonymous, WSAction: , SOAPAction: , MessageID: urn:uuid:03d39a92-1727-40c7-80a6-3a0cba58e57f, correlation_id: 2a3b2350-5ef9-4e30-b5bd-7ec5a6fb0167_1aa41990-0b7f-4c1c-bbeb-23976344f792, Direction: request, Payload: {"appointmentNumber":1,"doctor":{"name":"thomas collins","hospital":"grand oak community hospital","category":"surgery","availability":"9.00 a.m - 11.00 a.m","fee":7000.0},"patient":{"name":"John Doe","dob":"1940-03-19","ssn":"234-23-525","address":"California","phone":"8770586755","email":"johndoe@gmail.com"},"fee":7000.0,"confirmed":false}
