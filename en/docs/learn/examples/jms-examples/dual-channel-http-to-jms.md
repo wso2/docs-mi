@@ -1,11 +1,10 @@
 # JMS Synchronous Invocations: Dual Channel HTTP-to-JMS
 
-A JMS synchronous invocation takes place when a JMS producer receives a response to a JMS request produced by it when invoked. The WSO2 Micro Integrator uses an internal **JMS correlation ID** to correlate the request and the response. See [JMSRequest/ReplyExample](http://www.eaipatterns.com/RequestReplyJmsExample.html) for more information. JMS synchronous invocations are further explained in the following use case.
+A JMS synchronous invocation occurs when a JMS producer receives a response to a JMS request it produced when invoked. The WSO2 Micro Integrator uses an internal **JMS correlation ID** to correlate the request and the response. See [JMSRequest/ReplyExample](http://www.eaipatterns.com/RequestReplyJmsExample.html) for more information. JMS synchronous invocations are further explained in the following use case.
 
-When the proxy service named `SMSSenderProxy` receives an HTTP request, it publishes that request in a JMS queue named `SMSStore`. Another proxy service named `SMSForwardProxy` subscribes to messages published in this queue and forwards them to a back-end service named `SimpleStockQuoteService`. When this back-end service returns an HTTP response, internal ESB logic is used to save that
-message as a JMS message in a JMS queue named `SMSReceiveNotification`. The `SMSSenderProxy` proxy service picks the response from the `SMSReceiveNotification` queue and delivers it to the client as an HTTP message using the internal mediation logic.
+When the proxy service `SMSSenderProxy` receives an HTTP request, it publishes that request in a JMS queue named `SMSStore`. Another proxy service named `SMSForwardProxy` subscribes to messages published in this queue and forwards them to a back-end service named `SimpleStockQuoteService`. When this back-end service returns an HTTP response, internal ESB logic is used to save that message as a JMS message in a JMS queue named `SMSReceiveNotification`. The `SMSSenderProxy` proxy service picks the response from the `SMSReceiveNotification` queue and delivers it to the client as an HTTP message using the internal mediation logic.
 
-**Note** that the `SMSSenderProxy` proxy service is able to pick up the message from the `SMSReceiveNotification` queue because the `transport.jms.ReplyDestination` parameter of the `SMSSenderProxy` proxy service is set to the same `SMSReceiveNotification` queue.
+**Note** that the `SMSSenderProxy` proxy service is able to pick up the message from the `SMSReceiveNotification` queue because the `transport.jms.ReplyDestination` parameter of the `SMSSenderProxy` proxy service is set to the same `SMSReceiveNotification` queue.
 
 !!! Info
     **Correlation between request and response**:
@@ -20,7 +19,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 ### JMS publisher configuration
 
-Shown below is the `SMSSenderProxy` proxy service.
+The `SMSSenderProxy` proxy service is shown below.
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
@@ -201,11 +200,11 @@ Set up the broker:
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
-Set up the back-end service:
+Set up the backend service:
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+3. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
             
     === "On MacOS/Linux/CentOS"
