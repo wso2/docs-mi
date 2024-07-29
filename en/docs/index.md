@@ -141,5 +141,8 @@ header.md-header .md-header__button:not([hidden]) {
     visibility: hidden;
     margin-bottom: 0;
 }
+.md-search-result__article.md-typeset h1{
+    visibility: visible;
+}
 </style>
 {% endraw %}
