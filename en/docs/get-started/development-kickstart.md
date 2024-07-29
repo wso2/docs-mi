@@ -26,7 +26,7 @@ is used to integrate two back-end hospital services to provide information to th
     
     Both the Grand Oak service and Pine Valley service are exposed over the HTTP protocol.
     
-    - The Grand Oak service accept GET requests in the following service endpoint URL:
+    - The Grand Oak service accepts GET requests in the following service endpoint URL:
       ```
       http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
       ```
@@ -79,7 +79,7 @@ After completing the steps above, follow the instructions below to set up the wo
 
 6. Click **Add MI server** to add a Micro Integrator server.
 
-7. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+7. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
@@ -473,23 +473,20 @@ Following is what you will see in the **Source View** of MI for VS Code.
 
 There are two main options to build and run the integration scenario.
 
-### Option 1: Using the MI for Visual Studio Code extension
+### Option 1: Use the MI for VS Code extension
 
-Use one of the following two options to build and run the project:
-
-**Option 1**
-
-1. Click on the Command Palette on the top of the VS Code.
-2. Type `>` to show the available commands.
-3. Select **MI: Build and Run**.
-
-**Option 2**
-
-Click the **Build and Run** icon located on the top right corner of the VS Code.
+Click the **Build and Run** icon located in the top right corner of VS Code.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
-### Option 2: Using a local Micro Integrator instance
+!!! info
+    Alternatively you can use the Command Palette to build and run the artifacts.
+
+    1. Click on the Command Palette on the top of the VS Code.
+    2. Type `>` to show the available commands.
+    3. Select **MI: Build and Run**.
+
+### Option 2: Use a local Micro Integrator instance
 
 1. Export the artifacts as a deployable CAR file:
 
