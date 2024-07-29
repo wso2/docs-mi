@@ -6,7 +6,7 @@ To support such scenarios, you can write your own custom inbound endpoint by ext
 
 ## Instructions
 
-### Step 1: Developing the custom Inbound Endpoint
+### Step 1: Develop the custom Inbound Endpoint
 
 - To create a **custom listening inbound endpoint**, download the maven artifact used in the [sample custom listening inbound endpoint configuration](https://github.com/wso2-docs/ESB/tree/master/ESB-Artifacts/inbound/custom_inbound_listening) configuration.
 
@@ -14,12 +14,12 @@ To support such scenarios, you can write your own custom inbound endpoint by ext
 
 - To create a **custom event-based inbound endpoint**, download the maven artifact used in the [sample custom event-based inbound endpoint configuration](https://github.com/wso2-docs/ESB/tree/master/ESB-Artifacts/inbound/custom_inbound_waiting).
 
-### Step 2: Deploying the Custom Inbound Endpoint
+### Step 2: Deploy the custom inbound endpoint
 
 You need to copy the built jar file to the `MI_HOME/lib` directory and restart the Micro Integrator to load the class.
-To add the jar file to the <b>Embedded Micro Integrator</b>, copy it to the <b>lib</b> directory under the <b>deployment</b> directory in the **Explorer** view of the VSCode or add the maven dependency of the jar file to the <b>pom.xml</b> file of the project.
+To add the jar file via your integration project, copy it to the <b>lib</b> directory under the <b>deployment</b> directory in the **Explorer** view of the VSCode or add the maven dependency of the jar file to the <b>pom.xml</b> file of the project.
 
-### Step 3: Adding the custom Inbound Endpoint
+### Step 3: Add the custom inbound endpoint
 
 1. If you have already created an [Integration Project]({{base_path}}/develop/create-integration-project), click the `+` button in the **Inbound Endpoints** section of the **Micro Integrator: Project Explorer** and select **Custom**. This will open a form.
 2. Give a unique name to the inbound endpoint and update the rest of the properties with the required details as follows:
