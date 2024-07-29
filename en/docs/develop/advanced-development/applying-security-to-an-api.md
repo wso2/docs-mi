@@ -70,7 +70,7 @@ public class BasicAuthHandler implements Handler {
                 }
             }
         }
-        return true;
+        return false;
     }
 
     public boolean handleResponse(MessageContext messageContext) {
