@@ -3,7 +3,7 @@
 The **Aggregate mediator** implements the [Aggregator enterprise integration pattern](https://wso2docs.atlassian.net/wiki/spaces/EIP/pages/48791730/Aggregator). It
 combines (aggregates) the **response messages** of messages that were split by the split by the [Clone]({{base_path}}/reference/mediators/clone-mediator) or
 [Iterate]({{base_path}}/reference/mediators/iterate-mediator) mediator. Note that the responses are not necessarily aggregated in the same order that the requests were sent,
-even if you set the `         sequential        ` attribute to `         true        ` on the Iterate mediator.
+even if you set the `sequential` attribute to `true` on the Iterate mediator.
 
 !!! Info
     The Aggregate mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
@@ -81,38 +81,35 @@ The parameters available for configuring the Aggregate mediator are as follows.
 
 ### Example 1 - Sending aggregated messages through the send mediator
 
-``` java
-<outSequence>
+```xml
+<inSequence>
     <aggregate>
         <onComplete expression="//m0:getQuoteResponse"
                 xmlns:m0="http://services.samples">
-            <send/>
+            <respond/>
         </onComplete>
     </aggregate>
-</outSequence>
+</inSequence>
 ```
 
-In this example, the mediator aggregates the responses coming into the Micro Integrator, and on completion it sends the aggregated message through
-the Send mediator.
+In this example, the mediator aggregates the responses coming into the Micro Integrator, and on completion it responds with the aggregated message using the [Respond](({{base_path}}/reference/mediators/respond-mediator/)) mediator.
 
 ### Example 2 - Sending aggregated messages with the enclosing element
 
-The following example shows how to configure the Aggregate mediator to
-annotate the responses sent from multiple backends before forwarding
-them to the client.
+The following example shows how to configure the Aggregate mediator to annotate the responses sent from multiple backends before forwarding them to the client.
 
 ``` xml
-<outSequence>
+<inSequence>
    <property name="info" scope="default">
       <ns:Information xmlns:ns="www.asankatechtalks.com" />
    </property>
    <aggregate id="sa">
       <completeCondition />
       <onComplete expression="$body/*[1]" enclosingElementProperty="info">
-         <send />
+         <respond/>
       </onComplete>
    </aggregate>
-</outSequence>
+</inSequence>
 ```
 
 The above configuration includes the following:
@@ -139,8 +136,8 @@ The above configuration includes the following:
 <td>This expression is used to add the <code>             info            </code> property (created earlier in this configuration) to be added to the payload of the message and for accumulating all the aggregated messages from different endpoints inside the tag created inside this property.</td>
 </tr>
 <tr class="even">
-<td><code class="sourceCode xml">             <span class="er">&lt;</span>            </code> <code class="sourceCode xml">             send            </code> <code class="sourceCode xml">             /&gt;            </code></td>
-<td>This is the Send mediator added as a child mediator to the Aggregate mediator in order to send the aggregated and annotated messages back to the client once the aggregation is complete.</td>
+<td><code class="sourceCode xml">             <span class="er">&lt;</span>            </code> <code class="sourceCode xml">             respond            </code> <code class="sourceCode xml">             /&gt;            </code></td>
+<td>This is the Respond mediator added as a child mediator to the Aggregate mediator in order to send the aggregated and annotated messages back to the client once the aggregation is complete.</td>
 </tr>
 </tbody>
 </table>

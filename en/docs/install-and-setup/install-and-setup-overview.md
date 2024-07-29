@@ -44,7 +44,7 @@ To install and run the Micro Integrator Dashboard on a virtual machine, see the 
 <table>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-mi-dashboard">Installing the Micro Integrator Dashboard</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-integration-control-plane">Installing the Integration Control Plane</a>
         </th>
         <td>
             Explains how to download the Micro Integrator Dashboard as a binary and install it on a virtual machine.
@@ -52,7 +52,7 @@ To install and run the Micro Integrator Dashboard on a virtual machine, see the 
     </tr>   
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/running-the-mi-dashboard">Running the Micro Integrator Dashboard</a>
+            <a href="{{base_path}}/install-and-setup/install/running-the-integration-control-plane">Running the Integration Control Plane</a>
         </th>
         <td>
             Explains how you can execute the Micro Integrator Dashboard and start using its features.
@@ -388,15 +388,15 @@ To implement continuous integration and continuous deployment pipelines for inte
     </tr>
 </table>
 
-To manage integration artifacts and logs in the Micro Integrator by using the API Controller (apictl), see the topics given below.
+To manage integration artifacts and logs in the Micro Integrator by using the Micro Integrator CLI (micli), see the topics given below.
 
 <table>
     <tr>
         <th>   
-            <a href="{{base_path}}/observe-and-manage/managing-integrations-with-apictl">Managing Integrations</a>
+            <a href="{{base_path}}/observe-and-manage/managing-integrations-with-micli">Managing Integrations</a>
         </th>
         <td>
-            Explains how to manage integrations with the API Controller.
+            Explains how to manage integrations with the MI CLI.
         </td>
     </tr>
 </table>

@@ -61,7 +61,6 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 </log>
                 <store messageStore="sales-delivery-store"/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </target>
     </proxy>
@@ -91,13 +90,14 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 ## Build and run
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the artifacts (proxy service, message-processor, message-store, endpoint) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 5. Make sure you have a RabbitMQ broker instance running.
 6. Send a message to the `sales-delivery-proxy` with the following payload.
 	```xml
+    Content-Type: application/xml
+    
 	<Message>
 		<SalesId>342</SalesId>
 		<SaleName>HealthCorp</SaleName>

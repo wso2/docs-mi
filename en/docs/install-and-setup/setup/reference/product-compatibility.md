@@ -1,6 +1,6 @@
 # Product Compatibility
 
-Given below are the compatibility details of the WSO2 Micro Integrator (MI) 4.2.0 runtimes.
+Given below are the compatibility details of the WSO2 Micro Integrator (MI) 4.3.0 runtimes.
 
 ## Tested Operating Systems
 

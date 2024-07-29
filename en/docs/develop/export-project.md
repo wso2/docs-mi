@@ -1,48 +1,20 @@
 # Exporting a Project
 
-With WSO2 Integration Studio, you can export projects from your workspace and later [import them]({{base_path}}/develop/importing-projects).
+With MI for VS Code, you can export projects and later [import]({{base_path}}/develop/importing-projects) them.
 
-For example, consider the following [**Maven Multi Module** project]({{base_path}}/develop/create-integration-project) in your project explorer. This is a project solution that includes several project types.
+If you are deploying the Carbon Application on a remote server that cannot be configured using the **Build and Run** option, you can export the Carbon Application and deploy it manually.
 
-<img src="{{base_path}}/assets/img/integrate/create_project/proj_explorer_mmm_proj_2.png" width="300">
+Follow one of the below options:
 
-Follow the steps given below to export the project.   
+- Click the **Build** button in the top right corner of the **Project Overview** page to build the Carbon Application. 
+  Once the build is complete, switch to the VS Code default **Explorer** view and retrieve the Carbon Application file from the `target` directory under the `<PROJECT_NAME>` directory.
 
-1.  Right-click the project and click **Export**.
+    <a href="{{base_path}}/assets/img/develop/build-capp.png"><img src="{{base_path}}/assets/img/develop/build-capp.png" alt="build" width="700"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/export_project_option.png" width="300">
+- To build and export in a single step, click the Export button in the top right corner of the Project Overview page. 
+  Select a directory to save the exported Carbon Application file.
 
-2.  In the **Export** wizard, open the **WSO2** folder as shown below.
+    <a href="{{base_path}}/assets/img/develop/export-capp.png"><img src="{{base_path}}/assets/img/develop/export-capp.png" alt="export" width="700"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/export_dialog_1.png" width="500">
+Once the Carbon Application is exported, you can manually copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory and start the server.
 
-3.  You can choose to export the project as an **archive file** or as a **file system**. Select the required option from the list and click **Next**.
-
-    <table>
-        <tr>
-            <th>
-                Projects Export as Archive File
-            </th>
-            <td>
-                Select this option to export the project as a ZIP archive.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Projects Export as File System
-            </th>
-            <td>
-                Select this option to export the project folders without creating a ZIP archive.
-            </td>
-        </tr>
-    </table>
-    
-4.  In the next page, see that your root project folder is selected. Click **Browse** and give the path to the export location. 
-
-    !!! Tip
-        If you have other projects in your workspace, you can also select them if required.
-
-    <img src="{{base_path}}/assets/img/integrate/create_project/export_dialog_2.png" width="500">
-
-
-5.  Click **Finish** to export the project.

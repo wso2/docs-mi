@@ -42,7 +42,7 @@ Given below is the data service configuration you need to build. See the instruc
     <property name="driverClassName">com.mysql.jdbc.Driver</property>
     <property name="url">jdbc:mysql://localhost:3306/Employees</property>
     <property name="username">root</property>
-    <property name="password"></property>
+    <property name="password">password</property>
   </config>
     <query id="AddEmployeeDetails" useConfig="Datasource">
         <sql>insert into Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values(:EmployeeNumber,:FirstName,:LastName,:Email,:Salary)</sql>

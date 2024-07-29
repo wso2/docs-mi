@@ -82,8 +82,7 @@ Listed below are the synapse configurations for implementing this scenario. See 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -127,23 +126,31 @@ Invoke the proxy service:
         ```
     === "Response"        
         ```json
-        {"Envelope":
-          {"Body":
-            {"getQuoteResponse":
-              {"change":-2.86843917118114,
-               "earnings":-8.540305401672558,
-               "high":-176.67958828498735,
-               "last":177.66987465262923,
-               "low":-176.30898912339075,
-               "marketCap":56495579.98178506,
-               "name":"IBM Company",
-               "open":185.62740369461244,
-               "peRatio":24.341353665128693,
-               "percentageChange":-1.4930577008849097,
-               "prevClose":192.11844053187397,
-               "symbol":"IBM","volume":7791}
+        {
+            "Envelope": {
+                "Header": null,
+                "Body": {
+                    "getQuoteResponse": {
+                        "return": {
+                            "@type": "ax21:GetQuoteResponse",
+                            "change": 3.8274925074699615,
+                            "earnings": 12.497082213279025,
+                            "high": -161.41346745041102,
+                            "last": 164.53738820320592,
+                            "lastTradeTimestamp": "Mon Jul 01 16:12:23 IST 2024",
+                            "low": -163.2629771689784,
+                            "marketCap": -4291974.770736802,
+                            "name": "IBM Company",
+                            "open": 172.25384297431248,
+                            "peRatio": 25.33375650150598,
+                            "percentageChange": 2.156561954110794,
+                            "prevClose": 177.4812219131509,
+                            "symbol": "IBM",
+                            "volume": 19678
+                        }
+                    }
+                }
             }
-          }
         }
         ```
 
@@ -169,28 +176,27 @@ Invoke the proxy service:
         ```
     === "Response"        
         ```xml
-        <?xml version='1.0' encoding='UTF-8'?>
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+            <soapenv:Header/>
             <soapenv:Body>
-                <soapenv:Envelope xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples">
-                    <soapenv:Body>
-                        <ns:getQuoteResponse>
-                            <ax21:change>-2.86843917118114</ax21:change>
-                            <ax21:earnings>-8.540305401672558</ax21:earnings>
-                            <ax21:high>-176.67958828498735</ax21:high>
-                            <ax21:last>177.66987465262923</ax21:last>
-                            <ax21:low>-176.30898912339075</ax21:low>
-                            <ax21:marketCap>5.649557998178506E7</ax21:marketCap>
-                            <ax21:name>IBM Company</ax21:name>
-                            <ax21:open>185.62740369461244</ax21:open>
-                            <ax21:peRatio>24.341353665128693</ax21:peRatio>
-                            <ax21:percentageChange>-1.4930577008849097</ax21:percentageChange>
-                            <ax21:prevClose>192.11844053187397</ax21:prevClose>
-                            <ax21:symbol>IBM</ax21:symbol>
-                            <ax21:volume>7791</ax21:volume>
-                        </ns:getQuoteResponse>
-                    </soapenv:Body>
-                </soapenv:Envelope>
+                <ns:getQuoteResponse xmlns:ns="http://services.samples">
+                    <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                        <ax21:change>4.131871430984311</ax21:change>
+                        <ax21:earnings>13.582164597035094</ax21:earnings>
+                        <ax21:high>-160.71069227737433</ax21:high>
+                        <ax21:last>162.56566544816462</ax21:last>
+                        <ax21:lastTradeTimestamp>Mon Jul 01 16:19:44 IST 2024</ax21:lastTradeTimestamp>
+                        <ax21:low>166.6876727232271</ax21:low>
+                        <ax21:marketCap>3.630109155595136E7</ax21:marketCap>
+                        <ax21:name>IBM Company</ax21:name>
+                        <ax21:open>-161.08473734270993</ax21:open>
+                        <ax21:peRatio>24.51306734205319</ax21:peRatio>
+                        <ax21:percentageChange>-2.622518084027564</ax21:percentageChange>
+                        <ax21:prevClose>-157.55359157099647</ax21:prevClose>
+                        <ax21:symbol>IBM</ax21:symbol>
+                        <ax21:volume>5552</ax21:volume>
+                    </ns:return>
+                </ns:getQuoteResponse>
             </soapenv:Body>
         </soapenv:Envelope>
         ```
