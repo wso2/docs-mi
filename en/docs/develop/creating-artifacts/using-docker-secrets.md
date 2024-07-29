@@ -1,4 +1,4 @@
-# Using Docker Secrets in Synapse Configurations
+# Use Docker Secrets in Synapse Configurations
 
 WSO2 Micro Integrator comes with a built-in secret repository as a part of its [secure vault implementation](https://apim.docs.wso2.com/en/4.2.0/install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation/) by default. In addition to this, the Micro Integrator also provides built-in support for Docker secrets and Kubernetes secrets for your containerized deployments.
 
@@ -9,11 +9,11 @@ Managing sensitive information in a Docker environment can be achieved using two
 
 There are two ways to add secrets to a Docker environment: Creating the Docker secret directly inside the environment, or storing the secrets in a flat file and adding the file to the environment.
 
-## Creating a secret in the Docker environment
+## Create a secret in the Docker environment
 
 Follow the steps given below to directly add the required secrets to the Docker environment.
 
-### Step 1: Creating Docker secrets
+### Step 1: Create Docker secrets
 
 You can create a Docker secret in the Docker environment by using the following command:
 
@@ -30,7 +30,7 @@ This command will create a Docker secret named `testdockersecret` in your Docker
 !!! Tip
         You can view the list of all secrets available in the Docker environment by using the `docker secret ls` command.
 
-### Step 2: Using Docker secrets in Synapse configurations
+### Step 2: Use Docker secrets in Synapse configurations
 
 Secret can be accessed from the integration artifacts by using the `wso2:vault-lookup` function in the following format.
 
@@ -41,7 +41,7 @@ wso2:vault-lookup('<alias>', '<type>', '<isEncrypted>')
 Specify values for the following three parameters:
 
 -	`<alias>`: Name of the secret.
-- `<type>`: Set this to `DOCKER`
+-   `<type>`: Set this to `DOCKER`
 -	`<isEncrypted>`: Set this to `true` or `false` to specify whether the secret is encrypted.
 
 Given below is a sample synapse configuration that accesses and prints the Docker secret we declared in the previous step.
@@ -50,11 +50,11 @@ Given below is a sample synapse configuration that accesses and prints the Docke
 <property expression="wso2:vault-lookup('testdockersecret', 'DOCKER', 'false')" name="secret"/>
 ```
 
-## Adding a secret from a flat file
+## Add a secret from a flat file
 
 Instead of creating Docker secrets directly in the Docker environment, you can add secrets to the Docker environment by adding a flat file that contains the secrets.
 
-### Step 1: Adding the flat file
+### Step 1: Add the flat file
 
 Follow the steps given below.
 
@@ -66,7 +66,7 @@ Follow the steps given below.
 COPY Resources/FLAT_FILE_NAME ${WSO2_SERVER_HOME}/
 ```
 
-### Step 2: Using file secrets in Synapse configurations
+### Step 2: Use file secrets in Synapse configurations
 
 Secret can be accessed from the integration artifacts by using the `wso2:vault-lookup` function in the following format.
 
@@ -88,7 +88,7 @@ Given below is a sample synapse configuration that accesses and prints the file 
 <property expression="wso2:vault-lookup('testsecret', 'FILE', 'false')" name="secret"/>
 ```
 
-## Enabling secrets in the environment
+## Enable secrets in the environment
 
 Once the secrets are added to the environment, you need to enable <b>secure vault</b> in the environment. In a <b>Docker environment</b>, you don't need to manually run the Cipher tool. 
 The Cipher tool has been enabled by default in the `pom.xml` file of your integration project, and when you build the Docker image, the secrets will be enabled in the environment.
@@ -120,7 +120,7 @@ The Cipher tool has been enabled by default in the `pom.xml` file of your integr
 
      See the [Docker guide](https://docs.docker.com/engine/swarm/secrets/#defining-and-using-secrets-in-compose-files) for more information on defining and using Docker secrets.
 
-## Configuring the secrets' location
+## Configure the secrets' location
 
 The Docker secrets and file secrets are stored in default locations in the container environment. The Docker secrets can be found in the following location:
 
