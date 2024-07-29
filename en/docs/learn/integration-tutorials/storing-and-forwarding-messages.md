@@ -1,7 +1,7 @@
 # Store and Forward Messages for Guaranteed Delivery
 
 ## What you'll build
-Store and forward messaging is used for serving traffic to back-end services that can only accept request messages at a given rate. This is also used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store and available for future reference.
+Store and forward messaging is used to serve traffic to back-end services that can only accept request messages at a given rate. This is also used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store and available for future reference.
 
 **In this tutorial**, instead of sending the request directly to the back-end service, you store the request message in the RabbitMQ broker. You will then use a **Message Processor** to retrieve the message from the store before delivering it to the back-end service.
 
@@ -233,7 +233,7 @@ Let's create an Endpoint to represent the Hospital Service back-end service.
 
 #### Create a Sequence
 
-Let's create a Sequence that uses the message in the message store to send the request to hospital service endpoint.
+Let's create a Sequence that uses the message in the message store to send the request to the hospital service endpoint.
 
 1. Navigate to the **MI Project Explorer** > **Sequences**.
 
@@ -255,7 +255,7 @@ Let's create a Sequence that uses the message in the message store to send the r
 
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-call-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-call-mediator.png" alt="Add call mediator" width="80%"></a>
 
-4.  In the sequence palette specify endpoint as `HospitalServicesEP`. Click **Submit**.
+4.  In the sequence palette specify the endpoint as `HospitalServicesEP`. Click **Submit**.
 
 5.  Click **+** icon after the **Call mediator** and add a **Log mediator** from the palette and specify the following details:
 
@@ -413,7 +413,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 #### Start the back-end service
 
 1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-2. Open a terminal, navigate to the location where your saved the back-end service.
+2. Open a terminal, navigate to the location where you saved the back-end service.
 3. Execute the following command to start the service:
 
     ```bash
@@ -489,7 +489,7 @@ If you want to send the client request from your terminal:
 
 1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
 
-2.  Create a JSON file names `request.json` with the following request payload.
+2.  Create a JSON file named `request.json` with the following request payload.
 
     ```json
     {
