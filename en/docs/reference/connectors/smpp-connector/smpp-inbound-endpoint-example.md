@@ -1,6 +1,6 @@
 # SMPP inbound endpoint example
 
-The SMPP inbound endpoint allows you to consume messages from SMSC. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages into the integration sequence. It will receive alert notifications or will notify when a data short message is accepted.
+The SMPP inbound endpoint allows you to consume messages from SMSC (Short Message Service Center). The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages into the integration sequence. It will receive alert notifications or will notify when a data short message is accepted.
 
 ## What you'll build
 
