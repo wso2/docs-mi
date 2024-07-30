@@ -52,12 +52,12 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     In the pop-up window, the following parameters must be provided. <br/>
     
-    - Connection Name - A unique name to identify the connection by.
-    - Connection Type - Type of the connection that specifies the protocol to be used.
-    - Host - Host name of the mail server.
-    - Port - The port number of the mail server.
-    - Username - Username used to connect with the mail server.
-    - Password - Password to connect with the mail server.
+    - **Connection Name** - A unique name to identify the connection by.
+    - **Connection Type** - Type of the connection that specifies the protocol to be used.
+    - **Host** - Host name of the mail server.
+    - **Port** - The port number of the mail server.
+    - **Username** - Username used to connect with the mail server.
+    - **Password** - Password to connect with the mail server.
 
     Additionally, for SMTP Secure Connection, the following parameter is also required.
     
@@ -65,12 +65,12 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     The following values can be provided to connect to Gmail. <br/>
     
-    - Connection Name - `smtpsconnection`
-    - Connection Type - `SMTPS`
-    - Host - `smtp.gmail.com`
-    - Port - `465`
-    - Username - &lt;your_email_address&gt;
-    - Password - &lt;your_email_password&gt; 
+    - **Connection Name** - `smtpsconnection`
+    - **Connection Type** - `SMTPS`
+    - **Host** - `smtp.gmail.com`
+    - **Port** - `465`
+    - **Username** - &lt;your_email_address&gt;
+    - **Password** - &lt;your_email_password&gt; 
     > **NOTE**: If you have enabled 2-factor authentication, an app password should be obtained as instructed [here](https://support.google.com/accounts/answer/185833?hl=en).
     - Require TLS - `false`
 
@@ -80,11 +80,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-select-conn.png" title="Selecting the connection." width="400" alt="Selecting the connection."/>
 
 8. Next, provide the expressions below to the following properties in the properties window to obtain respective values from the JSON request payload.
-    - to - `json-eval($.to)`
-    - from - `json-eval($.from)`
-    - subject - `json-eval($.subject)`
-    - content - `json-eval($.content)`
-    - contentType - `json-eval($.contentType)`
+    - **to** - `json-eval($.to)`
+    - **from** - `json-eval($.from)`
+    - **subject** - `json-eval($.subject)`
+    - **content** - `json-eval($.content)`
+    - **contentType** - `json-eval($.contentType)`
  
 9. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response from sending the email as shown below.
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-respond.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
@@ -97,19 +97,19 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 12. Next, we will create an IMAP connection to list emails similar to step 6. Following are the values to be provided when creating the connection. Then select the created connection for the `list` operation similar to step 7.
 
-    - Connection Name - `imapsconnection`
-    - Connection Type - `IMAPS`
-    - Host - `imap.gmail.com`
-    - Port - `993`
-    - Username - &lt;your_email_address&gt;
-    - Password - &lt;your_email_password&gt;
+    - **Connection Name** - `imapsconnection`
+    - **Connection Type** - `IMAPS`
+    - **Host** - `imap.gmail.com`
+    - **Port** - `993`
+    - **Username** - &lt;your_email_address&gt;
+    - **Password** - &lt;your_email_password&gt;
 
 13. In this operation we are going to receive the following inputs from the user. 
     - subjectRegex - Subject Regex to filter the email from. <br/>
     
     Therefore, provide the expressions below to the following properties in the `list` operation window to obtain respective values from the JSON request payload similar to step 8.<br/>
     
-    - Subject Regex: `json-eval($.subjectRegex)`
+    - **Subject Regex** : `json-eval($.subjectRegex)`
     
 14. We will next iterate the response received and obtain the email content of each email using the `getEmailBody` operation. To do this, add the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) as shown below entering `//emails/email` as the Foreach Expression.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-foreach-mediator.png" title="Adding foreach mediator." width="800" alt="Adding foreach mediator."/>
