@@ -30,18 +30,18 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 2. Provide the API name as `EmailConnector` and the API context as `/emailconnector`. Once we create the API there will be a default resource created and it can be deleted as given below. 
 <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-delete-default-resource.png" title="Deleting default resource" width="800" alt="Deleting default resource"/>
 
-3. First we will create the `/send` resource. This API resource will retrieve information from the incoming HTTP post request such as recipients and content. Create the email and send it to the mentioned recipients.<br/>
+3. First, we will create the `/send` resource. This API resource will retrieve information from the incoming HTTP post request such as recipients and content. Create the email and send it to the mentioned recipients.<br/>
    Select the `EmailConnector` API and go to `Open Service Designer`. 
    Click on the `+ Resource` to add an API resource. We use a URL template called `/send` as we have two API resources inside a single API. The method will be `Post`. 
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-resource-1.png" title="Adding the API resource step 1." width="800" alt="Adding the API resource step 1."/>
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-resource-2.png" title="Adding the API resource step 2." width="800" alt="Adding the API resource step 2."/>
 
-4. In this operation we are going to receive the following inputs from the user. 
-    - from - Sender of the email.
-    - to - Recipient of the email. 
-    - subject - Subject of the email.
-    - content - Content to be included in the email.
-    - contentType - Content Type of the email
+4. In this operation, we are going to receive the following inputs from the user. 
+    - **from** - Sender of the email.
+    - **to** - Recipient of the email. 
+    - **subject** - Subject of the email.
+    - **content** - Content to be included in the email.
+    - **contentType** - Content Type of the email
 
 5. Click on the yellow color highlighted `+` mark. In the pop-up window, go to the `email` connector in the `Connectors` tab and select the `send` operation. <br/>
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-send-operation-1.png" title="Adding the send operation." width="800" alt="Adding the send operation."/>
