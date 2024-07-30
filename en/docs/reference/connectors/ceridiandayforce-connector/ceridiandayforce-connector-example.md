@@ -9,11 +9,11 @@ burden of managing and replicating data on-premise.
 
 This example depicts how to use Dayforce connector to:
 
-1. Send GET request to retrieve address of employees from the sample environment defaults
+1. Send GET request to retrieve the address of employees from the sample environment defaults
 2. Send a POST request to create contacts of an employee. (Note that the POST and PATCH requests will not update the 
 sample environment database as it is shared among all developers. However, we will get a response with HTTP code 200)
 
-Both of the two operations are exposed via an API. The API with the context `/dayforceconnector` has three resources  
+Both of the two operations are exposed via an API. The API with the context `/dayforceconnector` has three resources.  
 
 * `/getEmployeeAddress` - Once invoked, it will retrieve the address information of a specified employee
 * `/postEmployeeContact`  - This will create the contact information of an employee when invoked. The relevant 
@@ -369,7 +369,7 @@ curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/post
 ```
 
 **Expected Response**:
-* You should get a 200 OK response. Please bear in mind that this post will not update the database in the sample 
+* You should get a 200 OK response. Please note that this post will not update the database in the sample 
 environment. However, if you use this in a test or production environment changes will be made to the database.
 
 In this example Ceridian Dayforce connector is used to perform operations with Dayforce HCM.  Please read the [Ceridian Dayforce connector reference guide]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference/) to learn more about the operations you can perform with the Dayforce connector.
