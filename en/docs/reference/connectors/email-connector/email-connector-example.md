@@ -105,7 +105,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - **Password** - &lt;your_email_password&gt;
 
 13. In this operation we are going to receive the following inputs from the user. 
-    - subjectRegex - Subject Regex to filter the email from. <br/>
+    - **subjectRegex** - Subject Regex to filter the email from. <br/>
     
     Therefore, provide the expressions below to the following properties in the `list` operation window to obtain respective values from the JSON request payload similar to step 8.<br/>
     
