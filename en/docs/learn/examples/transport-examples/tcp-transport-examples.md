@@ -64,21 +64,19 @@ The following proxy service splits the message by a character. It receives a mes
                 </enrich> 
                 <log level="full" separator=","/> 
                 <header name="Action" value="urn:getQuote" />
-                <send> 
+                <call> 
                    <endpoint> 
                       <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/> 
                    </endpoint> 
-                </send> 
-             </inSequence> 
-             <outSequence> 
+                </call> 
                 <log level="full"/> 
-                <send/> 
-             </outSequence> 
+                <respond/>
+             </inSequence> 
           </target> 
           <parameter name="transport.tcp.responseClient">true</parameter> 
           <parameter name="transport.tcp.recordDelimiter">|</parameter> 
           <parameter name="transport.tcp.inputType">string</parameter> 
-          <parameter name="transport.tcp.port">6060</parameter> 
+          <parameter name="transport.tcp.port">6061</parameter> 
           <parameter name="transport.tcp.recordDelimiterType">character</parameter> 
           <parameter name="transport.tcp.contentType">text/xml</parameter> 
 </proxy>
@@ -87,8 +85,7 @@ The following proxy service splits the message by a character. It receives a mes
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3.  Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -114,7 +111,7 @@ Send the following message via TCP to the TCP listener port.
 ```
 In Linux, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
 ```
-netcat localhost 6060 < request.xml
+netcat localhost 6061 < request.xml
 ```
 It can be observed that two messages are sent to the backend.
 
@@ -149,21 +146,19 @@ The sample proxy below splits the input message by appending a special characte
             </enrich> 
             <log level="full" separator=","/> 
             <header name="Action" value="urn:getQuote" />
-            <send> 
+            <call> 
                <endpoint> 
                   <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/> 
                </endpoint> 
-            </send> 
-         </inSequence> 
-         <outSequence> 
+            </call> 
             <log level="full"/> 
-            <send/> 
-         </outSequence> 
+            <respond/>
+         </inSequence> 
       </target> 
   <parameter name="transport.tcp.recordDelimiter">0x03</parameter> 
   <parameter name="transport.tcp.responseClient">true</parameter> 
   <parameter name="transport.tcp.inputType">binary</parameter> 
-  <parameter name="transport.tcp.port">6060</parameter> 
+  <parameter name="transport.tcp.port">6061</parameter> 
   <parameter name="transport.tcp.recordDelimiterType">byte</parameter> 
   <parameter name="transport.tcp.contentType">text/xml</parameter> 
 </proxy>
@@ -173,8 +168,7 @@ The sample proxy below splits the input message by appending a special characte
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -200,8 +194,9 @@ Send the following message via TCP to the TCP listener port.
 ```
 In Linux, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
 ```
-netcat localhost 6060 < request.xml
+netcat localhost 6061 < request.xml
 ```
+It can be observed that one message is sent to the backend.
 
 ## Example 3: Splitting by a character sequence
 
@@ -235,21 +230,19 @@ The sample proxy below splits the input message by a sequence of characters.
             </enrich> 
             <log level="full" separator=","/> 
             <header name="Action" value="urn:getQuote" />
-            <send> 
+            <call> 
                <endpoint> 
                   <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/> 
                </endpoint> 
-            </send> 
-         </inSequence> 
-         <outSequence> 
+            </call> 
             <log level="full"/> 
-            <send/> 
-         </outSequence> 
+            <respond/> 
+         </inSequence> 
       </target>
 <parameter name="transport.tcp.responseClient">true</parameter> 
       <parameter name="transport.tcp.recordDelimiter">split</parameter>
       <parameter name="transport.tcp.inputType">string</parameter> 
-      <parameter name="transport.tcp.port">6060</parameter> 
+      <parameter name="transport.tcp.port">6061</parameter> 
       <parameter name="transport.tcp.recordDelimiterType">string</parameter> 
       <parameter name="transport.tcp.contentType">text/xml</parameter> 
  </proxy>
@@ -259,8 +252,7 @@ The sample proxy below splits the input message by a sequence of characters.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -288,7 +280,7 @@ Send the following message via TCP to the TCP listener port.
 In Linux, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request.
 
 ```
-netcat localhost 6060 < request.xml
+netcat localhost 6061 < request.xml
 ```
 It can be observed that two messages are sent to the backend.
 
@@ -307,7 +299,7 @@ The sample Java Client below splits the input message by a special character. Al
  public class TCPClient {
  
      String host = "localhost";
-     int port = 6060;
+     int port = 6061;
      Socket socket = null;
      int count = 0;
      

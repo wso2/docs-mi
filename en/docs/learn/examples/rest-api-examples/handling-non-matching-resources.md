@@ -11,22 +11,18 @@ Following is a sample REST API configuration and Sequence configuration that we 
     <api xmlns="http://ws.apache.org/ns/synapse" name="jaxrs" context="/jaxrs">
        <resource methods="GET" uri-template="/customers/{id}">
           <inSequence>
-             <send>
-                <endpoint>
-                   <address uri="http://localhost:8290/jaxrs_basic/services/customers/customerservice"/>
-                </endpoint>
-             </send>
+             <call>
+                <endpoint key="CustomerService" />
+             </call>
+             <respond />
           </inSequence>
-          <outSequence>
-             <send/>
-          </outSequence>
        </resource>
     </api> 
     ```
 === "Sequence"       
     ```xml
-     <sequence xmlns="http://ws.apache.org/ns/synapse" name="_resource_mismatch_handler_">
-       <payloadFactory>
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="_resource_mismatch_handler_">
+       <payloadFactory media-type="xml">
           <format>
              <tp:fault xmlns:tp="http://test.com">
                 <tp:code>404</tp:code>
@@ -46,12 +42,18 @@ Following is a sample REST API configuration and Sequence configuration that we 
        <send/>
     </sequence>
     ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="CustomerService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:8290/jaxrs_basic/services/customers/customerservice"/>
+    </endpoint>
+    ```
+
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}.
 3. Create the [rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

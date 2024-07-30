@@ -15,24 +15,25 @@ Following are the artifact configurations that we can use to implement this scen
             <property name="OUT_ONLY" value="true"/>
             <store messageStore="MyStore"/>
         </inSequence>
-        <outSequence>
-          <send />
-        </outSequence>
     </target>
     </proxy>
     ```
 === "Message Store"    
-    ```xml  
-    <messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore"/>
+    ```xml
+    <messageStore name="MyStore" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse"/>
     ```
+
 === "Message Processor"    
     ```xml  
-    <messageProcessor xmlns="http://ws.apache.org/ns/synapse"
-        class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-        messageStore="MyStore" name="ScheduledProcessor" targetEndpoint="StockQuoteServiceEp">
-        <parameter name="interval">10000</parameter>
-        <parameter name="throttle">false</parameter>
-        <parameter name="target.endpoint">StockQuoteServiceEp</parameter>
+    <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="ScheduledProcessor" messageStore="MyStore" targetEndpoint="StockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="client.retry.interval">1000</parameter>
+        <parameter name="member.count">1</parameter>
+        <parameter name="is.active">true</parameter>
+        <parameter name="max.delivery.attempts">4</parameter>
+        <parameter name="store.connection.retry.interval">1000</parameter>
+        <parameter name="max.store.connection.attempts">-1</parameter>
+        <parameter name="max.delivery.drop">Disabled</parameter>
+        <parameter name="interval">1000</parameter>
     </messageProcessor>
     ```
 === "Endpoint"    
@@ -51,12 +52,9 @@ Following are the artifact configurations that we can use to implement this scen
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store) and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
-
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) and set up the JMS Sender.
+1. {!includes/build-and-run.md!}
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), [In-Memory message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store) and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
 
@@ -77,7 +75,7 @@ Set up the back-end service:
 Send the following request to invoke the service:
 
 ```bash
-POST http://localhost:9090/services/StockQuoteProxy HTTP/1.1
+POST http://localhost:8290/services/StockQuoteProxy HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:getQuote"

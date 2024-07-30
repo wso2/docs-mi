@@ -1,4 +1,4 @@
-# FIX Parameters
+# FIX parameters
 
 When you implement an integration use case that requires a FIX connection, you can use the following FIX parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,7 +9,7 @@ When you implement an integration use case that requires a FIX connection, you c
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level Parameters
+## Service-Level parameters
 
 <table>
       <tr>
@@ -35,7 +35,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
          </td>
          <td>
             URL to the Quickfix/J initiator configuration file (see notes below).</br></br>
-            Required for sendingmessages over FIX.
+            Required for sending messages over FIX.
          </td>
       </tr>
       <tr>
@@ -43,7 +43,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.AcceptorLogFactory
          </td>
          <td>
-            Log factory implementation to be used for the FIX acceptor (Determines how logging is done at the acceptor level).</br></br>
+            Log factory implementation to be used for the FIX acceptor (determines how logging is done at the acceptor level).</br></br>
             Possible values are <code>console</code>, <code>file</code>, and <code>jdbc</code>.</br></br>
             Logging is disabled by default.
          </td>
@@ -53,7 +53,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.InitiatorLogFactory
          </td>
          <td>
-            Log factory implementation to be used for the FIX acceptor (Determines how logging is done at the acceptor level).</br></br>
+            Log factory implementation to be used for the FIX acceptor (determines how logging is done at the acceptor level).</br></br>
             Possible values are <code>console</code>, <code>file</code>, and <code>jdbc</code>.</br></br>
             Logging is disabled by default.
          </td>
@@ -83,7 +83,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.ResponseDeliverToCompID
          </td>
          <td>
-            If the response FIX messages should be delivered to a location different from the location from where the request originated, use this property to set the DeliverToCompID field of the FIX messages.
+            If the response FIX messages should be delivered to a location different to the location where the request originated, use this property to set the DeliverToCompID field of the FIX messages.
          </td>
       </tr>
       <tr>
@@ -91,7 +91,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.ResponseDeliverToSubID
          </td>
          <td>
-            If the response FIX messages should be delivered to a location different from the location from where the request originated, use this property to set the DeliverToSubID field of the FIX messages.
+            If the response FIX messages should be delivered to a location different to the location where the request originated, use this property to set the DeliverToSubID field of the FIX messages.
          </td>
       </tr>
       <tr>
@@ -99,7 +99,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.ResponseDeliverToLocationID
          </td>
          <td>
-            If the response FIX messages should be delivered to a location different from the location from where the request was originated, use this property to set the DeliverToLocationID field of the FIX messages.
+            If the response FIX messages should be delivered to a location different to the location where the request originated, use this property to set the DeliverToLocationID field of the FIX messages.
          </td>
       </tr>
       <tr>
@@ -107,7 +107,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.endAllToInSequence
          </td>
          <td>
-            By default, all received FIX messages (including responses) will be directed to the in sequence of the proxy service. Use this property to override that behavior.<br/><br/>
+            By default, all received FIX messages (including responses) will be directed to the <code>inSequence</code> of the proxy service. Use this property to override that behavior.<br/><br/>
             By default, this setting is <code>true</code>.
          </td>
       </tr>
@@ -116,7 +116,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.fix.BeginStringValidation
          </td>
          <td>
-            Whether the transport should validate <code>BeginString</code> values when forwrding FIX messages across sessions.<br/><br/>
+            Whether the transport should validate <code>BeginString</code> values when forwarding FIX messages across sessions.<br/><br/>
             By default, this setting is <code>true</code>.
          </td>
       </tr>

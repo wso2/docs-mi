@@ -10,22 +10,20 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="HTTPToFIXProxy" startOnLoad="true">
+<proxy xmlns="http://ws.apache.org/ns/synapse" transports="http,https" name="HTTPToFIXProxy" startOnLoad="true">
     <description />
     <target>
         <inSequence>
             <log level="full"></log>
             <property name="transport.fix.ServiceName" value="HTTPToFIXProxy" scope="axis2-client" />
-            <send>
+            <call>
                 <endpoint>
                     <address uri="fix://localhost:19876?BeginString=FIX.4.0&amp;SenderCompID=SYNAPSE&amp;TargetCompID=EXEC" />
                 </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
+            </call>
             <log level="full"></log>
-            <send />
-        </outSequence>
+            <respond />
+        </inSequence>
     </target>
     <parameter name="transport.fix.InitiatorConfigURL">file:/{file_path}/synapse-sender.cfg</parameter>
     <parameter name="transport.fix.InitiatorMessageStore">file</parameter>
@@ -38,8 +36,7 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location. 
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
@@ -52,7 +49,7 @@ Run the quickfixj **Executor** sample application.
 java -jar quickfixj-examples-executor-2.1.1.jar
 ```
 
-Send the following request to the Micro Integrator and we will receive the response from the executor application.
+Send the following request to the Micro Integrator.
 
 ```bash
 curl -X POST \
@@ -82,4 +79,42 @@ curl -X POST \
       </message>
    </soapenv:Body>
 </soapenv:Envelope>'
+```
+
+We will receive the following response from the executor application.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <message inSession="FIX.4.0:SYNAPSE->EXEC" counter="11">
+            <header>
+                <field id="8">FIX.4.0</field>
+                <field id="9">119</field>
+                <field id="34">13</field>
+                <field id="35">8</field>
+                <field id="49">EXEC</field>
+                <field id="52">20240715-18:29:03</field>
+                <field id="56">SYNAPSE</field>
+            </header>
+            <body>
+                <field id="6">0</field>
+                <field id="11">122333</field>
+                <field id="14">0</field>
+                <field id="17">11</field>
+                <field id="20">0</field>
+                <field id="31">0</field>
+                <field id="32">0</field>
+                <field id="37">11</field>
+                <field id="38">5</field>
+                <field id="39">0</field>
+                <field id="54">1</field>
+                <field id="55">IBM</field>
+            </body>
+            <trailer>
+                <field id="10">160</field>
+            </trailer>
+        </message>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```

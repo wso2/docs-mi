@@ -22,11 +22,8 @@ Following is a sample REST API configuration with a custom Swagger definition. S
                 <format>{"Response" : "Sample Response"}</format>
                 <args/>
             </payloadFactory>
-            <loopback/>
-        </inSequence>
-        <outSequence>
             <respond/>
-        </outSequence>
+        </inSequence>
         <faultSequence/>
     </resource>
     <resource methods="GET" url-mapping="/pet/findByStatus">
@@ -37,11 +34,8 @@ Following is a sample REST API configuration with a custom Swagger definition. S
                 <format>{"Response" : "Sample Response"}</format>
                 <args/>
             </payloadFactory>
-            <loopback/>
-        </inSequence>
-        <outSequence>
             <respond/>
-        </outSequence>
+        </inSequence>
         <faultSequence/>
     </resource>
 </api>
@@ -51,11 +45,7 @@ Following is a sample REST API configuration with a custom Swagger definition. S
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with the modules listed below: 
-    - <b>Config</b> project
-    - <b>Registry</b> project
-    - <b>Composite Application</b> project.
+{!includes/build-and-run.md!}
 3. To create the REST API with the above configurations:
     - Download the Swagger file: [simple_petstore.yaml](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-rest-apis/simple_petstore.yaml).
     - Follow the instructions on [creating a REST API]({{base_path}}/develop/creating-artifacts/creating-an-api).

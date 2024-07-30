@@ -87,27 +87,24 @@ nav:
           - Protocol Switching: learn/integration-use-case/protocol-switching-overview.md
           - File Processing: learn/integration-use-case/file-processing-overview.md
           - Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
-      - Tutorials:
-          - Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
-          - Develop an Integration From a Managed API: learn/integration-tutorials/develop-an-integration-with-a-managed-api.md
-          - Expose an Integration SOAP Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
-          - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
-          - Message Routing:
-              - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
-          - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
-          - Message Transformation:
-              - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
-          - Asynchronous Messaging:
-              - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
-          - Integrate with SaaS Systems:
-              - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
-          - Data Integration:
-              - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
-          - File Processing: learn/integration-tutorials/file-processing.md
-          - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
-          - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
-          - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
-          - Integrate with SAP: learn/integration-tutorials/sap-integration.md
+      #- Tutorials:
+      #    - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
+      #    - Message Routing:
+      #        - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
+      #    - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
+      #    - Message Transformation:
+      #        - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
+      #    - Asynchronous Messaging:
+      #        - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
+      #    - Integrate with SaaS Systems:
+      #        - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+      #    - Data Integration:
+      #        - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+      #    - File Processing: learn/integration-tutorials/file-processing.md
+      #    - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
+      #    - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
+      #    - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
+      #    - Integrate with SAP: learn/integration-tutorials/sap-integration.md
       - Examples:
           - Message Routing:
               - Route Based on Message Headers: learn/examples/routing-examples/routing-based-on-headers.md
@@ -242,30 +239,56 @@ nav:
           - Work with Transactions: learn/examples/working-with-transactions.md
           - JSON Examples: learn/examples/json-examples/json-examples.md
           - Integrate MI with SI: learn/examples/integrating-mi-with-si.md
-
+      - Samples:
+          - Overview: learn/samples/samples-overview.md
+          - Hello World Service: learn/samples/hello-world-service.md
+          - JMS Integration: learn/samples/jms-integration.md
+          - Content Based Routing: learn/samples/content-based-routing.md
+          - Database Polling: learn/samples/database-polling.md
+          - Email Service: learn/samples/email-service.md
+          - Exception Handling: learn/samples/exception-handling.md
+          - Fetch SalesForce Accounts: learn/samples/fetch-salesforce.md
+          - File Transfer: learn/samples/file-transfer.md
+          - Guaranteed Delivery: learn/samples/guaranteed-delivery.md
+          - Header Based Routing: learn/samples/header-based-routing.md
+          - API Testing: learn/samples/api-testing.md
+          - Hello Docker: learn/samples/docker-sample.md
+         # - JSON to XML Mapping: learn/samples/
+          - Kafka Consumer and Producer: learn/samples/kafka-sample.md
+          - Message Filtering: learn/samples/message-filtering.md
+          - Periodical Scheduled Tasks: learn/samples/periodical-scheduled-tasks.md
+          - Protocol Switching: learn/samples/protocol-switching.md
+          - Proxying a REST Service: learn/samples/proxying-rest-service.md
+          - Proxying a SOAP Service: learn/samples/proxying-soap-service.md
+          - RabbitMQ Integration: learn/samples/rabbitmq-integration.md
+          - REST Data Service: learn/samples/rest-data-service.md
+          - REST to SOAP Conversion: learn/samples/rest-to-soap-conversion.md
+          - Scatter Gather Integration Pattern: learn/samples/scatter-gather-integration-pattern.md
+          - Students Data Service: learn/samples/students-data-service.md
+         # - XML to JSON Mapping: learn/samples/
+          - XML To JSON Transformation: learn/samples/xml-to-json-transformation.md
+          - Unit Test Tutorial: learn/samples/unit-testing.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
-      - API-led Integration: develop/api-led-integration.md
+      #- API-led Integration: develop/api-led-integration.md
+      - WSO2 MI for VSCode:
+          - Overview - Micro Integrator for VSCode:  develop/mi-for-vscode/mi-for-vscode-overview.md
+          - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
+          - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
       - WSO2 Integration Studio:
           - Quick Tour - WSO2 Integration Studio: develop/wso2-integration-studio.md
           - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
           - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
-      - WSO2 MI for VSCode:
-          - Overview - Micro Integrator for VSCode:  develop/mi-for-vscode/mi-for-vscode-overview.md
-          - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
-          - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
+          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
       - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
-          - Create Data Service Configs: develop/create-data-services-configs.md
-          - Create Datasource Configs: develop/create-datasources.md
-          - Import Projects: develop/importing-projects.md
+          - Open Projects: develop/opening-projects.md
           - Export Projects: develop/export-project.md
           - Create Docker Exporter: develop/create-docker-project.md
           - Create Kubernetes Exporter: develop/create-kubernetes-project.md
       - Create Artifacts:
-          - Importing Artifacts: develop/importing-artifacts.md
           - Create a REST API: develop/creating-artifacts/creating-an-api.md
           - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
           - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
@@ -283,6 +306,7 @@ nav:
           - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
           - Adding Connectors: develop/creating-artifacts/adding-connectors.md
           - Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+          - Opening Artifacts: develop/opening-artifacts.md
       - Create Custom Artifacts:
           - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
           - Create a Custom Mediator: develop/customizations/creating-custom-mediators.md
@@ -296,10 +320,8 @@ nav:
           - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
           - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
           - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
-      - Package Artifacts: develop/packaging-artifacts.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
-          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
           - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
           - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
@@ -325,10 +347,10 @@ nav:
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
               - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
-          - Install the MI Dashboard:
-              - Install the MI Dashboard: install-and-setup/install/installing-mi-dashboard.md
-              - Run the MI Dashboard: install-and-setup/install/running-the-mi-dashboard.md
-              - Run the MI Dashboard as a Windows Service: install-and-setup/install/running-the-mi-dashboard-as-windows-service.md
+          - Install the Integration Control Plane:
+              - Install the Ingeration Control Plane: install-and-setup/install/installing-integration-control-plane.md
+              - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
+              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
@@ -465,8 +487,8 @@ nav:
           - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
           - Manage Micro Integrator:
               - Runtime:
-                  - Micro Integrator Dashboard: observe-and-manage/working-with-monitoring-dashboard.md
-                  - Managing Integrations with apictl: observe-and-manage/managing-integrations-with-apictl.md
+                  - Integration Control Plane: observe-and-manage/working-with-integration-control-plane.md
+                  - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:
                   - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
@@ -837,6 +859,7 @@ nav:
           - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
+          - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
 
 # Extensions
 markdown_extensions:
@@ -882,6 +905,28 @@ plugins:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
+              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
+              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/managing-integrations-with-micli/'
+              'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
+              'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-projects/'
+              'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-artifacts/'
+              'learn/integration-tutorials/service-catalog-tutorial.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'learn/integration-tutorials/sending-a-simple-message-to-a-service.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/routing-requests-based-on-message-content.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/exposing-several-services-as-a-single-service.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/transforming-message-content.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/storing-and-forwarding-messages.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-the-gmail-connector.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/file-processing.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-scheduled-tasks.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-inbound-endpoints.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/using-templates.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:

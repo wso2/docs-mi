@@ -1,47 +1,49 @@
 # Handling HTTP Status Codes
-A REST service typically sends HTTP status codes with its response. When you configure an API that send messages to a SOAP back-end service, you can set the status code of the HTTP response within the configuration. To achieve this, set the status code parameter within the **Out** sequence of the API definition.
+A REST service typically sends HTTP status codes with its response. When you configure an API that send messages to a SOAP back-end service, you can set the status code of the HTTP response within the configuration. To achieve this, set the status code parameter within the API resource definition.
 
 ## Synapse configuration  
 
 Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">`
-    <resource uri-template="/view/{symbol}" methods="GET">
-         <inSequence>
-              <payloadFactory>
-                  <format>
-                     <m0:getQuote xmlns:m0="http://services.samples">
-                        <m0:request>
-                           <m0:symbol>$1</m0:symbol>
-                        </m0:request>
-                     </m0:getQuote>
-                   </format>
-                   <args>
-                    <arg expression="get-property('uri.var.symbol')"/>
-                   </args>
-              </payloadFactory>
-              <header name="Action" value="urn:getQuote"/>
-              <send>
-                  <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
-                  </endpoint>
-              </send>
-        </inSequence>
-        <outSequence>
-            <property name="HTTP_SC" value="201" scope="axis2" />
-            <send/>
-        </outSequence>  
-    </resource>
- </api>
-```  
+=== "REST API"
+     ```xml
+     <api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">`
+         <resource uri-template="/view/{symbol}" methods="GET">
+             <inSequence>
+                 <payloadFactory media-type="xml">
+                     <format>
+                         <m0:getQuote xmlns:m0="http://services.samples">
+                             <m0:request>
+                             <m0:symbol>$1</m0:symbol>
+                             </m0:request>
+                         </m0:getQuote>
+                     </format>
+                     <args>
+                         <arg expression="get-property('uri.var.symbol')"/>
+                     </args>
+                 </payloadFactory>
+                 <header name="Action" value="urn:getQuote"/>
+                 <call>
+                     <endpoint key="SimpleStockQuoteService" />
+                 </call>
+                 <property name="HTTP_SC" value="201" scope="axis2" />
+                 <respond />
+             </inSequence>
+         </resource>
+     </api>
+     ```
+=== "Endpoint" 
+     ```xml
+     <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+     </endpoint>
+     ```
 
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

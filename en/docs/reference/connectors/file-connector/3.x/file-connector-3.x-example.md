@@ -24,27 +24,27 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 {!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
-## Creating the Integration Logic
+## Creating the integration Logic
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Provide the API name as File Connector and the API context as `/fileconnector`.
 
-3. First we will create the `/create` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/create` as we have two API resources inside single API. The method will be `Post`. 
+3. First, we will create the `/create` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/create` as we have two API resources inside single API. The method will be `Post`. 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-3.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
-4. In this operation we are going to receive input from the user which is `filePath` and `inputContent`. 
-    - filePath - location that the file is going to be created.
-    - inputContent - what needs to be written to the file. 
+4. In this operation, we are going to receive input from the user which is `filePath` and `inputContent`. 
+    - **filePath** - location that the file is going to be created.
+    - **inputContent** - what needs to be written to the file. 
 
 5. The above two parameters are saved to properties. Drag and drop the Property Mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property mediator]({{base_path}}/reference/mediators/property-mediator/).
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-1.png" title="Adding a property" width="800" alt="Adding a property"/>
 
-6. Add the another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
-    - property name: InputContent
-    - Value Type: EXPRESSION
-    - Value Expression: json-eval($.inputContent)
+6. Add another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
+    - **Property name** : InputContent
+    - **Value Type** : EXPRESSION
+    - **Value Expression** : json-eval($.inputContent)
 
 7. Drag and drop the create operation of the File Connector to the Design View as shown below. Set the parameter values as below. We use the property values that we added in step 4 and 5 in this step as `$ctx:filePath` and `$ctx:inputContent`.
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file-con2.png" title="Adding createFile operation" width="800" alt="Adding createFile operation"/>
@@ -87,7 +87,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             </fileconnector.create>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/read">
@@ -115,7 +114,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                     </default>
                 </switch>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
@@ -129,7 +127,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/filecon-3.x/fileconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/fileConnector3.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -141,7 +139,7 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
@@ -150,9 +148,9 @@ You can further refer the application deployed through the CLI tool. See the ins
 
     3. You can see that the API is deployed under the API section. 
 
-## Testing
+## Test
 
-### File Create Operation
+### File create operation
 
 1. Create a file called data.json with the following payload. 
     ```
@@ -167,10 +165,11 @@ You can further refer the application deployed through the CLI tool. See the ins
     ```
     curl -H "Content-Type: application/json" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/create
     ```
-**Expected Response**: 
+**Expected response**: 
+
 You should get a 'Success' response, and the file should be created in the specified location in the above payload. 
 
-### File Read Operation
+### File read operation
 
 1. Create a file called data.json with the following payload. 
     ```
@@ -183,13 +182,13 @@ You should get a 'Success' response, and the file should be created in the speci
     curl -H "Content-Type: application/json" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/read
     ```
 
-**Expected Response**: 
+**Expected response**: 
 You should get the following text returned. 
 
 `
 This is a test file.
 `
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/3.x/file-connector-3.x-config) documentation for all operation details of the connector.

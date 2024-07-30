@@ -4,7 +4,7 @@ The Salesforce SOAP Connector allows you to work with records in Salesforce, a w
 
 ## What you'll build
 
-This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the create sObjects operation. Then execute a SOQL query to retrieve the Account Names in all the existing accounts. All operations are handling as SOAP messages. 
+This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the create sObjects operation. Then execute a SOQL query to retrieve the Account Names in all the existing accounts. All operations are handled as SOAP messages. 
 
 * Create an sObjects in Salesforce.
 
@@ -12,135 +12,126 @@ This example explains how to use the Salesforce client to connect with the Sales
 
 * Execute a SOQL query to retrieve the Account Names in all the existing accounts.
 
-     In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`. 
+     In this example, the [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) is used to search stored Salesforce data for specific information created under `sObjects`. 
   
-All two operations are exposed via an `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
+All two operations are exposed via a `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
 
-* `/createRecords`: Creates a new `Account` object in Salesforce.
+* `/createRecords`: Create a new `Account` object in Salesforce.
 * `/queryRecords` : Retrieve the Account Names in all the existing accounts in Salesforce.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-connector.png" title="Using Salesforcesoap SOAP Connector" width="800" alt="Using Salesforcesoap SOAP Connector"/>
 
-The user calls the Salesforce SOAP API. It invokes the **createRecords** resource and creates a new account in Salesforce. Then through the **queryRecords** resource, it displays all the existing account details to the user. 
+The user calls the Salesforce SOAP API. It invokes the **createRecords** resource and creates a new account in Salesforce. Then, through the **queryRecords** resource, it displays all the existing account details to the user. 
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
-
-### Import the connector
-
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
-
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
 ### Add integration logic
 
-First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `salesforcerest` and API context as `/salesforcerest`.
-    
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" alt="Adding a Rest API"/>
+First create an API to configure the integration logic. Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforce-soap-API` and API context as `/salesforce`.
 
-#### Configuring the createRecords resource
+<img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/adding-an-api.png" title="Adding a Rest API" alt="Adding a Rest API"/>
+
+#### Configure the createRecords resource
 
 Now follow the steps below to add configurations to the resource.
-    
-1. Initialize the connector.
-    
-    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `init` operation into the Design pane.
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-init-drag-and-drop.png" title="Drag and drop init operation" width="80%" alt="Drag and drop init operation"/> 
-                
-    2. Add the property values into the `init` operation as shown below. Replace the `username`, `password`, `loginUrl` and `blocking` with your values.
+
+1. Set up the salesforce.create operation.
+
+    1. Navigate into the **Connectors** pane and select the `create` operation under the **Salesforce Connector** section.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-create.png" title="Drag and drop init operation" width="80%" alt="Drag and drop init operation"/> 
+
+    2. Click on the `Add new connection` button and replace the `username`, `password`, `loginUrl` and `blocking` fields in the opened form with your values.
             
         - **username**: The username to access the Salesforce account.
         - **password**: The password provided here is a concatenation of the user password and the security token provided by Salesforce.
         - **loginUrl** : The login URL to access the Salesforce account.
         - **blocking** : Indicates whether the connector needs to perform blocking invocations to Salesforce. (Supported in WSO2 ESB 4.9.0 and later.)
-    
-2. Set up the salesforce.create operation.
 
-    1. Setup the `create` configurations. 
-       
+        <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/new-connection.png" title="Drag and drop init operation" width="80%" alt="Drag and drop init operation"/> 
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/new-connection-form.png" title="Drag and drop init operation" width="80%" alt="Drag and drop init operation"/> 
+
+    3. Setup the `create` configurations. 
+
          In this operation we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
        
          - **sObjectName** : XML representation of the records to add.
          - **allowFieldTruncate** : Whether to truncate strings that exceed the field length (see Common Parameters).
          - **allOrNone** : Whether to rollback changes if an object fails (see Common Parameters).
         
-         While invoking the API, the above three parameters values come as a user input.
+         While invoking the API, the above three parameter values come as a user input.
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-drag-and-drop-create.png" title="Drag and drop create operation" width="80%" alt="Drag and drop create operations"/>
     
-    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `create` operation into the Design pane.
-    
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-drag-and-drop-create.png" title="Drag and drop create operation" width="80%" alt="Drag and drop create operations"/>
-    
-    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
-    
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="70%" alt="Add property mediators"/>
+    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Mediators** pane and select the `Property` mediators .
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforce-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="70%" alt="Add property mediators"/>
 
          The parameters available for configuring the Property mediator are as follows:
     
-         > **Note**: That the properties should be add to the pallet before create the operation.
+         > **Note**: The properties should be added to the pallet before creating the operation.
     
     4. Add the property mediator to capture the sObject `Name` value. In this example we are going to create a new Account object using the POST method.
-   
-         - **name** : Name
-         - **expression** : //Name/text()
-         - **type** : STRING
-   
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="80%" alt="Add values to capture sObjectName value"/>
-    
+
+         - **name** : `Name`
+         - **expression** : `//Name/text()`
+         - **type** : `STRING`
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="80%" alt="Add values to capture sObjectName value"/>
+
     5. Add the [payload factory]({{base_path}}/reference/mediators/payloadfactory-mediator) mediator to capture the sObject content.
-          
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-payloadfactory-mediator-property1-value1.png" title="Add values to capture sObject value" width="80%" alt="Add values to capture sObjec value"/>
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-payloadfactory-mediator-property1-value1.png" title="Add values to capture sObject value" width="80%" alt="Add values to capture sObject value"/>
     
     6. Forward the backend response to the API caller.
         
          When you are invoking the created resource, the request of the message is going through the `/createRecords` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
         
-         Drag and drop **respond mediator** to the **Design view**. 
-        
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
-             
-#### Configuring the queryRecords resource
+         Select the **respond mediator**. 
 
-1. Initialize the connector.
-    
-    1. You can use the same configuration to initialize the connector. Please follow the steps given in section 1.1 and 1.2 for setting up the `init` operation to the `createRecords` operation.
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
 
-2. Set up the salesforce.query operation.
+#### Configure the queryRecords resource
+
+
+1. Set up the salesforce.query operation.
 
     1. Setup the `query` configurations. 
        
          In this operation we are going to retrieve data from an object, use `salesforce.query` and specify the following properties. If you already know the record IDs, you can use retrieve instead.
-                                                   
+
          - **batchSize** : The number of records to return. If more records are available than the batch size, you can use the queryMore operation to get additional results.
          - **queryString** : The SQL query to use to search for records.
-       
-         While invoking the API, the above two parameters values come as a user input.            
+
+         While invoking the API, the above two parameter values come as a user input.
         
-    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `query` operation into the Design pane.
+    2. Navigate into the **Connectors** pane and select `query` operation listed under **Salesforce Connector** section.
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-drag-and-drop-query.png" title="Drag and drop create operation" width="80%" alt="Drag and drop query operations"/>
         
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-drag-and-drop-query.png" title="Drag and drop create operation" width="80%" alt="Drag and drop query operations"/>
-        
-    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
+    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Mediators** pane and select the `Property` mediator.
         
     4. Add the property mediator to capture the sObject `queryString` value. In this example we are going to create a new Account object using the POST method.
-     
-         - **name** : queryString
-         - **expression** : //queryString/text()
-         - **type** : STRING
-      
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-api-property-querystring-mediator-property1-value1.png" title="Add values to capture queryString value" width="80%" alt="Add values to capture queryString value"/>
+
+         - **name** : `queryString`
+         - **expression** : `//queryString/text()`
+         - **type** : `STRING`
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-api-property-querystring-mediator-property1-value1.png" title="Add values to capture queryString value" width="80%" alt="Add values to capture queryString value"/>
 
     5. Forward the backend response to the API caller.
-            
-         When you are invoking the created resource, the request of the message is going through the `/createRecords` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
-            
-         Drag and drop **respond mediator** to the **Design view**. 
-           
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
-                        
+
+         When you are invoking the created resource, the request of the message is going through the `/createRecords` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.
+
+         Select the **respond mediator**.
+
+         <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+
      Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
 
     ??? note "create.xml"
@@ -173,9 +164,6 @@ Now follow the steps below to add configurations to the resource.
                     </salesforce.create>
                     <respond/>
                 </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
                 <faultSequence/>
             </resource>
             <resource methods="POST" url-mapping="/queryRecords">
@@ -193,9 +181,6 @@ Now follow the steps below to add configurations to the resource.
                     </salesforce.query>
                     <respond/>
                 </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
                 <faultSequence/>
             </resource>
         </api>
@@ -204,7 +189,7 @@ Now follow the steps below to add configurations to the resource.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforcesoap.zip">
+<a href="{{base_path}}/assets/attachments/connectors/salesforcesoapconnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -213,24 +198,11 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+In order to deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-**Deploying on Micro Integrator**
+## Test
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-
-## Testing
-
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 1. Create a new `Account` object in Salesforce.
  
@@ -276,6 +248,6 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
     You will get a set of account names and the respective IDs as the output.
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [Salesforce SOAP Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-soap-connector-config/) documentation for all operation details of the connector.

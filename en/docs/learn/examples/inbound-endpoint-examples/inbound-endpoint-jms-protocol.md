@@ -38,14 +38,29 @@ Following are the integration artifacts that we can used to implement this scena
 
 ## Build and run
 
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
+
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
+Set up the back-end service:
+
+1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+2. Extract the downloaded zip file.
+3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash 
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+          ```
 
 Invoke the inbound endpoint:
 
