@@ -51,7 +51,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-api-create-3.png" title="Delete default resource" width="800" alt="Delete default resource"/> <br/>
     Then click `+ Resource` to create the `/insertmany` resource. This API resource inserts documents into the MongoDB database. Let's use a **URL_template** as URL style and insert `/insertmany` to URI Template. Select methods as `Post`. Then click **create**.
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-4.png" title="Adding the API resource." width="800" alt="Adding the API resource."/><br/>
-    Click created `/insertmany` resource open **Resource View**. Then click `+` arrow below Start node to open side panel
+    Click created `/insertmany` resource open **Resource View**. Then click `+` arrow below Start node to open side panel.
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-open-resource-view.png" title="Open Resource View" width="800" alt="Open Resource View"/><br/>
 
 5.  Select **Connectors** and search **mongodb** connector. Click the mongodb connector to open opareation panal then click **insertMany**. 
