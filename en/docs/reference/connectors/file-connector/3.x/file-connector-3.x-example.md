@@ -31,20 +31,20 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 2. Provide the API name as File Connector and the API context as `/fileconnector`.
 
-3. First we will create the `/create` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/create` as we have two API resources inside single API. The method will be `Post`. 
+3. First, we will create the `/create` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/create` as we have two API resources inside single API. The method will be `Post`. 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-3.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
-4. In this operation we are going to receive input from the user which is `filePath` and `inputContent`. 
-    - filePath - location that the file is going to be created.
-    - inputContent - what needs to be written to the file. 
+4. In this operation, we are going to receive input from the user which is `filePath` and `inputContent`. 
+    - **filePath** - location that the file is going to be created.
+    - **inputContent** - what needs to be written to the file. 
 
 5. The above two parameters are saved to properties. Drag and drop the Property Mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property mediator]({{base_path}}/reference/mediators/property-mediator/).
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-1.png" title="Adding a property" width="800" alt="Adding a property"/>
 
-6. Add the another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
-    - property name: InputContent
-    - Value Type: EXPRESSION
-    - Value Expression: json-eval($.inputContent)
+6. Add another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
+    - **Property name** : InputContent
+    - **Value Type** : EXPRESSION
+    - **Value Expression** : json-eval($.inputContent)
 
 7. Drag and drop the create operation of the File Connector to the Design View as shown below. Set the parameter values as below. We use the property values that we added in step 4 and 5 in this step as `$ctx:filePath` and `$ctx:inputContent`.
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file-con2.png" title="Adding createFile operation" width="800" alt="Adding createFile operation"/>
@@ -87,7 +87,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             </fileconnector.create>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/read">
@@ -115,7 +114,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                     </default>
                 </switch>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
