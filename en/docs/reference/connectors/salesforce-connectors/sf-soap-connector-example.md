@@ -12,7 +12,7 @@ This example explains how to use the Salesforce client to connect with the Sales
 
 * Execute a SOQL query to retrieve the Account Names in all the existing accounts.
 
-     In this example, the [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) is used to search stored Salesforce data for specific information which is created under `sObjects`. 
+     In this example, the [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) is used to search stored Salesforce data for specific information created under `sObjects`. 
   
 All two operations are exposed via a `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
 
@@ -31,7 +31,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 ### Add integration logic
 
-First create an API, which will be where we configure the integration logic. Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforce-soap-API` and API context as `/salesforce`.
+First create an API to configure the integration logic. Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforce-soap-API` and API context as `/salesforce`.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/adding-an-api.png" title="Adding a Rest API" alt="Adding a Rest API"/>
 
