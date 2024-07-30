@@ -6,7 +6,7 @@ The **Salesforce Bulk v2.0 Connector** provides seamless integration with the [S
 
 The following example demonstrates how to use the Salesforce Bulk v2.0 Connector for performing various operations on your Salesforce data:
 
-1. Insert account records to the salesforce.
+1. Insert account records into salesforce.
 2. Insert account records from a file to the salesforce.
 3. Get the created bulk job information. 
 4. Get the successfully processed records.
@@ -160,7 +160,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
 #### - /createJobAndUploadFile
 
-  Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize an `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
+  Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize a `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
   
   1. Select the `createJob` operation from **Salesforce_bulkapi_v2_Connector**.
     1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -284,7 +284,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
 #### - /deleteJob
 
-  Using this resource, users can delete a perticular bulk job
+  Using this resource, users can delete a particular bulk job
 
   1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
@@ -355,7 +355,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
 #### - /getSuccessfulQueryResults
 
-  Using this resource, users can get the successful query results from salesforce
+  Using this resource, users can get the successful query results from salesforce.
 
   1. Select the 'Property' mediator. This mediator will extract the queryJobId from the request payload and enable its use in other operations within this sequence.
         ```xml
