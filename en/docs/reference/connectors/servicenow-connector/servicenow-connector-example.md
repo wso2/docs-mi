@@ -1,6 +1,6 @@
 # ServiceNow Connector Example
 
-The WSO2 ServiceNow connector allows you to access the ServiceNow REST API from an integration sequence. Using ServiceNow connector you can work with Aggregate API, Import Set API and Table API in ServiceNow. You can further read about ServiceNow REST APIs from [here](https://developer.servicenow.com/dev.do#!/reference/api/orlando/rest/c_TableAPI).
+The WSO2 ServiceNow connector allows you to access the ServiceNow REST API from an integration sequence. Using ServiceNow connector you can work with Aggregate API, Import Set API, and Table API in ServiceNow. You can read more about ServiceNow REST APIs from [here](https://developer.servicenow.com/dev.do#!/reference/api/orlando/rest/c_TableAPI).
 
 ## What you'll build
 
@@ -267,7 +267,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Test
 
-### Post Record Operation
+### Post record operation
 
 1. Create a file called data.json with the following payload. You can further refer to the parameters from [here](https://docs.servicenow.com/bundle/orlando-application-development/page/integrate/inbound-rest/concept/c_TableAPI.html#c_TableAPI).
     ```
@@ -280,7 +280,7 @@ You can further refer the application deployed through the CLI tool. See the ins
     ```
     curl -H "Content-Type: application/json" --request POST --data @data.json http://localhost:8290/servicenow/postRecord
     ```
-**Expected Response**: 
+**Expected response**: 
 You should get the following response with the 'sys_id' and keep it saved. 
 ```
   {
@@ -292,7 +292,7 @@ You should get the following response with the 'sys_id' and keep it saved.
 }
 ```
 
-### Read Record Operation
+### Read record operation
 
 1. Create a file called data.json with the following payload. Make sure you paste above saved sys_id as the sysId below. 
     ```
@@ -305,7 +305,7 @@ You should get the following response with the 'sys_id' and keep it saved.
     curl -H "Content-Type: application/json" --request POST --data @data.json http://localhost:8290/fileconnector/readrecord
     ```
 
-**Expected Response**: 
+**Expected response**: 
 You should get the following text returned. 
 
   ```
@@ -406,6 +406,6 @@ You should get the following text returned.
   }     
   ```
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [ServiceNow Connector Configuration]({{base_path}}/reference/connectors/servicenow-connector/servicenow-connector-config/) documentation for all operation details of the connector.
