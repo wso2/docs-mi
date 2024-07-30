@@ -86,7 +86,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    
 > **Note**: To configure the `connection.salesforce.password` parameter value, please use the steps given under the topic `Reset Security Token` in the [Salesforce inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) document.
    
-## Exporting integration logic as a CApp
+## Export integration logic as a CApp
 
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
