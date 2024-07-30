@@ -92,7 +92,7 @@ Invoke the API (http://localhost:8290/publishMessages) with the following payloa
 
 **Expected Response**: 
 !!!info
-    Refer the [confluent documentation](https://docs.confluent.io/platform/current/installation/overview.html) for installing confluent.
+    Refer to the [confluent documentation](https://docs.confluent.io/platform/current/installation/overview.html) for installing confluent.
    
 Run the following command to verify the messages:
 ````bash
@@ -132,7 +132,7 @@ Then, the <b>schemaRegistryUrl</b> parameter should be configured as shown below
 ````xml 
 <schemaRegistryUrl>http://admin:admin@localhost:8081</schemaRegistryUrl>
 ````
-Refer the [confluent documentation](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-avro.html) for more details.
+Refer to the [confluent documentation](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-avro.html) for more details.
 
 This demonstrates how the Kafka connector publishes Avro messages to Kafka brokers.
    
