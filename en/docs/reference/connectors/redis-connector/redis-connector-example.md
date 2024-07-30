@@ -7,16 +7,16 @@ The Redis connector allows you to access the Redis commands from an integration 
 Given below is a sample scenario that demonstrates how to work with the WSO2 Redis Connector and access the Redis server, using Redis commands.
 
 The user sends the request to invoke an API to get stock details. This REST call will get converted into a SOAP message and is sent to the back-end service. While the response from the backend service is converted back to JSON and sent back to the API caller, the integration runtime will extract stock volume details from the response and store it into a configured Redis server.
-When users need to retrieve stock volumes collected, they can invoke the `getstockvolumedetails` resource. This example also demonstrates how users can manipulate this stock volume details by removing unwanted items from the Redis server.
+When users need to retrieve stock volumes collected, they can invoke the `getstockvolumedetails` resource. This example also demonstrates how users can manipulate stock volume details by removing unwanted items from the Redis server.
 
-> **Note**: In this scenario you need to set up the Redis Server in your local machine. Please refer the [Setting up the Redis Connector]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
+> **Note**: In this scenario you need to set up the Redis Server in your local machine. Please refer to the [Setting up the Redis Connector]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
 This example demonstrates how to use Redis connector to:
 
-1. Retrieve stock volume details from the Stockquote back-end service. This is done while extracting the stock volume, creating a Redis hash map, and adding stock volume details to the Redis server. (In this example, Redis hashes are used to store different companies' stocks volume details. Since the “symbol” that is sent in the request is “WSO2”, the request is routed to the WSO2 endpoint. Once the response from the WSO2 endpoint is received, it is transformed according to the specified template and sent to the client. Then create a hash map and insert extracted details to the Redis hashmap).
+1. Retrieve stock volume details from the Stockquote back-end service. This is done while extracting the stock volume, creating a Redis hash map, and adding stock volume details to the Redis server. (In this example, Redis hashes are used to store different companies' stock volume details. Since the “symbol” that is sent in the request is “WSO2”, the request is routed to the WSO2 endpoint. Once the response from the WSO2 endpoint is received, it is transformed according to the specified template and sent to the client. Then create a hash map and insert extracted details into the Redis hashmap).
 2. Retrieve all stock volume details from the Redis server.
-3. Remove stock volume details from Redis server.
+3. Remove stock volume details from the Redis server.
 
-All three operations are exposed via an `StockQuoteAPI` API. The API with the context `/stockquote` has three resources:  
+All three operations are exposed via a `StockQuoteAPI` API. The API with the context `/stockquote` has three resources:  
 
 * `/getstockquote/{symbol}`: This is used to get stock volume details while extracting and sending details to the Redis hash map.
 * `/getstockvolumedetails` : Retrieve information about the inserted stock volume details.
@@ -67,7 +67,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 1. Navigate to **MI Project Explorer** > **APIs** and click on the **+** sign next to APIs to open the **Synapse API Artifact** creation form. 
 
-2. Specify the API name as `SampleRedisAPI` and API context as `/stockquote` and click **Create**.
+2. Specify the API name as `SampleRedisAPI` and the API context as `/stockquote` and click **Create**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/redis/create-api.png" title="Create API" width="700" alt="Create API"/>
 
@@ -139,11 +139,11 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 #### Configure a resource for the getstockquote operation
 
-Configure a resource that sets up Redis hash map and sets a specific field in a hash to a specified value. In this sample, the user sends the request to invoke the created API to get WSO2 stock volume details. To achieve this, follow the steps below.
+Configure a resource that sets up a Redis hash map and sets a specific field in a hash to a specified value. In this sample, the user sends the request to invoke the created API to get WSO2 stock volume details. To achieve this, follow the steps below.
 
 1. Click on the `GET getstockquote` API resource under available resources on the **Service Designer**.
 
-    You will now see the graphical view of the `SampleRedisAPI` with its default API Resource.
+    You will now see the graphical view of the `SampleRedisAPI`.
 
 2. Click on the **+** icon under **start** to add a mediator.
 
@@ -236,7 +236,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
    
     <img src="{{base_path}}/assets/img/integrate/connectors/redis/enrich-mediator-1.png" title="Add enrich mediator" width="600" alt="Add enrich mediator"/> 
 
-9. To get the input values in to the `hSet`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then add the `Property` mediators onto the Design pane as shown below.
+9. To get the input values into the `hSet`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the Mediator Palette and select the `Property` mediators.
 
    1. Add the property mediator to capture the `symbol` value from the response of `SimpleStockQuoteService`. The 'symbol' contains the company name of the stock quote.
 
@@ -254,7 +254,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
        </table> 
       <img src="{{base_path}}/assets/img/integrate/connectors/redis/property-symbol.png" title="Add property mediators to get symbol" width="600" alt="Add property mediators to get symbol"/>
 
-   2. Add the property mediator to capture the `volume` values. The 'volume' contains stock quote volume of the selected company.
+   2. Add the property mediator to capture the `volume` values. The 'volume' contains the stock quote volume of the selected company.
 
       <table>
          <tr>
@@ -270,7 +270,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
        </table> 
        <img src="{{base_path}}/assets/img/integrate/connectors/redis/property-volume.png" title="Add property mediators to get volume" width="600" alt="Add property mediators to get volume"/>  
 
-10. Add redis connector operation.
+10. Add Redis connector operation.
     
      1. Click **+** icon under the property mediator.
      2. Select the **Redis** connector from the **Connectors** section.
@@ -278,13 +278,13 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
         <img src="{{base_path}}/assets/img/integrate/connectors/redis/redis-mediator.png" title="Redis mediator" width="400" alt="Redis mediator"/>
         
      3. Select **hSet** from the connector operations.
-     4. Next, you have to create a redis connection. Click the **Add new connection**.
+     4. Next, you have to create a Redis connection. Click the **Add new connection**.
      5. Configure the values as shown below and click **Add**. 
     
         <table>
           <tr>
             <td>redisHost</td>
-            <td><code>The Redis host name (default: localhost)</code></td>
+            <td><code>The Redis hostname (default: localhost)</code></td>
           </tr>
           <tr>
             <td>redisPort</td>
@@ -317,7 +317,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
          </tr>
        </table> 
     
-        In this example, `redisKey` value is configured as **StockVolume**. While invoking the API, the above `redisField`,`redisValue` parameter values are extracted from the response of the SimpleStockQuoteService. Then they are populated as an input value for the Redis `hSet` operation.
+        In this example, the `redisKey` value is configured as **StockVolume**. While invoking the API, the above `redisField`, `redisValue` parameter values are extracted from the response of the SimpleStockQuoteService. Then they are populated as an input value for the Redis `hSet` operation.
 
         <img src="{{base_path}}/assets/img/integrate/connectors/redis/hset-operation.png" title="Configure hSet operation" width="400" alt="Configure hSet operation"/>
 
@@ -327,7 +327,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
 13. Forward the backend response to the API caller.
     
-     When you are invoking the created resource, the request of the message is going through the `/getstockquote` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+     When you are invoking the created resource, the request of the message is going through the `/getstockquote` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.            
     
      1. Add the **respond mediator** to the **Resource view**. 
 
@@ -343,7 +343,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 
 3. Select **hGetAll** from the connector operations.
 4. Select `REDIS_CONNECTION_1` from the connection dropdown.
-5. You only need to send redisKey as parameter. In this example `redisKey` value is configured as **StockVolume**
+5. You only need to send redisKey as a parameter. In this example `redisKey` value is configured as **StockVolume**
 
     <img src="{{base_path}}/assets/img/integrate/connectors/redis/hGetAll-operation.png" title="hGetAll operation" width="600" alt="hGetAll operation"/>
 
@@ -375,7 +375,7 @@ Configure a resource that sets up Redis hash map and sets a specific field in a 
 8. To forward the backend response to the API caller add the **Respond** Mediator.
 
 
-Now you can switch into the Source view and check the XML configuration files of the created API and endpoint. 
+Now you can switch to the Source view and check the XML configuration files of the created API and endpoint. 
     
 **StockQuoteAPI.xml**
 
@@ -462,7 +462,7 @@ Now you can switch into the Source view and check the XML configuration files of
 
 **REDIS_CONNECTION_1**
 
-The created redis connection will be saved as a local entry.
+The created Redis connection will be saved as a local entry.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -485,7 +485,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Follow these steps to deploy the exported Carbon Application (CApp) in the integration runtime. 
 
 **Deploying on Micro Integrator**
 
@@ -493,7 +493,7 @@ You can copy the composite application to the `<PRODUCT-HOME>/repository/deploym
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-??? note "Click here for instructions on deploying on WSO2 Micro Integrator"
+??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
 
     2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
@@ -502,11 +502,11 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Testing
 
-Deploy the back-end service `SimpleStockQuoteService`.
+Deploy the backend service `SimpleStockQuoteService`.
 
  1. Download the ZIP file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
  2. Extract the downloaded zip file.
- 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+ 3. Open a terminal and navigate to the `axis2Server/bin/` directory inside the extracted folder.
  4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
 
     === "On MacOS/Linux/CentOS"   
@@ -637,7 +637,7 @@ Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve 
       
 **Inserted list can retrieve using `redis-cli`**
 
-Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve list length.
+Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve the list length.
      ```
      127.0.0.1:6379> HGETALL StockVolume
      1) "IBM"
