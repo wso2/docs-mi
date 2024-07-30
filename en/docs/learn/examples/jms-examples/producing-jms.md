@@ -40,13 +40,13 @@ The Synapse artifacts used are explained below.
     <tr>
         <td>Property Mediator</td>
         <td>
-            The <b>OUT ONLY</b> property is set to <b>true</b> , which indicates that the message exchange is one-way. 
+            The <b>OUT ONLY</b> property is set to <b>true</b>, which indicates that the message exchange is one-way. 
         </td>
     </tr>
     <tr>
         <td>Property Mediator</td>
         <td>
-            The <b>FORCE_SC_ACCEPTED</b> property is set to <b>true</b> , this property forces a 202 HTTP response to the client so that the client stops waiting for a response..  
+            The <b>FORCE_SC_ACCEPTED</b> property is set to <b>true</b>, this property forces a 202 HTTP response to the client so that the client stops waiting for a response.  
         </td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@ The Synapse artifacts used are explained below.
            To send a message to a JMS queue, you should define the JMS connection URL as the endpoint address (which should be invoked via the <b>Send</b> mediator). There are two ways to specify the endpoint URL: 
            <ul>
                <li>
-                    Specify the JNDI name of the JMS queue and the connection factory parameters in the JMS connection URL as shown in the exampe below. Values of connection factory parameters depend on the type of the JMS broker. </br></br>
+                    Specify the JNDI name of the JMS queue and the connection factory parameters in the JMS connection URL as shown in the example below. Values of connection factory parameters depend on the type of the JMS broker. </br></br>
                     <b>When the broker is ActiveMQ</b></br>
                     <code>jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&java.naming.provider.url=tcp://localhost:61616&transport.jms.DestinationType=queue</code></br></br>
                     <b>When the broker is WSO2 Message Broker</b></br>
