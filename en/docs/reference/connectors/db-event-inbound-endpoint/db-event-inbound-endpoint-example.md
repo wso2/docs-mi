@@ -1,27 +1,27 @@
 # DB Event Inbound Endpoint Example 
 
-Following are the main features of the event generator. 
+The following are the main features of the event generator. 
 
-1. Trigger an event with the data of table row when a new record is added or updated. Optionally, delete the row associated with the event after triggering the event
+1. Trigger an event with the data of the table row when a new record is added or updated. Optionally, delete the row associated with the event after triggering the event.
 2. Trigger an event when a boolean field is flipped in a particular table row. 
 
 ## What you'll build
 
-In this example let us see how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. Out of the features mentioned above feature no:1 is used here. Please refer to [reference guide]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) if you need to use other features. 
+In this example let us see how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. Out of the features mentioned above, feature no:1 is used here. Please refer to [reference guide]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) if you need to use other features. 
 
-In an enterprise system, a relational database table is used to store customer information. Customers' information is added by an external system to the database which is not in enterprise's control. As soon as a new customer is inserted, the system need to pick up and process its data. The integration runtime is used here to listen to DB changes and invoke the relevant processes. It can invoke backend APIs or place data into a message bus after required data transformations. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 mediators. 
+In an enterprise system, a relational database table is used to store customer information. Customers' information is added by an external system to the database which is not in the enterprise's control. As soon as a new customer is inserted, the system needs to pick up and process its data. The integration runtime is used here to listen to DB changes and invoke the relevant processes. It can invoke backend APIs or place data into a message bus after required data transformations. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 mediators. 
 
-Following diagram shows the overall solution we are going to build. External system will update the MySQL DB and the integration runtime will trigger events based on the inserts and updates. 
+The following diagram shows the overall solution we are going to build. The external system will update the MySQL DB and the integration runtime will trigger events based on the inserts and updates. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/db-event-diagram.png" title="Overview of DB event inbound EP use case" width="600" alt="Overview of DB event inbound EP use case"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the environment 
+## Set up the environment 
 
-First, install [MySQL database](https://www.mysql.com/downloads/) locally. If you have a remote server, please obtain credentials required to connect. In this example, database credentials are assumed as username=`root` and password=`root`. 
+First, install [MySQL database](https://www.mysql.com/downloads/) locally. If you have a remote server, please obtain the credentials required to connect. In this example, database credentials are assumed as username=`root` and password=`root`. 
 
-1. Create a database called `test`. Then create a table called `CDC_CUSTOM` under that database using following SQL script. 
+1. Create a database called `test`. Then create a table called `CDC_CUSTOM` under that database using the following SQL script. 
   ```sql
   CREATE TABLE `test`.`CDC_CUSTOM` (
     `ID` INT NOT NULL,
@@ -31,26 +31,54 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
     PRIMARY KEY (`ID`));
   ```
 
-2. We need an additional column in order to track new records. If you apply this feature to an existing database table, you can alter the table as shown below. It will add a column of type `TIMESTAMP`, which gets automatically updated when you insert or update of a record. 
+2. We need an additional column to track new records. If you apply this feature to an existing database table, you can alter the table as shown below. It will add a column of type `TIMESTAMP`, which gets automatically updated when you insert or update a record. 
   ```sql
-  ALTER TABLE CDC_CUSTOM
+  ALTER TABLE test.CDC_CUSTOM
   ADD COLUMN UPDATED_AT 
     TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
     ON UPDATE CURRENT_TIMESTAMP;
   ```
 
 
-## Configure inbound endpoint using WSO2 Integration Studio
+## Configure inbound endpoint using micro integrator
 
-1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-<img src="{{base_path}}/assets/img/integrate/connectors/solution-project.jpg" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+1. Create an **Integration Project** as below. 
+<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-create-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
-2. Right click on **Source** -> **main** -> **synapse-config** -> **inbound-endpoints** and add a new **custom inbound endpoint**.</br> 
-<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating DB event inbound endpoint" width="400" alt="Creating DB event inbound endpoint" style="border:1px solid black"/>
+2. Create two sequences to process the database event and handle the failure of the database event. 
+  <br/>
+  Sequence to process the database event 
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="DBEventProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <log description="event log" level="full">
+            <property name="message" value="event received"/>
+        </log>
+    </sequence>
+    ```
+  <br/>
+  Sequence to handle the failure of the database event
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="eventProcessFailSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property name="SET_DB_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/>
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
+            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
+        </log>
+        <drop/>
+    </sequence>
+    ```
 
-3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.poll.dbeventlistener.DBEventPollingConsumer`. 
-
-4. Navigate to source view and update it with following config. Please note that you need to update url, username and password as required. 
+3. Click on `+` sign beside the `Inbound Endpoints` and select `Custom` to add a new **custom inbound endpoint**.</br> 
+  <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating DB event inbound endpoint" width="800" alt="Creating DB event inbound endpoint" style="border:1px solid black"/>
+  <br/>
+  Configure the custom inbound endpoint as below. Please note that you need to update the URL, username, and password as required. <br/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep-config-1.png" title="Configure DB event inbound endpoint 1" width="600" alt="Configure DB event inbound endpoint 1" style="border:1px solid black"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep-config-2.png" title="Configure DB event inbound endpoint 2" width="600" alt="Configure DB event inbound endpoint 2" style="border:1px solid black"/>
+  <br/>
+  The source view of the created custom inbound endpoint will be as below. 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <inboundEndpoint class="org.wso2.carbon.inbound.poll.dbeventlistener.DBEventPollingConsumer" name="CustomerDBEventEP" onError="eventProcessFailSeq" sequence="DBEventProcessSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
@@ -75,16 +103,9 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
   ```
 
 
-## Exporting Integration Logic as a CApp
+## Export integration logic as a carbon application
 
-**CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
-
-1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
-
-2. Select an **Export Destination** where you want to save the .car file. 
-
-3. In the next **Create a deployable CAR file** screen, select inbound endpoint and sequence artifacts and click **Finish**. The CApp will get created at the specified location provided at the previous step. 
+Follow the steps provided in the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -97,7 +118,7 @@ You can download the ZIP file and extract the contents to get the project code.
 !!! tip
     You may need to update the database details and make other such changes before deploying and running this project.
 
-## Deploying on WSO2 Enterprise Integrator
+## Deployment
 
 1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `DB Event Listener`. Click on `DB Event Listener` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into the <PRODUCT-HOME>/lib folder. 
 
@@ -109,17 +130,17 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Now the integration runtime will start listening to the data changes of `CDC_CUSTOM` table. 
 
-## Testing
+## Test
 
-### Adding a new record
+### Add a new record
 
-1. Using MySQL terminal, execute the following SQL to insert a new customer record into the table. 
+1. Using the MySQL terminal, execute the following SQL to insert a new customer record into the table. 
   ```sql
   INSERT INTO `test`.`CDC_CUSTOM` (`ID`, `NAME`, `ADDRESS`, `AMOUNT`) VALUES (001, "john", "22/3, Tottenham Court, London" , 1000);
   ```
-2. You can see a log entry in WSO2 server console similar to the following. 
+2. You can see a log entry in the WSO2 server console similar to the following. 
   ```
-  [2020-03-26 17:40:00,871]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:4B1D55C3ABCEE82B961585224600739, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>1000</AMOUNT><PAID>false</PAID><UPDATED_AT>2020-03-26 16:57:57.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
+  [2024-07-12 10:46:25,674]  INFO {LogMediator} - To: , MessageID: urn:uuid:C33BFFBFC43BA2E8581720761385599, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>1000</AMOUNT><UPDATED_AT>2024-07-12 10:46:25.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
   ```
 
 3. If you add another new record, only that new record will get notified to the integration runtime and the old records will be ignored.
@@ -127,17 +148,17 @@ Now the integration runtime will start listening to the data changes of `CDC_CUS
 
 ### Update an existing record 
 
-1. Using MySQL terminal, execute the following SQL to update the added record. 
+1. Using the MySQL terminal, execute the following SQL to update the added record. 
   ```sql
   UPDATE `test`.`CDC_CUSTOM` SET AMOUNT = 2000 WHERE ID = 001;
   ```
-2. You can see a log entry in WSO2 server console similar to the following.
+2. You can see a log entry in the WSO2 server console similar to the following.
   ```
-  [2020-03-27 18:13:06,906]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:1958A94F892D158A661585312986834, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>2000</AMOUNT><PAID>false</PAID><UPDATED_AT>2020-03-27 18:13:06.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
+  [2024-07-12 10:53:10,500]  INFO {LogMediator} - To: , MessageID: urn:uuid:C33BFFBFC43BA2E8581720761790499, Direction: request, message = event received, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><Record><ID>1</ID><NAME>john</NAME><ADDRESS>22/3, Tottenham Court, London</ADDRESS><AMOUNT>2000</AMOUNT><UPDATED_AT>2024-07-12 10:53:09.0</UPDATED_AT></Record></soapenv:Body></soapenv:Envelope>
   ```
 
 > **Note**: You can do any type of advanced integration using the rich mediator catalog, not just logging. 
 
-## What's Next
+## What's next
 
 * To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) documentation for all configuration options of the endpoint.
