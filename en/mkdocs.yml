@@ -927,6 +927,7 @@ plugins:
               'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/config-catalog-integration-control-plane/'
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
+              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:
