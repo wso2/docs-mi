@@ -3,24 +3,24 @@ This example demonstrates how the WSO2 Micro Integrator forwards messages to non
 
 ## Synapse configuration
 
-Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following is a sample REST API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
 ```xml
 <api xmlns="http://ws.apache.org/ns/synapse" name="EventDelayOrderAPI" context="/orderdelayAPI"> 
-        <resource methods="POST" url-mapping="/"> 
-           <inSequence> 
-              <property name="REST_URL_POSTFIX" action="remove" scope="axis2"></property> 
-              <send> 
-                 <endpoint> 
-                    <address uri=
-    "jms:/DelayOrderTopic?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&
-    java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&
-    java.naming.provider.url=tcp://localhost:61616&transport.jms.DestinationType=topic">
-                  </address> 
-                 </endpoint> 
-              </send> 
-           </inSequence> 
-        </resource> 
+   <resource methods="POST" url-mapping="/"> 
+      <inSequence> 
+         <property name="REST_URL_POSTFIX" action="remove" scope="axis2"/>
+         <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+         <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+         <call> 
+            <endpoint> 
+                  <address uri="jms:/DelayOrderTopic?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;
+                  java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;
+                  java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic"/>
+            </endpoint> 
+         </call> 
+      </inSequence> 
+   </resource> 
 </api>
 ```
 
@@ -32,9 +32,8 @@ Notice that we have specified the `REST_URL_POSTFIX` property with the value set
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
+{!includes/build-and-run.md!}
+3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) using the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) with your Micro Integrator.
