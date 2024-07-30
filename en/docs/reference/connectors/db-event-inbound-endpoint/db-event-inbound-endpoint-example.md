@@ -2,7 +2,7 @@
 
 The following are the main features of the event generator. 
 
-1. Trigger an event with the data of the table row when a new record is added or updated. Optionally, delete the row associated with the event after triggering the event
+1. Trigger an event with the data of the table row when a new record is added or updated. Optionally, delete the row associated with the event after triggering the event.
 2. Trigger an event when a boolean field is flipped in a particular table row. 
 
 ## What you'll build
