@@ -1,31 +1,57 @@
-# SMPP Inbound Endpoint Example
+# SMPP inbound endpoint example
 
-The SMPP inbound endpoint allows you to consume messages from SMSC. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages to the integration sequence. It will receive alert notifications or will notify when a data short message accepted.
+The SMPP inbound endpoint allows you to consume messages from SMSC (Short Message Service Center). The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages into the integration sequence. It will receive alert notifications or will notify when a data short message is accepted.
 
 ## What you'll build
 
-This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. In this scenario, you should have a connectivity with SMSC (Short Message service center) via SMPP protocol. For this we are using **SMSC simulator** to accomplish the required requirements. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation for more information.
+This scenario demonstrates how the SMPP inbound endpoint works as a message consumer. In this scenario, you should have connectivity with SMSC (Short Message Service Center) via the SMPP protocol. For this, we are using **SMSC simulator** to accomplish the required requirements. Please refer to the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation for more information.
 
-The SMPP inbound endpoint is listening to the Short Message service center for consuming messages using defined port number in the Inbound Endpoint configurations. If SMSC generates some message by itself or user injects SMS messages to the SMSC, the WSO2 SMPP Inbound Endpoint will receive and notify. Then just log the SMS message content. In your own scenarios, you can inject that message into the mediation flow for getting the required output.
+The SMPP inbound endpoint is listening to the Short Message Service Center for consuming messages using a defined port number in the inbound endpoint configurations. If the SMSC generates some message by itself or the user injects SMS messages into the SMSC, the WSO2 SMPP inbound endpoint will receive and notify. Then just log the SMS message content. In your own scenarios, you can inject that message into the mediation flow to get the required output.
 
-Following diagram shows the overall solution we are going to build. The SMSC will generate or receive messages from the outside, while the SMPP inbound endpoint will consume messages based on the updates.
+The following diagram shows the overall solution we are going to build. The SMSC will generate or receive messages from the outside, while the SMPP inbound endpoint will consume messages based on the updates.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-example.png" title="SMPP Inbound Endpoint" width="800" alt="SMPP Inbound Endpoint"/>
 
-## Configure inbound endpoint using WSO2 Integration Studio
+## Set up the inbound endpoint
 
-1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-   
-   <img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
-   
-   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+2. Create a sequence to process the message. In this example, we will just log the message for simplicity, but in a real-world use case, this can be any message mediation.
+ 
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <sequence xmlns="http://ws.apache.org/ns/synapse" name="request" onError="fault">
+      <log level="custom">
+         <property xmlns:ns="http://org.apache.synapse/xsd"
+                   name="MessageId"
+                   expression="get-property('SMPP_MessageId')"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd"
+                   name="SourceAddress"
+                   expression="get-property('SMPP_SourceAddress')"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd"
+                   name="DataCoding"
+                   expression="get-property('SMPP_DataCoding')"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd"
+                   name="ScheduleDeliveryTime"
+                   expression="get-property('SMPP_ScheduleDeliveryTime')"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd"
+                   name="SequenceNumber"
+                   expression="get-property('SMPP_SequenceNumber')"/>
+         <property xmlns:ns="http://org.apache.synapse/xsd"
+                   name="ServiceType"
+                   expression="get-property('SMPP_ServiceType')"/>
+      </log>
+      <log level="full"/>
+   </sequence>
+   ```
+3. Click `+` button next to `Inbound Endpoints` and select `Custom` to add a new **custom inbound endpoint**.    
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-create-new-inbound-endpoint.png" title="Creating custom inbound endpoint" width="800" alt="Creating custom inbound endpoint" style="border:1px solid black"/>
+<br/>
+4. Configure the custom inbound endpoint as shown below and click `Create`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-config-endpoint-1.png" title="Configure custom inbound endpoint 1" width="600" alt="Configure custom inbound endpoint 1" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-config-endpoint-2.png" title="Configure custom inbound endpoint 2" width="600" alt="Configure custom inbound endpoint 2" style="border:1px solid black"/>
 
-3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.smpp.SMPPListeningConsumer`. 
-
-4. Navigate to the source view and update it with the following configuration as required. 
-
+   The source view of the created inbound endpoint is shown below.
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
@@ -54,50 +80,14 @@ Following diagram shows the overall solution we are going to build. The SMSC wil
       </parameters>
    </inboundEndpoint>
    ```
-   **Sequence to process the message**
    
-   In this example for simplicity we will just log the message, but in a real world use case, this can be any type of message mediation.
- 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <sequence xmlns="http://ws.apache.org/ns/synapse" name="request" onError="fault">
-      <log level="custom">
-         <property xmlns:ns="http://org.apache.synapse/xsd"
-                   name="MessageId"
-                   expression="get-property('SMPP_MessageId')"/>
-         <property xmlns:ns="http://org.apache.synapse/xsd"
-                   name="SourceAddress"
-                   expression="get-property('SMPP_SourceAddress')"/>
-         <property xmlns:ns="http://org.apache.synapse/xsd"
-                   name="DataCoding"
-                   expression="get-property('SMPP_DataCoding')"/>
-         <property xmlns:ns="http://org.apache.synapse/xsd"
-                   name="ScheduleDeliveryTime"
-                   expression="get-property('SMPP_ScheduleDeliveryTime')"/>
-         <property xmlns:ns="http://org.apache.synapse/xsd"
-                   name="SequenceNumber"
-                   expression="get-property('SMPP_SequenceNumber')"/>
-         <property xmlns:ns="http://org.apache.synapse/xsd"
-                   name="ServiceType"
-                   expression="get-property('SMPP_ServiceType')"/>
-      </log>
-      <log level="full"/>
-   </sequence>
-   ```
 > **Note**: To configure the `systemId` and `password` parameter value, please use the steps given under the topic `Configure the SMSC (Short Message Service Center) simulator` in the [Setting up the SMPP Connector ]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
 > - **systemId** : username to access the SMSC
 > - **password** : password to access the SMSC 
    
-## Exporting Integration Logic as a CApp
+## Export integration logic as a CApp
 
-**CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
-
-1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
-
-2. Select an **Export Destination** where you want to save the .car file. 
-
-3. In the next **Create a deployable CAR file** screen, select inbound endpoint and sequence artifacts and click **Finish**. The CApp will get created at the specified location provided in the previous step. 
+Follow the steps in the [Build and Export the Carbon Application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide to build and export the CApp to a specified location.
 
 ## Get the project
 
@@ -112,28 +102,31 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SMPP Connector`. Click on `SMPP Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into **<PRODUCT-HOME>/lib** folder. 
+1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SMPP Connector`. Click on `SMPP Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into **PRODUCT-HOME/lib** folder. 
 
-2. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE/) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **<PRODUCT-HOME>/lib** folder.
+2. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **PRODUCT-HOME/lib** folder.
    
-3. Copy the exported carbon application to the **<PRODUCT-HOME>/repository/deployment/server/carbonapps** folder. 
+3. Copy the exported carbon application to the **PRODUCT-HOME/repository/deployment/server/carbonapps** folder. 
 
 4. [Start the integration server]({{base_path}}/get-started/quick-start-guide/integration-qsg#start-the-micro-integrator). 
 
-## Testing  
+## Test  
 
-   Please use the [smpp-connector-example]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-example/) testing steps to test this Inbound Endpoint scenario. You need to send the SMS message to the SMSC via the SMPP connector example API(SmppTestApi.xml).
+   Send an SMS message from SMSC to the user `kasun`. 
+      
+   1. Open the simulator. 
+   2. Press `Enter`, and you will see multiple options.
+     
+      <img src="{{base_path}}/assets/img/integrate/connectors/smsc-simulator-multiple-options.png" title="SMSC simulator multiple options" width="250" alt="SMSC simulator multiple options" style="border:1px solid black"/>
    
-   **Sample request**
-   
-     ```
-     curl -v POST -d '{"sourceAddress":"16111", "message":"Hi! This is the first test SMS message.","distinationAddress":"071XXXXXXX"}' "http://172.17.0.1:8290/send" -H "Content-Type:application/json"
-     ```
-   SMPP Inbound Endpoint will consume message from the SMSC.
+   3. Enter `4` to send a message. 
+   4. Then, you will get to type the message. Enter the message "Hi! This is the first test SMS message.".
+
+   SMPP Inbound Endpoint will consume messages from the SMSC.
    
    **Expected response**
    
-     ```
-     [2020-05-18 10:56:05,495]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 7, ServiceType = null
-     [2020-05-18 10:56:05,506]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:F767BC9689D3D2221B1589779565430, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message.</text></soapenv:Body></soapenv:Envelope>
-     ```
+      ```
+      [2024-07-17 15:38:26,381]  INFO {LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 3, ServiceType = null
+      [2024-07-17 15:38:26,385]  INFO {LogMediator} - To: , MessageID: urn:uuid:2D91A3B4AC27392C7E1721210906380, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message</text></soapenv:Body></soapenv:Envelope>
+      ```

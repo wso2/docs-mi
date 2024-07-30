@@ -1,4 +1,4 @@
-# MQTT Parameters
+# MQTT parameters
 
 When you implement an integration use case that requires an MQTT connection, you can use the following MQTT parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,9 +9,9 @@ When you implement an integration use case that requires an MQTT connection, you
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level Parameters
+## Service-Level parameters
 
-### Required Parameters
+### Required parameters
 
 <table>
 	<tr>
@@ -36,7 +36,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
    </tr>
 </table>
 
-### Optional Parameters
+### Optional parameters
 
 <table>
    <tr>

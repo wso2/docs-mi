@@ -25,7 +25,7 @@ When you open the extension for the first time, you'll see the **Design View** p
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/getting-started.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/getting-started.png" alt="Getting Started" width="700"></a>
 
-To get started, you need to first create the required project directories. You can either open a folder containing a MI project or create a new project. Alternatively, you can use an integration sample provided under **Explore Samples**, which will generate the required projects and files for a specific use case.
+To get started, you need to first create the required project directories. You can either open a folder containing an integration project by selecting **Open MI Project** or create a new integration project from scratch by selecting **Create New Project**. Alternatively, you can use an integration sample provided under **Explore Samples**, which will generate the required projects and files for a specific use case.
 
 To create a new project you can use the links on the **MI Project Explorer** or **Design View**.
 
@@ -50,13 +50,18 @@ Once you create an integration project, you will see the **Add Artifact** panel 
 
 To start an integration, you need either API, Proxy, Task, or Inbound Endpoint as the entry points. You can add the other artifacts using the **Add Artifacts** panel or the Project Explorer.
 
-## Project Explorer
+## MI Project Explorer
 
-The **Micro Integrator: Project Explorer** provides a view of all the project directories created for your integration solution. Shown below is the project explorer of a sample project.
+The **Micro Integrator Project Explorer** provides a view of all the project directories created for your integration solution. Shown below is the **MI Project Explorer** of a sample project.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/project-explorer.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/project-explorer.png" alt="Project Explorer" width="700"></a>
 
-You can add the artifacts required for your integration using Project Explorer.
+You can add the artifacts required for your integration using the MI Project Explorer.
+
+!!! info "Explorer view"
+    You can switch to the default Visual Studio Code **Explorer** to view the folder structure. Shown below is how to switch from the **MI Project Explorer** view to the default VS Code **Explorer** view for a sample project.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/switch-to-project-explorer.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/switch-to-project-explorer.gif" alt="Switch to project explorer.gif" width="80%"></a>
 
 ## AI Panel
 

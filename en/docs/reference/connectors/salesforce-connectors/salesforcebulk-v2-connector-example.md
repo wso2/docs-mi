@@ -6,7 +6,7 @@ The **Salesforce Bulk v2.0 Connector** provides seamless integration with the [S
 
 The following example demonstrates how to use the Salesforce Bulk v2.0 Connector for performing various operations on your Salesforce data:
 
-1. Insert account records to the salesforce.
+1. Insert account records into salesforce.
 2. Insert account records from a file to the salesforce.
 3. Get the created bulk job information. 
 4. Get the successfully processed records.
@@ -30,9 +30,9 @@ You can use the following resources to achieve your requirements.
 3. `/getJobInfo` : 
     - Get the bulkJob info identified by the jobId passed through the request body.
 4. `/getSuccessfulResults` : 
-    - Retrive the successful results of the bulk job identified by the `jobId`.
+    - Retrieve the successful results of the bulk job identified by the `jobId`.
 5. `/getUnprocessedResults` : 
-    - Retrive the unprocessed records of the bulk job identified by the `jobId`.
+    - Retrieve the unprocessed records of the bulk job identified by the `jobId`.
     - Store the results to a CSV file.
 6. `/deleteJob` : 
     - Delete the bulkJob identified by the jobId passed through the request body.
@@ -41,51 +41,46 @@ You can use the following resources to achieve your requirements.
 8. `/getQueryJobInfo` : 
     - Get the queryJob info identified by the jobId passed through the request body.
 6. `/getSuccessfulQueryResults` : 
-    - Retrive the successful results of the bulk query job identified by the `queryJobId`.
+    - Retrieve the successful results of the bulk query job identified by the `queryJobId`.
     - Store it in a CSV file.
 
-## Setting up the environment
+## Set up the environment
 
 By default, the `text/csv` message formatter and message builder are not configured in the Micro Integrator settings. To enable this connector to function correctly with `text/csv` data, you will need to follow these steps to add the necessary message formatter and message builder configurations.
 
-1. Open `[MI_Root]/conf/axis2/axis2.xml` using a text editor.
+Consider the root of the Micro Integrator/ Enterprise Integrator as `<PRODUCT_HOME>`.
+
+If you are using the **Micro Integrator 4.3.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
+
+```toml
+[[custom_message_formatters]]
+class = "org.apache.axis2.format.PlainTextFormatter"
+content_type = "text/csv"
+
+[[custom_message_builders]]
+class="org.apache.axis2.format.PlainTextBuilder"
+content_type = "text/csv"
+```
+
+If you are using **EI 6.x** version, you can enable this property by completing the following steps.
+
+1. Open `<PRODUCT_HOME>/conf/axis2/axis2.xml` using a text editor.
 2. Navigate to the `Message Formatters` section.
 3. Add a new message formatter for the type `text/csv`.
     - `<messageFormatter contentType="text/csv" class="org.apache.axis2.format.PlainTextFormatter"/>`
 4. Navigate to the `Message Builders` section.
 5. Add a new message builder for the type `text/csv`.
     - `	<messageBuilder contentType="text/csv" class="org.apache.axis2.format.PlainTextBuilder"/>`
-6. Save the file and restart the Micro Integrator.
 
-## Configure the connector in WSO2 Integration Studio
+Save the files and restart the Micro Integrator.
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
+## Set up the integration project
 
-### Import the connector
-
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
-
-1. Open WSO2 Integration Studio and create an **Integration Project**.
-   <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png"><img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" /></a>
-
-2. Right-click the project that you created and click on **Add or Remove Connector** -> **Add Connector**. You will get directed to the WSO2 Connector Store.
-
-3. Search for the "Salesforce Bulk API V2.0" connector and download it to the workspace.
-   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/connector.png" title="Search Connector in the Connector Store" width="40%" alt="Search Connector in the Connector Store" /></a>
-
-[//]: # (   ![Search Connector in the Connector Store]&#40;{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/connector.png&#41;)
-
-4. Click **Finish**, and your Integration Project is ready. The downloaded connector is displayed on the side palette with its operations.
-
-5. You can drag and drop the operations to the design canvas and build your integration logic.
-   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/connector-window.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/connector-window.png" title="Drag connector operations" alt="Drag connector operations" /></a>
-
-6. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
-
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
 ### Add integration logic
 
-First create a REST API called `Salesforce` in your project
+First, create a REST API called `Salesforce` in your project.
 
 | Name | Context |
 | ---------------- | ---------------- |
@@ -105,14 +100,13 @@ Create the following resources in 'Salesforce' REST API
 | /getQueryJobInfo | POST |
 | /getSuccessfulQueryResults  | POST |
 
-
-Lets add the operations to the resources in `Salesforce` API
+Let's add the operations to the resources in the `Salesforce` API
 
 #### - /createJobAndUploadData
 
   Users can utilize this resource to send CSV content for upload via the request body. The API will utilize an `enrich` mediator to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
 
-  1. In the API insequence drag and drop the Enrich mediator. Using the Enrich mediator clone the body content to a property called `csvContent`.
+  1. In the API inSequence select the Enrich mediator. Using the Enrich mediator clone the body content to a property called `csvContent`.
       Enrich source: 
 
       ```xml
@@ -122,35 +116,33 @@ Lets add the operations to the resources in `Salesforce` API
         </enrich>
       ```  
 
-  2. Drag and drop `createJob` operation from **Salesforce_bulkapi_v2_Connector** section.
-    1. Double click the operation. It will show you the properties section.
-    2. In the properties section, In the General Section, click on the `+` button next to `Salesforce Configuration`
-        1. In the `Connection configurtion` section give a name for `Salesforce Connection Name`
-        2. Provide your Salesforce instance URL in the `Instance URL` text box.
-        3. Provide your Salesforce connected app's client id in the `Client ID` text box.
-        4. Provide your Salesforce connected app's client secret in the `Client Secret` text box.
-        5. Provide your Salesforce connected app's refresh token in the `Refresh Token` text box.
-        6. Provide your Salesforceconnected app's Access Token in the `Access Token` text box.
+  2. Select the `createJob` operation from **Salesforce_bulkapi_v2_Connector**.
+    1. In the form, click the `Add new connection` button.
+        1. In the `Connection configuration` section give a name for **Salesforce Connection Name**
+        2. Provide your Salesforce instance URL in the **Instance URL** text box.
+        3. Provide your Salesforce connected app's client id in the **Client ID** text box.
+        4. Provide your Salesforce connected app's client secret in the **Client Secret** text box.
+        5. Provide your Salesforce connected app's refresh token in the **Refresh Token** text box.
+        6. Provide your Salesforce connected app's access token in the **Access Token** text box.
             - We recommend not to use `Access Token`.
             - If you are using an `Access Token`, please update it promptly upon expiration.
-            - If you are providing an `Access Token` along with `Client ID, Client Secret, and Refresh Token`, and if the `Access Token` has expired, kindly remove the expired `Access Token`. An invalid `Access Token` could lead to poor connector performance.
-        7. Click finish.
+            - If you are providing an `Access Token` along with `Client ID`, `Client Secret`, and `Refresh Token`, and if the `Access Token` has expired, kindly remove the expired `Access Token`. An invalid `Access Token` could lead to poor connector performance.
+        7. Click Finish.
     3. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
     4. Input `Account` in the `Object` text box
-    5. Select `COMMA` in the `Column Delimeter` dropbox
+    5. Select `COMMA` in the `Column Delimiter` dropbox
     6. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
 
-  3. Drag and drop a property mediator. Using this mediator we will extract the jobId from the response and will use it in other operations in this sequence.
-    
+  3. Select the property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
+
       ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
       ```
 
-  4. Drag and drop `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector** section.
-       1. Double click the operation. It will show you the properties section.
-       2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-       3. For `Job ID` text box enter `$ctx:jobId` as expression.
-       4. For `Input Data` enter `$ctx:csvContent` as the expression
+  4. Select the `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector**.
+       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+       2. For `Job ID` text box enter `$ctx:jobId` as expression.
+       3. For `Input Data` enter `$ctx:csvContent` as the expression
 
       ```xml
       <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
@@ -159,44 +151,41 @@ Lets add the operations to the resources in `Salesforce` API
       </salesforce_bulkapi_v2.uploadJobData>
       ```
 
-  5. Drag and drop `closeJob` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+  5. Select the `closeJob` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
 
-  6. Drag and drop 'Respond' mediator.
+  6. Select the 'Respond' mediator.
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png" width="800"/></a>
 
 #### - /createJobAndUploadFile
 
-  Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize an `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
+  Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize a `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
   
-  1. Drag and drop `createJob` operation from **Salesforce_bulkapi_v2_Connector** section.
-    1. Double-click the operation to view its properties section.
-    2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-    3. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
-    4. Input `Account` in the `Object` text box
-    5. Select `COMMA` in the `Column Delimeter` dropbox
-    6. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
+  1. Select the `createJob` operation from **Salesforce_bulkapi_v2_Connector**.
+    1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+    2. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
+    3. Input `Account` in the `Object` text box
+    4. Select `COMMA` in the `Column Delimiter` dropbox
+    5. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
 
-  2. Drag and drop a property mediator. Using this mediator we will extract the jobId from the response and will use it in other operations in this sequence.
+  2. Select the property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
     
       ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
       ```
 
-  3. Drag and drop `read` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)** section.
+  3. Select the `read` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)**.
       1. Prior to this step, you must configure the **File Connector**. For setup instructions, please refer to the [File Connector Documentation]({{base_path}}/reference/connectors/file-connector/file-connector-overview/).
       2. Create a File Connection and select it.
       3. In the `Basic` section, enter the file path.
       4. In the `Operation Result` section, select `Add Result To` as "Message Property",
       5. Set the `Property Name` as "csvContent".
 
-  4. Drag and drop `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector** section.
-       1. Double click the operation. It will show you the properties section.
-       2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-       3. For `Job ID` text box enter `$ctx:jobId` as expression.
-       4. For `Input Data` enter `$ctx:csvContent` as the expression
+  4. Select the `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector**.
+       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+       2. For `Job ID` text box enter `$ctx:jobId` as expression.
+       3. For `Input Data` enter `$ctx:csvContent` as the expression
 
       ```xml
       <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
@@ -205,12 +194,11 @@ Lets add the operations to the resources in `Salesforce` API
       </salesforce_bulkapi_v2.uploadJobData>
       ```
 
-  5. Drag and drop `closeJob` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+  5. Select the `closeJob` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
 
-  6. Drag and drop 'Respond' mediator.
+  6. Select the 'Respond' mediator.
 
 <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" width="800" /></a>
 
@@ -218,14 +206,13 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can get the job information.
 
-  1. Drag and drop a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
-  2. Drag and drop `getJobInfo` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+  2. Select the `getJobInfo` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
 
 
         ```xml
@@ -234,7 +221,7 @@ Lets add the operations to the resources in `Salesforce` API
         </salesforce_bulkapi_v2.getJobInfo>
         ``` 
 
-  3. Drag and drop 'Respond' mediator.
+  3. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
 
@@ -242,15 +229,14 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can retrieve the successfully processed records of a particular bulk job.
 
-  1. Drag and drop a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
-  2. Drag and drop `getSuccessfulResults` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
-      4. In the 'Output type' drop down, select `JSON` or `CSV`.
+  2. Select the `getSuccessfulResults` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      3. In the 'Output type' drop down, select `JSON` or `CSV`.
 
 
         ```xml
@@ -261,7 +247,7 @@ Lets add the operations to the resources in `Salesforce` API
         </salesforce_bulkapi_v2.getSuccessfulResults>
         ``` 
 
-  3. Drag and drop 'Respond' mediator.
+  3. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
 
@@ -269,15 +255,14 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can retrieve the unprocessed records of a particular bulk job.
 
-  1. Drag and drop a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
-  2. Drag ann drop `getUnprocessedResults` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
-      4. In the 'Output type' drop, select `CSV`.
+  2. Drag ann drop `getUnprocessedResults` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      3. In the 'Output type' drop, select `CSV`.
 
 
         ```xml
@@ -289,26 +274,25 @@ Lets add the operations to the resources in `Salesforce` API
         ``` 
 
 
-  3.  Drag and drop `write` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)** section.
-      1. In the `General` section of the properties, select the File Connection configuration you created.
+  3.  Select the `write` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)** section.
+      1. Select the File Connection configuration you created.
       2. In the `Basic` section, enter the file path.
 
-  4. Drag and drop 'Respond' mediator.
+  4. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-unprocessed-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-unprocessed-results.png" width="700" /></a>
 
 #### - /deleteJob
 
-  Using this resource, users can delete a perticular bulk job
+  Using this resource, users can delete a particular bulk job
 
-  1. Drag and drop a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
-  2. Drag and drop `deleteJob` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+  2. Select the `deleteJob` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
 
 
         ```xml
@@ -317,7 +301,7 @@ Lets add the operations to the resources in `Salesforce` API
         </salesforce_bulkapi_v2.deleteJob>
         ``` 
 
-  3. Drag and drop 'Respond' mediator.
+  3. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/delete-job.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/delete-job.png" width="600" /></a>
 
@@ -325,13 +309,12 @@ Lets add the operations to the resources in `Salesforce` API
 
   Using this resource, users can create a bulk query job in salesforce
 
-  1. Drag and drop `createQueryJob` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the properties section, under `Basic`, select `QUERY` in the Operation dropdown.
-      4. Input `SELECT Id, name FROM Account` in the `Object` text box
-      5. Select `COMMA` in the `Column Delimeter` dropbox
-      6. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
+  1. Select the `createQueryJob` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the properties section, under `Basic`, select `QUERY` in the Operation dropdown.
+      3. Input `SELECT Id, name FROM Account` in the `Object` text box
+      4. Select `COMMA` in the `Column Delimiter` dropbox
+      5. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
         
         
         ```xml
@@ -343,7 +326,7 @@ Lets add the operations to the resources in `Salesforce` API
         </salesforce_bulkapi_v2.createQueryJob>
         ```
 
-  2. Drag and drop 'Respond' mediator.
+  2. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-query-job.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-query-job.png" width="500" /></a>
 
@@ -351,14 +334,13 @@ Lets add the operations to the resources in `Salesforce` API
   
   Using this resource, users can get the query job information.
 
-  1. Drag and drop a 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
         ```
-  2. Drag and drop `getQueryJobInfo` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+  2. Select the `getQueryJobInfo` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
 
 
         ```xml
@@ -367,22 +349,21 @@ Lets add the operations to the resources in `Salesforce` API
         </salesforce_bulkapi_v2.getQueryJobInfo>
         ``` 
 
-  3. Drag and drop 'Respond' mediator.
+  3. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-info.png" width="600" /></a>
 
 #### - /getSuccessfulQueryResults
 
-  Using this resource, users can get the successful query results from salesforce
+  Using this resource, users can get the successful query results from salesforce.
 
-  1. Drag and drop a 'Property' mediator. This mediator will extract the queryJobId from the request payload and enable its use in other operations within this sequence.
+  1. Select the 'Property' mediator. This mediator will extract the queryJobId from the request payload and enable its use in other operations within this sequence.
         ```xml
         <property expression="json-eval($.id)" name="queryJobId" scope="default" type="STRING"/>
         ```
-  2. Drag and drop `getQueryJobResults` operation from **Salesforce_bulkapi_v2_Connector** section.
-      1. Double-click the operation to view its properties section.
-      2. In the 'General' section of the properties, select the Salesforce connection configuration you created.
-      3. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+  2. Select the `getQueryJobResults` operation from **Salesforce_bulkapi_v2_Connector**.
+      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
         ```xml
         <salesforce_bulkapi_v2.getQueryJobResults configKey="SF_CONNECTION_CONFIG_NAME_1">
                 <queryJobId>{$ctx:queryJobId}</queryJobId>
@@ -394,7 +375,7 @@ Lets add the operations to the resources in `Salesforce` API
 
         > **Note:** The includeResultTo 'FILE' feature is `deprecated`. 
 
-  3. Drag and drop 'Respond' mediator.
+  3. Select the 'Respond' mediator.
 
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-results.png" width="600" /></a>
 
@@ -425,7 +406,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.closeJob>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST GET" uri-template="/createJobAndUploadFile">
@@ -456,7 +436,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.closeJob>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/getJobInfo">
@@ -467,7 +446,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.getJobInfo>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/getSuccessfulResults">
@@ -480,7 +458,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.getSuccessfulResults>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/getUnprocessedResults">
@@ -503,7 +480,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </file.write>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/deleteJob">
@@ -514,7 +490,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.deleteJob>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST GET" uri-template="/createQuery">
@@ -527,7 +502,6 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.createQueryJob>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/getQueryJobInfo">
@@ -539,7 +513,6 @@ Lets add the operations to the resources in `Salesforce` API
                 <log level="full"/>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
         <resource methods="POST" uri-template="/getSuccessfulQueryResults">
@@ -556,13 +529,12 @@ Lets add the operations to the resources in `Salesforce` API
                 </salesforce_bulkapi_v2.getQueryJobResults>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
     ```
 
-### Testing the resources
+### Test the resources
 
 Let's test the API. Start the MI and deploy the API. 
 
@@ -788,6 +760,6 @@ Let's test the API. Start the MI and deploy the API.
     ]
     ```
 
-## What's Next
+## What's next
 
 - To customize this example for your own scenario, see [Salesforce bulk V2 Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-v2-reference/) documentation for all operation details of the connector.

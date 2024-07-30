@@ -1,109 +1,70 @@
-# Creating a REST API
+# Create a REST API
 
-Follow the instructions given below to create a new [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties) artifact in WSO2 Integration Studio.
+Follow the instructions below to create a new REST API artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the API artifact
+### Create the API artifact
 
-1.  Right-click the **Config** project in the project explorer and go to **New → REST API**.
+{!includes/creating-project.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png" width="700">
+3. Go to **Micro Integrator Project Explorer** > **APIs**.
 
-2.  In the dialog box that opens, select one of the given options for creating the API artifact:
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="Create REST API" width="30%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/create-new-api-option.png" width="500">
+4. Hover over **APIs** and click the **+** icon that appears to open the **Synapse API Artifact** creation form below.
 
-    <table>
-        <tr>
-            <th>
-                Create A New API Artifact
-            </th>
-            <td>
-                This option is selected by default. Use this option if you want to create the REST API artifact from scratch.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Generate API using Swagger Definition
-            </th>
-            <td>
-                Selet this option if you want to generate the REST API artifact from an existing Swagger definition (YAML/JSON file). That is, the synapse configuration (XML) of the REST API will be generated using the Swagger definition.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Import API Artifact
-            </th>
-            <td>
-                Select this option to import an existing REST API configuration (XML definition) that was created using WSO2 Integration Studio.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Import API from API Manager
-            </th>
-            <td>
-                Select this option to import an managed API from WSO2 API Manager.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Generate REST API from WSDL
-            </th>
-            <td>
-                Select this option to generate Synapse API from a WSDL endpoint.
-            </td>
-        </tr>
-    </table>
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="Add API" width="30%"></a>
 
-3.  Click **Next** to go to the next page and enter the relevant details.
+    In the interface that opens, provide details for the synapse API artifact.
+    
+     <table>
+        <thead>
+           <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+           </tr>
+        </thead>
+        <tbody>
+           <tr>
+              <td>Name</td>
+              <td>Name of the synapse API artifact.</td>
+           </tr>
+           <tr>
+              <td>Context</td>
+              <td>The context for the REST API. For example, <code>/healthcare</code>. 
+              <div class="admonition note">
+              <p class="admonition-title">Note</p>
+              <p>
+              <ul>
+                 <li>It is not recommended to use the same API context in multiple APIs. The API context should be unique for each API.</li>
+                 <li>It is also not recommended to use <code>/service</code> as API context because it is preserved for Proxy services.</li>
+              </ul>
+              </p>
+              </div>
+              </td>
+           </tr>
+           <tr>
+         <td>Generate API From</td>
+         <td>
+             Select one of the given options:
+             <ul>
+                 <li>None: This option is selected by default. Use it to create a new REST API artifact from scratch.</li>
+                 <li>From OpenAPI definition: Select this option to generate the REST API artifact from an existing Swagger definition (YAML/JSON file). The Synapse configuration (XML) of the REST API will be generated using the Swagger definition.</li>
+                 <li>From WSDL file: Select this option to generate Synapse API from a WSDL endpoint.</li>
+             </ul>
+         </td>
+         </tr>
+        </tbody>
+     </table>
 
-    -   If you selected **Create a New API** in the previous step, enter the basic details that are required for creating the synapse configuration (XML) of the API:
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-new-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-new-rest-api.png" alt="Create new rest API" width="80%"></a>
 
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-artifact-dialog.png" width="500">
+    <br/>
 
-        <table>
-            <tr>
-                <th>
-                    Parameter
-                </th>
-                <th>
-                    Description
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td>
-                    <b>Required</b>.</br>
-                    The name of the REST API.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Context
-                </td>
-                <td>
-                    <b>Required</b>.</br>
-                    The context for the REST API. For example, <code>/healthcare</code>. Note that it is not recommended to use the same API context in multiple APIs. The API context should be unique for each API. It is also not recommended to use "/service" as API context because it is preserved for Proxy services.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Path to Swagger Definition
-                </td>
-                <td>
-                    Enter the path to a custom Swagger definition (YAML/JSON file) that is stored in a registry project in your workspace.</br></br>
-                    Once this API is created and deployed in the Micro Integrator, users will be able to access this custom Swagger definition and not the default Swagger definition of the API.
-                </td>
-            </tr>
-        </table>
+    - If you selected **None** in the previous step, you can start creating an API from scratch.
 
-    -   If you selected **Generate API using Swagger Definition** in the previous step, enter the details of your custom Swagger file:
-
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-swagger-dialog.png" width="500">
+    -  If you selected **From OpenAPI definition** in the previous step, enter the details of your custom Swagger file:
 
         <table>
             <tr>
@@ -116,180 +77,79 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
             </tr>
             <tr>
                 <td>
-                    Swagger Definition File
+                    Swagger File
                 </td>
                 <td>
-                    <b>Required</b>.</br>
-                    Click <b>Browse</b> and select the Swagger file.
+                    Click <b>Select Location</b> and select a file for OpenAPI definition. This field is required.
                 </td>
             </tr>
             <tr>
                 <td>
-                    Swagger Registry Path
+                    Save Swagger Definition
                 </td>
                 <td>
-                    Click <b>Browse</b> to select an existing registry project in your workspace. The Swagger definition will be saved to this registry.</br></br>
-                    If you don't have an existing registry project, click <b>Create new project</b> to add a new registry project to your workspace.
+                    Check this to save the Swagger definition. The Swagger definition will be saved to this registry.</br>
                 </td>
             </tr>
         </table>
 
-    -   If you selected **Import API Artifact** in the previous step, enter the following information:
+        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-openapi-definition.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-openapi-definition.png" alt="generate API from openAPI definition" width="80%"></a>
 
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-dialog.png" width="500">
+    - If you selected **From WSDL file** in the previous step, enter the following information:
 
-        <table>
-            <tr>
-                <th>
-                    Parameter
-                </th>
-                <th>
-                    Description
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    API Configuration File
-                </td>
-                <td>
-                    <b>Required</b>.</br>
-                    Click <b>Browse</b> and select the REST API configuration file.
-                </td>
-            </tr>
+        <table><thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr></thead>
+        <tbody>
+          <tr>
+            <td>WSDL Type</td>
+            <td>Select <b>File</b> to generate API from a WSDL file or a Zip file containing a valid WSDL file, or select <b>URL</b> to generate the API using a remote WSDL file.</td>
+          </tr>
+          <tr>
+            <td>WSDL File</td>
+            <td>Browse and select the WSDL File or Zip file that contains a valid WSDL file.</td>
+          </tr>
+          <tr>
+            <td>WSDL URL</td>
+            <td>Give the remote location of the SOAP Service WSDL File as a valid URL.</td>
+          </tr>
+          <tr>
+            <td>SOAP Endpoint</td>
+            <td>Give the actual SOAP Backend URL. (This should return a valid WSDL when invoked with <code>?wsdl</code>.)</td>
+          </tr>
+        </tbody>
         </table>
 
-    -   If you selected **Import API from API Manager** in the previous step, enter the following information:
-
-        <img src="{{base_path}}/assets/img/tutorials/import-api-from-apim.png" width="500">
-
-        <table>
-            <tr>
-                <th>
-                    Parameter
-                </th>
-                <th>
-                    Description
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    Username
-                </td>
-                <td>
-                    Username of the API Manager user.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Password
-                </td>
-                <td>
-                    Password of the API Manager user.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    API Manager host
-                </td>
-                <td>
-                    Host URL of the API Manager.
-                </td>
-            </tr>
-        </table>
-        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
-
-    -   If you selected **Generate REST API from WSDL** in the previous step, enter the following information:
-
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/generate-api-from-wsdl.png" width="500">
-
-        <table>
-            <tr>
-                <th>
-                    Parameter
-                </th>
-                <th>
-                    Description
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td>
-                    Name for the generated REST API.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Generate API
-                </td>
-                <td>
-                    Select 'Using WSDL URL' for generate API using the remote WSDL file or select 'Using Local 
-        File' to generate API from WSDL file or Zip file contain a valid WSDL file.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Use Local WSDL file or Zip file
-                </td>
-                <td>
-                    Browse and select the WSDL File or Zip file that has a valid WSDL file
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Enter WSDL URL
-                </td>
-                <td>
-                    Give the remote location of the SOAP Service WSDL File as a valid URL
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Enter SOAP Endpoint
-                </td>
-                <td>
-                    Give the actual SOAP Backend URL(This should return a valid WSDL when invoked with ?wsdl)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Save in
-                </td>
-                <td>
-                    Select the integration project for the generated API
-                </td>
-            </tr>
-        </table>
+        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-wsdl-file.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-wsdl-file.png" alt="generate API from wsdl file" width="80%"></a>
 
         !!! Note
-            - Current SOAP to REST Generation has the limitations mentioned [here](https://github.com/wso2/soap-to-rest/blob/main/limitations.md)
-            - All the generated REST Services are not production ready and users need to review them manually using Integration Studio IDE and edit if needed.
+            - Current SOAP to REST Generation has the limitations mentioned [here](https://github.com/wso2/soap-to-rest/blob/main/limitations.md).
+            - All the generated REST Services are not production-ready and users need to review them manually using MI for VS Code and edit if needed.
             - Since having `.` (dot) in XML element names is not a best practice, you may need to manually change the generated soap payload to include the `.` (dot).
-    
-4.  Click **Finish**. 
-    -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
-    -   If you provided a custom Swagger definition file (YAML), it is now stored in the registry project.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/project-explorer.png" width="400">
+5. Once you complete the **API Form**, click **Create**.
 
-### Designing the integration
+   The REST API is created inside the `/src/main/wso2mi/artifacts/apis` folder of your integration project.
 
-When you open the REST API from the **Config** project in the project explorer, you will see the default **Design** view as shown below.
+   If you have provided a custom Swagger definition file (YAML), it is stored in the `/src/main/wso2mi/resources/api-definitions` folder of your integration project.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.jpg" width="800">
+   Once you create the REST API, it will be available on the **Service Designer** under **Available Resources**.
 
-Drag and drop the required integration artifacts from the **Palette** to the API resource and design the integration flow.
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/service-designer-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/service-designer-view.png" alt="service designer view" width="80%"></a>
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.jpg" width="800">
+### Add new API resources
 
-You can also use the [**Source** view](#using-the-source-view) or the [**Swagger** editor](#using-the-swagger-editor) to update the API configuration.
+When you create the API, an API resource is created by default. If you want to add a new resource:
 
-### Adding new API resources
+1. Click **+ Resource** on the **Service Designer** to open the **Add API Resource** pane.
 
-When you create the API, an API resource is created by default. If you want to add a new resource, click **API Resource** in the **Pallet** and simply drag and drop the resource to the REST API.
+2. Add the required details.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/add-new-api-resource.png" width="700">
+3. Click **Create**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/add-resource.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/add-resource.png" alt="add new API resource" width="80%"></a>
 
 !!! Info
     **About the default API Resource**
@@ -303,8 +163,8 @@ When you create the API, an API resource is created by default. If you want to a
     === "SampleAPI"
         ```xml
         <api name="SampleAPI" context="/payments">
-        <resource url-mapping="/list" methods="GET" inSequence="seq7" outSequence="seq8"/>
-        <resource uri-template="/edit/{userId}" methods="PUT POST" outSequence="seq9">
+        <resource url-mapping="/list" methods="GET" inSequence="seq1"/>
+        <resource uri-template="/edit/{userId}" methods="PUT POST">
             <inSequence>
                  <log/>
                  <send>
@@ -312,15 +172,20 @@ When you create the API, an API resource is created by default. If you want to a
                  </send>
             </inSequence>
         </resource>
-        <resource inSequence="seq10" outSequence="seq11"/>
+        <resource inSequence="seq2"/>
         </api>
         ```    
 
-### Updating metadata
+### Update metadata
 
-When you create the API artifact from WSO2 Integration Studio, a **resources** folder with metadata files is created as shown below.
+When you create the API artifact from MI for VS Code extension, the metadata files will be created and stored under the `<PROJECT_NAME>/src/main/wso2mi/resources/metadata` folder.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-meta-data-folder.png" width="350">
+!!! note
+    You can view the below folder structure by [switching]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/#mi-project-explorer) to the VS Code default **Explorer** view.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png" alt="Metadata folder" width="30%"></a>
+
+<!--
 
 The service's metadata is used by the API management runtime to generate the API proxy for the integration service (which is this API).
 
@@ -366,47 +231,70 @@ The service's metadata is used by the API management runtime to generate the API
 !!! Tip
     See the [Service Catalog API documentation](https://apim.docs.wso2.com/en/latest/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
-### Updating properties
+-->
 
-To update API-level properties from the **Design** view:
+### Design the integration
 
-1.  Double-click the **API** icon to open the <b>Properties</b> tab for the API.
+1. On the **Service Designer**, click on the API resource and go to the **Resource View**.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-properties.png" width="700">
+2. Add the required mediators and connectors to the API resource and design the integration flow.
 
-2.  See the complete list of [optional REST API properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-properties-optional) you can configure.
+You can also use the [**Source View**](#using-the-source-view) or the [**Swagger View**](#using-the-swagger-editor) to update the API configuration.
 
-To update API resource properties from the **Design** view:
+### Update properties
 
-1.  Double-click the **Resource** icon to enable the <b>Properties</b> tab for the resource.
+To update API level properties:
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-resource-properties.png" width="700">
+1. On the **Service Designer**, click on the API resource to go to the **Resource View** of the API resource.
 
-2.  See the complete list of [API Resource properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
+    You will now see the graphical view of the API with its default API Resource.
 
-### Using the Source View
+2. Click the **Edit** icon to edit the API resource.
 
-Click the **Source** tab to view the XML-based synapse configuration (source code) of the API. You can update the API using this view.
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/edit-api-resource.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/edit-api-resource.png" alt="edit API resource" width="80%"></a>
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-source-view.png" width="800">
+3. Specify values for the required resource properties:
 
-### Using the Swagger Editor
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/edit-api-resource-details.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/edit-api-resource-details.png" alt="Edit API resource details" width="30%"></a>
 
-Click the **Swagger Editor** tab to view the Swagger definition of your API. You can update the API using the Swagger editor (left panel) and also interact with the API using the Swagger UI (right panel).
+4. Click **Update**.
+
+    See the complete list of [API Resource properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
+
+### Use the Source View
+
+Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the API.
+
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show source view" width="30%"></a>
+
+You can update the API using this view.
+
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png" alt="source view" width="80%"></a>
+
+### Use the Swagger View
+
+1. Go to **Service Designer**.
+
+2. Click **OpenAPI Spec** to view the API definition of your API.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-api-spec.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-api-spec.png" alt="OpenAPI spec" width="80%"></a>
+
+You can interact with the API using the **Swagger View**.
 
 !!! Note
-    If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition and not the custom Swagger definition that you added.
+    If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition, not the custom Swagger definition that you added.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.jpg" width="800">
+!!! abstract "Learn more about REST APIs"
 
-## Examples
+    Follow our examples on REST APIs: 
 
--   [Using a Simple Rest API]({{base_path}}/learn/examples/rest-api-examples/introduction-rest-api)
--   [Working with Query Parameters]({{base_path}}/learn/examples/rest-api-examples/setting-query-params-outgoing-messages)
--   [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/learn/examples/rest-api-examples/enabling-rest-to-soap)
--   [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/learn/examples/rest-api-examples/configuring-non-http-endpoints)
--   [Handling Non Matching Resources]({{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources)
--   [Handling HTTP Status Codes]({{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes)
--   [Manipulating Content Types]({{base_path}}/learn/examples/rest-api-examples/transforming-content-type)
--   [Securing a REST API]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
--   [Special Cases]({{base_path}}/learn/examples/rest-api-examples/special-cases)
+    - [Using a Simple Rest API]({{base_path}}/learn/examples/rest-api-examples/introduction-rest-api)
+    - [Working with Query Parameters]({{base_path}}/learn/examples/rest-api-examples/setting-query-params-outgoing-messages)
+    - [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/learn/examples/rest-api-examples/enabling-rest-to-soap)
+    - [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/learn/examples/rest-api-examples/configuring-non-http-endpoints)
+    - [Handling Non Matching Resources]({{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources)
+    - [Handling HTTP Status Codes]({{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes)
+    - [Manipulating Content Types]({{base_path}}/learn/examples/rest-api-examples/transforming-content-type)
+    - [Securing a REST API]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
+    - [Special Cases]({{base_path}}/learn/examples/rest-api-examples/special-cases)
+    

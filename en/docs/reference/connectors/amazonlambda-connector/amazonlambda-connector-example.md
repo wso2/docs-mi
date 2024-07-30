@@ -3,7 +3,7 @@
 Given below is a sample scenario that demonstrates how to create an Amazon Lambda function in the AWS Lambda Service using the WSO2 Amazon Lambda Connector.
 
 ## What you'll build
-To use the Amazon Lambda connector, add the <amazonlambda.init> element in your configuration before carrying out any Amazon Lambda operations. This Amazon Lambda configuration authenticates with Amazon Lambda by specifying the AWS access key ID and secret access key ID, which are used for every operation. The signature is used with every request and thus differs based on the request the user makes.
+To use the Amazon Lambda connector, add the <amazonlambda.init> element in your configuration before carrying out any Amazon Lambda operations. This Amazon Lambda configuration authenticates with Amazon Lambda by specifying the AWS access key ID and secret access key ID, which are used for every operation. The signature is used with every request and thus differs based on the user's request.
 
 This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation.
 
@@ -23,15 +23,38 @@ As a next step, simply create an AWS S3 bucket and the deployment package should
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Setup the Integration Project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+{!includes/build-and-run.md!}
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+1. First let's create a connection to the AWS lambda service. Navigate to **MI Project Explorer** > **Local Entries** > **Connections** and click on the **+** sign next to **Connections** to open the **Add New Connection** view.
 
-1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
+2. Select the **Amazonlambda** connector.
+   Configure the below values.
 
-2. Specify the API name as `createFunction` and API context as `/createFunction`. You can go to the XML configuration of the API (source view) and copy the following configuration.
+       - Connection Name - `AMAZON_LAMBDA_CONNECTION`
+       - Access Key ID - `$ctx:accessKeyId`
+       - Secret Access Key - `$ctx:secretAccessKey`
+       - Region - `$ctx:region`
+       - Blocking - `$ctx:blocking`
+
+    The created connection is saved as a **Local Entry** as below.
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <localEntry key="AMAZON_LAMBDA_CONNECTION" xmlns="http://ws.apache.org/ns/synapse">
+        <amazonlambda.init>
+            <name>AMAZON_LAMBDA_CONNECTION</name>
+            <region>{$ctx:region}</region>
+            <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
+            <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
+            <blocking>{$ctx:blocking}</blocking>
+        </amazonlambda.init>
+    </localEntry>
+    ```
+
+3. Navigate to **MI Project Explorer** > **APIs** and click on the **+** sign next to APIs to open the **Synapse API Artifact** creation form.
+
+4. Specify the API name as `createFunction` and the API context as `/createFunction`. You can go to the XML configuration of the API (source view) and copy the following configuration.
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
@@ -63,13 +86,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 <property expression="json-eval($.mode)" name="mode" scope="default" type="STRING"/>
                 <property expression="json-eval($.securityGroupIds)" name="securityGroupIds" scope="default" type="STRING"/>
                 <property expression="json-eval($.subnetIds)" name="subnetIds" scope="default" type="STRING"/>
-                <amazonlambda.init>
-                    <region>{$ctx:region}</region>
-                    <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-                    <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-                    <blocking>{$ctx:blocking}</blocking>
-                </amazonlambda.init>
-                <amazonlambda.createFunction>
+                <amazonlambda.createFunction configKey="AMAZON_LAMBDA_CONNECTION">
                     <functionName>{$ctx:functionName}</functionName>
                     <functionDescription>{$ctx:functionDescription}</functionDescription>
                     <apiVersionCreateFunction>{$ctx:apiVersionCreateFunction}</apiVersionCreateFunction>
@@ -94,17 +111,14 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 </amazonlambda.createFunction>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api> 
     ```
-3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
-
-{!includes/reference/connectors/exporting-artifacts.md!}
+5. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
 ## Create Amazon Lambda Deployment Package (Lambda function) 
-In this scenario we created sample AWS Deployment Package (Lambda function) in Python.
+In this scenario, we created a sample AWS Deployment Package (Lambda function) in Python.
 
 1. Our sample Deployment Package would look similar to the following (source view : addingNumbers.py).
     ```
@@ -124,14 +138,14 @@ In this scenario we created sample AWS Deployment Package (Lambda function) in P
 
 2. Create a ZIP archive.
 
-Please use command line terminal or shell to run following commands. Commands are shown in listings preceded by a prompt symbol ($) and the name of the current directory, when appropriate:
+Please use the command line terminal or shell to run the following commands. Commands are shown in listings preceded by a prompt symbol ($) and the name of the current directory, when appropriate:
 
 ```
 ~/Documents$ zip addingNumbers.zip addingNumbers.py
  adding: addingNumbers.py.py (deflated 17%)
 ```
 
-## Upload Amazon Lambda Deployment Package (ZIP archive) in to the AWS S3 bucket
+## Upload Amazon Lambda Deployment Package (ZIP archive) into the AWS S3 bucket
 
 1. Log in to the AWS Management Console.
 2. Navigate to the created S3 bucket (e.g., eiconnectortest).
@@ -146,7 +160,7 @@ You need to create an Execution Role by referring to the [Setting up the Amazon 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazon-lambda-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazon-lambda-connector-example.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -155,13 +169,13 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Follow these steps to deploy the exported Carbon Application (CApp) in the integration runtime. For more info on deploying artifacts, refer to the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts.md).
 
 **Deploying on Micro Integrator**
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
@@ -172,17 +186,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Testing
 
-1. Log in to the Micro Integrator CLI tool.
-    ```
-    ./mi remote login
-    ```
-2. Provide default credentials admin for both username and password.
-
-3. In order to view the proxy services deployed, execute the following command.
-    ```
-    ./mi api show
-    ```
-4. Send a POST request using a CURL command or sample client.
+1. Invoke the API using a CURL command or sample client.
    ``` 
    curl -v POST -d 
    '{
@@ -196,11 +200,11 @@ You can further refer the application deployed through the CLI tool. See the ins
      "functionName":"eiLambdaConnector",
      "handler":"addingNumbers.addingNumbers",
      "role":"arn:aws:iam::610968236798:role/EIConnectorTestRole",
-     "runtime":"python3.7",
+     "runtime":"python3.12",
      "apiVersionCreateFunction":"2015-03-31"
     }' "http://localhost:8290/createFunction" -H "Content-Type:application/json"  
    ```
-5. See the following message content.
+2. See the following message content.
    ```
    {
         "Description": "",
@@ -234,18 +238,18 @@ You can further refer the application deployed through the CLI tool. See the ins
         "LastUpdateStatusReasonCode": null
    }
    ```
-6. Log in to the AWS Management Console.
+3. Log in to the AWS Management Console.
 
-7. Navigate to the AWS Lambda and Functions tab.
+4. Navigate to the AWS Lambda and Functions tab.
    <img src="{{base_path}}/assets/img/integrate/connectors/awslambdafunction.png" title="Amazon Lambda Function" width="800" alt="Amazon Lambda Function"/>
    
-8. Next you need to execute the function. Navigate to **Configure test events**. <br>
+5. Next you need to execute the function. Navigate to **Configure test events**. <br>
    <img src="{{base_path}}/assets/img/integrate/connectors/configuretestevent.png" title="Configure Test Event" width="800" alt="Configure Test Event"/>
    
-9. Click **Create new test event**.
+6. Click **Create new test event**.
    <img src="{{base_path}}/assets/img/integrate/connectors/createtestevent.png" title="Create Test Event" width="800" alt="Create Test Event"/>
    
-10. Navigate and select the created test event from the dropdown in the top right corner. Click the **Test** button and execute the test event.
+7. Navigate and select the created test event from the dropdown in the top right corner. Click the **Test** button and execute the test event.
    <img src="{{base_path}}/assets/img/integrate/connectors/executecreatedevent.png" title="Execute Test Event" width="800" alt="Execute Test Event"/>
  
 ## What's next

@@ -9,21 +9,21 @@ WSO2 Micro Integrator provides fault sequences for dealing with errors. Whenever
 ## Synapse configuration
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
--   Proxy service:
+=== "Proxy service"
     ```xml
     <proxy name="FaultTestProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target faultSequence="fault">
+        <target>
             <inSequence>
                 <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
                     <case regex="IBM">
-                        <send>
-                            <endpoint><address uri="http://localhost:9000/services/SimpleStockQuoteService"/></endpoint>
-                        </send>
+                        <call>
+                           <endpoint key="SimpleStockQuoteService" />
+                        </call>
                     </case>
                     <case regex="MSFT">
-                        <send>
+                        <call>
                             <endpoint key="bogus"/>
-                        </send>
+                        </call>
                     </case>
                     <case regex="SUN">
                         <sequence key="sunSequence"/>
@@ -31,25 +31,25 @@ Following are the integration artifacts that we can used to implement this scena
                 </switch>
                 <drop/>
             </inSequence>
-            <outSequence>
-                <send/>
-            </outSequence>
+            <faultSequence>
+                <log level="custom">
+                    <property name="text" value="An unexpected error occured"/>
+                    <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+                </log>
+                <drop/>
+            </faultSequence>
         </target>
     </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
     ```
     
 -   Mediation sequences:
 
-    === "Fault Sequence"
-        ```xml
-        <sequence xmlns="http://ws.apache.org/ns/synapse" name="fault">
-            <log level="custom">
-                <property name="text" value="An unexpected error occured"/>
-                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
-            <drop/>
-        </sequence>
-        ```
     === "Error Handling Sequence with Logs"        
         ```xml
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
@@ -63,9 +63,9 @@ Following are the integration artifacts that we can used to implement this scena
     === "Error Handling Sequence"        
         ```xml
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunSequence" onError="sunErrorHandler">
-            <send>
+            <call>
                 <endpoint key="sunPort"/>
-            </send>
+            </call>
         </sequence>
         ```
 
@@ -89,14 +89,14 @@ The following is a sample of the configurations to use the Fault sequence in an 
         <inSequence>
             <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
                 <case regex="IBM">
-                    <send>
-                        <endpoint><address uri="http://localhost:9000/services/SimpleStockQuoteService"/></endpoint>
-                    </send>
+                    <call>
+                        <endpoint key="SimpleStockQuoteService" />
+                    </call>
                 </case>
                 <case regex="MSFT">
-                    <send>
+                    <call>
                         <endpoint key="bogus"/>
-                    </send>
+                    </call>
                 </case>
                 <case regex="SUN">
                     <sequence key="sunSequence"/>
@@ -104,9 +104,6 @@ The following is a sample of the configurations to use the Fault sequence in an 
             </switch>
             <drop/>
         </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
     </resource>
 </api>
 ```
@@ -115,8 +112,7 @@ The following is a sample of the configurations to use the Fault sequence in an 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), and the [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -139,13 +135,8 @@ Set up the back-end service:
 Send a request to invoke the proxy service:
 ```xml
 POST http://localhost:8290/services/FaultTestProxy HTTP/1.1
-Accept-Encoding: gzip,deflate
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "urn:mediate"
-Content-Length: 263
-Host: Chanikas-MacBook-Pro.local:8290
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">

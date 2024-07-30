@@ -6,15 +6,15 @@ In this example the connector uses the FHIR REST API to interact with FHIR.
 
 Given below is a sample API that illustrates how you can connect to a FHIR server and invoke operations. It exposes FHIR functionalities as a restful service. Users can invoke the API with HTTP/HTTPs with required information.
 
-1. `/create` : creates a new patient at FHIR server
+1. `/create` : create a new patient at FHIR server
 2. `/read` : retrieve information about the patient from FHIR server
-3. `/readSpecificResourceById`: map this to the scenario is it read patient by Id
+3. `/readSpecificResourceById`: read patient by Id
 4. `/update` : update patient information from FHIR server.
 5. `/delete` : remove added patient information from FHIR server.
 
-To know the further information about these operations please refer this link.
+To know further information about these operations please refer this link.
 
-> **Note**: If no ID element is provided, or the value is wrong, the server responds with a HTTP 400 error code and provides an operation outcome identifying the issue.
+> **Note**: If the ID element is not provided, or the value is wrong, the server responds with a HTTP 400 error code and provides an operation outcome identifying the issue.
 
 Before you start configuring the FHIR connector, you also need to download the relevant integration runtime of WSO2, and we refer to that location as `<PRODUCT_HOME>`.
 
@@ -50,21 +50,19 @@ class="org.wso2.carbon.integrator.core.json.JsonStreamBuilder"/>
 
 The following diagram illustrates all the required functionality of the FHIR API service that you are going to build.
 
-In here FHIR clients can invoke the API with HTTP/HTTPs with required information. The FHIR connector exposes each request to converting to the Health Level Seven International standards and then send to the resources available in the FHIR server.
+In here FHIR clients can invoke the API with HTTP/HTTPs with the required information. The FHIR connector processes each request by converting to the Health Level Seven International standards and then sends it to the resources available on the FHIR server.
 
-This server is regularly loaded with a standard set of test data sets and also this server can store any data that related to administrative concepts such as patients, providers, organizations and devices, as well as a variety of clinical concepts including problems, medications, diagnostics, care plans and financial issues, among others.
+This server is loaded with a standard set of test data sets and also this server can store any data that are related to administrative concepts such as patients, providers, organizations, and devices as well as a variety of clinical concepts including problems, medications, diagnostics, care plans, and financial issues, among others.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/fhirconnector.png" title="FHIR Connector" width="800" alt="FHIR Connector"/>
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+1. Select Micro Integrator and click on `+` in APIs to create a REST API. 
 
-1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
-
-2. Specify the API name as `SendisoTestAPI` and API context as `/resources`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
+2. Specify the API name as `SampleApi` and API context as `/resources`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -100,7 +98,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/read">
@@ -131,7 +128,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/readSpecificResourceById">
@@ -168,7 +164,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/update">
@@ -202,7 +197,6 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
        <resource methods="POST" url-mapping="/delete">
@@ -234,16 +228,16 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                <log level="full" separator=","/>
                <send/>
            </inSequence>
-           <outSequence/>
            <faultSequence/>
        </resource>
    </api>
    ```
-To learn about supported operations and their parameters, please refer to `FHIR connector reference`.
- 
-3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
+    To learn about supported operations and their parameters, please refer to `FHIR connector reference`.
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
+
+## Export integration logic as a CApp
+In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -257,22 +251,15 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-**Deploying on Micro Integrator**
+**Deploy on Micro Integrator**
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
+## Test
 
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-    
-## Testing
-
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 ### Add patient information
    

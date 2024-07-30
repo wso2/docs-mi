@@ -1,4 +1,4 @@
-# Email connector example
+# Email Connector Example
 
 Email Connector can be used to perform operations using protocols SMTP, IMAP, and POP3. 
 
@@ -24,7 +24,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 ## Create the integration logic
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API. 
+1. Select Micro Integrator and click on **+** in APIs to create a REST API. 
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Provide the API name as `EmailConnector` and the API context as `/emailconnector`. Once we create the API there will be a default resource created and it can be deleted as given below. 
@@ -43,7 +43,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - **content** - Content to be included in the email.
     - **contentType** - Content Type of the email
 
-5. Click on the yellow color highlighted `+` mark. In the pop-up window, go to the `email` connector in the `Connectors` tab and select the `send` operation. <br/>
+5. Click on the yellow color highlighted **+** mark. In the pop-up window, go to the `email` connector in the `Connectors` tab and select the `send` operation. <br/>
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-send-operation-1.png" title="Adding the send operation." width="800" alt="Adding the send operation."/>
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-send-operation-2.png" title="Adding the send operation." width="800" alt="Adding the send operation."/>
 

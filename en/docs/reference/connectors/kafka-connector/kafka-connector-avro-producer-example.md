@@ -1,4 +1,4 @@
-# Avro Message with Kafka Connector Example
+# Avro message with Kafka connector example
 
 Given below is a sample scenario that demonstrates how to send Apache Avro messages to a Kafka broker via Kafka topics. The `publishMessages` operation allows you to publish messages to the Kafka brokers via Kafka topics.
 
@@ -12,79 +12,61 @@ API has the `/publishMessages` context. It publishes messages via the topic to t
 
 Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+## Create the integration logic
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+1. Click `+` on the Extension panel APIs to create the REST API.
 
-1. Right-click the created Integration Project and select **New** -> **Rest API** to create the REST API.
+2. Specify the API name as `KafkaTransport` and API context as `/publishMessages`. Click create.
 
-2. Specify the API name as `KafkaTransport` and API context as `/publishMessages`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
+<img src="{{base_path}}/assets/img/integrate/connectors/kafka-avro-example-1.png" title="Adding a Rest API" alt="Adding a Rest API" />
 
+3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Externals** and click **Add new Connection**. Search `kafkaTransport` and click.
+<img src="{{base_path}}/assets/img/integrate/connectors/kafka-avro-example-2.png" title="Adding a kafka Connection" alt="Adding a kafka Connection"/>
+4. Provide values as below and click **Add**.
+    - **Connection Name** - Sample_Kafka
+    - **Connection Type** - kafka
+    - **Boostrap Servers** - localhost:9092
+    - **Key Serializer Class** - io.confluent.kafka.serializers.KafkaAvroSerializer
+    - **Value Serializer Class** - io.confluent.kafka.serializers.KafkaAvroSerializer
+    - **Schema Registry URL** - http://localhost:8081
+    - **Max Pool Size** - 100
+
+<img src="{{base_path}}/assets/img/integrate/connectors/kafka-avro-example-3.png" title="Create a kafka Connection" alt="Create a kafka Connection"/>
+5. You can go to the XML configuration of the API (source view) and copy the following configuration.
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="POST">
+        <resource methods="POST" uri-template="/">
             <inSequence>
-                <property name="valueSchema"
-                        expression="json-eval($.test)"
-                        scope="default"
-                        type="STRING"/>
-                <property name="value"
-                        expression="json-eval($.value)"
-                        scope="default"
-                        type="STRING"/>
-                <property name="key"
-                        expression="json-eval($.key)"
-                        scope="default"
-                        type="STRING"/>
-                <property name="topic"
-                        expression="json-eval($.topic)"
-                        scope="default"
-                        type="STRING"/>
-                <kafkaTransport.init>
-                     <name>Sample_Kafka</name>
-                     <bootstrapServers>localhost:9092</bootstrapServers>
-                     <keySerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</keySerializerClass>            
-                     <valueSerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</valueSerializerClass>
-                     <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
-                     <maxPoolSize>100</maxPoolSize>
-                </kafkaTransport.init>
-                <kafkaTransport.publishMessages>
-                     <topic>{$ctx:topic}</topic>
-                     <key>{$ctx:key}</key>
-                     <value>{$ctx:value}</value>
-                     <valueSchema>{$ctx:valueSchema}</valueSchema>
+                <property name="valueSchema" expression="json-eval($.test)" scope="default" type="STRING"/>
+                <property name="value" expression="json-eval($.value)" scope="default" type="STRING"/>
+                <property name="key" expression="json-eval($.key)" scope="default" type="STRING"/>
+                <property name="topic" expression="json-eval($.topic)" scope="default" type="STRING"/>
+                <kafkaTransport.publishMessages configKey="Sample_Kafka">
+                    <topic>{$ctx:topic}</topic>
+                    <partitionNo>0</partitionNo>
+                    <key>{$ctx:key}</key>
+                    <value>{$ctx:value}</value>
+                    <valueSchema>{$ctx:valueSchema}</valueSchema>
+                    <keySchemaSoftDeleted>false</keySchemaSoftDeleted>
+                    <valueSchemaSoftDeleted>false</valueSchemaSoftDeleted>
                 </kafkaTransport.publishMessages>
-            </inSequence>
-            <outSequence/>
-            <faultSequence/>
+		    </inSequence>
         </resource>
     </api>
     ```
-Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
-
-{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
 **Deploying on Micro Integrator**
-
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
     
-## Testing
+## Test
 
 Invoke the API (http://localhost:8290/publishMessages) with the following payload,
 
@@ -109,6 +91,8 @@ Invoke the API (http://localhost:8290/publishMessages) with the following payloa
 ````
 
 **Expected Response**: 
+!!!info
+    Refer to the [confluent documentation](https://docs.confluent.io/platform/current/installation/overview.html) for installing confluent.
    
 Run the following command to verify the messages:
 ````bash
@@ -118,50 +102,24 @@ See the following message content:
 ````json
 {"f1":{"string":"sampleValue"}}
 ````  
-Sample API configuration when the Confluent Schema Registry is secured with basic auth,
+Sample Connection configuration when the Confluent Schema Registry is secured with basic auth
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="POST">
-        <inSequence>
-            <property name="valueSchema"
-                      expression="json-eval($.test)"
-                      scope="default"
-                      type="STRING"/>
-            <property name="value"
-                      expression="json-eval($.value)"
-                      scope="default"
-                      type="STRING"/>
-            <property name="key"
-                      expression="json-eval($.key)"
-                      scope="default"
-                      type="STRING"/>
-            <property name="topic"
-                      expression="json-eval($.topic)"
-                      scope="default"
-                      type="STRING"/>
-            <kafkaTransport.init>
-               <name>Sample_Kafka</name>
-               <bootstrapServers>localhost:9092</bootstrapServers>
-               <keySerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</keySerializerClass>
-               <valueSerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</valueSerializerClass>
-               <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
-               <maxPoolSize>100</maxPoolSize>
-               <basicAuthCredentialsSource>USER_INFO</basicAuthCredentialsSource>
-               <basicAuthUserInfo>admin:admin</basicAuthUserInfo>
-            </kafkaTransport.init>
-            <kafkaTransport.publishMessages>
-               <topic>{$ctx:topic}</topic>
-               <key>{$ctx:key}</key>
-               <value>{$ctx:value}</value>
-               <valueSchema>{$ctx:valueSchema}</valueSchema>
-            </kafkaTransport.publishMessages>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </resource>
-</api>
+    <localEntry key="Sample_Kafka" xmlns="http://ws.apache.org/ns/synapse">
+        <kafkaTransport.init>
+            <connectionType>kafka</connectionType>
+            <name>Sample_Kafka2</name>
+            <bootstrapServers>localhost:9092</bootstrapServers>
+            <keySerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</keySerializerClass>
+            <valueSerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</valueSerializerClass>
+            <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
+            <basicAuthCredentialsSource>USER_INFO</basicAuthCredentialsSource>
+            <basicAuthUserInfo>admin:admi</basicAuthUserInfo>
+            <maxPoolSize>100</maxPoolSize>
+            <poolingEnabled>false</poolingEnabled>
+        </kafkaTransport.init>
+    </localEntry>
 ```
 In the above example, the <b>basicAuthCredentialsSource</b> parameter is configured as <b>USER_INFO</b>. For example, consider a scenario where the <b>basicAuthCredentialsSource</b> parameter is set to <b>URL</b> as follows:
 
@@ -174,7 +132,7 @@ Then, the <b>schemaRegistryUrl</b> parameter should be configured as shown below
 ````xml 
 <schemaRegistryUrl>http://admin:admin@localhost:8081</schemaRegistryUrl>
 ````
-Refer the [confluent documentation](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-avro.html) for more details.
+Refer to the [confluent documentation](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-avro.html) for more details.
 
 This demonstrates how the Kafka connector publishes Avro messages to Kafka brokers.
    
