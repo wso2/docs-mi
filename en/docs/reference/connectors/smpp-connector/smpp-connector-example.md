@@ -13,7 +13,7 @@ The following `sendSMS`operation is exposed via an API. The API with the context
 
 * `/send`: Used to send SMS messages to the Short Message Service Center.
 
-The following diagram shows the overall solution. There is an HTTP API that you can invoke with an HTTP call with JSON. The API is able to send an SMS for the request number in a JSON request with the message in JSON. 
+The following diagram shows the overall solution. There is an HTTP API that you can invoke with an HTTP call with JSON. The API can send an SMS for the request number in a JSON request with the message in JSON. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-connector-example.png" title="SMPP connector example" width="800" alt="smpp connector example"/>
 
@@ -32,12 +32,12 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 1. First, we will create the `/send` resource to send an SMS to the Short Message Service Center. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details below.
     <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-create-send-resource.png" title="Create send resource" width="800" alt="Create send resource"/>
 
-2. Set up the `sendSMS` operation.
-    1. Select the `send` resource. Click on the `+` mark indicated below to go to the `SMPP` connector and select `sendSMS` operation. 
+2. Set up the **sendSMS** operation.
+    1. Select the **send** resource. Click on the **+** mark indicated below to go to the **SMPP** connector and select **sendSMS** operation. 
            
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-add-send-sms-operation.png" title="Add send sms operation" width="800" alt="Add send sms operation"/>    
 
-    2. Then, click on `Add new connection` to create a new SMSC Connection. Provide your values for `Host`, `Port`, `System ID`, and `Password`. You can reuse the SMSC connection with other operators.
+    2. Then, click on **Add new connection** to create a new SMSC Connection. Provide your values for **Host**, **Port**, **System ID**, and **Password**. You can reuse the SMSC connection with other operators.
         <br/>
 
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-add-sms-connection.png" title="Create SMPP connection" width="300" alt="Create SMPP connection"/>
@@ -62,7 +62,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         
         While invoking the API, the values of the above three parameters come from user input.
     
-    4. To get the input values into the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Add the `Property` mediators into the Design pane as shown bellow.
+    4. To get the input values into the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Add the **Property** mediators into the Design pane as shown bellow.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-add-property-mediators.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
@@ -70,7 +70,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
     
         > **Note**: The properties should be added to the pallet before creating the operation.
     
-    4. Add the property mediator to capture the `sourceAddress` value. The `sourceAddress` contains source address of the SMS message. 
+    4. Add the property mediator to capture the `sourceAddress` value. The `sourceAddress` contains the source address of the SMS message. 
    
         - **Property Name**: `sourceAddress`
         - **Property Value**: expression `json-eval($.sourceAddress)`
@@ -101,7 +101,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         
 3. Get a response from the user.
     
-    When you are invoking the created API, the request of the message is going through the `/send` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+    When you are invoking the created API, the request of the message is going through the `/send` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.            
     
     Add **respond mediator** to the **Design view**. <br/>
     
