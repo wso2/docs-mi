@@ -144,7 +144,7 @@ The PayloadFactory mediator supports [FreeMarker Templates](https://freemarker.a
 
 !!! Note
     -   FreeMarker version 2.3.30 is tested with WSO2 MI 4.x.x.
-    -   The CDATA will be added automatically and it is not required to specify manually.
+    -   The CDATA will be added automatically when configuring the payload using WSO2 Micro Integrator VSCode extension.
 
 ```xml
 <property name="user_name" scope="default" type="STRING" value="john"/>
