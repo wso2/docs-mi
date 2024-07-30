@@ -11,7 +11,7 @@ following operations:
 
 * Execute a SOQL query to retrieve the Account Name and ID in all the existing accounts.
 
-     In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`. 
+     In this example use the [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) to search stored Salesforce data for specific information which is created under `sObjects`. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforce.png" title="Using Salesforce Rest Connector" width="800" alt="Using Salesforce Rest Connector"/>
 
