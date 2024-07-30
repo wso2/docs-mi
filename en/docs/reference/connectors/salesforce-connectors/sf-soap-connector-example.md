@@ -12,7 +12,7 @@ This example explains how to use the Salesforce client to connect with the Sales
 
 * Execute a SOQL query to retrieve the Account Names in all the existing accounts.
 
-     In this example, the Salesforce Object Query Language (SOQL) is used to search stored Salesforce data for specific information which is created under `sObjects`. 
+     In this example, the [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) is used to search stored Salesforce data for specific information which is created under `sObjects`. 
   
 All two operations are exposed via a `salesforce-soap-API` API. The API with the context `/salesforce` has two resources  
 
