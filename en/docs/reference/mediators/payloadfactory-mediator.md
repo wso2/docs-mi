@@ -22,10 +22,10 @@ message.
 
 ``` java
 <payloadFactory media-type="xml | json" template-type="default | freemarker">
-    <format ../>
-    <args>       
+    <format/>
+    <args>
         <arg (value="string" | expression=" {xpath} | {json} | {text} ")/>* 
-    </args> 
+    </args>
 </payloadFactory>
 ```
 
