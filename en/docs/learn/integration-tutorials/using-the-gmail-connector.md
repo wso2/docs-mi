@@ -30,7 +30,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create an endpoint
 
-An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
+An Endpoint artifact is required to expose the URL that connects to the back-end service.
 
 1. Navigate to the **MI Project Explorer** > **Endpoints**.
 
@@ -268,7 +268,7 @@ You can now start updating the API resource with the mediation flow.
         <td>
           <ol>
               <li>
-                  Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as <i>expression</i>.
+                  Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as an <i>expression</i>.
               </li>
               <li>
                   Enter <code>json-eval($.hospital_id)</code> as the expression value.
