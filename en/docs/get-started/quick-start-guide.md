@@ -213,7 +213,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
 
 2. Install and start the Integration Control Plane (ICP) by following the steps below:
 
-     1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane/).
+     1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane/#installing-the-integration-control-plane_1).
 
      2. Set up the Micro Integrator: 
    
