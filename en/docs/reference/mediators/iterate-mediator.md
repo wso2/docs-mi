@@ -4,11 +4,11 @@ The **Iterate Mediator** implements the [Splitter enterprise integration
 pattern](https://wso2docs.atlassian.net/wiki/spaces/EIP/pages/48791727/Splitter)
 and splits the message into a number of different messages derived from
 the parent message. The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator). The difference between the two mediators
-is, the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
+is, that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
     -   The Iterate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-    -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main difference between ForEach and Iterate mediators:
+    -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main differences between ForEach and Iterate mediators:
         -   Use the ForEach mediator only for message transformations. If you
         need to make back-end calls from each iteration, then use the
         iterate mediator.
@@ -67,7 +67,7 @@ follows.
 <tr class="even">
 <td><strong>Sequential Mediation</strong></td>
 <td><div class="content-wrapper">
-<p>This parameter is used to specify whether the split messages should be processed sequentially or not. The processing is carried based on the information relating to the sequence and endpoint specified in the <a href="#target-configuration">target configuration</a> . The possible values are as follows.</p>
+<p>This parameter is used to specify whether the split messages should be processed sequentially or not. The processing is carried out based on the information relating to the sequence and endpoint specified in the <a href="#target-configuration">target configuration</a> . The possible values are as follows.</p>
 <ul>
 <li><strong>True</strong> : If this is selected, the split messages will be processed sequentially. Note that selecting <strong>True</strong> might cause delays due to high resource consumption.</li>
 <li><strong>False</strong> : If this is selected, the split messages will not be processed sequentially. This is the default value and it results in better performance.</li>
@@ -95,7 +95,7 @@ follows.
 <tr class="odd">
 <td><strong>Iterate Expression</strong></td>
 <td><div class="content-wrapper">
-<p>The XPath expression used to split the message.. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
+<p>The XPath expression is used to split the message.. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 
 </div></td>
