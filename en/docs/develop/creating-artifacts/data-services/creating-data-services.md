@@ -1,4 +1,4 @@
-# Creating a Data Service
+# Create a Data Service
 
 Follow the instructions given below to create a new data service artifact.
 
@@ -35,7 +35,7 @@ project as show below.
 
 You can configure the datasource connection details using this section.
 
-1.	Open the **DDS Service Designer** and click on **Edit** to reopen the **Data Service Form**.
+1.	Open the **Service Designer** page of the created data service and click on **Edit** to reopen the **Data Service Form**.
 	![]({{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png)
 
 2.	Click on the **+ Add Datasource** to open the **Create Datasource** form.
@@ -53,29 +53,9 @@ Click **Advanced Configurations** to expand the section and add the required con
 
 The data service should now have the query element added.
 
-### Adding a SOAP operation
-
-Use this section to configure a SOAP operation for invoking the data service.
-
-1.  Select **SOAP** and click on **+ Operation** to add a SOAP operation.
-
-    <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png" width="70%"></a>
-
-2.  Give a name to the SOAP Operation, then click on **Add**. 
-
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png" width="70%"></a>  
-
-3. Click on the added operation to open the graphical view. 
-
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png" width="70%"></a>  
-
-   The graphical view will appear as shown below. You can use it to configure the main query details.
-
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png" width="70%"></a>
-
 ### Adding a Resource
 
-Use this section to configure a REST resource for invoking the data service.
+Use this section to configure an REST resource for invoking the data service.
 
 1.  Select **REST** and click on **+ Resource** to add a REST resource.
 	
@@ -120,9 +100,29 @@ Use this section to configure a REST resource for invoking the data service.
 
    The graphical view will appear as shown below. You can use it to configure the main query details.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" width="70%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" width="70%"></a>  
 
-### Creating queries for SOAP operations and REST resources
+### Adding a SOAP operation
+
+Use this section to configure a SOAP operation for invoking the data service.
+
+1.  Select **SOAP** and click on **+ Operation** to add a SOAP operation.
+
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png" width="70%"></a>
+
+2.  Give a name to the SOAP Operation, then click on **Add**.
+
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png" width="70%"></a>
+
+3. Click on the added operation to open the graphical view.
+
+   <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png" width="70%"></a>
+
+   The graphical view will appear as shown below. You can use it to configure the main query details.
+
+   <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png" width="70%"></a>  
+
+### Creating queries for REST resources and SOAP operations
 
 You can configure the main query details for both SOAP operations and REST resources using their respective graphical views.
 
