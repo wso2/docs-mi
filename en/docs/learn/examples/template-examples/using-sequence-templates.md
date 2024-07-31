@@ -19,7 +19,7 @@ Using function scope or 'func' in the XPath expression allows us to refer a part
 
 See the examples given below.
 
-## Example 1: Calling a sequence template
+## Example 1: Call a sequence template
 
 Let's illustrate the sequence template with a simple example. Suppose we have a sequence that logs the text "hello" in three different languages. We shall make use of a proxy to which we shall send a payload. The switch statement will log a greeting based on the language.
 
@@ -51,7 +51,6 @@ Let's illustrate the sequence template with a simple example. Suppose we have a 
             </switch>
             <drop/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </target>
 </proxy>
@@ -61,7 +60,7 @@ Instead of printing our "hello" message for each and every language inside the s
 
 ### Synapse configuration
 
-Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-1) this example.
 
 === "Sequence template"
     ```xml 
@@ -101,7 +100,6 @@ Following are the integration artifacts we can use to implement this scenario. S
                 </switch>
                 <drop/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </target>
     </proxy>
@@ -149,10 +147,9 @@ sequence.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+1. {!includes/build-and-run.md!}
+2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 You can test this out with the following payload sent to the proxy via `http://localhost:8290/services/HelloProxy`:
 
@@ -166,7 +163,7 @@ You can test this out with the following payload sent to the proxy via `http://l
 
 ## Example 2: Mandatory parameters and default values
 
-Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
 ### Synapse configuration
 
@@ -193,7 +190,6 @@ In this example, the sequence template is configured to log the greeting message
                 <call-template target="sequence-temp" />
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </resource>
     </api>
@@ -203,39 +199,103 @@ In this example, the sequence template is configured to log the greeting message
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+1. {!includes/build-and-run.md!}
+2. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-Invoke this REST API using the HTTP client in WSO2 Integration Studio. 
-See that the default greeting message (`Welcome`) is logged on the console.
+Invoke this REST API via `http://localhost:8290/test`. See that the default greeting message (`Welcome`) is logged on the console.
 
-## Example 3: Calling the sequence template using dynamic XPATH expression
+## Example 3: Call the sequence template using dynamic XPATH expression
 
-The following Call Template mediator configuration populates a sequence template named `Testtemp` with a dynamic XPath expression.
+In this example, the sequence template is configured to dynamically determine the name of the Message Store using an XPath expression. It routes messages to a Message Store via the Store mediator by resolving the name of the Message Store from the message context.
 
+### Synapse configuration
+
+Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-3) this example.
+
+=== "REST API"    
 ```xml
-<call-template target="Testtemp">
-  <with-param name="message_store" value="<MESSAGE_STORE_NAME>" />
-</call-template>
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/test" name="Test" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/temp">
+        <inSequence>
+            <log>
+                <property name="status" value="Start"/>
+            </log>
+            <log category="INFO" level="simple">
+                <property name="STORE_NAME" expression="$func:message_store/ns1:store/ns1:request/ns2:storeName" xmlns:ns1="http://services.samples" xmlns:ns2="http://services.samples/ns2"/>
+            </log>
+            <call-template target="TestTemp">
+                <with-param name="message_store" value="{$body}"/>
+            </call-template>
+            <respond/>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+</api>
 ```
 
-The following `Testtemp` template includes a dynamic XPath expression to save messages in a Message Store, which is dynamically set via the message context.
-
+=== "Sequence template"
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <template name="Testtemp" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="message_store"/>
+    <parameter isMandatory="false" name="message_store"/>
     <sequence>
-        <log level="custom">
-          <property expression="$func:message_store"
-                        name="STORENAME"
-                        xmlns:ns="http://org.apache.synapse/xsd"
-                        xmlns:ns2="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"/>
-        </log>
-        <store messageStore="{$func:message_store}"
-                    xmlns:ns="http://org.apache.synapse/xsd"
-                    xmlns:ns2="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"/>
+        <store messageStore="{$func:message_store/ns1:store/ns1:request/ns2:storeName}" xmlns:ns1="http://services.samples" xmlns:ns2="http://services.samples/ns2"/>
     </sequence>
 </template>
+```
+
+=== "Sequence"
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="testSeq"  trace="disable"  xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full">
+        <property name="status" value="Storing message"/>
+    </log>
+</sequence>
+```
+
+=== "Message Store"
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<messageStore name="testStore" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse">
+</messageStore>
+```
+
+=== "Message Processor"
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<messageProcessor class="org.apache.synapse.message.processor.impl.sampler.SamplingProcessor" name="testProcessor" messageStore="testStore"  xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="sequence">testSeq</parameter>
+    <parameter name="interval">1000</parameter>
+    <parameter name="is.active">true</parameter>
+    <parameter name="concurrency">1</parameter>
+</messageProcessor>
+```
+
+### Build and run (Example 3)
+
+Create the artifacts:
+
+1. {!includes/build-and-run.md!}
+2. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api), [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates), [sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences/), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor/) with the configurations given above.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+
+Use the following request and payload to invoke the service.
+
+```xml
+POST /test/temp HTTP/1.1
+Host: localhost:8290
+User-Agent: curl/7.85.0
+Accept: */*
+ontent-Type: application/xml
+Content-Length: 180
+
+<ns1:store xmlns:ns1="http://services.samples" xmlns:ns2="http://services.samples/ns2">
+    <ns1:request>
+        <ns2:storeName>testStore</ns2:storeName>
+    </ns1:request>
+</ns1:store>
 ```
