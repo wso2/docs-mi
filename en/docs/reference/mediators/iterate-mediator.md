@@ -95,7 +95,7 @@ follows.
 <tr class="odd">
 <td><strong>Iterate Expression</strong></td>
 <td><div class="content-wrapper">
-<p>The XPath expression is used to split the message.. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
+<p>The XPath expression is used to split the message. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 
 </div></td>
