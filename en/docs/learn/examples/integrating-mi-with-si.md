@@ -1,10 +1,10 @@
 # Integrating Micro Integrator with WSO2 Streaming Integrator
 
-You can publish events from the integration flow to WSO2 Streaming Integrator using an http or http-service source configured in a Siddhi application deployed in Streaming Integrator server. The http or http-service source receive POST requests via HTTP and HTTPS protocols in a format such as text, XML, or JSON. In the case of http-service source, it will send responses via its corresponding http-service-response sink correlated through a unique `source.id`.   
+You can publish events from the integration flow to WSO2 Streaming Integrator using an http or http-service source configured in a Siddhi application deployed in Streaming Integrator server. The http or http-service source receive POST requests via HTTP and HTTPS protocols in a format such as text, XML, or JSON. In the case of http-service source, it will send responses via its corresponding http-service-response sink correlated through a unique `source.id`.
 
 In this example, we are using a simple rest API to publish events to the Streaming Integrator, which is configured to receive POST requests via HTTP protocol in JSON format and send responses accordingly.
 
-## Set up the Siddhi Application
+## Set up the Siddhi application
 
 Follow the instructions below to set up and configure.
 
@@ -17,20 +17,19 @@ Follow the instructions below to set up and configure.
          
     ```
     @App:name("ShoppingCart")
-    
     @App:description('Receive events via HTTP transport in JSON format with custom mapping and view the output on the console')
-    
+
     @source(type='http-service', receiver.url='http://localhost:5005/addToCart',
           source.id='adder', basic.auth.enabled='false', @map(type='json', 
           @attributes(messageId='trp:messageId', name='$.event.name', price='$.event.price')))
-    define stream AddStream (messageId string, name String, price double);
-    
-    @sink(type='http-service-response', source.id='adder', message.id='{{messageId}}', @map(type = 'json'))
+    define stream AddStream (messageId string, name string, price double);
+
+    @sink(type='http-service-response', source.id='adder', message.id='{{messageId}}', @map(type='json'))
     define stream ResultStream (messageId string, message string, numOfItems long, totalCost double);
-    
+
     @info(name = 'query1')
     from AddStream 
-    select  messageId, str:concat('Successfully added ', name, ' to the cart') as message, count() as numOfItems, sum(price) as totalCost
+    select messageId, str:concat('Successfully added ', name, ' to the cart') as message, count() as numOfItems, sum(price) as totalCost
     insert into ResultStream;
     ```
 
@@ -40,7 +39,7 @@ Follow the instructions below to set up and configure.
     {
       "event": {
         "name": "Cheese",
-        "Price": 390
+        "price": 390
       }
     }
     ```
@@ -64,27 +63,34 @@ Follow the instructions below to set up and configure.
 
 Following is the sample rest API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) run this example.
 
+=== "Rest API"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/addToCart" name="OrderAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" url-mapping="/">
+            <inSequence>
+                <call>
+                  <endpoint key="EP" />
+                </call>
+                <respond/>
+            </inSequence>
+        </resource>
+    </api>
+    ```
 
-```xml
-<api xmlns="http://ws.apache.org/ns/synapse" name="OrderAPI" context="/addToCart"> 
-   <resource methods="POST" url-mapping="/"> 
-      <inSequence> 
-         <send> 
-            <endpoint>
-               <address uri="http://localhost:5005/addToCart"/>
-         </endpoint>
-         </send> 
-      </inSequence> 
-   </resource> 
-</api>
-```
+
+=== "Endpoint"
+    ```xml
+    <endpoint name="EP" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:5005/addToCart"/>
+    </endpoint>
+    ```
 
 ### Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Solution project]({{base_path}}/develop/create-integration-project/#esb-config-project).
+{!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
