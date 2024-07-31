@@ -6,9 +6,9 @@ When you invoke a service in non-blocking mode, the underlying worker
 thread returns without waiting for the response. In blocking mode, the
 underlying worker thread gets blocked and waits for the response after
 sending the request to the endpoint. Call mediator in blocking mode is
-very much similar to the [Callout mediator]({{base_path}}/reference/mediators/callout-Mediator).
+very similar to the [Callout mediator]({{base_path}}/reference/mediators/callout-Mediator).
 
-In both blocking and non-blocking modes, Call mediator behaves in a synchronous manner. Hence, mediation pauses after the service invocation, and resumes from the next mediator in the sequence when the response is received. Call mediator allows you to create your configuration independent from the underlying architecture.
+In both blocking and non-blocking modes, Call mediator behaves in a synchronous manner. Hence, mediation pauses after the service invocation and resumes from the next mediator in the sequence when the response is received. Call mediator allows you to create your configuration independent from the underlying architecture.
 
 Non-blocking mode of the Call mediator leverages the non-blocking transports for better performance. Therefore, it is recommended to use it in non-blocking mode as much as possible. However, there are scenarios where you need to use the blocking mode. For example, when you implement a scenario related to JMS transactions, it is vital to use the underlying threads in blocking mode.
 
@@ -135,10 +135,10 @@ The following properties are available when you want to configure the source of 
           <b>Custom</b>: Provide a valid XPATH/json-eval expression as the source element. The result that is derived from this expression will be the payload.
         </li>
         <li>
-          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encording and escaping.
+          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encoding and escaping.
         </li>
         <li>
-          <b>Property</b>: Provide a property as the payload source. You can only refer properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
+          <b>Property</b>: Provide a property as the payload source. You can only refer to properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
         </li>
       </ul>
     </td>
@@ -148,7 +148,7 @@ The following properties are available when you want to configure the source of 
       contentType
     </td>
     <td>
-      Use this paramter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
+      Use this parameter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
     </td>
   </tr>
 </table>
@@ -159,7 +159,7 @@ The following properties are available when you want to configure a target prope
 
 <table>
   <tr>
-    <th>Paramete Name</th>
+    <th>Parameter Name</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -183,9 +183,9 @@ The [Filter Mediator]({{base_path}}/reference/mediators/filter-Mediator) added a
 carries out a filter to determine whether the first call has been
 successful. If it is successful, second backend service is invoked. The
 payload of the request to the second backend is the response of the
-first service invocation .
+first service invocation.
 
-After a successful second backend service invocation, response of the
+After a successful second backend service invocation, the response of the
 first service is retrieved by the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)
 from the property where it was formerly stored. This response is sent to
 the client by the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator).
@@ -295,7 +295,7 @@ the Call mediator response.
 
 ### Example 3 - Call mediator in blocking mode
 
-In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
+In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
 ```xml
 <target>
