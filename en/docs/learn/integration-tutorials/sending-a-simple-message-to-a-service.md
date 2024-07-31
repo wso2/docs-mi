@@ -136,7 +136,7 @@ A REST API is required for receiving the client response and the REST resource w
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>
 
-4.  Click **Create**. This will open the **Service Designer** interface.
+4. Click **Create**. This opens the **Service Designer** interface.
 
     You can now start configuring the API resource.
 
@@ -162,7 +162,7 @@ A REST API is required for receiving the client response and the REST resource w
         </td>
       </tr>
       <tr>
-        <td>Url Style</td>
+        <td>URL Style</td>
         <td>
           <code>URI_TEMPLATE</code>
         </td>
@@ -331,33 +331,38 @@ If you want to send the client request from your terminal:
 
 #### Analyze the response
 
-You will see the response message from the HealthcareService with a list of available doctors and the relevant details.
+You will see the response message from the `HealthcareService` with a list of available doctors and the relevant details.
 
 ```json
 [
-  {"name":"thomas collins",
-  "hospital":"grand oak community hospital",
-  "category":"surgery",
-  "availability":"9.00 a.m - 11.00 a.m",
-  "fee":7000.0},
-  {"name":"anne clement",
-   "hospital":"clemency medical center",
-   "category":"surgery",
-   "availability":"8.00 a.m - 10.00 a.m",
-   "fee":12000.0},
-  {"name":"seth mears",
-   "hospital":"pine valley community hospital",
-   "category":"surgery",
-   "availability":"3.00 p.m - 5.00 p.m",
-   "fee":8000.0}
+   {
+      "name": "thomas collins",
+      "hospital": "grand oak community hospital",
+      "category": "surgery",
+      "availability": "9.00 a.m - 11.00 a.m",
+      "fee": 7000.0
+   },
+   {
+      "name": "anne clement",
+      "hospital": "clemency medical center",
+      "category": "surgery",
+      "availability": "8.00 a.m - 10.00 a.m",
+      "fee": 12000.0
+   },
+   {
+      "name": "seth mears",
+      "hospital": "pine valley community hospital",
+      "category": "surgery",
+      "availability": "3.00 p.m - 5.00 p.m",
+      "fee": 8000.0
+   }
 ]
 ```
 
-Now, check the **Terminal** tab of VS Code and you will see a message similar to the following:
-
+Now, check the **Output** tab of VS Code and you will see a message similar to the following:
 
 ```
-[2024-07-01 10:36:03,095]  INFO {LogMediator} - {api:HealthcareAPI} To: /healthcare/querydoctor/surgery, MessageID: urn:uuid:bc28049b-f5e3-436f-b1be-3f890a3e5b36, correlation_id: bc28049b-f5e3-436f-b1be-3f890a3e5b36, Direction: request, Log Property message = Welcome to HealthcareService"
+[2024-07-29 15:51:36,956]  INFO {LogMediator} - {api:HealthcareAPI} Log Property message = "Welcome to HealthcareService"
 ```
 
 You have now created and deployed an API resource in the Micro Integrator, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.
