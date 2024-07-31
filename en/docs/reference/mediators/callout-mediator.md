@@ -32,10 +32,10 @@ If you want to disable chunking for only a single Callout mediator instance, cre
 
 ```xml
 <callout [serviceURL="string"] [action="string"] [initAxis2ClientOptions="true|false"] [endpointKey="string"]>
-      <configuration [axis2xml="string"] [repository="string"]/>?
-      <source xpath="expression" | key="string" | type="envelope"/>
-      <target xpath="expression" | key="string"/>
-      <enableSec policy="string" | outboundPolicy="String" | inboundPolicy="String" />?
+    <configuration [axis2xml="string"] [repository="string"]/>?
+    <source xpath="expression" | key="string" | type="envelope"/>
+    <target xpath="expression" | key="string"/>
+    <enableSec policy="string" | outboundPolicy="String" | inboundPolicy="String" />?
 </callout>
 ```
 
@@ -52,7 +52,7 @@ The parameters available for configuring the Callout mediator are as follows.
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Specify As</strong></td>
+<td><strong>Endpoint Type</strong></td>
 <td><div class="content-wrapper">
 <p>This parameter determines whether the target external service should be configured by using either a <code>serviceURL</code> attribute or an <code>endpointKey</code> attribute.</p>
 <p>Callout mediator does not support endpoint configurations such as <code>               timeout              </code> , <code>               suspendOnFailure              </code>, and <code>               markForSuspension              </code> when the <code>               endpointKey              </code> attribute is used to specify an existing endpoint.</p>
@@ -65,27 +65,27 @@ The parameters available for configuring the Callout mediator are as follows.
 </tr>
 <tr class="even">
 <td><strong>URL</strong></td>
-<td>If you selected <strong>URL</strong> for the <strong>Specify As</strong> parameter, use this parameter to enter the URL of the external service that you want to call. This URL will be used as the End Point Reference (EPR) of the external service.</td>
+<td>If you selected <strong>URL</strong> for the <strong>Endpoint Type</strong> parameter, use this parameter to enter the URL of the external service that you want to call. This URL will be used as the End Point Reference (EPR) of the external service.</td>
 </tr>
 <tr class="odd">
 <td><strong>Address Endpoint</strong></td>
-<td>If you selected <strong>Address Endpoint</strong> for the <strong>Specify As</strong> parameter, use this parameter to enter a key to access the endpoint that should be used to call the external service. Click <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</td>
+<td>If you selected <strong>Address Endpoint</strong> for the <strong>Endpoint Type</strong> parameter, use this parameter to enter a key to access the endpoint that should be used to call the external service.</td>
 </tr>
 <tr class="even">
-<td><strong>Action</strong></td>
-<td>The SOAP action which should be appended to the service call.</td>
+<td><strong>SOAP Action</strong></td>
+<td>The SOAP action should be appended to the service call.</td>
 </tr>
 <tr class="odd">
-<td><strong>Axis2 Repository</strong></td>
+<td><strong>Path To Axis2 Repository</strong></td>
 <td>The path to Axis2 client repository where the services and modules are located. The purpose of this parameter is to make the Callout mediator initialize with the required client repository.</td>
 </tr>
 <tr class="even">
-<td><strong>Axis2 XML</strong></td>
+<td><strong>Path To Axis2xml</strong></td>
 <td>The path to the location of the axis2.xml configuration file. The purpose of this parameter is to make the Callout mediator initialize with the relevant Axis2 configurations.</td>
 </tr>
 <tr class="odd">
-<td><strong>initAxis2ClientOptions</strong></td>
-<td>If this parameter is set to <code>false</code>, the existing Axis2 client options available in the Synapse message context will be reused when the Callout mediator is invoked. This is useful when you want to use NLTM authentication. The default value for this parameter is <code>true</code>.</td>
+<td><strong>init Axis2 Client Options</strong></td>
+<td>If you select the checkbox, the existing Axis2 client options available in the Synapse message context will be reused when the Callout mediator is invoked. This is useful when you want to use NLTM authentication.</td>
 </tr>
 <tr class="even">
 <td><strong>Source</strong></td>
@@ -95,7 +95,7 @@ The parameters available for configuring the Callout mediator are as follows.
 <li><p><strong>XPath</strong> - This option allows you to specify an expression that defines the location in the message.</p>
 <b>Tip</b>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
-</p></li>
+</li>
 <li><strong>Property</strong>: This option allows you to specify the payload for a request via a property included in the mediation flow.</li>
 <li><strong>Envelope</strong>: This option allows you to select the entire envelope which is available in the message flow as the source.</li>
 </ul>
@@ -109,26 +109,21 @@ The parameters available for configuring the Callout mediator are as follows.
 <li><p><strong>XPath</strong>: This option allows you to specify an expression that defines the location in the message.</p>
 <b>Tip</b>:
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
-</p></li>
+</li>
 <li><strong>Property</strong>: This option allows you to specify a property included in the mediation flow.</li>
 </ul>
 </div></td>
 </tr>
 <tr class="even">
-<td><strong>WS-Security</strong></td>
+<td><strong>WS Security Type</strong></td>
 <td><div class="content-wrapper">
-<p>If you select the checkbox, WS-Security is enabled for the Callout mediator. This section would expand as shown below when you select this check box.</p>
+<p>If this parameter is set to `true`, WS-Security is enabled for the Callout mediator. This section will expand with the following parameters when you select `true`.</p>
+<ul>
+<li><p><strong>Policies</strong>: you can define separate security policies for the inbound and outbound messages (flows). This is done by entering the required policy keys in the <strong>Outbound Policy Key</strong> and <strong>Inbound Policy Key</strong> parameters which are displayed as follows when this check box is selected.</li>
+<li><p><strong>Outbound Policy Key</strong></li>
+<li><p><strong>Inbound Policy Key</strong></li>
+</ul>
 </div></td>
-</tr>
-<tr class="odd">
-<td><strong>Specify as Inbound and Outbound Policies</strong></td>
-<td><div class="content-wrapper">
-<p>If this check box is selected, you can define separate security policies for the inbound and outbound messages (flows). This is done by entering the required policy keys in the <strong>Outbound Policy Key</strong> and <strong>Inbound Policy Key</strong> parameters which are displayed as follows when this check box is selected. You can click <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> to select a security policy saved in the <b>Registry</b> from the resource tree.</p>
-</div></td>
-</tr>
-<tr class="even">
-<td><strong>Policy Key</strong></td>
-<td>If the <strong>Specify as Inbound and Outbound Policies</strong> check box is not selected, this parameter is used to enter a key to access a security policy which will be applied to both inbound and outbound messages. You can click <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> to select a security policy saved in the <b>Registry</b> from the resource tree.</td>
 </tr>
 </tbody>
 </table>
@@ -172,7 +167,7 @@ The below example uses a Callout mediator to set a HTTP method when invoking a R
                 <target key="response"/>
             </callout>
             <log category="INFO" level="custom">
-                <property name="MESSAGE###########################3" expression="$ctx:response"/>
+                <property name="MESSAGE" expression="$ctx:response"/>
             </log>
             <property expression="$ctx:response" name="res" type="OM"/>
             <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
