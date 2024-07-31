@@ -1,36 +1,49 @@
-# Using Inbound Endpoints
+# Use Inbound Endpoints
 
 ## What you'll build
 
-In this sample scenario, you will use an **Inbound Endpoint** to expose an already defined REST API through a different port. You can reuse the REST API that was defined in the [Sending a Simple Message to a Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-service) tutorial. See [Creating an Inbound Endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) for details on how to work with inbound endpoints using WSO2 Integration Studio.
+In this sample scenario, you will use an **Inbound Endpoint** to expose an already defined REST API through a different port. 
+You can reuse the REST API that was defined in the [Sending a Simple Message to a Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-service) tutorial. 
 
 ## Let's get started!
 
 ### Step 1: Set up the workspace
 
-Set up WSO2 Integration Studio as follows:
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
-1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
-2.  Set up the project from the [Sending a Simple Message to a Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-service) tutorial:
+### Step 2: Develop the integration artifacts
 
-    !!! Note
-        This tutorial is a continuation of the [Sending a Simple Message to a Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-service) tutorial.
+Follow the instructions given in this section to create and configure the required artifacts.
 
-    1.  Download the [prepackaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/sending-simple-message-tutorial.zip).
-    2.  Open WSO2 Integration Studio and go to **File -> Import**. 
-    3.  Select **Existing WSO2 Projects into workspace** under the **WSO2** category, click **Next**, and then upload the **prepackaged project**.
+#### Open the integration project
 
-### Step 2: Develop the Inbound Endpoint
+1. Download the required project from [here]({{base_path}}/assets/attachments/learn/tutorials/sending-simple-message-tutorial.zip).
 
-1.  Once you have exported the integration project as described in above, the
-    project directory will appear with the artifacts as shown below.
-    Note the 'HealthcareAPI' that is already included.
+2. Launch VS Code with the Micro Integrator extension installed.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/inbound-project-explorer.png" width="400">
+3. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
 
-2.  Right-click on **SampleServicesConfigs** and navigate to **New -> Inbound
-    Endpoint**. Select **Create A New Inbound Endpoint** and click
-    **Next**.
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
+
+4. Click **Open MI Project** on **Design View**.
+
+5. Provide the location to the 
+
+#### Develop the inbound endpoint
+
+1. Once you have opened the integration project as described in above, the **Micro Integrator Project Explorer** will appear with the previously-created artifacts. Note the `HealthcareAPI` that is already included.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" alt="Inbound project explorer" width="40%"></a>
+
+2. Navigate to the **MI Project Explorer** > **Inbound Endpoints**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png" alt="create inbound endpoint" width="40%"></a>
+
+2. Hover over **Inbound Endpoints** and click the **+** icon that appears.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png" alt="add inbound endpoint" width="40%"></a>
+
+3. On the **Inbound EP Form**, select **HTTP** as the inbound endpoint type.
 
 3.  Enter the following details and click **Finish**.
     
@@ -55,7 +68,7 @@ Set up WSO2 Integration Studio as follows:
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/using-inbound-endpoint/create-inbound-dialog-box.png" width="500">
 
-4.  Go to the **Properties** tab in the **Design** view and enter the following:
+4.  Go to the **Properties** tab in the **Design** view and enter the following:
 
     <table>
         <tr>
@@ -84,7 +97,7 @@ The endpoint will now get mapped to any URL that matches the above pattern provi
 
 Package the artifacts in your composite exporter module (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
 
-1.  Open the `pom.xml` file in the composite exporter module.
+1.  Open the `pom.xml` file in the composite exporter module.
 2.  Ensure that the following artifacts are selected in the POM file.
 
     -   `HealthcareAPI`
