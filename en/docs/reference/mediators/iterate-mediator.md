@@ -4,11 +4,11 @@ The **Iterate Mediator** implements the [Splitter enterprise integration
 pattern](https://wso2docs.atlassian.net/wiki/spaces/EIP/pages/48791727/Splitter)
 and splits the message into a number of different messages derived from
 the parent message. The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator). The difference between the two mediators
-is, the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
+is, that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
     -   The Iterate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-    -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main difference between ForEach and Iterate mediators:
+    -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main differences between ForEach and Iterate mediators:
         -   Use the ForEach mediator only for message transformations. If you
         need to make back-end calls from each iteration, then use the
         iterate mediator.
@@ -18,8 +18,7 @@ is, the Iterate mediator splits a message into different parts, whereas the Clon
         -   You need to always accompany an Iterate with an Aggregate mediator.
         ForEach loops over the sub-messages and merges them back to the same
         parent element of the message.
-        -   In Iterate you need to send the split messages to an endpoint to continue the message flow. However, ForEach does not allow using [Call]({{base_path}}/reference/mediators/call-mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and
-        [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
+        -   In Iterate you need to send the split messages to an endpoint to continue the message flow. However, ForEach does not allow using [Call]({{base_path}}/reference/mediators/call-mediator) and [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
         -   ForEach does not split the message flow, unlike Iterate Mediator. It
         guarantees to execute in the same thread until all iterations are
         complete.
@@ -68,7 +67,7 @@ follows.
 <tr class="even">
 <td><strong>Sequential Mediation</strong></td>
 <td><div class="content-wrapper">
-<p>This parameter is used to specify whether the split messages should be processed sequentially or not. The processing is carried based on the information relating to the sequence and endpoint specified in the <a href="#target-configuration">target configuration</a> . The possible values are as follows.</p>
+<p>This parameter is used to specify whether the split messages should be processed sequentially or not. The processing is carried out based on the information relating to the sequence and endpoint specified in the <a href="#target-configuration">target configuration</a> . The possible values are as follows.</p>
 <ul>
 <li><strong>True</strong> : If this is selected, the split messages will be processed sequentially. Note that selecting <strong>True</strong> might cause delays due to high resource consumption.</li>
 <li><strong>False</strong> : If this is selected, the split messages will not be processed sequentially. This is the default value and it results in better performance.</li>
@@ -96,7 +95,7 @@ follows.
 <tr class="odd">
 <td><strong>Iterate Expression</strong></td>
 <td><div class="content-wrapper">
-<p>The XPath expression used to split the message.. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
+<p>The XPath expression is used to split the message. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 
 </div></td>
@@ -163,36 +162,35 @@ follows:
 In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://wso2docs.atlassian.net/wiki/spaces/EI660/pages/6521935/Splitting+Messages+into+Parts+and+Processing+in+Parallel+Iterate+Aggregate).
 
 === "Using an XPath expression"
-    ``` java 
+    ```xml 
         <iterate expression="//m0:getQuote/m0:request" preservePayload="true"
                  attachPath="//m0:getQuote"
                  xmlns:m0="http://services.samples">
             <target>
                 <sequence>
-                    <send>
+                    <call>
                         <endpoint>
                             <address
                                 uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                         </endpoint>
-                    </send>
+                    </call>
                 </sequence>
             </target>
         </iterate>
     ```
 === "Using a JSONpath expression"    
-    ``` java 
+    ```xml 
         <iterate id="jsonIterator" preservePayload="true" 
                  attachPath="json-eval($.placeHolder)" 
                  expression="json-eval($.students.studentlist)">
            <target>
               <sequence>
-                 <send>
+                 <call>
                      <endpoint>
                            <http method="POST" uri-template="http://localhost:8280/iteratesample/echojson"/>
                      </endpoint>
-                 </send>
+                 </call>
               </sequence>
            </target>
         </iterate>
     ```
-
