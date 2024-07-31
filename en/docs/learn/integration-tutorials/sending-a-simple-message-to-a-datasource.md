@@ -2,27 +2,27 @@
 
 ## What you'll build
 
-A **data service** provides a web service interface to access data that is stored in various datasources. The following sections describe how you can use WSO2 Integration Studio to work with data services' artifacts. 
+A **data service** provides a web service interface to access data that is stored in various datasources. The following sections describe how you can use Micro Integrator Extension for Visual Studio Code (MI for VS Code) to work with data services' artifacts. 
 
 !!! Tip
-    Note that this feature is currently supported in WSO2 Integration Studio for relational datasources and CSV files.
+    Note that this feature is currently supported in Micro Integrator Extension for Visual Studio Code (MI for VS Code) for relational datasources and CSV files.
 
 ## Let's get started!
 
 ### Step 1: Set up the workspace
 
--   Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system. The path to the extracted/installed folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
--   To demonstrate how data services work, we will use a MySQL database as the datasource. Follow the steps given below to set up a MySQL database:
-
-    1.  Install the MySQL server.
-    2.  Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). You will need this when you configure the MySQL server with the Micro Integrator.
+- **MySQL server:** Follow bellow steps to set up MySQL server.
+    1. Install the MySQL server.
+    2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). You will need this when you configure the MySQL server with the Micro Integrator.
         
-    3.  Create a database named `Employees`.
+    3. Create a database named `Employees`.
 
         ```bash
         CREATE DATABASE Employees;
         ```
+
     4. Create a user and grant the user access to the Database.
     
         ```
@@ -30,7 +30,7 @@ A **data service** provides a web service interface to access data that is stor
        GRANT ALL PRIVILEGES ON Employees.* TO 'user'@'localhost';
        ```
 
-    5.  Create the Employee table inside the Employees database:
+    5. Create the Employee table inside the Employees database:
 
         ```bash
         USE Employees;
@@ -38,52 +38,33 @@ A **data service** provides a web service interface to access data that is stor
         INSERT INTO Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values (3, "Edgar", "Code", "edgar@rdbms.com", 100000);
         ```
 
-### Step 2: Creating a data service
+### Step 2: Create a data service
 
 Follow the steps given below to create a new data service.
 
-#### Creating a Maven Multi Module project
+#### Create an Integration project
 
-All the data services' artifacts that you create should be stored in a
-Data Service Module. Follow the steps given below to create a module:
+{!includes/create-new-project.md!}
 
-1.  Open **WSO2 Integration Studio** and click **New Maven Multi Module Project** in 
-    the **Getting Started** tab as shown below.  
+4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
 
-    [![Create a Maven Multi Module Project]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)
+5. Provide a location under **Select Project Directory**.
 
-2.  In the **Maven Modules Creation** dialog box that opens, give a name
-    (artifactId) for the project.
-3.  If required, change the Maven information about the project.
-4.  Click **Finish**. The new project will be listed in the project
-    explorer.
-    
-#### Creating a data service module
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
 
-All the data services' artifacts that you create should be stored in a
-Data Service Module. Follow the steps given below to create a module:
+6. Click **Create**.
 
-1.  Right click on the created **Maven Multi Module Project** and go to 
-    **New -> Data Service Configs**.  
-2.  In the **New Data Service Configs** dialog box that opens, give a name
-    for the config module and click **Next**.
-3.  If required, change the Maven information about the config module.
-4.  Click **Finish**. The new module will be listed in the project
-    explorer.
+#### Create a data service with data source
 
-#### Creating the data service
+1.  Navigate to the **MI Project Explorer** > **Data Services**.
+   
+   <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-data-source.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-data-source.png" width="30%"></a>
 
-Follow the steps given below to create the data service file:
+2.  Hover over **Data Services** and click the **+** icon that appears.
+   
+   <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-data-source.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-data-source.png" width="30%"></a>
 
-1.  Select the already-created **Data Service Config** module in the project
-    explorer, right-click and go to **New -> Data Service**.  
-    The **New Data Service** window will open as shown below.  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/119130577/119130578.png" width="500">
-2.  To start creating a data service from scratch, select **Create New
-    Data Service** and click **Next** to go to the next page.
-3.  Enter a name for the data service and click **Finish**:
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/new_dataservice.png" width="500">
+3.  Enter a name for the data service:
 
     <table>
         <tr>
@@ -91,237 +72,296 @@ Follow the steps given below to create the data service file:
             <th>Description</th>
         </tr>
     <tbody>
-    <tr class="odd">
-    <td>Data Service Name</td>
-    <td>RDBMSDataService</td>
-    </tr>
+        <tr>
+            <td>Data Service Name</td>
+            <td>RDBMSDataService</td>
+        </tr>
     </tbody>
     </table>
+
+4. Click **Add Datasource**.
+   
+<a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
     
-A data service file (DBS file) will now be created in your data service
-module as shown below.
-
-<img src="{{base_path}}/assets/img/integrate/tutorials/data_services/dataservice_view.png">
-
-#### Creating the datasource connection
-
-1.  Click **Data Sources** to expand the section.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/data_source_expanded.png">
-2.  Click **Add New** to open the **Create Datasource** page.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_data_source.png" width="500">
-3.  Enter the datasource connection details given below.
-
-    |       Property                     |       Description                     |
-    |------------------------------------|---------------------------------------|
-    | Datasource ID                      | Datasource                            |
-    | Datasource Type                    | RDBMS                                 |
-    | Datasource Type (Default/External) | Leave **Default** selected.           |
-    | Database Engine                    | MySQL                                 |
-    | Driver Class                       | com.mysql.jdbc.Driver                 |
-    | URL                                | jdbc:mysql://localhost:3306/Employees |
-    | User Name                          | user                                  |
-    | Password                           | password                              |
-
-4.  Click **Test Connection** to expand the section.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/test_connection.png">
-
-5.  Click the **Test Connection** button to verify the connectivity between the MySQL datasource and the data service.
-6.  Save the data service.
-
-#### Creating a query
-
-Let's write an SQL query to GET data from the MySQL datasource that you
-configured in the previous step:
-
-1.  Click **Queries** to expand the section. 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/query_expanded.png">
-2.  Click **Add New** to open the **Add Query** page.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_query.png" width="500">
-3.  Enter the following query details:
-
-    | Parameter  |  Description       |
-    |------------|--------------------|
-    | Query ID   | GetEmployeeDetails |
-    | Datasource | Datasource         |
-    | SQL Query  | select EmployeeNumber, FirstName, LastName, Email from Employees where EmployeeNumber=:EmployeeNumber|
-
-4.  Click **Input Mappings** to expand the section. 
-
-    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/input_mapping_expanded.png)
-
-5.  Click **Generate** to generate input mappings automatically.
-
-    !!! Tip
-        Alternatively, you can manually add the mappings:
-        1. Click **Add New** to open the **Add Input Mapping** page.
-        2. Enter the following input element details.
-            <table>
-            <tr>
-                    <th>Property</th>
-                    <th>Description</th>
-                </tr>
-            <tbody>
-            <tr class="odd">
-            <td>Mapping Name</td>
-            <td>EmployeeNumber</td>
-            </tr>
-            <tr class="even">
-            <td>Parameter Type</td>
-            <td>SCALAR</td>
-            </tr>
-            <tr class="odd">
-            <td>SQL Type</td>
-            <td>SCALAR</td>
-            </tr>
-            </tbody>
-            </table>
-
-5.  Save the input mapping.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png">
-6.  Click **Result (Output Mappings)** to expand the section.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png">
-7.  Enter the following value to group the output mapping:
+1. For create the datasource connection specify the following values to create the new datasource:
 
     <table>
-        <tr>
-            <th>Property</th>
-            <th>Description</th>
-        </tr>
-    <tr class="odd">
-    <td>Grouped by Element</td>
-    <td>Employees</td>
+    <caption>Datasource Properties</caption>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
     </tr>
-    </table>
+    <tr>
+        <td>Datasource ID</td>
+        <td>Datasource</td>
+    </tr>
+    <tr>
+        <td>Datasource Type</td>
+        <td>RDBMS</td>
+    </tr>
+    <tr>
+        <td>Datasource Type (Default/External)</td>
+        <td>Leave <strong>Default</strong> selected.</td>
+    </tr>
+    <tr>
+        <td>Database Engine</td>
+        <td>MySQL</td>
+    </tr>
+    <tr>
+        <td>Driver Class</td>
+        <td>com.mysql.jdbc.Driver</td>
+    </tr>
+    <tr>
+        <td>URL</td>
+        <td>jdbc:mysql://localhost:3306/Employees</td>
+    </tr>
+    <tr>
+        <td>User Name</td>
+        <td>user</td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>password</td>
+    </tr>
+</table>
 
-8.  Click **Generate** to generate output mappings automatically.
+<a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
 
-    !!! Tip
-        Alternatively, you can manually add the mappings:
-        1. Click **Add New** to open the **Add Output Mapping** page.
-        2. Enter the following output element details.
-            <table>
-            <tr>
-                    <th>Property</th>
-                    <th>Description</th>
-                </tr>
-            <tbody>
-            <tr class="odd">
-            <td>Datasource Type</td>
-            <td>column</td>
-            </tr>
-            <tr class="even">
-            <td>Output Field Name</td>
-            <td>EmployeeNumber</td>
-            </tr>
-            <tr class="odd">
-            <td>Datasource Column Name</td>
-            <td>EmployeeNumber</td>
-            </tr>
-            <tr class="even">
-            <td>Schema Type</td>
-            <td>String</td>
-            </tr>
-            </tbody>
-            </table>   
-        3.  Save the element.
-        4.  Follow the same steps to create the following output elements:
-
-            | Datasource Type | Output Field Name | Datasource Column Name | Schema Type |
-            |-----------------|-------------------|------------------------|-------------|
-            | column          | FirstName         | FirstName              | string      |
-            | column          | LastName          | LastName               | string      |
-            | column          | Email             | Email                  | string      |
+1.  Click **Add**.
    
- 
-9.  Click **Save** to save the query.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png">
+2.  Click **Create** to create a data service with datasource.
 
-#### Creating a resource to invoke the query
+#### Create a resource
 
 Now, let's create a REST resource that can be used to invoke the query.
 
-1.  Click **Resources** to expand the section. 
+1. Click new **Data Service** created in previous step.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource_expanded.png">
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-dataservice.png" width="80%"></a>
+   
+2. Click **+ Resources**. 
 
-2.  Click **Add New** to open the **Create Resource** page.
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" width="80%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png" width="500">
-
-3.  Enter the following resource details.
+3. Enter the following resource details.
 
     <table>
     <tr>
-            <th>Property</th>
-            <th>Description</th>
-        </tr>
+    <th>Property</th>
+    <th>Description</th>
+    </tr>
     <tbody>
-    <tr class="odd">
+    <tr>
     <td>Resource Path</td>
     <td>Employee/{EmployeeNumber}</td>
     </tr>
-    <tr class="even">
+    <tr>
     <td>Resource Method</td>
     <td>GET</td>
-    </tr>
-    <tr class="odd">
-    <td>Query ID</td>
-    <td>GetEmployeeDetails</td>
     </tr>
     </tbody>
     </table>
        
-4.  Save the resource.
+4. Click **Add**.
 
 !!!	tip
     Alternatively, you can generate a data service from a datasource. For more information, refer [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
-### Step 3: Package the artifacts
+#### Configure data service
 
-Create a new composite exporter module
+Let's write an SQL query to GET data from the MySQL datasource that you
+configured in the previous step:
 
-1.  Right-click the **Maven Multi Module Project** go to <b>New -> Composite Exporter</b>.
-2.  In the dialog box that opens, select the data service file, and click **Finish**.  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/composite_app.png" width="500">
+1. Click new **Resource** created in previous step.
 
-Package the artifacts in your composite exporter to be able to deploy the artifacts in the server.
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png" width="80%"></a>
 
-1.  Open the `pom.xml` file in the composite application.
-2.  Ensure that your data service file is selected in the POM file.
-3.  Save the file.
+2. Click **Input Mapping** in DataService View.
 
-### Step 4: Configure the Micro Integrator server
+3. Click **Add Parameter**.
+   
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png" width="80%"></a>
 
-We will use the embedded Micro Integrator of WSO2 Integration Studio to run this solution. 
+4. Specify the following values
+   <table>
+    <tr>
+    <th>Property</th>
+    <th>Description</th>
+    </tr>
+    <tbody>
+    <tr>
+    <td>Mapping Name</td>
+    <td>EmployeeNumber</td>
+    </tr>
+    <tr>
+    <tr>
+    <td>Query Parameter</td>
+    <td>EmployeeNumber</td>
+    </tr>
+    <tr>
+    <td>Parameter Type</td>
+    <td>SCALAR</td>
+    </tr>
+    <tr>
+    <td>SQL Type</td>
+    <td>STRING</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png" width="30%"></a>
+
+5. Click **Add**. Then Click **Submit**.
+
+6.  Click **Query** in DataService View.
+    
+7.  Specify the following values the query details:
+
+    <table>
+    <tr>
+    <th>Parameter</th>
+    <th>Value</th>
+    </tr>
+    <tr>
+    <td>Query ID</td>
+    <td>GetEmployeeDetails</td>
+    </tr>
+    <tr>
+    <td>Datasource</td>
+    <td>Datasource</td>
+    </tr>
+    <tr>
+    <td>SQL Query</td>
+    <td>select EmployeeNumber, FirstName, LastName, Email from Employees where EmployeeNumber=:EmployeeNumber</td>
+    </tr>
+    </table>
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/query.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/query.png" width="80%"></a>
+
+8.  Click **Submit**.
+   
+9.  Click **Transformation** in DataService View.
+    
+10. Specify the following value:
+
+    <table>
+    <tr>
+    <th>Property</th>
+    <th>Description</th>
+    </tr>
+    <tr>
+    <td>Grouped by Element</td>
+    <td>Employees</td>
+    </tr>
+    </table>
+    
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png" width="80%"></a>
+
+11. Click **Submit**.
+
+12. Click **Output Mapping** in DataService View.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping.png" width="80%"></a>
+    
+13. Click **Add Parameter**. Specify the following values.
+    <table>
+    <tr>
+    <th>Property</th>
+    <th>Description</th>
+    </tr>
+    <tbody>
+    <tr>
+    <td>Mapping Type</td>
+    <td>Element</td>
+    </tr>
+    <tr>
+    <td>Datasource Type</td>
+    <td>column</td>
+    </tr>
+    <tr>
+    <td>Output Field Name</td>
+    <td>EmployeeNumber</td>
+    </tr>
+    <tr>
+    <td>Datasource Column Name</td>
+    <td>EmployeeNumber</td>
+    </tr>
+    <tr>
+    <td>Parameter Type</td>
+    <td>Scalar</td>
+    </tr>
+    <tr>
+    <td>Schema Type</td>
+    <td>String</td>
+    </tr>
+    </tbody>
+    </table>   
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-2.png" width="30%"></a>
+
+14. Save the parameter.
+
+15. Follow the same steps to create the following output parameters:
+
+    <table>
+    <tr>
+    <th>Mapping Type</th>
+    <th>Datasource Type</th>
+    <th>Output Field Name</th>
+    <th>Datasource Column Name</th>
+    <th>Parameter Type</th>
+    <th>Schema Type</th>
+    </tr>
+    <tr>
+    <td>Element</td>
+    <td>column</td>
+    <td>FirstName</td>
+    <td>FirstName</td>
+    <td>Scalar</td>
+    <td>string</td>
+    </tr>
+    <tr>
+    <td>Element</td>
+    <td>column</td>
+    <td>LastName</td>
+    <td>LastName</td>
+    <td>Scalar</td>
+    <td>string</td>
+    </tr>
+    <tr>
+    <td>Element</td>
+    <td>column</td>
+    <td>Email</td>
+    <td>Email</td>
+    <td>Scalar</td>
+    <td>string</td>
+    </tr>
+    </table>
+   
+   <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-3.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-3.png" width="30%"></a>
+ 
+14. Click **Submit**.
+
+### Step 3: Configure the Micro Integrator server
 
 To add the MySQL database driver to the server:
 
-1. Click the <b>Embedded Micro Integrator Configuration (<img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20">)</b> icon on the upper menu to open the dialog box.
-2. Click the (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="20">) icon to add the MySQL driver JAR (see [Setting up the Workspace](#step-1-set-up-the-workspace)) to the `/lib` directory of the embedded Micro Integrator.
+1. Copy the MySQL driver JAR (see [Setting up the Workspace](#step-1-set-up-the-workspace)) to `/project-path/deployment/libs`.
 
 If the driver class does not exist in the relevant directory, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver` when the Micro Integrator starts.
 
-### Step 5: Build and run the artifacts
+### Step 4: Build and run the artifacts
 
-To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
+{!includes/build-and-run-artifacts.md!}
 
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.     
-4.  Click **Finish**. 
-
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
-
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab. 
-
-### Step 6: Testing the data service
+### Step 5: Test the data service
 
 Let's test the use case by sending a simple client request that invokes the service.
 
 #### Send the client request
 
-Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+Let's send a request to the API resource. You can use Postman or any other **HTTP Client**:
 
 1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
