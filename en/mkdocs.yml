@@ -927,6 +927,7 @@ plugins:
               'learn/integration-tutorials/using-inbound-endpoints.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'learn/integration-tutorials/using-templates.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/config-catalog-integration-control-plane/'
 
   # Extra
 extra_css:
