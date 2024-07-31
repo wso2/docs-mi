@@ -13,7 +13,7 @@ A **data service** provides a web service interface to access data that is stor
 
 {!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
-- **MySQL server:** Follow bellow steps to set up MySQL server.
+- **MySQL server:** Follow the below steps to set up MySQL server.
     1. Install the MySQL server.
     2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). You will need this when you configure the MySQL server with the Micro Integrator.
         
@@ -54,7 +54,7 @@ Follow the steps given below to create a new data service.
 
 6. Click **Create**.
 
-#### Create a data service with data source
+#### Create a data service with a data source
 
 1.  Navigate to the **MI Project Explorer** > **Data Services**.
    
@@ -83,7 +83,7 @@ Follow the steps given below to create a new data service.
    
 <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
     
-1. For create the datasource connection specify the following values to create the new datasource:
+1. To create the datasource connection specify the following values to create the new datasource:
 
     <table>
     <caption>Datasource Properties</caption>
@@ -165,7 +165,7 @@ Now, let's create a REST resource that can be used to invoke the query.
 4. Click **Add**.
 
 !!!	tip
-    Alternatively, you can generate a data service from a datasource. For more information, refer [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
+    Alternatively, you can generate a data service from a datasource. For more information, refer to [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
 #### Configure data service
@@ -216,7 +216,7 @@ configured in the previous step:
 
 6.  Click **Query** in DataService View.
     
-7.  Specify the following values the query details:
+7.  Specify the following values in the query details:
 
     <table>
     <tr>
@@ -264,7 +264,7 @@ configured in the previous step:
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping.png" width="80%"></a>
     
-13. Click **Add Parameter**. Specify the following values.
+13. Click **Add Parameter**. Specify the following values:
     <table>
     <tr>
     <th>Property</th>
