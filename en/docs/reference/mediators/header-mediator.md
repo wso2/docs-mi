@@ -7,13 +7,11 @@ The **Header Mediator** allows you to manipulate SOAP and HTTP headers.
 
 ## Syntax
 
-``` java
+```xml
 <header name=”string” (value=”string|{property}” | expression=”xpath|jsonpath”) [scope=default|transport] [action=set|remove]/>
 ```
 
-The optional `         action        ` attribute specifies whether the
-mediator should set or remove the header. If no value is specified, the
-header is set by default.
+The optional `action` attribute specifies whether the mediator should set or remove the header. If no value is specified, the header is set by default.
 
 ## Configuration
 
@@ -69,53 +67,64 @@ This section covers the following scenarios in which the Header mediator can be 
 
 ### Using SOAP headers
 
-In the following example, the value for `         P1 code        `
-should be included in the SOAP header of the message sent from the
-client to the Micro Integrator. To do this, the header mediator is added to
-the in sequence of the proxy configuration as shown below.
+In the following example, the value for `P1 code`should be included in the SOAP header of the message sent from the client to the Micro Integrator. 
+To do this, the header mediator is added to the in sequence of the proxy configuration as shown below. Another header mediator is added to the inSequence to respond with `Hello World` in the SOAP header.
 
-To get a response with `         Hello World        ` in the SOAP
-header, the header mediator is also added to the out sequence.
-
-``` java
-<inSequence>
-        <header>
-             <p1:Code xmlns:p1="http://www.XYZ.com/XSD">XYZ</p1:Code>
-        </header>
-        <send>
-           <endpoint>
-              <address uri="http://localhost:8899/services/SimpleStockQuoteService?wsdl"/>
-           </endpoint>
-        </send>
-     </inSequence>
-     <outSequence>
-        <header>
-           <p2:Header xmlns:p2="http://www.ABC.com/XSD">
-              <p2:Hello>World</p2:Hello>
-           </p2:Header>
-        </header>
-        <send/>
-</outSequence>            
-```
+=== "REST API"
+    ```xml
+    <api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteServiceAPI" context="/stockquote">
+        <resource methods="GET" uri-template="/getQuote">
+            <inSequence>
+                <!-- Setting a simple XML structure as a SOAP header -->
+                <property name="REQUEST_HEADER" scope="default" type="OM">
+                    <p1:Code xmlns:p1="http://www.XYZ.com/XSD">XYZ</p1:Code>
+                </property>
+                <header name="p1:Code" scope="default" expression="$ctx:REQUEST_HEADER" xmlns:p1="http://www.XYZ.com/XSD"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEP"/>
+                </call>
+                <!-- Setting a complex XML structure as a SOAP header for the response -->
+                <property name="RESPONSE_HEADER" scope="default" type="OM">
+                    <p2:Header xmlns:p2="http://www.ABC.com/XSD">
+                        <p2:Hello>World</p2:Hello>
+                    </p2:Header>
+                </property>
+                <header name="p2:Header" xmlns:p2="http://www.ABC.com/XSD" action="set" scope="default" expression="$ctx:RESPONSE_HEADER"/>
+                <respond/>
+            </inSequence>
+        </resource>
+    </api>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address     uri="http://localhost:9000/soap/services/SimpleStockQuoteService?wsdl">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ### Using HTTP headers
 
-The following example makes the ESB profile add the HTTP header
-`         Accept        ` with the value `         image/jpeg        `
-to the HTTP request made to the endpoint.
+The following example makes the ESB profile add the HTTP header `Accept` with the value `image/jpeg` to the HTTP request made to the endpoint.
 
-```
+```xml
 <inSequence>
     <header name="Accept" value="image/jpeg" scope="transport"/>
-    <send>
+    <call>
         <endpoint name="people">
             <address uri="http://localhost:9763/people/eric+cooke" format="get"/>
         </endpoint>
-    </send>
+    </call>
+    <respond/>
 </inSequence>
-<outSequence>
-    <send/>
-</outSequence>
 ```
 
 If you have [enabled wire logs]({{base_path}}/develop/using-wire-logs), you will view the following output.
@@ -129,10 +138,9 @@ If you have [enabled wire logs]({{base_path}}/develop/using-wire-logs), you will
 
 ### Handling headers with complex XML
 
-A header can contain XML structured values by embedding XML content
-within the `         <header>        ` element as shown below.
+A header can contain XML structured values by embedding XML content within the `<header>` element as shown below.
 
-```
+```xml
 <header>
     <m:complexHeader xmlns:m="http://org.synapse.example">
         <property key="k1" value="v1" />
@@ -143,34 +151,28 @@ within the `         <header>        ` element as shown below.
 
 ### Adding a dynamic SOAP header
 
-The following configuration takes the value of an element named
-`         symbol        ` in the message body (the namespace
-`         http://services.samples/xsd        `), and adds it as a SOAP
-header named `         header1        ` .
+The following configuration takes the value of an element named `symbol` in the message body (the namespace `http://services.samples/xsd`), and adds it as a SOAP header named `header1`.
 
-```
+```xml
 <header xmlns:m="http://org.synapse.example" xmlns:sym="http://services.samples/xsd" name="m:header1" scope="default" expression="//sym:symbol"/>
 ```
 
 ### Setting the endpoint URL dynamically
 
-In this example, the Header mediator allows the endpoint URL to which
-the message is sent to be set dynamically. It specifies the default
-address to which the message is sent dynamically by deriving the To
-header of the message via an XPath expression. Then the [Send mediator]({{base_path}}/reference/mediators/send-mediator) sends the message to a **Default Endpoint**. A Default Endpoint sends the message to the default address of the message (i.e. address specified in the To header). Therefore, in this scenario, selecting the Default Endpoint results in the message being sent to relevant URL calculated via the `         fn:concat('http://localhost:9764/services/Axis2SampleService_',get-property('epr'))        `
-expression.
+In this example, the Header mediator allows the endpoint URL to which the message is sent to be set dynamically. It specifies the default address to which the message is sent dynamically by deriving the **To** header of the message via an XPath expression. Then the [Call mediator]({{base_path}}/reference/mediators/call-mediator/) sends the message to a **Default Endpoint**. A Default Endpoint sends the message to the default address of the message (i.e. address specified in the To header). 
+Therefore, in this scenario, selecting the Default Endpoint results in the message being sent to relevant URL calculated via the `fn:concat('http://localhost:9764/services/Axis2SampleService_',get-property('epr'))` expression.
 
-```
+```xml
 <header name="To" expression="fn:concat('http://localhost:9764/services/Axis2SampleService_',get-property('epr'))"/>
-<send>
-<endpoint>
-<default/>
-</endpoint>
-</send>
+<call>
+    <endpoint>
+        <default/>
+    </endpoint>
+</call>
 ```
 
 ### Setting the header with a value in the JSON body	
 
-```	
+```	xml
 <header name="header-symbol" expression="json-eval($.symbol)"/>	
 ```
