@@ -496,7 +496,7 @@ nav:
   - References:
       - Product Configurations:
           - MI Configuration Catalog: reference/config-catalog-mi.md
-          - MI Dashboard Configuration Catalog: reference/config-catalog-mi-dashboard.md
+          - Integration Control Plane Configuration Catalog: reference/config-catalog-integration-control-plane.md
       - Connectors:
           - Connectors Overview: reference/connectors/connectors-overview.md
           - When to Use Connectors: reference/connectors/why-connectors.md

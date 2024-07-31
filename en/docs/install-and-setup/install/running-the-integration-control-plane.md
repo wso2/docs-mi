@@ -110,7 +110,7 @@ Follow the steps given below to connect the Integration Control Plane to your Id
 
 	</table>
 
-See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi-dashboard/#single-sign-on) you can configure for the single sign-on.
+See the [complete list of parameters]({{base_path}}/reference/config-catalog-integration-control-plane/#single-sign-on) you can configure for the single sign-on.
 
 ## Starting the Integration Control Plane
 
