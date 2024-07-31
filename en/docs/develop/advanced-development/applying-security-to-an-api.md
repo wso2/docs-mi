@@ -148,9 +148,10 @@ Add the handler to the REST API:
                     </args>
                 </payloadFactory>
                 <header name="Action" scope="default" value="urn:getQuote"/>
-                <send>
+                <call>
                     <endpoint key="SimpleStockQuoteEndpoint"/>
-                </send>
+                </call>
+                <respond/>
             </inSequence>
             <faultSequence/>
         </resource>
