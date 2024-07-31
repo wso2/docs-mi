@@ -11,6 +11,9 @@
 We can use the Micro Integrator VS Code Extension to build a Docker image of our integration solution.
 
 1. [Create a project]({{base_path}}/develop/create-integration-project) and develop the integration solution by creating the required artifacts.
+   
+    !!! Note
+         Make sure that the `DOCKER_HOST` environment variable is set on your machine before following the next step.
 
 2. Click on the **Build** button on the top right corner of the **Project Overview** page and select the Docker option to build the Docker image.
 
