@@ -544,7 +544,7 @@ Optionally, you can install and start the Integration Control Plane (ICP) to obs
 
 2. Install and start the Integration Control Plane (ICP) by following the steps below:
 
-    1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-mi-dashboard/#installing-the-integration-control-plane_1).
+    1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane/).
 
     2. Set up the Micro Integrator:
 
