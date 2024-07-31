@@ -805,7 +805,7 @@ value = "C123d"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to specify the attribute you need to use as the user name in the dashboard.</p>
+                                        <p>Use this paramater to specify the attribute you need to use as the user name in the ICP server.</p>
                                     </div>
                                 </div>
                             </div>

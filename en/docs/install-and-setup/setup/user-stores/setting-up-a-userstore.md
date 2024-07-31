@@ -24,7 +24,7 @@ user.name = "user-2"
 user.password = "pwd-2"
 ``` 
 
-The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane)/[MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli)). That is, the file-based user store only supports user authentication and authorization for the management API. If you want to use **authentication for integration use cases**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
+The users in this store can only access the management API and related tools ([Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane)/[MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli)). That is, the file-based user store only supports user authentication and authorization for the management API. If you want to use **authentication for integration use cases**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
 
 ## Disabling the file-based user store
 
