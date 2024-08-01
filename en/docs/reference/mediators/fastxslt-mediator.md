@@ -3,11 +3,11 @@
 The **FastXSLT Mediator** is similar to the [XSLT mediator]({{base_path}}/reference/mediators/xslt-mediator), but it uses the [Streaming XPath Parser](https://wso2.com/library/articles/2013/01/streaming-xpath-parser-wso2-esb/) and applies the XSLT transformation to the message stream instead of to the XML message payload. The result is a faster transformation, but you cannot specify the source, properties, features, or resources as you can with the XSLT mediator. Therefore, the FastXSLT mediator is intended to be used to gain performance in cases where the original message remains unmodified. Any pre-processing performed on the message payload will not be visible to the FastXSLT mediator, because the transformation logic is applied on the original message stream instead of the message payload. In cases where the message payload needs to be pre-processed, use the XSLT mediator instead of the FastXSLT mediator.
 
 !!! Note
-    The streaming XPath parser used in the Fast XSLT mediator does not support Xpath functions specified with the prefix " fn: ". Examples are " `         fn:contains        ` ", " `         fn:count        ` ", and " `         fn:concat        ` ".
+    The streaming XPath parser used in the Fast XSLT mediator does not support Xpath functions specified with the prefix "fn:". Examples are "`fn:contains`", "`fn:count`", and "`fn:concat`".
 
 For example, if you are using the VFS transport to handle files, you might want to read the content of the file as a stream and directly send the content for XSLT transformation. If you need to pre-process the message payload, such as adding or removing properties, use the XSLT mediator instead.
 
-In summary, following are the key differences between the XSLT and FastXSLT mediators:
+In summary, the following are the key differences between the XSLT and FastXSLT mediators:
 
 | XSLT Mediator                                                                                | FastXSLT Mediator                                                                                                                          |
 |----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -17,13 +17,13 @@ In summary, following are the key differences between the XSLT and FastXSLT medi
 
 !!! Note
     To enable the FastXSLT mediator, your XSLT script must include the following parameter in the XSL output. 
-    `         omit-xml-declaration="yes"        `
+    `omit-xml-declaration="yes"`
     For example:
-    ``` xml
+    ```xml
     <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" indent="yes"/>
     ```   
     If you do not include this parameter in your XSLT when using the FastXSLT mediator, you will get the following error.
-    ``` java
+    ```
     ERROR XSLTMediator Error creating XSLT transformer
     ```
     
@@ -32,13 +32,13 @@ In summary, following are the key differences between the XSLT and FastXSLT medi
 
 ## Syntax
 
-``` java
+```xml
 <fastXSLT key="string"/>
 ```
 
-For example, specify the XSLT by the key `         transform/example.xslt        `, which is used to transform the message stream as shown below.
+For example, specify the XSLT by the key `transform/example.xslt`, which is used to transform the message stream as shown below.
 
-``` java
+```xml
 <fastxslt xmlns="http://ws.apache.org/ns/synapse" key="transform/example.xslt"/>
 ```
 
@@ -75,93 +75,119 @@ The parameters available to configure the FastXSLT mediator are as follows.
 
 ## Example
 
-The following example applies a simple XSLT stylesheet to a message payload via the FastXSLT mediator. The FastXSLT mediator reads values
-from the current XML payload using XPath and populates them into the
-stylesheet to create a new or different payload as the response. The API configuration of this example is as follows:
+The following example applies a simple XSLT stylesheet to a message payload via the FastXSLT mediator. The FastXSLT mediator reads values from the current XML payload using XPath and populates them into the stylesheet to create a new or different payload as the response. The API configuration of this example is as follows:
 
 ``` xml
-<api xmlns="http://ws.apache.org/ns/synapse" context="/xslt" name="XSLTAPI">
-   <resource methods="POST">
-      <inSequence>
-         <fastXSLT key="conf:myresources/discountPayment.xsl" />
-         <log level="full" />
-         <respond />
-      </inSequence>
-      <outSequence />
-      <faultSequence />
-   </resource>
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/xslt" name="XSLTAPI" xmlns="http://ws.apache.org/ns/synapse">
+	<resource methods="POST">
+		<inSequence>
+			<fastXSLT key="conf:myresources/discountPayment.xsl"/>
+			<log category="INFO" level="full"/>
+			<respond/>
+		</inSequence>
+		<faultSequence>
+		</faultSequence>
+	</resource>
 </api>
 ```
 
 Follow the steps below to specify the stylesheet as a Registry entry in the above API.
 
-1.  Double click on the API and click the following link in the
-    **Properties** tab.  
-    ![]({{base_path}}/assets/img/integrate/mediators/fastxslt-props.png)
-2.  Click **Create & point to a new resource...** link.  
-    ![]({{base_path}}/assets/img/integrate/mediators/new-reg-resource.png)
-3.  Enter the following details to create the empty XSL file in which
-    you enter the stylesheet, in the Registry.  
-    ![]({{base_path}}/assets/img/integrate/mediators/create-xsl.png)
-4.  Double-click the stylesheet file in the **Project Explorer**, and add the following stylesheet as the content of the XSL file.
+1. Navigate to the **Registry Explorer**. Hover over **Registry Explorer** and click the **+** icon that appears.
 
-    **discountPayment.xsl**
+    <a href="{{base_path}}/assets/img/integrate/mediators/add-registry-resource.png"><img src="{{base_path}}/assets/img/integrate/mediators/add-registry-resource.png" alt="Add registry resource" width="30%"></a>
 
-    ``` xml
+2. In the **Create New Registry Resource** form that appears, specify the following values to create the new endpoint.
+
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Create Options</td>
+            <td>Select `From existing template`.</td>
+        </tr>
+        <tr>
+            <td>Template Type</td>
+            <td>Select `XSLT File` from the drop-down.</td>
+        </tr>
+        <tr>
+            <td>Resource Name</td>
+            <td>`discountPayment`</td>
+        </tr>
+        <tr>
+            <td>Artifact Name</td>
+            <td>`discountPayment`</td>
+        </tr>
+        <tr>
+            <td>Select registry type</td>
+            <td>Select `Configuration registry (conf)`</td>
+        </tr>
+        <tr>
+            <td>Registry Path</td>
+            <td>`/myresources`</td>
+        </tr>
+    </table>
+
+3. Add the following stylesheet as the content of the XSLT file **discountPayment.xslt**. 
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
     <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/02/xpath-functions" xmlns:m0="http://services.samples" version="2.0" exclude-result-prefixes="m0 fn">
-       <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
-       <xsl:template match="/">
-          <Payment>
-             <xsl:for-each select="//order/lunch[contains(drinkName, 'Coffee')]">
+    <xsl:output method="xml" omit-xml-declaration="yes" encoding="UTF-8" indent="yes"/>
+    <xsl:template match="/">
+        <Payment>
+            <xsl:for-each select="//order/lunch[contains(drinkName, 'Coffee')]">
                 <discount>
-                   <xsl:value-of select="drinkPrice" />
+                <xsl:value-of select="drinkPrice" />
                 </discount>
-             </xsl:for-each>
-          </Payment>
-       </xsl:template>
+            </xsl:for-each>
+        </Payment>
+    </xsl:template>
     </xsl:stylesheet>
     ```
+
+4. Save the file.
 
 Pass the following XML payload using SOAP UI.
 
 !!! Info
-    You pass this payload into the XSLT mediator specifying a certain
-    `         drinkName        ` as a parameter to the style sheet. For
-    example, the following payload passes the `         drinkName        `
-    as 'Coffee'. The style sheet traverses through the incoming payload and
-    finds the `         <lunch>        ` elements, which contains 'Coffee'
-    as `drinkName` . When it finds matching entries, it
-    adds the prices of those elements under a new
-    `<Payment>` element. Therefore, when the message flow
-    comes out of XSLT mediator, the payload changes the
-    `         <Payment>        ` entry, where it contains the
-    `         drinkPrice        ` values of matching elements.
+    You pass this payload into the XSLT mediator specifying a certain `drinkName` as a parameter to the style sheet. For example, the following payload passes the `drinkName` as 'Coffee'. The style sheet traverses through the incoming payload and finds the `<lunch>` elements, which contain 'Coffee' as `drinkName`. When it finds matching entries, it adds the prices of those elements under a new `<Payment>` element. Therefore, when the message flow comes out of the XSLT mediator, the payload changes the `<Payment>` entry, where it contains the `drinkPrice` values of matching elements.
 
 ``` xml
 <order>
-<lunch>
-<meal> Rice and Curry </meal>
-<mealPrice> USD 10 </mealPrice>
-<drinkName> Dark Coffee </drinkName>
-<drinkPrice> USD 1.8 </drinkPrice>
-</lunch>
-<lunch>
-<meal> Sandwiches </meal>
-<mealPrice> USD 4 </mealPrice>
-<drinkName> Milk Shake </drinkName>
-<drinkPrice> USD 2.6 </drinkPrice>
-</lunch>
-<lunch>
-<meal> Chicken Burger </meal>
-<mealPrice> USD 5 </mealPrice>
-<drinkName> Iced Coffee </drinkName>
-<drinkPrice> USD 1.5 </drinkPrice>
-</lunch>
-<lunch>
-<meal> Noodles </meal>
-<mealPrice> USD 8 </mealPrice>
-<drinkName> Bottled Water </drinkName>
-<drinkPrice> USD 2.5 </drinkPrice>
-</lunch>
+    <lunch>
+        <meal> Rice and Curry </meal>
+        <mealPrice> USD 10 </mealPrice>
+        <drinkName> Dark Coffee </drinkName>
+        <drinkPrice> USD 1.8 </drinkPrice>
+    </lunch>
+    <lunch>
+        <meal> Sandwiches </meal>
+        <mealPrice> USD 4 </mealPrice>
+        <drinkName> Milk Shake </drinkName>
+        <drinkPrice> USD 2.6 </drinkPrice>
+    </lunch>
+    <lunch>
+        <meal> Chicken Burger </meal>
+        <mealPrice> USD 5 </mealPrice>
+        <drinkName> Iced Coffee </drinkName>
+        <drinkPrice> USD 1.5 </drinkPrice>
+    </lunch>
+    <lunch>
+        <meal> Noodles </meal>
+        <mealPrice> USD 8 </mealPrice>
+        <drinkName> Bottled Water </drinkName>
+        <drinkPrice> USD 2.5 </drinkPrice>
+    </lunch>
 </order>
+```
+
+You will get the below as a response. 
+```xml
+<Payment>
+    <discount> USD 1.8 </discount>
+    <discount> USD 1.5 </discount>
+</Payment>
 ```
