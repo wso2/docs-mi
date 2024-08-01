@@ -45,7 +45,7 @@ Follow the instructions given in this section to create and configure the requir
 
 3. On the **Inbound EP Form**, select **HTTP** as the inbound endpoint type.
 
-3.  Enter the following details and click **Finish**.
+3.  Enter the following details and click **Add**.
     
     <table>
         <tr>
@@ -59,21 +59,16 @@ Follow the instructions given in this section to create and configure the requir
             </td>
         </tr>
         <tr>
-            <td>Inbound Endpoint Creation Type</td>
+            <td>Injecting Sequence Name</td>
             <td>
-                HTTP 
+                TestIn
             </td>
         </tr>
-    </table>
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/using-inbound-endpoint/create-inbound-dialog-box.png" width="500">
-
-4.  Go to the **Properties** tab in the **Design** view and enter the following:
-
-    <table>
         <tr>
-            <th>Parameter</th>
-            <th>Description</th>
+            <td>Error Sequence Name</td>
+            <td>
+                fault
+            </td>
         </tr>
         <tr>
             <td>Inbound HTTP port</td>
@@ -89,37 +84,14 @@ Follow the instructions given in this section to create and configure the requir
         </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/using-inbound-endpoint/configure-inbound-endpoint.png">
 
 The endpoint will now get mapped to any URL that matches the above pattern provided. You will be exposing the health care API on a new port through this inbound endpoint.
 
-### Step 3: Package the artifacts
+### Step 3: Build and run the artifacts
 
-Package the artifacts in your composite exporter module (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
+{!includes/build-and-run-artifacts.md!}
 
-1.  Open the `pom.xml` file in the composite exporter module.
-2.  Ensure that the following artifacts are selected in the POM file.
-
-    -   `HealthcareAPI`
-    -   `QueryDoctorEP`
-    -   `QueryDoctorInboundEndpoint`
-
-3.  Save the changes.
-
-### Step 4: Build and run the artifacts
-
-To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
-
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.     
-4.  Click **Finish**. 
-
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
-
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab.
-
-### Step 5: Test the use case
+### Step 4: Test the use case
 
 Let's test the use case by sending a simple client request that invokes the service.
 
@@ -135,7 +107,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a message to the **healthcare** REST API (through the inbound endpoint) on port 8285. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+Let's send a message to the **healthcare** REST API (through the inbound endpoint) on port 8285. You can use Postman or any other **HTTP Client**:
 
 1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
@@ -171,8 +143,27 @@ If you want to send the client request from your terminal:
 You will get the response shown below. The inbound endpoint has successfully invoked the REST API, and further, the response received by the REST API has been routed back to the client through the inbound endpoint.
 
 ```json
-[{"name":"thomas collins","hospital":"grand oak community 
-hospital","category":"surgery","availability":"9.00 a.m - 11.00 a.m","fee":7000.0},
-{"name":"anne clement","hospital":"clemency medical center","category":"surgery","availability":"8.00 a.m - 10.00 A.m","fee":12000.0},
-{"name":"seth mears","hospital":"pine valley community hospital","category":"surgery","availability":"3.00 p.m - 5.00 p.m","fee":8000.0}]
+[
+    {
+        "name": "thomas collins",
+        "hospital": "grand oak community hospital",
+        "category": "surgery",
+        "availability": "9.00 a.m - 11.00 a.m",
+        "fee": 7000.0
+    },
+    {
+        "name": "anne clement",
+        "hospital": "clemency medical center",
+        "category": "surgery",
+        "availability": "8.00 a.m - 10.00 a.m",
+        "fee": 12000.0
+    },
+    {
+        "name": "seth mears",
+        "hospital": "pine valley community hospital",
+        "category": "surgery",
+        "availability": "3.00 p.m - 5.00 p.m",
+        "fee": 8000.0
+    }
+]
 ```
