@@ -27,7 +27,7 @@ Follow the steps given below to create the data service file:
 3.  Enter a name for the data service and click **Create**.
 
 A data service file (DBS file) will now be created in your data service
-project as show below.
+project as shown below.
 
 ![]({{base_path}}/assets/img/integrate/tutorials/data_services/data-service-project-structure.png)
 
