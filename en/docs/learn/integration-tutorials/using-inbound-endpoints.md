@@ -31,7 +31,7 @@ Follow the instructions given in this section to create and configure the requir
 
 #### Develop the inbound endpoint
 
-1. Once you have opened the integration project as described in above, the **Micro Integrator Project Explorer** will appear with the previously-created artifacts. Note the `HealthcareAPI` that is already included.
+1. Once you have opened the integration project described above, the **Micro Integrator Project Explorer** will appear with the previously created artifacts. Note that the `HealthcareAPI` is already included.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" alt="Inbound project explorer" width="40%"></a>
 
@@ -84,8 +84,7 @@ Follow the instructions given in this section to create and configure the requir
         </tr>
     </table>
 
-
-The endpoint will now get mapped to any URL that matches the above pattern provided. You will be exposing the health care API on a new port through this inbound endpoint.
+The endpoint will now be mapped to any URL that matches the pattern provided above. You will expose the healthcare API on a new port through this inbound endpoint.
 
 ### Step 3: Build and run the artifacts
 
@@ -98,7 +97,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 #### Start the backend service
 
 1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-2. Open a terminal, navigate to the location where your saved the back-end service.
+2. Open a terminal, navigate to the location where you saved the back-end service.
 3. Execute the following command to start the service:
 
     ```bash
