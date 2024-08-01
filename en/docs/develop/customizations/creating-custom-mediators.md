@@ -14,7 +14,7 @@ Follow the steps below to create a custom mediator artifact:
 3. Enter the package name and class name of your mediator project.
 4. Click <b>Create</b> and see that the project is now listed in the project explorer.  
 
-A new mediator class that extends `org.apache.synapse.mediators.AbstractMediator`is now added to the integration project. You can now add your custom mediation logic to this class.
+A new mediator class that extends `org.apache.synapse.mediators.AbstractMediator` is now added to the integration project. You can now add your custom mediation logic to this class.
 
 !!! Info 
     A URL classloader is used to load classes in the mediator (class mediators are not deployed as OSGi bundles). Therefore, it is only possible to refer to the class mediator from artifacts packed in the same CAR file. Accessing the class mediator from an artifact in a different CAR file is not possible. However, you can refer to the class mediator from a sequence packed in the same CAR file and call that sequence from any other artifact packed in other CAR files.
