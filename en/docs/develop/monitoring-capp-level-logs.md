@@ -1,8 +1,8 @@
-# Monitoring Composite Application-Level Logs
+# Monitor Composite Application-Level Logs
 
 The advantage of having per-composite application logs is that it is straightforward to analyze/monitor what went wrong in a particular composite application (integration) by looking at the logs. 
 
-## Enabling log4j2 for composite application logging
+## Enable log4j2 for composite application logging
 
 Follow the instructions below to enable log4j2 logs for a sample composite application (named `HelloWorldCompositeExporter`).
 
