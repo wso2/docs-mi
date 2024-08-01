@@ -98,7 +98,7 @@ by using an XPath function. You can use any of the <a href="{{base_path}}/refere
 <td><strong>Expression</strong></td>
 <td><div class="content-wrapper">
 If the <strong>Expression</strong> option is selected for the <strong>Set Action As</strong> parameter, the expression which determines the property value should be entered in this parameter. This expression can be an XPath expression or a JSONPath expression.
-<p>When specifying a JSONPath, use the format <code>json-eval(&lt;JSON_PATH&gt;)</code> , such as <code>json-eval(getQuote.request.symbol)</code>. In both XPath and JSONPath expressions, you can return the value of another property by calling <code>get-property(property-name)</code>. For example, you might create a property called <code>JSON_PATH</code> of which the value is <code>json-eval(pizza.toppings)</code> , and then you could create another property called <code>SON_PRINT</code> of which the value is <code>get-property('JSON_PATH')</code>, allowing you to use the value of the JSON_PATH property in the JSON_PRINT property.</p>
+<p>When specifying a JSONPath, use the format <code>json-eval(&lt;JSON_PATH&gt;)</code>, such as <code>json-eval(getQuote.request.symbol)</code>. In both XPath and JSONPath expressions, you can return the value of another property by calling <code>get-property(property-name)</code>. For example, you might create a property called <code>JSON_PATH</code> of which the value is <code>json-eval(pizza.toppings)</code> , and then you could create another property called <code>SON_PRINT</code> of which the value is <code>get-property('JSON_PATH')</code>, allowing you to use the value of the JSON_PATH property in the JSON_PRINT property.</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -107,18 +107,18 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 </tr>
 <tr class="odd">
 <td><strong>Group</strong></td>
-<td>The number (index) of the matching item evaluated using the regular expression entered in the <strong>Pattern</strong> parameter.</td>
+<td>The number (index) of the matching item is evaluated using the regular expression entered in the <strong>Pattern</strong> parameter.</td>
 </tr>
 <tr class="even">
 <td><strong>Scope</strong></td>
-<td><p>The scope at which the property will be set or removed from. Possible values are as follows.</p>
+<td><p>The scope at which the property will be set to or removed from. Possible values are as follows.</p>
 <ul>
 <li><strong>Synapse</strong>: This is the default scope. The properties set in this scope last as long as the transaction (request-response) exists.</li>
 <li><strong>Transport</strong>: The properties set in this scope will be considered transport headers. For example, if it is required to send an HTTP header named 'CustomHeader' with an outgoing request, you can use the property mediator configuration with this scope.</li>
-<li><strong>Axis2</strong>: Properties set in this scope have a shorter life span than those set in the <strong>Synapse</strong> scope. They are mainly used for passing parameters to the underlying Axis2 engine</li>
+<li><strong>Axis2</strong>: Properties set in this scope have a shorter life span than those set in the <strong>Synapse</strong> scope. They are mainly used for passing parameters to the underlying Axis2 engine.</li>
 <li><strong>axis2-client</strong>: This is similar to the <strong>Synapse</strong> scope. The difference between the two scopes is that the <strong>axis2-client</strong> scope can be accessed inside the <b>mediate()</b> method of a mediator via a custom mediator created using the <a href="{{base_path}}/reference/mediators/class-mediator">Class mediator</a>.</li>
 <li><strong>Operation</strong>: This scope is used to retrieve a property in the operation context level.</li>
-<li><strong>Registry</strong>: This scope is used to retrieve properties within the registry .</li>
+<li><strong>Registry</strong>: This scope is used to retrieve properties within the registry.</li>
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
 <li><strong>File</strong>: This scope is used to retrieve properties defined in the `file.properties` configuration file ('file').</li>
@@ -133,7 +133,7 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 
 ## Examples
 
-### Setting and logging and property
+### Set and log and property
 
 In this example, we are setting the property symbol, and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
 
@@ -145,7 +145,7 @@ In this example, we are setting the property symbol, and later we can log it usi
 </log>
 ```
 
-### Sending a fault message based on the Accept http header
+### Send a fault message based on the Accept http header
 
 In this configuration, a response is sent to the client based on the `Accept` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
 based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
@@ -164,11 +164,11 @@ based on the `Accept` header using the `$ctx:accept` expression. The message is 
 <respond/>
 ```
 
-### Reading a property stored in the Registry
+### Read a property stored in the Registry
 
 You can read a property that is stored in the Registry by using the
 `get-property()` method in your Synapse configuration. 
-For example, the following Synapse configuration retrieves the `abc` property of the collection `gov:/data/xml/collectionx` , and stores it in the `regProperty` property.
+For example, the following Synapse configuration retrieves the `abc` property of the collection `gov:/data/xml/collectionx`, and stores it in the `regProperty` property.
 
 ``` xml
 <property name="regProperty" expression="get-property('registry', 'gov:/data/xml/collectionx@abc')"/>
@@ -177,22 +177,22 @@ For example, the following Synapse configuration retrieves the `abc` property of
 !!! Info
     You can use the following syntax to read properties or resources stored in the `gov` or `conf` Registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `gov` or `conf` prefixes.
 
-#### Reading a property stored under a collection
+#### Read a property stored under a collection
 
 -   `get-property('registry','gov:<path to resource from governance>@<propertyname>')`
 -   `get-property('registry','conf:<path to resource from config>@<propertyname>')`
 
-#### Reading a property stored under a resource
+#### Read a property stored under a resource
 
 -   `get-property('registry','gov:<path to resource from governance>/@<propertyname>')`
 -   `get-property('registry','conf:<path to resource from config>/@<propertyname>')`
 
-#### Reading an XML resource
+#### Read an XML resource
 
 -   `get-property('registry','gov:<path to resource from governance>')`
 -   `get-property('registry','conf:<path to resource from config>')`
 
-### Reading a file stored in the Registry
+### Read a file stored in the Registry
 
 Following is an example, in which you read an XML file that is stored in the registry using XPath, to retrieve a value from it. Assume you have the following XML file stored in the Registry (i.e., `gov:/test.xml` ).
 
@@ -222,7 +222,7 @@ Your output log will look like this.
 [2015-09-21 16:01:28,750]  INFO - LogMediator Book_Name = A Song of Ice and Fire
 ```
 
-### Reading SOAP headers
+### Read SOAP headers
 
 SOAP headers provide information about the message, such as the To and From values. You can use the `get-property()` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) and the [Script Mediator]({{base_path}}/reference/mediators/script-mediator).
 
