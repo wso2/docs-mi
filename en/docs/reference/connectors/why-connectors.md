@@ -30,16 +30,16 @@ The WSO2 integration runtime is shipped with a set of inbound and outbound trans
 
 This brings the capability of fulfilling legacy modernization requirements. Brownfield integration is a major part of that. As enterprises are interested in accelerating their digital transformation, they tend to integrate new technologies with legacy technologies rather than waiting until all legacy technologies are transformed to new ones. 
 
-## WSO2 Integration Studio support 
+## MI VS Code Extension support 
 
-WSO2 Integration Studio is the tooling or the IDE that developers use to code their integration logic. Integration connectors can be easily imported and immediately used in WSO2 Integration Studio. When the connector UI model is provided in the connector, all custom operations and their properties will be rendered in WSO2 Integration Studio automatically. Any integration logic developer can use it with WSO2 Integration Studio so that the connector developer does not need to worry about it as long as development rules are met. 
+MI VS Code Extension is the tooling or IDE developers use to code their integration logic. Integration connectors can be easily imported and immediately used in the MI VS Code Extension. When the connector UI model is provided in the connector, all custom operations and their properties will be rendered in the VS Code extension automatically. Any integration logic developer can use it with the extension so that the connector developer does not need to worry about it as long as development rules are met. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/why-connectors4.png" title="Integration Studio Connectors" width="600" alt="Integration Studio Connectors"/>
 
-Operations of the WSO2 connector that you import are listed on the right-side panel. Developers can drag and drop connector operations to construct the integration logic. Input parameters to the operations can be provided as static values or expressions using the properties panel that appears when the connector operation is clicked. 
+Operations of the WSO2 connector that you import are listed on the right-side panel. Developers can click and select connector operations to construct the integration logic. Input parameters to the operations can be provided as static values or expressions using the operation add form that appears when the connector operation is clicked. 
 
 ## What's Next?
 
 * [Learn how to write a connector from scratch]({{base_path}}/reference/connectors/develop-connectors/) 
 * Publication process for connectors 
-* [Connector best practices and Integration Studio]({{base_path}}/reference/connectors/connector-usage/) 
+* [Connector best practices and MI VS Code Extension]({{base_path}}/reference/connectors/connector-usage/) 
