@@ -432,33 +432,35 @@ The sample input XML payload is as follows.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8" ?>
-    <name>app_name</name>
-    <version>version</version>
-    <manifest_version>2</manifest_version>
-    <description>description_text</description>
-    <container>GOOGLE_DRIVE</container>
-    <api_console_project_id>YOUR_APP_ID</api_console_project_id>
-    <gdrive_mime_types>
-        <opendrivedoc>
-            <type>image/png</type>
-            <type>image/jpeg</type>
-            <type>image/gif</type>
-            <type>application/vnd.google.drive.ext-type.png</type>
-            <type>application/vnd.google.drive.ext-type.jpg</type>
-            <type>application/vnd.google.drive.ext-type.gif</type>
-            <href>http://your_web_url/</href>
-            <title>Open</title>
-            <disposition>window</disposition>
-        </opendrivedoc>
-    </gdrive_mime_types>
-    <icons>
-        <icon_128>icon_128.png</icon_128>
-    </icons>
-    <app>
-        <launch>
-            <web_url>http://yoursite.com</web_url>
-        </launch>
-    </app>
+    <root>
+        <name>app_name</name>
+        <version>version</version>
+        <manifest_version>2</manifest_version>
+        <description>description_text</description>
+        <container>GOOGLE_DRIVE</container>
+        <api_console_project_id>YOUR_APP_ID</api_console_project_id>
+        <gdrive_mime_types>
+            <opendrivedoc>
+                <type>image/png</type>
+                <type>image/jpeg</type>
+                <type>image/gif</type>
+                <type>application/vnd.google.drive.ext-type.png</type>
+                <type>application/vnd.google.drive.ext-type.jpg</type>
+                <type>application/vnd.google.drive.ext-type.gif</type>
+                <href>http://your_web_url/</href>
+                <title>Open</title>
+                <disposition>window</disposition>
+            </opendrivedoc>
+        </gdrive_mime_types>
+        <icons>
+            <icon_128>icon_128.png</icon_128>
+        </icons>
+        <app>
+            <launch>
+                <web_url>http://yoursite.com</web_url>
+            </launch>
+        </app>
+    </root>
 ```
 
 The sample output JSON is as follows.
