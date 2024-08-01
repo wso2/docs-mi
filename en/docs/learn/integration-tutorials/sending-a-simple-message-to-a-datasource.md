@@ -135,7 +135,7 @@ Follow the steps given below to create a new data service.
 
 Now, let's create a REST resource that can be used to invoke the query.
 
-1. Click new **Data Service** created in previous step.
+1. Click new **Data Service** created in the previous step.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-dataservice.png" width="80%"></a>
    
@@ -173,7 +173,7 @@ Now, let's create a REST resource that can be used to invoke the query.
 Let's write an SQL query to GET data from the MySQL datasource that you
 configured in the previous step:
 
-1. Click new **Resource** created in previous step.
+1. Click new **Resource** created in the previous step.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png" width="80%"></a>
 
@@ -363,7 +363,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a request to the API resource. You can use Postman or any other **HTTP Client**:
 
-1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/).
 
 2. Add the request information as given below and click the <b>Send</b> button.
     
@@ -393,7 +393,7 @@ If you want to send the client request from your terminal:
 
 #### Analyze the response
 
-You will see the following response received to your <b>HTTP Client</b>:
+You will see the following response received by your <b>HTTP Client</b>:
 
 ```xml
 <Employees xmlns="http://ws.wso2.org/dataservice">
