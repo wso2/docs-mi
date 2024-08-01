@@ -1,12 +1,12 @@
 # Connectors Overview
 
-Integration Connectors are extensions to the integration runtime of WSO2 (compatible with EI 6.x, EI 7.x, and also APIM 4.0.0). They allow you to interact with SaaS applications on the cloud, databases, and popular B2B protocols. 
+Integration Connectors are extensions to the integration runtime of WSO2. They allow you to interact with SaaS applications on the cloud, databases, and popular B2B protocols. 
 
-Connectors are hosted in a [connector store](https://store.wso2.com/store/assets/esbconnector/list) and can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
+Connectors are hosted in a [connector store](https://store-v2.wso2.com/?page=1&product=MI+Connector) and can be added to integration flows in [Micro Integrator for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
 
-Each connector provides a set of operations, which you call from your proxy services, sequences, and APIs to interact with the specific third-party service.
+Each connector provides a set of operations you call from your proxy services, sequences, and APIs to interact with the specific third-party service.
 
-This documentation provides an example of how to use each connector and a reference of each of its operations and their properties.
+This documentation provides an example of how to use each connector and a reference of its operations and properties.
 
 ## Types of connectors
 
@@ -20,7 +20,7 @@ There are three types of connectors available.
 
 ## Inbound and outbound connectors
 
-Most of the connectors available in the connector store are outbound connectors that illustrate connections and operations going out from the integration runtime to third-party applications and systems. However, some connectors also enable inbound connectivity from popular third-party applications.
+Most connectors available in the connector store are outbound connectors that illustrate connections and operations going out from the integration runtime to third-party applications and systems. However, some connectors also enable inbound connectivity from popular third-party applications.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/inbound-outbound.png" title="Inbound and Outbound Connectors" width="700" alt="Inbound and Outbound Connectors"/>
 
@@ -32,7 +32,7 @@ Some examples for inbound connectors are as follows.
 
 ## Advantages of connectors
 
-Using connectors provide the following advantages:
+Using connectors provides the following advantages:
 
 <table>
     <tr>
@@ -41,11 +41,11 @@ Using connectors provide the following advantages:
     </tr>
     <tr>
         <td><b>Integrate fast</b></td>
-        <td>Let's say you need to get some data from Salesforce and return some of it back to users. If you want to do it, first you need to find and analyze the available APIs from Salesforce. Then you need to code to interfaces or use a SDK provided to communicate with the third party. Designing such a module from ground up takes a lot of time. Connectors make this process simple as you can easily add the connector via WSO2 Integration Studio and drag and drop your connector’s operations onto the canvas and use them to design your integration flow with the help of our detailed documentation.</td>
+        <td>Let's say you need to get some data from Salesforce and return some of it back to users. If you want to do it, first you need to find and analyze the available APIs from Salesforce. Then you need to code to interfaces or use an SDK provided to communicate with the third party. Designing such a module from the ground up takes a lot of time. Connectors make this process simple as you can easily add the connector via the MI VS Code extension. Search and select your connector’s operations onto the canvas and use them to design your integration flow with the help of our detailed documentation.</td>
     </tr>
     <tr>
         <td><b>Easy to use</b></td>
-        <td>Connector operations are designed to hide complexities in communication and expose what is required for the users for integration. Connectors are fully supported by WSO2 Integration Studio so you can just drag and drop operations and configure the integration flow. There is less code complexity when using connectors as most of the intricacy has already been dealt with. It is also very easy to authenticate with external systems as you only need to configure credentials and access URLs in most cases.</td>
+        <td>Connector operations are designed to hide complexities in communication and expose what is required for the users for integration. Connectors are fully supported by the MI VS Code extension so you can just search and select operations and configure the integration flow. There is less code complexity when using connectors as most of the intricacy has already been dealt with. It is also very easy to authenticate with external systems as you only need to configure credentials and access URLs in most cases.</td>
     </tr>
     <tr>
         <td><b>150+ available connectors</b></td>
@@ -67,21 +67,21 @@ Using connectors provide the following advantages:
 
 ## How to use connectors
 
-When configuring the integration logic, you need to use WSO2 Integration Studio. When ready, you can export the project along with dependency connectors to the integration runtime. See [documentation on adding connectors]({{base_path}}/develop/creating-artifacts/adding-connectors/) for more information.
+When configuring the integration logic, you need to use Micro Integrator for VS Code. When ready, you can export the project along with dependency connectors to the integration runtime. See [documentation on adding connectors]({{base_path}}/develop/creating-artifacts/adding-connectors/) for more information.
 
 See the following video for a quick look at how to use connectors.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O2rAFdL8lZQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-> **Note**: You can also access the connectors directly from the [connector store](https://store.wso2.com/store/assets/esbconnector/list) if required. 
+> **Note**: You can also access the connectors directly from the [connector store](https://store-v2.wso2.com/?page=1&product=MI+Connector) if required. 
 
-### Connectors in Integration Studio
+### Connectors in MI VS Code Extension
 
-You can search and import the required connectors to your integration project in WSO2 Integration Studio. Once imported the supported operations are displayed on the design palette.
+You can search and import the required connectors to your integration project in the MI VS Code extension. Once imported, the supported operations are displayed on the design palette.
 
 ### Initialize Connector
 
-You need to start using the connector by dragging and dropping the `init` operation to the place where you need to use the connector in the message flow. Every connector has this operation. The parameters needed for init will usually be authentication parameters.   
+You can search for the desired connector in the MI VS Code extension and select the required operation. This action will insert the selected operation at the appropriate point in the message flow. Ensure that the relevant configurations are provided before adding the operation to the flow.
 
 ### Operations
 
@@ -99,7 +99,7 @@ As described above, input for the connector operations would be:
 
 Inbound endpoints are used to listen or poll for messages from external systems like Kafka and NATS. These are also used to trigger events in your integration runtime and start a message flow upon changes made to external systems (i.e., RDBMS Database). 
 
-The configurations are made using WSO2 Integration Studio for inbound endpoints as well. When configuring, you need to define it as an inbound endpoint of type “custom”. The parameter “class” has the fully qualified name to the Java class implementing message pooling functionality. 
+The configurations are made using the MI VS Code extension for inbound endpoints as well. When configuring, you need to define it as an inbound endpoint of type “custom”. The parameter “class” has the fully qualified name for the Java class implementing message pooling functionality. 
 
 You need to download the required libraries from the connector store and import them to the integration runtime. Usually, the inbound endpoint is co-hosted with the associated outbound connector. 
 
@@ -109,10 +109,10 @@ Once the integration logic is done, you can export it along with the dependency 
 
 ## Example scenarios and operations
 
-Within this documentation, each connector has an example scenario associated with it that illustrates how a simple use case can be done using the connector. It also has a detailed reference guide that lists out the operations and the respective properties of each of these operations, highlighting sample values, required configurations, and even sample requests and responses.
+Within this documentation, each connector has an example scenario associated with it that illustrates how a simple use case can be done using the connector. It also has a detailed reference guide that lists the operations and the respective properties of each of these operations, highlighting sample values, required configurations, and even sample requests and responses.
 
 !!! Info
-    For more details on connectors not mentioned in this documentation, you can refer the [WSO2 ESB Connectors documentation](https://docs.wso2.com/display/ESBCONNECTORS/WSO2+ESB+Connectors+Documentation) or in the [GitHub repository of the connector](https://github.com/wso2-extensions) you are looking for.
+    For more details on connectors not mentioned in this documentation, you can refer to the [WSO2 ESB Connectors documentation](https://docs.wso2.com/display/ESBCONNECTORS/WSO2+ESB+Connectors+Documentation) or in the [GitHub repository of the connector](https://github.com/wso2-extensions) you are looking for.
 
 ## Empowering the developer
 
