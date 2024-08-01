@@ -17,7 +17,7 @@ Follow the instructions given in this section to create and configure the requir
 
 #### Open the integration project
 
-1. Download the required project from [here]({{base_path}}/assets/attachments/learn/tutorials/sending-simple-message-tutorial.zip).
+1. Download the required project from [here]({{base_path}}/assets/attachments/learn/tutorials/sending-simple-message-tutorial.zip) and extract.
 
 2. Launch VS Code with the Micro Integrator extension installed.
 
@@ -27,7 +27,7 @@ Follow the instructions given in this section to create and configure the requir
 
 4. Click **Open MI Project** on **Design View**.
 
-5. Provide the location to the 
+5. Provide the location of the downloaded project path.
 
 #### Develop the inbound endpoint
 
