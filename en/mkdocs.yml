@@ -285,9 +285,6 @@ nav:
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
           - Open Projects: develop/opening-projects.md
-          - Export Projects: develop/export-project.md
-          - Create Docker Exporter: develop/create-docker-project.md
-          - Create Kubernetes Exporter: develop/create-kubernetes-project.md
       - Create Artifacts:
           - Create a REST API: develop/creating-artifacts/creating-an-api.md
           - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
@@ -928,6 +925,9 @@ plugins:
               'learn/integration-tutorials/using-templates.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/config-catalog-integration-control-plane/'
+              'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
+              'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
+              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:
