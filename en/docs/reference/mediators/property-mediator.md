@@ -1,14 +1,13 @@
-# Property Mediator
+# Property mediator
 
-The **Property Mediator** has no direct impact on the message, but rather on the message context flowing through Synapse. You can retrieve
-the properties set on a message later through the Synapse XPath Variables or the `get-property()` extension function. A property can have a defined scope for which it is valid. If a property has no defined scope, it defaults to the Synapse message context scope. Using the property element with the **action** specified as `remove`, you can remove any existing message context properties.
+The **Property Mediator** has no direct impact on the message, but rather on the message context flowing through Synapse. You can retrieve the properties set on a message later through the Synapse XPath Variables or the `get-property()` extension function. A property can have a defined scope for which it is valid. If a property has no defined scope, it defaults to the Synapse message context scope. Using the property element with the **action** specified as `remove`, you can remove any existing message context properties.
 
 !!! Info
     The Property mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
-```
+```xml
 <property name="string" [action=set|remove] [type="string"] (value="literal" | expression="xpath") [scope=default|transport|axis2|axis2-client] [pattern="regex" [group="integer"]]>
     <xml-element/>?
 </property>
@@ -45,7 +44,6 @@ by using an XPath function. You can use any of the <a href="{{base_path}}/refere
     </li>
   </ul>
 <p>For names of the generic properties that come by default, see <a href="{{base_path}}/reference/mediators/property-reference/generic-properties">Generic Properties</a> . You can select them from the drop-down list if you are adding the Property Mediator as shown below.</p>
-<p><img src="{{base_path}}/assets/img/integrate/mediators/119131214/119131215.jpg" title="generic properties list" width="800" alt="generic properties list" /></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -57,14 +55,6 @@ by using an XPath function. You can use any of the <a href="{{base_path}}/refere
 </ul></td>
 </tr>
 <tr class="odd">
-<td><strong>Set Action As</strong></td>
-<td><p>The possible values for this parameter are as follows:</p>
-<ul>
-<li><strong>Value</strong>: If this is selected, a static value would be considered as the property value and this value should be entered in the <strong>Value</strong> parameter.</li>
-<li><p><strong>Expression</strong>: If this is selected, the property value will be determined during mediation by evaluating an expression. This expression should be entered in the <strong>Expression</strong> parameter.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
 <td><strong>Type</strong></td>
 <td><div class="content-wrapper">
 <p>The data type for the property. Property mediator will handle the property as a property of selected type. Available values are as follows:</p>
@@ -90,41 +80,45 @@ by using an XPath function. You can use any of the <a href="{{base_path}}/refere
 </p>
 <p>
   Example 1: Creating a property with a JSON string by giving the value.</br>
-  <code><property name="Greeting" value="&quot;Hello World&quot;" type="JSON"/></code></br></br>
+
+  <code>&lt;property name="Greeting" value="&quot;Hello World&quot;" type="JSON"/&gt;</code></br></br>
+
   Example 2 : Creating a property with a JSON object via expression evaluation.</br>
-  <code><property name="studentObject" expression="json-eval($.student)" type="JSON"/></code>
+
+  <code>&lt;property name="studentObject" expression="json-eval($.student)" type="JSON"/&gt;</code>
+
 </p>
 </div></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Value</strong></td>
 <td>If the <strong>Value</strong> option is selected for the <strong>Set Action As</strong> <strong></strong> parameter, the property value should be entered as a constant in this parameter.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Expression</strong></td>
 <td><div class="content-wrapper">
 If the <strong>Expression</strong> option is selected for the <strong>Set Action As</strong> parameter, the expression which determines the property value should be entered in this parameter. This expression can be an XPath expression or a JSONPath expression.
-<p>When specifying a JSONPath, use the format <code>json-eval(&lt;JSON_PATH&gt;)</code> , such as <code>json-eval(getQuote.request.symbol)</code>. In both XPath and JSONPath expressions, you can return the value of another property by calling <code>get-property(property-name)</code>. For example, you might create a property called <code>JSON_PATH</code> of which the value is <code>json-eval(pizza.toppings)</code> , and then you could create another property called <code>SON_PRINT</code> of which the value is <code>get-property('JSON_PATH')</code>, allowing you to use the value of the JSON_PATH property in the JSON_PRINT property.</p>
+<p>When specifying a JSONPath, use the format <code>json-eval(&lt;JSON_PATH&gt;)</code>, such as <code>json-eval(getQuote.request.symbol)</code>. In both XPath and JSONPath expressions, you can return the value of another property by calling <code>get-property(property-name)</code>. For example, you might create a property called <code>JSON_PATH</code> of which the value is <code>json-eval(pizza.toppings)</code> , and then you could create another property called <code>SON_PRINT</code> of which the value is <code>get-property('JSON_PATH')</code>, allowing you to use the value of the JSON_PATH property in the JSON_PRINT property.</p>
 </div></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Pattern</strong></td>
 <td>This parameter is used to enter a regular expression that will be evaluated against the value of the property or result of the XPath/JSON Path expression.</td>
 </tr>
-<tr class="even">
-<td><strong>Group</strong></td>
-<td>The number (index) of the matching item evaluated using the regular expression entered in the <strong>Pattern</strong> parameter.</td>
-</tr>
 <tr class="odd">
+<td><strong>Group</strong></td>
+<td>The number (index) of the matching item is evaluated using the regular expression entered in the <strong>Pattern</strong> parameter.</td>
+</tr>
+<tr class="even">
 <td><strong>Scope</strong></td>
-<td><p>The scope at which the property will be set or removed from. Possible values are as follows.</p>
+<td><p>The scope at which the property will be set to or removed from. Possible values are as follows.</p>
 <ul>
 <li><strong>Synapse</strong>: This is the default scope. The properties set in this scope last as long as the transaction (request-response) exists.</li>
 <li><strong>Transport</strong>: The properties set in this scope will be considered transport headers. For example, if it is required to send an HTTP header named 'CustomHeader' with an outgoing request, you can use the property mediator configuration with this scope.</li>
-<li><strong>Axis2</strong>: Properties set in this scope have a shorter life span than those set in the <strong>Synapse</strong> scope. They are mainly used for passing parameters to the underlying Axis2 engine</li>
+<li><strong>Axis2</strong>: Properties set in this scope have a shorter life span than those set in the <strong>Synapse</strong> scope. They are mainly used for passing parameters to the underlying Axis2 engine.</li>
 <li><strong>axis2-client</strong>: This is similar to the <strong>Synapse</strong> scope. The difference between the two scopes is that the <strong>axis2-client</strong> scope can be accessed inside the <b>mediate()</b> method of a mediator via a custom mediator created using the <a href="{{base_path}}/reference/mediators/class-mediator">Class mediator</a>.</li>
 <li><strong>Operation</strong>: This scope is used to retrieve a property in the operation context level.</li>
-<li><strong>Registry</strong>: This scope is used to retrieve properties within the registry .</li>
+<li><strong>Registry</strong>: This scope is used to retrieve properties within the registry.</li>
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
 <li><strong>File</strong>: This scope is used to retrieve properties defined in the `file.properties` configuration file ('file').</li>
@@ -139,9 +133,9 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 
 ## Examples
 
-### Setting and logging and property
+### Set and log and property
 
-In this example, we are setting the property symbol and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
+In this example, we are setting the property symbol, and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
 
 ```xml
 <property name="symbol" expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)" xmlns:m0="http://services.samples/xsd"/>
@@ -151,9 +145,9 @@ In this example, we are setting the property symbol and later we can log it usin
 </log>
 ```
 
-### Sending a fault message based on the Accept http header
+### Send a fault message based on the Accept http header
 
-In this configuration, a response is sent to the client based on the `         Accept        ` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
+In this configuration, a response is sent to the client based on the `Accept` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
 based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
 
 ``` xml
@@ -170,14 +164,11 @@ based on the `Accept` header using the `$ctx:accept` expression. The message is 
 <respond/>
 ```
 
-### Reading a property stored in the Registry
+### Read a property stored in the Registry
 
 You can read a property that is stored in the Registry by using the
-`         get-property()        ` method in your Synapse configuration.
-For example, the following Synapse configuration retrieves the
-`         abc        ` property of the collection
-`         gov:/data/xml/collectionx        ` , and stores it in the
-`         regProperty        ` property.
+`get-property()` method in your Synapse configuration. 
+For example, the following Synapse configuration retrieves the `abc` property of the collection `gov:/data/xml/collectionx`, and stores it in the `regProperty` property.
 
 ``` xml
 <property name="regProperty" expression="get-property('registry', 'gov:/data/xml/collectionx@abc')"/>
@@ -186,26 +177,24 @@ For example, the following Synapse configuration retrieves the
 !!! Info
     You can use the following syntax to read properties or resources stored in the `gov` or `conf` Registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `gov` or `conf` prefixes.
 
-#### Reading a property stored under a collection
+#### Read a property stored under a collection
 
--   `          get-property('registry','gov:<path to resource from governance>@<propertyname>')         `
--   `          get-property('registry','conf:<path to resource from config>@<propertyname>')         `
+-   `get-property('registry','gov:<path to resource from governance>@<propertyname>')`
+-   `get-property('registry','conf:<path to resource from config>@<propertyname>')`
 
-#### Reading a property stored under a resource
+#### Read a property stored under a resource
 
--   `          get-property('registry','gov:<path to resource from governance>/@<propertyname>')         `
--   `          get-property('registry','conf:<path to resource from config>/@<propertyname>')         `
+-   `get-property('registry','gov:<path to resource from governance>/@<propertyname>')`
+-   `get-property('registry','conf:<path to resource from config>/@<propertyname>')`
 
-#### Reading an XML resource
+#### Read an XML resource
 
--   `          get-property('registry','gov:<path to resource from governance>')         `
--   `          get-property('registry','conf:<path to resource from config>')         `
+-   `get-property('registry','gov:<path to resource from governance>')`
+-   `get-property('registry','conf:<path to resource from config>')`
 
+### Read a file stored in the Registry
 
-### Reading a file stored in the Registry
-
-Following is an example, in which you read an XML file that is stored in the registry using XPath, to retrieve a value from it. Assume you have
-the following XML file stored in the Registry (i.e., `         gov:/test.xml        ` ).
+Following is an example, in which you read an XML file that is stored in the registry using XPath, to retrieve a value from it. Assume you have the following XML file stored in the Registry (i.e., `gov:/test.xml` ).
 
 **test.xml**
 
@@ -233,9 +222,9 @@ Your output log will look like this.
 [2015-09-21 16:01:28,750]  INFO - LogMediator Book_Name = A Song of Ice and Fire
 ```
 
-### Reading SOAP headers
+### Read SOAP headers
 
-SOAP headers provide information about the message, such as the To and From values. You can use the `         get-property()        ` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) and the [Script Mediator]({{base_path}}/reference/mediators/script-mediator).
+SOAP headers provide information about the message, such as the To and From values. You can use the `get-property()` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) and the [Script Mediator]({{base_path}}/reference/mediators/script-mediator).
 
 #### To
 
@@ -315,7 +304,7 @@ SOAP headers provide information about the message, such as the To and From valu
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;header name=<span class="st">&quot;FaultTo&quot;</span> value=<span class="st">&quot;http://localhost:9000&quot;</span>/&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;header name=<span class="st">&quot;FaultTo&quot;</span> value=<span class="st">&quot;http://localhost:9000&quot;</span>/&gt;</span></pre></div>
 </div>
 </div>
 </div></td>
