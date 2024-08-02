@@ -30,16 +30,16 @@ The `SMSSenderProxy` proxy service is shown below.
            startOnLoad="true">
        <target>
           <inSequence>
-             <property name="transport.jms.ContentTypeProperty"
-                       value="Content-Type"
-                       scope="axis2"/>
-             <property name="TRANSPORT_HEADERS" scope="axis2" action="remove"/>
-             <call>
-                <endpoint>
+            <property name="transport.jms.ContentTypeProperty"
+                        value="Content-Type"
+                        scope="axis2"/>
+            <property name="TRANSPORT_HEADERS" scope="axis2" action="remove"/>
+            <call>
+               <endpoint>
                   <address uri="jms:/SMSStore?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue&amp;transport.jms.ReplyDestination=SMSReceiveNotificationStore"/>
-                </endpoint>
-			 </call>
-			 <respond/>
+               </endpoint>
+           </call>
+           <respond/>
           </inSequence>
        </target>
 </proxy>
