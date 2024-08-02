@@ -38,8 +38,8 @@ The `SMSSenderProxy` proxy service is shown below.
                 <endpoint>
                   <address uri="jms:/SMSStore?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=queue&amp;transport.jms.ReplyDestination=SMSReceiveNotificationStore"/>
                 </endpoint>
-			    </call>
-			    <respond/>
+			 </call>
+			 <respond/>
           </inSequence>
        </target>
 </proxy>
