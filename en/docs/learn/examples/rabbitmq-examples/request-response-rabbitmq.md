@@ -44,10 +44,11 @@ See the instructions on how to [build and run](#build-and-run) this example.
         startOnLoad="true">
        <target>
         <inSequence>
-          <payloadFactory media-type="json">
-            <format>{"message":"Order created"}</format>
-            <args/>
-          </payloadFactory>
+          <call>
+            <endpoint xmlns="http://ws.apache.org/ns/synapse">
+              <http method="POST" uri-template="http://localhost:8290/orders"/>
+            </endpoint>
+          </call>
           <log level="custom">
               <property name="Info" value="Your order has been placed successfully."/>
           </log>
@@ -68,6 +69,32 @@ See the instructions on how to [build and run](#build-and-run) this example.
        <parameter name="rabbitmq.queue.name">order-request</parameter>
        <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
     </proxy>
+    ```
+
+We can use the below synapse configurations to act as the mock backend called by the `OrderProcessingService` proxy service.
+
+=== "Mock Orders Backend service"    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/orders" name="mockOrdersBackend" xmlns="http://ws.apache.org/ns/synapse">
+      <resource methods="POST">
+        <inSequence>
+          <property name="messageType" value="application/json" scope="axis2"/>
+          <payloadFactory media-type="json">
+            <format>{"message":"Order created"}</format>
+              <args/>
+          </payloadFactory>
+          <respond/>
+        </inSequence>
+        <faultSequence>
+          <payloadFactory media-type="json">
+            <format>{"error":"Error processing order"}</format>
+            <args/>
+          </payloadFactory>
+          <respond/>
+        </faultSequence>
+      </resource>
+    </api>
     ```
 
 ## Build and run
