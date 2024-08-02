@@ -1,4 +1,4 @@
-# Switching between HTTP and MSMQ
+# Switch between HTTP and MSMQ
 
 This example demonstrates how you can use the Micro Integrator to switch messages between HTTP and MSMQ during message mediation.
 
@@ -12,17 +12,15 @@ In this example, stockquote requests are placed to the stockquote proxy service,
         <target>
             <inSequence>
                 <property name="OUT_ONLY" value="true"/>
-                <send>
+                <call>
                     <endpoint>
                         <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                     </endpoint>
-                </send>
+                </call>
+                <respond/>
             </inSequence>
-            <outSequence>
-                <send/>
-            </outSequence>
-            <parameter name="transport.msmq.ContentType">application/xml</parameter>
         </target>
+            <parameter name="transport.msmq.ContentType">application/xml</parameter>
     </proxy>
     ```
 === "StockQuote proxy"    
@@ -36,15 +34,13 @@ In this example, stockquote requests are placed to the stockquote proxy service,
             <inSequence>
                <property name="FORCE_SC_ACCEPTED"  value="true"  scope="axis2"  type="STRING"/>
                <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
-            </inSequence>
-           <outSequence>
               <log level="custom">
                   <property name="MESSAGE" value="OUT SEQENCE CALLED"/>
               </log>
-               <send/>
-             </outSequence>
+               <respond/>
+            </inSequence>
           </target>
-          <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
+          <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl" preservePolicy="true"/>
      </proxy>
     ```
 
