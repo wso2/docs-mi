@@ -375,7 +375,6 @@ nav:
           - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
           - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
           - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
-          - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
           - Adding Connectors: develop/creating-artifacts/adding-connectors.md
           #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
           - Opening Artifacts: develop/opening-artifacts.md
@@ -1017,6 +1016,7 @@ plugins:
               'develop/creating-artifacts/creating-an-inbound-endpoint.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
+              'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:
