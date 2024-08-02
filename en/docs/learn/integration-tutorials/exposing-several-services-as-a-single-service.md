@@ -717,14 +717,11 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+Let's send a request to the API resource. You can use Postman or any other **HTTP Client**:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-    
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
