@@ -6,7 +6,7 @@ When information from several services is required to construct a response to a 
 
 In this tutorial, when a client sends a request for a medical appointment, the Micro Integrator performs several service calls to multiple back-end services to construct a response that includes all the necessary details. The **Call** mediator allows you to specify all service invocations one after the other within a single sequence.
 
-You will also use the **PayloadFactory** mediator to take the response from one back-end service and transform it into the format that is accepted by another back-end service.
+You will also use the **PayloadFactory** mediator to take the response from one back-end service and transform it into the format accepted by another back-end service.
 
 ### Concepts and artifacts used
 
@@ -42,7 +42,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create new Endpoints
 
-Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channeling Service, Payment Service.
+Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channeling Service, and Payment Service.
 
 1. Navigate to the **MI Project Explorer** > **Endpoints**.
 
@@ -271,7 +271,7 @@ You can now start updating the API resource with the mediation flow.
   <tr>
   <td>Property Name</td>
   <td><code>uri.var.hospital</code></td>
-  <td>The name that will be used to refer this property's values.</td>
+  <td>The name that will be used to refer to this property's values.</td>
   </tr>
   <tr>
   <td>Property Action</td>
@@ -308,7 +308,7 @@ You can now start updating the API resource with the mediation flow.
 
 4. Click **Submit**.
 
-5. Add a new **Property** mediator just after the previous property mediator. This will retrieve and store the card number that is sent in the request payload.
+5. Add a new **Property** mediator just after the previous property mediator. This will retrieve and store the card number that was sent to the request payload.
 
 6. With the **Property** mediator selected, access the Properties tab and specify the following details:
   <table>
@@ -320,7 +320,7 @@ You can now start updating the API resource with the mediation flow.
   <tr>
   <td>Property Name</td>
   <td><code>card_number</code></td>
-  <td>The name of the property, which will be used to refer this property.</td>
+  <td>The name of the property, which will be used to refer to this property.</td>
   </tr>
   <tr>
   <td>Property Action</td>
@@ -447,7 +447,7 @@ You can now start updating the API resource with the mediation flow.
         <code>doctor_details</code>
         </td>
         <td>
-        The property name that will be used to refer this property.
+        The property name that will be used to refer to this property.
         </td>
         </tr>
         <tr>
@@ -499,7 +499,7 @@ You can now start updating the API resource with the mediation flow.
         Enter <code>patient_details</code>
         </td>
         <td>
-        The property name that will be used to refer this property.
+        The property name that will be used to refer to this property.
         </td>
         </tr>
         <tr>
@@ -561,7 +561,7 @@ You can now start updating the API resource with the mediation flow.
   <tr>
   <td>Property Name</td>
   <td><code>actual_fee</code></td>
-  <td>This value is used when invoking the SettlePaymentEP. The property name that will be used to refer this property.</td>
+  <td>This value is used when invoking the SettlePaymentEP. The property name that will be used to refer to this property.</td>
   </tr>
   <tr>
   <td>Property Action</td>
@@ -708,7 +708,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 #### Start the back-end service
 
 1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-2. Open a terminal, navigate to the location where your saved the back-end service.
+2. Open a terminal, navigate to the location where you saved the back-end service.
 3. Execute the following command to start the service:
 
     ```bash
@@ -774,7 +774,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
             </div></br>
             <ul>
               <li>
-                This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and data of appointment.
+                This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and date of appointment.
               </li>
             </ul>
         </tr>
