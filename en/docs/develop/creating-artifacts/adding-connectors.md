@@ -15,7 +15,7 @@ You can develop configurations with connectors, and deploy the configurations an
 
 See the topics given below.
 
-### Importing Connectors
+### Import connectors
 
 Follow the steps below to import connectors into Micro Integrator VS Code Extension:
 
@@ -25,6 +25,6 @@ Follow the steps below to import connectors into Micro Integrator VS Code Extens
 
 <img src="{{base_path}}/assets/img/develop/adding-connector.png">
 
-### Removing Connectors
+### Remove connectors
 
 You can manually remove the connectors added to `<PROJECT_HOME>/src/main/wso2mi/resources/connectors` directory by deleting them.
