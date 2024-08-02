@@ -12,27 +12,25 @@ From time to time there are new connector versions released. These new versions 
 
 ### Importing connectors 
 
-All the connectors are hosted in the [Integration Connector Store](https://store.wso2.com/store/assets/esbconnector/list). You can download the connector from the store as a .zip file. 
+All the connectors are hosted in the [Integration Connector Store](https://store-v2.wso2.com/?page=1&product=MI+Connector). You can download the connector from the store as a .zip file. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/connector-store.jpg" title="Connector store" width="700" alt="Connector store"/>
 
 The source code for connectors can also be found in the specific [WSO2 extensions GitHub repository](https://github.com/wso2-extensions/).
 
-However, the recommended approach to use connectors for integration logic development is through WSO2 Integration Studio. Developers can browse and import connectors to the workplace using WSO2 Integration Studio itself. As a result, there is no need to go and download the connector from the store separately or obtain it from the source code.
+However, the recommended approach to use connectors for integration logic development is through the MI VS Code Extension. Developers can browse and import connectors to the workplace using the VS Code Extension itself. As a result, there is no need to go and download the connector from the store separately or obtain it from the source code.
 
 **To import a connector**:
 
-1. Open [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/).
+{!includes/build-and-run.md!}
 
-2. [Create an Integration Project]({{base_path}}/develop/create-integration-project).
-
-3. Right-click the ESB Configs folder and select **New** -> **Add/Remove Connector**. Search for the connector and follow the steps in the wizard to import the connector.
+3. Click on the + icon and select connectors on the pallet that comes up on the right side. Search for the connector and click on it to view the operations of the selected connector.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/import-connector.png" title="Import a connector" width="700" alt="Import a connector"/>
 
 ### Providing values for operation parameters 
 
-After importing the connector, you can drag and drop operations to the design palette and use them. When providing values for operation parameters, you can provide static values or dynamic values. Dynamic values can be provided in one of the following ways. 
+When importing the connector, you can click and select operations to add them to the design palette and use them. When providing values for operation parameters, you can provide static values or dynamic values. Dynamic values can be provided in one of the following ways. 
 
 * As an [XPATH expression](https://www.w3schools.com/xml/xpath_syntax.asp).
 * As a [JSON expression](https://docs.oracle.com/cd/E60058_01/PDF/8.0.8.x/8.0.8.0.0/PMF_HTML/JsonPath_Expressions.htm). 
@@ -73,7 +71,7 @@ Configurations required for initializing the connectors must be provided in one 
 
 For recently updated connector versions, you need to create a connection, add configurations, and associate your connection with operations.
 
-For recently updated connector versions, this is available from WSO2 Integration Studio 7.1.0 onwards. When creating a connection you can provide configuration values and they will get saved as a local-entry internally. 
+For recently updated connector versions, this is available when you use the MI VS Code extension. When creating a connection you can provide configuration values and they will get saved as a local-entry internally. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/connection-configuration.jpg" title="Connection configuration" width="450" alt="Connection configuration"/>
 
@@ -81,7 +79,7 @@ For recently updated connector versions, this is available from WSO2 Integration
 
 For connector versions that were not updated recently, you need to use the `init` operation 
 
-You can refer to the documentation of the relevant connector and configure the `init` operation of it. This operation needs to be applied before any other operation of the same connector when you design mediation logic. The `init` operation is visible only for older connector versions in WSO2 Integration Studio.
+You can refer to the documentation of the relevant connector and configure the `init` operation of it. This operation needs to be applied before any other operation of the same connector when you design mediation logic. The `init` operation is visible only for older connector versions in the VS Code extension.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/old-connection-config.png" title="Connection configuration with init" width="500" alt="Connection configuration with init"/>
 
@@ -134,7 +132,7 @@ For SaaS connectors that use the HTTP transport of the integration runtime, deve
 
 ### Mediation debug 
 
-WSO2 Integration Studio provides debugging capabilities. You cannot use mediation debugging to debug templates packaged inside a connector. However, you can use it to check the following. 
+The MI Vs Code Extension provides debugging capabilities. You cannot use mediation debugging to debug templates packaged inside a connector. However, you can use it to check the following. 
 
 * Whether you are passing the correct message into the connector operation.
 * Whether your input parameters for connector operations contain the expected values.
