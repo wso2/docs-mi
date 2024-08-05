@@ -9,36 +9,34 @@ and reuse it in multiple places of the mediation flow.
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
 ### Step 2: Develop the integration artifacts
 
-#### Create an Integration project
+#### Create an integration project
 
-An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
+{!includes/create-new-project.md!}
 
-1.  Open **WSO2 Integration Studio**.
-2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
+4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
+5. Provide a location under **Select Project Directory**.
 
-    This will open the <b>New Integration Project</b> dialog box.
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-new-project.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-new-project.png" alt="create new project" width="80%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
-
-3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
-    -   **Create ESB Configs**
-    -   **Create Composite Exporter**
-
-4.  Click **Finish**. 
-
-You will now see the projects listed in the **Project Explorer**.
+6. Click **Create**.
 
 #### Create a REST API
 
-1.  In the Project Explorer, right-click **SampleServicesConfigs** and navigate to **New -> REST API**.
-2.  Ensure **Create A New API Artifact** is selected and click **Next**.
-3.  Enter the details given below to create a new REST API.
+1. Go to **MI Project Explorer** > **APIs**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
+
+2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
+
+3.  Specify values for the required REST API properties:
+
     <table>
       <tr>
         <th>Property</th>
@@ -54,21 +52,24 @@ You will now see the projects listed in the **Project Explorer**.
       </tr>
       <tr>
         <td>Context</td>
-        <td><code>/healthcare </code></td>
+        <td><code>/healthcare</code></td>
         <td>
           Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
         </td>
       </tr>
-      <tr>
-        <td>Save location</td>
-        <td>
-          SampleServicesConfigs
-        </td>
-        <td>
-          This is the <b>ESB Config</b> module where the artifact will be saved.
-        </td>
-      </tr>
     </table>                                                                   
+
+4.  Click **Create**. This will open the **Service Designer** interface.
+
+    You can now start configuring the API resource.
+
+5. Click on the `GET` API resource under **Available resources** on the **Service Designer**.
+
+    You will now see the graphical view of the `HealthcareAPI` with its default API Resource.
+
+6. Click the **Edit** icon to edit the API resource.
+
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-icon.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-icon.png" alt="edit icon" width="80%"></a>
 
 4.  Click the new API Resource to access the **Properties** tab and enter the following details:
 
@@ -78,13 +79,13 @@ You will now see the projects listed in the **Project Explorer**.
         <th>Description</th>
     </tr>
     <tr>
-        <td>Url Style</td>
+        <td>URL Style</td>
         <td>
-            Click in the <b>Value</b> field, click the down arrow, and select <b>URI_TEMPLATE</b> from the list.
+            <code>URI_TEMPLATE</code>
         </td>
     </tr>
     <tr>
-        <td>URI-Template</td>
+        <td>URI Template</td>
         <td>
             Enter <code>/categories/{category}/reserve</code>.
         </td>
@@ -92,14 +93,16 @@ You will now see the projects listed in the **Project Explorer**.
     <tr>
         <td>Methods</td>
         <td>
-            From the list of methods, select <b>POST</b>.
+            <code>POST</code> <br> This defines that the API resource only handles requests where the HTTP method is POST.
         </td>
     </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132164.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
 
-#### Create Endpoints
+8. Click **Update**.
+
+#### Create endpoints
 
 In this tutorial, we have three hospital services hosted as the backend:
 
@@ -112,9 +115,20 @@ The request method is POST and the format of the request URL expected by the ba
 
 Let's create three different HTTP endpoints for the above services.
 
-1.  Right-click **SampleServicesConfigs** in the Project Explorer and navigate to **New -> Endpoint**. 
-2.  Ensure **Create a New Endpoint** is selected and click **Next**.
-3.  Enter the information given below to create the new endpoint.
+1. Navigate to the **MI Project Explorer** > **Endpoints**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+
+2. Hover over **Endpoints** and click the **+** icon that appears.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+
+3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="80%"></a>
+
+4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
+
     <table>
         <tr>
             <th>Property</th>
@@ -127,16 +141,7 @@ Let's create three different HTTP endpoints for the above services.
                 <code>GrandOakEP</code>
             </td>
             <td>
-                The name of the endpoint representing the Grand Oaks Hospital service.
-            </td>
-        </tr>
-        <tr>
-            <td>Endpoint Type </td>
-            <td>
-                <code>HTTP Endpoint</code>
-            </td>
-            <td>
-                Indicates that the back-end service is HTTP.
+                The name of the endpoint represents the Grand Oaks Hospital service.
             </td>
         </tr>
         <tr>
@@ -145,7 +150,7 @@ Let's create three different HTTP endpoints for the above services.
                 <code>http://localhost:9090/grandoaks/categories/{uri.var.category}/reserve</code>
             </td>
             <td>
-                The template for the request URL expected by the back-end service.
+                The template for the request URL is expected by the back-end service.
             </td>
         </tr>
         <tr>
@@ -157,68 +162,61 @@ Let's create three different HTTP endpoints for the above services.
                 Endpoint HTTP REST Method.
             </td>
         </tr>
-        <tr>
-         <td>Static Endpoint</td>
-         <td><br/>
-         </td>
-         <td>Select this option because we are going to use this endpoint only in this ESB Config module and will not reuse it in other projects.</br/></br/> <b>Note</b>: If you need to create a reusable endpoint, save it as a Dynamic Endpoint in either the Configuration or Governance Registry.</td>
-      </tr>
-      <tr>
-         <td>Save Endpoint in</td>
-         <td><code>               SampleServicesConfigs              </code></td>
-         <td>This is the ESB Config module we created in the last section.</td>
-      </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132166.png" width="500">
+4.  Click **Create**.
 
-4.  Click **Finish**.
 5.  Similarly, create the HTTP endpoints for the other two hospital services using the URI Templates given below:
     -   ClemencyEP: `http://localhost:9090/clemency/categories/{uri.var.category}/reserve`
     -   PineValleyEP: `http://localhost:9090/pinevalley/categories/{uri.var.category}/reserve`
 
-#### Create a Sequence Template
+#### Create a sequence template
 
-1.  Right-click on **SampleServicesConfigs** and navigate to **New -> Template** . The **New Template Artifact** dialog box will open.
-2.  Select the **Create a New Template** and click **Next**.
-3.  Enter the following details and click **Finish**.
+1. Navigate to the **MI Project Explorer**. Hover over **Templates** and click the **+** icon that appears.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/create-sequence-template.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/create-sequence-template.png" alt="create new sequence template" width="30%"></a>
+
+2. Next, select the **Sequence Template** from the appeared template artifact menu. 
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png" alt="select sequence template" width="80%"></a>
+
+3. In the **Template Artifact** form that appears, specify the following values to create the new sequence template.
+
     <table>
         <tr>
-            <th>Parameter</th>
+            <th>Property</th>
             <th>Description</th>
         </tr>
         <tr>
             <td>Template Name</td>
-            <td>HospitalRoutingSeq</td>
+            <td><code>HospitalRoutingSeq</code></td>
         </tr>
         <tr>
-            <td>Template Type</td>
-            <td>Sequence Template</td>
+            <td>Parameters</td>
+            <td>
+                <ol>
+                    <li>Click on **+ Add Parameter**</li>
+                    <li>In the form that appears, specify the following values to add a parameter</li>
+                        <ul>
+                            <li>**Parameter**: <code>sethospital</code></li>
+                            <li>**Is Mandatory**: Keep it untick.</li>
+                            <li>**Default Value**: Keep it empty.</li>
+                        </ul>
+                    <li>Click **Save**</li>
+                </ol>
+            </td>
         </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-sequence-temp-dialog-box.png" width="500">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/filled-sequence-template.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/filled-sequence-template.png" alt="Filled sequence template" width="80%"></a>
 
-4.  The template artifact will open in the canvas as shown below.
+4. Click **Create**. 
 
-5.  Open the **Properties** tab of the sequence template by clicking on
-    the canvas (outside the sequence box).  
+5. Navigate to **MI Project Explorer** > **Templates** > **HospitalRoutingSeq**.
 
-6.  Click the <img src="{{base_path}}/assets/img/integrate/tutorials/plus-icon.png" width="20"> icon
-    to start adding parameters .
+6. Add a **Log** mediator by clicking on the **+** in the design view and selecting the **Log** mediator from the palette. This will print a message indicating to which hospital a requested message is routed.
 
-    ![]({{base_path}}/assets/img/integrate/tutorials/sequence-canvas-2.png) 
-
-7.  In the **Template Parameter** dialog box that opens, enter 'sethospital' as the parameter name and click **Finish**.
-
-8.  Add a **Log** mediator to the sequence template as shown below. This
-    will print a message indicating to which hospital a requested
-    message is routed.
-
-    ![]({{base_path}}/assets/img/integrate/tutorials/log-mediator-in-sequence.png) 
-
-9. Open the **Properties** tab of the log mediator and specify the
-    following:
+7. In the form that appears specify the following values. 
 
     <table>
         <tr>
@@ -227,48 +225,36 @@ Let's create three different HTTP endpoints for the above services.
         </tr>
         <tr>
             <td>Log Category</td>
-            <td>INFO</td>
+            <td>`INFO`</td>
         </tr>
         <tr>
             <td>Log Level</td>
-            <td>CUSTOM</td>
-        </tr>
-    </table>
-
-10. Click the <img src="{{base_path}}/assets/img/integrate/tutorials/plus-icon.png" width="20"> icon
-    to start defining a property. Then add the following details for the
-    property:
-
-    <table>
-        <tr>
-            <th>Property Name</th>
-            <th>Description</th>
+            <td>`CUSTOM`</td>
         </tr>
         <tr>
-            <td> Name</td>
-            <td>message</td>
-        </tr>
-        <tr>
-            <td>Type</td>
-            <td>EXPRESSION</td>
-        </tr>
-        <tr>
-            <td>Property Expression</td>
-            <td><code>fn:concat('Routing to ', get-property('Hospital')) </code></td>
+            <td>Properties</td>
+            <td>
+                <ol>
+                    <li>Click on **+ Add Parameter**</li>
+                    <li>In the form that appears, specify the following values to add a property</li>
+                        <ul>
+                            <li>**Property Name**: <code>message</code></li>
+                            <li>**Property Value**: Expression <code>fn:concat('Routing to ', get-property('Hospital'))</code></li>
+                        </ul>
+                    <li>Click **Save**</li>
+                </ol>
+            </td>
         </tr>
     </table>
 
     We select EXPRESSION because the required properties for the log
     message must be extracted from the request, which we can do using an
-    XPath expression.  
+    XPath expression. 
 
-11. Add a **Property** mediator just after the **Log** mediator to store
-    the value for uri.var.hospital.
+8. Click **Submit**.
 
-    ![]({{base_path}}/assets/img/integrate/tutorials/using-templates/property-mediator-in-sequence.png) 
+9. Add a **Property** mediator by clicking on **+** sign after the **Log** mediator, and selecting the **Property** mediator from the palette. In the form that appears specify the following values. 
 
-12. With the **Property** mediator selected, access the **Properties**
-    tab and enter the information given below:
     <table>
         <tr>
             <th>Property</th>
@@ -276,68 +262,67 @@ Let's create three different HTTP endpoints for the above services.
         </tr>
         <tr>
             <td>Property Name</td>
-            <td>Select New Property</td>
+            <td><code>uri.var.hospital</code></td>
         </tr>
         <tr>
-            <td>New Property Name</td>
-            <td>uri.var.hospital  </td>
-        </tr>
-        <tr>
-            <td>URI Template</td>
-            <td>Select set </td>
+            <td>Property Action</td>
+            <td>Select <code>set</code></td>
         </tr>
         <tr>
             <td>Property Data Type</td>
-            <td>Select STRING</td>
+            <td>Select <code>STRING</code></td>
         </tr>
         <tr>
-            <td>Value</td>
-            <td><code>Click on the <b>Ex</b> button in front of the label value and add this <code>$func:sethospital</code> as the expression.</td>
+            <td>Property Value</td>
+            <td>
+                <ol>
+                    <li>Click **Ex** button</li>
+                    <li>Enter <code>$func:sethospital</code></li>
+                </ol>
+            </td>
         </tr>
         <tr>
-            <td>Description</td>
-            <td>Set Hospital Variable</td>
+            <td>Property Scope</td>
+            <td>Select <code>DEFAULT</code></td>
         </tr>
     </table>
 
-#### Define the mediation flow 
+#### Update the mediation flow
 
 You can now start configuring the API resource.
 
-1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. This is used to extract the hospital name that is sent in the request payload. 
-2.  With the **Property** mediator selected, access the **Properties** tab and give the following details:
+1. Navigate to **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve**.
+
+2. Add a **Property** mediator by clicking on the **+** sign in the design view and selecting the **Property** mediator from the palette. This is used to extract the hospital name that is sent in the request payload. In the form that appears, specify the following values. 
+
     <table>
         <tr>
             <th>Property</th>
             <th>Description</th>
         </tr>
-      <tr class="odd">
+      <tr>
          <td>Property Name</td>
-         <td>Enter <code>New Property...</code>.</td>
-      </tr>
-      <tr class="even">
-         <td>New Property Name</td>
          <td>Enter <code>Hospital</code>.</td>
       </tr>
-      <tr class="odd">
+      <tr>
          <td>Property Action</td>
-         <td>Enter <code>set</code>.</td>
+         <td>Select <code>set</code>.</td>
       </tr>
-      <tr class="even">
+      <tr>
+         <td>Property Data Type</td>
+         <td>Select <code>STRING</code>.</td>
+      </tr>
+      <tr>
          <td>Property Scope</td>
-         <td>Enter <code>default</code>.</td>
+         <td>Select <code>DEFAULT</code>.</td>
       </tr>
-      <tr class="odd">
+      <tr>
          <td>Value</td>
          <td>
             <div class="content-wrapper">
               <p>Follow the steps given below to specify the expression value:</p>
-              <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/expression-value.png">
             <ol>
-                <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
-                <li>
-                  Now, click the <strong>f</strong> button to open the <b>Expression Selector</b> dialog box.
-                </li>
+                <li>Click the <b>Ex</b> button in the <b>Value</b> field. This specifies the value type as an <i>expression</i>.</li>
                <li>Enter <code>json-eval($.hospital)</code> as the expression value.</li>
             </ol>
                <b>Note</b>:
@@ -347,133 +332,118 @@ You can now start configuring the API resource.
       </tr>
     </table>
 
-3.  Add a **Switch** mediator from the **Mediator** palette just after the Property Mediator.
-4.  Right-click the Switch mediator you just added and select **Add/Remove Case** to add the number of cases you want to specify.  
+3.  Add a **Switch** mediator by clicking the **+** sign after the **Property** mediator, and selecting **Switch** mediator from the palette. In the form that appears, specify the following values.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132163.png">
-
-    We have three different hospital endpoints, which corresponds to three switch cases. Enter 3 for **Number of branches** and click **OK**.  
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/switch-cases-dialog.png">
-
-5.  With the Switch mediator selected, go to the **Properties** tab and give the following details:
     <table>
         <tr>
             <th>Property</th>
             <th>Description</th>
         </tr>
-   <tr class="odd">
-      <td><strong>Source XPath</strong></td>
-      <td>
-         <div class="content-wrapper">
-            <p>The <strong>Source XPath</strong> field is where we specify the XPath expression, which obtains the value of the Hospital that we stored in the Property mediator.</p>
-            <p>Follow the steps given below to specify the expression:</p>
-            <ol>
-                <li>Click the text box of the <strong>Source XPath</strong> property. This opens the <b>Expression Selector</b> dialog box.</li>
-               <li>Select <strong>Expression</strong> from the list.
-                </li>
-               <li>Enter <code>                  get-property('Hospital')                 </code> to overwrite the default expression.</li>
-               <li>Click <strong>OK.</strong> <strong><br />
-                  </strong>
-               </li>
-            </ol>
-         </div>
-      </td>
-   </tr>
-   <tr class="even">
-      <td><strong>Case Branches</strong></td>
-      <td>
-         <div class="content-wrapper">
-            <p>Follow the steps given below to add the case branches:</p>
-            <ol>
-                <li>Double click each <b>case regex</b> (corresponding to each branch) that is listed. This will open the <b>SwitchCaseBranchOutputConnector</b> dialog box.</li>
-               <li>
-                  Change the RegEx values for the switch cases as follows:
-                  <ul>
-                     <li>Case 1: grand oak community hospital</li>
-                     <li>Case 2:  clemency medical center</li>
-                     <li>Case 3:  pine valley community hospital</li>
-                  </ul>
-               </li>
-               <li>Click <strong>OK</strong> .</li>
-            </ol>
-         </div>
-      </td>
-   </tr>
+        <tr>
+            <td>Source XPath</td>
+            <td>
+                <p>The <strong>Source XPath</strong> field is where we specify the XPath expression, which obtains the value of the Hospital that we stored in the Property mediator.</p>
+                <p>Follow the steps given below to specify the expression:</p>
+                <ol>
+                    <li>Click <b>Ex</b> button in the <b>Value</b> field towards the end</li>
+                    <li>Enter <code>get-property('Hospital')</code></li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>Case Branches</td>
+            <td>
+                <p>You can use <b>+ Add Parameter</b> button to add case branches</p>
+                <ol>
+                    <li>Case 1: Click on <b>+ Add Parameter</b> and specify <b>Case Regex</b> as <code>grand oak community hospital</code></li>
+                    <li>Case 2: Click on <b>+ Add Parameter</b> and specify <b>Case Regex</b> as <code>clemency medical center</code></li>
+                    <li>Case 3: Click on <b>+ Add Parameter</b> and specify <b>Case Regex</b> as <code>pine valley community hospital</code></li>
+                </ol>
+            </td>
+        </tr>
     </table>
 
-6.  Add a **Call Template** mediator to the first switch case sequence.  
-7.  Open the **Properties** tab of the **Call Template** mediator and
-    select ' HospitalRoutingSeq' from the list of available templates.
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/add-switch-mediator.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/add-switch-mediator.png" alt="Add switch mediator" width="80%"></a>
 
-8.  Click the <img src="{{base_path}}/assets/img/integrate/tutorials/plus-icon.png" width="20"> icon
-    to start adding parameters. Enter the following parameter details
-    and click **Finish** .
+4. Add a **Call Template** mediator to each case branch by clicking the **+** sign in each case branch, and selecting **Call Template** mediator from the palette. In the form that appears, specify the following values.
 
     <table>
         <tr>
-            <th>Parameter</th>
-            <th>Description</th>
+            <th></th>
+            <th>Case 1</th>
+            <th>Case 2</th>
+            <th>Case 3</th>
         </tr>
         <tr>
-            <td>Parameter Name</td>
-            <td>sethospital</td>
+            <td>Target Template</td>
+            <td>Select <code>HospitalRoutingSeq</code></td>
+            <td>Select <code>HospitalRoutingSeq</code></td>
+            <td>Select <code>HospitalRoutingSeq</code></td>
         </tr>
         <tr>
-            <td>Parameter Type</td>
-            <td>value</td>
-        </tr>
-        <tr>
-            <td>Value/Expression</td>
-            <td>grandoaks</td>
+            <td>Call-Template Parameter</td>
+            <td>
+                Click on <b>+ Add Parameter</b> button, and specify the following values.
+                <ul>
+                    <li><b>Parameter Name</b>: <code>sethospital</code></li>
+                    <li><b>Parameter Value</b>: <code>grandoaks</code></li>
+                </ul>
+            </td>
+            <td>
+                Click on <b>+ Add Parameter</b> button, and specify the following values.
+                <ul>
+                    <li><b>Parameter Name</b>: <code>sethospital</code></li>
+                    <li><b>Parameter Value</b>: <code>clemency</code></li>
+                </ul>
+            </td>
+            <td>
+                Click on <b>+ Add Parameter</b> button, and specify the following values.
+                <ul>
+                    <li><b>Parameter Name</b>: <code>sethospital</code></li>
+                    <li><b>Parameter Value</b>: <code>pinevalley</code></li>
+                </ul>
+            </td>
         </tr>
     </table>
 
-9.  Repeat the above steps to add **Call Templates** for 'Clemency' and
-    'Pine Valley' hospitals. Add **clemency** and **pinevalley** as the
-    respective parameter values.
+5. Add a **Call Endpoint** mediator to each case branch by clicking the **+** sign after the **Call Template** mediator in each case branch, and selecting **Call Endpoint** mediator from the palette. In the form that appears, specify the following values.
 
-10. Drag a **Call** mediators from the **Mediators** pallette after the **Call Template** mediators in each switch sequence. 
+    <table>
+        <tr>
+            <th></th>
+            <th>Case 1</th>
+            <th>Case 2</th>
+            <th>Case 3</th>
+        </tr>
+        <tr>
+            <td>Select Endpoint</td>
+            <td>Select <code>GrandOakEP</code></td>
+            <td>Select <code>ClemencyEP</code></td>
+            <td>Select <code>PineValleyEP</code></td>
+        </tr>
+    </table>
 
-11. Then, add the **GrandOakEP**, **ClemencyEP**, and **PineValleyEP** endpoints from the **Defined Endpoints** palette to the empty boxes adjoining the Call mediator. 
+6. Add a **Respond** mediator by clicking the **+** sign after the **Switch** mediator, and selecting the **Respond** mediator from the palette. It will return the response from the health care service back to the client.
 
-12.  Drag a **Respond mediator** to return the response from the health care service back to the client.
+<a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/design-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/design-view.png" alt="Complete design view" width="80%"></a>
 
-13.  Save the configuration.
+### Step 3: Build and run the artifacts
 
-### Step 3: Package the artifacts
-
-Package the artifacts in your composite exporter module (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
-
-1.  Open the `pom.xml` file in the composite exporter module.
-2.  Ensure that the following artifacts are selected in the POM file.
-
-    -   `HealthcareAPI`
-    -   `HospitalRoutingSeq`
-
-3.  Save the changes.
-
-### Step 4: Build and run the artifacts
-
-To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
-
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.     
-4.  Click **Finish**. 
+{!includes/build-and-run-artifacts.md!}
 
 The artifacts will be deployed in the embedded Micro Integrator and the server will start.
 
 - See the startup log in the **Console** tab.
 - See the URLs of the deployed services and APIs in the **Runtime Services** tab. 
 
-### Step 5: Testing the use case
+### Step 4: Test the use case
 
 Let's test the use case by sending a simple client request that invokes the service.
 
 #### Start the back-end service
 
 1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-2. Open a terminal, navigate to the location where your saved the back-end service.
+2. Open a terminal, and navigate to the location where you saved the back-end service.
 3. Execute the following command to start the service:
 
     ```bash
@@ -482,7 +452,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a simple request to invoke the service. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+Let's send a simple request to invoke the service. You can use Postman or any other **HTTP Client**.
 
 1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
@@ -512,17 +482,19 @@ Let's send a simple request to invoke the service. You can use the embedded <b>H
             <div>
               <code>
                 {
-                 "name": "John Doe",
-                 "dob": "1940-03-19",
-                 "ssn": "234-23-525",
-                 "address": "California",
-                 "phone": "8770586755",
-                 "email": "johndoe@gmail.com",
-                 "doctor": "thomas collins",
-                 "hospital_id": "grandoaks",
-                 "hospital": "grand oak community hospital",
-                 "cardNo": "7844481124110331",
-                 "appointment_date": "2025-04-02"
+                    "patient": {
+                        "name": "John Doe",
+                        "dob": "1940-03-19",
+                        "ssn": "234-23-5253",
+                        "address": "California",
+                        "phone": "8770586755",
+                        "email": "johndoe@gmail.com"
+                    },
+                    "doctor": "thomas collins",
+                    "hospital_id": "grandoaks",
+                    "hospital": "grand oak community hospital",
+                    "cardNo": "7844481124110331",
+                    "appointment_date": "2025-04-02"
                 }
               </code>
             </div></br>
@@ -541,21 +513,23 @@ Let's send a simple request to invoke the service. You can use the embedded <b>H
 If you want to send the client request from your terminal:
 
 1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
-2.  Create a JSON file names `request.json` with the following request payload.
+2.  Create a JSON file named `request.json` with the following request payload.
 
     ```json
     {
-     "name": "John Doe",
-     "dob": "1940-03-19",
-     "ssn": "234-23-525",
-     "address": "California",
-     "phone": "8770586755",
-     "email": "johndoe@gmail.com",
-     "doctor": "thomas collins",
-     "hospital_id": "grandoaks",
-     "hospital": "grand oak community hospital",
-     "cardNo": "7844481124110331",
-     "appointment_date": "2025-04-02"
+        "patient": {
+            "name": "John Doe",
+            "dob": "1940-03-19",
+            "ssn": "234-23-5253",
+            "address": "California",
+            "phone": "8770586755",
+            "email": "johndoe@gmail.com"
+        },
+        "doctor": "thomas collins",
+        "hospital_id": "grandoaks",
+        "hospital": "grand oak community hospital",
+        "cardNo": "7844481124110331",
+        "appointment_date": "2025-04-02"
     }
     ```
 
@@ -563,7 +537,7 @@ If you want to send the client request from your terminal:
     the location where the request.json file you created is saved:
 
     ```bash
-    curl -v -X POST --data @request.json http://localhost:8290/healthcare/categories/surgery/reserve --header "Content-Type:application/json"
+    curl -X POST -H "Content-Type: application/json" --data @request.json http://localhost:8290/healthcare/categories/surgery/reserve
     ```
 
 #### Analyze the response
@@ -571,24 +545,30 @@ If you want to send the client request from your terminal:
 You will see the following response received to your <b>HTTP Client</b>:
 
 ```json
-{"appointmentNumber":1,
-    "doctor":
-         {"name":"thomas collins",
-          "hospital":"grand oak community hospital",
-          "category":"surgery","availability":"9.00 a.m - 11.00 a.m",
-          "fee":7000.0},
-    "patient":
-        {"name":"John Doe",
-         "dob":"1990-03-19",
-         "ssn":"234-23-525",
-         "address":"California",
-         "phone":"8770586755",
-         "email":"johndoe@gmail.com"},
-    "fee":7000.0,
-"confirmed":false,
-"appointmentDate":"2025-04-02"}
+{
+    "appointmentNumber": 1,
+    "doctor": {
+        "name": "thomas collins",
+        "hospital": "grand oak community hospital",
+        "category": "surgery",
+        "availability": "9.00 a.m - 11.00 a.m",
+        "fee": 7000.0
+    },
+    "patient": {
+        "name": "John Doe",
+        "dob": "1940-03-19",
+        "ssn": "234-23-5253",
+        "address": "California",
+        "phone": "8770586755",
+        "email": "johndoe@gmail.com"
+    },
+    "fee": 7000.0,
+    "confirmed": false
+}
 ```
 
-Now check the **Console** tab of WSO2 Integration Studio and you will see the following message: `INFO - LogMediator message = Routing to grand oak community hospital`
-    
-This is the message printed by the Log mediator when the message from the client is routed to the relevant endpoint in the Switch mediator.
+Now check the **Console** tab and you will see the following message: 
+
+`INFO {LogMediator} - {api:HealthcareAPI} To: /healthcare/categories/surgery/reserve, MessageID: urn:uuid:cb0ccafb-8880-44cb-9cb8-23c068a893b4, correlation_id: cb0ccafb-8880-44cb-9cb8-23c068a893b4, Direction: request, message = Routing to grand oak community hospital`.
+
+This is the message printed by the Log mediator when the message from the client is routed to the relevant endpoint in the switch mediator.
