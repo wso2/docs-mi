@@ -80,7 +80,8 @@ See the instructions on how to [build and run](#build-and-run) this example.
         <proxy name="Proxy1" transports="https http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">    
               <target>  
                 <inSequence>  
-                 <header name="Action" value="urn:getQuote"/>
+                 <property name="SOAPAction" value="urn:getQuote" scope="transport"/>
+                 <property name="messageType" value="text/xml" scope="axis2"/>
                  <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>  
                  <property name="OUT_ONLY" value="true"/>  
                  <log level="full"/>  
@@ -91,7 +92,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
         ```
     === "Endpoint"
         ```xml
-        <endpoint name="SimpleStockQuoteService">  
+        <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">  
           <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>  
         </endpoint>
         ```
