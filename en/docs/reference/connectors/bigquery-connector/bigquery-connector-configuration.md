@@ -126,7 +126,7 @@ Follow the steps below to generate user credentials.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-dataset.png" title="Bigquery create Dataset step2" width="600" alt="Bigquery create Dataset step2"/>
    
-3. Enter required Dataset details and click **Create Dataset**.
+3. Enter the required Dataset details and click **Create Dataset**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-dataset2.png" title="Bigquery create Dataset step2" width="600" alt="Bigquery create Dataset step2"/> 
 
