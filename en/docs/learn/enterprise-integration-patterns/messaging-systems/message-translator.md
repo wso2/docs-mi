@@ -91,13 +91,7 @@ All requests in the first format should be translated to the second by the ESB p
 
 Follow the below instructions to simulate this sample scenario.
 
-1. Install WSO2 EI
-
-    For instructions, go to Installing the Product in the WSO2 EI Documentation.
-
-2. Set up WSO2 EI Tooling
-
-    For instructions, go to Installing Enterprise Integrator Tooling in the WSO2 EI Documentation.
+{!includes/eip-set-up.md!}
 
 3. Start the backend (`SimpleStockQuoteService`) service
 
@@ -107,7 +101,7 @@ Follow the below instructions to simulate this sample scenario.
 
 4. Start one Axis2 server instance
 
-    In a new Console tab, navigate to the <EI_HOME>/samples/axis2server directory, and execute the following commands:
+    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2server` directory, and execute the following commands:
 
     === "On Windows"
           axis2server.bat

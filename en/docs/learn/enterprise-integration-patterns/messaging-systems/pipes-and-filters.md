@@ -76,13 +76,7 @@ If the message meets the criteria of the first filter, it will be passed to the 
 
 Follow the below instructions to simulate this sample scenario.
 
-1. Install WSO2 EI.
-
-    For instructions, go to Installing the Product in the WSO2 EI Documentation.
-
-2. Set up WSO2 EI Tooling
-
-    For instructions, go to Installing Enterprise Integrator Tooling in the WSO2 EI Documentation.
+{!includes/eip-set-up.md!}
 
 3. Start the backend (SimpleStockQuoteService) service
 

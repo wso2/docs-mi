@@ -19,7 +19,6 @@ The sample scenario depicts an inventory for stocks, and how Message Router EIP 
 
     Each case defined in the Switch mediator is used to decide the routing of the message to the appropriate service. fooOutQueue and barOutQueue act as two separate services.
 
- 
 ## Synapse configuration
 
 When you unzip the ZIP file you download below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/synapse-config` directory. For more information about these artifacts, go to WSO2 EI Documentation.
@@ -73,13 +72,7 @@ When you unzip the ZIP file you download below in Step 6 when simulating the sam
 
 Follow the below instructions to simulate this sample scenario.
 
-1. Install WSO2 EI
-
-    For instructions, go to Installing the Product in the WSO2 EI Documentation.
-
-2. Set up WSO2 EI Tooling
-
-    For instructions, go to Installing Enterprise Integrator Tooling in the WSO2 EI Documentation.
+{!includes/eip-set-up.md!}
 
 3. Start the backend (SimpleStockQuoteService) service
 
