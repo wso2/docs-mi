@@ -26,7 +26,7 @@ You will also use the **PayloadFactory** mediator to take the response from one 
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
-#### Create an Integration project
+#### Create an integration project
 
 {!includes/create-new-project.md!}
 
