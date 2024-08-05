@@ -23,7 +23,7 @@ When the client sends the appointment reservation request to the Micro Integrato
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
-#### Create an Integration project
+#### Create an integration project
 
 {!includes/create-new-project.md!}
 
@@ -35,7 +35,7 @@ Follow the instructions given in this section to create and configure the requir
 
 You will now see the projects listed in the **Project Explorer**.
 
-#### Create Endpoints
+#### Create endpoints
 
 In this tutorial, we have three hospital services hosted as the backend:
 
