@@ -2,7 +2,7 @@
 
 The WSO2 BigQuery connector is mostly composed of operations that are useful for retrieving BigQuery data such as project details, datasets, tables, and jobs (it has one operation that can be used to insert data into BigQuery tables).
 
-In this example we are trying to build up a sample scenario based on the BigQuery Table operations.
+In this example, we are trying to build up a sample scenario based on the BigQuery Table operations.
 
 ## What you'll build
 
