@@ -2,7 +2,7 @@
 
 This document provides a set of guidelines on how to use connectors throughout their lifecycle.
 
-## Using connectors in your integration project
+## Use connectors in your integration project
 
 Connectors can be added and used as part of the integration logic of your integration solution. This helps you configure inbound and outbound connections to third-party applications or systems that support popular B2B protocols.
 
@@ -10,7 +10,7 @@ Connectors can be added and used as part of the integration logic of your integr
 
 From time to time there are new connector versions released. These new versions may have new operations and changes to existing operations. When moving to a new connector version from an older version, it is recommended to reconfigure your connector from scratch.
 
-### Importing connectors 
+### Import connectors 
 
 All the connectors are hosted in the [Integration Connector Store](https://store-v2.wso2.com/?page=1&product=MI+Connector). You can download the connector from the store as a .zip file. 
 
@@ -28,7 +28,7 @@ However, the recommended approach to use connectors for integration logic develo
 
     <img src="{{base_path}}/assets/img/integrate/connectors/import-connector.png" title="Import a connector" width="700" alt="Import a connector"/>
 
-### Providing values for operation parameters 
+### Provide values for operation parameters 
 
 When importing the connector, you can click and select operations to add them to the design palette and use them. When providing values for operation parameters, you can provide static values or dynamic values. Dynamic values can be provided in one of the following ways. 
 
@@ -63,7 +63,7 @@ In order to include a connector into a CApp and export, a **ConnectorExporter pr
 
 The exported CApp needs to be copied to the deployment folder of the integration server (`<PRODUCT_HOME>/repository/deployment/server/carbonapps`). The changes will get hot-deployed if the server is already running.
  
-## Configuring connectors 
+## Configure connectors 
 
 Configurations required for initializing the connectors must be provided in one of the following ways depending on the connector. 
 
@@ -113,7 +113,7 @@ Technology connectors use protocols that are custom. Thus their tuning needs to 
 
 Please refer to the reference documentation of the connector for details. 
 
-## Troubleshooting
+## Troubleshoot
 
 ### Enable detailed logging 
 
@@ -140,7 +140,7 @@ The MI Vs Code Extension provides debugging capabilities. You cannot use mediati
 
 Please refer to [the Debugging Mediation documentation]({{base_path}}/develop/debugging-mediation/) for instructions on how to use mediation debugging. 
 
-### Debugging connector code 
+### Debug connector code 
 
 You can get the source code of the connector and remotely debug it with your scenario to find issues. Refer to the ["How to contribute” section of the connector overview page]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project), get the GitHub repository, clone it, checkout the relevant version, and debug. It is open source!
 
