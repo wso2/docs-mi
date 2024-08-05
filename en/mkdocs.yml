@@ -119,7 +119,7 @@ nav:
               - FTP Listener to Mail Sender: learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender.md
               - HTTP to FIX: learn/examples/protocol-switching/switching-from-http-to-fix.md
               - FIX to HTTP: learn/examples/protocol-switching/switching-from-fix-to-http.md
-              - FIX to AMQP: learn/examples/protocol-switching/switching-from-fix-to-amqp.md
+              - FIX to JMS: learn/examples/protocol-switching/switching-from-fix-to-jms.md
               - FIX Versions: learn/examples/protocol-switching/switching-between-fix-versions.md
               - TCP to HTTP/S: learn/examples/protocol-switching/switching-from-tcp-to-https.md
               - UDP to HTTP/S: learn/examples/protocol-switching/switching-from-udp-to-https.md

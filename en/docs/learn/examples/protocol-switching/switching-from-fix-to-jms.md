@@ -1,8 +1,8 @@
-# Switch from FIX to AMQP
+# Switch from FIX to JMS
 
-This example demonstrates how WSO2 Micro Integrator receives messages through FIX and forwards them through AMQP.
+This example demonstrates how WSO2 Micro Integrator receives messages through FIX and forwards them through JMS.
 
-Synapse will forward the order request by binding it to a JMS message payload and sending it to the AMQP consumer. The AMQP consumer will send an execution back to Banzai.
+Synapse will forward the order request by binding it to a JMS message payload and sending it to the ActiveMQ consumer. The ActiveMQ consumer will send an execution back to Banzai.
 
 ## Synapse configuration
 
@@ -60,4 +60,19 @@ Run the quickfixj **Banzai** sample application.
 ```bash
 java -jar quickfixj-examples-banzai-2.3.1.jar
 ```
-Send a sample request from Banzai to Synapse. Then, the message count of the queue should be increased.
+
+Send an order request from Banzai to Synapse. For example, Buy 1000 DELL @ $100. 
+<img src="{{base_path}}/assets/img/learn/fix-to-http.png" title="FIX order request" width="800" alt="FIX order request" />
+
+Then, the message count of the queue should be increased. To check this, follow these steps:
+
+1. Navigate to the URL where the ActiveMQ WebConsole is available. You can find this URL in the terminal where you started ActiveMQ. It is similar to `http://127.0.0.1:8161/`. 
+2. By default, the username and password are both `admin`.
+3. After signing in, click on **Manage ActiveMQ broker**.
+4. On the opened page, select the **Queues** tab.
+
+You will see a page similar to the one below.
+
+<img src="{{base_path}}/assets/img/learn/activemq-result.png" title="ActiveMQ result" width="800" alt="ActiveMQ result" />
+
+You can again send a request and check the increment of the count in the queue. 
