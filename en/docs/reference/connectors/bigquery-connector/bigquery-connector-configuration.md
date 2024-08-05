@@ -24,7 +24,7 @@ Follow the steps below to generate user credentials.
 
      <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-api-key.png" title="Select OAuth client ID" width="600" alt="Select OAuth client ID"/>
 
-5. Click on **Configure consent screen** in the next screen.
+5. Click on the **Configure consent screen** in the next screen.
 
      <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-consent-screen.png" title="Bigquery-credentials-page" width="300" alt="Bigquery-credentials-page"/>
 
