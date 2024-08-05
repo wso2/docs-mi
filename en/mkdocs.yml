@@ -87,23 +87,23 @@ nav:
           - Protocol Switching: learn/integration-use-case/protocol-switching-overview.md
           - File Processing: learn/integration-use-case/file-processing-overview.md
           - Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
-      #- Tutorials:
-      #    - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
-      #    - Message Routing:
-      #        - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
-      #    - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
-      #    - Message Transformation:
-      #        - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
-      #    - Asynchronous Messaging:
-      #        - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
-      #    - Integrate with SaaS Systems:
-      #        - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
-      #    - Data Integration:
-      #        - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+      - Tutorials:
+          - Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
+          - Message Routing:
+              - Routing Requests based on Message Content: learn/integration-tutorials/routing-requests-based-on-message-content.md
+          - Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
+          - Message Transformation:
+              - Translate Message Formats: learn/integration-tutorials/transforming-message-content.md
+          - Asynchronous Messaging:
+              - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
+          - Integrate with SaaS Systems:
+              - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+          - Data Integration:
+              - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
       #    - File Processing: learn/integration-tutorials/file-processing.md
-      #    - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
-      #    - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
-      #    - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
+          - Execute Integration Processes Periodically: learn/integration-tutorials/using-scheduled-tasks.md
+          - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
+          - Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
       #    - Integrate with SAP: learn/integration-tutorials/sap-integration.md
       - Examples:
           - Message Routing:
