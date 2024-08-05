@@ -4,7 +4,7 @@ The BigQuery connector allows you to access the [BigQuery REST API](https://clou
 
 To work with the BigQuery connector, you need to have a Google Cloud Platform account. If you do not have a Google Cloud Platform account, go to [console.cloud.google.com](https://console.cloud.google.com/freetrial), and create a Google Cloud Platform trial account.
 
-BigQuery uses the OAuth 2.0 protocol for authorization. All requests to the BigQuery REST API will be authorized against a registered user. Developers can generate user credentials from the Google Cloud Platform using two different mechanisms. See the following sections for detail.
+BigQuery uses the OAuth 2.0 protocol for authorization. All requests to the BigQuery REST API will be authorized against a registered user. Developers can generate user credentials from the Google Cloud Platform using two different mechanisms. See the following sections for details.
 
 ### Obtain user credentials 
 
