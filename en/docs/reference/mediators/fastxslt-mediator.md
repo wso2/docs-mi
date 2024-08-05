@@ -11,7 +11,7 @@ In summary, the following are the key differences between the XSLT and FastXSLT 
 
 | XSLT Mediator                                                                                | FastXSLT Mediator                                                                                                                          |
 |----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Performs XSLT transformations on the message **payload** .                                                                 | Performs XSLT transformations on the message **stream** .                                                                                  |
+| Performs XSLT transformations on the message **payload**.                                                                 | Performs XSLT transformations on the message **stream**.                                                                                  |
 | The message is built before processing. Therefore, you can pre-process the message payload before the XSLT transformation. | The message is not built before processing. Therefore, any pre-processing on the message will not be reflected in the XSLT transformation. |
 | The performance is slower than the FastXSLT mediator.                                                                      | The performance is faster than the XSLT mediator.                                                                                          |
 
