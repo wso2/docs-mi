@@ -5,7 +5,7 @@ JMS supports two models for messaging as follows:
 - Queues: point-to-point
 - Topics: publish and subscribe  
 
-There are many business use cases that can be implemented using the publisher-subscriber (pub-sub) pattern. For example, consider a blog with subscribed readers. The blog author posts a blog entry, which the subscribers of the blog can view. In other words, the blog author publishes a message (the blog post content) and the subscribers (the blog readers) receive that message. Popular publisher-subscriber patterns like these can be implemented using JMS topics.
+Many business use cases can be implemented using the publisher-subscriber (pub-sub) pattern. For example, consider a blog with subscribed readers. The blog author posts a blog entry, which the subscribers of the blog can view. In other words, the blog author publishes a message (the blog post content) and the subscribers (the blog readers) receive that message. Popular publisher-subscriber patterns like these can be implemented using JMS topics.
 
 In this sample scenario, two proxy services in the Micro Integrator act as the publisher and subscriber to a topic defined in the message broker. 
 
@@ -25,7 +25,6 @@ Shown below are the synapse artifacts that are used to define this use case. See
         <inSequence>
             <property name="OUT_ONLY" value="true"/>
             <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-            <respond/>
         </inSequence>
       </target>
     </proxy> 
@@ -77,6 +76,17 @@ Shown below are the synapse artifacts that are used to define this use case. See
     </proxy>
     ```
 
+!!!note
+    Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) in the `deployment.toml` file.
+    ```
+    [[transport.jms.listener]]
+    name = "myTopicConnectionFactory"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+    ```
+
 See the descriptions of the above configurations:
 
 <table>
@@ -87,17 +97,17 @@ See the descriptions of the above configurations:
   <tr>
     <td>Publisher</td>
     <td>
-      This proxy service (StockQuoteProxy) is configure to publish messages to the <code>SimpleStockQuoteService</code> topic in the broker. Note that there are two ways to define the endpoint URL:
+      This proxy service (StockQuoteProxy) is configured to publish messages to the <code>SimpleStockQuoteService</code> topic in the broker. Note that there are two ways to define the endpoint URL:
       <ul>
         <li>
           Specify the JNDI name of the JMS topic and the connection factory parameters in the connection URL as shown in the above example.
         </li>
         <li>
-          If you have already specified the endpoint's connection factory parameters (for the JMS sender configuration) in the <code>deployment.toml</code> file, the connection URL in the proxy service should be as shown below. In this example, the endpoint URL of the proxy service refers the relevant connection factory in the <code>deployment.toml</code> file. </br></br>
+          If you have already specified the endpoint's connection factory parameters (for the JMS sender configuration) in the <code>deployment.toml</code> file, the connection URL in the proxy service should be as shown below. In this example, the endpoint URL of the proxy service refers to the relevant connection factory in the <code>deployment.toml</code> file. </br></br>
           <b>When the broker is ActiveMQ</b></br>
-          <code>jms:/StockQuotesQueue?transport.jms.ConnectionFactory=QueueConnectionFactory</code></br></br>
+          <code>jms:/SimpleStockQuoteService?transport.jms.ConnectionFactory=TopicSenderConnectionFactory</code></br></br>
           <b>When the broker is WSO2 Message Broker</b></br>
-          <code>jms:/StockQuotesQueue?transport.jms.ConnectionFactory=QueueConnectionFactory</code></br>
+          <code>jms:/SimpleStockQuoteService?transport.jms.ConnectionFactory=TopicSenderConnectionFactory</code></br>
         </li>
       </ul>
     </td>
