@@ -81,7 +81,7 @@ Select Micro Integrator Extension and click on **+** in APIs to create a REST AP
             <respond />
         </inSequence>
         <faultSequence>
-		</faultSequence>
+	</faultSequence>
     </resource>
     <resource methods="POST" uri-template="/getCabinets">
         <inSequence>
@@ -92,7 +92,7 @@ Select Micro Integrator Extension and click on **+** in APIs to create a REST AP
             <respond />
         </inSequence>
         <faultSequence>
-		</faultSequence>
+	</faultSequence>
     </resource>
     <resource methods="POST" uri-template="/createDocument">
         <inSequence>
@@ -111,7 +111,7 @@ Select Micro Integrator Extension and click on **+** in APIs to create a REST AP
             <respond />
         </inSequence>
         <faultSequence>
-		</faultSequence>
+	</faultSequence>
     </resource>
 </api>
 ```
