@@ -1,6 +1,6 @@
 # Guaranteed Delivery with Failover
 
-WSO2 Micro Integrator ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can setup guaranteed message delivery with failover configurations.
+WSO2 Micro Integrator ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can set up guaranteed message delivery with failover configurations.
 
 The following diagram illustrates a scenario where a failover message
 store and a scheduled failover message forwarding processor is used
@@ -10,17 +10,17 @@ to ensure guaranteed delivery:
 
 In this scenario, the original message store fails due to, either network
 failure, message store crash, or system shutdown for maintenance. The
-failover message store is used as the solution for the original message
+failover message store is the solution for the original message
 store failure. So now the store mediator sends messages to the failover
 message store. Then, when the original message store is available again,
-the messages that were sent to the failover message store need to be
+the messages sent to the failover message store need to be
 forwarded to the original message store. The **scheduled failover message forwarding processor**
 is used for this purpose. The scheduled failover message
 forwarding processor is almost the same as the scheduled message
 forwarding processor. The only difference is that the scheduled message
 forwarding processor forwards messages to a defined endpoint, whereas
 the scheduled failover message forwarding processor forwards messages to
-the original message store that the message was supposed to be
+the original message store where message was supposed to be
 temporarily stored.
 
 ## Synapse Configurations
@@ -119,7 +119,7 @@ The synapse configurations used above are as follows:
     * Source Message Store
     * Target Message Store
 
-    The scheduled failover message forwarding processor sends messages from the failover store to the original store when it is available in the failover scenario. In this configuration, the source message store should be the failover message store and target message store should be the original message store.
+    The scheduled failover message forwarding processor sends messages from the failover store to the original store when it is available in the failover scenario. In this configuration, the source message store should be the failover message store and the target message store should be the original message store.
 
 - **Proxy service**
 
@@ -129,8 +129,7 @@ The synapse configurations used above are as follows:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [message stores]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processors]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -140,15 +139,11 @@ Set up the broker:
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
-    !!! Warning
-        If you are using message processor with Active MQ broker add the following configuration to the startup script before starting the server as shown below,
-        For Linux/Mac OS update `micro-integrator.sh` and for Windows update `micro-integrator.bat` with `-Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*"` system property.
-
 Set up the back-end service:
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+3. Open a terminal and navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
 
     === "On MacOS/Linux/CentOS"   
