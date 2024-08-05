@@ -112,9 +112,6 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                     <li>
                         <a href="{{base_path}}/develop/creating-artifacts/data-services/creating-datasources/">Datasource</a>
                     </li>
-                    <li>
-                        <a href="{{base_path}}/develop/creating-artifacts/data-services/creating-input-validators/">Input Validator</a>
-                    </li>
                 </ul>
             </td>
             <td>
