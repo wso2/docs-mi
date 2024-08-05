@@ -9,15 +9,15 @@ This example demonstrates on how to use the LDAP connector to create and read LD
 
 This will have 2 API resources, `create`, `search`.
 
-* `/create` : This will create a new LDAP entry in the LDAP server.
+* `/create`: This will create a new LDAP entry in the LDAP server.
 
-* `/search` : This will performs a search for one or more LDAP entities with the specified search keys.
+* `/search`: This will perform a search for one or more LDAP entities with the specified search keys.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Set up the integration project
 
-Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap/) if you need to setup an LDAP and try this out. 
+Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap/) if you need to set up an LDAP and try this out. 
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
@@ -51,10 +51,10 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
    
 4. Provide Sequence name as `init_sequence`.
    
-5. Click created sequence form **MI Overview**.
+5. Click the created sequence form **MI Overview**.
    <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png" alt="add property" width="80%"></a>
 
-6. Click on the **+** icon to add the first mediator to the sequence.
+6. Click the **+** icon to add the first mediator to the sequence.
    
 7. Search `ldap` in **Connector** panel and Click **Ldap** Connector
     <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png" alt="add property" width="80%"></a>
@@ -62,7 +62,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 8. Click **Init** operation. Then click **Submit**.
    
     !!! Info 
-        `<ldap.init>` element authenticates with the LDAP server in order to gain access to perform various LDAP operations.
+        `<ldap.init>` element authenticates with the LDAP server to gain access to perform various LDAP operations.
 
 9.  You can go to the source view of the xml configuration file of the Sequence and copy the following configuration.   
     ```xml
@@ -105,7 +105,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 11. Create another sequence named `search_student_sequence`. You can go to the source view of the xml configuration file of the Sequence and copy the following configuration.  
     
     !!! Info
-        `<ldap.searchEntry>` element search for one or more LDAP entities based on the specified search keys.
+        `<ldap.searchEntry>` element searches for one or more LDAP entities based on the specified search keys.
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="search_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -135,13 +135,13 @@ You can download the ZIP file and extract the contents to get the project code.
 ## Deployment
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ## Testing
 
 ### Create an entry in ldap server
 
-1. Create a file named student_data.json with following sample payload.
+1. Create a file named student_data.json with the following sample payload.
     ```json
         { 
           "providerUrl":"ldap://localhost:10389/",
@@ -171,7 +171,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 **Expected Response**: 
 1. You should get a 'Success' response. 
 2. Open Apache Directory Studio and category DIT (Directory Information Tree) shows the hierarchical content of the 
-directory. Expand, collapse the tree and you will see the new entries. Select the entry and you will see it's attributes 
+directory. Expand, and collapse the tree and you will see the new entries. Select the entry and you will see its attributes 
 and values on Entry Editor.
     ![image]({{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector-directory-studio-view.png)
 
