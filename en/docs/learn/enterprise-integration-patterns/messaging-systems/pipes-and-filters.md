@@ -4,7 +4,7 @@ This page explains how you can implement a sample scenario of Pipes and Filters 
 
 ## Introduction to Pipes and Filters EIP
 
-The Pipes and Filters EIP breaks down a large task into smaller subsets of independent steps that are chained together. This is useful when a sequence of processing steps are required to perform a single event in an integration scenario. The main use case of this EIP is to maintain independence and flexibility between each processing step.
+The Pipes and Filters EIP breaks down a large task into smaller subsets of independent steps chained together. This is useful when a sequence of processing steps is required to perform a single event in an integration scenario. The main use case of this EIP is to maintain independence and flexibility between each processing step.
 
 !!! info
     For more information, see the [Pipes and Filters](https://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html) documentation.
@@ -19,7 +19,7 @@ The example scenario depicts how a stock quote request is sent from a client to 
 !!! note
     Filter Mediators are used in the ESB, to verify the validity of the message (checking the username and user ID).
 
-If the message meets the criteria of the first filter, it will be passed to the second filter. Once the request successfully passes through the second filter (i.e., the filtering criteria is fulfilled), the ESB sends the stock quote request to the back-end service (Stock Quote Service) for processing.
+If the message meets the criteria of the first filter, it will be passed to the second filter. Once the request successfully passes through the second filter (i.e., the filtering criteria are fulfilled), the ESB sends the stock quote request to the back-end service (Stock Quote Service) for processing.
 
 ![Pipes and filters]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.png)
 
@@ -122,7 +122,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-Send the following request to the ESB Profile using SOAP UI (or any other SOAP client).
+Send the following request to the service using SoapUI (or any other SOAP client).
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples"
@@ -147,13 +147,13 @@ xmlns:xsd="http://services.samples/xsd">
 
 ## Analyze the output
 
-When you send the request, the ESB Profile receives the message first and then routes it to the back-end service (Stock Quote Service). The following output will be printed on the Axis2 server's Console, confirming that the request is successfully received by the back-end service.
+After sending the request to the service through the client, notice that the request is successfully generated in the Stock Quote server. The following output will be printed on the Axis2 server's Console, confirming that the request is successfully received by the back-end service.
 
 ```log
 Tue Aug 06 10:35:01 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : msft
 ```
 
-You can view the response in the SOAP UI as follows. 
+You can view the response in the SOAPUI as follows. 
 
 ![Pipes and filters soap output]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters-soap-output.png)
 
