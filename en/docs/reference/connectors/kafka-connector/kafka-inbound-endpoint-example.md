@@ -72,7 +72,7 @@ The source view for the inbound endpoint will be as below.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/kafka-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/kafka-inbound-endpoint.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
