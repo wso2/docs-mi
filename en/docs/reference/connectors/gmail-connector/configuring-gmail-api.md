@@ -1,4 +1,4 @@
-## Create the client ID and client secret
+## Create the Client ID and Client Secret
 
 1. Navigate to [API Credentials Page](https://console.developers.google.com/projectselector/apis/credentials) and sign in with your Google account.
 

@@ -1,4 +1,4 @@
-# Gmail connector reference
+# Gmail Connector Reference
 
 The following operations allow you to work with the Gmail Connector. Click an operation name to see parameter details and samples on how to use it.
 
@@ -1321,10 +1321,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listDrafts>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1366,10 +1362,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.readLabel>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1417,10 +1409,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listAllMails>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1468,10 +1456,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listAllThreads>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1517,10 +1501,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listTheHistory>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1557,10 +1537,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
                  <gmail.getUserProfile/>
              <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
