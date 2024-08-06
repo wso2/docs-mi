@@ -29,52 +29,55 @@ If the message meets the criteria of the first filter, it will be passed to the 
     When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to WSO2 MI Documentation.
 
 === "Proxy Service"
-      ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <proxy name="pipes-and-filters-proxy" startOnLoad="true" transports="http https"
-          xmlns="http://ws.apache.org/ns/synapse">
-          <target>
-              <inSequence>
-                  <!-- Will direct an incoming request to the specified sequence -->
-                  <sequence key="PipesAndFilters"/>
-              </inSequence>
-              <outSequence>
-                  <respond/>
-              </outSequence>
-              <faultSequence/>
-          </target>
-      </proxy>
-      ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="pipes-and-filters-proxy" startOnLoad="true" transports="http https"
+        xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <!-- Will direct an incoming request to the specified sequence -->
+                <sequence key="PipesAndFilters"/>
+                <respond/>
+            </inSequence>
+        </target>
+    </proxy>
+    ```
 === "Sequence"
-      ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <sequence name="PipesAndFilters" trace="disable"
-          xmlns="http://ws.apache.org/ns/synapse">
-          <log level="full"/>
-          <!-- Checks For the User Name -->
-          <filter regex="UserName" source="//m0:credentials/m0:name"
-              xmlns:m0="http://services.samples">
-              <then>
-                  <filter regex="001" source="//m1:credentials/m1:id"
-                      xmlns:m1="http://services.samples">
-                      <then>
-                          <send>
-                              <endpoint>
-                                  <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                              </endpoint>
-                          </send>
-                      </then>
-                      <else>
-                          <drop/>
-                      </else>
-                  </filter>
-              </then>
-              <else>
-                  <drop/>
-              </else>
-          </filter>
-      </sequence>
-      ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="PipesAndFilters" trace="disable"
+        xmlns="http://ws.apache.org/ns/synapse">
+        <log level="full"/>
+        <!-- Checks For the User Name -->
+        <filter regex="UserName" source="//m0:credentials/m0:name"
+            xmlns:m0="http://services.samples">
+            <then>
+                <filter regex="001" source="//m1:credentials/m1:id"
+                    xmlns:m1="http://services.samples">
+                    <then>
+                        <call>
+                            <endpoint key="StockService"/>
+                        </call>
+                    </then>
+                    <else>
+                        <drop/>
+                    </else>
+                </filter>
+            </then>
+            <else>
+                <drop/>
+            </else>
+        </filter>
+    </sequence>
+    ```
+=== "End Point"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="StockService" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+        </address>
+    </endpoint>
+    ```
 
 ## Set up the sample scenario
 
