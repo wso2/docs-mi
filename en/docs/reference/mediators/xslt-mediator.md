@@ -63,7 +63,6 @@ The parameters available for configuring the XSLT mediator are as follows.
 <li><strong>Property Name</strong> : The name of the property to be passed into the transformations.</li>
 <li><strong>Property Type</strong> : This specifies whether the property is given as a static value or an XPath expression.</li>
 <li><strong>Value/Expression</strong> - This defines the static value or the XPath expression.</li>
-<li><strong>Action</strong> - This parameter allows the property to be removed from the XSLT script if required.</li>
 </ul>
 <p>For example, define the <code>               transform.xslt.result.disableBuild              </code> property as shown below, to escape building the message at the XSLT transformation. It avoids replacing encoded values with real characters. E.g., If you do not add this property, " <code>               &amp;#10;              </code> " in your XML content will be replaced by a new line, when the XML content is built at the XSLT mediator.</p>
 </div></td>
@@ -76,7 +75,6 @@ The parameters available for configuring the XSLT mediator are as follows.
 <li><strong>Feature Name</strong> : The name of the feature to be enabled/disabled in the XSLT transformation.</li>
 <li><strong>Feature Value</strong> : This specified whether the feature is enabled or not. Select <strong>True</strong> to enable the feature or <strong>False</strong> to disable it.<br />
 </li>
-<li><strong>Action</strong> : This allows you to remove the feature from the XSLT transformation if required.</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -86,7 +84,6 @@ The parameters available for configuring the XSLT mediator are as follows.
 <ul>
 <li><strong>Location</strong> : The location where the XSLT script to be imported is saved as a resource.</li>
 <li><strong>Key</strong> : The registry key to which the XSLT should be referred. Browse for the relevant key in the Configuration registry or the Governance registry.</li>
-<li><strong>Action</strong> : This allows you to remove the imported XSLT script added as a resource if required.</li>
 </ul></td>
 </tr>
 </tbody>
