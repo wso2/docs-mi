@@ -19,8 +19,8 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 ## Set up the inbound endpoint using micro integrator
 
 1. Create a new **Project** by providing a project name and selecting the project directory. 
-<img src="{{base_path}}/assets/img/integrate/connectors/kafka-create-new-project.png" title="Creating a new Project" width="800" alt="Creating a new Project" /><br/>
-Refer [create an integration project]({{base_path}}/develop/create-integration-project/) guide for more details. 
+   <img src="{{base_path}}/assets/img/integrate/connectors/kafka-create-new-project.png" title="Creating a new Project" width="800" alt="Creating a new Project" /><br/>
+   Refer [create an integration project]({{base_path}}/develop/create-integration-project/) guide for more details. 
 
 2. Create a sequence to process the message with the following configurations. 
    In this example, for simplicity, we will just log the message, but in a real-world use case, this can be any type of message mediation. <br/>
@@ -40,12 +40,12 @@ Refer [create an integration project]({{base_path}}/develop/create-integration-p
       </sequence>
    ```
 
-3. Click on `+` mark beside the `Inbound Endpoints` then select `Custom` to add a new **custom inbound endpoint**.</br> 
-<img src="{{base_path}}/assets/img/integrate/connectors/kafka-create-new-inbound-endpoint.png" title="Creating custom inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
+3. Click on **+** mark beside the **Inbound Endpoints** then select **Custom** to add a new **custom inbound endpoint**.</br> 
+   <img src="{{base_path}}/assets/img/integrate/connectors/kafka-create-new-inbound-endpoint.png" title="Creating custom inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 4. Configure the custom inbound endpoint as mentioned below.  
-<img src="{{base_path}}/assets/img/integrate/connectors/kafka-custom-endpoint-config-1.png" title="Creating custom inbound endpoint" width="600" alt="Creating inbound endpoint" style="border:1px solid black"/>
-<img src="{{base_path}}/assets/img/integrate/connectors/kafka-custom-endpoint-config-2.png" title="Creating custom inbound endpoint" width="600" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/kafka-custom-endpoint-config-1.png" title="Creating custom inbound endpoint" width="600" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/kafka-custom-endpoint-config-2.png" title="Creating custom inbound endpoint" width="600" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 The source view for the inbound endpoint will be as below.  
 
@@ -67,11 +67,6 @@ The source view for the inbound endpoint will be as below.
       </parameters>
    </inboundEndpoint>
    ```
-   
-
-## Export integration logic as a carbon application
-
-Follow the steps provided in the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.  
 
 ## Get the project
 
@@ -83,33 +78,31 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `Kafka`. Click on `Kafka Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  `<MI_HOME>/lib` folder. 
+1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for **Kafka**. Click on **Kafka Inbound Endpoint** and download the .jar file by clicking on **Download Inbound Endpoint**. Copy this .jar file into  **<MI_HOME\>/lib** folder. 
 
-2. Copy the exported carbon application to the `<MI_HOME>/repository/deployment/server/carbonapps` folder. 
-
-3. Start the integration server.
+2. Refer [Build and Run](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/#build-and-run) guide to deploy and run the project. 
 
 ## Test 
    
    **Sample request**
    
    Run the following on the Kafka command line to create a topic named test with a single partition and only one replica:
-   ```
+   ```bash
    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
    ```           
    Run the following on the Kafka command line to send a message to the Kafka brokers. You can also use the WSO2 Kafka Producer connector to send the message to the Kafka brokers.
-   ```
+   ```bash
    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
    ```   
    Executing the above command will open up the console producer. Send the following message using the console: 
-   ```
+   ```json
    {"test":"wso2"}
    ```
    **Expected response**
    
    You can see the following Message content in the Micro Integrator:
    
-   ```  
+   ```bash  
    [2020-02-19 12:39:59,331]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: d130fb8f-5d77-43f8-b6e0-85b98bf0f8c1, Direction: request, Payload: {"test":"wso2"}
    [2020-02-19 12:39:59,335]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - partitionNo = 0
    [2020-02-19 12:39:59,336]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - messageValue = {"test":"wso2"}
@@ -119,7 +112,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Set up the inbound endpoint with Kafka Avro message
 You can set up the WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging format as well. Follow the instructions on [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/) to set up Kafka on the Micro Integrator. In inbound endpoint XML configurations, change the `value.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer` and `key.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer`. Add a new parameter `schema.registry.url` and add schema registry URL in there. The following is the modified sample of the Kafka inbound endpoint:
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <inboundEndpoint name="KAFKAListenerEP" sequence="kafka_process_seq" onError="fault" class="org.wso2.carbon.inbound.kafka.KafkaMessageConsumer" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
    <parameters>
@@ -140,7 +133,7 @@ You can set up the WSO2 Micro Integrator inbound endpoint with Kafka Avro messag
 ```
 
 Add the following configs when the Confluent Schema Registry is secured with basic auth,
-```
+```xml
 <parameter name="basic.auth.credentials.source">source_of_basic_auth_credentials</parameter>
 <parameter name="basic.auth.user.info">username:password</parameter>
 ```
