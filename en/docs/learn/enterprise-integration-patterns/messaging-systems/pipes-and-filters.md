@@ -1,5 +1,9 @@
 # Pipes and Filters
 
+This page explains how you can implement a sample scenario of Pipes and Filters EIP using WSO2 Micro Integrator.
+
+## Introduction to Pipes and Filters EIP
+
 The Pipes and Filters EIP breaks down a large task into smaller subsets of independent steps that are chained together. This is useful when a sequence of processing steps are required to perform a single event in an integration scenario. The main use case of this EIP is to maintain independence and flexibility between each processing step.
 
 !!! info
@@ -22,7 +26,7 @@ If the message meets the criteria of the first filter, it will be passed to the 
 ## Synapse configurations of the artifacts
 
 !!! note
-    When you unzip the ZIP file you download below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/synapse-config` directory. For more information about these artifacts, go to WSO2 EI Documentation.
+    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to WSO2 MI Documentation.
 
 === "Proxy Service"
       ```
@@ -78,42 +82,46 @@ Follow the below instructions to simulate this sample scenario.
 
 {!includes/eip-set-up.md!}
 
-3. Start the backend (SimpleStockQuoteService) service
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2Server/src/SimpleStockQuoteService` directory, and execute the ant command.
+4. Extract the downloaded zip file.
 
-    For more information on the `SimpleStockQuoteService`, go to Deploying sample backend services in the WSO2 EI Documentation.
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
 
-4. Start one Axis2 server instance
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
 
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2server` directory, and execute the following commands:
-
-    === "On Windows"
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
           axis2server.bat
-    === "On Linux/Solaris"
-          ./axis2server.sh  
+          ``` 
 
-5. Download the artifacts of the sample
+7. Download the artifacts of the sample.
 
-    Download the `Pipes-and-Filters.zip` file.
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/pipes-and-filters.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
 
-6. Import the artifacts to WSO2 EI
+8. Import the artifacts to WSO2 MI.
 
-    Click File -> Import -> WSO2 -> Existing WSO2 projects into workspace to import the downloaded ZIP file via WSO2 EI Tooling.
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
 
-7. Start the ESB profile of the WSO2 EI server
+9. Start the project in the WSO2 MI server.
 
-    For instructions, go to Running WSO2 Enterprise Integrator via Tooling in the WSO2 EI Documentation.
+    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
 
-8. Start SOAP UI
+10. Start SoapUI.
 
-    For instructions on downloading and starting, go to SOAP UI.
+    For instructions on downloading and starting, go to [SoapUI Getting Started]("https://www.soapui.org/getting-started/") Documentation.
 
 ## Execute the sample
 
 Send the following request to the ESB Profile using SOAP UI (or any other SOAP client).
 
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples"
 xmlns:xsd="http://services.samples/xsd">
    <soapenv:Header>
@@ -138,8 +146,8 @@ xmlns:xsd="http://services.samples/xsd">
 
 When you send the request, the ESB Profile receives the message first and then routes it to the back-end service (Stock Quote Service). The following output will be printed on the Axis2 server's Console, confirming that the request is successfully received by the back-end service.
 
-```
-
+```log
+Tue Aug 06 10:35:01 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : msft
 ```
 
 You can view the response in the SOAP UI as follows. 
