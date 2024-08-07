@@ -11,7 +11,7 @@ The Message Endpoint EIP encapsulates the messaging system from the rest of the 
 
 ## Sample scenario
 
-The example scenario depicts how a stock quote is generated when a request is sent to the ESB profile. The sender sends the request to the ESB profile, where the request is then diverted to the Stock Quote service. 
+The example scenario depicts how a stock quote is generated when a request is sent to the WSO2 MI. The sender sends the request to the WSO2 MI, where the request is then diverted to the Stock Quote service. 
 
 ![Message endpoint pattern]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-systems/message-endpoint-pattern.png)
 
