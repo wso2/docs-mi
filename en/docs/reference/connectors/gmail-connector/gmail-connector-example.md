@@ -58,34 +58,39 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
 
 ??? note "Source view of the implemented resource"
     ```xml
-       <?xml version="1.0" encoding="UTF-8"?>
-       <api context="/sendmails" name="SendMails" xmlns="http://ws.apache.org/ns/synapse">
-          <resource methods="GET">
-          <inSequence>
-              <gmail.init>
-                  <userID></userID>
-                  <accessToken></accessToken>
-                  <apiUrl>https://www.googleapis.com/gmail</apiUrl>
-                  <clientId></clientId>
-                  <clientSecret></clientSecret>
-                  <refreshToken></refreshToken>
-              </gmail.init>
-              <gmail.listAllMails>
-                  <includeSpamTrash>false</includeSpamTrash>
-                  <maxResults>20</maxResults>
-                  <q>is:unread label:customers</q>
-              </gmail.listAllMails>
-              <iterate expression="json-eval($.messages)" id="iterator">
-                  <target>
-                      <sequence>
-                          <sequence key="reply"/>
-                      </sequence>
-                  </target>
-              </iterate>
-              <respond/>
-          </inSequence>
-          <faultSequence/>
-        </resource>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <api context="/sendmails" name="SendMails" xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="GET" uri-template="/">
+                <inSequence>
+                    <gmail.init>
+                        <userId></userId>
+                        <apiUrl>https://www.googleapis.com/gmail</apiUrl>
+                        <accessToken>ya29.a0AXoRlEpaCgYKAZQSARASFQHGX2MiAoW_lGjmM-nSB7Eiw0171</accessToken>
+                        <clientId>599c3ivf2vcma4lplo8s.apps.googleusercontent.com</clientId>
+                        <clientSecret>GOCSPX-vI49vSsxY</clientSecret>
+                        <refreshToken>1//044biGOCq2Y2BWT1XOlOsCT_xA3kIGVBYbM</refreshToken>
+                    </gmail.init>
+                    <gmail.getAccessTokenFromRefreshToken/>
+                    <gmail.deleteThreads>
+                        <id>asd</id>
+                        </gmail.deleteThreads>
+                    <gmail.listAllMails>
+                        <includeSpamTrash>false</includeSpamTrash>
+                        <maxResults>20</maxResults>
+                        <q>is:unread category:updates </q>
+                    </gmail.listAllMails>
+                    <iterate expression="json-eval($.messages)" id="iterator">
+                        <target>
+                        <sequence>
+                            <sequence key="reply"/>
+                        </sequence>
+                        </target>
+                    </iterate>
+                    <respond/>
+                </inSequence>
+                <faultSequence>
+                </faultSequence>
+            </resource>
         </api>
     ```
 
@@ -124,7 +129,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/gmailconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/gmailConnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
