@@ -140,7 +140,10 @@ Follow the below instructions to simulate this sample scenario.
 
 Send the following request to the service using SoapUI (or any other SOAP client).
 
-```xml
+```
+POST http://localhost:8290/services/message-translator-proxy 
+Content-type: text/xml
+
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
    <soapenv:Header>   
    </soapenv:Header>
