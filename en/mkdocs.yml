@@ -290,36 +290,36 @@ nav:
       #        - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
       #        - Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
       #    - Message Construction:
-      #        - Message Construction - Overview: learn/enterprise-integration-patterns/messaging-construction/overview.md
-      #        - Command Message: learn/enterprise-integration-patterns/messaging-construction/command-message.md
-      #        - Document Message: learn/enterprise-integration-patterns/messaging-construction/document-message.md
-      #        - Event Message: learn/enterprise-integration-patterns/messaging-construction/event-message.md
-      #        - Request-Reply: learn/enterprise-integration-patterns/messaging-construction/request-reply.md
-      #        - Return Address: learn/enterprise-integration-patterns/messaging-construction/return-address.md
-      #        - Correlation Identifier: learn/enterprise-integration-patterns/messaging-construction/correlation-identifier.md
-      #        - Message Sequence: learn/enterprise-integration-patterns/messaging-construction/message-sequence.md
-      #        - Message Expiration: learn/enterprise-integration-patterns/messaging-construction/message-expiration.md
-      #        - Format Indicator: learn/enterprise-integration-patterns/messaging-construction/format-indicator.md
+      #        - Message Construction - Overview: learn/enterprise-integration-patterns/message-construction/overview.md
+      #        - Command Message: learn/enterprise-integration-patterns/message-construction/command-message.md
+      #        - Document Message: learn/enterprise-integration-patterns/message-construction/document-message.md
+      #        - Event Message: learn/enterprise-integration-patterns/message-construction/event-message.md
+      #        - Request-Reply: learn/enterprise-integration-patterns/message-construction/request-reply.md
+      #        - Return Address: learn/enterprise-integration-patterns/message-construction/return-address.md
+      #        - Correlation Identifier: learn/enterprise-integration-patterns/message-construction/correlation-identifier.md
+      #        - Message Sequence: learn/enterprise-integration-patterns/message-construction/message-sequence.md
+      #        - Message Expiration: learn/enterprise-integration-patterns/message-construction/message-expiration.md
+      #        - Format Indicator: learn/enterprise-integration-patterns/message-construction/format-indicator.md
       #    - Message Routing:
-      #        - Message Routing - Overview: learn/enterprise-integration-patterns/messaging-routing/overview.md
-      #        - Content-Based Router: learn/enterprise-integration-patterns/messaging-routing/content-based-router.md
-      #        - Message Filter: learn/enterprise-integration-patterns/messaging-routing/message-filter.md
-      #        - Recipient List: learn/enterprise-integration-patterns/messaging-routing/recipient-list.md
-      #        - Splitter: learn/enterprise-integration-patterns/messaging-routing/splitter.md
-      #        - Aggregator: learn/enterprise-integration-patterns/messaging-routing/aggregator.md
-      #        - Composed Message Processor: learn/enterprise-integration-patterns/messaging-routing/composed-message-processor.md
-      #        - Scatter-Gather: learn/enterprise-integration-patterns/messaging-routing/scatter-gather.md
-      #        - Routing Slip: learn/enterprise-integration-patterns/messaging-routing/routing-slip.md
-      #        - Process Manager: learn/enterprise-integration-patterns/messaging-routing/process-manager.md
-      #        - Message Broker: learn/enterprise-integration-patterns/messaging-routing/message-broker.md
+      #        - Message Routing - Overview: learn/enterprise-integration-patterns/message-routing/overview.md
+      #        - Content-Based Router: learn/enterprise-integration-patterns/message-routing/content-based-router.md
+      #        - Message Filter: learn/enterprise-integration-patterns/message-routing/message-filter.md
+      #        - Recipient List: learn/enterprise-integration-patterns/message-routing/recipient-list.md
+      #        - Splitter: learn/enterprise-integration-patterns/message-routing/splitter.md
+      #        - Aggregator: learn/enterprise-integration-patterns/message-routing/aggregator.md
+      #        - Composed Message Processor: learn/enterprise-integration-patterns/message-routing/composed-message-processor.md
+      #        - Scatter-Gather: learn/enterprise-integration-patterns/message-routing/scatter-gather.md
+      #        - Routing Slip: learn/enterprise-integration-patterns/message-routing/routing-slip.md
+      #        - Process Manager: learn/enterprise-integration-patterns/message-routing/process-manager.md
+      #        - Message Broker: learn/enterprise-integration-patterns/message-routing/message-broker.md
       #    - Message Transformation:
-      #        - Message Transformation - Overview: learn/enterprise-integration-patterns/messaging-transformation/overview.md
-      #        - Envelope Wrapper: learn/enterprise-integration-patterns/messaging-transformation/envelope-wrapper.md
-      #        - Content Enricher: learn/enterprise-integration-patterns/messaging-transformation/content-enricher.md
-      #        - Content Filter: learn/enterprise-integration-patterns/messaging-transformation/content-filter.md
-      #        - Claim Check: learn/enterprise-integration-patterns/messaging-transformation/claim-check.md
-      #        - Normalizer: learn/enterprise-integration-patterns/messaging-transformation/normalizer.md
-      #        - Canonical Data Model: learn/enterprise-integration-patterns/messaging-transformation/canonical-data-model.md
+      #        - Message Transformation - Overview: learn/enterprise-integration-patterns/message-transformation/overview.md
+      #        - Envelope Wrapper: learn/enterprise-integration-patterns/message-transformation/envelope-wrapper.md
+      #        - Content Enricher: learn/enterprise-integration-patterns/message-transformation/content-enricher.md
+      #        - Content Filter: learn/enterprise-integration-patterns/message-transformation/content-filter.md
+      #        - Claim Check: learn/enterprise-integration-patterns/message-transformation/claim-check.md
+      #        - Normalizer: learn/enterprise-integration-patterns/message-transformation/normalizer.md
+      #        - Canonical Data Model: learn/enterprise-integration-patterns/message-transformation/canonical-data-model.md
       #    - Messaging Endpoints:
       #        - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
       #        - Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
