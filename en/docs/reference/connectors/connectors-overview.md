@@ -80,7 +80,7 @@ When configuring the integration logic, you need to use Micro Integrator for VS 
 
 You can search and import the required connectors to your integration project in the MI VS Code extension. Once imported, the supported operations are displayed on the design palette.
 
-### Initialize Connector
+### Initialize connector
 
 You can search for the desired connector in the MI VS Code extension and select the required operation. This action will insert the selected operation at the appropriate point in the message flow. Ensure that the relevant configurations are provided before adding the operation to the flow.
 
@@ -88,7 +88,7 @@ You can search for the desired connector in the MI VS Code extension and select 
 
 An operation of a particular connector represents a function that can be executed using that connector. The input parameters of an operation can be hard-coded or fed into the connector programmatically using Properties. You can use any property (custom or internal) set to the message flow before the connector operation is used. Sometimes, the payload in the message context is considered by the connector for its operation as the payload to be sent over the connector. You can manipulate this payload using mediators like enrich, payloadfactory, etc. After the connector operation is used in the message flow, the response received by invoking that operation will be available in the message context for the next mediator to be used. 
 
-### Input Sources
+### Input sources
 
 As described above, input for the connector operations would be:
 
