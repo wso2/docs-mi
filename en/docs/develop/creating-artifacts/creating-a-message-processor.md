@@ -1,22 +1,26 @@
-# Creating a Message Processor
+# Create a Message Processor
 
-Follow the instructions given below to create a new [Message Processor]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in WSO2 Integration Studio.
+Follow the instructions below to create a new [Message Processor]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the Message Processor artifact
+### Create the message processor artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
+{!includes/creating-project.md!}
 
-	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/select-message-processor.jpg">
+2. Go to **Micro Integrator Project Explorer** > **Message Processors**.
 
-2.  Select **Create a new message-processor artifact** and click **Next**.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/create-message-processor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/create-message-processor.png" alt="Create message processor" width="30%"></a>
 
-	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/new-message-processor-wizard-1.png" width="500">
+3. Hover over **Message Processors** and click the **+** icon that appears to open the **Message Processor Form** below.
 
-3.  Enter a unique name for this message processor, specify the type of processor you're creating.
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-message-processor.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-message-processor.png" alt="Add message processor" width="30%"></a>
 
-	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/new-message-processor-wizard-2.png" width="500">
+4. Select the type of message processor you are creating.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/message-processor-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/message-processor-form.png" alt="message processor form" width="80%"></a>
+
+5. Enter a unique name for the message processor.
 
 	See the links given below for descriptions of properties for each message processor type:
 
@@ -24,20 +28,15 @@ Follow the instructions given below to create a new [Message Processor]({{base_p
 	-	[Scheduled Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties)
 	-	[Scheduled Failover Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties)
 
-4.  Do one of the following to save the artifact:
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/new-message-processor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/new-message-processor.png" alt="new message processor" width="80%"></a>
 
-  	-   To save the message processor in an existing ESB Config project in your workspace, click **Browse** and select that project.
-  	-   To save the message processor in a new ESB Config project, click **Create new Project** and create the new project.
+6. Click **Create**.
 
-5.  Click **Finish**. 
+The message processor is created in the `src/main/wso2mi/artifacts/message-processors` folder under the integration project you created.
 
-The message processor is created in the `src/main/synapse-config/message-processors` folder under the ESB Config project you specified.
+### Update the properties
 
-### Updating the properties
-
-Open the new message processor artifact from the project explorer. You can use the **Form** view or the **Source** view to update message processor properties.
-
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/message-processor-form-view.png" width="800">
+Open the above-created message processor artifact from the **MI Project Explorer**. You can use the **Form** view or the **Source** view to update message processor properties.
 
 See the links given below for descriptions of properties for each processor type:
 
@@ -45,23 +44,15 @@ See the links given below for descriptions of properties for each processor type
 -	[Scheduled Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties)
 -	[Scheduled Failover Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties)
 
-## Examples
+!!! abstract "Learn more about message processors"
 
-<ul>
-	<li>
-		<a href="{{base_path}}/learn/examples/message-store-processor-examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/message-store-processor-examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/message-store-processor-examples/securing-message-processor">Securing the Message Forwarding Processor</a>
-	</li>
-	<li>
-		<a href="{{base_path}}/learn/examples/message-store-processor-examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
-	</li>
-</ul>
+    Follow our examples on message processors:  
 
-## Tutorials
+    - [Using the Message Forwarding Processor]({{base_path}}/learn/examples/message-store-processor-examples/using-message-forwarding-processor)
+    - [Using the Message Sampling Processor]({{base_path}}/learn/examples/message-store-processor-examples/using-message-sampling-processor)
+    - [Securing the Message Forwarding Processor]({{base_path}}/learn/examples/message-store-processor-examples/securing-message-processor)
+    - [Load Balancing with Message Forwarding Processor]({{base_path}}/learn/examples/message-store-processor-examples/loadbalancing-with-message-processor)
+  
+    Follow our tutorials on message processors:
 
--	See the tutorial on [using message stores and processors]({{base_path}}/learn/integration-tutorials/storing-and-forwarding-messages)
+    - [Using message stores and processors]({{base_path}}/learn/integration-tutorials/storing-and-forwarding-messages)

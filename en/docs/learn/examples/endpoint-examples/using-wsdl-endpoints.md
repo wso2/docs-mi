@@ -16,14 +16,11 @@ Following is a sample REST API configuration that we can used to implement this 
             <call>
                 <endpoint>
                     <wsdl uri="file:/path/to/sample_proxy_1.wsdl"
-                        service="SimpleStockQuoteService" port="SimpleStockQuoteServiceHttpSoapDefaultEndpoint"/>
+                        service="SimpleStockQuoteService" port="SimpleStockQuoteServiceHttpSoap11Endpoint"/>
                 </endpoint>
             </call>
             <respond/>
        </inSequence>
-       <outSequence>
-            <send/>
-       </outSequence>
        <faultSequence/>
    </target>
 </proxy>
@@ -33,8 +30,7 @@ Following is a sample REST API configuration that we can used to implement this 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create a proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -107,7 +103,7 @@ in above sample is given below.
 
 ```xml
 <wsdl:service name="SimpleStockQuoteService">
-   <wsdl:port name="SimpleStockQuoteServiceHttpSoapDefaultEndpoint" binding="ns:SimpleStockQuoteServiceSoap11Binding">
+   <wsdl:port name="SimpleStockQuoteServiceHttpSoap11Endpoint" binding="ns:SimpleStockQuoteServiceSoap11Binding">
             <soap:address location="http://localhost:9000/services/SimpleStockQuoteService"/>
    </wsdl:port>
    <wsdl:port name="SimpleStockQuoteServiceHttpSoap12Endpoint" binding="ns:SimpleStockQuoteServiceSoap12Binding">

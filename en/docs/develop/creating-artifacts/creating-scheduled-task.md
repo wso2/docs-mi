@@ -1,54 +1,46 @@
-# Scheduling ESB Tasks
+# Create Scheduled Tasks
 
-Follow the instructions given below to create a **Scheduled Task** in WSO2 Integration Studio.
+Follow the instructions below to create a Scheduled Task in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Creating the Scheduled Task artifact
+### Create the scheduled task artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project) and click **New** → **Scheduled Task**.  
+{!includes/creating-project.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/select-scheduled-task.png">
+3. Go to **Micro Integrator Project Explorer** > **Tasks**.
 
-2.  Select **Create a New Scheduled Task Artifact** and click **Next**.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-tasks.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-tasks.png" alt="create tasks" width="30%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/new-task-wizard-1.png" width="500">
+4. Hover over **Tasks** and click the **+** icon that appears.
 
-3.  Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the scheduled task.
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-task.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-task.png" alt="Add Task" width="30%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/new-task-wizard-2.png" width="500">
+    This will open the below **Task Form**.
 
-4.   Specify the location to save the artifact:
+5. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the scheduled task.
 
-  	 -   To save the scheduled task in an existing ESB Config project in your workspace, click **Browse** and select that project.
-  	 -   To save the scheduled task in a new ESB Config project, click **Create new Project** and create the new project.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" alt="create new scheduled task" width="80%"></a>
 
-5.  Click **Finish**. 
+    The scheduled task is created in the `src/main/wso2mi/artifacts/tasks` folder under the project you created.
 
-    The scheduled task is created in the `src/main/synapse-config/tasks` folder under the ESB Config project you specified.
+### Update properties
 
-6.  To use the scheduled task, [update the properties](#updating-properties).
+You can later update the task properties to specify the incoming message that should trigger the task and the destination where the message should be injected.
 
-### Updating properties
+Open the above-created task artifact from the **MI Project Explorer**. You can use the **Form view** or the **Source view** to update task properties.
 
-Update the task properties to specify the incoming message that should trigger the task and the destination to which the message should be injected.
+!!! info
+    Refer to the [Scheduled Tasks Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available properties for tasks.
 
-1.  Open the new artifact from the project explorer.
+!!! abstract "Learn more about scheduled tasks"
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/scheduled-task-form-view.png" width="700">
+    Follow our examples on scheduled tasks:     
 
-2.  In the **Form** view, you can optionally modify already specified property values.
-3.  Click **Task Implementation Properties** to open the **Task Properties** dialog box.
+    - [Task Scheduling using a Simple Trigger]({{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger)
+    - [Injecting Messages to a RESTful Endpoint]({{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/scheduled-task-properties.png" width="700">
+    Follow our tutorials on scheduled tasks:
 
-4.  Update the properties.
+    - See the tutorial on [periodically executing an integration process]({{base_path}}/learn/integration-tutorials/using-scheduled-tasks) using a scheduled task
 
-## Examples
-
--   [Task Scheduling using a Simple Trigger]({{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger)
--   [Injecting Messages to a RESTful Endpoint]({{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)
-
-## Tutorials
-
--   See the tutorial on [periodically executing an integration process]({{base_path}}/learn/integration-tutorials/using-scheduled-tasks) using a scheduled task

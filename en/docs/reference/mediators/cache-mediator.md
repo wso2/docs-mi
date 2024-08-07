@@ -9,7 +9,7 @@ within a specified period of time. This is done by evaluating the hash value of 
 
 ## Syntax
 
-``` java
+```xml
 <cache [timeout="seconds"] [collector=(true | false)] [maxMessageSize="in-bytes"] >
    <onCacheHit [sequence="key"]>
     (mediator)+
@@ -156,90 +156,99 @@ Following are examples of how you can use the Cache mediator.
 Following is an example where the expected response from the last cache hit is not received because the response is sent once the request comes
 to the first finder:
 
-``` java
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="cache115" transports="http https" startOnLoad="true">
-   <description />
-   <target>
-      <inSequence>
-         <cache collector="false" timeout="60">
-            <protocol type="HTTP">
-               <methods>POST</methods>
-               <headersToExcludeInHash />
-               <responseCodes>.*</responseCodes>
-               <enableCacheControl>false</enableCacheControl>
-               <includeAgeHeader>false</includeAgeHeader>
-               <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
-            </protocol>
-         </cache>
-         <call>
-            <endpoint>
-               <address uri="http://demo0585968.mockable.io/some" />
-            </endpoint>
-         </call>
-         <property name="RESPONSE" value="true" scope="default" type="STRING" />
-         <log level="full" />
-         <cache collector="true" />
-         <property name="RESPONSE" value="false" scope="default" type="STRING" />
-         <cache collector="false" timeout="60">
-            <protocol type="HTTP">
-               <methods>POST</methods>
-               <headersToExcludeInHash />
-               <responseCodes>.*</responseCodes>
-               <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
-            </protocol>
-         </cache>
-         <call>
-            <endpoint>
-               <address uri="http://demo0585968.mockable.io/hello" />
-            </endpoint>
-         </call>
-         <property name="RESPONSE" value="true" scope="default" type="STRING" />
-         <log level="full" />
-         <cache collector="true" />
-         <respond />
-      </inSequence>
-   </target>
-</proxy>          
-```
+=== "Proxy Service"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="cache115" transports="http https" startOnLoad="true">
+       <description />
+       <target>
+          <inSequence>
+             <cache collector="false" timeout="60">
+                <protocol type="HTTP">
+                   <methods>POST</methods>
+                   <headersToExcludeInHash />
+                   <responseCodes>.*</responseCodes>
+                   <enableCacheControl>false</enableCacheControl>
+                   <includeAgeHeader>false</includeAgeHeader>
+                   <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
+                </protocol>
+             </cache>
+             <call>
+                <endpoint key="SomeServiceEndpoint"/>
+             </call>
+             <property name="RESPONSE" value="true" scope="default" type="STRING" />
+             <log level="full" />
+             <cache collector="true" />
+             <property name="RESPONSE" value="false" scope="default" type="STRING" />
+             <cache collector="false" timeout="60">
+                <protocol type="HTTP">
+                   <methods>POST</methods>
+                   <headersToExcludeInHash />
+                   <responseCodes>.*</responseCodes>
+                   <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
+                </protocol>
+             </cache>
+             <call>
+                <endpoint key="HelloServiceEndpoint"/>
+             </call>
+             <property name="RESPONSE" value="true" scope="default" type="STRING" />
+             <log level="full" />
+             <cache collector="true" />
+             <respond />
+          </inSequence>
+       </target>
+    </proxy>          
+    ```
+=== "Endpoint 1"
+    ``` xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SomeServiceEndpoint">
+        <address uri="http://demo0585968.mockable.io/some"/>
+    </endpoint>
+    ```
+=== "Endpoint 2"
+    ``` xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="HelloServiceEndpoint">
+        <address uri="http://demo0585968.mockable.io/hello"/>
+    </endpoint>
+    ```
 
 ### Example 2
 
-According to this example configuration, when the first message is sent
-to the endpoint, the cache is not hit. The Cache mediator configured in
-the `         Out        ` sequence caches the response to this message.
-When a similar message is sent to the endpoint for the second time, the
-previous response is directly fetched from the cache and sent to the
-requester. This happens because the `         onCacheHit        `
-sequence is not defined in this configuration.
+In this example configuration, when the first message is sent to the endpoint, the cache is not hit because it is the initial request and the cache is empty. 
+The Cache mediator, configured in the inSequence, caches the response to this message. 
+When a similar message is sent to the endpoint for the second time, the response is directly fetched from the cache and sent to the requester. This caching behavior by the onCacheHit element defined within the Cache mediator configuration. 
+The onCacheHit element specifies that a cached response should be immediately returned if a cache hit occurs, without forwarding the request to the backend service again. This mechanism significantly improves the performance for repeated requests with the same cache key.
 
-``` java
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence name="main">
-        <in>
-            <cache collector="false" maxMessageSize="10000" timeout="20">
-                <protocol type="HTTP">
-                    <methods>POST</methods>
-                    <headersToExcludeInHash/>
-                    <responseCodes>2[0-9][0-9]</responseCodes>
-                    <enableCacheControl>false</enableCacheControl>
-                    <includeAgeHeader>false</includeAgeHeader>
-                    <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
-                </protocol>
-                <implementation maxSize="100"/>
-            </cache>
-            <send>
-                <endpoint name="inlined">
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </in>
-        <out>
-            <cache collector="true"/>
-            <send/>
-        </out>
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="cacheSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <cache id="simpleCache" scope="per-host" collector="false" hashGenerator="org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator" timeout="20" maxMessageSize="10000">
+            <implementation type="memory" maxSize="100"/>
+            <onCacheHit>
+                <respond/>
+            </onCacheHit>
+            <protocol type="HTTP">
+                <methods>POST</methods>
+                <headersToExcludeInHash/>
+                <responseCodes>2[0-9][0-9]</responseCodes>
+                <enableCacheControl>false</enableCacheControl>
+                <includeAgeHeader>false</includeAgeHeader>
+            </protocol>
+        </cache>
+        <call>
+            <endpoint key="SimpleStockQuoteEndpoint"/>
+        </call>
+        <respond/>
     </sequence>
-```
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteEndpoint">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ### Example 3
 
@@ -248,45 +257,54 @@ using the cache mediator in the in sequence, you need to add the
 `         RESPONSE        ` property to consider the message as a
 response message.
 
-``` xml
-<?xml version="1.0" encoding="UTF-8"?>
-<api xmlns="http://ws.apache.org/ns/synapse" name="cacheAPI" context="/cache">
-<resource methods="POST GET" uri-template="/headerapi/*">
-    <inSequence>
-        <cache collector="false" timeout="5000">
-            <protocol type="HTTP">
-                <methods>GET, POST</methods>
-                <headersToExcludeInHash>*</headersToExcludeInHash>
-                <responseCodes>.*</responseCodes>
-                <enableCacheControl>false</enableCacheControl>
-                <includeAgeHeader>false</includeAgeHeader>
-                <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
-            </protocol>
-        </cache>
-        <call>
-            <endpoint>
-                <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-            </endpoint>
-        </call>
-        <property name="RESPONSE" value="true" scope="default" type="STRING"/>
-        <enrich>
-            <source type="inline" clone="true">
-                <ax21:newvalue
-                    xmlns:ax21="http://services.samples/xsd">testsamplevalue
-                </ax21:newvalue>
-            </source>
-            <target
-                xmlns:ax21="http://services.samples/xsd"
-                xmlns:ns="http://services.samples" action="sibling" xpath="//ns:getQuoteResponse/ns:return/ax21:volume"/>
-            </enrich>
-            <cache collector="true"/>
-            <respond/>
-        </inSequence>
-</resource>
-</api>
-```
+=== "API"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/cache" name="cacheAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET POST" uri-template="/headerapi/*">
+            <inSequence>
+                <cache collector="false" maxMessageSize="2000" timeout="5000">
+                    <onCacheHit></onCacheHit>
+                    <protocol type="HTTP">
+                        <methods>GET,POST</methods>
+                        <headersToExcludeInHash>*</headersToExcludeInHash>
+                        <headersToIncludeInHash/>
+                        <responseCodes>.*</responseCodes>
+                        <enableCacheControl>false</enableCacheControl>
+                        <includeAgeHeader>false</includeAgeHeader>
+                        <hashGenerator>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</hashGenerator>
+                    </protocol>
+                    <implementation maxSize="1000"/>
+                </cache>
+                <call>
+                    <endpoint key="stockQuoteServiceEP"/>
+                </call>
+                <property name="RESPONSE" scope="default" type="STRING" value="true"/>
+                <enrich>
+                <source type="inline" clone="true">
+                    <ax21:newvalue
+                        xmlns:ax21="http://services.samples/xsd">testsamplevalue
+                        </ax21:newvalue>
+                    </source>
+                    <target xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" action="sibling" xpath="//ns:getQuoteResponse/ns:return/ax21:volume"/>
+                </enrich>
+                <cache collector="true"/>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
+    ```
+=== "Endpoint"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="stockQuoteServiceEP">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-### Invalidating cached responses remotely
+### Invalidate cached responses remotely
 
 You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole]({{base_path}}/observe-and-manage/classic-observability-metrics/jmx-monitoring) via the exposed MBeans. You can use the `         invalidateTheWholeCache()        ` operation of the `         org.wso2.carbon.mediation        ` MBean for this as shown below.
 

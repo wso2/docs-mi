@@ -4,19 +4,21 @@ Documentum Connector can be used to perform operations on OpenText Documentum En
 
 ## What you'll build
 
-This example explains how to use Documentum Connector to create a folder and retrieve cabinet details from Documentum. The user sends a payload with the repository name, parent folder ID and name of the folder to be created. Then the connector communicates with Documentum to create a folder under the
-parent folder in the specified cabinet.
+This example explains how to use the Documentum Connector to create a folder and retrieve cabinet details from Documentum. The user sends a payload with the repository name, parent folder ID, and name of the folder to be created. Then the connector communicates with Documentum to create a folder under the parent folder in the specified cabinet.
 
-The example consists of an API named as Documentum API with two resources create folder and get cabinets.
+The example consists of an API named `documentum` with three resources.
 
-**Create Folder**
-/createfolder: The user sends the request payload which includes the repository, parent folder ID and folder name. This request is sent to the integration runtime by invoking the Documentum API. It will create the new folder in Documentum under the parent folder given.
+**Create folder**
 
-**Get Cabinets**
-/getcabinets: The user sends the request payload, containing the repository name to list cabinets present under that in Documentum. This request is sent to the integration runtime where the Documentum Connector API resides. Once the API is invoked, it returns the list of cabinets.
+`/createFolder`: The user sends a request which includes the repository, parent folder ID, and folder name. This request is sent to the integration runtime by invoking the Documentum API. It will create a new folder in Documentum under the given parent folder.
 
-**Create Document**
-/createdocument: The user sends the request payload which includes the folder ID and document name. This request is sent to the integration runtime where the Documentum Connector API resides. Once the API is invoked, it will create the new Document in Documentun under the given folder ID.
+**Get cabinets**
+
+`/getCabinets`: The user sends a request which includes the repository name to list cabinets present under that in Documentum. This request is sent to the integration runtime where the Documentum Connector API resides. Once the API is invoked, it returns the list of cabinets.
+
+**Create document**
+
+`/createDocument`: The user sends a request payload which includes the folder ID and document name. This request is sent to the integration runtime where the Documentum Connector API resides. Once the API is invoked, it will create a new document in Documentum under the given folder ID.
 
 The following diagram shows the overall solution.
 
@@ -24,64 +26,98 @@ The following diagram shows the overall solution.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-### Import the connector
+## Create the integration logic
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+Select Micro Integrator Extension and click on **+** in APIs to create a REST API. 
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+### Configure the connection and createFolder operation
 
-Now the connector is added to the palette.
+1. Select the **Createfolder** operation under the **Documentum** connector in the **Connector** panel.
 
-### Configure a Proxy Service
+2. Click on the **Add new connection** text button and configure the connection parameters.
 
-1. Right click on the project and go to **New** -> **Proxy Service**.
+    <img src="{{base_path}}/assets/img/integrate/connectors/documentum/new-connection.png" title="Documentum connection" width="400" height="400" alt="Documentum connection"/>
 
-2. Select **Create A New Proxy Service** from the options that appear and click **Next**.
+2. Do the following configurations to set up the `createFolder` operation.
+    <img src="{{base_path}}/assets/img/integrate/connectors/documentum/create-folder.png" title="Documentum create folder" width="800" alt="Documentum create folder"/>
 
-3. Provide a name for the proxy service and click **Finish**.
+### Configure the connection and GetCabinets operation
 
-4. Add the following configuration to the source view of the project.
+1. Select the **Getcabinets** operation under the **Documentum** connector in the **Connector** panel.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <proxy name="documentum_createfolder" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target>
-            <inSequence>
-                <property expression="json-eval($.repo)" name="repo" scope="default" type="STRING"/>
-                <property expression="json-eval($.objectcodeID)" name="objectcode" scope="default" type="STRING"/>
-                <property expression="json-eval($.foldername)" name="foldername" scope="default" type="STRING"/>
-                <documentum.createfolder>
-                    <repo>{$ctx:repo}</repo>
-                    <objectcode>{$ctx:objectcode}</objectcode>
-                    <foldername>{$ctx:foldername}</foldername>
-                </documentum.createfolder>
-                <respond/>
-            </inSequence>
-            <outSequence/>
-            <faultSequence/>
-        </target>
-    </proxy>
-    ```
+2. Select the connection that we created earlier.
 
-You can see the newly added connector in the design palette.
+2. Do the following configurations to set up the `getCabinets` operation.
+    <img src="{{base_path}}/assets/img/integrate/connectors/documentum/get-cabinets.png" title="Documentum get cabinets" width="800" alt="Documentum get cabinets"/>
 
-<img src="{{base_path}}/assets/img/integrate/connectors/documentum-proxy.png" title="Documentum proxy" width="800" alt="Documentum proxy"/>
+### Configure the connection and createDocument operation
 
-### Configure the connection and create folder operation
+1. Select the **Createdocument** operation under the **Documentum** connector in the **Connector** panel.
 
-1. Do the following configurations to initialize the connector.
-    <img src="{{base_path}}/assets/img/integrate/connectors/documentum-connection.png" title="Documentum connection" width="800" alt="Documentum connection"/>
+2. Select the connection that we created earlier.
 
-2. Do the following configurations to set up the `create folder` operation.
-    <img src="{{base_path}}/assets/img/integrate/connectors/documentum-create-folder.png" title="Documentum create folder" width="800" alt="Documentum create folder"/>
+2. Do the following configurations to set up the `createDocument` operation.
+    <img src="{{base_path}}/assets/img/integrate/connectors/documentum/create-document.png" title="Documentum create document" width="800" alt="Documentum create document"/>
 
-Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/documentum" name="documentum" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/createFolder">
+        <inSequence>
+            <property expression="json-eval($.repo)" name="repo" scope="default" type="STRING" />
+            <property expression="json-eval($.objectcodeID)" name="objectcode" scope="default"
+				type="STRING" />
+            <property expression="json-eval($.foldername)" name="foldername" scope="default"
+				type="STRING" />
+            <documentum.createfolder configKey="DocumentumConnection">
+                <repo>{$ctx:repo}</repo>
+                <folderID>{$ctx:objectcode}</folderID>
+                <foldername>{$ctx:foldername}</foldername>
+            </documentum.createfolder>
+            <respond />
+        </inSequence>
+        <faultSequence>
+	</faultSequence>
+    </resource>
+    <resource methods="POST" uri-template="/getCabinets">
+        <inSequence>
+            <property name="repo" scope="default" type="STRING" expression="json-eval($.repo)" />
+            <documentum.getcabinets configKey="DocumentumConnection">
+                <repo>{ctx:repo}</repo>
+            </documentum.getcabinets>
+            <respond />
+        </inSequence>
+        <faultSequence>
+	</faultSequence>
+    </resource>
+    <resource methods="POST" uri-template="/createDocument">
+        <inSequence>
+            <property expression="json-eval($.repoName)" name="repoName" scope="default"
+				type="STRING" />
+            <property expression="json-eval($.folderID)" name="folderID" scope="default"
+				type="STRING" />
+            <property expression="json-eval($.docName)" name="docName" scope="default" type="STRING" />
+            <property expression="json-eval($.docType)" name="docType" scope="default" type="STRING" />
+            <documentum.createdocument configKey="DocumentumConnection">
+                <repo>{ctx:repoName}</repo>
+                <folderID>{ctx:folderID}</folderID>
+                <documentname>{ctx:docName}</documentname>
+                <doctype>{ctx:docType}</doctype>
+            </documentum.createdocument>
+            <respond />
+        </inSequence>
+        <faultSequence>
+	</faultSequence>
+    </resource>
+</api>
+```
 
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Export integration logic as a carbon application
+To export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
@@ -89,7 +125,7 @@ Now the exported CApp can be deployed in the integration runtime so that we can 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/googlepubsub-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/documentum-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -98,22 +134,11 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+To deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-**Deploying on Micro Integrator**
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section.   
-
-## Testing
+## Test
 
 **Create folder operation**
 

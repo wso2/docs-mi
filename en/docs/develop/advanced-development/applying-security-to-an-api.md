@@ -17,14 +17,15 @@ The custom Basic Auth handler in this sample simply verifies whether the request
 
 ```java
 package org.wso2.rest;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.synapse.MessageContext;
 import org.apache.synapse.core.axis2.Axis2MessageContext;
 import org.apache.synapse.core.axis2.Axis2Sender;
 import org.apache.synapse.rest.Handler;
- 
+
 import java.util.Map;
- 
+
 public class BasicAuthHandler implements Handler {
     public void addProperty(String s, Object o) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -55,6 +56,7 @@ public class BasicAuthHandler implements Handler {
 
             } else {
                 String authHeader = (String) headersMap.get("Authorization");
+                String credentials = authHeader.substring(6).trim();
                 if (processSecurity(credentials)) {
                     return true;
                 } else {
@@ -70,16 +72,16 @@ public class BasicAuthHandler implements Handler {
         }
         return false;
     }
- 
+
     public boolean handleResponse(MessageContext messageContext) {
         return true;
     }
 
     public boolean processSecurity(String credentials) {
         String decodedCredentials = new String(new Base64().decode(credentials.getBytes()));
-        String usernName = decodedCredentials.split(":")[0];
+        String userName = decodedCredentials.split(":")[0];
         String password = decodedCredentials.split(":")[1];
-        if ("admin".equals(username) && "admin".equals(password)) {
+        if ("admin".equals(userName) && "admin".equals(password)) {
             return true;
         } else {
             return false;
@@ -128,38 +130,42 @@ and restart the Micro Integrator.
 
 Add the handler to the REST API:
 
-```xml
-<api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">
-       <resource methods="GET" uri-template="/view/{symbol}">
-          <inSequence>
-             <payloadFactory media-type="xml">
-                <format>
-                   <m0:getQuote xmlns:m0="http://services.samples">
-                      <m0:request>
-                         <m0:symbol>$1</m0:symbol>
-                      </m0:request>
-                   </m0:getQuote>
-                </format>
-                <args>
-                   <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
-                </args>
-             </payloadFactory>
-             <header name="Action" scope="default" value="urn:getQuote"/>
-             <send>
-                <endpoint>
-                   <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
-                </endpoint>
-             </send>
-          </inSequence>
-          <outSequence>
-             <send/>
-          </outSequence>
-          <faultSequence/>
-       </resource>
-       <handlers>
-         <handler class="org.wso2.rest.BasicAuthHandler"/>
+=== "REST API"
+    ```xml
+    <api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">
+        <resource methods="GET" uri-template="/view/{symbol}">
+            <inSequence>
+                <payloadFactory media-type="xml">
+                    <format>
+                        <m0:getQuote xmlns:m0="http://services.samples">
+                            <m0:request>
+                                <m0:symbol>$1</m0:symbol>
+                            </m0:request>
+                        </m0:getQuote>
+                    </format>
+                    <args>
+                        <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
+                    </args>
+                </payloadFactory>
+                <header name="Action" scope="default" value="urn:getQuote"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteEndpoint"/>
+                </call>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </resource>
+        <handlers>
+            <handler class="org.wso2.rest.BasicAuthHandler"/>
         </handlers>
-</api>                                    
-```
+    </api>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 You can now send a request to the secured API.

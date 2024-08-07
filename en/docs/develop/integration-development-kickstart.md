@@ -409,7 +409,7 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
 
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-mi-dashboard) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/running-the-mi-dashboard) to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/running-the-integration-control-plane) to observe details of the deployed artifacts.
 
 If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashboard</b> in the <b>Runtime Services</b> tab as shown below.
 

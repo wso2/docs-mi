@@ -1,4 +1,4 @@
-# Microsoft Azure Storage Connector Example
+# Microsoft Azure storage connector example
 
 Given below is a sample scenario that demonstrates how to work with container and blob operations using the WSO2 Microsoft Azure Storage Connector.
 
@@ -6,8 +6,8 @@ Given below is a sample scenario that demonstrates how to work with container an
 
 This example demonstrates how to use Microsoft Azure Storage connector to:
 
-1. Create a container (a location for storing employee details) in Microsoft Azure Storage account.
-2. Upload JSON employee details (blob) in to the container.
+1. Create a container (a location for storing employee details) in a Microsoft Azure Storage account.
+2. Upload JSON employee details (blob) into the container.
 3. Download an employee details (blob).
 4. Remove uploaded employee details (blob).
 5. Retrieve the metadata from a specific file (blob). 
@@ -17,109 +17,113 @@ For more information about these operations, please refer to the [Microsoft Azur
 
 > **Note**: Before invoking the API, you need to create a **Storage Account** in **Microsoft Azure Storage account**. See [Azure Storage Configuration]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/) documentation for more information.
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Follow these steps to set up the ESB Solution Project and the Connector Exporter Project.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+## Create the integration logic
 
-## Creating the Integration Logic
+1. Click `+` on the Extension panel APIs to create the REST API. Specify the API name as `MSAzureStorageTestAPI` and the API context as `/azure`. Then, delete the default `/resource` endpoint.
 
-1. Specify the API name as `MSAzureStorageTestAPI` and API context as `/azure`.
+    <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/create_api.png" title="Adding the createbucket resource" width="800" alt="Microsoft Azure Storage use case"/>
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/delete_default_resource.png" title="Adding the createbucket resource" width="800" alt="Microsoft Azure Storage use case"/>
 
-2. First we will create the `/createcontainer` resource. This API resource will retrieve the container name from the incoming HTTP POST request and create a container in Microsoft Azure Storage. Right click on the API Resource and go to **Properties** view. We use a URL template called `/createcontainer` and POST HTTP method.
+2. First, we will create the `/createcontainer` resource. This API resource will retrieve the container name from the incoming HTTP POST request and create a container in Microsoft Azure Storage. Click on the `+ Resource` and fill in the details. Use a URL template called `/createcontainer` and the POST HTTP method.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/adding_create_container_resource.png" title="Adding the createbucket resource" width="800" alt="Microsoft Azure Storage use case"/>
 
-3. Next drag and drop the 'createContainer' operation of the Azure Storage Connector to the Design View.
-
-4. Create a connection from the properties window by clicking on the '+' icon as shown below.
+3. Click the created resource. Next, click the `+` arrow below the Start node to open the side panel. Select **Externals** and click **Add new Connection**. Search `msazurestorage` and click.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/create_new_connection_btn.png" title="Creating a new connection" width="800" alt="Microsoft Azure Storage use case"/>
 
-    In the popup window, the following parameters must be provided.
+4. Create a connection as shown below.
 
-    - Connection Name - Unique name to identify the connection by.
-    - Connection Type - Type of the connection that specifies the protocol to be used.
-    - Account Name - The name of the azure storage account.
-    - Client ID - The client ID of the application.
-    - Client Secret - The client Secret of the application.
-    - Tenant ID - The Tenant ID of the application.
+    In the window, the following parameters must be provided:
 
+    - **Connection Name**: Unique name to identify the connection.
+    - **Connection Type**: msazurestorage
+    - **Account Name**: The name of the Azure storage account.
+    - **Client ID**: The client ID of the application.
+    - **Client Secret**: The client Secret of the application.
+    - **Tenant ID**: The Tenant ID of the application.
+    - **Default Endpoints Protocol**: http
     !!! note
-        You can either define the Account Access key or Client Credentials for authentication. For more information, please refer [Initialize the connector guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference/#initialize-the-connector).
+        You can either define the Account Access key or Client Credentials for authentication. For more information, please refer to [Initialize the connector guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference/#initialize-the-connector).
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_new_connection.png" title="Configuring a new connection" width="500" alt="Microsoft Azure Storage use case"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_new_connection.png" title="Configuring a new connection" width="800" alt="Microsoft Azure Storage use case"/>
 
-5. After the connection is successfully created, select the created connection as 'Connection' from the drop down menu in the properties window.
+5. After the connection is successfully created, select the created connection in **Externals**. In the dropdown menu, click `CreateContainer`.
+<img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/add_create_container_oparation.png" title="Adding create container operation" width="800" alt="Microsoft Azure Storage use case"/>
 
 6. Next, configure the following parameters in the properties window,
 
-    - Container Name - json-eval($.containerName)
+    - **Container Name** - json-eval($.containerName)
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_create_container_operation.png" title="Configuring create container operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-7. Drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from creating the container as shown below.
+7. Click `+` below the `CreateContainer` node to add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from creating the container as shown below.
+
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/adding_respond_mediator.png" title="Adding a respond mediator" width="800" alt="Microsoft Azure Storage use case"/>
 
-8. Create the next API resource, which is `/addblob` by dragging and dropping another API resource to the design view. This API resource will retrieve information about the blob from the incoming HTTP POST request such as the container name, blob name and the file content and upload it to Microsoft Azure Storage.
+8. Follow the same steps to create the next API resource, `/addblob`. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
 
-9. Drag and drop the ‘uploadBlob’ operation of the Microsoft Azure Storage Connector to the Design View. In the properties view, select the already created connection as 'Connection' from the drop down menu and provide the following expressions to the below properties,
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
-    - Content Type - json-eval($.contentType)
-    - Text Content - json-eval($.textContent)
-    - Metadata - json-eval($.metadata)
+9. Next, add the `uploadBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
+    - **Content Type** - json-eval($.contentType)
+    - **Text Content** - json-eval($.textContent)
+    - **Metadata** - json-eval($.metadata)
 
-10. Drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the blob.
+10. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the blob.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_add_blob_operation.png" title="Configuring upload blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-11. Create the next API resource, which is `/downloadblob` by dragging and dropping another API resource to the design view. This API resource will retrieve information from the incoming HTTP POST request such as the container name and blob name and download from Microsoft Azure Storage.
+11. Follow the same steps to create the next API resource, `/downloadblob`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and download from Microsoft Azure Storage.
 
-12. Next drag and drop the ‘downloadBlob’ operation of the Microsoft Azure Storage Connector to the Design View. In the properties view, select the already created connection as 'Connection' from the drop down menu and provide the following expressions to the below properties,
+12. Next, add the `downloadBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
 
-13. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the downloadBlob operation.
+13. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `downloadBlob` operation.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_blob_download_operation.png" title="Configuring download blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-14. Create the next API resource, which is `/deleteblob` by dragging and dropping another API resource to the design view. This API resource will retrieve information from the incoming HTTP POST request such as the container name and blob name and delete the blob from Microsoft Azure Storage.
+14. Follow the same steps to create the next API resource, `/deleteblob`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and delete the blob from Microsoft Azure Storage.
 
-15. Next drag and drop the ‘deleteBlob’ operation of the Microsoft Azure Storage Connector to the Design View. In the properties view, select the already created connection as 'Connection' from the drop down menu and provide the following expressions to the below properties,
+15. Next, add the `deleteBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
 
-16. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the deleteBlob operation.
+16. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `deleteBlob` operation.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_blob_delete_operation.png" title="Configuring delete blob operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-17. Create the next API resource, which is `/listmetadata` by dragging and dropping another API resource to the design view. This API resource will retrieve information from the incoming HTTP POST request such as the container name and blob name and retrieve the metadata of the blob from Microsoft Azure Storage.
+17. Follow the same steps to create the next API resource, `/listmetadata`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name and blob name, and retrieve the metadata of the blob from Microsoft Azure Storage.
 
-18. Next drag and drop the ‘listMetadata’ operation of the Microsoft Azure Storage Connector to the Design View. In the properties view, select the already created connection as 'Connection' from the drop down menu and provide the following expressions to the below properties,
+18. Next, add the `listMetadata` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
-    - Blob name - json-eval($.fileName)
+    - **Container Name** - json-eval($.containerName)
+    - **Blob name** - json-eval($.fileName)
 
-19. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the listMetadata operation.
+19. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `listMetadata` operation.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_list_metadata_operation.png" title="Configuring list metadata operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-20. Create the next API resource, which is `/deletecontainer` by dragging and dropping another API resource to the design view. This API resource will retrieve information from the incoming HTTP POST request such as the container name and delete the container from Microsoft Azure Storage.
+20. Follow the same steps to create the next API resource, `/deletecontainer`. This API resource will retrieve information from the incoming HTTP POST request, such as the container name, and delete the container from Microsoft Azure Storage.
 
-21. Next drag and drop the ‘deleteContainer’ operation of the Microsoft Azure Storage Connector to the Design View. In the properties view, select the already created connection as 'Connection' from the drop down menu and provide the following expressions to the below properties,
+21. Next, add the `deleteContainer` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - Container Name - json-eval($.containerName)
+    - **Container Name** - json-eval($.containerName)
 
-22. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the deleteContainer operation.
+22. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `deleteContainer` operation.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_delete_container_operation.png" title="Configuring delete container operation" width="800" alt="Microsoft Azure Storage use case"/>
 
-23. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
+23. You can find the complete API XML configuration below. You can go to the source view (by clicking the `</>` icon on the top right corner) and copy-paste the following configuration.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -131,7 +135,6 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
             </msazurestorage.createContainer>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
     <resource methods="POST" uri-template="/addblob">
@@ -145,7 +148,6 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
             </msazurestorage.uploadBlob>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
     <resource methods="POST" uri-template="/downloadblob">
@@ -156,7 +158,6 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
             </msazurestorage.downloadBlob>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
     <resource methods="POST" uri-template="/deleteblob">
@@ -167,7 +168,6 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
             </msazurestorage.deleteBlob>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
     <resource methods="POST" uri-template="/listmetadata">
@@ -178,7 +178,6 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
             </msazurestorage.listMetadata>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
     <resource methods="POST" uri-template="/deletecontainer">
@@ -188,17 +187,10 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
             </msazurestorage.deleteContainer>
             <respond/>
         </inSequence>
-        <outSequence/>
         <faultSequence/>
     </resource>
 </api>
 ```
-
-Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
-
-{!includes/reference/connectors/exporting-artifacts.md!}
-
-Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
 ## Get the project
 
@@ -216,19 +208,9 @@ You can download the ZIP file and extract the contents to get the project code.
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
 **Deploying on Micro Integrator**
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-
-## Testing
+## Test
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 

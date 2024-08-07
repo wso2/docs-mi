@@ -1,34 +1,34 @@
 # Developing Integration Solutions
 
-The contents on this page will walk you through the topics related to developing integration solutions using WSO2 Integration Studio.
+The contents on this page will walk you through the topics related to developing integration solutions using WSO2 Micro Integrator extension for Visual Studio Code: MI for VS Code.
 
-## WSO2 Integration Studio
+## Micro Integrator for Visual Studio Code (MI for VS Code)
 
-WSO2 Integration Studio is the comprehensive developer tool, which you will use to <b>develop</b>, <b>build</b>, and <b>test</b> your integration solutions before the solutions are pushed to your production environments. See the topics given below for details.
+MI for VS Code is the comprehensive developer tool, which you will use to <b>develop</b>, <b>build</b>, and <b>test</b> your integration solutions before the solutions are pushed to your production environments. See the topics given below for details.
 
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/develop/wso2-integration-studio">Quick Tour of WSO2 Integration Studio</a>
+            <a href="{{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/">Overview of MI for VS Code extension</a>
         </td>
         <td>
-            Get introduced to the main functions of WSO2 Integration Studio.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/develop/installing-wso2-integration-studio">Installing WSO2 Integration Studio</a>
-        </td>
-        <td>
-            Find the instructions on how to download and install the tool on your operating system.
+            Get introduced to the main functions of MI for VS Code.
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/develop/troubleshooting-wso2-integration-studio">Troubleshooting WSO2 Integration Studio</a>
+            <a href="{{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode">Installing MI for VS Code extension</a>
         </td>
         <td>
-            Find details on how to troubleshoot errors you might encounter as you use WSO2 Integration Studio.
+            Find the instructions on how to download and install the MI for VS Code on your operating system.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{base_path}}/develop/mi-for-vscode/troubleshooting-mi-for-vscode">Troubleshooting MI for VS Code extension</a>
+        </td>
+        <td>
+            Find details on how to troubleshoot errors you might encounter as you use MI for VS Code.
         </td>
     </tr>
 </table>
@@ -41,38 +41,11 @@ Integration developers will follow the workflow illustrated by the following dia
 
 ### Set up the workspace
 
-To start developing integration solutions, you need to first <a href="{{base_path}}/develop/installing-wso2-integration-studio">install and set up WSO2 Integration Studio</a>.
+To start developing integration solutions, you need to first <a href="{{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/">install and set up Mico Integrator VS Code extension</a>.
 
 ### Develop
 
--   Create projects and modules
-
-    <table>
-        <tr>
-            <td>
-                <a href="{{base_path}}/develop/create-integration-project/#integration-project">Create an Integration project</a>
-            </td>
-            <td>
-                An integration project is a maven multi module project that will include all the modules (sub projects) of your integration solution.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{base_path}}/develop/create-integration-project/#sub-projects">Add sub projects to Integration project</a>
-            </td>
-            <td>
-                Once you have created an integration project, you can add new sub projects if required.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{base_path}}/develop/create-integration-project/#moving-sub-projects-to-mmm-project">Move sub projects to Integration project</a>
-            </td>
-            <td>
-                You can move sub projects to the required integration project from any location in the workspace.
-            </td>
-        </tr>
-    </table>
+-   <a href="{{base_path}}/develop/create-integration-project/#integration-project">Create an Integration project</a>: An integration project will include all the artifacts of your integration solution.
 
 -   Create artifacts
 
@@ -236,12 +209,6 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                     <li>
                         Deploy on a <a href="{{base_path}}/develop/using-remote-micro-integrator">Remote Micro Integrator</a>
                     </li>
-                    <li>
-                        Deploy on <a href="{{base_path}}/develop/create-docker-project">Docker</a>
-                    </li>
-                    <li>
-                        Deploy on <a href="{{base_path}}/develop/create-kubernetes-project">Kubernetes</a>
-                    </li>
                 </ul>
             </td>
         </tr>
@@ -249,7 +216,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
 
 3.  <a href="{{base_path}}/develop/creating-unit-test-suite/#run-unit-test-suites">Unit Tests</a>
 
-    Use the <b>integration test suite</b> of WSO2 Integration Studio to run unit tests on the developed integration solution.
+    Use the <b>integration test suite</b> of MI for VS Code to run unit tests on the developed integration solution.
 
 ### Iterate and improve
 
@@ -261,7 +228,7 @@ As you build and run the integration flow, you may identify errors that need to 
             Debug Mediations
         </td>
         <td>
-            Use the <a href="{{base_path}}/develop/debugging-mediation">Mediation Debug</a> function in WSO2 Integration Studio to debug errors while you develop the integration solutions.
+            Use the <a href="{{base_path}}/develop/debugging-mediation">Mediation Debug</a> function in MI for VS Code to debug errors while you develop the integration solutions.
         </td>
     </tr>
     <tr>
@@ -288,11 +255,11 @@ As you build and run the integration flow, you may identify errors that need to 
 You must redeploy the integration artifacts after applying changes.
 
 -   If you are testing on a VM, the artifacts will be instantly deployed when you <a href="{{base_path}}/develop/deploy-artifacts">redeploy the synapse artifacts</a>.
--   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/create-docker-project">Docker images</a> or <a href="{{base_path}}/develop/create-kubernetes-project">Kubernetes artifacts</a>.
+-   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/deploy-artifacts/#build-docker-image">Docker images</a>.
 
 ### Push to production
 
-It is recommended to use a <b>CICD pipeline</b> to deploy your tested integration solutions in the production environment.
+It is recommended to use a <b>CI/CD pipeline</b> to deploy your tested integration solutions in the production environment.
 
 <table>
     <tr>
@@ -300,15 +267,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
             <b>On-Premise Environment</b>
         </td>
         <td>
-            You can easily push your integration solutions to a CICD pipeline because the developer tool (WSO2 Integration Studio) consists of Maven support. See the details on <a href="{{base_path}}/develop/create-integration-project">Integration Project</a>.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b>Kubernetes Environment</b>
-        </td>
-        <td>
-            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/deployment/mi-cicd-k8s"> Kubernetes CICD pipeline</a>.
+            You can easily push your integration solutions to a CI/CD pipeline.
         </td>
     </tr>
 </table>

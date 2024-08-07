@@ -70,9 +70,9 @@ The Grafana based observability solution and basic observability solution are su
 
 You can monitor and manage various artifacts that you have deployed. The following are the options that enable you to do this.
 
-- **[Micro Integrator Dashboard](working-with-monitoring-dashboard.md)**: Allows you to perform administration tasks related to your Micro Integrator deployment.
-- **[Managing Integrations with apictl](managing-integrations-with-apictl.md)**: Allows you to perform various management and administration tasks from the command line.
-- **[Using the Management API](working-with-management-api.md)**: The Micro Integrator CLI and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API.
+- **[Integration Control Plane](working-with-integration-control-plane.md)**: Allows you to perform administration tasks related to your Micro Integrator deployment.
+- **[Managing Integrations with MI CLI](managing-integrations-with-micli.md)**: Allows you to perform various management and administration tasks from the command line.
+- **[Using the Management API](working-with-management-api.md)**: The Micro Integrator CLI and the Integration Control Plane communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the ICP or the CLI, you can directly access the resources of the management API.
 
 ## Integration with external tools
 

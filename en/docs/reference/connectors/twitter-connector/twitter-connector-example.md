@@ -8,28 +8,28 @@ In this guide, you will build a project to perform the following operation.
 
 * Create a Tweet.
 
-     The user sends the request payload that includes the necessary parameters for a Tweet, to create a New Tweet in Twitter. This request is sent to the integration runtime by invoking the Twitter connector API. 
+     The user sends the request payload that includes the necessary parameters for a Tweet, to create a new Tweet in Twitter. This request is sent to the integration runtime by invoking the Twitter connector API. 
 
 <center><img src="{{base_path}}/assets/img/integrate/connectors/twitter-connector-store.png" title="Using Twitter Rest Connector" width="200" alt="Using Twitter Rest Connector"/></center>
 
 The user calls the Twitter REST API. It invokes the **createTweet** sequence and creates a new Tweet on Twitter.
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
+1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
 
-2. Right-click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/twitter-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-3. Follow these steps to [configure the Twitter API]({{base_path}}/reference/connectors/twitter-connector/twitter-connector-credentials/) and obtain the Client Id, Access Token and Refresh Token. 
+2. Follow these steps to [configure the Twitter API]({{base_path}}/reference/connectors/twitter-connector/twitter-connector-credentials/) and obtain the Client Id, Access Token and Refresh Token.
 
 4. Provide the API name as **createTweet**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/createtweet" name="createTweet" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="POST">
+    <resource methods="POST" uri-template="/">
         <inSequence>
             <property expression="json-eval($.clientId)" name="clientId"/>
             <property expression="json-eval($.accessToken)" name="accessToken"/>
@@ -48,16 +48,14 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             </twitter.createTweet>
             <respond/>
         </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
         <faultSequence/>
     </resource>
 </api>
 ```
 
-5. Follow these steps to export the artifacts. 
-{!includes/reference/connectors/exporting-artifacts.md!}
+## Export integration logic as a carbon application
+
+To export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
 
 ## Get the project
 
@@ -67,29 +65,17 @@ You can download the ZIP file and extract the contents to get the project code.
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
-
 ## Deployment
 
 !!! attention
-        Before deploying you will have to configure runtime. If you have not followed the [Configuring Integration Runtime]({{base_path}}/reference/connectors/twitter-connector/twitter-connector-configuration/) guide, please follow it before deploying the CApp.
+        Before deploying, you will have to configure runtime. If you have not followed the [Configuring Integration Runtime]({{base_path}}/reference/connectors/twitter-connector/twitter-connector-configuration/) guide, please follow it before deploying the CApp.
 
-Follow these steps to deploy the exported CApp in the integration runtime.<br>
+To deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-**Deploying on Micro Integrator**
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
-
-## Testing
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+## Test
+Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 ```
 curl --location 'http://<HOST_NAME>:<PORT>/createtweet' \
@@ -102,10 +88,10 @@ curl --location 'http://<HOST_NAME>:<PORT>/createtweet' \
    "poll": {"options": ["yes", "maybe", "no"], "duration_minutes": 120}
 }'
 ```
-If you are using MI 4.2.0 in your local environment without configuring, `<HOST_NAME> = localhost` and `<PORT> = 8290`.
-```
+If you are using MI 4.2.0 and above in your local environment without configuring, `<HOST_NAME> = localhost` and `<PORT> = 8290`.
 
-A response simillar to following will be received.
+A response similar to the following will be received.
+
 ```json
 {
    "data": {
@@ -118,6 +104,6 @@ A response simillar to following will be received.
 }
 ```
 
-## What's Next
+## What's next
 
 * To explore further the Twitter connector operations, see [Twitter Connector Reference]({{base_path}}/reference/connectors/twitter-connector/twitter-connector-reference/) documentation.

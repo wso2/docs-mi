@@ -616,7 +616,7 @@ You can customize the format of this access log by changing the following proper
 
 ## Updating the Log4j2 Log level
 
-You can <b>dynamically</b> update the log level for a specific logger by using the Micro Integrator [dashboard](#viewing-logs-via-the-dashboard) or [CLI](#viewing-logs-via-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the dashboard or CLI), the Micro Integrator needs to be restarted for the changes to become effective.
+You can <b>dynamically</b> update the log level for a specific logger by using the [Integration Control Plane](#viewing-logs-via-the-integration-control-plane) or [CLI](#viewing-logs-via-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the ICP or CLI), the Micro Integrator needs to be restarted for the changes to become effective.
 
 ??? Info "Log Levels"
     The following table explains the log4j2 log levels you can use. Refer <b>Log4j2 documentation</b> for more information.
@@ -631,20 +631,20 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
     | DEBUG | Provides detailed information on the flow through the system. This information is expected to be written to logs only. Generally, most lines logged by your application should be written as DEBUG logs.                                                                        |
     | TRACE | Provides additional details on the behavior of events and services. This information is expected to be written to logs only.                                                                                                                                                    |
 
-### Viewing logs via the dashboard
+### Viewing logs via the integration control plane
 
-1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard).
+1.  Sign in to the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
 2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Logging Management</b> window.
 
-    <img alt="change log level from dashboard" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/change-log-level-dashboard.png">
+    <img alt="change log level from ICP" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/change-log-level-dashboard.png">
 
 3.  Use the <b>Search</b> option to find the required logger, and change the log level as shown above.
 
 ### Viewing logs via the CLI
 
-1.  Download and set up the [API Controller]({{base_path}}/observe-and-manage/managing-integrations-with-apictl/#download-and-initialize-the-apictl).
+1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
 
-2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with apictl]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 
 ## Updating the threshold Level
