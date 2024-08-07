@@ -35,7 +35,7 @@ In this example, stockquote requests are placed to the stockquote proxy service,
                <property name="FORCE_SC_ACCEPTED"  value="true"  scope="axis2"  type="STRING"/>
                <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
                <log level="custom">
-                <property name="MESSAGE" value="OUT SEQENCE CALLED"/>
+                <property name="MESSAGE" value="Message sent to MSMQ server"/>
                </log>
                <respond/>
             </inSequence>
