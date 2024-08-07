@@ -200,7 +200,7 @@ You can now start configuring the API resource.
         </tr>
       <tr>
          <td>Property Name</td>
-         <td><code>GetHospital</code></td>
+         <td><code>Hospital</code></td>
       </tr>
       <tr>
          <td>Property Action</td>
