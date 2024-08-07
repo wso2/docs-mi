@@ -30,7 +30,7 @@ Follow these steps to set up the Integration Project using the WSO2 Micro Integr
 
 ### Create the integration logic 
 
-First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)  steps to obtain the `Client ID`, `Client Secret`, `Access Token`, and `Refresh Token`. 
+First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/) steps to obtain the `Client ID`, `Client Secret`, `Access Token`, and `Refresh Token`. 
 
 #### Create the API
 
@@ -84,7 +84,6 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
               </iterate>
               <respond/>
           </inSequence>
-          <outSequence/>
           <faultSequence/>
         </resource>
         </api>
