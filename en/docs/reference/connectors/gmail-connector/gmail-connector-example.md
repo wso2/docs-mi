@@ -42,7 +42,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
 
     <img src="{{base_path}}/assets/img/integrate/connectors/gmail-add-mediator.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-3. To add the Gmail init function under the API, click on `Connectors`, select the `Gmail` connector, and choose the `init` function.
+3. To add the Gmail `init` function under the API, click on `Connectors`, select the `Gmail` connector, and choose the `init` function.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/gmail-add-connector.png" title="Adding an init function" width="500" alt="Adding a Rest API"/>
 
