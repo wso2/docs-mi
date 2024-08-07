@@ -11,15 +11,15 @@ The Pipes and Filters EIP breaks down a large task into smaller subsets of indep
 
 ## Sample scenario
 
-The example scenario depicts how a stock quote request is sent from a client to a service (Stock Quote Service). The request is first received by the ESB profile, which transmits the request through the following filters:
+The example scenario depicts how a stock quote request is sent from a client to a service (Stock Quote Service). The request is first received by the WSO2 MI, which transmits the request through the following filters:
 
 * Check Username filter: to verify the username.
 * Check User ID filter: to verify the user ID.
 
 !!! note
-    Filter Mediators are used in the ESB, to verify the validity of the message (checking the username and user ID).
+    Filter Mediators are used in the service to verify the validity of the message (checking the username and user ID).
 
-If the message meets the criteria of the first filter, it passes to the second filter. Once it passes the second filter, the ESB sends the stock quote request to the back-end service (Stock Quote Service) for processing.
+If the message meets the criteria of the first filter, it passes to the second filter. Once it passes the second filter, the service sends the stock quote request to the back-end service (Stock Quote Service) for processing.
 
 ![Pipes and filters]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.png)
 
