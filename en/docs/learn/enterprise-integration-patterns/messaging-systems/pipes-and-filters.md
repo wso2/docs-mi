@@ -19,7 +19,7 @@ The example scenario depicts how a stock quote request is sent from a client to 
 !!! note
     Filter Mediators are used in the ESB, to verify the validity of the message (checking the username and user ID).
 
-If the message meets the criteria of the first filter, it will be passed to the second filter. Once the request successfully passes through the second filter (i.e., the filtering criteria are fulfilled), the ESB sends the stock quote request to the back-end service (Stock Quote Service) for processing.
+If the message meets the criteria of the first filter, it passes to the second filter. Once it passes the second filter, the ESB sends the stock quote request to the back-end service (Stock Quote Service) for processing.
 
 ![Pipes and filters]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.png)
 
