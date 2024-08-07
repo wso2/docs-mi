@@ -146,7 +146,7 @@ You can get the source code of the connector and remotely debug it with your sce
 
 Start the server with `./integrator.sh -debug <port>` and connect to that port from your IDE (IntelliJ IDEA). 
 
-## Report an Issue
+## Report an issue
 
 Click on the **Report Issue** button on the connector store page for the connector. You will get diverted to the GitHub repository of the connector. Please report your issues there. 
 
