@@ -12,7 +12,7 @@ From time to time there are new connector versions released. These new versions 
 
 ### Importing connectors 
 
-All the connectors are hosted in the [Integration Connector Store](https://store-v2.wso2.com/?page=1&product=MI+Connector). You can download the connector from the store as a .zip file. 
+All the connectors are hosted in the [Integration Connector Store](https://store.wso2.com/?page=1&product=MI+Connector). You can download the connector from the store as a .zip file. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/connector-store.jpg" title="Connector store" width="700" alt="Connector store"/>
 
