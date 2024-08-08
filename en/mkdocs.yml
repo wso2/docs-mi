@@ -384,7 +384,7 @@ nav:
           - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
           - Create a New Connector: develop/customizations/creating-new-connector.md
           - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
-      - Exporting Artifacts: develop/exporting-artifacts.md
+
       - Securing Artifacts:
           - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
           - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
@@ -992,9 +992,10 @@ plugins:
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
               'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
-              
+
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
