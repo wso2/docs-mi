@@ -48,7 +48,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/connectors.png" title="Available connectors" width="500" alt="Available connectors"/>
     
-    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/add-new-connection.png" title="Add new connection" width="500" alt="Add new connection"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/add-new-connection1.png" title="Add new connection" width="500" alt="Add new connection"/>
 
 
     The created connection is saved as a **Local Entry** as below.
