@@ -14,7 +14,7 @@ To see the BigQuery Connector, navigate to the [connector store](https://store.w
 
 For older versions, see the details in the connector store.
 
-## BigQuery Connector Documentation
+## BigQuery connector documentation
 
 * **[BigQuery Connector Example]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-example/)**: This example demonstrates how to work with the BigQuery Connector. 
 

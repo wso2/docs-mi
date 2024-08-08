@@ -67,6 +67,87 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
 ---
 
+### Config
+
+??? note "passwordLogin"
+    The passwordLogin operation establishes a connection to Gmail using SASL (Simple Authentication and Security Layer) authentication. 
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>E-mail address of the user.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Password of the user.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <gmail.passwordLogin>
+        <username>{$ctx:username}</username>
+        <password>{$ctx:password}</password>
+    </gmail.passwordLogin>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "username":"asha@gmail.com"
+        "password":"asha123"
+    }
+    ```
+
+??? note "getAccessTokenFromRefreshToken"
+    The getAccessTokenFromRefreshToken operation generates the  new access token from the refresh token.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>clientId of your App, given by google console when you registered your application.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>clientSecret of your App, given by google console when you registered your application.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>refreshToken</td>
+            <td>Refresh token to exchange with an access token.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    </gmail.getAccessTokenFromRefreshToken>
+    ```
+
+??? note "endSession"
+    The endSession operation terminates the authenticated IMAP and SMTP connections with Gmail.
+
+    **Sample configuration**
+
+    ```xml
+    </gmail.endSession>
+    ```
+
+
 ### Drafts
 
 ??? note "listDrafts"
@@ -1112,7 +1193,38 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### User History
+??? note "deleteThreads"
+    The deleteThreads operation deletes the specified thread. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/threads/delete) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+        <td>id</td>
+            <td>The ID of the thread to delete.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <gmail.deleteThreads>
+        <id>{$ctx:id}</id>
+    </gmail.deleteThreads>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "id":"14b31c7af7b778f4"
+    }
+    ```
+
+### User history
 
 ??? note "listTheHistory"
     The listTheHistory operation lists the history of changes to the user's mailbox. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/history/list) for more information.
@@ -1160,7 +1272,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### User Profiles
+### User profiles
 
 ??? note "getUserProfile"
     The getUserProfile operation lists all details about the user's profile. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/getProfile) for more information.
@@ -1209,10 +1321,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listDrafts>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1254,10 +1362,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.readLabel>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1305,10 +1409,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listAllMails>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1356,10 +1456,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listAllThreads>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1405,10 +1501,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             </gmail.listTheHistory>
             <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -1445,10 +1537,6 @@ The following is a sample proxy service that illustrates how to connect to Gmail
                  <gmail.getUserProfile/>
              <respond/>
         </inSequence>
-        <outSequence>
-            <log/>
-            <send/>
-        </outSequence>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>

@@ -9,26 +9,26 @@ This example demonstrates on how to use the LDAP connector to create and read LD
 
 This will have 2 API resources, `create`, `search`.
 
-todo : add an image
+* `/create`: This will create a new LDAP entry in the LDAP server.
 
-* `/create` : This will create a new LDAP entry in the LDAP server.
-
-* `/search` : This will performs a search for one or more LDAP entities with the specified search keys.
+* `/search`: This will perform a search for one or more LDAP entities with the specified search keys.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Configure the connector in WSO2 Integration Studio
+## Set up the integration project
 
-Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap/) if you need to setup an LDAP and try this out. 
+Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap/) if you need to set up an LDAP and try this out. 
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+## Create the integration logic
 
-1. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. 
-   
-2. Provide the API name as `college_student_api` and the API context as `/student`. You can go to the source view of the 
-xml configuration file of the API and copy the following configuration. 
+1. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/create-api.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/create-api.png" alt="add property" width="80%"></a>
+
+2. Provide the API name as `college_student_api` and the API context as `/student` and Click **Create**. You can go to the source view of the xml configuration file of the API and copy the following configuration and save. 
+   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/source-view.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/source-view.png" alt="add property" width="80%"></a>
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/student" name="college_student_api" xmlns="http://ws.apache.org/ns/synapse">
@@ -37,80 +37,92 @@ xml configuration file of the API and copy the following configuration.
                 <sequence key="init_sequence"/>
                 <sequence key="add_student_sequence"/>
             </inSequence>
-            <outSequence/>
-            <faultSequence/>
         </resource>
         <resource methods="POST" url-mapping="/search">
             <inSequence>
                 <sequence key="init_sequence"/>
                 <sequence key="search_student_sequence"/>
             </inSequence>
-            <outSequence/>
-            <faultSequence/>
         </resource>
     </api>
     ```
    
-3. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the following 
-sequences.
+3. Hover over **Sequence** and click the **+** icon that appears to open the **Sequence Form**.
+   
+4. Provide Sequence name as `init_sequence`.
+   
+5. Click the created sequence form **MI Overview**.
+   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png" alt="add property" width="80%"></a>
 
-    * init_sequence - `<ldap.init>` element authenticates with the LDAP server in order to gain access to perform various 
-    LDAP operations.
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="init_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-            <property expression="json-eval($.secureConnection)" name="secureConnection" scope="default" type="STRING"/>
-            <property expression="json-eval($.disableSSLCertificateChecking)" name="disableSSLCertificateChecking" scope="default" type="STRING"/>
-            <property expression="json-eval($.providerUrl)" name="providerUrl" scope="default" type="STRING"/>
-            <property expression="json-eval($.securityPrincipal)" name="securityPrincipal" scope="default" type="STRING"/>
-            <property expression="json-eval($.securityCredentials)" name="securityCredentials" scope="default" type="STRING"/>
-            <ldap.init>
-                <providerUrl>{$ctx:providerUrl}</providerUrl>
-                <securityPrincipal>{$ctx:securityPrincipal}</securityPrincipal>
-                <securityCredentials>{$ctx:securityCredentials}</securityCredentials>
-                <secureConnection>{$ctx:secureConnection}</secureConnection>
-                <disableSSLCertificateChecking>{$ctx:disableSSLCertificateChecking}</disableSSLCertificateChecking>
-            </ldap.init>
-        </sequence>
-        ```
+6. Click the **+** icon to add the first mediator to the sequence.
+   
+7. Search `ldap` in **Connector** panel and Click **Ldap** Connector
+    <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png" alt="add property" width="80%"></a>
+   
+8. Click **Init** operation. Then click **Submit**.
+   
+    !!! Info 
+        `<ldap.init>` element authenticates with the LDAP server to gain access to perform various LDAP operations.
 
-    * add_student_sequence - `<ldap.addEntry>` element creates a new LDAP entry in the LDAP server
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="add_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-            <property expression="json-eval($.content.objectClass)" name="objectClass" scope="default" type="STRING"/>
-            <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
-            <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
-            <ldap.addEntry>
-                <objectClass>{$ctx:objectClass}</objectClass>
-                <attributes>{$ctx:attributes}</attributes>
-                <dn>{$ctx:dn}</dn>
-            </ldap.addEntry>
-            <respond/>
-        </sequence>
-        ```
+9.  You can go to the source view of the xml configuration file of the Sequence and copy the following configuration.   
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="init_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property expression="json-eval($.secureConnection)" name="secureConnection" scope="default" type="STRING"/>
+        <property expression="json-eval($.disableSSLCertificateChecking)" name="disableSSLCertificateChecking" scope="default" type="STRING"/>
+        <property expression="json-eval($.providerUrl)" name="providerUrl" scope="default" type="STRING"/>
+        <property expression="json-eval($.securityPrincipal)" name="securityPrincipal" scope="default" type="STRING"/>
+        <property expression="json-eval($.securityCredentials)" name="securityCredentials" scope="default" type="STRING"/>
+        <ldap.init>
+            <providerUrl>{$ctx:providerUrl}</providerUrl>
+            <securityPrincipal>{$ctx:securityPrincipal}</securityPrincipal>
+            <securityCredentials>{$ctx:securityCredentials}</securityCredentials>
+            <secureConnection>{$ctx:secureConnection}</secureConnection>
+            <disableSSLCertificateChecking>{$ctx:disableSSLCertificateChecking}</disableSSLCertificateChecking>
+        </ldap.init>
+    </sequence>
+    ```
+
+10. Create another sequence named `add_student_sequence`. You can go to the source view of the xml configuration file of the Sequence and copy the following configuration.  
+    
+    !!! Info
+        `<ldap.addEntry>` element creates a new LDAP entry in the LDAP server
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="add_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property expression="json-eval($.content.objectClass)" name="objectClass" scope="default" type="STRING"/>
+        <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
+        <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
+        <ldap.addEntry>
+            <objectClass>{$ctx:objectClass}</objectClass>
+            <attributes>{$ctx:attributes}</attributes>
+            <dn>{$ctx:dn}</dn>
+        </ldap.addEntry>
+        <respond/>
+    </sequence>
+    ```
       
-    * search_student_sequence - `<ldap.searchEntry>` element search for one or more LDAP entities based on the specified 
-    search keys.
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="search_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-            <property expression="json-eval($.content.objectClass)" name="objectClass" scope="default" type="STRING"/>
-            <property expression="json-eval($.content.filters)" name="filters" scope="default" type="STRING"/>
-            <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
-            <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
-            <ldap.searchEntry>
-                <objectClass>{$ctx:objectClass}</objectClass>
-                <limit>1000</limit>
-                <filters>{$ctx:filters}</filters>
-                <dn>{$ctx:dn}</dn>
-                <attributes>{$ctx:attributes}</attributes>
-            </ldap.searchEntry>
-            <respond/>
-        </sequence>
-        ```
-
-{!includes/reference/connectors/exporting-artifacts.md!}
+11. Create another sequence named `search_student_sequence`. You can go to the source view of the xml configuration file of the Sequence and copy the following configuration.  
+    
+    !!! Info
+        `<ldap.searchEntry>` element searches for one or more LDAP entities based on the specified search keys.
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="search_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property expression="json-eval($.content.objectClass)" name="objectClass" scope="default" type="STRING"/>
+        <property expression="json-eval($.content.filters)" name="filters" scope="default" type="STRING"/>
+        <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
+        <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
+        <ldap.searchEntry>
+            <objectClass>{$ctx:objectClass}</objectClass>
+            <limit>1000</limit>
+            <filters>{$ctx:filters}</filters>
+            <dn>{$ctx:dn}</dn>
+            <attributes>{$ctx:attributes}</attributes>
+        </ldap.searchEntry>
+        <respond/>
+    </sequence>
+    ```
 
 ## Get the project
 
@@ -121,27 +133,15 @@ You can download the ZIP file and extract the contents to get the project code.
 </a>
 
 ## Deployment
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
-
-**Deploying on Micro Integrator**
-
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
-
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
-
-    3. You can see that the API is deployed under the API section. 
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ## Testing
 
 ### Create an entry in ldap server
 
-1. Create a file named student_data.json with following sample payload.
+1. Create a file named student_data.json with the following sample payload.
     ```json
         { 
           "providerUrl":"ldap://localhost:10389/",
@@ -150,7 +150,7 @@ You can further refer the application deployed through the CLI tool. See the ins
           "secureConnection":"false",
           "disableSSLCertificateChecking":"false",
           "content":{ 
-             "objectClass":"identityPerson",
+             "objectClass":"inetOrgPerson",
              "dn":"uid=triss.merigold,ou=Users,dc=wso2,dc=org",
              "attributes":{ 
                 "mail":"triss@wso2.com",
@@ -171,7 +171,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 **Expected Response**: 
 1. You should get a 'Success' response. 
 2. Open Apache Directory Studio and category DIT (Directory Information Tree) shows the hierarchical content of the 
-directory. Expand, collapse the tree and you will see the new entries. Select the entry and you will see it's attributes 
+directory. Expand, and collapse the tree and you will see the new entries. Select the entry and you will see its attributes 
 and values on Entry Editor.
     ![image]({{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector-directory-studio-view.png)
 
@@ -188,7 +188,7 @@ and values on Entry Editor.
             "application": "ldap",
             "operation": "searchEntity",
             "content": {
-                "objectClass": "identityPerson",
+                "objectClass": "inetOrgPerson",
                 "filters": {
                     "manager": "cn=geralt,ou=Groups,dc=example,dc=com"
                 },
