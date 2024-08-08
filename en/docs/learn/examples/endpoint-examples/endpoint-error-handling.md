@@ -32,25 +32,22 @@ Following is a sample REST API configuration that we can used to implement this 
    <resource methods="GET">
       <inSequence>
          <call>
-            <endpoint name="Sample_First" statistics="enable" >
+            <endpoint name="Sample_First">
                 <address uri="http://localhost:123/myendpoint" statistics="enable" trace="disable">
                     <timeout>
                         <duration>60000</duration>
                     </timeout>
-            
-                    <markForSuspension>
-                        <errorCodes>101504, 101505</errorCodes>
-                        <retriesBeforeSuspension>3</retriesBeforeSuspension>
-                        <retryDelay>1</retryDelay>
-                    </markForSuspension>
-            
                     <suspendOnFailure>
                         <errorCodes>101500, 101501, 101506, 101507, 101508</errorCodes>
                         <initialDuration>1000</initialDuration>
                         <progressionFactor>2</progressionFactor>
                         <maximumDuration>60000</maximumDuration>
                     </suspendOnFailure>
-            
+                    <markForSuspension>
+                        <errorCodes>101504, 101505</errorCodes>
+                        <retriesBeforeSuspension>3</retriesBeforeSuspension>
+                        <retryDelay>1</retryDelay>
+                    </markForSuspension>
                 </address>
             </endpoint>
          </call>
@@ -109,15 +106,17 @@ Following is a sample REST API configuration that we can used to implement this 
    <resource methods="GET">
       <inSequence>
          <property name="timeout" scope="default" type="INTEGER" value="20000"/>
-		  <send>
-		      <endpoint>
-		          <address uri="http://localhost:123/myendpoint"/>
-		          <timeout>
-		            <duration>{get-property('timeout')}</duration>
-		            <responseAction>discard</responseAction>
-		          </timeout>
-		      </endpoint>
-		  </send>
+          <call>
+              <endpoint>
+                  <address uri="http://localhost:123/myendpoint" statistics="enable" trace="disable">
+                      <timeout>
+                          <duration>{get-property('timeout')}</duration>
+                          <responseAction>discard</responseAction>
+                      </timeout>
+                  </address>
+              </endpoint>
+          </call>
+          <respond/>
       </inSequence>
    </resource>
 </api>
@@ -250,25 +249,28 @@ You can configure the Micro Integrator to enable or disable retry for an endpoin
 
 ### Synapse configuration
 
+In this example, if the error code 101503 occurs when trying to connect to the endpoint, it is not retried.
 ```xml
-<endpoint>
-  <address uri="http://localhost:9001/services/LBService1">
-    <retryConfig>
-      <disabledErrorCodes>101503</disabledErrorCodes>
-    </retryConfig>
-  </address>
-</endpoint>
-<endpoint>
-  <address uri="http://localhost:9002/services/LBService1">
-    <retryConfig>
-      <enabledErrorCodes>101503</enabledErrorCodes>
-    </retryConfig>
-  </address>
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="StopRetryEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+    <address uri="http://localhost:9001/services/LBService1">
+        <retryConfig>
+            <disabledErrorCodes>101503</disabledErrorCodes>
+        </retryConfig>
+    </address>
 </endpoint>
 ```
 
-In this example, if the error code 101503 occurs when trying to connect
-to the first endpoint, the endpoint is not retried, whereas in the
-second endpoint, the endpoint is always retried if error code 101503
-occurs. You can specify enabled or disabled error codes (but not both)
-for a given endpoint.
+In the below example, the endpoint is always retried if error code 101503 occurs.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="RetryEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+    <address uri="http://localhost:9002/services/LBService1">
+        <retryConfig>
+            <enabledErrorCodes>101503</enabledErrorCodes>
+        </retryConfig>
+    </address>
+</endpoint>
+```
+
+You can specify enabled or disabled error codes (but not both) for a given endpoint.
