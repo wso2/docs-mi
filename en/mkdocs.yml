@@ -355,7 +355,7 @@ nav:
           - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
-      - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
+      #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
           - Open Projects: develop/opening-projects.md
@@ -376,7 +376,7 @@ nav:
           - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
           - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
           - Adding Connectors: develop/creating-artifacts/adding-connectors.md
-          - Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+          #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
           - Opening Artifacts: develop/opening-artifacts.md
       - Create Custom Artifacts:
           - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
@@ -992,7 +992,9 @@ plugins:
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
-
+              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
