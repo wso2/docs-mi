@@ -12,7 +12,7 @@ It has a single HTTP API resource, which is `sendToQueue`.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
-## Setting up the environment 
+## Set up the environment 
 
 1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document in order to create an Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.
 
