@@ -1,5 +1,9 @@
 # Message Channels
 
+This page explains how you can implement a sample scenario of Message Channels using WSO2 Micro Integrator.
+
+## Introduction to Message Channels
+
 Message Channels facilitate communication between applications. A sender adds a message to a particular channel, which a receiver can read. Message Channels allow the sender and receiver to synchronize.
 
 !!! info
@@ -7,48 +11,50 @@ Message Channels facilitate communication between applications. A sender adds a 
 
 ## Sample scenario
 
-The sample scenario depicts how a stock inventory is made from a sender application to the receiver application through a Message Channel. The Message Channel retrieves the message content from the sender, and it allows the receiver to read the content through the Message Channel. The diagram below depicts how to simulate the sample scenario using the ESB profile.
+The sample scenario depicts how a stock inventory is made from a sender application to the receiver application through a Message Channel. The Message Channel retrieves the message content from the sender, and it allows the receiver to read the content through the Message Channel. The diagram below depicts how to simulate the sample scenario.
 
 ![Message channels]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-systems/message-channels.png)
 
 ## Synapse configurations of the artifacts
 
-When you unzip the ZIP file you download below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/synapse-config` directory. For more information about these artifacts, go to WSO2 EI Documentation.
+When you unzip the ZIP file you downloaded below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts/` directory. For more information about these artifacts, go to WSO2 MI Documentation.
 
 === "Proxy Service"
-      ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <proxy name="message-channel-proxy" startOnLoad="true" transports="http https"
-          xmlns="http://ws.apache.org/ns/synapse">
-          <target>
-              <inSequence>
-                  <sequence key="message-channel-sequence"/>
-              </inSequence>
-              <outSequence>
-                  <log level="custom">
-                      <property name="sending response to" value="client"/>
-                  </log>
-                  <respond/>
-              </outSequence>
-              <faultSequence/>
-          </target>
-      </proxy>
-      ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="message-channel-proxy" startOnLoad="true" transports="http https"
+        xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <sequence key="message-channel-sequence"/>
+                <log level="custom">
+                    <property name="sending response to" value="client"/>
+                </log>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
 === "Sequence"
-      ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <sequence name="message-channel-sequence" trace="disable"
-          xmlns="http://ws.apache.org/ns/synapse">
-          <log level="custom">
-              <property name="sending request to" value="axis2 server"/>
-          </log>
-          <send>
-              <endpoint>
-                  <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-              </endpoint>
-          </send>
-      </sequence>
-      ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="message-channel-sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <log level="custom">
+            <property name="sending request to" value="axis2 server"/>
+        </log>
+        <call>
+            <endpoint key="SimpleStockQuoteService"/>
+        </call>
+        <respond/>
+    </sequence>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ## Set up the sample scenario
 
@@ -56,59 +62,86 @@ Follow the below instructions to simulate this sample scenario.
 
 {!includes/eip-set-up.md!}
 
-3. Start the backend (SimpleStockQuoteService) service
+3. Set up the back-end service:
 
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2Server/src/SimpleStockQuoteService` directory, and execute the ant command.
+    1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
 
-    For more information on the SimpleStockQuoteService, go to Deploying sample backend services in the WSO2 EI Documentation.
-
-4. Start one Axis2 server instance.
-
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2server` directory, and execute the following commands:
-
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
     === "On Windows"
-          ```
-          axis2server.bat
-          ```
-    === "On Linux/Solaris"
-          ```
-          ./axis2server.sh
-          ```
+        ```bash
+        axis2server.bat
+        ```
 
 5. Download the artifacts of the sample.
 
-    Download the `MessageChannels.zip` file.
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/MessageChannels.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP"></a>
 
-6. Import the artifacts to WSO2 EI.
+6. Import the artifacts to WSO2 MI.
 
-    Click File -> Import -> WSO2 -> Existing WSO2 projects into workspace to import the downloaded ZIP file via WSO2 EI Tooling.
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
 
-7. Start the ESB profile of the WSO2 EI server
+7. Start the project in the WSO2 MI server.
 
-    For instructions, go to Running WSO2 Enterprise Integrator via Tooling in the WSO2 EI Documentation.
+    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
 
-8. Start the Stock Quote Client.
 
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2Client` directory to start the Stock Quote Client application.
+## Execute the sample.
 
-9. Execute the sample.
+Save the following sample request as `payload.xml` in your local file system.
 
-    In the Console tab of the Stock Quote Client, execute the following command:
-
-    ```
-    ant stockquote -Dtrpurl=http://localhost:8280/services/message-channel-proxy
-    ```
-
-## Analysing the output
-
-When you execute the request, the ESB profile first receives the message and then routes it to the back-end service (StockQuoteService). The following output will be printed on the Axis2 Server Console:
-
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+<soapenv:Header/>
+    <soapenv:Body>
+        <ser:getQuote>
+            <ser:request>
+                <ser:symbol>foo</ser:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
-```
-
-The generated stock quote will then be sent to the client application (Stock Quote Client). The following output will be printed on the client application Console:
+Open a terminal, navigate to the location of your `payload.xml` file, and execute the following command. This posts a simple XML request to the Proxy service.
 
 ```
+curl -L -H 'SOAPAction: urn:getQuote' -H 'Content-Type: text/xml' -d @payload.xml 'http://localhost:8290/services/message-channel-proxy'
+```
 
+## Analyze the output
+
+When you execute the request, the proxy service will receive the message and then route it to the back-end service (StockQuoteService). The following generated stock quote response will be received by the client application:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ns:getQuoteResponse xmlns:ns="http://services.samples">
+            <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                <ax21:change>-2.5477449224000654</ax21:change>
+                <ax21:earnings>13.355122817579623</ax21:earnings>
+                <ax21:high>194.61535812737355</ax21:high>
+                <ax21:last>188.53115352495462</ax21:last>
+                <ax21:lastTradeTimestamp>Tue Aug 06 10:52:05 IST 2024</ax21:lastTradeTimestamp>
+                <ax21:low>-187.35545800800978</ax21:low>
+                <ax21:marketCap>5.520155820141873E7</ax21:marketCap>
+                <ax21:name>foo Company</ax21:name>
+                <ax21:open>-184.57395642330587</ax21:open>
+                <ax21:peRatio>23.15252744429442</ax21:peRatio>
+                <ax21:percentageChange>-1.2212285341635047</ax21:percentageChange>
+                <ax21:prevClose>208.62147019396122</ax21:prevClose>
+                <ax21:symbol>foo</ax21:symbol>
+                <ax21:volume>15781</ax21:volume>
+            </ns:return>
+        </ns:getQuoteResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
