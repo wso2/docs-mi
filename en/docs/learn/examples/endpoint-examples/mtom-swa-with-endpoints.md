@@ -27,37 +27,88 @@ in the same format as the original request.
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<sequence name="main">
-    <in>
-        <filter source="get-property('Action')" regex="urn:uploadFileUsingMTOM">
-            <property name="example" value="mtom"/>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/MTOMSwASampleService" optimize="mtom"/>
-                </endpoint>
-            </send>
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="SampleSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <filter regex="urn:uploadFileUsingMTOM" source="get-property('Action')">
+            <then>
+                <property name="example" scope="default" type="STRING" value="mtom"/>
+                <call>
+                    <endpoint key="SwASampleService"/>
+                </call>
+            </then>
+            <else>
+                <filter regex="urn:uploadFileUsingSwA" source="get-property('Action')">
+                    <then>
+                        <property name="example" scope="default" type="STRING" value="swa"/>
+                        <call>
+                            <endpoint key="SwASampleService"/>
+                        </call>
+                    </then>
+                    <else></else>
+                </filter>
+            </else>
         </filter>
-        <filter source="get-property('Action')" regex="urn:uploadFileUsingSwA">
-            <property name="example" value="swa"/>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/MTOMSwASampleService" optimize="swa"/>
-                </endpoint>
-            </send>
+        <filter regex="mtom" source="get-property('example')">
+            <then>
+                <property name="enableMTOM" scope="axis2" type="STRING" value="true"/>
+            </then>
+            <else>
+                <filter regex="swa" source="get-property('example')">
+                    <then>
+                        <property name="enableSwA" scope="axis2" type="STRING" value="true"/>
+                    </then>
+                    <else></else>
+                </filter>
+            </else>
         </filter>
-    </in>
-    <out>
-        <filter source="get-property('example')" regex="mtom">
-            <property name="enableMTOM" value="true" scope="axis2"/>
-        </filter>
-        <filter source="get-property('example')" regex="swa">
-            <property name="enableSwA" value="true" scope="axis2"/>
-        </filter>
-        <send/>
-    </out>
-</sequence>
-```
+        <respond/>
+    </sequence>
+    ```
+=== "Proxy Service"    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SampleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <sequence key="SampleSequence"/>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "MTOM Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="MTOMSampleService" xmlns="http://ws.apache.org/ns/synapse">
+        <address optimize="mtom" uri="http://localhost:9000/services/MTOMSwASampleService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+=== "SwA Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SwASampleService" xmlns="http://ws.apache.org/ns/synapse">
+        <address optimize="swa" uri="http://localhost:9000/services/MTOMSwASampleService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ## Build and run
 
@@ -94,7 +145,7 @@ Create the artifacts:
         ```
 
 3. [Create a project]({{base_path}}/develop/create-integration-project).
-4. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
+4. Create the [sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 When your client executes successfully, it will upload a file containing

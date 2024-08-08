@@ -394,12 +394,12 @@ nav:
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
-          - Hot Deploying Artifacts: develop/hot-deployment.md
+          # - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
           - Generate Docker Images: develop/generate-docker-image.md
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
-          - Use Wire Logs: develop/using-wire-logs.md
+          # - Use Wire Logs: develop/using-wire-logs.md
           - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
           - Endpoint Trace: develop/endpoint-trace-logs.md
@@ -417,7 +417,7 @@ nav:
               - Install MI: install-and-setup/install/installing-mi.md
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
-              - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
+              # - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
           - Install the Integration Control Plane:
               - Install the Ingeration Control Plane: install-and-setup/install/installing-integration-control-plane.md
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
@@ -490,10 +490,10 @@ nav:
               - Integrations on K8s:
                   - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                   - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
-                  - Integration Deployment Samples:
-                      - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
-                      - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
-                      - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
+                  # - Integration Deployment Samples:
+                      # - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                      # - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                      # - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -514,7 +514,7 @@ nav:
       - CI/CD:
           - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
           - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
-          - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
+          # - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
       - Reference:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -550,7 +550,7 @@ nav:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
           - MI Analytics:
-              - Setup: mi-analytics/setting-up-mi-analytics.md
+              # - Setup: mi-analytics/setting-up-mi-analytics.md
               - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
@@ -995,6 +995,14 @@ plugins:
               'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
               'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
+              'develop/using-wire-logs.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/debugging-mediation'
+              'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
+              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/observe-overview'
+              'install-and-setup/install/running-the-mi-in-automation-mode.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installing-mi'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
 
   # Extra
 extra_css:
