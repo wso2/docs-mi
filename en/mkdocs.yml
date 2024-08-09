@@ -595,8 +595,12 @@ nav:
                   - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
           - Amazon SQS Connector:
               - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
-              - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
-              - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md
+              - 2.x:
+                 - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
+                 - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-reference.md
+              - 1.x:
+                   - Amazon SQS Example: reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-example.md
+                   - Amazon SQS Reference: reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-reference.md
               - Amazon SQS Inbound Endpoint Example: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md
               - Amazon SQS Inbound Endpoint Reference:
                   - 1.0.x: reference/connectors/amazonsqs-connector/amazon-inbound-endpoint-1.0.x/amazonsqs-inbound-endpoint-reference-configuration.md
