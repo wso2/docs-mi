@@ -30,11 +30,11 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 3. In this example we use the SimpleStockQuote service backend. Therefore, the SimpleStockQuote service needs to be started. 
 
-## Set up the Integration Project
+## Set up the integration project
 
 {!includes/build-and-run.md!}
 
-## Creating the Integration Logic
+## Create the integration logic
 
 1. First let's create a connection to the Amazon SQS instance. Navigate to **MI Project Explorer** > **Local Entries** > **Connections** and click on the **+** sign next to **Connections** to open the **Add New Connection** view.
 2. Select the **Amazonsqs** connector.
