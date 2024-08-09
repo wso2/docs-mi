@@ -47,8 +47,8 @@ If you do not want to configure this yourself, you can simply [get the project](
        - Region - Region that is used to select a regional endpoint to make requests.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/connectors.png" title="Available connectors" width="500" alt="Available connectors"/>
-    
-    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/add-new-connection1.png" title="Add new connection" width="500" alt="Add new connection"/>
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/create-new-connection.png" title="Add new connection" width="500" alt="Add new connection"/>
 
 
     The created connection is saved as a **Local Entry** as below.
@@ -70,6 +70,7 @@ If you do not want to configure this yourself, you can simply [get the project](
     ```
 
 3. Navigate to **MI Project Explorer** > **Endpoints** and click on the **+** icon next to **Endpoints**.
+
 4. Select **Address Endpoint**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/add-endpoint.png" title="Adding an endpoint" width="800" alt="Adding an endpoint"/>
