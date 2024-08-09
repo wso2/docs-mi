@@ -98,7 +98,7 @@ Follow the below instructions to simulate this sample scenario.
 
 5. Download the artifacts of the sample.
 
-    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/MessageChannels.zip">
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/MessageBridge.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP"></a>
 
 6. Import the artifacts to WSO2 MI.
