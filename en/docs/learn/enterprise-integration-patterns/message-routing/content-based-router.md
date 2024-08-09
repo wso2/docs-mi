@@ -82,7 +82,7 @@ Before digging into implementation details, let's take a look at the relationshi
 Let's explore the elements of the configuration in detail:
 
 - **Proxy Service**: The proxy service receives requests and forwards them to the appropriate back-end service, abstracting the routing logic from the client. The client always sends requests to the exposed service, not directly to the back-end services.
-- **InSequence**: When the service is invoked by the client, the message is received by the inSequence and routed according to the logic defined.
+- **InSequence**: When the client invokes the service, the message receives the inSequence and is routed according to the defined logic.
 - **Switch**: Evaluates the message and filters its content based on the XPath expression.
 - **Case**: The filtered content is matched against a specified regular expression.
 - **Send**: If a matching case is found, the send mediator routes the message to the endpoint specified in the address URI.
