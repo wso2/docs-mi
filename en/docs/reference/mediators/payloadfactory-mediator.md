@@ -11,7 +11,7 @@ You can use two methods to format the payload using this mediator.
     defining complex JSON payloads.
 
 You can provide arguments in the mediator configuration to pass values to your payload during runtime.
-You can specify a static value or use an XPath/JSON expression to pass values dynamically. 
+You can specify a static value or use an XPath/JSON [expression]({{base_path}}/reference/synapse-properties/expressions) to pass values dynamically. 
 The values passed by the arguments are evaluated against the existing 
 message.
 
