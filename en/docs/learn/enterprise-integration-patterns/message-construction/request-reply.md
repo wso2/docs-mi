@@ -1,6 +1,6 @@
 # Request-Reply
 
-This section explains, through an example scenario, how the Request-Reply Message EIP can be implemented using the ESB profile of WSO2 EI.
+This page explains how you can implement a sample scenario of Request-Reply EIP using WSO2 Micro Integrator.
 
 ## Introduction to Request-Reply
 
@@ -14,9 +14,9 @@ The Request-Reply EIP facilitates two-way communication by ensuring that a sende
 
 ## Sample scenario
 
-The example scenario illustrates how a request to a service is made through one channel, and the response from the service is returned to the requester on a separate channel.
+The example scenario illustrates how a request for a service is made through one channel, and the response from the service is returned to the requester on a separate channel.
 
-The diagram below depicts how to simulate the example scenario using the ESB profile.
+The diagram below depicts how to simulate the example scenario.
 
 ![Request reply]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-construction/request-reply.png)
 
@@ -29,53 +29,103 @@ Before digging into implementation details, let's take a look at the relationshi
 | Replier                      | Stock Quote Service Instance              |
 | Reply Channel                | Send, Endpoint                            |
 
-### Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install the ESB profile of WSO2 Enterprise Integrator (EI). For a list of prerequisites and step-by-step installation instructions, go to Installing the Product in WSO2 EI Documentation.
+Given below is the synapse configuration of this sample.
 
-2. Start an instance of Sample Axis2 server. For instructions, go to Starting the Axis2 server in WSO2 EI Documentation.
+=== "Proxy Service"
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <proxy name="RequestReplyProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+      <target>
+         <inSequence>
+            <sequence key="RequestProcessSeq"/>
+            <call>
+               <endpoint key="SimpleStockQuoteServiceEp"/>
+            </call>
+            <sequence key="ResponseProcessSeq"/>
+            <respond/>
+         </inSequence>
+      </target>
+   </proxy>
+   ```
+=== "Request Process Sequence"
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <sequence name="RequestProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+      <header name="Action" xmlns:wsa="http://www.w3.org/2005/08/addressing" action="set" scope="default" value="urn:getQuote"/>
+   </sequence>
+   ```
+=== "Response Process Sequence"
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <sequence name="ResponseProcessSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+      <enrich description="">
+         <source clone="true" type="inline">
+            <ResponseEnvelopeWrapper></ResponseEnvelopeWrapper>
+         </source>
+         <target action="child" type="body"/>
+      </enrich>
+   </sequence>
+   ```
 
-3. Deploy the back-end service `SimpleStockQuoteService`. For instructions on deploying sample back-end services, go to Deploying sample back-end services in WSO2 EI Documentation.
+Let's investigate the elements of the configuration in detail. 
 
-4. Download the `Request-Reply.zip` file.
-
-## ESB configuration
-
-Start the ESB profile and log into its Management Console. For instructions, see Starting the ESB profile in WSO2 EI Documentation.
-
-On the Management Console, navigate to the Main Menu and click Source View in the Service Bus section. Copy and paste the following configuration to the source view. You can now explore the example scenario. 
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
- <definitions xmlns="http://ws.apache.org/ns/synapse">
-  <proxy name="RequestReplyProxy" transports="http https" startOnLoad="true">
-        <target>
-           <inSequence>
-              <send>
-                 <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                 </endpoint>
-              </send>
-           </inSequence>
-           <outSequence>
-              <send/>
-           </outSequence>
-        </target>
-     </proxy>
- </definitions>
-```
+- Request Process Sequence - When a client sends a message, it is picked up by this sequence.
+- Call Mediator -  The call mediator sends the message to the endpoint running on port 9000.
+- Response Process Sequence - The response from the endpoint can be further processed through this sequence. 
+- Respond Mediator - The respond mediator will direct the message back to the requesting client.
 
 ## Set up the sample scenario
 
-Use a SOAP client like SoapUI to invoke the above proxy service. The following image illustrates how a response is generated to a request made by the client.
+Follow the below instructions to simulate this sample scenario.
+
+{!includes/eip-set-up.md!}
+
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+
+4. Extract the downloaded zip file.
+
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+          ``` 
+
+7. Download the artifacts of the sample.
+
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/RequestReply.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+8. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+9. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+
+## Execute the sample
+
+Send the following request to the above proxy service.
 
 ```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples"
-xmlns:xsd="http://services.samples/xsd">
-   <soapenv:Header>
-   </soapenv:Header>
+POST /services/RequestReplyProxy HTTP/1.1
+Host: localhost:8290
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
    <soapenv:Body>
-      <ser:getQuote>
+      <ser:getQuote xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
          <ser:request>
             <xsd:symbol>IBM</xsd:symbol>
          </ser:request>
@@ -84,12 +134,42 @@ xmlns:xsd="http://services.samples/xsd">
 </soapenv:Envelope>
 ```
 
-![Request reply SOAP response]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-construction/request-reply-soap-response.png)
+## Analyze the output
 
-## How the implementation works
+A message similar to the one below appears in the simple axis2server.
+   
+```bash
+Fri Aug 09 00:23:15 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
+```
 
-Let's investigate the elements of the configuration in detail. The line numbers below are mapped with the configuration shown above.
+You can view the response as follows.
 
-- inSequence [line 5 in config] - When a client sends a message, it is picked up by the inSequence.
-- send [line 6 in config] -  The send mediator sends the message to the endpoint running on port 9000.
-- outSequence [line 12 in config] - The processed response from the endpoint will be sent back to the client through the outSequence. The send mediator inside the outSequence will direct the message back to the requesting client, which is on a channel separate from the requesting channel. 
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <ResponseEnvelopeWrapper xmlns="http://ws.apache.org/ns/synapse">
+        <soapenv:Envelope>
+            <soapenv:Header/>
+            <soapenv:Body>
+                <ns:getQuoteResponse xmlns:ns="http://services.samples">
+                    <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                        <ax21:change>4.2113329121535985</ax21:change>
+                        <ax21:earnings>12.835575447763125</ax21:earnings>
+                        <ax21:high>169.56462892544192</ax21:high>
+                        <ax21:last>164.91134732838054</ax21:last>
+                        <ax21:lastTradeTimestamp>Sun Aug 11 22:57:48 IST 2024</ax21:lastTradeTimestamp>
+                        <ax21:low>-164.53083186503255</ax21:low>
+                        <ax21:marketCap>4.370714333403162E7</ax21:marketCap>
+                        <ax21:name>IBM Company</ax21:name>
+                        <ax21:open>172.04078135604772</ax21:open>
+                        <ax21:peRatio>24.822545511157507</ax21:peRatio>
+                        <ax21:percentageChange>2.2584407962867004</ax21:percentageChange>
+                        <ax21:prevClose>186.47081292003838</ax21:prevClose>
+                        <ax21:symbol>IBM</ax21:symbol>
+                        <ax21:volume>19826</ax21:volume>
+                    </ns:return>
+                </ns:getQuoteResponse>
+            </soapenv:Body>
+        </soapenv:Envelope>
+    </ResponseEnvelopeWrapper>
+</soapenv:Envelope>
+```
