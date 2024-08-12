@@ -4,17 +4,17 @@ This page explains how you can implement a sample scenario of Guaranteed Deliver
 
 ## Introduction to Guaranteed Delivery
 
-The Guaranteed Delivery EIP ensures safe delivery of a message by storing it locally and transmitting it to the receiver's data store. Even when the receiver is offline, the EIP ensures that the message goes through when the receiver comes online. For more information, go to Guaranteed Delivery.
+The Guaranteed Delivery EIP ensures the safe delivery of a message by storing it locally and transmitting it to the receiver's data store. Even when the receiver is offline, the EIP ensures that the message goes through when the receiver comes online. For more information, go to Guaranteed Delivery.
 
 ![Guaranteed messaging solution]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/guaranteed-messaging-solution.gif)
 
 ## Sample scenario
 
-This example is a stock quote service where a stock quote request is sent to a specific endpoint when the receiver is offline. An Axis2 server acts as the receiver. The WSO2 MI stores the request message in a JMS message store. In this scenario ActiveMQ acts as the JMS message store. 
+This example is a stock quote service where a stock quote request is sent to a specific endpoint when the receiver is offline. An Axis2 server acts as the receiver. The WSO2 MI stores the request message in a JMS message store. In this scenario, ActiveMQ acts as the JMS message store. 
 
 The WSO2 MI periodically checks whether the receiver is online using a Message Forwarding Processor and delivers the message to the endpoint when the receiver comes online.
 
-The existing sample explains connecting to activeMQ as a store. Since this is a sample we are using an in-memory message store.
+The existing sample explains connecting to ActiveMQ as a store. Since this is a sample we are using an in-memory message store.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
