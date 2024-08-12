@@ -596,8 +596,8 @@ nav:
           - Amazon SQS Connector:
               - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
               - 2.x:
-                  - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
-                  - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-reference.md
+                  - Amazon SQS Example: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example.md
+                  - Amazon SQS Reference: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference.md
               - 1.x:
                   - Amazon SQS Example: reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-example.md
                   - Amazon SQS Reference: reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-reference.md
@@ -996,6 +996,8 @@ plugins:
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
 
   # Extra
 extra_css:
