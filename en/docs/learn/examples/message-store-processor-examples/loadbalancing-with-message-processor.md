@@ -136,4 +136,8 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 </soapenv:Envelope>
 ```
 
-If you send the request to the proxy service several times and observe the log on the back-end server, you will see that the messages are distributed among the back-end nodes.
+If you send the request to the proxy service several times and observe the log on the back-end server, you will see that the following messages are distributed among the back-end nodes.
+
+```aidl
+Mon Aug 12 13:19:27 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
+```
