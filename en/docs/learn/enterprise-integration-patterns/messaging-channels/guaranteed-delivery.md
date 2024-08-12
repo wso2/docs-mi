@@ -10,11 +10,11 @@ The Guaranteed Delivery EIP ensures safe delivery of a message by storing it loc
 
 ## Sample scenario
 
-This example is a stock quote service where a stock quote request is sent to a specific endpoint when the receiver is offline. An Axis2 server acts as the receiver. The WSO2 MI stores the request message in a JMS message store provided by the WSO2 MI. In this scenario a Message Broker acts as the JMS message store. Here, the Message Broker can either be the Message Broker(MB) of WSO2 MI or ActiveMQ.
+This example is a stock quote service where a stock quote request is sent to a specific endpoint when the receiver is offline. An Axis2 server acts as the receiver. The WSO2 MI stores the request message in a JMS message store. In this scenario ActiveMQ acts as the JMS message store. 
 
 The WSO2 MI periodically checks whether the receiver is online using a Message Forwarding Processor and delivers the message to the endpoint when the receiver comes online.
 
-The existing sample explains connecting to MB or activeMQ as a store. Since this is a sample we are using an in-memory message store.
+The existing sample explains connecting to activeMQ as a store. Since this is a sample we are using an in-memory message store.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
@@ -103,18 +103,7 @@ Before digging into implementation details, let's take a look at the relationshi
          <parameter name="interval">1000</parameter>
       </messageProcessor>
       ```
-
-=== "Message Store for WSO2 MB"
-      ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <messageStore name="JMStore" class="org.apache.synapse.message.store.impl.jms.JmsStore" xmlns="http://ws.apache.org/ns/synapse">
-         <parameter name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</parameter>
-         <parameter name="store.jms.cache.connection">false</parameter>
-         <parameter name="java.naming.provider.url">repository/conf/jndi.properties</parameter>
-         <parameter name="store.jms.JMSSpecVersion">1.1</parameter>
-      </messageStore>
-      ```
-=== "Message Store for ActiveMQ"
+=== "Message Store"
       ```xml
       <?xml version="1.0" encoding="UTF-8"?>
       <messageStore name="JMStore" class="org.apache.synapse.message.store.impl.jms.JmsStore" xmlns="http://ws.apache.org/ns/synapse">
@@ -162,7 +151,7 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Download the artifacts of the sample.
 
-    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/guaranteed-delivery-activemq.zip">
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/guaranteed-delivery.zip">
         <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
     </a>
 
@@ -178,15 +167,12 @@ Follow the below instructions to simulate this sample scenario.
 
     For instructions on downloading and starting, go to [SoapUI Getting Started]("https://www.soapui.org/getting-started/") Documentation.
 
-11. Start the WSO2 MB (or ActiveMQ). For instructions, go to Starting the [WSO2 MB](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/brokers/configure-with-wso2-mb/) (or [ActiveMQ](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/brokers/configure-with-activemq/))
+11. Start the ActiveMQ. For instructions, go to Starting the [ActiveMQ](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/brokers/configure-with-activemq/)
 
 12. Set up [MI CLI](https://mi.docs.wso2.com/en/latest/observe-and-manage/managing-integrations-with-micli/).
 
-13. In the Management Console, navigate to the Main menu and click Source View in the Service Bus section.
 
-14. Click the required tab based on the Message Broker you are using, and then copy and paste the relevant configuration to the source view.
-
-## Execute the Sample
+## Execute the sample
 
 1. Start the Axis2 server instance.
 
@@ -220,7 +206,7 @@ Follow the below instructions to simulate this sample scenario.
 !!! Info
       For more details, see the [documentation](https://mi.docs.wso2.com/en/latest/observe-and-manage/managing-integrations-with-micli/#message-processors).
 
-## Analyze the Output
+## Analyze the output
 
 When you send the first request with the Axis2 server running, the output is:
 
