@@ -17,7 +17,7 @@ The sample scenario depicts how a stock inventory is made from a sender applicat
 
 ## Synapse configurations of the artifacts
 
-When you unzip the ZIP file you downloaded below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts/` directory. For more information about these artifacts, go to WSO2 MI Documentation.
+When you unzip the ZIP file you downloaded below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts/` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/).
 
 === "Proxy Service"
     ```xml
