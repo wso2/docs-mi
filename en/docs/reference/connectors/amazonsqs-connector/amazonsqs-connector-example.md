@@ -14,7 +14,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the environment 
 
-1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document in order to create an Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.
+1. Follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.
 
 2. Download and place the following client libraries in to the <PRODUCT_HOME>/lib directory (From SQS connector 2.0.0 and above).
    
@@ -99,8 +99,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </address>
    </endpoint>
    ```
-6. Then create the following sequences, which are buildMessage, createQueue, sendMessage and ReceiveAndForwardMessage.
-7. Navigate to **MI Project Explorer** > **Sequences** and click on the **+** sign next to Sequences to open the **Create New Sequence** form.
+6. Then create the following sequences: `buildMessage`, `createQueue`, `sendMessage` and `ReceiveAndForwardMessage`.
+7. Navigate to **MI Project Explorer** > **Sequences** and click the **+** sign next to Sequences to open the **Create New Sequence** form.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/create-new-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
@@ -160,7 +160,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     </sequence>
   ```
 
-10. Create the ReceiveAndForwardMessage sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it to the StockQuote Endpoint. 
+10. Create the `ReceiveAndForwardMessage` sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it to the `StockQuote` Endpoint. 
 ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -224,7 +224,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) guide to build and export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension.
+Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) guide to build and export it into a CAR file (`.car` file) using the Micro Integrator for Visual Studio Code extension.
 
 ## Test
 
@@ -233,7 +233,7 @@ Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) g
     1. Download the ZIP file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
     2. Extract the downloaded zip file.
     3. Open a terminal and navigate to the `axis2Server/bin/` directory inside the extracted folder.
-    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+    4. Execute the following command to start the axis2server with the `SimpleStockQuote` back-end service:
 
         === "On MacOS/Linux/CentOS"   
             ```bash
@@ -257,7 +257,7 @@ Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) g
 
 **Expected Response**: 
 
-You should get the following response with the 'sys_id' and keep it saved. 
+Next, you will receive a response with `sys_id`. Make sure to save it.
 
 ```
 <ns:getQuoteResponse xmlns:ns="http://services.samples">
@@ -282,4 +282,4 @@ You should get the following response with the 'sys_id' and keep it saved.
 
 ## What's next
 
-* To customize this example for your own scenario, see [Amazon SQS Connector Reference Guide]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-reference) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [Amazon SQS Connector Reference Guide]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-reference) documentation for detailed information on all connector operations.

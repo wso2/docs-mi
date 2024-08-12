@@ -708,7 +708,7 @@ To use the Amazon SQS connector, add the element in your configuration before ca
 ---
 
 ??? note "deleteQueue"
-    This operation deletes the queue specified by the QueueUrl. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html) for more information.
+    This operation deletes the queue specified by the `QueueUrl`. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
