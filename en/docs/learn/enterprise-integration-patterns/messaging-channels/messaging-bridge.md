@@ -111,7 +111,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-1. Send the following request to the ESB profile using the cURL client.
+1. Send the following request to the WSO2 MI using the cURL client.
 
     ```bash
     curl -v http://127.0.0.1:8290/stockquote/view/IBM
