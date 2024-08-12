@@ -21,7 +21,8 @@ Before digging into implementation details, let's take a look at the relationshi
 | Dynamic Router EIP (Figure 1) | Dynamic Router Sample Scenario (Figure 2) |
 |-------------------------------|-------------------------------------------|
 | Input Channel                 | Main sequence                             |
-| Dynamic Router                | Switch Mediator                           |
+| Dynamic Rule Base             | Local Registry                            | 
+| Dynamic Router                | Switch Mediator                           | 
 | A, B, C                       | Simple Stock Quote Services               |
 
 ## Environment set up
