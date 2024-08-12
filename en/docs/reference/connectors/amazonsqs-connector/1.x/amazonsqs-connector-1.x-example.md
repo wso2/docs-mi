@@ -26,7 +26,7 @@ If you do not want to configure this yourself, you can simply [get the project](
       ```
 
     ??? note "Click here for instructions on configuring WSO2 Enterprise Integrator 6"
-        1. Uncomment the `synapse.xpath.dom.failover.enabled=true` property in PRODUCT-HOME/conf/synapse.properties file.
+        1. Uncomment the `synapse.xpath.dom.failover.enabled=true` property in the `<PRODUCT_HOME>/conf/synapse.properties` file.
 
 3. In this example we use the SimpleStockQuote service backend. Therefore, the SimpleStockQuote service needs to be started. 
 
