@@ -26,7 +26,7 @@ The sample scenario depicts a client sending an appointment reservation request 
 
 ## Synapse configuration
 
-When you unzip the ZIP file you download below in Step 4 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to WSO2 MI Documentation.
+When you unzip the ZIP file you download below in Step 4 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/).
 
 === "Proxy Service"
      ```
