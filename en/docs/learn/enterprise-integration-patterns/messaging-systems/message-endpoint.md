@@ -18,7 +18,7 @@ The example scenario depicts how a stock quote is generated when a request is se
 ## Synapse configurations of the artifacts
 
 !!! note
-    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to WSO2 MI Documentation.
+    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [WSO2 MI Documentation](https://mi.docs.wso2.com/en/latest/develop/intro-integration-development/).
 
 === "Proxy Service"
     ```xml
