@@ -18,7 +18,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 2. In this example, we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 
-    Add the following to the `PRODUCT-HOME/conf/deployment.toml` file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog-mi/#message-mediation).
+    Add the following to the `<PRODUCT_HOME>/conf/deployment.toml` file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog-mi/#message-mediation).
     
       ```
         [mediation]
