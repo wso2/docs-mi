@@ -54,7 +54,7 @@ Before digging into implementation details, let's take a look at the correlation
 </proxy>
 ```
 
-### How the Implementation Works
+### How the implementation works
 
 Let's examine the elements of the configuration in detail:
 
