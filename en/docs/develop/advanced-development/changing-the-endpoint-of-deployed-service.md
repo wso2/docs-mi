@@ -122,7 +122,7 @@ If you have an instance of WSO2 Micro Integrator setup as your Dev environment, 
 
 ## Testing the Dev environment
 
-Use the following request to invoke the service:
+Use the following request body when invoking the service:
 
 ``` 
 <body>
@@ -132,8 +132,6 @@ Use the following request to invoke the service:
         </p:echoInt>
 </body>
 ```
-
-You view the response from the **HelloWorldProxy**.
 
 ## Changing the endpoint reference
 
@@ -148,7 +146,7 @@ Follow the steps below to change the endpoint reference of the **HelloWorldProxy
 
 ## Testing the QA environment
 
-Use the following request to invoke the service:
+Use the following request body when invoking the service:
 
 ```xml 
 <body>
@@ -158,8 +156,6 @@ Use the following request to invoke the service:
     </p:echoInt>
 </body>
 ```
-
-You view the response from the **HelloWorldProxy** as seen in the image below.
 
 ## Changing an endpoint reference
 

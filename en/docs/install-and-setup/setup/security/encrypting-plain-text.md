@@ -69,9 +69,9 @@ In a <b>VM environment</b>, you need to manually run the Cipher Tool as follows:
         ./ciphertool.bat -Dconfigure
         ```
 
-### In a Kubernetes environment
+### In Docker/Kubernetes environments
 
-In a <b>Kubernetes environment</b>, you don't need to manually run the Cipher tool. Follow the steps given below.
+For container deployments (Docker or Kubernetes), you don't need to manually run the Cipher tool. Follow the steps given below.
 
 1. Open the `pom.xml` file of your project from the VS Code explorer view and update the `ciphertool.enable` tag to **true** as shown below.
 
@@ -138,9 +138,9 @@ For an instance, in the case of environment variables, you can populate them wit
 export env_carbon_sec=<ENCRYPTED_VALUE>
 ```
 
-### In a Kubernetes environment
+### In Docker/Kubernetes environments
 
-If you are in a Kubernetes enviroment, you should have generated a .yaml file with the encrypted secrets using the WSO2 MI CLI, **mi**. See [defining dynamic secrets](#dynamic-secrets).
+If you are in a Docker/Kubernetes environment, you should have generated a .yaml file with the encrypted secrets using the WSO2 MI CLI, **mi**. See [defining dynamic secrets](#dynamic-secrets).
 
 ### Start server as a background job
 
