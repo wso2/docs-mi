@@ -753,7 +753,7 @@ During mediation, evaluating expressions against a property does not modify the 
 
 We can also evaluate a JSONPath expression against a property that contains a JSON payload.
 
-To evaluate a JSONPath expression against a  property, use the following syntax.
+To evaluate a JSONPath expression against a property, use the following syntax.
 
 ```json
 json-eval(<scope_of_the_property>:<property_name>.<JSONPath_expression>)
