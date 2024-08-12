@@ -149,7 +149,7 @@ If you do not want to configure this yourself, you can simply [get the project](
     </sequence>
   ```
 
-5. Create the ReceiveAndForwardMessage sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it to the StockQuote Endpoint. 
+5. Create the `ReceiveAndForwardMessage` sequence as shown below. In this sequence, we will receive the message from the Amazon SQS queue and forward it to the `StockQuote` Endpoint. 
     ```
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
