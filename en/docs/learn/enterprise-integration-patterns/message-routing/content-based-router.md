@@ -39,7 +39,7 @@ Before digging into implementation details, let's take a look at the relationshi
     <proxy name="ContentBasedRoutingProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <switch source="//ser:getQuote/ser:request/xsd:symbol" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+                <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
                     <case regex="foo">
                         <call>
                             <endpoint key="StockServiceEP1"/>
@@ -53,7 +53,7 @@ Before digging into implementation details, let's take a look at the relationshi
                         <respond/>
                     </case>
                     <default>
-                        <property name="symbol" expression="fn:concat('Normal Stock - ', //ser:getQuote/ser:request/xsd:symbol)" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd"/>
+                        <property name="symbol" expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)" xmlns:m0="http://services.samples"/>
                     </default>
                 </switch>
             </inSequence>
@@ -149,7 +149,7 @@ Follow the below instructions to simulate this sample scenario.
     <soapenv:Body>
         <ser:getQuote>
             <ser:request>
-                <xsd:symbol>foo</xsd:symbol>
+                <ser:symbol>s</ser:symbol>
             </ser:request>
         </ser:getQuote>
     </soapenv:Body>
