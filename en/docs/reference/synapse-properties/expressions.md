@@ -54,8 +54,6 @@ message property at the given scope, which can be one of the following.
 
 If you provide only the property name without the scope, the default `synapse` scope will be used.
 
-If you provide only the property name without the scope, the default `synapse` scope will be used.
-
 !!! Info
     When the result of an XPath evaluation results in a single XML node, the
     evaluator will return the text content of this node by default
