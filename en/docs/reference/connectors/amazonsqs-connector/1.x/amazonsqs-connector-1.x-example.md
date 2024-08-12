@@ -91,7 +91,7 @@ If you do not want to configure this yourself, you can simply [get the project](
    </endpoint>
    ```
 6. Then create the following sequences: `buildMessage`, `createQueue`, `sendMessage`, and `ReceiveAndForwardMessage`.
-7. Navigate to **MI Project Explorer** > **Sequences** and click on the **+** sign next to Sequences to open the **Create New Sequence** form.
+7. Navigate to **MI Project Explorer** > **Sequences** and click the **+** sign next to **Sequences** to open the **Create New Sequence** form.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/create-new-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
