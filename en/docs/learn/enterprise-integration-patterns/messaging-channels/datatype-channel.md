@@ -2,7 +2,7 @@
 
 This page explains how you can implement a sample scenario of Datatype Channel EIP using WSO2 Micro Integrator.
 
-## Introduction to Datatype Channel EIP
+## Introduction to Datatype Channel
 
 This EIP creates a separate channel for each type of data so that all messages on a given channel contain the same data type. The sender, knowing the data type, selects the appropriate channel to send the message. The receiver identifies the data type of a message based on the channel it is received on.
 
