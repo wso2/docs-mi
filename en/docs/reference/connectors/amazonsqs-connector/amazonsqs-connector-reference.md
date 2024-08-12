@@ -73,19 +73,21 @@ To use the Amazon SQS connector, add the element in your configuration before ca
         </tr>
     </table>
 
-    > **Note**: You can either pass credentials within init configuration or set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
+    !!! note 
+        You can either pass credentials within init configuration or set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
         
-    To set these environment variables on Linux, macOS, or Unix, use export :
+        - To set these environment variables on Linux, macOS, or Unix, use export :
+        
+                export AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
+                export AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
+            
+        - To set these environment variables on Windows, use set :
+            
+                set AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
+                set AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
     
-        export AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
-        export AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
-        
-    To set these environment variables on Windows, use set :
-        
-        set AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
-        set AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
-    
-    > **Note**: If the application is running in an EC2 instance and credentials are not defined in the init configuration, the credentials will be obtained from the [IAM role](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) assigned for the Amazon EC2 instance. This option is available only with Amazon SQS connector v2.0.0 and above.
+    !!! note 
+        If the application is running in an EC2 instance and credentials are not defined in the init configuration, the credentials will be obtained from the [IAM role](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) assigned for the Amazon EC2 instance. This option is available only with Amazon SQS connector v2.0.0 and above.
 
     **Sample configuration**
     ```xml

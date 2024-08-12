@@ -244,7 +244,7 @@ Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) g
 
 **Expected Response**:
 
-You should get the following response with the 'sys_id' and keep it saved.
+Next, you will receive a response with `sys_id`. Make sure to save it.
 
 ```
 <ns:getQuoteResponse xmlns:ns="http://services.samples">
