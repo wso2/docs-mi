@@ -269,4 +269,4 @@ You should get the following response with the 'sys_id' and keep it saved.
 
 ## What's next
 
-* To customize this example for your own scenario, see [Amazon SQS Connector Reference Guide]({{base_path}}/reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-reference/) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see the [Amazon SQS Connector Reference Guide]({{base_path}}/reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-reference/) documentation for detailed information on all connector operations.
