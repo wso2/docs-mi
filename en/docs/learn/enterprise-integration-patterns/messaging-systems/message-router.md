@@ -1,72 +1,95 @@
 # Message Router
 
+This page explains how you can implement a sample scenario of Message Router using WSO2 Micro Integrator.
+
+## Introduction to Message Router
+
 The Message Router EIP reads the content of a message and routes it to a specific recipient based on its content. When the implementation of a specific logical function is distributed across multiple physical systems, an incoming request needs to be passed on to the correct service based on the content of the request. A Message Router is useful in handling such scenarios.
 
-The Message Router performs a logical function (such as an inventory check). It receives a request message (new order), reads it, and routes the request to one of the two recipients according to the content of the message. The router is also defined as a special type of a filter.
+The Message Router performs a logical function (such as an inventory check). It receives a request message (new order), reads it, and routes the request to one of the two recipients according to the content of the message. The router is also defined as a special type of filter.
 
 !!! info
     For more information, see the [Message Router](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageRouter.html) documentation.  
 
 ## Sample scenario
 
-The sample scenario depicts an inventory for stocks, and how Message Router EIP routes a message to a different service based on the content of the message. When the router receives a stock request, it reads the content of the request as follows.
+The sample scenario depicts a client sending an appointment reservation request to the Micro Integrator. The message payload of the request contains the name of the hospital where the appointment needs to be confirmed. Based on the hospital name sent in the request message, the Micro Integrator should route the appointment reservation to the relevant hospital's back-end service.
 
-* If the request is made to foo, it is routed to fooOutQueue.
-* If the request is for bar, it is routed to barOutQueue.
+* If the request is made to Grand Oak Community Hospital, it is routed to `GrandOakEP`.
+* If the request is made to Pine Valley Community Hospital, it is routed to `PineValleyEP`.
+* If the request is made to Clemency Medical Center, it is routed to `ClemencyEP`.
 
 !!! note
-    The Switch and Send mediators of the ESB profile of WSO2 EI simulate the Message Router EIP. The Switch Mediator depicts the Router and observes the content of the message, while the Send Mediator sends the message to a selected recipient.
+    The Switch and Call mediators of the WSO2 MI simulate the Message Router EIP. The Switch Mediator depicts the Router and observes the content of the message, while the Call Mediator sends the message to a selected recipient.
 
-    Each case defined in the Switch mediator is used to decide the routing of the message to the appropriate service. fooOutQueue and barOutQueue act as two separate services.
+    Each case defined in the Switch mediator is used to decide the routing of the message to the appropriate service, `GrandOakEP`, `ClemencyEP`, and `PineValleyEP` as three separate services.
 
 ## Synapse configuration
 
-When you unzip the ZIP file you download below in Step 6 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/synapse-config` directory. For more information about these artifacts, go to WSO2 EI Documentation.
+When you unzip the ZIP file you download below in Step 4 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/).
 
 === "Proxy Service"
-      ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <proxy name="message-router-proxy" startOnLoad="true" transports="http https"
-          xmlns="http://ws.apache.org/ns/synapse">
-          <target>
-              <inSequence>
-                  <!-- Will call the message router -->
-                  <sequence key="MessageRoute"/>
-              </inSequence>
-              <outSequence>
-                  <respond/>
-              </outSequence>
-              <faultSequence/>
-          </target>
-      </proxy>
-      ```
+     ```
+     <?xml version="1.0" encoding="UTF-8"?>
+     <proxy name="message-router-proxy" startOnLoad="true" transports="http https"
+         xmlns="http://ws.apache.org/ns/synapse">
+         <target>
+             <inSequence>
+                 <sequence key="MessageRoute" />
+                 <respond />
+             </inSequence>
+             <faultSequence />
+         </target>
+     </proxy>
+     ```
 === "Sequence"
-      ```
-      <?xml version="1.0" encoding="UTF-8"?>
-      <sequence name="MessageRoute" trace="disable"
-          xmlns="http://ws.apache.org/ns/synapse">
-          <switch source="//m0:getQuote/m0:request/m0:symbol"
-              xmlns:m0="http://services.samples">
-              <case regex="foo">
-                  <send>
-                      <endpoint>
-                          <address uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
-                      </endpoint>
-                  </send>
-              </case>
-              <case regex="bar">
-                  <send>
-                      <endpoint>
-                          <address uri="http://localhost:9001/services/SimpleStockQuoteService?wsdl"/>
-                      </endpoint>
-                  </send>
-              </case>
-              <default>
-                  <property expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)" name="symbol" scope="default" type="STRING"/>
-              </default>
-          </switch>
-      </sequence>
-      ```     
+     ```
+     <?xml version="1.0" encoding="UTF-8"?>
+     <sequence name="MessageRoute" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+         <property name="Hospital" scope="default" type="STRING" expression="json-eval($.hospital)" />
+         <switch source="get-property('Hospital')">
+             <case regex="grand oak community hospital">
+                 <call>
+                     <endpoint key="GrandOaksEP" />
+                 </call>
+             </case>
+             <case regex="clemency medical center">
+                 <call>
+                     <endpoint key="ClemencyEP" />
+                 </call>
+             </case>
+             <case regex="pine valley community hospital">
+                 <call>
+                     <endpoint key="PineValleyEP" />
+                 </call>
+             </case>
+             <default>
+                 <log category="INFO" level="custom">
+                     <property name="fault value"
+                         expression="fn:concat('Invalid hospital - ', get-property('Hospital'))" />
+                 </log>
+             </default>
+         </switch>
+     </sequence>
+     ```
+=== "GrandOakEP"
+     ```xml
+     <endpoint name="GrandOaksEP" xmlns="http://ws.apache.org/ns/synapse">
+         <http method="post" uri-template="http://localhost:9090/grandoaks/categories/surgery/reserve"/>
+     </endpoint>
+     ```
+=== "PineValleyEP"
+     ```xml
+     <endpoint name="PineValleyEP" xmlns="http://ws.apache.org/ns/synapse">
+         <http method="post" uri-template="http://localhost:9090/pinevalley/categories/surgery/reserve"/>
+     </endpoint>
+     ```
+=== "ClemencyEP"
+     ```xml
+     <endpoint name="ClemencyEP" xmlns="http://ws.apache.org/ns/synapse">
+         <http method="post" uri-template="http://localhost:9090/clemency/categories/surgery/reserve"/>
+     </endpoint>
+     ```
 
 ## Set up the sample scenario
 
@@ -74,71 +97,76 @@ Follow the below instructions to simulate this sample scenario.
 
 {!includes/eip-set-up.md!}
 
-3. Start the backend (SimpleStockQuoteService) service
+3. Start the back-end service
+    1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
+    2. Open a terminal, and navigate to the location where you saved the back-end service.
+    3. Execute the following command to start the service:
 
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2Server/src/SimpleStockQuoteService` directory, and execute the ant command.
+        ```bash
+        java -jar Hospital-Service-JDK11-2.0.0.jar
+        ```
 
-    For more information on the SimpleStockQuoteService, go to Deploying sample backend services in the WSO2 EI Documentation.
+4. Download the artifacts of the sample
 
-5. Start two Axis2 server instances
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/MessageRouter.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP"></a>
 
-    In two new Console tabs, navigate to the `<EI_HOME>/samples/axis2server` directory, and execute the following commands:
+6. Import the artifacts to WSO2 MI.
 
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+7. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+
+## Execute the sample.
+
+1. Create a JSON file named `request.json` with the following request payload.
+    ```json
+    {
+        "patient": {
+        "name": "John Doe",
+        "dob": "1940-03-19",
+        "ssn": "234-23-525",
+        "address": "California",
+        "phone": "8770586755",
+        "email": "johndoe@gmail.com"
+        },
+        "doctor": "thomas collins",
+        "hospital_id": "grandoaks",
+        "hospital": "grand oak community hospital",
+        "appointment_date": "2025-04-02"
+    }
     ```
-    ./axis2server.sh -http  9000 -https  9002 -name MyServer1
-    
-    ./axis2server.sh -http  9001 -https  9003 -name MyServer2
+2. Open a terminal and navigate to the directory where you have saved the `request.json` file.
+3. Execute the following command.
+    ```json
+    curl --data @request.json http://localhost:8290/services/message-router-proxy --header "Content-Type:application/json"
     ```
 
-6. Download the artifacts of the sample
-
-    Download the `MessageRouter.zip` file.
-
-7. Import the artifacts to WSO2 EI
-
-    Click File -> Import -> WSO2 -> Existing WSO2 projects into workspace to import the downloaded ZIP file via WSO2 EI Tooling.
-
-8. Start the ESB profile of the WSO2 EI server
-
-    For instructions, go to Running WSO2 Enterprise Integrator via Tooling in the WSO2 EI Documentation.
-
-10. Start the Stock Quote Client
-
-    In a new Console tab, navigate to the `<EI_HOME>/samples/axis2Client` directory to start the Stock Quote Client application.
-
-11. Execute the sample
-
-    In the Console tab of the Stock Quote Client, execute the following command:
-    
-    ```  
-    ant stockquote -Dtrpurl=http://localhost:8280/services/message-router-proxy -Dsymbol=foo
-    ```
-    
 ## Analyze the output
 
-After you execute the above command through the client, the request is transferred to the foo inventory service. You view the following processed server log in the Stock Quote Client Console: 
+When you execute the request, the proxy service will receive the message and then route it to the relevant backend based on the content. The following response will be received by the client application.
 
-```
-
-```
-
-Also, you view the following log printed in the MyServer1 Axis2 Server Console open in the HTTP port 9000.
-
-```
-
-```
-
-Now, change the -Dsymbol parameter to bar and run the following command:
-
-```
-ant stockquote -Dtrpurl=http://localhost:8280/services/message-router-proxy -Dsymbol=bar
-```
-Then, the request goes to the bar inventory service. You view the following processed server log in the Stock Quote Client Console:
-```
-
-```
-Also, you view the following log printed in the MyServer2 Axis2 Server Console open in the HTTP port 9001.
-
-```
-
+```json
+{
+    "appointmentNumber": 1,
+    "doctor": {
+        "name": "thomas collins",
+        "hospital": "grand oak community hospital",
+        "category": "surgery",
+        "availability": "9.00 a.m - 11.00 a.m",
+        "fee": 7000.0
+    },
+    "patient": {
+        "name": "John Doe",
+        "dob": "1940-03-19",
+        "ssn": "234-23-525",
+        "address": "California",
+        "phone": "8770586755",
+        "email": "johndoe@gmail.com"
+    },
+    "fee": 7000.0,
+    "confirmed": false
+}
 ```
