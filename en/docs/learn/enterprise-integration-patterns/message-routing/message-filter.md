@@ -23,7 +23,7 @@ The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 <img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-routing/message-filter.png" style="width: 70%;" alt="Message filter">
 
-Before digging into implementation details, let's take a look at the co-relation of the sample scenario and the Message Filter EIP by comparing their core components.
+Before digging into implementation details, let's take a look at the correlation between the sample scenario and the Message Filter EIP by comparing their core components.
 
 | Message Filter EIP (Figure 1) | Message Filter Sample Scenario (Figure 2)                             | 
 |-------------------------------|-----------------------------------------------------------------------|
@@ -60,7 +60,7 @@ Let's examine the elements of the configuration in detail:
 
 - **Proxy Service**: The proxy service receives requests and forwards them to the appropriate back-end service, abstracting the routing logic from the client. The client always sends requests to the exposed service, not directly to the back-end services.
 
-- **InSequence**: When the service is invoked by the client, the message is processed by the inSequence and routed according to the defined logic.
+- **InSequence**: When the client invokes the service, the message is processed by the inSequence and routed according to the defined logic.
 
 - **Filter**: Filters incoming messages, discarding those that do not meet the specified criteria.
 
