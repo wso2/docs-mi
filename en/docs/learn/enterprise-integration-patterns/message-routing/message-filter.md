@@ -132,5 +132,36 @@ Connection: Keep-Alive
 </soapenv:Envelope>
 ```
 
+## Analyze the output
+
+When your request has the value `foo`, you will receive a response like this:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ns:getQuoteResponse xmlns:ns="http://services.samples">
+            <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                <ax21:change>-2.352337680518278</ax21:change>
+                <ax21:earnings>12.727065083278656</ax21:earnings>
+                <ax21:high>92.75656524398916</ax21:high>
+                <ax21:last>88.78328252546186</ax21:last>
+                <ax21:lastTradeTimestamp>Mon Aug 12 11:30:32 IST 2024</ax21:lastTradeTimestamp>
+                <ax21:low>92.40515024154969</ax21:low>
+                <ax21:marketCap>3618966.99564144</ax21:marketCap>
+                <ax21:name>foo Company</ax21:name>
+                <ax21:open>91.53912035529257</ax21:open>
+                <ax21:peRatio>-18.98135135726734</ax21:peRatio>
+                <ax21:percentageChange>2.7410884095070918</ax21:percentageChange>
+                <ax21:prevClose>-85.81765084115912</ax21:prevClose>
+                <ax21:symbol>foo</ax21:symbol>
+                <ax21:volume>19747</ax21:volume>
+            </ns:return>
+        </ns:getQuoteResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+
 !!! Note
-        If you send a request with any other value, you receive a 202 response
+        If you send a request with any other value, the request will be dropped, and you will receive a 202 response.
