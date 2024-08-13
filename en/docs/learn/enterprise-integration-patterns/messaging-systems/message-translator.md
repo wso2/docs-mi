@@ -2,7 +2,7 @@
 
 This page explains how you can implement a sample scenario of Message Translator EIP using WSO2 Micro Integrator.
 
-## Introduction to Message Translator EIP
+## Introduction to Message Translator
 
 Typically, different applications use different data types. Therefore, for two applications to communicate successfully, you should translate the messages that pass from one application to a data type compatible with the receiving application. A translator changes the context of a message from one interface to another, allowing messages to adhere to the message context rules of the backend service.
 
@@ -50,7 +50,7 @@ All requests in the first format should be translated to the second by the servi
 ## Synapse configurations of the artifacts
 
 !!! note
-    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Developing Integration Solutions]({{base_path}}/develop/intro-integration-development/) Documentation.
+    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/) Documentation.
 
 === "Proxy Service"
     ```xml
