@@ -115,8 +115,6 @@ Before digging into implementation details, let's take a look at the relationshi
     </endpoint>
     ```
 
-### How the implementation works
-
 Let's investigate the elements of the synapse configuration in detail.
 
 - The header mediator  - The Header mediator appends a key/value pair to the SOAP header. It can be used to remove such pairs. In this example, the configuration adds a header field called `RoutingSlip` with a value of `Process A`. It then adds another header field `RoutingSlip` with a value of `Process C`.
