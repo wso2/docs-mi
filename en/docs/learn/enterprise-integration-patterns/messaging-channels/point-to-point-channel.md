@@ -17,7 +17,7 @@ The sample scenario is an inventory for stocks. It illustrates how a stock quote
 
 ## Synapse configurations of the artifacts
 
-When you unzip the ZIP file you downloaded below in step 9 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Developing Integration Solutions]({{base_path}}/develop/intro-integration-development/) Documentation.
+When you unzip the ZIP file you downloaded below in step 9 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/) Documentation.
 
 === "Proxy Service"
     ```xml
