@@ -98,8 +98,6 @@ Before digging into implementation details, let's take a look at the relationshi
     </endpoint>
     ```
 
-### How the implementation works
-
 Let's investigate the elements of the synapse configuration in detail. 
 
 - The iterate mediator - The Iterate mediator takes each child element of the element specified in its XPath expression and applies the sequence flow inside the Iterate mediator. In this example, it takes each `getQuote` request specified in the incoming request and forwards this request to the target endpoint.
