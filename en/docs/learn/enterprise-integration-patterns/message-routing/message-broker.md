@@ -101,6 +101,6 @@ cURL - `curl -X POST  http://localhost:8290/services/StockQuoteProxy`
 
 ## Analyze the output
 
-When you execute the command above, the request is sent to the StockQuoteProxy. You can check message is enqueued into the queue in [ActiveMQ management console](http://localhost:8161/admin/queues.jsp)
+When you execute the command above, the request is sent to the StockQuoteProxy. You can check if the message is enqueued into the queue in [ActiveMQ management console](http://localhost:8161/admin/queues.jsp)
 
 ![ActiveMQ output]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-routing/message-broker-ActiveMQ-output.png)
