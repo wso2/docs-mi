@@ -160,7 +160,7 @@ simpleClientSession: 123
 
 ## Analyze the output
 
-Out of the three instances of the Stock Quote service (Axis2 server), only one server acquires the sent request at a given time. When you send the requests, the service first receives the message and then routes it to the backend service (StockQuoteService). The following output will be printed on the Axis2 Server Console: 
+Out of the three instances of the Stock Quote service (Axis2 server), only one server acquires the sent request at a given time. When you send the requests, the WSO2 MI first receives the message and then routes it to the backend service (StockQuoteService). The following output will be printed on the Axis2 Server Console: 
 
 ```
 Wed Aug 07 11:03:15 IST 2024 samples.services.SimpleStockQuoteService  :: Accepted order #1 for : 18398 stocks of IBM at $ 172.23182849731984
