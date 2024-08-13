@@ -129,6 +129,23 @@ Follow the below instructions to simulate this sample scenario.
 
 6. Set up and Start [ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
 
+!!!note
+    Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) in the `deployment.toml` file.
+    ```
+    [[transport.jms.listener]]
+    name = "myTopicConnectionFactory"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+
+    [[transport.jms.sender]]
+    name = "myTopicSender"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+    ```
 ## Execute the sample
 
 Send HTTP Post request to this URL `http://localhost:8290/services/StockQuoteProxy` using Any HTTP Client.
