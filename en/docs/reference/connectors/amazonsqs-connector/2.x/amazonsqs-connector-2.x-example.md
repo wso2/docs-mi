@@ -16,7 +16,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 1. Follow the steps mentioned in the [Setting up the Amazon S3 Environment]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.
 
-2. Download and place the following client libraries in to the <PRODUCT_HOME>/lib directory (From SQS connector 2.0.0 and above).
+2. Download and place the following client libraries in to the `<PRODUCT_HOME>/lib` directory (From SQS connector 2.0.0 and above).
    
      - apache-client-2.20.26.jar 
      - auth-2.26.20.jar 
