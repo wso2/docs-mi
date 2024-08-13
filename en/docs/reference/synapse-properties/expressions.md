@@ -309,108 +309,108 @@ XPath expression **$trp:Content-Type** . HTTP transport headers are not
 case sensitive. Therefore, $trp:Content-Type and $trp:CONTENT-TYPE are
 regarded as the same. We have discussed an example below.
 
-**Example of $trp usage:**
+??? note "Example of $trp usage"
 
-Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
-
-Note the property, `<property name="stockprop" expression="$trp:Content-Type"/\>` in the configuration, which is used to log the `Content-Type` HTTP header of the request message.
-
-``` xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-    <target>
-        <inSequence>
-            <log>
-                <property name="stockprop" expression="$trp:Content-Type"/>
-            </log>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </call>
-            <respond/>
-        </inSequence>
-    </target>
-</proxy> 
-```
-
-Set up the back-end service:
-
-1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
-2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-
-    === "On MacOS/Linux/CentOS"   
-          ```bash
-          sh axis2server.sh
-          ```
-    === "On Windows"              
-          ```bash
-          axis2server.bat
-          ```
-
-Note the following message in the log.
-
-``` java
-[2013-03-18 12:23:14,101] INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:25a3143a-5b18-4cbb-b8e4-27d4dd1895d2, Direction: request, stockprop = text/xml; charset=UTF-8 
-```
-
-In this example, the property definition, `<property name="stockprop"
-expression="$trp:Content-Type"/\>` is equivalent to `<property
-name="stockprop"
-expression="get-property('transport','Content-Type')"/\>`. Similarly, you
-can use `$trp` prefix with [HTTP Transport
-Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties) .
+    Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
+    
+    Note the property, `<property name="stockprop" expression="$trp:Content-Type"/>` in the configuration, which is used to log the `Content-Type` HTTP header of the request message.
+    
+    ``` xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+        <target>
+            <inSequence>
+                <log>
+                    <property name="stockprop" expression="$trp:Content-Type"/>
+                </log>
+                <call>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </call>
+                <respond/>
+            </inSequence>
+        </target>
+    </proxy> 
+    ```
+    
+    Set up the back-end service:
+    
+    1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+    
+        === "On MacOS/Linux/CentOS"   
+              ```bash
+              sh axis2server.sh
+              ```
+        === "On Windows"              
+              ```bash
+              axis2server.bat
+              ```
+    
+    Note the following message in the log.
+    
+    ``` java
+    [2013-03-18 12:23:14,101] INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:25a3143a-5b18-4cbb-b8e4-27d4dd1895d2, Direction: request, stockprop = text/xml; charset=UTF-8 
+    ```
+    
+    In this example, the property definition, `<property name="stockprop"
+    expression="$trp:Content-Type"/\>` is equivalent to `<property
+    name="stockprop"
+    expression="get-property('transport','Content-Type')"/\>`. Similarly, you
+    can use `$trp` prefix with [HTTP Transport
+    Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties) .
 
 #### $body
 
 The SOAP 1.1 or 1.2 body element. For example, the expression `$body//getQuote` refers to the first `getQuote` element in a SOAP body, regardless of whether the message is SOAP-11 or SOAP-12. We have discussed an example below.
 
-**Example of $body usage**:
+??? note "Example of $body usage"
 
-Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
-
-Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
-
-``` xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-    <target>
-        <inSequence>
-            <log>
-                <property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>
-            </log>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </call>
-            <respond/>
-        </inSequence>
-    </target>
-</proxy> 
-```
-
-Set up the back-end service:
-
-1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
-2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-
-    === "On MacOS/Linux/CentOS"   
-          ```bash
-          sh axis2server.sh
-          ```
-    === "On Windows"              
-          ```bash
-          axis2server.bat
-          ```
-
-Note the following message in the log.
-
-``` java
-[2013-03-18 14:04:41,019] INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:930f68f5-199a-4eff-90d2-ea679c2362ab, Direction: request, stockprop = <m0:getQuotexmlns:m0="http://services.samples"><m0:request><m0:symbol>IBM</m0:symbol></m0:request></m0:getQuote>
-```
+    Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
+    
+    Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
+    
+    ``` xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+        <target>
+            <inSequence>
+                <log>
+                    <property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>
+                </log>
+                <call>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </call>
+                <respond/>
+            </inSequence>
+        </target>
+    </proxy> 
+    ```
+    
+    Set up the back-end service:
+    
+    1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+    
+        === "On MacOS/Linux/CentOS"   
+              ```bash
+              sh axis2server.sh
+              ```
+        === "On Windows"              
+              ```bash
+              axis2server.bat
+              ```
+    
+    Note the following message in the log.
+    
+    ``` java
+    [2013-03-18 14:04:41,019] INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:930f68f5-199a-4eff-90d2-ea679c2362ab, Direction: request, stockprop = <m0:getQuotexmlns:m0="http://services.samples"><m0:request><m0:symbol>IBM</m0:symbol></m0:request></m0:getQuote>
+    ```
 
 #### $header
 
@@ -419,257 +419,257 @@ The SOAP 1.1 or 1.2 header element. For example, the expression
 whether this message is SOAP-11 or SOAP-12. We have discussed an example
 below.
 
-**Example of $header usage** :
+??? note "Example of $header usage" 
 
-Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
-
-Note the property, `<property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/>` in the configuration. It is used to log the value of **wsa:To** header of the SOAP request.
-
-``` xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-    <target>
-        <inSequence>
-            <log>
-                <property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/>
-            </log>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </call>
-            <respond/>
-        </inSequence>
-    </target>
-</proxy> 
-```
-
-Set up the back-end service:
-
-1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
-2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-
-    === "On MacOS/Linux/CentOS"   
-          ```bash
-          sh axis2server.sh
-          ```
-    === "On Windows"              
-          ```bash
-          axis2server.bat
-          ```
-
-Note the following message in the log.
-
-``` java
-[2013-03-18 14:14:16,356] INFO - LogMediator To: http://localhost:9000/services/SimpleStockQuoteService, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8a64c9cb-b82f-4d6f-a45d-bef37f8b664a, Direction: request, stockprop = http://localhost:9000/services/SimpleStockQuoteService
-```
+    Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
+    
+    Note the property, `<property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/>` in the configuration. It is used to log the value of **wsa:To** header of the SOAP request.
+    
+    ``` xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+        <target>
+            <inSequence>
+                <log>
+                    <property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/>
+                </log>
+                <call>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </call>
+                <respond/>
+            </inSequence>
+        </target>
+    </proxy> 
+    ```
+    
+    Set up the back-end service:
+    
+    1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+    
+        === "On MacOS/Linux/CentOS"   
+              ```bash
+              sh axis2server.sh
+              ```
+        === "On Windows"              
+              ```bash
+              axis2server.bat
+              ```
+    
+    Note the following message in the log.
+    
+    ``` java
+    [2013-03-18 14:14:16,356] INFO - LogMediator To: http://localhost:9000/services/SimpleStockQuoteService, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8a64c9cb-b82f-4d6f-a45d-bef37f8b664a, Direction: request, stockprop = http://localhost:9000/services/SimpleStockQuoteService
+    ```
 
 #### $axis2
 
 Prefix for Axis2 MessageContext properties. This is used to get the
-property value at the axis2 scope. For example, to get the value of
+property value at the axis2 scope. For example, to get the value of the
 Axis2 message context property with name `REST_URL_POSTFIX`, use the
 XPath expression `$axis2:REST_URL_POSTFIX`. We have discussed an
 example below.
 
-**Example of $axis2 usage** :
+??? note "Example of $axis2 usage" 
 
-Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
-
-Note the property, `<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>` in the configuration which is used to log the `REST_URL_POSTFIX`
-value of the request message.
-
-``` xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-    <target>
-        <inSequence>
-            <log>
-                <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>
-            </log>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </call>
-            <respond/>
-        </inSequence>
-    </target>
-</proxy>
-```
-
-Set up the back-end service:
-
-1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
-2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-
-    === "On MacOS/Linux/CentOS"   
-          ```bash
-          sh axis2server.sh
-          ```
-    === "On Windows"              
-          ```bash
-          axis2server.bat
-          ```
-   
-Note the following message in the log.
-
-``` java
-INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy/test/prefix, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:ecd228c5-106a-4448-9c83-3b1e957e2fe5, Direction: request, stockprop = /test/prefix
-```
-
-In this example, the property definition,
-`<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>`
-is equivalent to
-`<property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>`
-
-Similarly, you can use `$axis2` prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties.md).
+    Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
+    
+    Note the property, `<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>` in the configuration which is used to log the `REST_URL_POSTFIX`
+    value of the request message.
+    
+    ``` xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+        <target>
+            <inSequence>
+                <log>
+                    <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>
+                </log>
+                <call>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </call>
+                <respond/>
+            </inSequence>
+        </target>
+    </proxy>
+    ```
+    
+    Set up the back-end service:
+    
+    1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+    
+        === "On MacOS/Linux/CentOS"   
+              ```bash
+              sh axis2server.sh
+              ```
+        === "On Windows"              
+              ```bash
+              axis2server.bat
+              ```
+       
+    Note the following message in the log.
+    
+    ``` java
+    INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy/test/prefix, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:ecd228c5-106a-4448-9c83-3b1e957e2fe5, Direction: request, stockprop = /test/prefix
+    ```
+    
+    In this example, the property definition,
+    `<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>`
+    is equivalent to
+    `<property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>`
+    
+    Similarly, you can use `$axis2` prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties.md).
 
 #### $url
 
-The prefix used to get the URI element of a request URL.
+The prefix used to get the URI element of a request URL. We have discussed an example below.
 
-**Example of $url usage:**
+??? note "Example of $url usage"
 
-1.  Create a REST API with the following configuration using instructions given in page [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
-
-    ``` xml
-    <api xmlns="http://ws.apache.org/ns/synapse" name="Editing" context="/editing">
-       <resource methods="GET" uri-template="/edit?a={symbol}&b={value}">
-          <inSequence>
-             <log level="full">
-                <property name="SYMBOL" expression="$url:a"></property>
-                <property name="VALUE" expression="$url:b"></property>
-             </log>
-             <respond></respond>
-          </inSequence>
-       </resource>
-    </api>
-    ```
-
-2.  Send a request to the REST API you created using a browser as
-    follows:
-
-    ``` xml
-    http://10.100.5.73:8280/editing/edit?a=wso2&b=2.4
-    ```
-
-    You will see the following in the log:
-
-    ``` xml
-    LogMediator To: /editing/edit?a=wso2&b=2.4, MessageID: urn:uuid:36cb5ad7-f150-490d-897a-ee7b86a9307d, Direction: request, SYMBOL = wso2, VALUE = 2.4, Envelope: <?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body></soapenv:Body></soapenv:Envelope>
-    ```
+    1.  Create a REST API with the following configuration using instructions given in page [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
+    
+        ``` xml
+        <api xmlns="http://ws.apache.org/ns/synapse" name="Editing" context="/editing">
+           <resource methods="GET" uri-template="/edit?a={symbol}&b={value}">
+              <inSequence>
+                 <log level="full">
+                    <property name="SYMBOL" expression="$url:a"></property>
+                    <property name="VALUE" expression="$url:b"></property>
+                 </log>
+                 <respond></respond>
+              </inSequence>
+           </resource>
+        </api>
+        ```
+    
+    2.  Send a request to the REST API you created using a browser as
+        follows:
+    
+        ``` xml
+        http://10.100.5.73:8280/editing/edit?a=wso2&b=2.4
+        ```
+    
+        You will see the following in the log:
+    
+        ``` xml
+        LogMediator To: /editing/edit?a=wso2&b=2.4, MessageID: urn:uuid:36cb5ad7-f150-490d-897a-ee7b86a9307d, Direction: request, SYMBOL = wso2, VALUE = 2.4, Envelope: <?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body></soapenv:Body></soapenv:Envelope>
+        ```
 
 #### $func
 
 The prefix used to refer to a particular parameter value passed
 externally by an invoker such as the [Call Template
-Mediator]({{base_path}}/reference/mediators/call-template-mediator).
+Mediator]({{base_path}}/reference/mediators/call-template-mediator). We have discussed an example below.
 
-**Example of $func usage:**
+??? note "Example of $func usage" 
 
-Add a sequence template with the following configuration. See [Adding a New Sequence Template]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) for detailed instructions.
-
-``` xml
-<template xmlns="http://ws.apache.org/ns/synapse" name="HelloWordLogger">
-    <sequence>
-        <log level="full">
-            <property xmlns:ns2="http://org.apache.synapse/xsd" xmlns:ns="http://org.apache.synapse/xsd" name="message" expression="$func:message"></property>
-        </log>
-    </sequence>
-</template>
-```
-
-Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
-
-``` xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-    name="StockQuoteProxy"
-    transports="https,http"
-    statistics="disable"
-    trace="disable"
-    startOnLoad="true">
-    <target>
-        <inSequence>
-            <call-template target="HelloWorldLogger">
-                <with-param name="message" value="HelloWorld"/>
-            </call-template>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </call>
-            <log/>
-            <respond/>
-        </inSequence>
-    </target>
-</proxy>
-```
-
-Set up the back-end service:
-
-1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
-2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-
-    === "On MacOS/Linux/CentOS"   
-          ```bash
-          sh axis2server.sh
-          ```
-    === "On Windows"              
-          ```bash
-          axis2server.bat
-          ```
-
-Note the following message in the log.
-
-``` xml
-LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8d90e21b-b5cc-4a02-98e2-24b324fa704c, Direction: request, message = HelloWorld
-```
+    Add a sequence template with the following configuration. See [Adding a New Sequence Template]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) for detailed instructions.
+    
+    ``` xml
+    <template xmlns="http://ws.apache.org/ns/synapse" name="HelloWordLogger">
+        <sequence>
+            <log level="full">
+                <property xmlns:ns2="http://org.apache.synapse/xsd" xmlns:ns="http://org.apache.synapse/xsd" name="message" expression="$func:message"></property>
+            </log>
+        </sequence>
+    </template>
+    ```
+    
+    Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
+    
+    ``` xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse"
+        name="StockQuoteProxy"
+        transports="https,http"
+        statistics="disable"
+        trace="disable"
+        startOnLoad="true">
+        <target>
+            <inSequence>
+                <call-template target="HelloWorldLogger">
+                    <with-param name="message" value="HelloWorld"/>
+                </call-template>
+                <call>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </call>
+                <log/>
+                <respond/>
+            </inSequence>
+        </target>
+    </proxy>
+    ```
+    
+    Set up the back-end service:
+    
+    1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+    2. Extract the downloaded zip file.
+    3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+    
+        === "On MacOS/Linux/CentOS"   
+              ```bash
+              sh axis2server.sh
+              ```
+        === "On Windows"              
+              ```bash
+              axis2server.bat
+              ```
+    
+    Note the following message in the log.
+    
+    ``` xml
+    LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8d90e21b-b5cc-4a02-98e2-24b324fa704c, Direction: request, message = HelloWorld
+    ```
 
 #### $env
 
-Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get the body element from the SOAP envelope, use the expression `$env/\*\[local-name()='Body'\]`.
+Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get the body element from the SOAP envelope, use the expression `$env/\*\[local-name()='Body'\]`. We have discussed an example below.
 
-**Example of $env usage:**
+??? note "Example of $env usage"
 
-1.  Create an API with the following configuration. For information on how to create an API, see [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
-
-    ``` xml
-    <api context="/soapEnvelopeTest" name="SoapEnvelopeTest">
-            <resource url-mapping="/*">
-                <inSequence>
-                    <property name="messageType" scope="axis2" value="application/xml"/>
-                    <payloadFactory media-type="xml">
-                        <format>
-                            <theData xmlns="http://some.namespace">
-                                <item>$1</item>
-                            </theData>
-                        </format>
-                        <args>
-                            <arg evaluator="xml" expression="$env/*[local-name()='Body']/*[local-name()='jsonObject']/*"/>
-                    </payloadFactory>
-                    <property name="messageType" scope="axis2" value="application/json"/>
-                    <respond/>
-                </inSequence>
-            </resource>
-    </api>
-    ```
-
-2.  Send a post request to the API you created (i.e., `http://localhost:8280/soapEnvelopeTest`),with the following json payload using a rest client.
-
-    ``` xml
-    {"content":{ "paramA": "ValueA", "paramB": "valueB" }}
-    ```
-
-    You will receive the following response:
-
-    ``` xml
-    {"theData":{"item":{"content":{"paramA":"ValueA","paramB":"valueB"}}}}
-    ```
+    1.  Create an API with the following configuration. For information on how to create an API, see [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
+    
+        ``` xml
+        <api context="/soapEnvelopeTest" name="SoapEnvelopeTest">
+                <resource url-mapping="/*">
+                    <inSequence>
+                        <property name="messageType" scope="axis2" value="application/xml"/>
+                        <payloadFactory media-type="xml">
+                            <format>
+                                <theData xmlns="http://some.namespace">
+                                    <item>$1</item>
+                                </theData>
+                            </format>
+                            <args>
+                                <arg evaluator="xml" expression="$env/*[local-name()='Body']/*[local-name()='jsonObject']/*"/>
+                        </payloadFactory>
+                        <property name="messageType" scope="axis2" value="application/json"/>
+                        <respond/>
+                    </inSequence>
+                </resource>
+        </api>
+        ```
+    
+    2.  Send a post request to the API you created (i.e., `http://localhost:8280/soapEnvelopeTest`),with the following json payload using a rest client.
+    
+        ``` xml
+        {"content":{ "paramA": "ValueA", "paramB": "valueB" }}
+        ```
+    
+        You will receive the following response:
+    
+        ``` xml
+        {"theData":{"item":{"content":{"paramA":"ValueA","paramB":"valueB"}}}}
+        ```
     
 ## JSONPath expressions
 
