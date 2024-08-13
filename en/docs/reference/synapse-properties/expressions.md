@@ -62,26 +62,24 @@ If you provide only the property name without the scope, the default `synapse` s
     in the following example.
     ``` xml
     <inSequence>
-    <log level="custom">
-    <property name="WHERE" value="before doing stuff"/>
-    </log>
-    <enrich>
-    <source type="body" clone="true"/>
-    <target type="property" property="ENRICH_PROPERTY"/>
-    </enrich>
-    <property name="PROPERTY_PROPERTY"
-    expression="$body/child::node()"
-    scope="default"/>
-    <log level="custom">
-    <property name="WHERE" value="before doing stuff"/>
-    <property name="ENRICH_PROPERTY" expression="get-property('ENRICH_PROPERTY')"/>
-    <property name="PROPERTY_PROPERTY" expression="get-property('PROPERTY_PROPERTY')"/>
-    </log>
-    <enrich>
-    <source type="property" clone="true" property="ENRICH_PROPERTY"/>
-    <target type="body" action="sibling"/>
-    </enrich>
-    <log level="full"/>
+        <log level="custom">
+            <property name="WHERE" value="before doing stuff"/>
+        </log>
+        <enrich>
+            <source type="body" clone="true"/>
+            <target type="property" property="ENRICH_PROPERTY"/>
+        </enrich>
+        <property name="PROPERTY_PROPERTY" expression="$body/child::node()" scope="default"/>
+        <log level="custom">
+            <property name="WHERE" value="before doing stuff"/>
+            <property name="ENRICH_PROPERTY" expression="get-property('ENRICH_PROPERTY')"/>
+            <property name="PROPERTY_PROPERTY" expression="get-property('PROPERTY_PROPERTY')"/>
+        </log>
+        <enrich>
+            <source type="property" clone="true" property="ENRICH_PROPERTY"/>
+            <target type="body" action="sibling"/>
+        </enrich>
+        <log level="full"/>
     </inSequence>
     ```
 
@@ -256,22 +254,22 @@ Deploy the following proxy service. For instructions, see [Creating a Proxy Serv
 Note the property, `<property name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\>` in the fault sequence configuration. It is used to log the error message that occurs due to a  mediation fault.
 
 ``` xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-       <target>
-          <inSequence>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+    <target>
+        <inSequence>
             <call>
                 <endpoint key="ep2"/>
-             </call>
-             <respond/>   
-          </inSequence>
-          <faultSequence>
-             <log>
+            </call>
+            <respond/>   
+        </inSequence>
+        <faultSequence>
+            <log>
                 <property name="stockerrorprop" expression="$ctx:ERROR_MESSAGE"/>
                 <property name="Cause" expression="get-property('ERROR_MESSAGE')"/>
-             </log>
-          </faultSequence>
-       </target>
-    </proxy> 
+            </log>
+        </faultSequence>
+    </target>
+</proxy> 
 ```
 
 Set up the back-end service:
@@ -318,21 +316,21 @@ Deploy the following proxy service. For instructions, see [Creating a Proxy Serv
 Note the property, `<property name="stockprop" expression="$trp:Content-Type"/\>` in the configuration, which is used to log the `Content-Type` HTTP header of the request message.
 
 ``` xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-       <target>
-          <inSequence>
-             <log>
-                 <property name="stockprop" expression="$trp:Content-Type"/>
-             </log>
-             <call>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+    <target>
+        <inSequence>
+            <log>
+                <property name="stockprop" expression="$trp:Content-Type"/>
+            </log>
+            <call>
                 <endpoint>
-                   <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </call>
-             <respond/>
-          </inSequence>
-       </target>
-    </proxy> 
+            </call>
+            <respond/>
+        </inSequence>
+    </target>
+</proxy> 
 ```
 
 Set up the back-end service:
@@ -374,23 +372,23 @@ Deploy the following proxy service using instructions in [Creating a Proxy Servi
 
 Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
 
-    ``` xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-       <target>
-          <inSequence>
-             <log>
+``` xml
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+    <target>
+        <inSequence>
+            <log>
                 <property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>
-             </log>
-             <call>
+            </log>
+            <call>
                 <endpoint>
-                   <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </call>
-             <respond/>
-          </inSequence>
-       </target>
-    </proxy> 
-    ```
+            </call>
+            <respond/>
+        </inSequence>
+    </target>
+</proxy> 
+```
 
 Set up the back-end service:
 
@@ -428,21 +426,21 @@ Deploy the following proxy service using instructions in [Creating a Proxy Servi
 Note the property, `<property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/>` in the configuration. It is used to log the value of **wsa:To** header of the SOAP request.
 
 ``` xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-       <target>
-          <inSequence>
-             <log>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+    <target>
+        <inSequence>
+            <log>
                 <property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/>
-             </log>
-             <call>
+            </log>
+            <call>
                 <endpoint>
-                   <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </call>
-             <respond/>
-          </inSequence>
-       </target>
-    </proxy> 
+            </call>
+            <respond/>
+        </inSequence>
+    </target>
+</proxy> 
 ```
 
 Set up the back-end service:
@@ -464,8 +462,7 @@ Set up the back-end service:
 Note the following message in the log.
 
 ``` java
-    [2013-03-18 14:14:16,356] INFO - LogMediator To: http://localhost:9000/services/SimpleStockQuoteService, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8a64c9cb-b82f-4d6f-a45d-bef37f8b664a, Direction: request,
-    stockprop = http://localhost:9000/services/SimpleStockQuoteService
+[2013-03-18 14:14:16,356] INFO - LogMediator To: http://localhost:9000/services/SimpleStockQuoteService, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8a64c9cb-b82f-4d6f-a45d-bef37f8b664a, Direction: request, stockprop = http://localhost:9000/services/SimpleStockQuoteService
 ```
 
 #### $axis2
@@ -484,21 +481,21 @@ Note the property, `<property name="stockprop" expression="$axis2:REST_URL_POSTF
 value of the request message.
 
 ``` xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-       <target>
-          <inSequence>
-             <log>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+    <target>
+        <inSequence>
+            <log>
                 <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>
-             </log>
-             <call>
+            </log>
+            <call>
                 <endpoint>
-                  <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </call>
-             <respond/>
-          </inSequence>
-       </target>
-    </proxy>
+            </call>
+            <respond/>
+        </inSequence>
+    </target>
+</proxy>
 ```
 
 Set up the back-end service:
@@ -524,9 +521,9 @@ INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy/test/prefi
 ```
 
 In this example, the property definition,
-`         <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>        `
+`<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>`
 is equivalent to
-`         <property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>        `
+`<property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>`
 
 Similarly, you can use `$axis2` prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties.md).
 
@@ -576,39 +573,39 @@ Mediator]({{base_path}}/reference/mediators/call-template-mediator).
 Add a sequence template with the following configuration. See [Adding a New Sequence Template]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) for detailed instructions.
 
 ``` xml
-    <template xmlns="http://ws.apache.org/ns/synapse" name="HelloWordLogger">
-       <sequence>
-          <log level="full">
-             <property xmlns:ns2="http://org.apache.synapse/xsd" xmlns:ns="http://org.apache.synapse/xsd" name="message" expression="$func:message"></property>
-          </log>
-       </sequence>
-    </template>
+<template xmlns="http://ws.apache.org/ns/synapse" name="HelloWordLogger">
+    <sequence>
+        <log level="full">
+            <property xmlns:ns2="http://org.apache.synapse/xsd" xmlns:ns="http://org.apache.synapse/xsd" name="message" expression="$func:message"></property>
+        </log>
+    </sequence>
+</template>
 ```
 
 Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
 
 ``` xml
-    <proxy xmlns="http://ws.apache.org/ns/synapse"
-           name="StockQuoteProxy"
-           transports="https,http"
-           statistics="disable"
-           trace="disable"
-           startOnLoad="true">
-       <target>
-          <inSequence>
-             <call-template target="HelloWorldLogger">
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+    name="StockQuoteProxy"
+    transports="https,http"
+    statistics="disable"
+    trace="disable"
+    startOnLoad="true">
+    <target>
+        <inSequence>
+            <call-template target="HelloWorldLogger">
                 <with-param name="message" value="HelloWorld"/>
-             </call-template>
-             <call>
+            </call-template>
+            <call>
                 <endpoint>
-                  <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </call>
-             <log/>
-             <respond/>
-          </inSequence>
-       </target>
-    </proxy>
+            </call>
+            <log/>
+            <respond/>
+        </inSequence>
+    </target>
+</proxy>
 ```
 
 Set up the back-end service:
