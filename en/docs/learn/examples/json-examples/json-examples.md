@@ -423,9 +423,9 @@ You can use JSON path expressions with following mediators:
 </tbody>
 </table>
 
-#### JSON path syntax
+#### JSONpath syntax
 
-JSON path provides a way to navigate, filter, and extract data from JSON structures. Please refer how to use JSON path as an [expression]({{base_path}}/reference/synapse-properties/expressions/#jsonpath-expressions).
+JSONPath provides a way to navigate, filter, and extract data from JSON structures. To learn more about how to use JSONPath as an expression, see the [JSONPath expressions]({{base_path}}/reference/synapse-properties/expressions/#jsonpath-expressions) documentation.
 
 ### Logging JSON payloads
 

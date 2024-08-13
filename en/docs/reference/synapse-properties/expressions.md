@@ -2,7 +2,7 @@
 
 In WSO2 Micro Integrator, expressions are a way to dynamically compute values within various integration artifacts such as sequences, proxies, endpoints, and APIs. These expressions are used to extract, transform, and route data as it flows through the integration logic.
 
-## XPath Expressions
+## XPath expressions
 
 The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default where as the support for XPath 2.0 can be introduced by adding the following property in `<MI_HOME>/conf/deployment.toml`.
 
@@ -13,7 +13,7 @@ synapse.enable_xpath_dom_failover=true
 
 The Micro Integrator also provides custom XPath functions and variables for accessing message properties.
 
-### XPath Extension Functions
+### XPath extension functions
 
 In addition to standard XPath functions, the Micro Integrator supports the following custom functions for
 working with XPath expressions:
@@ -234,7 +234,7 @@ Syntax:
 -   url-encode(string value)
 -   url-encode(string value, string charset)
 
-### Synapse XPath Variables
+### Synapse XPath variables
 
 There is a set of predefined XPath variables that you can directly use
 to write XPaths in the Synapse configuration, instead of using the
@@ -293,7 +293,7 @@ Set up the back-end service:
 Note the following message in the log.
 
 ``` java
-    INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:54205f7d-359b-4e82-9099-0f8e3bf9d014, Direction: request, stockerrorprop = Couldn't find the endpoint with the key : ep2 
+INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:54205f7d-359b-4e82-9099-0f8e3bf9d014, Direction: request, stockerrorprop = Couldn't find the endpoint with the key : ep2 
 ```
 
 In this example, the property definition, `<property
@@ -354,7 +354,7 @@ Set up the back-end service:
 Note the following message in the log.
 
 ``` java
-    [2013-03-18 12:23:14,101] INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:25a3143a-5b18-4cbb-b8e4-27d4dd1895d2, Direction: request, stockprop = text/xml; charset=UTF-8 
+[2013-03-18 12:23:14,101] INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:25a3143a-5b18-4cbb-b8e4-27d4dd1895d2, Direction: request, stockprop = text/xml; charset=UTF-8 
 ```
 
 In this example, the property definition, `<property name="stockprop"
@@ -372,7 +372,7 @@ The SOAP 1.1 or 1.2 body element. For example, the expression `$body//getQuote` 
 
 Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).
 
-    Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
+Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
 
     ``` xml
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
@@ -411,7 +411,7 @@ Set up the back-end service:
 Note the following message in the log.
 
 ``` java
-    [2013-03-18 14:04:41,019] INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:930f68f5-199a-4eff-90d2-ea679c2362ab, Direction: request, stockprop = <m0:getQuotexmlns:m0="http://services.samples"><m0:request><m0:symbol>IBM</m0:symbol></m0:request></m0:getQuote>
+[2013-03-18 14:04:41,019] INFO - LogMediator To: /services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:930f68f5-199a-4eff-90d2-ea679c2362ab, Direction: request, stockprop = <m0:getQuotexmlns:m0="http://services.samples"><m0:request><m0:symbol>IBM</m0:symbol></m0:request></m0:getQuote>
 ```
 
 #### $header
@@ -520,7 +520,7 @@ Set up the back-end service:
 Note the following message in the log.
 
 ``` java
-    INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy/test/prefix, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:ecd228c5-106a-4448-9c83-3b1e957e2fe5, Direction: request, stockprop = /test/prefix
+INFO - LogMediator To: http://localhost:8280/services/StockQuoteProxy/test/prefix, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:ecd228c5-106a-4448-9c83-3b1e957e2fe5, Direction: request, stockprop = /test/prefix
 ```
 
 In this example, the property definition,
@@ -630,7 +630,7 @@ Set up the back-end service:
 Note the following message in the log.
 
 ``` xml
-    LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8d90e21b-b5cc-4a02-98e2-24b324fa704c, Direction: request, message = HelloWorld
+LogMediator To: http://localhost:8280/services/StockQuoteProxy, WSAction: urn:getQuote, SOAPAction: urn:getQuote, ReplyTo: http://www.w3.org/2005/08/addressing/anonymous, MessageID: urn:uuid:8d90e21b-b5cc-4a02-98e2-24b324fa704c, Direction: request, message = HelloWorld
 ```
 
 #### $env
@@ -673,10 +673,8 @@ Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get
     ``` xml
     {"theData":{"item":{"content":{"paramA":"ValueA","paramB":"valueB"}}}}
     ```
-
-
-
-## JSONPath Expressions
+    
+## JSONPath expressions
 
 JSONPath is used for navigating and querying JSON data. Similar to XPath for XML, JSONPath allows you to extract specific data from JSON documents. It's commonly used in scenarios where messages or payloads are in JSON format, enabling you to manipulate and route data based on its content.
 
@@ -749,7 +747,7 @@ The following table summarizes sample JSONPath expressions and their outputs:
 </table>
 
 !!! Info
-During mediation, evaluating expressions against a property does not modify the original payload. The changes will be reflected within the property itself and hence, it cannot be expected to get applied for the rest of the mediation similar to payload modification.
+    During mediation, evaluating expressions against a property does not modify the original payload. The changes will be reflected within the property itself and hence, it cannot be expected to get applied for the rest of the mediation similar to payload modification.
 
 We can also evaluate a JSONPath expression against a property that contains a JSON payload.
 
