@@ -44,7 +44,7 @@ This sample scenario demonstrates how WSO2 MI works with ActiveMQ to implement t
     </proxy>
     ```
 
-### How the Implementation Works
+### How the implementation works
 
 Let's explore the elements of the configuration:
 
