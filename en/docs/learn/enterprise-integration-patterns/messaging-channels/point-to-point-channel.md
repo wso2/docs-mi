@@ -17,7 +17,7 @@ The sample scenario is an inventory for stocks. It illustrates how a stock quote
 
 ## Synapse configurations of the artifacts
 
-When you unzip the ZIP file you downloaded below in step 9 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to WSO2 MI Documentation.
+When you unzip the ZIP file you downloaded below in step 9 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Developing Integration Solutions]({{base_path}}/develop/intro-integration-development/) Documentation.
 
 === "Proxy Service"
     ```xml
@@ -117,7 +117,9 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Navigate to the `MI_HOME/bin/` directory and start the `tcpmon` application. 
 
-8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001`, `9002`, and `9003`. For each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
+    For instructions, go to [Starting TCPMon]({{base_path}}/observe-and-manage/classic-observability-tcp/starting-tcp-mon/) Documentation.
+
+8. In the `tcpmon` application, navigate to the **Admin** tab. Add listeners to ports `9001`, `9002`, and `9003`. For each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
 
 9. Download the artifacts of the sample.
 
