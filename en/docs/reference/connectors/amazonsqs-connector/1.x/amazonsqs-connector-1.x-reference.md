@@ -24,22 +24,22 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <tr>
             <td>secretAccessKey</td>
             <td>The secret access key (a 40-character sequence).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>accessKeyId</td>
             <td>The access key ID that corresponds to the secret access key that you used to sign the request (a 20-character, alphanumeric sequence).</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>iamRole</td>
             <td>The IAM role associated with the EC2 instance.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>enableIMDSv1</td>
             <td>Whether to use IMDSv1 to access EC2 instance metadata. By default, IMDSv2 will be used.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>version</td>
@@ -54,12 +54,12 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <tr>
             <td>enableSSL</td>
             <td>Whether the Amazon AWS URL should be HTTP or HTTPS. Set to true if you want the URL to be HTTPS.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>contentType</td>
             <td>The content type that is used to generate the signature.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>blocking</td>
@@ -110,27 +110,27 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <tr>
             <td>maxNumberOfMessages</td>
             <td>The maximum number of messages to be returned. Values can be from 1 to 10. Default is 1.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>waitTimeSeconds</td>
             <td>The duration (in seconds) for which the call will wait for a message to arrive in the queue before returning. If a message is available, the call will return sooner than WaitTimeSeconds. Long poll support is enabled by using this parameter. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS Long Poll</a>.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>messageAttributeNames</td>
             <td>The name of the message attribute. The message attribute name can contain the following characters: A-Z, a-z, 0-9, underscore (_), hyphen (-), and period (.). The name must not start or end with a period, and it should not have successive periods. The name is case sensitive and must be unique among all attribute names for the message. The name can be up to 256 characters long. The name cannot start with "AWS." or "Amazon." (including any case variations), because these prefixes are reserved for use by Amazon Web Services. When using the operation, you can send a list of attribute names to receive, or you can return all of the attributes by specifying "All" or ".*" in your request. You can also use "foo.*" to return all message attributes starting with the "foo" prefix.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>visibilityTimeout</td>
             <td>The duration (in seconds) in which the received messages are hidden from subsequent retrieve requests after being retrieved by the request.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>attributes</td>
             <td>A list of attributes that need to be returned along with each message.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>queueId</td>
@@ -161,7 +161,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
+    <amazonsqs.receiveMessage>
         <accessKeyId>AKIAJXHDKJWR2ZDDVPEBTQ</accessKeyId>
         <secretAccessKey>N9VT2P3MdfaL7Li1P3hJu1GTdtOO7Kd7NfPlyYG8f/6</secretAccessKey>
         <version>2009-02-01</version>
@@ -169,13 +169,11 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
         <maxNumberOfMessages>10</maxNumberOfMessages>
-    </root>
+    </amazonsqs.receiveMessage>
     ```
 
 ??? note "sendMessage"
     This operation delivers a message to the specified queue. You can send payload messages up to 256 KB (262,144 bytes) in size. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) for more information.
-
-    > **Note**: The following list shows the characters (in Unicode) allowed in your message, according to the W3C XML specification. For more information, go to [http://www.w3.org/TR/REC-xml/#charsets](http://www.w3.org/TR/REC-xml/#charsets). If you send any characters not included in the list, your request will be rejected. #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF].
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -200,26 +198,24 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <tr>
             <td>delaySeconds</td>
             <td>The number of seconds (0 to 900, which is 15 minutes) to delay a specific message. Messages with a positive delaySeconds value become available for processing after the delay time is finished. If you do not specify a value, the default value for the queue applies.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>messageAttributes</td>
             <td>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>messageDeduplicationId</td>
             <td>The ID used for deduplication of sent messages. If a message with a particular messageDeduplicationId is sent successfully, any messages sent with the same messageDeduplicationId are accepted successfully but aren't delivered during the 5-minute deduplication interval, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property">Using the MessageDeduplicationId Property</a>.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>messageGroupId</td>
             <td>The ID that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property">Using the MessageGroupId Property</a>.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
     </table>
-
-    > **Note**: The messageGroupId and messageDeduplicationId parameters apply only to FIFO (first-in-first-out) queues and valid values are alphanumeric characters (a-z, A-Z, 0-9) and punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~). When you set FIFOQueue, you can't set delaySeconds per message. You can set this parameter only on a queue level.
 
     **Sample configuration**
 
@@ -238,7 +234,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request for sendMessage**
 
     ```xml
-    <root>
+    <amazonsqs.sendMessage>
         <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
         <secretAccessKey>N9VT2P3MaL7LikjhyhJu1GTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
         <version>2009-02-01</version>
@@ -246,23 +242,19 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
         <messageBody>Testing the operation</messageBody>
-    </root>
+    </amazonsqs.sendMessage>
     ```
 
     **Sample request for sendMessage to FIFOQueue**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHxxxxxx</accessKeyId>
-        <secretAccessKey>N9VT2P3xxxxxx</secretAccessKey>
-        <version>2012-11-05</version>
-        <region>us-west-2</region>
+    <amazonsqs.sendMessage>
         <queueId>899940420354</queueId>
         <queueName>test.fifo</queueName>
         <messageGroupId>MyMessageGroupId1234567890</messageGroupId>
         <messageDeduplicationId>MyMessageDeduplicationId1234567890</messageDeduplicationId>
         <messageBody>Testing the operation</messageBody>
-    </root>
+    </amazonsqs.sendMessageot>
     ```
 
 ??? note "sendMessageBatch"
@@ -288,7 +280,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <tr>
             <td>delaySeconds</td>
             <td>The number of seconds (0 to 900, which is 15 minutes) to delay a specific message. Messages with a positive delaySeconds value become available for processing after the delay time is finished. If you do not specify a value, the default value for the queue applies.</td>
-            <td>Optional</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>messageAttributes</td>
@@ -297,7 +289,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.sendMessageBatch>
@@ -311,21 +303,15 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3hjgGTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
+    <amazonsqs.sendMessageBatch>
         <queueId>492228198692</queueId>
         <queueName>TestCo1n</queueName>      
         <messageRequestEntry>SendMessageBatchRequestEntry.1.Id=test_msg_001&amp;SendMessageBatchRequestEntry.1.MessageBody=test%20message%20body%201&amp;SendMessageBatchRequestEntry.2.Id=test_msg_002&amp;SendMessageBatchRequestEntry.2.MessageBody=test%20message%20body%202</messageRequestEntry>
-    </root>
+    </amazonsqs.sendMessageBatch>
     ```
 
 ??? note "deleteMessage"
     This operation deletes the specified message from the specified queue. You specify the message by using the message's receipt handle and not the message ID you received when you sent the message. Even if the message is locked by another reader due to the visibility timeout setting, it is still deleted from the queue. If you leave a message in the queue for longer than the queue's configured retention period, Amazon SQS automatically deletes it. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) for more information.
-
-    > **Note**: The receipt handle is associated with a specific instance of receiving the message. If you receive a message more than once, the receipt handle you get every time you receive the message is different. When you use this operation, if you do not provide the most recently received receipt handle for the message, the request will still succeed, but the message might not be deleted.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -349,9 +335,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-    > **Note**: It is possible you will receive a message even after you have deleted it. This might happen on rare occasions if one of the servers storing a copy of the message is unavailable when you request to delete the message. The copy remains on the server and might be returned to you again on a subsequent receive request. You should create your system to be idempotent so that receiving a particular message more than once is not a problem.
-
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.deleteMessage>
@@ -364,20 +348,15 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVSDPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1PjkhGTtOO7Kddf7NfPlyYG8f/6</secretAccessKey>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
+    <amazonsqs.deleteMessage>
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
         <receiptHandle>ib8MCWgVft0d03wCmmzGU9b41lxRVMYIHLnfckXhkh/6DmqOhu+qHcsuzXUik5HvhGLa/A3tnTUTOXydKJoTOTlP3KUjOSOrwVxKoOi+bhLyLJuYAtkhfRMY/ZF1Jh4CzGSk3tLfPSfzOo3bqgf7mWklwM18BnufuWjSl8HjJQYnegs5yDDypAZZqtBuMv6gT/1aMbQbL15Vo8b0Fr06hFjSZzPpA0vxbb9NpksToMq4yPf8X3jt/Njn1sPZSG0OKqdgACiavmi0mzAT/4QLi+waSFnyG0h+wN1z9OdHsr1+4=</receiptHandle>
-    </root> 
+    </amazonsqs.deleteMessage> 
     ```
 
 ??? note "deleteMessageBatch"
     This operation deletes multiple messages from the specified queue. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html) for more information.
-
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -401,7 +380,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.deleteMessageBatch>
@@ -414,25 +393,16 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVSDPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1PjkhGTtOO7Kddf7NfPlyYG8f/6</secretAccessKey>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
+    <amazonsqs.deleteMessageBatch>
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
         <messageRequestEntry>DeleteMessageBatchRequestEntry.1.Id=msg1
         &amp;DeleteMessageBatchRequestEntry.1.ReceiptHandle=gfk0T0R0waama4fVxIVNgeNP8ZEDcw7zZU1Zw%3D%3D&amp;DeleteMessageBatchRequestEntry.2.Id=msg2&amp;DeleteMessageBatchRequestEntry.2.ReceiptHandle=gfk0T0R0waama4fVFffkjKzmhMCymjQvfTFk2LxT33G4ms5subrE0deLKWSscPU1oD3J9zgeS4PQQ3U30qOumIE6AdAv3w%2F%2Fa1IXW6AqaWhGsEPaLm3Vf6IiWqdM8u5imB%2BNTwj3tQRzOWdTOePjOjPcTpRxBtXix%2BEvwJOZUma9wabv%2BSw6ZHjwmNcVDx8dZXJhVp16Bksiox%2FGrUvrVTCJRTWTLc59oHLLF8sEkKzRmGNzTDGTiV%2BYjHfQj60FD3rVaXmzTsoNxRhKJ72uIHVMGVQiAGgB%2BqAbSqfKHDQtVOmJJgkHug%3D%3D</messageRequestEntry>
-    </root>  
+    </amazonsqs.deleteMessageBatch>  
     ```
 
 ??? note "changeMessageVisibility"
     This operation changes the visibility timeout of a specified message in a queue to a new value. The maximum allowed timeout value you can set the value to is 12 hours. This means you can't extend the timeout of a message in an existing queue to more than a total visibility timeout of 12 hours. (For more information on visibility timeout, see [Visibility Timeout in the Amazon SQS Developer Guide](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html)).
-    
-    For example, let's say you have a message whose default message visibility timeout is 30 minutes. You could call this operation with a value of two hours, and the effective timeout would be two hours and 30 minutes. When that time is reached, you could again extend the time-out by calling changeMessageVisiblity; but this time, the maximum allowed timeout would be 9 hours and 30 minutes. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html) for more information.
-
-    > **Note**: There is a 120,000 limit for the number of in-flight messages per queue. Messages are in flight after they have been received from the queue by a consuming component but have not yet been deleted from the queue. If you reach the 120,000 limit, you will receive an OverLimit error message from Amazon SQS. To help avoid reaching the limit, you should delete the messages from the queue after they have been processed. You can also increase the number of queues you use to process the messages.
-
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -461,11 +431,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-    > **Note**: If you attempt to set visibilityTimeout to an amount more than the maximum time left, Amazon SQS returns an error. It will not automatically recalculate and increase the timeout to the maximum time remaining.
-    > 
-    > Unlike with a queue, when you change the visibility timeout for a specific message, that timeout value is applied immediately but is not saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message the next time it is received reverts to the original timeout value, not the value you set with the changeMessageVisibility operation.
-
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.changeMessageVisibility>       
@@ -479,16 +445,12 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVPESSBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Lhgu1GTtOO7Kd7NfPlyYG8f/6</secretAccessKey>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
+    <amazonsqs.changeMessageVisibility>
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
         <receiptHandle>ib8MCWgVft3IGz2EvDZBjzlBHi0rmXxJUcKbqlvkuH9WO9LaWQNQ8isW3IX8iCZBHovl8NQeC/EbbsLCSS2bMDGMZ5mxQ9C+UudaXRNxwj+VeLP4DQoTOMXEnw3V3Pk7GoVJ62YwrbnfH9U6c7qd8xCptVK1FIn6Pu4zNYRRiQmO8ENP3Tt0S81gHCz8sGdunXuro1tymIhxxliq29uPX8plYmvmkeCc9Fezib1cccpPpUkFhIHY8PkCXxI04i6zSM/o1o/wag2d0iDBVS20hBR2g8e6h8il1z9OdHsr1+4=</receiptHandle>
         <visibilityTimeout>10</visibilityTimeout>
-    </root>  
+    </amazonsqs.changeMessageVisibility>  
     ```
 
 ??? note "changeMessageVisibilityBatch"
@@ -516,7 +478,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.changeMessageVisibilityBatch>
@@ -529,15 +491,11 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVPESSBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3GjhgDNTtOO7Kd7NfPlyYG8f/6</secretAccessKey>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
+    <amazonsqs.changeMessageVisibilityBatch>
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
         <messageRequestEntry>ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_1&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=ib8MCWgVft3IGz2EvDZBjzlBHi0rmXxJUcKbqlvkuH9WO9LaWQNQ8isW3IX8iCZBHovl8NQeC/EbbsLCSS2b&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=10&amp;ChangeMessageVisibilityBatchRequestEntry.2.Id=change_visibility_msg_2&amp;ChangeMessageVisibilityBatchRequestEntry.2.ReceiptHandle=ib8MCWgVft3IGz2EvDZBjzlBHi0rmXxJUcKbqlvkuH9WO9LaWQNQ8isW3IX8iCZBHovl8NQeC/EbbsLCSS2b
-    </root>  
+    </amazonsqs.changeMessageVisibilityBatch>  
     ```
 
 ---
@@ -546,10 +504,6 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
 ??? note "addPermission"
     This operation adds a permission to a queue for a specific [principal](http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P), enabling you to share access to the queue. When you create a queue, you have full control access rights for the queue. Only you (as owner of the queue) can grant or deny permissions to the queue. For more information about these permissions, see [Shared Queues in the Amazon SQS Developer Guide](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html). See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html) for more information.
-
-    > **Note**:
-    > - This operation writes an Amazon SQS-generated policy. If you want to write your own policy, use SetQueueAttributes to upload your policy. For more information about writing your own policy, see Using The Access Policy Language in the Amazon SQS Developer Guide.
-    > - Some API actions take lists of parameters. These lists are specified using the param.n notation. Values of n are integers starting from 1. For example, a parameter list with two elements looks like this: `&Attribute.1=this, &Attribute.2=that`.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -583,7 +537,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.addPermission>
@@ -598,15 +552,376 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     **Sample request**
 
     ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWDDR2ZVPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3hJu1GsdfTtOO7Kd7NfPlyYG8f/6</secretAccessKey>
+    <amazonsqs.addPermission>
         <awsAccountNumbers>AWSAccountId.1=899940420354&amp;AWSAccountId.2=294598218081</awsAccountNumbers>
         <actionNames>ActionName.1=SendMessage&amp;ActionName.2=ReceiveMessage</actionNames>
         <label>qazwsx</label>
         <queueId>899940420354</queueId>
         <queueName>Test</queueName>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
-    </root>  
+    </amazonsqs.addPermission>  
     ```
+
+
+??? note "removePermission"
+    This operation revokes any permissions in the queue policy that matches the specified label. This allows sharing access to the queue. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueId</td>
+            <td>The unique identifier of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>label</td>
+            <td>The identification of the permission to remove</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.removePermission>
+        <queueId>{$ctx:queueId}</queueId>
+        <queueName>{$ctx:queueName}</queueName>
+        <label>{$ctx:label}</label>
+    </amazonsqs.removePermission>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.removePermission>
+        <label>qazwsx</label>
+        <queueId>899940420354</queueId>
+        <queueName>Test</queueName>
+    </amazonsqs.removePermission>
+    ```
+---
+
+### Queue
+
+??? note "createQueue"
+    This operation creates a new standard or FIFO queue. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the new queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>attributeEntries</td>
+            <td>A map of attributes with their corresponding values.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.createQueue>
+        <queueName>{$ctx:queueName}</queueName>
+        <attributeEntries>{$ctx:attributeEntries}</attributeEntries>
+    </amazonsqs.createQueue>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.createQueue>
+        <queueName>Queue</queueName>
+        <attributeEntries>Attribute.1.Name=DelaySeconds&amp;Attribute.1.Value=45</attributeEntries>
+    </amazonsqs.createQueue>
+    ```
+---
+
+??? note "deleteQueue"
+    This operation deletes the queue specified by `QueueUrl`. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueId</td>
+            <td>The unique identifier of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.deleteQueue>
+        <queueId>{$ctx:queueId}</queueId>
+        <queueName>{$ctx:queueName}</queueName>
+    </amazonsqs.deleteQueue>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.deleteQueue>
+        <queueId>899940420354</queueId>
+        <queueName>Test</queueName>
+    </amazonsqs.deleteQueue>
+    ```
+---
+
+??? note "setQueueAttributes"
+    This operation sets the value of one or more queue attributes, like a policy. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueId</td>
+            <td>The unique identifier of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>attributeEntries</td>
+            <td>A map of attributes with their corresponding values.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.setQueueAttributes>
+        <queueId>{$ctx:queueId}</queueId>
+        <queueName>{$ctx:queueName}</queueName>
+        <attributeEntries>{$ctx:attributeEntries}</attributeEntries>
+    </amazonsqs.setQueueAttributes>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.setQueueAttributes>
+        <queueId>899940420354</queueId>
+        <queueName>Test</queueName>
+        <attributeEntries>Attribute.Name=Policy&amp;Attribute.Value=%7B%22Version%22%3A%222012-10-17%22%2C%22Id%22%3A%22UseCase1%22%2C%22Statement%22%3A%5B%7B%22Sid%22%3A%22Queue1ReceiveMessage%22%2C%22Effect%22%3A%22Allow%22%2C%22Principal%22%3A%7B%22AWS%22%3A%22*%22%7D%2C%22Action%22%3A%22SQS%3AReceiveMessage%22%2C%22Resource%22%3A%22arn%3Aaws%3Asqs%3Aus-east-1%3A555555555555%3AMyQueue6%22%7D%5D%7D</attributeEntries>
+    </amazonsqs.setQueueAttributes>
+    ```
+---
+
+??? note "getQueueAttributes"
+    This operation gets attributes for the specified queue. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueId</td>
+            <td>The unique identifier of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>attributes</td>
+            <td>A list of attributes to retrieve information for.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.getQueueAttributes>
+        <queueId>{$ctx:queueId}</queueId>
+        <queueName>{$ctx:queueName}</queueName>
+        <attributes>{$ctx:attributes}</attributes>
+    </amazonsqs.getQueueAttributes>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.getQueueAttributes>
+        <queueId>899940420354</queueId>
+        <queueName>Test</queueName>
+    </amazonsqs.getQueueAttributes>
+    ```
+---
+
+??? note "getQueueUrl"
+    This operation returns the URL of an existing queue. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>accountId</td>
+            <td>The AWS account ID without hyphens of the account that created the queue.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.getQueueUrl>
+        <queueName>{$ctx:queueName}</queueName>
+        <accountId>{$ctx:accountId}</accountId>
+    </amazonsqs.getQueueUrl>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.getQueueUrl>
+        <accountId>899940420354</accountId>
+        <queueName>Test</queueName>
+    </amazonsqs.getQueueUrl>
+    ```
+---
+
+??? note "listDeadLetterSourceQueues"
+    This operation returns a list of the queues that have the `RedrivePolicy` queue attribute configured with a dead-letter queue. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueId</td>
+            <td>The unique identifier of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.listDeadLetterSourceQueues>
+        <queueId>{$ctx:queueId}</queueId>
+        <queueName>{$ctx:queueName}</queueName>
+    </amazonsqs.listDeadLetterSourceQueues>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.listDeadLetterSourceQueues>
+        <queueId>899940420354</queueId>
+        <queueName>Test</queueName>
+    </amazonsqs.listDeadLetterSourceQueues>
+    ```
+---
+
+??? note "listQueues"
+    This operation returns a list of the queues in the current region. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueNamePrefix</td>
+            <td>A string to use for filtering the list results.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.listQueues>
+        <queueNamePrefix>{$ctx:queueNamePrefix}</queueNamePrefix>
+    </amazonsqs.listQueues>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.listQueues/>
+    ```
+---
+
+??? note "purgeQueue"
+    This operation deletes available messages in a queue specified by the QueueURL parameter. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queueId</td>
+            <td>The unique identifier of the queue.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>queueName</td>
+            <td>The name of the queue.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <amazonsqs.purgeQueue>
+        <queueId>{$ctx:queueId}</queueId>
+        <queueName>{$ctx:queueName}</queueName>
+    </amazonsqs.purgeQueue>
+    ```
+    
+    **Sample request**
+
+    ```xml
+    <amazonsqs.purgeQueue>
+        <queueId>899940420354</queueId>
+        <queueName>Test</queueName>
+    </amazonsqs.purgeQueue>
+    ```
+---
