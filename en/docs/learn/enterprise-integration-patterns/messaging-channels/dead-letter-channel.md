@@ -41,7 +41,7 @@ Given below is the synapse configuration of this sample.
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <proxy name="DeadLetterChannelProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target endpoint="SimpleStockEp" faultSequence="StoreSeq">
+        <target>
             <inSequence>
                 <log category="INFO" level="custom">
                     <property name="Sending request to Endpoint" value="SimpleStockQuoteService"/>
@@ -54,6 +54,23 @@ Given below is the synapse configuration of this sample.
                 </log>
                 <respond/>
             </inSequence>
+            <faultSequence>
+                <log category="INFO" level="custom">
+                    <property name="Fault happened" value="Sending to the DLC store"/>
+                </log>
+                <store messageStore="dlc-store"/>
+                <payloadFactory media-type="xml">
+                    <format>
+                        <Response xmlns="">
+                            <Code>202</Code>
+                            <Message>Request Accepted</Message>
+                        </Response>
+                    </format>
+                    <args/>
+                </payloadFactory>
+                <property name="HTTP_SC" value="202" scope="axis2"/>
+                <respond/>
+            </faultSequence>
         </target>
     </proxy>
     ```
@@ -79,7 +96,8 @@ Given below is the synapse configuration of this sample.
     <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="ScheduledProcessor" messageStore="dlc-store" targetEndpoint="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
         <parameter name="client.retry.interval">1000</parameter>
         <parameter name="member.count">1</parameter>
-        <parameter name="message.processor.deactivate.sequence">DeactivateLogSeq</parameter>
+        <parameter name="message.processor.reply.sequence">ReplySeq</parameter>
+        <parameter name="message.processor.deactivate.sequence">DeactivateSeq</parameter>
         <parameter name="is.active">true</parameter>
         <parameter name="max.delivery.attempts">1000</parameter>
         <parameter name="store.connection.retry.interval">1000</parameter>
@@ -89,38 +107,26 @@ Given below is the synapse configuration of this sample.
     </messageProcessor>
     ```
 === "Message Store"
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-        <messageStore name="dlc-store" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse">
+    <messageStore name="dlc-store" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse">
     </messageStore>
-    ```xml
     ```
-=== "Store Sequence"
+=== "Deactivate Sequence"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="StoreSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <log category="INFO" level="custom">
-            <property name="Fault happened" value="Sending to the DLC store"/>
-        </log>
-        <store messageStore="dlc-store"/>
-        <payloadFactory media-type="xml">
-            <format>
-                <Response xmlns="">
-                    <Code>202</Code>
-                    <Message>Request Accepted</Message>
-                </Response>
-            </format>
-            <args/>
-        </payloadFactory>
-        <property name="HTTP_SC" value="202" scope="axis2"/>
-        <respond/>
-    </sequence>
-    ```
-=== "Log Sequence"
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="LogSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence name="DeactivateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <log category="INFO" level="custom">
             <property name="Status" value="Deactivate message processor"/>
+        </log>
+    </sequence>
+    ```
+=== "Reply Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="ReplySeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <log category="INFO" level="custom">
+            <property name="Status" value="Reply"/>
         </log>
     </sequence>
     ```
@@ -167,7 +173,7 @@ Follow the below instructions to simulate this sample scenario.
 
 9. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 ## Execute the sample
 
