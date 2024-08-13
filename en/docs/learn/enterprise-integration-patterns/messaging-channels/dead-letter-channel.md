@@ -18,7 +18,7 @@ The diagram below depicts how to simulate the example scenario.
 
 ![Dead letter channel]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel.png)
 
-Before digging into implementation details, let's take a look at the relationship between the example scenario and the Dead Letter Channel EIP by comparing their core components. We use three constructs of the service to implement the Dead Letter Channel EIP.
+Before digging into implementation details, let's take a look at the relationship between the example scenario and the Dead Letter Channel EIP by comparing their core components. We use three constructs of the WSO2 MI to implement the Dead Letter Channel EIP.
 
 | Dead Letter Channel EIP (Figure 1)  | Dead Letter Channel Example Scenario (Figure 1)    |
 |-------------------------------------|----------------------------------------------------|
