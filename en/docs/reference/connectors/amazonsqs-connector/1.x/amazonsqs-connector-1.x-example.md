@@ -244,27 +244,25 @@ Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) g
 
 **Expected Response**:
 
-Next, you will receive a response with `sys_id`. Make sure to save it.
-
-```
-<ns:getQuoteResponse xmlns:ns="http://services.samples">
-    <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-        <ax21:change>-2.3656563413900478</ax21:change>
-        <ax21:earnings>13.92852425779543</ax21:earnings>
-        <ax21:high>161.79828086332458</ax21:high>
-        <ax21:last>155.25325499166968</ax21:last>
-        <ax21:lastTradeTimestamp>Thu Aug 08 13:28:27 IST 2024</ax21:lastTradeTimestamp>
-        <ax21:low>160.3277722524871</ax21:low>
-        <ax21:marketCap>5.643236512855213E7</ax21:marketCap>
-        <ax21:name>WSO2 Company</ax21:name>
-        <ax21:open>-153.68772137674222</ax21:open>
-        <ax21:peRatio>-18.75230816155238</ax21:peRatio>
-        <ax21:percentageChange>-1.3934902393316715</ax21:percentageChange>
-        <ax21:prevClose>169.76483039627422</ax21:prevClose>
-        <ax21:symbol>WSO2</ax21:symbol>
-        <ax21:volume>19325</ax21:volume>
-    </ns:return>
-</ns:getQuoteResponse>
+```xml
+    <ns:getQuoteResponse xmlns:ns="http://services.samples">
+        <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+            <ax21:change>-2.3656563413900478</ax21:change>
+            <ax21:earnings>13.92852425779543</ax21:earnings>
+            <ax21:high>161.79828086332458</ax21:high>
+            <ax21:last>155.25325499166968</ax21:last>
+            <ax21:lastTradeTimestamp>Thu Aug 08 13:28:27 IST 2024</ax21:lastTradeTimestamp>
+            <ax21:low>160.3277722524871</ax21:low>
+            <ax21:marketCap>5.643236512855213E7</ax21:marketCap>
+            <ax21:name>WSO2 Company</ax21:name>
+            <ax21:open>-153.68772137674222</ax21:open>
+            <ax21:peRatio>-18.75230816155238</ax21:peRatio>
+            <ax21:percentageChange>-1.3934902393316715</ax21:percentageChange>
+            <ax21:prevClose>169.76483039627422</ax21:prevClose>
+            <ax21:symbol>WSO2</ax21:symbol>
+            <ax21:volume>19325</ax21:volume>
+        </ns:return>
+    </ns:getQuoteResponse>
 ```
 
 ## What's next

@@ -6,7 +6,7 @@ The following operations allow you to work with the Amazon SQS Connector. Click 
 
 ## Initialize the connector
 
-To use the Amazon SQS connector, add the element in your configuration before carrying out any Amazon SQS operations. This Amazon SQS configuration authenticates with Amazon SQS by specifying the AWS access key ID and secret access key ID, which are used for every operation.
+To use the Amazon SQS connector, first create the connection with your configuration. When calling an Amazon SQS operation, ensure the connection is referenced using the `configKey` attribute.
 
 ??? note "init"  
     The init operation is used to initialize the connection to Amazon SQS.
@@ -27,13 +27,13 @@ To use the Amazon SQS connector, add the element in your configuration before ca
             <td>Yes</td>
         </tr>
         <tr>
-            <td>secretAccessKey</td>
-            <td>TA secret access key associated with your AWS access key.</td>
+            <td>accessKeyId</td>
+            <td>The access key ID associated with your AWS account.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>accessKeyId</td>
-            <td>The access key ID associated with your AWS account.</td>
+            <td>secretAccessKey</td>
+            <td>The secret access key associated with your AWS access key.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -73,18 +73,21 @@ To use the Amazon SQS connector, add the element in your configuration before ca
         </tr>
     </table>
 
-    !!! note 
-        You can either pass credentials within init configuration or set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
-        
-        - To set these environment variables on Linux, macOS, or Unix, use export :
-        
-                export AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
-                export AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
-            
-        - To set these environment variables on Windows, use set :
-            
-                set AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
-                set AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
+    !!! note
+        You can either pass credentials within init configuration or set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
+        To set these environment variables follow the below steps based on your operating system: 
+    
+        === "Linux, macOS, or Unix"
+            ```    
+            export AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
+            export AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
+            ```  
+    
+        === "Windows"
+            ```    
+            set AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
+            set AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
+            ```
     
     !!! note 
         If the application is running in an EC2 instance and credentials are not defined in the init configuration, the credentials will be obtained from the [IAM role](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) assigned for the Amazon EC2 instance. This option is available only with Amazon SQS connector v2.0.0 and above.
@@ -1058,3 +1061,15 @@ To use the Amazon SQS connector, add the element in your configuration before ca
     </amazonsqs.purgeQueue>
     ```
 ---
+
+## Handle errors 
+
+The connector may encounter errors during operation execution. When an error occurs, the `ERROR_DETAIL` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, refer to [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
+
+??? note "Error Details"
+
+    | Error code | Error message |
+    | -------- | ------- |
+    | 700901 | AWS_SQS:CLIENT_SDK_ERROR |
+    | 700902 | AWS_SQS:INVALID_CONFIGURATION |
+    | 700903 | AWS_SQS:GENERAL_ERROR |

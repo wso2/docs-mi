@@ -14,34 +14,34 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the environment 
 
-1. Follow the steps mentioned in the [Setting up the Amazon S3 Environment]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.
+1. Follow the steps mentioned in the [Setting up Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-setting-up.html) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.
 
-2. Download and place the following client libraries in to the `<PRODUCT_HOME>/lib` directory (From SQS connector 2.0.0 and above).
+2. Download and place the following client libraries in to the `<PRODUCT_HOME>/lib` directory.
    
-     - apache-client-2.20.26.jar 
-     - auth-2.26.20.jar 
-     - aws-core-2.26.20.jar 
-     - checksums-2.26.20.jar 
-     - checksums-spi-2.26.20.jar 
-     - endpoints-spi-2.26.20.jar 
-     - http-auth-aws-2.26.20.jar 
-     - http-auth-spi-2.26.20.jar 
-     - http-client-spi-2.26.20.jar 
-     - identity-spi-2.26.20.jar 
-     - json-utils-2.20.26.jar 
-     - metrics-spi-2.20.26.jar 
-     - profiles-2.26.20.jar 
-     - protocol-core-2.20.26.jar 
-     - reactive-streams-1.0.4.jar 
-     - regions-2.26.20.jar 
-     - retries-spi-2.26.20.jar 
-     - sqs-2.26.20.jar 
-     - third-party-jackson-core-2.20.26.jar 
-     - utils-2.26.20.jar 
-     - aws-json-protocol-2.26.20.jar 
-     - http-auth-2.26.20.jar 
-     - sdk-core-2.26.20.jar 
-     - retries_2.26.20.jar
+     - [apache-client-2.20.26.jar ](https://mvnrepository.com/artifact/software.amazon.awssdk/apache-client/2.26.20)
+     - [auth-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/auth/2.26.20) 
+     - [aws-core-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/sdk-core/2.26.20)
+     - [checksums-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/checksums/2.26.20) 
+     - [checksums-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/checksums-spi/2.26.20) 
+     - [endpoints-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/endpoints-spi/2.26.20) 
+     - [http-auth-aws-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/http-auth-aws/2.26.20) 
+     - [http-auth-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/http-auth-spi/2.26.20) 
+     - [http-client-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/http-client-spi/2.26.20) 
+     - [identity-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/identity-spi) 
+     - [json-utils-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/json-utils/2.26.20) 
+     - [metrics-spi-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/metrics-spi/2.26.20) 
+     - [profiles-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/profiles/2.26.20) 
+     - [protocol-core-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/protocol-core/2.26.20) 
+     - [reactive-streams-1.0.4.jar](https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams/1.0.4) 
+     - [regions-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/regions/2.26.20) 
+     - [retries-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/retries-spi/2.26.20) 
+     - [sqs-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/sqs/2.26.20) 
+     - [third-party-jackson-core-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/third-party-jackson-core/2.26.20) 
+     - [utils-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/utils/2.26.20)
+     - [aws-json-protocol-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/aws-json-protocol/2.26.20) 
+     - [http-auth-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/http-auth/2.26.20) 
+     - [sdk-core-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/sdk-core/2.26.20) 
+     - [retries_2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/retries/2.26.20)
 
 ## Set up the integration project
 
@@ -255,29 +255,27 @@ Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) g
        }'
     ```
 
-**Expected Response**: 
+**Expected Response**:
 
-Next, you will receive a response with `sys_id`. Make sure to save it.
-
-```
-<ns:getQuoteResponse xmlns:ns="http://services.samples">
-    <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-        <ax21:change>-2.3656563413900478</ax21:change>
-        <ax21:earnings>13.92852425779543</ax21:earnings>
-        <ax21:high>161.79828086332458</ax21:high>
-        <ax21:last>155.25325499166968</ax21:last>
-        <ax21:lastTradeTimestamp>Thu Aug 08 13:28:27 IST 2024</ax21:lastTradeTimestamp>
-        <ax21:low>160.3277722524871</ax21:low>
-        <ax21:marketCap>5.643236512855213E7</ax21:marketCap>
-        <ax21:name>WSO2 Company</ax21:name>
-        <ax21:open>-153.68772137674222</ax21:open>
-        <ax21:peRatio>-18.75230816155238</ax21:peRatio>
-        <ax21:percentageChange>-1.3934902393316715</ax21:percentageChange>
-        <ax21:prevClose>169.76483039627422</ax21:prevClose>
-        <ax21:symbol>WSO2</ax21:symbol>
-        <ax21:volume>19325</ax21:volume>
-    </ns:return>
-</ns:getQuoteResponse>
+```xml
+   <ns:getQuoteResponse xmlns:ns="http://services.samples">
+       <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+           <ax21:change>-2.3656563413900478</ax21:change>
+           <ax21:earnings>13.92852425779543</ax21:earnings>
+           <ax21:high>161.79828086332458</ax21:high>
+           <ax21:last>155.25325499166968</ax21:last>
+           <ax21:lastTradeTimestamp>Thu Aug 08 13:28:27 IST 2024</ax21:lastTradeTimestamp>
+           <ax21:low>160.3277722524871</ax21:low>
+           <ax21:marketCap>5.643236512855213E7</ax21:marketCap>
+           <ax21:name>WSO2 Company</ax21:name>
+           <ax21:open>-153.68772137674222</ax21:open>
+           <ax21:peRatio>-18.75230816155238</ax21:peRatio>
+           <ax21:percentageChange>-1.3934902393316715</ax21:percentageChange>
+           <ax21:prevClose>169.76483039627422</ax21:prevClose>
+           <ax21:symbol>WSO2</ax21:symbol>
+           <ax21:volume>19325</ax21:volume>
+       </ns:return>
+   </ns:getQuoteResponse>
 ```
 
 ## What's next
