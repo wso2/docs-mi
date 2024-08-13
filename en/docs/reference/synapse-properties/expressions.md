@@ -751,7 +751,7 @@ The following table summarizes sample JSONPath expressions and their outputs:
 
 We can also evaluate a JSONPath expression against a property that contains a JSON payload.
 
-To evaluate a JSONPath expression against a  property, use the following syntax.
+To evaluate a JSONPath expression against a property, use the following syntax.
 
 ```json
 json-eval(<scope_of_the_property>:<property_name>.<JSONPath_expression>)
@@ -763,7 +763,7 @@ Example 1: When the property is in the synapse message context.
 json-eval($ctx:propertyName.student.name)
 ```
 
-Example 2: When the property is in the axis2 message context.
+Example 2: When the property is in the Axis2 message context.
 
 ```json
 json-eval($axis2:propertyName.student.name)
