@@ -161,11 +161,11 @@ Follow the below instructions to simulate this sample scenario.
 
 9. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 10. Start SoapUI.
 
-    For instructions on downloading and starting, go to [SoapUI Getting Started]("https://www.soapui.org/getting-started/") Documentation.
+    For instructions on downloading and starting, go to [SoapUI Getting Started](https://www.soapui.org/getting-started/) Documentation.
 
 11. Start the ActiveMQ. For instructions, go to Starting the [ActiveMQ](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/brokers/configure-with-activemq/)
 
