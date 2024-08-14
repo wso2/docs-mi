@@ -1,6 +1,6 @@
 # Message Sequence
 
-This section explains how the Message Sequence EIP can be implemented using the ESB profile of WSO2 EI.
+This page explains how you can implement a sample scenario of Message Sequence using WSO2 Micro Integrator.
 
 ## Introduction to Message Sequence
 
@@ -12,6 +12,6 @@ When transmitting a large set of data, you might want to break it into smaller c
 
 ![Message sequence size]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-construction/message-sequence-size.gif)
 
-## How the ESB profile implements the EIP
+## How WSO2 Micro Integrator implements the EIP
 
-When the sent request is large, the ESB profile by default breaks it into smaller chunks. In order to maintain consistency of the message, each chunk is then mapped with a sequence identity number so that its sequential order is not lost.  
+When the sent request is large, the Micro Integrator by default breaks it into smaller chunks. In order to maintain the consistency of the message, each chunk is then mapped with a sequence identity number so that its sequential order is not lost.
