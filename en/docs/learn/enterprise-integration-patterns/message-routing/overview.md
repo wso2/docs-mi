@@ -1,6 +1,8 @@
-A message router is a basic architectural pattern of a messaging system used fundamentally for connecting different message channels. A router consumes a message from one message channel and republishes it to a different channel based on specified conditions.
+# Message Routing
 
-This chapter introduces various types of routers and how each of them can be simulated using the ESB profile of WSO2 EI.
+A [message router]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-router) is a basic architectural pattern of a messaging system used fundamentally for connecting different message channels. A router consumes a message from one message channel and republishes it to a different channel based on specified conditions.
+
+This section introduces various types of routers and how each of them can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>

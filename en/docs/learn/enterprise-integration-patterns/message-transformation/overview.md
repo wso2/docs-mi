@@ -1,6 +1,8 @@
-One challenge of data communication is that the formats of data and their storage mechanisms vary among different systems. A message translator is an architectural pattern that acts as a filter between other filters or applications to translate one data format to another, transforming your message as it passes through the ESB.
+# Message Transformation
 
-This chapter introduces varieties of message translators and how each can be simulated using the WSO2 ESB.
+One challenge of data communication is that the formats of data and their storage mechanisms vary among different systems. A [message translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator) is an architectural pattern that acts as a filter between other filters or applications to translate one data format to another, transforming your message as it passes through the MI.
+
+This section introduces varieties of message translators and how each can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>
