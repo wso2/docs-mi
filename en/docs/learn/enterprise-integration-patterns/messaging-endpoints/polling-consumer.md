@@ -82,7 +82,19 @@ Follow the below instructions to simulate this sample scenario.
 
 {!includes/eip-set-up.md!}
 
-3. Let's use ActiveMQ as the message broker in this example. Follow the instruction in the [Connect to ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq/) Documentation, and start the broker.
+3. Let's use ActiveMQ as the message broker in this example. Follow the instructions in the [Connect to ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq/) Documentation to configure the broker with WSO2 MI, and start the broker.
+
+    !!! Note
+        Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters/) in the `<MI_HOME>/conf/deployment.toml` file.
+
+        ```
+        [[transport.jms.listener]]
+        name = "myQueueConnectionFactory"
+        parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+        parameter.provider_url = "tcp://localhost:61616"
+        parameter.connection_factory_name = "QueueConnectionFactory"
+        parameter.connection_factory_type = "queue"
+        ```
 
 3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 
@@ -126,7 +138,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-1. Go to ActiveMQ WebConsole and send a JMS message by using the **Send To** operation thatappeared for the `StockQuoteProxy` queue. Use the following details to send the message.
+1. Go to ActiveMQ WebConsole and send a JMS message by using the **Send To** operation that appeared for the `StockQuoteProxy` queue. Use the following details to send the message.
     
     - **Destination**: `StockQuoteProxy`
     - **Queue or Topic**: `Queue`
