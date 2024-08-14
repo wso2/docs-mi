@@ -2,7 +2,7 @@
 
 An [endpoint]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-endpoint) is used to connect an application to a messaging channel so that the application can send or receive messages.
 
-This chapter introduces various endpoint patterns and how each can be simulated using WSO2 Micro Integrator.
+This section introduces various endpoint patterns and how each can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>
