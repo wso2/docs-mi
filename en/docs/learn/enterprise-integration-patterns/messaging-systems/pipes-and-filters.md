@@ -26,7 +26,7 @@ If the message meets the criteria of the first filter, it passes to the second f
 ## Synapse configurations of the artifacts
 
 !!! note
-    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions](https://mi.docs.wso2.com/en/latest/develop/intro-integration-development/).
+    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/).
 
 === "Proxy Service"
     ```xml
