@@ -157,5 +157,5 @@ Follow the below instructions to simulate this sample scenario.
 ## Analyze the output
 
 !!! Note 
-      In each `tcpmon` tabs and Axis Server console that the requests are distributed among several servers in a weighted manner. Servers running on port `9000`, `9001`, and `9002` receive the request in that order until the process starts over again in a round-robin manner.
+      In each `tcpmon` tab and Axis Server console that the requests are distributed among several servers in a weighted manner. Servers running on port `9000`, `9001`, and `9002` receive the request in that order until the process starts over again in a round-robin manner.
 
