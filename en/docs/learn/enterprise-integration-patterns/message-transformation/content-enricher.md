@@ -1,6 +1,6 @@
 # Content Enricher
 
-This page explains how you can implement a sample scenario of the Content Enricher EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of the Content Enricher EIP using the WSO2 Micro Integrator.
 
 ## Introduction to Content Enricher
 
@@ -13,7 +13,7 @@ The Content Enricher EIP facilitates communication with another system if the me
 
 ## Sample scenario
 
-This example scenario depicts a stock quote service. The client sends a stock quote request to the WSO2 MI with only an identity number. But in order to provide a stock quote, the sample Axis2 server at the back-end needs to map the identity number with a corresponding name, which is in an external source. The values are stored as local entries. When the request arrives, the identity will be analyzed using the Switch mediator. Sequentially, the identity number will be replaced with the local entry using the Enrich mediator.
+This example scenario depicts a stock quote service. The client sends a stock quote request to the WSO2 MI with only an identity number. But to provide a stock quote, the sample Axis2 server at the backend needs to map the identity number with a corresponding name, which is in an external source. The values are stored as local entries. When the request arrives, the identity will be analyzed using the Switch mediator. Sequentially, the identity number will be replaced with the local entry using the Enrich mediator.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
