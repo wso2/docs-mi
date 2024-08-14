@@ -1,18 +1,19 @@
 # Invalid Message Channel
 
-This section explains, through an example scenario, how the Invalid Message Channel EIP can be implemented using the ESB profile of WSO2 EI. 
+This page explains how you can implement a sample scenario of an Invalid Message Channel using WSO2 Micro Integrator.
 
 ## Introduction to Invalid Message Channel
 
 The Invalid Message Channel EIP pattern allows administrators to define an error indication that appears when an endpoint fails to process a request. For more information, go to Invalid Message Channel.
 
-![Invalid message solution]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/invalid-message-solution.gif)
+!!! info
+    For more information, see the [Invalid Message Channel]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/invalid-message-solution.gif) documentation.
 
 ## Sample scenario
 
-The example scenario creates a deliberate error situation to demonstrate how the ESB profile handles errors on message failures. It requires a live Axis2 server instance to successfully provide a response to the sender, and the server instance will be shut down before sending a request. You will observe how the ESB profile directs the process to the faultsequence mediator, which indicates the message invalidity to the user.
+The example scenario creates a deliberate error situation to demonstrate how the WSO2 MI handles errors on message failures. It requires a live Axis2 server instance to successfully provide a response to the sender, and the server instance will be shut down before sending a request. You will observe how the WSO2 MI directs the process to the faultSequence mediator, which indicates the message invalidity to the user.
 
-The diagram below depicts how to simulate the example scenario using the ESB profile.
+The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
 ![Invalid message channel]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/invalid-message-channel.png)
 
@@ -25,70 +26,85 @@ Before digging into implementation details, let's take a look at the relationshi
 | Receiver                               | Stock Quote Service Instance                        |
 | Invalid Message Channel                | FaultSequence                                       |
 
-### Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install the ESB profile of WSO2 Enterprise Integrator (EI). For a list of prerequisites and step-by-step installation instructions, go to Installing the Product in WSO2 EI Documentation.
+In the proxy service defined below a fault sequence is defined to execute in the event of a fault. It acts as the Invalid Message Channel for this EIP. In this example configuration, we log the fault as an error, but you can place any of the usual mediators inside this sequence. For example, you could pass the invalid message to another service or back to the client.
 
-2. Start an instance of Sample Axis2 server. For instructions, go to Starting the Axis2 server in WSO2 EI Documentation.
-
-3. Deploy the back-end service SimpleStockQuoteService. For instructions on deploying sample back-end services, go to Deploying sample back-end services in WSO2 EI Documentation.
-
-### ESB configuration
-
-Start the ESB profile and log into its Management Console. For instructions, see Starting the ESB profile in WSO2 EI Documentation.
-
-On the Management Console, navigate to the Main Menu and click Source View in the Service Bus section. Copy and paste the following configuration to the source view. You can now explore the example scenario. 
-
-```
-<!-- Invalid Message Chanel Proxy-->
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-   <proxy name="InvalidMessageChannelProxy">
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="InvalidMessageChannelProxy" startOnLoad="true" transports="http https"
+        xmlns="http://ws.apache.org/ns/synapse">
         <target>
-         <endpoint>
-                   <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-        </endpoint>
-        <inSequence>
-              <log level="full" />        
-        </inSequence>
-        <outSequence>
-                <log level="full" />
-        </outSequence>
-     <faultSequence>
-          <log level="full">
-                    <property name="MESSAGE" value="Failure Message..."/>
-                    <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-                    <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-              </log>
-         <drop />
-       </faultSequence>
+            <inSequence>
+                <log category="INFO" level="full" />
+                <call>
+                    <endpoint key="SimpleStockQuoteService" />
+                </call>
+                <respond />
+            </inSequence>
+            <faultSequence>
+                <log level="full">
+                    <property name="MESSAGE" value="Failure Message..." />
+                    <property name="ERROR_CODE" expression="get-property('ERROR_CODE')" />
+                    <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')" />
+                </log>
+                <property name="HTTP_SC" value="500" scope="axis2" />
+                <property name="NO_ENTITY_BODY" value="true" scope="axis2" type="BOOLEAN"/>
+                <respond />
+            </faultSequence>
         </target>
-    <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
     </proxy>
-</definitions>
-```
-
-When the server receives a request and the endpoint referred through the ESB profile is unavailable, the server triggers an error message. The ESB profile diverts the response to the invalid message channel. 
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ## Set up the sample scenario
 
-Pass the following message to the ESB profile. You can use SoapUI or the ESB profile's Try It tool. To invoke the Try It tool, log into the Management Console of the ESB profile, navigate to the Services menu under the Main menu and select the List sub menu. Then select InvalidMessageChannelProxy and pass the following request to the ESB profile. 
+Follow the below instructions to simulate this sample scenario.
 
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-   <soap:Header/>
-   <soap:Body>
-      <ser:getQuote>
-         <!--Optional:-->
-         <ser:request>
-            <!--Optional:-->
-            <xsd:symbol>foo</xsd:symbol>
-         </ser:request>
-      </ser:getQuote>
-   </soap:Body>
-</soap:Envelope>
+{!includes/eip-set-up.md!}
 
-### How the implementation works
+3. Download the artifacts of the sample
 
-Let's investigate the elements of the configuration in detail. The line numbers below are mapped with the configuration shown above.
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/InvalidMessageChannel.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP"></a>
 
-- Proxy Service [line 3 of config] - Defines the proxy service `InvalidMessageChannelProxy` with a target endpoint to the back end service.
-- faultSequence [line 14 of config] - Defines a fault sequence to execute in the event of a fault. It acts as the Invalid Message Channel for this EIP. In this example configuration, we log the fault as an error, but you can place any of the usual mediators inside this sequence. For example, you could pass the invalid message to another service or back to the client.  
+4. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+5. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+
+## Execute the sample
+
+1. Save the following sample request as `payload.xml` in your local file system.
+
+    ```xml
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:getQuote>
+            <ser:request>
+                <xsd:symbol>IBM</xsd:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+    </soapenv:Envelope>
+    ```
+
+2. Open a terminal, navigate to the location of your `payload.xml` file, and execute the following command. This posts a simple XML request to the Proxy service.
+
+    ```bash
+    curl -L -H 'SOAPAction: urn:getQuote' -H 'Content-Type: text/xml' -d @payload.xml 'http://localhost:8290/services/InvalidMessageChannelProxy'
+    ```
+
+## Analyze the output
+
+When the client executes the request, since the `SimpleStockQuoteService` is not running the client would receive the status code 500 as the response.
