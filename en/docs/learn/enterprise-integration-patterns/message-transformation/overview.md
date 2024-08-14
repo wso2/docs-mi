@@ -1,6 +1,6 @@
 # Message Transformation
 
-One challenge of data communication is that the formats of data and their storage mechanisms vary among different systems. A [message translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator) is an architectural pattern that acts as a filter between other filters or applications to translate one data format to another, transforming your message as it passes through the MI.
+One challenge of data communication is that the formats of data and their storage mechanisms vary among different systems. A [message translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator) is an architectural pattern that acts as a filter between other filters or applications to translate one data format to another, transforming your message as it passes through the Micro Integrator.
 
 This section introduces various types of message translators and how they can be simulated using the WSO2 Micro Integrator.
 
