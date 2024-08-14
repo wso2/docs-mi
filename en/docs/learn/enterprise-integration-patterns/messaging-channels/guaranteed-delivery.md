@@ -22,7 +22,7 @@ The diagram below depicts how to simulate the example scenario using the WSO2 MI
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Guaranteed Delivery EIP by comparing their core components.
 
-| Guaranteed Delivery EIP (Figure 1)  | Guaranteed Delivery Example Scenario (Figure 2)   |
+| Guaranteed Delivery EIP             | Guaranteed Delivery Example Scenario              |
 |-------------------------------------|---------------------------------------------------|
 | Sender                              | Stock Quote Client                                |
 | Store                               | Message Store                                     |
