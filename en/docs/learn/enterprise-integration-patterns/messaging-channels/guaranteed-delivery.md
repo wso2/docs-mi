@@ -167,9 +167,9 @@ Follow the below instructions to simulate this sample scenario.
 
     For instructions on downloading and starting, go to [SoapUI Getting Started](https://www.soapui.org/getting-started/) Documentation.
 
-11. Start the ActiveMQ. For instructions, go to Starting the [ActiveMQ](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/brokers/configure-with-activemq/)
+11. Start the ActiveMQ. For instructions, go to Starting the [ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq/)
 
-12. Set up [MI CLI](https://mi.docs.wso2.com/en/latest/observe-and-manage/managing-integrations-with-micli/).
+12. Set up [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/).
 
 
 ## Execute the sample
@@ -204,7 +204,7 @@ Follow the below instructions to simulate this sample scenario.
    ```
    
 !!! Info
-      For more details, see the [documentation](https://mi.docs.wso2.com/en/latest/observe-and-manage/managing-integrations-with-micli/#message-processors).
+      For more details, see the [documentation]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#message-processors).
 
 ## Analyze the output
 
