@@ -28,7 +28,7 @@ the back-end server:
 
 To monitor messages from client to server using TCPMon:
 
-1.  [Start TCPMon]({{base_path}}/observe-and-manage/tcp/starting-tcp-mon) .
+1.  [Start TCPMon]({{base_path}}/observe-and-manage/classic-observability-tcp/starting-tcp-mon).
 2.  Give 8081 (the listening port of TCPMon) in the **Listen Port**
     field (This could be any unused port in your local machine).
 3.  Give the address of the back end server as the target hostname. For

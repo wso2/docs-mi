@@ -114,7 +114,7 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed](../../develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following configurations:
 
     - To enable MTOM:

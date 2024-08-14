@@ -3,7 +3,7 @@
 The **Callout** mediator performs a blocking external service invocation during mediation. As the Callout mediator performs a blocking call, it cannot use the default non-blocking HTTP/S transports based on Java NIO.
 
 !!! Tip
-    The [Call mediator]({{base_path}}/reference/mediators/call-Mediator) leverages the non-blocking transports for much greater performance than the Callout mediator. Therefore, you should use the Call mediator in most cases. However, the Callout mediator is recommended in situations where you need to execute the mediation flow in a single thread.
+    The [Call mediator]({{base_path}}/reference/mediators/call-mediator) leverages the non-blocking transports for much greater performance than the Callout mediator. Therefore, you should use the Call mediator in most cases. However, the Callout mediator is recommended in situations where you need to execute the mediation flow in a single thread.
 
 ## Enabling mutual SSL
 

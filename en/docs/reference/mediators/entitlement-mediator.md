@@ -130,8 +130,8 @@ the default handlers.
 
 In the following example, the WSO2 Identity Server (with log in URL `https://localhost:9443/services`) is see to authenticate the user invoking the secured backend service.
 
-If the authorization test performed on a request sent to this URL fails, the [Fault mediator]({{base_path}}/reference/mediators/fault-Mediator) converts the request into a fault
-message giving `         Unauthorized        ` as the reason for the request to be rejected and `         XACML Authorization Failed        ` as the detail. Then the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator) sends the converted message back to the client.
+If the authorization test performed on a request sent to this URL fails, the [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) converts the request into a fault
+message giving `         Unauthorized        ` as the reason for the request to be rejected and `         XACML Authorization Failed        ` as the detail. Then the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) sends the converted message back to the client.
 
 If the user is successfully authenticated, the request is sent using the [Send Mediator]({{base_path}}/reference/mediators/send-mediator) to the endpoint with the
 `http://localhost:8281/services/echo"/` URL.
