@@ -77,7 +77,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
     - Collection - json-eval($.collection)
     - Documents - json-eval($.documents)
 
-9.  Click `+` arrow under `insertMany` node then click [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) and submit to add to the canvas. This returns the response message to the client (after inserting documents) as shown below.
+9.  Click `+` arrow under `insertMany` node then click [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-mediator/) and submit to add to the canvas. This returns the response message to the client (after inserting documents) as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-8.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/><br/>
     Final diagram should look like this.
@@ -92,7 +92,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
     - Collection - json-eval($.collection)
     - Query - json-eval($.query)
 
-14. Add [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+14. Add [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
 15. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
 

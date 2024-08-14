@@ -198,6 +198,6 @@ The HL7 transport uses a thread pool to manage connections. A larger thread pool
 See the following examples demonstrating HL7 use cases:
 
 - [Enabling HL7]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport)
-- [Mediating HL7 Messages]({{base_path}}/learn/examples/hl7-examples/HL7-proxy-service)
+- [Mediating HL7 Messages]({{base_path}}/learn/examples/hl7-examples/hl7-proxy-service)
 - [Configuring Message Acknowledgement for HL7 Messages]({{base_path}}/learn/examples/hl7-examples/acknowledge-hl7-messages)
 - [Using HL7 Messages with File Systems]({{base_path}}/learn/examples/hl7-examples/file-transfer-using-hl7)

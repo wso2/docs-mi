@@ -135,7 +135,7 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 
 ### Set and log and property
 
-In this example, we are setting the property symbol, and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
+In this example, we are setting the property symbol, and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-mediator).
 
 ```xml
 <property name="symbol" expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)" xmlns:m0="http://services.samples/xsd"/>
