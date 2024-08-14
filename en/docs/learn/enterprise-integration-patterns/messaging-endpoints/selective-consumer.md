@@ -13,7 +13,7 @@ The Selective Consumer EIP allows a message consumer to select which messages it
 
 ## Sample scenario
 
-This sample scenario demonstrates how a specific receiver only processes messages that are pre-filtered based on certain criteria. We have an Axis2 server as the consumer. The consumer criteria is specified through an XML schema validation, which is stored as a local entry in the registry. We use the Validate mediator to check whether the messages that are sent to the service match the criteria of the schema. The Axis2 server can consume the message only if the message meets the validation criteria.
+This sample scenario demonstrates how a specific receiver only processes messages that are pre-filtered based on certain criteria. We have an Axis2 server as the consumer. The consumer criteria are specified through an XML schema validation, which is stored as a local entry in the registry. We use the Validate mediator to check whether the messages that are sent to the service match the criteria of the schema. The Axis2 server can consume the message only if the message meets the validation criteria.
 
 The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
@@ -185,4 +185,4 @@ Note that the stock quote request is not processed. Send the following message t
    </soapenv:Envelope>
 ```
 
-The consumer has specified the criteria of using a schema validation. Only the messages that meet this criteria will be consumed.
+The consumer has specified the criteria for using schema validation. Only the messages that meet these criteria will be consumed.
