@@ -1,8 +1,8 @@
 # Messaging Channels
 
-A Message channel is a basic architectural pattern of a messaging system and is used fundamentally for exchanging data between applications. An application can use a channel to make a specific type of data available to any receiver applications that need to consume that type of data.
+A Message channel is a basic architectural pattern of a [messaging system]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/overview) and is used fundamentally for exchanging data between applications. An application can use a channel to make a specific type of data available to any receiver applications that need to consume that type of data.
 
-This chapter introduces different types of channels used in a messaging system, their behaviors, and how each of them can be simulated using the ESB profile of WSO2 EI.
+This section introduces different types of channels used in a messaging system, their behaviors, and how they can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>
