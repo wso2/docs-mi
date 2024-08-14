@@ -2,7 +2,7 @@
 
 Message construction involves the architectural patterns of various constructs, functions, and activities involved in creating and transforming a message between applications.
 
-This chapter introduces message construction patterns and how each of them can be simulated using the WSO2 Micro Integrator.
+This chapter introduces message construction patterns and how they can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>
