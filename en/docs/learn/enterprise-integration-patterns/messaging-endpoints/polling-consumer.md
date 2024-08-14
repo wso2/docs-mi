@@ -1,10 +1,10 @@
 # Polling Consumer
 
-This section explains, through an sample scenario, how the Polling Consumer EIP can be implemented using WSO2 ESB.
+This page explains how you can implement a sample scenario of the Polling Consumer EIP using the WSO2 Micro Integrator.
 
 ## Introduction to Polling Consumer
 
-The Polling Consumer EIP allows the ESB to explicitly make a call when the application wants to receive a message. 
+The Polling Consumer EIP allows the WSO2 MI to explicitly make a call when the application wants to receive a message. 
 
 !!! info
     For more information, see the [Polling Consumer](http://www.eaipatterns.com/PollingConsumer.html).
@@ -13,126 +13,147 @@ The Polling Consumer EIP allows the ESB to explicitly make a call when the appli
 
 ## Sample scenario
 
-This sample scenario demonstrates the WSO2 ESB JMS proxy, which is a polling transport that is used to connect to various JMS providers. After configuring the JMS proxy, it will listen on a queue on the JMS server. Next, we send a message to the queue, and the JMS proxy in the ESB will pick up the message when it is ready for consumption.
+This sample scenario demonstrates the WSO2 MI JMS proxy, which is a polling transport that is used to connect to various JMS providers. After configuring the JMS proxy, it will listen on a queue on the JMS server. Next, we send a message to the queue, and the JMS proxy in the WSO2 MI will pick up the message when it is ready for consumption.
 
-The diagram below depicts how to simulate the sample scenario using WSO2 ESB.
+The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 <img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.png" style="width: 70%;" alt="Polling consumer solution">
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Polling Consumer EIP by comparing their core components.
 
-| Polling Consumer EIP (Figure 1) | Polling Consumer Sample Scenario (Figure 2) |
+| Polling Consumer EIP            | Polling Consumer Sample Scenario            |
 |---------------------------------|---------------------------------------------|
 | Sender                          | Simple Stock Quote Client                   |
 | Message                         | Simple Stock Quote Request                  |
 | Polling Consumer                | Proxy Service using JMS Transport           |
 | Receiver                        | Simple Stock Quote Service                  |
 
-### Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install WSO2 ESB from http://wso2.com/products/enterprise-service-bus. For a list of prerequisites and step-by-step installation instructions, refer to Installation Guide in the WSO2 ESB documentation.
+Given below is the synapse configuration of this sample.
 
-2. Download and install a JMS server. We use ActiveMQ as the JMS provider in this example.  
-
-3. Make the following edits to the `<ESB_HOME>/repository/conf/axis2/axis2.xml` file.
-
-    - To enable the JMS transport, uncomment the Axis2 transport listener configuration for ActiveMQ as follows:
-        
-        ```
-        <transportReceiver name="jms" class="org.apache.axis2.transport.jms.JMSListener">...
-        ```
-    
-    - Set the `transport.jms.SessionTransacted` parameter to `true`. After making this update, the `transportReceiver` section of `axis2.xml` should appear as follows:
-    
-        ```xml
-        <transportReceiver name="jms" class="org.apache.axis2.transport.jms.JMSListener">
-                <parameter name="myQueueConnectionFactory" locked="false">
-                    <parameter name="java.naming.factory.initial" locked="false">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-                    <parameter name="java.naming.provider.url" locked="false">tcp://localhost:61616</parameter>
-                    <parameter name="transport.jms.ConnectionFactoryJNDIName" locked="false">QueueConnectionFactory</parameter>
-                    <parameter name="transport.jms.ConnectionFactoryType" locked="false">queue</parameter>
-                    <parameter name="transport.jms.SessionTransacted">true</parameter>
-                </parameter>
-        
-                <parameter name="default" locked="false">
-                    <parameter name="java.naming.factory.initial" locked="false">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-                    <parameter name="java.naming.provider.url" locked="false">tcp://localhost:61616</parameter>
-                    <parameter name="transport.jms.ConnectionFactoryJNDIName" locked="false">QueueConnectionFactory</parameter>
-                    <parameter name="transport.jms.ConnectionFactoryType" locked="false">queue</parameter>
-                    <parameter name="transport.jms.SessionTransacted">true</parameter>
-                </parameter>
-        </transportReceiver>
-        ```
-
-    - Uncomment the Axis2 transport sender configuration as follows:
-    
-        ```
-        <transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/>
-        ```
-
-4. Copy the following ActiveMQ client JAR files to the `<ESB_HOME>/repository/components/lib` directory to allow the ESB to connect to the JMS provider.
-
-    - `activemq-core-5.2.0.jar`
-    - `geronimo-j2ee-management_1.0_spec-1.0.jar`
-
-5. Add a custom mediator called `MessageCounterMediator`. Download the `MessageCounterMediator` file, and save it in the `<ESB_HOME>/repository/components/lib` folder. To learn how to write custom mediators, refer to Writing Custom Mediator Implementations in the WSO2 ESB documentation.
-
-6. Start ActiveMQ (or equivalent JMS Server) and WSO2 ESB.
-
-7. Start the sample Axis2 server. For instructions, refer to the section Setting Up the ESB Samples - Starting the Axis2 server in the WSO2 ESB documentation.
-
-## ESB configuration
-
-Log into the ESB management console UI (`https://localhost:9443/carbon`), and navigate to the Main menu and click Source View in the Service Bus section. Next, copy and paste the following configuration, which helps you explore the sample scenario, to the source view.
-
-```xml
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-    <proxy name="StockQuoteProxy" transports="jms">
+=== "Proxy Service" 
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StockQuoteProxy" startOnLoad="true" transports="jms" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <property action="set" name="OUT_ONLY" value="true"/>
+                <header name="Action" value="urn:getQuote"/>
+                <property name="OUT_ONLY" scope="axis2" type="BOOLEAN" value="true"/>
+                <call>
+                    <endpoint key="SimpleStockEp"/>
+                </call>
             </inSequence>
-            <endpoint>
-                <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-            </endpoint>
-            <outSequence>
-                <send/>
-            </outSequence>
+            <faultSequence/>
         </target>
-        <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+        <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory</parameter>
         <parameter name="transport.jms.ContentType">
             <rules>
                 <jmsProperty>contentType</jmsProperty>
-                <default>application/xml</default>
+                <default>text/xml</default>
             </rules>
-        </parameter>
+    </parameter>
     </proxy>
-</definitions>
-```
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+
+Let's investigate the elements of the configuration in detail.
+
+- **proxy** - A proxy service with a JMS transport.
+- **parameter** - Sets JMS transport parameter contentType to `application/xml`.
 
 ## Set up the sample scenario
 
-1. Send a stock quote request on JMS, as follows:
+Follow the below instructions to simulate this sample scenario.
 
+{!includes/eip-set-up.md!}
+
+3. Let's use ActiveMQ as the message broker in this example. Follow the instruction in the [Connect to ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq/) Documentation, and start the broker.
+
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+
+4. Extract the downloaded zip file.
+
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+
+7. Navigate to the URL where the ActiveMQ WebConsole is available. You can find this URL in the terminal where you started the ActiveMQ instance. It is similar to `http://127.0.0.1:8161/`. 
+
+8. By default, the username and password are both `admin`. 
+
+9. After signing in, click on **Manage ActiveMQ broker**.
+
+10. On the opened page, select the **Queues** tab.
+
+11. Create a queue named `StockQuoteProxy`. 
+
+12. Download the artifacts of the sample.
+
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/PollingConsumer.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+13. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+14. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+
+## Execute the sample
+
+1. Go to ActiveMQ WebConsole and send a JMS message by using the **Send To** operation thatappeared for the `StockQuoteProxy` queue. Use the following details to send the message.
+    
+    - **Destination**: `StockQuoteProxy`
+    - **Queue or Topic**: `Queue`
+    - **Message Body**: 
+        ```xml
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+            <soapenv:Header/>
+            <soapenv:Body>
+                <ser:getQuote>
+                    <ser:request>
+                        <xsd:symbol>IBM</xsd:symbol>
+                    </ser:request>
+                </ser:getQuote>
+            </soapenv:Body>
+        </soapenv:Envelope>
+        ```
+
+## Analyze the output
+
+1. A message similar to the one below appears in the simple axis2server.
+
+    ```bash
+    Wed Aug 14 23:26:13 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
     ```
-    ant jmsclient -Djms_type=pox -Djms_dest=dynamicQueues/StockQuoteProxy -Djms_payload=MSFT
-    ```
 
-- Note a message on the console running the sample Axis2 server saying that the server has accepted an order. For example:
+    Also, note that there is one message queued and one de-queued in the queue created in the ActiveMQ web console.
 
-    ```
-    Accepted order #1 for : 17718 stocks of MSFT at $ 79.83113379282025
-    ```
+2. Next, stop the WSO2 MI server and send a stock quote request again. In the ActiveMQ web console, you can see that there are two messages queued and only one message de-queued.
 
-    Also note that there is one message queued and one de-queued in the queue created in the ActiveMQ web console at `http://localhost:8161/admin/queues.jsp`.
-
-2. Next, stop the ESB server, and send a stock quote request again. In the ActiveMQ web console, you can see that there are two messages queued and only one message de-queued.
-
-3. Start the ESB server again, and view the console running the sample Axis2 server. You will see a message indicating that the server has accepted the second message.
-
-### How the implementation works
-
-Let's investigate the elements of the ESB configuration in detail. The line numbers below are mapped with the ESB configuration shown above.
-
-- **proxy** [line 2 in ESB config] - A proxy service with a JMS transport.
-- **parameter** [line 15 in ESB config] - Sets JMS transport parameter contentType to application/xml.
+3. Start the WSO2 MI server again. Now in the ActiveMQ web console, you can see that there are two messages queued and two messages de-queued. Also, in the console running the sample Axis2 server, you will see a message indicating that the server has accepted the second message.
