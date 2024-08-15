@@ -11,7 +11,7 @@ The Invalid Message Channel EIP pattern allows administrators to define an error
 
 ## Sample scenario
 
-The example scenario creates a deliberate error situation to demonstrate how the WSO2 MI handles errors on message failures. It requires a live Axis2 server instance to successfully provide a response to the sender, and the server instance will be shut down before sending a request. You will observe how the WSO2 MI directs the process to the faultSequence mediator, which indicates the message invalidity to the user.
+The example scenario creates a deliberate error situation to demonstrate how the WSO2 MI handles errors on message failures. It requires a live Axis2 server instance to provide a response to the sender successfully, and the server instance will be shut down before sending a request. You will observe how the WSO2 MI directs the process to the faultSequence mediator, which indicates the message invalidity to the user.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
@@ -19,7 +19,7 @@ The diagram below depicts how to simulate the example scenario using the WSO2 MI
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Invalid Message Channel EIP by comparing their core components.
 
-| Invalid Message Channel EIP (Figure 1) | Invalid Message Channel Example Scenario (Figure 2) |
+| Invalid Message Channel EIP            | Invalid Message Channel Example Scenario            |
 |----------------------------------------|-----------------------------------------------------|
 | Sender                                 | Stock Quote Client                                  |
 | Channel                                | Target Endpoint                                     |
@@ -80,30 +80,29 @@ Follow the below instructions to simulate this sample scenario.
 
 5. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 ## Execute the sample
 
-1. Save the following sample request as `payload.xml` in your local file system.
+Send the following request to the service using SoapUI (or any other SOAP client).
 
-    ```xml
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+```
+POST /services/MessageExpirationProxy HTTP/1.1
+Host: localhost:8290
+SOAPAction: urn:getQuote
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
     <soapenv:Header/>
     <soapenv:Body>
-        <ser:getQuote>
-            <ser:request>
+        <ser:getQuote>    
+            <ser:request>          
                 <xsd:symbol>IBM</xsd:symbol>
             </ser:request>
         </ser:getQuote>
     </soapenv:Body>
-    </soapenv:Envelope>
-    ```
-
-2. Open a terminal, navigate to the location of your `payload.xml` file, and execute the following command. This posts a simple XML request to the Proxy service.
-
-    ```bash
-    curl -L -H 'SOAPAction: urn:getQuote' -H 'Content-Type: text/xml' -d @payload.xml 'http://localhost:8290/services/InvalidMessageChannelProxy'
-    ```
+</soapenv:Envelope>
+```
 
 ## Analyze the output
 
