@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the example scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Claim Check EIP by comparing their core components.
 
-| Claim Check EIP (Figure 1)   | Claim Check Sample Scenario (Figure 2)                                                                                          |
+| Claim Check EIP              | Claim Check Sample Scenario                                                                                           |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Message w/Data from Client   | Simple Stock Quote Request with Credential and other data.                                                                      |
 | Check Luggage                | Enrich Mediator is used to store the original message as a new property inside a Message Context.                               |

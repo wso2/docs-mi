@@ -23,7 +23,7 @@ The diagram below depicts how to simulate the sample scenario using WSO2 Micro I
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Routing Slip EIP by comparing their core components.
 
-| Routing Slip EIP (Figure 1) | Routing Slip Sample Scenario (Figure 2)     |
+| Routing Slip EIP            | Routing Slip Sample Scenario                |
 |-----------------------------|---------------------------------------------|
 | Request Message             | Simple Stock Quote Request                  |
 | Routing Slip                | Header Mediator appends node to SOAP header |

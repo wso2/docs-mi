@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the example scenario using the WSO2 MI
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Messaging Bridge EIP by comparing their core components.
 
-| Messaging Bridge EIP (Figure 1) | Messaging Bridge Example Scenario (Figure 2)                                                        |
+| Messaging Bridge EIP            | Messaging Bridge Example Scenario                                                        |
 |---------------------------------|-----------------------------------------------------------------------------------------------------|
 | Messaging System1               | Stock Quote client                                                                                  |
 | Messaging Bridge                | PayloadFactory Mediator (You can add any transformation mediator here. Also see [Message Translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator.md)) |
