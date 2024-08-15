@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Aggregator EIP by comparing their core components.
 
-| Aggregator EIP (Figure 1) | Aggregator Sample Scenario (Figure 2) |
+| Aggregator EIP            | Aggregator Sample Scenario            |
 |---------------------------|---------------------------------------|
 | Doctors                   | HealthCare Endpoint Response          |
 | Aggregator                | Aggregate Mediator                    |
@@ -115,7 +115,7 @@ Let's investigate the elements of the synapse configuration in detail.
 
 7. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 ## Execute the sample
 
