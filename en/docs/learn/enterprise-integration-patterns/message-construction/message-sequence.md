@@ -14,4 +14,4 @@ When transmitting a large set of data, you might want to break it into smaller c
 
 ## How WSO2 Micro Integrator implements the EIP
 
-When the sent request is large, the Micro Integrator by default breaks it into smaller chunks. In order to maintain the consistency of the message, each chunk is then mapped with a sequence identity number so that its sequential order is not lost.
+When a large request is sent, the Micro Integrator, by default breaks it into smaller chunks. To maintain the consistency of the message, each chunk is then mapped with a sequence identifier number to preserve its sequential order.
