@@ -147,7 +147,7 @@ Follow the below instructions to simulate this sample scenario.
     <soapenv:Body>
         <ser:getQuote>
             <ser:request>
-                <xsd:symbol>s</xsd:symbol>
+                <xsd:symbol>IBM</xsd:symbol>
             </ser:request>
         </ser:getQuote>
     </soapenv:Body>
