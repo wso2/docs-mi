@@ -188,7 +188,7 @@ content of the current message.
 
 !!! Tip
     - The Validate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-    - A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) or [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
+    - A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) or [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
 
 ## Validating JSON messages
 
@@ -291,7 +291,7 @@ through the Validate mediator is given as a registry key (i.e.
 have any source attributes specified. Therefore, the schema will be used
 to validate the complete JSON body. The mediation logic to follow if the
 validation fails is defined within the on-fail element. In this example,
-the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-mediator) creates a fault
+the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault
 to be sent back to the party, which sends the message.
 
 ``` java

@@ -35,7 +35,7 @@ The ISO8583 inbound endpoint acts as a message consumer. This is bundled with th
 
 * **[ISO8583 Inbound Endpoint Example]({{base_path}}/reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example/)**: This example demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. 
 
-* **[ISO8583 Inbound Endpoint Reference]({{base_path}}/reference/connectors/iso8583-connector/iso`8583-inbound-endpoint-config/)**: This documentation provides a reference guide for the ISO8583 Inbound Endpoint.
+* **[ISO8583 Inbound Endpoint Reference]({{base_path}}/reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config/)**: This documentation provides a reference guide for the ISO8583 Inbound Endpoint.
 
 ## How to contribute
 
