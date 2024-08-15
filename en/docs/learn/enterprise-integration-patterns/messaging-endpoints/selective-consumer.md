@@ -85,6 +85,14 @@ Before digging into implementation details, let's take a look at the relationshi
          </xs:schema>
       </localEntry>
       ```
+=== "Endpoint"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <endpoint name="StockQuoteServiceEP" xmlns="http://ws.apache.org/ns/synapse">
+         <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+         </address>
+      </endpoint>
+      ```
 
 ### How the implementation works
 
