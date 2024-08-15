@@ -25,7 +25,7 @@ The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the correlation between the sample scenario and the Message Filter EIP by comparing their core components.
 
-| Message Filter EIP (Figure 1) | Message Filter Sample Scenario (Figure 2)                             | 
+| Message Filter EIP            | Message Filter Sample Scenario                                        | 
 |-------------------------------|-----------------------------------------------------------------------|
 | Quote                         | Stock Quote Request                                                   | 
 | Message Filter                | Filter Mediator is used to filter the content of the incoming message | 
