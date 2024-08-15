@@ -13,4 +13,4 @@ The Correlation Identifier EIP facilitates a unique identifier that indicates wh
 
 ### How WSO2 Micro Integrator implements the EIP
 
-Message flow of the Micro Integrator automatically manages requests sent by a client. It injects a unique identification number into the message context of each request. When the response arrives, the message will be uniquely identified using this number, allowing the requester to distinguish between requests.
+The message flow of the Micro Integrator automatically manages requests sent by a client by injecting a unique identification number into the message context of each request. When the response arrives, the message will be uniquely identified using this number, allowing the requester to distinguish between requests.
