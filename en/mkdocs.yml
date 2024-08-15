@@ -872,7 +872,7 @@ nav:
               - SOAP Headers: reference/mediators/property-reference/soap-headers.md
               - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
               - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
-              - Accessing Properties with XPath: reference/mediators/property-reference/accessing-properties-with-xpath.md
+          - Expressions: reference/synapse-properties/expressions.md
           - REST API Properties: reference/synapse-properties/rest-api-properties.md
           - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
           - Inbound Endpoints:
@@ -1008,6 +1008,7 @@ plugins:
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/synapse-properties/expressions/#xpath-expressions'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
 

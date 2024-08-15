@@ -30,7 +30,7 @@ The parameters available for configuring the Property mediator are as follows:
 <td><div class="content-wrapper">
 <p>A name for the property.</p>
 <p>You can provide a static value or a dynamic value for the property name. A dynamic property name can be retrieved
-by using an XPath function. You can use any of the <a href="{{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
+by using an XPath function. You can use any of the <a href="{{base_path}}/reference/synapse-properties/expressions/#xpath-expressions">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
 <p>Note that the XPath function should be contained within curly brackets (<code>{}</code>) as well as double quotations (<code>""</code>). See the examples given below.</p>
   <ul>
     <li>
@@ -123,13 +123,13 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
 <li><strong>File</strong>: This scope is used to retrieve properties defined in the `file.properties` configuration file ('file').</li>
 </ul>
-<p>For a detailed explanation of each scope, see <a href="{{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath">Accessing Properties with XPath</a>.</p></td>
+<p>For a detailed explanation of each scope, see <a href="{{base_path}}/reference/synapse-properties/expressions/#xpath-expressions">Accessing Properties with XPath</a>.</p></td>
 </tr>
 </tbody>
 </table>
 
 !!! Note
-    There are predefined XPath variables (such as `$ctx` ) that you can directly use in the Synapse configuration, instead of using the synapse:get-property() function. These XPath variables get properties of various scopes and have better performance than the `get-property()` function, which can have much lower performance because it does a registry lookup. These XPath variables get properties of various scopes. For more information on these XPath variables, see [Accessing Properties with XPath]({{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath).
+    There are predefined XPath variables (such as `$ctx`) that you can directly use in the Synapse configuration, instead of using the synapse:get-property() function. These XPath variables get properties of various scopes and have better performance than the `get-property()` function, which can have much lower performance because it does a registry lookup. These XPath variables get properties of various scopes. For more information on these XPath variables, see [Accessing Properties with XPath]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions).
 
 ## Examples
 
