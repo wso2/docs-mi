@@ -1,6 +1,6 @@
 # Durable Subscriber
 
-This section explains, through a sample scenario, how the Durable Subscriber EIP can be implemented using WSO2 ESB.
+This page explains how you can implement a sample scenario of Durable Subscriber EIP using WSO2 Micro Integrator.
 
 ## Introduction to Durable Subscriber
 
@@ -15,138 +15,204 @@ The Durable Subscriber EIP avoids missing messages while it’s not listening fo
 
 This sample scenario demonstrates how a message is duplicated and routed to the subscribers using the Clone mediator when the publisher sends a message. We have two Axis2 servers as the subscribers. If only one subscriber is online at the time a message is sent, instead of discarding the message, it will be stored in a message store. The message forwarding processor will attempt to send the message in the store until the subscriber comes online. When the subscriber comes online, the message will be successfully delivered.
 
-The diagram below depicts how to simulate the sample scenario using the WSO2 ESB.
+The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 <img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-endpoints/durable-subscriber.png" style="width: 70%;" alt="Durable subscriber">
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Durable Subscriber EIP by comparing their core components.
 
-| Durable Subscriber EIP (Figure 1) | Durable Subscriber Sample Scenario (Figure 2)    |
+| Durable Subscriber EIP            | Durable Subscriber Sample Scenario               |
 |-----------------------------------|--------------------------------------------------|
 | Publisher                         | Simple Stock Quote Client                        |
 | Publish Subscribe Channel         | Clone Mediator, Message Store, Message Processor |
 | Durable Consumer                  | Simple Stock Quote Service                       |
 | Non Durable Consumer              | Simple Stock Quote Service                       |
 
-### Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install the WSO2 ESB from http://wso2.com/products/enterprise-service-bus. For a list of prerequisites and step-by-step installation instructions, refer to Installation Guide in the WSO2 ESB documentation.
-
-2. Start three sample Axis2 server instances on ports `9000` and `9001`. For instructions, see Setting Up the ESB Samples - Starting the Axis2 server in the WSO2 ESB documentation.
-
-## ESB configuration
-
-Start the ESB server and log into its management console UI (`https://localhost:9443/carbon`). In the management console, navigate to the Main menu and click Source View in the Service Bus section. Next, copy and paste the following configuration, which helps you explore the sample scenario, to the source view.
-
-```
-<!-- Durable Subscriber Proxy-->
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-   <taskManager provider="org.wso2.carbon.mediation.ntask.NTaskTaskManager"/>
-   <registry provider="org.wso2.carbon.mediation.registry.WSO2Registry">
-        <parameter name="cachableDuration">15000</parameter>
-   </registry>
-   <proxy xmlns="http://ws.apache.org/ns/synapse"
-    name="PublishProxy"
-    transports="http"
-    statistics="disable"
-    trace="disable"
-    startOnLoad="true">
+=== "Proxy Service"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <proxy name="PublishProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
          <target>
-         <inSequence>
-            <property name="FORCE_SC_ACCEPTED"
-             value="true"
-             scope="axis2"
-             type="STRING"/>
-               <clone>
-                  <target sequence="DurableSubscriber"/>
-                  <target sequence="NonDurableSubscriber"/>
-               </clone>
-          </inSequence>
-          <outSequence>
-             <drop/>
-          </outSequence>
-          </target>
-            <description/>
-   </proxy>
-    <!-- Error Sequences -->
-    <sequence name = "sub1_fails" >
-       <store messageStore="pending_subscriptions" />
-    </sequence>
-    <sequence name = "sub2_fails" >
+            <inSequence>
+                  <clone>
+                     <target sequence="DurableSubscriber"/>
+                     <target sequence="NonDurableSubscriber"/>
+                  </clone>
+            </inSequence>
+         </target>
+      </proxy>
+      ```
+=== "DurableSubscriber Sequence"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sequence name="DurableSubscriber" onError="sub1_fails" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+         <property name="OUT_ONLY" scope="default" type="BOOLEAN" value="true"/>
+         <call>
+            <endpoint key="DurableSubscriberEndpoint"/>
+         </call>
+      </sequence>
+      ```
+=== "NonDurableSubscriber Sequence"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sequence name="NonDurableSubscriber" onError="sub2_fails" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+         <property name="OUT_ONLY" scope="default" type="BOOLEAN" value="true"/>
+         <call>
+            <endpoint key="NonDurableSubscriberEndpoint"/>
+         </call>
+      </sequence>
+      ```
+=== "DurableSubscriber Fail Sequence"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sequence name="sub1_fails" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+         <store messageStore="pending_subscriptions"/>
+      </sequence>
+      ```
+=== "NonDurableSubscriber Fail Sequence"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sequence name="sub2_fails" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
          <drop/>
-    </sequence>
-    <!-- Subscription List-->
-    <sequence name="DurableSubscriber" onError="sub1_fails" xmlns="http://ws.apache.org/ns/synapse">
-        <in>
-          <property name="OUT_ONLY" value="true"/>
-          <send>
-            <endpoint name="Subscriber 1">
-                 <address uri="http://localhost:9000/services/SimpleStockQuoteService/"/>
-            </endpoint>
-          </send>
-        </in>
-    </sequence>
-    <sequence name="NonDurableSubscriber" onError="sub2_fails" xmlns="http://ws.apache.org/ns/synapse">
-        <in>
-          <property name="OUT_ONLY" value="true"/>
-          <send>
-            <endpoint name="Subscriber 2">
-                 <address uri="http://localhost:9001/services/SimpleStockQuoteService/"/>
-            </endpoint>
-          </send>
-        </in>
-    </sequence>
-    <!-- Re Direction End Points -->
-    <endpoint name="DurableSubscriberEndpoint"> 
-        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/> 
-    </endpoint>
-
-    <!-- Message Store And Process -->
-    <messageStore name="pending_subscriptions"/>
-       
-    <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="send_pending_message"
-    messageStore="pending_subscriptions">
-        <parameter name="interval">1000</parameter>
-        <parameter name="max.delivery.attempts">50</parameter> 
-        <parameter name="target.endpoint">DurableSubscriberEndpoint</parameter>
-    </messageProcessor>      
-</definitions>
-```
-
-## Set up the sample scenario
-
-Use a SOAP client like [SoapUI](https://www.soapui.org/) to forward the following request to the PublishProxy service. 
-
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:placeOrder>
-         <ser:order>
-            <xsd:price>10</xsd:price>
-            <xsd:quantity>100</xsd:quantity>
-            <xsd:symbol>foo</xsd:symbol>
-         </ser:order>
-      </ser:placeOrder>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-Note that both Axis2 servers receive the request. Next, stop the Axis2 server running on port `9000` (the Durable Subscriber) and resend the request again. Note that the Durable Subscriber will not receive the request. Start the Axis2 server on port 9000. Note that the previously undelivered message will be delivered. We can do the same for the Axis2 server running on port `9001` (the Non Durable Subscriber). In that case, when the server is back on, any previously undelivered messages will not be received.
+      </sequence>
+      ```
+=== "DurableSubscriber Endpoint"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <endpoint name="DurableSubscriberEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+         <address uri="http://localhost:9001/services/SimpleStockQuoteService">
+         </address>
+      </endpoint>
+      ```
+=== "NonDurableSubscriber Endpoint"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <endpoint name="NonDurableSubscriberEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+         <address uri="http://localhost:9002/services/SimpleStockQuoteService">
+         </address>
+      </endpoint>
+      ```
+=== "Message Store"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <messageStore name="pending_subscriptions" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse">
+      </messageStore>
+      ```
+=== "Message Processor"
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="send_pending_message" messageStore="pending_subscriptions" targetEndpoint="DurableSubscriberEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+            <parameter name="client.retry.interval">1000</parameter>
+            <parameter name="member.count">1</parameter>
+            <parameter name="is.active">true</parameter>
+            <parameter name="max.delivery.attempts">50</parameter>
+            <parameter name="store.connection.retry.interval">1000</parameter>
+            <parameter name="max.store.connection.attempts">-1</parameter>
+            <parameter name="max.delivery.drop">Disabled</parameter>
+            <parameter name="interval">1000</parameter>
+      </messageProcessor>
+      ```
 
 ### How the implementation works
 
-Let us investigate the elements of the ESB configuration in detail. The line numbers below refer to the ESB configuration shown above.
+Let's break down the key components of the configuration:
 
-- **Proxy Service** [line 6 in ESB config ] - A proxy service takes an incoming Stock Quote client request and clones the request by forwarding one copy each to two target sequences, DurableSubscriber and NonDurableSubscriber.
+- **Proxy Service**: The `PublishProxy` service clones incoming requests and sends them to two different sequences: `DurableSubscriber` and `NonDurableSubscriber`.
 
-- **Sequence** [line 29 in ESB config] - The DurableSubscriber sequence forwards the message to the Durable Endpoint. This endpoint has the onError attribute set to the sub1_fails sequence (line 21 in ESB config), which will store the message in case of a failure.
+- **DurableSubscriber Sequence**: Forwards the cloned message to the `DurableSubscriberEndpoint`. If an error occurs, the `sub1_fails` sequence stores the message in the `pending_subscriptions` message store.
 
-- **Sequence** [line 38 in ESB config] - The NonDurableSubscriber sequence works the same as the sequence described above. The only difference is that on failure, the sub2_fails sequence (line 25 in ESB config) is called, which simply drops the message.
+- **NonDurableSubscriber Sequence**: Forwards the cloned message to the `NonDurableSubscriberEndpoint`. If an error occurs, the `sub2_fails` sequence simply drops the message.
 
-- **Sequence** [line 21 in ESB config] - This sequence sets the target.endpoint property for the DurableEndpointSubscriber endpoint (defined on line 48 in ESB config), and uses a Store Mediator to define the message store used to save the message. In this example, it is the store with key pending_subscription.
+- **DurableSubscriber Fail Sequence**: Stores failed messages in the `pending_subscriptions` message store for later processing.
 
-- **messageStore** [line 53 in ESB config] - Defines a new message store with the name pending_subscriptions.
+- **NonDurableSubscriber Fail Sequence**: Drops any failed messages without further action.
 
-- **messageProcessor** [line 55 in ESB config] - The messageProcessor is used to define the type of processing done to a particular messageStore, which in this example is pending_subscription. This example defines a messageProcessor that uses a ScheduledMessageForwardingProcessor, which retries sending the messages every second with a maximum number of delivery attempts set to 50. 
+- **DurableSubscriber Endpoint**: Specifies the target endpoint for the `DurableSubscriber` sequence.
+
+- **NonDurableSubscriber Endpoint**: Specifies the target endpoint for the `NonDurableSubscriber` sequence.
+
+- **Message Store**: Defines the `pending_subscriptions` store, where undelivered messages are kept.
+
+- **Message Processor**: Defines a scheduled message processor that attempts to forward messages from the `pending_subscriptions` store to the `DurableSubscriberEndpoint`, retrying every second with up to 50 attempts.
+
+## Set up the sample scenario
+
+Follow the below instructions to simulate this sample scenario.
+
+{!includes/eip-set-up.md!}
+
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+
+4. Extract the downloaded zip file.
+
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+          ```
+
+7. Navigate to the `MI_HOME/bin/` directory and start the `tcpmon` application. 
+
+8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`. For each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
+
+9. Download the artifacts of the sample.
+
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/durable-subscriber.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+10. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+11. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+
+12. Start SoapUI.
+
+    For instructions on downloading and starting, go to [SoapUI Getting Started](https://www.soapui.org/getting-started/) Documentation.
+Use a SOAP client like [SoapUI](https://www.soapui.org/) to forward the following request to the PublishProxy service. 
+
+## Execute the sample
+
+1. Send the following request to the service using SoapUI (or any other SOAP client).
+   ```xml
+      POST http://localhost:8290/services/PublishProxy
+
+      Accept-Encoding: gzip,deflate
+      Content-Type: text/xml;charset=UTF-8
+      SOAPAction: "urn:placeOrder"
+      Connection: Keep-Alive
+
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+         <soapenv:Header/>
+         <soapenv:Body>
+            <ser:placeOrder xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+                  <ser:order>
+                     <xsd:price>100</xsd:price>
+                     <xsd:quantity>10</xsd:quantity>
+                     <xsd:symbol>IBM</xsd:symbol>
+                  </ser:order>
+            </ser:placeOrder>
+         </soapenv:Body>
+      </soapenv:Envelope>
+   ```
+2. Stop port `9001` tcpmon (the Durable Subscriber) and resend the request again.
+   
+3. Stop port `9002` tcpmon (the NonDurable Subscriber) and resend the request again.
+   
+## Analyze the output
+
+Note that both tcpmon tabs receive the request. Next, stop the tcpmon running on port `9000` (the Durable Subscriber) and resend the request. Notice that the Durable Subscriber does not receive the request. Start the tcpmon on port `9000` again and observe that the previously undelivered message is delivered. You can repeat this for the tcpmon running on port `9002` (the Non-Durable Subscriber). In that case, when the server is back on, any previously undelivered messages will not be received.
+
 
