@@ -1,5 +1,7 @@
 # Format Indicator
 
+## Introduction to Format Indicator
+
 The Format Indicator EIP allows communication channels to know the format of data transmitted to the Micro Integrator. Once the format is identified, the receiver will know how to process the message based on its format. 
 
 !!! info
