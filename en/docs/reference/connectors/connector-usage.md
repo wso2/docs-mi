@@ -22,7 +22,12 @@ However, the recommended approach to use connectors for integration logic develo
 
 **To import a connector**:
 
-{!includes/build-and-run.md!}
+1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+
+    !!! info
+        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+
+2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 
 3. Click on the + icon and select connectors on the pallet that comes up on the right side. Search for the connector and click on it to view the operations of the selected connector.
 
