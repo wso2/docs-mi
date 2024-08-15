@@ -11,7 +11,7 @@ The Canonical Data Model EIP minimizes dependencies when integrating application
 
 ![Canonical Data Model]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-transformation/canonical-data-model.gif)
 
-### How WSO2 ESB implements the EIP
+### How WSO2 MI implements the EIP
 
 The Canonical Data Model EIP minimizes dependencies between applications that use different data formats in messaging systems. This model ensures loose coupling between applications.
 
