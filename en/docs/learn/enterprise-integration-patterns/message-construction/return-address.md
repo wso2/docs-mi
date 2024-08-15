@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the example scenario.
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Return Address EIP by comparing their core components.
 
-| Return Address EIP (Figure 1) | Return Address Example Scenario (Figure 2) |
+| Return Address EIP            | Return Address Example Scenario            |
 |-------------------------------|--------------------------------------------|
 | Requestor 1                   | Stock Quote Client Instance                |
 | Request Channel 1             | Send Mediator                              |
@@ -79,7 +79,7 @@ Follow the below instructions to simulate this sample scenario.
 
 6. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 
 ## Execute the sample
