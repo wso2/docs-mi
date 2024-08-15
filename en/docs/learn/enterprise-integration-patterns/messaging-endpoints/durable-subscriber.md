@@ -4,7 +4,7 @@ This page explains how you can implement a sample scenario of Durable Subscriber
 
 ## Introduction to Durable Subscriber
 
-The Durable Subscriber EIP avoids missing messages while it’s not listening for them. It makes the messaging system save messages published while the subscriber is disconnected. This pattern is similar to the Publish-Subscribe EIP, which temporarily stores a message if a subscriber is offline at the time a message is published, and sends the message when it gets online again. 
+The Durable Subscriber EIP avoids missing messages while it’s not listening for them. It makes the messaging system save messages published while the subscriber is disconnected. This pattern is similar to the Publish-Subscribe EIP, which temporarily stores a message if a subscriber is offline at the time a message is published and sends the message when it gets online again. 
 
 !!! info
     For more information, see the [Durable Subscriber](http://www.eaipatterns.com/DurableSubscription.html) documentation.
@@ -121,9 +121,9 @@ Let's break down the key components of the configuration:
 
 - **Proxy Service**: The `PublishProxy` service clones incoming requests and sends them to two different sequences: `DurableSubscriber` and `NonDurableSubscriber`.
 
-- **DurableSubscriber Sequence**: Forwards the cloned message to the `DurableSubscriberEndpoint`. If an error occurs, the `sub1_fails` sequence stores the message in the `pending_subscriptions` message store.
+- **DurableSubscriber Sequence**: Forward the cloned message to the `DurableSubscriberEndpoint`. If an error occurs, the `sub1_fails` sequence stores the message in the `pending_subscriptions` message store.
 
-- **NonDurableSubscriber Sequence**: Forwards the cloned message to the `NonDurableSubscriberEndpoint`. If an error occurs, the `sub2_fails` sequence simply drops the message.
+- **NonDurableSubscriber Sequence**: Forward the cloned message to the `NonDurableSubscriberEndpoint`. If an error occurs, the `sub2_fails` sequence simply drops the message.
 
 - **DurableSubscriber Fail Sequence**: Stores failed messages in the `pending_subscriptions` message store for later processing.
 
@@ -162,7 +162,7 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Navigate to the `MI_HOME/bin/` directory and start the `tcpmon` application. 
 
-8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`. For each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
+8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`, for each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
 
 9. Download the artifacts of the sample.
 
@@ -213,6 +213,6 @@ Use a SOAP client like [SoapUI](https://www.soapui.org/) to forward the followin
    
 ## Analyze the output
 
-Note that both tcpmon tabs receive the request. Next, stop the tcpmon running on port `9000` (the Durable Subscriber) and resend the request. Notice that the Durable Subscriber does not receive the request. Start the tcpmon on port `9000` again and observe that the previously undelivered message is delivered. You can repeat this for the tcpmon running on port `9002` (the Non-Durable Subscriber). In that case, when the server is back on, any previously undelivered messages will not be received.
+Note that both tcpmon tabs receive the request. Next, stop the tcpmon running on port `9000` (the Durable Subscriber) and resend the request. Notice that the Durable Subscriber has not received the request. Start the tcpmon on port `9000` again and observe that the previously undelivered message is delivered. You can repeat this for the tcpmon running on port `9002` (the Non-Durable Subscriber). In that case, when the server is back on, any previously undelivered messages will not be received.
 
 
