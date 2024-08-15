@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the example scenario using the WSO2 MI
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Command Message EIP by comparing their core components.
 
-| Command Message EIP (Figure 1)  | Command Message Example Scenario (Figure 2) |
+| Command Message EIP             | Command Message Example Scenario            |
 |---------------------------------|---------------------------------------------|
 | Sender                          | Stock Quote Client                          |
 | Command Message                 | Call mediator                               |
