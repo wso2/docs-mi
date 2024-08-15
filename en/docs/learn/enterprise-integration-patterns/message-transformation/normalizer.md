@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the example scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Normalizer EIP by comparing their core components.
 
-| Normalizer EIP (Figure 1) | Normalizer Sample Scenario (Figure 2)                                                                                  |
+| Normalizer EIP  | Normalizer Sample Scenario                                                                                  |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------|
 | Different Message Formats | SOAP, POX, or JSON Stock Quote Request                                                                                 |
 | Router                    | Filter Mediator routes messages based on an existing XPath expression, which identifies format of the message. |
@@ -152,7 +152,7 @@ Follow the below instructions to simulate this sample scenario.
 
 6. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 ## Execute the sample
 
