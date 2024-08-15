@@ -38,7 +38,6 @@ Given below is the synapse configuration of this sample.
     <proxy name="StockQuoteProxy" startOnLoad="true" transports="jms" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <header name="Action" value="urn:getQuote"/>
                 <property name="OUT_ONLY" scope="axis2" type="BOOLEAN" value="true"/>
                 <call>
                     <endpoint key="SimpleStockEp"/>
@@ -46,6 +45,7 @@ Given below is the synapse configuration of this sample.
             </inSequence>
             <faultSequence/>
         </target>
+        <parameter name="transport.jms.Destination">StockQuoteProxyQueue</parameter>
         <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory</parameter>
         <parameter name="transport.jms.ContentType">
             <rules>
@@ -120,7 +120,7 @@ Follow the below instructions to simulate this sample scenario.
 
 10. On the opened page, select the **Queues** tab.
 
-11. Create a queue named `StockQuoteProxy`. 
+11. Create a queue named `StockQuoteProxyQueue`. 
 
 12. Download the artifacts of the sample.
 
@@ -138,9 +138,9 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-1. Go to ActiveMQ WebConsole and send a JMS message by using the **Send To** operation that appeared for the `StockQuoteProxy` queue. Use the following details to send the message.
+1. Go to ActiveMQ WebConsole and send a JMS message by using the **Send To** operation that appeared for the `StockQuoteProxyQueue` queue. Use the following details to send the message.
     
-    - **Destination**: `StockQuoteProxy`
+    - **Destination**: `StockQuoteProxyQueue`
     - **Queue or Topic**: `Queue`
     - **Message Body**: 
         ```xml
