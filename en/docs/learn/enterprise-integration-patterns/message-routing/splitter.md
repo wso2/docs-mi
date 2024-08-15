@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Splitter EIP by comparing their core components.
 
-| Splitter EIP (Figure 1) | Splitter Sample Scenario (Figure 2)      |
+| Splitter EIP            | Splitter Sample Scenario                 |
 |-------------------------|------------------------------------------|
 | New Order Request       | Stock Quote Request                      |
 | Splitter                | Iterate Mediator                         |
@@ -97,7 +97,7 @@ Follow the below instructions to simulate this sample scenario.
 
 6. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 ## Execute the sample
 
