@@ -21,11 +21,11 @@ The diagram below depicts how to simulate the example scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Publish-Subscribe Channel EIP by comparing their core components.
 
-| Publish-Subscribe Channel EIP (Figure 1) | Publish-Subscribe Channel Example Scenario (Figure 2) |
+| Publish-Subscribe Channel EIP            | Publish-Subscribe Channel Example Scenario            |
 |------------------------------------------|-------------------------------------------------------|
-| Subscriber                               | SimpleStockQuoteService                          |
+| Subscriber                               | SimpleStockQuoteService                               |
 | Publisher Subscriber Channel             | ActiveMQ topic                                        |
-| Publisher                                | StockQuoteProxy                                   |
+| Publisher                                | StockQuoteProxy                                       |
 
 ## Synapse configurations of the artifacts
 
@@ -97,17 +97,13 @@ Before digging into implementation details, let's take a look at the relationshi
 
 ### How the implementation works
 
-Let's investigate the elements of the configuration in detail.
+Let's break down the key components of the configuration:
 
 - **StockQuoteProxy**: Forwards stock quote requests from clients to a JMS topic, enabling asynchronous processing.
 - **SimpleStockQuoteService1**: Subscribes to the JMS topic, logs a custom message, and drops the message.
 - **SimpleStockQuoteService2**: Similar to **SimpleStockQuoteService1**, it subscribes to the JMS topic, logs a different custom message, and drops the message.
 
 ## Set up the sample scenario
-
-Now, let's try out the sample scenario explained above.
-
-### Set up the environment
 
 Follow the below instructions to simulate this sample scenario.
 
@@ -148,9 +144,26 @@ Follow the below instructions to simulate this sample scenario.
     ```
 ## Execute the sample
 
-Send HTTP Post request to this URL `http://localhost:8290/services/StockQuoteProxy` using Any HTTP Client.
+Send the following request to the service using SoapUI (or any other SOAP client).
 
-cURL - `curl -X POST  http://localhost:8290/services/StockQuoteProxy`
+```xml
+POST http://localhost:8290/services/StockQuoteProxy
+
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "urn:getQuote"
+Connection: Keep-Alive
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+<soapenv:Body>
+    <ser:getQuote>
+        <ser:request>
+            <xsd:symbol>IBM</xsd:symbol>
+        </ser:request>
+    </ser:getQuote>
+</soapenv:Body>
+</soapenv:Envelope>
+```
 
 ## Analyze the output
 
