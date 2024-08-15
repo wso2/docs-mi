@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Selective Consumer EIP by comparing their core components.
 
-| Selective Consumer EIP (Figure 1) | Selective Consumer Sample Scenario (Figure 2) |
+| Selective Consumer EIP            | Selective Consumer Sample Scenario            |
 |-----------------------------------|-----------------------------------------------|
 | Specifying Producer               | Simple Stock Quote Client                     |
 | Messages with Selection Values    | Simple Stock Quote Request                    |
