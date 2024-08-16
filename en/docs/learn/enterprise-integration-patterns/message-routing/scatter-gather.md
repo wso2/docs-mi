@@ -24,13 +24,13 @@ The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Scatter-Gather EIP by comparing their core components.
 
-| Scatter-Gather EIP (Figure 1) | Scatter-Gather Sample Scenario (Figure 2) |
+| Scatter-Gather EIP            | Scatter-Gather Sample Scenario            |
 |-------------------------------|-------------------------------------------|
 | Quote Request                 | Simple Stock Quote Request                |
 | Broadcast                     | Clone Mediator                            |
 | Quote                         | Simple Stock Quote Service Response       |
 | Aggregator                    | Aggregate Mediator                        |
-| Best Quote                    | Aggregated Response                      |
+| Best Quote                    | Aggregated Response                       |
 
 ## Synapse configuration of the artifacts
 
