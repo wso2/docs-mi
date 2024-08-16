@@ -119,10 +119,11 @@ Let's investigate the elements of the synapse configuration in detail.
 
 ## Execute the sample
 
-Send the following request to the Proxy service.
- 
-   ```bash
-   curl --location 'http://localhost:8290/services/AggregateMessageProxy/'
+Send the following request to the Micro Integrator using SoapUI (or any other SOAP client).
+
+   ```
+   GET /services/AggregateMessageProxy/ HTTP/1.1
+   Host: localhost:8290
    ```
    
 ## Analyze the output
