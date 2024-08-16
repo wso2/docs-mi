@@ -23,7 +23,7 @@ The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Competing Consumers EIP by comparing their core components.
 
-| Competing Consumers EIP (Figure 1) | Competing Consumers Sample Scenario (Figure 2)         |
+| Competing Consumers EIP            | Competing Consumers Sample Scenario                    |
 |------------------------------------|--------------------------------------------------------|
 | Sender                             | Simple Stock Quote Client                              |
 | Messages                           | Simple Stock Quote Requests with Load-Balance Endpoint |
