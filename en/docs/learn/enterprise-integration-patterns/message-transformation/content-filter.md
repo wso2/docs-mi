@@ -37,14 +37,14 @@ Given below is the synapse configuration of this sample.
     <proxy name="ContentFilterProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-            <xslt key="gov:split_message.xslt">
-            </xslt>
-            <log category="INFO" level="full"/>
-            <call>
-                <endpoint key="SimpleStockEp"/>
-            </call>
-            <log category="INFO" level="full"/>
-            <respond/>
+                <xslt key="gov:split_message.xslt">
+                </xslt>
+                <log category="INFO" level="full"/>
+                <call>
+                    <endpoint key="SimpleStockEp"/>
+                </call>
+                <log category="INFO" level="full"/>
+                <respond/>
             </inSequence>
             <faultSequence/>
         </target>
