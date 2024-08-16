@@ -29,46 +29,47 @@ Before digging into implementation details, let's take a look at the relationshi
 
 ## Synapse configuration of the artifacts
 
-=== "Proxy Service"
+=== "API"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <proxy name="AggregateMessageProxy" startOnLoad="true" transports="http https"
-       xmlns="http://ws.apache.org/ns/synapse">
-       <target>
-          <inSequence>
-             <clone>
-                <target>
-                   <sequence>
-                      <call>
-                         <endpoint key="GrandOakEndpoint" />
-                      </call>
-                   </sequence>
-                </target>
-                <target>
-                   <sequence>
-                      <payloadFactory media-type="json" template-type="default">
-                         <format>{ "doctorType": "Physician" } </format>
-                         <args>
-                         </args>
-                      </payloadFactory>
-                      <call>
-                         <endpoint key="PineValleyEndpoint" />
-                      </call>
-                   </sequence>
-                </target>
-             </clone>
-             <aggregate>
-                <completeCondition>
-                   <messageCount max="-1" min="-1" />
-                </completeCondition>
-                <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)">
-                   <respond />
-                </onComplete>
-             </aggregate>
-          </inSequence>
-          <faultSequence />
-       </target>
-    </proxy>
+    <api name="hospital" context="/" xmlns="http://ws.apache.org/ns/synapse">
+      <resource methods="GET" uri-template="/getPhysicians">
+         <inSequence>
+            <clone>
+               <target>
+                  <sequence>
+                     <call>
+                        <endpoint key="GrandOakEndpoint" />
+                     </call>
+                  </sequence>
+               </target>
+               <target>
+                  <sequence>
+                     <payloadFactory media-type="json" template-type="default">
+                        <format>{
+                        "doctorType": "Physician" } </format>
+                        <args>
+                     </args>
+                     </payloadFactory>
+                     <call>
+                        <endpoint key="PineValleyEndpoint" />
+                     </call>
+                  </sequence>
+               </target>
+            </clone>
+            <aggregate>
+               <completeCondition>
+                  <messageCount max="-1" min="-1" />
+               </completeCondition>
+               <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)">
+                  <respond />
+               </onComplete>
+            </aggregate>
+         </inSequence>
+         <faultSequence>
+            </faultSequence>
+      </resource>
+    </api>
     ```
 === "GrandOakEndpoint"
     ```xml
@@ -119,11 +120,12 @@ Let's investigate the elements of the synapse configuration in detail.
 
 ## Execute the sample
 
-Send the following request to the Micro Integrator using SoapUI (or any other SOAP client).
+Send the following request to the Micro Integrator.
 
    ```
-   GET /services/AggregateMessageProxy/ HTTP/1.1
+   GET /getPhysicians HTTP/1.1
    Host: localhost:8290
+   accept: */*
    ```
    
 ## Analyze the output
