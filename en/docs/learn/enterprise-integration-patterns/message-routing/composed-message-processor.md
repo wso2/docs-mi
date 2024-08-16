@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Composed Msg. Processor EIP by comparing their core components.
 
-| Composed Message Processor EIP (Figure 1) | Composed Message Processor Sample Scenario (Figure 2) |
+| Composed Message Processor EIP            | Composed Message Processor Sample Scenario            |
 |-------------------------------------------|-------------------------------------------------------|
 | New Order                                 | Stock Quote Request                                   |
 | Splitter                                  | Iterate Mediator                                      |
