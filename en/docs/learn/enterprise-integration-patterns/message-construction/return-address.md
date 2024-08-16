@@ -86,28 +86,30 @@ Follow the below instructions to simulate this sample scenario.
 
 Send a request like the following to the client.
 
-```bash
-curl --location 'http://localhost:8290/services/ReturnAddressProxy' \
---header 'SOAPAction: urn:getQuote' \
---header 'Content-Type: text/xml' \
---data '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-      <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
-         <wsa:To>http://localhost:9000/services/SimpleStockQuoteService</wsa:To>
-         <wsa:ReplyTo>
-            <wsa:Address>http://10.150.3.53:8200/axis2/services/anonService2/</wsa:Address>
-         </wsa:ReplyTo>
-         <wsa:MessageID>urn:uuid:9aa8e783-2eb7-4649-9d36-a7fb3ad17abd</wsa:MessageID>
-         <wsa:Action>urn:getQuote</wsa:Action>
-      </soapenv:Header>
-      <soapenv:Body>
-         <m0:getQuote xmlns:m0="http://services.samples">
-            <m0:request>
-               <m0:symbol>foo</m0:symbol>
-            </m0:request>
-         </m0:getQuote>
-      </soapenv:Body>
-   </soapenv:Envelope>
-'
+```
+POST /services/ReturnAddressProxy HTTP/1.1
+Host: localhost:8290
+SOAPAction: urn:getQuote
+Content-Type: text/xml
+Content-Length: 767
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      <wsa:To>http://localhost:9000/services/SimpleStockQuoteService</wsa:To>
+      <wsa:ReplyTo>
+         <wsa:Address>http://10.150.3.53:8200/axis2/services/anonService2/</wsa:Address>
+      </wsa:ReplyTo>
+      <wsa:MessageID>urn:uuid:9aa8e783-2eb7-4649-9d36-a7fb3ad17abd</wsa:MessageID>
+      <wsa:Action>urn:getQuote</wsa:Action>
+   </soapenv:Header>
+   <soapenv:Body>
+      <m0:getQuote xmlns:m0="http://services.samples">
+         <m0:request>
+            <m0:symbol>foo</m0:symbol>
+         </m0:request>
+      </m0:getQuote>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 ## Analyze the output
