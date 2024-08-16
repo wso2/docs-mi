@@ -143,7 +143,7 @@ soapAction: urn:getQuote
 
 ## Analyze the output
 
-Notice that the request data is inside a SOAP envelope. When the request was monitored through TCPMon the request sent to the back-end Axis2 server has the following structure:
+Notice that the request data is inside a SOAP envelope. When the request was monitored through TCPMon, it was sent to the back-end Axis2 server with the following structure:
 
 ```
 POST /services/SimpleStockQuoteService HTTP/1.1
