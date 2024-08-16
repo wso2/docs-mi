@@ -52,7 +52,7 @@ Given below is the synapse configuration of this sample.
                 <jmsProperty>contentType</jmsProperty>
                 <default>text/xml</default>
             </rules>
-    </parameter>
+        </parameter>
     </proxy>
     ```
 === "Endpoint"
