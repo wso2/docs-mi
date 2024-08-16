@@ -198,7 +198,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-http-to-fix">Switching from HTTP to FIX</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-http">Switch from FIX to HTTP</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-amqp">Switch from FIX to AMQP</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-jms">Switch from FIX to JMS</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-fix-versions">Switching between FIX Versions</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-tcp-to-https">Switching from TCP to HTTP/S</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-udp-to-https">Switching from UDP to HTTP/S</a></li>
