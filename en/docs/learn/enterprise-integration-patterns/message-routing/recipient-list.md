@@ -142,8 +142,8 @@ Before digging into implementation details, let's take a look at the relationshi
 
 Let's investigate the elements of the synapse configuration in detail. 
 
-- Switch - The Switch mediator performs a switch/case based on the symbol found inside the original request. In this sample scenario, one of two call mediators is used, based on the value of the symbol element in the request.
-- recipientList - the recipientList mediator lists several endpoints inside tags. WSO2 MI will forward the request to all endpoints in this list. 
+- **Switch** - The Switch mediator performs a switch/case based on the symbol found inside the original request. In this sample scenario, one of two call mediators is used, based on the value of the symbol element in the request.
+- **recipientList** - the recipientList mediator lists several endpoints inside tags. WSO2 MI will forward the request to all endpoints in this list. 
 
 ## Set up the sample scenario
 
