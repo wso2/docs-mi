@@ -4,7 +4,7 @@ This page explains how you can implement a sample scenario of the Event-Driven C
 
 ## Introduction to Event-Driven Consumer
 
-The Event-Driven Consumer EIP allows an application to automatically consume messages as they become available. 
+The Event-Driven Consumer EIP allows an application to asynchronously consume messages as they become available. 
 
 !!! info
     For more information, see the [Event-Driven Consumer](http://www.eaipatterns.com/EventDrivenConsumer.html) documentation.
@@ -25,7 +25,7 @@ Before digging into implementation details, let's take a look at the relationshi
 |--------------------------------------|--------------------------------------------------|
 | Sender                               | Simple Stock Quote Client                        |
 | Message                              | Simple Stock Quote Request                       |
-| Event Driven Consumer                | Event Mediator                                   |
+| Event Driven Consumer                | Message Processor                                |
 | Receiver                             | Simple Stock Quote Service                       |
 
 ## Synapse configuration of the artifacts
