@@ -4,7 +4,7 @@ This page explains how you can implement a sample scenario of the Content Filter
 
 ## Introduction to Content Filter
 
-The Content Filter EIP helps manage a large message when you are interested in a few data items only. It removes unimportant data items from a message and leaves only the important ones. In addition to removing data elements, a Content Filter can be used to simplify a message structure. 
+The Content Filter EIP helps manage a large message when you are interested in only a few data items. It removes unimportant data items from a message and leaves only the important ones. In addition to removing data elements, a Content Filter can be used to simplify a message structure. 
 
 !!! info
     For more information, see the [Content Filter](http://www.eaipatterns.com/ContentFilter.html) documentation.
