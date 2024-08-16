@@ -79,9 +79,13 @@ Follow the below instructions to simulate this sample scenario.
 
 5. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+    For instructions, refer [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 6. Set up and Start [ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
+
+7. Start SoapUI.
+
+    For instructions on downloading and starting, refer [SoapUI Getting Started](https://www.soapui.org/getting-started/).
 
 !!!note
     Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) in the `deployment.toml` file.
@@ -93,11 +97,29 @@ Follow the below instructions to simulate this sample scenario.
     parameter.connection_factory_name = "QueueConnectionFactory"
     parameter.connection_factory_type = "queue"
     ```
+
 ## Execute the sample
 
-Send HTTP Post request to this URL `http://localhost:8290/services/StockQuoteProxy` using Any HTTP Client.
+Send the request to the service using SoapUI (or any other SOAP client)
 
-cURL - `curl -X POST  http://localhost:8290/services/StockQuoteProxy`
+```xml
+POST  http://localhost:8290/services/StockQuoteProxy
+
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "urn:getQuote"
+Connection: Keep-Alive
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+    <soapenv:Body>
+        <ser:getQuote>
+            <ser:request>
+                <xsd:symbol>IBM</xsd:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ## Analyze the output
 
