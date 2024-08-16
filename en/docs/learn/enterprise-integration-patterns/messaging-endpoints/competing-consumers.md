@@ -130,7 +130,7 @@ Follow the below instructions to simulate this sample scenario.
 
 12. Start SoapUI.
 
-    For instructions on downloading and starting, go to [SoapUI Getting Started](https://www.soapui.org/getting-started/) Documentation.
+    For instructions on downloading and starting, refer to [SoapUI Getting Started](https://www.soapui.org/getting-started/).
 
 ## Execute the sample
 
