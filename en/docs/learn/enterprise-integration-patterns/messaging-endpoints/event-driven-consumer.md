@@ -1,10 +1,10 @@
 # Event-Driven Consumer
 
-This section explains, through a sample scenario, how the Event-Driven Consumer EIP can be implemented using the ESB Profile of WSO2 Enterprise Integrator (WSO2 EI). 
+This page explains how you can implement a sample scenario of the Event-Driven Consumer EIP using WSO2 Micro Integrator.
 
 ## Introduction to Event-Driven Consumer
 
-The Event-Driven Consumer EIP allows an application to automatically consume messages as they become available. 
+The Event-Driven Consumer EIP allows an application to asynchronously consume messages as they become available. 
 
 !!! info
     For more information, see the [Event-Driven Consumer](http://www.eaipatterns.com/EventDrivenConsumer.html) documentation.
@@ -15,68 +15,145 @@ The Event-Driven Consumer EIP allows an application to automatically consume mes
 
 This EIP is also referred to as an asynchronous receiver. This sample scenario demonstrates how an event will be triggered based on the availability of the receiver and a message will be consumed by the receiver.
 
-The diagram below depicts how to simulate the sample scenario using the ESB Profile of WSO2 EI.
+The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 <img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-endpoints/event-driven-consumer.png" style="width: 70%;" alt="Event-driven consumer">
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Event-Driven Consumer EIP by comparing their core components.
 
-| Event-Driven Consumer EIP (Figure 1) | Event-Driven Consumer Sample Scenario (Figure 2) |
+| Event-Driven Consumer EIP            | Event-Driven Consumer Sample Scenario            |
 |--------------------------------------|--------------------------------------------------|
 | Sender                               | Simple Stock Quote Client                        |
 | Message                              | Simple Stock Quote Request                       |
-| Event Driven Consumer                | Event Mediator                                   |
+| Event Driven Consumer                | Message Processor                                |
 | Receiver                             | Simple Stock Quote Service                       |
 
-### Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install the ESB Profile of WSO2 Enterprise Integrator (EI). For a list of prerequisites and step-by-step installation instructions, go to Installing the Product in WSO2 EI Documentation.
+Given below is the synapse configuration of this sample. 
 
-2. Start an instance of Sample Axis2 server. For instructions, go to Starting the Axis2 server in WSO2 EI Documentation.
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="EventDrivenConsumerProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+                <property name="OUT_ONLY" value="true"/>
+                <store messageStore="EventDrivenConsumerStore"/>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Message Store"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageStore name="EventDrivenConsumerStore" class="org.apache.synapse.message.store.impl.memory.InMemoryStore" xmlns="http://ws.apache.org/ns/synapse">
+    </messageStore>
+    ```
+=== "Message Processor"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageProcessor class="org.apache.synapse.message.processor.impl.sampler.SamplingProcessor" name="EventDrivenConsumerProcessor" messageStore="EventDrivenConsumerStore" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="sequence">SendSeq</parameter>
+        <parameter name="interval">1000</parameter>
+        <parameter name="is.active">true</parameter>
+        <parameter name="concurrency">1</parameter>
+    </messageProcessor>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="SendSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <call>
+            <endpoint key="SimpleStockEp"/>
+        </call>
+    </sequence>
+    ```
 
-3. Follow the steps below to create an event.
+Let's investigate the elements of the configuration in detail. 
 
-    - Start the ESB Profile and log into its management console UI (`https://localhost:9443/carbon`).
-    - Select the Topics menu from the Main menu and then select the Add sub menu.
-    - Enter EventConsumerTopic as the name of the topic, and then click Add Topic.
-    - Click EventConsumerTopic in the topic browser tree, and then click Subscribe to create a static subscription.
-    - Enter the value `http://localhost:9000/services/SimpleStockQuoteService` in the Event Sink URL field and click Subscribe.
-
-## ESB configuration
-
-On the Management Console of the ESB Profile, navigate to the Main menu and click Source View in the Service Bus section . Next, copy and paste the following configuration to the source view. Then you can explore the sample scenario 
-
-```xml
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-   <sequence name="fault">
-      <log level="full">
-         <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
-         <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-         <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-      </log>
-      <drop/>
-   </sequence>
-   <sequence name="main">
-      <log/>
-      <event topic="EventConsumerTopic"/>
-   </sequence>
-</definitions>
-```
+- **store** - The store mediator loads the message store. 
+- **messageStore** - Defines the message store to use. 
+- **messageProcessor** - Defines the processing algorithm for stored messages. 
 
 ## Set up the sample scenario
 
-Send a request using the Stock Quote client to the ESB as follows:
+{!includes/eip-set-up.md!}
+
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+
+4. Extract the downloaded zip file.
+
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+          ```
+
+7. Download the artifacts of the sample.
+
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/EventDrivenConsumer.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+8. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+9. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+
+## Execute the sample
+
+Send the following request to the `EventDrivenConsumerProxy` service.
 
 ```
-ant stockquote -Dtrpurl=http://localhost:8280 -Dsymbol=foo
+POST /services/EventDrivenConsumerProxy HTTP/1.1
+Host: localhost:8290
+Content-Type: text/xml
+soapAction: urn:getQuote
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getQuote>
+         <ser:request>
+            <xsd:symbol>foo</xsd:symbol>
+         </ser:request>
+      </ser:getQuote>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
-For information on the Stock Quote Client and its operation modes, see Stock Quote Client in the WSO2 EI Documentation.
+## Analyze the output
 
-After sending the request, note that a message accepting the request is displayed on the Stock Quote service's console. This is triggered as an event when the message is published into the topic EventConsumerTopic that you created earlier. All subscribers will receive the topic.
+After the request is sent, it will be stored in the configured [Message Store]({{base_path}}/learn/examples/message-store-processor-examples/intro-message-stores-processors/). The [Sampling Message Processor]({{base_path}}/learn/examples/message-store-processor-examples/using-message-sampling-processor/) will then retrieve the request from the store and send it to the axis2server. A message similar to the one shown below will appear in the axis2server, indicating that the request has been accepted.
 
-### How the implementation works
-
-Let's investigate the elements of the ESB configuration in detail. The line numbers below are mapped with the ESB configuration provided above.
-
-- **event** [line 13 in ESB config] - Allows you to define a set of subscribers to receive messages when the topic subscribes to receives a message. Also, see Eventing.
+```
+Fri Aug 16 14:02:22 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : foo
+```
