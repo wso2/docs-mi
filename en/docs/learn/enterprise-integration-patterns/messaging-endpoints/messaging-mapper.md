@@ -7,7 +7,6 @@ This page explains how you can implement a sample scenario of the Messaging Mapp
 The Messaging Mapper EIP moves data between domain objects and the messaging infrastructure while keeping the two independent of each other. It contains the mapping logic between the messaging infrastructure and the domain objects. Neither the objects nor the infrastructure have knowledge of the Messaging Mapper's existence. 
 
 !!! info
-
     For more information, see the [Messaging Mapper](http://www.eaipatterns.com/MessagingMapper.html) documentation.
 
 ![Messaging mapper class diagram]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper-class-diagram.gif)
