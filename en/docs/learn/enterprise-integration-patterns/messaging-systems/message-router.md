@@ -121,28 +121,28 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample.
 
-1. Create a JSON file named `request.json` with the following request payload.
-    ```json
-    {
-        "patient": {
+Send the following request to the Micro Integrator.
+
+```
+POST /services/message-router-proxy HTTP/1.1
+Host: localhost:8290
+Content-Type: application/json
+
+{
+    "patient": {
         "name": "John Doe",
         "dob": "1940-03-19",
         "ssn": "234-23-525",
         "address": "California",
         "phone": "8770586755",
         "email": "johndoe@gmail.com"
-        },
-        "doctor": "thomas collins",
-        "hospital_id": "grandoaks",
-        "hospital": "grand oak community hospital",
-        "appointment_date": "2025-04-02"
-    }
-    ```
-2. Open a terminal and navigate to the directory where you have saved the `request.json` file.
-3. Execute the following command.
-    ```json
-    curl --data @request.json http://localhost:8290/services/message-router-proxy --header "Content-Type:application/json"
-    ```
+    },
+    "doctor": "thomas collins",
+    "hospital_id": "grandoaks",
+    "hospital": "grand oak community hospital",
+    "appointment_date": "2025-04-02"
+}
+```
 
 ## Analyze the output
 

@@ -101,20 +101,21 @@ Follow the below instructions to simulate this sample scenario.
 Send a request like the following to the Micro Integrator.
 
 ```xml
-curl --location 'http://localhost:8290/services/MessageExpirationProxy' \
---header 'SOAPAction: urn:getQuote' \
---header 'Content-Type: text/xml' \
---data '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+POST /services/MessageExpirationProxy HTTP/1.1
+Host: localhost:8290
+SOAPAction: urn:getQuote
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
    <soapenv:Header/>
    <soapenv:Body>
-      <ser:getQuote>    
-         <ser:request>          
+      <ser:getQuote>
+         <ser:request>
             <xsd:symbol>IBM</xsd:symbol>
          </ser:request>
       </ser:getQuote>
    </soapenv:Body>
 </soapenv:Envelope>
-'
 ```
 ## Analyze the output
 

@@ -160,20 +160,22 @@ Follow the below instructions to simulate this sample scenario.
 
 Send a request like the following to the client.
 
-```bash
-curl --location 'http://localhost:8290/services/RoutingSlipProxy' \
---header 'SOAPAction: urn:getQuote' \
---header 'Content-Type: text/xml' \
---data '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+```
+POST /services/RoutingSlipProxy HTTP/1.1
+Host: localhost:8290
+SOAPAction: urn:getQuote
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
    <soapenv:Header/>
    <soapenv:Body>
-      <ser:getQuote>    
-         <ser:request>          
+      <ser:getQuote>
+         <ser:request>
             <xsd:symbol>IBM</xsd:symbol>
          </ser:request>
       </ser:getQuote>
    </soapenv:Body>
-</soapenv:Envelope>'
+</soapenv:Envelope>
 ```
 
 

@@ -111,10 +111,11 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-1. Send the following request to the WSO2 MI using the cURL client.
+1. Send the following request to the WSO2 MI.
 
-    ```bash
-    curl -v http://127.0.0.1:8290/stockquote/view/IBM
+    ```
+    GET /stockquote/view/IBM HTTP/1.1
+    Host: 127.0.0.1:8290
     ```
 
 2. You can use TCPMon to see the type of the message and its message format:
