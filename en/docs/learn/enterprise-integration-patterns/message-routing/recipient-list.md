@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Recipient List EIP by comparing their core components.
 
-| Recipient List EIP (Figure 1) | Recipient List EIP (Figure 2)                  |
+| Recipient List EIP            | Recipient List EIP                             |
 |-------------------------------|------------------------------------------------|
 | Sender                        | StockQuoteClient                               |
 | Recipient List                | RecipientList mediator                         |
