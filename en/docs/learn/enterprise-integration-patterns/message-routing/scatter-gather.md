@@ -42,6 +42,7 @@ Given below is the synapse configuration of this sample.
     <proxy name="ScatterGatherProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
+                <property name="enrichedres" scope="default" type="STRING" value="initial"/>
                 <clone>
                     <target>
                         <sequence>
@@ -72,9 +73,17 @@ Given below is the synapse configuration of this sample.
                     </completeCondition>
                     <onComplete aggregateElementType="root" expression="//ns:return" xmlns:ns="http://services.samples">
                         <enrich description="">
-                            <source clone="true" type="custom" xpath="//ns:return[not(preceding-sibling::ns:return/ax21:last &lt;= ax21:last) and not(following-sibling::ns:return/ax21:last &lt; ax21:last)]" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
-                            <target action="replace" type="body"/>
+                            <source clone="true" type="custom" xpath="/soapenv:Body/ns:return[not(ax21:last &gt; /soapenv:Body/ns:return/ax21:last)]" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://services.samples" xmlns:ax21="http://services.samples/xsd" />
+                            <target action="replace" type="property" property="enrichedres"/>
                         </enrich>
+                        <payloadFactory media-type="xml" template-type="default">
+                            <format>
+                                <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">$1</soapenv:Body>
+                            </format>
+                            <args>
+                                <arg expression="get-property('enrichedres')" evaluator="xml"/>
+                            </args>
+                        </payloadFactory>
                         <respond/>
                     </onComplete>
                 </aggregate>
@@ -138,7 +147,7 @@ Let's investigate the elements of the configuration in detail.
 - enrich - The Enrich mediator is used to extract the response, which contains the best quote. The following XPath 1.0 expression is used for this purpose:
 
     ```
-    //ns:return[not(preceding-sibling::ns:return/ax21:last <= ax21:last) and not(following-sibling::ns:return/ax21:last < ax21:last)]
+    /soapenv:Body/ns:return[not(ax21:last > /soapenv:Body/ns:return/ax21:last)]
     ```
     
     In essence, this expression instructs the WSO2 MI to pick the response that has the lowest last value. (The XPath 2.0 min function could reduce the complexity of the above expression, but XPath 1.0 is the current default supported by WSO2 MI.) Once the proper response is found, we enrich the SOAP body with it and send that response back to the client.
@@ -221,54 +230,24 @@ You can view the response as follows.
 <?xml version='1.0' encoding='UTF-8'?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
-        <ns:return xmlns:ns="http://services.samples" xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-            <ax21:change>4.069484028567475</ax21:change>
-            <ax21:earnings>12.769481156697088</ax21:earnings>
-            <ax21:high>-58.364898575961696</ax21:high>
-            <ax21:last>58.5623438110308</ax21:last>
-            <ax21:lastTradeTimestamp>Tue Aug 13 10:51:00 IST 2024</ax21:lastTradeTimestamp>
-            <ax21:low>60.20005247723338</ax21:low>
-            <ax21:marketCap>-5825579.632743169</ax21:marketCap>
-            <ax21:name>foo Company</ax21:name>
-            <ax21:open>60.25929707787841</ax21:open>
-            <ax21:peRatio>24.86266661112914</ax21:peRatio>
-            <ax21:percentageChange>-7.180317192144033</ax21:percentageChange>
-            <ax21:prevClose>-56.67554677138619</ax21:prevClose>
-            <ax21:symbol>foo</ax21:symbol>
-            <ax21:volume>7299</ax21:volume>
-        </ns:return>
-        <ns:return xmlns:ns="http://services.samples" xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-            <ax21:change>-2.6633329327977813</ax21:change>
-            <ax21:earnings>-8.65136764908803</ax21:earnings>
-            <ax21:high>177.7314774983479</ax21:high>
-            <ax21:last>171.18594841950613</ax21:last>
-            <ax21:lastTradeTimestamp>Tue Aug 13 10:51:00 IST 2024</ax21:lastTradeTimestamp>
-            <ax21:low>176.5186024408252</ax21:low>
-            <ax21:marketCap>-2388920.2926484635</ax21:marketCap>
-            <ax21:name>foo Company</ax21:name>
-            <ax21:open>179.49092581915613</ax21:open>
-            <ax21:peRatio>-19.59105653750852</ax21:peRatio>
-            <ax21:percentageChange>1.5715330571863826</ax21:percentageChange>
-            <ax21:prevClose>-169.47355454082006</ax21:prevClose>
-            <ax21:symbol>foo</ax21:symbol>
-            <ax21:volume>16768</ax21:volume>
-        </ns:return>
-        <ns:return xmlns:ns="http://services.samples" xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-            <ax21:change>3.754744866484872</ax21:change>
-            <ax21:earnings>12.264849553873495</ax21:earnings>
-            <ax21:high>79.55455035971656</ax21:high>
-            <ax21:last>76.56068959954115</ax21:last>
-            <ax21:lastTradeTimestamp>Tue Aug 13 10:51:00 IST 2024</ax21:lastTradeTimestamp>
-            <ax21:low>-75.10478860305182</ax21:low>
-            <ax21:marketCap>-7558696.829804009</ax21:marketCap>
-            <ax21:name>foo Company</ax21:name>
-            <ax21:open>-76.01667732533926</ax21:open>
-            <ax21:peRatio>-19.42790569989103</ax21:peRatio>
-            <ax21:percentageChange>4.548725646543321</ax21:percentageChange>
-            <ax21:prevClose>82.5449842053716</ax21:prevClose>
-            <ax21:symbol>foo</ax21:symbol>
-            <ax21:volume>8258</ax21:volume>
-        </ns:return>
+        <soapenv:Body>
+            <ns:return xmlns:ns="http://services.samples" xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                <ax21:change>4.213152912849627</ax21:change>
+                <ax21:earnings>-8.526135533589905</ax21:earnings>
+                <ax21:high>-58.41039827389961</ax21:high>
+                <ax21:last>59.19565308228062</ax21:last>
+                <ax21:lastTradeTimestamp>Fri Aug 16 11:17:30 IST 2024</ax21:lastTradeTimestamp>
+                <ax21:low>-58.48591341581683</ax21:low>
+                <ax21:marketCap>1.0784042223841581E7</ax21:marketCap>
+                <ax21:name>foo Company</ax21:name>
+                <ax21:open>60.76558672115019</ax21:open>
+                <ax21:peRatio>-18.402936604937295</ax21:peRatio>
+                <ax21:percentageChange>-7.152882065580833</ax21:percentageChange>
+                <ax21:prevClose>-58.901473199495676</ax21:prevClose>
+                <ax21:symbol>foo</ax21:symbol>
+                <ax21:volume>17128</ax21:volume>
+            </ns:return>
+        </soapenv:Body>
     </soapenv:Body>
 </soapenv:Envelope>
 ```
