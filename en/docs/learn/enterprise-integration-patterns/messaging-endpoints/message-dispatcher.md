@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Message Dispatcher EIP by comparing their core components.
 
-| Message Dispatcher EIP (Figure 1) | Message Dispatcher Sample Scenario (Figure 2) |
+| Message Dispatcher EIP            | Message Dispatcher Sample Scenario            |
 |-----------------------------------|-----------------------------------------------|
 | Sender                            | Simple Stock Quote Client                     |
 | Messages                          | Simple Stock Quote Requests                   |
@@ -31,47 +31,47 @@ Before digging into implementation details, let's take a look at the relationshi
 ## Synapse configuration of the artifacts
 
 === "Proxy Service"
-      ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <proxy name="StockQuoteProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-         <target>
-            <inSequence>
-                  <call>
-                  <endpoint key="LoadBalanceEP"/>
-               </call>
-               <respond/>
-            </inSequence>
-            <faultSequence>
-                  <log level="full">
-                     <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
-                     <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-                     <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-               </log>
-                  <drop/>
-            </faultSequence>
-         </target>
-      </proxy>
-      ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StockQuoteProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+                <inSequence>
+                    <call>
+                            <endpoint key="LoadBalanceEP"/>
+                    </call>
+                    <respond/>
+                </inSequence>
+                <faultSequence>
+                    <log level="full">
+                            <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
+                            <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+                            <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+                    </log>
+                    <drop/>
+                </faultSequence>
+        </target>
+    </proxy>
+    ```
 === "Load Balance Endpoint"
-      ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <endpoint name="LoadBalanceEP" xmlns="http://ws.apache.org/ns/synapse">
-         <loadbalance algorithm="org.apache.synapse.endpoints.algorithms.WeightedRoundRobin">
-            <endpoint>
-                  <address uri="http://localhost:9000/services/SimpleStockQuoteService/"/>
-                  <property name="loadbalance.weight" value="1"/>
-            </endpoint>
-            <endpoint>
-                  <address uri="http://localhost:9001/services/SimpleStockQuoteService/"/>
-                  <property name="loadbalance.weight" value="2"/>
-            </endpoint>
-            <endpoint>
-                  <address uri="http://localhost:9002/services/SimpleStockQuoteService/"/>
-                  <property name="loadbalance.weight" value="3"/>
-            </endpoint>
-         </loadbalance>
-      </endpoint>
-      ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="LoadBalanceEP" xmlns="http://ws.apache.org/ns/synapse">
+        <loadbalance algorithm="org.apache.synapse.endpoints.algorithms.WeightedRoundRobin">
+                <endpoint>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService/"/>
+                    <property name="loadbalance.weight" value="1"/>
+                </endpoint>
+                <endpoint>
+                    <address uri="http://localhost:9001/services/SimpleStockQuoteService/"/>
+                    <property name="loadbalance.weight" value="2"/>
+                </endpoint>
+                <endpoint>
+                    <address uri="http://localhost:9002/services/SimpleStockQuoteService/"/>
+                    <property name="loadbalance.weight" value="3"/>
+                </endpoint>
+        </loadbalance>
+    </endpoint>
+    ```
 
 ### How the implementation works
 
