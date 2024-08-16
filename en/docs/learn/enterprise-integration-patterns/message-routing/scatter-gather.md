@@ -140,11 +140,11 @@ Given below is the synapse configuration of this sample.
 
 Let's investigate the elements of the configuration in detail. 
 
-- clone - In the inSequence of the ScatterGatherProxy service, we use the Clone mediator to make three copies of the request. Those requests are then forwarded to the three vendor services (SimpleStockeQuoteService). The Clone mediator is similar to the Splitter EIP. It clones the incoming request and passes the requests in parallel to several endpoints.  
-- log - All received responses are logged before the Aggregate mediator merges them.
-- aggregate - The Aggregate mediator aggregates response messages for requests made by the Clone mediator. The completion condition specifies the minimum or maximum number of messages to be collected.
-- onComplete - When all messages are aggregated, the onComplete sequence of the Aggregate mediator will run. This sequence is called once all responses are received or the specified completion condition is met. The responses are aggregated based on the value of the return element in the response.
-- enrich - The Enrich mediator is used to extract the response, which contains the best quote. The following XPath 1.0 expression is used for this purpose:
+- **clone** - In the inSequence of the ScatterGatherProxy service, we use the Clone mediator to make three copies of the request. Those requests are then forwarded to the three vendor services (SimpleStockeQuoteService). The Clone mediator is similar to the Splitter EIP. It clones the incoming request and passes the requests in parallel to several endpoints.  
+- **log** - All received responses are logged before the Aggregate mediator merges them.
+- **aggregate** - The Aggregate mediator aggregates response messages for requests made by the Clone mediator. The completion condition specifies the minimum or maximum number of messages to be collected.
+- **onComplete** - When all messages are aggregated, the onComplete sequence of the Aggregate mediator will run. This sequence is called once all responses are received or the specified completion condition is met. The responses are aggregated based on the value of the return element in the response.
+- **enrich** - The Enrich mediator is used to extract the response, which contains the best quote. The following XPath 1.0 expression is used for this purpose:
 
     ```
     /soapenv:Body/ns:return[not(ax21:last > /soapenv:Body/ns:return/ax21:last)]
