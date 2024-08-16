@@ -468,6 +468,6 @@ The artifacts will be deployed in the embedded Micro Integrator and the server w
     </batchInfo>
     ```
 
-## What's Next
+## What's next
 
 - To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforcebulk-connector/salesforcebulk-reference) documentation for all operation details of the connector.
