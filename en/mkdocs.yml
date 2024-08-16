@@ -334,7 +334,6 @@ nav:
       #        - Service Activator: learn/enterprise-integration-patterns/messaging-endpoints/service-activator.md
       #    - System Management:
       #        - System Management - Overview: learn/enterprise-integration-patterns/system-management/overview.md
-      #        - Channel Purger: learn/enterprise-integration-patterns/system-management/channel-purger.md
       #        - Control Bus: learn/enterprise-integration-patterns/system-management/control-bus.md
       #        - Detour: learn/enterprise-integration-patterns/system-management/detour.md
       #        - Message History: learn/enterprise-integration-patterns/system-management/message-history.md
