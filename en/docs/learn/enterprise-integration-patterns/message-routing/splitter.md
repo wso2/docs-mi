@@ -48,7 +48,7 @@ Before digging into implementation details, let's take a look at the relationshi
                    </sequence>
                 </target>
              </iterate>
-                <drop/>
+             <drop/>
           </inSequence>
           <faultSequence/> 
        </target>
