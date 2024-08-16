@@ -572,7 +572,6 @@ nav:
           - Connectors Overview: reference/connectors/connectors-overview.md
           - When to Use Connectors: reference/connectors/why-connectors.md
           - Connector Usage Guidelines: reference/connectors/connector-usage.md
-          - Connector Developer Guidelines: reference/connectors/develop-connectors.md
           - Amazon DynamoDB Connector:
               - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
               - Set up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
@@ -1011,6 +1010,7 @@ plugins:
               'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/synapse-properties/expressions/#xpath-expressions'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
+              'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/customizations/creating-new-connector/'
 
   # Extra
 extra_css:
