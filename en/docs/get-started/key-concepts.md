@@ -99,7 +99,7 @@ Executing an integration process at a specified time is a common requirement in 
 For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day.  
 In the Micro Integrator, the execution of a message mediation process can be automated to run periodically by using a **Scheduled task**. You can schedule a task to run in the time interval of 't' for 'n' number of times or to run once 
 the Micro Integrator starts. 
-Furthermore, you can use cron expressions for for more advanced scheduling configurations.
+Furthermore, you can use cron expressions for more advanced scheduling configurations.
 
 
 ### Transports
