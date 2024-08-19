@@ -237,7 +237,7 @@ We are orchestrating multiple services and exposing a single API to the clients.
         <td>URI Template</td>
         <td>
           <code>/doctor/{doctorType}</code></br></br>
-          <b>Note:</b> '{doctorType}' is an URI variable that gets resolved to the path parameter value in the runtime. We can access the value of the URI variable in the mediation flow using the variable (property) called <code>uri.var.doctorType</code>.
+          <b>Note:</b> '{doctorType}' is a URI variable that gets resolved to the path parameter value in the runtime. We can access the value of the URI variable in the mediation flow using the variable (property) called <code>uri.var.doctorType</code>.
         </td>
       </tr>
       <tr>
@@ -259,7 +259,7 @@ We are orchestrating multiple services and exposing a single API to the clients.
 1. Create two parallel message flows.
    
     In this scenario, the Healthcare API receives an HTTP GET request, which should be delivered to two different back-end 
-    services. That is, we need to clone the message into two branches and process them in parallel. To do that, we can use the Clone Mediator.
+    services. That is, we need to clone the message to two branches and process them in parallel. To do that, we can use the Clone Mediator.
 
     !!! tip
         You can simply click on the **+** icon on each arrow in the message sequence flow to add any connector or mediator from the **Palette**, which is to the right of the editor. 
@@ -480,7 +480,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
 !!! info
-    Alternatively you can use the Command Palette to build and run the artifacts.
+    Alternatively, you can use the Command Palette to build and run the artifacts.
 
     1. Click on the Command Palette on the top of the VS Code.
     2. Type `>` to show the available commands.
@@ -588,7 +588,7 @@ Optionally, you can install and start the Integration Control Plane (ICP) to obs
 
         <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png" alt="ICP login" width="80%"></a>
 
-    2. Use the following sign in details.
+    2. Use the following sign-in details.
 
         | Username  | Password |
         |-----------|----------|
@@ -628,7 +628,7 @@ There are two ways to invoke the service:
   
     3. Add a new request to this collection and name it appropriately. (For example `Healthcare request`)
   
-    4. In the 'Enter request URL' section paste the below endpoint URL:
+    4. In the **Enter request URL** section paste the below endpoint URL:
   
         ```
         http://localhost:8290/healthcare/doctor/Ophthalmologist
