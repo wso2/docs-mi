@@ -1,6 +1,6 @@
 # Key Concepts
 
-Listed below are the key concepts of WSO2 Micro Integrator.
+Listed below are the key concepts of the WSO2 Micro Integrator.
 
 ![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts.png)
 
@@ -11,7 +11,7 @@ Message entry points are the entities that a message can enter into the Micro In
 ### REST APIs
 
 A REST API in WSO2 Micro Integrator is analogous to a web application deployed in the web container. 
-The REST API will receive messages over the HTTP/S protocol, performs the necessary transformations and processing, and then forwards the messages to a given endpoint. Each API is anchored at a user-defined URL context, 
+The REST API will receive messages over the HTTP/S protocol, perform the necessary transformations and processing, and then forward the messages to a given endpoint. Each API is anchored at a user-defined URL context, 
 much like how a web application deployed in a servlet container is anchored at a fixed URL context. 
 An API will only process requests that fall under its URL context. 
 An API is made of one or more **Resources**, which are logical components of an API that can be accessed by making a particular type of HTTP call. 
@@ -21,13 +21,13 @@ An API is made of one or more **Resources**, which are logical components of an 
 
 A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This approach allows you to perform the necessary message transformations and 
 introduce additional functionality to your services without changing your actual services.
-Unlike in [REST APIs](#rest-apis), here the protocol does not always need to be HTTP/S. 
-Proxy Services do support any well-known protocols including HTTP/S, JMS, FTP, FIX, and HL7. 
+Unlike in [REST APIs](#rest-apis), here, the protocol does not always need to be HTTP/S. 
+Proxy Services support any well-known protocols such as HTTP/S, JMS, FTP, FIX, and HL7. 
 
 
 ### Inbound Endpoints
 
-In [Proxy services](#proxy-services) and [REST APIs](#rest-apis) some part of the configuration is global to a particular instance. For example, HTTP port needs to be common for all the REST APIs. 
+In [proxy services](#proxy-services) and [REST APIs](#rest-apis) some parts of the configuration are global to a particular instance. For example, the HTTP port needs to be common for all the REST APIs. 
 The Inbound Endpoints do not contain such global configurations. That gives extra flexibility in configuring 
 the Inbound Endpoints compared to the other two message entry points. 
 
@@ -49,19 +49,16 @@ to the required destination.
 ### Message Stores and Processors
 
 A **Message Store** is used by a [mediation sequence](#mediation-sequences) to temporarily store messages before they are delivered to their destination. This approach is useful for several scenarios.
-1. Serving traffic to back-end services that can only accept messages at a given rate, 
-whereas incoming traffic arrives at different rates. This use case is called **request rate matching**.
+
+1. Serving traffic to back-end services that can only accept messages at a given rate, whereas incoming traffic arrives at different rates. This use case is called **request rate matching**.
 2. If the back-end service is not available at a particular moment, the message can be kept safely inside the message store until the back-end service becomes available. This use case is called **Guaranteed delivery**. 
 
-The task of the **Message Processor** is to pick the messages stored in the Message Store and deliver 
-it to the destination. 
+The task of the **Message Processor** is to pick the messages stored in the Message Store and deliver them to the destination. 
 
 ### Templates
 
-A large number of configuration files in the form of [sequences](#mediation-sequences) and [endpoints](#endpoints), 
-and transformations can be required to satisfy all the mediation requirements of your system. 
-To keep your configurations manageable, it is important to avoid scattering configuration files across different locations and to avoid duplicating redundant configurations. Templates help minimize this redundancy by creating prototypes that users can use and reuse when needed. WSO2 Micro Integrator can template [sequences](#mediation-sequences)
- and [endpoints](#endpoints).
+A large number of configuration files in the form of [sequences](#mediation-sequences) and [endpoints](#endpoints), and transformations can be required to satisfy all the mediation requirements of your system. 
+To keep your configurations manageable, it's crucial to avoid spreading configuration files across various locations and to eliminate redundant duplications. Templates help minimize this redundancy by creating prototypes that users can use and reuse when needed. WSO2 Micro Integrator can template [sequences](#mediation-sequences) and [endpoints](#endpoints).
 
 ---
 
@@ -70,7 +67,7 @@ To keep your configurations manageable, it is important to avoid scattering conf
 ### Endpoints
 
 A message exit point or an endpoint defines an external destination for a message. 
-An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc. along with the settings needed for the connection. 
+An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc., along with the settings needed for the connection. 
 
 ### Connectors
 
@@ -85,14 +82,13 @@ To download a required connector, go to the [WSO2 Connector Store](https://store
 
 ## Data Services 
 
-The data in your organization can be a complex pool of information that is stored in heterogeneous systems. Data services are created for the purpose of decoupling the data from its infrastructure. In other words, when you create a data service in WSO2 Micro Integrator, 
-the data that is stored in a storage system (such as an RDBMS) can be exposed in the form of a service. 
+The data in your organization can be a complex pool of information stored in heterogeneous systems. Data services are created to decouple the data from its infrastructure. In other words, when you create a data service in WSO2 Micro Integrator, 
+the data that is stored in a storage system (such as an RDBMS) can be exposed as a service. 
 This allows users (that may be any application or system) to access the data without interacting with the original source of the data. Data services are, thereby, a convenient interface for interacting with the database layer in your 
 organization.
 
 A data service in WSO2 Micro Integrator is a SOAP-based web service by default. 
-However, you also have the option of creating REST resources, which allows applications and systems to consume the 
-data service to have both SOAP-based, and RESTful access to your data.
+However, you also have the option to create REST resources, which allows applications and systems to consume the data service to have both SOAP-based and RESTful access to your data.
 
 ---
 ## Other concepts
@@ -100,27 +96,25 @@ data service to have both SOAP-based, and RESTful access to your data.
 ### Scheduled Tasks
 
 Executing an integration process at a specified time is a common requirement in enterprise integration.
-For example, in an organization, there can be a need for running an integration process to synchronize two systems every day at the day end.  
+For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day.  
 In the Micro Integrator, the execution of a message mediation process can be automated to run periodically by using a **Scheduled task**. You can schedule a task to run in the time interval of 't' for 'n' number of times or to run once 
 the Micro Integrator starts. 
-Furthermore, you can use cron expressions for more advanced executing time configuration.
+Furthermore, you can use cron expressions for for more advanced scheduling configurations.
 
 
 ### Transports
 
 A transport protocol is responsible for carrying messages that are in a specific format. 
-WSO2 Micro Integrator supports all the widely used transports including HTTP/S, JMS, VFS, as well as domain-specific 
-transports like FIX. 
+WSO2 Micro Integrator supports all the widely used transports including, HTTP/S, JMS, VFS, as well as domain-specific transports like FIX. 
 Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
 
 ### Registry
 
-WSO2 Micro Integrator uses a registry to store various configurations and resources such as [endpoints](#endpoints). 
+WSO2 Micro Integrator uses a registry to store various configurations and resources, such as [endpoints](#endpoints). 
 A registry is simply a content store and a metadata repository. 
 Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. 
 The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. 
-When you develop your integration artifacts, you can also define and 
-use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries).
+You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts,
 
 ### Message Builders and Formatters
 
