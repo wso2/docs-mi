@@ -72,7 +72,7 @@ Given below is the synapse configuration of this sample.
     </endpoint>
     ```
 
-Download the [sample_proxy_3.wsdl](https://wso2docs.atlassian.net/wiki/download/attachments/48791773/sample_proxy_3.wsdl?version=1&modificationDate=1351131182000&cacheVersion=1&api=v2) file and add it as a Registry Resource. For instructions on how to create a Registry Resource, please refer to the [Create a Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) Documentation. 
+Download the [sample_proxy_3.wsdl]({{base_path}}/assets/attachments/wsdl/sample_proxy_3.wsdl) file and add it as a Registry Resource. For instructions on how to create a Registry Resource, please refer to the [Create a Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) Documentation. 
 
 Let's investigate the elements of the ESB configuration in detail. 
 
