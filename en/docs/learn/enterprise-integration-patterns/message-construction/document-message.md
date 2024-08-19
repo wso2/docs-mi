@@ -21,7 +21,7 @@ The diagram below depicts how to simulate the example scenario using the WSO2 MI
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Document Message EIP by comparing their core components.
 
-| Document Message EIP (Figure 1) | Document Message Example Scenario (Figure 2) |
+| Document Message EIP            | Document Message Example Scenario            |
 |---------------------------------|----------------------------------------------|
 | Sender                          | Stock Quote Client                           |
 | Document Message                | Proxy Service                                |
