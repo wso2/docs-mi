@@ -66,13 +66,13 @@ In the above scenario, the following takes place:
 
 Both Grand Oak Hospital and Pine Valley Hospital have services exposed over the HTTP protocol.
 
-The Pine Valley Hospital service accepts a POST request in the following service endpoint URL.
+The Pine Valley Hospital service accepts a POST request using the following service endpoint URL.
 
 ```bash
 http://<HOST_NAME>:<PORT>/pineValley/doctors
 ```
 
-The Grand Oak Hospital service accepts a GET request in the following service endpoint URL.
+The Grand Oak Hospital service accepts a GET request using the following service endpoint URL.
 
 ```bash
 http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
@@ -147,7 +147,7 @@ The following project files and executable back-end services are available in th
 
 ## Step 2 - Run the integration artifacts
 
-First you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder in VS Code. There are two main options to build and run the integration scenario.
+First, you need to open the `<MI_QSG_HOME>/HealthcareIntegrationProject` folder in VS Code. There are two main options to build and run the integration scenario.
 
 ### Option 1: Use the Visual Studio Code
 
@@ -235,7 +235,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
           <table>
                 <tr>
                       <th>On <b>Linux/macOS</b></td>
-                      <td>Establish an SSH connection to the server, log on to the text Linux console or open a terminal.</td>
+                      <td>Establish an SSH connection to the server, log on to the text Linux console, or open a terminal.</td>
                 </tr>
                 <tr>
                       <th>On <b>Windows</b></td>
@@ -256,7 +256,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
             dashboard.bat
             ```
 
-4. Next, restart the Micro Integrator server to register itself with the ICP. Follow the same steps you performed in the [Step 2](#step-2-running-the-integration-artifacts).
+4. Next, restart the Micro Integrator server to register itself with the ICP. Follow the same steps you performed in [Step 2](#step-2-running-the-integration-artifacts).
 
 5. Access the Integration Control Plane:
 
@@ -268,7 +268,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
 
          <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png" alt="ICP login" width="80%"></a>
 
-     2. Use the following sign in details.
+     2. Use the following sign-in details.
 
         | Username  | Password |
         |-----------|----------|
@@ -333,7 +333,7 @@ Let's start the mock back-end services for this use case:
     ]
     ```
     **Congratulations!**
-    Now you have created your first integration service.
+    Now, you have created your first integration service.
 
 ## What's next?
 
