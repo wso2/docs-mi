@@ -122,7 +122,7 @@ Follow the below instructions to simulate this sample scenario.
         parameter.connection_factory_type = "queue"
         ```
 
-4. Download [MessageCounter.jar](https://wso2docs.atlassian.net/wiki/download/attachments/48791778/MessageCounter.jar?version=1&modificationDate=1351260014000&cacheVersion=1&api=v2) and copy it to the `<PROJECT_HOME>/deployment/libs` directory.
+4. Download [MessageCounter.jar]({{base_path}}/assets/attachments/jar/MessageCounter.jar) and copy it to the `<PROJECT_HOME>/deployment/libs` directory.
 
 5. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 
@@ -187,7 +187,7 @@ Follow the below instructions to simulate this sample scenario.
         </soapenv:Envelope>
         ```
 
-2. Again send the same JMS message again. 
+2. Resend the same JMS message.
 
 ## Analyze the output
 
