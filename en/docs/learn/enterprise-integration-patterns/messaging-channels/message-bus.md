@@ -13,7 +13,7 @@ The Message Bus EIP enables separate applications to work together in a decouple
 
 ## Sample scenario
 
-It illustrates how application logic is layered, and how each component of the application logic is separated as a mediator, allowing message processing to be executed in a decoupled manner. The mediation process is explained in the Mediating Messages section of the WSO2 MI documentation.
+It illustrates how application logic is layered, and how each component of the application logic is separated as a mediator, allowing message processing to be executed in a decoupled manner. The mediation process is explained in the [Mediation Sequences]({{base_path}}/reference/mediation-sequences/) documentation.
 
 ## Synapse configuration of the artifacts
 
