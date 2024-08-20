@@ -171,7 +171,7 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Navigate to the `MI_HOME/bin/` directory and start the `tcpmon` application. 
 
-8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`. For each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
+8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`, for each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
 
 9. Download the artifacts of the sample.
 
@@ -270,7 +270,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Analyze the output
 
-1. When you send the requests, you can view outputs like this. also you can in `tcpmon` that received a request for relevant port.
+1. When you send the requests, you can view outputs like this. Also, you can see in `tcpmon` that you received a request for the relevant port.
     ```xml
     <?xml version='1.0' encoding='UTF-8'?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -298,7 +298,7 @@ Follow the below instructions to simulate this sample scenario.
     </soapenv:Envelope>
     ```
 
-2. When you change the `symbol` this log will print on WSO2 MI console.
+2. When you change the `symbol` this log will print on the WSO2 MI console.
     ```log 
     INFO {LogMediator} - {proxy:DynamicRouterProxy} MESSAGE = Registry Value Doesn't Matched
     ```
