@@ -13,13 +13,13 @@ Channel Adapter accesses an application's API or data and publishes messages on 
 
 ## Sample scenario
 
-This example demonstrates the Salesforce connector of the WSO2 MI transferring a message coming from a stock quote client to Salesforce API and then sends the queried response that comes from Salesforce back to the client. The diagram below depicts how to simulate the example scenario using the WSO2 MI.
+This example demonstrates the Salesforce connector of the WSO2 MI transferring a message coming from a stock quote client to Salesforce API and then sending the queried response that comes from Salesforce back to the client. The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
 ![Channel adapter]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/channel-adapter.png)
 
 Before digging into implementation details, let's look at how the core components in the example scenario map to the Channel Adapter EIP:
 
-| Channel Adapter EIP (Figure 1) | Example Scenario (Figure 2)   |
+| Channel Adapter EIP            | Example Scenario              |
 |--------------------------------|-------------------------------|
 | Sender Application             | StockQuote Client             |
 | Channel Adapter                | Salesforce Connector          |
