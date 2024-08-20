@@ -21,7 +21,7 @@ There are two ways to implement transactions in WSO2 MI as follows.
 - Transaction Mediator
 - JMS Transactions
 
-The WSO2 MI can control transactional behavior with a JMS queue and by simulating the Transactional Client EAI pattern. For information on Transactions in WSO2 MI, refer to [Work with Transactions]({{base_path}}/learn/examples/working-with-transactions/) Documentation.
+The WSO2 MI can control transactional behavior with a JMS queue and by simulating the Transactional Client EAI pattern. For more information on transactions in WSO2 MI, refer to the [Work with Transactions]({{base_path}}/learn/examples/working-with-transactions/) documentation.
 
 The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
