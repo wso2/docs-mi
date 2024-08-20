@@ -304,6 +304,7 @@ nav:
       #        - Message Routing - Overview: learn/enterprise-integration-patterns/message-routing/overview.md
       #        - Content-Based Router: learn/enterprise-integration-patterns/message-routing/content-based-router.md
       #        - Message Filter: learn/enterprise-integration-patterns/message-routing/message-filter.md
+      #        - Dynamic Router: learn/enterprise-integration-patterns/message-routing/dynamic-router.md
       #        - Recipient List: learn/enterprise-integration-patterns/message-routing/recipient-list.md
       #        - Splitter: learn/enterprise-integration-patterns/message-routing/splitter.md
       #        - Aggregator: learn/enterprise-integration-patterns/message-routing/aggregator.md
