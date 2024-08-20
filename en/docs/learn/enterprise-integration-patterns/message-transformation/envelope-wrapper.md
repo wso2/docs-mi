@@ -41,18 +41,12 @@ Given below is the synapse configuration of this sample.
     <proxy name="EnvelopeUnwrapProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-            <call>
-                <endpoint key="SimpleStockEp"/>
-            </call>
-            <respond/>
+                <call>
+                    <endpoint key="SimpleStockEp"/>
+                </call>
+                <respond/>
             </inSequence>
-            <faultSequence>
-            <log category="INFO" level="full">
-                <property name="MESSAGE" value="Executing default &amp;#34;fault&amp;#34; sequence"/>
-                <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-                <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
-            </faultSequence>
+            <faultSequence/>
         </target>
     </proxy>
     ```
