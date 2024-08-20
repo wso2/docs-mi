@@ -93,10 +93,10 @@ Given below is the synapse configuration of this sample.
     ```
 
 Let's investigate the elements of the configuration in detail. 
-- enrich - Mediator used for message enrichment.
-- source - The location in which you can find the source configuration. In this example, it is a simple inline text string located in the local registry entry.
-- target - The location where the source configuration should be applied. This is specified using an XPath expression.
-- localEntry - Entries from the local registry. 
+- enrich - The enrich mediator is used for message enrichment. In this configuration, it retrieves content from a local registry entry (via `source`) and replaces certain elements in the message (via `target`).
+- source - The `source` element in the enrich mediator defines where the content for enrichment originates. The location in which you can find the source configuration. In this example, it is a simple inline text string located in the local registry entry.
+- target - The `target` element in the enrich mediator specifies where the source configuration should be applied. This is specified using an XPath expression.
+- localEntry - The `localEntry` element represents entries in the local registry. In this example, Location1 contains `IBM`, and Location2 contains `WSO2`.
 
 ## Set up the sample scenario
 
