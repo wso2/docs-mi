@@ -15,7 +15,7 @@ The Messaging Gateway EIP encapsulates message-specific code from the rest of th
 
 This sample scenario demonstrates creating a proxy service with a publishWSDL element. The published WSDL's methods act as the Message Gateway, hiding details of the actual backend service, and exposing only domain-specific methods to the client application.
 
-Proxy services in WSO2 MI act as Messaging Gateways, abstracting the details of the actual backend services from implementing clients. For a more complex example of how WSO2 MI can act as a Messaging Gateway, refer to the Health Care Scenario, where a single Proxy Service acts as a Messaging Gateway between several backend services.
+Proxy services in WSO2 MI act as Messaging Gateways, abstracting the details of the actual backend services from implementing clients. For a more complex example of how WSO2 MI can act as a Messaging Gateway, refer to the [Health Care Scenario]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service/), where a REST API acts as a Messaging Gateway between several backend services.
 
 The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
@@ -72,7 +72,7 @@ Given below is the synapse configuration of this sample.
     </endpoint>
     ```
 
-Download the [sample_proxy_3.wsdl]({{base_path}}/assets/attachments/wsdl/sample_proxy_3.wsdl) file and add it as a Registry Resource. For instructions on how to create a Registry Resource, please refer to the [Create a Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) Documentation. 
+Download the [sample_proxy_3.wsdl]({{base_path}}/assets/attachments/wsdl/sample_proxy_3.wsdl) file and add it as a Registry Resource. For instructions on how to create a Registry Resource, refer to the [Create a Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) documentation.
 
 Let's investigate the elements of the ESB configuration in detail. 
 
@@ -143,7 +143,7 @@ Content-Type: text/xml
 
 ## Analyze the output
 
-After sending the above message to the server, you'll get an internal server error as below. 
+After sending the above message to the MI server, you'll receive an internal server error as below. 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -158,6 +158,6 @@ After sending the above message to the server, you'll get an internal server err
 </soapenv:Envelope>
 ```
 
-The reason for this error is that the `getFullQuote` method is not exposed to `StockQuoteProxy`, although the backend server supports it.
+The reason for this error is that the `getFullQuote` method is not exposed through `StockQuoteProxy`, even though the backend server supports it.
 
 Specifying a different published WSDL file that contains the `getFullQuote` method and sending the same SOAP message to the server will allow you to get the correct response from the server.
