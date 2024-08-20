@@ -64,7 +64,7 @@ Given below is the synapse configuration of this sample.
 
 Let's investigate the elements of the configuration in detail.
 
-- Proxy Service - The proxy service takes requests and forwards them to the backend service, abstracting the routing logic from the client. In this example scenario, the proxy service just forwards requests to the backend service following the Document Message EIP style.
+- Proxy Service - The proxy service receives requests and forwards them to the backend service, abstracting the routing logic from the client. In this example scenario, the proxy service simply forwards requests to the backend service following the Document Message EIP style.
 
 ## Set up the sample scenario
 
@@ -127,7 +127,7 @@ soapAction: urn:getQuote
 
 ## Analyze the output
 
-A message similar to the one below appears in the simple axis2server.
+A message similar to the one below appears in the Axis2 server.
 
 ```bash
 Tue Aug 13 12:31:38 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
