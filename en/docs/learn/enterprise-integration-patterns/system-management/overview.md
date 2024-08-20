@@ -6,11 +6,6 @@ This section introduces various system management patterns and how they can be s
 
 <table>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/channel-purger">Channel Purger</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-purger-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-purger-icon.gif" alt="channel-purger" width="80"></a></td>
-        <td>Removes unwanted messages, which can disturb tests or running systems, from a channel.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/control-bus">Control Bus</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/control-bus-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/control-bus-icon.gif" alt="control-bus" width="80"></a></td>
         <td>Administers a messaging system that is distributed across multiple platforms and a wide geographic area.</td>
