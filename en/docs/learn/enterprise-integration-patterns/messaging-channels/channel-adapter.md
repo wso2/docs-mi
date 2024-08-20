@@ -57,7 +57,7 @@ Before digging into implementation details, let's look at how the core component
     </localEntry>
     ```
 
-### How the Implementation Works
+### How the implementation works
 
 Let's break down the elements of the configuration:
 
