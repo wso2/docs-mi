@@ -171,7 +171,7 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Navigate to the `<MI_HOME>/bin/` directory and start the `tcpmon` application. 
 
-8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`, for each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
+8. In the `tcpmon` application, navigate to the **Admin** tab. Add listeners to ports `9001` and `9002`, for each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
 
 9. Download the artifacts of the sample.
 
