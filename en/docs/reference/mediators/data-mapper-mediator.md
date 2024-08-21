@@ -68,7 +68,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 
 ### Mapping configuration file
 
-The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI VSCode Extension. When you build the integration project using the WSO2 MI VSCode Extension, the data mapping configuration file is compiled into JavaScript, which is used by the Data Mapper engine to map the elements in the MI runtime.
+The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI for VS Code extension. When you build the integration project using the WSO2 MI for VS Code extension, the data mapping configuration file is compiled into JavaScript, which is used by the Data Mapper engine to map the elements in the MI runtime.
 
 ![]({{base_path}}/assets/img/integrate/mediators/119131284/119135199.png) 
 
