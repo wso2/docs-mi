@@ -58,7 +58,7 @@ Before digging into implementation details, let's take a look at the relationshi
                             </then>
                             <else>
                                 <log category="INFO" level="custom">
-                                    <property name="MESSAGE" value="Registry Value Doesn't Matched"/>
+                                    <property name="MESSAGE" value="Registry Value Doesn't Match"/>
                                 </log>
                             </else>
                         </filter>
