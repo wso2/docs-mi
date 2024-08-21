@@ -85,7 +85,7 @@ You can load the following input/output message formats:
 ![]({{base_path}}/assets/img/integrate/mediators/119131284/119134796.png) 
 
 
-As per the provided input/output files, the Typescript interfaces are generated inside the Mapping configuration file. JSON schema files are generated when you build a project using the WSO2 MI VSCode Extension. These files are stored in the CAR file and deployed inside the governance registry. These files are used to validate the input and output messages at runtime.
+Based on the provided input/output files, the Typescript interfaces are generated inside the Mapping configuration file. JSON schema files are generated when you build a project using the WSO2 MI for VS Code extension. These files are stored in the CAR file and deployed inside the governance registry. These files are used to validate the input and output messages at runtime.
 
 !!! info "Reimport input/output files"
     If you need to reimport input/output, you can right click on top of the input/output widget. 
