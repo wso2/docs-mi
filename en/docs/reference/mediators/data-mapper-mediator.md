@@ -41,7 +41,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 </tr>
 <tr class="odd">
 <td><strong>Output Schema</strong></td>
-<td>JSON schema, which represents the output message format. This file is generated when you build the Integration project using WSO2 MI VSCode extension. It is stored under <b>Governance Registry</b>.</td>
+<td>JSON schema, which represents the output message format. This file is generated when you build the Integration project using the WSO2 MI for VS Code extension. It is stored under <b>Governance Registry</b>.</td>
 </tr>
 <tr class="even">
 <td><strong>Input Type</strong></td>
