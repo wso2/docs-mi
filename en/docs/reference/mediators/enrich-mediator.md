@@ -10,7 +10,7 @@ The **Enrich Mediator** can process a message based on a given source configurat
 ``` java
 <enrich>
     <source [clone=true|false] [type=custom|envelope|body|property|inline] xpath | json-eval(JSON-Path)="" property="" />
-    <target [action=replace|child|sibiling] [type=custom|envelope|body|property|inline|key] xpath | json-eval(JSON-Path)="" property="" />
+    <target [action=replace|child|sibling] [type=custom|envelope|body|property|inline|key] xpath | json-eval(JSON-Path)="" property="" />
 </enrich>
 ```
 
