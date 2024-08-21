@@ -91,7 +91,7 @@ As per the provided input/output files, the Typescript interfaces are generated 
     If you need to reimport input/output, you can right click on top of the input/output widget. 
 
 !!! info "Filter elements"
-    If you need to filter elements in input/output, you can use the filter bar on right side upper corner of the Data mapper view.
+    If you need to filter elements in input/output, you can use the filter bar on the upper right corner of the Data Mapper view.
 
     ![]({{base_path}}/assets/img/integrate/mediators/119131284/119135203.png) 
 
