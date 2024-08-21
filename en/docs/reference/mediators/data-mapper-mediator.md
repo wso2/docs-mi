@@ -32,7 +32,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 <tbody>
 <tr class="odd">
 <td><strong>Mapping Configuration</strong></td>
-<td>The file, which contains the script file that is used to execute the mapping. This file is generated when you build the Integration project using WSO2 MI VSCode extension. It is stored under <b>Governance Registry</b>.</td>
+<td>The file, which contains the script file that is used to execute the mapping. This file is generated when you build the Integration project using the WSO2 MI for VS Code extension. It is stored under <b>Governance Registry</b>.</td>
 </tr>
 <tr class="even">
 <td><strong>Input Schema</strong></td>
