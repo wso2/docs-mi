@@ -169,7 +169,7 @@ Follow the below instructions to simulate this sample scenario.
           axis2server.bat
           ```
 
-7. Navigate to the `MI_HOME/bin/` directory and start the `tcpmon` application. 
+7. Navigate to the `<MI_HOME>/bin/` directory and start the `tcpmon` application. 
 
 8. In `tcpmon` application, navigate to **Admin** tab. Add listeners to ports `9001` and `9002`, for each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
 
