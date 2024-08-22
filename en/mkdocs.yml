@@ -268,80 +268,80 @@ nav:
          # - XML to JSON Mapping: learn/samples/
           - XML To JSON Transformation: learn/samples/xml-to-json-transformation.md
           - Unit Test Tutorial: learn/samples/unit-testing.md
-      #- Enterprise Integration Patterns:
-      #    - Overview: learn/enterprise-integration-patterns/eip-overview.md
-      #    - Messaging Systems:
-      #        - Messaging Systems - Overview: learn/enterprise-integration-patterns/messaging-systems/overview.md
-      #        - Message Channels: learn/enterprise-integration-patterns/messaging-systems/message-channels.md
-      #        - Message: learn/enterprise-integration-patterns/messaging-systems/message.md
-      #        - Pipes and Filters: learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.md
-      #        - Message Router: learn/enterprise-integration-patterns/messaging-systems/message-router.md
-      #        - Message Translator: learn/enterprise-integration-patterns/messaging-systems/message-translator.md
-      #        - Message Endpoint: learn/enterprise-integration-patterns/messaging-systems/message-endpoint.md
-      #    - Messaging Channels:
-      #        - Messaging Channels - Overview: learn/enterprise-integration-patterns/messaging-channels/overview.md
-      #        - Point-to-Point Channel: learn/enterprise-integration-patterns/messaging-channels/point-to-point-channel.md
-      #        - Publish-Subscribe Channel: learn/enterprise-integration-patterns/messaging-channels/publish-subscribe-channel.md
-      #        - Datatype Channel: learn/enterprise-integration-patterns/messaging-channels/datatype-channel.md
-      #        - Invalid Message Channel: learn/enterprise-integration-patterns/messaging-channels/invalid-message-channel.md
-      #        - Dead Letter Channel: learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel.md
-      #        - Guaranteed Delivery: learn/enterprise-integration-patterns/messaging-channels/guaranteed-delivery.md
-      #        - Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
-      #        - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
-      #        - Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
-      #    - Message Construction:
-      #        - Message Construction - Overview: learn/enterprise-integration-patterns/message-construction/overview.md
-      #        - Command Message: learn/enterprise-integration-patterns/message-construction/command-message.md
-      #        - Document Message: learn/enterprise-integration-patterns/message-construction/document-message.md
-      #        - Event Message: learn/enterprise-integration-patterns/message-construction/event-message.md
-      #        - Request-Reply: learn/enterprise-integration-patterns/message-construction/request-reply.md
-      #        - Return Address: learn/enterprise-integration-patterns/message-construction/return-address.md
-      #        - Correlation Identifier: learn/enterprise-integration-patterns/message-construction/correlation-identifier.md
-      #        - Message Sequence: learn/enterprise-integration-patterns/message-construction/message-sequence.md
-      #        - Message Expiration: learn/enterprise-integration-patterns/message-construction/message-expiration.md
-      #        - Format Indicator: learn/enterprise-integration-patterns/message-construction/format-indicator.md
-      #    - Message Routing:
-      #        - Message Routing - Overview: learn/enterprise-integration-patterns/message-routing/overview.md
-      #        - Content-Based Router: learn/enterprise-integration-patterns/message-routing/content-based-router.md
-      #        - Message Filter: learn/enterprise-integration-patterns/message-routing/message-filter.md
-      #        - Recipient List: learn/enterprise-integration-patterns/message-routing/recipient-list.md
-      #        - Splitter: learn/enterprise-integration-patterns/message-routing/splitter.md
-      #        - Aggregator: learn/enterprise-integration-patterns/message-routing/aggregator.md
-      #        - Composed Message Processor: learn/enterprise-integration-patterns/message-routing/composed-message-processor.md
-      #        - Scatter-Gather: learn/enterprise-integration-patterns/message-routing/scatter-gather.md
-      #        - Routing Slip: learn/enterprise-integration-patterns/message-routing/routing-slip.md
-      #        - Process Manager: learn/enterprise-integration-patterns/message-routing/process-manager.md
-      #        - Message Broker: learn/enterprise-integration-patterns/message-routing/message-broker.md
-      #    - Message Transformation:
-      #        - Message Transformation - Overview: learn/enterprise-integration-patterns/message-transformation/overview.md
-      #        - Envelope Wrapper: learn/enterprise-integration-patterns/message-transformation/envelope-wrapper.md
-      #        - Content Enricher: learn/enterprise-integration-patterns/message-transformation/content-enricher.md
-      #        - Content Filter: learn/enterprise-integration-patterns/message-transformation/content-filter.md
-      #        - Claim Check: learn/enterprise-integration-patterns/message-transformation/claim-check.md
-      #        - Normalizer: learn/enterprise-integration-patterns/message-transformation/normalizer.md
-      #        - Canonical Data Model: learn/enterprise-integration-patterns/message-transformation/canonical-data-model.md
-      #    - Messaging Endpoints:
-      #        - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
-      #        - Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
-      #        - Messaging Mapper: learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper.md
-      #        - Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
-      #        - Polling Consumer: learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.md
-      #        - Event-Driven Consumer: learn/enterprise-integration-patterns/messaging-endpoints/event-driven-consumer.md
-      #        - Competing Consumers: learn/enterprise-integration-patterns/messaging-endpoints/competing-consumers.md
-      #        - Message Dispatcher: learn/enterprise-integration-patterns/messaging-endpoints/message-dispatcher.md
-      #        - Selective Consumer: learn/enterprise-integration-patterns/messaging-endpoints/selective-consumer.md
-      #        - Durable Subscriber: learn/enterprise-integration-patterns/messaging-endpoints/durable-subscriber.md
-      #        - Service Activator: learn/enterprise-integration-patterns/messaging-endpoints/service-activator.md
-      #    - System Management:
-      #        - System Management - Overview: learn/enterprise-integration-patterns/system-management/overview.md
-      #        - Channel Purger: learn/enterprise-integration-patterns/system-management/channel-purger.md
-      #        - Control Bus: learn/enterprise-integration-patterns/system-management/control-bus.md
-      #        - Detour: learn/enterprise-integration-patterns/system-management/detour.md
-      #        - Message History: learn/enterprise-integration-patterns/system-management/message-history.md
-      #        - Message Store: learn/enterprise-integration-patterns/system-management/message-store.md
-      #        - Smart Proxy: learn/enterprise-integration-patterns/system-management/smart-proxy.md
-      #        - Test Message: learn/enterprise-integration-patterns/system-management/test-message.md
-      #        - Wire Tap: learn/enterprise-integration-patterns/system-management/wire-tap.md
+      - Enterprise Integration Patterns:
+          - Overview: learn/enterprise-integration-patterns/eip-overview.md
+          - Messaging Systems:
+              - Messaging Systems - Overview: learn/enterprise-integration-patterns/messaging-systems/overview.md
+              - Message Channels: learn/enterprise-integration-patterns/messaging-systems/message-channels.md
+              - Message: learn/enterprise-integration-patterns/messaging-systems/message.md
+              - Pipes and Filters: learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.md
+              - Message Router: learn/enterprise-integration-patterns/messaging-systems/message-router.md
+              - Message Translator: learn/enterprise-integration-patterns/messaging-systems/message-translator.md
+              - Message Endpoint: learn/enterprise-integration-patterns/messaging-systems/message-endpoint.md
+          - Messaging Channels:
+              - Messaging Channels - Overview: learn/enterprise-integration-patterns/messaging-channels/overview.md
+              - Point-to-Point Channel: learn/enterprise-integration-patterns/messaging-channels/point-to-point-channel.md
+              - Publish-Subscribe Channel: learn/enterprise-integration-patterns/messaging-channels/publish-subscribe-channel.md
+              - Datatype Channel: learn/enterprise-integration-patterns/messaging-channels/datatype-channel.md
+              - Invalid Message Channel: learn/enterprise-integration-patterns/messaging-channels/invalid-message-channel.md
+              - Dead Letter Channel: learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel.md
+              - Guaranteed Delivery: learn/enterprise-integration-patterns/messaging-channels/guaranteed-delivery.md
+              #- Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
+              - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
+              #- Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
+          - Message Construction:
+              - Message Construction - Overview: learn/enterprise-integration-patterns/message-construction/overview.md
+              - Command Message: learn/enterprise-integration-patterns/message-construction/command-message.md
+              - Document Message: learn/enterprise-integration-patterns/message-construction/document-message.md
+              #- Event Message: learn/enterprise-integration-patterns/message-construction/event-message.md
+              - Request-Reply: learn/enterprise-integration-patterns/message-construction/request-reply.md
+              - Return Address: learn/enterprise-integration-patterns/message-construction/return-address.md
+              - Correlation Identifier: learn/enterprise-integration-patterns/message-construction/correlation-identifier.md
+              - Message Sequence: learn/enterprise-integration-patterns/message-construction/message-sequence.md
+              - Message Expiration: learn/enterprise-integration-patterns/message-construction/message-expiration.md
+              - Format Indicator: learn/enterprise-integration-patterns/message-construction/format-indicator.md
+          - Message Routing:
+              - Message Routing - Overview: learn/enterprise-integration-patterns/message-routing/overview.md
+              - Content-Based Router: learn/enterprise-integration-patterns/message-routing/content-based-router.md
+              - Message Filter: learn/enterprise-integration-patterns/message-routing/message-filter.md
+              - Recipient List: learn/enterprise-integration-patterns/message-routing/recipient-list.md
+              - Splitter: learn/enterprise-integration-patterns/message-routing/splitter.md
+              - Aggregator: learn/enterprise-integration-patterns/message-routing/aggregator.md
+              - Composed Message Processor: learn/enterprise-integration-patterns/message-routing/composed-message-processor.md
+              - Scatter-Gather: learn/enterprise-integration-patterns/message-routing/scatter-gather.md
+              - Routing Slip: learn/enterprise-integration-patterns/message-routing/routing-slip.md
+              - Process Manager: learn/enterprise-integration-patterns/message-routing/process-manager.md
+              - Message Broker: learn/enterprise-integration-patterns/message-routing/message-broker.md
+          - Message Transformation:
+              - Message Transformation - Overview: learn/enterprise-integration-patterns/message-transformation/overview.md
+              - Envelope Wrapper: learn/enterprise-integration-patterns/message-transformation/envelope-wrapper.md
+              #- Content Enricher: learn/enterprise-integration-patterns/message-transformation/content-enricher.md
+              - Content Filter: learn/enterprise-integration-patterns/message-transformation/content-filter.md
+              - Claim Check: learn/enterprise-integration-patterns/message-transformation/claim-check.md
+              - Normalizer: learn/enterprise-integration-patterns/message-transformation/normalizer.md
+              - Canonical Data Model: learn/enterprise-integration-patterns/message-transformation/canonical-data-model.md
+          - Messaging Endpoints:
+              - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
+              #- Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
+              - Messaging Mapper: learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper.md
+              #- Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
+              - Polling Consumer: learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.md
+              - Event-Driven Consumer: learn/enterprise-integration-patterns/messaging-endpoints/event-driven-consumer.md
+              - Competing Consumers: learn/enterprise-integration-patterns/messaging-endpoints/competing-consumers.md
+              - Message Dispatcher: learn/enterprise-integration-patterns/messaging-endpoints/message-dispatcher.md
+              - Selective Consumer: learn/enterprise-integration-patterns/messaging-endpoints/selective-consumer.md
+              - Durable Subscriber: learn/enterprise-integration-patterns/messaging-endpoints/durable-subscriber.md
+              - Service Activator: learn/enterprise-integration-patterns/messaging-endpoints/service-activator.md
+          #- System Management:
+          #    - System Management - Overview: learn/enterprise-integration-patterns/system-management/overview.md
+          #    - Channel Purger: learn/enterprise-integration-patterns/system-management/channel-purger.md
+          #    - Control Bus: learn/enterprise-integration-patterns/system-management/control-bus.md
+          #    - Detour: learn/enterprise-integration-patterns/system-management/detour.md
+          #    - Message History: learn/enterprise-integration-patterns/system-management/message-history.md
+          #    - Message Store: learn/enterprise-integration-patterns/system-management/message-store.md
+          #    - Smart Proxy: learn/enterprise-integration-patterns/system-management/smart-proxy.md
+          #    - Test Message: learn/enterprise-integration-patterns/system-management/test-message.md
+          #    - Wire Tap: learn/enterprise-integration-patterns/system-management/wire-tap.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
       #- API-led Integration: develop/api-led-integration.md

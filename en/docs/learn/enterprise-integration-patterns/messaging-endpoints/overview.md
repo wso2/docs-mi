@@ -6,19 +6,9 @@ This section introduces various endpoint patterns and how each can be simulated 
 
 <table>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway">Messaging Gateway</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-gateway.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-gateway.png" alt="messaging-gateway" width="80"></a></td>
-        <td>How to encapsulate access to the messaging system from the rest of the application.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper">Messaging Mapper</a></td>
         <td></td>
         <td>How to move data between domain objects and the messaging infrastructure, while keeping the two independent of each other.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/transactional-client">Transactional Client</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png" alt="transactional-client" width="80"></a></td>
-        <td>How a client controls its transactions with the messaging system.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer">Polling Consumer</a></td>
