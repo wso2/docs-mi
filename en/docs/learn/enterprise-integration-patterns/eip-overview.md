@@ -73,19 +73,9 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td>How the sender ensures delivery of a message, even if the messaging system fails.</td>
     </tr>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-channels/channel-adapter">Channel Adapter</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-adapter.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-adapter.png" alt="channel-adapter" width="80"></a></td>
-        <td>How to connect an application to the messaging system to send/receive messages.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-channels/messaging-bridge">Messaging Bridge</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-bridge.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-bridge.png" alt="messaging-bridge" width="80"></a></td>
         <td>How multiple messaging systems can be connected so that messages available on one are also available on the others.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-channels/message-bus">Message Bus</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-bus.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-bus.png" alt="message-bus" width="80"></a></td>
-        <td>An architecture enabling separate applications to work together in a decoupled fashion such that applications can be easily added or removed without affecting the others.</td>
     </tr>
 </table>
 
@@ -101,11 +91,6 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/document-message">Document Message</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/document-message.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/document-message.png" alt="document-message" width="80"></a></td>
         <td>How messaging can be used to transfer data between applications.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/event-message">Event Message</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/event-message.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/event-message.png" alt="event-message" width="80"></a></td>
-        <td>How messaging can be used to transmit events from one application to another.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/request-reply">Request-Reply</a></td>
@@ -203,11 +188,6 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td>How existing systems participate in a messaging exchange, which places specific requirements in the message format, such as message header fields or encryption.</td>
     </tr>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-enricher">Content Enricher</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png" alt="data-enricher" width="80"></a></td>
-        <td>How to communicate with another system if the message originator does not have all the required data items available.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-filter">Content Filter</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/content-filter.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/content-filter.png" alt="content-filter" width="80"></a></td>
         <td>How to simplify dealing with a large message when you are interested only in a few data items.</td>
@@ -233,19 +213,9 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
 
 <table>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway">Messaging Gateway</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-gateway.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-gateway.png" alt="messaging-gateway" width="80"></a></td>
-        <td>How to encapsulate access to the messaging system from the rest of the application.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper">Messaging Mapper</a></td>
         <td></td>
         <td>How to move data between domain objects and the messaging infrastructure, while keeping the two independent of each other.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/transactional-client">Transactional Client</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png" alt="transactional-client" width="80"></a></td>
-        <td>How a client controls its transactions with the messaging system.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer">Polling Consumer</a></td>
@@ -281,50 +251,5 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/service-activator">Service Activator</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-adapter.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-adapter.png" alt="messaging-adapter" width="80"></a></td>
         <td>How an application designs a service to be invoked via both messaging and non-messaging techniques.</td>
-    </tr>
-</table>
-
-## System Management
-
-<table>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/channel-purger">Channel Purger</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-purger-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-purger-icon.gif" alt="channel-purger" width="80"></a></td>
-        <td>Removes unwanted messages, which can disturb tests or running systems, from a channel.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/control-bus">Control Bus</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/control-bus-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/control-bus-icon.gif" alt="control-bus" width="80"></a></td>
-        <td>Administers a messaging system that is distributed across multiple platforms and a wide geographic area.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/detour">Detour</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/detour-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/detour-icon.gif" alt="detour" width="80"></a></td>
-        <td>Routes a message through intermediate steps to perform validation, testing or debugging functions.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/message-history">Message History</a></td>
-        <td></td>
-        <td>Lists all applications that the message passed through since its origination.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/message-store">Message Store</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-store-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-store-icon.gif" alt="message-store" width="80"></a></td>
-        <td>Reports against message information without disturbing the loosely coupled and transient nature of a messaging system.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/smart-proxy">Smart Proxy</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/smart-proxy-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/smart-proxy-icon.gif" alt="smart-proxy" width="80"></a></td>
-        <td>Tracks messages on a service that publishes reply messages to the Return Address specified by the requester.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/test-message">Test Message</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/test-message-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/test-message-icon.gif" alt="test-message" width="80"></a></td>
-        <td>Ensures the health of message processing components by preventing situations such as garbling outgoing messages due to an internal fault.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/system-management/wire-tap">Wire Tap</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/wire-tap-icon.gif"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/wire-tap-icon.gif" alt="wire-tap" width="80"></a></td>
-        <td>Inspects messages that travel on a Point-to-Point Channel.</td>
     </tr>
 </table>
