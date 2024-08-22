@@ -19,7 +19,7 @@ The sample scenario depicts an inventory for stocks and illustrates how the Cont
 
 The diagram below depicts how to simulate the sample scenario using the WSO2 MI.
 
-![Content-Based Router sample scenario]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-routing/content-based router-sample-scenario.png)
+![Content-Based Router sample scenario]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-routing/content-based-router-sample-scenario.png)
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Content-Based Router EIP by comparing their core components.
 
