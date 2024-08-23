@@ -10,7 +10,7 @@ The Dynamic Router EIP avoids dependence on all possible destinations while main
 
 ## Sample scenario
 
-This sample scenario demonstrates a router that takes an incoming request and decides which back-end service to transmit the message to. To make that decision, it uses a property in the message itself, very much like the Content-Based Router. However, it can also cross-check a registry entry to see if a specific endpoint accepts messages with that property. This approach allows you to reconfigure the router when registry entries change.
+This sample scenario demonstrates a router that takes an incoming request and decides which back-end service to transmit the message to. To make that decision, it uses a property in the message itself, similar to a Content-Based Router. However, it can also cross-check a registry entry to see if a specific endpoint accepts messages with that property. This approach allows you to reconfigure the router when registry entries change.
 
 The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
