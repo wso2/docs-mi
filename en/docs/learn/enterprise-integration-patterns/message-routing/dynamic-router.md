@@ -270,7 +270,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Analyze the output
 
-1. When you send the requests, you can view outputs like this. Also, you can see in `tcpmon` that you received a request for the relevant port.
+1. When you send the requests with the `symbol` value set to one of `foo`, `bar`, or `WSO2`, you will receive outputs like the following. Also, you can see in `tcpmon` that you received a request for the relevant port.
     ```xml
     <?xml version='1.0' encoding='UTF-8'?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
