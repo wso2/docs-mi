@@ -38,9 +38,9 @@ Before digging into implementation details, let's take a look at the relationshi
              <property name="OUT_ONLY" value="true" />
              <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" />
              <call>
-                   <endpoint>
-                      <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic"/>
-                </endpoint>
+               <endpoint>
+                   <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactory=myTopicSender"/>
+               </endpoint>
              </call>
           </inSequence>
        </target>
@@ -52,7 +52,6 @@ Before digging into implementation details, let's take a look at the relationshi
     <proxy name="EventObserver1" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
        <target>
            <inSequence>
-              <property name="OUT_ONLY" value="true"/>
               <log category="INFO" level="custom">
                   <property name="Observer1" expression="$body" />
               </log>
@@ -76,7 +75,6 @@ Before digging into implementation details, let's take a look at the relationshi
     <proxy name="EventObserver2" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-               <property name="OUT_ONLY" value="true"/>
                <log level="custom">
                <property name="Observer2" value="Event received by the Observer2"/>
                </log>
@@ -159,7 +157,7 @@ SOAPAction: "urn:getQuote"
 
 ## Analyze the output
 
-When you execute the command above, the request is sent to the StockQuoteProxy. Notice the following processed server log in WSO2 MI output:
+When you execute the command above, a message is sent to the ActiveMQ topic. Notice the following processed server log in WSO2 MI output:
 
 ```log
 INFO {LogMediator} - {proxy:EventObserver2} Observer2 = <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
