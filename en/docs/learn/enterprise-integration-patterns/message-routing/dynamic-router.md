@@ -298,7 +298,7 @@ Follow the below instructions to simulate this sample scenario.
     </soapenv:Envelope>
     ```
 
-2. When you change the `symbol` this log will print on the WSO2 MI console.
+2. When you change the `symbol` to a different value, this log will be printed to the WSO2 MI console.
     ```log 
     INFO {LogMediator} - {proxy:DynamicRouterProxy} MESSAGE = Registry Value Doesn't Matched
     ```
