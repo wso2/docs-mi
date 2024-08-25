@@ -13,7 +13,7 @@ The Envelope Wrapper EIP allows existing systems to participate in a messaging e
 
 ## Sample scenario
 
-This example scenario receives a message with application data wrapped inside an envelope, unwraps the message, and sends it to a specific endpoint. The sender sends the request inside a SOAP envelope. Once the WSO2 MI receives the envelope, it unwraps it and sends it as a Plain Old XML (POX) request to the sample back-end Axis2 server.
+This example scenario receives a message with application data wrapped inside an envelope, unwraps the message, and sends it to a specific endpoint. The sender sends the request inside a SOAP envelope. Once the WSO2 MI receives the envelope, it unwraps it and sends it as a Plain Old XML (POX) request to the sample backend Axis2 server.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
