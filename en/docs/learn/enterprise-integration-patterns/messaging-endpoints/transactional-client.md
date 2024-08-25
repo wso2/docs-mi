@@ -122,15 +122,13 @@ Follow the below instructions to simulate this sample scenario.
         parameter.connection_factory_type = "queue"
         ```
 
-4. Download [MessageCounter.jar]({{base_path}}/assets/attachments/jar/MessageCounter.jar) and copy it to the `<PROJECT_HOME>/deployment/libs` directory.
+4. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 
-5. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+5. Extract the downloaded zip file.
 
-6. Extract the downloaded zip file.
+6. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
 
-7. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
-
-8. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+7. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
 
     === "On MacOS/Linux/CentOS"   
           ```bash
@@ -140,25 +138,27 @@ Follow the below instructions to simulate this sample scenario.
           ```bash
           axis2server.bat
 
-9. Navigate to the URL where the ActiveMQ WebConsole is available. You can find this URL in the terminal where you started the ActiveMQ instance. It is similar to `http://127.0.0.1:8161/`. 
+8. Navigate to the URL where the ActiveMQ WebConsole is available. You can find this URL in the terminal where you started the ActiveMQ instance. It is similar to `http://127.0.0.1:8161/`. 
 
-10. By default, the username and password are both `admin`. 
+9. By default, the username and password are both `admin`. 
 
-11. After signing in, click on **Manage ActiveMQ broker**.
+10. After signing in, click on **Manage ActiveMQ broker**.
 
-12. On the opened page, select the **Queues** tab.
+11. On the opened page, select the **Queues** tab.
 
-13. Create a queue named `StockQuoteQueue`. 
+12. Create a queue named `StockQuoteQueue`. 
 
-14. Download the artifacts of the sample.
+13. Download the artifacts of the sample.
 
     <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/TransactionalClient.zip">
         <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
     </a>
 
-15. Import the artifacts to WSO2 MI.
+14. Import the artifacts to WSO2 MI.
 
     Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+15. Download [MessageCounter.jar]({{base_path}}/assets/attachments/jar/MessageCounter.jar) and copy it to the `<PROJECT_HOME>/deployment/libs` directory.
 
 16. Start the project in the WSO2 MI server.
 
