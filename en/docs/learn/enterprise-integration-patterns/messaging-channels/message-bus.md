@@ -13,7 +13,7 @@ The Message Bus EIP enables separate applications to work together in a decouple
 
 ## Sample scenario
 
-It illustrates how application logic is layered, and how each component of the application logic is separated as a mediator, allowing message processing to be executed in a decoupled manner. The mediation process is explained in the [Mediation Sequences]({{base_path}}/reference/mediation-sequences/) documentation.
+This sample scenario demonstrates how application logic is layered, and how each component of the application logic is separated as a mediator, allowing message processing to be executed in a decoupled manner. The mediation process is explained in the [Mediation Sequences]({{base_path}}/reference/mediation-sequences/) documentation.
 
 ## Synapse configuration of the artifacts
 
@@ -115,4 +115,4 @@ soapAction: urn:getQuote
 
 ## Analyze the output
 
-According to the configuration above, the service routes an incoming message to a backend server if the conditions in the filter section are met. Notice how the application's logic is decoupled. It uses one component for filtering, and another to send a message to the endpoint. If you were to decide to remove the filtering step, you could remove the filter mediator segment from the XML without affecting the application's logic for sending the message to the backend server.
+According to the configuration above, the service routes an incoming message to a backend server if the conditions specified in the filter section are met. Notice how the application's logic is decoupled. It uses one component for filtering, and another to send a message to the endpoint. If you were to decide to remove the filtering step, you could remove the filter mediator segment from the XML without affecting the application's logic for sending the message to the backend server.
