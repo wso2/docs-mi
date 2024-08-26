@@ -266,7 +266,7 @@ Follow the below instructions to simulate this sample scenario.
     </soapenv:Envelope>
     ```
 
-2. Send more requests changing `foo`, `bar`, and `WSO2` to other values.
+2. Send more requests changing `symbol` to other values.
 
 ## Analyze the output
 
