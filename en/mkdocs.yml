@@ -322,7 +322,7 @@ nav:
               - Canonical Data Model: learn/enterprise-integration-patterns/message-transformation/canonical-data-model.md
           - Messaging Endpoints:
               - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
-              #- Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
+              - Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
               - Messaging Mapper: learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper.md
               #- Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
               - Polling Consumer: learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.md
