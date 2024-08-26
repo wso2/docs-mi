@@ -990,6 +990,7 @@ plugins:
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/mediators/data-mapper-mediator'
 
   # Extra
 extra_css:

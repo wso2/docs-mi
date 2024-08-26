@@ -48,7 +48,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 <td>Expected input message type (XML/JSON/CSV).</br>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default, the Input type is selected from the Input Schema if you have not provided. If you want to specify Input type, then you can specify it in WSO2 MI VSCode Extension.</p>
+<p>By default, the Input Type is selected from the Input Schema if you have not provided one. If you want to specify the Input Type, then you can specify it in the WSO2 MI for VS Code extension.</p>
 </div>
 
 </td>
@@ -58,7 +58,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 <td>Target output message type (XML/JSON/CSV).</br>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default, the Output type is selected from the Output Schema if you have not provided. If you want to specify Output type, then you can specify it in WSO2 MI VSCode Extension.</p>
+<p>By default, the Output Type is selected from the output schema if you have not provided one. If you want to specify the Output Type, you can specify it in the WSO2 MI for VS Code extension.</p>
 </div></td>
 </tr>
 </tbody>
@@ -70,7 +70,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 
 The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI VSCode Extension. When you build the integration project using the WSO2 MI VSCode Extension, the data mapping configuration file is compiled into JavaScript, which is used by the Data Mapper engine to map the elements in the MI runtime.
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135199.png) 
+![mapping configuration]({{base_path}}/assets/img/integrate/mediators/datamapper/mapping-configuration.png) 
 
 ### Input and output files
 
@@ -82,7 +82,7 @@ You can load the following input/output message formats:
     record
 -   **JSONSCHEMA:** to load a JSON schema
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119134796.png) 
+![input and output files]({{base_path}}/assets/img/integrate/mediators/datamapper/input-output-files.png) 
 
 
 As per the provided input/output files, the Typescript interfaces are generated inside the Mapping configuration file. JSON schema files are generated when you build a project using the WSO2 MI VSCode Extension. These files are stored in the CAR file and deployed inside the governance registry. These files are used to validate the input and output messages at runtime.
@@ -93,34 +93,34 @@ As per the provided input/output files, the Typescript interfaces are generated 
 !!! info "Filter elements"
     If you need to filter elements in input/output, you can use the filter bar on right side upper corner of the Data mapper view.
 
-    ![]({{base_path}}/assets/img/integrate/mediators/119131284/119135203.png) 
+    ![filtered fields]({{base_path}}/assets/img/integrate/mediators/datamapper/filtered-fields.png) 
 
 ### Expression Editor
 
 The Expression Editor is used to define the mapping with additional operations between the input and output messages. It provides a set of operations that can be used to define the mapping. You can find the list of operations supported by the Data Mapper below in the [Data Mapper operations](#data-mapper-operations) section.
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135197.png) 
+![empty expression bar]({{base_path}}/assets/img/integrate/mediators/datamapper/expression-bar-initial.png) 
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135198.png) 
+![complete expression bar]({{base_path}}/assets/img/integrate/mediators/datamapper/expression-bar-complete.png) 
 
 !!! info "Expressions"
     You can define any expression in the Expression Editor by clicking on the output element. The expression editor will be enabled and you can define the expression.
 
-    ![]({{base_path}}/assets/img/integrate/mediators/119131284/119135204.png) 
+    ![expressions]({{base_path}}/assets/img/integrate/mediators/datamapper/expressions.png) 
 
 ### Sub Mapping
 
 The Sub Mapping feature allows you to define a mapping for a specific part of the input message. This is useful when you have a complex input message and you want to reuse the mapping logic for different parts of the message.
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135200.png) 
+![sub mapping]({{base_path}}/assets/img/integrate/mediators/datamapper/submapping.png) 
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135201.png) 
+![using sub mapping]({{base_path}}/assets/img/integrate/mediators/datamapper/utilize-submapping.png) 
 
 ### Custom Functions
 
 The Data Mapper supports custom functions that can be used to define the mapping. You can define custom functions in the mapping configuration file and use them in the mapping.
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135202.png) 
+![custom functions]({{base_path}}/assets/img/integrate/mediators/datamapper/custom-functions.png) 
 
 ### Data Mapper operations
 
@@ -184,7 +184,7 @@ JSON payload does not contain any namespace information, the output JSON
 schema will be generated with XML namespace information using the
 provided SOAP payload.
 
-![example one Data mapper diagram]({{base_path}}/assets/img/integrate/mediators/119131284/119131296.png)
+![example one Data mapper diagram]({{base_path}}/assets/img/integrate/mediators/datamapper/example-1.png)
 
 The sample input JSON payload is as follows.
 
@@ -216,7 +216,7 @@ Salesforce convertLead SOAP payload using a JSON payload. The Convert
 Lead SOAP payload needs mapping SOAP header information.  
 E.g. `<urn:sessionId>QwWsHJyTPW.1pd0_jXlNKOSU</urn:sessionId>`
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119131295.png)
+![example 2 datamapping]({{base_path}}/assets/img/integrate/mediators/datamapper/complete-datamapping.png)
 
 The sample input JSON payload is as follows.
 
@@ -277,9 +277,9 @@ This example demonstrates how you can map an XML payload with integer,
 boolean etc. values into a JSON payload with required primitive types,
 by specifying the required primitive type in the JSON schema.
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119131294.png) 
+![example 3 datamapping]({{base_path}}/assets/img/integrate/mediators/datamapper/mapping-primitive-types.png) 
 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119135196.png) 
+![example 3 array mapping]({{base_path}}/assets/img/integrate/mediators/datamapper/mapping-primitive-types-array.png) 
 
 The sample input XML payload is as follows.
 
@@ -355,7 +355,7 @@ This example demonstrates how you can map an XML payload to CSV format.
 !!! Info
     If you specify special characters (e.g., `&` ,
     `&amp;)` within the `<text>`
-    tag when converting from CSV to CSV , they will be displayed as follows
+    tag when converting from CSV to CSV, they will be displayed as follows
     by default.
     -   `& -> &amp;`
     -   `&amp; -> &amp;amp;`
@@ -371,7 +371,7 @@ configuration.
 <property name="ContentType" value="text/plain" scope="axis2"/>
 ```
 
-<img src="{{base_path}}/assets/img/integrate/mediators/119131284/example4.gif" alt="Example 4">
+<img src="{{base_path}}/assets/img/integrate/mediators/datamapper/example-4.gif" alt="Example 4">
 
 The sample input XML payload is as follows.
 
