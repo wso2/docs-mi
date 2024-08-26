@@ -2,12 +2,12 @@
 
 The Data Mapper mediator is a data mapping solution that can be integrated
 into a mediation sequence. It converts and transforms one data format to
-another or changes the structure of the data in a message. The WSO2 MI VSCode extension
+another or changes the structure of the data in a message. The WSO2 Micro Integrator for Visual Studio Code (MI for VS Code) extension
 provides a graphical mapping configuration and
 generates the files required for executing this graphical mapping
 configuration through the WSO2 Data Mapper engine.
 
-The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI VSCode Extension. When you build the Integration project using the WSO2 MI VSCode Extension, the Data Mapper component generates the required configuration files needed by the Data Mapper Engine to execute the mapping. These files are stored in the Governance Registry.
+The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI for VS Code extension. When you build the Integration project using the WSO2 MI for VS Code extension, the Data Mapper component generates the required configuration files needed by the Data Mapper Engine to execute the mapping. These files are stored in the Governance Registry.
 
 !!! Info
     The Data Mapper mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
@@ -32,16 +32,16 @@ The parameters available for configuring the Data Mapper mediator are as follows
 <tbody>
 <tr class="odd">
 <td><strong>Mapping Configuration</strong></td>
-<td>The file, which contains the script file that is used to execute the mapping. This file is generated when you build the Integration project using WSO2 MI VSCode extension. It is stored under <b>Governance Registry</b>.</td>
+<td>The file, which contains the script file that is used to execute the mapping. This file is generated when you build the Integration project using the WSO2 MI for VS Code extension. It is stored under <b>Governance Registry</b>.</td>
 </tr>
 <tr class="even">
 <td><strong>Input Schema</strong></td>
-<td>JSON schema, which represents the input message format. This file is generated when you build the Integration project using WSO2 MI VSCode extension. It is stored under <b>Governance Registry</b>.</td>
+<td>JSON schema, which represents the input message format. This file is generated when you build the Integration project using the WSO2 MI for VS Code extension. It is stored under <b>Governance Registry</b>.</td>
 </td>
 </tr>
 <tr class="odd">
 <td><strong>Output Schema</strong></td>
-<td>JSON schema, which represents the output message format. This file is generated when you build the Integration project using WSO2 MI VSCode extension. It is stored under <b>Governance Registry</b>.</td>
+<td>JSON schema, which represents the output message format. This file is generated when you build the Integration project using the WSO2 MI for VS Code extension. It is stored under <b>Governance Registry</b>.</td>
 </tr>
 <tr class="even">
 <td><strong>Input Type</strong></td>
@@ -68,7 +68,7 @@ The parameters available for configuring the Data Mapper mediator are as follows
 
 ### Mapping configuration file
 
-The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI VSCode Extension. When you build the integration project using the WSO2 MI VSCode Extension, the data mapping configuration file is compiled into JavaScript, which is used by the Data Mapper engine to map the elements in the MI runtime.
+The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI for VS Code extension. When you build the integration project using the WSO2 MI for VS Code extension, the data mapping configuration file is compiled into JavaScript, which is used by the Data Mapper engine to map the elements in the MI runtime.
 
 ![mapping configuration]({{base_path}}/assets/img/integrate/mediators/datamapper/mapping-configuration.png) 
 
@@ -85,13 +85,13 @@ You can load the following input/output message formats:
 ![input and output files]({{base_path}}/assets/img/integrate/mediators/datamapper/input-output-files.png) 
 
 
-As per the provided input/output files, the Typescript interfaces are generated inside the Mapping configuration file. JSON schema files are generated when you build a project using the WSO2 MI VSCode Extension. These files are stored in the CAR file and deployed inside the governance registry. These files are used to validate the input and output messages at runtime.
+Based on the provided input/output files, the Typescript interfaces are generated inside the Mapping configuration file. JSON schema files are generated when you build a project using the WSO2 MI for VS Code extension. These files are stored in the CAR file and deployed inside the governance registry. These files are used to validate the input and output messages at runtime.
 
 !!! info "Reimport input/output files"
     If you need to reimport input/output, you can right click on top of the input/output widget. 
 
 !!! info "Filter elements"
-    If you need to filter elements in input/output, you can use the filter bar on right side upper corner of the Data mapper view.
+    If you need to filter elements in input/output, you can use the filter bar on the upper right corner of the Data Mapper view.
 
     ![filtered fields]({{base_path}}/assets/img/integrate/mediators/datamapper/filtered-fields.png) 
 
