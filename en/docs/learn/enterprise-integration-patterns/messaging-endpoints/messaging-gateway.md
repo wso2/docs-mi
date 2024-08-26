@@ -1,6 +1,6 @@
 # Messaging Gateway
 
-This section explains, through an sample scenario, how the Messaging Gateway EIP can be implemented using WSO2 ESB. 
+This page explains how you can implement a sample scenario of the Messaging Gateway EIP using WSO2 Micro Integrator.
 
 ## Introduction to Messaging Gateway
 
@@ -13,99 +13,151 @@ The Messaging Gateway EIP encapsulates message-specific code from the rest of th
 
 ## Sample scenario
 
-This sample scenario demonstrates creating a proxy service with a publishWSDL element. The published WSDL's methods act as the Message Gateway, hiding details of the actual back-end service, and exposing only domain-specific methods to the client application.
+This sample scenario demonstrates creating a proxy service with a publishWSDL element. The published WSDL's methods act as the Message Gateway, hiding details of the actual backend service, and exposing only domain-specific methods to the client application.
 
-Proxy services in WSO2 ESB act as Messaging Gateways, abstracting the details of the actual back-end services from implementing clients. For a more complex example of how WSO2 ESB can act as a Messaging Gateway, refer to Health Care Scenario, where a single Proxy Service acts as a Messaging Gateway between several back-end services.
+Proxy services in WSO2 MI act as Messaging Gateways, abstracting the details of the actual backend services from implementing clients. For a more complex example of how WSO2 MI can act as a Messaging Gateway, refer to the [Health Care Scenario]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service/), where a REST API acts as a Messaging Gateway between several backend services.
 
-The diagram below depicts how to simulate the sample scenario using WSO2 ESB.
+The diagram below depicts how to simulate the sample scenario using WSO2 MI.
 
 <img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.png" style="width: 70%;" alt="Messaging gateway">
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Messaging Gateway EIP by comparing their core components.
 
-| Messaging Gateway EIP (Figure 1) | Messaging Gateway Example Scenario (Figure 2) |
+| Messaging Gateway EIP            | Messaging Gateway Example Scenario            |
 |----------------------------------|-----------------------------------------------|
 | Application                      | Simple Stock Quote Client / Service           |
 | Messaging Gateway                | Proxy Service                                 |
 
-## Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install WSO2 ESB from http://wso2.com/products/enterprise-service-bus. For a list of prerequisites and step-by-step installation instructions, refer to Installation Guide in the WSO2 ESB documentation.
+Given below is the synapse configuration of this sample.
 
-2. Start the sample Axis2 server. For instructions, refer to the section Setting Up the ESB Samples - Starting the Axis2 server in the WSO2 ESB documentation.
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StockQuoteProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+            <call>
+                <endpoint key="SimpleStockEp"/>
+            </call>
+            <respond/>
+            </inSequence>
+            <faultSequence>
+            <log category="INFO" level="full">
+                <property name="MESSAGE" value="Executing default &amp;#34;fault&amp;#34; sequence"/>
+                <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+                <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+            </log>
+            <drop/>
+            </faultSequence>
+        </target>
+        <publishWSDL key="gov:sample_proxy_3.wsdl" preservePolicy="true">
+        </publishWSDL>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
-3. Copy the `sample_proxy_3.wsdl` file into your `<ESB_HOME>/repository/samples/resources/proxy` directory. 
+Download the [sample_proxy_3.wsdl]({{base_path}}/assets/attachments/wsdl/sample_proxy_3.wsdl) file and add it as a Registry Resource. For instructions on how to create a Registry Resource, refer to the [Create a Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources/) documentation.
 
-## ESB configuration
+Let's investigate the elements of the ESB configuration in detail. 
 
-Start the ESB server and log into its management console UI (`https://localhost:9443/carbon`). In the management console, navigate to the Main menu and click Source View in the Service Bus section. Next, copy and paste the following configuration, which helps you explore the sample scenario, to the source view.
-
-```xml
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-   <proxy name="StockQuoteProxy" startOnLoad="true">
-      <target>
-         <endpoint>
-            <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-         </endpoint>
-         <outSequence>
-            <send/>
-         </outSequence>
-      </target>
-      <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_3.wsdl"/>
-   </proxy>
-   <sequence name="fault">
-      <log level="full">
-         <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
-         <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-         <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-      </log>
-      <drop/>
-   </sequence>
-   <sequence name="main">
-      <log/>
-      <drop/>
-   </sequence>
-</definitions>
-```
+- **proxy** - Defines a new proxy service called `StockQuoteProxy`.
+- **endpoint** - Defines the endpoint of the actual backend service that this proxy service is connected to.
+- **publishWSDL** - Defines the WSDL file to expose for this proxy service. If no `publishWSDL` is given, the actual backend service's WSDL is exposed. 
 
 ## Set up the sample scenario
 
-If you navigate to `http://localhost:9000/services/SimpleStockQuoteService`, you can see the WSDL file of the back-end server. There are five methods exposed externally, but the Proxy Service `SimpleQuoteProxy` exposes only four externally, filtering out the `getFullQuote` method. See the `SimpleQuoteProxy` WSDL file in `http://localhost:8280/services/StockQuoteProxy?wsdl`.
+Follow the below instructions to simulate this sample scenario.
 
-Send the following request using a SOAP client like [SoapUI](https://www.soapui.org/) to the `SimpleQuoteProxy` service.
+{!includes/eip-set-up.md!}
+
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+
+4. Extract the downloaded zip file.
+
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+          ``` 
+
+7. Download the artifacts of the sample.
+
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/MessagingGateway.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+8. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+9. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+
+## Execute the sample
+
+If you navigate to `http://localhost:9000/services/SimpleStockQuoteService?wsdl`, you can see the WSDL file of the backend server. There are five methods exposed externally, but the Proxy Service `StockQuoteProxy` exposes only four externally, filtering out the `getFullQuote` method. See the `StockQuoteProxy` WSDL file in `http://localhost:8290/services/StockQuoteProxy?wsdl`.
+
+Send the following request to the above proxy service.
 
 ```
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.samples"
-xmlns:xsd="http://services.samples/xsd">
-   <soap:Header/>
-   <soap:Body>
+POST /services/StockQuoteProxy HTTP/1.1
+Host: localhost:8290
+soapAction: urn:getFullQuote
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
       <ser:getFullQuote>
-         <!--Optional:-->
          <ser:request>
-            <!--Optional:-->
             <xsd:symbol>WSO2</xsd:symbol>
          </ser:request>
       </ser:getFullQuote>
-   </soap:Body>
-</soap:Envelope>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```
 
-After sending the above message to the server, you'll get a server error as The endpoint reference (EPR) for the Operation not found is /services/StockQuoteProxy and the WSA Action = urn:getFullQuote. The reason for this error is that the getFullQuote method is not exposed to SimpleQuoteProxy, although the back-end server supports it.
+## Analyze the output
 
-Now, specify a different published WSDL file as follows and send the same SOAP message to the server again.
+After sending the above message to the MI server, you'll receive an internal server error as below. 
 
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <soapenv:Fault xmlns:axis2ns4="http://schemas.xmlsoap.org/soap/envelope/">
+            <faultcode>axis2ns4:Client</faultcode>
+            <faultstring>The endpoint reference (EPR) for the Operation not found is /services/StockQuoteProxy and the WSA Action = urn:getFullQuote. If this EPR was previously reachable, please contact the server administrator.</faultstring>
+            <detail/>
+        </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
-...
-<publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
-...
-```
 
-Note that you get the correct response from the server, since the new WSDL of the proxy service is the same as the back-end service.
+The reason for this error is that the `getFullQuote` method is not exposed through `StockQuoteProxy`, even though the backend server supports it.
 
-### How the implementation works
-
-Let's investigate the elements of the ESB configuration in detail. The line numbers below are mapped with the ESB configuration shown above.
-
-- **proxy** [line 2 in ESB config] - Defines a new proxy service called `StockQuoteProxy`.
-- **endpoint** [line 4 in ESB config] - Defines the endpoint of the actual back-end service that this proxy service is connected to.
-- **publishWSDL** [line 11 in ESB config] - Defines the WSDL file to expose for this proxy service. If no `publishWSDL` is given, the actual back-end service's WSDL is exposed. 
+Specifying a different published WSDL file that contains the `getFullQuote` method and sending the same SOAP message to the server will allow you to get the correct response from the server.
