@@ -77,6 +77,11 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-bridge.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-bridge.png" alt="messaging-bridge" width="80"></a></td>
         <td>How multiple messaging systems can be connected so that messages available on one are also available on the others.</td>
     </tr>
+    <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-channels/message-bus">Message Bus</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-bus.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-bus.png" alt="message-bus" width="80"></a></td>
+        <td>An architecture enabling separate applications to work together in a decoupled fashion such that applications can be easily added or removed without affecting the others.</td>
+    </tr>
 </table>
 
 ## Message Construction
@@ -91,6 +96,11 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/document-message">Document Message</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/document-message.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/document-message.png" alt="document-message" width="80"></a></td>
         <td>How messaging can be used to transfer data between applications.</td>
+    </tr>
+    <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/event-message">Event Message</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/event-message.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/event-message.png" alt="event-message" width="80"></a></td>
+        <td>How messaging can be used to transmit events from one application to another.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/request-reply">Request-Reply</a></td>
