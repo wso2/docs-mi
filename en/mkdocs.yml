@@ -828,9 +828,7 @@ nav:
               - Callout Mediator: reference/mediators/callout-mediator.md
               - Class Mediator: reference/mediators/class-mediator.md
               - Clone Mediator: reference/mediators/clone-mediator.md
-              - Data Mapping:
-                  - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
-                  - Data Mapper Schema Specification: reference/mediators/data-mapper-json-schema-specification.md
+              - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
               - Data Service Call Mediator: reference/mediators/dss-mediator.md
               - DBLookup  Mediator: reference/mediators/dblookup-mediator.md
               - DB Report Mediator: reference/mediators/db-report-mediator.md
@@ -1011,6 +1009,7 @@ plugins:
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
               'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/customizations/creating-new-connector/'
+              'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/mediators/data-mapper-mediator'
 
   # Extra
 extra_css:
