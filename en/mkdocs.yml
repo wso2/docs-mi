@@ -288,12 +288,12 @@ nav:
               - Guaranteed Delivery: learn/enterprise-integration-patterns/messaging-channels/guaranteed-delivery.md
               #- Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
               - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
-              #- Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
+              - Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
           - Message Construction:
               - Message Construction - Overview: learn/enterprise-integration-patterns/message-construction/overview.md
               - Command Message: learn/enterprise-integration-patterns/message-construction/command-message.md
               - Document Message: learn/enterprise-integration-patterns/message-construction/document-message.md
-              #- Event Message: learn/enterprise-integration-patterns/message-construction/event-message.md
+              - Event Message: learn/enterprise-integration-patterns/message-construction/event-message.md
               - Request-Reply: learn/enterprise-integration-patterns/message-construction/request-reply.md
               - Return Address: learn/enterprise-integration-patterns/message-construction/return-address.md
               - Correlation Identifier: learn/enterprise-integration-patterns/message-construction/correlation-identifier.md
