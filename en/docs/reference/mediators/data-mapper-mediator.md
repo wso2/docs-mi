@@ -274,7 +274,7 @@ The sample output XML is as follows.
 ### Example 3 - Mapping primitive types
 
 This example demonstrates how you can map an XML payload with integer,
-boolean etc. values into a JSON payload with required primitive types,
+boolean and other values into a JSON payload with required primitive types,
 by specifying the required primitive type in the JSON schema.
 
 ![example 3 datamapping]({{base_path}}/assets/img/integrate/mediators/datamapper/mapping-primitive-types.png) 
