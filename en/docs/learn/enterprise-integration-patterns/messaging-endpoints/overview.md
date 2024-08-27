@@ -16,11 +16,6 @@ This section introduces various endpoint patterns and how each can be simulated 
         <td>How to move data between domain objects and the messaging infrastructure, while keeping the two independent of each other.</td>
     </tr>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/transactional-client">Transactional Client</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png" alt="transactional-client" width="80"></a></td>
-        <td>How a client controls its transactions with the messaging system.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer">Polling Consumer</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/polling-consumer.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/polling-consumer.png" alt="polling-consumer" width="80"></a></td>
         <td>How an application consumes a message when the application is ready.</td>

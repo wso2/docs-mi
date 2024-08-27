@@ -1,110 +1,175 @@
 # Publish-Subscribe Channel
 
-This section explains, through an example scenario, how the Publish-Subscribe Channel EIP can be implemented using the ESB profile of WSO2 EI.
+This page explains how you can implement a sample scenario of Publish-Subscribe Channel EIP using WSO2 Micro Integrator.
 
 ## Introduction to Publish-Subscribe Channel
 
 The Publish-Subscribe Channel EIP receives messages from the input channel, and then splits and transmits them among its subscribers through the output channel. Each subscriber has only one output channel. For more information, go to Publish Subscribe Channel. 
 
+!!! info
+    For more information, see the [Publish subscribe channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/PublishSubscribeChannel.html) documentation.
+
 ![Publish subscribe solution ]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/publish-subscribe-solution.gif)
 
 ## Sample scenario
 
-The example scenario depicts an inventory for stocks, and how the EIP distributes a sent message among several subscribers. It has several Stock Quote (Axis2) server instances. When a message arrives to the ESB profile of WSO2 EI, it is transmitted to these server instances, each of which acts as a subscriber through the event mediator.
+The example scenario depicts an inventory for stocks and demonstrates how the EIP distributes a sent message among several subscribers. It includes multiple instances of the SimpleStockQuoteService. When a message is added to the WSO2 MI, it is transmitted to these server instances, each of which acts as a subscriber through the ActiveMQ topic.
 
-The diagram below depicts how to simulate the example scenario using the ESB profile of WSO2 EI.
+The diagram below depicts how to simulate the example scenario using WSO2 MI.
 
 ![Publish-Subscribe Channel sample scenario]({{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-channels/publish-subscribe-channel.png)
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Publish-Subscribe Channel EIP by comparing their core components.
 
-| Publish-Subscribe Channel EIP (Figure 1) | Publish-Subscribe Channel Example Scenario (Figure 2) |
+| Publish-Subscribe Channel EIP            | Publish-Subscribe Channel Example Scenario            |
 |------------------------------------------|-------------------------------------------------------|
-| Subscriber                               | Stock Quote server instance                           |
-| Publisher Subscriber Channel             | Event Mediator                                        |
-| Publisher                                | Stock Quote Request                                   |
+| Subscriber                               | SimpleStockQuoteService                               |
+| Publisher Subscriber Channel             | ActiveMQ topic                                        |
+| Publisher                                | StockQuoteProxy                                       |
 
-## The ESB configuration
+## Synapse configurations of the artifacts
 
-Given below is the ESB configuration of this sample. Log in to the Management Console of the ESB profile, click Main, and then click Source View in the Service Bus menu to view this. 
-
-```
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-   <proxy name="PublishSubscribeChannel" startOnLoad="true" transports="http,https">
-       <target>
-           <inSequence>
-               <event topic="PublisherSubsciber"/>
-           </inSequence>
-       </target>
-   </proxy>
-</definitions>
-```
+=== "StockQuoteProxy"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="StockQuoteProxy" transports="http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="OUT_ONLY" value="true"/>
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+                <call>
+                    <endpoint>
+                        <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic"/>
+                    </endpoint>
+                </call>
+            </inSequence>
+        </target>
+    </proxy>
+    ```
+=== "SimpleStockQuoteService1"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SimpleStockQuoteService1" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="OUT_ONLY" value="true"/>
+            <log level="custom">
+                    <property name="Subscriber1" value="I am Subscriber1"/>
+                </log>
+                <drop/>
+            </inSequence>
+        </target>
+        <parameter name="transport.jms.ContentType">
+            <rules>
+                <jmsProperty>contentType</jmsProperty>
+                <default>application/xml</default>
+            </rules>
+        </parameter>
+        <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
+        <parameter name="transport.jms.DestinationType">topic</parameter>
+        <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
+    </proxy>
+    ```
+=== "SimpleStockQuoteService2"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SimpleStockQuoteService2" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                    <property name="OUT_ONLY" value="true"/>
+            <log level="custom">
+                        <property name="Subscriber2" value="I am Subscriber2"/>
+                    </log>
+                    <drop/>
+                </inSequence>
+        </target>
+        <parameter name="transport.jms.ContentType">
+            <rules>
+            <jmsProperty>contentType</jmsProperty>
+            <default>application/xml</default>
+            </rules>
+        </parameter>
+        <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
+        <parameter name="transport.jms.DestinationType">topic</parameter>
+        <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
+    </proxy>
+    ```
 
 ### How the implementation works
 
-Let's investigate the elements of the configuration in detail.
+Let's break down the key components of the configuration:
 
-* main sequence [line 10 in config] - The default sequence that gets triggered when the user invokes the ESB profile of WSO2 EI.
-* event [line 12 in config] - Allows you to define a set of receivers.
+- **StockQuoteProxy**: Forwards stock quote requests from clients to a JMS topic, enabling asynchronous processing.
+- **SimpleStockQuoteService1**: Subscribes to the JMS topic, logs a custom message, and drops the message.
+- **SimpleStockQuoteService2**: Similar to **SimpleStockQuoteService1**, it subscribes to the JMS topic, logs a different custom message, and drops the message.
 
 ## Set up the sample scenario
 
-Now, let's try out the sample scenario explained above.
+Follow the below instructions to simulate this sample scenario.
 
-### Set up the environment
+{!includes/eip-set-up.md!}
 
-Download the  `Publish-Subscribe-Channel.zip` , which includes the artifacts of this sample and follow the steps in Simulating a Sample Scenario.
+3. Download the artifacts of the sample.
 
-!!! note
-    You need to start two instances of the Axis2 server to run in ports 900 and 9001 by executing the following commands:
-    
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/publish-subscribe-channel.zip">
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+4. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+5. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+
+6. Set up and Start [ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
+
+!!!note
+    Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) in the `deployment.toml` file.
     ```
-    ./axis2server.sh -http  9000 -https  9002 -name MyServer1
-    ./axis2server.sh -http  9001 -https  9003 -name MyServer2
+    [[transport.jms.listener]]
+    name = "myTopicConnectionFactory"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+
+    [[transport.jms.sender]]
+    name = "myTopicSender"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
     ```
-
-Follow the steps below to create an event:
-
-1. Start the ESB profile and log into its Management Console. For instructions, see Starting the ESB profile in WSO2 EI Documentation.
-
-2. On the Management Console of the ESB profile, navigate to the **Main** menu, click **Topics**, and then click **Add**.
-
-3. Enter the name  `PublisherSubsciber` as the topic, and click **Add Topic**.
-
-4. You will be directed to the **Topic Browser** tree view where the new topic is displayed. Click the new topic and select **Subscribe** to create a static subscription. Enter `http://localhost:9000/services/SimpleStockQuoteService` as the **Event Sink URL**, and click **Subscribe**.
-
-5. Repeat these steps to add another subscriber on port `9001`.  
-
 ## Execute the sample
 
-Execute the following command to send a request using the `Stock Quote Client` to the ESB profile:
+Send the following request to the service using SoapUI (or any other SOAP client).
 
-```
-ant stockquote -Dtrpurl=http://localhost:8280/services/PublishSubscribeChannel -Dsymbol=foo
-```
+```xml
+POST http://localhost:8290/services/StockQuoteProxy
 
-For information on the `Stock Quote Client` and its operation modes, go to Stock Quote Client in the WSO2 EI Documentation.
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "urn:getQuote"
+Connection: Keep-Alive
 
-After executing the above command, note that both `Stock Quote` service instances log a message accepting the request. The structure of the request is as follows:
-
-```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getQuote>   
-         <ser:request>         
-            <xsd:symbol>foo</xsd:symbol>
-         </ser:request>        
-      </ser:getQuote>
-   </soapenv:Body>
+<soapenv:Body>
+    <ser:getQuote>
+        <ser:request>
+            <xsd:symbol>IBM</xsd:symbol>
+        </ser:request>
+    </ser:getQuote>
+</soapenv:Body>
 </soapenv:Envelope>
 ```
 
 ## Analyze the output
 
-When you execute the command above, the request is sent to the  Stock Quote  service. Notice the following processed server log in both Axis 2 servers:
+When you execute the command above, the request is sent to the StockQuoteProxy. Notice the following processed server log in WSO2 MI output:
 
-!!! info
-    In this sample, WSO2 ESB sends the request to both subscribers configured with the two event sinks. However, the `Stock Service Client` does not receive a response from them.
-
-Generating quote for : foo
+```log
+[2024-08-13 09:40:05,276]  INFO {LogMediator} - {proxy:SimpleStockQuoteService1} Subscriber1 = I am Subscriber1
+[2024-08-13 09:40:05,276]  INFO {LogMediator} - {proxy:SimpleStockQuoteService2} Subscriber2 = I am Subscriber2
+```

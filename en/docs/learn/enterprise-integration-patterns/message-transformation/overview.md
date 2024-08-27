@@ -11,11 +11,6 @@ This section introduces various types of message translators and how they can be
         <td>How existing systems participate in a messaging exchange, which places specific requirements in the message format, such as message header fields or encryption.</td>
     </tr>
     <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-enricher">Content Enricher</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png" alt="data-enricher" width="80"></a></td>
-        <td>How to communicate with another system if the message originator does not have all the required data items available.</td>
-    </tr>
-    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-filter">Content Filter</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/content-filter.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/content-filter.png" alt="content-filter" width="80"></a></td>
         <td>How to simplify dealing with a large message when you are interested only in a few data items.</td>

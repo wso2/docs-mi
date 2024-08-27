@@ -1,6 +1,6 @@
 # Recipient List
 
-This section explains, through a sample scenario, how the Recipient List EIP can be implemented using WSO2 ESB.
+This page explains how you can implement a sample scenario of Recipient List EIP using WSO2 Micro Integrator.
 
 ## Introduction to Recipient List
 
@@ -15,98 +15,232 @@ The Recipient List EIP routes a message to a list of dynamically specified recip
 
 This Sample scenario is a stock quote service sending a stock quote request to recipients that are instances of a sample Axis2 server. The Switch mediator identifies the content of the client request and distributes the content among the Recipient List endpoints.
 
-The diagram below depicts how to simulate the sample scenario using the WSO2 ESB. 
+The diagram below depicts how to simulate the sample scenario using the WSO2 MI. 
 
 <img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-routing/recipient-list.png" style="width: 70%;" alt="Recipient list">
 
 Before digging into implementation details, let's take a look at the relationship between the sample scenario and the Recipient List EIP by comparing their core components.
 
-| Recipient List EIP (Figure 1) | Recipient List EIP (Figure 2)                  |
+| Recipient List EIP            | Recipient List EIP                             |
 |-------------------------------|------------------------------------------------|
 | Sender                        | StockQuoteClient                               |
 | Recipient List                | RecipientList mediator                         |
 | Receivers (A, B, C, D)        | SimpleStockQuote Service Instances (foo, WSO2) |
 
-### Environment setup
+## Synapse configuration of the artifacts
 
-1. Download and install WSO2 ESB from http://wso2.com/products/enterprise-service-bus. For a list of prerequisites and step-by-step installation instructions, refer to Installation Guide in the WSO2 ESB documentation.
+!!! note 
+    When you unzip the ZIP file you downloaded below in step 7 when simulating the sample scenario, you can find the below configurations in the `<UNZIPPED_FILE>/src/main/wso2mi/artifacts` directory. For more information about these artifacts, go to [Develop Integration Solutions]({{base_path}}/develop/intro-integration-development/) Documentation.
 
-2. Deploy the SimpleStockQuoteService and start three instances of Axis2 Server in ports 9000, 9001, 9002, and 9003. For instructions, refer to the section Setting up the ESB Samples - Starting the Axis2 server in the WSO2 ESB documentation.
-
-## ESB configuration
-
-Start the ESB server and log into its management console UI (`https://localhost:9443/carbon`). In the management console, navigate to the Main menu and click Source View in the Service Bus section. Next, copy and paste the following configuration, which helps you explore the sample scenario, to the source view.
-
-```
-<!-- Would Route the Message Based on the List of Recipients-->
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-    <registry provider="org.wso2.carbon.mediation.registry.ESBRegistry">
-        <parameter name="root">file:repository/samples/resources/</parameter>
-        <parameter name="cachableDuration">15000</parameter>
-    </registry>
-    <proxy name="RecipientListProxy">
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="RecipientListProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-            <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
-            <!-- First the recipient list will be identified -->
-                <case regex="foo">
-               <send>
-                  <!--Dynamic Recipient List-->
-                        <endpoint>
-                        <recipientlist>
-                        <endpoint xmlns="http://ws.apache.org/ns/synapse">
-                                <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                        <endpoint xmlns="http://ws.apache.org/ns/synapse">
-                                <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                       </recipientlist>
-                    </endpoint>         
-                </send>
-                  <drop/>
-            </case>   
-            <case regex="WSO2">
-               <send>
-                  <!--Dynamic Recipient List-->
-                        <endpoint>
-                     <recipientlist>
-                        <endpoint xmlns="http://ws.apache.org/ns/synapse">
-                                <address uri="http://localhost:9002/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                        <endpoint xmlns="http://ws.apache.org/ns/synapse">
-                                <address uri="http://localhost:9003/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                       </recipientlist>
-                    </endpoint>         
-                </send>
-                  <drop/>
-            </case>               
-            <default>
-              <!-- Message Should Be Discarded -->
-            </default>
-            </switch>      
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+                <property name="OUT_ONLY" value="true"/>
+                <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
+                    <case regex="WSO2">
+                        <call>
+                            <endpoint key="Wso2RLEps"/>
+                        </call>
+                    </case>
+                    <case regex="IBM">
+                        <call>
+                            <endpoint key="IbmRLEps"/>
+                        </call>
+                    </case><default></default>
+                </switch>
             </inSequence>
-            <outSequence>
-                <send/>
-            </outSequence>
-        </target>  
-     </proxy>
-</definitions>
-```
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "IBM Recipient List Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="IbmRLEps" xmlns="http://ws.apache.org/ns/synapse">
+        <recipientlist>
+            <endpoint key="Ep1"/>
+            <endpoint key="Ep2"/>
+        </recipientlist>
+        <description></description>
+    </endpoint>
+    ```
+=== "WSO2 Recipient List Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="Wso2RLEps" xmlns="http://ws.apache.org/ns/synapse">
+        <recipientlist>
+            <endpoint key="Ep3"/>
+            <endpoint key="Ep4"/>
+        </recipientlist>
+        <description></description>
+    </endpoint>
+    ```
+=== "Endpoint 1"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="Ep1" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9001/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+=== "Endpoint 2"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="Ep2" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9002/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+=== "Endpoint 3"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="Ep3" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9003/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+=== "Endpoint 4"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="Ep4" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9004/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+
+Let's investigate the elements of the synapse configuration in detail. 
+
+- **Switch** - The Switch mediator performs a switch/case based on the symbol found inside the original request. In this sample scenario, one of two call mediators is used, based on the value of the symbol element in the request.
+- **recipientList** - the recipientList mediator lists several endpoints inside tags. WSO2 MI will forward the request to all endpoints in this list. 
 
 ## Set up the sample scenario
 
-Send a request using the Stock Quote client to WSO2 ESB in the following manner. For information about the Stock Quote client, refer to the Sample Clients section in the WSO2 ESB documentation.
+Follow the below instructions to simulate this sample scenario.
+
+{!includes/eip-set-up.md!}
+
+3. Download the [backend service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+
+4. Extract the downloaded zip file.
+
+5. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+
+6. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
+
+    === "On MacOS/Linux/CentOS"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"                
+          ```bash
+          axis2server.bat
+          ``` 
+
+7. Navigate to the `MI_HOME/bin/` directory and start the `tcpmon` application. 
+
+    For instructions, go to [Starting TCPMon]({{base_path}}/observe-and-manage/classic-observability-tcp/starting-tcp-mon/) Documentation.
+
+8. In the `tcpmon` application, navigate to the **Admin** tab. Add listeners to ports `9001`, `9002`, `9003`, and `9004`. For each listener set the **target hostname** to `localhost` and **target port** to `9000` in each instance.
+
+9. Download the artifacts of the sample.
+
+    <a href={{base_path}}/assets/attachments/learn/enterprise-integration-patterns/RecipientList.zip>
+        <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    </a>
+
+10. Import the artifacts to WSO2 MI.
+
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
+
+11. Start the project in the WSO2 MI server.
+
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
+
+Note that if the symbol is `IBM`, the WSO2 MI sends the request to servers running on ports 9001 and 9002. If you change the symbol to `WSO2`, it will send the requests to servers running on ports 9003 and 9004.
+
+## Execute the sample
+
+Send the following requests.
+
+=== "IBM"
+    ```
+    POST /services/RecipientListProxy HTTP/1.1
+    Host: localhost:8290
+    Content-Type: text/xml
+    soapAction: urn:getQuote
+
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:getQuote xmlns:ser="http://services.samples">
+            <ser:request>
+                <ser:symbol>IBM</ser:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+    </soapenv:Envelope>
+    ```
+=== "WSO2"
+    ```
+    POST /services/RecipientListProxy HTTP/1.1
+    Host: localhost:8290
+    Content-Type: text/xml
+    soapAction: urn:getQuote
+
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:getQuote xmlns:ser="http://services.samples">
+            <ser:request>
+                <ser:symbol>WSO2</ser:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+    </soapenv:Envelope>
+    ```
+
+## Analyze the output
+
+When you send the request for `IBM`, the service first receives the message and then sends it to the backend service (StockQuoteService) running on ports `9001`, and `9002`. When you send the request for `WSO2`, the service first receives the message and then sends it to the backend service (StockQuoteService) running on ports `9003`, and `9004`. 
+The following output will be printed on the Axis2 Server Console: 
 
 ```
-ant stockquote -Dtrpurl=http://localhost:8280/services/RecipientListProxy -Dsymbol=WSO2
+Mon Aug 12 16:04:59 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : WSO2
+Mon Aug 12 16:04:59 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : WSO2
+Mon Aug 12 16:05:12 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
+Mon Aug 12 16:05:12 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
 ```
 
-Note that the ESB sends the request to servers running on ports 9002 and 9003. If you change the symbol to foo, it will send the requests to servers running on port 9000 and 9001.
-
-### How the implementation works
-
-Let's investigate the elements of the ESB configuration in detail. The line numbers below are mapped with the ESB configuration shown above.
-
-- Switch [line 10 in ESB config] - The Switch mediator performs a switch/case based on the symbol found inside the original request. In this sample scenario, one of two  send mediators are used, based on the value of the symbol element in the request.
-- recipientList [line 16 in ESB config] - the recipientList mediator lists several endpoints inside the send tags. ESB will forward the request to all endpoints in this list. 
+When inspecting the `tcpmon`, you will see that each listener has received a request. 
