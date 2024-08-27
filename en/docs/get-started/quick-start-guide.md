@@ -268,7 +268,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
 
          <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/icp-login.png" alt="ICP login" width="80%"></a>
 
-     2. Use the following sign-in details.
+     2. Use the following sign in details.
 
         | Username  | Password |
         |-----------|----------|
