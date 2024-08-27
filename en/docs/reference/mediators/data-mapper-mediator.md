@@ -214,7 +214,7 @@ This example demonstrates how to map SOAP header elements along with
 SOAP body elements to create a certain SOAP payload, by creating a
 Salesforce convertLead SOAP payload using a JSON payload. The Convert
 Lead SOAP payload needs mapping SOAP header information.  
-E.g. `<urn:sessionId>QwWsHJyTPW.1pd0_jXlNKOSU</urn:sessionId>`
+For example: `<urn:sessionId>QwWsHJyTPW.1pd0_jXlNKOSU</urn:sessionId>`
 
 ![example 2 datamapping]({{base_path}}/assets/img/integrate/mediators/datamapper/complete-datamapping.png)
 
