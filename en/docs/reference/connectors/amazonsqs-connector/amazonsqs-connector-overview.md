@@ -8,21 +8,22 @@ To see the Amazon SQS connector, navigate to the [connector store](https://store
 
 ## Compatibility
 
-| Connector Version | Supported product versions |
-| ------------- |-------------|
-| 1.1.1    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| Connector Version | Supported product versions                         | Supported API |
+|-------------------|----------------------------------------------------|-------------|
+| 2.0.0             | MI 4.3.0                                           |AWS SDK|
+ | 1.1.1             | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |REST|
 
 For older versions, see the details in the connector store.
 
-## Amazon SQS Connector documentation
+## Amazon SQS connector documentation(latest - 2.x version)
 
 The WSO2 Amazon SQS connector allows you to access the exposed API through the integration runtime. Through this connector, you can perform CRUD operations for queues in Amazon SQS instance, update permissions and can work with messages. For further reference, please refer to [Amazon SQS API reference](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html).
 
-* **[Amazon SQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example/)**: This example explains how to use the Amazon SQS Connector to create a queue in the Amazon SQS, send a message to the queue, forward it to a backend service and send the response to the user. 
+* **[Amazon SQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/)**: This example explains how to use the Amazon SQS Connector to create a queue in the Amazon SQS, send a message to the queue, forward it to a backend service and send the response to the user. 
 
-* **[Amazon SQS Connector Reference]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config/)**: This documentation provides a reference guide for the Amazon SQS Connector.
+* **[Amazon SQS Connector Reference]({{base_path}}/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/)**: This documentation provides a reference guide for the Amazon SQS Connector.
 
-## Amazon SQS Inbound Endpoint
+## Amazon SQS inbound endpoint
 
 The AmazonSQS Inbound Endpoint allows you to connect to Amazon and consume messages form an Amazon SQS queue. The messages are then injected into the mediation engine for further processing and mediation.
 
@@ -34,8 +35,9 @@ The AmazonSQS Inbound Endpoint allows you to connect to Amazon and consume messa
 
 As an open source project, WSO2 extensions welcome contributions from the community. 
 
-To contribute to the code for this connector, create a pull request in the following repository. 
+To contribute to the code for this connector, create a pull request in the following repositories. 
 
-* [Amazon SQS Connector GitHub repository](https://github.com/wso2-extensions/esb-inbound-amazonsqs)
+* [Amazon SQS connector GitHub repository](https://github.com/wso2-extensions/esb-connector-amazonsqs)
+* [Amazon SQS inbound endpoint GitHub repository](https://github.com/wso2-extensions/esb-inbound-amazonsqs)
 
 Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.

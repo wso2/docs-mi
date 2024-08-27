@@ -46,23 +46,23 @@ If your RESTful data service is deployed, copy the following URLs to your browse
 -   To access the `swagger.json` file, use the following URL:
 
     ```bash
-    http://<MI_HOST>:8290/<DATA_SERVICE>?swagger.json
+    http://<MI_HOST>:8290/services/<DATA_SERVICE>?swagger.json
     ```
 
     **Example**: 
     ```bash
-    http://localhost:8290/RDBMSDataService?swagger.json
+    http://localhost:8290/services/RDBMSDataService?swagger.json
     ```
 
 -   To access the `swagger.yaml` file, use the following URL:
 
     ```bash
-    http://<MI_HOST>:8290/<DATA_SERVICE>?swagger.yaml
+    http://<MI_HOST>:8290/services/<DATA_SERVICE>?swagger.yaml
     ```
 
     **Example**: 
     ```bash
-    http://localhost:8290/RDBMSDataService?swagger.yaml
+    http://localhost:8290/services/RDBMSDataService?swagger.yaml
     ```
 
 !!! Tip

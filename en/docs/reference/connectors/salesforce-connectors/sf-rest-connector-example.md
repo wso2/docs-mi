@@ -342,4 +342,4 @@ You will get a set of account names and the respective IDs as the output. Below 
 ```
 
 ## What's next
-* To customize this example for your own scenario, see [Salesforce REST Connector Configuration]({{base_path}}/reference/connectorssalesforce-connectors/sf-rest-connector-config/) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [Salesforce REST Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config/) documentation for all operation details of the connector.

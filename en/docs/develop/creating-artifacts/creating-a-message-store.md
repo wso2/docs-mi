@@ -18,7 +18,7 @@ Follow the instructions below to create a new [Message Store]({{base_path}}/refe
 
 5. Select the type of message store you are creating.
 
-    <a href="{{base_path}}/assets/img/develop/create-message-store-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png" alt="create-message-store" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png" alt="create-message-store" width="80%"></a>
 
 6. Enter a unique name for the message store.
 

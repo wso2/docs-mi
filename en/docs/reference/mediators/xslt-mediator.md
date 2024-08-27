@@ -33,18 +33,6 @@ The parameters available for configuring the XSLT mediator are as follows.
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Key Type</strong></td>
-<td><p>You can select one of the following options.</p>
-<ul>
-<li><strong>Static Key</strong> : If this is selected, an existing key can be selected from the registry for the <strong>Key</strong> parameter.</li>
-<li><strong>Dynamic Key</strong> : If this is selected, the key can be entered dynamically in the <strong>Key</strong> parameter.</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>XSLT Schema Key</strong></td>
-<td>This specifies the registry key to refer the XSLT to. This supports static and dynamic keys.</td>
-</tr>
-<tr class="odd">
 <td><strong>Source XPath</strong></td>
 <td><div class="content-wrapper">
 <p>This determines the element to which the given XSLT transformation should be applied via an XPath expression. If the source element is not specified, the XSLT transformation is applied to the first child of the SOAP body.</p>
@@ -53,6 +41,10 @@ The parameters available for configuring the XSLT mediator are as follows.
 </div></td>
 </tr>
 <tr class="even">
+<td><strong>XSLT Schema Key</strong></td>
+<td>This specifies the registry key to refer the XSLT to. This supports static and dynamic keys. The value can be entered as a dynamic key by toggle the <strong>expression (EX)</strong> button.</td>
+</tr>
+<tr class="odd">
 <td><strong>Properties of the</strong> <strong>XSLT mediator</strong></td>
 <td><div class="content-wrapper">
 <p>This section is used to inject properties set in the mediation flow to the XSLT script as XSLT parameters. These are referred from the XSLT in transformation using the <code>               get-property(prop-name)              </code> XPath extension function.</p>
@@ -65,7 +57,7 @@ The parameters available for configuring the XSLT mediator are as follows.
 <p>For example, define the <code>               transform.xslt.result.disableBuild              </code> property as shown below, to escape building the message at the XSLT transformation. It avoids replacing encoded values with real characters. E.g., If you do not add this property, " <code>               &amp;#10;              </code> " in your XML content will be replaced by a new line, when the XML content is built at the XSLT mediator.</p>
 </div></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Features of the XSLT mediator</strong></td>
 <td><p>This section is used to specify features to be enabled/disabled in the XSLT transformation. For example, adding the <a href="http://ws.apache.org/ns/synapse/transform/feature/dom">http://ws.apache.org/ns/synapse/transform/feature/dom</a> feature turns on DOM-based transformations instead of serializing elements into byte streams and/or temporary files. This approach can improve performance but might not work for all transformations.</p>
 <p>Parameters relating to the features are as follows.</p>
@@ -75,7 +67,7 @@ The parameters available for configuring the XSLT mediator are as follows.
 </li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Resources of the XSLT mediator</strong></td>
 <td><p>This section is used to import external XSLT scripts to the main XSLT scripts defined in the XSLT mediator. The XSLT scripts to be imported are first added as resources in the registry.</p>
 <p>Parameters relating to the resources are as follows.</p>

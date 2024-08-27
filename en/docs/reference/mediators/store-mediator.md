@@ -71,7 +71,7 @@ A proxy service can be configured with the Store mediator as follows to save mes
 
 ### Defining the Message Store as an XPath expression
 
-A proxy service can be configured with the Store mediator as follows to save messages in a Message Store, which is dynamically set via the message context specified using an XPath expression.
+A proxy service can be configured with the Store mediator as follows to save messages in a Message Store, which is dynamically set via the message context specified using an [XPath expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions).
 
 === "Proxy Service 1"
     ```xml

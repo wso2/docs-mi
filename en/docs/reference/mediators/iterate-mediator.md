@@ -3,7 +3,7 @@
 The **Iterate Mediator** implements the [Splitter enterprise integration
 pattern](https://wso2docs.atlassian.net/wiki/spaces/EIP/pages/48791727/Splitter)
 and splits the message into a number of different messages derived from
-the parent message. The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator). The difference between the two mediators
+the parent message. The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-mediator). The difference between the two mediators
 is, that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info

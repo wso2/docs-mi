@@ -268,80 +268,80 @@ nav:
          # - XML to JSON Mapping: learn/samples/
           - XML To JSON Transformation: learn/samples/xml-to-json-transformation.md
           - Unit Test Tutorial: learn/samples/unit-testing.md
-      #- Enterprise Integration Patterns:
-      #    - Overview: learn/enterprise-integration-patterns/eip-overview.md
-      #    - Messaging Systems:
-      #        - Messaging Systems - Overview: learn/enterprise-integration-patterns/messaging-systems/overview.md
-      #        - Message Channels: learn/enterprise-integration-patterns/messaging-systems/message-channels.md
-      #        - Message: learn/enterprise-integration-patterns/messaging-systems/message.md
-      #        - Pipes and Filters: learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.md
-      #        - Message Router: learn/enterprise-integration-patterns/messaging-systems/message-router.md
-      #        - Message Translator: learn/enterprise-integration-patterns/messaging-systems/message-translator.md
-      #        - Message Endpoint: learn/enterprise-integration-patterns/messaging-systems/message-endpoint.md
-      #    - Messaging Channels:
-      #        - Messaging Channels - Overview: learn/enterprise-integration-patterns/messaging-channels/overview.md
-      #        - Point-to-Point Channel: learn/enterprise-integration-patterns/messaging-channels/point-to-point-channel.md
-      #        - Publish-Subscribe Channel: learn/enterprise-integration-patterns/messaging-channels/publish-subscribe-channel.md
-      #        - Datatype Channel: learn/enterprise-integration-patterns/messaging-channels/datatype-channel.md
-      #        - Invalid Message Channel: learn/enterprise-integration-patterns/messaging-channels/invalid-message-channel.md
-      #        - Dead Letter Channel: learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel.md
-      #        - Guaranteed Delivery: learn/enterprise-integration-patterns/messaging-channels/guaranteed-delivery.md
-      #        - Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
-      #        - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
-      #        - Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
-      #    - Message Construction:
-      #        - Message Construction - Overview: learn/enterprise-integration-patterns/messaging-construction/overview.md
-      #        - Command Message: learn/enterprise-integration-patterns/messaging-construction/command-message.md
-      #        - Document Message: learn/enterprise-integration-patterns/messaging-construction/document-message.md
-      #        - Event Message: learn/enterprise-integration-patterns/messaging-construction/event-message.md
-      #        - Request-Reply: learn/enterprise-integration-patterns/messaging-construction/request-reply.md
-      #        - Return Address: learn/enterprise-integration-patterns/messaging-construction/return-address.md
-      #        - Correlation Identifier: learn/enterprise-integration-patterns/messaging-construction/correlation-identifier.md
-      #        - Message Sequence: learn/enterprise-integration-patterns/messaging-construction/message-sequence.md
-      #        - Message Expiration: learn/enterprise-integration-patterns/messaging-construction/message-expiration.md
-      #        - Format Indicator: learn/enterprise-integration-patterns/messaging-construction/format-indicator.md
-      #    - Message Routing:
-      #        - Message Routing - Overview: learn/enterprise-integration-patterns/messaging-routing/overview.md
-      #        - Content-Based Router: learn/enterprise-integration-patterns/messaging-routing/content-based-router.md
-      #        - Message Filter: learn/enterprise-integration-patterns/messaging-routing/message-filter.md
-      #        - Recipient List: learn/enterprise-integration-patterns/messaging-routing/recipient-list.md
-      #        - Splitter: learn/enterprise-integration-patterns/messaging-routing/splitter.md
-      #        - Aggregator: learn/enterprise-integration-patterns/messaging-routing/aggregator.md
-      #        - Composed Message Processor: learn/enterprise-integration-patterns/messaging-routing/composed-message-processor.md
-      #        - Scatter-Gather: learn/enterprise-integration-patterns/messaging-routing/scatter-gather.md
-      #        - Routing Slip: learn/enterprise-integration-patterns/messaging-routing/routing-slip.md
-      #        - Process Manager: learn/enterprise-integration-patterns/messaging-routing/process-manager.md
-      #        - Message Broker: learn/enterprise-integration-patterns/messaging-routing/message-broker.md
-      #    - Message Transformation:
-      #        - Message Transformation - Overview: learn/enterprise-integration-patterns/messaging-transformation/overview.md
-      #        - Envelope Wrapper: learn/enterprise-integration-patterns/messaging-transformation/envelope-wrapper.md
-      #        - Content Enricher: learn/enterprise-integration-patterns/messaging-transformation/content-enricher.md
-      #        - Content Filter: learn/enterprise-integration-patterns/messaging-transformation/content-filter.md
-      #        - Claim Check: learn/enterprise-integration-patterns/messaging-transformation/claim-check.md
-      #        - Normalizer: learn/enterprise-integration-patterns/messaging-transformation/normalizer.md
-      #        - Canonical Data Model: learn/enterprise-integration-patterns/messaging-transformation/canonical-data-model.md
-      #    - Messaging Endpoints:
-      #        - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
-      #        - Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
-      #        - Messaging Mapper: learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper.md
-      #        - Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
-      #        - Polling Consumer: learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.md
-      #        - Event-Driven Consumer: learn/enterprise-integration-patterns/messaging-endpoints/event-driven-consumer.md
-      #        - Competing Consumers: learn/enterprise-integration-patterns/messaging-endpoints/competing-consumers.md
-      #        - Message Dispatcher: learn/enterprise-integration-patterns/messaging-endpoints/message-dispatcher.md
-      #        - Selective Consumer: learn/enterprise-integration-patterns/messaging-endpoints/selective-consumer.md
-      #        - Durable Subscriber: learn/enterprise-integration-patterns/messaging-endpoints/durable-subscriber.md
-      #        - Service Activator: learn/enterprise-integration-patterns/messaging-endpoints/service-activator.md
-      #    - System Management:
-      #        - System Management - Overview: learn/enterprise-integration-patterns/system-management/overview.md
-      #        - Channel Purger: learn/enterprise-integration-patterns/system-management/channel-purger.md
-      #        - Control Bus: learn/enterprise-integration-patterns/system-management/control-bus.md
-      #        - Detour: learn/enterprise-integration-patterns/system-management/detour.md
-      #        - Message History: learn/enterprise-integration-patterns/system-management/message-history.md
-      #        - Message Store: learn/enterprise-integration-patterns/system-management/message-store.md
-      #        - Smart Proxy: learn/enterprise-integration-patterns/system-management/smart-proxy.md
-      #        - Test Message: learn/enterprise-integration-patterns/system-management/test-message.md
-      #        - Wire Tap: learn/enterprise-integration-patterns/system-management/wire-tap.md
+      - Enterprise Integration Patterns:
+          - Overview: learn/enterprise-integration-patterns/eip-overview.md
+          - Messaging Systems:
+              - Messaging Systems - Overview: learn/enterprise-integration-patterns/messaging-systems/overview.md
+              - Message Channels: learn/enterprise-integration-patterns/messaging-systems/message-channels.md
+              - Message: learn/enterprise-integration-patterns/messaging-systems/message.md
+              - Pipes and Filters: learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters.md
+              - Message Router: learn/enterprise-integration-patterns/messaging-systems/message-router.md
+              - Message Translator: learn/enterprise-integration-patterns/messaging-systems/message-translator.md
+              - Message Endpoint: learn/enterprise-integration-patterns/messaging-systems/message-endpoint.md
+          - Messaging Channels:
+              - Messaging Channels - Overview: learn/enterprise-integration-patterns/messaging-channels/overview.md
+              - Point-to-Point Channel: learn/enterprise-integration-patterns/messaging-channels/point-to-point-channel.md
+              - Publish-Subscribe Channel: learn/enterprise-integration-patterns/messaging-channels/publish-subscribe-channel.md
+              - Datatype Channel: learn/enterprise-integration-patterns/messaging-channels/datatype-channel.md
+              - Invalid Message Channel: learn/enterprise-integration-patterns/messaging-channels/invalid-message-channel.md
+              - Dead Letter Channel: learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel.md
+              - Guaranteed Delivery: learn/enterprise-integration-patterns/messaging-channels/guaranteed-delivery.md
+              #- Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
+              - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
+              #- Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
+          - Message Construction:
+              - Message Construction - Overview: learn/enterprise-integration-patterns/message-construction/overview.md
+              - Command Message: learn/enterprise-integration-patterns/message-construction/command-message.md
+              - Document Message: learn/enterprise-integration-patterns/message-construction/document-message.md
+              #- Event Message: learn/enterprise-integration-patterns/message-construction/event-message.md
+              - Request-Reply: learn/enterprise-integration-patterns/message-construction/request-reply.md
+              - Return Address: learn/enterprise-integration-patterns/message-construction/return-address.md
+              - Correlation Identifier: learn/enterprise-integration-patterns/message-construction/correlation-identifier.md
+              - Message Sequence: learn/enterprise-integration-patterns/message-construction/message-sequence.md
+              - Message Expiration: learn/enterprise-integration-patterns/message-construction/message-expiration.md
+              - Format Indicator: learn/enterprise-integration-patterns/message-construction/format-indicator.md
+          - Message Routing:
+              - Message Routing - Overview: learn/enterprise-integration-patterns/message-routing/overview.md
+              - Content-Based Router: learn/enterprise-integration-patterns/message-routing/content-based-router.md
+              - Message Filter: learn/enterprise-integration-patterns/message-routing/message-filter.md
+              - Recipient List: learn/enterprise-integration-patterns/message-routing/recipient-list.md
+              - Splitter: learn/enterprise-integration-patterns/message-routing/splitter.md
+              - Aggregator: learn/enterprise-integration-patterns/message-routing/aggregator.md
+              - Composed Message Processor: learn/enterprise-integration-patterns/message-routing/composed-message-processor.md
+              - Scatter-Gather: learn/enterprise-integration-patterns/message-routing/scatter-gather.md
+              - Routing Slip: learn/enterprise-integration-patterns/message-routing/routing-slip.md
+              - Process Manager: learn/enterprise-integration-patterns/message-routing/process-manager.md
+              - Message Broker: learn/enterprise-integration-patterns/message-routing/message-broker.md
+          - Message Transformation:
+              - Message Transformation - Overview: learn/enterprise-integration-patterns/message-transformation/overview.md
+              - Envelope Wrapper: learn/enterprise-integration-patterns/message-transformation/envelope-wrapper.md
+              #- Content Enricher: learn/enterprise-integration-patterns/message-transformation/content-enricher.md
+              - Content Filter: learn/enterprise-integration-patterns/message-transformation/content-filter.md
+              - Claim Check: learn/enterprise-integration-patterns/message-transformation/claim-check.md
+              - Normalizer: learn/enterprise-integration-patterns/message-transformation/normalizer.md
+              - Canonical Data Model: learn/enterprise-integration-patterns/message-transformation/canonical-data-model.md
+          - Messaging Endpoints:
+              - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
+              - Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
+              - Messaging Mapper: learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper.md
+              #- Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
+              - Polling Consumer: learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.md
+              - Event-Driven Consumer: learn/enterprise-integration-patterns/messaging-endpoints/event-driven-consumer.md
+              - Competing Consumers: learn/enterprise-integration-patterns/messaging-endpoints/competing-consumers.md
+              - Message Dispatcher: learn/enterprise-integration-patterns/messaging-endpoints/message-dispatcher.md
+              - Selective Consumer: learn/enterprise-integration-patterns/messaging-endpoints/selective-consumer.md
+              - Durable Subscriber: learn/enterprise-integration-patterns/messaging-endpoints/durable-subscriber.md
+              - Service Activator: learn/enterprise-integration-patterns/messaging-endpoints/service-activator.md
+          #- System Management:
+          #    - System Management - Overview: learn/enterprise-integration-patterns/system-management/overview.md
+          #    - Channel Purger: learn/enterprise-integration-patterns/system-management/channel-purger.md
+          #    - Control Bus: learn/enterprise-integration-patterns/system-management/control-bus.md
+          #    - Detour: learn/enterprise-integration-patterns/system-management/detour.md
+          #    - Message History: learn/enterprise-integration-patterns/system-management/message-history.md
+          #    - Message Store: learn/enterprise-integration-patterns/system-management/message-store.md
+          #    - Smart Proxy: learn/enterprise-integration-patterns/system-management/smart-proxy.md
+          #    - Test Message: learn/enterprise-integration-patterns/system-management/test-message.md
+          #    - Wire Tap: learn/enterprise-integration-patterns/system-management/wire-tap.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
       #- API-led Integration: develop/api-led-integration.md
@@ -355,7 +355,7 @@ nav:
           - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
-      - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
+      #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Create Projects:
           - Create an Integration Project: develop/create-integration-project.md
           - Open Projects: develop/opening-projects.md
@@ -376,7 +376,7 @@ nav:
           - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
           - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
           - Adding Connectors: develop/creating-artifacts/adding-connectors.md
-          - Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+          #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
           - Opening Artifacts: develop/opening-artifacts.md
       - Create Custom Artifacts:
           - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
@@ -384,7 +384,7 @@ nav:
           - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
           - Create a New Connector: develop/customizations/creating-new-connector.md
           - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
-      - Exporting Artifacts: develop/exporting-artifacts.md
+
       - Securing Artifacts:
           - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
           - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
@@ -394,12 +394,12 @@ nav:
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
-          - Hot Deploying Artifacts: develop/hot-deployment.md
+          # - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
           - Generate Docker Images: develop/generate-docker-image.md
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
-          - Use Wire Logs: develop/using-wire-logs.md
+          # - Use Wire Logs: develop/using-wire-logs.md
           - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
           - Endpoint Trace: develop/endpoint-trace-logs.md
@@ -417,7 +417,7 @@ nav:
               - Install MI: install-and-setup/install/installing-mi.md
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
-              - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
+              # - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
           - Install the Integration Control Plane:
               - Install the Ingeration Control Plane: install-and-setup/install/installing-integration-control-plane.md
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
@@ -490,10 +490,10 @@ nav:
               - Integrations on K8s:
                   - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                   - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
-                  - Integration Deployment Samples:
-                      - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
-                      - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
-                      - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
+                  # - Integration Deployment Samples:
+                      # - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                      # - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                      # - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -514,7 +514,7 @@ nav:
       - CI/CD:
           - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
           - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
-          - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
+          # - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
       - Reference:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -550,7 +550,7 @@ nav:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
           - MI Analytics:
-              - Setup: mi-analytics/setting-up-mi-analytics.md
+              # - Setup: mi-analytics/setting-up-mi-analytics.md
               - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
@@ -572,7 +572,6 @@ nav:
           - Connectors Overview: reference/connectors/connectors-overview.md
           - When to Use Connectors: reference/connectors/why-connectors.md
           - Connector Usage Guidelines: reference/connectors/connector-usage.md
-          - Connector Developer Guidelines: reference/connectors/develop-connectors.md
           - Amazon DynamoDB Connector:
               - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
               - Set up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
@@ -595,8 +594,12 @@ nav:
                   - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
           - Amazon SQS Connector:
               - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
-              - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
-              - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md
+              - 2.x:
+                  - Amazon SQS Example: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example.md
+                  - Amazon SQS Reference: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference.md
+              - 1.x:
+                  - Amazon SQS Example: reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-example.md
+                  - Amazon SQS Reference: reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-1.x-reference.md
               - Amazon SQS Inbound Endpoint Example: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md
               - Amazon SQS Inbound Endpoint Reference:
                   - 1.0.x: reference/connectors/amazonsqs-connector/amazon-inbound-endpoint-1.0.x/amazonsqs-inbound-endpoint-reference-configuration.md
@@ -866,7 +869,7 @@ nav:
               - SOAP Headers: reference/mediators/property-reference/soap-headers.md
               - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
               - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
-              - Accessing Properties with XPath: reference/mediators/property-reference/accessing-properties-with-xpath.md
+          - Expressions: reference/synapse-properties/expressions.md
           - REST API Properties: reference/synapse-properties/rest-api-properties.md
           - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
           - Inbound Endpoints:
@@ -985,11 +988,27 @@ plugins:
               'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
-              'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.3.0/learn/examples/protocol-switching/switching-from-fix-to-jms.md'
+              'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.3.0/learn/examples/protocol-switching/switching-from-fix-to-jms'
+              'install-and-setup/install/installing-mi-dashboard.md': 'https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-integration-control-plane.md'
               'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/config-catalog-integration-control-plane/'
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
+              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
+              'develop/using-wire-logs.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/debugging-mediation'
+              'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
+              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/observe-overview'
+              'install-and-setup/install/running-the-mi-in-automation-mode.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installing-mi'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/synapse-properties/expressions/#xpath-expressions'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
+              'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/customizations/creating-new-connector/'
               'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/mediators/data-mapper-mediator'
 
   # Extra

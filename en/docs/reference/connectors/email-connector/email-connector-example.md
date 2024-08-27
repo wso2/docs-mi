@@ -117,7 +117,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/), add the `getEmailBody` operation as shown below providing the `//email/index/text()` expression as the Email Index.<br/>
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-get-email-body.png" title="Adding getEmailBody operation." width="800" alt="Adding getEmailBody operation."/>
 
-    > **NOTE**: Further, you can use the `getAttachment` operation to retrieve attachment content if there is any. Refer to the [Reference Documentation](email-connector-config/) to learn more.
+    > **NOTE**: Further, you can use the `getAttachment` operation to retrieve attachment content if there is any. Refer to the [Reference Documentation]({{base_path}}/reference/connectors/email-connector/email-connector-config/) to learn more.
 
 16. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/), to add the email content to the same response we received from the `list` operation and configure the Payload Factory mediator as shown below.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-payload-factory.png" title="Adding payload factory mediator." width="800" alt="Adding payload facotry mediator."/>

@@ -115,7 +115,7 @@ The following properties are available:
     
 ### Example 1: Setting the property symbol
 
-In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
+In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-mediator).
     
 ```xml
 <enrich>

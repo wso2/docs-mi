@@ -108,7 +108,7 @@ You can download the ZIP file and extract the contents to get the project code.
    
 3. Copy the exported carbon application to the **PRODUCT-HOME/repository/deployment/server/carbonapps** folder. 
 
-4. [Start the integration server]({{base_path}}/get-started/quick-start-guide/integration-qsg#start-the-micro-integrator). 
+4. [Start the integration server]({{base_path}}/get-started/quick-start-guide/#start-the-micro-integrator). 
 
 ## Test  
 
@@ -125,8 +125,8 @@ You can download the ZIP file and extract the contents to get the project code.
    SMPP Inbound Endpoint will consume messages from the SMSC.
    
    **Expected response**
-   
-      ```
-      [2024-07-17 15:38:26,381]  INFO {LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 3, ServiceType = null
-      [2024-07-17 15:38:26,385]  INFO {LogMediator} - To: , MessageID: urn:uuid:2D91A3B4AC27392C7E1721210906380, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message</text></soapenv:Body></soapenv:Envelope>
-      ```
+
+   ```
+    [2024-07-17 15:38:26,381]  INFO {LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 3, ServiceType = null
+    [2024-07-17 15:38:26,385]  INFO {LogMediator} - To: , MessageID: urn:uuid:2D91A3B4AC27392C7E1721210906380, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message</text></soapenv:Body></soapenv:Envelope>
+   ```
