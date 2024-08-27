@@ -354,7 +354,7 @@ This example demonstrates how you can map an XML payload to CSV format.
 
 !!! Info
     If you specify special characters (For example `&`,
-    `&amp;)` within the `<text>`
+    `&amp;`) within the `<text>`
     tag when converting from CSV to CSV, they will be displayed as follows
     by default.
     -   `& -> &amp;`
