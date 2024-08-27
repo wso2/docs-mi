@@ -16,6 +16,11 @@ This chapter introduces message construction patterns and how they can be simula
         <td>How messaging can be used to transfer data between applications.</td>
     </tr>
     <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/event-message">Event Message</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/event-message.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/event-message.png" alt="event-message" width="80"></a></td>
+        <td>How messaging can be used to transmit events from one application to another.</td>
+    </tr>
+    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-construction/request-reply">Request-Reply</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/request-reply.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/request-reply.png" alt="request-reply" width="80"></a></td>
         <td>How an application that sends a message gets a response from the receiver.</td>
