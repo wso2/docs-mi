@@ -166,33 +166,33 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 Follow the steps given below.
 
-1.    Open a terminal and navigate to the `<ICP_HOME>/bin` folder.
-2.    Execute one of the commands given below.
+1. Open a terminal and navigate to the `<ICP_HOME>/bin` folder.
+2. Execute one of the commands given below.
       
-      === "On MacOS/Linux"
-          ```bash 
-          ./dashboard.sh
-          ```
-      === "On Windows"
-          ```bash 
-          dashboard.bat
-          ```
+    === "On MacOS/Linux"
+        ```bash 
+        ./dashboard.sh
+        ```
+    === "On Windows"
+        ```bash 
+        dashboard.bat
+        ```
       
 ### Step 4 - Start the MI servers
 
 Follow the steps given below.
 
-1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
-2.    Execute one of the commands given below.
+1. Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+2. Execute one of the commands given below.
       
-      === "On MacOS/Linux"
-          ```bash 
-          ./micro-integrator.sh
-          ```
-      === "On Windows"           
-          ```bash 
-          micro-integrator.bat
-          ```
+    === "On MacOS/Linux"
+        ```bash 
+        ./micro-integrator.sh
+        ```
+    === "On Windows"           
+        ```bash 
+        micro-integrator.bat
+        ```
       
 ### Step 5 - Sign in to the ICP server
 
@@ -260,7 +260,6 @@ Now you can view details of artifacts, update artifacts, and perform various oth
 <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
 
 ## Monitoring health of ICP server
-
 
 The Integration Control Plane provides a health check endpoint that can be used to monitor the status of the ICP server. The following API format can be used to invoke the health API.
 
