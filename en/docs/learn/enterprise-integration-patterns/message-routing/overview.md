@@ -16,6 +16,11 @@ This section introduces various types of routers and how they can be simulated u
         <td>How a component avoids receiving uninteresting messages.</td>
     </tr>
     <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/dynamic-router">Dynamic Router</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/dynamic-router.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/dynamic-router.png" alt="dynamic-router" width="80"></a></td>
+        <td>How to avoid the dependency of a router in all possible destinations, while maintaining its efficiency.</td>
+    </tr>
+    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/recipient-list">Recipient List</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/recipient-list.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/recipient-list.png" alt="recipient-list" width="80"></a></td>
         <td>How to route a message to a list of dynamically specified recipients.</td>

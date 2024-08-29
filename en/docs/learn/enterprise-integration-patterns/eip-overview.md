@@ -148,6 +148,11 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td>How a component avoids receiving uninteresting messages.</td>
     </tr>
     <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/dynamic-router">Dynamic Router</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/dynamic-router.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/dynamic-router.png" alt="dynamic-router" width="80"></a></td>
+        <td>How to avoid the dependency of a router in all possible destinations, while maintaining its efficiency.</td>
+    </tr>
+    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/recipient-list">Recipient List</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/recipient-list.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/recipient-list.png" alt="recipient-list" width="80"></a></td>
         <td>How to route a message to a list of dynamically specified recipients.</td>
@@ -231,6 +236,11 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper">Messaging Mapper</a></td>
         <td></td>
         <td>How to move data between domain objects and the messaging infrastructure, while keeping the two independent of each other.</td>
+    </tr>
+    <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/transactional-client">Transactional Client</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/transactional-client.png" alt="transactional-client" width="80"></a></td>
+        <td>How a client controls its transactions with the messaging system.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer">Polling Consumer</a></td>
