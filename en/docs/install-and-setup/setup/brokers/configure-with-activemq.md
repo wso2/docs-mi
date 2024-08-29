@@ -13,7 +13,7 @@ Follow the instructions below to set up and configure.
     **ActiveMQ 5.18.0 and above**
 
     !!! Note 
-        Apache ActiveMQ Classic 5.18.0 brings initial JMS 2.0 (javax.jms API namespace) and Jakarta Messaging 3.1 (jakarta.jms API namespace) client support. See the [JMS 2.0 page](https://activemq.apache.org/components/classic/documentation/jms2). for more details on the available functionality and how to use the Jakarta Messaging support.
+        Apache ActiveMQ Classic 5.18.0 brings initial support for JMS 2.0 (javax.jms API namespace) and Jakarta Messaging 3.1 (jakarta.jms API namespace) clients. See the [JMS 2.0](https://activemq.apache.org/components/classic/documentation/jms2) documentation for more details on the available functionality and how to use the Jakarta Messaging support.
 
     -   activemq-broker-5.18.0.jar
     -   activemq-client-5.18.0.jar
