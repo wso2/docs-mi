@@ -22,7 +22,7 @@ Follow the instructions below to set up and configure.
     -   Slf4j-api-1.6.6.jar
     -   activeio-core-3.1.4.jar (available in the `ACTIVEMQ_HOME/lib/optional` directory)  
 
-    **ActiveMQ 5.8.0 Till 5.17.x**
+    **ActiveMQ 5.8.0 to 5.17.x**
 
     -   activemq-broker-5.8.0.jar
     -   activemq-client-5.8.0.jar
