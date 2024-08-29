@@ -116,7 +116,7 @@ See the [complete list of parameters]({{base_path}}/reference/config-catalog-int
 
 Follow the steps given below.
 
-1.    Open a command prompt as explained below.
+1. Open a command prompt as explained below.
 
       <table>
             <tr>
@@ -129,17 +129,17 @@ Follow the steps given below.
             </tr>
       </table>     
 
-2.    Navigate to the `<ICP_HOME>/bin` folder from your command line.
-3.    Execute one of the commands given below.
+2. Navigate to the `<ICP_HOME>/bin` folder from your command line.
+3. Execute one of the commands given below.
 
-       === "On macOS/Linux"
-           ```bash 
-           sh dashboard.sh
-           ```
-       === "On Windows"
-           ```bash 
-           dashboard.bat
-           ```
+    === "On macOS/Linux"
+        ```bash 
+        sh dashboard.sh
+        ```
+    === "On Windows"
+        ```bash 
+        dashboard.bat
+        ```
 
 ## Accessing the Integration Control Plane
 
