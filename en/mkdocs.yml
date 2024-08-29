@@ -304,6 +304,7 @@ nav:
               - Message Routing - Overview: learn/enterprise-integration-patterns/message-routing/overview.md
               - Content-Based Router: learn/enterprise-integration-patterns/message-routing/content-based-router.md
               - Message Filter: learn/enterprise-integration-patterns/message-routing/message-filter.md
+              - Dynamic Router: learn/enterprise-integration-patterns/message-routing/dynamic-router.md
               - Recipient List: learn/enterprise-integration-patterns/message-routing/recipient-list.md
               - Splitter: learn/enterprise-integration-patterns/message-routing/splitter.md
               - Aggregator: learn/enterprise-integration-patterns/message-routing/aggregator.md
@@ -324,7 +325,7 @@ nav:
               - Messaging Endpoints - Overview: learn/enterprise-integration-patterns/messaging-endpoints/overview.md
               - Messaging Gateway: learn/enterprise-integration-patterns/messaging-endpoints/messaging-gateway.md
               - Messaging Mapper: learn/enterprise-integration-patterns/messaging-endpoints/messaging-mapper.md
-              #- Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
+              - Transactional Client: learn/enterprise-integration-patterns/messaging-endpoints/transactional-client.md
               - Polling Consumer: learn/enterprise-integration-patterns/messaging-endpoints/polling-consumer.md
               - Event-Driven Consumer: learn/enterprise-integration-patterns/messaging-endpoints/event-driven-consumer.md
               - Competing Consumers: learn/enterprise-integration-patterns/messaging-endpoints/competing-consumers.md
