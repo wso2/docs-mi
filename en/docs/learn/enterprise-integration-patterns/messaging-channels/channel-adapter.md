@@ -69,4 +69,4 @@ Let's break down the elements of the configuration:
 
 
 !!! Note
-    For more information, Refer [Salesforce Connector Documentation]({{base_path}}/reference/connectors/salesforce-connectors/sf-overview/).
+    Follow the [Salesforce Connector Documentation]({{base_path}}/reference/connectors/salesforce-connectors/sf-overview/) to set up the Salesforce connector, where you will also find examples to try out.
