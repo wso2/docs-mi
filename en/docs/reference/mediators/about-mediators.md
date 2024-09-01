@@ -33,7 +33,7 @@ Mediators are classified as follows based on whether or not they access the mess
   <tr>
     <td><b>Conditionally Content-Aware</b> mediators</td>
     <td>
-      These mediators could be either content-aware or content-unaware depending on their exact instance configuration. For example, a simple <a href="{{base_path}}/reference/mediators/log-Mediator"></a> mediator instance (i.e. configured as <log/>) is content-unaware. However a log mediator configured as <log level=”full”/> would be content-aware since it is expected to log the message payload.
+      These mediators could be either content-aware or content-unaware depending on their exact instance configuration. For example, a simple <a href="{{base_path}}/reference/mediators/log-mediator"></a> mediator instance (i.e. configured as <log/>) is content-unaware. However a log mediator configured as <log level=”full”/> would be content-aware since it is expected to log the message payload.
     </td>
   </tr>
 </table>

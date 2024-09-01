@@ -1,10 +1,10 @@
 # Event Message
 
-This section explains, through an example scenario, how the Event Message EIP can be implemented using the ESB profile of WSO2 EI.
+This page explains how you can implement a sample scenario of Event Message using WSO2 Micro Integrator.
 
 ## Introduction to Event Message
 
-The Event Message EIP is used for reliable, asynchronous event notification between applications. 
+The Event Message EIP is used for reliable, asynchronous event notifications between applications. 
 
 !!! info
     For more information, see the [Event Message](http://www.eaipatterns.com/EventMessage.html).
@@ -13,89 +13,165 @@ The Event Message EIP is used for reliable, asynchronous event notification betw
 
 ## Sample scenario
 
-When a subject has an event to be announced, it will crate an event object, wrap it in a message, and send it to a set of subscribers. This example scenario depicts several Axis2 server instances as subscribers. When a message arrives to the ESB profile, it will be transmitted through the event mediator to each of these server instances that acts as a subscriber.
+The example scenario depicts an inventory for stocks and demonstrates how the EIP distributes a message among several subscribers. It includes multiple instances of the subscribers for the event. When a message is sent to the WSO2 MI, it is transmitted to these subscriber instances, each of which acts as a subscriber through the ActiveMQ topic.
 
-The diagram below depicts how to simulate the example scenario using the ESB profile.
+The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
 ![Event message]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-construction/event-message.png)
 
 Before digging into implementation details, let's take a look at the relationship between the example scenario and the Event Message EIP by comparing their core components.
 
-| Event Message EIP (Figure 1) | Event Message Example Scenario (Figure 2) |
+| Event Message EIP            | Event Message Example Scenario            |
 |------------------------------|-------------------------------------------|
 | Subject                      | Stock Quote Client                        |
-| Event Message                | Event, Topic                              |
-| Observer                     | Stock Quote Service Instance              |
+| Event Message                | ActiveMQ topic                            |
+| Observer                     | EventObserver Proxies                     |
 
-##  ESB configuration
+## Synapse configuration of the artifacts
 
-Given below is the ESB configuration of this sample. Log in to the Management Console of the ESB profile, click Main, and then click Source View in the Service Bus menu to view this. 
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://ws.apache.org/ns/synapse">
-   <proxy name="EventMessageProxy" transports="https http" startOnLoad="true" trace="disable">
-      <target>
-         <inSequence>
-            <event topic="stockquote" />
-         </inSequence>
-         <outSequence>
-            <send />
-         </outSequence>
-      </target>
-   </proxy>
-</definitions>
-```
-
-### How the implementation works
-
-Let's investigate the elements of the configuration in detail. The line numbers below are mapped with the configuration shown above.
-
-- Event [line 12 of config] - Sends incoming events to the topics that you created earlier.
+=== "EventGeneratorProxy"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="EventGeneratorProxy" transports="http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+       <target>
+          <inSequence>
+             <property name="OUT_ONLY" value="true" />
+             <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" />
+             <call>
+               <endpoint>
+                   <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactory=myTopicSender"/>
+               </endpoint>
+             </call>
+          </inSequence>
+       </target>
+    </proxy>
+    ```
+=== "EventObserver1"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="EventObserver1" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+       <target>
+           <inSequence>
+              <log category="INFO" level="custom">
+                  <property name="Observer1" expression="$body" />
+              </log>
+              <drop/>
+            </inSequence>
+       </target>
+       <parameter name="transport.jms.ContentType">
+          <rules>
+             <jmsProperty>contentType</jmsProperty>
+             <default>application/xml</default>
+          </rules>
+       </parameter>
+       <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
+       <parameter name="transport.jms.DestinationType">topic</parameter>
+       <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
+    </proxy>
+    ```
+=== "EventObserver2"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="EventObserver2" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+               <log level="custom">
+               <property name="Observer2" value="Event received by the Observer2"/>
+               </log>
+               <log category="INFO" level="custom">
+                  <property name="Observer2" expression="$body" />
+               </log>
+               <drop/>
+            </inSequence>
+        </target>
+        <parameter name="transport.jms.ContentType">
+            <rules>
+               <jmsProperty>contentType</jmsProperty>
+               <default>application/xml</default>
+            </rules>
+        </parameter>
+        <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
+        <parameter name="transport.jms.DestinationType">topic</parameter>
+        <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
+    </proxy>
+    ```
 
 ## Set up the sample scenario
 
-Now, let's try out the sample scenario explained above.
+{!includes/eip-set-up.md!}
 
-### Set up the environment
+4. Download the artifacts of the sample.
 
-1. Download the `Event-Message.zip`, which includes the artifacts of this sample and follow the steps in Simulating a Sample Scenario.
+    <a href="{{base_path}}/assets/attachments/learn/enterprise-integration-patterns/EventMessage.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP"></a>
 
-2. Follow the steps below to create an event.
+5. Import the artifacts to WSO2 MI.
 
-    1. Start the ESB profile and log into its Management Console. For instructions, see Starting the ESB profile in WSO2 EI Documentation.
+    Click **File** -> **Open Folder** -> Select the extracted ZIP file to import the downloaded ZIP file.
 
-   2. Select the **Topics** menu from the **Main** menu, and then select the **Add** sub menu.
+6. Start the project in the WSO2 MI server.
 
-   3. Enter the name `stockquote` for the topic and then click **Add Topic**.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
-   4. In the Topic Browser tree, click the newly created `stockquote` topic and then click **Subscribe** to create a static subscription.
+7. Set up and Start [ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq).
 
-   5. Enter the value http://localhost:9000/services/SimpleStockQuoteService in the **Event Sink URL** field and click **Subscribe**.
+!!!note
+    Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) in the `deployment.toml` file.
+    ```
+    [[transport.jms.listener]]
+    name = "myTopicConnectionFactory"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
 
-   6. Repeat these steps to add another subscriber in port `9001`.
+    [[transport.jms.sender]]
+    name = "myTopicSender"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+    ```
+
 
 ## Execute the sample
 
-Send the following message from a SOAP client like SoapUI to the ESB profile.
+Send the following request to the service using SoapUI (or any other SOAP client).
 
-```
+```xml
+POST http://localhost:8290/services/EventGeneratorProxy
+
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "urn:getQuote"
+
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getQuote>   
-         <ser:request>         
-            <xsd:symbol>foo</xsd:symbol>
-         </ser:request>        
-      </ser:getQuote>
-   </soapenv:Body>
+<soapenv:Body>
+    <ser:getQuote>
+        <ser:request>
+            <xsd:symbol>IBM</xsd:symbol>
+        </ser:request>
+    </ser:getQuote>
+</soapenv:Body>
 </soapenv:Envelope>
 ```
 
-Observe the two Axis2 server instances. Both instances will receive the request, which was sent from the client.
+## Analyze the output
 
-Output of both Axis Server consoles:
+When you execute the command above, a message is sent to the ActiveMQ topic. Notice the following processed server log in WSO2 MI output:
 
-samples.services.SimpleStockQuoteService :: Generating quote for : foo
-
-You don't get a response in the Soap UI.
+```log
+INFO {LogMediator} - {proxy:EventObserver2} Observer2 = <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+      <ser:getQuote xmlns:ser="http://services.samples">    
+         <ser:request>          
+            <xsd:symbol xmlns:xsd="http://services.samples/xsd">IBM</xsd:symbol>
+         </ser:request>
+      </ser:getQuote>
+   </soapenv:Body>
+INFO {LogMediator} - {proxy:EventObserver1} Subscriber1 = <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Envelope xmlns:xsd="http://services.samples/xsd" xmlns:ser="http://services.samples"><soapenv:Body>
+      <ser:getQuote>    
+         <ser:request>          
+            <xsd:symbol>IBM</xsd:symbol>
+         </ser:request>
+      </ser:getQuote>
+   </soapenv:Body></soapenv:Envelope></soapenv:Body>
+```

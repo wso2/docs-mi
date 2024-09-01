@@ -2,7 +2,7 @@
 
 Messaging is one integration style out of many, used for connecting various applications in a loosely coupled, asynchronous manner. Messaging decouples the applications from data transferring, so that applications can concentrate on data and related logic while the messaging system handles the transferring of data.
 
-This chapter introduces the basic patterns used when implementing enterprise integration using messaging and how they are simulated using the ESB profile of WSO2 EI. These patterns are the fundamentals on which the rest of the chapters in this guide are built.
+This chapter introduces the basic patterns used when implementing enterprise integration using messaging and how they are simulated using the WSO2 Micro Integrator. These patterns are the fundamentals on which the rest of the chapters in this guide are built.
 
 <table>
     <tr>

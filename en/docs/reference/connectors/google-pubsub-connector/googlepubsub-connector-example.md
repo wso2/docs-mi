@@ -122,7 +122,7 @@ First create an API, which will be where we configure the integration logic. Spe
 
 4. Forward the backend response to the API caller.
 
-    When you are invoke the created resource, the request for the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.
+    When you are invoke the created resource, the request for the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.
 
     1. Add the **respond mediator** to the **Design view**. 
 

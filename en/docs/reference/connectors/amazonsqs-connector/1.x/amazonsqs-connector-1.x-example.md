@@ -14,7 +14,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the environment 
 
-1. Follow the steps mentioned in the [Setting up the Amazon S3 Environment]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.  
+1. Follow the steps mentioned in the [Setting up the Amazon S3 Environment]({{base_path}}/reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-config) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.  
 
 2. In this example, we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 
@@ -32,7 +32,12 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the integration project
 
-{!includes/build-and-run.md!}
+1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+
+    !!! info
+        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+
+2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 
 ## Create the integration logic
 

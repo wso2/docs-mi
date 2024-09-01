@@ -1,6 +1,8 @@
-A message router is a basic architectural pattern of a messaging system used fundamentally for connecting different message channels. A router consumes a message from one message channel and republishes it to a different channel based on specified conditions.
+# Message Routing
 
-This chapter introduces various types of routers and how each of them can be simulated using the ESB profile of WSO2 EI.
+A [message router]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-router) is a basic architectural pattern of a messaging system used fundamentally for connecting different message channels. A router consumes a message from one message channel and republishes it to a different channel based on specified conditions.
+
+This section introduces various types of routers and how they can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>
@@ -12,6 +14,11 @@ This chapter introduces various types of routers and how each of them can be sim
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/message-filter">Message Filter</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-filter.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/message-filter.png" alt="message-filter" width="80"></a></td>
         <td>How a component avoids receiving uninteresting messages.</td>
+    </tr>
+    <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/dynamic-router">Dynamic Router</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/dynamic-router.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/dynamic-router.png" alt="dynamic-router" width="80"></a></td>
+        <td>How to avoid the dependency of a router in all possible destinations, while maintaining its efficiency.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-routing/recipient-list">Recipient List</a></td>

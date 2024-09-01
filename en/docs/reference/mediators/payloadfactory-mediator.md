@@ -11,7 +11,7 @@ You can use two methods to format the payload using this mediator.
     defining complex JSON payloads.
 
 You can provide arguments in the mediator configuration to pass values to your payload during runtime.
-You can specify a static value or use an XPath/JSON expression to pass values dynamically. 
+You can specify a static value or use an XPath/JSON [expression]({{base_path}}/reference/synapse-properties/expressions) to pass values dynamically. 
 The values passed by the arguments are evaluated against the existing 
 message.
 
@@ -1122,7 +1122,12 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 #### Build and run
 
-{!includes/build-and-run.md!}`
+1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+
+    !!! info
+        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+
+2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 3. Create the artifacts (proxy service, registry resource) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 5. Send a POST request to the `xml-to-edi-proxy` with the above given payload.

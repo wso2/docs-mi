@@ -89,31 +89,31 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Start the project in the WSO2 MI server.
 
-    For instructions, go to [Build and Run]("{{base_path}}/develop/deploy-artifacts/#build-and-run") Documentation.
+    For instructions, go to [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) Documentation.
 
 
-## Execute the sample.
+## Execute the sample
 
-Save the following sample request as `payload.xml` in your local file system.
+1. Save the following sample request as `payload.xml` in your local file system.
 
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-<soapenv:Header/>
-    <soapenv:Body>
-        <ser:getQuote>
-            <ser:request>
-                <ser:symbol>foo</ser:symbol>
-            </ser:request>
-        </ser:getQuote>
-    </soapenv:Body>
-</soapenv:Envelope>
-```
+    ```xml
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+    <soapenv:Header/>
+        <soapenv:Body>
+            <ser:getQuote>
+                <ser:request>
+                    <ser:symbol>foo</ser:symbol>
+                </ser:request>
+            </ser:getQuote>
+        </soapenv:Body>
+    </soapenv:Envelope>
+    ```
 
-Open a terminal, navigate to the location of your `payload.xml` file, and execute the following command. This posts a simple XML request to the Proxy service.
+2. Open a terminal, navigate to the location of your `payload.xml` file, and execute the following command. This posts a simple XML request to the Proxy service.
 
-```
-curl -L -H 'SOAPAction: urn:getQuote' -H 'Content-Type: text/xml' -d @payload.xml 'http://localhost:8290/services/message-channel-proxy'
-```
+    ```bash
+    curl -L -H 'SOAPAction: urn:getQuote' -H 'Content-Type: text/xml' -d @payload.xml 'http://localhost:8290/services/message-channel-proxy'
+    ```
 
 ## Analyze the output
 

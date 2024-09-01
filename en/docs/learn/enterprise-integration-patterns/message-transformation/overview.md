@@ -1,17 +1,14 @@
-One challenge of data communication is that the formats of data and their storage mechanisms vary among different systems. A message translator is an architectural pattern that acts as a filter between other filters or applications to translate one data format to another, transforming your message as it passes through the ESB.
+# Message Transformation
 
-This chapter introduces varieties of message translators and how each can be simulated using the WSO2 ESB.
+One challenge of data communication is that the formats of data and their storage mechanisms vary among different systems. A [message translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator) is an architectural pattern that acts as a filter between other filters or applications to translate one data format to another, transforming your message as it passes through the Micro Integrator.
+
+This section introduces various types of message translators and how they can be simulated using the WSO2 Micro Integrator.
 
 <table>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/envelope-wrapper">Envelope Wrapper</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/envelope-wrapper.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/envelope-wrapper.png" alt="envelope-wrapper" width="80"></a></td>
         <td>How existing systems participate in a messaging exchange, which places specific requirements in the message format, such as message header fields or encryption.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-enricher">Content Enricher</a></td>
-        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png" alt="data-enricher" width="80"></a></td>
-        <td>How to communicate with another system if the message originator does not have all the required data items available.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-filter">Content Filter</a></td>

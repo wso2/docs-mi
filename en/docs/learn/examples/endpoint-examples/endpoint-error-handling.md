@@ -82,7 +82,7 @@ suspensions.
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed](../../develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. [Create a project]({{base_path}}/develop/create-integration-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
@@ -124,7 +124,7 @@ Following is a sample REST API configuration that we can used to implement this 
 
 In this example, the timeout value is defined using a [Property mediator]({{base_path}}/reference/mediators/property-mediator) outside
 the endpoint configuration. The timeout parameter in the endpoint
-configuration is then evaluated against an XPATH expression that is used
+configuration is then evaluated against an [XPATH expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions) that is used
 to reference and read the timeout value. Using this timeout values can
 be configured without having to change the endpoint configuration.
 
@@ -140,7 +140,7 @@ be configured without having to change the endpoint configuration.
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed](../../develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. [Create a project]({{base_path}}/develop/create-integration-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
@@ -215,7 +215,7 @@ Follow any of the options given below to re-enable an endpoint that is suspended
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed](../../develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. [Create a project]({{base_path}}/develop/create-integration-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.

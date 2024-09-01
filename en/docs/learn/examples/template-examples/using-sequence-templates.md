@@ -3,7 +3,7 @@
 !!! Info
     The **Call Template** mediator allows you to construct a sequence by passing values into a **sequence template**. This is currently only supported for special types of mediators such as the **Iterator** and **Aggregate Mediators**, where actual XPath operations are performed on a different SOAP message, and not on the message coming into the mediator.
 
-Sequence template parameters can be referenced using an XPath expression defined inside the in-line sequence. For example, the parameter named "foo" can be referenced by the Property mediator (defined inside the in-line sequence of the template) in the following ways:
+Sequence template parameters can be referenced using an [XPath expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions) defined inside the in-line sequence. For example, the parameter named "foo" can be referenced by the Property mediator (defined inside the in-line sequence of the template) in the following ways:
 
 ```xml
 <property name=”fooValue” expression=”$func:foo” />
@@ -15,7 +15,7 @@ or
 <property name=”fooValue” expression=”get-property('foo','func')” />
 ```
 
-Using function scope or 'func' in the XPath expression allows us to refer a particular parameter value passed externally by an invoker such as the Call Template mediator.
+Using function scope or 'func' in the [XPath expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions) allows us to refer a particular parameter value passed externally by an invoker such as the Call Template mediator.
 
 See the examples given below.
 
@@ -207,7 +207,7 @@ Invoke this REST API via `http://localhost:8290/test`. See that the default gree
 
 ## Example 3: Call the sequence template using dynamic XPATH expression
 
-In this example, the sequence template is configured to dynamically determine the name of the Message Store using an XPath expression. It routes messages to a Message Store via the Store mediator by resolving the name of the Message Store from the message context.
+In this example, the sequence template is configured to dynamically determine the name of the Message Store using an [XPath expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions). It routes messages to a Message Store via the Store mediator by resolving the name of the Message Store from the message context.
 
 ### Synapse configuration
 

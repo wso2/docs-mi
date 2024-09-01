@@ -114,7 +114,7 @@ Following are the additional parameters you can set when [adding a Scheduled Fai
          <td>
             <p>The Quartz configuration file path. This properties file contains the Quartz configuration<br />
                parameters for fine tuning the Quartz engine. More details of the configuration can be<br />
-               found at <a href="http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain">http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain</a> .
+               found at <a href="https://www.quartz-scheduler.org/documentation/quartz-2.1.7/configuration/ConfigMain.html">http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain</a> .
             </p>
          </td>
       </tr>
