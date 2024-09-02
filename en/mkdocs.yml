@@ -976,7 +976,7 @@ plugins:
         - wip/*
   - redirects:
       redirect_maps:
-          'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
+              'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
