@@ -167,7 +167,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png" alt="Build and export" width="25%"></a>
 
-    c. Select the `Build CAPP` option.
+    c. Select the **Build CAPP** option.
 
    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-capp-option.png" alt="Build the CAPP" width="25%"></a>
 
