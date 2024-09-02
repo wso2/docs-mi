@@ -363,7 +363,7 @@ nav:
       - Create Artifacts:
           - Create a REST API: develop/creating-artifacts/creating-an-api.md
           - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
-          - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
+          #- Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
           - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
           - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
           - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
@@ -757,7 +757,7 @@ nav:
                   - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference.md
               - 1.x:
-                  - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
+                  # - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
           - MongoDB Connector:
               - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
@@ -976,7 +976,7 @@ plugins:
         - wip/*
   - redirects:
       redirect_maps:
-              'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
+          'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.3.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.3.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
               'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/create-integration-project'
@@ -1011,6 +1011,8 @@ plugins:
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
               'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/customizations/creating-new-connector/'
               'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/mediators/data-mapper-mediator'
+              'develop/creating-artifacts/creating-an-inbound-endpoint.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
+              'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
 
   # Extra
 extra_css:
