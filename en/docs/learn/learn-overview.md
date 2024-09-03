@@ -4,7 +4,7 @@ See the topics in the following sections for details and instructions.
 
 ### Integration Use Cases
 
-Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
+Learn about the main integration capabilities of the Micro Integrator. You can also follow the [tutorials](#integration-tutorials) on these use cases to gain hands-on knowledge.
 
 <table>
     <tr>
@@ -52,7 +52,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
             <a href="{{base_path}}/learn/integration-use-case/service-orchestration-overview">Service Orchestration</a>
         </th>
         <td>
-            Explore how multiple Restful services are exposed as a single course-grained service.
+            Explore how multiple Restful services are exposed as a single coarse-grained service.
         </td>
     </tr>  
     <tr>
