@@ -59,8 +59,8 @@ Click <b>Add User</b> to create new users. Note that you can assign admin privil
 
 Select <b>Roles</b> in the left-hand navigator to view the list of existing roles.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi_dashboard_list_roles.png">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-dashboard-list-roles.png">
 
 Click <b>Add Role</b> to create new role.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi_dashboard_add_role_sc.png">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-dashboard-add-role-sc.png">
