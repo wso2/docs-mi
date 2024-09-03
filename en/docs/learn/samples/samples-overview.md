@@ -1,13 +1,13 @@
 # Overview
 
-This section contains a description about the sample integration scenarios included in the Micro Integrator for Visual Studio Code (MI for VS Code).
+This section provides an overview of the sample integration scenarios included in the Micro Integrator for Visual Studio Code (MI for VS Code).
 
-MI for VS Code offers a comprehensive set of sample projects designed to showcase its versatile capabilities. These samples 
+MI for VS Code offers a comprehensive set of sample projects showcasing its versatile capabilities. These samples 
 cover a wide range of integration scenarios, including data transformation, message mediation, protocol switching, and security. 
 By exploring these examples, you can quickly grasp key concepts and best practices, enabling you to effectively implement 
 robust integration solutions tailored to you specific needs.
 
-## Accessing the samples
+## Access the samples
 
 You can access the available samples through the **Welcome to MI** page of MI for VS Code extension.
 
