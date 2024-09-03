@@ -610,6 +610,10 @@ nav:
               - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
               - BigQuery Example: reference/connectors/bigquery-connector/bigquery-connector-example.md
               - BigQuery Reference: reference/connectors/bigquery-connector/bigquery-connector-reference.md
+          - CDC Inbound Endpoint:
+              - CDC Inbound Endpoint Overview: reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview.md
+              - CDC Inbound Endpoint Example: reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-example.md
+              - CDC Inbound Endpoint Reference: reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-reference.md
           - Ceridian Dayforce Connector:
               - Ceridian Dayforce Overview: reference/connectors/ceridiandayforce-connector/cerediandayforce-overview.md
               - Set up the Ceridian Dayforce Connector: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md
