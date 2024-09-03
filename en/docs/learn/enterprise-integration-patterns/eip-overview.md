@@ -73,6 +73,11 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td>How the sender ensures delivery of a message, even if the messaging system fails.</td>
     </tr>
     <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-channels/channel-adapter">Channel Adapter</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-adapter.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/channel-adapter.png" alt="channel-adapter" width="80"></a></td>
+        <td>How to connect an application to the messaging system to send/receive messages.</td>
+    </tr>
+    <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/messaging-channels/messaging-bridge">Messaging Bridge</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-bridge.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/messaging-bridge.png" alt="messaging-bridge" width="80"></a></td>
         <td>How multiple messaging systems can be connected so that messages available on one are also available on the others.</td>
@@ -201,6 +206,11 @@ In this guide, we have shown how each pattern in the Patterns Catalog can be sim
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/envelope-wrapper">Envelope Wrapper</a></td>
         <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/envelope-wrapper.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/envelope-wrapper.png" alt="envelope-wrapper" width="80"></a></td>
         <td>How existing systems participate in a messaging exchange, which places specific requirements in the message format, such as message header fields or encryption.</td>
+    </tr>
+    <tr>
+        <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-enricher">Content Enricher</a></td>
+        <td><a href="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png"><img src="{{base_path}}/assets/img/learn/enterprise-integration-patterns/data-enricher.png" alt="data-enricher" width="80"></a></td>
+        <td>How to communicate with another system if the message originator does not have all the required data items available.</td>
     </tr>
     <tr>
         <td><a href="{{base_path}}/learn/enterprise-integration-patterns/message-transformation/content-filter">Content Filter</a></td>
