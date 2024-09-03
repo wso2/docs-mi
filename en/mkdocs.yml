@@ -286,7 +286,7 @@ nav:
               - Invalid Message Channel: learn/enterprise-integration-patterns/messaging-channels/invalid-message-channel.md
               - Dead Letter Channel: learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel.md
               - Guaranteed Delivery: learn/enterprise-integration-patterns/messaging-channels/guaranteed-delivery.md
-              #- Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
+              - Channel Adapter: learn/enterprise-integration-patterns/messaging-channels/channel-adapter.md
               - Messaging Bridge: learn/enterprise-integration-patterns/messaging-channels/messaging-bridge.md
               - Message Bus: learn/enterprise-integration-patterns/messaging-channels/message-bus.md
           - Message Construction:
@@ -316,7 +316,7 @@ nav:
           - Message Transformation:
               - Message Transformation - Overview: learn/enterprise-integration-patterns/message-transformation/overview.md
               - Envelope Wrapper: learn/enterprise-integration-patterns/message-transformation/envelope-wrapper.md
-              #- Content Enricher: learn/enterprise-integration-patterns/message-transformation/content-enricher.md
+              - Content Enricher: learn/enterprise-integration-patterns/message-transformation/content-enricher.md
               - Content Filter: learn/enterprise-integration-patterns/message-transformation/content-filter.md
               - Claim Check: learn/enterprise-integration-patterns/message-transformation/claim-check.md
               - Normalizer: learn/enterprise-integration-patterns/message-transformation/normalizer.md
