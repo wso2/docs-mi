@@ -95,7 +95,7 @@ The following software and configurations are required to proceed with this tuto
 1. Navigate to the `<MI_QSG_HOME>` directory. 
 The following project files and executable back-end services are available in the `<MI_QSG_HOME>`.
 
-    - **HealthcareIntegrationProject**: This folder contains the integration artifacts for the healthcare service. This service consists of the following REST API:
+    - **HealthcareIntegrationProject**: This folder contains the integration artifacts for the healthcare service. You may open `<MI_QSG_HOME>/HealthcareIntegrationProject` in Visual Studio Code and expand the folders `APIs/HealthcareAPI` and click on the API listed there. This service consists of the following REST API:
 
         <img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png" alt="Final resource view"></a>
 
@@ -143,7 +143,7 @@ The following project files and executable back-end services are available in th
                 ```
         </details>
 
-    - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
+    - **Backend**: This contains an executable `.jar` file named `DoctorInfo.jar` that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
 ## Step 2 - Run the integration artifacts
 
@@ -166,12 +166,16 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     b. Click the **Build** icon located in the top right corner of VS Code.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png" alt="Build and export" width="25%"></a>
+
+    c. Select the **Build CAPP** option.
+
+   <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-capp-option.png" alt="Build the CAPP" width="25%"></a>
+
+    d. Click the **Export** icon next to the **Build** icon once the build is successful.
     
-    c. Click the **Export** icon next to the **Build** icon.
+    e. Select a destination to export the `.car` file.
     
-    d. Select a destination to export the `.car` file.
-    
-    e. Once you select a folder, the artifacts will be exported as a deployable CAR file to that location.
+    f. Once you select a folder, the artifacts will be exported as a deployable CAR file to that location.
 
 2. Deploy the Healthcare service: Copy the exported CAR file of the Healthcare service to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
@@ -211,7 +215,7 @@ You can install and start the Integration Control Plane (ICP) to observe details
             micro-integrator.bat --stop
             ```
 
-2. Install and start the Integration Control Plane (ICP) by following the steps below:
+2. Install the Integration Control Plane (ICP) by following the steps below:
 
      1. Download the [Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane/#installing-the-integration-control-plane_1).
 
