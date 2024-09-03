@@ -1,4 +1,4 @@
-# Managing Users and Roles
+# Manage Users and Roles
 
 The WSO2 Micro Integrator has limited role support without fine-grained permission tree support as in the Enterprise Integrator. In Micro Integrator, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
 
@@ -10,7 +10,7 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 
 -	[Authentication]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authentication-jwt) for internal APIs
 
-	Users accessing the management API and related tools (Micro Integrator dashboard/Micro Integrator CLI) for administration tasks should be authenticated.
+	Users accessing the management API and related tools (Micro Integrator ICP/Micro Integrator CLI) for administration tasks should be authenticated.
 
 -	Authentication for integration use cases
 
@@ -31,23 +31,23 @@ Micro Integrator users with admin privileges can manage other users in an [LDAP]
 
 	Read more about about [authorization in the management API]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authorization).
 
-If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the Micro Integrator's [management API]({{base_path}}/observe-and-manage/working-with-management-api) for the first time. That is, when you log in to the Micro Integrator server from the <b>CLI tool</b>/<b>dashboard</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
+If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the Micro Integrator's [management API]({{base_path}}/observe-and-manage/working-with-management-api) for the first time. That is, when you log in to the Micro Integrator server from the <b>CLI tool</b>/<b>ICP server</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
 
-An existing admin user can log in to the Micro Integrator server from the CLI tool or the dashboard to add new users with admin privileges. An admin user can only be removed by the creator.
+An existing admin user can log in to the Micro Integrator server from the CLI tool or the ICP server to add new users with admin privileges. An admin user can only be removed by the creator.
 
 ### Non-admin users
 
-Users that do not have admin privileges can access the management API, the CLI, and the dashboard to view and monitor integration artifacts and logs.
+Users that do not have admin privileges can access the management API, the CLI, and the ICP server to view and monitor integration artifacts and logs.
 
-## Managing users and roles from the CLI
+## Manage users and roles from the CLI
 
 You can use the WSO2 MI CLI to view details of users, add new users, and remove users from the user store.
 
 For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#manage-users) and see [Manage Roles]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#manage-roles).
 
-## Managing users and roles from the Dashboard
+## Manage users and roles from the Integration Control Plane 
 
-See the [Micro Integrator Dashboard documentation]({{base_path}}/observe-and-manage/working-with-integration-control-plane) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
+See the [Micro Integrator ICP documentation]({{base_path}}/observe-and-manage/working-with-integration-control-plane) to set up the ICP server. Be sure to log in to the Micro Integrator server (from the ICP server) with your admin user name and password.
 
 Select <b>Users</b> in the left-hand navigator to view the list of existing users.
 
@@ -59,8 +59,8 @@ Click <b>Add User</b> to create new users. Note that you can assign admin privil
 
 Select <b>Roles</b> in the left-hand navigator to view the list of existing roles.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi_dashboard_list_roles.png">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-dashboard-list-roles.png">
 
 Click <b>Add Role</b> to create new role.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi_dashboard_add_role_sc.png">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-dashboard-add-role-sc.png">
