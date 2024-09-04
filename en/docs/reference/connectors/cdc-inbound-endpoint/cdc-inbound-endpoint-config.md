@@ -124,11 +124,7 @@ By default, the file will be stored in the <code>&lt;MI_HOME&gt;/cdc/offsetStora
     <td class="tg-0pky">database.password</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">The password to connect to the database.<br>
-Example: <code><parameter name="database.password">your_password</parameter></code>
-
-or
-
-<code><parameter name="database.password">{wso2:vault-lookup(password_alias')}</parameter></code></td>
+Example: <code><parameter name="database.password">your_password</parameter></code> or <code><parameter name="database.password">{wso2:vault-lookup(password_alias')}</parameter></code></td>
   </tr>
   <tr>
     <td class="tg-0pky">database.dbname</td>
@@ -151,8 +147,8 @@ or
   <tr>
     <td class="tg-0pky">database.server.id</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">A numeric ID of this database client, which must be unique across all currently running database processes in the MySQL cluster.<br>
-*This is applicable only for MySQL</td>
+    <td class="tg-0pky">A numeric ID of this database client, which must be unique across all currently running database processes in the cluster.<br>
+*This is applicable only for MySQL and MariaDB</td>
   </tr>
   <tr>
     <td class="tg-0pky">table.include.list</td>
@@ -163,7 +159,7 @@ Example: <code><parameter name="table.include.list">inventory.products</paramete
   <tr>
     <td class="tg-0pky">allowed.operations</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Operations that the user needs to listen to, in the specified database tables.
+    <td class="tg-0pky">Operations that the user needs to listen to in the specified database tables.
 Should provide comma-separated values for create/update/delete/truncate.<br>
 Example: create, update, delete<br>
 By default, truncate operations are skipped.</td>
