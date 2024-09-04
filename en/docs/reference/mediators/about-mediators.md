@@ -8,9 +8,9 @@ Mediators also include functionality to match incompatible protocols, data forma
 
 Mediators are always defined within a [mediation sequence]({{base_path}}/reference/mediation-sequences).
 
-## Classification of Mediators
+## Classification of mediators
 
-Mediators are classified as follows based on whether or not they access the message's content: 
+Mediators are classified as follows based on whether they access the message's content: 
 
 <table>
   <col width="140">
@@ -38,26 +38,70 @@ Mediators are classified as follows based on whether or not they access the mess
   </tr>
 </table>
 
-## List of Mediators
+## List of mediators
 
-WSO2 Micro Integrator includes a comprehensive library of mediators that provide functionality for implementing widely used **Enterprise Integration Patterns** (EIPs). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java, scripting, and Spring.
+WSO2 Micro Integrator includes a comprehensive library of mediators that provide functionality for implementing widely used [Enterprise Integration Patterns (EIPs)]({{base_path}}/learn/enterprise-integration-patterns/eip-overview/). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java, scripting, and Spring.
 
-**Core Mediators**
+### Flow control mediators
 
-[Call]({{base_path}}/reference/mediators/call-mediator) | [Send]({{base_path}}/reference/mediators/send-mediator) | [Loopback]({{base_path}}/reference/mediators/loopback-mediator) | [Sequence]({{base_path}}/reference/mediators/sequence-mediator) | [Respond]({{base_path}}/reference/mediators/respond-mediator) | [Drop]({{base_path}}/reference/mediators/drop-mediator) | [Call Template]({{base_path}}/reference/mediators/call-template-mediator) | [Enrich]({{base_path}}/reference/mediators/enrich-mediator) | [Property]({{base_path}}/reference/mediators/property-mediator) | [Property Group]({{base_path}}/reference/mediators/property-group-mediator) | [Log]({{base_path}}/reference/mediators/log-mediator) | 
+- [Filter mediator]({{base_path}}/reference/mediators/filter-mediator)
+- [Switch mediator]({{base_path}}/reference/mediators/switch-mediator)
+- [Clone mediator]({{base_path}}/reference/mediators/clone-mediator)
+- [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator)
+- [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator)
+- [Aggregate mediator]({{base_path}}/reference/mediators/aggregate-mediator)
+- [Validate mediator]({{base_path}}/reference/mediators/validate-mediator)
 
-**Filter Mediators**
+### Transformation mediators
 
-[Filter]({{base_path}}/reference/mediators/filter-mediator) | [Validate]({{base_path}}/reference/mediators/validate-mediator) | [Switch]({{base_path}}/reference/mediators/switch-mediator) | 
+- [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)
+- [Header mediator]({{base_path}}/reference/mediators/header-mediator)
+- [XSLT mediator]({{base_path}}/reference/mediators/xslt-mediator)
+- [JSON Transform mediator]({{base_path}}/reference/mediators/json-transform-mediator)
+- [Fault mediator]({{base_path}}/reference/mediators/fault-mediator)
+- [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
+- [Data Mapper mediator]({{base_path}}/reference/mediators/data-mapper-mediator)
 
-**Transform Mediators**
+### Extension mediators
 
-[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform]({{base_path}}/reference/mediators/json-transform-mediator) |
+- [Script mediator]({{base_path}}/reference/mediators/script-mediator)
+- [Class mediator]({{base_path}}/reference/mediators/class-mediator)
 
-**Advanced Mediators**
+### Generic mediators
 
-[Cache]({{base_path}}/reference/mediators/cache-mediator) | [ForEach]({{base_path}}/reference/mediators/foreach-mediator) | [Clone]({{base_path}}/reference/mediators/clone-mediator) | [Store]({{base_path}}/reference/mediators/store-mediator) | [Iterate]({{base_path}}/reference/mediators/iterate-mediator) | [Aggregate]({{base_path}}/reference/mediators/aggregate-mediator) | [Callout]({{base_path}}/reference/mediators/callout-mediator) | [Transaction]({{base_path}}/reference/mediators/transaction-mediator) | [Throttle]({{base_path}}/reference/mediators/throttle-mediator) | [DBReport]({{base_path}}/reference/mediators/db-report-mediator) | [DBLookup]({{base_path}}/reference/mediators/dblookup-mediator) | [EJB]({{base_path}}/reference/mediators/ejb-mediator) | [Binder]({{base_path}}/reference/mediators/builder-mediator) | [Entitlement]({{base_path}}/reference/mediators/call-mediator) | [OAuth]({{base_path}}/reference/mediators/call-mediator) | [Smooks]({{base_path}}/reference/mediators/smooks-mediator) | [Data Mapper]({{base_path}}/reference/mediators/data-mapper-mediator) | 
+- [Call mediator]({{base_path}}/reference/mediators/call-mediator)
+- [Property mediator]({{base_path}}/reference/mediators/property-mediator)
+- [Log mediator]({{base_path}}/reference/mediators/log-mediator)
+- [Respond mediator]({{base_path}}/reference/mediators/respond-mediator)
+- [Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator)
+- [Call Template mediator]({{base_path}}/reference/mediators/call-template-mediator)
+- [Drop mediator]({{base_path}}/reference/mediators/drop-mediator)
+- [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator)
+- [Cache mediator]({{base_path}}/reference/mediators/cache-mediator)
+- [Throttle mediator]({{base_path}}/reference/mediators/throttle-mediator)
+- [Store mediator]({{base_path}}/reference/mediators/store-mediator)
 
-**Extension Mediators**
+### Security mediators
 
-[Class]({{base_path}}/reference/mediators/class-mediator) | [Script]({{base_path}}/reference/mediators/script-mediator) |
+- [Oauth mediator]({{base_path}}/reference/mediators/oauth-mediator)
+- [Entitlement mediator]({{base_path}}/reference/mediators/entitlement-mediator/)
+- [NTLM mediator]({{base_path}}/reference/mediators/ntlm-mediator/)
+
+### Database mediators
+
+- [Data Service Call mediator]({{base_path}}/reference/mediators/dss-mediator/)
+- [DBLookup mediator]({{base_path}}/reference/mediators/dblookup-mediator)
+- [DB Report mediator]({{base_path}}/reference/mediators/db-report-mediator)
+
+### Other mediators
+
+- [Send mediator]({{base_path}}/reference/mediators/send-mediator)
+- [Callout mediator]({{base_path}}/reference/mediators/callout-mediator)
+- [Smooks mediator]({{base_path}}/reference/mediators/smooks-mediator)
+- [Transaction mediator]({{base_path}}/reference/mediators/transaction-mediator)
+- [Builder mediator]({{base_path}}/reference/mediators/builder-mediator)
+- [Loopback mediator]({{base_path}}/reference/mediators/loopback-mediator/)
+- [FastXSLT mediator]({{base_path}}/reference/mediators/fastxslt-mediator)
+- [URLRewrite mediator]({{base_path}}/reference/mediators/urlrewrite-mediator/)
+- [XQuery mediator]({{base_path}}/reference/mediators/xquery-mediator/)
+- [EJB mediator]({{base_path}}/reference/mediators/ejb-mediator/)
