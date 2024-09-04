@@ -1,13 +1,12 @@
+*       @chanikag @DinithiDiaz @anupama-pathirage
 /en/docs/index.md @chanikag
-/en/docs/get-started @arunans23
+/en/docs/get-started @chanikag
 /en/docs/install-and-setup @rosensilva
+/en/docs/develop @rosensilva
 /en/docs/observe-and-manage @SanojPunchihewa
-/en/docs/reference/* @arunans23
 /en/docs/reference/connectors @arunans23
 /en/docs/reference/mi-security-reference @arunans23
 /en/docs/reference/synapse-properties @malakaganga
-/en/docs/develop @rosensilva
-/en/docs/learn/* @sajinieKavindya
 /en/docs/learn/integration-use-case @sajinieKavindya
 /en/docs/learn/integration-tutorials @sajinieKavindya
 /en/docs/learn/examples @GDLMadushanka
