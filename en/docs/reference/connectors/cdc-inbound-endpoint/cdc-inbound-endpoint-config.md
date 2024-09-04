@@ -65,7 +65,7 @@ Refer <a href="https://debezium.io/documentation/reference/stable/development/en
     <td class="tg-0pky">schema.history.internal.file.filename</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">This value is required only if <code>io.debezium.storage.file.history.FileSchemaHistory</code> was provided for the <code>schema.history.internal</code> value. You need to specify the path to a file where the database schema history is stored.
-By default, the file will be stored in the <code>&lt;MI Home&gt;/cdc/schemaHistory</code> directory.</td>
+By default, the file will be stored in the <code>&lt;MI_HOME&gt;/cdc/schemaHistory</code> directory.</td>
   </tr>
   <tr>
     <td class="tg-0pky">schema.history.internal.kafka.topic</td>
@@ -88,7 +88,7 @@ Required when <code>schema.history.internal</code> is set to the <code><…​>.
     <td class="tg-0pky">offset.storage.file.filename</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">Path to file where offsets are to be stored. Required when <code>offset.storage</code> is set to the <code><…>.FileOffsetBackingStore</code>.
-By default, the file will be stored in the <code>&lt;MI Home&gt;/cdc/offsetStorage</code> directory.</td>
+By default, the file will be stored in the <code>&lt;MI_HOME&gt;/cdc/offsetStorage</code> directory.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.topic</td>

@@ -81,12 +81,12 @@ In this example, a relational database table is used to store product informatio
     </inboundEndpoint>
     ```
 
-8. Download the latest Debezium Orbit JAR for **2.1.4.Final.wso2v2** from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<Project Home>/deployment/libs` directory. Here, `<Project Home>` refers to the directory path where your integration project is located.
+8. Download the latest Debezium Orbit JAR for **2.1.4.Final.wso2v2** from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs` directory. Here, `<PROJECT_HOME>` refers to the directory path where your integration project is located.
 
-9. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<Project Home>/deployment/libs` directory.
+9. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<PROJECT_HOME>/deployment/libs` directory.
 
 !!! info 
-    If you're using a different database, you'll need to download the appropriate JDBC driver and place it in the `<Project Home>/deployment/libs` directory.
+    If you're using a different database, you'll need to download the appropriate JDBC driver and place it in the `<PROJECT_HOME>/deployment/libs` directory.
 
 ## Get the project
 
