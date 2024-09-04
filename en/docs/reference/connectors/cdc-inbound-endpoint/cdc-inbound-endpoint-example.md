@@ -99,7 +99,7 @@ You can download the ZIP file and extract the contents to get the project code.
 !!! tip
     You may need to update the database details and make other such changes before deploying and running this project.
 
-## Build and Run
+## Build and run
 
 Create the artifacts:
 

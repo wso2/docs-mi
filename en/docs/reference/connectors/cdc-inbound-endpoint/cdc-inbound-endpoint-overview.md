@@ -12,7 +12,7 @@ To see the CDC Inbound Endpoint, navigate to the [connector store](https://store
 | ------------- |-------------|
 | 1.0.0    | MI 4.3.0, MI 4.2.0 |
 
-## CDC Inbound Endpoint
+## CDC inbound endpoint
 
 * **[CDC Inbound Endpoint Example]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-example)**: In this example, you will learn how to configure **CDC Inbound Endpoint** so that it can listen to data changes done to a **MySQL** table. 
 
