@@ -1,6 +1,6 @@
 # CDC Inbound Endpoint Reference
 
-The following configurations allow you to configure CDC Inbound Endpoint for your scenario. 
+The following configurations allow you to configure the CDC Inbound Endpoint for your scenario. 
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -27,17 +27,17 @@ The following configurations allow you to configure CDC Inbound Endpoint for you
   <tr>
     <td class="tg-0pky">sequential</td>
     <td class="tg-0pky">true</td>
-    <td class="tg-0pky">Whether the messages need to be polled and injected sequentially or not. By default this is set to <code>true</code>.</td>
+    <td class="tg-0pky">Whether the messages need to be polled and injected sequentially or not. By default, this is set to <code>true</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">connector.name</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Unique name for the connector. If not present, inbound endpoint name is considered as the connector name. </td>
+    <td class="tg-0pky">Unique name for the connector. If not present, the inbound endpoint name is considered as the connector name. </td>
   </tr>
   <tr>
     <td class="tg-0pky">snapshot.mode</td>
     <td class="tg-0pky">initial</td>
-    <td class="tg-0pky">Specifies the criteria for running a snapshot when the connector starts. Possible settings are: always, initial, initial_only, schema_only, no_data, recovery, when_needed, configuration_based, custom.</td>
+    <td class="tg-0pky">Specifies the criteria for running a snapshot when the connector starts. Possible settings are: <code>always</code>, <code>initial</code>, <code>initial_only</code>, <code>schema_only</code>, <code>no_data</code>, <code>recovery</code>, <code>when_needed</code>, <code>configuration_based</code>, and <code>custom</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">connector.class</td>
@@ -52,21 +52,20 @@ For Db2 database, <code>io.debezium.connector.db2.Db2Connector</code></td>
   <tr>
     <td class="tg-0pky">topic.prefix</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Topic prefix that provides a namespace for the database server that you want Debezium to capture. The prefix should be unique across all other connectors, since it is used as the prefix for all Kafka topic names that receive records from this connector. Only alphanumeric characters, hyphens, dots and underscores must be used in the database server logical name.</td>
+    <td class="tg-0pky">Topic prefix that provides a namespace for the database server that you want Debezium to capture. The prefix should be unique across all other connectors since it is used as the prefix for all Kafka topic names that receive records from this connector. Only alphanumeric characters, hyphens, dots, and underscores must be used in the database server logical name.</td>
   </tr>
   <tr>
     <td class="tg-0pky">schema.history.internal</td>
-    <td class="tg-0pky">KafkaSchemaHistory</td>
-    <td class="tg-0pky">The name of the Java class that is responsible for persistence of the database schema history.
-It must implement <…>.SchemaHistory interface.
+    <td class="tg-0pky">FileSchemaHistory</td>
+    <td class="tg-0pky">The name of the Java class that is responsible for the persistence of the database schema history. It must implement <code><…>.SchemaHistory</code> interface.<br>
 
-Refer : (https://debezium.io/documentation/reference/stable/development/engine.html) for more information. For database related options check (https://debezium.io/documentation/reference/stable/operations/debezium-server.html#debezium-source-configuration-properties)</td>
+Refer <a href="https://debezium.io/documentation/reference/stable/development/engine.html#database-history-properties">Database schema history properties</a> documentation and <a href="https://debezium.io/documentation/reference/stable/operations/debezium-server.html#debezium-source-configuration-properties">Debezium source configuration</a> documentation for more information.</td>
   </tr>
   <tr>
     <td class="tg-0pky">schema.history.internal.file.filename</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">This value is required only if **io.debezium.storage.file.history.FileSchemaHistory** was provided for the <code>schema.history.internal</code> value. You need to specify the path to a file where the database schema history is stored.
-By default, the file will be stored in the <code><MI-Home>/cdc/schemaHistory</code> directory.</td>
+    <td class="tg-0pky">This value is required only if <code>io.debezium.storage.file.history.FileSchemaHistory</code> was provided for the <code>schema.history.internal</code> value. You need to specify the path to a file where the database schema history is stored.
+By default, the file will be stored in the <code>&lt;MI Home&gt;/cdc/schemaHistory</code> directory.</td>
   </tr>
   <tr>
     <td class="tg-0pky">schema.history.internal.kafka.topic</td>
@@ -83,13 +82,13 @@ Required when <code>schema.history.internal</code> is set to the <code><…​>.
   <tr>
     <td class="tg-0pky">offset.storage</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The name of the Java class that is responsible for persistence of connector offsets. It must implement <code><…>.OffsetBackingStore</code> interface.</td>
+    <td class="tg-0pky">The name of the Java class that is responsible for the persistence of connector offsets. It must implement <code><…>.OffsetBackingStore</code> interface.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.file.filename</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Path to file where offsets are to be stored. Required when <code>offset.storage</code> is set to the <…>.FileOffsetBackingStore.
-By default, the file will be stored in the <code><MI-Home>/cdc/offsetStorage</code> directory.</td>
+    <td class="tg-0pky">Path to file where offsets are to be stored. Required when <code>offset.storage</code> is set to the <code><…>.FileOffsetBackingStore</code>.
+By default, the file will be stored in the <code>&lt;MI Home&gt;/cdc/offsetStorage</code> directory.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.topic</td>
@@ -109,7 +108,7 @@ By default, the file will be stored in the <code><MI-Home>/cdc/offsetStorage</co
   <tr>
     <td class="tg-0pky">database.hostname</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">IP address or host name of the database server</td>
+    <td class="tg-0pky">IP address or hostname of the database server</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.port</td>
@@ -124,8 +123,8 @@ By default, the file will be stored in the <code><MI-Home>/cdc/offsetStorage</co
   <tr>
     <td class="tg-0pky">database.password</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The password to connect to the database.
-Example : <code><parameter name="database.password">your_password</parameter></code>
+    <td class="tg-0pky">The password to connect to the database.<br>
+Example: <code><parameter name="database.password">your_password</parameter></code>
 
 or
 
@@ -134,47 +133,45 @@ or
   <tr>
     <td class="tg-0pky">database.dbname</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The name of the database that needs to be listened to.
+    <td class="tg-0pky">The name of the database that needs to be listened to.<br>
 *This is applicable only for MySQL, Postgres, Oracle, and Db2</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.instance</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Specifies the instance name of the SQL Server named instance.
+    <td class="tg-0pky">Specifies the instance name of the SQL Server named instance.<br>
 *This is applicable only for SQL Server</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.names</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The comma-separated list of the SQL Server database names from which to stream the changes.
+    <td class="tg-0pky">The comma-separated list of the SQL Server database names from which to stream the changes.<br>
 *This is applicable only for SQL Server</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.server.id</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">A numeric ID of this database client, which must be unique across all currently-running database processes in the MySQL cluster
+    <td class="tg-0pky">A numeric ID of this database client, which must be unique across all currently running database processes in the MySQL cluster.<br>
 *This is applicable only for MySQL</td>
   </tr>
   <tr>
     <td class="tg-0pky">table.include.list</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The list of tables from the selected database that the changes for them need to be captured.
-Example : <code><parameter name="table.include.list">inventory.products</parameter></code>
-
-By default, all operations are listened to.</td>
+    <td class="tg-0pky">The list of tables from the selected database that the changes for them need to be captured.<br>
+Example: <code><parameter name="table.include.list">inventory.products</parameter></code></td>
   </tr>
   <tr>
     <td class="tg-0pky">allowed.operations</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">Operations that the user needs to listen to, in the specified database tables.
-Should provide comma separated values for create/update/delete/truncate.
-Ex: create, update, delete
+Should provide comma-separated values for create/update/delete/truncate.<br>
+Example: create, update, delete<br>
 By default, truncate operations are skipped.</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.out.server.name</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Name of the XStream outbound server configured in the database.
+    <td class="tg-0pky">Name of the XStream outbound server configured in the database.<br>
 *Only applicable if you are using Oracle database.</td>
   </tr>
 </table>

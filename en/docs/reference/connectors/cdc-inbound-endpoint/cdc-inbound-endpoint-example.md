@@ -4,7 +4,7 @@ The CDC (Change Data Capture) inbound endpoint enables you to capture changes ma
 
 ## What you'll build
 
-This scenario demonstrates how the CDC inbound endpoint can be used to capture changes occurring in a MySQL database. In this example, we will configure the **CDC Inbound Endpoint** to capture changes made to a **MySQL** table, such as insertions, updates, and deletions.
+This scenario demonstrates how the CDC inbound endpoint can be used to capture changes occurring in a MySQL database. In this example, we will configure the **CDC Inbound Endpoint** to capture changes made to a MySQL table, such as insertions, updates, and deletions.
 
 In this example, a relational database table is used to store product information. The product data is added to the database by an external system that is outside of the enterprise's control. As soon as a new product is inserted, the system needs to detect and process the data. The integration runtime is used here to listen for database changes and trigger the relevant processes. It can either invoke backend APIs or place the data onto a message bus after performing the necessary data transformations. However, for the sake of simplicity in this example, we will simply log the message. You can extend this example as needed using WSO2 mediators.
 
@@ -19,7 +19,7 @@ In this example, a relational database table is used to store product informatio
     CREATE DATABASE inventory;
     ```
 
-4. Then create a table called `products` under that database using the following SQL script. 
+4. Then, create a table called `products` under that database using the following SQL script. 
     ```sql
     CREATE TABLE products (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,18 +28,11 @@ In this example, a relational database table is used to store product informatio
     );
     ```
 
-6. Download the latest Debezium Orbit JAR for **2.1.4.Final.wso2v2** from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<Project Home>/deployment/libs` directory.
+5. Create a user. For detailed instructions, refer to the [MySQL Creating User](https://debezium.io/documentation/reference/stable/connectors/mysql.html#mysql-creating-user) documentation. 
 
-7. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<Project Home>/deployment/libs` directory.
+6. Enable binlog. For detailed instructions, refer to the [Enable MySQL Binlog](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-binlog) documentation. 
 
-8. Create a user. For detailed instructions, refer to the [MySQL Creating User](https://debezium.io/documentation/reference/stable/connectors/mysql.html#mysql-creating-user) documentation. 
-
-8. Enable binlog. For detailed instructions, refer to the [Enable MySQL Binlog](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-binlog) documentation. 
-
-9. Enable GTIDs. For detailed instructions, refer to the [Enable MySQL GTIDs](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-gtids) documentation. 
-
-!!! info 
-    If you try a different database, the respective JDBC driver has to be downloaded and placed into the `<Project Home>/deployment/libs` directory. 
+7. Enable GTIDs. For detailed instructions, refer to the [Enable MySQL GTIDs](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-gtids) documentation. 
 
 ## Configure inbound endpoint using micro integrator
 
@@ -88,6 +81,13 @@ In this example, a relational database table is used to store product informatio
     </inboundEndpoint>
     ```
 
+8. Download the latest Debezium Orbit JAR for **2.1.4.Final.wso2v2** from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<Project Home>/deployment/libs` directory. Here, `<Project Home>` refers to the directory path where your integration project is located.
+
+9. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<Project Home>/deployment/libs` directory.
+
+!!! info 
+    If you're using a different database, you'll need to download the appropriate JDBC driver and place it in the `<Project Home>/deployment/libs` directory.
+
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
@@ -105,13 +105,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 ## Test
 
 ### Add a new record
 
-1. In the MySQL terminal, execute the following SQL command to insert a new customer record into the table.
+1. In the MySQL terminal, execute the following SQL command to insert a new product record into the `products` table:
 
     ```sql
     INSERT INTO products (name, price) VALUES ('IPhone 14', 333.99);
@@ -125,7 +125,7 @@ Create the artifacts:
 
 ### Update an existing record 
 
-1. In the MySQL terminal, execute the following SQL command to insert a new customer record into the table.
+1. In the MySQL terminal, execute the following SQL command to update the name of a product in the `products` table:
 
     ```sql
     UPDATE products SET name = 'IPhone 15' WHERE id = 12;
@@ -139,7 +139,7 @@ Create the artifacts:
 
 ## Delete an existing record
 
-1. In the MySQL terminal, execute the following SQL command to insert a new customer record into the table.
+1. In the MySQL terminal, execute the following SQL command to delete a product record from the `products` table:
 
     ```sql
     DELETE FROM products WHERE id = 12;
