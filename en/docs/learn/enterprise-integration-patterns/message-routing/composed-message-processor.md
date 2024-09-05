@@ -147,7 +147,12 @@ Follow the below instructions to simulate this sample scenario.
 
 Send the following request using a SOAP client such as SoapUI. 
 
-```xml
+```
+POST /services/ComposedMessageProxy HTTP/1.1
+Host: localhost:8290
+SOAPAction: urn:getQuote
+Content-Type: text/xml
+
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
    <soapenv:Header/>
    <soapenv:Body>

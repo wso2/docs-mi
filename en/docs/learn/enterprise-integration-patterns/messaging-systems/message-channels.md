@@ -94,26 +94,25 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-1. Save the following sample request as `payload.xml` in your local file system.
+Send the following request to the service using SoapUI (or any other SOAP client).
 
-    ```xml
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+```
+POST /services/message-channel-proxy HTTP/1.1
+Host: localhost:8290
+SOAPAction: urn:getQuote
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
     <soapenv:Header/>
-        <soapenv:Body>
-            <ser:getQuote>
-                <ser:request>
-                    <ser:symbol>foo</ser:symbol>
-                </ser:request>
-            </ser:getQuote>
-        </soapenv:Body>
-    </soapenv:Envelope>
-    ```
-
-2. Open a terminal, navigate to the location of your `payload.xml` file, and execute the following command. This posts a simple XML request to the Proxy service.
-
-    ```bash
-    curl -L -H 'SOAPAction: urn:getQuote' -H 'Content-Type: text/xml' -d @payload.xml 'http://localhost:8290/services/message-channel-proxy'
-    ```
+    <soapenv:Body>
+        <ser:getQuote>
+            <ser:request>
+                <ser:symbol>foo</ser:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ## Analyze the output
 

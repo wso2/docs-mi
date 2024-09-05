@@ -160,46 +160,51 @@ You can test this configuration for JSON, SOAP, and POX messages using the follo
 
 - SOAP
 
-    ```bash
-    curl --location 'http://localhost:8290/services/NormalizerProxy' \
-    --header 'SOAPAction: urn:getQuote' \
-    --header 'Content-Type: text/xml' \
-    --data ' <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    ```
+    POST /services/NormalizerProxy HTTP/1.1
+    Host: localhost:8290
+    SOAPAction: urn:getQuote
+    Content-Type: text/xml
+
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
        <soapenv:Body>
           <getQuote xmlns="http://services.samples">
-                <request>
-                   <symbol>WSO2</symbol>
-                </request>
+              <request>
+                  <symbol>WSO2</symbol>
+              </request>
           </getQuote>
        </soapenv:Body>
-    </soapenv:Envelope>'
+    </soapenv:Envelope>
     ```
 
 - JSON
 
-    ```bash
-    curl --location 'http://localhost:8290/services/NormalizerProxy' \
-    --header 'Content-Type: application/json' \
-    --data '{
-    "getQuote": {
-       "request": {
-          "symbol": "WSO2"
+    ```
+    POST /services/NormalizerProxy HTTP/1.1
+    Host: localhost:8290
+    Content-Type: application/json
+
+    {
+       "getQuote": {
+          "request": {
+               "symbol": "WSO2"
+          }
        }
     }
-    }'
     ```
 
 - POX
     ```bash
-    curl --location 'http://localhost:8290/services/NormalizerProxy' \
-    --header 'SOAPAction: urn:getQuote' \
-    --header 'Content-Type: application/xml' \
-    --data '<getQuote xmlns="http://services.samples">
+    POST /services/NormalizerProxy HTTP/1.1
+    Host: localhost:8290
+    SOAPAction: urn:getQuote
+    Content-Type: application/xml
+
+    <getQuote xmlns="http://services.samples">
        <request>
           <symbol>WSO2</symbol>
        </request>
     </getQuote>
-    '
     ```
 
 ## Analyze the output
