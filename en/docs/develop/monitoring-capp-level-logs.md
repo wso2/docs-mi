@@ -39,7 +39,7 @@ Follow the instructions below to enable log4j2 logs for a sample composite appli
 
 ## Sample log output
 
-Following is a sample log output
+Following is a sample log output:
 
 ```bash
 [2024-07-11 08:34:36,970]  INFO {org.apache.synapse.mediators.builtin.LogMediator}  |[ Deployed From Artifact Container: HelloWorldCompositeExporter ] | - {api:testAPI} SampleLog = started
