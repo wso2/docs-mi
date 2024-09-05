@@ -57,7 +57,7 @@ For Db2 database, <code>io.debezium.connector.db2.Db2Connector</code></td>
   <tr>
     <td class="tg-0pky">schema.history.internal</td>
     <td class="tg-0pky"><code>io.debezium.storage.file.history.FileSchemaHistory</code></td>
-    <td class="tg-0pky">The name of the Java class that is responsible for the persistence of the database schema history. It must implement <code><…>.SchemaHistory</code> interface.<br>
+    <td class="tg-0pky">The name of the Java class that is responsible for the persistence of the database schema history. It must implement <code>io.debezium.relational.history.SchemaHistory</code> interface.<br>
 
 Refer <a href="https://debezium.io/documentation/reference/stable/development/engine.html#database-history-properties">Database schema history properties</a> documentation and <a href="https://debezium.io/documentation/reference/stable/operations/debezium-server.html#debezium-source-configuration-properties">Debezium source configuration</a> documentation for more information.</td>
   </tr>
@@ -71,39 +71,39 @@ By default, the file will be stored in the <code>&lt;MI_HOME&gt;/cdc/schemaHisto
     <td class="tg-0pky">schema.history.internal.kafka.topic</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">The Kafka topic where the database schema history is stored.
-Required when <code>schema.history.internal</code> is set to the <code><…>.KafkaSchemaHistory</code>.</td>
+Required when <code>schema.history.internal</code> is set to the <code>io.debezium.storage.kafka.history.KafkaSchemaHistory</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">schema.history.internal.kafka.bootstrap.servers</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">The initial list of Kafka cluster servers to connect to. The cluster provides the topic to store the database schema history.
-Required when <code>schema.history.internal</code> is set to the <code><…​>.KafkaSchemaHistory</code>.</td>
+Required when <code>schema.history.internal</code> is set to the <code>io.debezium.storage.kafka.history.KafkaSchemaHistory</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage</td>
     <td class="tg-0pky"><code>org.apache.kafka.connect.storage.FileOffsetBackingStore</code></td>
-    <td class="tg-0pky">The name of the Java class that is responsible for the persistence of connector offsets. It must implement <code><…>.OffsetBackingStore</code> interface.</td>
+    <td class="tg-0pky">The name of the Java class that is responsible for the persistence of connector offsets. It must implement <code>org.apache.kafka.connect.storage.OffsetBackingStore</code> interface.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.file.filename</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Path to file where offsets are to be stored. Required when <code>offset.storage</code> is set to the <code><…>.FileOffsetBackingStore</code>.
+    <td class="tg-0pky">Path to file where offsets are to be stored. Required when <code>offset.storage</code> is set to the <code>org.apache.kafka.connect.storage.FileOffsetBackingStore</code>.
 By default, the file will be stored in the <code>&lt;MI_HOME&gt;/cdc/offsetStorage</code> directory.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.topic</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The name of the Kafka topic where offsets are to be stored. Required when <code>offset.storage</code> is set to the <code><…​>.KafkaOffsetBackingStore</code>.</td>
+    <td class="tg-0pky">The name of the Kafka topic where offsets are to be stored. Required when <code>offset.storage</code> is set to the <code>org.apache.kafka.connect.storage.KafkaOffsetBackingStore</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.partitions</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The number of partitions used when creating the offset storage topic. Required when <code>offset.storage</code> is set to the <code><…​>.KafkaOffsetBackingStore</code>.</td>
+    <td class="tg-0pky">The number of partitions used when creating the offset storage topic. Required when <code>offset.storage</code> is set to the <code>org.apache.kafka.connect.storage.KafkaOffsetBackingStore</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage.replication.factor</td>
     <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Replication factor used when creating the offset storage topic. Required when <code>offset.storage</code> is set to the <code><…​>.KafkaOffsetBackingStore</code>.</td>
+    <td class="tg-0pky">Replication factor used when creating the offset storage topic. Required when <code>offset.storage</code> is set to the <code>org.apache.kafka.connect.storage.KafkaOffsetBackingStore</code>.</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.hostname</td>
