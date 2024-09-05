@@ -40,7 +40,7 @@ Mediators are classified as follows based on whether they access the message's c
 
 ## List of mediators
 
-WSO2 Micro Integrator includes a comprehensive library of mediators that provide functionality for implementing widely used [Enterprise Integration Patterns (EIPs)]({{base_path}}/learn/enterprise-integration-patterns/eip-overview/). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java, scripting, and Spring.
+WSO2 Micro Integrator includes a comprehensive library of mediators that provide functionality for implementing widely used [Enterprise Integration Patterns (EIPs)]({{base_path}}/learn/enterprise-integration-patterns/eip-overview/). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java and scripting.
 
 ### Generic mediators
 
