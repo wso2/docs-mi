@@ -3414,7 +3414,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 -
             </td>
             <td>
-                Yes (If <b>Add Restul To</b> is "Message Property")
+                Yes (If <b>Add Result To</b> is "Message Property")
             </td>
         </tr>
         <tr>
@@ -3428,7 +3428,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Boolean
             </td>
             <td>
-                Specify whether to update the last modified timestamp of the file. This is avalable from version 4.0.4.</br>
+                Specify whether to update the last modified timestamp of the file. This is available from version 4.0.4.</br>
             </td>
             <td>
                 true
