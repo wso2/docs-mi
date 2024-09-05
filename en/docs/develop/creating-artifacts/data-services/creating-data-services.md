@@ -237,7 +237,7 @@ You can configure input parameters for the query using this section.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png" width="80%"></a>
 
-#### Result (Output Mappings)
+#### Result (output mappings)
 
 You can configure output result parameters for the query using this section.
 
