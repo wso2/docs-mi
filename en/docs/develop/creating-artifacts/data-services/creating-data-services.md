@@ -16,7 +16,7 @@ Follow the steps given below to create the data service file:
 
 1. [Create a new integration project]({{base_path}}/develop/create-integration-project/#datasource-project) or select an existing one.
 
-2. Click on the `+` beside **Data Services** in the **Micro Integrator: Project Explorer** sidebar to create a new data service.
+2. In the **Micro Integrator: Project Explorer** sidebar, hover over **Data Services** and click the **+** icon that appears to create a new data service.
 
     <a href="{{base_path}}/assets/img/integrate/data-services/add-new-data-service.png"><img src="{{base_path}}/assets/img/integrate/data-services/add-new-data-service.png" width="80%"></a>
 
