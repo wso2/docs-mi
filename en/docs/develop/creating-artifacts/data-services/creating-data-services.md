@@ -121,7 +121,7 @@ Use this section to configure a SOAP operation for invoking the data service.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png" width="80%"></a>  
 
-### Creating queries for REST resources and SOAP operations
+### Create queries for REST resources and SOAP operations
 
 You can configure the main query details for both SOAP operations and REST resources using their respective graphical views.
 
