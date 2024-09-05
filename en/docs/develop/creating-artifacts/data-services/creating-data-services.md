@@ -30,7 +30,7 @@ Follow the steps given below to create the data service file:
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/data-service-project-structure.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/data-service-project-structure.png" width="80%"></a>
 
-### Adding a datasource
+### Add a datasource
 
 You can configure the datasource connection details using this section.
 
