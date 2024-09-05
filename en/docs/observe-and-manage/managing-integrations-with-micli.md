@@ -59,8 +59,8 @@ Run the following MI CLI command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.2.2
-    Build Date: 2023-09-12 06:59:52 UTC
+    Version: 4.3.0
+    Build Date: 2024-07-17 10:38:09 UTC
     ```
 ## Set proxy environment variables for MI CLI
 
