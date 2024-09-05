@@ -13,7 +13,7 @@ The Envelope Wrapper EIP allows existing systems to participate in a messaging e
 
 ## Sample scenario
 
-This example scenario receives a message with application data wrapped inside an envelope, unwraps the message, and sends it to a specific endpoint. The sender sends the request inside a SOAP envelope. Once the WSO2 MI receives the envelope, it unwraps it and sends it as a Plain Old XML (POX) request to the sample back-end Axis2 server.
+This example scenario receives a message with application data wrapped inside an envelope, unwraps the message, and sends it to a specific endpoint. The sender sends the request inside a SOAP envelope. Once the WSO2 MI receives the envelope, it unwraps it and sends it as a Plain Old XML (POX) request to the sample backend Axis2 server.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
@@ -41,18 +41,12 @@ Given below is the synapse configuration of this sample.
     <proxy name="EnvelopeUnwrapProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-            <call>
-                <endpoint key="SimpleStockEp"/>
-            </call>
-            <respond/>
+                <call>
+                    <endpoint key="SimpleStockEp"/>
+                </call>
+                <respond/>
             </inSequence>
-            <faultSequence>
-            <log category="INFO" level="full">
-                <property name="MESSAGE" value="Executing default &amp;#34;fault&amp;#34; sequence"/>
-                <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-                <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
-            </faultSequence>
+            <faultSequence/>
         </target>
     </proxy>
     ```
@@ -143,7 +137,7 @@ soapAction: urn:getQuote
 
 ## Analyze the output
 
-Notice that the request data is inside a SOAP envelope. When the request was monitored through TCPMon the request sent to the back-end Axis2 server has the following structure:
+The request data is enclosed within a SOAP envelope. When it is sent to the proxy service, TCPMon captures and forwards it to the backend Axis2 server. By using TCPMon, we can observe the request in the following structure:
 
 ```
 POST /services/SimpleStockQuoteService HTTP/1.1
