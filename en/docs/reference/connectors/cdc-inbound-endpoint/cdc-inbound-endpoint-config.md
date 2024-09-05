@@ -56,7 +56,7 @@ For Db2 database, <code>io.debezium.connector.db2.Db2Connector</code></td>
   </tr>
   <tr>
     <td class="tg-0pky">schema.history.internal</td>
-    <td class="tg-0pky">io.debezium.storage.file.history.FileSchemaHistory</td>
+    <td class="tg-0pky"><code>io.debezium.storage.file.history.FileSchemaHistory</code></td>
     <td class="tg-0pky">The name of the Java class that is responsible for the persistence of the database schema history. It must implement <code><…>.SchemaHistory</code> interface.<br>
 
 Refer <a href="https://debezium.io/documentation/reference/stable/development/engine.html#database-history-properties">Database schema history properties</a> documentation and <a href="https://debezium.io/documentation/reference/stable/operations/debezium-server.html#debezium-source-configuration-properties">Debezium source configuration</a> documentation for more information.</td>
@@ -81,7 +81,7 @@ Required when <code>schema.history.internal</code> is set to the <code><…​>.
   </tr>
   <tr>
     <td class="tg-0pky">offset.storage</td>
-    <td class="tg-0pky">-</td>
+    <td class="tg-0pky"><code>org.apache.kafka.connect.storage.FileOffsetBackingStore</code></td>
     <td class="tg-0pky">The name of the Java class that is responsible for the persistence of connector offsets. It must implement <code><…>.OffsetBackingStore</code> interface.</td>
   </tr>
   <tr>
