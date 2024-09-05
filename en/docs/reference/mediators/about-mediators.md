@@ -42,6 +42,20 @@ Mediators are classified as follows based on whether they access the message's c
 
 WSO2 Micro Integrator includes a comprehensive library of mediators that provide functionality for implementing widely used [Enterprise Integration Patterns (EIPs)]({{base_path}}/learn/enterprise-integration-patterns/eip-overview/). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java, scripting, and Spring.
 
+### Generic mediators
+
+- [Call mediator]({{base_path}}/reference/mediators/call-mediator)
+- [Property mediator]({{base_path}}/reference/mediators/property-mediator)
+- [Log mediator]({{base_path}}/reference/mediators/log-mediator)
+- [Respond mediator]({{base_path}}/reference/mediators/respond-mediator)
+- [Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator)
+- [Call Template mediator]({{base_path}}/reference/mediators/call-template-mediator)
+- [Drop mediator]({{base_path}}/reference/mediators/drop-mediator)
+- [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator)
+- [Cache mediator]({{base_path}}/reference/mediators/cache-mediator)
+- [Throttle mediator]({{base_path}}/reference/mediators/throttle-mediator)
+- [Store mediator]({{base_path}}/reference/mediators/store-mediator)
+
 ### Flow control mediators
 
 - [Filter mediator]({{base_path}}/reference/mediators/filter-mediator)
@@ -66,20 +80,6 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 - [Script mediator]({{base_path}}/reference/mediators/script-mediator)
 - [Class mediator]({{base_path}}/reference/mediators/class-mediator)
-
-### Generic mediators
-
-- [Call mediator]({{base_path}}/reference/mediators/call-mediator)
-- [Property mediator]({{base_path}}/reference/mediators/property-mediator)
-- [Log mediator]({{base_path}}/reference/mediators/log-mediator)
-- [Respond mediator]({{base_path}}/reference/mediators/respond-mediator)
-- [Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator)
-- [Call Template mediator]({{base_path}}/reference/mediators/call-template-mediator)
-- [Drop mediator]({{base_path}}/reference/mediators/drop-mediator)
-- [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator)
-- [Cache mediator]({{base_path}}/reference/mediators/cache-mediator)
-- [Throttle mediator]({{base_path}}/reference/mediators/throttle-mediator)
-- [Store mediator]({{base_path}}/reference/mediators/store-mediator)
 
 ### Security mediators
 
