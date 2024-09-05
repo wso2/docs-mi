@@ -52,9 +52,9 @@ Click **Advanced Configurations** to expand the section and add the required con
 
 The data service should now have the query element added.
 
-### Adding a Resource
+### Add a resource
 
-Use this section to configure an REST resource for invoking the data service.
+Use this section to configure an REST resource to invoke the data service.
 
 1.  Select **REST** and click on **+ Resource** to add a REST resource.
 	
@@ -145,7 +145,7 @@ You can configure the main query details for both SOAP operations and REST resou
 				Query ID
 			</td>
 			<td>
-				Give a unique name to Identify the Query.
+				Provide a unique name to Identify the Query.
 			</td>
 		</tr>
 		<tr>
@@ -166,7 +166,7 @@ You can configure the main query details for both SOAP operations and REST resou
 		</tr>
 	</table>
 
-	Provide the required parameter values in the **Advanced Properties** section as well.
+	Provide the required parameter values in the **Advanced Properties** section.
 
 #### Input mapping
 
@@ -202,7 +202,7 @@ You can configure input parameters for the query using this section.
 						<b>Mapping Name</b>
 					</td>
 					<td>
-						Give a name for the mapping.
+						Enter a name for the mapping.
 					</td>
 				</tr>
 				<tr>
@@ -210,7 +210,7 @@ You can configure input parameters for the query using this section.
 						<b>Query Parameter</b>
 					</td>
 					<td>
-						Give the query parameter
+						Enter the query parameter.
 					</td>
 				</tr>
 				<tr>
@@ -218,7 +218,7 @@ You can configure input parameters for the query using this section.
 						<b>Parameter Type</b>
 					</td>
 					<td>
-						The parameter type.
+						The parameter type
 					</td>
 				</tr>
 				<tr>
@@ -226,7 +226,7 @@ You can configure input parameters for the query using this section.
 						<b>SQL Type</b>
 					</td>
 					<td>
-						The SQL type.
+						The SQL type
 					</td>
 				</tr>
 			</table>  
@@ -322,5 +322,5 @@ You can configure output result parameters for the query using this section.
 ## Tutorials
 
 <li>
-	See the tutorial on <a href="{{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
+	<a href="{{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
 </li>
