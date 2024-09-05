@@ -371,7 +371,7 @@ password="wso2carbon"</code></pre>
 ## Single Sign-On
 
 !!! note
-	-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
+	-	To enable this feature, upgrade the Micro Integrator Dashboard to version 4.0.1 or higher, or the Integration Control Plane to version 1.0.0 or higher.
 	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
 <div class="mb-config-catalog">
