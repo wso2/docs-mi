@@ -160,7 +160,7 @@ Following are the optional parameters you can set when [adding a Scheduled Messa
             <p>Quartz configuration file path ( <code>              quartz.conf             </code> )</p>
          </td>
          <td>
-            The Quartz configuration file path. This properties file contains the Quartz configuration parameters for fine tuning the Quartz engine. More details of the configuration can be found at <a href="http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain">http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain</a>.
+            The Quartz configuration file path. This properties file contains the Quartz configuration parameters for fine tuning the Quartz engine. More details of the configuration can be found at <a href="https://www.quartz-scheduler.org/documentation/quartz-2.1.7/configuration/ConfigMain.html">http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain</a>.
             </p>
          </td>
       </tr>

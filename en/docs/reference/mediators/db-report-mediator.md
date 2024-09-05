@@ -13,7 +13,7 @@ The **DB Report Mediator** is similar to the [DBLookup Mediator]({{base_path}}/r
 The syntax of the DB Report mediator changes depending on whether you connect to the database using a connection pool, or using a data source.
 
 -   **Connection Pool**
-    ``` java
+    ```xml
     <dbreport>
        <connection>
          <pool>
@@ -43,7 +43,7 @@ The syntax of the DB Report mediator changes depending on whether you connect to
     The syntax of the DBLookup mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource. Click on the relevant tab to view the required syntax.
     
     === "External Datasource"
-        ``` java 
+        ```xml 
         <dbreport>
            <connection>
               <pool>
@@ -62,7 +62,7 @@ The syntax of the DB Report mediator changes depending on whether you connect to
         </dbreport>
         ```
     === "Carbon Datasource"        
-        ``` java 
+        ```xml 
         <dbreport>
            <connection>
               <pool>
@@ -87,7 +87,7 @@ The parameters available to configure the DB Report mediator are as follows.
 
 !!! Info
     When specifying the DB connection using a connection pool, other than specifying parameter values inline, you can also specify following parameter values of the connection information (i.e. Driver, URL, User and password) as registry entries. The advantage of specifying a parameter value as a registry entry is that the same connection information configurations can be used in different environments simply by changing the registry entry value. To do this, give the registry path within the `key` attribute as shown in the example below.
-    ```
+    ```xml
     <dblookup xmlns="http://ws.apache.org/ns/synapse">
     <connection>
         <pool>
@@ -98,7 +98,7 @@ The parameters available to configure the DB Report mediator are as follows.
         </pool>
     </connection>
     </dblookup>
-  ```
+    ```
 
 <table>
 <thead>
@@ -349,7 +349,7 @@ Once you have defined the above parameters, enter the following properties:
 
 This example demonstrates simple database write operations. The DB Report mediator writes to a table using the details of the message. It updates the stock price of the company using the last quote value, which is calculated by evaluating an XPath expression against the response message.
 
-``` java
+```xml
 <dbreport xmlns="http://ws.apache.org/ns/synapse">
     <connection>
         <pool>
@@ -375,74 +375,85 @@ complete, they are committed via
 `<transaction action="commit"/>` , which is another
 Transaction Mediator configuration.
 
-``` java
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="myFaultHandler">
-    <log level="custom">
-        <property name="text" value="** Rollback Transaction**"/>
-    </log>
-    <transaction action="rollback"/>
-    <send/>
-</sequence>
-<proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-         <inSequence>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <transaction action="new"/>
-            <log level="custom">
-                <property name="text" value="** Reporting to the Database EIdb**"/>
-            </log>
-            <dbreport useTransaction="true" xmlns="http://ws.apache.org/ns/synapse">
-                <connection>
-                    <pool>
-                        <dsName>java:jdbc/XADerbyDS</dsName>
-                        <icClass>org.jnp.interfaces.NamingContextFactory</icClass>
-                        <url>localhost:1099</url>
-                        <user>EI</user>
-                        <password>EI</password>
-                    </pool>
-                </connection>
-                <statement>
-                     <sql>delete from company where name =?</sql>
-                     <parameter expression="//m0:return/m1:symbol/child::text()"
-                       xmlns:m0="http://services.samples" xmlns:m1="http://services.samples/xsd"
-                                 type="VARCHAR"/>
-                </statement>
-            </dbreport>
-            <log level="custom">
-                <property name="text" value="** Reporting to the Database EIdb1**"/>
-            </log>
-            <dbreport useTransaction="true" xmlns="http://ws.apache.org/ns/synapse">
-                <connection>
-                    <pool>
-                        <dsName>java:jdbc/XADerbyDS1</dsName>
-                        <icClass>org.jnp.interfaces.NamingContextFactory</icClass>
-                        <url>localhost:1099</url>
-                        <user>EI</user>
-                        <password>EI</password>
-                    </pool>
-                </connection>
-                <statement>
-                    <sql>INSERT into company values (?,'c4',?)</sql>
-                    <parameter expression="//m0:return/m1:symbol/child::text()"
-         xmlns:m1="http://services.samples/xsd" xmlns:m0="http://services.samples"
-                               type="VARCHAR"/>
-                    <parameter expression="//m0:return/m1:last/child::text()"
-         xmlns:m1="http://services.samples/xsd" xmlns:m0="http://services.samples"
-                               type="DOUBLE"/>
-                </statement>
-            </dbreport>
-            <transaction action="commit"/>
-            <send/>
-        </outSequence>
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEP"/>
+                </call>
+                <transaction action="new"/>
+                <log level="custom">
+                    <property name="text" value="** Reporting to the Database EIdb**"/>
+                </log>
+                <dbreport useTransaction="true">
+                    <connection>
+                        <pool>
+                            <dsName>java:jdbc/XADerbyDS</dsName>
+                            <icClass>org.jnp.interfaces.NamingContextFactory</icClass>
+                            <url>localhost:1099</url>
+                            <user>EI</user>
+                            <password>EI</password>
+                        </pool>
+                    </connection>
+                    <statement>
+                        <sql>delete from company where name =?</sql>
+                        <parameter expression="//m0:return/m1:symbol/child::text()" xmlns:m0="http://services.samples" xmlns:m1="http://services.samples/xsd" type="VARCHAR"/>
+                    </statement>
+                </dbreport>
+                <log level="custom">
+                    <property name="text" value="** Reporting to the Database EIdb1**"/>
+                </log>
+                <dbreport useTransaction="true">
+                    <connection>
+                        <pool>
+                            <dsName>java:jdbc/XADerbyDS1</dsName>
+                            <icClass>org.jnp.interfaces.NamingContextFactory</icClass>
+                            <url>localhost:1099</url>
+                            <user>EI</user>
+                            <password>EI</password>
+                        </pool>
+                    </connection>
+                    <statement>
+                        <sql>INSERT into company values (?,'c4',?)</sql>
+                        <parameter expression="//m0:return/m1:symbol/child::text()" xmlns:m1="http://services.samples/xsd" xmlns:m0="http://services.samples" type="VARCHAR"/>
+                        <parameter expression="//m0:return/m1:last/child::text()" xmlns:m1="http://services.samples/xsd" xmlns:m0="http://services.samples" type="DOUBLE"/>
+                    </statement>
+                </dbreport>
+                <transaction action="commit"/>
+                <respond/>
+            </inSequence>
             <faultSequence>
-                 <sequence key="myFaultHandler"/>
+                <sequence key="myFaultHandler"/>
             </faultSequence>
-    </target>
-</proxy>
-```
+        </target>
+    </proxy>
+    ```
+=== "Fault Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="myFaultHandler">
+        <log level="custom">
+            <property name="text" value="** Rollback Transaction**"/>
+        </log>
+        <transaction action="rollback"/>
+        <respond/>
+    </sequence>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```

@@ -4,261 +4,192 @@ File Connector can be used to perform operations in the local file system as wel
 
 ## What you'll build
 
-This example describes how to use the File Connector to write messages to local files and then read the files. Similarly, the same example can be configured to communicate with a remote file system (i.e FTP server) easily. The example also uses some other WSO2 mediators to manipulate messages. 
+This example explains how to use File Connector to create a file in the local file system and read the particular file. The user sends a payload specifying which content is to be written to the file. Based on that content, a file is created in the specified location. Then the content of the file can be read as an HTTP response by invoking the other API resource upon the existence of the file. Similarly, the same example can be configured to communicate with a remote file system (i.e FTP server) easily. The example also uses some other WSO2 mediators to manipulate messages.
 
-<!--
-Following diagram shows the overall solution.
+It will have two HTTP API resources, which are `create` and `read`.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/fileconnector-01.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
--->
+* `/create `: The user sends the request payload which includes the location where the file needs to be saved and the content needs to be added to the file. This request is sent to the integration runtime by invoking the FileConnector API. It saves the file in the specified location with the relevant content.
 
-An API is exposed to accept XML messages (employee information).
-When a message is received, it is converted to a CSV message and then stored to a property. 
-A check is done to see if the CSV file (with the same information) exists in the file system. If it does not exist, the connector creates a CSV file with CSV headers included. Then, the connector appends the new CSV entries in the current message to the CSV file. 
-The connector then reads the same CSV file and converts the information back to XML and responds to the client.
+    <p><img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/fileconnector-03.png" title="Adding a Rest API" width="800" alt="Adding a Rest API" /></p>
 
-<!--
+* `/read `: The user sends the request payload, which includes the location of the file that needs to be read. This request is sent to the integration runtime where the FileConnector API resides. Once the API is invoked, it first checks if the file exists in the specified location. If it exists, the content is read and response is sent to the user. If the file does not exist, it sends an error response to the user.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/fileconnector-02.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
--->
 
-## Setting up the environment
+## Set up the integration project
 
-Create a folder in your local file system with read and write access. This will be your working directory. In this example, it is `/Users/hasitha/temp/file-connector-test/dataCollection`. 
+Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
-!!! Note
-    If you set up a FTP server, SFTP server, or a Samba server, do the required configurations and select a working directory. Save the host, port, and security related information for future use. 
+### Create the new project
 
-## Configure the connector in WSO2 Integration Studio
+1. Go to **WSO2 Micro Integrator** in the VS Code.
 
-Follow these steps to set up the Integration Project and the Connector Exporter. 
+2. Click on **Create New Project** to create the new integration project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+3. provide the **Project Name** and select the **Project Directory**
 
-## Creating the Integration Logic
+    <img src="{{base_path}}/assets/img/integrate/connectors/new-vscode-project.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-1.  Create a new integration project. Be sure to enable a Connector Exporter. 
-    
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon1.png" title="create project" width="500" alt="create project"/>
+4. You have now created the new project with the following structure.
 
+     <img src="{{base_path}}/assets/img/integrate/connectors/prject-structure.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-2.  Create an API named `TestAPI` with the `/fileTest` context. This API will accept employee information.
+### Create the integration logic
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon2.png" title="create API" width="500" alt="create API"/>
+#### Create the first resource
 
-3.  In the default resource of the API, enable POST requests. 
+1. Click on the **+** button next to the **APIs** and provide the API name as `FileConnector` and the API context as `/fileConnector`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon3.png" title="select post method" width="500" alt="select post method"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-api.png" title="Adding a Rest API" width="500" alt="Adding a Rest API"/>
 
-4.  Add the Log mediator to the design canvas and configure a custom log that indicates when the API receives a message.  
-5.  Add the DataMapper mediator and configure it to transform the incoming XML message to a CSV message. 
-6.  Double-click the Datamapper mediator and add a new transform configuration called 'xmlToCsv'.
+2. To create the `/create` resource. Click on **Edit** and update the value of `URI template` to `/create` and value of `method` to `Post`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon4.png" title="new datamapper config" width="800" alt="new datamapper config"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-update-resource.png" title="Adding the API resource." width="500" alt="Adding the API resource."/>
 
-7.  Save the following content as an XML file. This will be the data input file. 
+3. Open the API in the diagram view and click on the **+** button below to **START** to add connectors or mediators.
 
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-connector.png" title="Adding the API resource." width="500" alt="Adding the API resource."/>
+
+4. To add the write operation under the API, click on **Connectors**, select the **file** connector, and choose the **write** operation.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-operation.png" title="Adding the API resource." width="500" alt="Adding the API resource."/>
+
+5. Click on **Add new connection** to create the new local file connection.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-new-connection.png" title="Adding createFile operation" width="500" alt="Adding createFile operation"/>
+
+6. After creating the local file connection, update the values for file path and Content for the write operation.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-write-operation.png" title="First API Resource" width="500" alt="First API Resource"/>
+
+??? note "Source view of the implemented resource"
     ```xml
-    <test>
-    <information>
-        <people>
-            <person>
-                <name>Hasitha</name>
-                <age>34</age>
-                <company>wso2</company>
-            </person>
-            <person>
-                <name>Johan</name>
-                <age>32</age>
-                <company>IBM</company>
-            </person>
-        </people>
-    </information>
-    </test>
+        <resource methods="POST" uri-template="/create">
+            <inSequence>
+                <file.write configKey="local_file_connection">
+                    <filePath>{json-eval($.filePath)}</filePath>
+                    <contentOrExpression>{json-eval($.inputContent)}</contentOrExpression>
+                    <mimeType>Automatic</mimeType>
+                    <writeMode>Overwrite</writeMode>
+                    <appendPosition>0</appendPosition>
+                    <encoding>UTF-8</encoding>
+                    <compress>false</compress>
+                    <appendNewLine>false</appendNewLine>
+                    <enableStreaming>false</enableStreaming>
+                    <enableLock>false</enableLock>
+                    <updateLastModified>true</updateLastModified>
+                    <includeResultTo>Message Body</includeResultTo>
+                </file.write>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    ```
+#### Create the second resource
+
+1. Click on **+ Resource** to add new resource.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/file-add-new-resource.png" title="Adding an API resource" width="500" alt="Adding an API resource"/>
+
+2. Use the URL template as `/read`. The method will be POST.
+
+3.  Implement the following API as described above.
+
+??? note "Source view"
+    ```
+        <resource methods="POST" uri-template="/read">
+            <inSequence>
+                <property name="path" expression="json-eval($.filePath)"/>
+                <file.checkExist configKey="local_file_connection">
+                    <path>{$ctx:path}</path>
+                    <includeResultTo>Message Body</includeResultTo>
+                </file.checkExist>
+                <switch source="json-eval($.checkExistResult.fileExists)">
+                    <case regex="true">
+                        <file.read configKey="local_file_connection">
+                        <path>{$ctx:path}</path>
+                        <readMode>Complete File</readMode>
+                        <startLineNum>0</startLineNum>
+                        <endLineNum>0</endLineNum>
+                        <lineNum>0</lineNum>
+                        <encoding>UTF-8</encoding>
+                        <enableStreaming>false</enableStreaming>
+                        <enableLock>false</enableLock>
+                        <includeResultTo>Message Body</includeResultTo>
+                    </file.read>
+                    <respond/>
+                    </case>
+                <default>
+                    <log category="INFO" level="simple">
+                        <property name="Status" value="File does not exist"/>
+                    </log>
+                    <drop/>
+                </default>
+                </switch>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
     ```
 
-8.  Load the input file into the Datamapper config view.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon5.png" title="load input" width="800" alt="load input"/>
-
-9.  Save the following content as a CSV file. This will be the data output file.
-
-    ```
-    Name,Age,Company
-    Hasitha,34,wso2
-    Johan,32,IBM
-    ```
-
-10. Load the output CSV file into the datamapper config view.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon6.png" title="load output csv" width="800" alt="load output csv"/>
-
-11.  Configure the mapping as shown below. Each element in the input should be mapped to the respective element in the output. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon7.png" title="data mapping" width="800" alt="data mapping"/>
-
-12.  Specify the input as XML and output as CSV in the datamapper as shown below. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon8.png" title="datamapper input output config" width="800" alt="datamapper input output config"/>
-
-13.  Add the Enrich mediator and configure it to save the output generated by the datamapper to a property named `CONTENT`. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon9.png" title="enrich - save payload" width="800" alt="enrich - save payload"/>
-
-14. Now, let's use the File connector to check if the file containing employee information already exists in the file system. 
-
-    1.  Add the <b>checkExist</b> operation of the File connector to the canvas.
-    2.  Create a new file connection pointing to the working directory we already set up. Keep this as the File connection for the operation.  
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon10.png" title="working directory" width="800" alt="working directory"/>
-
-    3.  Configure the file path as `/dataCollection/employees/employees.csv`. This file will store the employee information. 
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon11.png" title="checkExist operation" width="800" alt="checkExist operation"/>
-
-15. Add the Filter mediator to branch out the logic based on the result from the File connector’s `checkExist` operation. 
-
-    !!! Note
-        If the file does not exist, the File connector’s <b>write</b> operation (which we configure later) will create the file.
-
-    1.  Click the Filter mediator and define the filter condition as shown below. 
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon12.png" title="filter mediator" width="800" alt="filter mediator"/>
-
-    2.  Inside the “else” block, add the File Connector's <b>write</b> operation and configure it to write the static content of CSV file headers: “Name,Age,Company”. 
-
-        !!! Note
-            Be sure to append a new line at the end of the file. The <b>Write Mode</b> needs to be `Create New`. 
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon13.png" title="create new" width="800" alt="create new"/>
-
-16. After the Filter mediator, use the Enrich mediator again to put back the saved payload into the message payload. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon14.png" title="enrich - put back payload" width="800" alt="enrich - put back payload"/>
-
-17.  Add the File connector’s <b>write</b> operation again and configure it to append the CSV message to the existing file. The <b>Write Mode</b> needs to be 'Append'. 
-
-    !!! Note
-        As we need the newest message on the top, always append to line number 2. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon15.png" title="append to file" width="800" alt="append to file"/>
-
-18. Add the File connector’s <b>read</b> operation and configure it to read the same CSV file. 
-
-    !!! Note
-        The file reading will start from line number 2. The content is read as a text message. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon16.png" title="read csv file" width="800" alt="read csv file"/>
-
-19. Add the Datamapper mediator again and configure it to convert the CSV message (after reading) back to XML.
-
-    1.  Double-click the data mapper and add a new configuration called 'csvToXml'.
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon17.png" title="output datamapper config" width="800" alt="output datamapper config"/>
-
-    2.  This time, the mapping should be from CSV to XML.
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon18.png" title="output datamapper dialog" width="800" alt="output datamapper dialog"/>
-
-20. Finally, use the <b>Respond</b> mediator to send the transformed message to the API caller. 
-21. Now, let's configure a fault sequence to generate an error message when an error occurs in the message flow.
-
-    1.  Create a fault sequence with a <b>Log</b> mediator and <b>Respond</b> mediator.
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon19.png" title="fault sequence" width="800" alt="fault sequence"/>
-
-    2.  Configure the Log mediator generate a custom error.
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/filecon20.png" title="error log" width="800" alt="error log"/>
-
-    3.  Add the fault sequence to the API resource as its fault sequence. 
-
-{!includes/reference/connectors/exporting-artifacts.md!}
-
-<!--
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/fileconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/FileConnectorExample.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
--->
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Once you have [built your artifacts]({{base_path}}/develop/packaging-artifacts) into a composite application, you can
+export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension:
 
-**Deploying on Micro Integrator**
+1.  Open the project overview and click on **Export**.
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+     <img src="{{base_path}}/assets/img/integrate/connectors/export_artifacts.jpeg" width="300" alt="Download ZIP">
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
-??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
-    1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.
+## Test
 
-    2. WSO2 EI server starts and you can login to the Management Console https://localhost:9443/carbon/ URL. Provide login credentials. The default credentials will be admin/admin. 
+### File create operation
 
-    3. You can see that the API is deployed under the API section. 
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+```
+curl --location 'http://localhost:8290/fileConnector/write' \
+--header 'Content-Type: application/json' \
+--data '{
+"filePath":"/Users/wso2/Documents/mi_testing/doc/create.txt",
+"inputContent": "This is a test file"
+}'
+```
 
-## Testing
+**Expected response**:
 
-1. Create a file called data.json with the following payload. 
+You should get a 'Success' response, and the file should be created in the specified location in the above payload.
 
-    !!! Note
-        When you configuring this `source` parameter in the Windows operating system, set this property as `<source>C:\\Users\Name\Desktop\Salesforcebulk-connector\create.txt</source>`.
+### File read operation
 
-    ```xml
-    <test>
-    <information>
-        <people>
-            <person>
-                <name>Hasitha</name>
-                <age>34</age>
-                <company>wso2</company>
-            </person>
-            <person>
-                <name>Johan</name>
-                <age>32</age>
-                <company>IBM</company>
-            </person>
-            <person>
-                <name>Bob</name>
-                <age>30</age>
-                <company>Oracle</company>
-            </person>
-            <person>
-                <name>Alice</name>
-                <age>28</age>
-                <company>Microsoft</company>
-            </person>
-            <person>
-                <name>Anne</name>
-                <age>30</age>
-                <company>Google</company>
-            </person>
-        </people>
-    </information>
-    </test>
-    ```
-    
-2. Invoke the API as shown below using the curl command. 
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+```
+curl --location 'http://localhost:8290/fileConnector/read' \
+--header 'Content-Type: application/json' \
+--data '{
+"filePath":"/Users/wso2/Documents/mi_testing/doc/create.txt"
+}'
+```
 
-    !!! Info
-        Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+**Expected response**:
 
-    ```bash
-    curl -H "Content-Type: application/xml" --request POST --data @body.json http://10.100.5.136:8290/fileconnector/create
-    ```
+You should get the following text returned.
 
-3.  Check the file system to verify that the CSV file has been created. 
+```
+This is a test file.
+```
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon21.png" title="file creation result" width="800" alt="file creation result"/>
+## What's next
 
-4.  If you invoke the API again with a different set of employees, the new employees will get appended to the same file. The response you receive will include all the employees that were added from both messages.
-
-In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide]({{base_path}}/reference/connectors/file-connector/file-connector-config/) for more information. 
-
-## What's Next
-
-* To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/file-connector-config/) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [File Connector Reference Guide]({{base_path}}/reference/connectors/file-connector/file-connector-config) documentation for all operation details of the connector.

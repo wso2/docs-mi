@@ -1,4 +1,4 @@
-# JMS Parameters
+# JMS parameters
 
 When you implement an integration use case that requires a JMS connection, you can use the following JMS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,7 +9,7 @@ When you implement an integration use case that requires a JMS connection, you c
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level JMS Parameters
+## Service-Level JMS parameters
 
 <table>
       <tr>
@@ -26,7 +26,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.jms.ConnectionFactory
          </td>
          <td>
-            Name of the JMS connection factory the service should use. You can specify the name of an already defined connection factory
+            Name of the JMS connection factory the service should use. You can specify the name of an already defined connection factory.
          </td>
       </tr>
       <tr>
@@ -60,7 +60,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
 
 **JMS connection factory parameters**
 
-The JMS connection factory parameters can be specified at the server level or the service level. Given below are the complete list of connection factory parameters (with a comparison of service-level and server-level parameter names).
+The JMS connection factory parameters can be specified at the server level or the service level. Given below is the complete list of connection factory parameters (with a comparison of service-level and server-level parameter names).
 
 !!! Tip
     To define the parameters at the server level, you need to update the **JMS configurations** in the `deployment.toml` file. See the [configuration catalog]({{base_path}}/reference/config-catalog-mi) for details on how to apply server configurations.
@@ -180,7 +180,7 @@ The JMS connection factory parameters can be specified at the server level or th
            parameter.session_acknowledgement
          </td>
          <td>
-           JMS session acknowledgment mode. The possible values are as follows:
+           JMS session acknowledgment mode. The possible values are, as follows:
            <ul>
                <li><em>AUTO_ACKNOWLEDGE:</em> The session automatically acknowledges the consumer receipt of messages when message processing has finished.</li>
                <li><em>CLIENT_ACKNOWLEDGE:</em> The consumer acknowledges all messages delivered so far by the session. If the consumer falls behind in its processing, a large number of unacknowledged messages can build up.</li>
@@ -496,7 +496,7 @@ The JMS connection factory parameters can be specified at the server level or th
          <td>transport.jms.MaxConsumeErrorRetryCount</td>
          <td>MaxConsumeErrorRetryCount</td>
          <td>
-            The maximum number of times the consumer should retry upon receiving a consumer error. You need to introduce this parameter only if the Broker has issues in notifying the Exception Listeners about the exceptions occurred. You can specify any positive integer. The default value is <code>1</code>.
+            The maximum number of times the consumer should retry upon receiving a consumer error. You need to introduce this parameter only if the broker has issues notifying the Exception Listeners about the exceptions that occurred. You can specify any positive integer. The default value is <code>1</code>.
          </td>
       </tr>
    </tbody>

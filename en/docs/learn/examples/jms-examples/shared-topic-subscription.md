@@ -1,13 +1,12 @@
 # Shared Topic Subscription
 
-With JMS 1.1, a subscription on a topic is not permitted to have more than one consumer at a time. That is, if multiple JMS
-consumers subscribe to a JMS topic, and if a message comes to that topic, multiple copies of the message is forwarded to each consumer. There is no way of sharing messages between consumers that come to the topic.
+With JMS 1.1, a subscription on a topic is not permitted to have more than one consumer at a time. That is if multiple JMS consumers subscribe to a JMS topic, and if a message comes to that topic, multiple copies of the message are forwarded to each consumer. There is no way of sharing messages between consumers that come to the topic.
 
-With the shared subscription feature in JMS 2.0, you can overcome this restriction. When shared subscription is used, a message that comes to a topic is forwarded to only one of the consumers. That is, if multiple JMS consumers subscribe to a JMS topic, consumers can share the messages that come to the topic. The advantage of shared topic subscription is that it allows to share the workload between consumers.
+With the shared subscription feature in JMS 2.0, you can overcome this restriction. When shared subscription is used, a message that comes to a topic is forwarded to only one of the consumers. That is, if multiple JMS consumers subscribe to a JMS topic, consumers can share the messages that come to the topic. The advantage of shared topic subscription is that it allows to share the workload between consumers.
 
 The Micro Integrator can be configured as a shared topic listener that can connect to a shared topic subscription as a message consumer (subscriber) to share workload between other consumers of the subscription.
 
-To demonstrate the sample scenario, let's configure the JMS inbound endpoint in WSO2 Micro Integrator as a shared topic listener using HornetQ as the message broker.
+To demonstrate the sample scenario, let's configure the JMS inbound endpoint in WSO2 Micro Integrator as a shared topic listener using HornetQ as the message broker.
 
 ## Synapse configurations
 
@@ -82,7 +81,7 @@ See the descriptions of the above configurations:
           Set the value of the <code>transport.jms.JMSSpecVersion </code> property as <code>2.0</code>.
         </li>
         <li>
-          Set the value of the <code>transport.jms.SharedSubscription</code> propoerty as <code>true</code>.
+          Set the value of the <code>transport.jms.SharedSubscription</code> property as <code>true</code>.
         </li>
         <li>
           Specify a subscriber name as the value of the <code>transport.jms.DurableSubscriberName</code> property and use the same for all subscribers.
@@ -97,8 +96,7 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -309,4 +307,4 @@ Follow the steps given below to create the topic consumer and publisher to run t
 
 You will see that the 5 messages are shared between the inbound listener and `TopicConsumer.java`. This is because both the inbound listener and `TopicConsumer.java` are configured as shared subscribers.
 
-The total number of consumed messages between the inbound listener and `TopicConsumer.java` will be equal to the number messages published by `         TopicPublisher.java`.
+The total number of consumed messages between the inbound listener and `TopicConsumer.java` will be equal to the number of messages published by `TopicPublisher.java`.

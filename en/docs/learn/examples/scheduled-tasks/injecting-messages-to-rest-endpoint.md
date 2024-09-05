@@ -14,7 +14,7 @@ Following are the integration artifacts that we can used to implement this scena
             <request xmlns="">
                 <location>
                     <city>London</city>
-                    <country>UK</country>
+                    <country>GB</country>
                 </location>
             </request>
         </property>
@@ -33,26 +33,28 @@ Following are the integration artifacts that we can used to implement this scena
                     <property expression="get-property('uri.var.city')" name="Which city?"/>
                     <property expression="get-property('uri.var.cc')" name="Which country?"/>
                 </log>
-                <send>
-                    <endpoint name="EP">
-                        <http method="get" uri-template="http://api.openweathermap.org/data/2.5/weather?q={uri.var.city},{uri.var.cc}&amp;APPID=ae2a70399cf2c35940a6538f38fee3d3"/>
-                    </endpoint>
-                </send>
-            </inSequence>
-            <outSequence>
+                <call>
+                    <endpoint key="EP" />
+                </call>
                 <log level="full"/>
-            </outSequence>
+                <respond />
+            </inSequence>
             <faultSequence/>
         </target>
     </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="EP" xmlns="http://ws.apache.org/ns/synapse">
+        <http method="get" uri-template="http://api.openweathermap.org/data/2.5/weather?q={uri.var.city},{uri.var.cc}&amp;APPID=ae2a70399cf2c35940a6538f38fee3d3" />
+    </endpoint>
     ```
 
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

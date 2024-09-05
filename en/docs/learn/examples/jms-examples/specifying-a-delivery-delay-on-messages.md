@@ -1,11 +1,12 @@
-# Specifying Delivery Delay on Messages
+# Specify Delivery Delay on Messages
 
 In a normal message flow, JMS messages that are sent by the JMS producer to the JMS broker are forwarded to the respective JMS consumer without any delay.
 
-With the delivery delay messaging feature introduced with JMS 2.0, you can specify a delivery delay time value in each JMS message so that the JMS broker will not deliver the message until after the specified delivery delay has elapsed. Specifying a delivery delay is useful if there is a scenario where you do not want a message consumer to receive a message that is sent until a specified time duration has elapsed. To implement this, you need to add a delivery delay to the JMS producer so
-that the publisher does not deliver a message until the specified delivery delay time interval is elapsed.
+With the delivery delay messaging feature introduced with JMS 2.0, you can specify a delivery delay time value in each JMS message so that the JMS broker will not deliver the message until after the specified delivery delay has elapsed. Specifying a delivery delay is useful if there is a scenario where you do not want a message consumer to receive a message that is sent until a specified time duration has elapsed. To implement this, you need to add a delivery delay to the JMS producer so
+that the publisher does not deliver a message until the specified delivery delay time interval has elapsed.
 
-The following diagram illustrates how you can use WSO2 Micro Integrator as a JMS producer and specify a delivery delay on messages when you do not want the message consumer to receive a message until a specified time duration has elapsed.
+The following diagram illustrates how you can use the WSO2 Micro Integrator as a JMS producer and specify a delivery delay on messages when you do not want the message consumer to receive a message until a specified time duration has elapsed.
+
 
 ## Synapse configuration
 
@@ -16,7 +17,6 @@ See the instructions on how to [build and run](#build-and-run) this example.
 === "Proxy Service 1"
     ```xml
     <proxy name="JMSDelivery" startOnLoad="true" trace="disable" transports="https http">
-                <description/>
                 <target>
                     <inSequence>
                         <property name="OUT_ONLY" value="true"/>
@@ -29,23 +29,20 @@ See the instructions on how to [build and run](#build-and-run) this example.
                         <property name="messageType" scope="axis2" value="application/xml"/>
                         <property action="remove" name="Content-Type" scope="transport"/>
                         <log level="full"/>
-                        <send>
+                        <call>
                             <endpoint>
                                 <address uri="jms:transport.jms.ConnectionFactory=myQueueConnectionFactory"/>
                             </endpoint>
-                        </send>
+                        </call>
+                        <respond/>
                     </inSequence>
-                    <outSequence>
-                        <send/>
-                    </outSequence>
                 </target>
-                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl" preservePolicy="true"/>
     </proxy>
     ```
 === "Proxy Service 2"
     ```xml
     <proxy name="JMSDeliveryDelayed" startOnLoad="true" trace="disable" transports="https http">
-                <description/>
                 <target>
                     <inSequence>
                         <property name="OUT_ONLY" value="true"/>
@@ -59,17 +56,15 @@ See the instructions on how to [build and run](#build-and-run) this example.
                         <property action="remove" name="Content-Type" scope="transport"/>
                         <property name="JMS_MESSAGE_DELAY" scope="axis2" value="10000"/>
                         <log level="full"/>
-                        <send>
+                        <call>
                             <endpoint>
                                 <address uri="jms:/transport.jms.ConnectionFactory=myQueueConnectionFactory"/>
                             </endpoint>
-                        </send>
+                        </call>
+                        <respond/>
                     </inSequence>
-                    <outSequence>
-                        <send/>
-                    </outSequence>
                 </target>
-                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+                <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl" preservePolicy="true"/>
     </proxy>
     ```
 === "Main Sequence"
@@ -139,8 +134,7 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -278,4 +272,4 @@ Follow the steps given below to run the example:
 
 You will see that two messages are received by the Java consumer with a time difference of more than 10 seconds.
 
-This is because the `         JMSDeliveryDelayed        ` proxy service sets a delivery delay of 10 seconds on the message that it forwards, whereas the `         JMSDelivery        ` proxy service does not set a delivery delay on the message.
+This is because the `JMSDeliveryDelayed` proxy service sets a delivery delay of 10 seconds on the message that it forwards, whereas the `JMSDelivery` proxy service does not set a delivery delay on the message.

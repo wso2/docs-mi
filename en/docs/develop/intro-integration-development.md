@@ -255,7 +255,7 @@ As you build and run the integration flow, you may identify errors that need to 
 You must redeploy the integration artifacts after applying changes.
 
 -   If you are testing on a VM, the artifacts will be instantly deployed when you <a href="{{base_path}}/develop/deploy-artifacts">redeploy the synapse artifacts</a>.
--   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/create-docker-project">Docker images</a> or <a href="{{base_path}}/develop/create-kubernetes-project">Kubernetes artifacts</a>.
+-   If you are testing on containers, you need to rebuild the <a href="{{base_path}}/develop/deploy-artifacts/#build-docker-image">Docker images</a>.
 
 ### Push to production
 

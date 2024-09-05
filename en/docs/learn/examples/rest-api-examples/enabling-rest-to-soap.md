@@ -5,48 +5,49 @@ This example demonstrates how you can expose a SOAP service over REST using an 
 ## Synapse configuration
     
 Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
-        
-```xml
-<api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">
-   <resource uri-template="/view/{symbol}" methods="GET">
-      <inSequence>
-        <payloadFactory>
-          <format>
-             <m0:getQuote xmlns:m0="http://services.samples">
-                <m0:request>
-                   <m0:symbol>$1</m0:symbol>
-                </m0:request>
-             </m0:getQuote>
-           </format>
-           <args>
-            <arg expression="get-property('uri.var.symbol')"/>
-           </args>
-        </payloadFactory>
-        <header name="Action" value="urn:getQuote"/>
-        <send>
-          <endpoint>
-            <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
-          </endpoint>
-        </send>
-      </inSequence>
-      <outSequence>
-        <send/>
-      </outSequence>
-   </resource>
-   <resource url-mapping="/order/*" methods="POST">
-      <inSequence>
-        <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-        <property name="OUT_ONLY" value="true"/>
-        <header name="Action" value="urn:placeOrder"/>
-        <send>
-            <endpoint>
-                <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
-            </endpoint>
-         </send>
-      </inSequence>      
-   </resource>
-</api>
-```
+
+=== "REST API"
+    ```xml
+    <api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">
+       <resource uri-template="/view/{symbol}" methods="GET">
+          <inSequence>
+            <payloadFactory media-type="xml">
+               <format>
+                  <m0:getQuote xmlns:m0="http://services.samples">
+                     <m0:request>
+                        <m0:symbol>$1</m0:symbol>
+                     </m0:request>
+                  </m0:getQuote>
+               </format>
+               <args>
+                  <arg expression="get-property('uri.var.symbol')"/>
+               </args>
+            </payloadFactory>
+            <header name="Action" value="urn:getQuote"/>
+            <call>
+               <endpoint key="SimpleStockQuoteService" />
+            </call>
+            <respond />
+          </inSequence>
+       </resource>
+       <resource url-mapping="/order/*" methods="POST">
+          <inSequence>
+            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+            <property name="OUT_ONLY" value="true"/>
+            <header name="Action" value="urn:placeOrder"/>
+            <call>
+                  <endpoint key="SimpleStockQuoteService" />
+            </call>
+          </inSequence>
+       </resource>
+    </api>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 In this API configuration we have defined two resources. One is for the HTTP method GET and the other one is for POST. In the first resource, we have defined the uri-template as `/view/{symbol}` so that request will be dispatched to this resource when you invoke the API using the following URI: `http://127.0.0.1:8290/stockquote/view/IBM`
     
@@ -64,8 +65,7 @@ In the second resource, we have defined the URL mapping as "/order/\*". Since th
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

@@ -3,66 +3,66 @@ This section describes how you can transform the content type of a message using
     
 -  GET - Response is in JSON format.
 -  POST - Accepts JSON request and returns response in XML format.
--  DELETE - Empty request body should is required. Returns response in XML format. 
+-  DELETE - Empty request body is required. Returns response in XML format.
     
 ## Synapse configuration
     
 Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<api xmlns="http://ws.apache.org/ns/synapse" name="HealthcareService" context="/healthcare">
-    <resource methods="POST" url-mapping="/appointment/reserve">
-        <inSequence>
-            <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9090/grandoaks/categories/surgery/reserve"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <log level="full"/>
-            <property name="messageType" value="application/xml" scope="axis2"/>
-            <send/>
-        </outSequence>
-    </resource>
-    <resource methods="GET" uri-template="/appointments/{appointmentNo}">
-        <inSequence>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9090/healthcare"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <log level="full"/>
-            <property name="messageType" value="application/json" scope="axis2"/>
-            <send/>
-        </outSequence>
-    </resource>
-    <resource methods="DELETE" uri-template="/appointments/{appointmentNo}">
-        <inSequence>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9090/healthcare"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <log level="full"/>
-            <property name="messageType" value="application/xml" scope="axis2"/>
-            <send/>
-        </outSequence>
-    </resource>
-</api>
-```
+=== "REST API"
+     ```xml
+     <api xmlns="http://ws.apache.org/ns/synapse" name="HealthcareService" context="/healthcare">
+         <resource methods="POST" url-mapping="/appointment/reserve">
+             <inSequence>
+                 <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+                 <call>
+                     <endpoint key="GrandOaks" />
+                 </call>
+                 <log level="full"/>
+                 <property name="messageType" value="application/xml" scope="axis2"/>
+                 <respond/>
+             </inSequence>
+         </resource>
+         <resource methods="GET" uri-template="/appointments/{appointmentNo}">
+             <inSequence>
+                 <call>
+                     <endpoint key="HealthCare" />
+                 </call>
+                 <log level="full"/>
+                 <property name="messageType" value="application/json" scope="axis2"/>
+                 <respond/>
+             </inSequence>
+         </resource>
+         <resource methods="DELETE" uri-template="/appointments/{appointmentNo}">
+             <inSequence>
+                 <call>
+                     <endpoint key="HealthCare" />
+                 </call>
+                 <log level="full"/>
+                 <property name="messageType" value="application/xml" scope="axis2"/>
+                 <respond/>
+             </inSequence>
+         </resource>
+     </api>
+     ```
+=== "GrandOaks Endpoint"
+     ```xml
+     <endpoint name="GrandOaks" xmlns="http://ws.apache.org/ns/synapse">
+         <address uri="http://localhost:9090/grandoaks/categories/surgery/reserve"/>
+     </endpoint>
+     ```
+=== "HealthCare Endpoint"
+     ```xml
+     <endpoint name="HealthCare" xmlns="http://ws.apache.org/ns/synapse">
+         <address uri="http://localhost:9090/healthcare"/>
+     </endpoint>
+     ```
     
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

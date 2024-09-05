@@ -4,7 +4,7 @@ See the topics in the following sections for details and instructions.
 
 ### Integration Use Cases
 
-Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
+Learn about the main integration capabilities of the Micro Integrator. You can also follow the [tutorials](#integration-tutorials) on these use cases to gain hands-on knowledge.
 
 <table>
     <tr>
@@ -52,7 +52,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
             <a href="{{base_path}}/learn/integration-use-case/service-orchestration-overview">Service Orchestration</a>
         </th>
         <td>
-            Explore how multiple Restful services are exposed as a single course-grained service.
+            Explore how multiple Restful services are exposed as a single coarse-grained service.
         </td>
     </tr>  
     <tr>
@@ -81,9 +81,15 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
     </tr>  
 </table>
 
+<!--
+
 ### Integration Tutorials
 
 Learn how to implement various integration use cases, deploy them in the Micro Integrator, and test them locally.
+
+-->
+
+<!--
 
 -   API-led Integration tutorials
 
@@ -100,6 +106,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     </tr>
     </table>
 
+-->
+
+<!--
 -   Message mediation tutorials
 
     <table>
@@ -125,6 +134,8 @@ Learn how to implement various integration use cases, deploy them in the Micro I
             </td>
         </tr>
     </table>
+
+-->
 
 ### Integration Examples
 
@@ -187,7 +198,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-http-to-fix">Switching from HTTP to FIX</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-http">Switch from FIX to HTTP</a></li>
-                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-amqp">Switch from FIX to AMQP</a></li>
+                <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-jms">Switch from FIX to JMS</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-between-fix-versions">Switching between FIX Versions</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-tcp-to-https">Switching from TCP to HTTP/S</a></li>
                 <li><a href="{{base_path}}/learn/examples/protocol-switching/switching-from-udp-to-https">Switching from UDP to HTTP/S</a></li>
