@@ -101,7 +101,7 @@ Use this section to configure an REST resource for invoking the data service.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" width="80%"></a>  
 
-### Adding a SOAP operation
+### Add a SOAP operation
 
 Use this section to configure a SOAP operation for invoking the data service.
 
