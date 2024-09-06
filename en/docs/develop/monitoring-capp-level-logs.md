@@ -4,7 +4,7 @@ The advantage of having per-composite application logs is that it is straightfor
 
 ## Enable Log4j2 for composite application logging
 
-Follow the instructions below to enable log4j2 logs for a sample composite application (named `HelloWorldCompositeExporter`).
+Follow the instructions below to enable Log4j2 logs for a sample composite application (named `HelloWorldCompositeExporter`).
 
 1. Open the `log4j2.properties` file located in the `<MI_HOME>/conf` directory. 
 2. Modify the layout pattern of a new or existing appender for the `HelloWorldCompositeExporter` composite application by adding the following section.
