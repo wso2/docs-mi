@@ -1,12 +1,13 @@
-# Detecting Repeatedly Redelivered Messages
+# Detect Repeatedly Redelivered Messages
 
-In JMS 2.0, it is mandatory for JMS providers to set the `JMSXDeliveryCount` property, which allows an application that receive a message to determine how many times the message is redelivered.
+In JMS 2.0, it is mandatory for JMS providers to set the `JMSXDeliveryCount` property, which allows an application that receives a message to determine how many times the message is redelivered.
 
-If a message is being redelivered, it means that a previous attempt to deliver the message failed due to some reason. If a message is being redelivered multiple times, it can be because the message is *bad* in some way. When such a message is being redelivered over and over again, it wastes resources and prevents subsequent *good* messages from being processed.
+If a message is being redelivered, it means that a previous attempt to deliver the message failed due to some reason. If a message is being redelivered multiple times, it can be because the message is *bad* in some way. When such a message is being redelivered over and over again, it wastes resources and prevents subsequent *good* messages from being processed.
 
-When you work with WSO2 Micro Integrator, you can detect such repeatedly redelivered messages using the `JMSXDeliveryCount` property that is set in messages. The ability to detect repeatedly redelivered messages is particularly useful because you can take the necessary steps to handle such messages in a proper manner. For example, you can consume such a message and send it to a separate queue.
+When you work with WSO2 Micro Integrator, you can detect such repeatedly redelivered messages using the `JMSXDeliveryCount` property that is set in messages. The ability to detect repeatedly redelivered messages is particularly useful because you can take the necessary steps to handle such messages properly. For example, you can consume such a message and send it to a separate queue.
 
-To demonstrate this scenario, let's configure the JMS inbound endpoint in WSO2 Micro Integrator using HornetQ as the message broker.
+To demonstrate this scenario, let's configure the JMS inbound endpoint in the WSO2 Micro Integrator using HornetQ as the message broker.
+
 
 ## Synapse configuration
 
@@ -104,8 +105,7 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create the [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 

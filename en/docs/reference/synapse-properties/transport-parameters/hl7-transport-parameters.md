@@ -1,4 +1,4 @@
-# HL7 Parameters
+# HL7 parameters
 
 When you implement an integration use case that handles HL7 messages, you can use the following HL7 parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
@@ -9,9 +9,9 @@ When you implement an integration use case that handles HL7 messages, you can us
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-level Parameters
+## Service-level parameters
 
-### HL7 receiver port (Required)
+### HL7 receiver port (required)
 
 <table>
   <tr>
@@ -32,7 +32,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
   </tr>
 </table>
 
-### HL7 Conformance profile path
+### HL7 conformance profile path
 
 <table>
   <tr>
@@ -141,7 +141,7 @@ By default, the HL7 transport validates messages before building their XML repre
          transport.hl7.BuildInvalidMessages
       </td>
       <td>
-         When transport.hl7.ValidateMessage is set to false, you can set this parameter to handle invalid messages.</br></br> When this parameter is set to true, builds a SOAP envelope with the contents of the raw HL7 message inside the element.
+         When transport.hl7.ValidateMessage is set to false, you can set this parameter to handle invalid messages.</br></br> When this parameter is set to true, it builds a SOAP envelope with the contents of the raw HL7 message inside the element.
       </td>
    </tr>
    <tr>
@@ -198,6 +198,6 @@ The HL7 transport uses a thread pool to manage connections. A larger thread pool
 See the following examples demonstrating HL7 use cases:
 
 - [Enabling HL7]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport)
-- [Mediating HL7 Messages]({{base_path}}/learn/examples/hl7-examples/HL7-proxy-service)
+- [Mediating HL7 Messages]({{base_path}}/learn/examples/hl7-examples/hl7-proxy-service)
 - [Configuring Message Acknowledgement for HL7 Messages]({{base_path}}/learn/examples/hl7-examples/acknowledge-hl7-messages)
 - [Using HL7 Messages with File Systems]({{base_path}}/learn/examples/hl7-examples/file-transfer-using-hl7)

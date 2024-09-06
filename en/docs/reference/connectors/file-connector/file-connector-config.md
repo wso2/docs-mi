@@ -16,7 +16,7 @@ The File connector can be used to deal with two types of file systems:
     
 There are different connection configurations that can be used for the above protocols. They contain a common set of configurations and some additional configurations specific to the protocol.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/fileconnector-types.png" title="types of file connections" width="500" alt="types of file connections"/>
 
 
 !!! Note
@@ -3414,7 +3414,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 -
             </td>
             <td>
-                Yes (If <b>Add Restul To</b> is "Message Property")
+                Yes (If <b>Add Result To</b> is "Message Property")
             </td>
         </tr>
         <tr>
@@ -3428,7 +3428,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Boolean
             </td>
             <td>
-                Specify whether to update the last modified timestamp of the file. This is avalable from version 4.0.4.</br>
+                Specify whether to update the last modified timestamp of the file. This is available from version 4.0.4.</br>
             </td>
             <td>
                 true

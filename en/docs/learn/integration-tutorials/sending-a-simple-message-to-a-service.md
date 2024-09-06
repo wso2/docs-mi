@@ -2,9 +2,13 @@
 
 ## What you'll build
 
-Let’s try a simple scenario where a patient makes an inquiry specifying the doctor's specialization (category) to retrieve a list of doctors that match the specialization. The required information is available in a  back-end microservice. 
+Let’s try a simple scenario where a patient makes an inquiry specifying the doctor's specialization (category) to retrieve 
+a list of doctors that match the specialization. The required information is available in a back-end microservice. 
 
-To implement this use case, you will create a REST API resource and other artifacts using WSO2 Integration Studio, and then deploy them in the embedded WSO2 Micro Integrator instance. The default API resource will be configured to receive the client request in place of the back-end service, thereby decoupling the client and the back-end service. The response message with the requested doctor details will be routed back to the client through the same API resource.
+To implement this use case, you will create a REST API resource and other artifacts using Micro Integrator Extension for Visual Studio Code
+(MI for VS Code), and then deploy them in the embedded WSO2 Micro Integrator instance. The default API resource will be 
+configured to receive the client request in place of the back-end service, thereby decoupling the client and the back-end service. 
+The response message with the requested doctor details will be routed back to the client through the same API resource.
 
 ### Concepts and artifacts used
 
@@ -17,7 +21,7 @@ To implement this use case, you will create a REST API resource and other artifa
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
 ### Step 2: Develop the integration artifacts
 
@@ -25,83 +29,89 @@ Follow the instructions given in this section to create and configure the requir
 
 #### Create an Integration project
 
-An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
+{!includes/create-new-project.md!}
 
-1.  Open **WSO2 Integration Studio**.
-2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
+4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
+5. Provide a location under **Select Project Directory**.
 
-    This will open the <b>New Integration Project</b> dialog box.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
+6. Click **Create**.
 
-3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
-    -   **Create ESB Configs**
-    -   **Create Composite Exporter**
-
-4.  Click **Finish**. 
-
-You will now see the projects listed in the **Project Explorer**.
+Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create an Endpoint
 
 An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
 
-1. Right-click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**.
-2. Ensure that **Create a New Endpoint** is selected and click **Next**.
-3. Enter the information given below to create the new endpoint.  
+1. Navigate to the **MI Project Explorer** > **Endpoints**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+
+2. Hover over **Endpoints** and click the **+** icon that appears.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+
+3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
+
+4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
+
     <table>
     <thead>
-      <tr class="header">
+      <tr>
          <th>Property</th>
          <th>Value</th>
          <th>Description</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="odd">
+      <tr>
          <td>Endpoint Name</td>
          <td><code>QueryDoctorEP</code></td>
          <td>The name of the endpoint.</td>
       </tr>
-      <tr class="even">
-         <td>Endpoint Type</td>
-         <td><code>HTTP Endpoint</code></td>
-         <td>Indicates that the back-end service is HTTP.</td>
-      </tr>
-      <tr class="odd">
+      <tr>
          <td>URI Template</td>
          <td>
             <code>http://localhost:9090/healthcare/{uri.var.category}</code>
          </td>
          <td>The template for the request URL expected by the back-end service. In this case, the variable 'category' that needs to be included in the request for querying doctors is represented as <code>{uri.var.category}</code> in the template.</td>
       </tr>
-      <tr class="even">
+      <tr>
          <td>Method</td>
          <td><code>GET</code></td>
          <td>Indicates that we are creating this endpoint for GET requests that are sent to the back-end service.</td>
       </tr>
-      <tr class="even">
-         <td>Save Endpoint in</td>
-         <td><code>SampleServicesConfigs</code></td>
-         <td>This is the <b>ESB Config</b> module where the artifact will be saved.</td>
-      </tr>
      </tbody>
     </table>
 
-    ![]({{base_path}}/assets/img/integrate/tutorials/119132413/create-endpoint-artifact.png)
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png" alt="endpoint artifact" width="80%"></a>
 
-4.  Click **Finish**.  
-    The **QueryDoctorEP** endpoint is saved in the `endpoints` folder within the **ESB Config** module of the integration project.  
-    
+5. Click **Create**.  
+
+    The **QueryDoctorEP** endpoint is saved in the `endpoints` folder inside the `<PROJECT_NAME>/src/main/wso2mi/artifacts` directory.  
+
+    Once the endpoint artifact is created, it will appear on the **MI Overview** interface.    
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png" alt="mi overview endpoint" width="80%"></a>
+
 #### Create a REST API
 
 A REST API is required for receiving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
-1.  In the Project Explorer, right-click **SampleServicesConfigs** and click **New -> REST API**.
-2.  Ensure **Create A New API Artifact** is selected and click **Next**.
-3.  Enter the details given below to create a new REST API.
+1. Go to **MI Project Explorer** > **APIs**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
+
+2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
+
+3. Specify values for the required REST API properties:
+
     <table>
       <tr>
         <th>Property</th>
@@ -117,42 +127,28 @@ A REST API is required for receiving the client response and the REST resource w
       </tr>
       <tr>
         <td>Context</td>
-        <td><code>/healthcare </code></td>
+        <td><code>/healthcare</code></td>
         <td>
-          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
-        </td>
-      </tr>
-      <tr>
-        <td>Save location</td>
-        <td>
-          SampleServicesConfigs
-        </td>
-        <td>
-          This is the <b>ESB Config</b> module where the artifact will be saved.
+          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to <code>/healthcare</code> means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
         </td>
       </tr>
     </table>
-                                                                                                                                                                                   |
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132413/create-rest-api.png" width="500">
 
-4.  Click **Finish**.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>
 
-#### Define the mediation flow 
+4. Click **Create**. This opens the **Service Designer** interface.
 
-Once the API resource is created, the design view of the `           HealthcareAPI.xml          ` file will appear as shown below.
+    You can now start configuring the API resource.
 
-!!! Note
-    - The top part of the canvas is the **In sequence**, which controls how incoming messages are mediated.
-    - The middle part of the canvas is the **Out sequence**, which controls how responses are handled. In this case, a **Send** mediator is already in place to send responses back to the requesting client.
-    - The bottom part of the canvas is the **Fault sequence**, which allows you to configure how to handle messages when an error occurs (for more information, see [Error Handling]({{base_path}}/reference/troubleshooting/error-handling-mi)).
+5. Click on the `GET` API resource under **Available resources** on the **Service Designer**.
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132425.png">
+    You will now see the graphical view of the `HealthcareAPI` with its default API Resource.
 
-You can now start configuring the API resource.
+6. Click the **Edit** icon to edit the API resource.
 
-1.  Double-click the **Resource** icon on the left side of the canvas.  
-    The properties for the API resource appear on the **Properties** tab at the bottom of the window. If they do not appear, you can right-click the **Resource** icon and click **Show Properties View**.
-2.  On the **Properties** tab, provide the following as **Basic** properties:
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
+
+7. Specify values for the required resource properties:
 
     <table>
       <tr>
@@ -160,125 +156,135 @@ You can now start configuring the API resource.
         <th>Description</th>
       </tr>
       <tr>
-        <td>Url Style</td>
+        <td>URI-Template</td>
         <td>
-          Click the respective <b>Value</b> field, click the down arrow, and then select <b>URI_TEMPLATE</b> from the list.
+          <code>/querydoctor/{category}</code> </br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/querydoctor/{category}</code> where <code>{category}</code> is a variable.
         </td>
       </tr>
       <tr>
-        <td>URI-Template</td>
+        <td>URL Style</td>
         <td>
-          Enter <code>/querydoctor/{category}</code>. This defines the request URL format. In this case, the full request URL format is <code>http://host:port/querydoctor/{category}</code> where <code>{category}</code> is a variable.
+          <code>URI_TEMPLATE</code>
         </td>
       </tr>
       <tr>
         <td>Methods</td>
         <td>
-          See that the <b>Get</b> check box is selected. This defines that the API resource only handles requests where the HTTP method is GET.
+          <code>GET</code> <br> This defines that the API resource only handles requests where the HTTP method is GET.
         </td>
       </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132424.png">
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
 
-3.  You can now configure the In sequence to handle requests from the client:
+8. Click **Update**.
 
-    1.  From the **Mediators** palette, click and drag a **Log** mediator to the In sequence (the top of the canvas).
+#### Create the mediation logic
 
-        !!! Note
-            The Log mediator logs messages when the request is received by the In sequence of the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
+You can now configure the mediation logic to handle requests.
 
-    2. With the Log mediator selected, access the **Property** tab and fill in the information in the table below:
-        <table>
-      <tr class="header">
-         <th>Field</th>
-         <th>Value</th>
-         <th>Description</th>
-      </tr>
-   <tbody>
-      <tr class="odd">
-         <td>Log Category</td>
-         <td><code>                 INFO                </code></td>
-         <td>Indicates that the log contains an informational message.</td>
-      </tr>
-      <tr class="even">
-         <td>Log Level</td>
-         <td><code>                 Custom                </code></td>
-         <td>When <code>                 Custom                </code> is selected, only specified properties will be logged by this mediator.
-         </td>
-      </tr>
-      <tr class="odd">
-         <td>Log Separator</td>
-         <td><code>                 (blank)                </code></td>
-         <td>Since there is only one property that is being logged, you do not require a separator. Therefore, leave this field blank.</td>
-      </tr>
-      <tr class="even">
-         <td>Properties</td>
-         <td><br />
-         </td>
-         <td>
-            <div class="content-wrapper">
-               To extract the stock symbol from the request and print a welcome message in the log, click the plus icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="30">) in the <strong>Properties</strong> section, and then add the following values:<br />
-               <ul>
-                  <li><strong>Name</strong>: <code>Log Property message</code></li>
-                  <li><strong>Type</strong>: <code>LITERAL</code><br />
-                     (We select LITERAL because the required log message is a static value.)
-                  </li>
-                  <li><strong>Value/Expression</strong> : <code>"Welcome to HealthcareService"</code></li>
-               </ul>
-               <p><img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132423.png"/></p>
-            </div>
-         </td>
-      </tr>
-      <tr class="odd">
-         <td>Description</td>
-         <td><code>Request Log</code></td>
-         <td>The <strong>Description</strong> field provides the name that appears for the Log mediator icon in the design view.</td>
-        </tr>
-        </tbody>
-        </table>
+1. To get started, click on the **+** icon to add the first mediator to the sequence.
 
-        ![]({{base_path}}/assets/img/integrate/tutorials/119132413/119132422.png)
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
 
-    3.  Click **OK** to save the Log mediator configuration.
-    4.  Configure a **Call** mediator to send the request message to the `HealthcareService` endpoint and receive the response message.
-        1. From the **Mediators** palette, click and drag a **Call** mediator to the In sequence adjoining the Log mediator you added above.
-        2. From the **Defined EndPoints** palette, click and drag the **QueryDoctorEP** endpoint, which we created, right next to the empty space of the **Call** mediator.
+2. Select **Log** mediator in the **Generic** section under **All Mediators**.
 
-        ![]({{base_path}}/assets/img/integrate/tutorials/sending-simple-message/add-call-mediator.png)
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png" alt="log mediator" width="30%"></a>
 
-    5.  Add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
+    !!! Note
+        The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
 
-        ![]({{base_path}}/assets/img/integrate/tutorials/sending-simple-message/add-respond-mediator.png)
+3. Once you select the Log mediator, the **Log** pane will be opened. Fill in the information in the table below:
+    <table>
+  <tr>
+     <th>Field</th>
+     <th>Value</th>
+     <th>Description</th>
+  </tr>
+<tbody>
+  <tr>
+     <td>Log Category</td>
+     <td><code>INFO</code></td>
+     <td>Indicates that the log contains an informational message.</td>
+  </tr>
+  <tr>
+     <td>Log Level</td>
+     <td><code>Custom</code></td>
+     <td>When <code>Custom</code> is selected, only specified properties will be logged by this mediator.
+     </td>
+  </tr>
+  <tr>
+     <td>Log Separator</td>
+     <td><code>(blank)</code></td>
+     <td>Since there is only one property that is being logged, you do not require a separator. Therefore, leave this field blank.</td>
+  </tr>
+  <tr>
+     <td>Properties</td>
+     <td><br />
+     </td>
+     <td>
+        <div class="content-wrapper">
+           1. To edit the **Properties** and print a welcome message in the log, click **Add Parameter**. <br />
+               <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png" alt="add-parameter" width="30%"></a>, <br />
+           2. Then add the following values:<br />
+           <ul>
+              <li><strong>Property Name</strong>: <code>Log Property message</code></li>
+              </li>
+              <li><strong>Property Value</strong> : <code>"Welcome to HealthcareService"</code></li>
+           </ul>
+           <p>
+           <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png" alt="log-property" width="30%"></a></p> <br />
+         3. Click **Save** to save the properties.
+        </div>
+     </td>
+  </tr>
+  <tr>
+     <td>Description</td>
+     <td><code>Request Log</code></td>
+     <td>The <strong>Description</strong> field provides the name that appears for the Log mediator icon in the design view.</td>
+    </tr>
+    </tbody>
+    </table>
 
-You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service. 
+3.  Click **Submit** to save the Log mediator configuration.
 
-### Step 3: Package the artifacts
+    Let's configure a **Call** mediator to send the request message to the `HealthcareService` endpoint and receive the response message.
 
-Package the artifacts in your composite exporter module to be able to deploy the artifacts in the server.
+4. Click on the **+** icon in the sequence to add a Call mediator after the Log mediator.
 
-1.  Open the `pom.xml` file of the **SampleServicesCompositeExporter** module.
-2.  Ensure that the following artifacts are selected in the POM file.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" alt="add call" width="80%"></a>
 
-    -   `HealthcareAPI`
-    -   `QueryDoctorEP`
+5. From the **Palette**, select **Call Endpoint** mediator under the **Mediators** > **Generic** section.
 
-3.  Save the changes.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" alt="call endpoint mediator" width="30%"></a>
 
-### Step 4: Build and run the artifacts
+6. From the **Call Endpoint** pane, select the **QueryDoctorEP** endpoint, which we created in a previous step.
 
-To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png" alt="call endpoint" width="30%"></a>
 
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.  
-4.  Click **Finish**. 
+7. Click **Submit**.
 
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
+    Now let's add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
 
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab.
+8. Click on the **+** icon in the sequence to add a Respond mediator after the Call mediator.
 
-### Step 5: Test the use case
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
+
+9. From the **Palette**, select **Respond** mediator under the **Mediators** > **Generic** section.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
+
+10. Click **Submit**.
+
+You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service.
+
+<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" alt="integration sequence" width="80%"></a>
+
+### Step 3: Build and run the artifacts
+
+{!includes/build-and-run-artifacts.md!}
+
+### Step 4: Test the use case
 
 Let's test the use case by sending a simple client request that invokes the service.
 
@@ -294,9 +300,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send the request to the API. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+Let's send the request to the API. You can use the embedded <b>HTTP Client</b> as follows:
 
-1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
+1. Open the Postman application. If you do not have the application, download it from [here](https://www.postman.com/downloads/).
 
 2. Add the request information as given below and click the <b>Send</b> button.
     
@@ -315,10 +321,6 @@ Let's send the request to the API. You can use the embedded <b>HTTP Client</b> o
         </tr>
      </table>
 
-     <br/><br/>
-     <video src="{{base_path}}/assets/vids/query-doctor-surgery.webm" width="720" height="480" controls></video>
-     <br/><br/>
-     
 If you want to send the client request from your terminal:
 
 1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.
@@ -329,29 +331,38 @@ If you want to send the client request from your terminal:
 
 #### Analyze the response
 
-You will see the response message from the HealthcareService with a list of available doctors and the relevant details.
+You will see the response message from the `HealthcareService` with a list of available doctors and the relevant details.
 
 ```json
 [
-  {"name":"thomas collins",
-  "hospital":"grand oak community hospital",
-  "category":"surgery",
-  "availability":"9.00 a.m - 11.00 a.m",
-  "fee":7000.0},
-  {"name":"anne clement",
-   "hospital":"clemency medical center",
-   "category":"surgery",
-   "availability":"8.00 a.m - 10.00 a.m",
-   "fee":12000.0},
-  {"name":"seth mears",
-   "hospital":"pine valley community hospital",
-   "category":"surgery",
-   "availability":"3.00 p.m - 5.00 p.m",
-   "fee":8000.0}
+   {
+      "name": "thomas collins",
+      "hospital": "grand oak community hospital",
+      "category": "surgery",
+      "availability": "9.00 a.m - 11.00 a.m",
+      "fee": 7000.0
+   },
+   {
+      "name": "anne clement",
+      "hospital": "clemency medical center",
+      "category": "surgery",
+      "availability": "8.00 a.m - 10.00 a.m",
+      "fee": 12000.0
+   },
+   {
+      "name": "seth mears",
+      "hospital": "pine valley community hospital",
+      "category": "surgery",
+      "availability": "3.00 p.m - 5.00 p.m",
+      "fee": 8000.0
+   }
 ]
 ```
 
-Now, check the **Console** tab of WSO2 Integration Studio and you will see the following message:
-`INFO - LogMediator message = "Welcome to HealthcareService"`
+Now, check the **Output** tab of VS Code and you will see a message similar to the following:
+
+```
+[2024-07-29 15:51:36,956]  INFO {LogMediator} - {api:HealthcareAPI} Log Property message = "Welcome to HealthcareService"
+```
 
 You have now created and deployed an API resource in the Micro Integrator, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.

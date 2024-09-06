@@ -10,47 +10,59 @@ When the response messages are received from the backend, the Aggregate mediator
     
 Listed below are the synapse configurations (proxy service) for implementing this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy name="SplitAggregateProxy" xmlns="http://ws.apache.org/ns/synapse" transports="https http" startOnLoad="true" trace="disable">
-    <target>
-        <inSequence>
-            <iterate expression="//m0:getQuote/m0:request" preservePayload="true"
-                     attachPath="//m0:getQuote"
-                     xmlns:m0="http://services.samples">
-                <target>
-                    <sequence>
-                        <header name="Action" scope="default" value="urn:getQuote"/>
-                        <send>
-                            <endpoint>
-                                <address
-                                    uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                            </endpoint>
-                        </send>
-                    </sequence>
-                </target>
-            </iterate>
-        </inSequence>
-        <outSequence>
-            <property name="enclose" scope="default">
-            <ns:Results xmlns:ns="http://services.samples" />
-            </property>
-             <aggregate>
-                <onComplete expression="$body/*[1]" enclosingElementProperty="enclose">
-                    <send/>
-                </onComplete>
-           </aggregate>
-        </outSequence>
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SplitAggregateProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <iterate attachPath="//m0:getQuote" expression="//m0:getQuote/m0:request" preservePayload="true" xmlns:m0="http://services.samples">
+                    <target>
+                        <sequence>
+                            <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+                            <call>
+                                <endpoint key="SimpleStockQuoteServiceEp"/>
+                            </call>
+                            <property name="enclose" scope="default" type="OM">
+                                <ns:Results xmlns:ns="http://services.samples"/>
+                            </property>
+                        </sequence>
+                    </target>
+                </iterate>
+                <aggregate>
+                    <completeCondition timeout="0">
+                        <messageCount max="-1" min="-1"/>
+                    </completeCondition>
+                    <onComplete aggregateElementType="root" enclosingElementProperty="enclose" expression="$body/*[1]">
+                        <respond/>
+                    </onComplete>
+                </aggregate>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -97,44 +109,47 @@ Message Body:
 You can then observe that the response from the proxy service is the aggregated response received for each of the `getQuote` requests that were sent to the backend.
 
 ```xml
-<ns:Results xmlns:ns="http://services.samples">
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ax21="http://services.samples/xsd">
-        <soapenv:Body>
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <ns:Results xmlns:ns="http://services.samples">
             <ns:getQuoteResponse>
-                <ax21:change>-2.86843917118114</ax21:change>
-                <ax21:earnings>-8.540305401672558</ax21:earnings>
-                <ax21:high>-176.67958828498735</ax21:high>
-                <ax21:last>177.66987465262923</ax21:last>
-                <ax21:low>-176.30898912339075</ax21:low>
-                <ax21:marketCap>5.649557998178506E7</ax21:marketCap>
-                <ax21:name>IBM Company</ax21:name>
-                <ax21:open>185.62740369461244</ax21:open>
-                <ax21:peRatio>24.341353665128693</ax21:peRatio>
-                <ax21:percentageChange>-1.4930577008849097</ax21:percentageChange>
-                <ax21:prevClose>192.11844053187397</ax21:prevClose>
-                <ax21:symbol>IBM</ax21:symbol>
-                <ax21:volume>7791</ax21:volume>
+                <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                    <ax21:change>-2.7541403681043874</ax21:change>
+                    <ax21:earnings>13.316362583010434</ax21:earnings>
+                    <ax21:high>-69.86552971310732</ax21:high>
+                    <ax21:last>70.56563752927664</ax21:last>
+                    <ax21:lastTradeTimestamp>Wed Jul 24 21:06:42 IST 2024</ax21:lastTradeTimestamp>
+                    <ax21:low>-70.33199361844859</ax21:low>
+                    <ax21:marketCap>3.731387687008923E7</ax21:marketCap>
+                    <ax21:name>IBM Company</ax21:name>
+                    <ax21:open>-69.18324170577428</ax21:open>
+                    <ax21:peRatio>25.158635261126836</ax21:peRatio>
+                    <ax21:percentageChange>4.1163339082481105</ax21:percentageChange>
+                    <ax21:prevClose>-66.90760345232864</ax21:prevClose>
+                    <ax21:symbol>IBM</ax21:symbol>
+                    <ax21:volume>16901</ax21:volume>
+                </ns:return>
             </ns:getQuoteResponse>
-        </soapenv:Body>
-    </soapenv:Envelope>
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ax21="http://services.samples/xsd">
-        <soapenv:Body>
             <ns:getQuoteResponse>
-                <ax21:change>-2.86843917118114</ax21:change>
-                <ax21:earnings>-8.540305401672558</ax21:earnings>
-                <ax21:high>-176.67958828498735</ax21:high>
-                <ax21:last>177.66987465262923</ax21:last>
-                <ax21:low>-176.30898912339075</ax21:low>
-                <ax21:marketCap>5.649557998178506E7</ax21:marketCap>
-                <ax21:name>SUN Company</ax21:name>
-                <ax21:open>185.62740369461244</ax21:open>
-                <ax21:peRatio>24.341353665128693</ax21:peRatio>
-                <ax21:percentageChange>-1.4930577008849097</ax21:percentageChange>
-                <ax21:prevClose>192.11844053187397</ax21:prevClose>
-                <ax21:symbol>SUN</ax21:symbol>
-                <ax21:volume>7791</ax21:volume>
+                <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                    <ax21:change>-2.401012800717323</ax21:change>
+                    <ax21:earnings>12.160630064213766</ax21:earnings>
+                    <ax21:high>197.42220037969906</ax21:high>
+                    <ax21:last>189.55943936957652</ax21:last>
+                    <ax21:lastTradeTimestamp>Wed Jul 24 21:06:42 IST 2024</ax21:lastTradeTimestamp>
+                    <ax21:low>195.30882072296137</ax21:low>
+                    <ax21:marketCap>5.364948639721981E7</ax21:marketCap>
+                    <ax21:name>SUN Company</ax21:name>
+                    <ax21:open>194.5745817372284</ax21:open>
+                    <ax21:peRatio>-17.563343313834807</ax21:peRatio>
+                    <ax21:percentageChange>1.328464451789101</ax21:percentageChange>
+                    <ax21:prevClose>-180.73594648948068</ax21:prevClose>
+                    <ax21:symbol>SUN</ax21:symbol>
+                    <ax21:volume>17559</ax21:volume>
+                </ns:return>
             </ns:getQuoteResponse>
-        </soapenv:Body>
-    </soapenv:Envelope>
-</ns:Results>
+        </ns:Results>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```

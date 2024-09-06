@@ -1,4 +1,4 @@
-# Applying Security to a Proxy Service
+# Apply Security to a Proxy Service
 
 Follow the instructions below to apply security to a proxy service via WSO2 Integration Studio:
 
@@ -8,54 +8,144 @@ Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-s
 
 ## Step 1 - Create the security policy file
 
-Follow the instructions given below to create a **WS-Policy** resource in your registry project. This will be your security policy file.
+Follow the instructions below to create a **WS-Policy** resource in your integration project. This will be your security policy file.
 
-1. Create a [registry resource project]({{base_path}}/develop/create-integration-project/#registry-resource-project).
+1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.  
+2. Open the project overview and click on **+ Add Artifact**.  
+    [![Add Artifact]({{base_path}}/assets/img/integrate/apply-security/119130870/open-project-overview.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/open-project-overview.png)  
+3. Click on **+ View More** to expand the list of artifacts.  
+    [![View More]({{base_path}}/assets/img/integrate/apply-security/119130870/expand-artifacts-view.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/expand-artifacts-view.png)  
+4. Select **Registry** under the **Other Artifacts** section.  
+    [![Select Registry]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)  
+5. Add the following details in the **Create New Registry Resource** window that opens and click on **Create**.  
+    **Create Options**: Select `From existing template`.   
+    **Template Type**: Select `WS-Policy`.  
+    **Resource Name**: Enter a name for the resource.
+    **Artifact Name**: Enter a name for the artifact.
+    **Select registry type**: Select the registry type where the resource should be saved. Select `Governance registry (gov)` for this example.
+    **Registry Path**: Provide the registry path where the resource should be saved.  
+    [![Create New Registry Resource]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)  
+6. The created policy file will be listed in the project explorer.  
+    [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)  
+    You can also find this security policy file under the **Registry Explorer** section in the sidebar. Double-click on the file to open it.  
+    [![Registry Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)  
 
-2. Right-click on the registry resource project in the left navigation panel, click **New**, and then click **Registry Resource**. 
-    
-     The **New Registry Resource** window appears.
+    !!! Note
+        Currently, the **Design View** of the policy editor is not available in WSO2 MI for VSCode. You can edit the properties via the **Source View**.  
 
-    [![Click registry resource menu]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.jpg)
+7. Edit the policy file in the **Source View** to enable the required security scenario.  
+    For example, to enable the **Sign and Encrypt** security scenario, add the following encryption/signature properties to the policy file.  
+    **Alias**: `wso2carbon`
+    **Privatestore**: `wso2carbon.jks`
+    **Tenant id**: `-1234`
+    **Truststores**: `wso2carbon.jks`
+    **User**: `wso2carbon`
 
-3.  Select **From existing template** and click **Next**.
+    The following advanced rampart properties have been added to your policy file by default.  
+    **User**: `wso2carbon`
+    **encryptionUser**: `useReqSigCert`
+    **timestampPrecisionInMilliseconds**: `true`
+    **timestampTTL**: `300`
+    **timestampMaxSkew**: `300`
+    **timestampStrict**: `false`
+    **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`
+    **nonceLifeTime**: `300`
 
-    [![Registry resources artifact creation options]({{base_path}}/assets/img/integrate/apply-security/119130870/119130886.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130886.jpg)
-
-4.  Enter a resource name and select the **WS-Policy** template along with the preferred registry path.  
-
-    [![Registry resource name]({{base_path}}/assets/img/integrate/apply-security/119130870/119130885.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130885.jpg)
-
-    [![Registry resource details]({{base_path}}/assets/img/integrate/apply-security/119130870/119130884.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130884.jpg)
-
-5.  Click **Finish**. 
-
-     The policy file is now listed in the project explorer as shown below.
-
-    [![Policy file in project explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.jpg)
-      
-6.  Double-click on the policy file to open the file. 
-
-     Note that you get a **Design View** and **Source View** of the policy.
-
-7.  Let's use the **Design View** to enable the required security scenario. 
-
-     For example, enable the **Sign and Encrypt** security scenario as shown below.
-
-    !!! Tip
-        Click the icon next to the scenario to get details of the scenario.
-    
-    [![Sign and Encrypt security scenario]({{base_path}}/assets/img/integrate/apply-security/119130870/119130882.jpg){: style=width:90%}]({{base_path}}/assets/img/integrate/apply-security/119130870/119130882.jpg)
-
-8.  You can also provide encryption properties, signature properties, and advanced rampart configurations as shown below.
-
-    **Encryption/Signature Properties**
-
-    [![Encryption/Signature Properties]({{base_path}}/assets/img/integrate/apply-security/119130870/119130890.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130890.jpg)
-
-    **Rampart Properties**
-
-    [![Rampart Properties]({{base_path}}/assets/img/integrate/apply-security/119130870/119130889.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130889.jpg)
+    The complete policy file with enabled **Sign and Encrypt - X509 Authentication** security scenario will look as follows.
+    ```xml
+    <wsp:Policy wsu:Id="SigEncr" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:InitiatorToken>
+                            <wsp:Policy>
+                                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                    <wsp:Policy>
+                                        <sp:RequireThumbprintReference/>
+                                        <sp:WssX509V3Token10/>
+                                    </wsp:Policy>
+                                </sp:X509Token>
+                            </wsp:Policy>
+                        </sp:InitiatorToken>
+                        <sp:RecipientToken>
+                            <wsp:Policy>
+                                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                                    <wsp:Policy>
+                                        <sp:RequireThumbprintReference/>
+                                        <sp:WssX509V3Token10/>
+                                    </wsp:Policy>
+                                </sp:X509Token>
+                            </wsp:Policy>
+                        </sp:RecipientToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp/>
+                        <sp:OnlySignEntireHeadersAndBody/>
+                    </wsp:Policy>
+                </sp:AsymmetricBinding>
+                <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:MustSupportRefKeyIdentifier/>
+                        <sp:MustSupportRefIssuerSerial/>
+                        <sp:MustSupportRefThumbprint/>
+                        <sp:MustSupportRefEncryptedKey/>
+                        <sp:RequireSignatureConfirmation/>
+                    </wsp:Policy>
+                </sp:Wss11>
+                <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:MustSupportRefKeyIdentifier/>
+                        <sp:MustSupportRefIssuerSerial/>
+                    </wsp:Policy>
+                </sp:Wss10>
+                <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <sp:Body/>
+                </sp:SignedParts>
+                <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <sp:Body/>
+                </sp:EncryptedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+        <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
+            <rampart:user>wso2carbon</rampart:user>
+            <rampart:encryptionUser>useReqSigCert</rampart:encryptionUser>
+            <rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
+            <rampart:timestampTTL>300</rampart:timestampTTL>
+            <rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
+            <rampart:timestampStrict>false</rampart:timestampStrict>
+            <rampart:tokenStoreClass>org.wso2.carbon.security.util.SecurityTokenStore
+            </rampart:tokenStoreClass>
+            <rampart:nonceLifeTime>300</rampart:nonceLifeTime>
+            <rampart:encryptionCrypto>
+                <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.carbon.security.util.ServerCrypto">
+                    <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
+                    <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
+                    <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
+                    <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
+                    <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
+                </rampart:crypto>
+            </rampart:encryptionCrypto>
+            <rampart:signatureCrypto>
+                <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.carbon.security.util.ServerCrypto">
+                    <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
+                    <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
+                    <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
+                    <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
+                    <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
+                </rampart:crypto>
+            </rampart:signatureCrypto>
+        </rampart:RampartConfig>
+    </wsp:Policy>
+    ```
     
     !!! Info 
         - Change the tokenStoreClass in the policy file to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`
@@ -95,31 +185,23 @@ Either define the user roles inline or retrieve the user roles from the server.
     - [Create a new proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service)
     - [Import an existing proxy service]({{base_path}}/develop/importing-artifacts)
 
-2.  Double-click the proxy service on the project explorer to open the file and click on the service on design view.
+2.  Click the proxy service on the project explorer to open the design view and click on **Edit** to open the form view.
 
-3.  Select the **Security Enabled** property in the **Properties** tab.
+3. Click on **Advanced Options** and navigate to the **Security** section.
 
-    [![Enable Security]({{base_path}}/assets/img/integrate/apply-security/119130870/119130879.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130879.jpg)
+    [![Security tab]({{base_path}}/assets/img/integrate/apply-security/119130870/edit-proxy-service-advanced-options.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/edit-proxy-service-advanced-options.png)  
 
-4.  Select the **Browse** icon for the **Service Policies** field. In the dialog box that opens, create a new record and click the **Browse** icon to open the **Resource Key** dialog as shown below.  
+4. Select the **Security Enabled** checkbox and click on the **+ Add Policy** to select the security policy file you created in the previous step.
 
-    [![Resource Key dialog box]({{base_path}}/assets/img/integrate/apply-security/119130870/119130877.jpg){: style=width:80%}]({{base_path}}/assets/img/integrate/apply-security/119130870/119130877.jpg)
+    [![Security Policy]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)  
 
-5.  Click **workspace**, to add the security policy from the current workspace. You can select the path to the `sample_policy.xml` file that you created in the previous steps.  
+    Select the security policy file from the drop-down list and click **Save**.
 
-    [![Add the security policy]({{base_path}}/assets/img/integrate/apply-security/119130870/119130876.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130876.jpg)
+## Step 3 - Build and run the artifacts
 
-6.  Save the proxy service file.
+To deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-## Step 3 - Package the artifacts
-
-[Package the artifacts into a composite application project]({{base_path}}/develop/packaging-artifacts).
-
-## Step 4 - Build and run the artifacts
-
-[Deploy the artifacts]({{base_path}}/develop/deploy-artifacts).
-
-## Step 5 - Testing the service
+## Step 4 - Test the service
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
 
@@ -129,11 +211,11 @@ Create a Soap UI project with the relevant security settings and then send the r
 
      Example: `http://localhost:8280/services/SampleProxy?wsdl`
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.jpg" width="600">
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.png" width="600">
 
-2.  Double click on the created SOAP project, click on **WS-Security-Configuration**, **Keystores**, and add the WSO2 keystore.
+2.  Double-click on the created SOAP project, click on **WS-Security-Configuration**, **Keystores**, and add the WSO2 keystore.
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.jpg" width="600">
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.jpeg" width="600">
     
 3.  Enter the keystore password for the keystore configuration.
 

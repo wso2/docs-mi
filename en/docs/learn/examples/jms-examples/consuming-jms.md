@@ -21,16 +21,27 @@ See the instructions on how to [build and run](#build-and-run) this example.
         <endpoint>
             <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
         </endpoint>
-        <outSequence/>
     </target>
-       <parameter name="transport.jms.ContentType">
-      <rules>
-         <jmsProperty>contentType</jmsProperty>
-         <default>text/xml</default>
-      </rules>
+    <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory</parameter>
+    <parameter name="transport.jms.ContentType">
+    <rules>
+        <jmsProperty>contentType</jmsProperty>
+        <default>text/xml</default>
+    </rules>
    </parameter>
 </proxy>
 ```
+
+!!! Note
+    Make sure to configure the relevant [JMS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) in the `deployment.toml` file.
+    ```
+    [[transport.jms.listener]]
+    name = "myQueueConnectionFactory"
+    parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "QueueConnectionFactory"
+    parameter.connection_factory_type = "queue"
+    ```
 
 The Synapse artifacts used are explained below.
 
@@ -75,8 +86,7 @@ The Synapse artifacts used are explained below.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -143,19 +153,16 @@ We can have a proxy service similar to the following to simulate a two-way invoc
            transports="jms"
            startOnLoad="true"
            trace="disable">
-       <description/>
        <target> 
           <inSequence>
             <header name="Action" value="urn:getQuote"/>
-             <send>
+             <call>
                 <endpoint>
                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-             </send>
+             </call>
+             <respond/>
           </inSequence>
-          <outSequence>
-            <send/>
-          </outSequence>
        </target>
        <parameter name="transport.jms.ContentType">
           <rules>
@@ -163,6 +170,7 @@ We can have a proxy service similar to the following to simulate a two-way invoc
              <default>text/xml</default>
           </rules>
        </parameter>
+      <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory</parameter>
       <parameter name="transport.jms.ReplyDestination">ResponseQueue</parameter>
 </proxy>
 ```
@@ -190,7 +198,7 @@ The Synapse artifacts used are explained below.
         </td>
     </tr>
     <tr>
-        <td>Send Mediator</td>
+        <td>Call Mediator</td>
         <td>
            To send a message to the HTTP backend, you should define the connection URL as the endpoint address. 
         </td>
@@ -201,8 +209,7 @@ The Synapse artifacts used are explained below.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -259,13 +266,12 @@ The Micro Integrator considers all messages consumed from a queue as SOAP messag
         <inSequence>
             <header name="Action" value="urn:getQuote"/>
             <property action="set" name="OUT_ONLY" value="true"/>
-            <send>
+            <call>
                 <endpoint>
                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-            </send>
+            </call>
         </inSequence>
-        <outSequence/>
     </target>
     <parameter name="transport.jms.ContentType">
         <rules>
@@ -301,7 +307,7 @@ The Synapse artifacts used are explained below.
         </td>
     </tr>
     <tr>
-        <td>Send Mediator</td>
+        <td>Call Mediator</td>
         <td>
            To send a message to the HTTP backend, you should define the connection URL as the endpoint address. 
         </td>

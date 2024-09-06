@@ -348,7 +348,7 @@ password = "$secret{password}"</code></pre>
 </div>
 
 
-## Micro Integrator Dashboard
+## Integration Control Plane
 
 <div class="mb-config-catalog">
     <section>
@@ -372,7 +372,7 @@ node_id = "dev_node_2"</code></pre>
                             <code>[dashboard_config]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the Micro Integrator server to connect with the dashboard server.
+                                This configuration header is required for the Micro Integrator server to connect with the Integration Control Plane.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -394,7 +394,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL to access the dashboard server. Be sure to replace {hostname/ip} and {port} with the relevant values from your environment.</p>
+                                        <p>The URL to access the Integration Control Plane. Be sure to replace {hostname/ip} and {port} with the relevant values from your environment.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -413,7 +413,7 @@ node_id = "dev_node_2"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The time interval (in seconds) between two consecutive heartbeats that are sent from the Micro Integrator to the dashboard server.</p>
+                                        <p>The time interval (in seconds) between two consecutive heartbeats that are sent from the Micro Integrator to the ICP server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -434,7 +434,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The server group to which the Micro Integrator instance belongs. Specify the same group ID in all the Micro Integrator servers that should belong to a single group. By default, a &#39;group_id&#39; named &#39;default&#39; is assinged to every Micro Integrator server that connects to the dashboard. When you sign in to the dashboard, you can view data per server group.</p>
+                                        <p>The server group to which the Micro Integrator instance belongs. Specify the same group ID in all the Micro Integrator servers that should belong to a single group. By default, a &#39;group_id&#39; named &#39;default&#39; is assinged to every Micro Integrator server that connects to the ICP server. When you sign in to the ICP server, you can view data per server group.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -455,7 +455,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The dashboard identifies the Micro Integrator node by this ID. If you have already specified a node ID when you set up the Micro Integrator cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default.</p>
+                                        <p>The ICP server identifies the Micro Integrator node by this ID. If you have already specified a node ID when you set up the Micro Integrator cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default.</p>
                                     </div>
                                 </div>
                             </div>

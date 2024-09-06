@@ -29,19 +29,19 @@ Following is a sample proxy service configuration and mediation sequence that we
                 <respond/>
             </inSequence>
             <faultSequence>
-                <sequence key="errorHandler"/>
+                <sequence key="ErrorHandler"/>
             </faultSequence>
         </target>
     </proxy>
     ```
 === "Error Handling Sequence"    
     ```xml
-    <sequence name="errorHandler">
-        <makefault response="true">
-            <code xmlns:tns="http://www.w3.org/2003/05/soap-envelope" value="tns:Receiver"/>
+    <sequence name="ErrorHandler" xmlns="http://ws.apache.org/ns/synapse">
+        <makefault response="true" version="soap12">
+            <code xmlns:soap12Env="http://www.w3.org/2003/05/soap-envelope" value="soap12Env:Receiver"/>
             <reason value="COULDN'T SEND THE MESSAGE TO THE SERVER."/>
         </makefault>
-        <send/>
+        <respond/>
     </sequence>
     ```
 

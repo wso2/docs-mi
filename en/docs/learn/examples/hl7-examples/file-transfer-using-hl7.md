@@ -14,35 +14,39 @@ Given below is a proxy service that is configured to detect HL7 files (`.hl7`) i
 !!! Info
     Be sure to replace file directories specified below with actual directories in your own file system.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="FileSystemToFileSystem" transports="vfs">
-  <target>
-    <inSequence>
-      <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
-      <property name="transport.vfs.ReplyFileName" expression="get-property('transport','FILE_NAME')" scope="transport" type="STRING"/>
-      <log level="full"/>
-      <send>
-        <endpoint>
-          <address uri="vfs:file:///home/user/test/out"/>
-        </endpoint>
-      </send>
-    </inSequence>
-  </target>
-  <parameter name="transport.PollInterval">5</parameter>
-  <parameter name="transport.vfs.FileURI">file:///home/user/test/in</parameter>
-  <parameter name="transport.vfs.FileNamePattern">.*\.hl7</parameter>
-  <parameter name="transport.vfs.ContentType">application/edi-hl7;charset="iso-8859-15"</parameter>
-  <parameter name="transport.hl7.ValidateMessage">false</parameter>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="FileSystemToFileSystem" transports="vfs">
+      <target>
+         <inSequence>
+            <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
+            <property name="transport.vfs.ReplyFileName" expression="get-property('transport','FILE_NAME')" scope="transport" type="STRING"/>
+            <log level="full"/>
+            <call>
+               <endpoint key="FileEndpoint" />
+            </call>
+         </inSequence>
+      </target>
+      <parameter name="transport.PollInterval">5</parameter>
+      <parameter name="transport.vfs.FileURI">file:///home/user/test/in</parameter>
+      <parameter name="transport.vfs.FileNamePattern">.*\.hl7</parameter>
+      <parameter name="transport.vfs.ContentType">application/edi-hl7;charset="iso-8859-15"</parameter>
+      <parameter name="transport.hl7.ValidateMessage">false</parameter>
+    </proxy>
+    ```
+=== "File Endpoint"
+    ```xml
+    <endpoint name="FileEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="vfs:file:///home/user/test/out"/>
+    </endpoint>
+    ```
 
 ### Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
@@ -71,30 +75,28 @@ When the following proxy service runs, an HL7 service will start listening on th
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <proxy xmlns="http://ws.apache.org/ns/synapse"
-     name="HL7ToFileSystem"
-     transports="hl7"
-     statistics="disable"
-     trace="disable"
-     startOnLoad="true">
- <target>
-    <inSequence>
-       <log level="full"/>
-       <property name="HL7_RESULT_MODE" value="ACK" scope="axis2"/>
-       <property name="OUT_ONLY" value="true"/>
-       <property name="transport.vfs.ReplyFileName"
-                 expression="fn:concat(get-property('SYSTEM_DATE', 'yyyyMMdd.HHmmssSSS'), '.xml')"
-                 scope="transport"/>
-       <send>
-          <endpoint>
-             <address uri="vfs:file:///home/user/test/out"/>
-          </endpoint>
-       </send>
-    </inSequence>
- </target>
- <parameter name="transport.hl7.AutoAck">false</parameter>
- <parameter name="transport.hl7.Port">55555</parameter>
- <parameter name="transport.hl7.ValidateMessage">false</parameter>
- <description/>
+   name="HL7ToFileSystem"
+   transports="hl7"
+   statistics="disable"
+   trace="disable"
+   startOnLoad="true">
+   <target>
+      <inSequence>
+         <log level="full" />
+         <property name="HL7_RESULT_MODE" value="ACK" scope="axis2" />
+         <property name="OUT_ONLY" value="true" />
+         <property name="transport.vfs.ReplyFileName"
+            expression="fn:concat(get-property('SYSTEM_DATE', 'yyyyMMdd.HHmmssSSS'), '.xml')"
+            scope="transport" />
+         <call>
+            <endpoint key="FileEndpoint" />
+         </call>
+      </inSequence>
+   </target>
+   <parameter name="transport.hl7.AutoAck">false</parameter>
+   <parameter name="transport.hl7.Port">55555</parameter>
+   <parameter name="transport.hl7.ValidateMessage">false</parameter>
+   <description/>
 </proxy>
 ```
 
@@ -102,8 +104,7 @@ When the following proxy service runs, an HL7 service will start listening on th
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
@@ -124,49 +125,52 @@ Given below is a proxy service that will detect .hl7 files in the `transport.vfs
 !!! Info
     Be sure to replace file directories specified below with actual directories in your own file system.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="SFTPToHL7"
-       transports="vfs"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-   <target>
-      <inSequence>
-         <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
-         <log level="full"/>
-         <send>
-            <endpoint>
-               <address uri="hl7://localhost:9988"/>
-            </endpoint>
-         </send>
-      </inSequence>
-      <outSequence>
-         <drop/>
-      </outSequence>
-   </target>
-   <parameter name="transport.vfs.ReconnectTimeout">2</parameter>
-   <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
-   <parameter name="transport.PollInterval">5</parameter>
-   <parameter name="transport.hl7.AutoAck">false</parameter>
-   <parameter name="transport.vfs.MoveAfterProcess">vfs:sftp://user:pass@localhost/vfs/out</parameter>
-   <parameter name="transport.vfs.FileURI">vfs:sftp://user:pass@localhost/vfs/in</parameter>
-   <parameter name="transport.vfs.MoveAfterFailure">vfs:sftp://user:pass@localhost/vfs/failed</parameter>
-   <parameter name="transport.vfs.FileNamePattern">.*\.hl7</parameter>
-   <parameter name="transport.vfs.ContentType">application/edi-hl7;charset="iso-8859-15"</parameter>
-   <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
-   <parameter name="transport.hl7.ValidateMessage">false</parameter>
-   <description/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy xmlns="http://ws.apache.org/ns/synapse"
+          name="SFTPToHL7"
+          transports="vfs"
+          statistics="disable"
+          trace="disable"
+          startOnLoad="true">
+       <target>
+          <inSequence>
+             <log level="full"/>
+             <call>
+                <endpoint key="HL7Endpoint" />
+             </call>
+          </inSequence>
+          <outSequence>
+             <drop/>
+          </outSequence>
+       </target>
+       <parameter name="transport.vfs.ReconnectTimeout">2</parameter>
+       <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+       <parameter name="transport.PollInterval">5</parameter>
+       <parameter name="transport.hl7.AutoAck">false</parameter>
+       <parameter name="transport.vfs.MoveAfterProcess">vfs:sftp://user:pass@localhost/vfs/out</parameter>
+       <parameter name="transport.vfs.FileURI">vfs:sftp://user:pass@localhost/vfs/in</parameter>
+       <parameter name="transport.vfs.MoveAfterFailure">vfs:sftp://user:pass@localhost/vfs/failed<parameter>
+       <parameter name="transport.vfs.FileNamePattern">.*\.hl7</parameter>
+       <parameter name="transport.vfs.ContentType">application/edi-hl7;charset="iso-8859-15"</parameter>
+       <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+       <parameter name="transport.hl7.ValidateMessage">false</parameter>
+       <description/>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <endpoint name="HL7Endpoint" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="hl7://localhost:9988" />
+    </endpoint>
+    ```
 
 ### Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.

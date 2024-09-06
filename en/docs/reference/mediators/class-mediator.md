@@ -12,11 +12,11 @@ for not frequently re-used custom developments and very user-specific
 scenarios, for which, there is no built-in mediator that already
 provides the required functionality.
 
-Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Integration Studio]({{base_path}}/develop/WSO2-Integration-Studio) for debugging Class mediators.
+Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) for debugging Class mediators.
 
 ## Syntax
 
-``` java
+```xml
 <class name="class-name">
    <property name="string" (value="literal" | expression="[XPath|json-eval(JSON Path)]")/>*
 </class>
@@ -41,41 +41,57 @@ In this configuration, the Micro Integrator sends the requested message to the 
 !!! Warning
         Using the class variables with expressions will lead to the values evaluated being mixed up when there are concurrent requests and will lead to erroneous behaviors. 
 
-``` java
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="errorHandler">
-    <makefault>
-        <code value="tns:Receiver" xmlns:tns="http://www.w3.org/2003/05/soap-envelope"/>
-        <reason value="Mediation failed."/>
-    </makefault>
-    <send/>
-</sequence>
-
-<proxy name="SimpleProxy" transports="http https" startonload="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-         <inSequence>
-                <send>
-                    <endpoint name="stockquote">
-                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                    </endpoint>
-                </send>
-            </inSequence>
-            <outSequence>
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SimpleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEP"/>
+                </call>
                 <class name="samples.mediators.SimpleClassMediator">
                     <property name="variable1" value="10"/>
                     <property name="variable2" value="5"/>
                 </class>
-                <send/>
-            </outSequence>
+                <respond/>
+            </inSequence>
             <faultSequence>
-                 <sequence key="errorHandler"/>
+                <sequence key="errorHandler"/>
             </faultSequence>
-    </target>
-</proxy>
-```
+        </target>
+    </proxy>
+    ```
+=== "Error Handler Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="errorHandler"  trace="disable"  xmlns="http://ws.apache.org/ns/synapse">
+        <makefault response="true" description="" version="soap11">
+            <code value="soap11Env:VersionMismatch" xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/"/>
+            <reason value="Mediation failed."/>
+        </makefault>
+        <respond/>
+    </sequence>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEP" xmlns="http://ws.apache.org/ns/synapse">
+        <address     uri="http://localhost:9000/soap/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 See the following sample Class Mediator and note the `         SynapseMessageContext        ` and the full Synapse API in there.
 
-``` java
+```java
 package samples.mediators;
 
     import org.apache.synapse.MessageContext;

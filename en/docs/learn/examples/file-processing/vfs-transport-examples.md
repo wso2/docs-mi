@@ -7,8 +7,24 @@ receiver. This example demonstrates the VFS transport by using the file system a
 
 Following are the integration artifacts (proxy service) that we can used to implement this scenario.
 
-```xml
+=== "Proxy"
+    ```xml
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="vfs">
+        <target>
+            <inSequence>
+                <header name="Action" value="urn:getQuote"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteService" />
+                </call>
+                <property name="transport.vfs.ReplyFileName"
+                          expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')"
+                          scope="transport"/>
+                <property action="set" name="OUT_ONLY" value="true"/>
+                <call>
+                    <endpoint key="FileEndpoint" />
+                </call>
+            </inSequence>
+        </target>
         <parameter name="transport.vfs.FileURI">file:///home/user/test/in</parameter>  
         <parameter name="transport.vfs.ContentType">text/xml</parameter>
         <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
@@ -17,38 +33,22 @@ Following are the integration artifacts (proxy service) that we can used to impl
         <parameter name="transport.vfs.MoveAfterFailure">file:///home/user/test/original</parameter>
         <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
         <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
-        <target>
-            <inSequence>
-                <header name="Action" value="urn:getQuote"/>
-                <send>
-                    <endpoint>
-                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                    </endpoint>
-                </send>
-            </inSequence>
-            <outSequence>
-                <property name="transport.vfs.ReplyFileName"
-                          expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')"
-                          scope="transport"/>
-                <property action="set" name="OUT_ONLY" value="true"/>
-                <send>
-                    <endpoint>
-                        <address uri="vfs:file:///home/user/test/out"/> 
-                    </endpoint>
-                </send>
-            </outSequence>
-        </target>
-        <publishWSDL uri="conf:custom//sample_proxy_1.wsdl"/>
     </proxy>
-```
+    ```
+=== "SimpleStockQuoteService Endpoint"
+    ```xml
+    <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
+=== "File Endpoint"
+    ```xml
+    <endpoint name="FileEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+       <address uri="vfs:file:///home/user/test/out"/>
+    </endpoint>
+    ```
 
-To configure a VFS endpoint, use the `vfs:file` prefix in the URI. For example:
-
-```xml
-<endpoint>
-    <address uri="vfs:file:///home/user/test/out"/>
-</endpoint>
-```
+To configure a VFS endpoint, use the `vfs:file` prefix in the URI. 
 
 ## Build and run
 
@@ -66,12 +66,10 @@ To test this sample, the following files and directories should be created:
         `          transport.vfs.MoveAfterProcess         ` and
         `          transport.vfs.MoveAfterFailure         ` parameter
         values to point to the **original** directory location.
-    -   Be sure that the endpoint in the `<outSequence>` points to the **out** directory location. Make sure that the prefix
-        `          vfs:         ` in the endpoint URL is not removed or changed.
+    -   Be sure that the address uri in the `FileEndpoint` points to the **out** directory location. Make sure that the prefix
+        `vfs:` in the endpoint URL is not removed or changed.
 
-2. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources). Change the registry path of the proxy accordingly. 
-
-3. Set up the back-end service.
+2. Set up the back-end service.
 
     - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
     - Extract the downloaded zip file.
@@ -87,7 +85,7 @@ To test this sample, the following files and directories should be created:
         axis2server.bat
         ```
         
-4. Create the `test.xml` file shown below and copy it to the location specified by the `transport.vfs.FileURI` property in the configuration (i.e., the **in** directory). This contains a simple stock quote request in XML/SOAP format.
+3. Create the `test.xml` file shown below and copy it to the location specified by the `transport.vfs.FileURI` property in the configuration (i.e., the **in** directory). This contains a simple stock quote request in XML/SOAP format.
 
     ```xml
     <?xml version='1.0' encoding='UTF-8'?>

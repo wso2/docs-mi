@@ -35,8 +35,7 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
@@ -53,7 +52,7 @@ factory.setPort(5672);
 Channel channel = null;
 Connection connection = factory.newConnection();
 channel = connection.createChannel();
-channel.queueDeclare("queue", false, false, false, null);
+channel.queueDeclare("queue", true, false, false, null);
 channel.exchangeDeclare("exchange", "direct", true);
 channel.queueBind("queue", "exchange", "route");
 

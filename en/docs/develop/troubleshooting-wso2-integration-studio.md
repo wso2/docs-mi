@@ -75,7 +75,7 @@ This error is because the **Docker UI** installation on your MacOS has a feature
 
 ## Error creating Docker image (on Windows)
 
-When you build a Docker image either via [Docker Exporter Project]({{base_path}}/develop/create-docker-project) or [Kubernetes Exporter Project]({{base_path}}/develop/create-kubernetes-project) in WSO2 Integration Studio on Windows, you may sometimes get the following error: "**Docker image generation failed**".
+When you [build a Docker image]({{base_path}}/develop/deploy-artifacts/#build-docker-image) through MI for VS Code on Windows, you may sometimes get the following error: "**Docker image generation failed**".
 
 The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log).
 

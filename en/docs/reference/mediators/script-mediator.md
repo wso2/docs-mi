@@ -2,22 +2,14 @@
 
 The **Script Mediator** is used to invoke the functions of a variety of scripting languages such as JavaScript, Groovy, or Ruby.
 
-A Script mediator can be created in one of the following methods.
+A Script mediator can be created using one of the following methods.
 
 -   With the script program statements stored in a separate file, referenced via the **Local or Remote Registry entry**.
 -   With the script program statements embedded inline within the Synapse configuration.
 
-Synapse uses the Apache [Bean Scripting
-Framework](http://jakarta.apache.org/bsf/) for scripting language
-support. Any script language supported by BSF may be used to implement
-the Synapse Mediator. With the Script Mediator, you can invoke a
-function in the corresponding script. With these functions, it is
-possible to access the Synapse predefined in a script variable named
-`         mc        ` . The `         mc        ` variable represents an
-implementation of the `         MessageContext        `, named
-`         ScriptMessageContext.java        ` , which contains the
-following methods that can be accessed within the script as
-`         mc.methodName        ` .
+Synapse uses the Apache [Bean Scripting Framework](http://jakarta.apache.org/bsf/) for scripting language support. 
+Any script language supported by BSF may be used to implement the Synapse Mediator. With the Script Mediator, you can invoke a function in the corresponding script. With these functions, it is possible to access the Synapse predefined in a script variable named `mc`. 
+The `mc` variable represents an implementation of the `MessageContext`, named `ScriptMessageContext.java`, which contains the following methods that can be accessed within the script as `mc.methodName`.
 
 | Return? | Method Name                        | Description                                                                                                                                                    |
 |---------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -218,29 +210,28 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
 
 ## Examples
 
-### Using an inline script
+### Use an inline script
 
 The following configuration is an example of an inline mediator using `JavaScript/E4X` which returns false if the SOAP message body contains an element named `symbol`, which has a value of `IBM`.
 
-``` java
+```xml
 <script language="js"><![CDATA[mc.getPayloadXML()..symbol != "IBM";]]></script>
 ```
 
-### Using a script saved in the registry
+### Use a script saved in the registry
 
 In the following example, script is loaded from the registry by using the key `repository/conf/sample/resources/script/test.js`.
 
-``` java
+```xml
 <script language="js"
     key="repository/conf/sample/resources/script/test.js"
     function="testFunction"/>
 ```
 
-`         script language="js"        ` indicates that the function
-invoked should be in the JavaScript language. The function named
-testFunction which is invoked should be saved as a resource in the **Registry**. The script can be as shown in the example below.
+`script language="js"` indicates that the function invoked should be in the JavaScript language. The function named testFunction which is invoked should be saved as a resource in the **Registry**. 
+The script can be as shown in the example below.
 
-``` java
+```js
 function testFunction(mc) {
      var symbol = mc.getPayloadXML()..*::Code.toString();
      mc.setPayloadXML(
@@ -252,20 +243,19 @@ function testFunction(mc) {
 }
 ```
 
-### Adding an Include key
+### Add an include key
 
-The following configuration has an `         include key        ` .
+The following configuration has an `include key`.
 
-```
+```xml
 <script language="js" key="stockquoteScript" function="transformRequest">
     <include key="sampleScript"/>
 </script>
 ```
 
-The script is written in JavaScript. The function to be executed is `         transformRequest        ` . This function may be as follows in
-a script saved in the **Registry**.
+The script is written in JavaScript. The function to be executed is `transformRequest`. This function may be as follows in a script saved in the **Registry**.
 
-``` js
+```js
 // stockquoteTransform.js
 function transformRequest(mc) {
 transformRequestFunction(mc);
@@ -283,7 +273,7 @@ executed in the mediation. Note that in order to do this,
 `         sampleScript        ` script should also be saved as a
 resource in the Registry . This script can be as follows.
 
-``` js
+```js
 // sample.js
 function transformRequestFunction(mc) {
 var symbol = mc.getPayloadXML()..*::Code.toString();
@@ -306,32 +296,26 @@ mc.setPayloadXML(
 }
 ```
 
-### Adding a custom SOAP header
+### Add a custom SOAP header
 
-You can add custom SOAP headers to a request by using the
-`         addHeader(mustUnderstand, content)        ` of the Script
-Mediator in a proxy service as shown in the example below.
+You can add custom SOAP headers to a request by using the `addHeader(mustUnderstand, content)` of the Script mediator in a proxy service as shown in the example below.
 
-```
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="CustomSOAPHeaderProxy"
-       startOnLoad="true"
-       statistics="disable"
-       trace="disable"
-       transports="http,https">
-   <target>
-      <inSequence>
-         <log level="full">
-            <property name="Message" value="IncomingRequest"/>
-         </log>
-         <script language="js">mc.addHeader(false, &lt;ns:sampleCustomHeader xmlns:ns="gsb:http://wso2.org/sample"&gt;&lt;ns:customInfo&gt;CustomHeader&lt;/ns:customInfo&gt;&lt;/ns:sampleCustomHeader&gt;);</script>
-         <log level="full">
-            <property name="Message" value="UpdatedMessage"/>
-         </log>
-         <drop/>
-      </inSequence>
-   </target>
-   <description/>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="CustomSOAPHeaderProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log category="INFO" level="full">
+                <property name="Message" value="IncomingRequest"/>
+            </log>
+            <script description="javascript scripts" language="js"><![CDATA[mc.addHeader(false, <ns:sampleCustomHeader xmlns:ns="gsb:http://wso2.org/sample"><ns:customInfo>CustomHeader</ns:customInfo></ns:sampleCustomHeader>);]]></script>
+            <log category="INFO" level="full">
+                <property name="Message" value="UpdatedMessage"/>
+            </log>
+            <drop/>
+        </inSequence>
+        <faultSequence/>
+    </target>
 </proxy>
 ```
 
@@ -339,7 +323,7 @@ Mediator in a proxy service as shown in the example below.
 
 The following table contains examples of how some of the commonly used methods can be included in the script invoked by the following sample Script mediator configuration.
 
-```
+```xml
 <script language="js"
              key="conf:/repository/EI/transform.js"
              function="transform"/>

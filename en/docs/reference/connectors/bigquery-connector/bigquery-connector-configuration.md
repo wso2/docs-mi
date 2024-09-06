@@ -1,12 +1,12 @@
-# Setting up the BigQuery Environment  
+# Set up the BigQuery environment  
 
 The BigQuery connector allows you to access the [BigQuery REST API](https://cloud.google.com/bigquery/docs/reference/rest) from an integration sequence.
 
 To work with the BigQuery connector, you need to have a Google Cloud Platform account. If you do not have a Google Cloud Platform account, go to [console.cloud.google.com](https://console.cloud.google.com/freetrial), and create a Google Cloud Platform trial account.
 
-BigQuery uses the OAuth 2.0 protocol for authorization. All requests to the BigQuery REST API will be authorized against a registered user. Developers can generate user credentials from the Google Cloud Platform using two different mechanisms. See the following sections for detail.
+BigQuery uses the OAuth 2.0 protocol for authorization. All requests to the BigQuery REST API will be authorized against a registered user. Developers can generate user credentials from the Google Cloud Platform using two different mechanisms. See the following sections for details.
 
-### Obtaining user credentials 
+### Obtain user credentials 
 
 Follow the steps below to generate user credentials.
 
@@ -14,53 +14,73 @@ Follow the steps below to generate user credentials.
 
 1. Go to [https://accounts.google.com/SignUphttps://accounts.google.com/SignUp](https://accounts.google.com/SignUp) and create a Google account.
 
-2. Go to [https://console.developers.google.com/projectselector/apis/credentials](https://console.developers.google.com/apis/credentials), and sign in to your **Google account**.
+2. Go to [https://console.developers.google.com/projectselector/apis/credentials](https://console.developers.google.com/projectselector/apis/credentials), and sign in to your **Google account**.
     
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-credentials-page.png" title="Bigquery-credentials-page" width="600" alt="Bigquery-credentials-page"/>   
+     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-credentials-page.png" title="Bigquery-credentials-page" width="600" alt="Bigquery-credentials-page"/>   
    
-3. If you do not already have a project, you can create a new project. Click **Create credentials** and then select **OAuth client ID**.     
+3. If you do not already have a project, Enter `BigQueryExample` as the name of the project and click on **Create**.
+
+4. To create an `api key`, Click on **Create credentials** and then select **API key**.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-api-key.png" title="Select OAuth client ID" width="600" alt="Select OAuth client ID"/>
+
+5. Click on the **Configure consent screen** in the next screen.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-consent-screen.png" title="Bigquery-credentials-page" width="300" alt="Bigquery-credentials-page"/>
+
+6. Provide the Application Name as `BigQueryExample`, and provide your email as `User support email` and `email address of Developer contact information` in the Consent Screen, then click on **SAVE AND CONTINUE**.
+
+7. To add scopes for API, click on **ADD OR REMOVE SCOPES**
+
+    1. Go to **Google API Library**.
    
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-credentials.png" title="Select OAuth client ID" width="600" alt="Select OAuth client ID"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-google-api.png" title="Consent Screen" width="300" alt="Consent Screen" />
    
-4. Next, **select** Web Application, and **create a client**.
+    2. Search **BigQuery API** and enable it.
+   
+        <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-big-query.png" title="Consent Screen" width="300" alt="Consent Screen" />
+   
+    3. Refresh the page and add following scopes.
+   
+        <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-scopes.png" title="Consent Screen" width="300" alt="Consent Screen" />
+    
+8. Click on **ADD USERS**, type the email address of the account you will be testing with, then click on **SAVE AND CONTINUE**.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/gmail-consent-screen4.png" title="Consent Screen" width="300" alt="Consent Screen" />
+
+9. To get `client id` and `client secrets`, Click on **Create credentials** and then select **OAuth client ID**.     
+   
+    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-credentials.png" title="Select OAuth client ID" width="300" alt="Select OAuth client ID"/> 
+   
+10. Next, **select** Web Application, and **create a client**.
   
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-web-application.png" title="Select web application" width="600" alt="Select web application"/> 
 
-5. Add `https://www.google.com` as the redirect URI (you can add any URI that you need as redirect URI) under **Authorized redirect URIs**, and then click **Create**. This displays the **client ID** and **client secret**.
+11. Add `https://developers.google.com/oauthplayground` as the redirect URI (you can add any URI that you need as redirect URI) under **Authorized redirect URIs**, and then click **Create**. This displays the **client ID** and **client secret**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/biguery-authorization-redirect-URI.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
    
-6. Make a note of the **client ID** and **client secret** that is displayed, and then **click OK**.   
+12. Make a note of the **client ID** and **client secret** that is displayed or download the json file, and then **click OK**.   
+
+### Obtain access token and refresh token
+
+1. Navigate to [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) and click OAuth 2.0 Configuration button in the Right top corner.
+
+2. Select **Use your own OAuth credentials**, and provide the obtained Client ID and Client Secret values as above click on Close.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/oath-configuration.png" title="Obtaining Oauth-configuration" width="300" alt="Obtaining Oauth-configuration" />
    
-7. Click **Library** on the left navigation pane.
+3. Under Step 1, select `BigQuery API v2` from the list of APIs, select the following scopes.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-library.png" title="Select library" width="600" alt="Select library"/> 
+     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-scopes.png" title="Selecting Scopes" width="300" alt="Selecting Scopes" />
 
-8. Search  **BigQuery API** under the **Big data category**.
-  
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-api.png" title="Bigquery API" width="600" alt="Pubsub API"/> 
+4. Click on **Authorize APIs** button and select your Gmail account when you are asked and allow the scopes.
 
-9. Click **Enable**. This enables the BigQuery API.   
-   
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-enable-api.png" title="Bigquery enable API" width="600" alt="Pubsub enable API"/> 
-    
-10. Get the authorization code by sending a GET request to the following URL. Replace the `<redirect_uri>` and `<client_ID>` with the redirect URI and client ID values noted in the previous steps. Enter the following URL in your web browser.
- 
-    ```
-    https://accounts.google.com/o/oauth2/auth?redirect_uri=<redirect_uri>&response_type=code&client_id=<client_ID>&scope=https://www.googleapis.com/auth/bigquery&approval_prompt=force&access_type=offline
-    ```
-    Note the authorization code for future use.
-    
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-get-authorization-code.png" title="Get authorization code" width="600" alt="Get authorization code"/> 
-    
-11. Get the `access token` and `refresh token` by sending a POST request to the URL given below. Be sure to use an **x-www-form-urlencoded** body with the `<authorization_code>`, `<client_id>`, `<client_secret>`, and `<redirect_uri>` values noted before, and also set the `grant_type` to **authorization_code**. You will need them to configure the WSO2 Big Query Connector. 
-    
-    ```
-    https://www.googleapis.com/oauth2/v3/token.
-    ```
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-gettoken-postman.png" title="Bigquery get token using postman" width="800" alt="Bigquery get token using postman"/> 
+     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-scope.png" title="Grant Permission" width="300" alt="Grant Permission" />
 
-### Obtaining credentials using the service account
+5.  Under Step 2, click **Exchange authorization code for tokens** to generate and display the Access Token and Refresh Token.
+
+### Obtain credentials using the service account
 
 1. Open the [Service Accounts](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) page in the GCP console.
 
@@ -72,11 +92,11 @@ Follow the steps below to generate user credentials.
   
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-service-account.png" title="Bigquery create service account" width="600" alt="Bigquery create service account"/> 
 
-4. Enter **Service account details**, and then click **Create**.
+4. Enter **Service account details**, and then click **CREATE AND CONTINUE**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-enter-service-account-details.png" title="Bigquery enter service account" width="600" alt="Bigquery enter service account"/> 
 
-5. Select a **role** you wish to grant to the service account and click **Continue**.
+5. Select a **role** you wish to grant to the service account and click **CONTINUE**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-service-account-role.png" title="Bigquery enter service account role" width="600" alt="Bigquery enter service account role"/> 
 
@@ -84,47 +104,35 @@ Follow the steps below to generate user credentials.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-service-account-grant-user-access.png" title="Bigquery enter service account grant user access" width="600" alt="Bigquery enter service account grant user access"/> 
 
-7. Go to the service account for which you wish to create a key and **click** the created Service account in that row.
+7. Go to the service account for which you wish to create a key and click on the **created Service account** in that row.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-created-service-account.png" title="Bigquery enter service account grant user access" width="600" alt="Bigquery enter service account grant user access"/> 
 
-8. Click **Create key**.
+8. Click on **Create key**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-key.png" title="Bigquery service account create key" width="600" alt="Bigquery service account create key"/> 
 
 9. Select the key type as **P12** and click **Create**. Then the created key will be downloaded.
 
-### Creating Project, Dataset and Table
+### Create dataset and table
 
-**Creating Project**
+**Create dataset**
 
-1. Open the BigQuery console.
+1. Open the [BigQuery console](https://console.cloud.google.com/bigquery) and select the created project
 
-2. Click **down arrow key** shown in the following image.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-project1.png" title="Bigquery create project step1" width="600" alt="Bigquery create project step1"/> 
-
-3.  Click **New Project**.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-project2.png" title="Bigquery create project step2" width="600" alt="Bigquery create project step2"/> 
-
-3.  Enter new project details.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-project3.png" title="Bigquery create project step3" width="600" alt="Bigquery create project step3"/> 
-
-**Creating Dataset**
-
-1. After creating the Project, click the created **project**. You can see the following details. Then click Create **Dataset**.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-dataset1.png" title="Bigquery create Dataset step1" width="600" alt="Bigquery create Dataset step1"/> 
-
-2. Enter required Dataset details and click **Create Dataset**.
+    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-project.png" title="Bigquery create Dataset step1" width="600" alt="Bigquery create Dataset step1"/> 
+   
+2. Click on the **View Action** on the created project.
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-dataset.png" title="Bigquery create Dataset step2" width="600" alt="Bigquery create Dataset step2"/>
+   
+3. Enter the required Dataset details and click **Create Dataset**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-dataset2.png" title="Bigquery create Dataset step2" width="600" alt="Bigquery create Dataset step2"/> 
 
-**Creating Table**
+**Create table**
 
-1. After creating the Dataset, click the created **Dataset**. You can see the following details. Then click **Create Table**.  
+1. After creating the Dataset, click on the created **Dataset**. You can see the following details. Then click **Create Table**.  
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-table1.png" title="Bigquery create Table step1" width="600" alt="Bigquery create Table step1"/> 
 

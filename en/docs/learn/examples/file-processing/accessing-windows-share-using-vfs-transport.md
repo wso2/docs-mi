@@ -1,42 +1,39 @@
-# Accessing a Windows Share using VFS
+# Access a Windows Share using VFS
 This example demonstrates how the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport) in WSO2 Micro Integrator can be used to access a windows share.
 
 ## Synapse configuration
 
-Following are the integration artifacts (proxy service) that we can used to implement this scenario.
+Following are the integration artifacts (proxy service) that we can use to implement this scenario.
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="vfs">
-    <parameter name="transport.vfs.FileURI">smb://host/test/in</parameter> 
-    <parameter name="transport.vfs.ContentType">text/xml</parameter>
-    <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
-    <parameter name="transport.PollInterval">15</parameter>
-    <parameter name="transport.vfs.MoveAfterProcess">smb://host/test/original</parameter> 
-    <parameter name="transport.vfs.MoveAfterFailure">smb://host/test/failed</parameter>
-    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
-    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
-
     <target>
-        <inSequence>=
+        <inSequence>
             <header name="Action" value="urn:getQuote"/>
-            <send>
+            <call>
                 <endpoint>
                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <property name="transport.vfs.ReplyFileName"
-                      expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')" scope="transport"/>
+            </call>
+            <property name="transport.vfs.ReplyFileName" expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')" scope="transport"/>
             <property action="set" name="OUT_ONLY" value="true"/>
-            <send>
+            <call>
                 <endpoint>
                     <address uri="vfs:smb://host/test/out"/>
                 </endpoint>
-            </send>
-        </outSequence>
+            </call>
+            <respond/>
+        </inSequence>
     </target>
-    <publishWSDL key="conf:custom/sample_proxy_1.wsdl"/>
+    <publishWSDL key="conf:custom/sample_proxy_1.wsdl" preservePolicy="true"/>
+    <parameter name="transport.vfs.FileURI">smb://host/test/in</parameter>
+    <parameter name="transport.vfs.ContentType">text/xml</parameter>
+    <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
+    <parameter name="transport.PollInterval">15</parameter>
+    <parameter name="transport.vfs.MoveAfterProcess">smb://host/test/original</parameter>
+    <parameter name="transport.vfs.MoveAfterFailure">smb://host/test/failed</parameter>
+    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
 </proxy>
 ```
 
@@ -48,7 +45,7 @@ To test this sample, the following files and directories should be created:
     
 2.  Create the file directories:
 
-    -   Create a directory named **test** on a windows machine and create
+    -   Create a directory named **test** on a Windows machine and create
         three sub directories named **in** , **out** and **original** within
         the test directory.
     -   Grant permission to the network users to read from and write to the
@@ -66,7 +63,7 @@ To test this sample, the following files and directories should be created:
         
     - Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
     - Extract the downloaded zip file.
-    - Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+    - Open a terminal and navigate to the `axis2Server/bin/` directory inside the extracted folder.
     - Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
 
         === "On MacOS/Linux/CentOS"       

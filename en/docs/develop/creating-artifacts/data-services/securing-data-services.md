@@ -10,50 +10,31 @@ service.
 
 Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
 
-## Step 1: Creating a registry resource module
+## Step 1: Create a registry resource module and a security policy as a registry resource
 
 Registry artifacts (such as security policy files) should be stored in a
 **Registry Resource** module. Follow the steps given below to create a
 module:
 
-1.  Right click on the [Integration project]({{base_path}}/develop/create-integration-project) 
-    and go to **New → Registry Resource**. 
-    
-    !!! Tip Alternatively, you can go to **File → New → Others** and 
-    select **Registry Resources** from the opening wizard.
+1.  Open **MI for VS Code** and create a new project.
 
-2.  Enter a name for the module and click **Next** .
-3.  Enter the Maven information about the module and click **Finish** .
-4.  The new module will be listed in the project explorer.
+2.  Open the MI project view and click the `+` button next to the **Registry**. A form will open to create a new registry resource.
 
-## Step 2: Creating a security policy as a registry resource
+3. Select the **From existing template** option and enter the following details, as shown in the image below.
 
-1.  Right-click the registry resource module in the left navigation
-    panel, click **New**, and then click **Registry Resource**. This
-    will open the **New Registry Resource** window.
-2.  Select the **From existing template** option as shown below and
-    click **Next** .  
-    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/119130577/119130583.png)
-3.  Enter the following details:
+    | Property          | Value           |
+    |-------------------|-----------------|
+    | **Resource Name** | `Sample_Policy` |
+    | **Artifact Name** | `Sample_Policy` |
+    | **Template**      | `WS-Policy`     |
+    | **Registry**      | `gov`           |
+    | **Registry path** | `ws-policy/`    |
 
-    | Property      |    Value       |
-    |---------------|----------------|
-    | Resource Name | Sample_Policy  |
-    | Artifact Name | Sample_Policy  |
-    | Template      | WS-Policy      |
-    | Registry      | gov            |
-    | Registry path | ws-policy/     |
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/119130577/create-new-registry-resource.png)
 
-4.  Click **Finish** and the policy file will be listed in the
-    navigator.
-    1.  Let's use the **Design View** to enable the required security
-        scenario. For example, enable the **Sign and Encrypt** security
+4.  Click **Create** and the policy file will be listed in the MI project view.
+    1.  You can enable the required security scenario via the source view of the policy file. For example, enable the **Sign and Encrypt** security
         scenario.
-
-        !!! Tip
-            Click the icon next to the scenario to get details of the scenario.
-          
-        ![]({{base_path}}/assets/img/integrate/tutorials/data_services/119130577/119130596.png)
 
     2.  You can also provide encryption properties, signature
         properties, and advanced rampart configurations.
@@ -64,18 +45,17 @@ module:
             For certain scenarios, you can specify user roles. After you select the scenario, scroll to the right to see the **User Roles** button. Either define the user roles inline or retrieve the user roles from the server.
                 
         !!! Info
-            Switch to source view of the policy file and make sure the tokenStoreClass in the policy file is 'org.wso2.micro.integrator.security.extensions.SecurityTokenStore'.
-            In addition, replace the ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
+            Make sure the `tokenStoreClass` in the source view of the policy file is `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`.
+            In addition, replace the `ServerCrypto` class with `org.wso2.micro.integrator.security.util.ServerCrypto` if present.
         
 5.  Save the policy file.
 
-## Step 2: Adding the security policy to the data service
+## Step 2: Add the security policy to the data service
 
 Once you have configured the policy file, you can add the security
 policy to the data service as explained below.
 
-1.  If you have already created a data service using WSO2 Integration
-    Studio, select the file from the Project Explorer.
+1.  If you have already created a data service, Open the file using WSO2 Micro Integrator Visual Studio Code extension.
 
     !!! Tip
         Be sure to update your database credentials in the dataservice file.
@@ -97,13 +77,13 @@ See the instructions on [packaging the artifacts]({{base_path}}/develop/packagin
 
 See the instructions [deploying the artifacts]({{base_path}}/develop/deploy-artifacts).
 
-## Step 5: Testing the service
+## Step 5: Test the service
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
 
 For guidelines on using SoapUI, see [general guidelines on testing with SOAP UI]({{base_path}}/develop/advanced-development/applying-security-to-a-proxy-service/#general-guidelines-on-testing-with-soap-ui).
 
-## Using an encrypted datasource password
+## Use an encrypted datasource password
 
 When you create a data service for an RDBMS datasource, you have the
 option of encrypting the datasource connection password. This ensures
@@ -115,10 +95,12 @@ See the instructions on [encrypting plain-text passwords]({{base_path}}/install-
 Once you have encrypted the datasource password, you can update the data
 service as explained below.
 
-1.  Open the data service and click **Data Sources** to expand the section.
-    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/data_source_expanded.png)
-2.  Click on the **Edit** icon of the respective Datasource to open 
-    **Edit Datasource** page.
-    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/edit_datasource.png)
-3.  Make sure to check **Use as a Secret Alias**.
-4.  Update the Secret Alias and click on **Save**.
+1.  Open the data service and click **Add Datasource** to create a new data source.
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/add-data-source.png)
+2.  Select RDBMS as datasource type and MySQL as database engine. Enter values for datasource identifier, driver class, URL and username as shown in the image below.  
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/data-source-form.png)
+3.  Add the datasource to the data service.
+4.  Switch to the source view and add the following element to the datasource `<config>` to use a secret alias for the password.
+    ```xml
+    <property xmlns:svns="http://org.wso2.securevault/configuration" name="password" svns:secretAlias="Datasource.Password"/>
+    ```

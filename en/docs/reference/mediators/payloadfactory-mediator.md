@@ -1,8 +1,8 @@
-# PayloadFactory Mediator
+# PayloadFactory mediator
 
 The **PayloadFactory Mediator** transforms or replaces the contents of a
 message. That is, you can configure the format of the request or response
-and also map it with arguments provided in the payloadfactory configuration.
+and also map it with arguments provided in the PayloadFactory configuration.
 
 You can use two methods to format the payload using this mediator.
 
@@ -11,7 +11,7 @@ You can use two methods to format the payload using this mediator.
     defining complex JSON payloads.
 
 You can provide arguments in the mediator configuration to pass values to your payload during runtime.
-You can specify a static value or use an XPath/JSON expression to pass values dynamically. 
+You can specify a static value or use an XPath/JSON [expression]({{base_path}}/reference/synapse-properties/expressions) to pass values dynamically. 
 The values passed by the arguments are evaluated against the existing 
 message.
 
@@ -22,19 +22,16 @@ message.
 
 ``` java
 <payloadFactory media-type="xml | json" template-type="default | freemarker">
-    <format ../>
-    <args>       
+    <format/>
+    <args>
         <arg (value="string" | expression=" {xpath} | {json} | {text} ")/>* 
-    </args> 
+    </args>
 </payloadFactory>
 ```
 
-If you want to change the payload type of
-the outgoing message, such as to change it to JSON, add the
-`         messageType        ` property after the
-`         </payloadFactory>        ` tag. For example:
+If you want to change the payload type of the outgoing message, such as to change it to JSON, add the `messageType` property after the `</payloadFactory>` tag. For example:
 
-``` 
+```xml
 ...
 </payloadFactory>
 <property name="messageType" value="application/json" scope="axis2"/>
@@ -68,7 +65,7 @@ Parameters available to configure the PayloadFactory mediator are as follows:
     <td>
       The template type determines how you define a new payload. Select one of the following template types:
       <ul>
-                <li>
+        <li>
           <b>default</b>: If you select this template type, you can define the payload using the normal syntax of the specified media type.
         </li>
         <li>
@@ -99,7 +96,7 @@ Parameters available to configure the PayloadFactory mediator are as follows:
       Payload
     </td>
     <td>
-      Define the payload accoding to the template type you selected for the <b>template-type</b> parameter.
+      Define the payload according to the template type you selected for the <b>template-type</b> parameter.
     </td>
   </tr>
   <tr>
@@ -114,7 +111,7 @@ Parameters available to configure the PayloadFactory mediator are as follows:
 
 You need to specify the payload format and arguments depending on the <b>template-type</b> you specified in the mediator configuration.
 
-### Default Template
+### Default template
 
 If you select **default** as the **template-type**, you can define the payload and arguments as shown below. This example defines an XML payload.
 
@@ -141,13 +138,13 @@ If you select **default** as the **template-type**, you can define the payload a
 
   The arguments must be entered in the same order as the variables in the payload. That is, the first argument defines the value for variable $1, the second argument defines the value for variable $2, etc. An argument can specify a literal string (e.g., "John") or an XPath/JSON expression that extracts the value from the content in the incoming payload as shown above.
 
-### FreeMarker Template
+### FreeMarker template
 
-The payloadFactory mediator supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **template-type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
+The PayloadFactory mediator supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **template-type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
 
 !!! Note
     -   FreeMarker version 2.3.30 is tested with WSO2 MI 4.x.x.
-    -   You are not required to specify the CDATA tag manually when defining the payload. WSO2 Integration Studio will apply the tag automatically.
+    -   The CDATA will be added automatically when configuring the payload using WSO2 Micro Integrator VSCode extension.
 
 ```xml
 <property name="user_name" scope="default" type="STRING" value="john"/>
@@ -181,7 +178,7 @@ The following root variables are available when you format a FreeMarker payload:
       <code>ctx</code>
     </th>
     <td>
-      You can use the ctx variable to access properties with the 'default' scope. For example, if you have a property named 'customer_id' in the default scope, you can get the property in the FreeMarker template by using 'ctx.customer_id'.
+      You can use the ctx variable to access properties with the 'default' scope. For example, if you have a property named `customer_id` in the default scope, you can get the property in the FreeMarker template by using `ctx.customer_id`.
     </td>
   </tr>
   <tr>
@@ -216,7 +213,7 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
 
 ### Using XML
 
-```xml 
+```xml
 <proxy name="RespondMediatorProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
      <target>
         <inSequence>
@@ -233,8 +230,6 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
                     <arg xmlns:m0="http://services.samples" expression="//m0:Code"/>
                 </args>
             </payloadFactory>
-        </inSequence>
-        <outSequence>
             <!-- using payloadFactory mediator to transform the response message -->
             <payloadFactory media-type="xml">
                 <format>
@@ -248,79 +243,73 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
                     <arg xmlns:m0="http://services.samples/xsd" expression="//m0:last"/>
                 </args>
             </payloadFactory>
-            <send/>
-        </outSequence>          
+            <respond/>
+        </inSequence>
      </target>
 </proxy>
 ```
 
 ### Using JSON
 
-```
+```xml
 <payloadFactory media-type="json">
-            <format>
-                {
-    "coordinates": null,
-    "created_at": "Fri Jun 24 17:43:26 +0000 2011",
-    "truncated": false,
-    "favorited": false,
-    "id_str": "$1",
-    "entities": {
-        "urls": [
+    <format>
+        {
+            "coordinates": null,
+            "created_at": "Fri Jun 24 17:43:26 +0000 2011",
+            "truncated": false,
+            "favorited": false,
+            "id_str": "$1",
+            "entities": {
+                "urls": [
 
-        ],
-        "hashtags": [
-            {
-                "text": "$2",
-                "indices": [
-                    35,
-                    45
+                ],
+                "hashtags": [
+                    {
+                        "text": "$2",
+                        "indices": [
+                            35,
+                            45
+                        ]
+                    }
+                ],
+                "user_mentions": [
+
                 ]
-            }
-        ],
-        "user_mentions": [
-
-        ]
-    },
-    "in_reply_to_user_id_str": null,
-    "contributors": null,
-    "text": "$3",
-    "retweet_count": 0,
-    "id": "##",
-    "in_reply_to_status_id_str": null,
-    "geo": null,
-    "retweeted": false,
-    "in_reply_to_user_id": null,
-
-    "source": "&lt;a 
-href=\"http://sites.google.com/site/yorufukurou/\" 
-rel=\"nofollow\"&gt;YoruFukurou&lt;/a&gt;",
-    "in_reply_to_screen_name": null,
-    "user": {
-        "id_str": "##",
-        "id": "##"
-    },
-    "place": null,
-    "in_reply_to_status_id": null
-}
-            </format>
-            <args>
-               <arg expression="$.entities.hashtags[0].text" evaluator="json"/>
-               <arg expression="//entities/hashtags/text"/>
-               <arg expression="//user/id"/>
-               <arg expression="//user/id_str"/>
-               <arg expression="$.user.id" evaluator="json"/>
-               <arg expression="$.user.id_str" evaluator="json"/>
-            </args>
+            },
+            "in_reply_to_user_id_str": null,
+            "contributors": null,
+            "text": "$3",
+            "retweet_count": 0,
+            "id": "##",
+            "in_reply_to_status_id_str": null,
+            "geo": null,
+            "retweeted": false,
+            "in_reply_to_user_id": null,
+            "source": "&lt;a href=\"http://sites.google.com/site/yorufukurou/\rel=\"nofollow\"&gt;YoruFukurou&lt;/a&gt;",
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id_str": "##",
+                "id": "##"
+            },
+            "place": null,
+            "in_reply_to_status_id": null
+        }
+    </format>
+    <args>
+        <arg expression="$.entities.hashtags[0].text" evaluator="json"/>
+        <arg expression="//entities/hashtags/text"/>
+        <arg expression="//user/id"/>
+        <arg expression="//user/id_str"/>
+        <arg expression="$.user.id" evaluator="json"/>
+        <arg expression="$.user.id_str" evaluator="json"/>
+    </args>
 </payloadFactory>
 <property name="messageType" value="application/json" scope="axis2"/>
 ```
 
-If you specify a JSON expression in the PayloadFactory mediator, you 
-must use the `         evaluator        ` attribute to specify that it 
-is JSON. You can also use the evaluator to specify that an XPath 
-expression is XML, or if you omit the evaluator attribute, XML is 
-assumed by default. For example:
+If you specify a JSON expression in the PayloadFactory mediator, you must use the `evaluator` attribute to specify that it is JSON. You can also use the evaluator to specify that an XPath 
+expression is XML, or if you omit the evaluator attribute, XML is assumed by default. For example:
 
 <table>
 <colgroup>
@@ -351,35 +340,31 @@ assumed by default. For example:
 
 ### Adding arguments
 
-In the following configuration, the values for format parameters
-`         code        ` and `         price        ` will be assigned
-with values that are evaluated from arguments given in the specified
-order.
+In the following configuration, the values for format parameters `code` and `price` will be assigned with values that are evaluated from arguments given in the specified order.
 
-```
+```xml
 <payloadFactory media-type="xml">
     <format>
         <m:checkpriceresponse xmlns:m="http://services.samples/xsd">
-        <m:code>$1</m:code>
-        <m:price>$2</m:price>
-    </m:checkpriceresponse>
-</format>
-<args>
-    <arg xmlns:m0="http://services.samples/xsd" expression="//m0:symbol"/>
-    <arg xmlns:m0="http://services.samples/xsd" expression="//m0:last"/>
-</args>
+            <m:code>$1</m:code>
+            <m:price>$2</m:price>
+        </m:checkpriceresponse>
+    </format>
+    <args>
+        <arg xmlns:m0="http://services.samples/xsd" expression="//m0:symbol"/>
+        <arg xmlns:m0="http://services.samples/xsd" expression="//m0:last"/>
+    </args>
 </payloadFactory>
 ```
 
 ### Suppressing the namespace
 
 To prevent the ESB profile from adding the default Synapse namespace in
-an element in the payload format, use `         xmlns=""        ` as
-shown in the following example.
+an element in the payload format, use `xmlns=""` as shown in the following example.
 
 ``` java
 <ser:getPersonByUmid xmlns:ser="http://service.directory.com">
-               <umid xmlns="">sagara</umid>
+    <umid xmlns="">sagara</umid>
 </ser:getPersonByUmid>     
 ```
 
@@ -390,30 +375,30 @@ format defined inline. This is useful when you want to generate the
 result of the PayloadFactory mediator as a complete SOAP message with
 SOAP headers.
 
-```
+```xml
 <payloadFactory media-type="xml"> 
-<format> 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
-<soapenv:Body> 
-<error> 
-<mes>$1</mes> 
-</error> 
-</soapenv:Body> 
-</soapenv:Envelope> 
-</format> 
-<args> 
-<arg value=" Your request did not return any results. Please enter a valid EIN and try again"/> 
-</args> 
+    <format> 
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+            <soapenv:Body> 
+                <error> 
+                <mes>$1</mes> 
+                </error> 
+            </soapenv:Body> 
+        </soapenv:Envelope> 
+    </format> 
+    <args> 
+        <arg value=" Your request did not return any results. Please enter a valid EIN and try again"/> 
+    </args> 
 </payloadFactory>
 ```
 
 ### Uploading a file to an HTTP endpoint via a multipart request
 
 The below example configuration uses VFS to upload the file in the
-specified location to the given HTTP endpoint via a HTTP multipart
+specified location to the given HTTP endpoint via an HTTP multipart
 request.
 
-```
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="smooksample"
        startOnLoad="true"
@@ -455,11 +440,11 @@ request.
                    type="STRING"
                    value="multipart/form-data"/>
          <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
-             <send>
+         <call>
             <endpoint>
                <address format="rest" uri="http://localhost:3000/upload/"/>
             </endpoint>
-         </send>
+         </call>
       </inSequence>
    </target>
    <parameter name="transport.PollInterval">5</parameter>
@@ -472,22 +457,22 @@ request.
 ```
 
 In the above example, the following property mediator configuration sets
-the message type as `         multipart/form-data        ` .
+the message type as `multipart/form-data` .
 
-```
+```xml
 <property name="messageType"
     scope="axis2"
     type="STRING"
     value="multipart/form-data"/>
 ```
 
-The below `         file        ` parameter of the payload factory
+The below `file` parameter of the payload factory
 mediator defines the HTTP multipart request.
 
 !!! Tip
-    Do not change the `                   http://org.apache.axis2/xsd/form-data                 ` namesapce.
+    Do not change the `http://org.apache.axis2/xsd/form-data` namespace.
 
-``` xml
+```xml
 <file xmlns="http://org.apache.axis2/xsd/form-data"
    charset="US-ASCII"
    content-type="text/plain"
@@ -498,7 +483,7 @@ mediator defines the HTTP multipart request.
 Also, the below property mediator configuration sets the content of the
 uploaded file.
 
-```
+```xml
 <header name="Content-Type" scope="transport" value="multipart/form-data"/>
   <property name="messageType"
       scope="axis2"
@@ -512,55 +497,54 @@ The following example adds a literal argument to the Payload Factory
 mediator, and sets it to true. This allows you to consider the type of
 the argument value as String and to stop processing it.
 
-```
-<api xmlns="http://ws.apache.org/ns/synapse" name="payload" context="/payload">
-   <resource methods="POST">
-      <inSequence>
-         <property name="getvalue" expression="json-eval($.hello)"/>
-         <payloadFactory media-type="json">
-            <format>{"newValue" : "$1"}</format>
-            <args>
-               <arg evaluator="xml" literal="true" expression="get-property('getvalue')"/>
-            </args>
-         </payloadFactory>
-         <respond/>
-      </inSequence>
-   </resource>
+```xml
+<api context="/payload" name="payload" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/">
+        <inSequence>
+            <property name="getvalue" expression="json-eval($.hello)" />
+            <payloadFactory media-type="json">
+                <format>{"newValue" : "$1"}</format>
+                <args>
+                    <arg evaluator="xml" literal="true" expression="get-property('getvalue')" />
+                </args>
+            </payloadFactory>
+            <respond />
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
 </api>
 ```
 
-Following is a sample payload (i.e., `         a.json        ` file),
-which you can process using the above configuration.
+Following is a sample payload (i.e., `a.json` file), which you can process using the above configuration.
 
 **a.json**
 
-``` js
+```js
 {"hello" : "<pqr>abc</pqr>"}
 ```
 
 You can use the below sample cURL command to send the request to the
 above configuration.
 
-``` js
+```js
 curl -d @a.json http://localhost:8280/payload -H "Content-Type: application/json" -v
 ```
 
 You view the below output:
 
-``` js
+```js
 {"newValue" : "{"pqr":"abc"}"}
 ```
 
 !!! Info
-    If you do not add the `         literal="true"        ` within the
-argument in the Payload Factory mediator of the above configuration, you
-view the output as follows:
+    If you do not add the `literal="true"` within the argument in the Payload Factory mediator of the above configuration, you view the output as follows:
 
     {"newValue" : "<pqr>abc</pqr>"}
 
 If you want to evaluate a valid JSON object as a string, you need to use `literal="true"` in the PayloadFactoryMediator as indicated below,
 
-```
+```xml
 <payloadFactory media-type="json">
     <format> { "message":{ "payload": "$1" } } 
     </format>
@@ -575,67 +559,70 @@ If you want to evaluate a valid JSON object as a string, you need to use `litera
 You can add custom SOAP headers to a request by using the PayloadFactory
 Mediator in a proxy service as shown in the example below.
 
-``` xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy"
-transports="https http"
-startOnLoad="true"
-trace="disable">
-<description/>
-<target>
-<endpoint>
-<address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
-</endpoint>
-<inSequence>
-<log level="full"/>
-<payloadFactory media-type="xml">
-<format>
-<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"
-xmlns:xsd="http://services.samples/xsd"
-xmlns:ser="http://services.samples">
-<soapenv:Header>
-<ser:authenticationRequest>
-<userName xmlns="">$1</userName>
-<password xmlns="">$2</password>
-</ser:authenticationRequest>
-</soapenv:Header>
-<soapenv:Body>
-<ser:getQuote>
-<ser:request>
-<xsd:symbol>$3</xsd:symbol>
-</ser:request>
-</ser:getQuote>
-</soapenv:Body>
-</soapenv:Envelope>
-</format>
-<args>
-<arg value="punnadi"/>
-<arg value="password"/>
-<arg value="hello"/>
-</args>
-</payloadFactory>
-</inSequence>
-<outSequence>
-<send/>
-</outSequence>
-<faultSequence>
-     <sequence key="errorHandler"/>
-</faultSequence>
-</target>
-<publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
+```xml
+<proxy
+    xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy"
+    transports="https http"
+    startOnLoad="true"
+    trace="disable">
+    <description/>
+    <target>
+        <endpoint>
+            <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
+        </endpoint>
+        <inSequence>
+            <log level="full"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope
+                        xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"
+                        xmlns:xsd="http://services.samples/xsd"
+                        xmlns:ser="http://services.samples">
+                        <soapenv:Header>
+                            <ser:authenticationRequest>
+                                <userName xmlns="">$1 </userName>
+                                <password xmlns="">$2</password>
+                            </ser:authenticationRequest>
+                        </soapenv:Header>
+                        <soapenv:Body>
+                            <ser:getQuote>
+                                <ser:request>
+                                    <xsd:symbol>$3</xsd:symbol>
+                                </ser:request>
+                            </ser:getQuote>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg value="punnadi"/>
+                    <arg value="password"/>
+                    <arg value="hello"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <faultSequence>
+            <sequence key="errorHandler"/>
+        </faultSequence>
+    </target>
+    <publishWSDL preservePolicy="false" uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
 </proxy>
+```
+
+```xml
 <sequence xmlns="http://ws.apache.org/ns/synapse" name="errorHandler">
-<log level="full">
-<property name="MESSAGE" value="Executing default "fault" sequence"/>
-<property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-<property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-</log>
-<drop/>
+    <log level="full">
+        <property name="MESSAGE" value="Executing default "fault" sequence"/>
+        <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+        <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+    </log>
+    <drop/>
 </sequence>
 ```
 
 ## Examples: Using the FreeMarker template
 
-### XML to JSON Transformation
+### XML to JSON transformation
 
 This example shows how an XML payload can be converted to a JSON payload using a freemarker template.
 
@@ -664,9 +651,9 @@ This example shows how an XML payload can be converted to a JSON payload using a
 -   FreeMarker Tamplate
     ```json
     {
-    "Name": "${payload.user.first_name} ${payload.user.last_name}",
-    "Age": "${payload.user.age}",
-    "Address": "${payload.user.location.city},${payload.user.location.state.@code}"
+        "Name": "${payload.user.first_name} ${payload.user.last_name}",
+        "Age": "${payload.user.age}",
+        "Address": "${payload.user.location.city},${payload.user.location.state.@code}"
     }
     ```
 
@@ -686,7 +673,7 @@ This example shows how an XML payload can be converted to a JSON payload using a
 
 You can get more info on how to use XML payloads from [FreeMarker's official documentation](https://freemarker.apache.org/docs/xgui.html).
 
-### JSON to XML Transformation
+### JSON to XML transformation
 
 This example shows how a JSON payload can be converted to an XML payload using a freemarker template.
 
@@ -737,7 +724,7 @@ This example shows how a JSON payload can be converted to an XML payload using a
     </payloadFactory>
     ```
 
-### JSON to JSON Transformation
+### JSON to JSON transformation
 
 This example shows how a JSON payload is transformed into another JSON format using a freemarker template.
 
@@ -789,9 +776,9 @@ This example shows how a JSON payload is transformed into another JSON format us
     </payloadFactory>
     ```
 
-### Handling Arrays
+### Handling arrays
 
-#### XML Arrays
+#### XML arrays
 
 This example shows how to loop through an XML array in the input payload and then transform the data using a freemarker template.
 
@@ -867,25 +854,29 @@ This example shows how to loop through an XML array in the input payload and the
     </payloadFactory>
     ```
 
-#### JSON Arrays
+#### JSON arrays
 
 This example shows how to loop through a JSON array in the input payload and then transform the data using a freemarker template.
 
 -   Input Payload
     ```json
-    [{
-    "id": 1,
-    "first_name": "Veronika",
-    "last_name": "Lacroux"
-    }, {
-    "id": 2,
-    "first_name": "Trescha",
-    "last_name": "Campaigne"
-    }, {
-    "id": 3,
-    "first_name": "Mayor",
-    "last_name": "Moscrop"
-    }]
+    [
+        {
+            "id":1,
+            "first_name":"Veronika",
+            "last_name":"Lacroux"
+        },
+        {
+            "id":2,
+            "first_name":"Trescha",
+            "last_name":"Campaigne"
+        },
+        {
+            "id":3,
+            "first_name":"Mayor",
+            "last_name":"Moscrop"
+        }
+    ]
     ```
 
 -   FreeMarker Tamplate
@@ -919,7 +910,7 @@ This example shows how to loop through a JSON array in the input payload and the
     </payloadFactory>
     ```
 
-### Generating CSV Payloads
+### Generating CSV payloads
 
 Using FreeMarker templates, it is straightforward to generate text payloads. The payload you generate could be plain text, a CSV, or EDI, and any other text related format. In this example, we are showing how to transform an XML payload into a CSV payload. 
 
@@ -984,7 +975,7 @@ Using FreeMarker templates, it is straightforward to generate text payloads. The
     <#list person?children?filter(c -> c?node_type == 'element') as c>${c}<#sep>,</#list>
     </#list>
     ```
-### XML to EDI Transformation
+### XML to EDI transformation
 
 This example shows how an XML payload can be converted to an EDI format using a freemarker template. In this example, we have referenced the freemarker template as a registry resource.
 See the instructions on how to [build and run](#build-and-run) this example.
@@ -1001,12 +992,11 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 </payloadFactory>
                 <respond/>
             </inSequence>
-            <outSequence/>
             <faultSequence/>
         </target>
     </proxy>
     ```
-=== "template.ftl - Registry Resource"      
+=== "template.ftl - Registry Resource"
     ```injectedfreemarker 
     <#-- Assign * as element separator -->
     <#assign element_separator="*">
@@ -1132,8 +1122,12 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 #### Build and run
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+
+    !!! info
+        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+
+2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 3. Create the artifacts (proxy service, registry resource) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 5. Send a POST request to the `xml-to-edi-proxy` with the above given payload.
@@ -1155,7 +1149,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
     IEA*1*100015511!
     ```
     
-### Accessing Properties
+### Accessing properties
 
 This example shows how to access properties using the following variables: `ctx`, `axis2`, and `trp`.
 
@@ -1189,11 +1183,11 @@ This example shows how to access properties using the following variables: `ctx`
             "trp property": "${trp.Host}"
             }]]>
         </format>
-    <args/>
+        <args/>
     </payloadFactory>
     ```
 
-### Accessing Arguments
+### Accessing arguments
 
 This example shows how to use arguments in a freemarker template to pass values to the variables in the payload.
 

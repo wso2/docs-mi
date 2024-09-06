@@ -1,15 +1,15 @@
-# MailTo Parameters
+# MailTo parameters
 
-When you implement an integration use case that requires the capability of sending emails (over SMTP) or receive emails (over POP3 or IMAP), you can use the following parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
+When implementing an integration use case that requires the capability to send emails (via SMTP) or receive emails (over POP3 or IMAP), you can use the following parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can use the MailTo transport only if the transport listener and sender are enabled and configured at the server level. Read about the [MailTo transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
+    MailTo transport can be used only if the transport listener and sender are enabled and configured at the server level. Read about the [MailTo transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
 See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
-## Service-Level Parameters
+## Service-Level parameters
 
 <table>
    <thead>
@@ -50,7 +50,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr class="even">
          <td><code>             transport.mail.bodyWhenAttached            </code></td>
          <td>
-            <p>The content for the body of the mail when sending a mail with an attachment.</p>
+            <p>The content of the body of the mail when sending a mail with an attachment.</p>
          </td>
          <td>No</td>
          <td>The text you want to appear in the mail body</td>
@@ -61,7 +61,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             <p><code>              transport.mail.Folder             </code></p>
          </td>
          <td>
-            <p>The mail folder in the server from which the listener should fetch incoming mails.</p>
+            <p>The mail folder on the server from which the listener should fetch incoming mails.</p>
          </td>
          <td>
             <p>No</p>

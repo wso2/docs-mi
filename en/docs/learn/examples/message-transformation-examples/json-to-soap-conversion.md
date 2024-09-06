@@ -6,79 +6,82 @@ When the JSON client sends a message to the SOAP backend, the REST API in the Mi
 
 The following examples explain different methods of converting JSON messages to SOAP using the Micro Integrator.
 
-## Using the PayloadFactory Mediator
+## Using the PayloadFactory mediator
 
 Let's convert JSON messages to SOAP using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
 
 ### Synapse configuration
-Following is a sample REST API configuration that we can use to implement this scenario. 
-See the instructions on how to [build and run](#build-and-run-example-1) this example.
+Following is a sample REST API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-1) this example.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<api context="/stockorder_api" name="JSONToSOAP" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="POST PUT GET">
-        <inSequence>
-            <payloadFactory media-type="xml">
-                <format>
-                    <soapenv:Envelope xmlns:ns="http://www.viewstar.com/webservices/2002/11" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
-                        <soapenv:Header/>
-                        <soapenv:Body>
-                            <ns:placeOrder>
-                                <ns:order>
-                                    <ns:symbol>$1</ns:symbol>
-                                    <ns:price>$2</ns:price>
-                                    <ns:quantity>$3</ns:quantity>
-                                </ns:order>
-                            </ns:placeOrder>
-                        </soapenv:Body>
-                    </soapenv:Envelope>
-                </format>
-                <args>
-                    <arg evaluator="json" expression="$.placeOrder.order.symbol"/>
-                    <arg evaluator="json" expression="$.placeOrder.order.price"/>
-                    <arg evaluator="json" expression="$.placeOrder.order.quantity"/>
-                </args>
-            </payloadFactory>
-            <log level="full"/>
-            <call>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService">
-                        <suspendOnFailure>
-                            <initialDuration>-1</initialDuration>
-                            <progressionFactor>-1</progressionFactor>
-                            <maximumDuration>0</maximumDuration>
-                        </suspendOnFailure>
-                        <markForSuspension>
-                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
-                        </markForSuspension>
-                    </address>
-                </endpoint>
-            </call>
-            <property name="messageType" scope="axis2" value="application/json"/>
-            <respond/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </resource>
-</api>
-```
+=== "REST API"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/stockorder_api" name="JSONToSOAP" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET POST PUT">
+            <inSequence>
+                <payloadFactory media-type="xml" template-type="default">
+                    <format>
+                        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+                            <soapenv:Header/>
+                            <soapenv:Body>
+                                <ser:placeOrder>
+                                    <ser:order>
+                                        <xsd:symbol>$1</xsd:symbol>
+                                        <xsd:price>$2</xsd:price>
+                                        <xsd:quantity>$3</xsd:quantity>
+                                    </ser:order>
+                                </ser:placeOrder>
+                            </soapenv:Body>
+                        </soapenv:Envelope>
+                    </format>
+                    <args>
+                        <arg expression="$.placeOrder.order.symbol" evaluator="json"/>
+                        <arg expression="$.placeOrder.order.price" evaluator="json"/>
+                        <arg expression="$.placeOrder.order.quantity" evaluator="json"/>
+                    </args>
+                </payloadFactory>
+                <log category="INFO" level="full"/>
+                <call>
+                    <endpoint key="SimpleStockEp"/>
+                </call>
+                <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ### Build and run (example 1)
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+{!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-Set up the back-end service:
+Set up the backend service:
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+3. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+4. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
  
     === "On MacOS/Linux/CentOS"        
           ```bash 
@@ -91,88 +94,63 @@ Set up the back-end service:
 
 Invoke the REST API:
 
-- HTTP method: POST
-- Request URL: http://localhost:8290/stockorder_api
-- Content-Type: application/json
-- SoapAction: urn:placeOrder
+- HTTP method: `POST`
+- Request URL: `http://localhost:8290/stockorder_api`
+- Content-Type: `application/json`
+- SoapAction: `urn:placeOrder`
 - Message Body:
     ```json
-    {"placeOrder":
-      {"order":
-        {
-          "symbol":"IBM",
-          "price":"3.141593E0",
-          "quantity":"4"
-        }
-      }
-    }
-    ```
-
-Check the log printed on the back-end service's terminal to confirm that the order is successfully placed.
-
-```xml
-2020-01-30 16:39:51,902 INFO  [wso2/stockquote_service] - Stock quote service invoked. 
-2020-01-30 16:39:51,904 INFO  [wso2/stockquote_service] - Generating placeOrder response 
-2020-01-30 16:39:51,904 INFO  [wso2/stockquote_service] - The order was placed. 
-```
-
-The JSON client will receive the following response from the backend confirming that the stock order is placed:
-
-```json
-{
-    "Envelope": {
-        "Body": {
-            "placeOrderResponse": {
-                "status": "created"
+    {
+        "placeOrder": {
+            "order": {
+                "symbol": "IBM",
+                "price": "3.141593E0",
+                "quantity": "4"
             }
         }
     }
-}
+    ```
+
+Check the log printed on the backend service's terminal to confirm that the order has been successfully placed.
+
+```xml
+Fri Aug 02 17:23:18 IST 2024 samples.services.SimpleStockQuoteService  :: Accepted order #1 for : 4 stocks of IBM at $ 3.141593
 ```
 
-## Using the XSLT Mediator
+The JSON client will receive a 202 response from the backend confirming that the stock order has been received.
+
+## Using the XSLT mediator
 
 Let's convert JSON messages to SOAP using the [XSLT mediator]({{base_path}}/reference/mediators/xslt-mediator). The XSLT, which specifies the message conversion parameters, is stored in the product registry as a **local entry**.
 
 ### Synapse configuration
-Following are the synapse configurations for implementing this scenario. 
-See the instructions on how to [build and run](#build-and-run-example-2) this example.
+Following are the synapse configurations for implementing this scenario. See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
 === "REST API"
     ```xml 
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/stockorder_api" name="Convert_JSON_To_Soap_Using_XSLT" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="POST GET">
+        <resource methods="GET POST">
             <inSequence>
-                <log level="full"/>
+                <log category="INFO" level="full"/>
                 <xslt key="in_transform"/>
-                <header name="Action" scope="default" value="urn:getQuote"/>
+                <header name="Action" action="set" scope="default" value="urn:getQuote"/>
                 <enrich>
-                    <source clone="true" xmlns:m0="http://services.samples" xpath="//m0:getQuote"/>
-                    <target type="body"/>
+                    <source clone="true" type="custom" xpath="//m0:getQuote" xmlns:m0="http://services.samples"/>
+                    <target action="replace" type="body"/>
                 </enrich>
                 <call>
-                    <endpoint>
-                        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
-                            <suspendOnFailure>
-                                <initialDuration>-1</initialDuration>
-                                <progressionFactor>1</progressionFactor>
-                            </suspendOnFailure>
-                            <markForSuspension>
-                                <retriesBeforeSuspension>0</retriesBeforeSuspension>
-                            </markForSuspension>
-                        </address>
-                    </endpoint>
+                    <endpoint key="SimpleStockEp"/>
                 </call>
                 <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
                 <respond/>
             </inSequence>
-            <outSequence/>
-            <faultSequence/>
+            <faultSequence>
+            </faultSequence>
         </resource>
     </api>
     ```
-=== "Local Entry - In Transform XSLT"    
+=== "Local Entry"    
     ```xml  
     <?xml version="1.0" encoding="UTF-8"?>
     <localEntry key="in_transform" xmlns="http://ws.apache.org/ns/synapse">
@@ -187,23 +165,37 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
         </xsl:stylesheet>
     </localEntry>
     ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
 ### Build and run (example 2)
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project).
+{!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Create a local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) named **in_transform** with the above XSLT configuration.
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-Set up the back-end service:
+Set up the backend service:
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
-3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
-4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+3. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
+4. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
 
     === "On MacOS/Linux/CentOS"   
           ```bash 
@@ -216,48 +208,48 @@ Set up the back-end service:
 
 Invoke the REST API:
 
-- HTTP method: POST
-- Request URL: http://localhost:8290/stockorder_api
-- Content-Type: application/json
-- SoapAction: urn:getQuote
+- HTTP method: `POST`
+- Request URL: `http://localhost:8290/stockorder_api`
+- Content-Type: `application/json`
+- SoapAction: `urn:getQuote`
 - Message Body:
     ```json
-    {"getQuote":
-      {"request":
-        {"symbol":"IBM"}
-      }
+    {
+        "getQuote": {
+            "request": {
+                "symbol": "IBM"
+            }
+        }
     }
     ```
 
-Check the log printed on the back-end service's terminal to confirm that the request is successfully sent.
+Check the log printed on the backend service's terminal to confirm that the request is successfully sent.
 
 ```xml
-2020-01-30 15:35:28,088 INFO  [wso2/stockquote_service] - Stock quote service invoked. 
-2020-01-30 15:35:28,090 INFO  [wso2/stockquote_service] - Generating getQuote response for IBM 
-2020-01-30 15:35:28,091 INFO  [wso2/stockquote_service] - Stock quote generated. 
+Thu Jul 04 09:57:03 IST 2024 samples.services.SimpleStockQuoteService :: Generating quote for : IBM
 ```
 
 The JSON client will receive the following response from the backend with the relevant stock quote:
 
 ```json
 {
-    "Envelope": {
-        "Body": {
-            "getQuoteResponse": {
-                "change": -2.86843917118114,
-                "earnings": -8.540305401672558,
-                "high": -176.67958828498735,
-                "last": 177.66987465262923,
-                "low": -176.30898912339075,
-                "marketCap": 56495579.98178506,
-                "name": "IBM Company",
-                "open": 185.62740369461244,
-                "peRatio": 24.341353665128693,
-                "percentageChange": -1.4930577008849097,
-                "prevClose": 192.11844053187397,
-                "symbol": "IBM",
-                "volume": 7791
-            }
+    "getQuoteResponse": {
+        "return": {
+            "@type": "ax21:GetQuoteResponse",
+            "change": -2.7461458083948234,
+            "earnings": -8.902403847737537,
+            "high": -76.88947473390292,
+            "last": 78.48339950126588,
+            "lastTradeTimestamp": "Sat Aug 03 20:58:03 IST 2024",
+            "low": -76.7346372667833,
+            "marketCap": 35972151.03356741,
+            "name": "IBM Company",
+            "open": 82.08102633181527,
+            "peRatio": 24.115603872309407,
+            "percentageChange": 3.7576876965199992,
+            "prevClose": -73.08073555282505,
+            "symbol": "IBM",
+            "volume": 16540
         }
     }
 }

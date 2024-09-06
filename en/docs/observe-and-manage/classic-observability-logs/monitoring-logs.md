@@ -13,12 +13,12 @@ See [Configuring Logs]({{base_path}}/observe-and-manage/classic-observability-lo
 
 ## Downloading Log Files
 
-You can easily download them from the [Micro Integrator Dashboard]({{base_path}}/observe-and-manage/working-with-monitoring-dashboard). 
+You can easily download them from the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane). 
 
 !!! Info
     Alternatively, you can open the log file from the `<MI_HOME>/repository/logs` directory.
 
-1.  Sign in to the dashboard. 
+1.  Sign in to the integration control plane. 
 2.  Click <b>Log Files</b> as shown below to view the complete list.
 
     <img alt="download log files" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/log-files-dashboard.png" width="80%">
@@ -26,7 +26,7 @@ You can easily download them from the [Micro Integrator Dashboard]({{base_path}}
 3.  User the <b>Search</b> option to find a specific log file.
 4.  Click the log file to download.
 
-The default log files available on the dashboard are explained below.
+The default log files available on the ICP server are explained below.
 
 ## Monitoring Carbon logs
 

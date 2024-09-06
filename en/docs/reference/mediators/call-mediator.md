@@ -6,9 +6,9 @@ When you invoke a service in non-blocking mode, the underlying worker
 thread returns without waiting for the response. In blocking mode, the
 underlying worker thread gets blocked and waits for the response after
 sending the request to the endpoint. Call mediator in blocking mode is
-very much similar to the [Callout mediator]({{base_path}}/reference/mediators/callout-Mediator).
+very similar to the [Callout mediator]({{base_path}}/reference/mediators/callout-mediator).
 
-In both blocking and non-blocking modes, Call mediator behaves in a synchronous manner. Hence, mediation pauses after the service invocation, and resumes from the next mediator in the sequence when the response is received. Call mediator allows you to create your configuration independent from the underlying architecture.
+In both blocking and non-blocking modes, Call mediator behaves in a synchronous manner. Hence, mediation pauses after the service invocation and resumes from the next mediator in the sequence when the response is received. Call mediator allows you to create your configuration independent from the underlying architecture.
 
 Non-blocking mode of the Call mediator leverages the non-blocking transports for better performance. Therefore, it is recommended to use it in non-blocking mode as much as possible. However, there are scenarios where you need to use the blocking mode. For example, when you implement a scenario related to JMS transactions, it is vital to use the underlying threads in blocking mode.
 
@@ -135,10 +135,10 @@ The following properties are available when you want to configure the source of 
           <b>Custom</b>: Provide a valid XPATH/json-eval expression as the source element. The result that is derived from this expression will be the payload.
         </li>
         <li>
-          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encording and escaping.
+          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encoding and escaping.
         </li>
         <li>
-          <b>Property</b>: Provide a property as the payload source. You can only refer properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
+          <b>Property</b>: Provide a property as the payload source. You can only refer to properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
         </li>
       </ul>
     </td>
@@ -148,7 +148,7 @@ The following properties are available when you want to configure the source of 
       contentType
     </td>
     <td>
-      Use this paramter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
+      Use this parameter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
     </td>
   </tr>
 </table>
@@ -159,7 +159,7 @@ The following properties are available when you want to configure a target prope
 
 <table>
   <tr>
-    <th>Paramete Name</th>
+    <th>Parameter Name</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -179,85 +179,100 @@ The following properties are available when you want to configure a target prope
 In this example, the Call mediator invokes a backend service. An [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator) stores the response received for
 that service invocation.
 
-The [Filter Mediator]({{base_path}}/reference/mediators/filter-Mediator) added after the Call mediator
+The [Filter Mediator]({{base_path}}/reference/mediators/filter-mediator) added after the Call mediator
 carries out a filter to determine whether the first call has been
 successful. If it is successful, second backend service is invoked. The
 payload of the request to the second backend is the response of the
-first service invocation .
+first service invocation.
 
-After a successful second backend service invocation, response of the
+After a successful second backend service invocation, the response of the
 first service is retrieved by the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)
 from the property where it was formerly stored. This response is sent to
-the client by the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator).
+the client by the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
 
 If it is not successful, a custom JSON error message is sent with HTTP
 500. If the first call itself is not successful, the output is just sent
 back with the relevant error code.
 
-``` xml
-<target>
-      <inSequence>
-         <log/>
-         <call>
-            <endpoint>
-               <http method="get" uri-template="http://192.168.1.10:8088/mockaxis2service"/>
-            </endpoint>
-         </call>
-         <enrich>
-            <source type="body" clone="true"/>
-            <target type="property" action="child" property="body_of_first_call"/>
-         </enrich>
-         <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
-            <then>
-               <log level="custom">
-                  <property name="switchlog" value="Case: first call successful"/>
-               </log>
-               <call>
-                  <endpoint>
-                     <http method="get" uri-template="http://localhost:8080/MockService1"/>
-                  </endpoint>
-               </call>
-               <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
-                  <then>
-                     <log level="custom">
-                        <property name="switchlog" value="Case: second call successful"/>
-                     </log>
-                     <enrich>
-                        <source type="property" clone="true" property="body_of_first_call"/>
-                        <target type="body"/>
-                     </enrich>
-                     <respond/>
-                  </then>
-                  <else>
-                     <log level="custom">
-                        <property name="switchlog" value="Case: second call unsuccessful"/>
-                     </log>
-                     <property name="HTTP_SC" value="500" scope="axis2"/>
-                     <payloadFactory media-type="json">
-                        <format>{ "status": "ERROR!"}</format>
-                        <args/>
-                     </payloadFactory>
-                     <respond/>
-                  </else>
-               </filter>
-            </then>
-            <else>
-               <log level="custom">
-                  <property name="switchlog" value="Case: first call unsuccessful"/>
-               </log>
-               <respond/>
-            </else>
-         </filter>
-      </inSequence>
-   </target>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SampleProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <log/>
+                <call>
+                    <endpoint key="MockAxis2ServiceEndpoint"/>
+                </call>
+                <enrich>
+                    <source type="body" clone="true"/>
+                    <target type="property" action="child" property="body_of_first_call"/>
+                </enrich>
+                <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
+                    <then>
+                        <log level="custom">
+                            <property name="switchlog" value="Case: first call successful"/>
+                        </log>
+                        <call>
+                            <endpoint key="MockService1Endpoint"/>
+                        </call>
+                        <filter source="get-property('axis2', 'HTTP_SC')" regex="200">
+                            <then>
+                                <log level="custom">
+                                    <property name="switchlog" value="Case: second call successful"/>
+                                </log>
+                                <enrich>
+                                    <source type="property" clone="true" property="body_of_first_call"/>
+                                    <target type="body"/>
+                                </enrich>
+                                <respond/>
+                            </then>
+                            <else>
+                                <log level="custom">
+                                    <property name="switchlog" value="Case: second call unsuccessful"/>
+                                </log>
+                                <property name="HTTP_SC" value="500" scope="axis2"/>
+                                <payloadFactory media-type="json">
+                                    <format>{ "status": "ERROR!"}</format>
+                                    <args/>
+                                </payloadFactory>
+                                <respond/>
+                            </else>
+                        </filter>
+                    </then>
+                    <else>
+                        <log level="custom">
+                            <property name="switchlog" value="Case: first call unsuccessful"/>
+                        </log>
+                        <respond/>
+                    </else>
+                </filter>
+            </inSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint 1"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="MockAxis2ServiceEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
+=== "Endpoint 2"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="MockService1Endpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 ### Example 2 - Continuing mediation without waiting for responses
 
-In this example, the message will be cloned by the [Clone Mediator]({{base_path}}/reference/mediators/clone-Mediator) and sent via the Call mediator. The Drop mediator drops the response so that no further mediation is carried out for the cloned message. However, since the `         continueParent        ` attribute of the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator) is set to `         true        ` , the original message is mediated in parallel. Therefore, the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) at the end of the configuration will log the `         After call mediator        ` log message without waiting for
+In this example, the message will be cloned by the [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator) and sent via the Call mediator. The Drop mediator drops the response so that no further mediation is carried out for the cloned message. However, since the `         continueParent        ` attribute of the [Clone mediator]({{base_path}}/reference/mediators/clone-mediator) is set to `         true        ` , the original message is mediated in parallel. Therefore, the [Log Mediator]({{base_path}}/reference/mediators/log-mediator) at the end of the configuration will log the `         After call mediator        ` log message without waiting for
 the Call mediator response.
 
-``` xml
+```xml
 ...
 <log level="full"/>
 <clone continueParent="true">
@@ -280,9 +295,9 @@ the Call mediator response.
 
 ### Example 3 - Call mediator in blocking mode
 
-In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
+In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) is used to store the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator).
 
-```
+```xml
 <target>
    <inSequence>
       <header name="Action" value="urn:getQuote" />
@@ -313,38 +328,35 @@ If you want to receive the response message headers, when you use the Call media
 !!! Info
     Set the value of the `BLOCKING_SENDER_PRESERVE_REQ_HEADERS` property to `false` to receive the response message headers. If you set it to `true`, you cannot get the response headers, but the request headers will be preserved.
 
-```
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="sample"
-       transports="https"
-       statistics="enable"
-       trace="enable"
-       startOnLoad="true">
-   <target>
-      <inSequence>
-         <property name="FORCE_ERROR_ON_SOAP_FAULT"
-                   value="true"
-                   scope="default"
-                   type="STRING"/>
-         <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
-         <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
-         <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
-         <call blocking="true">
-            <endpoint>
-               <address uri="https://localhost:8243/services/sampleBE"
-                        trace="enable"
-                        statistics="enable"/>
-            </endpoint>
-         </call>
-         
-      </inSequence>
-      <outSequence/>
-   </target>
-   <description/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="sample" trace="enable" startOnLoad="true" statistics="enable" transports="https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="FORCE_ERROR_ON_SOAP_FAULT" value="true" scope="default" type="STRING"/>
+                <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
+                <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
+                <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
+                <call blocking="true">
+                    <endpoint key="sampleBE_Endpoint"/>
+                </call>
+            </inSequence>
+            <outSequence>
+            </outSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="sampleBE_Endpoint">
+        <address uri="https://localhost:8243/services/sampleBE" trace="enable" statistics="enable"/>
+    </endpoint>
+    ```
 
-## Examples - Using Source and Target configurations
+## Examples - Using source and target configurations
 
 Consider the following payload that is sent to the example sequences listed below. 
 The content type used for this request is `application/json`.

@@ -1,7 +1,7 @@
 # Generic Properties
 
 !!! Info
-	The following are generic properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
+	The following are generic properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator).
 
 Generic properties allow you to configure messages as they're processed by the Micro Integrator, such as marking a message as out-only (no response message will be expected), adding a custom error message or code to the message, and disabling WS-Addressing headers.
 
@@ -477,7 +477,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>If this property is set to <code>              true             </code> , the result of file content processing carried out by the <a href="{{base_path}}/reference/mediators/smooks-Mediator">Smooks Mediator</a> will not be loaded into the message context. This is useful in situations where you want to avoid large memory growth/out of heap space issue that may occur when large files processed by the Smooks mediator are reprocessed. See VFS Transport for a proxy service configuration where this property is used.</p></td>
+<td><p>If this property is set to <code>              true             </code> , the result of file content processing carried out by the <a href="{{base_path}}/reference/mediators/smooks-mediator">Smooks Mediator</a> will not be loaded into the message context. This is useful in situations where you want to avoid large memory growth/out of heap space issue that may occur when large files processed by the Smooks mediator are reprocessed. See VFS Transport for a proxy service configuration where this property is used.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>

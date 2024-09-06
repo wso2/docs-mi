@@ -37,7 +37,7 @@ back-end to client mediation. Then you need to create a proxy service to
 call the created sequences.
 
 ### Synapse configuration
-Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following is a sample proxy service configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
 Create the sequence for client to backend mediation, sequence for the backend to client mediation, and a proxy service as to call the sequences.
 
@@ -47,11 +47,11 @@ Create the sequence for client to backend mediation, sequence for the backend to
         <property name="OUT_ONLY" value="true"/>
         <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
         <property name="websocket.accept.contentType" scope="axis2" value="text/xml"/>
-         <send>
+         <call>
             <endpoint>
                  <address uri="ws://localhost:8082/websocket"/>
             </endpoint>
-        </send>
+        </call>
     </sequence>
     ```
 === "Sequence (Backend to Client Mediation)"    
@@ -69,7 +69,6 @@ Create the sequence for client to backend mediation, sequence for the backend to
                        trace="disable"
                        startOnLoad="true">
         <target inSequence="dispatchSeq" faultSequence="outDispatchSeq"/>
-        <description/>
     </proxy>
     ```
 
@@ -77,18 +76,19 @@ Create the sequence for client to backend mediation, sequence for the backend to
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/develop/installing-wso2-integration-studio).
-
+{!includes/build-and-run.md!}
+    
     !!! Note
         The Websocket sender functionality of the Micro Integrator is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf/` directory and add the following: 
 
         ```toml
         [transport.ws]
         sender.enable = true
-        ```
-        
-2. [Create an integration project]({{base_path}}/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+        sender.outflow_dispatch_sequence = 'outDispatchSeq'
+        ``` 
+
 3. Create the [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Starting the WebSocket server:

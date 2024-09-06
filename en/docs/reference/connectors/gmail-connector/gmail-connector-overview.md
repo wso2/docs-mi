@@ -14,7 +14,7 @@ To see the Gmail Connector, navigate to the [connector store](https://store.wso2
 
 For older versions, see the details in the connector store.
 
-## Gmail Connector documentation
+## Gmail connector documentation
 
 * **[Creating the Client ID and Client Secret]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)**: You need to first create Gmail credentials for the connector to use in order to interact with Gmail.
 
