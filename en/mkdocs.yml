@@ -963,7 +963,7 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: docs
   - pymdownx.tabbed:
-      alternate_style: true
+        alternate_style: true
   - attr_list
 plugins:
   - search
@@ -1012,7 +1012,7 @@ plugins:
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
 
-# Extra
+  # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
   # selecting a different css file file bellow from the available list.
