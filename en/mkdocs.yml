@@ -401,6 +401,7 @@ nav:
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
           # - Use Wire Logs: develop/using-wire-logs.md
+          - Monitor Composite Application-Level Logs: develop/monitoring-capp-level-logs.md
           - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
           - Endpoint Trace: develop/endpoint-trace-logs.md
