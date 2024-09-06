@@ -12,9 +12,9 @@ From time to time there are new connector versions released. These new versions 
 
 ### Import connectors 
 
-All the connectors are hosted in the [Integration Connector Store](https://store.wso2.com/?page=1&product=MI+Connector). You can download the connector from the store as a .zip file. 
+All the connectors are hosted in the [Integration Connector Store](https://store.wso2.com/?page=1&product=MI+Connector). You can download the connector from the store as a ZIP file. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/connector-store.jpg" title="Connector store" width="700" alt="Connector store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connector-store.png" title="Connector store" width="700" alt="Connector store"/>
 
 The source code for connectors can also be found in the specific [WSO2 extensions GitHub repository](https://github.com/wso2-extensions/).
 
@@ -78,7 +78,7 @@ For recently updated connector versions, you need to create a connection, add co
 
 For recently updated connector versions, this is available when you use the MI VS Code extension. When creating a connection you can provide configuration values and they will get saved as a local-entry internally. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/connection-configuration.jpg" title="Connection configuration" width="450" alt="Connection configuration"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connection-configuration.png" title="Connection configuration" width="450" alt="Connection configuration"/>
 
 ### For connector versions that were not updated recently
 
