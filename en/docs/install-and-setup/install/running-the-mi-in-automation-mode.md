@@ -6,7 +6,7 @@ The WSO2 Micro Integrator (MI) runtime has introduced a new automation mode that
 
 WSO2 Micro Integrator runtime offers two operational modes:
 
-- Server Mode: This is the standard operational mode where the WSO2 MI runs as an active integration server, processing incoming requests and executing mediation sequences.
+- Server Mode: This is the standard operational mode where the WSO2 MI runs as an active integration server, processing incoming requests, and executing mediation sequences.
 - Automation Mode: Introduced to cater to the demands of evolving cloud environments, this mode is geared toward short-lived processes, where the Micro Integrator performs tasks without functioning as a continuously running server.
 
 In Automation mode, MI executes the specified automation sequence from start to finish, allowing for efficient task executions without the need for a persistent server process.
