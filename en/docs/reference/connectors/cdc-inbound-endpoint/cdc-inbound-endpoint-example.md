@@ -19,6 +19,11 @@ In this example, a relational database table is used to store product informatio
     CREATE DATABASE inventory;
     ```
 
+4. Switch to the database `inventory`.
+    ```sql
+    USE DATABASE inventory;
+    ```
+
 4. Then, create a table called `products` under that database using the following SQL script. 
     ```sql
     CREATE TABLE products (
@@ -151,4 +156,4 @@ Create the artifacts:
     [2024-08-22 14:53:45,570]  INFO {LogMediator} - {inboundendpoint:cdc-inbound-endpoint} To: , MessageID: urn:uuid:5F9F8759FEEABE8BAD1724318625607, Direction: request, Payload: {"op":"DELETE","before":{"id":12,"name":"IPhone 15","price":333.99},"after":null}
     ```
 
-> **Note**: You can do any type of advanced integration using the rich mediator catalog, not just logging. 
+> **Note**: You can do any type of advanced integration using the available mediators in the [Mediator Catalog]({{base_path}}/reference/mediators/about-mediators/) documentation, not just logging. 
