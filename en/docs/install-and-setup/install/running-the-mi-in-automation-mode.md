@@ -28,7 +28,10 @@ The automation sequence is essential in the automation mode. It serves as the co
 
 1. [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 2. Create a sequence with your integration scenario.
-3. Define the configured sequence as an automation sequence for the composite application. Go to **MI Overview** using the **Home** icon. Select **Set as automation sequence**. 
+3. Go to **MI Overview** using the Home icon.
+4. Under **Sequences**, locate the sequence you defined.
+5. Click More Actions (indicated by three dots).
+6. Select **Set as automation sequence**.
       
     <img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" title="Add Automation Sequence" width="600" alt="Add Automation Sequence"/>
 
