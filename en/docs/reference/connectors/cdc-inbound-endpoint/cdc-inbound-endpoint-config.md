@@ -34,12 +34,6 @@ The following configurations allow you to configure the CDC Inbound Endpoint for
     <td class="tg-0pky">Whether the messages need to be polled and injected sequentially or not. By default, this is set to <code>true</code>.</td>
   </tr>
   <tr>
-    <td class="tg-0pky">connector.name</td>
-    <td class="tg-0pky">No</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Unique name for the connector. If not present, the inbound endpoint name is considered as the connector name. </td>
-  </tr>
-  <tr>
     <td class="tg-0pky">snapshot.mode</td>
     <td class="tg-0pky">Yes</td>
     <td class="tg-0pky">initial</td>
@@ -55,6 +49,44 @@ For MySQL database, <code>io.debezium.connector.mysql.MySqlConnector</code><br>
 For PostgreSQL database, <code>io.debezium.connector.postgresql.PostgresConnector</code><br>
 For Oracle database, <code>io.debezium.connector.oracle.OracleConnector</code><br>
 For Db2 database, <code>io.debezium.connector.db2.Db2Connector</code></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">database.hostname</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">IP address or hostname of the database server</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">database.port</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">Port number (Integer) of the database server</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">database.user</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">Name of the database user to use when connecting to the database server.</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">database.password</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">The password to connect to the database.<br>
+Example: <code><parameter name="database.password">your_password</parameter></code> or <code><parameter name="database.password">{wso2:vault-lookup(password_alias')}</parameter></code></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">database.dbname</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">The name of the database that needs to be listened to.<br>
+*This is applicable only for MySQL, Postgres, Oracle, and Db2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">connector.name</td>
+    <td class="tg-0pky">No</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">Unique name for the connector. If not present, the inbound endpoint name is considered as the connector name. </td>
   </tr>
   <tr>
     <td class="tg-0pky">topic.prefix</td>
@@ -121,38 +153,6 @@ By default, the file will be stored in the <code>&lt;MI_HOME&gt;/cdc/offsetStora
     <td class="tg-0pky">No</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">Replication factor used when creating the offset storage topic. Required when <code>offset.storage</code> is set to the <code>org.apache.kafka.connect.storage.KafkaOffsetBackingStore</code>.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">database.hostname</td>
-    <td class="tg-0pky">Yes</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">IP address or hostname of the database server</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">database.port</td>
-    <td class="tg-0pky">Yes</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Port number (Integer) of the database server</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">database.user</td>
-    <td class="tg-0pky">Yes</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">Name of the database user to use when connecting to the database server.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">database.password</td>
-    <td class="tg-0pky">Yes</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The password to connect to the database.<br>
-Example: <code><parameter name="database.password">your_password</parameter></code> or <code><parameter name="database.password">{wso2:vault-lookup(password_alias')}</parameter></code></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">database.dbname</td>
-    <td class="tg-0pky">Yes</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">The name of the database that needs to be listened to.<br>
-*This is applicable only for MySQL, Postgres, Oracle, and Db2</td>
   </tr>
   <tr>
     <td class="tg-0pky">database.instance</td>
