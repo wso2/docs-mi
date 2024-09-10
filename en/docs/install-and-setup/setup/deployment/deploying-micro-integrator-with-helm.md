@@ -43,7 +43,7 @@ Follow the steps below to configure how your Micro Integrator deployment should 
 
     - **Update the WSO2 subscription details**
     
-        You can update the user name and password in the following section. If you don't have an active WSO2 subscription, leave these parameters empty.
+        You can update the username and password in the following section. If you don't have an active WSO2 subscription, leave these parameters empty.
     
         ```yaml
         wso2:
