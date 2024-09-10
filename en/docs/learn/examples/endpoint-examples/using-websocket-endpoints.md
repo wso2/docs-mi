@@ -6,7 +6,7 @@ WebSocket is a protocol that provides full-duplex communication channels over a 
 
 If you need to send a message from a WebSocket client to a WebSocket endpoint via WSO2 MI, you need to establish a persistent WebSocket connection from the WebSocket client to WSO2 MI as well as from WSO2 MI to the WebSocket backend.
 
-To demonstrate this scenario, you need to create two dispatching sequences: one for client-to-backend mediation and another for backend-to-client mediation. Finally, you need to configure the WebSocket inbound endpoint of WSO2 MI to use the created sequences and listen on port 9092.
+To demonstrate this scenario, you need to create two dispatching sequences: one for client-to-backend mediation and another for backend-to-client mediation. Finally, you need to configure the WebSocket inbound endpoint of WSO2 MI to use the created sequences and listen on port `9092`.
 
 For sample synapse configurations, see [WebSocket Inbound]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket).
 
