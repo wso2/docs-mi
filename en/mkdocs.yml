@@ -419,7 +419,7 @@ nav:
               - Install MI: install-and-setup/install/installing-mi.md
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
-              # - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
+              - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
           - Install the Integration Control Plane:
               - Install the Ingeration Control Plane: install-and-setup/install/installing-integration-control-plane.md
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
@@ -1002,7 +1002,6 @@ plugins:
               'develop/using-wire-logs.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/debugging-mediation'
               'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/observe-overview'
-              'install-and-setup/install/running-the-mi-in-automation-mode.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installing-mi'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
