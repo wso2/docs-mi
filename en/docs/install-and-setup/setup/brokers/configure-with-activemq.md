@@ -10,7 +10,19 @@ Follow the instructions below to set up and configure.
 2.  Download and install WSO2 Micro Integrator.
 3.  Copy the following client libraries from the `ACTIVEMQ_HOME/lib` directory to the `MI_HOME/lib` directory.
 
-    **ActiveMQ 5.8.0 and above**
+    **ActiveMQ 5.18.0 and above**
+
+    -   activemq-broker-5.18.0.jar
+    -   activemq-client-5.18.0.jar
+    -   activemq-kahadb-store-5.18.0.jar
+    -   hawtbuf-1.9.jar
+    -   Slf4j-api-1.6.6.jar
+    -   activeio-core-3.1.4.jar (available in the `ACTIVEMQ_HOME/lib/optional` directory)
+
+    !!! Note
+        Apache ActiveMQ Classic 5.18.0 brings initial support for JMS 2.0 (javax.jms API namespace) and Jakarta Messaging 3.1 (jakarta.jms API namespace) clients. See the [JMS 2.0](https://activemq.apache.org/components/classic/documentation/jms2) documentation for more details on the available functionality and how to use the Jakarta Messaging support.
+
+    **ActiveMQ 5.8.0 to 5.17.x**
 
     -   activemq-broker-5.8.0.jar
     -   activemq-client-5.8.0.jar
