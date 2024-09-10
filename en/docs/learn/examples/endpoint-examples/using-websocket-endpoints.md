@@ -88,7 +88,7 @@ Create the artifacts:
 Starting the WebSocket server:
 
 -  Download the netty artifacts zip file from [here](https://github.com/wso2-docs/ESB) and extract it. The extracted folder will be shown as `ESB`.
--  Open a terminal, navigate to `ESB/ESB-Artifacts/Netty_artifacts_for_WebSocket_samples`, and execute the following command to start the WebSocket server on port 8082:
+-  Open a terminal, navigate to `ESB/ESB-Artifacts/Netty_artifacts_for_WebSocket_samples`, and execute the following command to start the WebSocket server on port `8082`:
    
    ```bash
     java -cp 'netty-example-4.0.30.Final.jar:lib/*:.' io.netty.example.http.websocketx.server.WebSocketServer
