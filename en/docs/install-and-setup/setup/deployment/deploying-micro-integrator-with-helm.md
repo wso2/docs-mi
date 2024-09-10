@@ -1,6 +1,6 @@
 # Deploy the Micro Integrator on Kubernetes using Helm resources
 
-Follow the instructions given below to deploy the Micro Integrator on Kubernetes (K8s) using Helm resources.
+Follow the instructions below to deploy the Micro Integrator on Kubernetes (K8s) using Helm resources.
 
 ## Before you begin
     
