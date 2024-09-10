@@ -2,7 +2,7 @@
 
 WebSocket is a protocol that provides full-duplex communication channels over a single TCP connection. This can be used by any client or server application. The WSO2 Micro Integrator (MI) provides WebSocket support via the [WebSocket Transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport) and the [WebSocket Inbound Protocol]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket).
 
-## Example 1: Sending a message from a WebSocket client to a WebSocket endpoint
+## Example 1: Send a message from a WebSocket client to a WebSocket endpoint
 
 If you need to send a message from a WebSocket client to a WebSocket endpoint via WSO2 MI, you need to establish a persistent WebSocket connection from the WebSocket client to WSO2 MI as well as from WSO2 MI to the WebSocket backend.
 
