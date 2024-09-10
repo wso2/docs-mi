@@ -12,7 +12,7 @@ For sample synapse configurations, see [WebSocket Inbound]({{base_path}}/learn/e
 
 If you analyze the log, you will see that a connection from the WebSocket client to WSO2 MI is established, and the sequences are executed by the WebSocket inbound endpoint. You will also see that the message sent to the WebSocket server is not transformed and that the response injected to the out sequence is also not transformed.
 
-## Example 2: Sending a message from an HTTP client to a WebSocket endpoint
+## Example 2: Send a message from an HTTP client to a WebSocket endpoint
 
 If you need to send a message from an HTTP client to a WebSocket endpoint via the Micro Integrator, you need to establish a persistent WebSocket connection from WSO2 MI to the WebSocket backend.
 
