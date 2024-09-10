@@ -21,7 +21,7 @@ In this example, a relational database table is used to store product informatio
 
 4. Switch to the database `inventory`.
     ```sql
-    USE DATABASE inventory;
+    USE inventory;
     ```
 
 4. Then, create a table called `products` under that database using the following SQL script. 
@@ -39,7 +39,7 @@ In this example, a relational database table is used to store product informatio
 
 7. Enable GTIDs. For detailed instructions, refer to the [Enable MySQL GTIDs](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-gtids) documentation. 
 
-## Configure inbound endpoint using micro integrator
+## Configure inbound endpoint using Micro Integrator
 
 {!includes/create-new-project.md!}
 

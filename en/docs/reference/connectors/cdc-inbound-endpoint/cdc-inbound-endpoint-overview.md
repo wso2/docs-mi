@@ -10,7 +10,7 @@ To see the CDC Inbound Endpoint, navigate to the [connector store](https://store
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.0    | MI 4.3.0, MI 4.2.0 |
+| 1.1.0    | MI 4.3.0, MI 4.2.0 |
 
 ## CDC inbound endpoint
 
