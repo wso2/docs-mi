@@ -35,7 +35,7 @@ Let's refer to the root folder of the local copy as `<HELM_HOME>`.
 
 ## Step 2 - Update the deployment configurations 
 
-Follow the steps given below to configure how your Micro Integrator deployment should be set up.
+Follow the steps below to configure how your Micro Integrator deployment should be set up.
 
 1. Open the `values.yaml` file in the `<HELM_HOME>/mi` folder of your local copy.
 
