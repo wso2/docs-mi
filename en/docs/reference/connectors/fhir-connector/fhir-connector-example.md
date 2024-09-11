@@ -93,10 +93,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                            <format>{$ctx:format}</format>
                        </fhir.create>
                    </case>
-                   <default/>
+                   <default></default>
                </switch>
                <log level="full" separator=","/>
-               <send/>
+               <respond/>
            </inSequence>
            <faultSequence/>
        </resource>
@@ -123,10 +123,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                            <format>{$ctx:format}</format>
                        </fhir.readResource>
                    </case>
-                   <default/>
+                   <default></default>
                </switch>
                <log level="full" separator=","/>
-               <send/>
+               <respond/>
            </inSequence>
            <faultSequence/>
        </resource>
@@ -159,10 +159,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                            <summary>{$ctx:summary}</summary>
                        </fhir.readSpecificResourceById>
                    </case>
-                   <default/>
+                   <default></default>
                </switch>
                <log level="full" separator=","/>
-               <send/>
+               <respond/>
            </inSequence>
            <faultSequence/>
        </resource>
@@ -192,10 +192,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                            <format>{$ctx:format}</format>
                        </fhir.update>
                    </case>
-                   <default/>
+                   <default></default>
                </switch>
                <log level="full" separator=","/>
-               <send/>
+               <respond/>
            </inSequence>
            <faultSequence/>
        </resource>
@@ -223,10 +223,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                            <idToDelete>{$ctx:idToDelete}</idToDelete>
                        </fhir.delete>
                    </case>
-                   <default/>
+                   <default></default>
                </switch>
                <log level="full" separator=","/>
-               <send/>
+               <respond/>
            </inSequence>
            <faultSequence/>
        </resource>
