@@ -217,7 +217,7 @@ Send the following message via TCP to the TCP listener port.
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
-On Linux, you can save the request in a `request.xml` file and use Netcat to send the TCP request. 
+In Linux, you can save the request in a `request.xml` file and use Netcat to send the TCP request. 
 ```
 netcat localhost 6061 < request.xml
 ```
