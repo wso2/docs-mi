@@ -122,7 +122,7 @@ Send the following message via TCP to the TCP listener port.
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
-In Mac, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
+In Linux, we can save the request in a <strong>request.xml</strong> file and use Netcat to send the TCP request. 
 ```
 nc localhost 6061 < request.xml
 ```
