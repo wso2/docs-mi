@@ -124,7 +124,7 @@ Send the following message via TCP to the TCP listener port.
 ```
 In Linux, we can save the request in a <strong>request.xml</strong> file and use Netcat to send the TCP request. 
 ```
-nc localhost 6061 < request.xml
+netcat localhost 6061 < request.xml
 ```
 It can be observed that two messages are sent to the backend.
 
