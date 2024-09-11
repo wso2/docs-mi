@@ -36,14 +36,14 @@ The following configurations allow you to configure AmazonSQS Inbound Endpoint f
   <tr>
     <td class="tg-0pky">secretKey</td>
     <td class="tg-0pky">The secret key used to sign requests (a 40-character sequence).</td>
-    <td class="tg-0pky">No only if IAM Role authentication is used</td>
+    <td class="tg-0pky">Yes, if IAM Role authentication is not used.</td>
     <td class="tg-0pky">N/A</td>
     <td class="tg-0pky">N/A</td>
   </tr>
   <tr>
     <td class="tg-0pky">accessKey</td>
     <td class="tg-0pky">The access key that corresponds to the secret key that you used to sign the request (a 20-character sequence).</td>
-    <td class="tg-0pky">No only if IAM Role authentication is used</td>
+    <td class="tg-0pky">Yes, if IAM Role authentication is not used.</td>
     <td class="tg-0pky">N/A</td>
     <td class="tg-0pky">N/A</td>
   </tr>
@@ -72,31 +72,24 @@ The following configurations allow you to configure AmazonSQS Inbound Endpoint f
   </tr>
   <tr>
     <td class="tg-0pky">autoRemoveMessage</td>
-    <td class="tg-0pky">Check whether the message need to be deleted or not from the queue. If you set this parameter as false, in any cases the message will be in the queue until message retention period of time.</td>
+    <td class="tg-0pky">Check whether the message needs to be deleted from the queue. If you set this parameter to false, the message will remain in the queue until the message retention period expires.</td>
     <td class="tg-0pky">No</td>
     <td class="tg-0pky">true<br>
                         false</td>
     <td class="tg-0pky">true</td>
-  </tr> 
-  <tr>
-    <td class="tg-0pky">SET_ROLLBACK_ONLY</td>
-    <td class="tg-0pky"> In the failure scenario, the mediation flow is going to the fault sequence which is specified in the configuration. If a failure occurs, the fault sequence if you have set "SET_ROLLBACK_ONLY" property as "true" the message will roll back to the Amazon SQS queue.<br>
-    <td class="tg-0pky">No</td>
-    <td class="tg-0pky">property name="SET_ROLLBACK_ONLY" value="true"</td>
-    <td class="tg-0pky">-</td>
-  </tr>   
+  </tr>  
 </table>
 
     
- **SET_ROLLBACK_ONLY Property**
+ **Rollback the messages**
  
- If a failure occurs, the Amazon SQS message will roll back. In the following property is set to true in the fault handler, in order to roll back the Amazon SQS queue messages when a failure occurs.
+In a failure scenario, the Amazon SQS message will roll back if the following property is set to true in the fault sequence.
  
  ```
  <property name="SET_ROLLBACK_ONLY" value="true"/>
  ```
     
- ??? note "Sample fault sequence"
+??? note "Sample fault sequence"
         ```
         <?xml version="1.0" encoding="UTF-8"?>
         <sequence name="fault" xmlns="http://ws.apache.org/ns/synapse">
