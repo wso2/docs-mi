@@ -159,11 +159,3 @@ Go to your Kubernetes cluster from your terminal and follow the steps given belo
     ```bash
     curl https://mi.wso2.com/healthz -k
     ```
-    
-## What's Next?
-
-Note that these instructions are for setting up a standalone deployment of the Micro Integrator. To set up one of the recommended deployment patterns, see the following topics:
-
-- Using Helm Resources for a [Standard HA Deployment of WSO2 API Manager](https://github.com/wso2/kubernetes-apim/blob/4.3.x/advanced/am-pattern-1/README.md)
-- Using Helm Resources for a [Standard HA Deployment of WSO2 API Manager with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/4.3.x/advanced/am-pattern-2/README.md)
-- Using Helm Resources for a [Simple Scalable Deployment of WSO2 API Manager with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/4.3.x/advanced/am-pattern-3/README.md)
