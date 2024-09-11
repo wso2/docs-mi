@@ -34,12 +34,12 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
             <td>The name of the topic.</td>
         </tr>
         <tr>
-            <td>topic.pattern</td>
-            <td>The name pattern of the topic.</td>
-        </tr>
-        <tr>
             <td>contentType</td>
             <td>The content type of the message.</td>
+        </tr>
+        <tr>
+            <td>topic.partitions</td>
+            <td>A comma-separated list of partitions for the topic to which the consumer is subscribed.</td>
         </tr>
 </table>
 
@@ -50,6 +50,10 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
             <th>Parameter Name</th>
             <th>Description</th>
             <th>Default Value</th>
+        </tr>
+        <tr>
+            <td>topic.pattern</td>
+            <td>The name pattern of the topic.</td>
         </tr>
         <tr>
             <td>enable.auto.commit</td>
