@@ -353,7 +353,7 @@ Follow the instructions below to configure the Micro Integrator to publish traci
     ```
 
     !!! Tip
-        Instead of using `host` and `port`, the `url` can be used directly to connect to Jaeger in the following way.
+        Instead of using `host` and `port`, the `url` parameter can be used directly to connect to Jaeger in the following way.
 
         ```toml
         [opentelemetry]
