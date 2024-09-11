@@ -159,7 +159,7 @@ follows:
 
 ## Examples
 
-In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://wso2docs.atlassian.net/wiki/spaces/EI660/pages/6521935/Splitting+Messages+into+Parts+and+Processing+in+Parallel+Iterate+Aggregate).
+In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see the [Splitting Messages and Aggregating Responses]({{base_path}}/learn/examples/routing-examples/splitting-aggregating-messages) documentation.
 
 === "Using an XPath expression"
     ```xml 
