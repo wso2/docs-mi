@@ -39,49 +39,62 @@ The following are the transport receiver properties.
 
 The following proxy service splits the message by a character. It receives a message with an empty body, which it will forward to the HTTP endpoint after enriching the body with the symbolic value "`IBM`".
 
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="TCPProxy" 
-              transports="tcp" 
-              startOnLoad="true" 
-              trace="disable"> 
-          <description/> 
-          <target> 
-             <inSequence> 
-                <property name="symbol" value="IBM" scope="default" type="STRING"/> 
-                <enrich> 
-                   <source type="inline" clone="true"> 
-                      <m:getQuote xmlns:m="http://services.samples"> 
-                         <m:request> 
-                            <m:symbol>?</m:symbol> 
-                         </m:request> 
-                      </m:getQuote> 
-                   </source> 
-                   <target type="body"/> 
-                </enrich> 
-                <enrich> 
-                   <source type="property" clone="true" property="symbol"/> 
-                   <target xmlns:m="http://services.samples" xpath="//m:getQuote/m:request/m:symbol"/> 
-                </enrich> 
-                <log level="full" separator=","/> 
-                <header name="Action" value="urn:getQuote" />
-                <call> 
-                   <endpoint> 
-                      <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/> 
-                   </endpoint> 
-                </call> 
-                <log level="full"/> 
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="TCPProxy" startOnLoad="true" transports="tcp" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="symbol" scope="default" type="STRING" value="IBM"/>
+                <enrich description="Replace the body content.">
+                    <source clone="true" type="inline">
+                        <m:getQuote xmlns:m="http://services.samples">
+                            <m:request>
+                                <m:symbol>?</m:symbol>
+                            </m:request>
+                        </m:getQuote>
+                    </source>
+                    <target action="replace" type="body"/>
+                </enrich>
+                <enrich description="Replace the symbol value with the value from the 'symbol' property.">
+                    <source clone="true" property="symbol" type="property"/>
+                    <target action="replace" xpath="//m:getQuote/m:request/m:symbol" xmlns:m="http://services.samples"/>
+                </enrich>
+                <log category="INFO" level="full" separator=","/>
+                <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEp"/>
+                </call>
+                <log category="INFO" level="full"/>
                 <respond/>
-             </inSequence> 
-          </target> 
-          <parameter name="transport.tcp.responseClient">true</parameter> 
-          <parameter name="transport.tcp.recordDelimiter">|</parameter> 
-          <parameter name="transport.tcp.inputType">string</parameter> 
-          <parameter name="transport.tcp.port">6061</parameter> 
-          <parameter name="transport.tcp.recordDelimiterType">character</parameter> 
-          <parameter name="transport.tcp.contentType">text/xml</parameter> 
-</proxy>
-```
-### Build and Run (Example 1)
+            </inSequence>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.tcp.responseClient">true</parameter>
+        <parameter name="transport.tcp.recordDelimiter">|</parameter>
+        <parameter name="transport.tcp.inputType">string</parameter>
+        <parameter name="transport.tcp.port">6061</parameter>
+        <parameter name="transport.tcp.recordDelimiterType">character</parameter>
+        <parameter name="transport.tcp.contentType">text/xml</parameter>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
+
+### Build and run (example 1)
 
 Create the artifacts:
 
@@ -109,7 +122,7 @@ Send the following message via TCP to the TCP listener port.
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
-In Linux, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
+In Linux, we can save the request in a <strong>request.xml</strong> file and use Netcat to send the TCP request. 
 ```
 netcat localhost 6061 < request.xml
 ```
@@ -121,50 +134,62 @@ It can be observed that two messages are sent to the backend.
 
 The sample proxy below splits the input message by appending a special character to the end of the message.
 
-```xml 
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="TCPProxy" 
-          transports="tcp" 
-          startOnLoad="true" 
-          trace="disable"> 
-      <description/> 
-      <target> 
-         <inSequence> 
-            <property name="symbol" value="IBM" scope="default" type="STRING"/> 
-            <enrich> 
-               <source type="inline" clone="true"> 
-                  <m:getQuote xmlns:m="http://services.samples"> 
-                     <m:request> 
-                        <m:symbol>?</m:symbol> 
-                     </m:request> 
-                  </m:getQuote> 
-               </source> 
-               <target type="body"/> 
-            </enrich> 
-            <enrich> 
-               <source type="property" clone="true" property="symbol"/> 
-               <target xmlns:m="http://services.samples" xpath="//m:getQuote/m:request/m:symbol"/> 
-            </enrich> 
-            <log level="full" separator=","/> 
-            <header name="Action" value="urn:getQuote" />
-            <call> 
-               <endpoint> 
-                  <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/> 
-               </endpoint> 
-            </call> 
-            <log level="full"/> 
-            <respond/>
-         </inSequence> 
-      </target> 
-  <parameter name="transport.tcp.recordDelimiter">0x03</parameter> 
-  <parameter name="transport.tcp.responseClient">true</parameter> 
-  <parameter name="transport.tcp.inputType">binary</parameter> 
-  <parameter name="transport.tcp.port">6061</parameter> 
-  <parameter name="transport.tcp.recordDelimiterType">byte</parameter> 
-  <parameter name="transport.tcp.contentType">text/xml</parameter> 
-</proxy>
-```
+=== "Proxy Service"
+    ```xml 
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="TCPProxy" startOnLoad="true" transports="tcp" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="symbol" scope="default" type="STRING" value="IBM"/>
+                <enrich description="Replace the body content.">
+                    <source clone="true" type="inline">
+                        <m:getQuote xmlns:m="http://services.samples">
+                            <m:request>
+                                <m:symbol>?</m:symbol>
+                            </m:request>
+                        </m:getQuote>
+                    </source>
+                    <target action="replace" type="body"/>
+                </enrich>
+                <enrich description="Replace the symbol value with the value from the 'symbol' property.">
+                    <source clone="true" property="symbol" type="property"/>
+                    <target action="replace" xpath="//m:getQuote/m:request/m:symbol" xmlns:m="http://services.samples"/>
+                </enrich>
+                <log category="INFO" level="full" separator=","/>
+                <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEp"/>
+                </call>
+                <log category="INFO" level="full"/>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.tcp.recordDelimiter">0x03</parameter>
+        <parameter name="transport.tcp.responseClient">true</parameter>
+        <parameter name="transport.tcp.inputType">binary</parameter>
+        <parameter name="transport.tcp.port">6061</parameter>
+        <parameter name="transport.tcp.recordDelimiterType">byte</parameter>
+        <parameter name="transport.tcp.contentType">text/xml</parameter>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
-### Build and Run (Example 2)
+### Build and run (example 2)
 
 Create the artifacts:
 
@@ -192,7 +217,7 @@ Send the following message via TCP to the TCP listener port.
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
-In Linux, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
+In Linux, you can save the request in a `request.xml` file and use Netcat to send the TCP request. 
 ```
 netcat localhost 6061 < request.xml
 ```
@@ -204,51 +229,62 @@ It can be observed that one message is sent to the backend.
 
 The sample proxy below splits the input message by a sequence of characters.
 
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="TCPProxy" 
-          transports="tcp" 
-          startOnLoad="true" 
-          trace="disable"> 
-      <description/>
-<target> 
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="TCPProxy" startOnLoad="true" transports="tcp" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property name="symbol" scope="default" type="STRING" value="IBM"/>
+                <enrich description="Replace the body content.">
+                    <source clone="true" type="inline">
+                        <m:getQuote xmlns:m="http://services.samples">
+                            <m:request>
+                                <m:symbol>?</m:symbol>
+                            </m:request>
+                        </m:getQuote>
+                    </source>
+                    <target action="replace" type="body"/>
+                </enrich>
+                <enrich description="Replace the symbol value with the value from the 'symbol' property.">
+                    <source clone="true" property="symbol" type="property"/>
+                    <target action="replace" xpath="//m:getQuote/m:request/m:symbol" xmlns:m="http://services.samples"/>
+                </enrich>
+                <log category="INFO" level="full" separator=","/>
+                <header name="Action" action="set" scope="default" value="urn:getQuote"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteServiceEp"/>
+                </call>
+                <log category="INFO" level="full"/>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.tcp.responseClient">true</parameter>
+        <parameter name="transport.tcp.recordDelimiter">split</parameter>
+        <parameter name="transport.tcp.inputType">string</parameter>
+        <parameter name="transport.tcp.port">6061</parameter>
+        <parameter name="transport.tcp.recordDelimiterType">string</parameter>
+        <parameter name="transport.tcp.contentType">text/xml</parameter>
+    </proxy>
+    ```
+=== "Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="SimpleStockQuoteServiceEp" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <initialDuration>-1</initialDuration>
+                <progressionFactor>1</progressionFactor>
+            </suspendOnFailure>
+            <markForSuspension>
+                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+            </markForSuspension>
+        </address>
+    </endpoint>
+    ```
 
-        <inSequence> 
-            <property name="symbol" value="IBM" scope="default" type="STRING"/> 
-            <enrich> 
-               <source type="inline" clone="true"> 
-                  <m:getQuote xmlns:m="http://services.samples"> 
-                     <m:request> 
-                        <m:symbol>?</m:symbol> 
-                     </m:request> 
-                  </m:getQuote> 
-               </source> 
-               <target type="body"/> 
-            </enrich> 
-            <enrich> 
-               <source type="property" clone="true" property="symbol"/> 
-               <target xmlns:m="http://services.samples" xpath="//m:getQuote/m:request/m:symbol"/> 
-            </enrich> 
-            <log level="full" separator=","/> 
-            <header name="Action" value="urn:getQuote" />
-            <call> 
-               <endpoint> 
-                  <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/> 
-               </endpoint> 
-            </call> 
-            <log level="full"/> 
-            <respond/> 
-         </inSequence> 
-      </target>
-<parameter name="transport.tcp.responseClient">true</parameter> 
-      <parameter name="transport.tcp.recordDelimiter">split</parameter>
-      <parameter name="transport.tcp.inputType">string</parameter> 
-      <parameter name="transport.tcp.port">6061</parameter> 
-      <parameter name="transport.tcp.recordDelimiterType">string</parameter> 
-      <parameter name="transport.tcp.contentType">text/xml</parameter> 
- </proxy>
-```
-
-### Build and Run (Example 3)
+### Build and run (example 3)
 
 Create the artifacts:
 
@@ -277,14 +313,14 @@ Send the following message via TCP to the TCP listener port.
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>split<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
 
-In Linux, we can save the request in a <strong>request.xml</strong> file and use netcat to send the TCP request.
+On macOS, you can save the request in a `request.xml` file and use Netcat to send the TCP request.
 
 ```
-netcat localhost 6061 < request.xml
+nc localhost 6061 < request.xml
 ```
 It can be observed that two messages are sent to the backend.
 
-## Developing the Java Client for the Transport
+## Developing the Java client for the transport
 
 The sample Java Client below splits the input message by a special character. Also, you can develop a character delimiter client by changing the below client accordingly.
 
