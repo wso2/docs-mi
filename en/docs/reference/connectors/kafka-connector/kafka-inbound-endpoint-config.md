@@ -164,7 +164,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>max.poll.records</code></td>
-            <td>The maximum number of records returned in a single call to poll().</td>
+            <td>The maximum number of records returned in a single call to <code>poll()</code>.</td>
             <td><code>500</code></td>
         </tr>
         <tr>
