@@ -11,7 +11,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>bootstrap.servers</code></td>
-            <td>The Kafka brokers listed as host1:port1 and host2:port2</td>
+            <td>The Kafka brokers listed as <code>host1:port1</code> and <code>host2:port2</code></td>
         </tr>
         <tr>
             <td><code>key.deserializer</code></td>
