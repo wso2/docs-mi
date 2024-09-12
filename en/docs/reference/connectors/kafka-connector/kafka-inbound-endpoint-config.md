@@ -109,7 +109,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>basic.auth.user.info</code></td>
-            <td>Specify the user info for the Basic authentication in the form of {username}:{password}.</td>
+            <td>Specify the user info for the Basic authentication in the form of <code>{username}:{password}</code>.</td>
             <td></td>
         </tr>
         <tr>
