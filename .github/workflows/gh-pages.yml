@@ -1,0 +1,36 @@
+name: Deploy MkDocs site to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the `gh` branch
+        uses: actions/checkout@v3
+        with:
+          ref: main  # Checkout the `gh` branch
+
+      - name: Replace mkdocs.yml
+        run: cp ./pre/mkdocs.yml ./en/mkdocs.yml
+
+      - name: Replace base.html
+        run: cp ./pre/base.html ./en/theme/material/base.html
+
+      - name: List files in the current directory
+        run: ls -la  # Lists all files in the current directory
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material markdown-include mkdocs-markdownextradata-plugin mkdocs-exclude mkdocs-redirects
+
+      - name: Deploy to the `gh-pages` branch
+        run: |
+          mkdocs gh-deploy --config-file en/mkdocs.yml --force  # Deploy the content from the `gh` branch to `gh-pages`
