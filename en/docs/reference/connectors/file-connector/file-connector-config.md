@@ -1157,6 +1157,7 @@ The following operations allow you to work with the File Connector version 4. Cl
 
 ??? note "compress"
     Archives a file or a directory.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1751,8 +1752,6 @@ The following operations allow you to work with the File Connector version 4. Cl
         <overwrite>{$ctx:overwrite}</overwrite>
         <renameTo>{$ctx:renameTo}</renameTo>
         <filePattern>{$ctx:filePattern}</filePattern>
-        <maxRetries>{$ctx:maxRetries}</maxRetries>
-        <retryDelay>{$ctx:retryDelay}</retryDelay>
         <isSourceMounted>{$ctx:isSourceMounted}</isSourceMounted>
         <isTargetMounted>{$ctx:isTargetMounted}</isTargetMounted>
     </file.move>
@@ -2903,7 +2902,8 @@ The following operations allow you to work with the File Connector version 4. Cl
         {
             "sourceFilePath":"/home/vive/Desktop/file/test.txt",
             "targetDirectory":"/home/user/test/file",
-            "splitMode":"Linecount"
+            "splitMode":"Linecount",
+            "lineCount":"10"
         }
     ```
 
