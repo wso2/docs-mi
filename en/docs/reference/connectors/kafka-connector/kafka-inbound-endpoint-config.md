@@ -19,7 +19,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>value.deserializer</code></td>
-            <td>Deserializer class for value that implements the org.apache.kafka.common.serialization.Deserializer interface.</td>
+            <td>Deserializer class for value that implements the <code>org.apache.kafka.common.serialization.Deserializer</code> interface.</td>
         </tr>
         <tr>
             <td><code>group.id</code></td>
