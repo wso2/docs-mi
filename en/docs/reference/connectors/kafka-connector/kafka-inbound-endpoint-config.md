@@ -159,7 +159,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>max.poll.interval.ms</code></td>
-            <td>The maximum delay between invocations of poll() when using consumer group management.</td>
+            <td>The maximum delay between invocations of <code>poll()</code> when using consumer group management.</td>
             <td><code>300000</code></td>
         </tr>
         <tr>
