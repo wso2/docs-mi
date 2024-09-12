@@ -59,7 +59,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>enable.auto.commit</code></td>
-            <td>Whether the consumer will automatically commit offsets periodically at the interval set by auto.commit.interval.ms.</td>
+            <td>Whether the consumer will automatically commit offsets periodically at the interval set by <code>auto.commit.interval.ms</code>.</td>
             <td><code>true</code></td>
         </tr>
         <tr>
