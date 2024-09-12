@@ -114,7 +114,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>ssl.key.password</code></td>
-            <td>The password of the private key in the key store file or the PEM key specified in `ssl.keystore.key`.</td>
+            <td>The password of the private key in the key store file or the PEM key specified in <code>ssl.keystore.key</code>.</td>
             <td></td>
         </tr>
         <tr>
