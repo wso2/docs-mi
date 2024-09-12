@@ -95,7 +95,7 @@ The following software and configurations are required to proceed with this tuto
 1. Navigate to the `<MI_QSG_HOME>` directory. 
 The following project files and executable back-end services are available in the `<MI_QSG_HOME>`.
 
-    - **HealthcareIntegrationProject**: This folder contains the integration artifacts for the healthcare service. You may open the` <MI_QSG_HOME>/HealthcareIntegrationProject` in Visual Studio Code and expand the folders `APIs/HealthcareAPI` and click on the API listed there. This service consists of the following REST API:
+    - **HealthcareIntegrationProject**: This folder contains the integration artifacts for the healthcare service. You may open `<MI_QSG_HOME>/HealthcareIntegrationProject` in Visual Studio Code and expand the folders `APIs/HealthcareAPI` and click on the API listed there. This service consists of the following REST API:
 
         <img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/final-resource-view.png" alt="Final resource view"></a>
 
@@ -167,7 +167,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png" alt="Build and export" width="25%"></a>
 
-    c. Select the `Build CAPP` option.
+    c. Select the **Build CAPP** option.
 
    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-export.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-capp-option.png" alt="Build the CAPP" width="25%"></a>
 
