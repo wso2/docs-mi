@@ -7,7 +7,7 @@ The following operations allow you to work with the Facebook Ads API. Click an o
 To use the Facebook Ads connector, first create the connection with your configuration. When calling a Facebook Ads operation, ensure the connection is referenced using the `configKey` attribute.
 
 ??? note "init"
-    The `init` operation is used to initialize the connection to Facebook Ads API.
+    The `init` operation initializes the connection to Facebook Ads API.
     <table>
         <tr>
             <th>Parameter Name</th>
