@@ -189,7 +189,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>sasl.client.callback.handler.class</code></td>
-            <td>The fully qualified name of a SASL client callback handler class that implements the AuthenticateCallbackHandler interface.</td>
+            <td>The fully qualified name of a SASL client callback handler class that implements the <code>AuthenticateCallbackHandler</code> interface.</td>
             <td></td>
         </tr>
         <tr>
