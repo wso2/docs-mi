@@ -124,7 +124,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>ssl.keystore.password</code></td>
-            <td>The store password for the key store file. This is optional for client and only needed if ‘ssl.keystore.location’ is configured.</td>
+            <td>The store password for the key store file. This is optional for client and only needed if <code>ssl.keystore.location</code> is configured.</td>
             <td></td>
         </tr>
         <tr>
