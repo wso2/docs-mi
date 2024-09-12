@@ -1053,6 +1053,22 @@ The following operations allow you to work with the File Connector version 4. Cl
         </tr>
     </table>
 
+    **Sample configuration**
+    ```xml
+    <file.createDirectory configKey="CONNECTION_NAME">
+        <directoryPath>{$ctx:directoryPath}</directoryPath>
+    </file.createDirectory>
+    ```
+
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "directoryPath":"/home/vive/Desktop/file",
+        }
+    ```
+
     **Response**
 
     ```xml
@@ -1113,6 +1129,22 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+
+    **Sample configuration**
+    ```xml
+    <file.checkExist configKey="CONNECTION_NAME">
+        <path>{$ctx:path}</path>
+    </file.checkExist>
+    ```
+
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "path":"/home/vive/Desktop/file/append.txt",
+        }
+    ```
 
     **Response**
 
@@ -1215,6 +1247,25 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.compress configKey="CONNECTION_NAME">
+        <sourceDirectoryPath>{$ctx:sourceDirectoryPath}</sourceDirectoryPath>
+        <targetFilePath>{$ctx:targetFilePath}</targetFilePath>
+        <includeSubDirectories>{$ctx:includeSubDirectories}</includeSubDirectories>
+    </file.compress>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "sourceDirectoryPath":"/home/vive/Desktop/file",
+            "targetFilePath":"/home/user/test/file.zip"
+        }
+    ```
 
     **Response**
 
@@ -1429,6 +1480,30 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.copy configKey="CONNECTION_NAME">
+        <sourcePath>{$ctx:sourcePath}</sourcePath>
+        <targetPath>{$ctx:targetPath}</targetPath>
+        <sourceFilePattern>{$ctx:sourceFilePattern}</sourceFilePattern>
+        <includeParent>{$ctx:includeParent}</includeParent>
+        <overwrite>{$ctx:overwrite}</overwrite>
+        <renameTo>{$ctx:renameTo}</renameTo>
+        <maxRetries>{$ctx:maxRetries}</maxRetries>
+        <retryDelay>{$ctx:retryDelay}</retryDelay>
+    </file.copy>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "sourcePath":"/home/vive/Desktop/file/append.txt",
+            "targetPath":"/home/user/test/file"
+        }
+    ```
 
     **Response**
 
@@ -1665,6 +1740,33 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.move configKey="CONNECTION_NAME">
+        <sourcePath>{$ctx:sourcePath}</sourcePath>
+        <targetPath>{$ctx:targetPath}</targetPath>
+        <createParentDirectories>{$ctx:createParentDirectories}</createParentDirectories>
+        <includeParent>{$ctx:includeParent}</includeParent>
+        <overwrite>{$ctx:overwrite}</overwrite>
+        <renameTo>{$ctx:renameTo}</renameTo>
+        <filePattern>{$ctx:filePattern}</filePattern>
+        <maxRetries>{$ctx:maxRetries}</maxRetries>
+        <retryDelay>{$ctx:retryDelay}</retryDelay>
+        <isSourceMounted>{$ctx:isSourceMounted}</isSourceMounted>
+        <isTargetMounted>{$ctx:isTargetMounted}</isTargetMounted>
+    </file.move>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "sourcePath":"/home/vive/Desktop/file/append.txt",
+            "targetPath":"/home/user/test/file"
+        }
+    ```
 
     **Response**
 
@@ -2143,6 +2245,36 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.read configKey="CONNECTION_NAME">
+        <path>{$ctx:path}</path>
+        <filePattern>{$ctx:filePattern}</filePattern>
+        <includeResultTo>{$ctx:includeResultTo}</includeResultTo>
+        <resultPropertyName>{$ctx:resultPropertyName}</resultPropertyName>
+        <readMode>{$ctx:readMode}</readMode>
+        <startLineNum>{$ctx:startLineNum}</startLineNum>
+        <endLineNum>{$ctx:endLineNum}</endLineNum>
+        <lineNum>{$ctx:lineNum}</lineNum>
+        <contentType>{$ctx:contentType}</contentType>
+        <encoding>{$ctx:encoding}</encoding>
+        <enableStreaming>{$ctx:enableStreaming}</enableStreaming>
+        <enableLock>{$ctx:enableLock}</enableLock>
+        <maxRetries>{$ctx:maxRetries}</maxRetries>
+        <retryDelay>{$ctx:retryDelay}</retryDelay>
+    </file.read>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "path":"/home/vive/Desktop/file/read.txt",
+            "readMode":"Complete File"
+        }
+    ```
 
     **Response**
 
@@ -2268,6 +2400,25 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.rename configKey="CONNECTION_NAME">
+        <path>{$ctx:path}</path>
+        <renameTo>{$ctx:renameTo}</renameTo>
+        <overwrite>{$ctx:overwrite}</overwrite>
+    </file.rename>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "path":"/home/vive/Desktop/file/read.txt",
+            "renameTo":"test"
+        }
+    ```
 
     **Response**
 
@@ -2400,6 +2551,25 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.delete configKey="CONNECTION_NAME">
+        <path>{$ctx:path}</path>
+        <matchingPattern>{$ctx:matchingPattern}</matchingPattern>
+        <maxRetries>{$ctx:maxRetries}</maxRetries>
+        <retryDelay>{$ctx:retryDelay}</retryDelay>
+    </file.delete>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "path":"/home/vive/Desktop/file/read.txt"
+        }
+    ```
 
     **Response** 
 
@@ -2495,6 +2665,24 @@ The following operations allow you to work with the File Connector version 4. Cl
     </table>
 
     > NOTE: The latest File connector (v4.0.7 onwards) supports decompressing the .gz files.
+    
+     **Sample configuration**
+    ```xml
+    <file.unzip configKey="CONNECTION_NAME">
+        <sourceFilePath>{$ctx:sourceFilePath}</sourceFilePath>
+        <targetDirectory>{$ctx:targetDirectory}</targetDirectory>
+    </file.unzip>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "sourceFilePath":"/home/vive/Desktop/file/test.zip",
+            "targetDirectory":"/home/user/test/file"
+        }
+    ```
 
     **Response** 
 
@@ -2697,6 +2885,27 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+     **Sample configuration**
+    ```xml
+    <file.splitFile configKey="CONNECTION_NAME">
+        <sourceFilePath>{$ctx:sourceFilePath}</sourceFilePath>
+        <targetDirectory>{$ctx:targetDirectory}</targetDirectory>
+        <splitMode>{$ctx:splitMode}</splitMode>
+        <xpathExpression>{$ctx:xpathExpression}</xpathExpression>
+    </file.splitFile>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "sourceFilePath":"/home/vive/Desktop/file/test.txt",
+            "targetDirectory":"/home/user/test/file",
+            "splitMode":"Linecount"
+        }
+    ```
 
     **Response** 
 
@@ -2912,6 +3121,29 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.listFiles configKey="CONNECTION_NAME">
+        <directoryPath>{$ctx:directoryPath}</directoryPath>
+        <matchingPattern>{$ctx:matchingPattern}</matchingPattern>
+        <recursive>{$ctx:recursive}</recursive>
+        <sortingAttribute>{$ctx:sortingAttribute}</sortingAttribute>
+        <sortingOrder>{$ctx:sortingOrder}</sortingOrder>
+        <responseFormat>{$ctx:responseFormat}</responseFormat>
+        <maxRetries>{$ctx:maxRetries}</maxRetries>
+        <retryDelay>{$ctx:retryDelay}</retryDelay>
+    </file.listFiles>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "directoryPath":"/home/vive/Desktop/file"
+        }
+    ```
 
     **Response** 
 
@@ -2985,6 +3217,22 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.exploreZipFile configKey="CONNECTION_NAME">
+        <zipFilePath>{$ctx:directoryPath}</zipFilePath>
+    </file.exploreZipFile>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "zipFilePath":"/home/vive/Desktop/file/test.zip"
+        }
+    ```
 
     **Response** 
 
@@ -3129,6 +3377,28 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.mergeFiles configKey="CONNECTION_NAME">
+        <sourceDirectoryPath>{$ctx:sourceDirectoryPath}</sourceDirectoryPath>
+        <targetFilePath>{$ctx:targetFilePath}</targetFilePath>
+        <filePattern>{$ctx:filePattern}</filePattern>
+        <writeMode>{$ctx:writeMode}</writeMode>
+    </file.mergeFiles>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "sourceDirectoryPath":"/home/vive/Desktop/file",
+            "targetFilePath":"/home/user/test/file",
+            "writeMode":"Overwrite",
+
+        }
+    ```
 
     **Response** 
 
@@ -3479,6 +3749,36 @@ The following operations allow you to work with the File Connector version 4. Cl
         </tr>
     </table>
 
+    **Sample configuration**
+    ```xml
+    <file.write configKey="CONNECTION_NAME">
+        <filePath>{$ctx:filePath}</filePath>
+        <contentOrExpression>{$ctx:contentOrExpression}</contentOrExpression>
+        <mimeType>{$ctx:mimeType}</mimeType>
+        <writeMode>{$ctx:writeMode}</writeMode>
+        <appendNewLine>{$ctx:appendNewLine}</appendNewLine>
+        <encoding>{$ctx:encoding}</encoding>
+        <compress>{$ctx:compress}</compress>
+        <enableStreaming>{$ctx:enableStreaming}</enableStreaming>
+        <enableLock>{$ctx:enableLock}</enableLock>
+        <includeResultTo>{$ctx:includeResultTo}</includeResultTo>
+        <resultPropertyName>{$ctx:resultPropertyName}</resultPropertyName>
+        <updateLastModified>{$ctx:updateLastModified}</updateLastModified>
+        <maxRetries>{$ctx:maxRetries}</maxRetries>
+        <retryDelay>{$ctx:retryDelay}</retryDelay>
+    </file.write>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "filePath":"/home/vive/Desktop/file.test.txt",
+            "contentOrExpression":"Message Body"
+        }
+    ```
+
     **Response** 
 
     ```xml
@@ -3500,6 +3800,7 @@ The following operations allow you to work with the File Connector version 4. Cl
 
 ??? note "fetchDirectoryContent"
     Read the content of files in a given folder to a base64 encoded files stream list. Available in file-connector <b>v4.0.22</b> and above.
+    
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -3650,4 +3951,27 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
         </tr>
     </table>
+    
+    **Sample configuration**
+    ```xml
+    <file.fetchDirectoryContent configKey="CONNECTION_NAME">
+        <directoryPath>{$ctx:directoryPath}</directoryPath>
+        <matchingPattern>{$ctx:matchingPattern}</matchingPattern>
+        <recursive>{$ctx:recursive}</recursive>
+        <sortingAttribute>{$ctx:sortingAttribute}</sortingAttribute>
+        <sortingOrder>{$ctx:sortingOrder}</sortingOrder>
+        <resultPropertyName>{$ctx:resultPropertyName}</resultPropertyName>
+    </file.fetchDirectoryContent>
+    ```
+    
+    **Sample request**
+
+    Following is a sample REST/JSON request that can be handled by the append operation.
+    ```json
+        {
+            "directoryPath":"/home/vive/Desktop",
+            "sortingAttribute":"Name",
+            "resultPropertyName":"fetchDirectoryContent"
+        }
+    ```
     
