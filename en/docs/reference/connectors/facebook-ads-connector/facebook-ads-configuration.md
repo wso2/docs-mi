@@ -7,7 +7,7 @@ The following operations allow you to work with the Facebook Ads API. Click an o
 To use the Facebook Ads connector, first create the connection with your configuration. When calling a Facebook Ads operation, ensure the connection is referenced using the `configKey` attribute.
 
 ??? note "init"
-    The init operation is used to initialize the connection to Facebook Ads API.
+    The `init` operation is used to initialize the connection to Facebook Ads API.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -15,17 +15,17 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>name</td>
+            <td><code>name</code></td>
             <td>Unique name to identify the connection by.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>base</td>
+            <td><code>base</code></td>
             <td>The service root URL. The default value is `https://graph.facebook.com/v20.0`.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>accessToken</td>
+            <td><code>accessToken</code></td>
             <td>The access token to authenticate the request.</td>
             <td>Yes</td>
         </tr>
@@ -53,13 +53,13 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
-            <td>A JSON object containing the campaign properties. Refer to the [Campaign parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/campaigns/#parameters-2) documentation for all the available properties.</td>
+            <td><code>properties</code></td>
+            <td>A JSON object containing the campaign properties. See the [Campaign parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/campaigns/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -96,33 +96,33 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>datePreset</td>
+            <td><code>datePreset</code></td>
             <td>Predefined date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>effectiveStatus</td>
+            <td><code>effectiveStatus</code></td>
             <td>Effective status for the campaigns.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>isCompleted</td>
+            <td><code>isCompleted</code></td>
             <td>If true, we return completed campaigns.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>timeRange</td>
+            <td><code>timeRange</code></td>
             <td>Date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>fields</td>
-            <td>Fields of the campaign that the response should contain. Refer to the [Fields](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#fields) documentation for a list of all available fields.</td>
+            <td><code>fields</code></td>
+            <td>Fields of the campaign that the response should contain. See the [Fields](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
     </table>
@@ -160,13 +160,13 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>campaignId</td>
+            <td><code>campaignId</code></td>
             <td>ID of the campaign.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
-            <td>A JSON object containing the campaign properties. Refer to the [Campaign parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#parameters-3) documentation for all the available properties.</td>
+            <td><code>properties</code></td>
+            <td>A JSON object containing the campaign properties. See the [Campaign parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#parameters-3) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -201,22 +201,22 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>deleteStrategy</td>
+            <td><code>deleteStrategy</code></td>
             <td>Delete strategy. Possible values <code>DELETE_ANY</code>, <code>DELETE_OLDEST</code> or <code>DELETE_ARCHIVED_BEFORE</code>.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>beforeDate</td>
+            <td><code>beforeDate</code></td>
             <td>Set a before date to delete campaigns before this date.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>objectCount</td>
+            <td><code>objectCount</code></td>
             <td>Object count.</td>
             <td>No</td>
         </tr>
@@ -251,7 +251,7 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>campaignId</td>
+            <td><code>campaignId</code></td>
             <td>ID of the campaign.</td>
             <td>Yes</td>
         </tr>
@@ -282,13 +282,13 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
-            <td>A JSON object containing the adset properties. Refer to the [Ad set parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for all the available properties.</td>
+            <td><code>properties</code></td>
+            <td>A JSON object containing the adset properties. See the [Ad set parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -337,23 +337,23 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>datePreset</td>
+            <td><code>datePreset</code></td>
             <td>Predefined date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>timeRange</td>
-            <td>Time Range. Note if time range is invalid, it will be ignored.</td>
+            <td><code>timeRange</code></td>
+            <td>Time Range. Note if the time range is invalid, it will be ignored.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>fields</td>
-            <td>Fields of the ad set that the response should contain. Refer to the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
+            <td><code>fields</code></td>
+            <td>Fields of the ad set that the response should contain. See the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
     </table>
@@ -385,23 +385,23 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adSetId</td>
+            <td><code>adSetId</code></td>
             <td>ID of the ad set.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>datePreset</td>
+            <td><code>datePreset</code></td>
             <td>Predefined date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>timeRange</td>
+            <td><code>timeRange</code></td>
             <td>Time Range. Note if time range is invalid, it will be ignored.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>fields</td>
-            <td>Fields of the ad set that the response should contain. Refer to the [Fields](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for a list of all available fields.</td>
+            <td><code>fields</code></td>
+            <td>Fields of the ad set that the response should contain. See the [Fields](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
     </table>
@@ -433,13 +433,13 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adSetId</td>
+            <td><code>adSetId</code></td>
             <td>ID of the ad set.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
-            <td>A JSON object containing the adset properties. Refer to the [Ad set parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for all the available properties.</td>
+            <td><code>properties</code></td>
+            <td>A JSON object containing the adset properties. See the [Ad set parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -467,7 +467,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "deleteAdSet"
-    Deletes a ad set.
+    Deletes an ad set.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -475,7 +475,7 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adSetId</td>
+            <td><code>adSetId</code></td>
             <td>ID of the ad set.</td>
             <td>Yes</td>
         </tr>
@@ -506,13 +506,13 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
-            <td>A JSON object containing the ad properties. Refer to the [Ad parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/ads/#parameters-2) documentation for all the available properties.</td>
+            <td><code>properties</code></td>
+            <td>A JSON object containing the ad properties. See the [Ad parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/ads/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -551,33 +551,33 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>datePreset</td>
+            <td><code>datePreset</code></td>
             <td>Predefined date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>effectiveStatus</td>
+            <td><code>effectiveStatus</code></td>
             <td>Filter ads by effective status.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>updatedSince</td>
+            <td><code>updatedSince</code></td>
             <td>Time since the ad has been updated.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>timeRange</td>
+            <td><code>timeRange</code></td>
             <td>Date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>fields</td>
-            <td>Fields of the ad that the response should contain. Refer to the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
+            <td><code>fields</code></td>
+            <td>Fields of the ad that the response should contain. See the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
     </table>
@@ -615,23 +615,23 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adId</td>
+            <td><code>adId</code></td>
             <td>ID of the ad.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>datePreset</td>
+            <td><code>datePreset</code></td>
             <td>Predefined date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>timeRange</td>
+            <td><code>timeRange</code></td>
             <td>Date range used to aggregate insights metrics.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td>fields</td>
-            <td>Fields of the ad that the response should contain. Refer to the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
+            <td><code>fields</code></td>
+            <td>Fields of the ad that the response should contain. See the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
     </table>
@@ -663,13 +663,13 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adId</td>
+            <td><code>adId</code></td>
             <td>ID of the ad.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
-            <td>A JSON object containing the ad properties. Refer to the [Update Limitations](https://developers.facebook.com/docs/marketing-api/reference/adgroup#limitations) documentation for all the available properties.</td>
+            <td><code>properties</code></td>
+            <td>A JSON object containing the ad properties. See the [Update Limitations](https://developers.facebook.com/docs/marketing-api/reference/adgroup#limitations) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -704,7 +704,7 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adId</td>
+            <td><code>adId</code></td>
             <td>ID of the ad.</td>
             <td>Yes</td>
         </tr>
