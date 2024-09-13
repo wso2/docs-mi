@@ -627,7 +627,7 @@ Use a REST client of your choice to send a request to the integration service. I
 
 You will receive the following response:
 
-    ```bash
+```bash
     [
         [
             {
@@ -654,5 +654,5 @@ You will receive the following response:
             }
         ]
     ]
-    ```
+```
   
