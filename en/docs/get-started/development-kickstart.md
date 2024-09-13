@@ -616,42 +616,16 @@ Let's start the mock back-end services for this use case:
 
 ### Invoke the Healthcare service
 
-There are two ways to invoke the service:
+Use a REST client of your choice to send a request to the integration service. In this tutorial we are using cURL.
 
-- **Option 1: Using Postman**
+1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
+2.  Open a terminal and execute the following curl command to invoke the service:
 
-    Let's invoke the API from Postman as follows:
+    ```bash
+    curl -v http://localhost:8290/healthcare/doctor/Ophthalmologist
+    ```
 
-    1. Open the Postman application. If you do not have the application, download it from [here](https://www.postman.com/downloads/).
-  
-    2. Create a collection with appropriate name. (For example `IntegrationStudio collection`)
-  
-    3. Add a new request to this collection and name it appropriately. (For example `Healthcare request`)
-  
-    4. In the **Enter request URL** section paste the below endpoint URL:
-  
-        ```
-        http://localhost:8290/healthcare/doctor/Ophthalmologist
-        ```
-         
-    5. Select `GET` as the HTTP method and click the **Send** button.
-  
-        <br/><br/>
-        <video src="{{base_path}}/assets/vids/healthcare-doctor-ophthalmologist.webm" width="720" height="480" controls></video>
-        <br/><br/>
-
-- **Option 2: Using your terminal**
-
-    If you want to send the client request from your terminal:
-
-    1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
-    2.  Open a terminal and execute the following curl command to invoke the service:
-
-        ```bash
-        curl -v http://localhost:8290/healthcare/doctor/Ophthalmologist
-        ```
-
-    You will receive the following response:
+You will receive the following response:
 
     ```bash
     [
