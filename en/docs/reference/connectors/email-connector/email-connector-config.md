@@ -469,7 +469,7 @@ The following operations allow you to work with the Email Connector. Click an op
             ```
             </div>  
             </td>
-            <td></td>
+            <td>Optional</td>
         </tr>
     </table>
     
