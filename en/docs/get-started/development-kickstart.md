@@ -616,9 +616,9 @@ Let's start the mock back-end services for this use case:
 
 ### Invoke the Healthcare service
 
-Use a REST client of your choice to send a request to the integration service. In this tutorial we are using cURL.
+Use a REST client of your choice to send a request to the integration service. In this tutorial we are using curl.
 
-1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
+1.  Install and set up [curl](https://curl.haxx.se/) as your REST client.
 2.  Open a terminal and execute the following curl command to invoke the service:
 
     ```bash
