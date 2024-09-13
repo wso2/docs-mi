@@ -2,13 +2,16 @@
 
 The following operations allow you to work with the ISO8583 Inbound Endpoint. Click an operation name to see parameter details and samples on how to use it.
 
-ISO8583 Inbound endpoint allows the ISO8583 standard messages through the WSO2 integration runtime. ISO8583 is a message standard that is used in financial transactions. There are various versions of the ISO8583 standard. The Inbound Endpoint is developed based on the 1987 version of the standard. For more information about ISO8583 Standard, go to ISO8583 Documentation.
+ISO8583 Inbound endpoint allows the ISO8583 standard messages through the WSO2 integration runtime. ISO8583 is a message standard that is used in financial transactions. There are various versions of the ISO8583 standard. The Inbound Endpoint is developed based on the 1987 and 1993 versions of the standard. For more information about ISO8583 Standard, go to ISO8583 Documentation.
+
+!!!Note
+    ISO8583 version 1993 support is available only with ISO8583 Inbound Endpoint v1.1.1 and above.
 
 The WSO2 ISO8583 inbound endpoint acts as a message consumer. Since it is a listening inbound, it is listening on port 5000. When a client is connected on port 5000, the WSO2 ISO8583 Inbound Endpoint starts to consume the ISO8583 standard messages and inject the messages in XML format into sequence.
 
 In order to use the ISO8583 inbound endpoint, you need to do the following: 
 
-- Download the inbound `org.wso2.carbon.inbound.iso8583-1.0.0.jar` file from the [EI Connector Store](https://store.wso2.com/store/assets/esbconnector/details/e4cf3fd5-445f-4317-beb6-09998906fb0d). 
+- Download the inbound `org.wso2.carbon.inbound.iso8583-1.1.1.jar` file from the [EI Connector Store](https://store.wso2.com/connector/esb-inbound-iso8583). 
 - Download the `jpos-1.9.4.jar` from the [http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4](http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4). 
 - Download `jdom-1.1.3.jar` from [http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3). 
 - Download `commons-cli-1.3.1.jar` from [http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1). 
