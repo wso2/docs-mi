@@ -2054,10 +2054,10 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                Available file reading modes: Read complete file, between lines, from line, upto line, single line, metadata only.
+                Available file reading modes: `Complete File`, `Between Lines`, `Starting From Line`, `Up To Line` and `Specific Line`.
             </td>
             <td>
-                Reads complete file.
+                Complete File.
             </td>
             <td>
                 Yes
@@ -2117,7 +2117,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Specific line to read.
             </td>
             <td>
-                When the reading mode is <code>SINGLE_LINE</code>.
+                When the reading mode is <code>Specific Line</code>.
             </td>
             <td>
                 No
@@ -3774,8 +3774,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     Following is a sample REST/JSON request that can be handled by the append operation.
     ```json
         {
-            "filePath":"/home/vive/Desktop/file.test.txt",
-            "contentOrExpression":"Message Body"
+            "filePath":"/home/vive/Desktop/file.test.txt"
         }
     ```
 
