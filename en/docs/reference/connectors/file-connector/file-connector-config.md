@@ -2054,7 +2054,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                Available file reading modes: `Complete File`, `Between Lines`, `Starting From Line`, `Up To Line` and `Specific Line`.
+                Available file reading modes: <code>Complete File</code>, <code>Between Lines</code>, <code>Starting From Line</code>, <code>Up To Line</code>, and <code>Specific Line</code>.
             </td>
             <td>
                 Complete File.
