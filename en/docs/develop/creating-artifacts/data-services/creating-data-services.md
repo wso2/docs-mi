@@ -261,7 +261,7 @@ You can configure output result parameters for the query using this section.
              <table>
                  <tr>
                      <th>Property</th>
-                     <th>Description</th>
+                     <th>Value</th>
                  </tr>
                  <tbody>
                  <tr class="odd">
