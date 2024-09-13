@@ -11,7 +11,7 @@ The WSO2 ISO8583 inbound endpoint acts as a message consumer. Since it is a list
 
 In order to use the ISO8583 inbound endpoint, you need to do the following: 
 
-- Download the inbound `org.wso2.carbon.inbound.iso8583-1.1.1.jar` file from the [EI Connector Store](https://store.wso2.com/store/assets/esbconnector/details/e4cf3fd5-445f-4317-beb6-09998906fb0d). 
+- Download the inbound `org.wso2.carbon.inbound.iso8583-1.1.1.jar` file from the [EI Connector Store](https://store.wso2.com/connector/esb-inbound-iso8583). 
 - Download the `jpos-1.9.4.jar` from the [http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4](http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4). 
 - Download `jdom-1.1.3.jar` from [http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3). 
 - Download `commons-cli-1.3.1.jar` from [http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1). 
