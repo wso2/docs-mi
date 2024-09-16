@@ -76,13 +76,13 @@ detached) to an already running Java process. This universal agent uses the JVM 
 
    Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
 
-    -   List all available MBeans: `http://localhost:9763/jolokia/list` (Change the appropriate hostname and port accordingly.)
-    -   WSO2 ESB MBean:
-        ```
-        http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections
-        ```
-
-    -   Reading Heap Memory: `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
+   - List all available MBeans: `http://localhost:9763/jolokia/list` (Change the appropriate hostname and port accordingly.)
+   - WSO2 ESB MBean:
+     ```
+     http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections
+     ```
+     
+   - Reading Heap Memory: `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
 
 Follow the steps below to use Jolokia to monitor a WSO2 product using OSGi Agent.
 
