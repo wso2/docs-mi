@@ -45,7 +45,7 @@ To use the Facebook Ads connector, first create the connection with your configu
 ## Operations
 
 ??? note "createCampaign"
-    Create a campaign.
+    The `createCampaign` operation creates a campaign.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -88,7 +88,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "getCampaigns"
-    Returns campaigns under this ad account.
+    The `getCampaigns` operation returns campaigns under this ad account.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -152,7 +152,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "updateCampaign"
-    Updates a campaign.
+    The `updateCampaign` operation updates a campaign.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -193,7 +193,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "dissociateCampaign"
-    Dissociate a campaign from an AdAccount.
+    The `dissociateCampaign` operation dissociate a campaign from an ad account.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -243,7 +243,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "deleteCampaign"
-    Deletes a campaign.
+    The `deleteCampaign` operation deletes a campaign.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -274,7 +274,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "createAdSet"
-    Creates an ad set.
+    The `createAdSet` operation creates an ad set.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -329,7 +329,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "getAdSets"
-    Returns all ad sets from one ad account
+    The `getAdSets` operation returns all ad sets from one ad account.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -377,7 +377,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "getAdSet"
-    Return data related to an ad set.
+    The `getAdSet` operation return data related to an ad set.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -425,7 +425,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "updateAdSet"
-    Updates an ad set.
+    The `updateAdSet` operation updates an ad set.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -467,7 +467,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "deleteAdSet"
-    Deletes an ad set.
+    The `deleteAdSet` operation deletes an ad set.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -498,7 +498,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "createAd"
-    Create an ad.
+    The `createAd` operation creates an ad.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -543,7 +543,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "getAds"
-    Returns ads under this ad account.
+    The `getAds` operation returns ads under this ad account.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -607,7 +607,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "getAd"
-    Returns data of an ad.
+    The `getAd` operation returns data of an ad.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -655,7 +655,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "updateAd"
-    Updates an ad.
+    The `updateAd` operation updates an ad.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -696,7 +696,7 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```
 
 ??? note "deleteAd"
-    Deletes an ad.
+    The `deleteAd` operation deletes an ad.
     <table>
         <tr>
             <th>Parameter Name</th>
