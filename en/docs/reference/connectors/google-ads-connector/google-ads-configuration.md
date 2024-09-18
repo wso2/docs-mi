@@ -51,7 +51,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>tokenEndpoint</code></td>
-            <td>The HTTP endpoint that can be uses to obtain an access token.</td>
+            <td>The HTTP endpoint that can be uses to obtain an access token. The default value is `https://www.googleapis.com/oauth2/v3/token`.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -84,7 +84,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the manager under whom client customer is being created.</td>
+            <td>The ID of the manager under whom client customer is being created. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -142,7 +142,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer being modified.</td>
+            <td>The ID of the customer being modified. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -201,7 +201,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose campaign budgets are being modified.</td>
+            <td>The ID of the customer whose campaign budgets are being modified. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -229,14 +229,60 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <>
+    <googleAds.campaignBudgets configKey="GGOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <operations>{json-eval($.operations)}</operations>
+    </googleAds.campaignBudgets>
     ```
  
     **Sample request**
 
-    ```json
-    {}
-    ```
+    === "Create"
+        ```json
+        {
+            "customer_id": "456456456",
+            "operations": [
+                {
+                    "create": {
+                        "name": "My Campaign Budget #1",
+                        "amountMicros": 500000
+                    }
+                },
+                {
+                    "create": {
+                        "name": "My Campaign Budget #2",
+                        "amountMicros": 400000
+                    }
+                }
+            ]
+        }
+        ```
+    === "Update"
+        ```json
+        {
+            "customer_id": "456456456",
+            "operations": [
+                {
+                    "update": {
+                        "resourceName": "customers/456456456/campaignBudgets/789789789",
+                        "amountMicros": "300000"
+                    },
+                    "updateMask": "amountMicros"
+                }
+            ]
+        }
+        ```
+    === "Remove"
+        ```json
+        {
+            "customer_id": "456456456",
+            "operations": [
+                {
+                    "remove": "customers/456456456/campaignBudgets/789789789"
+                }
+            ]
+        }
+        ```
 
 ??? note "campaignsMutate"
     The `campaignsMutate` operation creates, updates, or removes campaigns. Operation statuses are returned.
@@ -248,7 +294,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose campaigns are being modified.</td>
+            <td>The ID of the customer whose campaigns are being modified. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -276,14 +322,65 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <>
+    <googleAds.campaignsMutate configKey="GGOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <operations>{json-eval($.operations)}</operations>
+        <validateOnly>{json-eval($.validateOnly)}</validateOnly>
+    </googleAds.campaignsMutate>
     ```
  
     **Sample request**
 
-    ```json
-    {}
-    ```
+    === "Create"
+        ```json
+        {
+            "customer_id": "1231231223",
+            "validateOnly": false,
+            "operations": [
+                {
+                    "create": {
+                        "status": "PAUSED",
+                        "advertisingChannelType": "SEARCH",
+                        "geoTargetTypeSetting": {
+                            "positiveGeoTargetType": "PRESENCE_OR_INTEREST",
+                            "negativeGeoTargetType": "PRESENCE"
+                        },
+                        "name": "My Search campaign #1",
+                        "campaignBudget": "customers/1231231223/campaignBudgets/789789789",
+                        "targetSpend": {}
+                    }
+                }
+            ]
+        }
+        ```
+    === "Update"
+        ```json
+        {
+            "customer_id": "1231231223",
+            "validateOnly": false,
+            "operations": [
+                {
+                    "updateMask": "name",
+                    "update": {
+                        "resourceName": "customers/1231231223/campaigns/789789789",
+                        "name": "My Search campaign #2"
+                    }
+                }
+            ]
+        }
+        ```
+    === "Remove"
+        ```json
+        {
+            "customer_id": "1231231223",
+            "validateOnly": false,
+            "operations": [
+                {
+                    "remove": "customers/1231231223/campaigns/789789789"
+                }
+            ]
+        }
+        ```
 
 ??? note "adGroupsMutate"
     The `adGroupsMutate` operation creates, updates, or removes ad groups. Operation statuses are returned.
@@ -295,27 +392,27 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose ad groups are being modified.</td>
+            <td>The ID of the customer whose ad groups are being modified. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ad groups.</td>
+            <td>The list of operations to perform on individual ad groups. Type: object [AdGroupOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdGroupOperation)</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>partialFailure</code></td>
-            <td>If true, successful operations will be carried out and invalid operations will return errors.</td>
+            <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. Default is false. Type: boolean</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation.</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
             <td>No</td>
         </tr>
     </table>
@@ -323,14 +420,57 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <>
+    <googleAds.adGroupsMutate configKey="GGOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <operations>{json-eval($.operations)}</operations>
+    </googleAds.adGroupsMutate>
     ```
  
     **Sample request**
 
-    ```json
-    {}
-    ```
+    === "Create"
+        ```json
+        {
+            "customer_id": "123123123",
+            "operations": [
+                {
+                    "create": {
+                        "status": "UNSPECIFIED",
+                        "type": "SEARCH_STANDARD",
+                        "name": "Test Ad group 1",
+                        "campaign": "customers/123123123/campaigns/456456456"
+                    }
+                }
+            ]
+        }
+        ```
+    === "Update"
+        ```json
+        {
+            "customer_id": "123123123",
+            "operations": [
+                {
+                    "updateMask": "name,cpmBidMicros",
+                    "update": {
+                        "resourceName": "customers/123123123/adGroups/456456456",
+                        "name": "My Ad group 1",
+                        "cpmBidMicros": "10000"
+                    }
+                }
+            ]
+        }
+        ```
+    === "Remove"
+        ```json
+        {
+            "customer_id": "123123123",
+            "operations": [
+                {
+                    "remove": "customers/123123123/adGroups/456456456"
+                }
+            ]
+        }
+        ```
 
 ??? note "adGroupAdsMutate"
     The `adGroupAdsMutate` operation creates, updates, or removes ads. Operation statuses are returned.
@@ -342,27 +482,27 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose ads are being modified.</td>
+            <td>The ID of the customer whose ads are being modified. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ads.</td>
+            <td>The list of operations to perform on individual ads. Type: object [AdGroupAdOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdGroupAdOperation)</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>partialFailure</code></td>
-            <td>If true, successful operations will be carried out and invalid operations will return errors.</td>
+            <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. Default is false. Type: boolean</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation.</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
             <td>No</td>
         </tr>
     </table>
@@ -370,14 +510,83 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <>
+    <googleAds.adGroupAdsMutate configKey="GGOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <operations>{json-eval($.operations)}</operations>
+    </googleAds.adGroupAdsMutate>
     ```
  
     **Sample request**
 
-    ```json
-    {}
-    ```
+    === "Create"
+        ```json
+        {
+            "customer_id": "123123123",
+            "operations": [
+                {
+                    "create": {
+                        "adGroup": "customers/123123123/adGroups/456456456",
+                        "status": "PAUSED",
+                        "ad": {
+                            "name": "Test Ad 1",
+                            "responsiveSearchAd": {
+                                "headlines": [
+                                    {
+                                        "pinned_field": "HEADLINE_1",
+                                        "text": "An example headline"
+                                    },
+                                    {
+                                        "text": "Another example headline"
+                                    },
+                                    {
+                                        "text": "Yet another headline"
+                                    }
+                                ],
+                                "descriptions": [
+                                    {
+                                        "text": "An example description"
+                                    },
+                                    {
+                                        "text": "Another example description"
+                                    }
+                                ],
+                                "path1": "integration"
+                            },
+                            "finalUrls": [
+                                "https://www.wso2.com"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+        ```
+    === "Update"
+        ```json
+        {
+            "customer_id": "123123123",
+            "operations": [
+                {
+                    "updateMask": "status",
+                    "update": {
+                        "status": "ENABLED",
+                        "resourceName": "customers/123123123/adGroupAds/456456456~789789789"
+                    }
+                }
+            ]
+        }
+        ```
+    === "Remove"
+        ```json
+        {
+            "customer_id": "123123123",
+            "operations": [
+                {
+                    "remove": "customers/123123123/adGroupAds/456456456~789789789"
+                }
+            ]
+        }
+        ```
 
 ??? note "adsMutate"
     The `adsMutate` operation updates ads. Operation statuses are returned. Updating ads is not supported for TextAd, ExpandedDynamicSearchAd, GmailAd and ImageAd.
@@ -389,27 +598,27 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose ads are being modified.</td>
+            <td>The ID of the customer whose ads are being modified. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ads.</td>
+            <td>The list of operations to perform on individual ads. Type: object [AdOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdOperation)</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>partialFailure</code></td>
-            <td>If true, successful operations will be carried out and invalid operations will return errors.</td>
+            <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. Default is false. Type: boolean</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation.</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
             <td>No</td>
         </tr>
     </table>
@@ -417,13 +626,29 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <>
+    <googleAds.adsMutate configKey="GGOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <operations>{json-eval($.operations)}</operations>
+    </googleAds.adsMutate>
     ```
  
     **Sample request**
 
     ```json
-    {}
+    {
+        "customer_id": "123123123",
+        "operations": [
+            {
+                "updateMask": "finalUrls",
+                "update": {
+                    "resourceName": "customers/123123123/ads/789789789",
+                    "finalUrls": [
+                        "https://www.github.com"
+                    ]
+                }
+            }
+        ]
+    }
     ```
 
 ??? note "search"
@@ -436,7 +661,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer being queried.</td>
+            <td>The ID of the customer being queried. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -474,11 +699,27 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <>
+    <googleAds.search configKey="GGOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <query>{json-eval($.query)}</query>
+    </googleAds.search>
     ```
  
     **Sample request**
 
     ```json
-    {}
+    {
+        "customer_id": "123123123",
+        "query": "SELECT customer_client.client_customer FROM customer_client"
+    }
     ```
+
+## Error codes related to Google Ads Connector
+
+The connector may encounter errors during operation execution. When an error occurs, the `ERROR_MESSAGE` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, refer to [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
+
+| Error code | Description |
+| -------- | ------- |
+| 701001 | A general error has occured. |
+| 701002 | An error has occured due to an invalid configuration. |
+| 701003 | An error has occured in the access token generation flow. |
