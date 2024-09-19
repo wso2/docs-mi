@@ -51,7 +51,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>tokenEndpoint</code></td>
-            <td>The HTTP endpoint that can be uses to obtain an access token. The default value is `https://www.googleapis.com/oauth2/v3/token`.</td>
+            <td>The HTTP endpoint that can be used to obtain an access token. The default value is `https://www.googleapis.com/oauth2/v3/token`.</td>
             <td>Yes</td>
         </tr>
     </table>
