@@ -94,7 +94,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>accessRole</code></td>
-            <td>The proposed role of user on the created client customer. Accessible only to customers on the allow-list. Type: enum [AccessRole](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AccessRole)</td>
+            <td>The proposed role of the user on the created client customer. Accessible only to customers on the allow-list. Type: enum [AccessRole](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AccessRole)</td>
             <td>No</td>
         </tr>
         <tr>
