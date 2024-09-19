@@ -61,7 +61,7 @@ To use the Google Ads connector, first create the connection with your configura
     ```xml
     <googleAds.init>
         <connectionType>googleAds</connectionType>
-        <name>GGOGLE_ADS_CONN</name>
+        <name>GOOGLE_ADS_CONN</name>
         <base>https://googleads.googleapis.com</base>
         <clientId>REPLACE_WITH_CLIENT_ID</clientId>
         <clientSecret>REPLACE_WITH_CLIENT_SECRET</clientSecret>
@@ -84,27 +84,27 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the manager under whom the client customer is being created. Type: string</td>
+            <td>The ID of the manager under whom the client customer is being created. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>customerClient</code></td>
-            <td>The new client customer to create. The resource name on this customer will be ignored. Type: object [Customer](https://developers.google.com/google-ads/api/rest/reference/rest/v17/Customer)</td>
+            <td>The new client customer to create. The resource name on this customer will be ignored. Type: [Customer](https://developers.google.com/google-ads/api/rest/reference/rest/v17/Customer) object</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>accessRole</code></td>
-            <td>The proposed role of the user on the created client customer. Accessible only to customers on the allow-list. Type: enum [AccessRole](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AccessRole)</td>
+            <td>The proposed role of the user on the created client customer. Accessible only to customers on the allow-list. Type: [AccessRole](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AccessRole) enum</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>emailAddress</code></td>
-            <td>Email address of the user who should be invited on the created client customer. Accessible only to customers on the allow-list. Type: string</td>
+            <td>Email address of the user who should be invited on the created client customer. Accessible only to customers on the allow-list. Type: <code>string</code></td>
             <td>No</td>
         </tr>
     </table>
@@ -112,7 +112,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.createCustomerClient configKey="GGOGLE_ADS_CONN">
+    <googleAds.createCustomerClient configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.account_id)}</customerId>
         <customerClient>{json-eval($.client_data)}</customerClient>
     </googleAds.createCustomerClient>
@@ -142,22 +142,22 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer being modified. Type: string</td>
+            <td>The ID of the customer being modified. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operation</code></td>
-            <td>The operation to perform on the customer Type: object [CustomerOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CustomerOperation)</td>
+            <td>The operation to perform on the customer Type: [CustomerOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CustomerOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -165,7 +165,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.customersMutate configKey="GGOGLE_ADS_CONN">
+    <googleAds.customersMutate configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <operation>{json-eval($.operation)}</operation>
         <validateOnly>{json-eval($.validate_only)}</validateOnly>
@@ -201,12 +201,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose campaign budgets are being modified. Type: string</td>
+            <td>The ID of the customer whose campaign budgets are being modified. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual campaign budgets. Type: object [CampaignBudgetOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CampaignBudgetOperation)</td>
+            <td>The list of operations to perform on individual campaign budgets. Type: [CampaignBudgetOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CampaignBudgetOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -216,12 +216,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -229,7 +229,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.campaignBudgets configKey="GGOGLE_ADS_CONN">
+    <googleAds.campaignBudgets configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <operations>{json-eval($.operations)}</operations>
     </googleAds.campaignBudgets>
@@ -294,12 +294,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose campaigns are being modified. Type: string</td>
+            <td>The ID of the customer whose campaigns are being modified. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual campaigns. Type: object [CampaignOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CampaignOperation)</td>
+            <td>The list of operations to perform on individual campaigns. Type: [CampaignOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CampaignOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -309,12 +309,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -322,7 +322,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.campaignsMutate configKey="GGOGLE_ADS_CONN">
+    <googleAds.campaignsMutate configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <operations>{json-eval($.operations)}</operations>
         <validateOnly>{json-eval($.validateOnly)}</validateOnly>
@@ -392,12 +392,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose ad groups are being modified. Type: string</td>
+            <td>The ID of the customer whose ad groups are being modified. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ad groups. Type: object [AdGroupOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdGroupOperation)</td>
+            <td>The list of operations to perform on individual ad groups. Type: [AdGroupOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdGroupOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -407,12 +407,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -420,7 +420,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.adGroupsMutate configKey="GGOGLE_ADS_CONN">
+    <googleAds.adGroupsMutate configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <operations>{json-eval($.operations)}</operations>
     </googleAds.adGroupsMutate>
@@ -482,12 +482,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose ads are being modified. Type: string</td>
+            <td>The ID of the customer whose ads are being modified. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ads. Type: object [AdGroupAdOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdGroupAdOperation)</td>
+            <td>The list of operations to perform on individual ads. Type: [AdGroupAdOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdGroupAdOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -497,12 +497,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -510,7 +510,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.adGroupAdsMutate configKey="GGOGLE_ADS_CONN">
+    <googleAds.adGroupAdsMutate configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <operations>{json-eval($.operations)}</operations>
     </googleAds.adGroupAdsMutate>
@@ -598,12 +598,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer whose ads are being modified. Type: string</td>
+            <td>The ID of the customer whose ads are being modified. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ads. Type: object [AdOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdOperation)</td>
+            <td>The list of operations to perform on individual ads. Type: [AdOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AdOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -613,12 +613,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>responseContentType</code></td>
-            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: enum [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType)</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. Type: [ResponseContentType](https://developers.google.com/google-ads/api/rest/reference/rest/v17/ResponseContentType) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -626,7 +626,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.adsMutate configKey="GGOGLE_ADS_CONN">
+    <googleAds.adsMutate configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <operations>{json-eval($.operations)}</operations>
     </googleAds.adsMutate>
@@ -661,37 +661,37 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the customer being queried. Type: string</td>
+            <td>The ID of the customer being queried. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>query</code></td>
-            <td>The query string. Type: string</td>
+            <td>The query string. Type: <code>string</code></td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>pageToken</code></td>
-            <td>Token of the page to retrieve. If not specified, the first page of results will be returned. Use the value obtained fromnextPageTokenin the previous response in order to request the next page of results. Type: string</td>
+            <td>Token of the page to retrieve. If not specified, the first page of the results will be returned. Use the value obtained from <code>nextPageToken</code> in the previous response to request the next page of results. Type: <code>string</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>pageSize</code></td>
-            <td>Number of elements to retrieve in a single page. When too large a page is requested, the server may decide to further limit the number of returned resources. Type: integer</td>
+            <td>Number of elements to retrieve in a single page. When too large a page is requested, the server may decide to further limit the number of returned resources. Type: <code>integer</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>validateOnly</code></td>
-            <td>If true, the request is validated but not executed. Type: boolean</td>
+            <td>If true, the request is validated but not executed. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>returnTotalResultsCount</code></td>
-            <td>If true, the total number of results that match the query ignoring the LIMIT clause will be included in the response. Default is false. Type: boolean</td>
+            <td>If true, the total number of results that match the query ignoring the LIMIT clause will be included in the response. Default is false. Type: <code>boolean</code></td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>summaryRowSetting</code></td>
-            <td>Determines whether a summary row will be returned. By default, a summary row is not returned. If requested, the summary row will be sent in a response by itself after all other query results are returned. Type: enum [SummaryRowSetting](https://developers.google.com/google-ads/api/rest/reference/rest/v17/SummaryRowSetting)</td>
+            <td>Determines whether a summary row will be returned. By default, a summary row is not returned. If requested, the summary row will be sent in a response by itself after all other query results are returned. Type: [SummaryRowSetting](https://developers.google.com/google-ads/api/rest/reference/rest/v17/SummaryRowSetting) enum</td>
             <td>No</td>
         </tr>
     </table>
@@ -699,7 +699,7 @@ To use the Google Ads connector, first create the connection with your configura
     **Sample configuration**
 
     ```xml
-    <googleAds.search configKey="GGOGLE_ADS_CONN">
+    <googleAds.search configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
         <query>{json-eval($.query)}</query>
     </googleAds.search>
@@ -720,6 +720,6 @@ The connector may encounter errors during operation execution. When an error occ
 
 | Error code | Description |
 | -------- | ------- |
-| 701001 | A general error has occurred. |
-| 701002 | An error has occurred due to an invalid configuration. |
-| 701003 | An error has occurred in the access token generation flow. |
+| 701001 | General error. |
+| 701002 | Invalid configuration error. |
+| 701003 | Error in access token generation flow. |
