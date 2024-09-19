@@ -297,7 +297,17 @@ header>.md-grid {
 }
 /* End of custom dropdown specific styles */
 
+.md-typeset h4 {
+    font-size: 0.90rem;
+}
+
 .md-typeset h5 {
-  color: var(--md-default-fg-color);
-  text-transform: none;
+    color: var(--md-default-fg-color);
+    text-transform: none;
+    font-size: 0.85rem;
+}
+
+.md-typeset h6 {
+    color: var(--md-default-fg-color);
+    font-size: 0.80rem;
 }
