@@ -16,7 +16,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>name</code></td>
-            <td>Unique name to identify the connection by.</td>
+            <td>Unique name to identify the connection.</td>
             <td>Yes</td>
         </tr>
         <tr>
