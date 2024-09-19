@@ -84,7 +84,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>customerId</code></td>
-            <td>The ID of the manager under whom client customer is being created. Type: string</td>
+            <td>The ID of the manager under whom the client customer is being created. Type: string</td>
             <td>Yes</td>
         </tr>
         <tr>
