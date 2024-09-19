@@ -297,3 +297,7 @@ header>.md-grid {
 }
 /* End of custom dropdown specific styles */
 
+.md-typeset h5 {
+  color: var(--md-default-fg-color);
+  text-transform: none;
+}
