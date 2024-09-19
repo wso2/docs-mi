@@ -722,4 +722,4 @@ The connector may encounter errors during operation execution. When an error occ
 | -------- | ------- |
 | 701001 | A general error has occurred. |
 | 701002 | An error has occurred due to an invalid configuration. |
-| 701003 | An error has occured in the access token generation flow. |
+| 701003 | An error has occurred in the access token generation flow. |
