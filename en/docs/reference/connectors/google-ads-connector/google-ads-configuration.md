@@ -716,7 +716,7 @@ To use the Google Ads connector, first create the connection with your configura
 
 ## Error codes related to Google Ads Connector
 
-The connector may encounter errors during operation execution. When an error occurs, the `ERROR_MESSAGE` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, refer to [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
+The connector may encounter errors during operation execution. When an error occurs, the `ERROR_MESSAGE` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, see [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
 
 | Error code | Description |
 | -------- | ------- |
