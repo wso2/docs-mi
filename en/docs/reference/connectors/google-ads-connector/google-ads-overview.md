@@ -10,7 +10,7 @@ To see the Google Ads Connector, navigate to the [connector store](https://store
 
 ## Compatibility
 
-| Connector Version | Supported product versions |
+| Connector version | Supported product versions |
 | ------------- |-------------|
 | 1.0.0    | MI 4.3.0 |
 
