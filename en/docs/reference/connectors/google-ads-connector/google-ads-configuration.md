@@ -46,7 +46,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>loginCustomerId</code></td>
-            <td>The ID of the manager account. Required when using a manager account to access an customer account.</td>
+            <td>The ID of the manager account. Required when using a manager account to access a customer account.</td>
             <td>No</td>
         </tr>
         <tr>
