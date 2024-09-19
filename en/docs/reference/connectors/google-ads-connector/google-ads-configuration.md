@@ -10,7 +10,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `init` operation initializes the connection to Google Ads API.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -78,7 +78,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `createCustomerClient` operation creates a new client under the provided manager. The new client customer is returned.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -136,7 +136,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `customersMutate` operation updates a customer. Operation statuses are returned.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -195,7 +195,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `campaignBudgets` operation creates, updates, or removes campaign budgets. Operation statuses are returned.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -288,7 +288,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `campaignsMutate` operation creates, updates, or removes campaigns. Operation statuses are returned.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -386,7 +386,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `adGroupsMutate` operation creates, updates, or removes ad groups. Operation statuses are returned.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -476,7 +476,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `adGroupAdsMutate` operation creates, updates, or removes ads. Operation statuses are returned.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -592,7 +592,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `adsMutate` operation updates ads. Operation statuses are returned. Updating ads is not supported for TextAd, ExpandedDynamicSearchAd, GmailAd and ImageAd.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
@@ -655,7 +655,7 @@ To use the Google Ads connector, first create the connection with your configura
     The `search` operation returns all rows that match the search query.
     <table>
         <tr>
-            <th>Parameter Name</th>
+            <th>Parameter name</th>
             <th>Description</th>
             <th>Required</th>
         </tr>
