@@ -691,7 +691,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>summaryRowSetting</code></td>
-            <td>Determines whether a summary row will be returned. By default, summary row is not returned. If requested, the summary row will be sent in a response by itself after all other query results are returned. Type: enum [SummaryRowSetting](https://developers.google.com/google-ads/api/rest/reference/rest/v17/SummaryRowSetting)</td>
+            <td>Determines whether a summary row will be returned. By default, a summary row is not returned. If requested, the summary row will be sent in a response by itself after all other query results are returned. Type: enum [SummaryRowSetting](https://developers.google.com/google-ads/api/rest/reference/rest/v17/SummaryRowSetting)</td>
             <td>No</td>
         </tr>
     </table>
