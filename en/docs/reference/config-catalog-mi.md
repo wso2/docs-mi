@@ -3725,7 +3725,7 @@ listener.secured_protocols = "TLSv1,TLSv1.1,TLSv1.2"
 listener.verify_client = "require"
 listener.ssl_profile.file_path = "conf/sslprofiles/listenerprofiles.xml"
 listener.ssl_profile.read_interval = "1h"
-listener.preferred_ciphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+listener.preferred_ciphers = "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
 listener.keystore.location ="$ref{keystore.tls.file_name}"
 listener.keystore.type = "$ref{keystore.tls.type}"
 listener.keystore.password = "$ref{keystore.tls.password}"
@@ -4014,6 +4014,47 @@ force_json_validation = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The secured port on which this transport receiver should listen for incoming messages.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.secured_wsdl_epr_prefix</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>$ref{server.hostname}</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc in HTTPS.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.secured_protocols</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TLSv1,TLSv1.1,TLSv1.2</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>TLS (Transport Layer Security) protocols should be allowed when securing HTTP communications through HTTPS.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
