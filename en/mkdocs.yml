@@ -501,7 +501,6 @@ nav:
               - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
               - Change the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
               - Change the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-              - Monitor Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
               - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
               - Performance Tuning:
                   - Tuning JVM Performance: install-and-setup/setup/performance-tuning/tuning-jvm-performance.md
@@ -1017,6 +1016,7 @@ plugins:
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
 
   # Extra
 extra_css:

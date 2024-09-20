@@ -1831,76 +1831,7 @@ Run the following command to encrypt secrets with the MI CLI,
         Kubernetes secret file created in mi/security/wso2-secrets.yaml with default name and namespace
         You can change the default values as required before applying.
         ```
-
-
-## Monitor transactions
-
-### Transaction Counts
-
-You can use the command below to get information about the inbound transactions received by the Micro Integrator.
-
--   **Command**
-    ``` bash
-    mi get transaction-counts -e <environment>
-    ```
-    ``` bash
-    mi get transaction-counts [year] [month] -e <environment>
-    ```
-
-    !!! info
-        **Flags:**
-
-        -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
-        -   Optional :  
-            `--format` : pretty-print using templates
-
-    !!! example
-        ```bash
-        mi get transaction-counts -e dev
-        ```
-        ```bash
-        mi get transaction-counts 2021 01 -e dev
-        ```
-
--   **Response**
-
-    ```go
-    YEAR        MONTH       TRANSACTION COUNT
-    2021        1           126
-    ```
-
-### Transaction Reports
-
-You can use the command below to generate the transaction count summary report based on the inbound transactions received by the Micro Integrator.
-
--   **Command**
-    ``` bash
-    mi get transaction-reports [start] [end] -e <environment>
-    ```
-
-    !!! info
-        **Flags:**
-
-        -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
-        -   Optional :  
-            `--path` or `-p`        : Path the file should be downloaded (default is current executable directory)
-
-    !!! example
-        ```bash
-        mi get transaction-reports 2020-05 2020-06 -e dev
-        ```
-        ```bash
-        mi get transaction-reports 2020-05 -e dev -p reports/mi
-        ```
-
--   **Response**
-
-    ```go
-    Transaction Count Report created in reports/mi/transaction-count-summary-1610597725520763836.csv
-    ```
-
+        
 ## Update HashiCorp AppRole Pull secret ID
 
 You can use the command below to update the HashiCorp AppRole Pull secret ID that is used by the Micro Integrator to connect with HashiCorp.
