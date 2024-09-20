@@ -725,3 +725,12 @@ To use the Facebook Ads connector, first create the connection with your configu
         "ad_id": "456456456"
     }
     ```
+
+## Error codes related to Facebook Ads Connector
+
+The connector may encounter errors during operation execution. When an error occurs, the `ERROR_MESSAGE` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, see [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
+
+| Error code | Description |
+| -------- | ------- |
+| 701101 | General error. |
+| 701102 | Invalid configuration error. |
