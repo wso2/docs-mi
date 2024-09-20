@@ -7,7 +7,6 @@ Follow the steps given below to set up the required MSSQL databases for your Mic
 
 	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi#cluster-coordination'>cluster coordination</a>
     -	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
-    -	<a href='{{base_path}}/install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Enable TCP/IP
 
@@ -39,10 +38,6 @@ You can run the scripts on one database instance or set up separate instances fo
 		<td>mssql_user.sql</td>
 		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>RDBMS user store</a>.</td>
 	</tr>
-	<tr>
-		<td>mssql_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
-	</tr>
 </table>
 
 Create the databases and then create the DB tables by pointing to the relevant script in the `<MI_HOME>/dbscripts/mssql` directory.
@@ -63,7 +58,7 @@ server permissions.
 
 ## Connecting the database to the server
 
-Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb`, `userdb`, and `transactiondb`).
+Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
 
 === "Cluster DB Connection"
     ```toml  
@@ -88,22 +83,6 @@ Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the fo
     pool_options.maxActive=50
     pool_options.maxWait = 60000
     pool_options.testOnBorrow = true
-    ```
-=== "Transaction Counter DB Connection"     
-    ```toml 
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url= "jdbc:sqlserver://<IP>:1433;databaseName=transactiondb;SendStringParametersAsUnicode=false"
-    username="root"
-    password="root"
-    driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    [transaction_counter]
-    enable = true
-    data_source = "WSO2_TRANSACTION_DB"
-    update_interval = 2
     ```
 
 {!includes/integration/pull-content-user-store-db-id.md!}
