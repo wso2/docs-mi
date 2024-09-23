@@ -112,7 +112,7 @@ You can retrieve properties in system scope using the following syntax.
 
 `get-property('system', String propertyName)`
 
-## environment scope
+## `environment` scope
 
 You can retrieve environment variables using the following syntax.
 
