@@ -97,7 +97,7 @@ Similarly, you can use `$trp` prefix with [HTTP Transport Properties]({{base_pat
 
 ### $body
 
-The prefix used to get the message payload. For example, the expression `$body//getQuote` refers to the first `getQuote` element in a message body.
+The prefix used to get the message payload. For example, the `$body//getQuote` expression refers to the first `getQuote` element in a message body.
 
 ??? note "Example of $body usage"
 
