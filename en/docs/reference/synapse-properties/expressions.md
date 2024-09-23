@@ -4,7 +4,7 @@ In WSO2 Micro Integrator, expressions are a way to dynamically compute values wi
 
 The most commonly used expression languages in WSO2 MI are [Synapse Variables](#synapse-variables), [JSONPath (for JSON)](#jsonpath-expressions), and [XPath (for XML)](#xpath-expressions).
 
-## Synapse Variables
+## Synapse variables
 
 There is a set of predefined synapse variables that you can use
 to extract data from the message. These synapse variables in different [scopes]({{base_path}}/reference/synapse-properties/scopes) are as follows:
