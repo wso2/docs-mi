@@ -22,7 +22,7 @@ Similarly, you can use `$ctx` prefix with [Generic Properties]({{base_path}}/ref
 
     Deploy the following API. For instructions, see [Creating a REST API]({{base_path}}/develop/creating-artifacts/creating-an-api/).
     
-    Note the property, `<property name="stockprop" expression="$ctx:ERROR_MESSAGE"/>` in the fault sequence configuration. It is used to log the error message that occurs due to a mediation fault.
+    The `<property name="stockprop" expression="$ctx:ERROR_MESSAGE"/>` property in the fault sequence configuration is used to log the error message that occurs due to a mediation fault.
     
     ``` xml
     <api context="/stockQuote" name="stockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
