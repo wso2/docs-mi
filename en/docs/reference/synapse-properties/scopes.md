@@ -30,7 +30,7 @@ Examples:
 
     ``` java
     public boolean mediate(org.apache.synapse.MessageContext mc) {  
-        // Available in both in-sequence and out-sequence  
+        // Available throughout the mediation flow  
         String propValue = (String) mc.getProperty("PropName");  
         System.out.println("SCOPE_SYNAPSE : " + propValue);  
         return true;  
@@ -106,8 +106,7 @@ Examples:
 
 ## `system` scope
 
-When the scope of a property is `system`,
-it refers to [Java System properties](https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html).
+When the scope of a property is `system`, it refers to [Java System properties](https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html).
 You can retrieve properties in the `system` scope using the following syntax.
 
 `get-property('system', String propertyName)`
