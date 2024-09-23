@@ -7,7 +7,7 @@ In WSO2 Micro Integrator scopes refer to the different layers where the properti
 When the scope of a property is `default`, its value is available throughout the mediation flow. In addition to the user-defined properties, you can retrieve the following special properties from the `default` scope.
 [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties) are available in the default scope.
 
-| Property name  | Return Value                                                                                                                                                                                    |
+| Property name  | Return value                                                                                                                                                                                    |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | To             | Incoming URL as a String, or empty string («») if a To address is not defined.                                                                                                      |
 | From           | From address as a String, or empty string («») if a From address is not defined.                                                                                                    |
