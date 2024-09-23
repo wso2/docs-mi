@@ -566,7 +566,7 @@ message property at the given scope. If you provide only the property name witho
 
 #### url-encode() function
 
-The url-encode function returns the URL-encoded value of the specified
+The `url-encode()` function returns the URL-encoded value of the specified
 string.
 
 Syntax:
