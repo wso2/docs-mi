@@ -86,7 +86,7 @@ Examples:
 <property name="PROPERTY_2" expression="get-property('transport',PROPERTY_1')"/>
 ```
 
-## registry scope
+## `registry` scope
 
 The [registry]({{base_path}}/get-started/key-concepts/#registry) in WSO2 MI allows users to store and manage various resources, such as configuration files, XML schemas, WSDL files, XSLT stylesheets, and other reusable assets.
 When the scope of a property is `registry`,
