@@ -13,7 +13,7 @@ to extract data from the message. These synapse variables in different [scopes](
 
 The prefix used to get properties set at the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). For example, to get the value of property with name `ERROR_MESSAGE`, use the expression `$ctx:ERROR_MESSAGE`.
 
-Similarly, you can use `$ctx` prefix with [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties).
+Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties).
 
 ??? note "Example of $ctx usage"
     
