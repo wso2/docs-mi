@@ -37,7 +37,7 @@ Examples:
     }
     ```
 
-## axis2 scope
+## `axis2` scope
 
 When the scope of a property is `axis2`, its
 value is available only either throughout the request flow or the response flow for which the property
