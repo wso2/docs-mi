@@ -492,7 +492,7 @@ The following table summarizes sample XPath expressions and their outputs:
 
 ??? note "How to retrieve the XML node itself instead of text content"
     When the result of an XPath evaluation results in a single XML node, the
-    evaluator will return the text content of this node (equivalent of doing `/root/body/node/text()`). If you want to retrieve
+    evaluator will return the text content of this node (similar to executing `/root/body/node/text()`). If you want to retrieve
     the node itself, you have to configure the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator) as shown
     in the following example.
     ``` xml
