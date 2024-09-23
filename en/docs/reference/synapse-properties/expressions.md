@@ -446,7 +446,7 @@ Let's use the following payload:
 </order>
 ```
 
-The following table summarizes sample Xpath expressions and their outputs:
+The following table summarizes sample XPath expressions and their outputs:
 
 <table>
 <thead>
