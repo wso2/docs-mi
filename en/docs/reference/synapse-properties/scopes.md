@@ -70,7 +70,7 @@ Examples:
     } 
     ```
 
-## transport scope
+## `transport` scope
 
 When the scope of a property is `transport`,
 it refers to the transport headers of the message. [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties/) are available in the axis2 scope.
