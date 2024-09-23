@@ -127,7 +127,7 @@ You can retrieve properties defined in the `file.properties` configuration file 
 ## `operation` scope
 
 You can retrieve a property in the operation context level from the
-`         operation        ` scope. The properties within
+`operation` scope. The properties within
 the iterated/cloned message with the `         operation        ` scope are
 preserved in the in sequence even if you have configured your API
 resources to be sent through the fault sequence when faults exist. A
