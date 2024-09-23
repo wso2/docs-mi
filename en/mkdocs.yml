@@ -693,6 +693,9 @@ nav:
               - Jira Connector Overview: reference/connectors/jira-connector/jira-connector-overview.md
               - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
               - Jira Connector Reference: reference/connectors/jira-connector/jira-connector-config.md
+          - Facebook Ads Connector:
+              - Facebook Ads Overview: reference/connectors/facebook-ads-connector/facebook-ads-overview.md
+              - Facebook Ads Reference: reference/connectors/facebook-ads-connector/facebook-ads-configuration.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
