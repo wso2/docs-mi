@@ -118,7 +118,7 @@ You can retrieve environment variables using the following syntax.
 
 `get-property('env', String propertyName)`
 
-## file scope
+## `file` scope
 
 You can retrieve properties defined in the `file.properties` configuration file using the following syntax. Properties in the file are reloaded periodically according to the time interval defined by the `file.properties.sync.interval` system property in seconds. If this interval is not defined, changes to the properties will not be reloaded automatically during runtime.
 
