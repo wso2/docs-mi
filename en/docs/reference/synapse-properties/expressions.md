@@ -525,7 +525,7 @@ working with XPath expressions:
 
 #### base64Encode() function
 
-The `base64Encode` function returns the base64-encoded value of the
+The `base64Encode()` function returns the base64-encoded value of the
 specified string.
 
 Syntax:
