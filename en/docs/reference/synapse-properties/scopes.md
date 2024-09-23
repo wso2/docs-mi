@@ -30,7 +30,7 @@ Examples:
 
     ``` java
     public boolean mediate(org.apache.synapse.MessageContext mc) {  
-        // Available in both in-sequence and out-sequenc  
+        // Available in both in-sequence and out-sequence  
         String propValue = (String) mc.getProperty("PropName");  
         System.out.println("SCOPE_SYNAPSE : " + propValue);  
         return true;  
