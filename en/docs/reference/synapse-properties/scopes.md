@@ -17,7 +17,7 @@ When the scope of a property is `default`, its value is available throughout the
 | MessageID      | A unique identifier (UUID) for the message as a String, or empty string («») if a MessageID is not defined. This ID is guaranteed to be unique.                                     |
 | FAULT          | TRUE if the message has a fault, or empty string if the message does not have a fault.                                                                                              |
 | MESSAGE_FORMAT | Returns pox, get, soap11, or soap12 depending on the message. If a message type is unknown this returns soap12                                                                      |
-| OperationName  | Operation name corresponding to the message. A proxy service with a WSDL can have different operations. If the WSDL is not defined, WSO2 MI defines fixed operation call `mediate`. |
+| OperationName  | Operation name corresponding to the message. A proxy service with a WSDL can have different operations. If the WSDL is not defined, WSO2 MI defines a fixed operation called `mediate`. |
 
 Examples:
 ``` xml
