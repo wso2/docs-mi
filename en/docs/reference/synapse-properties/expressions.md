@@ -539,7 +539,7 @@ Example:
 
 #### base64Decode() function
 
-The `base64Decode` function returns the original value of the specified
+The `base64Decode()` function returns the original value of the specified
 base64-encoded value.
 
 The syntax of the function takes the following format.
