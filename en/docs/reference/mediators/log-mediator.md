@@ -1,14 +1,14 @@
 # Log Mediator
 
-The **Log mediator** enables the logging of messages as they flow through mediation sequences. It helps in debugging and tracking messages by printing message content, properties, and other relevant information to the console or a log file. It can be added at any point in the flow. The [Property Mediator]({{base_path}}/reference/mediators/property-mediator) can be used with the Log Mediator to log dynamic data or specific message properties, providing more detailed and customizable logging capabilities.
+The **Log mediator** enables the logging of messages as they flow through mediation sequences. It helps in debugging and tracking messages by printing message content, properties, and other relevant information to the console or a log file. It can be added at any point in the flow.
 
 For more information on logging, see [Monitoring Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs/).
 
 ## Syntax
 
 ```xml
-<log [category="string"] [level="string"] [separator="string"]>
-   <property name="string" (value="literal" | expression="[XPath|json-eval(JSON Path)]")/>+
+<log [category="INFO|TRACE|DEBUG|WARN|ERROR|FATAL"] [level="custom|full|simple|headers"] [separator="string"]>
+   <property name="string" (value="string" | expression="expression")/>+
 </log>
 ```
 
@@ -44,10 +44,10 @@ follows.
 <td>
 <p>This parameter is used to specify the log level. The possible values are as follows.</p>
 <ul>
-<li><strong>Simple</strong> : If this is selected, the standard headers (such as <code>To</code> , <code>From</code> , <code>WSAction</code> , <code>SOAPAction</code> , <code>ReplyTo</code> , and <code>MessageID</code> ) will be logged.</li>
-<li><strong>Headers</strong> : If this is selected, all the SOAP header blocks will be logged.</li>
-<li><strong>Full</strong> : If this is selected, all the standard headers logged at the <strong>Simple</strong> level as well as the full payload of the message will be logged. This log level causes the message content to be parsed and hence incurs a performance overhead.</li>
 <li><strong>Custom</strong> : If this is selected, only the properties added to the Log mediator configuration will be logged.</li>
+<li><strong>Full</strong> : If this is selected, all the standard headers logged at the <strong>Simple</strong> level as well as the full payload of the message will be logged. This log level causes the message content to be parsed and hence incurs a performance overhead.</li>
+<li><strong>Simple</strong> : If this is selected, the standard headers (such as <code>To</code>, <code>From</code>, <code>WSAction</code>, <code>SOAPAction</code>, <code>ReplyTo</code>, and <code>MessageID</code>) will be logged.</li>
+<li><strong>Headers</strong> : If this is selected, all the SOAP header blocks will be logged.</li>
 </ul>
 <p>The properties included in the Log mediator configuration will be logged regardless of the log level selected.</p>
 </td>
@@ -60,7 +60,7 @@ follows.
 </tbody>
 </table>
 
-You can add a [Property mediator]({{base_path}}/reference/mediators/property-mediator) inside the Log mediator to log additional information. The parameters available to configure a property mediator are as follows:
+You can add properties inside the Log mediator to log additional information. The parameters available to configure a property are as follows:
 
 <table>
 <thead>
@@ -79,7 +79,7 @@ You can add a [Property mediator]({{base_path}}/reference/mediators/property-med
 <td><p>Based on the use case you can select either value or expression.</p>
 <ul>
 <li><strong>Value</strong>: If this is selected, a static value would be considered as the property value and this value should be entered in the <strong>Value/Expression</strong> parameter.</li>
-<li><p><strong>Expression</strong>: If this is selected, the property value will be determined during mediation by evaluating an expression. You can use <a href="{{base_path}}/reference/synapse-properties/expressions/#xpath-expressions">XPATH</a> or <a href="{{base_path}}/reference/synapse-properties/expressions/#jsonpath-expressions">JSONPath</a> to extract values dynamically. When specifying a JSONPath, use the format <code>json-eval(&lt;JSON_PATH&gt;)</code>. For example: <code>json-eval($.request.symbol)</code>.</p></li>
+<li><p><strong>Expression</strong>: If this is selected, the property value will be determined during the runtime by evaluating an expression. You can refer to <a href="{{base_path}}/reference/synapse-properties/expressions">Expressions</a>.</p></li>
 </ul></td>
 </tr>
 </tbody>
@@ -89,8 +89,7 @@ You can add a [Property mediator]({{base_path}}/reference/mediators/property-med
 
 ### Use full log
 
-In this example, everything is logged including the complete SOAP
-message.
+In this example, everything is logged including the complete message.
 
 ```xml
 <log category="INFO" level="full"/>
