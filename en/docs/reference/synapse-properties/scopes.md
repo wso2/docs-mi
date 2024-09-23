@@ -9,7 +9,7 @@ When the scope of a property is `default`, its value is available throughout the
 
 | Property name  | Return value                                                                                                                                                                                    |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| To             | Incoming URL as a String, or empty string («») if a To address is not defined.                                                                                                      |
+| `To`             | Incoming URL as a String, or empty string («») if a To address is not defined.                                                                                                      |
 | From           | From address as a String, or empty string («») if a From address is not defined.                                                                                                    |
 | Action         | SOAP Addressing Action header value as a String, or empty string («») if an Action is not defined.                                                                                  |
 | FaultTo        | SOAP FaultTo header value as a String, or empty string («») if a FaultTo address is not defined.                                                                                    |
