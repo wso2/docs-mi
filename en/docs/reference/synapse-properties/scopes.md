@@ -108,7 +108,7 @@ Examples:
 
 When the scope of a property is `system`,
 it refers to [Java System properties](https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html).
-You can retrieve properties in system scope using the following syntax.
+You can retrieve properties in the `system` scope using the following syntax.
 
 `get-property('system', String propertyName)`
 
