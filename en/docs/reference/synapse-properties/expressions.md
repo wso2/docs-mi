@@ -461,7 +461,7 @@ The following table summarizes sample XPath expressions and their outputs:
 <tr class="odd">
 <td rowspan="2">Node Selection</td>
 <td>Single Slash (/): Selects nodes from the root element.</td>
-<td><pre><code>expression="//ns:order/ns:total" xmlns:ns="http://ws.apache.org/ns/synapse"</code></pre></td>
+<td><code>expression="//ns:order/ns:total" xmlns:ns="http://ws.apache.org/ns/synapse"</code></td>
 <td><pre><code>1500</code></pre></td>
 </tr>
 <tr class="even">
