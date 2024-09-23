@@ -124,7 +124,7 @@ You can retrieve properties defined in the `file.properties` configuration file 
 
 `get-property('file', String propertyName)`
 
-## operation scope
+## `operation` scope
 
 You can retrieve a property in the operation context level from the
 `         operation        ` scope. The properties within
