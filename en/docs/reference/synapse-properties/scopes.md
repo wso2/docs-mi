@@ -63,7 +63,7 @@ Examples:
     public boolean mediate(org.apache.synapse.MessageContext mc) {  
         org.apache.axis2.context.MessageContext axis2MsgContext;  
         axis2MsgContext = ((Axis2MessageContext) mc).getAxis2MessageContext();   
-        // Available only in the sequence the property is defined.  
+        // Available only in the sequence in which the property is defined.  
         String propValue = (String) axis2MsgContext.getProperty("PropName");  
         System.out.println("SCOPE_AXIS2 : " + propValue);  
         return true;  
