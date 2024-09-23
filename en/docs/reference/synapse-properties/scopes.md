@@ -139,7 +139,7 @@ The syntax of the function takes the following format.
 `get-property('operation', String propertyName)`
 
 
-## axis2-client
+## `axis2-client` scope
 
 This is similar to the `default` scope. The difference is that it can be accessed inside the
 `mediate()` method of a mediator by including one of
