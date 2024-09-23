@@ -26,7 +26,7 @@ Examples:
 ```
 
 !!! Note
-    To access a property with the `default` cope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-mediator):
+    To access a property with the `default` scope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-mediator):
 
     ``` java
     public boolean mediate(org.apache.synapse.MessageContext mc) {  
