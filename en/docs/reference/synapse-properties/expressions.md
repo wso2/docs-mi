@@ -57,7 +57,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
 
 The prefix used to get the transport headers. For example, to get the
 transport header named Content-Type of the current message, use the
-expression **$trp:Content-Type** . HTTP transport headers are not
+`$trp:Content-Type` expression. HTTP transport headers are not
 case sensitive. Therefore, `$trp:Content-Type` and `$trp:CONTENT-TYPE` are
 regarded as the same.
 
