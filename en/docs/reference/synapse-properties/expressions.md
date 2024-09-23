@@ -318,7 +318,7 @@ Similarly you can use [$header](#header) to get SOAP 1.1 or 1.2 header element i
 JSONPath expressions are used within mediators like Log, Filter, Property, and Switch mediators to extract JSON data.
 `json-eval` function in expressions is used to specify JSONPath.
 
-- The syntax usually starts with $ to represent the root of the JSON document.
+- The syntax usually starts with `$` to represent the root of the JSON document.
 - Dots (.) and brackets ([]) are used to traverse different levels of the JSON hierarchy.
 
 ### JSONPath syntax
