@@ -413,7 +413,7 @@ json-eval($trp:propertyName.student.name)
 [XPath (XML Path Language)](https://www.w3schools.com/xml/xpath_intro.asp) is a language used to navigate through elements and attributes in an XML document. It allows you to identify and extract specific portions of XML data, making it ideal for working with complex XML payloads, which are common in service integration scenarios.
 
 !!! Note
-    The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default where as the support for XPath 2.0 can be introduced by adding the following property in `<MI_HOME>/conf/deployment.toml`.
+    The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default whereas the support for XPath 2.0 can be introduced by adding the following property in `<MI_HOME>/conf/deployment.toml`.
     
     ```toml
     [mediation]
