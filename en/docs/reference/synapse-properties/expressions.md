@@ -126,7 +126,7 @@ The prefix used to get the message payload. For example, the `$body//getQuote` e
 
 ### $axis2
 
-The prefix used to get the properties at the [axis2 scope]({{base_path}}/reference/synapse-properties/scopes/#axis2-scope). For example, to get the value axis2 scope property with name `REST_URL_POSTFIX`, use the expression `$axis2:REST_URL_POSTFIX`.
+The prefix used to get the properties at the [axis2 scope]({{base_path}}/reference/synapse-properties/scopes/#axis2-scope). For example, to get the value of the `axis2` scope property with the `REST_URL_POSTFIX` name, use the `$axis2:REST_URL_POSTFIX` expression.
 
 Similarly, you can use `$axis2` prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/axis2-properties).
 
