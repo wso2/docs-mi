@@ -104,7 +104,7 @@ Examples:
 <property name="regResourceProperty" expression="get-property('registry', 'gov:/data/xml/collectionx@abc')"/>
 ```
 
-## system scope
+## `system` scope
 
 When the scope of a property is `system`,
 it refers to [Java System properties](https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html).
