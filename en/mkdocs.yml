@@ -710,6 +710,9 @@ nav:
               - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
               - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
               - Gmail Configuration: reference/connectors/gmail-connector/configuring-gmail-api.md
+          - Google Ads Connector:
+              - Google Ads Overview: reference/connectors/google-ads-connector/google-ads-overview.md
+              - Google Ads Reference: reference/connectors/google-ads-connector/google-ads-configuration.md
           - Google Firebase Connector:
               - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
               - Set up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
