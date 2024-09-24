@@ -39,9 +39,7 @@ Examples:
 
 ## `axis2` scope
 
-When the scope of a property is `axis2`, its
-value is available only either throughout the request flow or the response flow for which the property
-is defined. [Axis2 Properties]({{base_path}}/reference/mediators/property-reference/axis2-properties/) are available in the axis2 scope.
+When the scope of a property is `axis2`, its value is available only either throughout the request flow or the response flow for which the property is defined. [Axis2 Properties]({{base_path}}/reference/mediators/property-reference/axis2-properties/) are available in the axis2 scope.
 
 You can retrieve
 message context properties within the `axis2` scope
@@ -72,8 +70,7 @@ Examples:
 
 ## `transport` scope
 
-When the scope of a property is `transport`,
-it refers to the transport headers of the message. [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties/) are available in the axis2 scope.
+When the scope of a property is `transport`, it refers to the transport headers of the message. [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties/) are available in the axis2 scope.
 
 You can retrieve properties within the
 `transport` scope using the following syntax.
@@ -125,18 +122,11 @@ You can retrieve properties defined in the `file.properties` configuration file 
 
 ## `operation` scope
 
-You can retrieve a property in the operation context level from the
-`operation` scope. The properties within
-the iterated/cloned message with the `         operation        ` scope are
-preserved in the in sequence even if you have configured your API
-resources to be sent through the fault sequence when faults exist. A
-given property with the `         operation        ` scope only exists
-in a single request and can be accessed by a single resource. 
+You can retrieve a property in the operation context level from the `operation` scope. The properties within the iterated/cloned message with the `operation` scope are preserved in the in sequence even if you have configured your API resources to be sent through the fault sequence when faults exist. A given property with the `operation` scope only exists in a single request and can be accessed by a single resource. 
 
 The syntax of the function takes the following format.
 
 `get-property('operation', String propertyName)`
-
 
 ## `axis2-client` scope
 
