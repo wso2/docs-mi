@@ -178,78 +178,78 @@ First create an API, which will be where we configure the integration logic. Spe
    3. Add the property mediator to capture the `subscriptionName` values. Follow the steps given in createTopicSubscription operation.     
 
 Now you can switch into the Source view and check the XML configuration files of the created API and sequences.    
-    !!! note "pubsubApi.xml"
-        ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/resources" name="pubsubApi" xmlns="http://ws.apache.org/ns/synapse">
-            <resource methods="POST" url-mapping="/createTopic">
-                <inSequence>
-                    <property expression="json-eval($.topicName)" name="topicName" scope="default" type="STRING"/>
-                    <property expression="json-eval($.subscriptionName)" name="subscriptionName" scope="default" type="STRING"/>
-                    <googlepubsub.init>
-                        <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
-                        <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                        <apiVersion>v1</apiVersion>
-                    </googlepubsub.init>
-                    <googlepubsub.createTopic>
-                        <projectId>ei-connector-improvement</projectId>
-                        <topicName>{$ctx:topicName}</topicName>
-                    </googlepubsub.createTopic>
-                    <property expression="json-eval($.name)" name="nameforsubscription" scope="default" type="STRING"/>
-                    <property expression="fn:tokenize($ctx:nameforsubscription,'/')[last()]" name="test" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
-                    <googlepubsub.init>
-                        <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
-                        <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                        <apiVersion>v1</apiVersion>
-                    </googlepubsub.init>
-                    <googlepubsub.createTopicSubscription>
-                        <projectId>ei-connector-improvement</projectId>
-                        <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-                        <topicName>{$ctx:test}</topicName>
-                        <ackDeadlineSeconds>30</ackDeadlineSeconds>
-                    </googlepubsub.createTopicSubscription>
-                    <respond/>
-                </inSequence>
-                <faultSequence/>
-            </resource>
-            <resource methods="POST" url-mapping="/insertcompanynotifications">
-                <inSequence>
-                    <property expression="json-eval($.topicName)" name="topicName" scope="default" type="STRING"/>
-                    <property expression="json-eval($.data)" name="data" scope="default" type="STRING"/>
-                    <googlepubsub.init>
-                        <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
-                        <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                        <apiVersion>v1</apiVersion>
-                    </googlepubsub.init>
-                    <googlepubsub.publishMessage>
-                        <projectId>ei-connector-improvement</projectId>
-                        <topicName>{$ctx:topicName}</topicName>
-                        <data>{$ctx:data}</data>
-                    </googlepubsub.publishMessage>
-                    <respond/>
-                </inSequence>
-                <faultSequence/>
-            </resource>
-            <resource methods="POST" url-mapping="/getcompanynotifictions">
-                <inSequence>
-                    <property expression="json-eval($.subscriptionName)" name="subscriptionName" scope="default" type="STRING"/>
-                    <googlepubsub.init>
-                        <accessToken>ya29.a0AfH6SMDDFZCdoo37Tb48MrJU-ZnNoyrYqNY8r5cgWX0kD7n3GBhZr_TbicfvywjKwGYaZEBV50_yGINVOhZr_4jFMu2O03c87NiDCBpKW5zdsnl3x9iWdsosjDoE7uAGEKKLikPgnKfcgilGB2d-MBzu_c2e53kXG6A</accessToken>
-                        <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                        <apiVersion>v1</apiVersion>
-                    </googlepubsub.init>
-                    <googlepubsub.pullMessage>
-                        <projectId>ei-connector-improvement</projectId>
-                        <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-                        <maxMessages>2</maxMessages>
-                        <returnImmediately>false</returnImmediately>
-                    </googlepubsub.pullMessage>
-                    <respond/>
-                </inSequence>
-                <faultSequence/>
-            </resource>
-        </api>
-        ```
+!!! note "pubsubApi.xml"
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/resources" name="pubsubApi" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" url-mapping="/createTopic">
+            <inSequence>
+                <property expression="json-eval($.topicName)" name="topicName" scope="default" type="STRING"/>
+                <property expression="json-eval($.subscriptionName)" name="subscriptionName" scope="default" type="STRING"/>
+                <googlepubsub.init>
+                    <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
+                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
+                    <apiVersion>v1</apiVersion>
+                </googlepubsub.init>
+                <googlepubsub.createTopic>
+                    <projectId>ei-connector-improvement</projectId>
+                    <topicName>{$ctx:topicName}</topicName>
+                </googlepubsub.createTopic>
+                <property expression="json-eval($.name)" name="nameforsubscription" scope="default" type="STRING"/>
+                <property expression="fn:tokenize($ctx:nameforsubscription,'/')[last()]" name="test" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
+                <googlepubsub.init>
+                    <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
+                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
+                    <apiVersion>v1</apiVersion>
+                </googlepubsub.init>
+                <googlepubsub.createTopicSubscription>
+                    <projectId>ei-connector-improvement</projectId>
+                    <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
+                    <topicName>{$ctx:test}</topicName>
+                    <ackDeadlineSeconds>30</ackDeadlineSeconds>
+                </googlepubsub.createTopicSubscription>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </resource>
+        <resource methods="POST" url-mapping="/insertcompanynotifications">
+            <inSequence>
+                <property expression="json-eval($.topicName)" name="topicName" scope="default" type="STRING"/>
+                <property expression="json-eval($.data)" name="data" scope="default" type="STRING"/>
+                <googlepubsub.init>
+                    <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
+                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
+                    <apiVersion>v1</apiVersion>
+                </googlepubsub.init>
+                <googlepubsub.publishMessage>
+                    <projectId>ei-connector-improvement</projectId>
+                    <topicName>{$ctx:topicName}</topicName>
+                    <data>{$ctx:data}</data>
+                </googlepubsub.publishMessage>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </resource>
+        <resource methods="POST" url-mapping="/getcompanynotifictions">
+            <inSequence>
+                <property expression="json-eval($.subscriptionName)" name="subscriptionName" scope="default" type="STRING"/>
+                <googlepubsub.init>
+                    <accessToken>ya29.a0AfH6SMDDFZCdoo37Tb48MrJU-ZnNoyrYqNY8r5cgWX0kD7n3GBhZr_TbicfvywjKwGYaZEBV50_yGINVOhZr_4jFMu2O03c87NiDCBpKW5zdsnl3x9iWdsosjDoE7uAGEKKLikPgnKfcgilGB2d-MBzu_c2e53kXG6A</accessToken>
+                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
+                    <apiVersion>v1</apiVersion>
+                </googlepubsub.init>
+                <googlepubsub.pullMessage>
+                    <projectId>ei-connector-improvement</projectId>
+                    <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
+                    <maxMessages>2</maxMessages>
+                    <returnImmediately>false</returnImmediately>
+                </googlepubsub.pullMessage>
+                <respond/>
+            </inSequence>
+            <faultSequence/>
+        </resource>
+    </api>
+    ```
 
 ## Get the project
 
