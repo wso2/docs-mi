@@ -43,7 +43,7 @@ The parameters available to configure the Store mediator are as follows.
 
 Following are examples demonstrating the usage of the Store mediator.
 
-### Defining the Message Store as a value
+### Define the Message Store as a value
 
 An [API]({{base_path}}/reference/synapse-properties/rest-api-properties) can be configured with the Store mediator as follows to save messages in a [message store]({{base_path}}/reference/synapse-properties/about-message-stores-processors) named `JMSMS`.
 
