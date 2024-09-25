@@ -61,7 +61,7 @@ An [API]({{base_path}}/reference/synapse-properties/rest-api-properties) can be 
 </api>
 ```
 
-### Defining the Message Store as an XPath expression
+### Define the Message Store as an XPath expression
 
 An [API]({{base_path}}/reference/synapse-properties/rest-api-properties) can be configured with the Store mediator as follows to save messages in a [message store]({{base_path}}/reference/synapse-properties/about-message-stores-processors), which is extracted dynamically using an [XPath expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions).
 
