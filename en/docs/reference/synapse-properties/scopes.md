@@ -9,12 +9,12 @@ When the scope of a property is `default`, its value is available throughout the
 
 | Property name  | Return value                                                                                                                                                                                    |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `To`             | Incoming URL as a String, or empty string («») if a To address is not defined.                                                                                                      |
+| `To`             | Incoming URL as a string, or empty string («») if a To address is not defined.                                                                                                      |
 | From           | From address as a string, or empty string («») if a From address is not defined.                                                                                                    |
-| Action         | SOAP Addressing Action header value as a String, or empty string («») if an Action is not defined.                                                                                  |
-| FaultTo        | SOAP FaultTo header value as a String, or empty string («») if a FaultTo address is not defined.                                                                                    |
-| ReplyTo        | ReplyTo header value as a String, or empty string («») if a ReplyTo address is not defined.                                                                                         |
-| MessageID      | A unique identifier (UUID) for the message as a String, or empty string («») if a MessageID is not defined. This ID is guaranteed to be unique.                                     |
+| Action         | SOAP Addressing Action header value as a string, or empty string («») if an Action is not defined.                                                                                  |
+| FaultTo        | SOAP FaultTo header value as a string, or empty string («») if a FaultTo address is not defined.                                                                                    |
+| ReplyTo        | ReplyTo header value as a string, or empty string («») if a ReplyTo address is not defined.                                                                                         |
+| MessageID      | A unique identifier (UUID) for the message as a string, or empty string («») if a MessageID is not defined. This ID is guaranteed to be unique.                                     |
 | `FAULT`          | `TRUE` if the message has a fault, or empty string if the message does not have a fault.                                                                                              |
 | MESSAGE_FORMAT | Returns pox, get, soap11, or soap12 depending on the message. If a message type is unknown this returns soap12                                                                      |
 | OperationName  | Operation name corresponding to the message. A proxy service with a WSDL can have different operations. If the WSDL is not defined, WSO2 MI defines a fixed operation called `mediate`. |
