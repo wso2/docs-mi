@@ -429,6 +429,7 @@ nav:
           - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
           - Data Stores:
               - Configure a User Store: install-and-setup/setup/user-stores/setting-up-a-userstore.md
+              - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
               - Configure Databases:
                   - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
                   - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
