@@ -83,7 +83,7 @@ Set up the backend service:
 3. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
  
-    === "On MacOS/Linux/CentOS"        
+    === "On MacOS/Linux"        
           ```bash 
           sh axis2server.sh
           ```
@@ -197,7 +197,7 @@ Set up the backend service:
 3. Open a terminal, and navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
 
-    === "On MacOS/Linux/CentOS"   
+    === "On MacOS/Linux"   
           ```bash 
           sh axis2server.sh
           ```

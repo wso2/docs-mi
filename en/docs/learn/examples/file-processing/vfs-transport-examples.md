@@ -76,7 +76,7 @@ To test this sample, the following files and directories should be created:
     - Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
     - Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
 
-    === "On MacOS/Linux/CentOS"   
+    === "On MacOS/Linux"   
         ```bash
         sh axis2server.sh
         ``` 
