@@ -427,17 +427,19 @@ nav:
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
           - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
-          - Data Stores:
-              - Configure a User Store: install-and-setup/setup/user-stores/setting-up-a-userstore.md
-              - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
-              - Configure Databases:
-                  - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
-                  - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
-                  - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
-                  - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
-                  - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
-              - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
-              - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+          - User Stores:
+              - User Stores in MI:
+                  - Configure a User Store in MI: install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi.md
+                  - Configure Databases:
+                      - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
+                      - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
+                      - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
+                      - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
+                      - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+                  - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
+                  - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+              - User Stores in ICP:
+                    - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
           - Security:
               - Set up Keystores:
                   - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
