@@ -175,13 +175,13 @@ The operations that the Data Mapper supports as shown below.
 - **match** – check whether the input match with a (JS) Regular Expression
 
 ## AI Data Mapper
-The MI Copilot AI Assistant will allow you to seamlessly generate the input-output mapping. Simply load the input and output schema (of any type) to the relevant sections as shown below and click **Map**. A **Clear** button is also available for convenience. 
+The MI Copilot AI Assistant will allow you to seamlessly generate the input-output mapping. Simply load the input and output schema (of any type) to the relevant sections as shown below and click **Map**. A **Clear** button is also available to clear all mappings. 
 
 !!! info "WSO2 Account and Usage Limits"
-    To access this feature, you need to create a WSO2 account. If you have not created an account, accessing copilot or using the mapping feature will prompt you to do so. If you exceed your account's usage limit, it will be refreshed after the specified time limit.
+    To use this feature, you must have a WSO2 account. If you do not have one, attempting to access Copilot or the mapping feature will prompt you to create an account. If your account exceeds the usage limit, it will be refreshed after the specified time limit.
 
 !!! info "Review and Fine-tune"
-    Please note that since automated mapping is powered by AI, some mistakes or surprises may occur. It is always recommended to confirm the accuracy of the generated mappings using the </> TypeScript (TS) file and fine-tune them.
+    Since AI powers the automated mapping, it may contain errors. Always verify the accuracy of the generated mappings using the `</>` button to access the TypeScript (TS) file and fine-tune them.
 
 ![AI Data Mapper diagram]({{base_path}}/assets/img/integrate/mediators/datamapper/ai-mapping.png)
 
