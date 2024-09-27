@@ -72,33 +72,6 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
             micro-integrator.bat -DportOffset=3
             ```
 
-#### Changing the default EI Analytics ports
-
-If required, you can manually change the HTTP/HTTPS ports in the `deployment.yaml` file (stored in `EI_ANALYTICS_HOME/conf/server` folder) as shown below.
-
-!!! Note
-    With the default internal port offset, the effective port is <code>https_port + 1</code>.
- 
-=== "HTTPS Port"
-    ```yaml 
-    wso2.transport.http:            
-    listenerConfigurations:
-    -
-    	id: "msf4j-https"
-    	host: "0.0.0.0"
-    	port: https_port
-    	scheme: https
-    ```
-=== "HTTP Port"    
-    ```yaml 
-    wso2.transport.http:
-    listenerConfigurations:
-    -
-      id: "default"
-      host: "0.0.0.0"
-      port: http_port
-    ```
-
 ## What's Next?
 
 You need to restart the server for these changes to take effect.

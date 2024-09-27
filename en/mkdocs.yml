@@ -50,21 +50,21 @@ theme:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Switch to dark mode
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
+        name: Switch to system preference
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to light mode
 #Breaks build if there's a warning
 strict: false
 # Navigation
@@ -534,9 +534,6 @@ nav:
           - ELK Based Analytics:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
-          - MI Analytics:
-              # - Setup: mi-analytics/setting-up-mi-analytics.md
-              - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
           - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
@@ -681,6 +678,9 @@ nav:
               - Jira Connector Overview: reference/connectors/jira-connector/jira-connector-overview.md
               - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
               - Jira Connector Reference: reference/connectors/jira-connector/jira-connector-config.md
+          - Facebook Ads Connector:
+              - Facebook Ads Overview: reference/connectors/facebook-ads-connector/facebook-ads-overview.md
+              - Facebook Ads Reference: reference/connectors/facebook-ads-connector/facebook-ads-configuration.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
@@ -698,6 +698,9 @@ nav:
               - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
               - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
               - Gmail Configuration: reference/connectors/gmail-connector/configuring-gmail-api.md
+          - Google Ads Connector:
+              - Google Ads Overview: reference/connectors/google-ads-connector/google-ads-overview.md
+              - Google Ads Reference: reference/connectors/google-ads-connector/google-ads-configuration.md
           - Google Firebase Connector:
               - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
               - Set up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
@@ -858,6 +861,7 @@ nav:
               - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
               - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
           - Expressions: reference/synapse-properties/expressions.md
+          - Scopes: reference/synapse-properties/scopes.md
           - REST APIs: reference/synapse-properties/rest-api-properties.md
           - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
           - Inbound Endpoints:
@@ -985,8 +989,9 @@ plugins:
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
               'develop/using-wire-logs.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/debugging-mediation'
+              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/latest/mi-analytics/mi-elk-installation-guide/'
+              'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/latest/mi-analytics/mi-elk-installation-guide/'
               'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
-              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/observe-overview'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'

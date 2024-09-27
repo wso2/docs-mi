@@ -250,17 +250,22 @@ You can now start configuring the API resource.
    
       2. Change the **Case RegEx** value for the switch cases as follows:
 
+         Case1: 
          ```
-         Case 1: grand oak community hospital
+         grand oak community hospital
          ```
          
       3. Click **Save**.
 
       4. Similarly, add two other branches and change the **Case RegEx** value for the respective switch cases as follows.
 
+         Case 2:
          ```
-         Case 2: clemency medical center
-         Case 3: pine valley community hospital 
+         clemency medical center
+         ```
+         Case3:
+         ```
+         pine valley community hospital
          ```
 
 9. Click **Submit** to save the values for Switch mediator.
@@ -331,6 +336,13 @@ You can now start configuring the API resource.
             </ol>
         </td>
     </tr>
+    <tr>
+        <td>Description</td>
+        <td><code>GrandOak Log</code></td>
+        <td>
+           A description for the log mediator.
+        </td>
+    </tr>
     </table>
 
 12. Click **Submit**.
@@ -340,20 +352,19 @@ You can now start configuring the API resource.
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/add-call-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/add-call-mediator.png" alt="add call mediator" width="60%"></a>
 
 14. On the **Call Endpoint** pane, select **GrandOakEP** from **Select Endpoint** dropdown.
-15. Provide `GrandOak Log` as the **Description**.
-16. Click **Submit**.
+15. Click **Submit**.
 
-17. Similarly, add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to name the two Log mediators as follows:
+16. Similarly, add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to add a description for the two Log mediators as follows:
 
     -   `Clemency Log`
     -   `Pine Valley Log`
 
-18. Add **Call** mediators after these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
+17. Add **Call** mediators after these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
 
     !!! Info
         You have now configured the Switch mediator to log the `Routing to <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
 
-19. Add a **Log mediator** to the **Default** case of the Switch mediator and configure it the same way as the previous Log mediators.
+18. Add a **Log mediator** to the **Default** case of the Switch mediator and configure it the same way as the previous Log mediators.
 
      <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/default-case.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/default-case.png" alt="default case" width="60%"></a>
 
@@ -362,7 +373,7 @@ You can now start configuring the API resource.
 
     The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital - <Hospital Name>`) for requests that have the invalid hospital name.
 
-20. Add a **Respond mediator** just after the **Switch** mediator to return the response from the health care service back to the client.
+19. Add a **Respond mediator** just after the **Switch** mediator to return the response from the health care service back to the client.
 
 You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
 
