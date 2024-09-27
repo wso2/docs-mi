@@ -1,4 +1,4 @@
-# Message transformation
+# Message Transformation
 
 The integration of systems that communicate in various message formats is a common business case in enterprise integration. WSO2 Micro Integrator facilitates this use case as the intermediary system bridging the communication gap among the systems.
 
