@@ -4,23 +4,23 @@ Follow the instructions below to deploy the Micro Integrator on Kubernetes (K8s)
 
 ## Before you begin
     
-- Be sure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
+- Ensure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
 
     !!! Note
-        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of Docker images, which do not include product updates.
+        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of the Docker images, which do not include product updates.
     
-- Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+- Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and the [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
     
 - Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
     
-- Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
+- Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
     !!! Note
         Helm resources for WSO2 product deployment patterns are compatible with the ingress-nginx [`controller-v1.11.2`](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.11.2) release.
 
 ## Step 1 - Get the Helm resources
 
-Check out the Helm Resources for the WSO2 Micro Integrator Git repository.
+Check out the Helm resources for the WSO2 Micro Integrator Git repository.
 
 1. Open a terminal and navigate to the location where you want to save the local copy.
 2. Clone the Micro Integrator Git repository with Helm resources:
@@ -29,13 +29,13 @@ Check out the Helm Resources for the WSO2 Micro Integrator Git repository.
     git clone https://github.com/wso2/helm-mi.git
     ```
 
-This creates a local copy of [`wso2/helm-mi`](https://github.com/wso2/helm-mi/), which includes all the Helm Resources for WSO2 Micro Integrator.
+This creates a local copy of the [`wso2/helm-mi`](https://github.com/wso2/helm-mi/) repository, which includes all the Helm resources for WSO2 Micro Integrator.
 
 Let's refer to the root folder of the local copy as `<HELM_HOME>`.
 
 ## Step 2 - Update the deployment configurations 
 
-Follow the steps below to configure how your Micro Integrator deployment should be set up.
+Follow the steps below to configure your Micro Integrator deployment.
 
 1. Open the `values.yaml` file in the `<HELM_HOME>/mi` folder of your local copy.
 
@@ -52,7 +52,7 @@ Follow the steps below to configure how your Micro Integrator deployment should 
                 password: "<password>"
         ```
 
-        Alternatively, you can skip this step and pass your subscription details at the time of deploying (see the next step for details).
+        Alternatively, you can skip this step and pass your subscription details during deployment (see the next step for details).
 
     - **Update the Micro Integrator Docker images**
 
@@ -67,7 +67,7 @@ Follow the steps below to configure how your Micro Integrator deployment should 
                     tag: "4.3.0"
         ```
 
-        When you have a custom Docker image with integrations, change the `containerRegistry` parameter and the details of your custom image.
+        If you have a custom Docker image with integrations, update the `containerRegistry` parameter and provide the details of your custom image.
 
         ```yaml
         containerRegistry: "<docker_registry>"
@@ -78,45 +78,47 @@ Follow the steps below to configure how your Micro Integrator deployment should 
                     tag: "<custom_image_tag>"
         ```
 
-    - You can update [other configurations](https://github.com/wso2/helm-mi/blob/main/mi/EXAMPLES.md) as required.
+    - You can update [other configurations](https://github.com/wso2/helm-mi/blob/main/mi/EXAMPLES.md) as needed.
 
 3. Save the `values.yaml` file.
 
 ## Step 3 - Deploy the Micro Integrator
 
-Once you have set up your Helm resources locally, follow the instructions given below to set up the deployment.
+Once you have configured your Helm resources locally, follow the instructions below to deploy the Micro Integrator.
 
 1. Open a terminal and navigate to the `<HELM_HOME>/mi` folder.
-2. Execute the command that is relevant to your Helm version.
+2. Run the command appropriate for your Helm version.
 
     !!! Tip
-        Be sure to replace `NAMESPACE` with the Kubernetes namespace in which your resources are deployed.
+        Be sure to replace `NAMESPACE` with the Kubernetes namespace where your resources are deployed.
 
-    - Using **Helm v2**
+    - Using **Helm v2**:
         
         ```bash
         helm install --name <RELEASE_NAME> ./ -f values.yaml -n <NAMESPACE>
         ```
 
-    - Using **Helm v3**
+    - Using **Helm v3**:
         
         ```bash
         helm install <RELEASE_NAME> ./ -f values.yaml -n <NAMESPACE> --create-namespace
         ```
+
+!!! Note
+    For a pre configured, easy setup for local deployment, use the `values_local.yaml` file.
         
 #### Update configurations during deployment
 
-If required, you can set any of the deployment configurations at the time of running the deployment (instead of
-specifying them in the `values.yaml` file). See the examples given below.
+If needed, you can set deployment configurations at the time of deployment instead of specifying them in the `values.yaml` file. See the examples below.
 
-- Set the subscription username and password.
+- Set the subscription username and password:
 
     ```bash
     --set wso2.subscription.username=<SUBSCRIPTION_USERNAME>
     --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
     ```
 
-- Set the custom Micro Integrator Docker image. 
+- Set the custom Micro Integrator Docker image:
 
     ```bash
     --set containerRegistry=<CUSTOM_IMAGE_REGISTRY>
@@ -124,19 +126,19 @@ specifying them in the `values.yaml` file). See the examples given below.
     --set wso2.deployment.image.tag=<CUSTOM_IMAGE_TAG>
     ```
 
-- Use the following parameter only if your custom Docker image is stored in a private Docker registry.
+- Use the following parameter only if your custom Docker image is stored in a private Docker registry:
 
     ```bash
     --set wso2.deployment.imagePullSecrets=<IMAGE_PULL_SECRET>
     ```
 
-Your Micro Integrator Kubernetes cluster should now be created.
+Your Micro Integrator Kubernetes deployment should now be created.
 
 ## Step 4 - Access the Micro Integrator deployment
 
-Go to your Kubernetes cluster from your terminal and follow the steps given below.
+To access the Micro Integrator deployment, follow these steps from your terminal:
 
-1. Get the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses.
+1. Get the external IP (`EXTERNAL-IP`) of the Ingress resources by listing the Kubernetes ingresses.
 
     ```bash
     kubectl get ing -n <NAMESPACE>
@@ -149,7 +151,7 @@ Go to your Kubernetes cluster from your terminal and follow the steps given belo
     cloud-<RELEASE_NAME>   nginx   mi.wso2.com   <EXTERNAL-IP>   80, 443   27m
     ```
 
-2. Add the above hosts in the `/etc/hosts` file as follows:
+2. Add the above host information to your `/etc/hosts` file:
 
     ```bash
     <EXTERNAL-IP>   mi.wso2.com 
