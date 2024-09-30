@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-In this tutorial, you are defining an integration service using WSO2 Integration Studio and exposing it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
+In this tutorial, you are defining an integration service using Micro Integrator Extension for Visual Studio Code (MI for VS Code) and exposing it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
 
@@ -10,7 +10,7 @@ This demonstrates how the integration components and API management components o
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api"></a>
 
-1. An **Integration Developer** creates the service using WSO2 Integration Studio and deploys it in the Micro Integrator runtime.
+1. An **Integration Developer** creates the service using Micro Integrator Extension for Visual Studio Code (MI for VS Code) and deploys it in the Micro Integrator runtime.
 
     !!! Note
         The integration service is designed to communicate with a back-end service (representing a Hospital) and get details of available doctors for various specializations.
@@ -34,239 +34,280 @@ The following concepts and artifacts are used in this tutorial:
 
 Follow the steps given below to build this use case and try it out.
 
-!!! Note
-    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/develop/generate-service-catalog-metadata).
+### Step 1: Set up the workspace
 
+{!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
-### Step 1 - Develop the integration service
+### Step 2: Develop the integration artifacts
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
-1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
-2.  Open **WSO2 Integration Studio**.
-3.  Click **New Integration Project** in the **Getting Started** tab as shown below.
+#### Create an Integration project
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg"><img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="80%"></a>
+{!includes/create-new-project.md!}
 
-    This will open the <b>New Integration Project</b> dialog box.
+4. In the **Project Creation Form**, enter `ServiceCatalogSample` as the **Project Name**.
 
-4.  Enter `ServiceCatalogSample` as the project name and select the following check boxes to create the required modules.
-    -   **Create ESB Configs**
-    -   **Create Composite Exporter**
+5. Provide a location under **Select Project Directory**.
 
-5.  Click **Finish**.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" alt="create new project" width="80%"></a>
 
-    You can see the projects listed in the **Project Explorer** as shown below:
+6. Click **Create**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png"></a>
+Now let's start designing the integration by adding the necessary artifacts.
 
-    !!! Note
-        A **resources** folder is created in the `ServiceCatalogSampleConfigs` project. This folder holds the Swagger and metadata YAML files. These YAML files will be uploaded to the service catalog later in this tutorial.   
+#### Create an Endpoint
 
-6.  Create an **Endpoint** artifact. 
+An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
 
-    1. Right-click **ServiceCatalogSampleConfigs** in the project explorer and click **New -> Endpoint**.
-    2. Ensure that **Create a New Endpoint** is selected and click **Next**.
-    3. Enter the information given below to create the new endpoint.  
-        <table>
-        <thead>
-        <tr class="header">
-            <th>Property</th>
-            <th>Value</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="odd">
-            <td>Endpoint Name</td>
-            <td><code>QueryDoctorEP</code></td>
-            <td>The name of the endpoint.</td>
-        </tr>
-        <tr class="even">
-            <td>Endpoint Type</td>
-            <td><code>HTTP Endpoint</code></td>
-            <td>Indicates that the back-end service is HTTP.</td>
-        </tr>
-        <tr class="odd">
-            <td>URI Template</td>
-            <td>
-                <code>http://localhost:9090/healthcare/{uri.var.category}</code>
-            </td>
-            <td>The template for the request URL expected by the back-end service. In this case, the variable 'category' that needs to be included in the request for querying doctors is represented as <code>{uri.var.category}</code> in the template.</td>
-        </tr>
-        <tr class="even">
-            <td>Method</td>
-            <td><code>GET</code></td>
-            <td>Indicates that we are creating this endpoint for GET requests that are sent to the back-end service.</td>
-        </tr>
-        <tr class="even">
-            <td>Save Endpoint in</td>
-            <td><code>ServiceCatalogSampleConfigs</code></td>
-            <td>This is the <b>ESB Config</b> module where the artifact will be saved.</td>
-        </tr>
-        </tbody>
-        </table>
+1. Navigate to the **MI Project Explorer** > **Endpoints**.
 
-    4.  Click **Finish**. 
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
 
- 7. Create a **REST API** artifact.
+2. Hover over **Endpoints** and click the **+** icon that appears.
 
-    1.  In the project explorer, right-click **ServiceCatalogSampleConfigs** and click **New -> REST API**.
-    2.  Ensure **Create A New API Artifact** is selected and click **Next**.
-    3.  Enter the details given below to create a new REST API.
-        <table>
-        <tr>
-            <th>Property</th>
-            <th>Value</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td><code>HealthcareAPI</code></td>
-            <td>
-            The name of the REST API.
-            </td>
-        </tr>
-        <tr>
-            <td>Context</td>
-            <td><code>/healthcare </code></td>
-            <td>
-            This anchors the API in the <code>/healthcare </code> context. The context becomes part of the name of the API's URL, which will be used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API only handles HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
-            </td>
-        </tr>
-        <tr>
-            <td>Save location</td>
-            <td>
-            ServiceCatalogSampleConfigs
-            </td>
-            <td>
-            This is the <b>ESB Config</b> module where the artifact will be saved.
-            </td>
-        </tr>
-        </table>
-                                                                      
-    4.  Click **Finish**.
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
 
-8.  Open the **Source** view of the HealthcareAPI that you created and apply the following.
+3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="GET" uri-template="/querydoctor/{category}">
-            <inSequence>
-                <log description="Request Log" level="custom">
-                    <property name="Log Property message" value="&quot;Welcome to HealthcareService&quot;"/>
-                </log>
-                <send>
-                    <endpoint key="QueryDoctorEP"/>
-                </send>
-            </inSequence>
-            <outSequence>
-                <send/>
-            </outSequence>
-            <faultSequence/>
-        </resource>
-    </api>
-    ```
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
 
-When the **HealthcareAPI** is created, the following two new files are created in the metadata folder. 
-
-!!! Tip
-    This data is used later in this tutorial by the API management runtime to generate the managed API proxy.
-
-<table>
-    <tr>
-        <th>
-            HealthcareAPI_metadata.yaml
-        </th>
-        <td>
-            This file contains the metadata of the integration service you created in the previous step.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            HealthcareAPI_swagger.yaml
-        </th>
-        <td>
-            This Swagger file contains the OpenAPI definition of the integration service.
-        </td>
-    </tr>
-</table>
-
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="40%"></a>
-
-### Step 2 - Configure service metadata
-
-Let's update the metadata of the integration service.
-
-1.  Open the `HealthcareAPI_metadata.yaml` file from the project explorer.
-2.  Update the following values in the file.
+4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
 
     <table>
-        <tr>
-            <th>
-                Parameter
-            </th>
-            <th>
-                Value
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-        <tr>
-            <td>
-                description
-            </td>
-            <td>
-                <code>API to fetch doctors for a given category</code>
-            </td>
-            <td>
-                Explain the purpose of the API.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                serviceUrl
-            </td>
-            <td>
-                <code>http://localhost:8290/healthcare</code>
-            </td>
-            <td>
-                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
-                You can configure the serviceUrl in the following ways:
-                <ul>
-                    <li>
-                        Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
-                        <b>Let's use this option for this tutorial.</b>
-                    </li>
-                    <li>
-                        Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_PORT}/healthcare</code>.
-                    </li>
-                    <li>
-                        Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
-                    </li>
-                </ul>
-            </td>
-        </tr>
+    <thead>
+      <tr>
+         <th>Property</th>
+         <th>Value</th>
+         <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+         <td>Endpoint Name</td>
+         <td><code>QueryDoctorEP</code></td>
+         <td>The name of the endpoint.</td>
+      </tr>
+      <tr>
+         <td>URI Template</td>
+         <td>
+            <code>http://localhost:9090/healthcare/{uri.var.category}</code>
+         </td>
+         <td>The template for the request URL expected by the back-end service. In this case, the variable 'category' that needs to be included in the request for querying doctors is represented as <code>{uri.var.category}</code> in the template.</td>
+      </tr>
+      <tr>
+         <td>Method</td>
+         <td><code>GET</code></td>
+         <td>Indicates that we are creating this endpoint for GET requests that are sent to the back-end service.</td>
+      </tr>
+     </tbody>
     </table>
 
-    !!! Tip
-        See the [Service Catalog API documentation](https://apim.docs.wso2.com/en/4.2.0/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png" alt="endpoint artifact" width="80%"></a>
 
-3.  <b>Important</b>: Be sure to change the `serviceUrl` from HTTPS to HTTP. This is required because the HealthcareAPI is not secured.
+5. Click **Create**.
 
-4.  Leave the default values for the remaining parameters. 
+    Once the endpoint artifact is created, it will appear on the **MI Overview** interface.    
 
-### Step 3 - Configure the Micro Integrator 
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/service-catalog-project-overview.png" alt="mi overview endpoint" width="80%"></a>
+
+#### Create a REST API
+
+A REST API is required for receiving the client requests and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
+
+1. Go to **MI Project Explorer** > **APIs**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
+
+2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
+
+3. Specify values for the required REST API properties:
+
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><code>HealthcareAPI</code></td>
+        <td>
+          The name of the REST API.
+        </td>
+      </tr>
+      <tr>
+        <td>Context</td>
+        <td><code>/healthcare</code></td>
+        <td>
+          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to <code>/healthcare</code> means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+        </td>
+      </tr>
+    </table>
+
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png" alt="synapse API artifact" width="80%"></a>
+
+4. Click **Create**. This opens the **Service Designer** interface.
+
+    You can now start configuring the API resource.
+
+5. Click on the `GET` API resource under **Available resources** on the **Service Designer**.
+
+    You will now see the graphical view of the `HealthcareAPI` with its default API Resource.
+
+6. Click the **Edit** icon to edit the API resource.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
+
+7. Specify values for the required resource properties:
+
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>URI-Template</td>
+        <td>
+          <code>/querydoctor/{category}</code> </br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/querydoctor/{category}</code> where <code>{category}</code> is a variable.
+        </td>
+      </tr>
+      <tr>
+        <td>URL Style</td>
+        <td>
+          <code>URI_TEMPLATE</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Methods</td>
+        <td>
+          <code>GET</code> <br> This defines that the API resource only handles requests where the HTTP method is GET.
+        </td>
+      </tr>
+    </table>
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
+
+8. Click **Update**.
+
+#### Create the mediation logic
+
+You can now configure the mediation logic to handle requests.
+
+1. To get started, click on the **+** icon to add the first mediator to the sequence.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
+
+2. Select **Log** mediator in the **Generic** section under **All Mediators**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png" alt="log mediator" width="30%"></a>
+
+    !!! Note
+        The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
+
+3. Once you select the Log mediator, the **Log** pane will be opened. Fill in the information in the table below:
+    <table>
+  <tr>
+     <th>Field</th>
+     <th>Value</th>
+     <th>Description</th>
+  </tr>
+<tbody>
+  <tr>
+     <td>Log Category</td>
+     <td><code>INFO</code></td>
+     <td>Indicates that the log contains an informational message.</td>
+  </tr>
+  <tr>
+     <td>Log Level</td>
+     <td><code>Custom</code></td>
+     <td>When <code>Custom</code> is selected, only specified properties will be logged by this mediator.
+     </td>
+  </tr>
+  <tr>
+     <td>Log Separator</td>
+     <td><code>(blank)</code></td>
+     <td>Since there is only one property that is being logged, you do not require a separator. Therefore, leave this field blank.</td>
+  </tr>
+  <tr>
+     <td>Properties</td>
+     <td><br />
+     </td>
+     <td>
+        <div class="content-wrapper">
+           1. To edit the **Properties** and print a welcome message in the log, click **Add Parameter**. <br />
+               <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png" alt="add-parameter" width="30%"></a>, <br />
+           2. Then add the following values:<br />
+           <ul>
+              <li><strong>Property Name</strong>: <code>Log Property message</code></li>
+              </li>
+              <li><strong>Property Value</strong> : <code>"Welcome to HealthcareService"</code></li>
+           </ul>
+           <p>
+           <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png" alt="log-property" width="30%"></a></p> <br />
+         3. Click **Save** to save the properties.
+        </div>
+     </td>
+  </tr>
+  <tr>
+     <td>Description</td>
+     <td><code>Request Log</code></td>
+     <td>The <strong>Description</strong> field provides the name that appears for the Log mediator icon in the design view.</td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  Click **Submit** to save the Log mediator configuration.
+
+    Let's configure a **Call** mediator to send the request message to the `HealthcareService` endpoint and receive the response message.
+
+4. Click on the **+** icon in the sequence to add a Call mediator after the Log mediator.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" alt="add call" width="80%"></a>
+
+5. From the **Palette**, select **Call Endpoint** mediator under the **Mediators** > **Generic** section.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" alt="call endpoint mediator" width="30%"></a>
+
+6. From the **Call Endpoint** pane, select the **QueryDoctorEP** endpoint, which we created in a previous step.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png" alt="call endpoint" width="30%"></a>
+
+7. Click **Submit**.
+
+    Now let's add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
+
+8. Click on the **+** icon in the sequence to add a Respond mediator after the Call mediator.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
+
+9. From the **Palette**, select **Respond** mediator under the **Mediators** > **Generic** section.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
+
+10. Click **Submit**.
+
+You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service.
+
+<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" alt="integration sequence" width="80%"></a>
+
+### Step 3: Configure the Micro Integrator
+
+!!! info "Prerequisites"
+    Before you begin, install Micro Integrator on your machine:
+
+    1. Go to the WSO2 Micro Integrator web page, click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+    
+    2. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
 
 The Micro Integrator contains a client application, which automatically publishes artifacts to the **Service Catalog** in the **API Publisher** portal. 
 
-Let's enable this client for the embedded Micro Integrator of WSO2 Integration Studio.
+Let's enable this client in the Micro Integrator.
 
-1.  Click the <b>Embedded Micro Integrator Configuration</b> (<a href="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png"><img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20"></a>) icon on the upper menu to open the dialog box.
-2.  Uncomment the `[[service_catalog]]` section as shown below and change the APIM server configurations accordingly. 
-
+1. Uncomment the `[[service_catalog]]` section as shown below and change the APIM server configurations accordingly in the `<MI_HOME>/conf/deployment.toml` file.        
+     
     !!! Tip
         The default username and password for connecting to the API gateway is `admin`.
 
@@ -278,85 +319,43 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     password = "admin"
     ```
 
-3.  **Optionally**, you can encrypt the username and password for better security:
+!!! Note
+    Since the integration developer may not know the API URL when it gets deployed in the Micro Integrator, the URL of the API will be parameterize as `https://{MI_HOST}:{MI_PORT}/healthcare` which will be resolved later using environment variables `MI_HOST` and `MI_PORT` respectively. By default, `localhost` will be used as the `MI_HOST` and `8253` as the `MI_PORT`. Depending on your deployment, you may need to update these environment variables.
 
-    1.  Update the configuration as shown below. 
-
-        ```toml
-        [secrets]
-        userName = "[admin]"
-        password = "[admin]"
-
-        [[service_catalog]]
-        apim_host = "https://localhost:9443"
-        enable = true
-        username = "$secret{username}"
-        password = "$secret{password}"
-        ```
-
-    2.  Click **Encrypt Secrets**. 
-    
-    !!! Tip
-        See [Encrypt static (embedded) server secrets]({{base_path}}/develop/using-embedded-micro-integrator/#encrypt-static-embedded-server-secrets) for details.
-
-4.  Save the configurations.
-
-5.  **Optionally**, inject environment variables to your Micro Integrator.
-
-    If you chose to parameterize the `serviceUrl` in the metadata file, you must inject the parameterized values as environment variables. Shown below are example placeholder values that you may have used in the `serviceUrl` followed by the corresponding environment variables. 
-
-    ```bash
-    {MI_HOST}  :  localhost
-    {MI_PORT}  :  8290
-    {MI_URL}   :  localhost:8290
-    ```
-
-    !!! Tip
-        See the instructions on [injecting environment variables to the embedded Micro Integrator]({{base_path}}/develop/using-embedded-micro-integrator/#injecting-environment-variables-to-embedded-micro-integrator).
-
-### Step 4 - Package the artifacts
-
-Package the artifacts in your composite exporter module to be able to deploy the artifacts in the server.
-
-1. Open the `pom.xml` file of the **ServiceCatalogSampleCompositeExporter** module.
-2. Ensure that the following artifacts are selected in the POM file.
-
-    - `HealthcareAPI`
-    - `QueryDoctorEP`
-
-3. By default, the `Publish to Service Catalog` checkbox is enabled. If not, select the checkbox in the wizard so that it will include metadata files of the selected artifacts. 
-
-4. Save the changes.
-
-### Step 5 - Start the API Manager runtime
+### Step 4: Start the API Manager runtime
 
 Let's start the API Manager runtime before starting the Micro Integrator.
 
 1.  Download and set up [WSO2 API Manager](https://wso2.com/api-management/).
-2.  Start the server.
+2.  Start the [API-M server](https://apim.docs.wso2.com/en/latest/install-and-setup/install/installing-the-product/running-the-api-m/).
 
-### Step 6 - Build and run the service
+### Step 5: Build and run the artifacts
 
-Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
+1. Click on the Command Palette on the top of the VS Code.
 
-!!! Info
-    When you do this step: 
+2. Type `>` to show the available commands.
 
-    1.  The Micro Integrator first reads the metadata files. 
-    2.  If you used placeholders in the metadata file, they are replaced with environment variable values and a ZIP file is created.
-    3.  Finally, it uploads the metadata to the API management runtime.
+3. Select **MI: Add MI server**.
 
-1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
-2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.
-3.  Click **Finish**.
+4. Select **Add MI server**.
 
-The artifacts are deployed in the embedded Micro Integrator and the Micro Integrator starts. The integration service is also deployed in the **Service Catalog** during server startup. You will see the following in the server start-up log.
+5. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+
+    <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+
+6. Run the project.
+
+    Click the **Build and Run** icon located on the top right corner of the VS Code.
+
+    <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
+
+When the Micro Integrator starts, the integration service will be deployed to the **Service Catalog** during server startup. You will see the following in the server start-up log.
 
 ```bash
 Successfully updated the service catalog
 ```
 
-### Step 7 - Create and Deploy the API
+### Step 6: Create and Deploy the API
 
 **Create the API**
 
@@ -420,7 +419,7 @@ Let's deploy the API in a gateway environment.
 2.  Click **Default** to specify the gateway environment and host.
 
     !!! Tip
-        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
+        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments](https://apim.docs.wso2.com/en/4.3.0/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
 
     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment"></a>
 
@@ -432,7 +431,7 @@ You will now see the deployment as the first revision of the API:
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" alt="api first revision"></a>
 
-### Step 8 - Publish the API
+### Step 7: Publish the API
 
 Go to the API overview in the **Publisher** portal and click **Publish** for the `HealthcareAPI` as shown below.
 
@@ -440,9 +439,19 @@ Go to the API overview in the **Publisher** portal and click **Publish** for the
 
 The API is now available in the **Developer** portal for consumers to access.
 
-### Step 9 - Subscribe to the API
+### Step 8: Use the API
 
-Now, let's assume you are an API consumer who wants to use the API. As a consumer, you need to first subscribe to the API.
+!!! Info "Before you begin"
+
+    Let's start the back-end hospital service.
+
+    1.  Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
+    2.  Open a terminal, navigate to the location where you saved the back-end service.
+    3.  Execute the following command to start the service:
+
+        ```bash
+        java -jar Hospital-Service-JDK11-2.0.0.jar
+        ```
 
 1.  Sign in to the **Developer** portal: `https://localhost:9443/devportal/apis`. 
 
@@ -457,102 +466,17 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
 
     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"></a>
 
-4.  Go to the **Subscriptions** tab and subscribe using the **DefaultApplication** as shown below.
+4.  Click **API Console** under **Try Out** for the `HealthcareAPI` in the **Developer** portal as shown below.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-healthcare-api-try-it.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-healthcare-api-try-it.png"></a>
 
-!!! Tip
-    For detailed instructions, see [Subscribe to an API](https://apim.docs.wso2.com/en/4.2.0/consume/manage-subscription/subscribe-to-an-api).
+5.  Enter the username and password for Basic Authentication.
 
-### Step 10 - Use the API
-
-!!! Info "Before you begin"
-
-    Let's start the back-end hospital service.
-
-    1.  Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-    2.  Open a terminal, navigate to the location where you saved the back-end service.
-    3.  Execute the following command to start the service:
-
-        ```bash
-        java -jar Hospital-Service-JDK11-2.0.0.jar
-        ```
-
-**Generate access token**
-
-When you consume an API from the marketplace, your access to the API is authenticated. Therefore, the **DefaultApplication** that you used for subscribing to the API should get an access token for the gateway environment in which the API is deployed. Since the `HealthcareAPI` is deployed in the Production gateway, you must generate **PROD** keys.
-
-1.  Go to the **Subscriptions** tab for the `HealthcareAPI` in the **Developer** portal.
-2.  Click **PROD KEYS** for the **DefaultApplication**.
-
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-generate-keys.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-generate-keys.png"></a>
-
-3.  Click **Generate Keys** (at the bottom of this view) to apply a consumer key and secret as shown below.
-
-    !!! Note
-        The application may already have a consumer key and secret generated. In this case, you can skip this step. 
-
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-consumer-keys.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-consumer-keys.png"></a>
-
-4.  Click **Generate Access Token** in the above view to generate the access token.
-
-5.  Save the generated token.
-
-**Try out the service**
-
-Now, let's test the use case by sending a simple client request that invokes the service.
-
-1.  Click **Try Out** for the `HealthcareAPI` in the **Developer** portal as shown below.
-
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it.png"></a>
-
-2.  Enter the following details.
-
-    <table>
-        <tr>
-            <th>
-                Security Type
-            </th>
-            <td>
-                Select <b>OAuth</b> as the security type.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Applications
-            </th>
-            <td>
-                Select <b>DefaultApplication</b> from the list of application.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Key Type
-            </th>
-            <td>
-                Select <b>Production</b> as the key type. This means that the production gateway (environment) is used.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                access.token
-            </th>
-            <td>
-                Add the access token you generated for the <b>DefaultApplication</b>. You can also click <b>GET TEST KEY</b> to generate a test token.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Gateway
-            </th>
-            <td>
-                Select <b>Default</b> as the gateway.
-            </td>
-        </tr>
-    </table>
+    !!! Tip
+        Use `admin` as the user name and password.
 
 3.  Expand the **/querydoctor/{category}** resource and click **Try it out**.
-4.  Let's specify 'surgery' as the doctor category.
+4.  Let's specify `surgery` as the doctor category.
 5.  Click **Execute**.
 
      <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"></a>
@@ -585,11 +509,11 @@ You will get the response message from the Healthcare service, if you send the c
 ]
 ```
 
-Now, check the **Console** tab of WSO2 Integration Studio and you will see the following message:
+Now, check the **OUTPUT** tab of VSCode and you will see the following message:
 
 ```bash
-INFO - LogMediator message = "Welcome to HealthcareService"
+INFO {LogMediator} - {api:HealthcareAPI} Log Property message = "Welcome to HealthcareService"
 ```
 
 !!! Tip
-    For detailed instructions see [Invoke an API using the Integrated API Console](https://apim.docs.wso2.com/en/4.2.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).
+    For detailed instructions see [Invoke an API using the Integrated API Console](https://apim.docs.wso2.com/en/4.3.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).
