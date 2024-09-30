@@ -1,10 +1,8 @@
 # Respond Mediator
 
-The **Respond Mediator** stops the processing of the current message and sends the message back to the client as a response.
+The respond mediator stops the processing of the current message and sends the message back to the client as a response.
 
 ## Syntax
-
-The respond token refers to a `<respond/>` element, which is used to stop further processing of a message and send the message back to the client.
 
 ```xml
 <respond/>
@@ -12,13 +10,13 @@ The respond token refers to a `<respond/>` element, which is used to stop furthe
 
 ## Example
 
-Assume that you have a configuration that sends the request to the Stock Quote service and change the response value when the symbol is WSO2 or CRF. Also assume that you want to temporarily change the configuration so that if the symbol is CRF, the ESB profile just sends the message back to the client without sending it to the Stock Quote service or performing any additional processing. To achieve this, you can add the Respond mediator at the beginning of the CRF case as shown below. All the configuration after the Respond mediator is ignored. As a result, the rest of the CRF case configuration is left intact, allowing you to revert to the original behavior in the future by removing the Respond mediator if required.
+In this example API, if the symbol is WSO2 or CRF it sends the request to the Stock Quote service. If the symbol does not meet that criteria, it sends the message back to the client without sending it to the Stock Quote service or performing any additional processing. To achieve this, you can add the respond mediator in the default case of the [switch mediator]({{base_path}}/reference/mediators/switch-mediator).
 
 === "Proxy Service"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <proxy name="SimpleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target>
+    <api context="/stock" name="StockAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" uri-template="/">
             <inSequence>
                 <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples">
                     <case regex="WSO2">
@@ -40,8 +38,8 @@ Assume that you have a configuration that sends the request to the Stock Quote s
                 <respond/>
             </inSequence>
             <faultSequence/>
-        </target>
-    </proxy>
+        </resource>
+    </api>
     ```
 === "Endpoint"
     ```xml
@@ -58,3 +56,5 @@ Assume that you have a configuration that sends the request to the Stock Quote s
         </address>
     </endpoint>
     ```
+
+Similarly, if you want to temporarily change the configuration so that if the symbol is CRF, the WSO2 Micro Integrator sends the message back to the client without sending it to the Stock Quote service or performing any additional processing, you can add the respond mediator at the beginning of the CRF case. All the configuration after the respond mediator is ignored. As a result, the rest of the CRF case configuration is left intact, allowing you to revert to the original behavior in the future by removing the respond mediator if required. 
