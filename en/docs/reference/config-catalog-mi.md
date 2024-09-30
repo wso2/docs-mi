@@ -532,7 +532,7 @@ key_password = "wso2carbon"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -670,7 +670,7 @@ key_password = "wso2carbon"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -863,7 +863,7 @@ alias="symmetric.key.value"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4018,6 +4018,47 @@ force_json_validation = false</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.secured_wsdl_epr_prefix</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>$ref{server.hostname}</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc in HTTPS.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.secured_protocols</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TLSv1,TLSv1.1,TLSv1.2</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>TLS (Transport Layer Security) protocols should be allowed when securing HTTP communications through HTTPS.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>listener.keystore.location</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -4051,7 +4092,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4135,7 +4176,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4429,7 +4470,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4513,7 +4554,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -5515,7 +5556,7 @@ sender.parameter.customParameter = ""</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -5708,7 +5749,7 @@ sender.parameter.customParameter = ""</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8795,7 +8836,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8858,7 +8899,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">

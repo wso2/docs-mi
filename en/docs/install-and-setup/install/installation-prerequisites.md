@@ -93,7 +93,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
          MacOS 10.15
                 </li>
                 <li>
-         CentOS 7.5
+         Rocky Linux 8.10
                 </li>
                 <li>
          RHEL 7.4, 8.2

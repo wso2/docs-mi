@@ -50,21 +50,21 @@ theme:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Switch to dark mode
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
+        name: Switch to system preference
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to light mode
 #Breaks build if there's a warning
 strict: false
 # Navigation
@@ -375,7 +375,6 @@ nav:
           - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
           - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
           - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
-          - Create a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
           - Adding Connectors: develop/creating-artifacts/adding-connectors.md
           #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
           - Opening Artifacts: develop/opening-artifacts.md
@@ -428,16 +427,19 @@ nav:
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
           - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
-          - Data Stores:
-              - Configure a User Store: install-and-setup/setup/user-stores/setting-up-a-userstore.md
-              - Configure Databases:
-                  - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
-                  - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
-                  - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
-                  - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
-                  - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
-              - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
-              - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+          - User Stores:
+              - User Stores in MI:
+                  - Configure a User Store in MI: install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi.md
+                  - Configure Databases:
+                      - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
+                      - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
+                      - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
+                      - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
+                      - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+                  - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
+                  - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+              - User Stores in ICP:
+                    - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
           - Security:
               - Set up Keystores:
                   - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
@@ -502,7 +504,6 @@ nav:
               - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
               - Change the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
               - Change the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-              - Monitor Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
               - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
               - Performance Tuning:
                   - Tuning JVM Performance: install-and-setup/setup/performance-tuning/tuning-jvm-performance.md
@@ -551,9 +552,6 @@ nav:
           - ELK Based Analytics:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
-          - MI Analytics:
-              # - Setup: mi-analytics/setting-up-mi-analytics.md
-              - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
           - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
@@ -698,6 +696,9 @@ nav:
               - Jira Connector Overview: reference/connectors/jira-connector/jira-connector-overview.md
               - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
               - Jira Connector Reference: reference/connectors/jira-connector/jira-connector-config.md
+          - Facebook Ads Connector:
+              - Facebook Ads Overview: reference/connectors/facebook-ads-connector/facebook-ads-overview.md
+              - Facebook Ads Reference: reference/connectors/facebook-ads-connector/facebook-ads-configuration.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
@@ -715,6 +716,9 @@ nav:
               - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
               - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
               - Gmail Configuration: reference/connectors/gmail-connector/configuring-gmail-api.md
+          - Google Ads Connector:
+              - Google Ads Overview: reference/connectors/google-ads-connector/google-ads-overview.md
+              - Google Ads Reference: reference/connectors/google-ads-connector/google-ads-configuration.md
           - Google Firebase Connector:
               - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
               - Set up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
@@ -825,7 +829,7 @@ nav:
       - Synapse Configurations:
           - Mediator Catalog:
               - About Mediators: reference/mediators/about-mediators.md
-              - Aggregate Mediators: reference/mediators/aggregate-mediator.md
+              - Aggregate Mediator: reference/mediators/aggregate-mediator.md
               - Builder Mediator: reference/mediators/builder-mediator.md
               - Cache Mediator: reference/mediators/cache-mediator.md
               - Call Mediator: reference/mediators/call-mediator.md
@@ -875,6 +879,7 @@ nav:
               - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
               - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
           - Expressions: reference/synapse-properties/expressions.md
+          - Scopes: reference/synapse-properties/scopes.md
           - REST API Properties: reference/synapse-properties/rest-api-properties.md
           - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
           - Inbound Endpoints:
@@ -1004,8 +1009,9 @@ plugins:
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
               'develop/using-wire-logs.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/debugging-mediation'
+              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/latest/mi-analytics/mi-elk-installation-guide/'
+              'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/latest/mi-analytics/mi-elk-installation-guide/'
               'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
-              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/observe-overview'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/kubernetes-deployment'
@@ -1017,6 +1023,9 @@ plugins:
               'develop/creating-artifacts/creating-an-inbound-endpoint.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
+              'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
+              'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
+              'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
 
   # Extra
 extra_css:

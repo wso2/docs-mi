@@ -136,6 +136,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
         "clientSecret": "XXXXXXXXXXXX (Replace with your client secret)",
         "blocking" : "false"
     }
+    ```
     
 
 ??? note "salesforcerest.init for username/password flow"
@@ -2780,9 +2781,11 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
     **Sample configuration**
 
     ```xml
-    <salesforcerest.recentlyViewedItem>
-        <limit>{$ctx:limit}</limit>
-    </salesforcerest.recentlyViewedItem>
+    <salesforcerest.retrieveFieldValues>
+        <sObjectName>{ctx:sObjectName}</sObjectName>
+        <rowId>{ctx:rowId}</rowId>
+        <fields>{ctx:fields}</fields>
+    </salesforcerest.retrieveFieldValues>
     ```
 
     **Sample request**

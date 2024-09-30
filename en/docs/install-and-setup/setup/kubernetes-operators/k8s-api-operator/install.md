@@ -158,29 +158,29 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
 
    Be sure to replace `<OPERATOR_DEPLOYED_NAMESPACE>` with the correct value.
 
-      ```yaml
-      kind: ClusterRoleBinding
-      apiVersion: rbac.authorization.k8s.io/v1
-      metadata:
-         name: api-operator
-      subjects:
-         - kind: ServiceAccount
-           name: api-operator
-            # Replace this with the namespace the operator is deployed in.
-           namespace: <OPERATOR_DEPLOYED_NAMESPACE>
-      roleRef:
-         kind: ClusterRole
-         name: api-operator
-         apiGroup: rbac.authorization.k8s.io
-      ```
+   ```yaml
+       kind: ClusterRoleBinding
+       apiVersion: rbac.authorization.k8s.io/v1
+       metadata:
+          name: api-operator
+       subjects:
+          - kind: ServiceAccount
+            name: api-operator
+             # Replace this with the namespace the operator is deployed in.
+            namespace: <OPERATOR_DEPLOYED_NAMESPACE>
+       roleRef:
+          kind: ClusterRole
+          name: api-operator
+          apiGroup: rbac.authorization.k8s.io
+   ```
 
 -  Update API operator to watch the cluster:
 
    If the operator is already running in the Kubernetes cluster, use the following command to set the `WATCH_CLUSTER_LEVEL` configuration to true in the API operator deployment.
 
-      ```shell
-      kubectl set env deployment/api-operator WATCH_CLUSTER_LEVEL=true
-      ```
+   ```shell
+       kubectl set env deployment/api-operator WATCH_CLUSTER_LEVEL=true
+   ```
 
 ## What's Next
 

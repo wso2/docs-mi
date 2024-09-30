@@ -11,7 +11,7 @@ The **Micro Integrator** runtime is tested with the following operating systems:
 |Windows             | 2019       |
 |Ubuntu              |18.04       |
 |Red Hat Enterprise Linux |7.4, 8.2  |
-|CentOS              |      7.5   |
+|Rocky Linux         | 8.10       |
 |MacOS               | 10.15      |
 |SUSE Linux          | 12         |
 

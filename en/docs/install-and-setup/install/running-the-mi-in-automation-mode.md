@@ -33,7 +33,7 @@ The automation sequence is essential in the automation mode. It serves as the co
 5. Click More Actions (indicated by three dots).
 6. Select **Set as automation sequence**.
       
-    <img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" title="Add Automation Sequence" width="600" alt="Add Automation Sequence"/>
+    <a href="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png"><img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" alt="Add automation sequence"></a>
 
     This sequence, designated as the automation sequence, plays a crucial role in guiding the task's operational flow. While Micro Integrator Visual Studio Code extension provides various mediators for assistance, prioritize clarity and efficiency in your logic.
 

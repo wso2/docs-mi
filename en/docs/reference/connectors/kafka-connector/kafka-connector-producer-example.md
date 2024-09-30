@@ -55,23 +55,24 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 
 The source view of the XML configuration file of the API will be as below.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="POST">
-            <inSequence>
-                <kafkaTransport.publishMessages configKey="KafkaConnection">
-                    <topic>test</topic>
-                    <partitionNo>0</partitionNo>
-                    <keySchemaSoftDeleted>false</keySchemaSoftDeleted>
-                    <valueSchemaSoftDeleted>false</valueSchemaSoftDeleted>
-                </kafkaTransport.publishMessages>
-            </inSequence>
-            <faultSequence>
-            </faultSequence>
-        </resource>
-        </api>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+    <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <kafkaTransport.publishMessages configKey="KafkaConnection">
+                <topic>test</topic>
+                <partitionNo>0</partitionNo>
+                <keySchemaSoftDeleted>false</keySchemaSoftDeleted>
+                <valueSchemaSoftDeleted>false</valueSchemaSoftDeleted>
+            </kafkaTransport.publishMessages>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+    </api>
+```
+
 Now, we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
 ## Export integration logic as a carbon application 
