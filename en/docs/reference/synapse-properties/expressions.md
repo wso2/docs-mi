@@ -340,7 +340,7 @@ The `get-property()` function allows you to retrieve various types of properties
 
 The syntax of the function takes the following format.
 
--   `          get-property(String propertyName)         `
+-   `get-property(String propertyName)`
 -   `          get-property(String scope, String propertyName)         `
 
 The function accepts [scope]({{base_path}}/reference/synapse-properties/scopes) as an optional parameter. It retrieves a
