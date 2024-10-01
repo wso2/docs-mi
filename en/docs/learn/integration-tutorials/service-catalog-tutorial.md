@@ -471,7 +471,7 @@ The API is now available in the **Developer** portal for consumers to access.
         Use `admin` as the username and password.
 
 3.  Expand the **/querydoctor/{category}** resource and click **Try it out**.
-4.  Let's specify `surgery` as the doctor category.
+4.  Specify `surgery` as the doctor category.
 5.  Click **Execute**.
 
      <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"></a>
