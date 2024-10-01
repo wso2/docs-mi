@@ -54,11 +54,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
 
 ### $trp
 
-The prefix used to get the transport headers. For example, to get the
-transport header named Content-Type of the current message, use the
-`$trp:Content-Type` expression. HTTP transport headers are not
-case sensitive. Therefore, `$trp:Content-Type` and `$trp:CONTENT-TYPE` are
-regarded as the same.
+The prefix used to get the transport headers. For example, to get the transport header named Content-Type of the current message, use the `$trp:Content-Type` expression. HTTP transport headers are not case sensitive. Therefore, `$trp:Content-Type` and `$trp:CONTENT-TYPE` are regarded as the same.
 
 Similarly, you can use `$trp` prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties).
 
@@ -191,9 +187,7 @@ The prefix used to get the URI query params of a request URL.
 
 ### $func
 
-The prefix used to refer to a particular parameter value passed
-externally by an invoker such as the [Call Template
-Mediator]({{base_path}}/reference/mediators/call-template-mediator).
+The prefix used to refer to a particular parameter value passed externally by an invoker such as the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator).
 
 ??? note "Example of $func usage"
 
@@ -316,8 +310,7 @@ There is a set of predefined functions that you can use to extract data from the
 
 #### base64Encode() function
 
-The `base64Encode()` function returns the base64-encoded value of the
-specified string.
+The `base64Encode()` function returns the base64-encoded value of the specified string.
 
 Syntax:
 
@@ -330,8 +323,7 @@ Example:
 
 #### base64Decode() function
 
-The `base64Decode()` function returns the original value of the specified
-base64-encoded value.
+The `base64Decode()` function returns the original value of the specified base64-encoded value.
 
 The syntax of the function takes the following format.
 
@@ -358,8 +350,7 @@ See [scopes]({{base_path}}/reference/synapse-properties/scopes) documentation to
 
 #### url-encode() function
 
-The `url-encode()` function returns the URL-encoded value of the specified
-string.
+The `url-encode()` function returns the URL-encoded value of the specified string.
 
 Syntax:
 
