@@ -58,7 +58,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create an Endpoint
 
-An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
+An Endpoint artifact is required to expose the back-end service.
 
 1. Navigate to the **MI Project Explorer** > **Endpoints**.
 
@@ -297,9 +297,9 @@ You have successfully created all the artifacts that are required for sending a 
     
     2. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
 
-The Micro Integrator contains a client application, which automatically publishes artifacts to the **Service Catalog** in the **API Publisher** portal. 
+The Micro Integrator can automatically publishes artifacts to the **Service Catalog** in the **API Publisher** portal.
 
-Let's enable this client in the Micro Integrator.
+Let's enable this feature in the Micro Integrator.
 
 1. Uncomment the `[[service_catalog]]` section as shown below and change the APIM server configurations accordingly in the `<MI_HOME>/conf/deployment.toml` file.        
      
@@ -441,7 +441,7 @@ The API is now available in the **Developer** portal for consumers to access.
     Let's start the back-end hospital service.
 
     1.  Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-    2.  Open a terminal, navigate to the location where you saved the back-end service.
+    2.  Open a terminal and navigate to the location of the back-end service
     3.  Execute the following command to start the service:
 
         ```bash
