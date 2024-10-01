@@ -468,7 +468,7 @@ The API is now available in the **Developer** portal for consumers to access.
 5.  Enter the username and password for Basic Authentication.
 
     !!! Tip
-        Use `admin` as the user name and password.
+        Use `admin` as the username and password.
 
 3.  Expand the **/querydoctor/{category}** resource and click **Try it out**.
 4.  Let's specify `surgery` as the doctor category.
