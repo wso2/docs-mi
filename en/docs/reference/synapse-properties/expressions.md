@@ -6,8 +6,7 @@ The most commonly used expression languages in WSO2 MI are [Variables](#variable
 
 ## Variables
 
-There is a set of predefined variables that you can use
-to extract data from the message. These variables in different [scopes]({{base_path}}/reference/synapse-properties/scopes) are as follows:
+There is a set of predefined variables that you can use to extract data from the message. These variables in different [scopes]({{base_path}}/reference/synapse-properties/scopes) are as follows:
 
 ### $ctx
 
@@ -313,8 +312,7 @@ Similarly you can use [$header](#header) to get SOAP 1.1 or 1.2 header element i
 
 ## Functions
 
-There is a set of predefined functions that you can use
-to extract data from the message.
+There is a set of predefined functions that you can use to extract data from the message.
 
 #### base64Encode() function
 
