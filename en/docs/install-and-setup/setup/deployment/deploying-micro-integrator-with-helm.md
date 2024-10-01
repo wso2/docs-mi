@@ -157,7 +157,7 @@ To access the Micro Integrator deployment, follow these steps from your terminal
     curl https://mi.wso2.com/healthz -k
     ```
 
-## Deploy the Micro Integrator with an Integration
+## Deploy the Micro Integrator with an integration
 
 To deploy the Micro Integrator with an integration (e.g., the HelloDocker sample), follow the instructions below. This section assumes you have already built a custom Docker image containing your integration, as outlined in the [HelloDocker sample guide]({{base_path}}/learn/samples/docker-sample/) and the [guide for generating Docker images]({{base_path}}/develop/generate-docker-image/).
 
