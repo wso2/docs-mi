@@ -99,7 +99,7 @@ Once you have configured your Helm resources locally, follow the instructions be
         ```
 
 !!! Note
-    For a pre configured, easy setup for local deployment, use the `values_local.yaml` file.
+    For a pre-configured, easy setup for local deployment, use the `values_local.yaml` file.
         
 #### Update configurations during deployment
 
