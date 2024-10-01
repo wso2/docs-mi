@@ -323,7 +323,7 @@ specified string.
 
 Syntax:
 
--   `           base64Encode(string value)          `
+-   `base64Encode(string value)`
 -   `           base64Encode(string value, string charset)          `
 
 Example:
