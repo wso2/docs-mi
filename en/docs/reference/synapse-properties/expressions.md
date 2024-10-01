@@ -315,7 +315,7 @@ The `base64Encode()` function returns the base64-encoded value of the specified 
 Syntax:
 
 -   `base64Encode(string value)`
--   `           base64Encode(string value, string charset)          `
+-   `base64Encode(string value, string charset)`
 
 Example:
 
@@ -327,8 +327,8 @@ The `base64Decode()` function returns the original value of the specified base64
 
 The syntax of the function takes the following format.
 
--   `           base64Decode(string encodedValue)          `
--   `           base64Decode(string           encodedValue           , string charset)          `
+-   `base64Decode(string encodedValue)`
+-   `base64Decode(string encodedValue, string charset)`
 
 Example:
 
