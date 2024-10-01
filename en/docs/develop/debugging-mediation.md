@@ -50,7 +50,7 @@
 
     <img src="{{base_path}}/assets/img/develop/debugger/with-breakpoints.png" alt="breakpoints" width="300">
 
-11. You can use the below controlling panel to debug the flow by performing operations like step over, restart, pause and stop.
+11. You can use the below controlling panel to debug the flow by performing operations like step over, restart, pause, and stop.
 
     <img src="{{base_path}}/assets/img/develop/debugger/debugger-controls.png" alt="debugger controls" width="700">
 
