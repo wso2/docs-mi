@@ -159,7 +159,7 @@ Once you have developed an integration solution, WSO2 Micro Integrator VS Code E
 !!! Note
     Additionally, you can run unit tests from you command line interface (CLI) by following the steps:
 
-    1. Run a separate Micro Integrator Instance in unit testing mode. To start the server in unit testing mode you can pass the argument `-DsynapseTest` as below. If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` argument. Default port is 9008.
+    1. Run a separate Micro Integrator Instance in unit testing mode. To start the server in unit testing mode you can pass the argument `-DsynapseTest` as below. If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` argument. Default port is `9008`.
     
         `sh micro-integrator.sh -DsynapseTest`
 
