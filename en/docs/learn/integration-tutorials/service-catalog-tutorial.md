@@ -200,12 +200,7 @@ You can now configure the mediation logic to handle requests.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
 
-2. Select **Log** mediator in the **Generic** section under **All Mediators**.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png" alt="log mediator" width="30%"></a>
-
-    !!! Note
-        The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
+2. Select **Log** mediator in the **Generic** section under **All Mediators**. The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
 
 3. Once you select the Log mediator, the **Log** pane will be opened. Fill in the information in the table below:
     <table>
@@ -298,7 +293,7 @@ You have successfully created all the artifacts that are required for sending a 
 !!! info "Prerequisites"
     Before you begin, install Micro Integrator on your machine:
 
-    1. Go to the WSO2 Micro Integrator web page, click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+    1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
     
     2. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
 
