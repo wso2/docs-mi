@@ -7,10 +7,11 @@ Now that you have developed an integration using the Micro Integrator Visual Stu
 1.	[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator server on your local machine.
 2.  Follow these steps to add the server to the VS Code extension if it has not been added yet.
     1. Open the command palette by pressing `Ctrl+Shift+P` and select the command `Add MI Server`.
-    2. In the file selector that opens, select the Micro Integrator server directory.
+    2. In the file selector that opens, select the Micro Integrator server directory.<br>
        <a href="{{base_path}}/assets/img/develop/add-server.png"><img src="{{base_path}}/assets/img/develop/add-server.png" alt="addServer" width="700"></a>
     
 3.  Open the **Project Overview** page by clicking on the **Project Overview** icon.
+
     <a href="{{base_path}}/assets/img/develop/open-project-overview.png"><img src="{{base_path}}/assets/img/develop/open-project-overview.png" alt="projectOverview" width="700"></a>
 
 4.  Click on the **Build and Run** button on top right corner of the **Project Overview** page.
