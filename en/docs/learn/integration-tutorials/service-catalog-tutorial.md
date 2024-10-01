@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-In this tutorial, you are defining an integration service using Micro Integrator Extension for Visual Studio Code (MI for VS Code) and exposing it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
+In this tutorial, you'll define an integration service using Micro Integrator Extension for Visual Studio Code (MI for VS Code) and expose it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
 
