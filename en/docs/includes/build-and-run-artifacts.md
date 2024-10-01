@@ -21,16 +21,6 @@
 
 6. Run the project.
 
-!!! tip "Use one of the following two options to build and run the project:"
-
-    **Option 1**
-
-    1. Click on the Command Palette on the top of the VS Code.
-    2. Type `>` to show the available commands.
-    3. Select **MI: Build and Run**.
-
-    **Option 2**
-
-    Click the **Build and Run** icon located on the top right corner of the VS Code.
+    Click the **Build and Run** icon located in the top right corner of the VS Code.
 
     <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
