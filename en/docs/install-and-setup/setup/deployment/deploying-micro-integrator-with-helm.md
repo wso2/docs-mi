@@ -169,7 +169,7 @@ To deploy the Micro Integrator with an integration (e.g., the HelloDocker sample
 
     - If you are using a local registry, no need to push the image to a remote repository.
 
-### Step 2 - Update the `values.yaml` File for Deployment
+### Step 2 - Update the `values.yaml` file for deployment
 
 1. Open the `values.yaml` or `values_local.yaml` file in the `<HELM_HOME>/mi` directory.
 
