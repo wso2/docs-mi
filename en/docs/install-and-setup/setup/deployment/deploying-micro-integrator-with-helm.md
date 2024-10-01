@@ -198,7 +198,7 @@ To deploy the Micro Integrator with an integration (e.g., the HelloDocker sample
 
 This configuration ensures that Kubernetes pulls the custom Docker image from your private registry using the specified credentials.
 
-### Step 3 - Deploy the Micro Integrator with the Custom Integration
+### Step 3 - Deploy the Micro Integrator with the custom integration
 
 For a local deployment, use the `values_local.yaml` file, which is specifically configured for local setups without cloud-specific configurations.
 
