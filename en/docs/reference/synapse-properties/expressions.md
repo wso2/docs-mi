@@ -357,7 +357,6 @@ Syntax:
 -   `url-encode(string value)`
 -   `url-encode(string value, string charset)`
 
-
 Example:
 
 `<property name="ENCODED_URL" expression="url-encode('http://this is a test url')"/>`
