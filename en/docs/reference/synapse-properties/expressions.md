@@ -361,7 +361,6 @@ Example:
 
 `<property name="ENCODED_URL" expression="url-encode('http://this is a test url')"/>`
 
-
 ## JSONPath expressions
 
 [JSONPath](http://goessner.net/articles/JsonPath/) expressions are used for navigating and querying JSON data. JSONPath allows you to extract specific data from JSON documents.
