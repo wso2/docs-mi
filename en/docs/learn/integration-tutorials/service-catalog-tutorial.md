@@ -334,7 +334,7 @@ Let's start the API Manager runtime before starting the Micro Integrator.
 
 4. Select **Add MI server**.
 
-5. Select the folder where `<MI_HOME>` is located. This wll be set as the **current server path**.
+5. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
     <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
