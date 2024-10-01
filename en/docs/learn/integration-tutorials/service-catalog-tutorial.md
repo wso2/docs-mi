@@ -326,7 +326,7 @@ Let's start the API Manager runtime before starting the Micro Integrator.
 
 ### Step 5: Build and run the artifacts
 
-1. Click on the Command Palette on the top of the VS Code.
+1. Click on the Command Palette at the top of the VS Code.
 
 2. Type `>` to show the available commands.
 
