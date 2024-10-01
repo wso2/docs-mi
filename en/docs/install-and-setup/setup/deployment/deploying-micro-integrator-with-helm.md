@@ -92,12 +92,6 @@ Once you have configured your Helm resources locally, follow the instructions be
     !!! Tip
         Be sure to replace `NAMESPACE` with the Kubernetes namespace where your resources are deployed.
 
-    - Using **Helm v2**:
-        
-        ```bash
-        helm install --name <RELEASE_NAME> ./ -f values.yaml -n <NAMESPACE>
-        ```
-
     - Using **Helm v3**:
         
         ```bash
@@ -219,4 +213,15 @@ For a local deployment, use the `values_local.yaml` file, which is specifically 
 
     Make sure to specify the correct Kubernetes namespace (`<NAMESPACE>`) for the deployment.
 
-By using the `values_local.yaml` file, you avoid configurations intended for cloud environments, making this setup optimal for local testing and development with your custom Docker image (such as the HelloDocker sample). You can follow the previously outlined steps to verify and access your deployment.
+3. Test the custom integration by running the following `curl` command:
+
+    ```bash
+    curl https://mi.wso2.com/HelloWorld -k
+    ```
+
+    You should receive the following response:
+
+    ```json
+    {"Hello": "World"}
+    ```
+
