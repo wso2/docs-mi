@@ -359,7 +359,7 @@ Let's expose the integration service as a managed API.
 1.  Sign in to the API Publisher portal: `https://localhost:9443/publisher`. 
 
     !!! Tip
-        Use `admin` as the user name and password.
+        Use `admin` as the username and password.
 
 2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
