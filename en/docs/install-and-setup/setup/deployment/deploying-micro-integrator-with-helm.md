@@ -161,7 +161,7 @@ To access the Micro Integrator deployment, follow these steps from your terminal
 
 To deploy the Micro Integrator with an integration (e.g., the HelloDocker sample), follow the instructions below. This section assumes you have already built a custom Docker image containing your integration, as outlined in the [HelloDocker sample guide]({{base_path}}/learn/samples/docker-sample/) and the [guide for generating Docker images]({{base_path}}/develop/generate-docker-image/).
 
-### Step 1 - Build and Push Your Custom Docker Image
+### Step 1 - Build and push your custom Docker image
 
 1. Build the Docker image containing your integration (e.g., HelloDocker) as per the [HelloDocker sample guide]({{base_path}}/learn/samples/docker-sample/).
    
