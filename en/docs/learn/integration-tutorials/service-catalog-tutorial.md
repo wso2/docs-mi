@@ -295,7 +295,7 @@ You have successfully created all the artifacts that are required for sending a 
 
     1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
     
-    2. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
+    2. Extract the ZIP file. The extracted folder will be referred to as the `<MI_HOME>` folder.
 
 The Micro Integrator can automatically publish artifacts to the **Service Catalog** in the **API Publisher** portal.
 
