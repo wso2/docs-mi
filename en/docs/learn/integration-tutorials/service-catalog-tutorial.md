@@ -297,7 +297,7 @@ You have successfully created all the artifacts that are required for sending a 
     
     2. Extract the ZIP file. The extracted folder will be referred as the `<MI_HOME>` folder.
 
-The Micro Integrator can automatically publishes artifacts to the **Service Catalog** in the **API Publisher** portal.
+The Micro Integrator can automatically publish artifacts to the **Service Catalog** in the **API Publisher** portal.
 
 Let's enable this feature in the Micro Integrator.
 
