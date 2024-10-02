@@ -186,7 +186,7 @@ To deploy the Micro Integrator with an integration (For example, `HelloDocker` s
           tag: "1.0.0"  # Use the tag of your custom image
     ```
 
-3. **If you are using a private Docker registry**, you will also need to add the `imagePullSecrets` parameter to your `values.yaml` file to authenticate against the registry. Set `imagePullSecrets` to the name of the Kubernetes secret that stores your Docker registry credentials.
+3. If you are using a private Docker registry, you will also need to add the `imagePullSecrets` parameter to your `values.yaml` file to authenticate against the registry. Set `imagePullSecrets` to the name of the Kubernetes secret that stores your Docker registry credentials.
 
     ```yaml
     wso2:
