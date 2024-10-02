@@ -200,7 +200,8 @@ nav:
               - Scheduled Tasks:
                   - Task Scheduling Using a Simple Trigger: learn/examples/scheduled-tasks/task-scheduling-simple-trigger.md
                   - Inject Messages to a RESTful Endpoint: learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
-              - Local Registry Entries: learn/examples/registry-examples/local-registry-entries.md
+              - Local Entries:
+                  - Sequences and Endpoints as Local Entries: learn/examples/registry-examples/local-registry-entries.md
               - Templates:
                   - Use Sequence Templates: learn/examples/template-examples/using-sequence-templates.md
                   - Use Endpoint Templates: learn/examples/template-examples/using-endpoint-templates.md
