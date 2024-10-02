@@ -74,8 +74,8 @@
                     Supports processing of files with large amounts of data.
                 </p>
             </div>
-            <div class="linkSet5 middle" onclick="location.href='https://wso2docs.atlassian.net/wiki/spaces/EIP/overview';">
-                <a href="https://wso2docs.atlassian.net/wiki/spaces/EIP/overview"><h3>Enterprise Integration Patterns</h3></a>
+            <div class="linkSet5 middle" onclick="location.href='https://mi.docs.wso2.com/en/latest/learn/learn-overview/';">
+                <a href="https://mi.docs.wso2.com/en/latest/learn/learn-overview/"><h3>Enterprise Integration Patterns</h3></a>
                 <p>
                     Support for all enterprise integration patterns (EIPs) and common enterprise messaging scenarios.
                 </p>
