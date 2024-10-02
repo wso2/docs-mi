@@ -163,7 +163,7 @@ To deploy the Micro Integrator with an integration (For example, HelloDocker sam
 
 ### Step 1 - Build and push your custom Docker image
 
-1. Build the Docker image containing your integration (e.g., HelloDocker) as per the [HelloDocker sample guide]({{base_path}}/learn/samples/docker-sample/).
+1. Build the Docker image containing your integration (For example, `HelloDocker`) as per the [HelloDocker sample guide]({{base_path}}/learn/samples/docker-sample/).
    
 2. Once built, tag and push the image to a Docker registry or make it available locally for use in your Kubernetes cluster.
 
