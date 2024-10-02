@@ -1,11 +1,32 @@
 # Cache Mediator
 
 When a message enters a message flow, the Cache mediator checks whether the incoming message is similar to a previous message that was received
-within a specified period of time. This is done by evaluating the hash value of incoming messages. If a similar message was identified before, the Cache mediator executes the `         onCacheHit        ` sequence (if specified), fetches the cached response, and prepares the Micro Integrator to send the response. The `         onCacheHit        ` sequence can send back the response message using the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator). If the `         onCacheHit        ` sequence is not specified, the cached response is sent back to the requester and the message is not passed on. If a similar message has not been seen before, then the message is passed on.
+within a specified period of time. This is done by evaluating the hash value of the incoming message. 
 
-!!! Info
-    - The Cache mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-    - The Cache mediator supports only local caching. It does not support distributed caching.
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>If a similar message was received before</th>
+<th>If a similar message was not received before</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>If the <code>onCacheHit</code> sequence is configured</strong></td>
+<td>Cache mediator executes the onCacheHit sequence, fetches the cached response. The response will be sent if the <a href="{{base_path}}/reference/mediators/respond-mediator">respond mediator</a> is defined.</td>
+<td>The message is passed on to the subsequent mediators.</td>
+</tr>
+<tr class="odd">
+<td><strong>If the <code>onCacheHit</code> sequence is not configured</strong></td>
+<td>The cached response is sent back to the client and the message is not passed on.</td>
+<td>The message is passed on to the subsequent mediators.</td>
+</tr>
+</tbody>
+</table>
+
+!!! Note
+    The Cache mediator supports only local caching. It does not support distributed caching.
 
 ## Syntax
 
@@ -15,8 +36,8 @@ within a specified period of time. This is done by evaluating the hash value of 
     (mediator)+
    </onCacheHit>?
    <protocol type="http" >?
-     <methods>comma separated list</methods>
-     <headersToExcludeInHash>comma separated list</headersToExcludeInHash>
+     <methods>string</methods>
+     <headersToExcludeInHash>string</headersToExcludeInHash>
      <responseCodes>regular expression</responseCodes>
      <enableCacheControl>(true | false)</enableCacheControl>
      <includeAgeHeader>(true | false)</includeAgeHeader>
@@ -39,9 +60,14 @@ within a specified period of time. This is done by evaluating the hash value of 
     
 ## Configuration
 
-### Cache Mediator as a Finder
+**Cache type** specifies whether the Cache mediator should be in the incoming path (to check the request) or in the outgoing path (to cache the response). Possible values are as follows.
 
-The parameters available to configure the Cache mediator as a **Finder** are as follows.
+- **Finder** : If this is selected, the Cache mediator is used to search for the request hash of incoming messages.
+- **Collector** : If this is selected, the Cache mediator is used to collect response messages in the cache.
+
+If the finder is selected as the cache type following parameters can be configured.
+
+### Cache Mediator as a Finder
 
 <table>
 <thead>
@@ -51,14 +77,6 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><strong>Cache Type</strong></td>
-<td><p>This parameter specifies whether the Cache mediator should be in the incoming path (to check the request) or in the outgoing path (to cache the response). Possible values are as follows.</p>
-<ul>
-<li><strong>Finder</strong> : If this is selected, the Cache mediator is used to search for the request hash of incoming messages.</li>
-<li><strong>Collector</strong> : If this is selected, the Cache mediator is used to collect response messages in the cache.</li>
-</ul></td>
-</tr>
 <tr class="even">
 <td><strong>Cache Timeout (Seconds)</strong></td>
 <td>The time duration that the cache should be retained specified in seconds. The cache expires once this time duration elapses. The default value is 5000 seconds.</td>
@@ -69,15 +87,15 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 </tr>
 <tr class="even">
 <td><strong>Protocol Type</strong></td>
-<td>The protocol type to be cached in the message flow. In the current implementation, HTTP is the only value that you can select. Although the only configuration supported for other protocols is the <code>                HashGenerator               </code> , you can specify the protocol type to be anything and specify a <code>                HashGenerator               </code> that you prefer.</td>
+<td>The protocol type to be cached in the message flow. In the current implementation, HTTP is the only value that you can select. Although the only configuration supported for other protocols is the <code>HashGenerator</code>, you can specify the protocol type to be anything and specify a <code>                HashGenerator               </code> that you prefer.</td>
 </tr>
 <tr class="odd">
 <td><strong>HTTP Methods</strong></td>
-<td>A comma separated list of HTTP methods that should be cached for the HTTP protocol. The default value is <code>*</code>, and it caches all HTTP methods.</td>
+<td>A comma separated list of HTTP methods that should be cached for the HTTP protocol. The default value is <code>*</code>, where it caches all HTTP methods.</td>
 </tr>
 <tr class="even">
 <td><strong>Headers to Exclude in Hash</strong></td>
-<td>A comma separated list of headers to ignore when hashing an incoming messages. If you want to exclude all headers when hashing an incoming message, specify *.</td>
+<td>A comma separated list of headers to ignore when hashing an incoming messages. If you want to exclude all headers when hashing an incoming message, specify <code>*</code>.</td>
 </tr>
 <tr class="odd">
 <td><strong>Response Codes</strong></td>
@@ -87,19 +105,21 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 <td><strong>Hash Generator</strong></td>
 <td><div class="content-wrapper">
 <p>This parameter is used to define the logic used by the Cache mediator to evaluate the hash values of incoming messages. The value specified here should be a class that implements the <code>org.separated.carbon.mediator.cache.digest.DigestGenerator</code> class interface. The default hash generator is <code>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</code>. If the generated hash value is found in the cache, then the Cache mediator executes the <code>onCacheHit</code> sequence, which can be specified inline or referenced.</p>
-<b>Note</b>:
-<p>The hash generator is specific to the HTTP protocol.</p>
-<p>If you are using any other protocol, you need to write a custom hash generator or use one of the following deprecated hash generator classes:</p>
-<ul>
-<li><code>                   org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator                  </code></li>
-<li><code>                   org.wso2.carbon.mediator.cache.digest.REQUESTHASHGenerator                  </code></li>
-</ul>
+<div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>The default hash generator is specific to the HTTP protocol.</p>
+    <p>If you are using any other protocol, you need to write a custom hash generator or use one of the following deprecated hash generator classes:</p>
+        <ul>
+        <li><code>org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator</code></li>
+        <li><code>org.wso2.carbon.mediator.cache.digest.REQUESTHASHGenerator</code></li>
+        </ul>
+</div>
 
 </div></td>
 </tr>
 <tr class="odd">
 <td><strong>Enable Cache Control Headers</strong></td>
-<td><p>Whether the Cache mediator should honor the Cache-Control header(no-cache, no-store, max-age headers). If you set this to the default value (i.e., <code>                 false                </code> ), the Cache mediator will not consider the Cache-Control headers when caching the response or when returning the cached response.</p>
+<td><p>Whether the Cache mediator should honor the Cache-Control header(no-cache, no-store, max-age headers). If you set this to <code>false</code> which is the default value, the Cache mediator will not consider the Cache-Control headers when caching the response or when returning the cached response.</p>
 <div>
 <br />
 
@@ -114,35 +134,13 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 <td>The maximum number of elements to be cached. The default size is 1000.</td>
 </tr>
 <tr class="even">
-<td><strong>Anonymous</strong></td>
-<td>If this option is selected, an anonymous sequence is executed when an incoming message is identified as an equivalent to a previously received message based on the value defined in the <strong>Hash Generator</strong> field.</td>
-</tr>
-<tr class="odd">
-<td><strong>Sequence Reference</strong></td>
-<td>The reference to the <code>onCacheHit</code> sequence to be executed when an incoming message is identified as an equivalent to a previously received message, based on the value defined in the <strong>Hash Generator</strong> field. The sequence should be created in the registry in order to be specified in this field. You can click either <strong>Configuration</strong>, <strong>Registry</strong>, or <strong>Governance Registry</strong> as applicable to select the required sequence from the resource tree.</td>
-</tr>
-</tbody>
-</table>
-
-### Cache Mediator as a Collector
-
-The parameters available to configure the Cache mediator as a **Collector** are as follows.
-
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Cache Type</strong></td>
-<td><p>This parameter specifies whether the mediator should be in the incoming path (to check the request) or in the outgoing path (to cache the response). Possible values are as follows.</p>
+<td><strong>Sequence Type</strong></td>
+<td>
 <ul>
-<li><strong>Finder</strong> : If this is selected, the mediator is used to search for the request hash of incoming messages.</li>
-<li><strong>Collector</strong> : If this is selected, the mediator is used to collect response messages in the cache.</li>
-</ul></td>
+<li><strong>Anonymous</strong> : If this option is selected, an anonymous sequence is executed in cache hit.</li>
+<li><strong>Registry reference</strong> : If this option is selected, the reference to the <code>onCacheHit</code> sequence has to be configured in the <strong>Sequence Key</strong> field. The sequence should be created in the registry in order to be specified in this field.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
