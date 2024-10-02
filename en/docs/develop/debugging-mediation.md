@@ -23,7 +23,7 @@
    
           <img src="{{base_path}}/assets/img/develop/debugger/remove-breakpoint.png" alt="remove breakpoint" width="300">
 
-6. Configure a fresh MI server (server without already deployed integrations) to avoid conflicts by following the steps below.
+6. Configure a new MI server without any previously deployed integrations to avoid conflicts by following the steps below.
 
     - Open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
     - Select **MI: Add MI server** from the list of available commands.
