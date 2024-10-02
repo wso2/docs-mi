@@ -213,7 +213,7 @@ For a local deployment, use the `values_local.yaml` file, which is specifically 
 
     Make sure to specify the correct Kubernetes namespace (`<NAMESPACE>`) for the deployment.
 
-3. Test the custom integration by running the following `curl` command:
+3. Test the custom integration by running the following curl command:
 
     ```bash
     curl https://mi.wso2.com/HelloWorld -k
