@@ -32,7 +32,7 @@
       <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
       
     !!! Note
-         In Windows, mediation debugging with VSCode plugin is supported from MI server version 4.3.0 onwards. 
+         Mediation debugging with the MI for VSCode extension is supported on Windows starting from MI server version 4.3.0. 
 
 7. Select the **Run and Debug** extension from the left side panel and then click on the **Run and Debug** button.
 
