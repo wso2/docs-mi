@@ -25,9 +25,9 @@
 
 6. Configure a new MI server without any previously deployed integrations to avoid conflicts by following the steps below.
 
-    - Open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
-    - Select **MI: Add MI server** from the list of available commands.
-    - Select the folder where `<MI_HOME>` is located.
+    1. Open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
+    2. Select **MI: Add MI server** from the list of available commands.
+    3. Select the folder where `<MI_HOME>` is located.
    
       <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
       
@@ -42,17 +42,17 @@
 
     <img src="{{base_path}}/assets/img/develop/debugger/select-debugger.png" alt="debugger selection" width="700">
 
-9. Then the server will start up in debug mode and the server logs can be viewed in the Terminal alongside with the Debug Console.
+Then the server will start up in debug mode and the server logs can be viewed in the Terminal alongside with the Debug Console.
 
-    <img src="{{base_path}}/assets/img/develop/debugger/terminal-view.png" alt="terminal view" width="700">
+<img src="{{base_path}}/assets/img/develop/debugger/terminal-view.png" alt="terminal view" width="700">
 
-10. Once the server is up, send a request to the Micro Integrator and start debugging the flow.
+Once the server is up, send a request to the Micro Integrator and start debugging the flow.
 
-    <img src="{{base_path}}/assets/img/develop/debugger/with-breakpoints.png" alt="breakpoints" width="300">
+<img src="{{base_path}}/assets/img/develop/debugger/with-breakpoints.png" alt="breakpoints" width="300">
 
-11. You can use the below controlling panel to debug the flow by performing operations like step over, restart, pause, and stop.
+You can use the below controlling panel to debug the flow by performing operations like step over, restart, pause, and stop.
 
-    <img src="{{base_path}}/assets/img/develop/debugger/debugger-controls.png" alt="debugger controls" width="700">
+<img src="{{base_path}}/assets/img/develop/debugger/debugger-controls.png" alt="debugger controls" width="700">
 
 ## Information provided by the Debugger Tool
 
