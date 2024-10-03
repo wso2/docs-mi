@@ -1,6 +1,6 @@
 # Respond Mediator
 
-The respond mediator stops the processing of the current message and sends the message back to the client as a response.
+The Respond mediator stops the processing of the current message and sends the message back to the client as a response.
 
 ## Syntax
 
