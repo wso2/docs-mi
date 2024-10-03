@@ -1,6 +1,6 @@
 # Sequence Mediator
 
-The sequence mediator is used to invoke an already configured [named sequence of mediators]({{base_path}}/reference/mediation-sequences/#named-sequences). This is useful when you need to reuse a particular set of mediators in a given order.
+The Sequence mediator is used to invoke an already configured [named sequence of mediators]({{base_path}}/reference/mediation-sequences/#named-sequences). This is useful when you need to reuse a particular set of mediators in a given order.
 
 ## Syntax
 
