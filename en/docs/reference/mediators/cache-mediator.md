@@ -91,7 +91,7 @@ If the finder is selected as the cache type following parameters can be configur
 </tr>
 <tr class="odd">
 <td><strong>HTTP Methods</strong></td>
-<td>A comma separated list of HTTP methods that should be cached for the HTTP protocol. The default value is <code>*</code>, where it caches all HTTP methods.</td>
+<td>A comma-separated list of HTTP methods that should be cached for the HTTP protocol. The default value is <code>*</code>, where it caches all HTTP methods.</td>
 </tr>
 <tr class="even">
 <td><strong>Headers to Exclude in Hash</strong></td>
