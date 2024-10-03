@@ -1,6 +1,6 @@
 # Drop Mediator
 
-The drop mediator stops the processing of the current message. This mediator can be used to ensure that the message is sent only once and then dropped by the Micro Integrator. If you have any mediators defined after the `<drop/>` mediator, they will not be executed, because `<drop/>` is considered to be the end of the message flow.
+The Drop mediator stops the processing of the current message. This mediator can be used to ensure that the message is sent only once and then dropped by the Micro Integrator. If you have any mediators defined after the `<drop/>` mediator, they will not be executed, because `<drop/>` is considered to be the end of the message flow.
 
 ## Syntax
 
