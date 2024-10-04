@@ -871,7 +871,7 @@ To use the Google Ads connector, first create the connection with your configura
             <td>No</td>
         </tr>
         <tr>
-            <td>responseContentType</td>
+            <td><code>responseContentType</code></td>
             <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation.</td>
             <td>No</td>
         </tr>
