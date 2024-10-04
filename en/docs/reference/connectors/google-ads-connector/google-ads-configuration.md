@@ -728,7 +728,7 @@ To use the Google Ads connector, first create the connection with your configura
             <td>Yes</td>
         </tr>
         <tr>
-            <td>operations</td>
+            <td><code>operations</code></td>
             <td>The list of operations to perform on individual criteria.</td>
             <td>Yes</td>
         </tr>
