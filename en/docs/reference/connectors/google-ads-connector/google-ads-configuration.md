@@ -851,7 +851,7 @@ To use the Google Ads connector, first create the connection with your configura
             <th>Required</th>
         </tr>
         <tr>
-            <td>customerId</td>
+            <td><code>customerId</code></td>
             <td>The ID of the customer whose audiences are being modified.</td>
             <td>Yes</td>
         </tr>
