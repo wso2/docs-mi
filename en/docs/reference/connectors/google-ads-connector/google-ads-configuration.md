@@ -795,7 +795,7 @@ To use the Google Ads connector, first create the connection with your configura
             <td>Yes</td>
         </tr>
         <tr>
-            <td>validateOnly</td>
+            <td><code>validateOnly</code></td>
             <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
             <td>No</td>
         </tr>
