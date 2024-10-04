@@ -714,6 +714,210 @@ To use the Google Ads connector, first create the connection with your configura
     }
     ```
 
+??? note "campaignCriteriaMutate"
+    Creates, updates, or removes criteria. Operation statuses are returned.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>customerId</td>
+            <td>The ID of the customer whose criteria are being modified.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>operations</td>
+            <td>The list of operations to perform on individual criteria.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>partialFailure</td>
+            <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. Default is false.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>validateOnly</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>responseContentType</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <googleAds.campaignCriteriaMutate configKey="GOOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <query>{json-eval($.operations)}</query>
+    </googleAds.campaignCriteriaMutate>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "customer_id": "123123123",
+        "operations": [
+            {
+                "create": {
+                    "campaign": "customers/123123123/campaigns/789789789",
+                    "criterion": {
+                        "customAudience": "customers/123123123/customAudiences/781704020"
+                    }
+                }
+            }
+        ]
+    }
+    ```
+
+??? note "customAudiencesMutate"
+    Creates or updates custom audiences. Operation statuses are returned.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>customerId</td>
+            <td>The ID of the customer whose custom audiences are being modified.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>operations</td>
+            <td>The list of operations to perform on individual custom audiences.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>validateOnly</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <googleAds.customAudiencesMutate configKey="GOOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <query>{json-eval($.operations)}</query>
+    </googleAds.customAudiencesMutate>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "customer_id": "123123123",
+        "operations": [
+            {
+                "create": {
+                    "status": "ENABLED",
+                    "name": "Tech Enthusiasts Custom Audience",
+                    "type": "AUTO",
+                    "description": "Custom audience targeting users interested in technology-related content.",
+                    "members": [
+                        {
+                            "memberType": "KEYWORD",
+                            "keyword": "Artificial Intelligence"
+                        },
+                        {
+                            "memberType": "URL",
+                            "url": "https://example.com/tech-articles"
+                        },
+                        {
+                            "memberType": "APP",
+                            "app": "com.example.techapp"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    ```
+
+??? note "audiencesMutate"
+    Creates audiences. Operation statuses are returned.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>customerId</td>
+            <td>The ID of the customer whose audiences are being modified.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>operations</td>
+            <td>The list of operations to perform on individual audiences.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>partialFailure</td>
+            <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. Default is false.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>validateOnly</td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>responseContentType</td>
+            <td>The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <googleAds.audiencesMutate configKey="GOOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <query>{json-eval($.operations)}</query>
+    </googleAds.audiencesMutate>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "customer_id": "123123123",
+        "operations": [
+            {
+                "create": {
+                    "name": "Audience Group",
+                    "description": "Test audience group",
+                    "dimensions": [
+                        {
+                            "age": {
+                                "ageRanges": [
+                                    {
+                                        "minAge": 18,
+                                        "maxAge": 24
+                                    },
+                                    {
+                                        "minAge": 25,
+                                        "maxAge": 34
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    ```
+
 ## Error codes related to Google Ads Connector
 
 The connector may encounter errors during operation execution. When an error occurs, the `ERROR_MESSAGE` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, see [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
