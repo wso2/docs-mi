@@ -861,7 +861,7 @@ To use the Google Ads connector, first create the connection with your configura
             <td>Yes</td>
         </tr>
         <tr>
-            <td>partialFailure</td>
+            <td><code>partialFailure</code></td>
             <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. The default value is false.</td>
             <td>No</td>
         </tr>
