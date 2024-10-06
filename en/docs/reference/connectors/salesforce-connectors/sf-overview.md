@@ -28,7 +28,7 @@ The following table lists out compatibility information for Salesforce REST Conn
 
 | Connector version | Supported Salesforce REST API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
-| [1.0.8](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/org.wso2.carbon.connector.salesforcerest-1.0.8) | v32.0 | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| [2.0.0](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/v2.0.0) | v32.0 | MI 4.3.0, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 ### Salesforce Bulk Connector
 
@@ -50,7 +50,7 @@ The following table lists out compatibility information for the Salesforce Inbou
 
 | Inbound version  | Supported Salesforce API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
-| 2.0.1| 22.0 | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| 2.0.6| 22.0 | MI 4.3.0, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 ### Salesforce Wave Analytics
 
