@@ -24,7 +24,7 @@ The **Salesforce REST Connector** uses the [Salesforce REST API](https://develop
 
 * **[Salesforce Rest API Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config/)**: This documentation provides a reference guide for the Salesforce REST API operations.
   
-The following table lists out compatibility information for Salesforce REST Connector.
+The following table lists compatibility information for Salesforce REST Connector.
 
 | Connector version | Supported Salesforce REST API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
@@ -32,7 +32,7 @@ The following table lists out compatibility information for Salesforce REST Conn
 
 ### Salesforce Bulk Connector
 
-The Salesforce Bulk connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. As the name implies, this is used for bulk operations when adding multiple entries into Salesforce. Salesforce Bulk is a RESTful API that allows you to quickly load or delete large sets of your organization's data into Salesforce. You can use the Salesforce Bulk connector to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
+The Salesforce Bulk connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. As the name implies, this is used for bulk operations when adding multiple entries into Salesforce. Salesforce Bulk is a RESTful API that allows you to quickly load or delete large sets of your organization's data into Salesforce. You can use the Salesforce Bulk connector to query, insert, update, or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
 
 * **[Salesforce Bulk README](https://github.com/wso2-extensions/esb-connector-salesforcebulk/tree/org.wso2.carbon.connector.salesforcebulk-1.0.3/docs)**: Includes an overview of the connector and links to associated documentation.
 
@@ -46,7 +46,7 @@ The Salesforce Bulk connector allows you to access the [Salesforce Bulk REST API
 
 * **[Salesforce Inbound Endpoint Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration/)**: This documentation provides a reference guide for the Salesforce Inbound Endpoint.
 
-The following table lists out compatibility information for the Salesforce Inbound Endpoint Connector.
+The following table lists compatibility information for the Salesforce Inbound Endpoint Connector.
 
 | Inbound version  | Supported Salesforce API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
@@ -54,7 +54,7 @@ The following table lists out compatibility information for the Salesforce Inbou
 
 ### Salesforce Wave Analytics
 
-The Salesforce Wave Analytics Connector allows you to work with records in Salesforce. You can use the Salesforce connector to create, query, retrieve and update records in your organization's Salesforce data. The connector uses the [Analytics REST API](https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_rest.meta/bi_dev_guide_rest/bi_rest_overview.htm) to interact with Salesforce.
+The Salesforce Wave Analytics Connector allows you to work with records in Salesforce. You can use the Salesforce connector to create, query, retrieve, and update records in your organization's Salesforce data. The connector uses the [Analytics REST API](https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_rest.meta/bi_dev_guide_rest/bi_rest_overview.htm) to interact with Salesforce.
 
 ### Salesforce Desk Connector
 
@@ -70,7 +70,7 @@ The Pardot connector allows you to access the Pardot REST API through the WSO2 i
 
 ## How to contribute
 
-As an open source project, WSO2 extensions welcome contributions from the community. 
+As an open-source project, WSO2 extensions welcome contributions from the community. 
 
 To contribute to the code for these connectors, create a pull request in the following repositories. 
 
