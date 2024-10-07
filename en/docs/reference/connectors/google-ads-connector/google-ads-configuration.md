@@ -715,7 +715,7 @@ To use the Google Ads connector, first create the connection with your configura
     ```
 
 ??? note "campaignCriteriaMutate"
-    Creates, updates, or removes criteria. Operation statuses are returned.
+    The `campaignCriteriaMutate` operation creates, updates, or removes criteria.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -729,7 +729,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual criteria.</td>
+            <td>The list of operations to perform on individual criteria. Type: [CampaignCriterionOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CampaignCriterionOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -777,7 +777,7 @@ To use the Google Ads connector, first create the connection with your configura
     ```
 
 ??? note "customAudiencesMutate"
-    Creates or updates custom audiences. Operation statuses are returned.
+    The `customAudiencesMutate` operation creates or updates custom audiences.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -791,7 +791,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual custom audiences.</td>
+            <td>The list of operations to perform on individual custom audiences. Type: [CustomAudienceOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/customers.customAudiences/mutate#CustomAudienceOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -843,7 +843,7 @@ To use the Google Ads connector, first create the connection with your configura
     ```
 
 ??? note "audiencesMutate"
-    Creates audiences. Operation statuses are returned.
+    The `audiencesMutate` operation creates audiences. 
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -857,7 +857,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual audiences.</td>
+            <td>The list of operations to perform on individual audiences. Type: [AudienceOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/AudienceOperation) object</td>
             <td>Yes</td>
         </tr>
         <tr>
