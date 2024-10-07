@@ -130,7 +130,7 @@ Follow the below instructions to simulate this sample scenario.
 
 7. Execute the following command to start the axis2server with the SimpleStockQuote backend service:
 
-    === "On MacOS/Linux/CentOS"   
+    === "On MacOS/Linux"   
           ```bash
           sh axis2server.sh
           ```

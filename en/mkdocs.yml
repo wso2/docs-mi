@@ -78,6 +78,7 @@ nav:
       - About this Release: get-started/about-this-release.md
   - Learn:
       - Overview: learn/learn-overview.md
+      - How to send a simple message to a service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
       - Message Routing:
             - What is Message Routing: learn/integration-use-case/message-routing-overview.md
             - How to route requests based on message content: learn/integration-tutorials/routing-requests-based-on-message-content.md
@@ -90,7 +91,6 @@ nav:
             - How to translate message format using messageType property: learn/examples/message-transformation-examples/pox-to-json-conversion.md
       - Service Orchestration:
             - What is Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
-            - How to send a simple message to a service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
             - How to do expose several services as a single service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
       - Asynchronous Message Processing:
             - What is Asynchronous Message Processing: learn/integration-use-case/asynchronous-message-overview.md
@@ -220,6 +220,7 @@ nav:
                 - How to mediate HL7 messages: learn/examples/hl7-examples/hl7-proxy-service.md
                 - How to acknowledge HL7 messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to use HL7 Messages with file systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
+      - How to expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
       - How to work with transactions: learn/examples/working-with-transactions.md
       - JSON Examples: learn/examples/json-examples/json-examples.md
       - How to split messages and aggregate responses: learn/examples/routing-examples/splitting-aggregating-messages.md
@@ -412,16 +413,19 @@ nav:
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
           - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
-          - Data Stores:
-              - Configure a User Store: install-and-setup/setup/user-stores/setting-up-a-userstore.md
-              - Configure Databases:
-                  - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
-                  - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
-                  - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
-                  - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
-                  - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
-              - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
-              - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+          - User Stores:
+              - User Stores in MI:
+                  - Configure a User Store in MI: install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi.md
+                  - Configure Databases:
+                      - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
+                      - MSSQL Database: install-and-setup/setup/databases/setting-up-mssql.md
+                      - Oracle Database: install-and-setup/setup/databases/setting-up-oracle.md
+                      - PostgreSQL Database: install-and-setup/setup/databases/setting-up-postgresql.md
+                      - IBM Database: install-and-setup/setup/databases/setting-up-ibm-db2.md
+                  - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
+                  - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
+              - User Stores in ICP:
+                    - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
           - Security:
               - Set up Keystores:
                   - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
@@ -811,7 +815,7 @@ nav:
       - Synapse Configurations:
           - Mediator Catalog:
               - About Mediators: reference/mediators/about-mediators.md
-              - Aggregate Mediators: reference/mediators/aggregate-mediator.md
+              - Aggregate Mediator: reference/mediators/aggregate-mediator.md
               - Builder Mediator: reference/mediators/builder-mediator.md
               - Cache Mediator: reference/mediators/cache-mediator.md
               - Call Mediator: reference/mediators/call-mediator.md
@@ -973,7 +977,6 @@ plugins:
               'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/'
               'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-projects/'
               'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/opening-artifacts/'
-              'learn/integration-tutorials/service-catalog-tutorial.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
@@ -1005,6 +1008,7 @@ plugins:
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
+              'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
 
   # Extra
 extra_css:

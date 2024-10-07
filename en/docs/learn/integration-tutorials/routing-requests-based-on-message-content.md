@@ -8,10 +8,10 @@ When the client sends the appointment reservation request to the Micro Integrato
 
 ### Concepts and artifacts used
 
--   REST API
--   HTTP Endpoint
--   Property Mediator
--   Call Mediator
+-   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
+-   [HTTP Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties)
+-   [Property Mediator]({{base_path}}/reference/mediators/property-mediator)
+-   [Call Mediator]({{base_path}}/reference/mediators/call-mediator)
 
 ## Let's get started!
 

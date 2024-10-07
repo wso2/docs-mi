@@ -1,4 +1,4 @@
-# Configuring a User Store
+# Configure a User Store in MI
 
 A user store is a repository that stores user credentials (user names and passwords).
 
