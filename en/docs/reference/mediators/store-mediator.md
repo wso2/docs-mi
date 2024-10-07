@@ -1,6 +1,6 @@
 # Store Mediator
 
-The store mediator enqueues messages passing through its mediation sequence in a given [message store]({{base_path}}/reference/synapse-properties/about-message-stores-processors). It can serve as a [dead letter channel]({{base_path}}/learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel/) if it is included in a fault sequence and if its message store is connected to a [message processor]({{base_path}}/reference/synapse-properties/about-message-stores-processors) that forwards all the messages in the store to an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties).
+The Store mediator enqueues messages passing through its mediation sequence in a given [message store]({{base_path}}/reference/synapse-properties/about-message-stores-processors). It can serve as a [dead letter channel]({{base_path}}/learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel/) if it is included in a fault sequence and if its message store is connected to a [message processor]({{base_path}}/reference/synapse-properties/about-message-stores-processors) that forwards all the messages in the store to an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties).
 
 ## Syntax
 
