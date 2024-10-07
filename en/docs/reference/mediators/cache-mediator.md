@@ -95,7 +95,7 @@ If the finder is selected as the cache type following parameters can be configur
 </tr>
 <tr class="even">
 <td><strong>Headers to Exclude in Hash</strong></td>
-<td>A comma separated list of headers to ignore when hashing an incoming messages. If you want to exclude all headers when hashing an incoming message, specify <code>*</code>.</td>
+<td>A comma-separated list of headers to ignore when hashing an incoming message. If you want to exclude all headers when hashing an incoming message, specify <code>*</code>.</td>
 </tr>
 <tr class="odd">
 <td><strong>Response Codes</strong></td>
