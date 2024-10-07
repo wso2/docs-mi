@@ -1,7 +1,7 @@
 # Cache Mediator
 
 When a message enters a message flow, the Cache mediator checks whether the incoming message is similar to a previous message that was received
-within a specified period of time. This is done by evaluating the hash value of the incoming message. 
+within a specified duration. This is done by evaluating the hash value of the incoming message. 
 
 <table>
 <thead>
