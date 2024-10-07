@@ -119,7 +119,7 @@ If the finder is selected as the cache type following parameters can be configur
 </tr>
 <tr class="odd">
 <td><strong>Enable Cache Control Headers</strong></td>
-<td><p>Whether the Cache mediator should honor the Cache-Control header(no-cache, no-store, max-age headers). If you set this to <code>false</code> which is the default value, the Cache mediator will not consider the Cache-Control headers when caching the response or when returning the cached response.</p>
+<td><p>Whether the Cache mediator should honor the Cache-Control header (no-cache, no-store, max-age headers). If you set this to <code>false</code> which is the default value, the Cache mediator will not consider the Cache-Control headers when caching the response or returning the cached response.</p>
 <div>
 <br />
 
