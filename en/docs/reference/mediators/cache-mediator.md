@@ -19,7 +19,7 @@ within a specified duration. This is done by evaluating the hash value of the in
 </tr>
 <tr class="odd">
 <td><strong>If the <code>onCacheHit</code> sequence is not configured</strong></td>
-<td>The cached response is sent back to the client and the message is not passed on.</td>
+<td>The cached response is returned to the client and the message is not passed on.</td>
 <td>The message is passed on to the subsequent mediators.</td>
 </tr>
 </tbody>
