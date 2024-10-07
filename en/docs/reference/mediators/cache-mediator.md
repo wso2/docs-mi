@@ -87,7 +87,7 @@ If the finder is selected as the cache type following parameters can be configur
 </tr>
 <tr class="even">
 <td><strong>Protocol Type</strong></td>
-<td>The protocol type to be cached in the message flow. In the current implementation, HTTP is the only value that you can select. Although the only configuration supported for other protocols is the <code>HashGenerator</code>, you can specify the protocol type to be anything and specify a <code>                HashGenerator               </code> that you prefer.</td>
+<td>The protocol type to be cached in the message flow. In the current implementation, HTTP is the only value you can select. Although the only configuration supported for other protocols is the <code>HashGenerator</code>, you can specify the protocol type to be anything and specify a <code>HashGenerator</code> you prefer.</td>
 </tr>
 <tr class="odd">
 <td><strong>HTTP Methods</strong></td>
