@@ -14,7 +14,7 @@ within a specified duration. This is done by evaluating the hash value of the in
 <tbody>
 <tr class="odd">
 <td><strong>If the <code>onCacheHit</code> sequence is configured</strong></td>
-<td>Cache mediator executes the onCacheHit sequence, fetches the cached response. The response will be sent if the <a href="{{base_path}}/reference/mediators/respond-mediator">respond mediator</a> is defined.</td>
+<td>The Cache mediator executes the <code>onCacheHit</code> sequence and fetches the cached response. The response will be sent if the <a href="{{base_path}}/reference/mediators/respond-mediator">respond mediator</a> is defined.</td>
 <td>The message is passed on to the subsequent mediators.</td>
 </tr>
 <tr class="odd">
