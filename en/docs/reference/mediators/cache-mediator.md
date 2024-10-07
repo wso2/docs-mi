@@ -137,7 +137,7 @@ If the finder is selected as the cache type following parameters can be configur
 <td><strong>Sequence Type</strong></td>
 <td>
 <ul>
-<li><strong>Anonymous</strong> : If this option is selected, an anonymous sequence is executed in cache hit.</li>
+<li><strong>Anonymous</strong> : If this option is selected, an anonymous sequence is executed in a cache hit.</li>
 <li><strong>Registry reference</strong> : If this option is selected, the reference to the <code>onCacheHit</code> sequence has to be configured in the <strong>Sequence Key</strong> field. The sequence should be created in the registry in order to be specified in this field.</li>
 </ul>
 </td>
