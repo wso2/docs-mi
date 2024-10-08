@@ -6,15 +6,15 @@ Salesforce is a Customer Relationship Management (CRM) solution that helps bridg
 
 To see the available Salesforce connectors, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Salesforce". You get the following connectors:
 
-<img src="{{base_path}}/assets/img/integrate/connectors/sf-connector-store.png" title="Salesforce Connector Store" width="800" alt="Salesforce Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/sf-connector-store.png" title="Salesforce Connector Store" width="1000" alt="Salesforce Connector Store"/>
 
-### Salesforce Connector
+### Salesforce connector
 
 The Salesforce connector allows you to work with records in Salesforce. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. This is typically used when sending XML requests. The connector uses the [Salesforce SOAP API](http://www.salesforce.com/us/developer/docs/api/) to interact with Salesforce. The Salesforce streaming inbound endpoint allows you to perform various Salesforce streaming data through the integration runtime of WSO2.
 
 * **[Configuring Salesforce Connector Operations](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50861838/Configuring+Salesforce+Connector+Operations)**: Includes an overview of the connector and links to associated documentation.
 
-### Salesforce REST Connector
+### Salesforce REST connector
 
 The **Salesforce REST Connector** uses the [Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm) to interact with Salesforce. This connector is more useful when sending JSON requests. The Salesforce REST Connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage Customer Relationship Management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data.
 
@@ -24,53 +24,55 @@ The **Salesforce REST Connector** uses the [Salesforce REST API](https://develop
 
 * **[Salesforce Rest API Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config/)**: This documentation provides a reference guide for the Salesforce REST API operations.
   
-The following table lists out compatibility information for Salesforce REST Connector.
+The following table lists compatibility information for Salesforce REST Connector.
 
 | Connector version | Supported Salesforce REST API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
-| [1.0.8](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/org.wso2.carbon.connector.salesforcerest-1.0.8) | v32.0 | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| [2.0.0](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/v2.0.0) | v32.0 | MI 4.3.0, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
-### Salesforce Bulk Connector
+### Salesforce Bulk connector
 
-The Salesforce Bulk connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. As the name implies, this is used for bulk operations when adding multiple entries into Salesforce. Salesforce Bulk is a RESTful API that allows you to quickly load or delete large sets of your organization's data into Salesforce. You can use the Salesforce Bulk connector to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
+The Salesforce Bulk connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. As the name implies, this is used for bulk operations when adding multiple entries into Salesforce. Salesforce Bulk is a RESTful API that allows you to quickly load or delete large sets of your organization's data into Salesforce. You can use the Salesforce Bulk connector to query, insert, update, or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
 
-* **[Salesforce Bulk README](https://github.com/wso2-extensions/esb-connector-salesforcebulk/tree/org.wso2.carbon.connector.salesforcebulk-1.0.3/docs)**: Includes an overview of the connector and links to associated documentation.
+* **[Salesforce Bulk API Connector Example]({{base_path}}/reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example/)**: This example explains how to use the Salesforce Bulk API connector to insert employee details into Salesforce instance and get the status of the inserted employee details.
 
-### Salesforce Inbound Endpoint  
+* **[Salesforce Bulk API Connector Reference]({{base_path}}/reference/connectors/salesforcebulk-connector/salesforcebulk-reference/)**: This documentation provides a reference guide for the Salesforce Bulk API operations.
 
-**Salesforce Inbound Endpoint**  uses the [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) to receive notifications. This is bundled with and can be obtained from the Salesforce connector available in the store. The Salesforce Inbound Endpoint receives notifications based on the changes that happen to Salesforce data with respect to an SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way.
+The following table lists compatibility information for the Salesforce Bulk API Connector.
+
+| Connector version  | Supported Salesforce API version | Supported WSO2 product versions |
+| ------------- | ------------- | ------------- |
+| 2.1.1 | 34.0 | MI 4.3.0 |
+
+* **[Salesforce Bulk API V2 Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example/)**: This example explains how to use the Salesforce Bulk API V2 connector to perform various operations on Salesforce data.
+
+* **[Salesforce Bulk API V2 Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-v2-reference/)**: This documentation provides a reference guide for the Salesforce Bulk API V2 operations.
+
+The following table lists compatibility information for the Salesforce Bulk API V2 Connector.
+
+| Connector version  | Supported Salesforce API version | Supported WSO2 product versions |
+| ------------- | ------------- | ------------- |
+| 2.1.1 | 57.0 | MI 4.3.0 |
+
+### Salesforce inbound endpoint  
+
+**Salesforce Inbound Endpoint**  uses the [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) to receive notifications. This is bundled with and can be obtained from the Salesforce connector available in the store. The Salesforce inbound endpoint receives notifications based on the changes that happen to Salesforce data with respect to an SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way.
 
 * **[Setting up the PushTopic in Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/)**: This documentation explains how to set up the Salesforce environment to connect with WSO2 Salesforce Inbound Endpoint. 
 
-* **[Salesforce Inbound Endpoint Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example/)**: This example explains how Salesforce Inbound Endpoint acts as a message consumer. The integration runtime of WSO2 is a listening inbound endpoint that can consume messages from Salesforce. 
+* **[Salesforce Inbound Endpoint Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example/)**: This example explains how Salesforce inbound endpoint acts as a message consumer. The integration runtime of WSO2 is a listening inbound endpoint that can consume messages from Salesforce. 
 
 * **[Salesforce Inbound Endpoint Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration/)**: This documentation provides a reference guide for the Salesforce Inbound Endpoint.
 
-The following table lists out compatibility information for the Salesforce Inbound Endpoint Connector.
+The following table lists compatibility information for the Salesforce inbound endpoint connector.
 
 | Inbound version  | Supported Salesforce API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
-| 2.0.1| 22.0 | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
-
-### Salesforce Wave Analytics
-
-The Salesforce Wave Analytics Connector allows you to work with records in Salesforce. You can use the Salesforce connector to create, query, retrieve and update records in your organization's Salesforce data. The connector uses the [Analytics REST API](https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_rest.meta/bi_dev_guide_rest/bi_rest_overview.htm) to interact with Salesforce.
-
-### Salesforce Desk Connector
-
-The Salesforce Desk connector allows you to access the Salesforce Desk REST API from an integration sequence. Salesforce Desk is a customer service application that helps small businesses to provide exceptional, multi-channel customer service. 
-
-* **[Salesforce Desk Connector documentation](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50861401/Salesforce+Desk+Connector)**: Includes an overview of the connector and links to associated documentation.
-
-### Pardot
-
-The Pardot connector allows you to access the Pardot REST API through the WSO2 integration runtime. Pardot, B2B marketing automation by Salesforce, offers a marketing automation solution that allows marketing and sales departments to create, deploy, and manage online marketing campaigns.
-
-* **[Pardot Connector documentation](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50862350/Pardot+Connector)**: Includes an overview of the connector and links to associated documentation.
+| 2.0.6| 22.0 | MI 4.3.0, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 ## How to contribute
 
-As an open source project, WSO2 extensions welcome contributions from the community. 
+As an open-source project, WSO2 extensions welcome contributions from the community. 
 
 To contribute to the code for these connectors, create a pull request in the following repositories. 
 
@@ -78,8 +80,5 @@ To contribute to the code for these connectors, create a pull request in the fol
 * [Salesforce Inbound Endpoint GitHub repository](https://github.com/wso2-extensions/esb-inbound-salesforce)
 * [Salesforce SOAP API Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-salesforce)
 * [Salesforce Bulk API Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-salesforcebulk)
-* [Salesforce Wave Analytics Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-salesforcewaveanalytics)
-* [Salesforce Desk Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-salesforcedesk)
-* [Pardot Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-pardot)
 
 Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
