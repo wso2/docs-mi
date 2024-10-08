@@ -8,7 +8,7 @@ The **Data Service Call Mediator** is used to invoke data service operations. It
 
 ## Syntax
 
-``` java
+```xml
 <dataServiceCall serviceName="data-service-name">
    <source [type="inline" | "body"]/>
    <operations [type="single" | "batch" | "request-box"] >
@@ -454,7 +454,7 @@ http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy
 ``` 
 
 ```xml
-<<request_box>
+<request_box>
    <addEmployee>
       <EmployeeNumber>888</EmployeeNumber>
       <Firstname>William</Firstname>
@@ -533,5 +533,5 @@ http://localhost:8290/services/testDSSResposeTarget
 The following log will appear in the server console:
 
 ```bash
-INFO {LogMediator} - {proxy:test} reponseValue = SUCCESSFUL
+INFO {LogMediator} - {proxy:test} responseValue = SUCCESSFUL
 ```
