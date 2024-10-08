@@ -2,7 +2,7 @@
 
 Salesforce is a Customer Relationship Management (CRM) solution that helps bridge the gap between customers and enterprises. This enables you to integrate with Salesforce and perform various actions with ease. This is done using connectors that interact with available Salesforce APIs. 
 
-## Types of salesforce connectors
+## Types of Salesforce connectors
 
 To see the available Salesforce connectors, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Salesforce". You get the following connectors:
 
