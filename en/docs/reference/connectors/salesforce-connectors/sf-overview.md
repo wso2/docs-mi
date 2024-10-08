@@ -64,7 +64,7 @@ The following table lists compatibility information for the Salesforce Bulk API 
 
 * **[Salesforce Inbound Endpoint Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration/)**: This documentation provides a reference guide for the Salesforce Inbound Endpoint.
 
-The following table lists compatibility information for the Salesforce Inbound Endpoint Connector.
+The following table lists compatibility information for the Salesforce inbound endpoint connector.
 
 | Inbound version  | Supported Salesforce API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
