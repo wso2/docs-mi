@@ -44,7 +44,7 @@ The following table lists compatibility information for the Salesforce Bulk API 
 | ------------- | ------------- | ------------- |
 | 2.1.1 | 34.0 | MI 4.3.0 |
 
-* **[Salesforce Bulk API V2 Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example/)**: This example explains how to use the Salesforce Bulk API V2 Connector to perform various operations on salesforce data.
+* **[Salesforce Bulk API V2 Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example/)**: This example explains how to use the Salesforce Bulk API V2 connector to perform various operations on Salesforce data.
 
 * **[Salesforce Bulk API V2 Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-v2-reference/)**: This documentation provides a reference guide for the Salesforce Bulk API V2 operations.
 
