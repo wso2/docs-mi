@@ -56,7 +56,7 @@ The following table lists compatibility information for the Salesforce Bulk API 
 
 ### Salesforce inbound endpoint  
 
-**Salesforce Inbound Endpoint**  uses the [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) to receive notifications. This is bundled with and can be obtained from the Salesforce connector available in the store. The Salesforce Inbound Endpoint receives notifications based on the changes that happen to Salesforce data with respect to an SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way.
+**Salesforce Inbound Endpoint**  uses the [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) to receive notifications. This is bundled with and can be obtained from the Salesforce connector available in the store. The Salesforce inbound endpoint receives notifications based on the changes that happen to Salesforce data with respect to an SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way.
 
 * **[Setting up the PushTopic in Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/)**: This documentation explains how to set up the Salesforce environment to connect with WSO2 Salesforce Inbound Endpoint. 
 
