@@ -2,19 +2,19 @@
 
 Salesforce is a Customer Relationship Management (CRM) solution that helps bridge the gap between customers and enterprises. This enables you to integrate with Salesforce and perform various actions with ease. This is done using connectors that interact with available Salesforce APIs. 
 
-## Types of Salesforce connectors
+## Types of salesforce connectors
 
 To see the available Salesforce connectors, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Salesforce". You get the following connectors:
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sf-connector-store.png" title="Salesforce Connector Store" width="1000" alt="Salesforce Connector Store"/>
 
-### Salesforce Connector
+### Salesforce connector
 
 The Salesforce connector allows you to work with records in Salesforce. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. This is typically used when sending XML requests. The connector uses the [Salesforce SOAP API](http://www.salesforce.com/us/developer/docs/api/) to interact with Salesforce. The Salesforce streaming inbound endpoint allows you to perform various Salesforce streaming data through the integration runtime of WSO2.
 
 * **[Configuring Salesforce Connector Operations](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50861838/Configuring+Salesforce+Connector+Operations)**: Includes an overview of the connector and links to associated documentation.
 
-### Salesforce REST Connector
+### Salesforce REST connector
 
 The **Salesforce REST Connector** uses the [Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm) to interact with Salesforce. This connector is more useful when sending JSON requests. The Salesforce REST Connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage Customer Relationship Management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data.
 
@@ -30,7 +30,7 @@ The following table lists compatibility information for Salesforce REST Connecto
 | ------------- | ------------- | ------------- |
 | [2.0.0](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/v2.0.0) | v32.0 | MI 4.3.0, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
-### Salesforce Bulk Connector
+### Salesforce Bulk connector
 
 The Salesforce Bulk connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. As the name implies, this is used for bulk operations when adding multiple entries into Salesforce. Salesforce Bulk is a RESTful API that allows you to quickly load or delete large sets of your organization's data into Salesforce. You can use the Salesforce Bulk connector to query, insert, update, or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
 
@@ -54,7 +54,7 @@ The following table lists compatibility information for the Salesforce Bulk API 
 | ------------- | ------------- | ------------- |
 | 2.1.1 | 57.0 | MI 4.3.0 |
 
-### Salesforce Inbound Endpoint  
+### Salesforce inbound endpoint  
 
 **Salesforce Inbound Endpoint**  uses the [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) to receive notifications. This is bundled with and can be obtained from the Salesforce connector available in the store. The Salesforce Inbound Endpoint receives notifications based on the changes that happen to Salesforce data with respect to an SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way.
 
