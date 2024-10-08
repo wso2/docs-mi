@@ -82,7 +82,7 @@ Now the integration project is ready to add an API. In this scenario, the API ca
 
 Now it is time to design your API. This is the underlying logic that executed behind the scenes when an API request is made. In this scenario first we need to call the backend service. For that, you have to add an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties).
 
-1. Navigate to the MI Project Explorer > Endpoints.
+1. Navigate to the **MI Project Explorer** > **Endpoints**.
 
 2. Hover over Endpoints and click the + icon that appears.
 
