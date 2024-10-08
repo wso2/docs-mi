@@ -60,7 +60,7 @@ The following table lists compatibility information for the Salesforce Bulk API 
 
 * **[Setting up the PushTopic in Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/)**: This documentation explains how to set up the Salesforce environment to connect with WSO2 Salesforce Inbound Endpoint. 
 
-* **[Salesforce Inbound Endpoint Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example/)**: This example explains how Salesforce Inbound Endpoint acts as a message consumer. The integration runtime of WSO2 is a listening inbound endpoint that can consume messages from Salesforce. 
+* **[Salesforce Inbound Endpoint Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example/)**: This example explains how Salesforce inbound endpoint acts as a message consumer. The integration runtime of WSO2 is a listening inbound endpoint that can consume messages from Salesforce. 
 
 * **[Salesforce Inbound Endpoint Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration/)**: This documentation provides a reference guide for the Salesforce Inbound Endpoint.
 
