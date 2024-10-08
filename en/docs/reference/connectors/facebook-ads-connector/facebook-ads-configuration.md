@@ -725,6 +725,154 @@ To use the Facebook Ads connector, first create the connection with your configu
         "ad_id": "456456456"
     }
     ```
+??? note "createCustomAudience"
+    The `createCustomAudience` operation creates a custom audience.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>adAccountId</td>
+            <td>ID of the ad account.</td>
+            <td>Yes</td>
+        </tr>
+            <tr>
+            <td>properties</td>
+            <td>Custom audience properties.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.createCustomAudience configKey="FB_CONN_1">
+        <adId>{json-eval($.ad_id)}</adId>
+        <properties>{json-eval($.properties)}</properties>
+    </facebookAds.createCustomAudience>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "ad_id": "456456456",
+        "properties": {
+            "name": "My Custom Audience",
+            "subtype": "CUSTOM", 
+            "description": "Audience based on website traffic",
+            "customer_file_source": "USER_PROVIDED_ONLY"
+        }
+    }
+    ```
+
+??? note "createAdCreative"
+    The `createAdCreative` operation creates an ad creative.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>adAccountId</td>
+            <td>ID of the ad account.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>properties</td>
+            <td>Ad creative properties.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.createAdCreative configKey="FB_CONN_1">
+        <adId>{json-eval($.ad_id)}</adId>
+        <properties>{json-eval($.properties)}</properties>
+    </facebookAds.createAdCreative>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "ad_id": "456456456",
+        "properties": {
+            "name": "My Ad Creative",
+            "object_story_spec": {
+                "page_id": "465229476789834",
+                "link_data": {
+                    "description": "My ad creative",
+                    "image_hash": "f2cafafae01fc9201c8d2e70687dhk675Ddsac",
+                    "link": "https://sample.com/",
+                    "message": "Check out my website!",
+                    "name": "headline",
+                    "call_to_action": {
+                        "type": "LEARN_MORE",
+                        "value": {
+                            "link": "https://sample.com/",
+                            "link_caption": ""
+                        }
+                    }
+                }
+            },
+            "degrees_of_freedom_spec": {
+                "creative_features_spec": {
+                    "standard_enhancements": {
+                        "enroll_status": "OPT_OUT"
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+??? note "updateCustomAudience"
+    The `updateCustomAudience` operation updates a custom audience.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>customAudienceId</td>
+            <td>ID of the ad set.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>properties</td>
+            <td>Custom audience update properties.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.updateCustomAudience configKey="FB_CONN_1">
+        <adId>{json-eval($.audience_id)}</adId>
+        <properties>{json-eval($.properties)}</properties>
+    </facebookAds.updateCustomAudience>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": {
+            "name": "My Custom Audience Update",
+            "subtype": "CUSTOM", 
+            "description": "Audience based on website traffic",
+        }
+    }
+    ```
 
 ## Error codes related to Facebook Ads Connector
 
