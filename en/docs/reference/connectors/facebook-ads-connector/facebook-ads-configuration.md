@@ -734,12 +734,12 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
             <tr>
-            <td>properties</td>
+            <td><code>properties</code></td>
             <td>Custom audience properties.</td>
             <td>Yes</td>
         </tr>
@@ -777,12 +777,12 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>adAccountId</td>
+            <td><code>adAccountId</code></td>
             <td>ID of the ad account.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
+            <td><code>properties</code></td>
             <td>Ad creative properties.</td>
             <td>Yes</td>
         </tr>
@@ -841,12 +841,12 @@ To use the Facebook Ads connector, first create the connection with your configu
             <th>Required</th>
         </tr>
         <tr>
-            <td>customAudienceId</td>
+            <td><code>customAudienceId</code></td>
             <td>ID of the ad set.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>properties</td>
+            <td><code>properties</code></td>
             <td>Custom audience update properties.</td>
             <td>Yes</td>
         </tr>
