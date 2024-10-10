@@ -175,7 +175,8 @@ nav:
             - Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
             - Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
             - Use Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
-      - Local Registry Entries: learn/examples/registry-examples/local-registry-entries.md
+      - Local Entries:
+            - Sequences and Endpoints as Local Entries: learn/examples/registry-examples/local-registry-entries.md
       - Templates:
             - How to use a Sequence Template: learn/examples/template-examples/using-sequence-templates.md
             - How to use an Endpoint Template: learn/examples/template-examples/using-endpoint-templates.md
