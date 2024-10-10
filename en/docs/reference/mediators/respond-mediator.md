@@ -10,7 +10,7 @@ The Respond mediator stops the processing of the current message and sends the m
 
 ## Example
 
-In this example API, if the symbol is WSO2 or CRF it sends the request to the Stock Quote service. If the symbol does not meet that criteria, it sends the message back to the client without sending it to the Stock Quote service or performing any additional processing. To achieve this, you can add the respond mediator in the default case of the [switch mediator]({{base_path}}/reference/mediators/switch-mediator).
+Assume that you have a configuration that sends the request to the Stock Quote service and change the response value when the symbol is WSO2 or CRF. If the symbol does not meet that criteria, it sends the message back to the client without sending it to the Stock Quote service or performing any additional processing. To achieve this, you can add the respond mediator in the default case of the [switch mediator]({{base_path}}/reference/mediators/switch-mediator).
 
 === "Proxy Service"
     ```xml
