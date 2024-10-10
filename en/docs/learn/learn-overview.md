@@ -17,7 +17,7 @@ Learn about the main integration capabilities of the Micro Integrator. You can a
     </tr>   
     <tr>
         <th>
-            <a href="{{base_path}}/learn/integration-use-case/message-routing-overview/#message-transformation">Message Transformation</a>
+            <a href="{{base_path}}/learn/integration-use-case/message-transformation-overview">Message Transformation</a>
         </th>
         <td>
             Explore how messages are transformed into different formats.
