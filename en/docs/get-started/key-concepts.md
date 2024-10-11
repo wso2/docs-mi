@@ -22,18 +22,13 @@ See the [REST APIs]({{base_path}}/reference/synapse-properties/rest-api-properti
 
 #### Proxy Services
 
-A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This approach allows you to perform the necessary message transformations and 
-introduce additional functionality to your services without changing your actual services.
-Unlike in [APIs](#apis), here, the protocol does not always need to be HTTP/S. 
-Proxy Services support other well-known protocols such as JMS, FTP, FIX, and HL7.
+A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This approach allows you to perform the necessary message transformations and introduce additional functionality to your services without changing your actual services. Unlike in [APIs](#apis), here, the protocol does not always need to be HTTP/S. Proxy Services support other well-known protocols such as JMS, FTP, FIX, and HL7.
 
 See the [Proxy Services]({{base_path}}/reference/synapse-properties/proxy-service-properties) documentation for more information.
 
 #### Inbound Endpoints
 
-In [APIs](#apis) and [proxy services](#proxy-services) some parts of the configuration are global to a particular instance. For example, the HTTP port needs to be common for all the APIs. 
-The Inbound Endpoints do not contain such global configurations. That gives extra flexibility in configuring 
-the Inbound Endpoints compared to the other two message entry points.
+In [APIs](#apis) and [proxy services](#proxy-services) some parts of the configuration are global to a particular instance. For example, the HTTP port needs to be common for all the APIs. The Inbound Endpoints do not contain such global configurations. That gives extra flexibility in configuring the Inbound Endpoints compared to the other two message entry points.
 
 See the [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) documentation for more information.
 
@@ -43,16 +38,13 @@ See the [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-e
 
 #### Mediators
 
-Mediators are individual processing units that perform a specific function on messages that pass through the Micro Integrator. 
-The mediator takes the message received by the [message entry points](#message-entry-points), 
-carries out some predefined actions on it (such as transforming, enriching, filtering), and modifies the message.
+Mediators are individual processing units that perform a specific function on messages that pass through the Micro Integrator. The mediator takes the message received by the [message entry points](#message-entry-points), carries out some predefined actions on it (such as transforming, enriching, filtering), and modifies the message.
 
 See the [Mediators]({{base_path}}/reference/mediators/about-mediators) documentation for more information.
 
 #### Sequences
 
-A sequence is a set of [mediators](#mediators) organized into a logical flow, allowing you to implement [pipes and filter patterns]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters). The mediators in the sequence will perform the necessary message processing and route the message 
-to the required destination.
+A sequence is a set of [mediators](#mediators) organized into a logical flow, allowing you to implement [pipes and filter patterns]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/pipes-and-filters). The mediators in the sequence will perform the necessary message processing and route the message to the required destination.
 
 See the [Sequences]({{base_path}}/reference/mediation-sequences) documentation for more information.
 
@@ -85,10 +77,7 @@ See the [Endpoints]({{base_path}}/reference/synapse-properties/endpoint-properti
 
 #### Connectors
 
-A Connector allows your mediation flows to connect and interact with external services such as Twitter and Salesforce. 
-Typically, connectors are used to wrap the API or the SDK of an external service. 
-Each connector provides operations that perform different actions in that service. 
-For example, the Twitter connector has operations for creating a tweet, getting a user's followers, and more.
+A Connector allows your mediation flows to connect and interact with external services such as Twitter and Salesforce. Typically, connectors are used to wrap the API or the SDK of an external service. Each connector provides operations that perform different actions in that service. For example, the Twitter connector has operations for creating a tweet, getting a user's followers, and more.
 
 To download a required connector, go to the [WSO2 Connector Store](https://store.wso2.com/store).
 
@@ -106,38 +95,26 @@ See the [Data Services]({{base_path}}/reference/synapse-properties/data-services
 
 #### Scheduled Tasks
 
-Executing an integration process at a specified time is a common requirement in enterprise integration.
-For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day.  
-In the Micro Integrator, the execution of a message mediation process can be automated to run periodically by using a scheduled task. 
-Furthermore, you can use cron expressions for more advanced scheduling configurations.
+Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day. In the Micro Integrator, the execution of a message mediation process can be automated to run periodically by using a scheduled task. Furthermore, you can use cron expressions for more advanced scheduling configurations.
 
 See the [Scheduled Tasks]({{base_path}}/reference/synapse-properties/scheduled-task-properties) documentation for more information.
 
 #### Transports
 
-A transport protocol is responsible for carrying messages that are in a specific protocols. 
-WSO2 Micro Integrator supports all the widely used transports including, HTTP/S, JMS, VFS, as well as domain-specific transports like FIX. 
-Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
+A transport protocol is responsible for carrying messages that are in a specific protocols. WSO2 Micro Integrator supports all the widely used transports including, HTTP/S, JMS, VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
 
 See the [Transports]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports) documentation for more information.
 
 #### Registry
 
-WSO2 Micro Integrator uses a Registry to store various configurations and resources, such as [endpoints](#endpoints). 
-A registry is simply a content store and a metadata repository. 
-Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. 
-The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. 
-You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts,
+WSO2 Micro Integrator uses a Registry to store various configurations and resources, such as [endpoints](#endpoints). A registry is simply a content store and a metadata repository. Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts,
 
 #### Message Builders and Formatters
 
 When a message comes into WSO2 Micro Integrator, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the message's raw payload data and converts it to 
-common format, which the mediation engine of WSO2 Micro Integrator can then read and understand. 
-WSO2 Micro Integrator includes message builders for text-based and binary content.
+common format, which the mediation engine of WSO2 Micro Integrator can then read and understand. WSO2 Micro Integrator includes message builders for text-based and binary content.
 
-Conversely, before a transport sends a message out from WSO2 Micro Integrator, a message formatter is used to 
-build the outgoing stream from the message back into its original format. 
-As with message builders, the message formatter is selected based on the message's content type.
+Conversely, before a transport sends a message out from WSO2 Micro Integrator, a message formatter is used to build the outgoing stream from the message back into its original format. As with message builders, the message formatter is selected based on the message's content type.
 
 See the [Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) documentation for more information.
 
