@@ -111,7 +111,7 @@ WSO2 Micro Integrator uses a Registry to store various configurations and resour
 
 #### Message Builders and Formatters
 
-When a message comes into WSO2 Micro Integrator, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the message's raw payload data and converts it to 
+When a message comes into WSO2 Micro Integrator, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the raw payload data of the message and converts it to a
 common format, which the mediation engine of WSO2 Micro Integrator can then read and understand. WSO2 Micro Integrator includes message builders for text-based and binary content.
 
 Conversely, before a transport sends a message out from WSO2 Micro Integrator, a message formatter is used to build the outgoing stream from the message back into its original format. As with message builders, the message formatter is selected based on the message's content type.
