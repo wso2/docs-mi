@@ -8,15 +8,9 @@ This page walks you through how to get started with the Micro Integrator for VS 
 
 - Set the `JAVA_HOME` environment variable in the [system settings]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
 
-    !!! info
-        For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup documentation]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
-
 - Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
 
 - Set the path for Apache Maven in the [system's PATH environment variable](https://maven.apache.org/install.html).
-
-    !!! info
-        For more information on installing Apache Maven, see the [Apache Maven documentation](https://maven.apache.org/install.html).
 
 - Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
 
