@@ -222,7 +222,7 @@ nav:
                 - How to acknowledge HL7 messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to use HL7 Messages with file systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
       - How to expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
-      - How to work with transactions: learn/examples/working-with-transactions.md
+      #- How to work with transactions: learn/examples/working-with-transactions.md
       - JSON Examples: learn/examples/json-examples/json-examples.md
       - How to split messages and aggregate responses: learn/examples/routing-examples/splitting-aggregating-messages.md
       - How to integrate MI with SI: learn/examples/integrating-mi-with-si.md
@@ -1010,6 +1010,7 @@ plugins:
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
               'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
+              'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:
