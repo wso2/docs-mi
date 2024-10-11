@@ -74,7 +74,6 @@ nav:
       - Introduction: get-started/introduction.md
       - Key Concepts: get-started/key-concepts.md
       - Quick Start Guide: get-started/quick-start-guide.md
-      - Develop Your First Integration: get-started/development-kickstart.md
       - About this Release: get-started/about-this-release.md
   - Learn:
       - Overview: learn/learn-overview.md
@@ -222,7 +221,7 @@ nav:
                 - How to acknowledge HL7 messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to use HL7 Messages with file systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
       - How to expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
-      - How to work with transactions: learn/examples/working-with-transactions.md
+      #- How to work with transactions: learn/examples/working-with-transactions.md
       - JSON Examples: learn/examples/json-examples/json-examples.md
       - How to split messages and aggregate responses: learn/examples/routing-examples/splitting-aggregating-messages.md
       - How to integrate MI with SI: learn/examples/integrating-mi-with-si.md
@@ -1009,7 +1008,9 @@ plugins:
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
+              'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.3.0/get-started/quick-start-guide/'
               'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
+              'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:
