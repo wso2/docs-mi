@@ -71,7 +71,7 @@ See the [Templates]({{base_path}}/reference/synapse-properties/template-properti
 
 #### Endpoints
 
-An Endpoint defines an external destination for a message. An endpoint could represent an HTTP URL, a mailbox, a JMS queue, a TCP socket, etc., along with the settings needed for the connection. 
+An endpoint defines an external destination for a message. It could represent an HTTP URL, a mailbox, a JMS queue, a TCP socket, and other connection types, along with the settings needed for the connection.
 
 See the [Endpoints]({{base_path}}/reference/synapse-properties/endpoint-properties) documentation for more information.
 
