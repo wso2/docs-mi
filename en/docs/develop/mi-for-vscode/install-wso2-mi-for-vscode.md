@@ -2,7 +2,7 @@
 
 This page walks you through how to get started with the Micro Integrator for VS Code extension.
 
-## Installation Prerequisites
+## Prerequisites
 
 - Download and install Java SE Development Kit (JDK) version 11 or 17. See [tested JDK versions]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) for more information.
 
