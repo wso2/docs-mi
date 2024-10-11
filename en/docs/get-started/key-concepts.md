@@ -89,7 +89,7 @@ See the [Connectors]({{base_path}}/reference/connectors/connectors-overview) doc
 
 #### Data Services
 
-A Data service allow users to expose data from various data sources such as databases, spreadsheets, and CSV files through services, enabling easy access to this data over HTTP. WSO2 MI simplifies the process of interacting with databases by abstracting the data access logic and offering a way to expose data as services, such as RESTful or SOAP APIs, without requiring developers to write complex code.
+A Data service allows users to expose data from various data sources such as databases, spreadsheets, and CSV files through services, enabling easy access to this data over HTTP. WSO2 MI simplifies the process of interacting with databases by abstracting the data access logic and offering a way to expose data as services, such as RESTful or SOAP APIs, without requiring developers to write complex code.
 
 See the [Data Services]({{base_path}}/reference/synapse-properties/data-services) documentation for more information.
 
