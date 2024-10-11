@@ -74,7 +74,6 @@ nav:
       - Introduction: get-started/introduction.md
       - Key Concepts: get-started/key-concepts.md
       - Quick Start Guide: get-started/quick-start-guide.md
-      - Develop Your First Integration: get-started/development-kickstart.md
       - About this Release: get-started/about-this-release.md
   - Learn:
       - Overview: learn/learn-overview.md
@@ -1005,6 +1004,7 @@ plugins:
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
+              'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.3.0/get-started/quick-start-guide/'
 
   # Extra
 extra_css:
@@ -1044,6 +1044,6 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.3.0
-  #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.3.0
+  base_path: http://localhost:8000/en/latest
+  #base_path: https://mi.docs.wso2.com/en/4.3.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

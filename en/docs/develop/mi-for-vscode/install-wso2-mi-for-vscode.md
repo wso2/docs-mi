@@ -1,19 +1,19 @@
 # Install Micro Integrator for VS Code
 
-This page walks you through how to get started with the Micro Integrator for VS Code extension by installing it.
+This page walks you through how to get started with the Micro Integrator for VS Code extension.
 
 ## Installation Prerequisites
 
-- Download and install Java SE Development Kit (JDK) version 11 or 17.
+- Download and install Java SE Development Kit (JDK) version 11 or 17. See [tested JDK versions]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) for more information.
 
-- Set the `JAVA_HOME` environment variable in the system settings.
+- Set the `JAVA_HOME` environment variable in the [system settings]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
 
     !!! info
-        For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup documentation](https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-mi/#setting-up-java_home).
+        For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup documentation]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
 
 - Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
 
-- Set the path for Apache Maven in the system's PATH environment variable.
+- Set the path for Apache Maven in the [system's PATH environment variable](https://maven.apache.org/install.html).
 
     !!! info
         For more information on installing Apache Maven, see the [Apache Maven documentation](https://maven.apache.org/install.html).
@@ -40,7 +40,7 @@ Follow one of the following two options to install the MI VS Code extension.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/extensions.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/extensions.png" alt="Extensions" width="700"></a>
 
-3. Type "Micro Integrator" in the search bar. 
+3. Type `Micro Integrator` in the search bar. 
 4. Press **Enter** to search. 
 5. Among the results, find the **Micro Integrator** extension.
 6. Click **Install** to install the MI for VS Code extension from Visual Studio Marketplace.
