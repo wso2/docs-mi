@@ -101,7 +101,7 @@ See the [Scheduled Tasks]({{base_path}}/reference/synapse-properties/scheduled-t
 
 #### Transports
 
-A transport protocol is responsible for carrying messages that are in a specific protocols. WSO2 Micro Integrator supports all the widely used transports including, HTTP/S, JMS, VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
+A transport protocol is responsible for carrying messages that are in a specific protocol. WSO2 Micro Integrator supports all the widely used transports including, HTTP/S, JMS, and VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
 
 See the [Transports]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports) documentation for more information.
 
