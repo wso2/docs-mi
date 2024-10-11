@@ -9,7 +9,9 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 Red
 The user sends the request to invoke an API to get stock details. This REST call will get converted into a SOAP message and is sent to the back-end service. While the response from the backend service is converted back to JSON and sent back to the API caller, the integration runtime will extract stock volume details from the response and store it into a configured Redis server.
 When users need to retrieve stock volumes collected, they can invoke the `getstockvolumedetails` resource. This example also demonstrates how users can manipulate this stock volume details by removing unwanted items from the Redis server.
 
-> **Note**: In this scenario you need to set up the Redis Server in your local machine. Please refer the [Setting up the Redis Connector]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
+!!! note
+    In this scenario you need to set up the Redis Server in your local machine. Please refer the [Setting up the Redis Connector]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
+
 This example demonstrates how to use Redis connector to:
 
 1. Retrieve stock volume details from the Stockquote back-end service. This is done while extracting the stock volume, creating a Redis hash map, and adding stock volume details to the Redis server. (In this example, Redis hashes are used to store different companies' stocks volume details. Since the “symbol” that is sent in the request is “WSO2”, the request is routed to the WSO2 endpoint. Once the response from the WSO2 endpoint is received, it is transformed according to the specified template and sent to the client. Then create a hash map and insert extracted details to the Redis hashmap).
@@ -52,23 +54,23 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
 
 1. Add an address endpoint using the send mediator to access SimpleStockQuoteService.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-address-endpoint.png" title="Address endpoint" width="500" alt="Address endpoint"/>  
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis-address-endpoint.png" title="Address endpoint" width="500" alt="Address endpoint"/>  
 
 2. Add a header to get a quote from the SimpleStockQuoteService.
 
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-header.png" title="Add Header to get Quote" width="500" alt="Add Header to get Quote"/> 
+     <img src="{{base_path}}/assets/img/integrate/connectors/redis-header.png" title="Add Header to get Quote" width="500" alt="Add Header to get Quote"/> 
 
 3. Add a payload factory to extract the selected stock details. In this sample, we attempt to get WSO2 stock details from the SimpleStockQuoteService.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-payloadfactory.png" title="Add payloadfactory to extract WSO2 details" width="500" alt="Add payloadfactory to extract WSO2 details"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis-payloadfactory.png" title="Add payloadfactory to extract WSO2 details" width="500" alt="Add payloadfactory to extract WSO2 details"/> 
 
 4. In this example, we copy the original payload to a property using the Enrich mediator.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-enrich1.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis-enrich1.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
 
-   When we need the original payload, we replace the message body with this property value using the Enrich mediator as follows.
+    When we need the original payload, we replace the message body with this property value using the Enrich mediator as follows.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-enrich2.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis-enrich2.png" title="Add enrich mediator" width="500" alt="Add enrich mediator"/> 
     
 5. Initialize the connector.
     
@@ -134,129 +136,133 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
 ##### Configure a resource for the getstockvolumedetails operation
     
 1. Initialize the connector.
-   You can use the same configuration to initialize the connector. Please follow the steps given in section 5 for setting up the `init` operation to the `getstockquote` operation.
+
+    You can use the same configuration to initialize the connector. Please follow the steps given in section 5 for setting up the `init` operation to the `getstockquote` operation.
    
       - **redisKey** : The name of the key where the hash is stored.
 
 2. Set up the lLen operation.
-   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hGetAll` operation into the Design pane. The `hGetAll` operation retrieves all the fields and values in a hash.
    
-   You only need to send redisKey as parameter. In this example `redisKey` value is configured as **StockVolume**
+    Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hGetAll` operation into the Design pane. The `hGetAll` operation retrieves all the fields and values in a hash.
+   
+    You only need to send redisKey as parameter. In this example `redisKey` value is configured as **StockVolume**
 
-   <img src="{{base_path}}/assets/img/integrate/connectors/redis-hgetall-drag-and-drop.png" title="Drag and drop hGetAll operation" width="500" alt="Drag and drop hGetAll operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis-hgetall-drag-and-drop.png" title="Drag and drop hGetAll operation" width="500" alt="Drag and drop hGetAll operation"/>
    
 3. Forward the backend response to the API caller. Please follow the steps given in section 8 in the `getstockquote` operation.   
 
 ##### Configure a resource for the deletestockvolumedetails operation
     
 1. Initialize the connector.
-   You can use the same configuration to initialize the connector. Please follow the steps given in section 5 for setting up the `init` operation to the `getstockquote` operation.
+  
+    You can use the same configuration to initialize the connector. Please follow the steps given in section 5 for setting up the `init` operation to the `getstockquote` operation.
    
 2. Set up the  operation.
    
-   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane. The `hDel` operation deletes one or more hash fields
+    Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane. The `hDel` operation deletes one or more hash fields
         
-      - **redisKey** : The name of the key where the hash is stored.
-      - **redisFields** : The fields that you want to delete.
+    - **redisKey** : The name of the key where the hash is stored.
+    - **redisFields** : The fields that you want to delete.
       
-      <img src="{{base_path}}/assets/img/integrate/connectors/redis-hdell-drag-and-drop.png" title="Drag and drop hDell operation" width="500" alt="Drag and drop hDell operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis-hdell-drag-and-drop.png" title="Drag and drop hDell operation" width="500" alt="Drag and drop hDell operation"/>
    
 3. Forward the backend response to the API caller. Please follow the steps given in section 8 in the `getstockquote` operation.     
                
 Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
     
-  ??? note "StockQuoteAPI.xml"
-      ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
-            <resource methods="GET" uri-template="/getstockquote/{symbol}">
-                <inSequence>
-                    <payloadFactory media-type="xml">
-                        <format>
-                            <m0:getQuote xmlns:m0="http://services.samples">
-                                <m0:request>
-                                    <m0:symbol>$1</m0:symbol>
-                                </m0:request>
-                            </m0:getQuote>
-                        </format>
-                        <args>
-                            <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
-                        </args>
-                    </payloadFactory>
-                    <header name="Action" scope="default" value="urn:getQuote"/>
-                    <call>
-                        <endpoint>
-                            <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
-                                <suspendOnFailure>
-                                    <initialDuration>-1</initialDuration>
-                                    <progressionFactor>1</progressionFactor>
-                                </suspendOnFailure>
-                                <markForSuspension>
-                                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
-                                </markForSuspension>
-                            </address>
-                        </endpoint>
-                    </call>
-                    <enrich>
-                        <source clone="false" type="body"/>
-                        <target property="ORIGINAL_PAYLOAD" type="property"/>
-                    </enrich>
-                    <property expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol" name="symbol" scope="default" type="STRING" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
-                    <property expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume" name="volume" scope="default" type="STRING" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
-                    <redis.init>
-                        <redisHost>127.0.0.1</redisHost>
-                        <redisPort>6379</redisPort>
-                        <redisTimeout>10000000000</redisTimeout>
-                    </redis.init>
-                    <redis.hSet>
-                        <redisKey>StockVolume</redisKey>
-                        <redisField>{$ctx:symbol}</redisField>
-                        <redisValue>{$ctx:volume}</redisValue>
-                    </redis.hSet>
-                    <enrich>
-                        <source clone="false" property="ORIGINAL_PAYLOAD" type="property"/>
-                        <target type="body"/>
-                    </enrich>
-                    <log level="full"/>
-                    <respond/>
-                </inSequence>
-                <outSequence/>
-                <faultSequence/>
-            </resource>
-            <resource methods="GET" uri-template="/getstockvolumedetails">
-                <inSequence>
-                    <redis.init>
-                        <redisHost>127.0.0.1</redisHost>
-                        <redisPort>6379</redisPort>
-                        <redisTimeout>10000000000</redisTimeout>
-                    </redis.init>
-                    <redis.hGetAll>
-                        <redisKey>StockVolume</redisKey>
-                    </redis.hGetAll>
-                    <respond/>
-                </inSequence>
-                <outSequence/>
-                <faultSequence/>
-            </resource>
-            <resource methods="POST" uri-template="/deletestockvolumedetails">
-                <inSequence>
-                    <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
-                    <redis.init>
-                        <redisHost>127.0.0.1</redisHost>
-                        <redisPort>6379</redisPort>
-                        <redisTimeout>10000000000</redisTimeout>
-                    </redis.init>
-                    <redis.hDel>
-                        <redisKey>StockVolume</redisKey>
-                        <redisFields>{$ctx:redisFields}</redisFields>
-                    </redis.hDel>
-                    <respond/>
-                </inSequence>
-                <outSequence/>
-                <faultSequence/>
-            </resource>
-        </api>
-        ```
+??? note "StockQuoteAPI.xml"
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/getstockquote/{symbol}">
+            <inSequence>
+                <payloadFactory media-type="xml">
+                    <format>
+                        <m0:getQuote xmlns:m0="http://services.samples">
+                            <m0:request>
+                                <m0:symbol>$1</m0:symbol>
+                            </m0:request>
+                        </m0:getQuote>
+                    </format>
+                    <args>
+                        <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
+                    </args>
+                </payloadFactory>
+                <header name="Action" scope="default" value="urn:getQuote"/>
+                <call>
+                    <endpoint>
+                        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
+                            <suspendOnFailure>
+                                <initialDuration>-1</initialDuration>
+                                <progressionFactor>1</progressionFactor>
+                            </suspendOnFailure>
+                            <markForSuspension>
+                                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                            </markForSuspension>
+                        </address>
+                    </endpoint>
+                </call>
+                <enrich>
+                    <source clone="false" type="body"/>
+                    <target property="ORIGINAL_PAYLOAD" type="property"/>
+                </enrich>
+                <property expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:symbol" name="symbol" scope="default" type="STRING" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
+                <property expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume" name="volume" scope="default" type="STRING" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
+                <redis.init>
+                    <redisHost>127.0.0.1</redisHost>
+                    <redisPort>6379</redisPort>
+                    <redisTimeout>10000000000</redisTimeout>
+                </redis.init>
+                <redis.hSet>
+                    <redisKey>StockVolume</redisKey>
+                    <redisField>{$ctx:symbol}</redisField>
+                    <redisValue>{$ctx:volume}</redisValue>
+                </redis.hSet>
+                <enrich>
+                    <source clone="false" property="ORIGINAL_PAYLOAD" type="property"/>
+                    <target type="body"/>
+                </enrich>
+                <log level="full"/>
+                <respond/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </resource>
+        <resource methods="GET" uri-template="/getstockvolumedetails">
+            <inSequence>
+                <redis.init>
+                    <redisHost>127.0.0.1</redisHost>
+                    <redisPort>6379</redisPort>
+                    <redisTimeout>10000000000</redisTimeout>
+                </redis.init>
+                <redis.hGetAll>
+                    <redisKey>StockVolume</redisKey>
+                </redis.hGetAll>
+                <respond/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </resource>
+        <resource methods="POST" uri-template="/deletestockvolumedetails">
+            <inSequence>
+                <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
+                <redis.init>
+                    <redisHost>127.0.0.1</redisHost>
+                    <redisPort>6379</redisPort>
+                    <redisTimeout>10000000000</redisTimeout>
+                </redis.init>
+                <redis.hDel>
+                    <redisKey>StockVolume</redisKey>
+                    <redisFields>{$ctx:redisFields}</redisFields>
+                </redis.hDel>
+                <respond/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </resource>
+    </api>
+    ```
+
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
@@ -288,13 +294,13 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 1. Retrieve stock volume details from the Stockquote back-end service.
  
-   **Sample request 1**
+    **Sample request 1**
 
     ```
      curl -v GET "http://localhost:8290/stockquote/view/WSO2" -H "Content-Type:application/json"    
     ```
 
-   **Expected Response**
+    **Expected Response**
     
      ```json
      {
@@ -320,13 +326,13 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      ```
      
-   **Sample request 2**
+    **Sample request 2**
      
      ```
       curl -v GET "http://localhost:8290/stockquote/view/IBM" -H "Content-Type:application/json"    
      ```
      
-   **Expected Response**
+    **Expected Response**
          
      ```json
      {
@@ -366,13 +372,13 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      ```
 2. Retrieve all stock volume details from the Redis server.
  
-   **Sample request**
+    **Sample request**
 
     ```
      curl -v GET "http://localhost:8290/stockquote/getstockvolumedetails" -H "Content-Type:application/json"    
     ```
 
-   **Expected Response**
+    **Expected Response**
     
      ```json
      {
@@ -381,13 +387,13 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      ```
 3. Remove stock volume details.
  
-   **Sample request 1**
+    **Sample request 1**
 
     ```
      curl -v POST -d {"redisFields":"WSO2"}  "http://localhost:8290/stockquote/deletestockvolumedetails" -H "Content-Type:application/json"    
     ```
 
-   **Expected Response**
+    **Expected Response**
     
      ```json
      {
@@ -395,15 +401,15 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      ```
      
-   **Sample request 2 : Check the remaining stock volume details**
+    **Sample request 2 : Check the remaining stock volume details**
     
-   **Sample request**
+    **Sample request**
    
      ```
        curl -v GET "http://localhost:8290/stockquote/getstockvolumedetails" -H "Content-Type:application/json"    
      ```
    
-   **Expected Response**
+    **Expected Response**
        
      ```json
      {
@@ -411,7 +417,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      ``` 
       
-   **Inserted list can retrieve using `redis-cli`**  
+    **Inserted list can retrieve using `redis-cli`**  
    
      Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve list length.
    

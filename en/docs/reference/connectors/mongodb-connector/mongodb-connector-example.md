@@ -157,16 +157,16 @@ You can further refer the application deployed through the CLI tool. See the ins
     3. You can see that the API is deployed under the API section. 
 
 ??? note "Click here for instructions on removing the iterative mongodb server logs"
-Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
+    Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
 
-    1.  Add the following logger to the `log4j2.properties` file in the `<PRODUCT_HOME>/conf` folder.
+    1. Add the following logger to the `log4j2.properties` file in the `<PRODUCT_HOME>/conf` folder.
 
         ```xml
     	logger.org-mongodb-driver-cluster.name = org.mongodb.driver.cluster
     	logger.org-mongodb-driver-cluster.level = WARN
         ```
 
-    2.  Then, add `org-mongodb-driver-cluster` to the list of `loggers`.
+    2. Then, add `org-mongodb-driver-cluster` to the list of `loggers`.
 
 !!! info "Prerequisite"
 
@@ -207,7 +207,7 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 2.  Invoke the API as shown below using the curl command.
 
     !!! Info
-    The Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
+        The Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
     ```bash
     curl -H "Content-Type: application/xml" --request POST --data @insertmany.json http://localhost:8290/mongodbconnector/insertmany
@@ -224,7 +224,7 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 ### Find Operation
 
 !!! Note
-In order to find documents by ObjectId, the find query payload should be in the following format:
+    In order to find documents by ObjectId, the find query payload should be in the following format:
 
     ```json
     {
@@ -250,7 +250,7 @@ In order to find documents by ObjectId, the find query payload should be in the 
 2.  Invoke the API using the curl command shown below.
 
     !!! Info
-    Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+        Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
     ```bash
     curl -H "Content-Type: application/xml" --request POST --data @find.json http://localhost:8290/mongodbconnector/find

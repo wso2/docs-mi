@@ -299,28 +299,28 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
    **Sample configuration**
 
-    ```xml
-    <amazonsqs.sendMessageBatch>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <delaySeconds>{$ctx:delaySeconds}</delaySeconds>
-        <messageRequestEntry>{$ctx:messageRequestEntry}</messageRequestEntry>
-    </amazonsqs.sendMessageBatch> 
-    ```
+   ```xml
+   <amazonsqs.sendMessageBatch>
+       <queueId>{$ctx:queueId}</queueId>
+       <queueName>{$ctx:queueName}</queueName>
+       <delaySeconds>{$ctx:delaySeconds}</delaySeconds>
+       <messageRequestEntry>{$ctx:messageRequestEntry}</messageRequestEntry>
+   </amazonsqs.sendMessageBatch> 
+   ```
     
-    **Sample request**
+   **Sample request**
 
-    ```xml
-    <root>
-        <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3hjgGTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
-        <version>2009-02-01</version>
-        <region>us-east-1</region>
-        <queueId>492228198692</queueId>
-        <queueName>TestCo1n</queueName>      
-        <messageRequestEntry>SendMessageBatchRequestEntry.1.Id=test_msg_001&amp;SendMessageBatchRequestEntry.1.MessageBody=test%20message%20body%201&amp;SendMessageBatchRequestEntry.2.Id=test_msg_002&amp;SendMessageBatchRequestEntry.2.MessageBody=test%20message%20body%202</messageRequestEntry>
-    </root>
-    ```
+   ```xml
+   <root>
+       <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
+       <secretAccessKey>N9VT2P3MaL7Li1P3hjgGTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
+       <version>2009-02-01</version>
+       <region>us-east-1</region>
+       <queueId>492228198692</queueId>
+       <queueName>TestCo1n</queueName>      
+       <messageRequestEntry>SendMessageBatchRequestEntry.1.Id=test_msg_001&amp;SendMessageBatchRequestEntry.1.MessageBody=test%20message%20body%201&amp;SendMessageBatchRequestEntry.2.Id=test_msg_002&amp;SendMessageBatchRequestEntry.2.MessageBody=test%20message%20body%202</messageRequestEntry>
+   </root>
+   ```
 
 ??? note "deleteMessage"
     This operation deletes the specified message from the specified queue. You specify the message by using the message's receipt handle and not the message ID you received when you sent the message. Even if the message is locked by another reader due to the visibility timeout setting, it is still deleted from the queue. If you leave a message in the queue for longer than the queue's configured retention period, Amazon SQS automatically deletes it. See the [related API documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) for more information.
@@ -351,8 +351,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     > **Note**: It is possible you will receive a message even after you have deleted it. This might happen on rare occasions if one of the servers storing a copy of the message is unavailable when you request to delete the message. The copy remains on the server and might be returned to you again on a subsequent receive request. You should create your system to be idempotent so that receiving a particular message more than once is not a problem.
 
-   **Sample configuration**
-
+    **Sample configuration**
+    
     ```xml
     <amazonsqs.deleteMessage>
         <queueId>{$ctx:queueId}</queueId>
@@ -362,7 +362,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     ```
     
     **Sample request**
-
+    
     ```xml
     <root>
         <accessKeyId>AKIAJXHDKJWR2ZVSDPEBTQ</accessKeyId>
@@ -401,8 +401,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
-
+    **Sample configuration**
+    
     ```xml
     <amazonsqs.deleteMessageBatch>
         <messageRequestEntry>{$ctx:messageRequestEntry}</messageRequestEntry>
@@ -412,7 +412,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     ```
     
     **Sample request**
-
+    
     ```xml
     <root>
         <accessKeyId>AKIAJXHDKJWR2ZVSDPEBTQ</accessKeyId>
@@ -425,7 +425,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         &amp;DeleteMessageBatchRequestEntry.1.ReceiptHandle=gfk0T0R0waama4fVxIVNgeNP8ZEDcw7zZU1Zw%3D%3D&amp;DeleteMessageBatchRequestEntry.2.Id=msg2&amp;DeleteMessageBatchRequestEntry.2.ReceiptHandle=gfk0T0R0waama4fVFffkjKzmhMCymjQvfTFk2LxT33G4ms5subrE0deLKWSscPU1oD3J9zgeS4PQQ3U30qOumIE6AdAv3w%2F%2Fa1IXW6AqaWhGsEPaLm3Vf6IiWqdM8u5imB%2BNTwj3tQRzOWdTOePjOjPcTpRxBtXix%2BEvwJOZUma9wabv%2BSw6ZHjwmNcVDx8dZXJhVp16Bksiox%2FGrUvrVTCJRTWTLc59oHLLF8sEkKzRmGNzTDGTiV%2BYjHfQj60FD3rVaXmzTsoNxRhKJ72uIHVMGVQiAGgB%2BqAbSqfKHDQtVOmJJgkHug%3D%3D</messageRequestEntry>
     </root>  
     ```
-
+    
 ??? note "changeMessageVisibility"
     This operation changes the visibility timeout of a specified message in a queue to a new value. The maximum allowed timeout value you can set the value to is 12 hours. This means you can't extend the timeout of a message in an existing queue to more than a total visibility timeout of 12 hours. (For more information on visibility timeout, see [Visibility Timeout in the Amazon SQS Developer Guide](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html)).
     
@@ -465,7 +465,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     > 
     > Unlike with a queue, when you change the visibility timeout for a specific message, that timeout value is applied immediately but is not saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message the next time it is received reverts to the original timeout value, not the value you set with the changeMessageVisibility operation.
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.changeMessageVisibility>       
@@ -516,7 +516,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.changeMessageVisibilityBatch>
@@ -583,7 +583,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.addPermission>

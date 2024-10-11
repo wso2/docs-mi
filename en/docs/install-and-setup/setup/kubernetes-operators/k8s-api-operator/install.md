@@ -156,7 +156,7 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
 
 -  Deploy the `ClusterRoleBinding`:
 
-   Be sure to replace `<OPERATOR_DEPLOYED_NAMESPACE>` with the correct value.
+    Be sure to replace `<OPERATOR_DEPLOYED_NAMESPACE>` with the correct value.
 
       ```yaml
       kind: ClusterRoleBinding
@@ -176,7 +176,7 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
 
 -  Update API operator to watch the cluster:
 
-   If the operator is already running in the Kubernetes cluster, use the following command to set the `WATCH_CLUSTER_LEVEL` configuration to true in the API operator deployment.
+    If the operator is already running in the Kubernetes cluster, use the following command to set the `WATCH_CLUSTER_LEVEL` configuration to true in the API operator deployment.
 
       ```shell
       kubectl set env deployment/api-operator WATCH_CLUSTER_LEVEL=true
