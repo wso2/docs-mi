@@ -12,7 +12,7 @@ To see the Facebook Ads Connector, navigate to the [connector store](https://sto
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.0    | MI 4.3.0 |
+| 1.0.1    | MI 4.3.0 |
 
 ## Facebook Ads Connector documentation
 

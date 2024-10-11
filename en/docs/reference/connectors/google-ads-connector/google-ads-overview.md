@@ -12,7 +12,7 @@ To see the Google Ads Connector, go to the [WSO2 Connector Store](https://store.
 
 | Connector version | Supported product versions |
 | ------------- |-------------|
-| 1.0.0    | MI 4.3.0 |
+| 1.0.1    | MI 4.3.0 |
 
 ## Google Ads Connector documentation
 

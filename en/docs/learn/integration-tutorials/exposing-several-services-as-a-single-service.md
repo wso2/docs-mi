@@ -604,7 +604,7 @@ You can now start updating the API resource with the mediation flow.
         },
         "patient": {
             "name": "John Doe",
-            "Dob": "1990-03-19",
+            "dob": "1990-03-19",
             "ssn": "234-23-525",
             "address": "California",
             "phone": "8770586755",

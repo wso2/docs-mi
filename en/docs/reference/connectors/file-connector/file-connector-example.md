@@ -149,7 +149,7 @@ export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Stu
 
 1.  Open the project overview and click on **Export**.
 
-     <img src="{{base_path}}/assets/img/integrate/connectors/export_artifacts.jpeg" width="300" alt="Download ZIP">
+     <img src="{{base_path}}/assets/img/integrate/connectors/export_artifacts.jpeg" width="800" alt="Download ZIP">
 
 2.  Click on **Select Destination** to select a destination folder to export the CAR file.
 
@@ -159,7 +159,7 @@ export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Stu
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 ```
-curl --location 'http://localhost:8290/fileConnector/write' \
+curl --location 'http://localhost:8290/fileconnector/create' \
 --header 'Content-Type: application/json' \
 --data '{
 "filePath":"/Users/wso2/Documents/mi_testing/doc/create.txt",
@@ -175,7 +175,7 @@ You should get a 'Success' response, and the file should be created in the speci
 
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 ```
-curl --location 'http://localhost:8290/fileConnector/read' \
+curl --location 'http://localhost:8290/fileconnector/read' \
 --header 'Content-Type: application/json' \
 --data '{
 "filePath":"/Users/wso2/Documents/mi_testing/doc/create.txt"

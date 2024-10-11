@@ -2,12 +2,11 @@
 
 In WSO2 Micro Integrator, expressions are a way to dynamically compute values within various integration artifacts such as sequences, APIs, endpoints, and proxies. These expressions are used to extract data as it flows through the integration logic.
 
-The most commonly used expression languages in WSO2 MI are [Synapse Variables](#synapse-variables), [JSONPath (for JSON)](#jsonpath-expressions), and [XPath (for XML)](#xpath-expressions).
+The most commonly used expression languages in WSO2 MI are [Variables](#variables), [Functions](#functions), [JSONPath (for JSON)](#jsonpath-expressions), and [XPath (for XML)](#xpath-expressions).
 
-## Synapse variables
+## Variables
 
-There is a set of predefined synapse variables that you can use
-to extract data from the message. These synapse variables in different [scopes]({{base_path}}/reference/synapse-properties/scopes) are as follows:
+There is a set of predefined variables that you can use to extract data from the message. These variables in different [scopes]({{base_path}}/reference/synapse-properties/scopes) are as follows:
 
 ### $ctx
 
@@ -55,11 +54,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
 
 ### $trp
 
-The prefix used to get the transport headers. For example, to get the
-transport header named Content-Type of the current message, use the
-`$trp:Content-Type` expression. HTTP transport headers are not
-case sensitive. Therefore, `$trp:Content-Type` and `$trp:CONTENT-TYPE` are
-regarded as the same.
+The prefix used to get the transport headers. For example, to get the transport header named Content-Type of the current message, use the `$trp:Content-Type` expression. HTTP transport headers are not case sensitive. Therefore, `$trp:Content-Type` and `$trp:CONTENT-TYPE` are regarded as the same.
 
 Similarly, you can use `$trp` prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties).
 
@@ -192,9 +187,7 @@ The prefix used to get the URI query params of a request URL.
 
 ### $func
 
-The prefix used to refer to a particular parameter value passed
-externally by an invoker such as the [Call Template
-Mediator]({{base_path}}/reference/mediators/call-template-mediator).
+The prefix used to refer to a particular parameter value passed externally by an invoker such as the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator).
 
 ??? note "Example of $func usage"
 
@@ -311,6 +304,63 @@ Similarly you can use [$header](#header) to get SOAP 1.1 or 1.2 header element i
         ```
 
 
+## Functions
+
+There is a set of predefined functions that you can use to extract data from the message.
+
+#### base64Encode() function
+
+The `base64Encode()` function returns the base64-encoded value of the specified string.
+
+Syntax:
+
+-   `base64Encode(string value)`
+-   `base64Encode(string value, string charset)`
+
+Example:
+
+`<property name="ENCODED_VALUE" expression="base64Encode('This is a test value')"/>`
+
+#### base64Decode() function
+
+The `base64Decode()` function returns the original value of the specified base64-encoded value.
+
+The syntax of the function takes the following format.
+
+-   `base64Decode(string encodedValue)`
+-   `base64Decode(string encodedValue, string charset)`
+
+Example:
+
+`<property name="DECODED_VALUE" expression="base64Decode('VGhpcyBpcyBhIHRlc3QgdmFsdWU=')"/>`
+
+#### get-property() function
+
+The `get-property()` function allows you to retrieve various types of properties from the message context, such as transport headers, custom properties, system properties, or Axis2-specific properties. These properties can be used in the message flows, making the mediation process dynamic.
+
+The syntax of the function takes the following format.
+
+-   `get-property(String propertyName)`
+-   `get-property(String scope, String propertyName)`
+
+The function accepts [scope]({{base_path}}/reference/synapse-properties/scopes) as an optional parameter. It retrieves a
+message property at the given scope. If you provide only the property name without the scope, the default `synapse` scope will be used.
+
+See [scopes]({{base_path}}/reference/synapse-properties/scopes) documentation to see examples for each operation.
+
+#### url-encode() function
+
+The `url-encode()` function returns the URL-encoded value of the specified string.
+
+Syntax:
+
+-   `url-encode(string value)`
+-   `url-encode(string value, string charset)`
+
+Example:
+
+`<property name="ENCODED_URL" expression="url-encode('http://this is a test url')"/>`
+
 ## JSONPath expressions
 
 [JSONPath](http://goessner.net/articles/JsonPath/) expressions are used for navigating and querying JSON data. JSONPath allows you to extract specific data from JSON documents.
@@ -382,7 +432,7 @@ The following table summarizes sample JSONPath expressions and their outputs:
 </tbody>
 </table>
 
-You can evaluate a JSONPath expression against a property that contains a JSON payload using [Synapse Variables](#synapse-variables).
+You can evaluate a JSONPath expression against a property that contains a JSON payload using [Variables](#variables).
 
 To evaluate a JSONPath expression against a property, use the following syntax.
 
@@ -490,6 +540,8 @@ The following table summarizes sample XPath expressions and their outputs:
 </tbody>
 </table>
 
+See [xpath syntax](https://www.w3schools.com/xml/xpath_syntax.asp) for more examples.
+
 ??? note "How to retrieve the XML node itself instead of text content"
     When the result of an XPath evaluation results in a single XML node, the
     evaluator will return the text content of this node (similar to executing `/root/body/node/text()`). If you want to retrieve
@@ -517,64 +569,3 @@ The following table summarizes sample XPath expressions and their outputs:
         <log level="full"/>
     </inSequence>
     ```
-
-### XPath extension functions
-
-In addition to standard [XPath functions](https://www.w3schools.com/xml/xsl_functions.asp), the Micro Integrator supports the following custom functions for
-working with XPath expressions:
-
-#### base64Encode() function
-
-The `base64Encode()` function returns the base64-encoded value of the
-specified string.
-
-Syntax:
-
--   `           base64Encode(string value)          `
--   `           base64Encode(string value, string charset)          `
-
-Example:
-
-`<property name="ENCODED_VALUE" expression="base64Encode('This is a test value')"/>`
-
-#### base64Decode() function
-
-The `base64Decode()` function returns the original value of the specified
-base64-encoded value.
-
-The syntax of the function takes the following format.
-
--   `           base64Decode(string encodedValue)          `
--   `           base64Decode(string           encodedValue           , string charset)          `
-
-Example:
-
-`<property name="DECODED_VALUE" expression="base64Decode('VGhpcyBpcyBhIHRlc3QgdmFsdWU=')"/>`
-
-#### get-property() function
-
-The `get-property()` function allows you to retrieve various types of properties from the message context, such as transport headers, custom properties, system properties, or Axis2-specific properties. These properties can be used in the message flows, making the mediation process dynamic.
-
-The syntax of the function takes the following format.
-
--   `          get-property(String propertyName)         `
--   `          get-property(String scope, String propertyName)         `
-
-The function accepts [scope]({{base_path}}/reference/synapse-properties/scopes) as an optional parameter. It retrieves a
-message property at the given scope. If you provide only the property name without the scope, the default `synapse` scope will be used.
-
-
-#### url-encode() function
-
-The `url-encode()` function returns the URL-encoded value of the specified
-string.
-
-Syntax:
-
--   `url-encode(string value)`
--   `url-encode(string value, string charset)`
-
-
-Example:
-
-`<property name="ENCODED_URL" expression="url-encode('http://this is a test url')"/>`

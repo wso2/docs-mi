@@ -1,13 +1,8 @@
 # Drop Mediator
 
-The **Drop Mediator** stops the processing of the current message. This mediator is useful for ensuring that the message is sent only once and then dropped by the Micro Integrator. If you have any mediators defined after the `<drop/>` element, they will not be executed, because `<drop/>` is considered to be the end of the message flow.
-
-!!! Info
-    The Drop mediator is a [content-unaware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
+The Drop mediator stops the processing of the current message. This mediator can be used to ensure that the message is sent only once and then dropped by the Micro Integrator. If you have any mediators defined after the `<drop/>` mediator, they will not be executed, because `<drop/>` is considered to be the end of the message flow.
 
 ## Syntax
-
-The drop token refers to a `<drop/>` element, which is used to stop further processing of a message:
 
 ```xml
 <drop/>
@@ -33,7 +28,7 @@ You can use the drop mediator for messages that do not meet the filter criteria 
                         <drop/>
                     </else>
                 </filter>
-    ...
+                ...
     ```
 === "Endpoint"
     ```xml

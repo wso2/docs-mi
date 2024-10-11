@@ -92,7 +92,7 @@ The following configurations allow you to configure DB Event Inbound Endpoint fo
     <td>The registry path of the timestamp. This is used to retrieve records when the value of the filteringCriteria parameter is specified as byLastUpdatedTimestampColumn.</td>
     <td>No</td>
     <td>-</td>
-    <td>Name of the Inbound Endpo</td>
+    <td>Name of the Inbound Endpoint</td>
   </tr>
 </table>
 
