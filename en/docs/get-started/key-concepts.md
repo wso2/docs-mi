@@ -61,7 +61,7 @@ See the [Message Stores and Processors]({{base_path}}/reference/synapse-properti
 
 #### Templates
 
-A Template is a reusable configuration that help streamline and simplify the creation and management of [sequences](#sequences) and [endpoints](#endpoints). Templates allow developers to abstract common logic and reuse it across multiple services, reducing redundancy and ensuring consistency in configurations.
+A Template is a reusable configuration that helps streamline and simplify the creation and management of [sequences](#sequences) and [endpoints](#endpoints). Templates allow developers to abstract common logic and reuse it across multiple services, reducing redundancy and ensuring consistency in configurations.
 
 See the [Templates]({{base_path}}/reference/synapse-properties/template-properties) documentation for more information.
 
