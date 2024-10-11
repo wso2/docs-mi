@@ -82,29 +82,29 @@ The following configurations allow you to configure AmazonSQS Inbound Endpoint f
 </table>
 
     
- **SET_ROLLBACK_ONLY Property**
+**SET_ROLLBACK_ONLY Property**
  
- If a failure occurs, the Amazon SQS message will roll back. In the following property is set to true in the fault handler, in order to roll back the Amazon SQS queue messages when a failure occurs.
+If a failure occurs, the Amazon SQS message will roll back. In the following property is set to true in the fault handler, in order to roll back the Amazon SQS queue messages when a failure occurs.
  
- ```
- <property name="SET_ROLLBACK_ONLY" value="true"/>
- ```
+```
+<property name="SET_ROLLBACK_ONLY" value="true"/>
+```
     
- ??? note "Sample fault sequence"
-        ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="fault" xmlns="http://ws.apache.org/ns/synapse">
-            <property name="SET_ROLLBACK_ONLY" value="true"/>
-            <log level="custom">
-                <property name="Transaction Action" value="Rollbacked"/>
-            </log>
-            <log level="full">
-                <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-                <property expression="get-property('ERROR_CODE')"
-                    name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
-                <property expression="get-property('ERROR_MESSAGE')"
-                    name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
-            </log>
-            <drop/>
-        </sequence>
-        ```
+??? note "Sample fault sequence"
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="fault" xmlns="http://ws.apache.org/ns/synapse">
+        <property name="SET_ROLLBACK_ONLY" value="true"/>
+        <log level="custom">
+            <property name="Transaction Action" value="Rollbacked"/>
+        </log>
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property expression="get-property('ERROR_CODE')"
+                name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
+            <property expression="get-property('ERROR_MESSAGE')"
+                name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
+        </log>
+        <drop/>
+    </sequence>
+    ```

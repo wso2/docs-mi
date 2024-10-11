@@ -180,32 +180,32 @@ Follow the steps given below to run the integration artifacts we developed on a 
         !!! Tip
             The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. It carries out the following steps.
 
-            - Start the back-end services.
+            Start the back-end services.
 
-                - Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
+            - Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
     
-                - To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
+            - To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
     
-                ```bash
-                java -jar DoctorInfo.jar
-                ```
+            ```bash
+            java -jar DoctorInfo.jar
+            ```
    
-            - Deploy the Healthcare service.
+            Deploy the Healthcare service.
 
-                - Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+            - Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
               
 2. Start the Micro Integrator.
 
     1. Execute the relevant command in a terminal based on the OS:
        
-      === "On MacOS/Linux/CentOS"
-      ```bash 
-      sh micro-integrator.sh
-      ```
-      === "On Windows"          
-      ```bash 
-      micro-integrator.bat
-      ```
+        === "On MacOS/Linux/CentOS"
+        ```bash 
+        sh micro-integrator.sh
+        ```
+        === "On Windows"          
+        ```bash 
+        micro-integrator.bat
+        ```
 
 4. (Optional) Start the Dashboard.
 
