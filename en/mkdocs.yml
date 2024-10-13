@@ -700,6 +700,9 @@ nav:
           - Facebook Ads Connector:
               - Facebook Ads Overview: reference/connectors/facebook-ads-connector/facebook-ads-overview.md
               - Facebook Ads Reference: reference/connectors/facebook-ads-connector/facebook-ads-configuration.md
+          - The Trade Desk Connector:
+                - Trade Desk Overview: reference/connectors/the-trade-desk-connector/the-trade-desk-overview.md
+                - Trade Desk Reference: reference/connectors/the-trade-desk-connector/the-trade-desk-configuration.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
