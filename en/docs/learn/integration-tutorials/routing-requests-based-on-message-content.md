@@ -43,8 +43,8 @@ In this tutorial, we have three hospital services hosted as the backend:
 -   Clemency Medical Center: `http://localhost:9090/clemency/`
 -   Pine Valley Community Hospital: `http://localhost:9090/pinevalley/`
 
-The request method is POST and the format of the request URL expected by the back-end services is
-`http://localhost:9090/grandoaks/categories/{category}/reserve`.
+The request method is POST and the format of the request URL expected by the back-end services is as below.
+`http://localhost:9090/grandoaks/categories/{category}/reserve`
 
 Let's create three different HTTP endpoints for the above services.
 
@@ -328,7 +328,7 @@ You can now start configuring the API resource.
                             </br>Next, click on the `EX` icon, because the required properties for the log message must be extracted from the request, which we can do using an XPath expression.)
                         </li>
                     </ul>
-                    <b>Note</b>: This XPath expression value gets the value stored in the Property mediator and concatenates the two strings to display the log message: `Routing to <hospital name>`.
+                    <b>Note</b>: This XPath expression value gets the value stored in the Property mediator and concatenates the two strings to display the log message: `Routing to <hospital name>`
                 </li>
                 <li>
                     Click <b>Save</b>.
@@ -429,7 +429,7 @@ Let's send a request to the API resource to make a reservation. You can use Post
               <ul>
                 <li>
                   The URI-Template format that is used in this URL was defined when creating the API resource:
-          <code>http://host:port/categories/{category}/reserve</code>.
+          <code>http://host:port/categories/{category}/reserve</code>
                 </li>
               </ul>
             </td>
