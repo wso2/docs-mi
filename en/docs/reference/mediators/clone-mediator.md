@@ -2,6 +2,9 @@
 
 The **Clone Mediator** can be used to clone a message into several messages. It resembles the [Scatter-Gather enterprise integration pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/scatter-gather/). The Clone mediator is similar to the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator). The difference between the two mediators is that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
+!!! Info
+    To get the asynchronous behavior you have to have the sequence to inject the message context to that sequence asynchronously. You can not achieve that by adding the endpoint itself to the target without adding the sequence.
+
 ## Syntax
 
 ``` java
