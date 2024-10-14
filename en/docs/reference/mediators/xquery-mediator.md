@@ -2,9 +2,6 @@
 
 The **XQuery Mediator** performs an XQuery transformation on messages.
 
-!!! Info
-    The XQuery mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ``` java

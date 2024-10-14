@@ -5,9 +5,6 @@ combines (aggregates) the **response messages** of messages that were split by 
 [Iterate]({{base_path}}/reference/mediators/iterate-mediator) mediator. Note that the responses are not necessarily aggregated in the same order that the requests were sent,
 even if you set the `sequential` attribute to `true` on the Iterate mediator.
 
-!!! Info
-    The Aggregate mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ```xml

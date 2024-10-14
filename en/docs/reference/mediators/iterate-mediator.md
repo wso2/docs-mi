@@ -7,7 +7,6 @@ the parent message. The Iterate mediator is similar to the [Clone mediator]({{ba
 is, that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
-    -   The Iterate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
     -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main differences between ForEach and Iterate mediators:
         -   Use the ForEach mediator only for message transformations. If you
         need to make back-end calls from each iteration, then use the

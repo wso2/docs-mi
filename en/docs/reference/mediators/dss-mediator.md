@@ -4,7 +4,6 @@ The **Data Service Call Mediator** is used to invoke data service operations. It
 
 !!! Info
     - You need to first have a [Data Service Project]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) to use the Data Service Call mediator.
-    - The Data Service Call mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators)  mediator.
 
 ## Syntax
 

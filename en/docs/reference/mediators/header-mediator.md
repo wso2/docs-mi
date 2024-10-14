@@ -2,9 +2,6 @@
 
 The **Header Mediator** allows you to manipulate SOAP and HTTP headers.
 
-!!! Info
-    The Header mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ```xml
