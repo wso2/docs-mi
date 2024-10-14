@@ -205,7 +205,7 @@ This section is used to specify the mediation sequence that should be applied wh
 
 ### Example for a concurrency-based policy
 
-This sample policy only contains a component called `MaximumConcurrentAccess` . This indicates the maximum number of concurrent requests that can pass through Synapse on a single unit of time, and this value applies to all the IP addresses and domains.
+This sample policy only contains a component called `MaximumConcurrentAccess`. This indicates the maximum number of concurrent requests that can pass through Synapse in a single unit of time, and this value applies to all the IP addresses and domains.
 
 === "REST API"
     ```xml
