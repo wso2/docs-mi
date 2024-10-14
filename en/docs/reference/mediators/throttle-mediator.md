@@ -2,7 +2,7 @@
 
 The Throttle mediator can be used to restrict access to services.
 This is useful for enterprise-level services to avoid heavy loads that can cause performance issues in the system. 
-It can also be used when you want to restrict certain user groups (i.e. IP addresses and domains) to access your system. 
+It can also be used when you want to restrict certain user groups (i.e., IP addresses and domains) from accessing your system. 
 The Throttle mediator defines a throttle group which includes the following.
 
 -   A throttle policy defines the extent to which, individuals and groups of IP addresses or domains should be allowed to access the
