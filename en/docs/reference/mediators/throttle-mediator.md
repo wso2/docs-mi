@@ -5,7 +5,7 @@ This is useful for enterprise-level services to avoid heavy loads that can cause
 It can also be used when you want to restrict certain user groups (i.e., IP addresses and domains) from accessing your system. 
 The Throttle mediator defines a throttle group which includes the following.
 
--   A throttle policy defines the extent to which, individuals and groups of IP addresses or domains should be allowed to access the
+-   A throttle policy defines the extent to which individuals and groups of IP addresses or domains should be allowed to access the
     service.
 -   A mediation sequence to handle requests accepted based on the throttle policy.
 -   A mediation sequence to handle requests rejected based on the throttle policy.
