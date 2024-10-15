@@ -1,4 +1,4 @@
-# Working with Transactions
+# How to work with transactions
 
 !!! Warning
     **Please note that the contents on this page are under review!**

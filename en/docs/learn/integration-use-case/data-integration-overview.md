@@ -10,7 +10,7 @@ The data services functionality that is embedded in the Micro Integrator can dec
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="{{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
+					Try the end-to-end use case on <a href="{{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource">How to expose a Datasource as a Service</a>
 				</li>
 			</ul>
 		</td>
@@ -18,28 +18,28 @@ The data services functionality that is embedded in the Micro Integrator can dec
 			<b>Examples</b></br>
 			<ul>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/rdbms-data-service">Exposing an RDBMS Datasource</a>
+					<a href="{{base_path}}/learn/examples/data-integration/rdbms-data-service">How to expose an RDBMS datasource</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/json-with-data-service">Exposing Data in JSON Format</a>
+					<a href="{{base_path}}/learn/examples/data-integration/json-with-data-service">Expose Data in JSON Format</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/odata-service">Using and OData Service</a>
+					<a href="{{base_path}}/learn/examples/data-integration/odata-service">Use and OData Service</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/nested-queries-in-data-service">Using Nested Data Queries</a>
+					<a href="{{base_path}}/learn/examples/data-integration/nested-queries-in-data-service">Use Nested Data Queries</a>
 				</li>
 				<li>
 					<a href="{{base_path}}/learn/examples/data-integration/batch-requesting">Batch Requesting</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/request-box">Invoking Multiple Operations via Request Box</a>
+					<a href="{{base_path}}/learn/examples/data-integration/request-box">Invoke Multiple Operations via Request Box</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/distributed-trans-data-service">Using Distributed Transactions in Data Services</a>
+					<a href="{{base_path}}/learn/examples/data-integration/distributed-trans-data-service">Use Distributed Transactions in Data Services</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/data-integration/data-input-validator">Validating Data Input</a>
+					<a href="{{base_path}}/learn/examples/data-integration/data-input-validator">Validate Data Input</a>
 				</li>
 			</ul>
 		</td>

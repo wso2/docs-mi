@@ -1,4 +1,4 @@
-# Requeue a message preserving the message order with a delay in case of error
+# How to requeue a message preserving the order
 
 This sample demonstrates how WSO2 Micro Integrator can ensure guaranteed delivery of messages by requeueing messages when an error occurs during delivery. That is, the Micro Integrator can be configured to requeue messages to a RabbitMQ queue when the delivery fails. 
 

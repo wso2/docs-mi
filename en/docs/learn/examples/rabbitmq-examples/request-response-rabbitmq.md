@@ -1,4 +1,4 @@
-# Synchronous messaging with request-reply pattern
+# How to do Dual Channel scenario with RabbitMQ
 
 This sample demonstrates how you can implement the <b>request-reply</b> messaging scenario (dual-channel scenario) using the RabbitMQ broker and WSO2 Micro Integrator. 
 

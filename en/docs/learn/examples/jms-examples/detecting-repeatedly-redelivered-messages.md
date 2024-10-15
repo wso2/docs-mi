@@ -1,4 +1,4 @@
-# Detect Repeatedly Redelivered Messages
+# How to detect Repeatedly Redelivered Messages
 
 In JMS 2.0, it is mandatory for JMS providers to set the `JMSXDeliveryCount` property, which allows an application that receives a message to determine how many times the message is redelivered.
 

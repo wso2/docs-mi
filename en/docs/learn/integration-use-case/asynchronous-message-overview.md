@@ -20,60 +20,55 @@ Disadvantages of asynchronous messaging includes the additional component of a m
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="{{base_path}}/learn/integration-tutorials/storing-and-forwarding-messages">asynchronous messaging</a>.
+					<a href="{{base_path}}/learn/examples/jms-examples/consuming-jms">How to consume JMS Messages</a>.
 				</li>
-			</ul>
-		</td>
-		<td>
-			<b>RabbitMQ Examples</b>
-            <ul>
-                <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/point-to-point-rabbitmq">Point to Point</a></li>
-                <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/pub-sub-rabbitmq">Publish/Subscribe</a></li>
-                <li>Guaranteed Delivery 
-                    <ul>
-                        <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/store-forward-rabbitmq">Message Store and Message Processor</a></li>
-                        <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq">Retry failed messages with a delay</a></li>
-                        <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq">Requeue a message preserving the order</a></li>
-                        <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">Publish messages to DLX</a></li>
-                    </ul>
-                </li>
                 <li>
-                	<a href="{{base_path}}/learn/examples/rabbitmq-examples/request-response-rabbitmq">Dual Channel</a>
-                </li>
-            </ul>
-		</td>
-		<td>
-			<b>JMS Examples</b>
-			<ul>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/consuming-jms">Consuming JMS Messages</a>
+					<a href="{{base_path}}/learn/examples/jms-examples/producing-jms">How to produce JMS Messages</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/producing-jms">Producing JMS Messages</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/consume-produce-jms">How to consume and produce JMS Messages</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/consume-produce-jms">Consumining and Producing JMS Messages</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/publish-subscribe-with-jms">How to publish and subscribe with JMS</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/dual-channel-http-to-jms">Dual Channel HTTP to JMS</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/rabbitmq-examples/pub-sub-rabbitmq">How to publish and subscribe with RabbitMQ</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/quad-channel-jms-to-jms">Quad Channel JMS to JMS</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/rabbitmq-examples/point-to-point-rabbitmq">How to do Point to Point messaging using RabbitMQ</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/guaranteed-delivery-with-failover">Guaranteed Delivery with Failover</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/dual-channel-http-to-jms">How to do JMS Synchronous Invocations - Dual Channel HTTP-to-JMS</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/publish-subscribe-with-jms">Publish and Subscribe with JMS</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/quad-channel-jms-to-jms">How to do JMS Synchronous Invocations - Quad Channel JMS-to-JMS</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/shared-topic-subscription">Shared Topic Subscriptions</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/rabbitmq-examples/request-response-rabbitmq">How to do Dual Channel scenario with RabbitMQ</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/detecting-repeatedly-redelivered-messages">Detecting Repeatedly Redilivered Messages</a>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/guaranteed-delivery-with-failover">How to do a guaranteed delivery with failover</a>.
 				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/jms-examples/specifying-a-delivery-delay-on-messages">Delivery Delay on Messages</a>
+                <li>
+					<a href="{{base_path}}/learn/integration-tutorials/storing-and-forwarding-messages">How to store and forward messages for guaranteed delivery</a>.
+				</li>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/shared-topic-subscription">How to share Topic Subscription</a>.
+				</li>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/detecting-repeatedly-redelivered-messages">How to detect Repeatedly Redelivered Messages</a>.
+				</li>
+                <li>
+					<a href="{{base_path}}/learn/examples/jms-examples/specifying-a-delivery-delay-on-messages">How to specify Delivery Delay on Messages</a>.
+				</li>
+                <li>
+					<a href="{{base_path}}/learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq">How to retry failed messages with a delay</a>.
+				</li>
+                <li>
+					<a href="{{base_path}}/learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq">How to requeue a message preserving the order</a>.
+				</li>
+                <li>
+					<a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">How to publish unacked messages to Dead Letter Exchange</a>.
 				</li>
 			</ul>
 		</td>

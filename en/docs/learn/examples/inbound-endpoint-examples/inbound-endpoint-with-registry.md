@@ -1,6 +1,7 @@
-# Using Inbound Endpoints with the Registry
+# How to use an Inbound Endpoints with Registry
+
 Other than specifying parameter values inline, you can also
-specify parameter values as registry entries. The advantage of
+specify parameter values as registry entries. The advantage of
 specifying a parameter value as a registry entry is that the same
 inbound endpoint configuration can be used in different environments
 simply by changing the registry entry value.

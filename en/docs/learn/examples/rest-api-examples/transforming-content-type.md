@@ -1,4 +1,4 @@
-# Transforming Content Types
+# How to transform content types
 This section describes how you can transform the content type of a message using an API. In this scenario, the API exposes a REST back-end service that accepts and returns XML and JSON messages for HTTP methods as follows:
     
 -  GET - Response is in JSON format.

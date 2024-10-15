@@ -1,4 +1,4 @@
-# Switch from FIX to JMS
+# How to switch from FIX to JMS
 
 This example demonstrates how WSO2 Micro Integrator receives messages through FIX and forwards them through JMS.
 

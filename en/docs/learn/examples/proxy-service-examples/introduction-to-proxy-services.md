@@ -1,4 +1,5 @@
-# Using a Simple Proxy Service
+# How to use a simple Proxy Service
+
 This example demonstrates how to use a simple proxy service to expose a back-end service. In this example, a request received by the proxy service is forwarded to the sample service hosted in the backend.
 
 ## Synapse configuration

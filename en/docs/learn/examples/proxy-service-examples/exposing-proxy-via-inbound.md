@@ -1,4 +1,5 @@
-# Exposing a Proxy Service via Inbound Endpoint
+# How to expose a proxy service via inbound endpoints
+
 If a proxy service is to be exposed only via inbound endpoints, the `inbound.only` service parameter has to be set in the proxy configuration.
 
 ## Synapse configuration

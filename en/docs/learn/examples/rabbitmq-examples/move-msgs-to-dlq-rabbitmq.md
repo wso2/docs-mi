@@ -1,4 +1,4 @@
-# Publish unacked messages to Dead Letter Exchange
+# How to publish unacked messages to Dead Letter Exchange
 
 This sample demonstrates how WSO2 Micro Integrator can ensure guaranteed delivery of messages by using the <b>Dead Letter Exchange (DLX)</b> of RabbitMQ.
 

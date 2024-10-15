@@ -1,4 +1,4 @@
-# Using the TCP Transport
+# How to use the TCP Transport
 
 **Sending multiple messages via the same TCP channel**
 

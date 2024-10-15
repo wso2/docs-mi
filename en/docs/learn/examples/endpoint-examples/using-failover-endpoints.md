@@ -1,4 +1,4 @@
-# Using Failover Endpoints
+# How to use a Failover Endpoint
 ## Example 1: Failover with one address endpoint
 
 When message failure is not tolerable even though there is only one

@@ -1,4 +1,4 @@
-# Invoking Multiple Operations via Request Box
+# How to invoke Multiple Operations as a Request Box
 
 This example demonstrates how a data service can invoke request
 box operations. The **request box** feature allows you to invoke

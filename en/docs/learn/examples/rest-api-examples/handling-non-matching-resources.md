@@ -1,4 +1,4 @@
-# Handling Non-Matching Resources
+# How to handle non-matching resources
     
 This example demonstrates how you can define a sequence to be invoked if the Micro Integrator is unable to find a matching resource definition for a specific API invocation. This sequence generates a response indicating an error when no matching resource definition is found.
     

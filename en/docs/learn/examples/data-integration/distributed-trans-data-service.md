@@ -1,4 +1,4 @@
-# Using Distributed Transactions in Data Services
+# How to use Distributed Transactions in Data Services
 
 !!! Warning
     **The contents on this page are currently under review!**

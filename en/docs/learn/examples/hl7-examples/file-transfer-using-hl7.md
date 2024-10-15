@@ -1,9 +1,9 @@
-# Using HL7 Messages with File Systems
+# How to use HL7 Messages with file systems
 
 The Micro Integrator allows messages to be transferred between HL7 and the file system using the HL7 
 and VFS transports.
 
-## Transferring HL7 messages between file systems
+## Transfer HL7 messages between file systems
 
 Let's look at how a proxy service reads HL7 messages stored in a file system and transfers them to another file system.
 
@@ -61,7 +61,7 @@ To test this scenario:
 	
 2.	See that the files are immediately moved to the folder specified by the endpoint.
 
-## Transferring messages from HL7 to file system
+## Transfer messages from HL7 to file system
 
 Now, let's look at how we can receive an HL7 message and transfer it to a file system. 
 
@@ -114,7 +114,7 @@ To test this scenario:
 1.	Use an HL7 client (such as <b>HAPI</b>) to send a message to the port specified by the `transport.hl7.Port` parameter. 
 2.	See that the message is successfully saved to the file system specified as the endpoint.
 
-## Transferring messages from HL7 to FTP
+## Transfer messages from HL7 to FTP
 
 The following configuration is similar to the previous example, but it illustrates how to process files between an HL7 endpoint and files accessed through FTP.
 

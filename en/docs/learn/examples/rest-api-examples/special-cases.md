@@ -1,3 +1,5 @@
+# How to handle special cases
+
 ## GET request with a Message Body
 Normally, a GET request does not contain a body, and the Micro Integrator will not consume the payload even if there is one. The payload will not go through the mediation or to the backend.
 

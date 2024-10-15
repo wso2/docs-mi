@@ -1,4 +1,4 @@
-# Guaranteed Delivery with Failover
+# How to do a guaranteed delivery with failover
 
 WSO2 Micro Integrator ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can set up guaranteed message delivery with failover configurations.
 

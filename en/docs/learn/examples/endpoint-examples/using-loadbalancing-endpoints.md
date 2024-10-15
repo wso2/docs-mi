@@ -1,4 +1,4 @@
-# Using the Load Balance Endpoint
+# How to use a Load Balance Endpoint
 
 **Session Affinity Load Balancing between Three Endpoints**
 

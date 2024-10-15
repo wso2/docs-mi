@@ -1,4 +1,4 @@
-# Service Orchestration
+# How to expose several services as a single service
 
 ## What you'll build
 
@@ -10,11 +10,11 @@ You will also use the **PayloadFactory** mediator to take the response from one 
 
 ### Concepts and artifacts used
 
--   REST API
--   HTTP Endpoint
--   Property Mediator
--   Call Mediator
--   PayloadFactory Mediator
+-   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
+-   [HTTP Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties)
+-   [Property Mediator]({{base_path}}/reference/mediators/property-mediator)
+-   [Call Mediator]({{base_path}}/reference/mediators/call-mediator)
+-   [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
 
 ## Let's get started!
 

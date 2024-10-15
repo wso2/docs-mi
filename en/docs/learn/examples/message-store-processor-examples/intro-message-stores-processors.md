@@ -1,4 +1,5 @@
-# Introduction to Message Stores
+# Introduction to Message Stores and Processors
+
 This sample demonstrates the basic functionality of a [message store]({{base_path}}/reference/synapse-properties/about-message-stores-processors).
 
 ## Synapse configuration

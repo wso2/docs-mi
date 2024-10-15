@@ -1,4 +1,4 @@
-# Securing REST APIs
+# How to secure a REST API
 In most of the real-world use cases of REST, when a consumer attempts to access a privileged resource, access will be denied unless the consumer's credentials are provided in an Authorization header. By default, the Micro Integrator validates the credentials of the consumer (that is provided in the Authorization header) against the credentials of users that are registered in the [user store connected to the server]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/). 
 
 !!! Info

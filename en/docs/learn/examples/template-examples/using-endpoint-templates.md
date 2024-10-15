@@ -1,4 +1,4 @@
-# Using Endpoint Templates
+# How to use an Endpoint Template
 
 For example, let's say we have two address endpoints with the following hypothetical configurations:
 

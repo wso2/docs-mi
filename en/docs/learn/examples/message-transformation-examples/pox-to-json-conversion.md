@@ -1,4 +1,4 @@
-# Converting POX Messages to JSON 
+# How to translate POX Messages to JSON
 
 The following examples explain different methods of converting POX messages to JSON using the Micro Integrator.
 

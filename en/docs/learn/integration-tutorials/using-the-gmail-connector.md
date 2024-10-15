@@ -1,4 +1,4 @@
-# Connecting Web APIs/Cloud Services
+# How to send an email from an Integration Service
 
 ## What you'll build
 

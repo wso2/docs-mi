@@ -1,4 +1,4 @@
-# A queue used to deliver a message to a consumer
+# How to do Point to Point messaging using RabbitMQ
 
 This example demonstrates how WSO2 Micro Integrator can be used to implement an asynchronous point-to-point messaging scenario using queues in a RabbitMQ broker instance.
 

@@ -1,4 +1,4 @@
-# Data Integration
+# How to expose a Datasource as a Service
 
 ## What you'll build
 

@@ -1,4 +1,4 @@
-# Exposing Non-HTTP Services as RESTful APIs
+# How to expose a non-HTTP services as a RESTful API
 This example demonstrates how the WSO2 Micro Integrator forwards messages to non-HTTP endpoints.
 
 ## Synapse configuration

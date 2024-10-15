@@ -1,4 +1,4 @@
-# Using Nested Data Queries
+# How to use Nested Data Queries
 
 Nested queries help you to use the result of one query as an input
 parameter of another, and the queries executed in a nested query works

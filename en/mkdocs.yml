@@ -83,15 +83,14 @@ nav:
             - What is Message Routing: learn/integration-use-case/message-routing-overview.md
             - How to route requests based on message content: learn/integration-tutorials/routing-requests-based-on-message-content.md
             - How to route requests based on message headers: learn/examples/routing-examples/routing-based-on-headers.md
-            - How to route requests based on message payload: learn/examples/routing-examples/routing-based-on-payloads.md
       - Message Transformation:
             - What is Message Transformation: learn/integration-use-case/message-transformation-overview.md
-            - How to translate message format using DataMapper: learn/integration-tutorials/transforming-message-content.md
-            - How to translate message format using PayloadFactory mediator: learn/examples/message-transformation-examples/json-to-soap-conversion.md
-            - How to translate message format using messageType property: learn/examples/message-transformation-examples/pox-to-json-conversion.md
+            - How to transform message content: learn/integration-tutorials/transforming-message-content.md
+            - How to transform JSON message to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
+            - How to transform POX Messages to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
       - Service Orchestration:
             - What is Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
-            - How to do expose several services as a single service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
+            - How to expose several services as a single service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
       - Asynchronous Message Processing:
             - What is Asynchronous Message Processing: learn/integration-use-case/asynchronous-message-overview.md
             - How to consume JMS Messages: learn/examples/jms-examples/consuming-jms.md
@@ -103,14 +102,14 @@ nav:
             - How to do JMS Synchronous Invocations - Dual Channel HTTP-to-JMS: learn/examples/jms-examples/dual-channel-http-to-jms.md
             - How to do JMS Synchronous Invocations - Quad Channel JMS-to-JMS: learn/examples/jms-examples/quad-channel-jms-to-jms.md
             - How to do Dual Channel scenario with RabbitMQ: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
-            - How to do guaranteed delivery with failover: learn/examples/jms-examples/guaranteed-delivery-with-failover.md
+            - How to do a guaranteed delivery with failover: learn/examples/jms-examples/guaranteed-delivery-with-failover.md
             - How to store and forward messages for guaranteed delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
             - How to share Topic Subscription: learn/examples/jms-examples/shared-topic-subscription.md
             - How to detect Repeatedly Redelivered Messages: learn/examples/jms-examples/detecting-repeatedly-redelivered-messages.md
             - How to specify Delivery Delay on messages: learn/examples/jms-examples/specifying-a-delivery-delay-on-messages.md
             - How to retry failed messages with a delay: learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq.md
             - How to requeue a message preserving the order: learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq.md
-            - How to publish messages to DLX: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
+            - How to publish unacked messages to Dead Letter Exchange: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
       - Protocol Switching:
             - What is Protocol Switching: learn/integration-use-case/protocol-switching-overview.md
             - How to switch from JMS to HTTP/S: learn/examples/protocol-switching/switching-from-jms-to-http.md
@@ -125,34 +124,32 @@ nav:
             - How to switch from HTTP to MSMQ: learn/examples/protocol-switching/switching-between-http-and-msmq.md
       - SaaS and B2B Connectivity:
             - What is SaaS and B2B Connectivity: learn/integration-use-case/connectors.md
-            - How to send emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+            - How to send an email from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
       - Data Integration:
             - What is Data Integration: learn/integration-use-case/data-integration-overview.md
-            - How to expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+            - How to expose a Datasource as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
             - How to expose an RDBMS datasource: learn/examples/data-integration/rdbms-data-service.md
-            - How to expose Other Datasources:
+            - How to expose other Datasources:
                   - CSV datasource: learn/examples/data-integration/csv-data-service.md
                   - Mongo datasource: learn/examples/data-integration/mongo-data-service.md
                   - Carbon datasource: learn/examples/data-integration/carbon-data-service.md
-                  - Expose Data in JSON Format: learn/examples/data-integration/json-with-data-service.md
-                  - Use an OData Service: learn/examples/data-integration/odata-service.md
-                  - Use Nested Data Queries: learn/examples/data-integration/nested-queries-in-data-service.md
-                  - Batch Requesting: learn/examples/data-integration/batch-requesting.md
-                  - Invoke Multiple Operations as a Request Box: learn/examples/data-integration/request-box.md
-                  - Use Distributed Transactions in Data Services: learn/examples/data-integration/distributed-trans-data-service.md
-                  - Validate Data Input: learn/examples/data-integration/data-input-validator.md
-                  - Swagger Documents of RESTful Data Services: learn/examples/data-integration/swagger-data-services.md
+            - How to expose data in JSON Format: learn/examples/data-integration/json-with-data-service.md
+            - How to expose data as an OData Service: learn/examples/data-integration/odata-service.md
+            - How to use Nested Data Queries: learn/examples/data-integration/nested-queries-in-data-service.md
+            - How to do Batch Requesting: learn/examples/data-integration/batch-requesting.md
+            - How to invoke Multiple Operations as a Request Box: learn/examples/data-integration/request-box.md
+            - How to use Distributed Transactions in Data Services: learn/examples/data-integration/distributed-trans-data-service.md
+            - How to validate Data Input: learn/examples/data-integration/data-input-validator.md
+            - How to use Swagger Documents of RESTful Data Services: learn/examples/data-integration/swagger-data-services.md
       - File Processing:
             - What is File Processing: learn/integration-use-case/file-processing-overview.md
             - How to do file processing: learn/integration-tutorials/file-processing.md
-            - How to use VFS for File Transferring: learn/examples/file-processing/vfs-transport-examples.md
-            - How to access a Windows Share Using VFS: learn/examples/file-processing/accessing-windows-share-using-vfs-transport.md
-            - How to send and receive Emails: learn/examples/file-processing/mailto-transport-examples.md
+            - How to access a Windows Share using VFS transport: learn/examples/file-processing/accessing-windows-share-using-vfs-transport.md
       - REST APIs:
             - How to use a simple REST API: learn/examples/rest-api-examples/introduction-rest-api.md
             - How to set query parameters on outgoing messages: learn/examples/rest-api-examples/setting-query-params-outgoing-messages.md
             - How to expose a SOAP Endpoint as a RESTful API: learn/examples/rest-api-examples/enabling-rest-to-soap.md
-            - How to expose non-HTTP services as RESTful APIs: learn/examples/rest-api-examples/configuring-non-http-endpoints.md
+            - How to expose a non-HTTP services as a RESTful API: learn/examples/rest-api-examples/configuring-non-http-endpoints.md
             - How to handle non-matching resources: learn/examples/rest-api-examples/handling-non-matching-resources.md
             - How to handle HTTP status codes: learn/examples/rest-api-examples/setting-https-status-codes.md
             - How to transform content types: learn/examples/rest-api-examples/transforming-content-type.md
@@ -165,48 +162,48 @@ nav:
             - How to expose a proxy service via inbound endpoints: learn/examples/proxy-service-examples/exposing-proxy-via-inbound.md
             - How to secure a proxy service: learn/examples/proxy-service-examples/securing-proxy-services.md
       - Inbound Endpoints:
-            - JMS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol.md
-            - File Inbound Endpoint: learn/examples/inbound-endpoint-examples/file-inbound-endpoint.md
-            - HTTP Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol.md
-            - HTTPS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol.md
-            - HL7 Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack.md
-            - MQTT Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol.md
-            - RabbitMQ Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol.md
-            - Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
-            - Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
-            - Use Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
+            - How to use an Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
+            - How to use a JMS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol.md
+            - How to use a File Inbound Endpoint: learn/examples/inbound-endpoint-examples/file-inbound-endpoint.md
+            - How to use an HTTP Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol.md
+            - How to use an HTTPS Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol.md
+            - How to use an HL7 Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack.md
+            - How to use an MQTT Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol.md
+            - How to use a RabbitMQ Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol.md
+            - How to use a Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
+            - How to use a Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
+            - How to use an Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
       - Local Registry Entries: learn/examples/registry-examples/local-registry-entries.md
       - Templates:
             - How to use a Sequence Template: learn/examples/template-examples/using-sequence-templates.md
             - How to use an Endpoint Template: learn/examples/template-examples/using-endpoint-templates.md
       - Message Stores & Processors:
             - Introduction to Message Stores and Processors: learn/examples/message-store-processor-examples/intro-message-stores-processors.md
-            - JDBC Message Store: learn/examples/message-store-processor-examples/using-jdbc-message-store.md
-            - JMS Message Store: learn/examples/message-store-processor-examples/using-jms-message-stores.md
-            - RabbitMQ Message Store: learn/examples/message-store-processor-examples/using-rabbitmq-message-stores.md
-            - Message Sampling Processor: learn/examples/message-store-processor-examples/using-message-sampling-processor.md
-            - Message Forwarding Processor: learn/examples/message-store-processor-examples/using-message-forwarding-processor.md
+            - How to use a JDBC Message Store: learn/examples/message-store-processor-examples/using-jdbc-message-store.md
+            - How to use a JMS Message Store: learn/examples/message-store-processor-examples/using-jms-message-stores.md
+            - How to use a RabbitMQ Message Store: learn/examples/message-store-processor-examples/using-rabbitmq-message-stores.md
+            - How to use a Message Sampling Processor: learn/examples/message-store-processor-examples/using-message-sampling-processor.md
+            - How to use a Message Forwarding Processor: learn/examples/message-store-processor-examples/using-message-forwarding-processor.md
             - How to secure the Message Forwarding Processor: learn/examples/message-store-processor-examples/securing-message-processor.md
             - How to do load balancing with Message Forwarding Processor: learn/examples/message-store-processor-examples/loadbalancing-with-message-processor.md
       - Endpoints:
-            - HTTP Endpoint: learn/examples/endpoint-examples/using-http-endpoints.md
-            - Address Endpoint: learn/examples/endpoint-examples/using-address-endpoints.md
-            - Failover Endpoints: learn/examples/endpoint-examples/using-failover-endpoints.md
-            - WebSocket Endpoint: learn/examples/endpoint-examples/using-websocket-endpoints.md
-            - WSDL Endpoint: learn/examples/endpoint-examples/using-wsdl-endpoints.md
-            - Load Balance Endpoint: learn/examples/endpoint-examples/using-loadbalancing-endpoints.md
+            - How to use an HTTP Endpoint: learn/examples/endpoint-examples/using-http-endpoints.md
+            - How to use an Address Endpoint: learn/examples/endpoint-examples/using-address-endpoints.md
+            - How to use a Failover Endpoint: learn/examples/endpoint-examples/using-failover-endpoints.md
+            - How to use a WebSocket Endpoint: learn/examples/endpoint-examples/using-websocket-endpoints.md
+            - How to use a WSDL Endpoint: learn/examples/endpoint-examples/using-wsdl-endpoints.md
+            - How to use a Load Balance Endpoint: learn/examples/endpoint-examples/using-loadbalancing-endpoints.md
             - Recipient List of Endpoints:
-                - Static List of Recepients: learn/examples/endpoint-examples/using-static-recepient-list-endpoints.md
-                - Dynamic List of Recepients: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-1.md
-                - Dynamic List of Recepients with Aggregated Responses: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-2.md
+                - How to route messages to a Static List of Recipients: learn/examples/endpoint-examples/using-static-recepient-list-endpoints.md
+                - How to route messages to a Dynamic List of Recipients: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-1.md
+                - How to route messages to a Dynamic List of Recipients and aggregate responses: learn/examples/endpoint-examples/using-dynamic-recepient-list-endpoints-2.md
             - How to reuse endpoints: learn/examples/endpoint-examples/reusing-endpoints.md
             - How to do endpoint error handling: learn/examples/endpoint-examples/endpoint-error-handling.md
-            - MTOM and SwA Optimizations: learn/examples/endpoint-examples/mtom-swa-with-endpoints.md
+            - How to do MTOM and SwA Optimizations: learn/examples/endpoint-examples/mtom-swa-with-endpoints.md
       - Sequences:
             - How to break complex flows into multiple sequences: learn/examples/sequence-examples/using-multiple-sequences.md
             - How to use fault sequences: learn/examples/sequence-examples/using-fault-sequences.md
             - How to reuse mediation sequences: learn/integration-tutorials/using-templates.md
-      - Use Inbound Endpoints: learn/integration-tutorials/using-inbound-endpoints.md
       - Periodic Execution of Integration Processes:
             - What is Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
             - How to periodically execute integration processes: learn/integration-tutorials/using-scheduled-tasks.md
@@ -216,13 +213,14 @@ nav:
             - How to use the TCP Transport: learn/examples/transport-examples/tcp-transport-examples.md
             - How to use the FIX Transport: learn/examples/transport-examples/fix-transport-examples.md
             - How to use the MQTT Transport: learn/examples/transport-examples/pub-sub-using-mqtt.md
-            - HL7 Examples:
+            - How to use the MailTo Transport: learn/examples/file-processing/mailto-transport-examples.md
+            - HL7:
                 - How to mediate HL7 messages: learn/examples/hl7-examples/hl7-proxy-service.md
                 - How to acknowledge HL7 messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to use HL7 Messages with file systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
       - How to expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
       - How to work with transactions: learn/examples/working-with-transactions.md
-      - JSON Examples: learn/examples/json-examples/json-examples.md
+      - How to work with JSON Message Payloads: learn/examples/json-examples/json-examples.md
       - How to split messages and aggregate responses: learn/examples/routing-examples/splitting-aggregating-messages.md
       - How to integrate MI with SI: learn/examples/integrating-mi-with-si.md
       - Samples:
@@ -1009,6 +1007,8 @@ plugins:
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
               'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
+              'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/file-processing/'
+              'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/storing-and-forwarding-messages/'
 
   # Extra
 extra_css:
@@ -1048,6 +1048,6 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.3.0
-  #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.3.0
+  base_path: http://localhost:8000/en/latest
+  #base_path: https://mi.docs.wso2.com/en/4.3.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

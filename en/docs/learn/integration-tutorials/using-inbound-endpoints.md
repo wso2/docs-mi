@@ -1,4 +1,4 @@
-# Use Inbound Endpoints
+# How to use an Inbound Endpoints
 
 ## What you'll build
 

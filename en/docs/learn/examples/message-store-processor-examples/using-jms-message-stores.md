@@ -1,4 +1,5 @@
-# Using the JMS Message Store
+# How to use a JMS Message Store
+
 See the examples given below.
 
 ## Example 1: Store and forward JMS messages
