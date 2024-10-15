@@ -92,7 +92,7 @@ In order to export the project, refer to the [build and export the carbon applic
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SalesforceRest`. Click on `Salesforce Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  <MI_HOME>/lib folder. 
+1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `Salesforce`. Click on `Salesforce (Inbound)` and download the JAR file from the releases list. Copy this JAR file into  the `<MI_HOME>/lib` folder. 
 
 2. Copy the exported carbon application to the `<MI_HOME>/repository/deployment/server/carbonapps` folder. 
 
