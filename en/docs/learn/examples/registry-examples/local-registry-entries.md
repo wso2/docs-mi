@@ -1,5 +1,5 @@
-# Sequences and Endpoints as Local Registry Entries
-This sample demonstrates how sequences and endpoints can be fetched from a local registry.
+# How to use Sequences and Endpoints as Local Entries
+This sample demonstrates how sequences and endpoints can be fetched from a local entry.
 
 ## Synapse configurations
 

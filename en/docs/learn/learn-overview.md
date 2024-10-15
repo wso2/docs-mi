@@ -285,7 +285,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                         <li><a href="{{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint">How to inject messages to a RESTful endpoint</a></li>
                     </ul>
                 </li>
-                <li><a href="{{base_path}}/learn/examples/registry-examples/local-registry-entries">Local Registry Entries</a></li>
+                <li><a href="{{base_path}}/learn/examples/registry-examples/local-registry-entries">How to use Sequences and Endpoints as Local Entries</a></li>
                 <li>Templates 
                     <ul>
                         <li><a href="{{base_path}}/learn/examples/template-examples/using-sequence-templates">How to use a Sequence Template</a></li>

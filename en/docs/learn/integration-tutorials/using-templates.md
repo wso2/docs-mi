@@ -1,4 +1,4 @@
-# Reusing Mediation Sequences
+# How to reuse mediation sequences
 
 ## What you'll build
 

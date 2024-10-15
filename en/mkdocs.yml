@@ -74,7 +74,6 @@ nav:
       - Introduction: get-started/introduction.md
       - Key Concepts: get-started/key-concepts.md
       - Quick Start Guide: get-started/quick-start-guide.md
-      - Develop Your First Integration: get-started/development-kickstart.md
       - About this Release: get-started/about-this-release.md
   - Learn:
       - Overview: learn/learn-overview.md
@@ -91,6 +90,7 @@ nav:
       - Service Orchestration:
             - What is Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
             - How to expose several services as a single service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
+            - How to split messages and aggregate responses: learn/examples/routing-examples/splitting-aggregating-messages.md
       - Asynchronous Message Processing:
             - What is Asynchronous Message Processing: learn/integration-use-case/asynchronous-message-overview.md
             - How to consume JMS Messages: learn/examples/jms-examples/consuming-jms.md
@@ -173,7 +173,8 @@ nav:
             - How to use a Kafka Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md
             - How to use a Secured WebSocket Inbound Endpoint: learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket.md
             - How to use an Inbound Endpoints with Registry: learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry.md
-      - Local Registry Entries: learn/examples/registry-examples/local-registry-entries.md
+      - Local Entries:
+            - How to use Sequences and Endpoints as Local Entries: learn/examples/registry-examples/local-registry-entries.md
       - Templates:
             - How to use a Sequence Template: learn/examples/template-examples/using-sequence-templates.md
             - How to use an Endpoint Template: learn/examples/template-examples/using-endpoint-templates.md
@@ -219,9 +220,8 @@ nav:
                 - How to acknowledge HL7 messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to use HL7 Messages with file systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
       - How to expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
-      - How to work with transactions: learn/examples/working-with-transactions.md
+      #- How to work with transactions: learn/examples/working-with-transactions.md
       - How to work with JSON Message Payloads: learn/examples/json-examples/json-examples.md
-      - How to split messages and aggregate responses: learn/examples/routing-examples/splitting-aggregating-messages.md
       - How to integrate MI with SI: learn/examples/integrating-mi-with-si.md
       - Samples:
           - Overview: learn/samples/samples-overview.md
@@ -1006,9 +1006,11 @@ plugins:
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.3.0/observe-and-manage/working-with-integration-control-plane/'
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/'
+              'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.3.0/get-started/quick-start-guide/'
               'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
               'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/file-processing/'
               'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/storing-and-forwarding-messages/'
+              'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
 
   # Extra
 extra_css:
