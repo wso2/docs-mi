@@ -9,9 +9,6 @@ configuration through the WSO2 Data Mapper engine.
 
 The Data Mapper component utilizes TypeScript to define the mapping when you use the WSO2 MI for VS Code extension. When you build the Integration project using the WSO2 MI for VS Code extension, the Data Mapper component generates the required configuration files needed by the Data Mapper Engine to execute the mapping. These files are stored in the Governance Registry.
 
-!!! Info
-    The Data Mapper mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ```xml

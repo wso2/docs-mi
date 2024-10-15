@@ -2,9 +2,6 @@
 
 The **Switch Mediator** is an XPath or JSONPath filter. The XPath or JSONPath expression is evaluated and returns a string. This string is matched against the regular expression in each switch case, in the specified order. If a matching case is found, it is executed, and the remaining cases are not processed. If none of the case statements match and a default case is specified, the default case will be executed.
 
-!!! Info
-    The Switch mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ```xml

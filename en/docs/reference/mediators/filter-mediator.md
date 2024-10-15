@@ -6,9 +6,6 @@ Filter mediator executes the other mediators enclosed in the sequence.
 
 The Filter Mediator closely resembles the "If-else" control structure.
 
-!!! Info
-    The Filter mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ``` java
