@@ -157,7 +157,7 @@ In this example, you are setting the property symbol. Later, you can log it usin
     
 ### Example 2: Add a child object to a property
     
-In this example, you add a child property named Lamborghini to a property named Cars. The configuration for this is as follows:
+In this example, you add a child property named `Lamborghini` to a property named `Cars`. The configuration for this is as follows:
     
 ```xml 
 <proxy name="_TestEnrich" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
