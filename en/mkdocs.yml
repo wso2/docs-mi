@@ -386,7 +386,7 @@ nav:
           - Generate Docker Images: develop/generate-docker-image.md
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
-          # - Use Wire Logs: develop/using-wire-logs.md
+          - Use Wire Logs: develop/using-wire-logs.md
           - Monitor Composite Application-Level Logs: develop/monitoring-capp-level-logs.md
           - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
@@ -992,7 +992,6 @@ plugins:
               'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
-              'develop/using-wire-logs.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/debugging-mediation'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/latest/mi-analytics/mi-elk-installation-guide/'
               'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/latest/mi-analytics/mi-elk-installation-guide/'
               'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/setup/deployment/integration-cicd-overview'
