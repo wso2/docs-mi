@@ -109,7 +109,7 @@ The parameters available in the throttle policy entry form to configure the thro
 <td><p>This parameter is used to specify the extent to which the IP addresses/domains specified in the <strong>Range</strong> parameter are allowed access to the service to which the throttle policy is applied. Possible values are as follows.</p>
 <ul>
 <li><strong>Allow</strong>: If this is selected, the specified IP addresses/domains are allowed to access the services to which the throttle ID is applied without any restrictions.</li>
-<li><strong>Deny</strong> : If this is selected, specified IP addresses/domains are not allowed to access the services to which the throttle ID is applied .</li>
+<li><strong>Deny</strong>: If this is selected, specified IP addresses/domains are not allowed to access the services to which the throttle ID is applied .</li>
 <li><strong>Control</strong> : If this is selected, the specified IP addresses/domains are allowed to access the services to which the throttle ID is applied. However, the number of times they can access the services is controlled by the <strong>Max Request Count</strong>, <strong>Unit Time (ms)</strong>, and the <strong>Prohibit Time Period (ms)</strong> parameters.</li>
 </ul></td>
 </tr>
