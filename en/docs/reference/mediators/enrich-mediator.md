@@ -74,7 +74,7 @@ The following properties are available:
 <td><strong>Target Type</strong></td>
 <td>By specifying the action type, the relevant action can be applied to modified message. Possible values are:
 <ul>
-<li><strong>Custom</strong> : Custom <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> can be configured and the value is extracted dynamically.</li>
+<li><strong>Custom</strong>: Custom <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> can be configured and the value is extracted dynamically.</li>
 <li><strong>Envelope</strong>: SOAP envelope of the target message will be enriched.</li>
 <li><strong>Body</strong>: SOAP body of the target message will be enriched.</li>
 <li><strong>Property</strong>: Specifies a property. For information on how you can use the property mediator to specify properties, see <a href="{{base_path}}/reference/mediators/property-mediator">property mediator</a></li>
