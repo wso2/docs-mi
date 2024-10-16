@@ -87,7 +87,7 @@ and reuse it in multiple places of the mediation flow.
     <tr>
         <td>URI Template</td>
         <td>
-            Enter <code>/categories/{category}/reserve</code>.
+            <code>/categories/{category}/reserve</code>
         </td>
     </tr>
     <tr>
@@ -110,8 +110,8 @@ In this tutorial, we have three hospital services hosted as the backend:
 -   Clemency Medical Center: `http://localhost:9090/clemency/`
 -   Pine Valley Community Hospital: `http://localhost:9090/pinevalley/`
 
-The request method is POST and the format of the request URL expected by the back-end services is
-`http://localhost:9090/grandoaks/categories/{category}/reserve`.
+The request method is `POST` and the format of the request URL expected by the back-end services is as below.
+`http://localhost:9090/grandoaks/categories/{category}/reserve`
 
 Let's create three different HTTP endpoints for the above services.
 

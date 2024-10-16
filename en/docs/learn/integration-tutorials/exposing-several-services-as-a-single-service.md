@@ -233,7 +233,7 @@ You have now created the endpoints that are required for this tutorial.
         </td>
     </tr>
     <tr>
-        <td>Url Style</td>
+        <td>Url Style</td>
         <td>`URI_TEMPLATE`</td>
         <td>
             You can now specify dynamic variables to extract values from the request URL.
@@ -662,7 +662,7 @@ You can now start updating the API resource with the mediation flow.
     <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
     </li>
     <li>
-    Enter `$ctx:uri.var.appointment_id`.
+    Enter <code>$ctx:uri.var.appointment_id</code> as the expression.
     Note that the `$ctx` method is similar to using the <code>get-property</code> method. This method checks in the message context.
     </li>
     </ol>
@@ -742,7 +742,7 @@ Let's send a request to the API resource. You can use Postman or any other **HTT
               <ul>
                 <li>
                   The URI-Template format that is used in this URL was defined when creating the API resource:
-          <code>http://<host>:<port>/categories/{category}/reserve</code>.
+          <code>http://<host>:<port>/categories/{category}/reserve</code>
                 </li>
               </ul>
             </td>
@@ -790,12 +790,12 @@ If you want to send the client request from your terminal:
       "ssn": "234-23-525",
       "address": "California",
       "phone": "8770586755",
-      "email": "johndoe@gmail.com",
-      "cardNo": "7844481124110331"
+      "email": "johndoe@gmail.com"
       },
       "doctor": "thomas collins",
       "hospital_id": "grandoaks",
       "hospital": "grand oak community hospital",
+      "cardNo": "7844481124110331",
       "appointment_date": "2025-04-02"
     }
     ```
