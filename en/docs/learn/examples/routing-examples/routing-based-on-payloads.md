@@ -1,4 +1,4 @@
-# How to route requests based on Message Payloads
+# How to Route Requests Based on Message Payloads
 
 This example scenario uses a back-end service with two stock quote inventories (IBM and MSFT). A proxy service is configured in the Micro Integrator to use separate mediation sequences for processing request messages with different **payloads**. 
 
