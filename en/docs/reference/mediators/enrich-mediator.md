@@ -87,7 +87,7 @@ The following properties are available:
 
 
 !!! Info
-    For the target type `envelope`, the action type should be `replace`. Both action type `child` and `sibling` are not acceptable because it adds an envelope within an envelope.
+    For the target type `envelope`, the action type should be `replace`. Both action types `child` and `sibling` are not acceptable because they add an envelope within an envelope.
 
 !!! Info
     The target type depends on the source type. For the valid and invalid combinations of source and target types, see the below table.
