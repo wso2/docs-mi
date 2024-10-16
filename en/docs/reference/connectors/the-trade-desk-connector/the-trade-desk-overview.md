@@ -1,4 +1,4 @@
-# The Trade Desk Connector Overview
+# Trade Desk Connector Overview
 
 The Trade Desk offers a platform for businesses to create and manage programmatic advertising campaigns across various digital channels. It enables precise targeting, real-time bidding, and in-depth analytics to optimize ad performance.
 
