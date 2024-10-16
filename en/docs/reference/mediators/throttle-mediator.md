@@ -99,7 +99,7 @@ The parameters available in the throttle policy entry form to configure the thro
 <td><strong>Throttle Range</strong></td>
 <td><p>This parameter is used to specify the IP addresses/domains to which the entry in the current row should be applied</p>
 <ul>
-<li>If you want to apply the entry to a range of IP addresses, enter the range in this parameter, e.g., <code>8.100.1.30 – 8.100.1.45</code>. Alternatively, you can enter a single IP address to apply the entry to only one IP address.</li>
+<li>If you want to apply the entry to a range of IP addresses, enter the range in this parameter, for example, <code>8.100.1.30 – 8.100.1.45</code>. Alternatively, you can enter a single IP address to apply the entry to only one IP address.</li>
 <li>If you want to apply the entry to a domain, enter the required domain ID in this parameter.</li>
 <li>If you want to apply the entry to all the IP addresses/domains that are not configured in the other configurations, enter <code>other</code> in this parameter.</li>
 </ul></td>
