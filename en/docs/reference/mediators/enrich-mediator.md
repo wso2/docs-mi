@@ -155,7 +155,7 @@ In this example, you are setting the property symbol. Later, you can log it usin
 </enrich>
 ```
     
-### Example 2: Ads a child object to a property
+### Example 2: Add a child object to a property
     
 In this example, you add a child property named Lamborghini to a property named Cars. The configuration for this is as follows:
     
