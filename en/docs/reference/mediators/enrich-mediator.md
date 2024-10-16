@@ -189,7 +189,7 @@ In this example, you add a child property named `Lamborghini` to a property name
   
 ### Example 3: Add a SOAPEnvelope type object as a property to a message
     
-In this example, you add the SOAP envelope in a SOAP request as a property to a message. The Enrich mediator is useful in this scenario since adding the property directly using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) results in the `SOAPEnvelope` object being created as an `OM` type object. The `OM` type object created cannot be converted back to a `SOAPEnvelope` object.
+In this example, you'll add the SOAP envelope in a SOAP request as a property to a message. The Enrich mediator is useful in this scenario since adding the property directly using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) results in the `SOAPEnvelope` object being created as an `OM` type object. The `OM` type object created cannot be converted back to a `SOAPEnvelope` object.
     
 ```xml
 <enrich>
