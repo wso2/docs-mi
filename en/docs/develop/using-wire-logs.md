@@ -1,7 +1,7 @@
 # Use Wire Logs
 
 When debugging a Synapse flow, you can view the actual HTTP messages at the [entry]({{base_path}}/get-started/key-concepts/#message-entry-points) and the [exit]({{base_path}}/get-started/key-concepts/#message-exit-points) points of the Micro Integrator via wire logs. For example, you can view wire logs of the incoming flow and the final response of an [API]({{base_path}}/reference/synapse-properties/rest-api-properties) or a [proxy service]({{base_path}}/reference/synapse-properties/proxy-service-properties). 
-Similarly, you can see the outgoing and incoming wire logs at an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties). Wire logs are useful to troubleshoot unexpected issues that occur when integrating miscellaneous systems. For example, you can use wire logs to verify whether the message payload is properly going out from the server is correct, and whether the HTTP headers such as the content-type is properly set in the outgoing message.
+Similarly, you can see the outgoing and incoming wire logs at an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties). Wire logs are useful to troubleshoot unexpected issues that occur when integrating miscellaneous systems. For example, you can use wire logs to verify whether the message payload is properly going out from the server is correct, and whether the HTTP headers such as the content type is properly set in the outgoing message.
   
 !!! Note
     It is recommended to enable wire logs only for troubleshooting purposes. Running production systems with wire logs enabled is not recommended, as it can incur a performance overhead.  
