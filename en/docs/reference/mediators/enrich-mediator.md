@@ -200,7 +200,7 @@ In this example, you add the SOAP envelope in a SOAP request as a property to a 
     
 ### Example 4: Preserve the original payload
     
-In this example, you copy the original payload to a property using the Enrich mediator.
+In this example, you'll copy the original payload to a property using the Enrich mediator.
     
 ```xml
 <enrich>
