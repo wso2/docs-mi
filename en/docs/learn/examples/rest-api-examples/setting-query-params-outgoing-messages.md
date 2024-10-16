@@ -1,4 +1,4 @@
-# How to set query parameters on outgoing messages
+# How to Set Query Parameters on Outgoing Messages
 
 REST clients use query parameters to provide inputs for the relevant operation. These query parameters may be required to carry out the back-end operations either in a REST service or a proxy service.
 

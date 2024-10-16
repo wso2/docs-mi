@@ -1,4 +1,4 @@
-# How to work with JSON Message Payloads
+# How to Work with JSON Message Payloads
 
 WSO2 Micro Integrator provides support for [JavaScript Object Notation (JSON)](http://www.json.org/) payloads in messages. The following sections describe how to work with JSON via the Micro Integrator.
 

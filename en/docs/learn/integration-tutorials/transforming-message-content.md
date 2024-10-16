@@ -1,4 +1,4 @@
-# How to transform message content
+# How to Transform Message Content
 
 ## What you'll build
 

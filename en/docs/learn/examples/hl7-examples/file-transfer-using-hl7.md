@@ -1,4 +1,4 @@
-# How to use HL7 Messages with file systems
+# How to Use HL7 Messages with File Systems
 
 The Micro Integrator allows messages to be transferred between HL7 and the file system using the HL7 
 and VFS transports.

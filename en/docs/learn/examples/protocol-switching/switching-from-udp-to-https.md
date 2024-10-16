@@ -1,4 +1,4 @@
-# How to switch from UDP to HTTP/S
+# How to Switch from UDP to HTTP/S
 
 This example demonstrates how WSO2 Micro Integrator receives SOAP messages over UDP and forwards them over HTTP.
 

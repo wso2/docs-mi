@@ -17,10 +17,10 @@ The following image depicts a typical message transformation scenario using the 
                     <a href="{{base_path}}/learn/integration-tutorials/transforming-message-content">How to transform message content</a>.
 				</li>
                 <li>
-                    <a href="{{base_path}}/learn/examples/message-transformation-examples/json-to-soap-conversion">How to transform JSON message to SOAP</a>.
+                    <a href="{{base_path}}/learn/examples/message-transformation-examples/json-to-soap-conversion">How to transform a JSON message to SOAP</a>.
 				</li>
                 <li>
-                    <a href="{{base_path}}/learn/examples/message-transformation-examples/pox-to-json-conversion">How to translate POX Messages to JSON</a>.
+                    <a href="{{base_path}}/learn/examples/message-transformation-examples/pox-to-json-conversion">How to translate a POX message to JSON</a>.
 				</li>
 			</ul>
 		</td>

@@ -151,8 +151,8 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Transformation</b> 
             <ul>
-                <li><a href="{{base_path}}/learn/examples/message-transformation-examples/json-to-soap-conversion">How to transform JSON message to SOAP</a></li>
-                <li><a href="{{base_path}}/learn/examples/message-transformation-examples/pox-to-json-conversion/">How to transform POX Messages to JSON</a></li>
+                <li><a href="{{base_path}}/learn/examples/message-transformation-examples/json-to-soap-conversion">How to transform a JSON message to SOAP</a></li>
+                <li><a href="{{base_path}}/learn/examples/message-transformation-examples/pox-to-json-conversion/">How to transform a POX message to JSON</a></li>
             </ul>
         </td>
     </tr>
@@ -160,7 +160,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
         <td><b>Asynchronous Messaging</b>
             <li>RabbitMQ Examples
                 <ul>
-                    <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/point-to-point-rabbitmq">How to do Point to Point messaging using RabbitMQ</a></li>
+                    <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/point-to-point-rabbitmq">How to implement Point to Point messaging using RabbitMQ</a></li>
                     <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/pub-sub-rabbitmq">How to publish and subscribe with RabbitMQ</a></li>
                     <li>Guaranteed Delivery 
                         <ul>
@@ -170,7 +170,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                             <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">How to publish unacked messages to Dead Letter Exchange</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/request-response-rabbitmq">How to do Dual Channel scenario with RabbitMQ</a></li>
+                    <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/request-response-rabbitmq">How to implement Dual Channel scenario with RabbitMQ</a></li>
                 </ul>
             </li>
             <li>JMS Examples
@@ -178,11 +178,11 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                     <li><a href="{{base_path}}/learn/examples/jms-examples/consuming-jms">How to consume JMS Messages</a></li>
                     <li><a href="{{base_path}}/learn/examples/jms-examples/producing-jms">How to produce JMS Messages</a></li>
                     <li><a href="{{base_path}}/learn/examples/jms-examples/consume-produce-jms">How to consume and produce JMS Messages</a></li>
-                    <li><a href="{{base_path}}/learn/examples/jms-examples/dual-channel-http-to-jms">How to do JMS Synchronous Invocations - Dual Channel HTTP-to-JMS</a></li>
-                    <li><a href="{{base_path}}/learn/examples/jms-examples/quad-channel-jms-to-jms">How to do JMS Synchronous Invocations - Quad Channel JMS-to-JMS</a></li>
-                    <li><a href="{{base_path}}/learn/examples/jms-examples/guaranteed-delivery-with-failover">How to do a guaranteed delivery with failover</a></li>
+                    <li><a href="{{base_path}}/learn/examples/jms-examples/dual-channel-http-to-jms">How to implement JMS Synchronous Invocations - Dual Channel HTTP-to-JMS</a></li>
+                    <li><a href="{{base_path}}/learn/examples/jms-examples/quad-channel-jms-to-jms">How to implement JMS Synchronous Invocations - Quad Channel JMS-to-JMS</a></li>
+                    <li><a href="{{base_path}}/learn/examples/jms-examples/guaranteed-delivery-with-failover">How to implement a guaranteed delivery with failover</a></li>
                     <li><a href="{{base_path}}/learn/examples/jms-examples/publish-subscribe-with-jms">How to publish and subscribe with JMS</a></li>
-                    <li><a href="{{base_path}}/learn/examples/jms-examples/shared-topic-subscription">How to share Topic Subscription</a></li>
+                    <li><a href="{{base_path}}/learn/examples/jms-examples/shared-topic-subscription">How to implement Shared Topic Subscription Scenario with JMSn</a></li>
                     <li><a href="{{base_path}}/learn/examples/jms-examples/detecting-repeatedly-redelivered-messages">How to detect Repeatedly Redelivered Messages</a></li>
                     <li><a href="{{base_path}}/learn/examples/jms-examples/specifying-a-delivery-delay-on-messages">How to specify Delivery Delay on messages</a></li>
                 </ul>
@@ -208,7 +208,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>File Processing</b> 
             <ul>
-                <li><a href="{{base_path}}/learn/integration-tutorials/file-processing">How to do file processing</a></li>
+                <li><a href="{{base_path}}/learn/integration-tutorials/file-processing">How to process a file using VFS transport</a></li>
                 <li><a href="{{base_path}}/learn/examples/file-processing/accessing-windows-share-using-vfs-transport">How to access a Windows Share using VFS transport</a></li>
             </ul>
         </td>
@@ -226,7 +226,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                 <li><a href="{{base_path}}/learn/examples/data-integration/json-with-data-service">How to expose data in JSON Format</a></li>
                 <li><a href="{{base_path}}/learn/examples/data-integration/odata-service">How to expose data as an OData Service</a></li>
                 <li><a href="{{base_path}}/learn/examples/data-integration/nested-queries-in-data-service">How to use Nested Data Queries</a></li>
-                <li><a href="{{base_path}}/learn/examples/data-integration/batch-requesting">How to do Batch Requesting</a></li>
+                <li><a href="{{base_path}}/learn/examples/data-integration/batch-requesting">How to perform Batch Requesting</a></li>
                 <li><a href="{{base_path}}/learn/examples/data-integration/request-box">How to invoke Multiple Operations as a Request Box</a></li>
                 <li><a href="{{base_path}}/learn/examples/data-integration/distributed-trans-data-service">How to use Distributed Transactions in Data Services</a></li>
                 <li><a href="{{base_path}}/learn/examples/data-integration/data-input-validator">How to validate Data Input</a></li>

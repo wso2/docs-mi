@@ -1,4 +1,4 @@
-# How to route messages to a Dynamic List of Recipients and aggregate responses
+# How to Route Messages to a Dynamic List of Recipients and Aggregate Responses
 This example demonstrates message routing to a set of dynamic endpoints and aggregate responses. 
 
 The sample configuration routes a cloned copy of a message

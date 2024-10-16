@@ -1,4 +1,4 @@
-# How to use a WSDL Endpoint
+# How to Use a WSDL Endpoint
 
 This sample demonstrates how you can use a WSDL endpoint as the target
 endpoint. The configuration in this sample uses a WSDL endpoint inside

@@ -1,4 +1,4 @@
-# How to use a JMS Message Store
+# How to Use a JMS Message Store
 
 See the examples given below.
 

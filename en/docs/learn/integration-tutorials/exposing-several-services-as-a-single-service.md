@@ -1,4 +1,4 @@
-# How to expose several services as a single service
+# How to Expose Several Services as a Single Service
 
 ## What you'll build
 

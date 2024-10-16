@@ -1,4 +1,4 @@
-# How to use a Message Sampling Processor
+# How to Use a Message Sampling Processor
 
 This example demonstrates the usage of the message sampling processor.
 

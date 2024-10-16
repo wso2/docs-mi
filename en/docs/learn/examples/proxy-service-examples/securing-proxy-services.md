@@ -1,4 +1,4 @@
-# How to secure a proxy service
+# How to Secure a Proxy Service
 
 This sample demonstrates how to use WS-Security signing and encryption with proxy services through a WS policy.
 

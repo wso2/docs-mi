@@ -1,4 +1,4 @@
-# How to store and forward messages for guaranteed delivery
+# How to Store and Forward Messages for Guaranteed Delivery
 
 ## What you'll build
 Store and forward messaging is used to serve traffic to back-end services that can only accept request messages at a given rate. This method also ensures guaranteed delivery of messages. Messages are never lost since they are stored in the message store and available for future reference.

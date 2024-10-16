@@ -1,4 +1,4 @@
-# How to switch from JMS to HTTP(S)
+# How to Switch from JMS to HTTP(S)
 
 This example demonstrates how the Micro Integrator receives messages over the JMS transport and forwards them over an HTTP/S transport. In this sample, the client sends a request message to the proxy service exposed in JMS. The Micro Integrator forwards this message to the HTTP endpoint and returns the reply to the client through a JMS temporary queue.
 

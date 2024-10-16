@@ -1,4 +1,4 @@
-# How to validate Data Input
+# How to Validate Data Input
 
 Validators are added to individual input mappings in a query. Input
 validation allows data services to validate the input parameters in a

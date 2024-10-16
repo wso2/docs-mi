@@ -1,4 +1,4 @@
-# How to share Topic Subscription
+# How to Implement Shared Topic Subscription Scenario with JMS
 
 With JMS 1.1, a subscription on a topic is not permitted to have more than one consumer at a time. That is if multiple JMS consumers subscribe to a JMS topic, and if a message comes to that topic, multiple copies of the message are forwarded to each consumer. There is no way of sharing messages between consumers that come to the topic.
 

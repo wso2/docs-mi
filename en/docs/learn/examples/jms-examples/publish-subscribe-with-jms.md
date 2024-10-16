@@ -1,4 +1,4 @@
-# How to publish and subscribe with JMS
+# How to Publish and Subscribe with JMS
 
 JMS supports two models for messaging as follows:
 

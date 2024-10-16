@@ -1,4 +1,4 @@
-# How to send a simple message to a service
+# How to Send a Simple Message to a Service
 
 ## What you'll build
 

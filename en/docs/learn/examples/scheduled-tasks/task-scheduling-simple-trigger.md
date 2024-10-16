@@ -1,4 +1,4 @@
-# How to schedule tasks using a simple trigger
+# How to Schedule Tasks using a Simple Trigger
 This example demonstrates the concept of tasks and how a simple trigger works. Here the `MessageInjector` class is used, which injects a specified message to the Micro Integrator environment. You can write your own task class implementing the `org.apache.synapse.startup.Task` interface and implement the `execute` method to run the task.
 
 ## Synapse configurations

@@ -1,4 +1,4 @@
-# How to do load balancing with Message Forwarding Processor
+# How to Implement Load Balancing with Message Forwarding Processor
 
 This example demonstrates how the message forwarding processor handles load balancing.
 

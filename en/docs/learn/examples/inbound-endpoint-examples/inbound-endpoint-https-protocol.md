@@ -1,4 +1,4 @@
-# How to use an HTTPS Inbound Endpoint
+# How to Use an HTTPS Inbound Endpoint
 This sample demonstrates how an HTTPS inbound endpoint can act as a
 dynamic HTTPS listener. Many HTTPS listeners can be added without
 restarting the server. When a message arrives at a port it will bypass

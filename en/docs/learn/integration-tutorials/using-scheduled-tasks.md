@@ -1,4 +1,4 @@
-# How to periodically execute integration processes
+# How to Periodically Execute Integration Processes
 
 ## What you'll build
 

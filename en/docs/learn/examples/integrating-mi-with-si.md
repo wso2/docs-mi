@@ -1,4 +1,4 @@
-# How to integrate Micro Integrator with WSO2 Streaming Integrator
+# How to Integrate Micro Integrator with WSO2 Streaming Integrator
 
 You can publish events from the integration flow to WSO2 Streaming Integrator using an http or http-service source configured in a Siddhi application deployed in Streaming Integrator server. The http or http-service source receive POST requests via HTTP and HTTPS protocols in a format such as text, XML, or JSON. In the case of http-service source, it will send responses via its corresponding http-service-response sink correlated through a unique `source.id`.
 

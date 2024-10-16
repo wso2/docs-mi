@@ -1,4 +1,4 @@
-# How to use an Inbound Endpoints with Registry
+# How to Use an Inbound Endpoints with Registry
 
 Other than specifying parameter values inline, you can also
 specify parameter values as registry entries. The advantage of

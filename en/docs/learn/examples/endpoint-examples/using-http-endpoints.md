@@ -1,4 +1,4 @@
-# How to use an HTTP Endpoint
+# How to Use an HTTP Endpoint
 
 See the examples given below on how to effectively use the HTTP endpoint.
 

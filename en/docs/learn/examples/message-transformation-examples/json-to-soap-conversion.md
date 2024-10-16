@@ -1,4 +1,4 @@
-# How to transform JSON message to SOAP
+# How to Transform a JSON Message to SOAP
 
 Let's consider a scenario where you have a SOAP-based backend and a JSON client. The SOAP backend is exposed as a REST API in the Micro Integrator. 
 

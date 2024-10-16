@@ -1,4 +1,4 @@
-# How to split messages and aggregate responses
+# How to Split Messages and Aggregate Responses
 
 This example scenario uses a back-end service with two stock quote inventories (IBM and SUN). A proxy service is configured in the Micro Integrator with the **Iterate** mediator (to split the incoming message) and the **Aggregate** mediator (to aggregate the responses).
 

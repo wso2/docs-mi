@@ -1,4 +1,4 @@
-# How to switch from FTP Listener to Mail Sender
+# How to Switch from FTP Listener to Mail Sender
 
 This example demonstrates how WSO2 Micro Integrator receives messages through the FTP transport listener and forwards the messages through the mail transport sender.
 

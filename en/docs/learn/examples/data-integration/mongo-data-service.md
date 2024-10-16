@@ -1,4 +1,4 @@
-# How to expose a Mongo Datasource
+# How to Expose a Mongo Datasource
 
 This example demonstrates how Mongo data can be exposed as a data service.
 

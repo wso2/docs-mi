@@ -1,4 +1,4 @@
-# How to expose an RDBMS datasource
+# How to Expose an RDBMS Datasource
 
 This example demonstrates how RDBMS data (stored in a MySQL database) can be exposed as a data service.
 

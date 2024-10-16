@@ -1,4 +1,4 @@
-# How to use a RabbitMQ Inbound Endpoint
+# How to Use a RabbitMQ Inbound Endpoint
 
 This sample demonstrates how one way message bridging from RabbitMQ to HTTP can be done using the inbound RabbitMQ endpoint.
 

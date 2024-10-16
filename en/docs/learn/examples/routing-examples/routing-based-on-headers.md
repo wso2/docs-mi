@@ -1,4 +1,4 @@
-# How to route requests based on Message Headers
+# How to Route Requests Based on Message Headers
 
 This example scenario uses an inventory of stocks as the back-end service. A proxy service is configured in the Micro Integrator to use separate mediation sequences for processing request messages with different **message headers**. 
 

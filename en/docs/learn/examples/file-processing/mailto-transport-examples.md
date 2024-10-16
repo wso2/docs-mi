@@ -1,4 +1,4 @@
-# How to use the MailTo Transport
+# How to Use MailTo Transport
 
 ## Set the email sender globally
 

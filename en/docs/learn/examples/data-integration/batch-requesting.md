@@ -1,4 +1,4 @@
-# How to do Batch Requesting
+# How to Perform Batch Requesting
 
 The batch requests feature allows you to send multiple (IN-Only)
 requests to a datasource using a single operation (batch operation).

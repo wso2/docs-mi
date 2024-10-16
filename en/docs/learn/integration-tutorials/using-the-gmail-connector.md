@@ -1,4 +1,4 @@
-# How to send an email from an Integration Service
+# How to Send an Email from an Integration Service
 
 ## What you'll build
 

@@ -1,4 +1,4 @@
-# How to break complex flows into multiple sequences
+# How to Break Complex Flows into Multiple Sequences
 This sample demonstrates how a complex sequence can be separated into a set of simpler sequences. In this sample, you will send a simple request to a back-end service (Stock Quote service) and receive a response. If you look at the sample's XML configuration, you will see how this mediation is performed by several sequence definitions instead of one main sequence.
 
 ## Synapse configuration

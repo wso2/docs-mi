@@ -1,4 +1,4 @@
-# How to access a Windows Share using VFS transport
+# How to Access a Windows Share using VFS Transport
 This example demonstrates how the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport) in WSO2 Micro Integrator can be used to access a windows share.
 
 ## Synapse configuration

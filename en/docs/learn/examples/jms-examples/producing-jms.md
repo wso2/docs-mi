@@ -1,4 +1,4 @@
-# How to produce JMS Messages
+# How to Produce JMS Messages
 
 This section describes how to configure WSO2 Micro Integrator to send messages to a JMS Queue. In this example, the Micro Integrator accepts messages via HTTP and sends them to a JMS queue.
 

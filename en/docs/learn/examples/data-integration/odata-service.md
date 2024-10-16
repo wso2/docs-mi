@@ -1,4 +1,4 @@
-# How to expose data as an OData Service
+# How to Expose Data as an OData Service
 
 This example demonstrates how an RDBMS can be exposed as an OData service. When OData is enabled, you do not need to manually define CRUD operations. Therefore, OData services are an easy way to enable CRUD operations for a data service.
 

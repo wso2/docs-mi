@@ -1,4 +1,4 @@
-# How to use a Secured WebSocket Inbound Endpoint
+# How to Use a Secured WebSocket Inbound Endpoint
 
 If you need to read and transform the content of WebSocket frames, the information in incoming WebSocket frames may not be sufficient because the WebSocket protocol does not specify any information about the content type of frames that flow through WebSocket channels. Hence, the Micro Integrator supports a WebSocket subprotocol extension to determine the content type of WebSocket frames.
 

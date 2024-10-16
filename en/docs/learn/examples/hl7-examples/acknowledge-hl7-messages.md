@@ -1,4 +1,4 @@
-# How to acknowledge HL7 messages
+# How to Acknowledge HL7 Messages
 
 Automatic message acknowledgement for HL7 messages is enabled in the Micro Integrator by default. With this setting, an ACK is immediately returned to the client when a message is received. 
 

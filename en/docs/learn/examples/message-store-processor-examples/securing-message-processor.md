@@ -1,4 +1,4 @@
-# How to secure the Message Forwarding Processor
+# How to Secure the Message Forwarding Processor
 
 This example demonstrates a use case where security policies are applied to the [message forwarding processor]({{base_path}}/learn/examples/message-store-processor-examples/using-message-forwarding-processor).
 

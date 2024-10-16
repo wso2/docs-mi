@@ -1,4 +1,4 @@
-# How to specify Delivery Delay on Messages
+# How to Specify Delivery Delay on Messages
 
 In a normal message flow, JMS messages that are sent by the JMS producer to the JMS broker are forwarded to the respective JMS consumer without any delay.
 

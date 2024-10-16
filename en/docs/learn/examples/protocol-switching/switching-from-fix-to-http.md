@@ -1,4 +1,4 @@
-# How to switch from FIX to HTTP
+# How to Switch from FIX to HTTP
 
 This example demonstrates how WSO2 Micro Integrator receives messages through FIX and forwards them through HTTP.
 

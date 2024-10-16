@@ -1,4 +1,4 @@
-# How to reuse endpoints
+# How to Reuse Endpoints
 
 ## Use indirect endpoints
 
