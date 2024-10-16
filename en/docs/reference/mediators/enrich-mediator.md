@@ -29,7 +29,7 @@ The following properties are available:
 <tbody>
 <tr class="even">
 <td><strong>Clone</strong></td>
-<td>By setting the clone configuration, the message can be cloned or used as a reference during enriching. The default value is true.
+<td>By setting the clone configuration, the message can be cloned or used as a reference during enriching. The default value is <code>true</code>.
 </td>
 </tr>
 <tr class="odd">
