@@ -192,7 +192,7 @@ This section is used to specify the mediation sequence that should be applied wh
 <td><div class="content-wrapper">
 <p>This parameter is used to specify how the On Acceptance sequence is defined. The following options are available.</p>
 <ul>
-<li><strong>In-line Sequence</strong> : If this is selected, the mediation sequence to be applied to rejected requests can be defined within the Throttle mediator configuration. Click on the <strong>OnReject</strong> node in the mediation flow to define the sequence in-line once the throttle mediator is added.<br />
+<li><strong>In-line Sequence</strong>: If this is selected, the mediation sequence to be applied to rejected requests can be defined within the Throttle mediator configuration. Click on the <strong>OnReject</strong> node in the mediation flow to define the sequence in-line once the throttle mediator is added.<br />
 </li>
 <li><strong>Referring Sequence</strong> : If this is selected, you can refer to a predefined mediation sequence.</li>
 </ul>
