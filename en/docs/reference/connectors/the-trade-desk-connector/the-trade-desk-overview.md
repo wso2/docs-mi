@@ -16,7 +16,7 @@ To see The Trade Desk Connector, navigate to the [connector store](https://store
 
 ## The Trade Desk Connector documentation
 
-* **[Trade Desk Connector Reference]({{base_path}}/reference/connectors/the-trade-desk-connector/the-trade-desk-configuration/)**: This documentation provides a reference guide for the Trade Desk Connector.
+* **[The Trade Desk Connector Reference]({{base_path}}/reference/connectors/the-trade-desk-connector/the-trade-desk-configuration/)**: This documentation provides a reference guide for the Trade Desk Connector.
 
 ## How to contribute
 
