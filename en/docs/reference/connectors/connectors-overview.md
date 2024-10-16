@@ -8,9 +8,9 @@ Each connector provides a set of operations you call from your proxy services, s
 
 This documentation provides an example of how to use each connector and a reference of its operations and properties.
 
-## Types of connectors
+## Categories of connectors
 
-There are three types of connectors available.
+The available connectors can be classified into following categories.
 
 **Cloud Connectors**: These connectors enable you to integrate with the APIs of external cloud systems (SaaS Applications) such as Salesforce, ServiceNow, Gmail, Amazon S3, etc.
 
