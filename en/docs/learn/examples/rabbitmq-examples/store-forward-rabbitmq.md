@@ -1,4 +1,4 @@
-# How to store and forward messages for guaranteed delivery
+# How to Store and Forward Messages for Guaranteed Delivery
 
 This sample demonstrates how a <b>store and forward</b> messaging scenario can be implemented using the RabbitMQ
 message broker and WSO2 Micro Integrator. Store and forward messaging is used for serving traffic to back-end services that can accept request messages only at a given rate. 
