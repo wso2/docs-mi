@@ -37,7 +37,7 @@ The following properties are available:
 <td>The type that the mediator uses from the original message to enrich the modified message that passes through the mediator. Possible values are:
 <ul>
 <li><strong>Custom</strong>: Custom <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> can be configured and the value is extracted dynamically.</li>
-<li><strong>Envelope</strong> : SOAP envelope of the original message used for enriching.</li>
+<li><strong>Envelope</strong>: SOAP envelope of the original message used for enriching.</li>
 <li><strong>Body</strong> : SOAP body of the original message used for enriching.</li>
 <li><strong>Property</strong> : Specifies a property. For information on how you can use the property mediator to specify properties, see <a href="{{base_path}}/reference/mediators/property-mediator">property mediator</a></li>
 <li><strong>Inline</strong> : Specifies the source content defined inline in XML or JSON</li>
