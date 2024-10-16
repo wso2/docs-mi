@@ -47,7 +47,7 @@ The following properties are available:
 </tbody>
 </table>
 
-### Target Configuration
+### Target configuration
 
 The following properties are available:
 
