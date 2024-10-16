@@ -66,7 +66,7 @@ The following properties are available:
 <li><strong>Replace</strong>: This replaces the message based on the target type specified on the target configuration. This is the default value for Target Action.</li>
 <li><strong>Child</strong>: Add as a child of the specified target type.</li>
 <li><strong>Sibling</strong>: Add as a sibling of the specified target type.</li>
-<li><strong>Remove</strong> : Remove a selected part. This is supported only for JSON messages.</li>
+<li><strong>Remove</strong>: Remove a selected part. This is supported only for JSON messages.</li>
 </ul>
 </td>
 </tr>
