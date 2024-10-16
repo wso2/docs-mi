@@ -11,11 +11,14 @@ Furthermore, you can use cron expressions for more advanced executing time confi
 		<td>
 			<b>Examples</b></br>
 			<ul>
-				<li>
-					<a href="{{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger">Task Scheduling using a Simple Trigger</a>
+                <li>
+					<a href="{{base_path}}/learn/integration-tutorials/using-scheduled-tasks">How to periodically execute integration processes</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint">Injecting Message to a RESTful Endpoint</a>
+					<a href="{{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger">How to schedule tasks using a simple trigger</a>
+				</li>
+				<li>
+					<a href="{{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint">How to inject messages to a RESTful endpoint</a>
 				</li>
 			</ul>
 		</td>

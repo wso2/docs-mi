@@ -13,34 +13,34 @@ For example, messages that are received via HTTP may need to be sent to a JMS qu
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-jms-to-http">Switching from JMS to HTTP/S</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-jms-to-http">How to switch from JMS to HTTP/S</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-https-to-jms">Switching from HTTP/S to JMS</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-https-to-jms">How to switch from HTTP/S to JMS</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender">Switching from FTP Listener to Mail Sender</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-ftp-listener-to-mail-sender">How to switch from FTP Listener to Mail Sender</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-http-to-fix">Switching from HTTP to FIX</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-http-to-fix">How to switch from HTTP to FIX</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-http">Switching from FIX to HTTP</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-http">How to switch from FIX to HTTP</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-amqp">Switching from FIX to AMQP</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-fix-to-amqp">How to switch from FIX to AMQP</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-between-fix-versions">Switching between FIX Versions</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-between-fix-versions">How to switch between FIX Versions</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-tcp-to-https">Switching from TCP to HTTP/S</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-tcp-to-https">How to switch from TCP to HTTP/S</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-udp-to-https">Switching from UDP to HTTP/S</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-from-udp-to-https">How to switch from UDP to HTTP/S</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/learn/examples/protocol-switching/switching-between-http-and-msmq">Switching between HTTP to MSMQ</a>
+					<a href="{{base_path}}/learn/examples/protocol-switching/switching-between-http-and-msmq">How to switch between HTTP to MSMQ</a>
 				</li>
 			</ul>
 		</td>

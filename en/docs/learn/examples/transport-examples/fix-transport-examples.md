@@ -1,4 +1,4 @@
-# Using the FIX Transport
+# How to Use FIX Transport
 
 This example demonstrates the usage of the FIX (Financial Information eXchange) transport with proxy services.
 

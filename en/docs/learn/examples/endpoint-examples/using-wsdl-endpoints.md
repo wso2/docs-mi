@@ -1,4 +1,5 @@
-# Using the WSDL Endpoint
+# How to Use a WSDL Endpoint
+
 This sample demonstrates how you can use a WSDL endpoint as the target
 endpoint. The configuration in this sample uses a WSDL endpoint inside
 the send mediator. This WSDL endpoint extracts the target endpoint reference from the WSDL document specified in the configuration. In this

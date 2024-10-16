@@ -1,4 +1,4 @@
-# MTOM/SwA Optimizations and Request/Response Correlation
+# How to Implement MTOM and SwA Optimizations and Request/Response Correlation
 
 This sample demonstrates how you can use content optimization mechanisms such as **Message Transmission Optimization Mechanism** (MTOM) and **SOAP with Attachments** (SwA) with the Micro Integrator.
 

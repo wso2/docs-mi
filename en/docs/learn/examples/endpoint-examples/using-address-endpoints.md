@@ -1,4 +1,5 @@
-# Using the Address Endpoint
+# How to Use an Address Endpoint
+
 This sample demonstrates how you can convert a POX message to a SOAP request using an <b>Address</b> endpoint.
 
 ## Synapse configuration

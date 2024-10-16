@@ -1,4 +1,5 @@
-# Using the MQTT Inbound Endpoint
+# How to Use an MQTT Inbound Endpoint
+
 This sample demonstrates how the MQTT connector publishes a message on a
 particular topic and how a MQTT client that is subscribed to that topic
 receives the message. 

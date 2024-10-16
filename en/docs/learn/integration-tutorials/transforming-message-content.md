@@ -1,4 +1,4 @@
-# Translating Message Formats
+# How to Transform Message Content
 
 ## What you'll build
 

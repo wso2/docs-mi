@@ -1,4 +1,4 @@
-# Exposing a SOAP Endpoint as a RESTful API
+# How to Expose a SOAP Endpoint as a RESTful API
     
 This example demonstrates how you can expose a SOAP service over REST using an API in WSO2 Micro Integrator.
     

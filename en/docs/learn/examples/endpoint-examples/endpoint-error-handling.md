@@ -1,4 +1,4 @@
-# Endpoint Error Handling
+# How to Handle Endpoint Errors
 
 The last step of message processing inside WSO2 Micro Integrator
 is to send the message to a service provider (see also [Working with Mediators]({{base_path}}/reference/mediators/about-mediators))

@@ -1,4 +1,4 @@
-# Using Sequence Templates
+# How to Use a Sequence Template
 
 !!! Info
     The **Call Template** mediator allows you to construct a sequence by passing values into a **sequence template**. This is currently only supported for special types of mediators such as the **Iterator** and **Aggregate Mediators**, where actual XPath operations are performed on a different SOAP message, and not on the message coming into the mediator.

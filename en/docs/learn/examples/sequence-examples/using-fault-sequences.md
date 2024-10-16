@@ -1,4 +1,4 @@
-# Using Fault Sequences 
+# How to Use Fault Sequences
 WSO2 Micro Integrator provides fault sequences for dealing with errors. Whenever an error occurs, the mediation engine attempts to provide as much information as possible on the error to the user by initializing the following properties on the erroneous message:
 
 -	ERROR_CODE

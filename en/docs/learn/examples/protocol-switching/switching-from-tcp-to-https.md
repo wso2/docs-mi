@@ -1,4 +1,4 @@
-# Switching from TCP to HTTP/S
+# How to Switch from TCP to HTTP/S
 
 This example demonstrates how WSO2 Micro Integrator receives SOAP messages over TCP and forwards them over HTTP.
 

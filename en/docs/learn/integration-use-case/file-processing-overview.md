@@ -20,7 +20,7 @@ In many business domains, there are different use cases related to managing file
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="{{base_path}}/learn/integration-tutorials/file-processing">file processing</a>.
+					Try the end-to-end use case on <a href="{{base_path}}/learn/integration-tutorials/file-processing">File Processing</a>.
 				</li>
 			</ul>
 		</td>
@@ -28,13 +28,7 @@ In many business domains, there are different use cases related to managing file
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="{{base_path}}/learn/examples/file-processing/vfs-transport-examples">VFS Transport
-				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/file-processing/accessing-windows-share-using-vfs-transport">Access a Windows Share using VFS</a>
-				</li>
-				<li>
-					<a href="{{base_path}}/learn/examples/file-processing/mailto-transport-examples">Use the MailTo Transport</a>
+					<a href="{{base_path}}/learn/examples/file-processing/accessing-windows-share-using-vfs-transport">How to Access a Windows Share using VFS Transport</a>
 				</li>
 			</ul>
 		</td>

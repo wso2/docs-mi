@@ -1,4 +1,4 @@
-# Routing Messages to a Static List of Recipients
+# How to Route Messages to a Static List of Recipients
 This example demonstrates how messages can be routed to a list of static endpoints. This configuration routes a cloned copy of a message to each recipient defined within the static recipient list. The Micro Integrator will create cloned copies of the message and route to the three endpoints mentioned in the configuration. The back-end service prints the details of the placed order. 
 
 ## Synapse configuration

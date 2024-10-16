@@ -1,4 +1,4 @@
-# Sending a Simple Message to a Service
+# How to Send a Simple Message to a Service
 
 ## What you'll build
 
@@ -12,10 +12,10 @@ The response message with the requested doctor details will be routed back to th
 
 ### Concepts and artifacts used
 
--   REST API
--   HTTP Endpoint
--   Call Mediator
--   Respond Mediator
+-   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
+-   [HTTP Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties)
+-   [Call Mediator]({{base_path}}/reference/mediators/call-mediator)
+-   [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator)
 
 ## Let's get started!
 

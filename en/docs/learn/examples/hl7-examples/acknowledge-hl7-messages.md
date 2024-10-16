@@ -1,10 +1,10 @@
-# Acknowledging HL7 Messages
+# How to Acknowledge HL7 Messages
 
 Automatic message acknowledgement for HL7 messages is enabled in the Micro Integrator by default. With this setting, an ACK is immediately returned to the client when a message is received. 
 
 If required, you can disable automatic acknowledgement. This allows you to control how and when ACK/NACK messages should be returned to the client. That is, you can define the integration logic to generate an ack/nack message after message validations or related tasks.
 
-## Configuring message acknowledgement for HL7
+## Configure message acknowledgement for HL7
 
 When auto acknowledgement for HL7 messages is disabled in the Micro Integrator, you can manually configure ACK/NACK messages in the mediation logic by using the Property mediator. 
 
