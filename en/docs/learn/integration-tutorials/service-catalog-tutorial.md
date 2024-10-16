@@ -1,4 +1,4 @@
-# How to expose an Integration Service as a Managed API
+# How to Expose an Integration Service as a Managed API
 
 ## What you'll build
 
