@@ -250,7 +250,7 @@ Below is the JSON payload that is sent in the request for the following examples
 
 #### Example 1: Extract content from the message payload and set it to the message body
 
-In this example, we will extract the content in the `data` object and set it as the message body.
+In this example, you'll extract the content in the `data` object and set it as the message body.
 
 ```xml
 <enrich>
@@ -282,7 +282,7 @@ In this example, we will extract the content in the `data` object and set it as 
 
 #### Example 2: Set a property as a child in the target
 
-In this example, we will enroll the first student in the payload for a new module. The new module is set in the `NewModule` property.
+In this example, you'll enroll the first student in the payload for a new module. The new module is set in the `NewModule` property.
 
 ```xml
 <property name="NewModule" scope="default" type="STRING" value="CS004"/>
@@ -317,7 +317,7 @@ In this example, we will enroll the first student in the payload for a new modul
 
 #### Example 3: Set an inline content as a child in the target
 
-In this example, we will define a new student inline and add it to the `students` array in the payload.
+In this example, you'll define a new student inline and add it to the `students` array in the payload.
 
 ```xml
 <enrich>
@@ -364,7 +364,7 @@ In this example, we will define a new student inline and add it to the `students
 
 #### Example 4: Set a custom path expression to a property
 
-In this example, we will assign the first student's name to a property called `Name`.
+In this example, you'll assign the first student's name to a property called `Name`.
 
 ```xml
 <enrich>
@@ -388,7 +388,7 @@ INFO {LogMediator} - {proxy:TestEnrich} Student name is :  = "Tom"
     -   This feature is currently supported only for JSON.
     -   You can provide multiple JSONPath expressions as a comma-separated list for the `remove` operation (as given in the following example).
 
-In this example, we will remove the `modules` from every student and also remove the first student in the array.
+In this example, you'll remove the `modules` from every student and also remove the first student in the array.
 
 ```xml
 <enrich>
@@ -442,7 +442,7 @@ result = {"data":{"students":[{"id":"02","name":"Nick","lastname":"Thameson"}]}}
 
 #### Example 7: Update a value of an existing object
 
-In this example, we will replace the `modules` array of every student with `[]`.
+In this example, you'll replace the `modules` array of every student with `[]`.
 
 ```xml
 <enrich>
@@ -481,7 +481,7 @@ In this example, we will replace the `modules` array of every student with `[]`.
 !!! Info
     This feature is supported only for JSON.
 
-In this example, we will replace the key name `name` of every student with `firstName`.
+In this example, you'll replace the key name `name` of every student with `firstName`.
 
 ```xml
 <enrich>
