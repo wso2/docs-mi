@@ -43,7 +43,7 @@ In this tutorial, we have three hospital services hosted as the backend:
 -   Clemency Medical Center: `http://localhost:9090/clemency/`
 -   Pine Valley Community Hospital: `http://localhost:9090/pinevalley/`
 
-The request method is POST and the format of the request URL expected by the back-end services is as below.
+The request method is `POST` and the format of the request URL expected by the back-end services is as below.
 `http://localhost:9090/grandoaks/categories/{category}/reserve`
 
 Let's create three different HTTP endpoints for the above services.
