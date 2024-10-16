@@ -72,7 +72,7 @@ The following properties are available:
 </tr>
 <tr class="even">
 <td><strong>Target Type</strong></td>
-<td>By specifying the action type, the relevant action can be applied to modified message. Possible values are:
+<td>By specifying the action type, the relevant action can be applied to the modified message. Possible values are:
 <ul>
 <li><strong>Custom</strong>: Custom <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> can be configured and the value is extracted dynamically.</li>
 <li><strong>Envelope</strong>: SOAP envelope of the target message will be enriched.</li>
