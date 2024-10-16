@@ -324,7 +324,7 @@ To use the Trade Desk connector, first create the connection with your configura
     ```
 
 ??? note "updateAdGroup"
-    The `updateAdGroup` operation modifies settings of an existing ad group.
+    The `updateAdGroup` operation modifies the settings of an existing ad group.
     <table>
         <tr>
             <th>Parameter Name</th>
