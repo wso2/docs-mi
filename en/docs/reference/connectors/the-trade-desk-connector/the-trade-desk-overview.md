@@ -14,7 +14,7 @@ To see The Trade Desk Connector, navigate to the [connector store](https://store
 | ------------- |-------------|
 | 1.0.0    | MI 4.3.0 |
 
-## Trade Desk Connector documentation
+## The Trade Desk Connector documentation
 
 * **[Trade Desk Connector Reference]({{base_path}}/reference/connectors/the-trade-desk-connector/the-trade-desk-configuration/)**: This documentation provides a reference guide for the Trade Desk Connector.
 
