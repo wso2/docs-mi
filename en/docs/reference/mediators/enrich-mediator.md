@@ -146,7 +146,7 @@ The following properties are available:
     
 ### Example 1: Set the property symbol
 
-In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-mediator).
+In this example, you are setting the envelope of the original message as a property. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-mediator).
     
 ```xml
 <enrich>
