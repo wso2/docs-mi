@@ -1,4 +1,4 @@
-# Trade Desk Connector Reference
+# The Trade Desk Connector Reference
 
 The following operations allow you to work with The Trade Desk API. Click an operation name to see parameter details and samples on how to use it.
 
