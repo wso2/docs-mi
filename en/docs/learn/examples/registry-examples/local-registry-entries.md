@@ -1,4 +1,4 @@
-# How to use Sequences and Endpoints as Local Entries
+# How to Use Sequences and Endpoints as Local Entries
 This sample demonstrates how sequences and endpoints can be fetched from a local entry.
 
 ## Synapse configurations
