@@ -476,7 +476,7 @@ In this example, you'll replace the `modules` array of every student with `[]`.
 }
 ```
 
-### Example 8: Updating the key name of an existing object
+### Example 8: Update the key name of an existing object
 
 !!! Info
     This feature is supported only for JSON.
@@ -501,7 +501,7 @@ In this example, you'll replace the key name `name` of every student with `first
     
     E.g.: 
     In the above configuration, we are trying to replace the `name` key of the student objects, and 
-    JSON path to locate the student objects would be `$.data.students[*]`. Therefore JSON path would look like below.
+    JSON path to locate the student objects would be `$.data.students[*]`. Therefore, the JSON path will be as follows:
     
     ```text
     $.data.students[*].name
@@ -530,7 +530,7 @@ In this example, you'll replace the key name `name` of every student with `first
 }
 ```
 
-### Example 9: Enriching JSON primitive values
+### Example 9: Enrich JSON primitive values
 
 You can use property mediators with `JSON` data type to enrich any JSON primitive, object, or array to a given target.
 
