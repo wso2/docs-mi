@@ -1,4 +1,4 @@
-# Using Distributed Transactions in Data Services
+# How to Use Distributed Transactions in Data Services
 
 The data integration feature in WSO2 Micro Integrator supports data
 federation, which means that a single data service can expose data from

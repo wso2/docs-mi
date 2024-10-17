@@ -1,4 +1,4 @@
-# Exposing an Integration Service as a Managed API
+# How to Expose an Integration Service as a Managed API
 
 ## What you'll build
 
@@ -23,9 +23,9 @@ This demonstrates how the integration components and API management components o
 
 The following concepts and artifacts are used in this tutorial:
 
--   REST API / Integration Service
--   Endpoints
--   Mediators
+-   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties) / Integration Service
+-   [Endpoints]({{base_path}}/reference/synapse-properties/endpoint-properties)
+-   [Mediators]({{base_path}}/reference/mediators/about-mediators)
 -   Service Catalog
 -   API Publisher
 -   API Developer Portal

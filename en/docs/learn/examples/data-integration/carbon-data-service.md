@@ -1,4 +1,4 @@
-# Exposing a Carbon Datasource as a Data Service
+# How to Expose a Carbon Datasource as a Data Service
 
 A Carbon datasource is an RDBMS or a custom datasource created using the
 Micro Integrator. You can simply use

@@ -1,4 +1,4 @@
-# Translating Message Formats
+# How to Transform Message Content
 
 ## What you'll build
 
@@ -392,7 +392,7 @@ Let's send a request to the API resource to make a reservation. You can use Post
               <ul>
                 <li>
                   The URI-Template format that is used in this URL was defined when creating the API resource:
-          <code>http://host:port/categories/{category}/reserve</code>.
+          <code>http://host:port/categories/{category}/reserve</code>
                 </li>
               </ul>
             </td>

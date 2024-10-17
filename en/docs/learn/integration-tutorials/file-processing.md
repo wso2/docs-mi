@@ -1,4 +1,4 @@
-# File processing
+# How to Process a File
 
 ## What you'll build
 

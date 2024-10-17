@@ -1,4 +1,4 @@
-# Periodic Execution of Integration Process
+# How to Periodically Execute Integration Processes
 
 ## What you'll build
 
@@ -6,10 +6,10 @@ The sections below demonstrate an example of scheduling a task (using the defaul
 
 ### Concepts and artifacts used
 
-- Sequence
-- Log Mediator
-- Drop Mediator
-- Scheduled Task
+- [Sequence]({{base_path}}/reference/mediation-sequences)
+- [Log Mediator]({{base_path}}/reference/mediators/log-mediator)
+- [Drop Mediator]({{base_path}}/reference/mediators/drop-mediator)
+- [Scheduled Task]({{base_path}}/reference/synapse-properties/scheduled-task-properties)
 
 ## Let's get started!
 

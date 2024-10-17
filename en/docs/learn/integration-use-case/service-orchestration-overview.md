@@ -26,7 +26,7 @@ Multiple services are invoked simultaneously without any blocking until a respon
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="{{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service">service orchestration</a>.
+					<a href="{{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service">How to expose several services as a single service</a>.
 				</li>
 			</ul>
 		</td>

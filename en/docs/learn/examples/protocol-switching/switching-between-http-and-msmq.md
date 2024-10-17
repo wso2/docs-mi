@@ -1,4 +1,4 @@
-# Switch between HTTP and MSMQ
+# How to Switch from HTTP to MSMQ
 
 This example demonstrates how you can use the Micro Integrator to switch messages between HTTP and MSMQ during message mediation.
 

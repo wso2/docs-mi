@@ -1,4 +1,4 @@
-# Reusing Sequences
+# How to Reuse Mediation Sequencess
 This example demonstrates how to reuse sequences in the Micro Integrator.
 
 ## Synapse configuration

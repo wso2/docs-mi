@@ -1,4 +1,4 @@
-# Publishing a Custom WSDL
+# How to Publish a Custom WSDL
 When you create a proxy service, a default WSDL is automatically
 generated. You can access this WSDL by suffixing the service URL
 with `?wsdl`. See the example given below, where the proxy service name is

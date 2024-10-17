@@ -26,9 +26,6 @@ In summary, the following are the key differences between the XSLT and FastXSLT 
     ```
     ERROR XSLTMediator Error creating XSLT transformer
     ```
-    
-!!! Info
-    The FastXSLT mediator is a [conditionally content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 

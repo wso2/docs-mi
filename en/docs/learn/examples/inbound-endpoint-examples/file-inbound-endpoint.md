@@ -1,4 +1,5 @@
-# Using the File Inbound Endpoint
+# How to Use a File Inbound Endpoint
+
 ## Failure tracking using File Inbound
 To track failures in file processing that can occur when a resource
 becomes unavailable, the VFS transport creates and maintains a failed

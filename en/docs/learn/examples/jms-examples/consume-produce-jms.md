@@ -1,4 +1,4 @@
-# Consuming and Producing JMS Messages
+# How to Consume and Produce JMS Messages
 
 This section describes how to configure WSO2 Micro Integrator to work as a JMS-to-JMS proxy service. In this example, the Micro Integrator listens to a JMS queue, consumes messages, and then sends those messages to another JMS queue.
 

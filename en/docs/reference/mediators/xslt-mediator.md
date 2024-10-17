@@ -7,9 +7,6 @@ selected element of the current message payload. In addition, you can:
 -   Specify features to be enabled/disabled in the XSLT transformation.
 -   Import external XSLT scripts to the main XSLT script of the XSLT mediator by adding them as resources.
 
-!!! Info
-    The XSLT mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ```xml

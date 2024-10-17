@@ -1,4 +1,4 @@
-# Switching from HTTP(S) to JMS
+# How to Switch from HTTP(S) to JMS
 
 This example demonstrates how WSO2 Micro Integrator receives messages in HTTP and passes the messages through JMS. The Micro Integrator uses a proxy service over HTTP, forwards the received messages to the EPR using JMS, and immediately responds with a 202. 
 

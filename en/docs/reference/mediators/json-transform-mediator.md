@@ -8,9 +8,6 @@ Also you can have a JSON schema to correct the payload if there are inconsistenc
 
 <img src="{{base_path}}/assets/img/integrate/mediators/json-transform-concept.png"/>
 
-!!! Info
-    The JSON Transform mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ``` java

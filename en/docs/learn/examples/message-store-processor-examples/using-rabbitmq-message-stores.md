@@ -1,4 +1,4 @@
-# Using the RabbitMQ Message Store
+# How to Use a RabbitMQ Message Store
 
 In this example, the client sends requests to a **proxy service**, which stores the messages in a **RabbitMQ message store**. The **message forwarding processor** then picks the stored messages from the RabbitMQ message store and invokes the back-end service.
 

@@ -1,8 +1,8 @@
-# Using the HTTP Endpoint
+# How to Use an HTTP Endpoint
 
 See the examples given below on how to effectively use the HTTP endpoint.
 
-## Example 1: Populating an HTTP endpoint during mediation
+## Example 1: Populate an HTTP endpoint during mediation
 
 Shown below is a synapse configuration that defines an endpoint artifact.
 

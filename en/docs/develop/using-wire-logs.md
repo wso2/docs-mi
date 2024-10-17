@@ -1,23 +1,14 @@
-# Using Wire Logs
+# Use Wire Logs
 
-While debugging a Synapse flow, you can view the the actual HTTP
-messages at the entry point of the Micro Integrator via wire logs. For
-example, you can view wire logs of the incoming flow and the final
-response of a proxy service. Also, you can view wire logs for points,
-where it goes out from the Micro Integrator. For example, you can see
-the outgoing and incoming wire logs for specific mediators (i.e. Call
-mediator, Send mediator etc.). Wire logs are useful to troubleshoot
-unexpected issues that occur while integrating miscellaneous systems.
-You can use wire logs to verify whether the message payload is properly
-going out from the server, whether the HTTP headers such as the
-content-type is properly set in the outgoing message, etc.
+When debugging a Synapse flow, you can view the actual HTTP messages at the [entry]({{base_path}}/get-started/key-concepts/#message-entry-points) and the [exit]({{base_path}}/get-started/key-concepts/#message-exit-points) points of the Micro Integrator via wire logs. For example, you can view wire logs of the incoming flow and the final response of an [API]({{base_path}}/reference/synapse-properties/rest-api-properties) or a [proxy service]({{base_path}}/reference/synapse-properties/proxy-service-properties). 
+Similarly, you can see the outgoing and incoming wire logs at an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties). Wire logs are useful to troubleshoot unexpected issues that occur when integrating miscellaneous systems. For example, you can use wire logs to verify whether the message payload is properly going out from the server is correct, and whether the HTTP headers such as the content type is properly set in the outgoing message.
   
 !!! Note
-    It is recommended to enable wire logs only for troubleshooting purposes. Running production systems with wire logs enabled is not recommended.  
+    It is recommended to enable wire logs only for troubleshooting purposes. Running production systems with wire logs enabled is not recommended, as it can incur a performance overhead.  
 
-## Enabling wire logs
+## Enable wire logs
 
-See [Configuring Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#wire-logs-and-header-logs) for instructions.
+See [Configure Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#wire-logs-and-header-logs) for instructions.
 
 ## Sample wire log
 
@@ -74,30 +65,3 @@ There are two incoming messages and two outgoing messages in the above log. Firs
 
 -   `DEBUG - wire >>`: This represents a message, which is coming into WSO2 Micro Integrator from the wire.
 -   `DEBUG - wire <<`: This represents a message, which goes to the wire from the Micro Integrator.
-
-## Viewing wire logs of a specific mediator
-
-You need to put a debug point to the mediator, to view wire logs of it. When debugging is finished (or while debugging), right click on the mediator, and click **Show WireLogs** , to view wire logs for a specific mediator.
-
-!!! Info
-    You can only view wire logs for a whole **proxy service**, **call mediator**, **send mediator**, or other **API resources**. However, you cannot view a wire log of a Synapse config (e.g. sequences), because there would not be anything written to wire when the flow comes to the sequence etc. Hence, you can only view them in wire entry points.
-
-![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/show-wire-logs.png) 
-
-## Viewing wire logs while debugging
-
-If you view wire logs while debugging, you view only the wire logs of mediators, whose execution is already completed as shown in the example below.
-
-![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/while-debugging.png) 
-
-## Viewing wire logs of a mediator after debugging
-
-When you view wire logs of a mediator (e.g. send mediator) after debugging, you can view the request and response wire logs as shown in the example below.
-
-![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/after-debugging.png) 
-
-## Viewing wire logs of a proxy service after debugging
-
-If you view wire logs of a proxy service after debugging finished, you view the request wire log and final response wire log of that proxy as shown in the example below.
-
-![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/for-proxy.png)

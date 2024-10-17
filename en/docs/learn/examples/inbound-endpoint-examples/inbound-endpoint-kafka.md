@@ -1,4 +1,4 @@
-# Using the Kafka Inbound Endpoint
+# How to Use a Kafka Inbound Endpoint
 
 ## Example use case
 

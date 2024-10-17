@@ -8,9 +8,6 @@ set/remove multiple properties, you can add a single Property Group
 Mediator configuration instead of multiple Property Mediator
 configurations.
 
-!!! Info
-    The Property Group mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ```

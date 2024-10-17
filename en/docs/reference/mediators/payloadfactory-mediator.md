@@ -15,9 +15,6 @@ You can specify a static value or use an XPath/JSON [expression]({{base_path}}/r
 The values passed by the arguments are evaluated against the existing 
 message.
 
-!!! Info
-    The PayloadFactory mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 ## Syntax
 
 ``` java

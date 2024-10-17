@@ -2,9 +2,6 @@
 
 The **DB Report Mediator** is similar to the [DBLookup Mediator]({{base_path}}/reference/mediators/dblookup-mediator). The difference between the two mediators is that the DB Report mediator writes information to a database using the specified insert SQL statement.
 
-!!! Info
-    The DB Report mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-
 !!! Note
     Currently, the 'DB-Report-mediator' does not support the 'json-eval' expression used to extract the parameters.
 

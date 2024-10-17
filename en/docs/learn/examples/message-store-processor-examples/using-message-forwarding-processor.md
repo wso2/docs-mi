@@ -1,4 +1,5 @@
-# Using the Message Forwarding Processor
+# How to Use a Message Forwarding Processor
+
 This example demonstrates the usage of the message forwarding processor.
 
 ## Synapse configuration
