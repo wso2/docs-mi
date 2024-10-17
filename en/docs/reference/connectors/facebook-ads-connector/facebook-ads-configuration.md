@@ -842,7 +842,7 @@ To use the Facebook Ads connector, first create the connection with your configu
         </tr>
         <tr>
             <td><code>customAudienceId</code></td>
-            <td>ID of the ad set.</td>
+            <td>ID of the custom audience.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -856,7 +856,7 @@ To use the Facebook Ads connector, first create the connection with your configu
 
     ```xml
     <facebookAds.updateCustomAudience configKey="FB_CONN_1">
-        <adId>{json-eval($.audience_id)}</adId>
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
     </facebookAds.updateCustomAudience>
     ```
@@ -870,6 +870,98 @@ To use the Facebook Ads connector, first create the connection with your configu
             "name": "My Custom Audience Update",
             "subtype": "CUSTOM", 
             "description": "Audience based on website traffic",
+        }
+    }
+    ```
+
+??? note "addUsersToAudience"
+    The `addUsersToAudience` operation adds users to a custom audience. 
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>customAudienceId</code></td>
+            <td>ID of the custom audience.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>properties</code></td>
+            <td>Properties of the users to be added to the audience.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.addUsersToAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+    </facebookAds.addUsersToAudience>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": {
+            "payload": {
+                "schema": "EMAIL_SHA256",
+                "data": [
+                    "b36a83701f1c3191e19722d6f90274bc1b5501fe69ebf33313e440fe4b0fe210",
+                    "2b3b2b9ce842ab8b6a6c614cb1f9604bb8a0d502d1af49c526b72b10894e95b5"
+                ]
+            }
+        }
+    }
+    ```
+
+??? note "removeUsersFromAudience"
+    The `removeUsersFromAudience` operation removes users from a custom audience.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>customAudienceId</code></td>
+            <td>ID of the custom audience.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>properties</code></td>
+            <td>Properties of the users to be removed from the audience.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+    </facebookAds.removeUsersFromAudience>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": {
+            "payload": {
+                "schema": "EMAIL_SHA256",
+                "data": [
+                    "b36a83701f1c3191e19722d6f90274bc1b5501fe69ebf33313e440fe4b0fe210",
+                    "2b3b2b9ce842ab8b6a6c614cb1f9604bb8a0d502d1af49c526b72b10894e95b5"
+                ]
+            }
         }
     }
     ```
