@@ -3,7 +3,7 @@ name: Weekly Sync from branch '4.3.0' to 'main'
 # Schedule to run weekly on Friday at 3:15 PM UTC
 on:
   schedule:
-    - cron: '15 15 * * 5'  # Adjust this cron expression for your preferred time
+    - cron: '0 10 * * 5'  # Adjust this cron expression for your preferred time
 
 jobs:
   sync_pr:
