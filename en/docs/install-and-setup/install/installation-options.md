@@ -7,7 +7,7 @@ Micro Integrator provide the following installation options for deployments.
 
 ## 1. Kubernetes (Helm)
 
-You can follow the guides available in the [Helm resources repository](https://github.com/wso2/kubernetes-mi/tree/4.2.x) in order to deploy Micro Integrator in Kubernetes using Helm artifacts.
+You can follow the guides available in the [Helm resources repository](https://github.com/wso2/helm-mi.git) in order to deploy Micro Integrator in Kubernetes using Helm artifacts.
 
 ## 2. Docker/Docker Compose
 
