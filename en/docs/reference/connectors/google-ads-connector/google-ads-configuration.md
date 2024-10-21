@@ -977,6 +977,7 @@ To use the Google Ads connector, first create the connection with your configura
         }
     }
     ```
+
 ??? note "userListsMutate"
     The `userListsMutate` operation creates or updates user lists. Operation statuses are returned.
     <table>
