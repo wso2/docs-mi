@@ -3,7 +3,7 @@ name: Weekly Sync from branch '4.3.0' to 'main'
 # Schedule to run weekly on Friday at 3:15 PM UTC
 on:
   schedule:
-    - cron: '0 10 * * 5'  # Adjust this cron expression for your preferred time
+    - cron: '0 9 * * 1'  # Adjust this cron expression for your preferred time
 
 jobs:
   sync_pr:
@@ -21,8 +21,7 @@ jobs:
           git config user.email "action@github.com"
           git fetch origin
           git checkout main
-          git checkout -b sync-branch-from-4.3.0
-          git merge origin/4.3.0 --no-ff --no-edit
+          git checkout -b sync-branch-from-4.3.0 origin/4.3.0
 
       # Push the branch to the repository
       - name: Push sync branch
