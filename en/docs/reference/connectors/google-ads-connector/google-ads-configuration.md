@@ -918,6 +918,126 @@ To use the Google Ads connector, first create the connection with your configura
     }
     ```
 
+??? note "uploadUserData"
+    The `uploadUserData` operation uploads the given user data.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+            <tr>
+            <td><code>customerId</code></td>
+            <td>Required. The ID of the customer for which to update the user data.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>operations</code></td>
+            <td>The list of operations to perform on individual ads. Type: [UserDataOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/customers/uploadUserData#UserDataOperation) object.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>customerMatchUserListMetadata</code></td>
+            <td>Metadata for data updates to a Customer Match user list. Type: [CustomerMatchUserListMetadata](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CustomerMatchUserListMetadata) object.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <googleAds.uploadUserData configKey="GOOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <query>{json-eval($.operations)}</query>
+        <query>{json-eval($.customerMatchUserListMetadata)}</query>
+    </googleAds.uploadUserData>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "customer_id": "123123123",
+        "operations": [
+            {
+                "create": {
+                    "userIdentifiers": [
+                        {
+                            "hashedEmail": "2c41b9d011bc28e71842637075e2a67cf4e73010172f4a18985494467d73a6d6"
+                        },
+                        {
+                            "hashedEmail": "00b340221ad566a1400936daadce44a7c61b5b04505fc66d3d55d96bde434bc1"
+                        }
+                    ]
+                }
+            }
+        ],
+        "customerMatchUserListMetadata": {
+            "userList": "customers/123123123/userLists/8827689117"
+        }
+    }
+    ```
+
+??? note "userListsMutate"
+    The `userListsMutate` operation creates or updates user lists. Operation statuses are returned.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>customerId</code></td>
+            <td>Required. The ID of the customer whose user lists are being modified.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>operations</code></td>
+            <td>Required. The list of operations to perform on individual user lists. Type: [UserListOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/UserListOperation) object.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>partialFailure</code></td>
+            <td>If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. The default value is <code>false</code>.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>validateOnly</code></td>
+            <td>If true, the request is validated but not executed. Only errors are returned, not results.</td>
+            <td>No</td>
+        </tr>
+    </table>
+    
+    **Sample configuration**
+
+    ```xml
+    <googleAds.userListsMutate configKey="GOOGLE_ADS_CONN">
+        <customerId>{json-eval($.customer_id)}</customerId>
+        <query>{json-eval($.operations)}</query>
+    </googleAds.userListsMutate>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "customer_id": "123123123",
+        "operations": [
+            {
+                "create": {
+                    "name": "My Customer Match List",
+                    "description": "List created via MI",
+                    "membershipLifeSpan": 30,
+                    "crmBasedUserList": {
+                        "uploadKeyType": "CONTACT_INFO",
+                        "dataSourceType": "FIRST_PARTY"
+                    }
+                }
+            }
+        ]
+    }
+    ```
+
 ## Error codes related to Google Ads Connector
 
 The connector may encounter errors during operation execution. When an error occurs, the `ERROR_MESSAGE` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, see [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
