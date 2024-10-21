@@ -111,7 +111,7 @@ The parameters available to configure the property mediator are as follows:
 <ul>
 <li><strong>Synapse</strong>: This is the default scope. The properties set in this scope last as long as the transaction (request-response) exists.</li>
 <li><strong>Transport</strong>: The properties set in this scope will be considered transport headers. For example, if it is required to send an HTTP header named 'CustomHeader' with an outgoing request, you can use the property mediator configuration with this scope.</li>
-<li><strong>Axis2</strong>: Properties set in this scope is available only either throughout the request flow or the response flow for which the property is defined</li>
+<li><strong>Axis2</strong>: Properties set in this scope are available only either throughout the request flow or the response flow for which the property is defined.</li>
 <li><strong>Registry</strong>: This scope is used to retrieve properties within the registry.</li>
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables.</li>
