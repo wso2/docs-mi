@@ -933,12 +933,12 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>The list of operations to perform on individual ads.</td>
+            <td>The list of operations to perform on individual ads. Type: [UserDataOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/customers/uploadUserData#UserDataOperation) object.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>customerMatchUserListMetadata</code></td>
-            <td>Metadata for data updates to a Customer Match user list.</td>
+            <td>Metadata for data updates to a Customer Match user list. Type: [CustomerMatchUserListMetadata](https://developers.google.com/google-ads/api/rest/reference/rest/v17/CustomerMatchUserListMetadata) object.</td>
             <td>No</td>
         </tr>
     </table>
@@ -993,7 +993,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>operations</code></td>
-            <td>Required. The list of operations to perform on individual user lists. Type: object (UserListOperation)</td>
+            <td>Required. The list of operations to perform on individual user lists. Type: [UserListOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/UserListOperation) object.</td>
             <td>Yes</td>
         </tr>
         <tr>
