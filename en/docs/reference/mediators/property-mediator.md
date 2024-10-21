@@ -99,7 +99,7 @@ The parameters available to configure the property mediator are as follows:
 </tr>
 <tr class="odd">
 <td><strong>Pattern</strong></td>
-<td>This parameter is used to enter a regular expression that will be evaluated against the value of the property or result of the <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a>.</td>
+<td>This parameter is used to enter a regular expression that will be evaluated against the value of the property or the result of the <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a>.</td>
 </tr>
 <tr class="even">
 <td><strong>Group</strong></td>
