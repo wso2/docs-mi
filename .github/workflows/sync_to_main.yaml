@@ -14,27 +14,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Create a new branch for the PR
-      - name: Create a sync branch
-        run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          git fetch origin
-          git checkout main
-          git checkout -b sync-branch-from-4.3.0 origin/4.3.0
-
-      # Push the branch to the repository
-      - name: Push sync branch
-        run: |
-          git push origin sync-branch-from-4.3.0
-
       # Create a pull request using the GitHub CLI
       - name: Create a pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: repo-sync/pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'Sync branch 4.3.0 with main'
-          branch: sync-branch-from-4.3.0
+          branch: 4.3.0
           base: main
           title: 'Weekly Sync: branch 4.3.0 to main'
           body: 'Automated weekly sync from branch 4.3.0 to main.'
