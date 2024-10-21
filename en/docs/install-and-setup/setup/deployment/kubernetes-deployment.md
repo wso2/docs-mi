@@ -31,6 +31,6 @@ The API operator for Kubernetes provides first-class support for Micro Integrato
 
 ### Using Helm resources
 
-WSO2 releases Helm resources for all product deployments. You can get the [Helm resources for the Micro Integrator](https://github.com/wso2/kubernetes-mi/) and set up a Micro Integrator deployment on Kubernetes.
+WSO2 releases Helm resources for all product deployments. You can get the [Helm resources for the Micro Integrator](https://github.com/wso2/helm-mi.git) and set up a Micro Integrator deployment on Kubernetes.
 
 -   For instructions, see [deploying integrations on Kubernetes using Helm resources]({{base_path}}/install-and-setup/setup/deployment/deploying-micro-integrator-with-helm).
