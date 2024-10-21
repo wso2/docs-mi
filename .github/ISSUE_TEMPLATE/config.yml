@@ -1,8 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-- name: '📚 Documentation Issue'
-  about: Request a new article or report an issue if a topic or concept is missing or incorrect in the current documentation.
-  url: https://github.com/wso2/docs-mi/issues/new/choose
 - name: General Question
   url: https://stackoverflow.com/questions/tagged/wso2-micro-integrator
   about: "If you have a question then please ask on Stack Overflow using the #wso2-micro-integrator tag."
