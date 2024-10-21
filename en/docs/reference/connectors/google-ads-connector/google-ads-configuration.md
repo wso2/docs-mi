@@ -919,7 +919,7 @@ To use the Google Ads connector, first create the connection with your configura
     ```
 
 ??? note "uploadUserData"
-    The `uploadUserData` operation uploads the given user data..
+    The `uploadUserData` operation uploads the given user data.
     <table>
         <tr>
             <th>Parameter Name</th>
