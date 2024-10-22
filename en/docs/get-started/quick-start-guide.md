@@ -1,5 +1,5 @@
 ---
-canonical_url: https://newsite.com/path-to-your-page
+canonical_url: https://ei.docs.wso2.com/en/latest/micro-integrator/overview/quick-start-guide/
 ---
 
 # Quick Start Guide
