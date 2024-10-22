@@ -1,4 +1,4 @@
-<link rel=“canonical” href=“https://mi.docs.wso2.com/en/latest/get-started/introduction/” />
+<link rel=“canonical” href=“https://ei.docs.wso2.com/en/latest/micro-integrator/overview/introduction/” />
 
 # Introduction
 
