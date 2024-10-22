@@ -1,3 +1,5 @@
+<link rel=“canonical” href=“https://mi.docs.wso2.com/en/latest/get-started/introduction/” />
+
 # Introduction
 
 The **WSO2 Micro Integrator** provides a comprehensive integration solution that streamlines your digital transformation
