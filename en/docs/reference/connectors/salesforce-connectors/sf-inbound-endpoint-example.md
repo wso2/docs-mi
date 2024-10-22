@@ -32,33 +32,29 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
     </sequence>
     ```
    
-3. Now let's create the Salesforce Inbound Endpoint. Click on `+` in **Inbound Endpoints** and select **Custom** to create the Salesforce Inbound Endpoint.
+3. Now let's create the Salesforce Inbound Endpoint. Click on `+` in **Inbound Endpoints** and select **Salesforce** to create the Salesforce Inbound Endpoint.
    
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-inboundep-create-new.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 4. Provide the following details in the form that opens.
 
     - **Name**: `SalesforceInboundEP`
-    - **Sequence**: `test`
-    - **Error Sequence**: `test`
-    - **Class Name**: `org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData`
-    - **Behavior**: Polling Inbound Endpoint
-    - **Interval**: `100`
-   
-5. Click on **Add Parameter** and enter the following key-value pairs one by one. 
-
-    | Parameter Name                              | Parameter Value                            |
-    |---------------------------------------------|--------------------------------------------|
-    | connection.salesforce.replay                | `false`                                    |
-    | connection.salesforce.EventIDStoredFilePath | `/Users/myname/SalesForceConnector/a.txt`  |
-    | connection.salesforce.packageVersion        | `37.0`                                     |
-    | connection.salesforce.salesforceObject      | `/topic/Account`                           |
-    | connection.salesforce.loginEndpoint         | https://login.salesforce.com               |
-    | connection.salesforce.userName              | Username                                   |
-    | connection.salesforce.password              | test123XXXXXXXXXX                          |
-    | connection.salesforce.waitTime              | `5000`                                     |
-    | connection.salesforce.connectionTimeout     | `20000`                                    |
-    | connection.salesforce.soapApiVersion        | `22.0`                                     |
+    - **Automatically generate sequences**: deselect
+    - **Injecting Sequence Name**: `test`
+    - **Error Sequence Name**: `test`
+    - **Polling Interval**: `100`
+    - **Execute sequentially**: select
+    - **Coordination**: select
+    - **Salesforce Object**: `/topic/Account` 
+    - **Package Version**: `37.0`
+    - **User Name**: Username
+    - **Password**: test123XXXXXXXXXX
+    - **Login Endpoint**: `https://login.salesforce.com`
+    - **SOAP API Version**: `22.0`
+    - **Connection Timeout**: `20000`
+    - **Wait Time**: `5000`
+    - **Replay**: deselect
+    - **Event ID File Path**: `/Users/myname/SalesForceConnector/a.txt`
 
 6. Click on **Submit** to complete the inbound endpoint creation. The Salesforce Inbound Endpoint will be created and listed in the **Inbound Endpoints** section.
 
