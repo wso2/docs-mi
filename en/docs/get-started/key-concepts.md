@@ -107,7 +107,7 @@ See the [Transports]({{base_path}}/install-and-setup/setup/transport-configurati
 
 #### Registry
 
-WSO2 Micro Integrator uses a Registry to store various configurations and resources, such as [endpoints](#endpoints). A registry is simply a content store and a metadata repository. Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts,
+WSO2 Micro Integrator uses a Registry to store various configurations and resources, such as [endpoints](#endpoints). A registry is simply a content store and a metadata repository. Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts.
 
 #### Message Builders and Formatters
 
