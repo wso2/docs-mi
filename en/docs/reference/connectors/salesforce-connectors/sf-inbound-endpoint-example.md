@@ -22,7 +22,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-2. First let's create a sequence to process the message. In this example, for simplicity, we will just log the message, but in a real-world use case, this can be any type of message mediation. Select Micro Integrator and click on `+` in **Sequences** to create the sequence. Add a log and drop the mediator to the sequence. The source view of the sequence will look like below.
+2. First, let's create a sequence to process the message. In this example, for simplicity, you will only log the message, but in a real-world use case, this can be any type of message mediation. Select Micro Integrator and click on `+` in **Sequences** to create the sequence. Add a log and drop the mediator to the sequence. The source view of the sequence will look like below.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
