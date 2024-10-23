@@ -1,39 +1,21 @@
 # Validate Mediator
 
-You can use the Validate mediator to validate XML and JSON messages.
+You can use the Validate mediator to validate XML and JSON messages against a specified XML or JSON schema.
 
-## Validating XML messages
-
-The Validate mediator validates XML messages against a specified schema.
-You can specify an XPath to extract and validate a specific part of the
-message. Otherwise, the mediator validates the first child of the SOAP
-body of the current message.
-
-!!! Tip
-    A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
-
-### Syntax
+## Syntax
 
 ``` java
-<validate [source="xpath"]>
-   <property name="validation-feature-id" value="true|false"/>*
+<validate [source="expression"] [cache-schema="true|false"]>
    <schema key="string"/>+
+   <feature name="string" value="true|false"/>+
+   <resource key="registryKey" location="string"/>+
    <on-fail>
-      mediator+
+      (mediator)+
    </on-fail>
 </validate>
 ```
 
-### Configurations
-
-The mediator configuration can be divided into the following sections.
-
-#### Schema keys
-
-This section is used to specify the key to access the main schema based
-on which validation is carried out, as well as to specify the XML which
-needs to be validated. The parameters available in this section are as
-follows.
+## Configurations
 
 <table>
 <thead>
@@ -46,75 +28,97 @@ follows.
 <tr class="odd">
 <td><strong>Source</strong></td>
 <td><div class="content-wrapper">
-<p>The XPath expression to extract the XML that needs to be validated. The Validate mediator validates the evaluation of this expression against the schema specified in the <strong>Schema keys defined for Validate Mediator</strong> table. If this is not specified, the validation is performed against the first child of the SOAP body of the current message.</p>
-You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.
+<p>The <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> to extract the XML or JSON payload that needs to be validated. The Validate mediator validates the evaluation of this expression against the schema specified in the <a href="#schemas">schema</a>. 
+<div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>If this is not specified, 
+    <ul>
+        <li>For XML: the validation is performed against the first child of the SOAP body of the current message.</li>
+        <li>For JSON: the validation is performed against the whole body of the current message. For example: <code>json-eval($.msg)</code></li>
+    </ul></p>
+ </div>
 </div></td>
 </tr>
 <tr class="even">
-<td><strong>Enable Cache Schema</strong></td>
+<td><strong>Enable Schema Caching</strong></td>
 <td><div class="content-wrapper">
 <p>This check box is enabled by default to ensure that schemas retrieved from the registry for one service/REST API are cached for future use.</p>
-<b>Using Templates?</b>:
-<p>Be sure to disable this check box if you are using the <strong>Validate</strong> mediator inside a <b>Template</b>. Since multiple proxy services/REST APIs will be accessing one template, schemas that are cached for one service can interrupt another service that uses the same template.</p>
-</div></td>
-</tr>
-<tr class="odd">
-<td><strong>Schema keys defined for Validate Mediator</strong> table</td>
-<td><div class="content-wrapper">
-<p>The key for the schema location. It can be specified using one of the following methods.</p>
-<ul>
-<li>If the key is a static value, select <strong>Static Key</strong> from the list and enter a static key in the data field. This value should be predefined and saved as a resource in the Registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required key from the resource tree.</li>
-<li>If the key is a dynamic value, Select <strong>Dynamic Key</strong> from the list and enter an expression to calculate the value in the data field.</li>
-</ul>
-<p>Click <strong>Add Key</strong> to add a new schema key. Click <strong>Delete</strong> in the relevant row to delete a schema key.</p>
-<b>Tip</b>:
-<p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
+<p>Be sure to disable this check box if you are using the validate mediator inside a <b>Template</b>. Since multiple proxy services/REST APIs will be accessing one template, schemas that are cached for one service can interrupt another service that uses the same template.</p>
 </div></td>
 </tr>
 </tbody>
 </table>
 
-#### Features
+The other configuration can be divided into the following sections.
+
+### Schemas
+
+This section is used to specify the key to access the schema based on which validation is carried out. The parameters available in this section are as
+follows.
+
+<table>
+<thead>
+<tr class="header">
+<th>Parameter Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Schema</strong></td>
+<td><div class="content-wrapper">
+<p>The key for the schema location. It can be specified using one of the following methods.</p>
+<ul>
+<li>You can give a static key. The schema should be predefined and saved as a resource in the Registry in the given location.</li>
+<li>You can give an <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> to extract the schema.</li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+### Features
 
 This section is used to specify which features of the Validate mediator
-should be enabled and which should be disabled. The parameters available
+should be enabled and which should be disabled. A feature can be used to control schema validation behavior. The parameters available
 in this section are as follows.
 
 !!! Info
-    Only the [FEATURE_SECURE_PROCESSING](http://java.sun.com/javase/6/docs/api/constant-values.html#javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING) feature is currently supported by the validator.
+    Only the [FEATURE_SECURE_PROCESSING](https://docs.oracle.com/en/java/javase/17/docs/api/java.xml/javax/xml/XMLConstants.html#FEATURE_SECURE_PROCESSING) feature is currently supported by the validator.
 
 
-| Parameter Name   | Description                                                                      |
-|------------------|----------------------------------------------------------------------------------|
-| **Feature Name** | The name of the feature.                                                         |
-| **Value**        | Click **True** to enable the feature, or click **False** to disable the feature. |
-| **Action**       | Click **Delete** in the relevant row to delete a feature.                        |
+| Parameter Name      | Description                                |
+|---------------------|--------------------------------------------|
+| **Feature Name**    | The name of the feature.                   |
+| **Feature Enabled** | Select the checkbox to enable the feature. | 
 
-#### Resources
+### Resources
 
 A resource in the Validate mediator configuration enables you to import
 a schema referenced within another schema. In order to access such a
 schema via a resource, the parent schema should be saved as a resource
-in the Registry. The parameters available in this section are as
+in the Registry. The parameters available in this section are as
 follows.
 
 | Parameter Name | Description                                                                                                                                                                                                                                                                                                                       |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Location**   | The location of the schema to be imported. The value entered here should be equal to the value of the `                schema location               ` attribute within the relevant `                <                                 xsd:import                                >               ` element in the parent schema. |
-| **Key**        | The key to access the parent schema saved in the Registry. Click either **Configuration Registry** or **Governance Registry** as relevant to select the key from the resource tree.                                                                                                                                               |
+| **Location**   | The location of the schema to be imported. The value entered here should be equal to the value of the `schema location` attribute within the relevant `<xsd:import>` element in the parent schema. |
+| **Key**        | The key to access the parent schema saved in the Registry.                                                                                                                                               |
 
-### Examples
+### on-fail
 
-#### Basic configuration
+Once the validate mediator is added, you can define mediators inside validate mediator which will be added to the `on-fail` element. These mediators will be executed when the validation fails. 
 
-In this example, the required schema for validating messages going
-through the validate mediator is given as a registry key,
-`            schema\sample.xsd           ` . No source attribute is
-specified, and therefore the schema will be used to validate the first
-child of the SOAP body. The mediation logic to follow if the validation
-fails is defined within the `            on-fail           ` element. In
-this example, the [Fault Mediator]({{base_path}}/reference/mediators/fault-mediator) creates a SOAP
-fault to be sent back to the party which sent the message.
+!!! Tip
+    A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
+
+## Examples
+
+### Validate XML payload
+
+#### Example 1 - Basic configuration
+
+In this example, the schema for validating messages is given as a registry key, `schema\sample.xsd`. No source attribute is specified, and therefore the schema will be used to validate the first child of the SOAP body. The mediation logic to follow if the validation fails is defined within the `on-fail` element. In this example, the [Fault Mediator]({{base_path}}/reference/mediators/fault-mediator) creates a SOAP fault to be sent back to the client.
 
 ```xml
 <validate cache-schema="true">
@@ -131,14 +135,9 @@ fault to be sent back to the party which sent the message.
 </validate>
 ```
 
-#### Validate mediator with resources
+#### Example 2 - Validate mediator with resources
 
-In this example, the following schema named
-`            08MockServiceSchema           ` is saved in the Registry.
-This schema is located in `            MockDataTypes.xsd           ` . A
-reference is made within this schema to another schema named
-`            08SOAPFaults           ` which is located in
-`            SOAPFaults.xsd           ` .
+In this example, the following schema named `08MockServiceSchema` is saved in the Registry. This schema is located in `MockDataTypes.xsd`. A reference is made within this schema to another schema named `08SOAPFaults` which is located in `SOAPFaults.xsd`.
 
 ```xml
 <xsd:import namespace= "http://samples.synapse.com/08MockServiceSchema" schemalocation= "MockDataTypes.xsd">
@@ -161,89 +160,13 @@ The Validate mediator can be configured as follows.
 </validate>
 ```
 
-The schema used by the validate mediator is
-`            MockDataTypes.xsd           ` . In addition, a resource is
-used to import the `            08           `
-`            SOAPFaults           ` schema which is referred in the
-`            08MockServiceSchema           ` schema. Note that the value
-`            ../Common/SOAPFaults.xsd           ` which is specified as
-the location for the schema to be imported is the same as the location
-specified for `            08           `
-`            SOAPFaults           ` schema in the
-`            08MockServiceSchema           ` configuration.
+The schema used by the validate mediator is `MockDataTypes.xsd`. In addition, a resource is used to import the `08SOAPFaults` schema which is referred in the `08MockServiceSchema` schema. Note that the value `../Common/SOAPFaults.xsd` which is specified as the location for the schema to be imported is same as the location specified for `08SOAPFaults` schema in the `08MockServiceSchema` configuration.
 
-The `            on-fail           ` sequence of this Validate mediator
-includes a [Log mediator]({{base_path}}/reference/mediators/log-mediator) which is added as a child to
-the Validate mediator. This log mediator uses two properties to generate
-the error message `            Validation failed ###           ` when
-the validation of a message against the schemas specified fails.
+The `on-fail` sequence of this Validate mediator includes a [Log mediator]({{base_path}}/reference/mediators/log-mediator) which is added as a child to the Validate mediator. This log mediator uses two properties to generate the error message `Validation failed ###` when the validation of a message against the schemas specified fails.
 
-The Validate mediator validates JSON messages against a specified JSON
-schema. You can specify a JSONPath to extract and validate a specific
-part of the message. Otherwise, the mediator validates the complete
-content of the current message.
+### Validate JSON payload
 
-!!! Tip
-    A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) or [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
-
-## Validating JSON messages
-
-### Syntax
-
-``` java
-<validate [source="xpath"]>
-   <schema key="string"/>+
-   <on-fail>
-      mediator+
-   </on-fail>
-</validate>
-```
-
-### Configuration
-
-The mediator configuration can be divided into the following sections.
-
-#### Schema keys
-
-This section is used to specify the key to access the main schema based on which validation is carried out, as well as to specify the JSON message which needs to be validated. The parameters available in this section are as follows.
-
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Source</strong></td>
-<td><p>The JSONPath expression to extract the JSON element that needs to be validated. The Validate mediator validates the evaluation of this expression against the schema specified in the <strong>Schema keys defined for Validate Mediator</strong> table. If this is not specified, the validation is performed against the whole body of the current message.</p>
-<div>
-E.g: <code>json-eval($.msg)</code>
-</div></td>
-</tr>
-<tr class="even">
-<td><strong>Enable Cache Schema</strong></td>
-<td><div class="content-wrapper">
-<p>This check box is enabled by default to ensure that schemas retrieved from the registry for one service/REST API are cached for future use.</p>
-<p>Using Templates?</p>
-<p>Be sure to disable this check box if you are using the <strong>Validate</strong> mediator inside a <b>Template</b> . Since multiple proxy services/REST APIs will be accessing one template, schemas that are cached for one service can interrupt another service that uses the same template.</p>
-</div></td>
-</tr>
-<tr class="odd">
-<td><strong>Schema keys defined for Validate Mediator</strong></td>
-<td><p>The key for the schema location. It can be specified using one of the following methods.</p>
-<ul>
-<li>If the key is a static value, select Static Key from the list and enter a static key in the data field. This value should be predefined and saved as a resource in the Registry . Click either Configuration Registry or Governance Registry as relevant to select the required key from the resource tree.</li>
-<li>If the key is a dynamic value, Select Dynamic Key from the list and enter an expression to calculate the value in the data field.</li>
-</ul>
-<p>Click <strong>Add Key</strong> to add a new schema key. Click <strong>Delete</strong> in the relevant row to delete a schema key.</p></td>
-</tr>
-</tbody>
-</table>
-
-### Examples
-Following examples use the below sample schema `             StockQuoteSchema.json            ` file. Add this sample schema file (i.e. `             StockQuoteSchema.json            ` ) to the following Registry path: `conf:/schema/StockQuoteSchema.json`.
+Following examples use the below sample schema `StockQuoteSchema.json` file. Add the sample schema file to the registry path: `conf:/schema/StockQuoteSchema.json`.
 
 !!! Tip
     When adding this sample schema file to the Registry, specify the **Media Type** as application/json.
@@ -279,16 +202,10 @@ Following examples use the below sample schema `             StockQuoteSchema.js
 }
 ```
 
-#### Basic configuration
+#### Example 1 - Basic configuration
 
-In this example, the required schema for validating messages going
-through the Validate mediator is given as a registry key (i.e.
-`             schema\StockQuoteSchema.json            ` ). You do not
-have any source attributes specified. Therefore, the schema will be used
-to validate the complete JSON body. The mediation logic to follow if the
-validation fails is defined within the on-fail element. In this example,
-the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault
-to be sent back to the party, which sends the message.
+In this example, the required schema for validating messages going through the Validate mediator is given as the registry key `schema\StockQuoteSchema.json`. You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON payload. The mediation logic to follow if the
+validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault to be sent back to the client.
 
 ``` java
 <validate cache-schema="true">
@@ -308,7 +225,7 @@ to be sent back to the party, which sends the message.
 </validate>
 ```
 
-An example for a valid JSON payload request is given below.
+An example for a valid JSON payload request against the given schema is given below.
 
 ``` java
 {
@@ -320,7 +237,7 @@ An example for a valid JSON payload request is given below.
 }
 ```
 
-When you send an invalid JSON, the following response will appear.
+When you send an invalid JSON payload against the given schema, the following response will appear.
 
 ```
 {
@@ -329,11 +246,9 @@ When you send an invalid JSON, the following response will appear.
 }
 ```
 
-#### Validate mediator with source (JSONPath)
+#### Example 2 - Validate mediator with source (JSONPath)
 
-In this example, it extracts the message element from the JSON request
-body and validates only that part of the message against the given
-schema.
+In this example, it extracts the message element from the JSON request body and validates only that part of the message against the given schema.
 
 ``` xml
 <validate cache-schema="true" source="json-eval($.msg)">
@@ -353,7 +268,7 @@ schema.
 </validate>
 ```
 
-An example for a valid JSON request payload is given below.
+An example for a valid JSON request payload against the given schema is given below.
 
 ``` java
 {
@@ -367,7 +282,7 @@ An example for a valid JSON request payload is given below.
 }
 ```
 
-When you send an invalid JSON, the following response will appear.
+When you send an invalid JSON payload against the given schema, the following response will appear.
 
 ```
 {
