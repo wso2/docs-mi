@@ -2,7 +2,7 @@
 
 The Salesforce streaming Inbound Endpoint allows you to perform various operations on Salesforce streaming data.
 
-The [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) receives notifications based on the changes that happen to Salesforce data with respect to a SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way. For more information, navigate to [Salesforce streaming documentation](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_streaming.meta/api_streaming/quick_start_workbench.htm).
+The [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) receives notifications based on the changes that happen to Salesforce data with respect to a SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way. For more information, go to the [Salesforce streaming documentation](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_streaming.meta/api_streaming/quick_start_workbench.htm).
 
 ## What you'll build
 
