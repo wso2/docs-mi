@@ -106,7 +106,7 @@ In this configuration, the `"//m0:getQuote/m0:request"` XPath expression and `"j
 
 When you use ForEach mediator, you can only loop through segments of the message and make changes to a particular segment. You can use [Payload Factory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) to change the payload in each iteration. Once you exit from the ForEach loop, it automatically aggregates the split segments. This replaces the ForEach function of the complex [XSLT mediators]({{base_path}}/reference/mediators/xslt-mediator) using a ForEach mediator and a Payload Factory mediator. However, to implement the [split-aggregate pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/splitter), you still need to use [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator).
 
-=== "Using a XPath expression"
+=== "Using an XPath expression"
     ``` java
     <foreach id="foreach_1" expression="//m0:getQuote/m0:request" xmlns:m0="http://services.samples">
         <sequence>
