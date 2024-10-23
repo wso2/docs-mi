@@ -85,7 +85,7 @@ The parameters available to configure the ForEach mediator are as follows.
 
 In this configuration, the `"//m0:getQuote/m0:request"` XPath expression and `"json-eval($.getQuote.request)"` JSONPath expression evaluate the split messages to be derived from the parent message. Then the split messages pass through a sequence which includes a [Log mediator]({{base_path}}/reference/mediators/log-mediator) with the log level set to `full`.
 
-=== "Using a XPath expression"
+=== "Using an XPath expression"
     ``` java 
     <foreach id="foreach_1" expression="//m0:getQuote/m0:request" xmlns:m0="http://services.samples">
             <sequence>
