@@ -11,80 +11,80 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
     <th>Default Value</th>
   </tr>
   <tr>
-    <td>interval</td>
+    <td><code>interval</code></td>
     <td>The polling interval for the Salesforce inbound endpoint.</td>
     <td>Yes</td>
     <td>-</td>
     <td>-</td>
   </tr>
   <tr>
-    <td>connection.salesforce.salesforceObject</td>
+    <td><code>connection.salesforce.salesforceObject</code></td>
     <td>The name of the Push Topic or the Platform Event that is added to the Salesforce account.</td>
     <td>Yes</td>
-    <td>/topic/Account</td>
+    <td><code>/topic/Account</code></td>
     <td>-</td>
   </tr>
   <tr>
-    <td>connection.salesforce.packageVersion</td>
+    <td><code>connection.salesforce.packageVersion</code></td>
     <td>The version of the Salesforce API.</td>
     <td>Yes</td>
-    <td>37.0</td>
+    <td><code>37.0</code></td>
     <td>-</td>
   </tr>
   <tr>
-    <td>connection.salesforce.userName</td>
+    <td><code>connection.salesforce.userName</code></td>
     <td>Salesforce login user name.</td>
     <td>Yes</td>
     <td>-</td>
     <td>-</td>
   </tr>
   <tr>
-    <td>connection.salesforce.password</td>
+    <td><code>connection.salesforce.password</code></td>
     <td>Salesforce login password.</td>
     <td>Yes</td>
-    <td>eitest123xxxxxxx</td>
+    <td><code>eitest123xxxxxxx</code></td>
     <td>-</td>
   </tr>
   <tr>
-    <td>connection.salesforce.loginEndpoint</td>
+    <td><code>connection.salesforce.loginEndpoint</code></td>
     <td>The Endpoint of the Salesforce account.</td>
     <td>Yes</td>
-    <td>https://login.salesforce.com</td>
-    <td>https://login.salesforce.com</td>
+    <td><code>https://login.salesforce.com</code></td>
+    <td><code>https://login.salesforce.com</code></td>
   </tr>
   <tr>
-    <td>connection.salesforce.soapApiVersion</td>
+    <td><code>connection.salesforce.soapApiVersion</code></td>
     <td>The version of the Salesforce SOAP API.</td>
     <td>No</td>
-    <td>22.0</td>
-    <td>22.0</td>
+    <td><code>22.0</code></td>
+    <td><code>22.0</code></td>
   </tr>
   <tr>
-    <td>connection.salesforce.connectionTimeout</td>
+    <td><code>connection.salesforce.connectionTimeout</code></td>
     <td>The time to wait to connect to the client.</td>
     <td>No</td>
-    <td>20000</td>
-    <td>20 * 1000 ms</td>
+    <td><code>20000</code></td>
+    <td><code>20000</code></td>
   </tr>
   <tr>
-    <td>connection.salesforce.waitTime</td>
+    <td><code>connection.salesforce.waitTime</code></td>
     <td>The time to wait to connect to the Salesforce account.</td>
     <td>No</td>
-    <td>5000</td>
-    <td>5 * 1000 ms</td>
+    <td><code>5000</code></td>
+    <td><code>5000</code></td>
   </tr>
   <tr>
-    <td>connection.salesforce.replay</td>
+    <td><code>connection.salesforce.replay</code></td>
     <td>Enabling this will read the event ID stored in the Registry or from the text file provided via Event ID File Path parameter.</td>
     <td>No</td>
     <td>-</td>
-    <td>False</td>
+    <td><code>False</code></td>
   </tr>
   <tr>
-    <td>connection.salesforce.EventIDStoredFilePath</td>
+    <td><code>connection.salesforce.EventIDStoredFilePath</code></td>
     <td>When replay is enabled, do not define any value for this property (i.e., keep it blank), to replay from the last event ID stored in the config Registry DB (property- name of the Salesforce object (follow the example below for more understanding) resource path - connector/salesforce/event). When replay is enabled, specify the directory path of a text file to start replaying from the event ID stored in it.</td>
     <td>No</td>
-    <td>/home/kasun/Documents/SalesForceConnector/a.txt</td>
+    <td><code>/home/kasun/Documents/SalesForceConnector/a.txt</code></td>
     <td>-</td>
   </tr>
 </table>
