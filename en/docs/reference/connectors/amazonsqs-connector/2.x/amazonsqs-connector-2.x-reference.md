@@ -74,11 +74,7 @@ To use the Amazon SQS connector, first create the connection with your configura
     </table>
 
     !!! note
-        If you want to define any time out config in milliseconds use the decimal format in seconds.
-        
-        ```    
-        350 milliseconds can be expressed as 0.35 seconds 
-        ``` 
+        If you want to define any timeout configuration in milliseconds, use the decimal format in seconds. For example, 350 milliseconds can be expressed as 0.35 seconds. 
 
     !!! note
         You can either pass credentials within init configuration or set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
