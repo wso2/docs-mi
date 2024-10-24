@@ -2,13 +2,13 @@
 
 The Salesforce streaming Inbound Endpoint allows you to perform various operations on Salesforce streaming data.
 
-The [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) receives notifications based on the changes that happen to Salesforce data with respect to a SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way. For more information, go to the [Salesforce streaming documentation](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_streaming.meta/api_streaming/quick_start_workbench.htm).
+The [Salesforce Streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) receives notifications based on the changes that happen to Salesforce data with respect to a SOQL (Salesforce Object Query Language) query you define, in a secured and scalable way. For more information, go to the [Quick Start Using Workbench documentation](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_streaming.meta/api_streaming/quick_start_workbench.htm).
 
 ## What you'll build
 
-The Salesforce inbound endpoint is a listening inbound endpoint that can consume messages from Salesforce. This injects messages into an integration sequence. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [mediators]({{base_path}}/reference/mediators/about-mediators/). 
+The Salesforce inbound endpoint is a listening inbound endpoint that can consume messages from Salesforce. This injects messages into an integration sequence. However, for simplicity of this example, you will only log the message. You can extend the sample as required using [mediators in WSO2 Micro Integrator]({{base_path}}/reference/mediators/about-mediators/).
 
-In this example, we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [sf-rest inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) documentation.
+In this example, we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [Setting up the PushTopic in Salesforce¶]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) documentation.
 
 The following diagram illustrates all the required functionality of the Salesforce inbound operations that you are going to build. 
 
@@ -47,14 +47,14 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
     - **Coordination**: select
     - **Salesforce Object**: `/topic/Account` 
     - **Package Version**: `37.0`
-    - **User Name**: Username
-    - **Password**: test123XXXXXXXXXX
+    - **User Name**: <USERNAME>
+    - **Password**: <PASSWORD>
     - **Login Endpoint**: `https://login.salesforce.com`
     - **SOAP API Version**: `22.0`
     - **Connection Timeout**: `20000`
     - **Wait Time**: `5000`
     - **Replay**: deselect
-    - **Event ID File Path**: `/Users/myname/SalesForceConnector/a.txt`
+    - **Event ID File Path**: `<FILE_PATH>`
 
 6. Click on **Submit** to complete the inbound endpoint creation. The Salesforce Inbound Endpoint will be created and listed in the **Inbound Endpoints** section.
 
@@ -67,12 +67,12 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
            <parameter name="interval">100</parameter>
            <parameter name="inbound.behavior">polling</parameter>
            <parameter name="connection.salesforce.replay">false</parameter>
-           <parameter name="connection.salesforce.EventIDStoredFilePath">/Users/myname/SalesForceConnector/a.txt</parameter>
+           <parameter name="connection.salesforce.EventIDStoredFilePath"><FILE_PATH></parameter>
            <parameter name="connection.salesforce.packageVersion">37</parameter>
            <parameter name="connection.salesforce.salesforceObject">/topic/Account</parameter>
            <parameter name="connection.salesforce.loginEndpoint">https://login.salesforce.com</parameter>
-           <parameter name="connection.salesforce.userName">Username</parameter>
-           <parameter name="connection.salesforce.password">test123XXXXXXXXXX</parameter>
+           <parameter name="connection.salesforce.userName"><USERNAME></parameter>
+           <parameter name="connection.salesforce.password"><PASSWORD></parameter>
            <parameter name="connection.salesforce.waitTime">5000</parameter>
            <parameter name="connection.salesforce.connectionTimeout">20000</parameter>
            <parameter name="connection.salesforce.soapApiVersion">22.0</parameter>
@@ -96,11 +96,11 @@ In order to export the project, refer to the [build and export the carbon applic
 
 ## Test
 
-> **Note**: If you want to test this scenario by inserting data manually into the created object records, please follow the steps given under the topic `Testing the PushTopic Channel` in the [Salesforce inbound endpoint configuration document]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/).
+> **Note**: If you want to test this scenario by inserting data manually into the created object records, see [Testing the PushTopic Channel]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/#testing-the-pushtopic-channel).
 
    Please use the [Salesforce REST Connector example]({{base_path}}/reference/connectors/salesforce-connectors//sf-rest-connector-example/) testing steps to test this Inbound Endpoint scenario;
    
-   Save a file called data.json with the following payload (change the value of the `Name` field to `Manager`).
+   Save a file called `data.json` with the following payload (change the value of the `Name` field to `Manager`).
    ```
    {
    	"sObject":"Account",
