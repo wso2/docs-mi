@@ -184,7 +184,7 @@ You will find that all the records have been inserted into the `Employees` datab
         }
         ```
     
-    2. On the terminal, navigate to the location where the employee-batch-payload.json file is stored, and execute the following HTTP request:
+    2. On the terminal, navigate to the location where the `employee-batch-payload.json` file is stored, and execute the following HTTP request:
     
         ```
         curl -X POST -H 'Accept: application/json'  -H 'Content-Type: application/json' --data "@employee-batch-payload.json" -k -v http://localhost:8290/services/batch_requesting_sample/employee_batch_req
