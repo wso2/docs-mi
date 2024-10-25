@@ -136,3 +136,56 @@ You will find that all the records have been inserted into the `Employees` datab
     ```bash
     SELECT * FROM Employees
     ```
+
+!!! Note
+    Additionally, you can add a resource to call the query to invoke batch request as a REST service invocation. For that you have to append `_batch_req` suffix to the [resource request path]({{base_path}}/reference/synapse-properties/data-services/elements-of-a-data-service/#defining-resources) when invoking. See the [how to post json data in batches]({{base_path}}/learn/examples/data-integration/json-with-data-service/#post-data-in-batches) documentation for more information. 
+    
+    Sample resource configuration:
+
+    ```
+    <resource method="POST" path="employee">
+        <call-query href="addEmployeeQuery">
+            <with-param name="EmployeeNumber" query-param="EmployeeNumber"/>
+            <with-param name="FirstName" query-param="FirstName"/>
+            <with-param name="LastName" query-param="LastName"/>
+            <with-param name="Email" query-param="Email"/>
+            <with-param name="JobTitle" query-param="JobTitle"/>
+            <with-param name="Officecode" query-param="Officecode"/>
+        </call-query>
+    </resource>
+    ```
+
+    The request:
+    
+    1. First, create a file named employee-batch-payload.json , and define the JSON payload for posting multiple employee records (batch) as shown below.
+
+        ```
+        {
+            "user_defined_value": {
+                "user_defined_value": [
+                    {
+                        "EmployeeNumber": "5012",
+                        "FirstName": "Will",
+                        "LastName": "Smith",
+                        "Email": "will@smith.com",
+                        "JobTitle": "Consultant",
+                        "Officecode": "01"
+                    },
+                    {
+                        "EmployeeNumber": "5013",
+                        "FirstName": "Parker",
+                        "LastName": "Peter",
+                        "Email": "peter@parker.com",
+                        "JobTitle": "Consultant",
+                        "Officecode": "01"
+                    }
+                ]
+            }
+        }
+        ```
+    
+    2. On the terminal, navigate to the location where the employee-batch-payload.json file is stored, and execute the following HTTP request:
+    
+        ```
+        curl -X POST -H 'Accept: application/json'  -H 'Content-Type: application/json' --data "@employee-batch-payload.json" -k -v http://localhost:8290/services/batch_requesting_sample/employee_batch_req
+        ```

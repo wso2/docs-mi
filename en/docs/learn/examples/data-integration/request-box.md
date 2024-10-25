@@ -168,3 +168,54 @@ You will see the following response received by SoapUI:
 </soapenv:Body>
 </soapenv:Envelope>
 ```
+
+!!! Note
+    Additionally, you can add resources to call the queries to invoke request_box as a REST service invocation. For that you have to append `request_box` to the URL when invoking. See the [how to post data using request box]({{base_path}}/learn/examples/data-integration/json-with-data-service/#post-data-using-request-box) documentation for more information.
+
+    Sample resource configuration:
+
+    ```
+    <resource method="POST" path="employee">
+        <call-query href="addEmployeeQuery">
+            <with-param name="EmployeeNumber" query-param="EmployeeNumber"/>
+            <with-param name="FirstName" query-param="FirstName"/>
+            <with-param name="LastName" query-param="LastName"/>
+            <with-param name="Email" query-param="Email"/>
+            <with-param name="JobTitle" query-param="JobTitle"/>
+            <with-param name="Officecode" query-param="Officecode"/>
+        </call-query>
+    </resource>
+    <resource method="GET" path="employee/{EmployeeNumber}">
+        <call-query href="selectEmployeebyIDQuery">
+            <with-param name="EmployeeNumber" query-param="EmployeeNumber"/>
+        </call-query>
+    </resource>
+    ```
+
+    The request:
+    
+    1. First, create a file named employee-request-box-payload .json, and define the JSON payload for posting request box as shown below.
+    
+        ```
+        {
+            "request_box"  : {
+                "_postemployee" : {
+                    "EmployeeNumber"  : "14005",
+                    "LastName" :  "Smith" ,
+                    "FirstName" :  "Will" ,
+                    "Email" :  "will@google.com" ,
+                    "JobTitle": "Consultant",
+                    "Officecode": "01"
+                },
+                "_getemployee_employeenumber":{
+                    "EmployeeNumber"  : "14005"
+                }
+            }
+        }
+        ```
+    
+    2. On the terminal, navigate to the location where the employee-request-box-payload.json file is stored, and execute the following HTTP request:
+    
+        ```
+        curl -X POST -H 'Accept: application/json'  -H 'Content-Type: application/json' --data "@employee-request-box-payload.json" http://localhost:8290/services/request_box_example/request_box
+        ```
