@@ -160,7 +160,7 @@ The Validate mediator can be configured as follows.
 </validate>
 ```
 
-The schema used by the validate mediator is `MockDataTypes.xsd`. In addition, a resource is used to import the `08SOAPFaults` schema which is referred in the `08MockServiceSchema` schema. Note that the value `../Common/SOAPFaults.xsd` which is specified as the location for the schema to be imported is same as the location specified for `08SOAPFaults` schema in the `08MockServiceSchema` configuration.
+The schema used by the validate mediator is `MockDataTypes.xsd`. In addition, a resource is used to import the `08SOAPFaults` schema which is referred to in the `08MockServiceSchema` schema. Note that the value `../Common/SOAPFaults.xsd` which is specified as the location for the schema to be imported is the same as the location specified for `08SOAPFaults` schema in the `08MockServiceSchema` configuration.
 
 The `on-fail` sequence of this Validate mediator includes a [Log mediator]({{base_path}}/reference/mediators/log-mediator) which is added as a child to the Validate mediator. This log mediator uses two properties to generate the error message `Validation failed ###` when the validation of a message against the schemas specified fails.
 
