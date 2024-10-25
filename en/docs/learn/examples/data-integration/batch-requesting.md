@@ -155,7 +155,7 @@ You will find that all the records have been inserted into the `Employees` datab
     </resource>
     ```
 
-    The request:
+    Request:
     
     1. First, create a file named `employee-batch-payload.json`, and define the JSON payload for posting multiple employee records (batch) as shown below.
 
