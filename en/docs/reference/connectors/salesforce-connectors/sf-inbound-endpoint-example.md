@@ -8,7 +8,7 @@ The [Salesforce Streaming API](https://developer.salesforce.com/docs/atlas.en-us
 
 The Salesforce inbound endpoint is a listening inbound endpoint that can consume messages from Salesforce. This injects messages into an integration sequence. However, for simplicity of this example, you will only log the message. You can extend the sample as required using [mediators in WSO2 Micro Integrator]({{base_path}}/reference/mediators/about-mediators/).
 
-In this example, we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [Setting up the PushTopic in Salesforce¶]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) documentation.
+In this example, we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [Setting up the PushTopic in Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) documentation.
 
 The following diagram illustrates all the required functionality of the Salesforce inbound operations that you are going to build. 
 
