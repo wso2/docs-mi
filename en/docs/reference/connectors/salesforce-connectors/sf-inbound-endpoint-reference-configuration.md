@@ -75,14 +75,14 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
   </tr>
   <tr>
     <td><code>connection.salesforce.replay</code></td>
-    <td>Enabling this will read the event ID stored in the Registry or from the text file provided via the Event ID File Path parameter.</td>
+    <td>Enabling this will read the event ID stored in the Registry or from the text file provided via the event ID file path.</td>
     <td>No</td>
     <td>-</td>
     <td><code>False</code></td>
   </tr>
   <tr>
     <td><code>connection.salesforce.EventIDStoredFilePath</code></td>
-    <td>When replay is enabled, do not define any value for this property (i.e., keep it blank), to replay from the last event ID stored in the config Registry DB (property- name of the Salesforce object (follow the example below for more understanding) resource path - connector/salesforce/event). When replay is enabled, specify the directory path of a text file to start replaying from the event ID stored in it.</td>
+    <td>This field is visible only if replay is enabled. When enabled, specify the directory path of a text file to replay from the event ID stored in it, or leave it blank to replay from the last event ID stored in the config Registry DB.</td>
     <td>No</td>
     <td><code>/home/kasun/Documents/SalesForceConnector/a.txt</code></td>
     <td>-</td>
