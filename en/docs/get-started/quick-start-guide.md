@@ -180,5 +180,4 @@ Additionally, you can use the [Integration Control Plane (ICP)]({{base_path}}/ob
 
 ## What's next?
 
-- [Develop your first integration solution]({{base_path}}/get-started/development-kickstart/).
-- [More Tutorials]({{base_path}}/learn/learn-overview/).
+Try more [tutorials and examples]({{base_path}}/learn/learn-overview/).
