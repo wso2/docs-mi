@@ -110,7 +110,7 @@ follows.
 Once the validate mediator is added, you can define mediators inside the validate mediator which will be added to the `on-fail` element. These mediators will be executed when the validation fails. 
 
 !!! Tip
-    A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
+    A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) should be added as a child to the Validate mediator to specify the fault sequence to be followed if the validation fails.
 
 ## Examples
 
