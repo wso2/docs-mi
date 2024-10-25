@@ -169,7 +169,7 @@ The `on-fail` sequence of this Validate mediator includes a [Log mediator]({{bas
 The following examples use the below sample schema `StockQuoteSchema.json` file. Add the sample schema file to the registry path: `conf:/schema/StockQuoteSchema.json`.
 
 !!! Tip
-    When adding this sample schema file to the Registry, specify the **Media Type** as application/json.
+    When adding this sample schema file to the Registry, specify the **Media Type** as `application/json`.
 
 ``` java
 {
