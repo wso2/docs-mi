@@ -225,7 +225,7 @@ validation fails is defined within the on-fail element. In this example, the [Pa
 </validate>
 ```
 
-An example for a valid JSON payload request against the given schema is given below.
+An example of a valid JSON payload request against the given schema is given below.
 
 ``` java
 {
