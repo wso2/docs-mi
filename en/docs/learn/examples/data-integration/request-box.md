@@ -194,7 +194,7 @@ You will see the following response received by SoapUI:
 
     The request:
     
-    1. First, create a file named employee-request-box-payload .json, and define the JSON payload for posting request box as shown below.
+    1. First, create a file named `employee-request-box-payload.json`, and define the JSON payload for posting the request box as shown below.
     
         ```
         {
