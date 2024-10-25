@@ -75,7 +75,7 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
   </tr>
   <tr>
     <td><code>connection.salesforce.replay</code></td>
-    <td>Enabling this will read the event ID stored in the Registry or from the text file provided via Event ID File Path parameter.</td>
+    <td>Enabling this will read the event ID stored in the Registry or from the text file provided via the Event ID File Path parameter.</td>
     <td>No</td>
     <td>-</td>
     <td><code>False</code></td>
