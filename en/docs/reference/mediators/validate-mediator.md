@@ -268,7 +268,7 @@ In this example, it extracts the message element from the JSON request body and 
 </validate>
 ```
 
-An example for a valid JSON request payload against the given schema is given below.
+An example of a valid JSON request payload against the given schema is given below.
 
 ``` java
 {
