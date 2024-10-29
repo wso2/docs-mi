@@ -8,7 +8,7 @@ The Iterate Mediator implements the [Splitter enterprise integration pattern]({{
 !!! Info
     Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex expressions to conditionally select elements to iterate over in both mediators. Following are the main differences between ForEach and Iterate mediators:
     
-    -   Use the ForEach mediator only for message transformations. If you need to make back-end calls from each iteration, then use the iterate mediator.
+    -   Use the ForEach mediator only for message transformations. If you need to make back-end calls from each iteration, use the iterate mediator.
     -   ForEach mediator supports modifying the original payload. You can use Iterate mediator for situations where you send the split messages to a target and collect them by an [Aggreagte]({{base_path}}/reference/mediators/aggregate-mediator) mediator in a different flow
     -   You need to always accompany an Iterate mediator with an Aggregate mediator. ForEach mediator loops over the sub-messages and merges them back to the same parent element of the message.
     -   In Iterate mediator you need to send the split messages to an endpoint to continue the message flow. However, ForEach mediator does not allow using [Call]({{base_path}}/reference/mediators/call-mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
