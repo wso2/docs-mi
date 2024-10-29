@@ -62,7 +62,7 @@ follows.
 <td><strong>Continue Parent</strong></td>
 <td><p>This parameter is used to specify whether the mediation flow continues on the mediators defined after the iterate mediator. Possible values are as follows.</p>
 <ul>
-<li><strong>True</strong> : If this is selected, the mediation flow continues at the point where the iteration started, once all iterations are finished.</li>
+<li><strong>True</strong>: If this is selected, the mediation flow continues at the point where the iteration started, once all iterations are finished.</li>
 <li><strong>False</strong>: If this is selected, the mediation flow will not return to the parent sequence after the iterations are complete.</li>
 </ul></td>
 </tr>
