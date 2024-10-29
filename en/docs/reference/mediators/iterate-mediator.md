@@ -70,7 +70,7 @@ follows.
 <td><strong>Preserve Payload</strong></td>
 <td><p>This parameter is used to specify whether the original message payload should be used as a template when creating split messages. Possible values are as follows.</p>
 <ul>
-<li><strong>True</strong> : If this is selected, the original message payload will be used as a template. The split elements are attached to the specified <a href="#attach_path">attach path</a>.</li>
+<li><strong>True</strong>: If this is selected, the original message payload will be used as a template. The split elements are attached to the specified <a href="#attach_path">attach path</a>.</li>
 <li><strong>False</strong>: If this is selected, the original message payload will not be used as a template. After the iteration, the payload is replaced by the split elements. This is the default value.</li>
 </ul></td>
 </tr>
