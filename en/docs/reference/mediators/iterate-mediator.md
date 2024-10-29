@@ -49,7 +49,7 @@ follows.
 <tr class="even" id="sequential_mediation">
 <td><strong>Sequential Mediation</strong></td>
 <td><div class="content-wrapper">
-<p>This parameter is used to specify whether the split messages should be processed sequentially or not. The processing is carried out based on the information relating to the sequence and endpoint specified in the <a href="#target-configuration">target configuration</a> . The possible values are as follows.</p>
+<p>This parameter is used to specify whether the split messages should be processed sequentially or not. The processing is carried out based on the information relating to the sequence and endpoint specified in the <a href="#target-configuration">target configuration</a>. The possible values are as follows.</p>
 <ul>
 <li><strong>True</strong> : If this is selected, the split messages will be processed sequentially. Note that selecting <strong>True</strong> might cause delays due to high resource consumption.</li>
 <li><strong>False</strong> : If this is selected, the split messages will not be processed sequentially. This is the default value and it results in better performance.</li>
