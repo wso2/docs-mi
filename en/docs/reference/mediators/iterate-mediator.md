@@ -118,7 +118,7 @@ The parameters available to configure the target configuration are as follows:
 <td><p>This parameter is used to specify whether split messages should be mediated via a sequence or not, and to specify the sequence if they are to be further mediated. Possible options are as follows.</p>
 <ul>
 <li><strong>Anonymous</strong> : If this is selected, you can define an anonymous sequence for the split messages by adding the required mediators as children to <strong>Target</strong> in the mediator tree.</li>
-<li><strong>Key</strong> : If this is selected, you can refer to a predefined sequence.</li>
+<li><strong>Key</strong>: If this is selected, you can refer to a predefined sequence.</li>
 </ul></td>
 </tr>
 <tr class="even">
