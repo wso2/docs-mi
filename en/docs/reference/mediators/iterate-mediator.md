@@ -1,6 +1,6 @@
 # Iterate Mediator
 
-The Iterate Mediator implements the [Splitter enterprise integration pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/splitter/) and splits the message into a number of different messages derived from the parent message.
+The Iterate Mediator implements the [Splitter enterprise integration pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/splitter/) and splits the message into several different messages derived from the parent message.
 
 !!! Info
     The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-mediator). The difference between the two mediators is, that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
