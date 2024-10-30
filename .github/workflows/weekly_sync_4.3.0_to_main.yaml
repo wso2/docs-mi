@@ -1,0 +1,22 @@
+name: Weekly Sync from branch '4.3.0' to 'main'
+
+# Schedule to run weekly on Friday at 5:00 AM UTC
+on:
+  schedule:
+    - cron: '0 5 * * 5'
+
+jobs:
+  sync_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Reset 4.3.0 branch
+        run: |
+          git fetch origin 4.3.0:4.3.0
+      - name: create pull request
+        run: gh pr create -B main -H 4.3.0 --title 'Sync main branch with 4.3.0 branch' --body 'This PR is to sync the main branch with the 4.3.0 branch.'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
