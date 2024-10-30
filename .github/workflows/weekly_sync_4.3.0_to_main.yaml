@@ -1,6 +1,6 @@
 name: Weekly Sync from branch '4.3.0' to 'main'
 
-# Schedule to run weekly on Friday at 3:00 PM UTC
+# Schedule to run weekly on Friday at 5:00 AM UTC
 on:
   schedule:
     - cron: '0 5 * * 5'
