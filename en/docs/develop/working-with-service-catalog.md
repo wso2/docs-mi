@@ -12,10 +12,7 @@ Follow the steps given below to publish REST APIs from the Micro Integrator to t
 Develop a REST API artifact using WSO2 Integration Studio. This is your integration service with the mediation logic that will run on the Micro Integrator.
 
 !!! Tip
-    For instructions on creating a new integration service, use the following documentation: 
-
-    -   [Developing your First Integration Service]({{base_path}}/develop/integration-development-kickstart).
-    -   [Integration Tutorials]({{base_path}}/learn/learn-overview/#integration-tutorials).
+    For instructions on creating a new integration service, see [Integration Tutorials]({{base_path}}/learn/learn-overview/#integration-tutorials).
 
 ## Step 1 - Update the service metadata
 
