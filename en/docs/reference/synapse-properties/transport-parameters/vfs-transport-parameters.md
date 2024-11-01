@@ -331,7 +331,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>transport.vfs.CheckSizeInterval</td>
          <td>
-            The time duration in milliseconds between the size check on files.
+            The duration in milliseconds between the size checks on files.
          </td>
       </tr>
       <tr>
