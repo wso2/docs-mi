@@ -343,7 +343,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>transport.vfs.MaximumAge</td>
          <td>
-            The maximum time duration in seconds for file age since last modified time.
+            The maximum duration in seconds for file age since the last modified time.
          </td>
       </tr>
    </tbody>
