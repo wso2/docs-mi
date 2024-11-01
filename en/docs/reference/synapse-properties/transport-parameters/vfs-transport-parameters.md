@@ -322,6 +322,30 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
          </td>
       </tr>
+      <tr>
+         <td>transport.vfs.CheckSizeIgnoreEmpty</td>
+         <td>
+            When this parameter is set to <code>true</code>, empty files are ignored when reading. The default setting is <code>false</code>.
+         </td>
+      </tr>
+      <tr>
+         <td>transport.vfs.CheckSizeInterval</td>
+         <td>
+            The time duration in milliseconds between the size check on files.
+         </td>
+      </tr>
+      <tr>
+         <td>transport.vfs.MinimumAge</td>
+         <td>
+            The minimum time duration in seconds for file age since last modified time.
+         </td>
+      </tr>
+      <tr>
+         <td>transport.vfs.MaximumAge</td>
+         <td>
+            The maximum time duration in seconds for file age since last modified time.
+         </td>
+      </tr>
    </tbody>
 </table>
 
