@@ -325,7 +325,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>transport.vfs.CheckSizeIgnoreEmpty</td>
          <td>
-            When this parameter is set to <code>true</code>, empty files are ignored when reading. The default setting is <code>false</code>.
+            When this parameter is set to <code>true</code>, empty files are ignored during reading. The default setting is <code>false</code>.
          </td>
       </tr>
       <tr>
