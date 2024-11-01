@@ -274,14 +274,6 @@ It is recommended to use a <b>CI/CD pipeline</b> to deploy your tested integrati
 <table>
     <tr>
         <td>
-            <b><a href="{{base_path}}/get-started/development-kickstart/">Develop your first integration</a></b>
-        </td>
-        <td>
-            Try the development workflow end-to-end by running a simple use case.
-        </td>
-    </tr>
-    <tr>
-        <td>
             <b><a href="{{base_path}}/learn/learn-overview/#integration-use-cases">Integration Use Cases</a></b>
         </td>
         <td>
