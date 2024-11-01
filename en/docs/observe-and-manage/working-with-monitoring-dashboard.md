@@ -35,6 +35,14 @@ You can use the dashboard to perform the following administration tasks related 
 
     You can enable/disable tracing for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, <i>APIs</i> <i>Sequences</i> and <i>Inbound Endpoints</i>.
 
+    !!! INFO
+        To restrict the non-admin users in MI dashboard from updating the deployed artifacts, you can add the following configuration to the `<MI_DASHBOARD_HOME>/conf/deployment.toml` file.
+    
+        ```toml
+        [user_access]
+        make_non_admin_users_read_only = true
+        ```
+
 -   <b>View registry resources</b>
 
     You can view content, properties, and metadata of each registry resource.
