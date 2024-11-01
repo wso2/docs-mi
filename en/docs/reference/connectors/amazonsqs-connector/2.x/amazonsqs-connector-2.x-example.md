@@ -20,7 +20,7 @@ If you do not want to configure this yourself, you can simply [get the project](
    
      - [apache-client-2.20.26.jar ](https://mvnrepository.com/artifact/software.amazon.awssdk/apache-client/2.26.20)
      - [auth-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/auth/2.26.20) 
-     - [aws-core-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/sdk-core/2.26.20)
+     - [aws-core-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/aws-core/2.26.20)
      - [checksums-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/checksums/2.26.20) 
      - [checksums-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/checksums-spi/2.26.20) 
      - [endpoints-spi-2.26.20.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/endpoints-spi/2.26.20) 
