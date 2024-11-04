@@ -679,6 +679,10 @@ nav:
               - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
               - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
               - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
+          - HTTP Connector:
+              - HTTP Connector Overview: reference/connectors/http-connector/http-connector-overview.md
+              - HTTP Connector Example: reference/connectors/http-connector/http-connector-example.md
+              - HTTP Connector Reference: reference/connectors/http-connector/http-connector-configuration.md
           - Jira Connector:
               - Jira Connector Overview: reference/connectors/jira-connector/jira-connector-overview.md
               - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
