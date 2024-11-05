@@ -32,6 +32,11 @@ The following operations allow you to work with the Snowflake Connector. Click a
             <td>Snowflake Account password.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>keepAlive</td>
+            <td>Indicates whether to force a user to log in again after a period of inactivity in the session. Accepted values: `true`: Snowflake keeps the session active indefinitely as long as the connection is active, even if there is no activity from the user, `false`: The user must log in again after four hours of inactivity. The default value is `false`</td>
+            <td>No</td>
+        </tr>
     </table>
 
 
