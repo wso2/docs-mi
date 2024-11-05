@@ -2,7 +2,7 @@
 
 The following operations allow you to work with the Snowflake Connector. Click an operation name to see parameter details.
 
-## Snowflake Connector Configuration
+## Snowflake connector configuration
 
 ??? note "Connection configuration"
     In the 'Properties' section of each operation, users can configure connection-related information. Once the configuration is created, it can be re-used in other operations.
