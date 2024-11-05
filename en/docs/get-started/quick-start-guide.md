@@ -8,21 +8,13 @@ In this guide, you'll learn the basics of setting up and using WSO2 MI to create
 
 The following software and configurations are required to proceed with this tutorial:
 
-- **Java Development Kit (JDK):** Version 11 or 17 is required. Set up a [JDK that is compatible]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks). Ensure the JDK is properly configured in your [system's PATH environment variable](({{base_path}}/install-and-setup/install/installing-mi)).
-
-    !!! Info
-        For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
-
-  - **Apache Maven:** Ensure [Apache Maven](https://maven.apache.org/download.cgi) is installed (version 3.6.0 onwards) and its path is correctly set within the [system's PATH environment variable](https://maven.apache.org/install.html).
-
-    !!! info
-        For more information on installing Apache Maven, see the [Apache Maven documentation](https://maven.apache.org/install.html).
-
-- **WSO2 Micro Integrator 4.3.0 Runtime:** Set up WSO2 Micro Integrator 4.3.0 runtime on your machine.
-    1. Download the Micro Integrator 4.3.0 distribution as a ZIP file from [here](https://github.com/wso2/micro-integrator/releases/download/v4.3.0/wso2mi-4.3.0.zip).
-    2. Extract the ZIP file. Hereafter, this extracted folder will be referred to as the `<MI_HOME>` folder.
 - **Visual Studio Code (VS Code):** with the [Micro Integrator for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator) extension installed.
 
+!!! Note
+    The following will be prompt to download by the **Micro Integrator for VS Code** extension if they are not already available when you open your first project:
+
+    - **Java Development Kit (JDK)** 
+    - **WSO2 Micro Integrator 4.3.0 Runtime** 
 After completing the steps above, follow the instructions below to create your first integration solution:
 
 ## What you'll build

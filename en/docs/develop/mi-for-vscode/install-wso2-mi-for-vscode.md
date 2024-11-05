@@ -4,18 +4,16 @@ This page walks you through how to get started with the Micro Integrator for VS 
 
 ## Prerequisites
 
-- Download and install Java SE Development Kit (JDK) version 11 or 17. See [tested JDK versions]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) for more information.
-
-- Set the `JAVA_HOME` environment variable in the [system settings]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
-
-- Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
-
-- Set the path for Apache Maven in the [system's PATH environment variable](https://maven.apache.org/install.html).
-
-- Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
+- **Visual Studio Code (VS Code):** Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
 
     !!! info
         For more information on installing Visual Studio Code, refer to [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
+
+    !!! Note
+        The following will be prompt to download by the **Micro Integrator for VS Code** extension if they are not already available when you open your first project:
+
+        - **Java Development Kit (JDK)** 
+        - **WSO2 Micro Integrator 4.3.0 Runtime** 
 
 ## Install the MI VS Code extension
 
