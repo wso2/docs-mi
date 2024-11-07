@@ -60,7 +60,7 @@ In the publisher URL, set the connection factory name instead of the connection 
 <address uri="rabbitmq://?rabbitmq.connection.factory=RabbitMQConnectionFactory&amp;rabbitmq.queue.name=queue1&amp;rabbitmq.queue.routing.key=queue1&amp;rabbitmq.replyto.name=replyqueue&amp;rabbitmq.exchange.name=ex1&amp;rabbitmq.queue.autodeclare=false&amp;rabbitmq.exchange.autodeclare=false&amp;rabbitmq.replyto.name=response_queue"/>
 ```
 
-## Configuring proxy-level throttling
+## Configure proxy-level throttling
 
 To enable throttling for RabbitMQ Proxy Service Listener, you can add the following configuration to the proxy service.
 
