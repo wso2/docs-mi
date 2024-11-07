@@ -59,23 +59,3 @@ In the publisher URL, set the connection factory name instead of the connection 
 ``` xml
 <address uri="rabbitmq://?rabbitmq.connection.factory=RabbitMQConnectionFactory&amp;rabbitmq.queue.name=queue1&amp;rabbitmq.queue.routing.key=queue1&amp;rabbitmq.replyto.name=replyqueue&amp;rabbitmq.exchange.name=ex1&amp;rabbitmq.queue.autodeclare=false&amp;rabbitmq.exchange.autodeclare=false&amp;rabbitmq.replyto.name=response_queue"/>
 ```
-
-## Configure proxy-level throttling
-
-To enable throttling for RabbitMQ proxy service listener, you can add the following configuration to the proxy service.
-
-```toml
-    <parameter name="rabbitmq.proxy.throttle.enabled">true</parameter>
-    <parameter name="rabbitmq.proxy.throttle.mode">fixed-interval</parameter>
-    <parameter name="rabbitmq.proxy.throttle.timeUnit">minute</parameter>
-    <parameter name="rabbitmq.proxy.throttle.count">60</parameter>
-```
-
-Allowed parameters for `rabbitmq.proxy.throttle.timeUnit` : fixed-interval, batch
-Allowed parameters for `rabbitmq.proxy.throttle.timeUnit` : minute, hour, day
-
-When enabling throttling for RabbitMQ proxy service listener, to ensure that the message consumer retrieves only one message at a time from the RabbitMQ queue, you can add the following properties to the proxy service. This will avoid potential data loss if the server is restarted.
-```toml
-    <parameter name="rabbitmq.channel.consumer.qos">1</parameter>
-    <parameter name="rabbitmq.queue.auto.ack">false</parameter>
-```
