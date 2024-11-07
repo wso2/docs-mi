@@ -269,6 +269,34 @@ To use the SMPP connector, need to have a SMSC connection. To create a SMSC conn
          <td>Content of the SMS message.</td>
          <td>Yes</td>
       </tr>
+    <tr>
+        <td>smscDeliveryReceipt</td>
+        <td>This parameter is used to request an SMSC delivery receipt. The following values can be defined:
+            <table>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>DEFAULT</td>
+                    <td>No SMSC Delivery Receipt requested. This is the default value.</td>
+                </tr>
+                <tr>
+                    <td>SUCCESS_FAILURE</td>
+                    <td>SMSC Delivery Receipt requested where final delivery outcome is delivery success or failure.</td>
+                </tr>
+                <tr>
+                    <td>FAILURE</td>
+                    <td>SMSC Delivery Receipt requested where the final delivery outcome is delivery failure.</td>
+                </tr>
+                <tr>
+                    <td>SUCCESS</td>
+                    <td>SMSC Delivery Receipt requested where the final delivery outcome is success. This is supported from SMPP 5.0.</td>
+                </tr>
+           </table>
+        </td>
+        <td>Optional</td>
+    </tr>
       <tr>
          <td>esmClass</td>
          <td>
