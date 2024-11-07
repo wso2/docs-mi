@@ -47,7 +47,12 @@ To restrict the non-admin users from updating the deployed artifacts through **m
 make_non_admin_users_read_only = true
 ```
 
-To restrict the non-admin users from updating the deployed artifacts with **MI dashboard**, you can add the same configuration to the `<MI_DASHBOARD_HOME>/conf/deployment.toml` file. (Available from update level:4.2.0.18)
+To restrict the non-admin users from updating the deployed artifacts with **MI dashboard**, you can add the following configuration to the `<MI_DASHBOARD_HOME>/conf/deployment.toml` file. (Available from update level:4.2.0.18)
+
+```toml
+[user_access]
+make_non_admin_users_read_only = true
+```
 
 ## Managing users and roles from the CLI
 
