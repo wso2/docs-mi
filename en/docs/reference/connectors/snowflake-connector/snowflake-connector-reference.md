@@ -2,7 +2,7 @@
 
 The following operations allow you to work with the Snowflake Connector. Click an operation name to see parameter details.
 
-## Snowflake Connector Configuration
+## Snowflake connector configuration
 
 ??? note "Connection configuration"
     In the 'Properties' section of each operation, users can configure connection-related information. Once the configuration is created, it can be re-used in other operations.
@@ -31,6 +31,11 @@ The following operations allow you to work with the Snowflake Connector. Click a
             <td>Password</td>
             <td>Snowflake Account password.</td>
             <td>Yes</td>
+        </tr>
+        <tr>
+            <td>keepAlive</td>
+            <td>Indicates whether to create a new connection after a period of inactivity in the session. Accepted values: `true`: Snowflake keeps the session active indefinitely as long as the connection is active, even if there is no activity, `false`: A new connection is created again after four hours of inactivity. The default value is `false`</td>
+            <td>No</td>
         </tr>
     </table>
 
