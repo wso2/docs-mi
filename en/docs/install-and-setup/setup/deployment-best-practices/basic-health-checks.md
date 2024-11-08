@@ -11,12 +11,40 @@ The health check API gives a **ready** status only if all the CApps are deployed
 
 `http://localhost:9201/healthz`
 
+!!! Note
+    The health check can be performed over HTTPS APIs by adding the below configuration to the deployment.toml file.
+
+    ```toml
+    
+    [readiness_probe]
+    protocols = "http https"
+    ```
+    
+    Sample Request: 
+    ```
+    curl GET 'https://localhost:9164/healthz' -k
+    ```
+
 ### Liveness Check API
 
 The liveness check API gives a **ready** status when the server starts successfully.
 The health check API serves at:
 
 `http://localhost:9201/liveness`
+
+!!! Note
+    The liveness check can be performed over HTTPS APIs by adding the below configuration to the deployment.toml file.
+
+    ```toml
+    
+    [liveness_probe]
+    protocols = "http https"
+    ```
+    
+    Sample Request: 
+    
+    curl GET 'https://localhost:9164/liveness' -k
+    ```
 
 !!! Note
     If you are running the server instance with a different port offset other than the default (which is 10), the heath
