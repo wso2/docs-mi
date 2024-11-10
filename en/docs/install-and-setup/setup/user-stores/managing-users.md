@@ -37,7 +37,7 @@ An existing admin user can log in to the Micro Integrator server from the CLI to
 
 ### Non-admin users
 
-Users that do not have admin privileges can access the management API, the CLI, and the dashboard to update the deployed artifacts, view and monitor integration artifacts and logs.
+Users without admin privileges can access the management API, the CLI, and the dashboard to update deployed artifacts, and to view and monitor integration artifacts and logs.
 
 #### Restrict non-admin users from updating the deployed artifacts
 To restrict the non-admin users from updating the deployed artifacts through **management API** and **CLI**, you can add the following configuration to the `<MI_HOME>/conf/deployment.toml` file. (Available from update level:4.2.0.103)
