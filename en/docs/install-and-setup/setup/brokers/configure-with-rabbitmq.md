@@ -101,7 +101,7 @@ When configuring the proxy service, be sure to add the following connection fact
 
 ## Configure proxy-level throttling
 
-To enable throttling for RabbitMQ proxy service listener, you can add the following configuration to the proxy service.
+To enable throttling for the RabbitMQ proxy service listener, you can add the following configuration to the proxy service:
 
 ```toml
     <parameter name="rabbitmq.proxy.throttle.enabled">true</parameter>
