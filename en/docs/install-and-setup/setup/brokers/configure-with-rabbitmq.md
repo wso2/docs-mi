@@ -115,7 +115,7 @@ To enable throttling for RabbitMQ proxy service listener, you can add the follow
 
     Allowed parameters for `rabbitmq.proxy.throttle.timeUnit` : minute, hour, day
 
-When enabling throttling for RabbitMQ proxy service listener, to ensure that the message consumer retrieves only one message at a time from the RabbitMQ queue, you can add the following properties to the proxy service. This will avoid potential data loss if the server is restarted.
+When enabling throttling for the RabbitMQ proxy service listener, to ensure that the message consumer retrieves only one message at a time from the RabbitMQ queue, you can add the following properties to the proxy service. This will avoid potential data loss if the server is restarted.
 ```toml
     <parameter name="rabbitmq.channel.consumer.qos">1</parameter>
     <parameter name="rabbitmq.queue.auto.ack">false</parameter>
