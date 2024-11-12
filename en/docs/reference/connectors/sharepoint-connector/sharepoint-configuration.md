@@ -827,7 +827,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note updateList
+??? note "updateList"
     The `updateList` operation updates the properties of the specified SharePoint list. Upon successful execution, the list's properties are updated with the provided data.
     <table>
         <tr>
