@@ -492,7 +492,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getFolderChildren
+??? note "getFolderChildren"
     The `getFolderChildren` operation retrieves all items within the specified folder in a SharePoint site. Upon successful execution, a list of child items (files and subfolders) along with their metadata is returned.
     <table>
         <tr>
