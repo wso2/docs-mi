@@ -159,7 +159,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note createGroup
+??? note "createGroup"
     The `createGroup` operation creates a new Microsoft 365 Group, which provisions a connected SharePoint site. Upon successful execution, the newly created group details are returned.
     <table>
         <tr>
