@@ -115,7 +115,7 @@ To use the Sharepoint connector, first create the connection with your configura
     ```
 
 ??? note "uploadFile"
-    The `uploadFile` operation uploads a new file to the specified folder within a SharePoint site. Upon successful execution, the newly uploaded file is available in the target location.
+    The `uploadFile` operation uploads a new file to the specified folder within a SharePoint site. Upon successful execution, the newly uploaded file will be available at the target location.
     <table> 
         <tr> 
             <th>Parameter name</th> 
