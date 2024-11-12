@@ -232,7 +232,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note createList
+??? note "createList"
     The `createList` operation creates a new list within the specified SharePoint site. Upon successful execution, the newly created list details are returned.
     <table>
         <tr>
