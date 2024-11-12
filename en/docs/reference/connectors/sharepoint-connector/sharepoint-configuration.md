@@ -682,7 +682,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getLists
+??? note "getLists"
     The `getLists` operation retrieves all lists within the specified SharePoint site. Upon successful execution, a collection of lists along with their metadata is returned.
     <table>
         <tr>
