@@ -409,7 +409,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note deleteListItem
+??? note "deleteListItem"
     The `deleteListItem` operation deletes the specified item within a SharePoint list. Upon successful execution, the targeted list item is permanently removed from the list.
     <table>
         <tr>
