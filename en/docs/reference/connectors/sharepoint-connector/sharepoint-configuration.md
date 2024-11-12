@@ -285,7 +285,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note createListItem
+??? note "createListItem"
     The `createListItem` operation creates a new item within the specified SharePoint list. Upon successful execution, the newly created list item details are returned.
     <table>
         <tr>
