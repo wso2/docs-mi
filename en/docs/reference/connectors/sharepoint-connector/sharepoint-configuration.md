@@ -454,7 +454,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getDriveItemById
+??? note "getDriveItemById"
     The `getDriveItemById` operation retrieves metadata about the specified file or folder within a SharePoint site. Upon successful execution, detailed information about the drive item is returned.
     <table>
         <tr>
