@@ -561,7 +561,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getListById
+??? note "getListById"
     The `getListById` operation retrieves detailed information about a specific SharePoint list using its unique identifier (GUID). Upon successful execution, the operation returns metadata and properties of the specified list.
     <table>
         <tr>
