@@ -333,7 +333,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note deleteDriveItem
+??? note "deleteDriveItem"
     The `deleteDriveItem` operation deletes the specified file or folder within a SharePoint site. Upon successful execution, the item is removed from the site.
     <table>
         <tr>
