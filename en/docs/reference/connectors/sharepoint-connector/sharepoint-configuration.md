@@ -644,7 +644,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getListItems
+??? note "getListItems"
     The `getListItems` operation retrieves all items within the specified SharePoint list. Upon successful execution, a collection of list items along with their metadata is returned.
     <table>
         <tr>
