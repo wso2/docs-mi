@@ -713,7 +713,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getRootChildren
+??? note "getRootChildren"
     The `getRootChildren` operation retrieves all items in the root directory of the drive within the specified SharePoint site. Upon successful execution, a collection of child items (files and folders) along with their metadata is returned.
     <table>
         <tr>
