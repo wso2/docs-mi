@@ -879,7 +879,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note updateListItemFields
+??? note "updateListItemFields"
     The `updateListItemFields` operation updates the fields of the specified list item within a SharePoint site. Upon successful execution, the item's properties are updated with the provided data.
     <table> 
         <tr> 
