@@ -744,7 +744,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note updateFileContent
+??? note "updateFileContent"
     The `updateFileContent` operation updates the content of the specified file within a SharePoint site. Upon successful execution, the file's content is updated with the provided data.
     <table>
         <tr>
