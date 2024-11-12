@@ -599,7 +599,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getListItemById
+??? note "getListItemById"
     The `getListItemById` operation retrieves detailed information about a specific item within a SharePoint list using its unique identifier (ID). Upon successful execution, the operation returns metadata and properties of the specified list item.
     <table>
         <tr>
