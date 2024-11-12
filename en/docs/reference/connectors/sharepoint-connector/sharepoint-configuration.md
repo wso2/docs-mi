@@ -21,7 +21,7 @@ To use the Sharepoint connector, first create the connection with your configura
         </tr>
         <tr>
             <td><code>base</code></td>
-            <td>The service root URL. The default value is `https://graph.microsoft.com/v1.0` .</td>
+            <td>The service root URL. The default value is `https://graph.microsoft.com/v1.0`.</td>
             <td>Yes</td>
         </tr>
         <tr>
