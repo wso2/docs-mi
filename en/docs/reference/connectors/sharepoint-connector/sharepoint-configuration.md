@@ -371,7 +371,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note deleteList
+??? note "deleteList"
     The `deleteList` operation deletes the specified list within a SharePoint site. Upon successful execution, the targeted list is removed from the site.
     <table>
         <tr>
