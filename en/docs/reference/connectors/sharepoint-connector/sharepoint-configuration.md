@@ -782,7 +782,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note updateFolder
+??? note "updateFolder"
     The `updateFolder` operation updates the properties of the specified folder within a SharePoint site. Upon successful execution, the folder's properties are updated with the provided data.
     <table>
         <tr>
