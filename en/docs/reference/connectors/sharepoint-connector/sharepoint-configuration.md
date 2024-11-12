@@ -530,7 +530,7 @@ To use the Sharepoint connector, first create the connection with your configura
     }
     ```
 
-??? note getGroupSite
+??? note "getGroupSite"
     The `getGroupSite` operation retrieves the root SharePoint site associated with the specified Microsoft 365 Group. Upon successful execution, detailed information about the group's SharePoint site is returned.
     <table>
         <tr>
