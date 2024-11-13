@@ -29,29 +29,60 @@ Another parameter in `threadPool` configuration is `keepAliveTime`, which is the
 
 <table>
     <tr>
+        <th>Display Name</th>
         <th>Parameter Name</th>
         <th>Description</th>
+        <th>Default Value</th>
         <th>Required</th>
     </tr>
     <tr>
+        <td>Port</td>
         <td>port</td>
-        <td>Hosts have ports. The socket connection is created according to that port and the server starts listening to that port once the socket connection is established. Possible values are 0-65535 and the default is 5000.</td>
+        <td>Port number on which to listen for incoming messages</td>
+        <td></td>
         <td>Yes</td>
     </tr>
     <tr>
+        <td>Act as proxy</td>
+        <td>isProxy</td>
+        <td>Determine whether the ISO8583 Inbound endpoint act as a proxy to another service</td>
+        <td>false</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Length of the ISO header</td>
+        <td>headerLength</td>
+        <td>Length of the ISO header</td>
+        <td>0</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Core Threads</td>
         <td>coreThreads</td>
-        <td>The number of threads to keep in the pool.</td>
-        <td>Yes</td>
+        <td>Number of core threads in the thread pool</td>
+        <td>1</td>
+        <td>No</td>
     </tr>
     <tr>
+        <td>Maximum Threads</td>
         <td>maxThreads</td>
-        <td>The maximum number of threads to allow in the pool.</td>
-        <td>Yes</td>
+        <td>Maximum number of threads in the thread pool</td>
+        <td>3</td>
+        <td>No</td>
     </tr>
     <tr>
+        <td>Idle Thread Keep Alive Timeout (s)</td>
         <td>keepAliveTime</td>
-        <td>If the pool currently has more than corePoolSize threads, excess threads will be terminated if they have been idle for more than the keepAliveTime.</td>
-        <td>Yes</td>
+        <td>Maximum time that excess idle threads will wait for new tasks before terminating</td>
+        <td>1</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Queue Length</td>
+        <td>queueLength</td>
+        <td>Number of tasks that can be queued before the thread pool starts rejecting tasks</td>
+        <td>1</td>
+        <td>No</td>
     </tr>
 </table>
 
