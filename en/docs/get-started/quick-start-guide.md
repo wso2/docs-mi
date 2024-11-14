@@ -8,7 +8,7 @@ In this guide, you'll learn the basics of setting up and using WSO2 MI to create
 
 The following software and configurations are required to proceed with this tutorial:
 
-- **Java Development Kit (JDK):** Version 11 or 17 is required. Set up a [JDK that is compatible]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks). Ensure the JDK is properly configured in your [system's PATH environment variable](({{base_path}}/install-and-setup/install/installing-mi)).
+- **Java Development Kit (JDK):** Version 11 or 17 is required. Set up a [JDK that is compatible]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks). Ensure the JDK is properly configured in your [system's PATH environment variable]({{base_path}}/install-and-setup/install/installing-mi).
 
     !!! Info
         For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
@@ -167,7 +167,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 Now, let's test the integration service. For that you can use the inbuilt try-it functionality in the Micro Integrator for VS Code. 
 
-1. When you run the integration artifact as in [Step 5](#step-5---run-the-integration-artifacts), **Runtime Services** interface is opened up. You can see all the available services. 
+1. When you run the integration artifact as in [Step 5](#step-5-run-the-integration-artifacts), **Runtime Services** interface is opened up. You can see all the available services. 
 
 2. Select the API that you have developed and test the resource.
 
