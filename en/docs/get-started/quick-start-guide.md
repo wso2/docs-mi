@@ -56,7 +56,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 2. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
 3. Click **Create New Project** on **Design View**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
@@ -64,7 +64,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 5. Provide a location under the **Select Project Directory**.
 
-   <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-new-project.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-new-project.gif" alt="Create New Project" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-new-project.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-new-project.gif" alt="Create New Project" width="70%"></a>
 
 ## Step 2 - Create an API
 
@@ -76,7 +76,7 @@ Now the integration project is ready to add an API. In this scenario, the API ca
 
 3. Enter `HelloWorldAPI` as the API **Name** and `hello` as the API **Context**. Once we create the API there will be a default resource created. We will use this resource in this tutorial. See the [Add new resource]({{base_path}}/develop/creating-artifacts/creating-an-api/#add-new-api-resources) documentation to learn how to add a new resource to an API.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-api.gif" alt="Create New API" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-api.gif" alt="Create New API" width="70%"></a>
 
 ## Step 3 - Design the integration
 
@@ -137,7 +137,7 @@ Now it is time to design your API. This is the underlying logic that executed be
 
 12. Click **Submit**.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" alt="Design API" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" alt="Design API" width="70%"></a>
 
 ## Step 4 - Add MI server to run integration
 
@@ -145,15 +145,15 @@ You need to [configure]({{base_path}}/develop/using-remote-micro-integrator) the
 
 1. Click on the **Command Palette** on the top of the VS Code.
 
-3. Type `>` to show the available commands. Alternatively, you can open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
+2. Type `>` to show the available commands. Alternatively, you can open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
 
-4. Select **MI: Add MI server** from the list of available commands.
+3. Select **MI: Add MI server** from the list of available commands.
 
-5. Click **Add MI server** to add a Micro Integrator server.
+4. Click **Add MI server** to add a Micro Integrator server.
 
-6. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
+5. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
-   <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/configure-mi-server.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/configure-mi-server.gif" alt="Configure MI Server" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/configure-mi-server.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/configure-mi-server.gif" alt="Configure MI Server" width="70%"></a>
 
 ## Step 5 - Run the integration artifacts
 
@@ -171,7 +171,7 @@ Now, let's test the integration service. For that you can use the inbuilt try-it
 
 2. Select the API that you have developed and test the resource.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" alt="Test API" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" alt="Test API" width="70%"></a>
 
 Congratulations!
 Now, you have created your first integration service.
