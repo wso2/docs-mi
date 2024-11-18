@@ -49,7 +49,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
               <http method="POST" uri-template="http://localhost:8290/orders"/>
             </endpoint>
           </call>
-          <log level="custom">
+          <log level="full">
               <property name="Info" value="Your order has been placed successfully."/>
           </log>
           <respond/>
