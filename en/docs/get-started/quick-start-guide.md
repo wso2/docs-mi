@@ -13,20 +13,21 @@ The following software and configurations are required to proceed with this tuto
     !!! Info
         For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
 
-  - **Apache Maven:** Ensure [Apache Maven](https://maven.apache.org/download.cgi) is installed (version 3.6.0 onwards) and its path is correctly set within the [system's PATH environment variable](https://maven.apache.org/install.html).
+  - **Apache Maven:** Ensure <a target="_blank" href="https://maven.apache.org/download.cgi">Apache Maven</a> is installed (version 3.6.0 onwards) and its path is correctly set within the <a target="_blank" href="https://maven.apache.org/install.html">system's PATH environment variable</a>.
 
     !!! info
-        For more information on installing Apache Maven, see the [Apache Maven documentation](https://maven.apache.org/install.html).
+        For more information on installing Apache Maven, see the <a target="_blank" href="https://maven.apache.org/install.html">Apache Maven documentation</a>.
 
 - **WSO2 Micro Integrator 4.3.0 Runtime:** Set up WSO2 Micro Integrator 4.3.0 runtime on your machine.
-    1. Download the Micro Integrator 4.3.0 distribution as a ZIP file from [here](https://github.com/wso2/micro-integrator/releases/download/v4.3.0/wso2mi-4.3.0.zip).
+    1. Download the Micro Integrator 4.3.0 distribution as a ZIP file from <a target="_blank" href="https://github.com/wso2/micro-integrator/releases/download/v4.3.0/wso2mi-4.3.0.zip">here</a>.
     2. Extract the ZIP file. Hereafter, this extracted folder will be referred to as the `<MI_HOME>` folder.
-- **Visual Studio Code (VS Code):** with the [Micro Integrator for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator) extension installed.
+  
+- **Visual Studio Code (VS Code):** with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
 
     !!! Info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/create-integration-project) documentation for a complete installation guide.
+        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
-After completing the steps above, follow the instructions below to create your first integration solution:
+After completing the step above, follow the instructions below to create your first integration solution:
 
 ## What you'll build
 
@@ -79,7 +80,7 @@ Now the integration project is ready to add an API. In this scenario, the API ca
 
 2. Hover over **APIs** and click the **+** icon that appears to open the **Create API** form.
 
-3. Enter `HelloWorldAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value. Let's modify it to `hello`. 
+3. Enter `HelloWorldAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value. Let's modify it to `/hello`. 
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-api.gif" alt="Create New API" width="70%"></a>
 
@@ -177,15 +178,13 @@ Following is what you'll see in the **Source View** of the VS Code.
 
 You need to [configure]({{base_path}}/develop/using-remote-micro-integrator) the downloaded and extracted WSO2 MI server in the Micro Integrator extension installed VS Code to run the integration solution. Let's proceed with the following steps.
 
-1. Click on the **Command Palette** on the top of the VS Code.
+1. Open the VS Code **Command Palette** by selecting **View** > **Command Palette** from the menu, or by using the shortcut `Command`+`Shift`+`P` on macOS or `Ctrl`+`Shift`+`P` on Windows.
 
-2. Type `>` to show the available commands. Alternatively, you can open the command palette in VS Code by entering `Command`+`Shift`+`P` on macOS and `Ctrl`+`Shift`+`P` on Windows.
+2. Select **MI: Add MI server** from the list of available commands.
 
-3. Select **MI: Add MI server** from the list of available commands.
+3. Click **Add MI server** to add a Micro Integrator server.
 
-4. Click **Add MI server** to add a Micro Integrator server.
-
-5. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
+4. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/configure-mi-server.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/configure-mi-server.gif" alt="Configure MI Server" width="70%"></a>
 
