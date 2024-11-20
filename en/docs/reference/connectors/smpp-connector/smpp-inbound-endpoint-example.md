@@ -52,13 +52,13 @@ The following diagram shows the overall solution we are going to build. The SMSC
 
 4. Configure the SMPP inbound endpoint as shown below and click `Create`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-config-endpoint-1.png" title="Configure SMPP inbound endpoint 1" width="1000" alt="Configure SMPP inbound endpoint 1" style="border:1px solid black"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-config-endpoint-1.png" title="Configure SMPP inbound endpoint 1" width="1000" alt="Configure SMPP inbound endpoint 1"/>
     <br/>
    
     !!! Note
         When creating the SMPP inbound endpoint you have two options in defining the injecting sequence and error sequence.
-        <br/>- **Automatic** : Click the checkbox *Automatically generate sequence*
-        <br/>- **Manual** : You can select already defined sequences as injecting and error sequences.
+        <br/>- **Automatic**: Click the checkbox *Automatically generate sequence*
+        <br/>- **Manual**: You can select already defined sequences as injecting and error sequences.
 
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-injecting-and-error-sequence.png" title="Configure SMPP inbound endpoint Injecting and Error Sequences" width="600" alt="Configure SMPP inbound endpoint Injecting and Error Sequences" style="border:1px solid black"/>
 
@@ -89,7 +89,7 @@ The following diagram shows the overall solution we are going to build. The SMSC
     ```        
 
 !!! Note
-    To configure the `systemId` and `password` parameter value, please use the steps given under the topic `Configure the SMSC (Short Message Service Center) simulator` in the [Setting up the SMPP Connector ]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
+    To configure the `systemId` and `password` parameter values, see [Configure the SMSC]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/#configure-the-smsc-short-message-service-center-simulator).
     <br/>- **systemId** : username to access the SMSC
     <br/>- **password** : password to access the SMSC
    
@@ -115,7 +115,7 @@ You can download the ZIP file and extract the contents to get the project code.
 2. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **PRODUCT-HOME/lib** folder.
 
     !!! Tip
-        Alternatively for deployment step 1 and 2, MI for VS Code has provided the capability of copying jars to **PRODUCT-HOME/lib** folder while exporting the capp. You can copy necessary jars to **deployment/libs** folder under project explorer view.
+        Alternatively, for deployment steps 1 and 2, MI for VS Code provides the capability to copy JARs to the `<PRODUCT_HOME>/lib` folder while exporting the CApp. You can copy the necessary JARs to the **deployment** > **libs** folder in the **Explorer** view.
        
         <img src="{{base_path}}/assets/img/integrate/connectors/copy-libs-via-vscode.png" title="Copy libs with VS Code" width="400" alt="Copy libs with VS Code" style="border:1px solid black"/>
 
