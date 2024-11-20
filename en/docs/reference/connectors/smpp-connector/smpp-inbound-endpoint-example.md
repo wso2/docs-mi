@@ -90,8 +90,8 @@ The following diagram shows the overall solution we are going to build. The SMSC
 
 !!! Note
     To configure the `systemId` and `password` parameter values, see [Configure the SMSC]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/#configure-the-smsc-short-message-service-center-simulator).
-    <br/>- **systemId** : username to access the SMSC
-    <br/>- **password** : password to access the SMSC
+    <br/>- **systemId**: username to access the SMSC
+    <br/>- **password**: password to access the SMSC
    
 ## Export integration logic as a CApp
 
