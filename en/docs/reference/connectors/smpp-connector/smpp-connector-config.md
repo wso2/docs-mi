@@ -426,11 +426,6 @@ To use the SMPP connector, need to have a SMSC connection. To create a SMSC conn
          <td>Optional</td>
       </tr>
       <tr>
-         <td>registeredDelivery</td>
-         <td>Indicator to signify if an SMSC delivery receipt or acknowledgment is required - Value other than 0 represents delivery report request.</td>
-         <td>Optional</td>
-      </tr>
-      <tr>
          <td>validityPeriod</td>
          <td>The validity_period parameter indicates the SMSC expiration time, after which the message should be discarded if not delivered to the destination. It can be defined in absolute time format or relative time format.</td>
          <td>Optional</td>
