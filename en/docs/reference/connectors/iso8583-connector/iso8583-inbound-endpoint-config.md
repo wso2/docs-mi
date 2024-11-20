@@ -37,51 +37,51 @@ Another parameter in `threadPool` configuration is `keepAliveTime`, which is the
     </tr>
     <tr>
         <td>Port</td>
-        <td>port</td>
+        <td><code>port</code></td>
         <td>Port number on which to listen for incoming messages</td>
         <td></td>
         <td>Yes</td>
     </tr>
     <tr>
         <td>Act as proxy</td>
-        <td>isProxy</td>
+        <td><code>isProxy</code></td>
         <td>Determine whether the ISO8583 Inbound endpoint act as a proxy to another service</td>
-        <td>false</td>
+        <td><code>false</code></td>
         <td>No</td>
     </tr>
     <tr>
         <td>Length of the ISO header</td>
-        <td>headerLength</td>
+        <td><code>headerLength</code></td>
         <td>Length of the ISO header</td>
-        <td>0</td>
+        <td><code>0</code></td>
         <td>No</td>
     </tr>
     <tr>
         <td>Core Threads</td>
-        <td>coreThreads</td>
+        <td><code>coreThreads</code></td>
         <td>Number of core threads in the thread pool</td>
-        <td>1</td>
+        <td><code>1</code></td>
         <td>No</td>
     </tr>
     <tr>
         <td>Maximum Threads</td>
-        <td>maxThreads</td>
+        <td><code>maxThreads</code></td>
         <td>Maximum number of threads in the thread pool</td>
-        <td>3</td>
+        <td><code>3</code></td>
         <td>No</td>
     </tr>
     <tr>
         <td>Idle Thread Keep Alive Timeout (s)</td>
-        <td>keepAliveTime</td>
+        <td><code>keepAliveTime</code></td>
         <td>Maximum time that excess idle threads will wait for new tasks before terminating</td>
-        <td>1</td>
+        <td><code>1</code></td>
         <td>No</td>
     </tr>
     <tr>
         <td>Queue Length</td>
-        <td>queueLength</td>
+        <td><code>queueLength</code></td>
         <td>Number of tasks that can be queued before the thread pool starts rejecting tasks</td>
-        <td>1</td>
+        <td><code>1</code></td>
         <td>No</td>
     </tr>
 </table>
