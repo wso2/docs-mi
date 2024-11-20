@@ -156,6 +156,8 @@ Now it is time to design your API. This is the underlying logic that is executed
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api-1.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api-1.gif" alt="Design API" width="70%"></a>
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api-2.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api-2.gif" alt="Design API" width="70%"></a>
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api-2.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api-2.gif" alt="Design API" width="70%"></a>
     
 Following is what you'll see in the **Source View** of the VS Code.
 
