@@ -1,0 +1,44 @@
+name: Link Checker
+
+on:
+  workflow_dispatch: 
+    inputs:
+      deployment:
+        description: 'Select the deployment to check links in'
+        required: true
+        default: 'mi.docs.wso2.com/en/latest'
+        type: choice
+        options:
+        - mi.docs.wso2.com/en/latest
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup node
+      uses: actions/setup-node@v3
+
+    - name: Install Octopus
+      run: npm install --global @deptagency/octopus@latest
+
+    - name: Run link checker
+      env:
+        DEPLOYMENT: ${{ inputs.deployment }}
+      run: |
+        URL=https://$DEPLOYMENT/
+        echo "Checking links in $URL"
+        # Run octopus and capture full output including errors
+        set -e
+        {
+          octopus $URL --verbose | tee octopus_output.log
+        } || {
+          echo "Error occurred while running octopus"
+          cat octopus_output.log # Display full log for debugging
+          echo "Debugging info: URL=$URL, Deployment=$DEPLOYMENT"
+          exit 1
+        }
+    - name: Display Full URLs
+      if: failure()
+      run: |
+        echo "Links checked in $URL:"
+        cat octopus_output.log
