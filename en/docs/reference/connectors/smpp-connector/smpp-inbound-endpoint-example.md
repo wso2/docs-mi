@@ -47,7 +47,7 @@ The following diagram shows the overall solution we are going to build. The SMSC
    
 3. Click `+` button next to `Inbound Endpoints` and select `SMPP` to add a new **SMPP inbound endpoint**.  
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-create-new-inbound-endpoint.png" title="Creating smpp inbound endpoint" width="1000" alt="Creating smpp inbound endpoint" style="border:1px solid black"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-create-new-inbound-endpoint.png" title="Creating smpp inbound endpoint" width="1000" alt="Creating smpp inbound endpoint"/>
     <br/>
 
 4. Configure the SMPP inbound endpoint as shown below and click `Create`.
@@ -60,7 +60,7 @@ The following diagram shows the overall solution we are going to build. The SMSC
         <br/>- **Automatic**: Click the checkbox *Automatically generate sequence*
         <br/>- **Manual**: You can select already defined sequences as injecting and error sequences.
 
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-injecting-and-error-sequence.png" title="Configure SMPP inbound endpoint Injecting and Error Sequences" width="600" alt="Configure SMPP inbound endpoint Injecting and Error Sequences" style="border:1px solid black"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-injecting-and-error-sequence.png" title="Configure SMPP inbound endpoint Injecting and Error Sequences" width="600" alt="Configure SMPP inbound endpoint Injecting and Error Sequences"/>
 
     The source view of the created inbound endpoint is shown below.
     
@@ -90,8 +90,8 @@ The following diagram shows the overall solution we are going to build. The SMSC
 
 !!! Note
     To configure the `systemId` and `password` parameter values, see [Configure the SMSC]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/#configure-the-smsc-short-message-service-center-simulator).
-    <br/>- **systemId**: username to access the SMSC
-    <br/>- **password**: password to access the SMSC
+    <br/>- **systemId**: The username to access the SMSC
+    <br/>- **password**: The password to access the SMSC
    
 ## Export integration logic as a CApp
 
