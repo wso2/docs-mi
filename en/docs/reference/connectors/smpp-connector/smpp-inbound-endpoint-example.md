@@ -45,12 +45,12 @@ The following diagram shows the overall solution we are going to build. The SMSC
       </sequence>
       ```
    
-3. Click `+` button next to `Inbound Endpoints` and select `SMPP` to add a new **SMPP inbound endpoint**.  
+3. Click on the **+** button next to **Inbound Endpoints** and select **SMPP** to add a new SMPP inbound endpoint.  
 
     <img src="{{base_path}}/assets/img/integrate/connectors/smpp-create-new-inbound-endpoint.png" title="Creating smpp inbound endpoint" width="1000" alt="Creating smpp inbound endpoint"/>
     <br/>
 
-4. Configure the SMPP inbound endpoint as shown below and click `Create`.
+4. Configure the SMPP inbound endpoint as shown below and click **Create**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/smpp-config-endpoint-1.png" title="Configure SMPP inbound endpoint 1" width="1000" alt="Configure SMPP inbound endpoint 1"/>
     <br/>
@@ -117,7 +117,7 @@ You can download the ZIP file and extract the contents to get the project code.
     !!! Tip
         Alternatively, for deployment steps 1 and 2, MI for VS Code provides the capability to copy JARs to the `<PRODUCT_HOME>/lib` folder while exporting the CApp. You can copy the necessary JARs to the **deployment** > **libs** folder in the **Explorer** view.
        
-        <img src="{{base_path}}/assets/img/integrate/connectors/copy-libs-via-vscode.png" title="Copy libs with VS Code" width="400" alt="Copy libs with VS Code" style="border:1px solid black"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/copy-libs-via-vscode.png" title="Copy libs with VS Code" width="400" alt="Copy libs with VS Code" />
 
 3. Copy the exported carbon application to the **PRODUCT-HOME/repository/deployment/server/carbonapps** folder. 
 
