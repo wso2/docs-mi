@@ -60,3 +60,13 @@ Specify the location to save the registry resource and click **Create**.
     <td>Specify where the registry resource should be saved at the time of deployment.</td>
   </tr>
 </table>
+
+## Edit a registry resource
+
+There may be instances where you need to change the details you entered such as media type, properties, or other information for a registry resource. You can edit such information using the **Edit Registry Metadata** option. To open this edit view, go to the **Registry Explorer** and click on the pen icon of the resource that needs to be updated.
+
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-explorer.png" width="300">  
+
+Click on the **Update** button after making the necessary changes.
+
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/edit-registry.png" width="800">  
