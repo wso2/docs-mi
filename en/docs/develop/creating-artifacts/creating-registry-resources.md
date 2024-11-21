@@ -61,7 +61,7 @@ Specify the location to save the registry resource and click **Create**.
   </tr>
 </table>
 
-## Editing a Registry Resource
+## Edit a registry resource
 
 There may be instances where you need to change the details you entered such as media type, properties, etc. for a registry resource. You can edit such information using the **Edit Registry Metadata** option. To open this edit view, go to the **Registry Explorer** and click on the pen icon of the resource that needs to be updated.
 
