@@ -1,7 +1,7 @@
 The following software and configurations are required to proceed with this tutorial:
 
 - **Visual Studio Code (VS Code):** with the Micro Integrator extension installed.
-- **Java Development Kit (JDK):** Version 11 or 17 is required. Ensure the JDK is properly configured in your system's PATH environment variable.
+- **Java Development Kit (JDK):** Ensure the JDK is properly configured in your system's PATH environment variable.
 - **Apache Maven:** Ensure Apache Maven is installed and its path is correctly set within the system's PATH environment variable.
 
 !!! info

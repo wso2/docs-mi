@@ -8,12 +8,12 @@ In this guide, you'll learn the basics of setting up and using WSO2 MI to create
 
 The following software and configurations are required to proceed with this tutorial:
 
-- **Java Development Kit (JDK):** Version 11 or 17 is required. Set up a [compatible JDK]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks). Ensure the JDK is properly configured in your [system's PATH environment variable]({{base_path}}/install-and-setup/install/installing-mi).
+- **Java Development Kit (JDK) 17**
 
-    !!! Info
-        For more information on setting the `JAVA_HOME` environment variable for different operating systems, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi) documentation.
+    1. Download and install Java SE Development Kit (JDK) version 17. For more information on compatible JDK versions, see the [Tested JDKs]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) documentation.
+    2. Set the `JAVA_HOME` environment variable in the system settings. For more information on setting `JAVA_HOME`, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home) documentation.
 
-  - **Apache Maven:** Ensure <a target="_blank" href="https://maven.apache.org/download.cgi">Apache Maven</a> is installed (version 3.6.0 onwards) and its path is correctly set within the <a target="_blank" href="https://maven.apache.org/install.html">system's PATH environment variable</a>.
+- **Apache Maven:** Ensure <a target="_blank" href="https://maven.apache.org/download.cgi">Apache Maven</a> is installed (version 3.6.0 onwards) and its path is correctly set within the system's PATH environment variable.
 
     !!! info
         For more information on installing Apache Maven, see the <a target="_blank" href="https://maven.apache.org/install.html">Apache Maven documentation</a>.
