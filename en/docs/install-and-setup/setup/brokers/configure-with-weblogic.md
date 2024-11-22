@@ -5,10 +5,10 @@ This section describes how to configure WSO2 Micro Integrator to connect with Or
 ## Starting WebLogic and WSO2 Micro Integrator
 
 1.  Download and set up [Oracle WebLogic Server v14.1.1.0](http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html) using the generic installer.
-2.  Install Oracle JDK 11 and set the JAVA_HOME environment variable.
+2.  Install Oracle JDK 11 and set the `JAVA_HOME` environment variable.
 3.  [Download and install WSO2 Micro Integrator](https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installing-mi/).
-4.  Copy `wlthint3client.jar` from the <WebLogic_HOME>/server/lib/ directory to the <MI_HOME>/lib/ directory.
-5.  [Start WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi) .
+4.  Copy `wlthint3client.jar` from the `<WebLogic_HOME>/server/lib/` directory to the `<MI_HOME>/lib/` directory.
+5.  [Start WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi).
 
 ## Configuring the WebLogic server
 
