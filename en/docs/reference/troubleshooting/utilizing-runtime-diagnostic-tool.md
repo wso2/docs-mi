@@ -16,7 +16,7 @@ There are four main components in the tool:
 
 ## Configuration Guide
 
-The tool is packaged inside the product distribution with default configurations. The configurations can be customized based on user requirements. 
+The tool is packaged inside the product distribution with default configurations. The configurations can be customized based on user requirements. By default, the diagnostic tool is enabled.
 
 ### Server Configurations
 
@@ -24,6 +24,7 @@ The table given below describes the server configurations.
 
 | Configuration | Description                                         |
 | --- |-----------------------------------------------------|
+| `diagnostic_tool_enabled` | Option to disable/enable diagnostics tool |
 | `deployment_toml_path` | Path to the deployment.toml file in the WSO2 server |
 | `logs_directory` | Path to the logs directory.                         |
 | `updates_config_path` | Path to the updates config file.                    |
@@ -37,6 +38,7 @@ Given below is a sample configuration for the WSO2 Micro Integrator.
 
 ```toml
 [server_configuration]
+diagnostic_tool_enabled = "true"
 deployment_toml_path = "../conf/deployment.toml"
 logs_directory = "../repository/logs"
 updates_config_path = "../updates/config.json"
