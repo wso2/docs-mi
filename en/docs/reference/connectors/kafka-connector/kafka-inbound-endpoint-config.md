@@ -68,6 +68,11 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
             <td><code>5000</code></td>
         </tr>
         <tr>
+            <td><code>failure.retry.count</code></td>
+            <td>The offset set to the same record until the failure retry count exceeds.</td>
+            <td><code>-1</code></td>
+        </tr>
+        <tr>
             <td><code>session.timeout.ms</code></td>
             <td>The timeout used to detect client failures when using Kafka’s group management facility.</td>
             <td><code>10000</code></td>
@@ -388,3 +393,6 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
             <td><code>False</code></td>
         </tr>
 </table>
+
+!!! Note
+    The `<property name="SET_ROLLBACK_ONLY" value="true"/>` property should be set in the fault sequence to poll the same record if in a failure case. The internal logic does not commit if the above property is set and the offset is set to the current record. The `failure.retry.count` parameter controls the polling of the same record during failure scenarios. If the retry count is exceeded, the offset is set to the next record, discarding the current one. The default value is `-1`, meaning the same record will be polled infinitely in failure cases. Both the `<property name="SET_ROLLBACK_ONLY" value="true"/>` and `failure.retry.count` parameters are effective only when `enable.auto.commit` is set to `false`.

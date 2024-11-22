@@ -27,7 +27,7 @@ The following configurations allow you to configure SMPP Inbound Endpoint for yo
   <tr>
     <td>systemType</td>
     <td>Identifies the type of ESME system requesting to bind as a receiver with the SMSC.</td>
-    <td>Yes</td>
+    <td>No</td>
     <td>"" - (NULL)<br>                        
                         CMT - Cellular Messaging<br>
                         CPT - Cellular Paging<br>                        
@@ -55,29 +55,29 @@ The following configurations allow you to configure SMPP Inbound Endpoint for yo
     <td>addressNpi</td>
     <td>Numbering Plan Indicator for ESME address.</td>
     <td>Yes</td>
-    <td>Unknown<br>
-                        ISDN (E163/E164)
-                        Data (X.121)
-                        Telex (F.69)<br>                        
-                        Land Mobile (E.212)<br>                        
-                        National
-                        Private
+    <td>UNKNOWN<br>
+                        ISDN<br>
+                        DATA<br>
+                        TELEX<br>                        
+                        LAND_MOBILE<br>                        
+                        NATIONAL<br/>
+                        PRIVATE
                         ERMES<br>
-                        Internet (IP)<br>                        
-                        WAP Client Id (to be defined by WAP Forum)</td>
+                        INTERNET<br>                        
+                        WAP</td>
     <td>N/A</td>
   </tr> 
   <tr>
     <td>addressTon</td>
     <td>Indicates Type of Number of the ESME address.</a></td>
     <td>Yes</td>
-    <td>Unknown<br>                        
-                        International
-                        National
-                        Network Specific<br>                        
-                        Subscriber Number<br>                        
-                         Alphanumeric
-                        Abbreviated</td>
+    <td>UNKNOWN<br>                        
+                        INTERNATIONAL<br>
+                        NATIONAL<br>
+                        NETWORK_SPECIFIC<br>                        
+                        SUBSCRIBER_NUMBER<br>                        
+                        ALPHANUMERIC<br>
+                        ABBREVIATED</td>
     <td>N/A</td>
   </tr>
   <tr>
@@ -114,14 +114,14 @@ The following configurations allow you to configure SMPP Inbound Endpoint for yo
     <td>The Initial retry interval to reconnect with the SMSC while SMSC is not available.</td>
     <td>No</td>
     <td>N/A</td>
-    <td>3000ms</td>
+    <td>1000ms</td>
   </tr>
   <tr>
     <td>retryCount</td>
     <td>The number of times to retry to connect with SMSC, while connection with the SMSC is closed. If you want to retry forever, give the retry count value as less than 0.</td>
     <td>No</td>
     <td>N/A</td>
-    <td>5</td>
+    <td>3</td>
   </tr>
   <tr>
     <td>exponentialFactor</td>
