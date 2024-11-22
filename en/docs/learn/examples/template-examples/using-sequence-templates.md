@@ -161,13 +161,13 @@ You can test this out with the following payload sent to the proxy via `http://l
 </body>
 ```
 
-## Example 2: Mandatory parameters and default values
+## Example 2: Optional parameters and default values
 
 Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
 ### Synapse configuration
 
-In this example, the sequence template is configured to log the greeting message that is passed from the mediation sequence in the REST API. According to the sequence template, a value for the greeting message is mandatory. However, the REST API is not passing a greeting message to this template. Therefore, the <b>default</b> greeting message specified in the template is effectively applied.
+In this example, the sequence template is configured to log the greeting message that is passed from the mediation sequence in the REST API. According to the sequence template, a value for the greeting message is optional. The REST API is not passing a greeting message to this template. Therefore, the <b>default</b> greeting message specified in the template is effectively applied.
 
 === "Sequence Template"
     ```xml  
