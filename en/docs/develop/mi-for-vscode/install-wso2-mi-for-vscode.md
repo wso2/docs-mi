@@ -12,8 +12,8 @@ This page walks you through how to get started with the Micro Integrator for VS 
     !!! Note
         The following will be prompt to download by the **Micro Integrator for VS Code** extension if they are not already available when you open your first project:
 
-        - **Java Development Kit (JDK)** 
-        - **WSO2 Micro Integrator 4.3.0 Runtime** 
+        - **Java Development Kit (JDK) version 17** 
+        - **WSO2 Micro Integrator 4.4.0 Runtime** 
 
 ## Install the MI VS Code extension
 
