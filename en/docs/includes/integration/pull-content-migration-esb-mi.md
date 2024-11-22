@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 ## Why upgrade to WSO2 API-M 4.2.0?
 
 Listed below are some of the advantages of moving to API-M 4.2.0 from the ESB.

@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 !!! Info "Before you begin"
 		Note the following:
 

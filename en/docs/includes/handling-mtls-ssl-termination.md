@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 ### Handling MTLS when SSL is terminated by the Load Balancer or Reverse Proxy
 
 When SSL termination of API requests takes place at the Load Balancer or Reverse Proxy, the following prerequisites need to be met by the Load Balancer.

@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 1. Open WSO2 Integration Studio and create an **Integration Project**.
    <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png"><img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" /></a>
 

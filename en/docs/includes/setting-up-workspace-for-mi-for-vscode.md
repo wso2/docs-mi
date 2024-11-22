@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 The following software and configurations are required to proceed with this tutorial:
 
 - **Visual Studio Code (VS Code):** with the Micro Integrator extension installed.

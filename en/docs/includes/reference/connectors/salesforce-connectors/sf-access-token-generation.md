@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 # Salesforce Access Token Generation
 
 First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 tokens from Salesforce REST API.

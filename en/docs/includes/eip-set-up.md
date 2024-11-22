@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 1. Install WSO2 Micro Integrator.
 
     !!! info

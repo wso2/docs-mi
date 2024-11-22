@@ -1,3 +1,7 @@
+---
+search:
+  exclude: true
+---
 
 ![Work In Progress](https://apim.docs.wso2.com/en/4.2.0/assets/img/work-in-progress.png){: style="width:60%"}
 

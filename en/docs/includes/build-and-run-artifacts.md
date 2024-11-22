@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 !!! info "Prerequisites"
     Before you begin, install Micro Integrator on your machine:
 

@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
 
     !!! info

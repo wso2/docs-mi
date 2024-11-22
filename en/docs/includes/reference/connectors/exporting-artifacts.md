@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 ## Exporting Integration Logic as a CApp
 
 **CApp (Carbon Application)** is the deployable artifact on the integration runtime. Let us see how we can export integration logic we developed into a CApp along with the connector. 

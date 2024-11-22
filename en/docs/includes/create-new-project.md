@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 The Integration project will contain all the required artifacts for the integration solution.
 
 1. Launch VS Code with the Micro Integrator extension installed.

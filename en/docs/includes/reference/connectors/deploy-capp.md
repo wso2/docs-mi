@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 **Deploying on Micro Integrator**
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
