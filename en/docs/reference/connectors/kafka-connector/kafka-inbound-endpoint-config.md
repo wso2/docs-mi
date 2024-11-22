@@ -69,7 +69,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
         <tr>
             <td><code>failure.retry.count</code></td>
-            <td>The offset set to the same record until the failure retry count exceeded.</td>
+            <td>The offset set to the same record until the failure retry count exceeds.</td>
             <td><code>-1</code></td>
         </tr>
         <tr>
