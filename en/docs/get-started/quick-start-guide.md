@@ -13,8 +13,8 @@ The following software and configurations are required to proceed with this tuto
 !!! Note
     The following will be prompt to download by the **Micro Integrator for VS Code** extension if they are not already available when you open your first project:
 
-    - **Java Development Kit (JDK)** 
-    - **WSO2 Micro Integrator 4.3.0 Runtime** 
+    - **Java Development Kit (JDK) version 17** 
+    - **WSO2 Micro Integrator 4.4.0 Runtime** 
 After completing the steps above, follow the instructions below to create your first integration solution:
 
 ## What you'll build
