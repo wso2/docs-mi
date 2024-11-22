@@ -386,8 +386,8 @@ Access logs related to service/API invocations are enabled by default in the M
 
 By default, access logs are printed to the `http_access.log` file (stored in the `<MI_HOME>/repository/logs` folder). If required, you can use the log4j2 configurations to print the access logs to other destinations. Simply apply the following [logger](#log4j2-loggers) with an [appender](#log4j2-appenders).
 
--   <b>Logger Name</b>: PassThroughAccess
--   <b>Logger Class</b>: org.apache.synapse.transport.http.access.logs
+-   <b>Logger Name</b>: `PassThroughAccess`
+-   <b>Logger Class</b>: `org.apache.synapse.transport.http.access.logs`
 
 Given below is the default log4j2 configuration for the access logs. 
 
