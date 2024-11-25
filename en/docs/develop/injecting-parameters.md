@@ -142,9 +142,6 @@ In the following example, the endpoint URL is configured as a dynamic value.
 
 ### Data service parameters
 
-!!! Tip
-    Note that you cannot inject parameters to data service using a file. You can only use environment variables.
-
 Listed below are the data service parameters that can be dynamically injected.
 
 -   `Driver`
