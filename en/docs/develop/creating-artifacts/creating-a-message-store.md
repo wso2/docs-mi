@@ -50,7 +50,7 @@ To add a message store to the integration sequence, use the [Store Mediator]({{b
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message.png" alt="Store message" width="80%"></a>
 
-3. Enter the name of the message store artifact you previously created.
+3. Select the name of the message store artifact you previously created from the dropdown.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message-details.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message-details.png" alt="Store message details" width="30%"></a>
 

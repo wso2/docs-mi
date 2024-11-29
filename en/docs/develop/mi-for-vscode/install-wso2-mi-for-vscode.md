@@ -4,18 +4,16 @@ This page walks you through how to get started with the Micro Integrator for VS 
 
 ## Prerequisites
 
-- Download and install Java SE Development Kit (JDK) version 11 or 17. See [tested JDK versions]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) for more information.
+- **Java Development Kit (JDK) 17**
+    1. Download and install Java SE Development Kit (JDK) version 17. For more information on compatible JDK versions, see the [Tested JDKs]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) documentation.
+    2. Set the `JAVA_HOME` environment variable in the system settings. For more information on setting `JAVA_HOME`, see the [Install and Setup]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home) documentation.
 
-- Set the `JAVA_HOME` environment variable in the [system settings]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
+- **Apache Maven**
+    1. Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
+    2. Set the path for Apache Maven in the [system's PATH environment variable](https://maven.apache.org/install.html).
 
-- Download and install [Apache Maven](https://maven.apache.org/download.cgi) (version 3.6.0 onwards).
-
-- Set the path for Apache Maven in the [system's PATH environment variable](https://maven.apache.org/install.html).
-
-- Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
-
-    !!! info
-        For more information on installing Visual Studio Code, refer to [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
+- **Visual Studio Code**
+    Download and install the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
 
 ## Install the MI VS Code extension
 
