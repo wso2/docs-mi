@@ -87,3 +87,6 @@ Invoke the API as shown below using the curl command. Curl application can be do
           </data>
           </ISOMessage>  
    ```
+
+!!! Note
+    When you set a header in the ISOMessage, it base64 decodes the value and sets the header length. When parsing the message, it assumes that the incoming message includes a header of the specified length at the beginning.
