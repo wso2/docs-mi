@@ -67,7 +67,6 @@ Invoke the API as shown below using the curl command. Curl application can be do
    ```
           curl -v POST -d 
           '<ISOMessage>
-               <header>AAAAaw==</header>
                <data>
                 <field id="104">000001161204171926FABCDE123ABD06414243</field>
                 <field id="109">000termid1210Community106A5DFGR1112341234234</field>
@@ -80,7 +79,6 @@ Invoke the API as shown below using the curl command. Curl application can be do
    
    ```
           <ISOMessage>
-          <header>MDIxMA==</header>
           <data>
           <field id="0">8000</field>
           <field id="23">000</field>
@@ -89,4 +87,13 @@ Invoke the API as shown below using the curl command. Curl application can be do
    ```
 
 !!! Note
-    When you set a header in the ISOMessage, it base64 decodes the value and sets the header length. When parsing the message, it assumes that the incoming message includes a header of the specified length at the beginning.
+    You can set a header to the ISO message as below. When you set a header, it base64 decodes the value and sets the header length. When parsing the message, it assumes that the incoming message includes a header of the specified length at the beginning.
+      ```
+      <ISOMessage>
+      <header>AAAAaw==</header>
+      <data>
+      <field id="104">000001161204171926FABCDE123ABD06414243</field>
+      <field id="109">000termid1210Community106A5DFGR1112341234234</field>
+      </data>
+      </ISOMessage>
+      ```
