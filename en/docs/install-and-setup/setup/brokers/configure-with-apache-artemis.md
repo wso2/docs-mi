@@ -50,7 +50,7 @@ Follow the instructions below to set up and configure.
         ```
       
         !!! NOTE
-            In the synapse configuration, when using JMSsender the address uri should be in the following format.
+            When using `JMSsender`, the address URI in the Synapse configuration should be in the following format.
             ```xml
             jms:/<Queue_Name>?transport.jms.ConnectionFactory=<parameter_name_of_the_connection_factory>
             ```
