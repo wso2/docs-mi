@@ -4,7 +4,7 @@ Follow the steps given below to install the Integration Control Plane (ICP).
 
 ## Installing the Integration Control Plane
 
-1. Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integration-control-plane/).
+1. Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/integration-control-plane/).
 
 2. Click **Download**.
 
