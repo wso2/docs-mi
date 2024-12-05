@@ -18,7 +18,7 @@ When you integrate the systems in your organization, it is also necessary to int
 
 {!includes/create-new-project.md!}
 
-4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
+4. In the **Project Creation Form**, enter `EmailConnectorTutorial` as the **Project Name**.
 
 5. Provide a location under **Select Project Directory**.
 

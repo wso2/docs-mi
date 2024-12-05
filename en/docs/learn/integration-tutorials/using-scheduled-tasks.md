@@ -25,11 +25,11 @@ Follow the instructions given in this section to create and configure the requir
 
 {!includes/create-new-project.md!}
 
-4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
+4. In the **Project Creation Form**, enter `ScheduleTaskTutorial` as the **Project Name**.
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
