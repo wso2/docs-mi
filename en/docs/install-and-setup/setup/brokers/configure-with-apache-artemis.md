@@ -48,6 +48,17 @@ Follow the instructions below to set up and configure.
         parameter.connection_factory_name = "TopicConnectionFactory"
         parameter.connection_factory_type = "topic"
         ```
+      
+        !!! NOTE
+            When using `JMSsender`, the address URI in the Synapse configuration should be in the following format.
+            ```xml
+            jms:/<Queue_Name>?transport.jms.ConnectionFactory=<parameter_name_of_the_connection_factory>
+            ```
+            Example:
+            ```xml
+            <address uri="jms:/TestQueue?transport.jms.ConnectionFactory=commonJmsSenderConnectionFactory"/>
+            ```
+
 4.  Remove any existing Apache ActiveMQ client JAR files from the `MI_HOME/dropins/` and `MI_HOME/lib/` directories.  
 5.  Download the [artemis-jms-client-all-2.6.1.jar](https://mvnrepository.com/artifact/org.apache.activemq/artemis-jms-client-all/2.6.1) file and copy it to the `MI_HOME/lib/` directory.  
 6.  Remove the below line from the `MI_HOME/conf/etc/launch.ini` file.  
@@ -55,6 +66,7 @@ Follow the instructions below to set up and configure.
     ```text
     javax.jms,\
     ```
+    
 7.  Start Apache Artemis. For instructions, see the [Apache Artemis Documentation](https://activemq.apache.org/artemis/docs.html).
 8.  Start the Micro Integrator.
 
