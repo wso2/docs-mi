@@ -869,6 +869,7 @@ nav:
               - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
               - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
           - Expressions: reference/synapse-properties/expressions.md
+          - Synapse Expressions: reference/synapse-properties/synapse-expressions.md
           - Scopes: reference/synapse-properties/scopes.md
           - REST APIs: reference/synapse-properties/rest-api-properties.md
           - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
