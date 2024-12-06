@@ -337,6 +337,7 @@ nav:
           - Overview - Micro Integrator for VSCode:  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
+          - MI Copilot: develop/mi-for-vscode/mi-copilot.md
       - WSO2 Integration Studio:
           - Quick Tour - WSO2 Integration Studio: develop/wso2-integration-studio.md
           - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md

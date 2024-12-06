@@ -205,7 +205,7 @@ In this example, you'll copy the original payload to a property using the Enrich
 ```xml
 <enrich>
     <source clone="false" type="body"/>
-    <target action="replace" type="property" property="ORGINAL_PAYLOAD"/>
+    <target action="replace" type="property" property="ORIGINAL_PAYLOAD"/>
 </enrich>
 ```
     
