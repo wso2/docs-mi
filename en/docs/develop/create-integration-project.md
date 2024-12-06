@@ -1,6 +1,6 @@
-# Create an Integration Project
+# Create a Project
 
-An integration project in WSO2 Micro Integrator (MI) is a structured collection of artifacts and configurations designed to facilitate seamless communication and data exchange between diverse systems, applications, and services.
+An integration project in WSO2 Micro Integrator (MI) is a structured collection of artifacts designed to facilitate seamless communication and data exchange between diverse systems, applications, and services.
 
 Follow the below steps to create an integration project using the WSO2 Micro Integrator for VS Code extension (MI for VS Code):
 

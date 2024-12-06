@@ -346,8 +346,8 @@ nav:
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Integration Projects:
-          - Create an Integration Project: develop/create-integration-project.md
-          - Open Integration Projects: develop/opening-projects.md
+          - Create a Project: develop/create-integration-project.md
+          - Open a Project: develop/opening-projects.md
       - Integration Artifacts:
           - Integration Artifacts Overview: develop/creating-artifacts/creating-artifacts-overview.md
           - Create Artifacts:
