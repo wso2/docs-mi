@@ -19,7 +19,7 @@ Store and forward messaging is used to serve traffic to back-end services that c
 
 {!includes/create-new-project.md!}
 
-4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
+4. In the **Project Creation Form**, enter `StoreAndForwardTutorial` as the **Project Name**.
 
 5. Provide a location under **Select Project Directory**.
 

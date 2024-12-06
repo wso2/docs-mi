@@ -46,13 +46,13 @@ Follow the steps given below to create a new data service.
 
 {!includes/create-new-project.md!}
 
-4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
+1. In the **Project Creation Form**, enter `DataSourceServiceTutorial` as the **Project Name**.
 
-5. Provide a location under **Select Project Directory**.
+2. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-project.png" alt="create new project" width="80%"></a>
 
-6. Click **Create**.
+3. Click **Create**.
 
 #### Create a data service with a data source
 
