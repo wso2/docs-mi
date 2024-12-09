@@ -30,10 +30,16 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 4. Select Java from the **Driver** menu.
 
-5. Select the correct driver version from the **Version**(`3.3`) menu.
+5. Select the correct driver version from the **Version**(`4.3 or later`) menu.
 
 6. Clear the **Include full driver code example** check box to get the connection string.
 
+## Copy the driver jars
+
+Copy the following jars to the `MI_HOME/drophins` directory.
+1. [mongodb-driver-sync - 4.9.1](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync/4.9.1)
+2. [mongodb-driver-core - 4.9.1](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-core/4.9.1)
+3. [bson - 4.9.1](https://mvnrepository.com/artifact/org.mongodb/bson/4.9.1)
 
 ## Create the integration project
 

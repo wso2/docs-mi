@@ -13,10 +13,15 @@ It is always recommended to download the latest version of the connector.
 ## Compatibility
 
 | Connector version | Supported product versions |
-| ----------------- | ----------------------------- |
-| 1.0.0             | APIM 4.0.0, EI 7.1.0, EI 6.6.0    |
+|-------------------|----------------------------|
+| 2.0.0             | MI 4.3.0                   |
 
-This connector was tested with MongoDB version 4.4.3.
+This connector was tested with MongoDB version 8.0.3.
+
+> **NOTE:**
+>
+> This connector cannot be used alongside MI MongoDB Data Services.
+>
 
 ## MongoDB Connector documentation
 
