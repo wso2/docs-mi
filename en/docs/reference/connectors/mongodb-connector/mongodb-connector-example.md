@@ -98,7 +98,7 @@ Copy the following jars to the `MI_HOME/drophins` directory.
     - Collection - json-eval($.collection)
     - Query - json-eval($.query)
 
-14. Add [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+14. Add [Respond Mediator](https://mi.docs.wso2.com/en/latest/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
 15. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
 
