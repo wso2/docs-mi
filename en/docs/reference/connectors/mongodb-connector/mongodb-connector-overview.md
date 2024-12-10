@@ -14,7 +14,7 @@ It is always recommended to download the latest version of the connector.
 
 | Connector version | Supported product versions |
 |-------------------|----------------------------|
-| 2.0.0             | MI 4.3.0                   |
+| 2.0.0             | MI 4.3.0.10                |
 
 This connector was tested with MongoDB version 8.0.3.
 
