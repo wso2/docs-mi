@@ -37,9 +37,9 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 ## Copy the MongoDB driver JAR files
 
 Copy the following JAR files to the `<MI_HOME>/dropins` directory.
-- [mongodb-driver-sync - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/4.9.1/mongodb-driver-sync-4.9.1.jar)
-- [mongodb-driver-core - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/4.9.1/mongodb-driver-core-4.9.1.jar)
-- [bson - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/bson/4.9.1/bson-4.9.1.jar)
+* [mongodb-driver-sync - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/4.9.1/mongodb-driver-sync-4.9.1.jar)
+* [mongodb-driver-core - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/4.9.1/mongodb-driver-core-4.9.1.jar)
+* [bson - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/bson/4.9.1/bson-4.9.1.jar)
 
 ## Create the integration project
 
