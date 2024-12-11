@@ -1,23 +1,22 @@
-The following are some ways to troubleshoot errors you may encounter when working with the Micro Integrator extension for Visual Studio Code (MI for VS Code).
+# Troubleshoot MI for VS Code
 
-## Fixing window clashes and design errors in the graphical view
+The following are some ways to troubleshoot errors you may encounter when working with the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
-If you encounter errors while working with the Micro Integrator extension for Visual Studio Code, such as window clashes, frozen views, or errors while designing integrations using the graphical view, follow these steps to troubleshoot:
+## Resolve graphical view errors
 
-1. Go to the **Command Palette** at the top of the Visual Studio Code interface.
+To address issues such as frozen views or errors while designing integrations using the graphical view, follow these steps:
 
-2. Type `>` to display the available commands.
 
-    - Alternatively, on macOS press `Command`+`Shift`+`P`, and on Windows press `Control`+`Shift`+`P` to open the **Command Palette**.
+1. Open the VS Code Command Palette by selecting **View** > **Command Palette** from the menu, or by using the shortcut `Command`+`Shift`+`P` on macOS or `Ctrl`+`Shift`+`P` on Windows.
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/command-palette.png" alt="Command Palette" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/command-palette.png" alt="Command Palette" width="80%"></a>
 
-3. Select **MI: Refresh**.
+2. Select **Developer: Reload Window** from the list of commands.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-refresh.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-refresh.png" alt="MI Refresh" width="50%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/reload-window.png" alt="MI Refresh" width="70%"></a>
 
-This will refresh the extension and may resolve the encountered issues.
+Refreshing the MI for VS Code extension resolves common errors in the graphical view and restores normal functionality.
 
-## Reach Out
+## Reach out
 
-Reach out to us for further assistance by creating [GitHub issues](https://github.com/wso2/mi-vscode/issues).
+For further assistance, create a [GitHub issue](https://github.com/wso2/mi-vscode/issues). Our team will review and respond promptly to address your concerns.
