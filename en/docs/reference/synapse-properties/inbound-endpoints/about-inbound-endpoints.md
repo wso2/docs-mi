@@ -11,6 +11,20 @@ A listening inbound endpoint listens on a given port for requests that are comin
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties">CXF WS-RM Inbound Protocol</a>
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties">WebSocket Inbound Protocol</a>
 
+!!! Note "Redeployment of listening inbound endpoints fail?"
+
+    A listening inbound endpoint opens the port for itself during deployment. Therefore, if you are redeploying a listening inbound endpoint artifact, the redeployment will not be successful until the port that was previously opened for the inbound endpoint is closed.
+
+    By default, the system will wait for 10 seconds for the previously opened port to close down. If you want to increase this waiting time beyond 10 seconds, add the following system property in the `deployment.toml` file, which is stored in the `<MI_HOME>/conf/` directory and restart the server before redeploying the artifacts.
+
+    ```toml
+    [system.parameter]
+    'synapse.transport.portCloseVerifyTimeout' = 20
+    ```
+
+    The `synapse.transport.portCloseVerifyTimeout` property should be wrapped by single quotes (`'` `'`) since it contains dots (`.`) as shown above as the TOML format detects the dot as an object separator.
+    Also note that this setting may be required in Windows environments as the process of closing a port can sometimes take longer than 10 seconds.
+
 <!--
 
 <table>
