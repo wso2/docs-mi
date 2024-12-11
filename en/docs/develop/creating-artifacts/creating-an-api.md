@@ -245,9 +245,9 @@ The service's metadata is used by the API management runtime to generate the API
 
 3. Add the required mediators and connectors to the API resource and design the integration flow.
 
-## Update properties
+## Update configurations
 
-### Update the API properties
+### Update the API configurations
 
 1. Go to **MI Overview**.
 
@@ -261,9 +261,9 @@ The service's metadata is used by the API management runtime to generate the API
 
 4. Once you edit, click **Save Changes**.
 
-    See the complete list of [API properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-properties) you can configure.
+    See the complete list of [API configurations]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-properties) you can configure.
 
-### Update the API resource properties
+### Update the API resource configurations
 
 1. Go to **MI Overview**.
 
@@ -279,7 +279,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 5. Once you edit, click **Update**.
 
-    See the complete list of [API Resource properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
+    See the complete list of [API Resource configurations]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
 
 ## Source View
 
