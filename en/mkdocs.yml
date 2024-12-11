@@ -352,7 +352,7 @@ nav:
           - Create a REST API: develop/creating-artifacts/creating-an-api.md
           - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
           - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
-          - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
+          - Create a Scheduled Task: develop/creating-artifacts/creating-scheduled-task.md
           - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
           - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
           - Create an Endpoint: develop/creating-artifacts/creating-endpoints.md
