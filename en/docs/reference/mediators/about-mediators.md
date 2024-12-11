@@ -2,7 +2,7 @@
 
 Mediators are individual processing units that perform a specific actions on messages that pass through the Micro Integrator. The mediator takes the message received by the REST API or proxy service, carries out predefined actions on it (such as transforming, enriching, filtering), and outputs the modified message. 
 
-For example, the [Clone]({{base_path}}/reference/mediators/clone-mediator) mediator splits a message into several clones, the [Call]({{base_path}}/reference/mediators/call-mediator) mediator calls a backend endpoint with the message, and the [Aggregate]({{base_path}}/reference/mediators/aggregate-mediator) mediator collects and merges the responses and the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator sends the message back to the client. 
+For example, the [Scatter Gather]({{base_path}}/reference/mediators/scatter-gather-mediator) mediator splits a message into several clones and aggregate the results, the [Call]({{base_path}}/reference/mediators/call-mediator) mediator calls a backend endpoint with the message and the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator sends the message back to the client.
 
 ## Classification of mediators
 
@@ -29,7 +29,7 @@ Mediators are classified as follows based on whether they access the message's c
   <tr>
     <td>Conditionally content-aware mediators</td>
     <td>
-      These mediators could be either content-aware or content-unaware depending on their usage in the configuration. For example, a simple <a href="{{base_path}}/reference/mediators/log-mediator">Log</a> mediator configured as <code>&lt;log/&gt;</code> is content-unaware. However, a log mediator configured as <code>&lt;log level=&quot;full&quot;/&gt;</code> would be content-aware since it is expected to log the message payload.
+      These mediators could be either content-aware or content-unaware depending on their usage in the configuration.
     </td>
   </tr>
 </table>
@@ -116,7 +116,7 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
   </tr>
 
   <tr>
-    <td rowspan="7">Flow control mediators</td>
+    <td rowspan="5">Flow control mediators</td>
     <td>
       <a href="{{base_path}}/reference/mediators/filter-mediator">Filter mediator</a>
     </td>
@@ -130,25 +130,13 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
   </tr>
   <tr>
     <td>
-      <a href="{{base_path}}/reference/mediators/clone-mediator">Clone mediator</a>
-    </td>
-    <td>Content-aware</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="{{base_path}}/reference/mediators/iterate-mediator">Iterate mediator</a>
+      <a href="{{base_path}}/reference/mediators/scatter-gather-mediator">Scatter Gather mediator</a>
     </td>
     <td>Content-aware</td>
   </tr>
   <tr>
     <td>
       <a href="{{base_path}}/reference/mediators/foreach-mediator">ForEach mediator</a>
-    </td>
-    <td>Content-aware</td>
-  </tr>
-  <tr>
-    <td>
-      <a href="{{base_path}}/reference/mediators/aggregate-mediator">Aggregate mediator</a>
     </td>
     <td>Content-aware</td>
   </tr>
@@ -258,11 +246,29 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
   </tr>
 
   <tr>
-    <td rowspan="10">Other mediators</td>
+    <td rowspan="13">Other mediators</td>
     <td>
       <a href="{{base_path}}/reference/mediators/send-mediator">Send mediator</a>
     </td>
     <td>Content-unaware</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="{{base_path}}/reference/mediators/clone-mediator">Clone mediator</a>
+    </td>
+    <td>Content-aware</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="{{base_path}}/reference/mediators/iterate-mediator">Iterate mediator</a>
+    </td>
+    <td>Content-aware</td>
+  </tr>
+    <tr>
+    <td>
+      <a href="{{base_path}}/reference/mediators/aggregate-mediator">Aggregate mediator</a>
+    </td>
+    <td>Content-aware</td>
   </tr>
   <tr>
     <td>
