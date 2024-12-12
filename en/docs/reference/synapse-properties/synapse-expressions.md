@@ -586,7 +586,7 @@ Syntax for calling an XPath function without namespaces:
 xpath(expression)
 ```
 
-Example usage: Calling a XPath functions without namespaces
+Example usage: Calling an XPath function without namespaces:
 ```
 <variable name="StudentName" expression="${xpath('//student/text()')}"/>
 ```
