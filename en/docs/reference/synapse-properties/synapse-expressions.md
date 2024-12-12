@@ -16,7 +16,7 @@ The syntax for Synapse Expressions is as follows:
 ${expression}
 ```
 
-Here, the expression can be a combination of literals, value access expressions, operators, filter expressions, conditional expressions and functions.
+Here, the expression can be a combination of literals, value access expressions, operators, filter expressions, conditional expressions, and functions.
 
 Example usage:
 
