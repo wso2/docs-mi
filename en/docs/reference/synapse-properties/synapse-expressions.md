@@ -607,7 +607,7 @@ Example usage:
 <variable name="StudentName" expression="${xpath('//student/text()', 'Students')}"/>
 ```
 
-## Reserved Keywords
+## Reserved keywords
 
 The following keywords are reserved in Synapse Expressions and cannot be used in value access expressions with dot notation. Instead, use the bracket notation.
 
