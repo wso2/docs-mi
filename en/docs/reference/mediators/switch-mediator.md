@@ -42,7 +42,7 @@ The parameters available to configure the Switch mediator are as follows.
 
 ### Adding a new case
 
-1.  To add a case, go to edit the switch mediator and click **Add new case** under **Cases** section.
+1.  To add a case, go to edit the switch mediator and click **Add new case** under the **Cases** section.
 2.  It will open a form where a regular expression can be added in the **Regex Pattern** parameter. Once submitted, it will add an empty case under the switch mediator as a child.
 3.  Click on the `+` mark under a case to add the mediator(s) you want to execute when this case matches the switching value.
 
