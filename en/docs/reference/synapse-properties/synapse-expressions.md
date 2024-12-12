@@ -596,7 +596,7 @@ Example usage: Calling a XPath functions with namespaces
 <variable name="Width" expression="${xpath('//a:parent/b:child/a:value/text()')}" xmlns:a="http://namespaceA.com" xmlns:b="http://namespaceB.com"/>
 ```
 
-Syntax for calling a XPath function on a variable
+Syntax for calling an XPath function on a variable:
 
 ```
 xpath(expression, 'variable-name')
