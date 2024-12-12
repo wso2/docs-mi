@@ -48,9 +48,15 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
     <th>Content aware/unaware</th>
   </tr>
   <tr>
-    <td rowspan="11">Generic mediators</td>
+    <td rowspan="12">Generic mediators</td>
     <td>
       <a href="{{base_path}}/reference/mediators/call-mediator">Call mediator</a>
+    </td>
+    <td>Conditionally content-aware</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="{{base_path}}/reference/mediators/variable-mediator">Variable mediator</a>
     </td>
     <td>Conditionally content-aware</td>
   </tr>

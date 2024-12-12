@@ -862,6 +862,7 @@ nav:
               - Transaction Mediator: reference/mediators/transaction-mediator.md
               - URLRewrite Mediator: reference/mediators/urlrewrite-mediator.md
               - Validate Mediator: reference/mediators/validate-mediator.md
+              - Variable Mediator: reference/mediators/variable-mediator.md
               - XQuery Mediator: reference/mediators/xquery-mediator.md
               - XSLT Mediator: reference/mediators/xslt-mediator.md
           - Property Catalog:
