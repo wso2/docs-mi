@@ -291,7 +291,7 @@ charAt(payload.value, 3)</code></pre></td>
 <td><pre><code>indexOf("text", "e")
 indexOf(payload.value, "search", 5)</code></pre></td>
 <td>Returns the position of the first occurrence of the specified input in the string.
-Specify a starting index as third parameter for the search.</td>
+Specify a starting index as the third parameter for the search.</td>
 </tr>
 </tbody>
 </table>
