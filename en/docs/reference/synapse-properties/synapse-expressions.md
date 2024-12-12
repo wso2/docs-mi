@@ -578,7 +578,7 @@ Example usage:
 
 ### XPath functions
 
-Synapse Expressions provide XPath functions to work with XML payloads.
+Synapse expressions provide XPath functions to work with XML payloads.
 
 Syntax for calling an XPath function without namespaces:
 
