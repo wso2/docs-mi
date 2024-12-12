@@ -477,7 +477,7 @@ After conversion, JSONPath syntax can be used to access the array. For example, 
 
 ### Registry functions
 
-Synapse Expressions include the following functions to access registry content and registry properties.
+Synapse expressions include the following functions to access registry content and registry properties.
 
 <table>
 <thead>
