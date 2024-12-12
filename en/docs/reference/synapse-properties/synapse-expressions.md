@@ -759,7 +759,6 @@ curl --location 'http://localhost:8290/test/john?age=3&category=fiction' \
   },
   "expensive": 10
 }
-'
 ```
 
 You will get a similar log to the following in the server. 
