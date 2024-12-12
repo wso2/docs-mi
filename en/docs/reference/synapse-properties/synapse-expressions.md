@@ -62,7 +62,7 @@ The following types of literals are supported in Synapse Expressions.
 </tbody>
 </table>
 
-## Value Access Expressions
+## Value access expressions
 
 ### Accessing values in payloads
 
