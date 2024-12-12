@@ -351,7 +351,7 @@ pow(payload.base, payload.exponent)</code></pre></td>
 
 ### Encoding and decoding functions
 
-Synapse Expressions provide XPath functions to encode and decode strings.
+Synapse expressions provide XPath functions to encode and decode strings.
 
 <table>
 <thead>
