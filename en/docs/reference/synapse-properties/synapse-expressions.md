@@ -208,7 +208,7 @@ Synapse Expressions support a wide range of functions essential in integration u
 
 ### String functions
 
-Following functions are applicable when the value is a string.
+The following functions are applicable when the value is a string.
 
 <table>
 <thead>
