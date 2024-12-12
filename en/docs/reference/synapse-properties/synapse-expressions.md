@@ -145,7 +145,7 @@ var.num1 == var.num2
 var.num1 != var.num2
 ```
 
-### Logical Operators
+### Logical operators
 
 Logical AND '&&', Logical OR '||' operators are supported between operands.
 
