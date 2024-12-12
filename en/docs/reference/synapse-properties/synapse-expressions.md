@@ -223,76 +223,75 @@ The following functions are applicable when the value is a string.
 <td><pre><code>length</code></pre></td>
 <td><pre><code>length("text")
 length(payload.array)</code></pre></td>
-<td><pre><code>Returns the length of the string if the input is a string.
-Returns the length of the array if the input is a JSON array.</code></pre></td>
+<td>Returns the length of the string if the input is a string. Returns the length of the array if the input is a JSON array.</td>
 </tr>
 <tr class="even">
 <td><pre><code>toUpper</code></pre></td>
 <td><pre><code>toUpper("text")
 toUpper(payload.value)</code></pre></td>
-<td><pre><code>Converts the provided string to uppercase.</code></pre></td>
+<td>Converts the provided string to uppercase.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>toLower</code></pre></td>
 <td><pre><code>toLower("TEXT")
 toLower(payload.value)</code></pre></td>
-<td><pre><code>Converts the provided string to lowercase.</code></pre></td>
+<td>Converts the provided string to lowercase.</td>
 </tr>
 <tr class="even">
 <td><pre><code>subString</code></pre></td>
 <td><pre><code>subString(payload.value, 2)
 subString("text", 0, 2)</code></pre></td>
-<td><pre><code>Extracts a substring from the input string starting from the specified index.
-Specify an end index as third parameter to extract up to that position.</code></pre></td>
+<td>Extracts a substring from the input string starting from the specified index.
+Specify an end index as third parameter to extract up to that position.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>startsWith</code></pre></td>
 <td><pre><code>startsWith("text", "te")
 startsWith(payload.value, "start")</code></pre></td>
-<td><pre><code>Checks if the string starts with the specified prefix.</code></pre></td>
+<td>Checks if the string starts with the specified prefix.</td>
 </tr>
 <tr class="even">
 <td><pre><code>endsWith</code></pre></td>
 <td><pre><code>endsWith("text", "xt")
 endsWith(payload.value, "end")</code></pre></td>
-<td><pre><code>Checks if the string ends with the specified suffix.</code></pre></td>
+<td>Checks if the string ends with the specified suffix.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>contains</code></pre></td>
 <td><pre><code>contains("text", "e")
 contains(payload.value, "substring")</code></pre></td>
-<td><pre><code>Checks if the string contains the specified substring.</code></pre></td>
+<td>Checks if the string contains the specified substring.</td>
 </tr>
 <tr class="even">
 <td><pre><code>trim</code></pre></td>
 <td><pre><code>trim("  text  ")
 trim(payload.value)</code></pre></td>
-<td><pre><code>Removes leading and trailing whitespace from the string.</code></pre></td>
+<td>Removes leading and trailing whitespace from the string.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>replace</code></pre></td>
 <td><pre><code>replace("text", "t", "r")
 replace(payload.value, "old", "new")</code></pre></td>
-<td><pre><code>Replaces all occurrences of the specified old value with the new value in the string.</code></pre></td>
+<td>Replaces all occurrences of the specified old value with the new value in the string.</td>
 </tr>
 <tr class="even">
 <td><pre><code>split</code></pre></td>
 <td><pre><code>split("a,b,c", ",")
 split(payload.value, ";")</code></pre></td>
-<td><pre><code>Splits the string into an array using the specified delimiter.</code></pre></td>
+<td>Splits the string into an array using the specified delimiter.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>charAt</code></pre></td>
 <td><pre><code>charAt("text", 1)
 charAt(payload.value, 3)</code></pre></td>
-<td><pre><code>Returns the character at the specified index in the string.</code></pre></td>
+<td>Returns the character at the specified index in the string.</td>
 </tr>
 <tr class="even">
 <td><pre><code>indexOf</code></pre></td>
 <td><pre><code>indexOf("text", "e")
 indexOf(payload.value, "search", 5)</code></pre></td>
-<td><pre><code>Returns the position of the first occurrence of the specified input in the string.
-Specify a starting index as third parameter for the search.</code></pre></td>
+<td>Returns the position of the first occurrence of the specified input in the string.
+Specify a starting index as third parameter for the search.</td>
 </tr>
 </tbody>
 </table>
@@ -314,37 +313,37 @@ The following functions are applicable when the value is a number.
 <td><pre><code>abs</code></pre></td>
 <td><pre><code>abs(-5)
 abs(payload.value)</code></pre></td>
-<td><pre><code>Returns the absolute value of the input.</code></pre></td>
+<td>Returns the absolute value of the input.</td>
 </tr>
 <tr class="even">
 <td><pre><code>floor</code></pre></td>
 <td><pre><code>floor(3.7)
 floor(payload.value)</code></pre></td>
-<td><pre><code>Returns the largest integer less than or equal to the input value.</code></pre></td>
+<td>Returns the largest integer less than or equal to the input value.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>ceil</code></pre></td>
 <td><pre><code>ceil(3.2)
 ceil(payload.value)</code></pre></td>
-<td><pre><code>Returns the smallest integer greater than or equal to the input value.</code></pre></td>
+<td>Returns the smallest integer greater than or equal to the input value.</td>
 </tr>
 <tr class="even">
 <td><pre><code>sqrt</code></pre></td>
 <td><pre><code>sqrt(16)
 sqrt(payload.value)</code></pre></td>
-<td><pre><code>Returns the square root of the input value.</code></pre></td>
+<td>Returns the square root of the input value.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>log</code></pre></td>
 <td><pre><code>log(10)
 log(payload.value)</code></pre></td>
-<td><pre><code>Returns the natural logarithm (base e) of the input value.</code></pre></td>
+<td>Returns the natural logarithm (base e) of the input value.</td>
 </tr>
 <tr class="even">
 <td><pre><code>pow</code></pre></td>
 <td><pre><code>pow(2, 3)
 pow(payload.base, payload.exponent)</code></pre></td>
-<td><pre><code>Returns the result of raising the base to the power of the exponent.</code></pre></td>
+<td>Returns the result of raising the base to the power of the exponent.</td>
 </tr>
 </tbody>
 </table>
@@ -352,7 +351,7 @@ pow(payload.base, payload.exponent)</code></pre></td>
 
 ### Encoding and Decoding functions
 
-Synapse Expressions provide XPATH functions to encode and decode strings.
+Synapse Expressions provide XPath functions to encode and decode strings.
 
 <table>
 <thead>
@@ -367,26 +366,26 @@ Synapse Expressions provide XPATH functions to encode and decode strings.
 <td><pre><code>base64encode</code></pre></td>
 <td><pre><code>base64encode("text")
 base64encode(payload.value, "ISO-8859-1")</code></pre></td>
-<td><pre><code>Encodes the input value using Base64 encoding.
-Encodes the input value using Base64 encoding with the specified character set.</code></pre></td>
+<td>Encodes the input value using Base64 encoding.
+Encodes the input value using Base64 encoding with the specified character set.</td>
 </tr>
 <tr class="even">
 <td><pre><code>base64decode</code></pre></td>
 <td><pre><code>base64decode("dGV4dA==")
 base64decode(payload.encodedValue)</code></pre></td>
-<td><pre><code>Decodes a Base64-encoded value to its original form.</code></pre></td>
+<td>Decodes a Base64-encoded value to its original form.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>urlEncode</code></pre></td>
 <td><pre><code>urlEncode("text with spaces")
 urlEncode(payload.value)</code></pre></td>
-<td><pre><code>Encodes a string to make it safe for inclusion in a URL.</code></pre></td>
+<td>Encodes a string to make it safe for inclusion in a URL.</td>
 </tr>
 <tr class="even">
 <td><pre><code>urlDecode</code></pre></td>
 <td><pre><code>urlDecode("text%20with%20spaces")
 urlDecode(payload.value)</code></pre></td>
-<td><pre><code>Decodes a URL-encoded string to its original form.</code></pre></td>
+<td>Decodes a URL-encoded string to its original form.</td>
 </tr>
 </tbody>
 </table>
@@ -407,22 +406,22 @@ Synapse Expressions include the following type checks to validate the type of th
 <tr class="odd">
 <td><pre><code>isNumber</code></pre></td>
 <td><pre><code>isNumber(payload.value)</code></pre></td>
-<td><pre><code>Checks if the input value is a number.</code></pre></td>
+<td>Checks if the input value is a number.</td>
 </tr>
 <tr class="even">
 <td><pre><code>isString</code></pre></td>
 <td><pre><code>isString(payload.value)</code></pre></td>
-<td><pre><code>Checks if the input value is a string.</code></pre></td>
+<td>Checks if the input value is a string.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>isArray</code></pre></td>
 <td><pre><code>isArray(payload.array)</code></pre></td>
-<td><pre><code>Checks if the input value is an array.</code></pre></td>
+<td>Checks if the input value is an array.</td>
 </tr>
 <tr class="even">
 <td><pre><code>isObject</code></pre></td>
 <td><pre><code>isObject(payload.object)</code></pre></td>
-<td><pre><code>Checks if the input value is an object.</code></pre></td>
+<td>Checks if the input value is an object.</td>
 </tr>
 </tbody>
 </table>
@@ -444,34 +443,34 @@ Synapse Expressions include the following type conversion functions to convert t
 <tr class="odd">
 <td><pre><code>integer</code></pre></td>
 <td><pre><code>integer(payload.value)</code></pre></td>
-<td><pre><code>Converts the input value to an integer.</code></pre></td>
+<td>Converts the input value to an integer.</td>
 </tr>
 <tr class="even">
 <td><pre><code>float</code></pre></td>
 <td><pre><code>float(payload.value)</code></pre></td>
-<td><pre><code>Converts the input value to a floating-point number.</code></pre></td>
+<td>Converts the input value to a floating-point number.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>string</code></pre></td>
 <td><pre><code>string(payload.value)</code></pre></td>
-<td><pre><code>Converts the input value to a string.</code></pre></td>
+<td>Converts the input value to a string.</td>
 </tr>
 <tr class="even">
 <td><pre><code>boolean</code></pre></td>
 <td><pre><code>boolean(payload.value)</code></pre></td>
-<td><pre><code>Converts the input value to a boolean.</code></pre></td>
+<td>Converts the input value to a boolean.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>object</code></pre></td>
 <td><pre><code>object(payload.value)</code></pre></td>
-<td><pre><code>Converts the string representation of a JSON object to a JSON object.
-After conversion, JSONPath syntax can be used to access the object, e.g., object(value).students..*</code></pre></td>
+<td>Converts the string representation of a JSON object to a JSON object.
+After conversion, JSONPath syntax can be used to access the object, e.g., object(value).students..*</td>
 </tr>
 <tr class="even">
 <td><pre><code>array</code></pre></td>
 <td><pre><code>array(payload.value)</code></pre></td>
-<td><pre><code>Converts the string representation of a JSON array to a JSON array.
-After conversion, JSONPath syntax can be used to access the array, e.g., array(value)[3].name.</code></pre></td>
+<td>Converts the string representation of a JSON array to a JSON array.
+After conversion, JSONPath syntax can be used to access the array, e.g., array(value)[3].name.</td>
 </tr>
 </tbody>
 </table>
@@ -491,18 +490,18 @@ Synapse Expressions include the following functions to access registry content a
 <tr class="odd">
 <td><pre><code>registry("gov:/config/service")
 registry(payload.path)</code></pre></td>
-<td><pre><code>Accesses the registry value at the specified path.</code></pre></td>
+<td>Accesses the registry value at the specified path.</td>
 </tr>
 <tr class="even">
 <td><pre><code>registry("gov:/config/service").property("key")
 registry(payload.path).property("key")</code></pre></td>
-<td><pre><code>Accesses the registry property at the specified path with the provided key.</code></pre></td>
+<td>Accesses the registry property at the specified path with the provided key.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>registry("gov:/config/resource").student.name
 registry(payload.path).student.name</code></pre></td>
-<td><pre><code>Accesses the JSON payload inside the registry resource at the specified path.
-Supported only for JSON resources in registry.</code></pre></td>
+<td>Accesses the JSON payload inside the registry resource at the specified path.
+Supported only for JSON resources in registry.</td>
 </tr>
 </tbody>
 </table>
@@ -523,14 +522,14 @@ Synapse Expressions include the following functions to work with date and time.
 <tr class="odd">
 <td><pre><code>now</code></pre></td>
 <td><pre><code>now()</code></pre></td>
-<td><pre><code>Returns the current time in milliseconds since the Unix epoch.</code></pre></td>
+<td>Returns the current time in milliseconds since the Unix epoch.</td>
 </tr>
 <tr class="even">
 <td><pre><code>formatDateTime</code></pre></td>
 <td><pre><code>formatDateTime("29-09-1988", "dd-MM-yyyy", "yyyy MMM dd")
 formatDateTime(now(), "yyyy-MM-dd")</code></pre></td>
-<td><pre><code>Transforms the input date/time from the specified old format to the new format.
-Accepts string inputs or results from <code>now()</code>.</code></pre></td>
+<td>Transforms the input date/time from the specified old format to the new format.
+Accepts string inputs or results from <code>now()</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -577,9 +576,9 @@ Example usage:
 <variable name="var1" expression="${not(payload.booleanValue)}"/>
 ```
 
-### XPATH functions
+### XPath functions
 
-Synapse Expressions provide XPATH functions to work with XML payloads.
+Synapse Expressions provide XPath functions to work with XML payloads.
 
 Syntax for calling an XPath function without namespaces:
 
@@ -587,17 +586,17 @@ Syntax for calling an XPath function without namespaces:
 xpath(expression)
 ```
 
-Example usage: Calling a XPATH functions without namespaces
+Example usage: Calling a XPath functions without namespaces
 ```
 <variable name="StudentName" expression="${xpath('//student/text()')}"/>
 ```
 
-Example usage: Calling a XPATH functions with namespaces
+Example usage: Calling a XPath functions with namespaces
 ```
 <variable name="Width" expression="${xpath('//a:parent/b:child/a:value/text()')}" xmlns:a="http://namespaceA.com" xmlns:b="http://namespaceB.com"/>
 ```
 
-Syntax for calling a XPATH function on a variable
+Syntax for calling a XPath function on a variable
 
 ```
 xpath(expression, 'variable-name')
@@ -616,25 +615,25 @@ The following keywords are reserved in Synapse Expressions and cannot be used in
 <thead></thead>
 <tbody>
 <tr class="odd">
-<td><pre><code>contains</code></pre></td>
-<td><pre><code>in</code></pre></td>
-<td><pre><code>nin</code></pre></td>
-<td><pre><code>subsetof</code></pre></td>
-<td><pre><code>size</code></pre></td>
+<td>contains</td>
+<td>in</td>
+<td>nin</td>
+<td>subsetof</td>
+<td>size</td>
 </tr>
 <tr class="even">
-<td><pre><code>empty</code></pre></td>
-<td><pre><code>empty true</code></pre></td>
-<td><pre><code>empty false</code></pre></td>
-<td><pre><code>var</code></pre></td>
-<td><pre><code>payload</code></pre></td>
+<td>empty</td>
+<td>empty true</td>
+<td>empty false</td>
+<td>var</td>
+<td>payload</td>
 </tr>
 <tr class="odd">
-<td><pre><code>headers</code></pre></td>
-<td><pre><code>config</code></pre></td>
-<td><pre><code>properties</code></pre></td>
-<td><pre><code>props</code></pre></td>
-<td><pre><code>params</code></pre></td>
+<td>headers</td>
+<td>config</td>
+<td>properties</td>
+<td>props</td>
+<td>params</td>
 </tr>
 </tbody>
 </table>
