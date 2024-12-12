@@ -93,7 +93,7 @@ headers.Host
 headers["Content-Type"]
 ```
 
-### Accessing Properties
+### Accessing properties
 
 Properties scoped to Synapse or Axis2 can be retrieved using the properties or props (shortened) prefix
 ```
