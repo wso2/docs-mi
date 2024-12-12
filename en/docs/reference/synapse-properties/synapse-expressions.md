@@ -190,7 +190,7 @@ Filter expressions are used to filter arrays based on a condition. The filter ex
 
 Example usage:
 
-Selects users with age greater than or equal to 18.
+Selects users with age greater than or equal to 18:
 
 ```
 payload.users[?(@.age >= 18)]
