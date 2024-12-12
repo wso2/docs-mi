@@ -508,7 +508,7 @@ Supported only for JSON resources in registry.</td>
 
 ### Date time functions
 
-Synapse Expressions include the following functions to work with date and time.
+Synapse expressions include the following functions to work with date and time.
 
 <table>
 <thead>
