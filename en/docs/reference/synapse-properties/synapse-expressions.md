@@ -709,7 +709,7 @@ ${length(var.expensive) > 0 ? var.expensive : ""}
 </api>
 ```
 
-Invoke the API with the following request
+Invoke the API with the following request:
 
 ```curl
 curl --location 'http://localhost:8290/test/john?age=3&category=fiction' \
