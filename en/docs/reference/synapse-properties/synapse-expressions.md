@@ -33,7 +33,7 @@ Example usage:
 
 Literals are constant values that are directly used in the expression. 
 
-The following types of literals are supported in Synapse Expressions.
+The following types of literals are supported in Synapse expressions.
 
 <table>
 <thead>
