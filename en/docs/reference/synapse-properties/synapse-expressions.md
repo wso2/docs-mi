@@ -64,7 +64,7 @@ The following types of literals are supported in Synapse expressions.
 
 ## Value access expressions
 
-### Accessing values in payloads
+### Access values in payloads
 
 Synapse expressions allow direct access to payload content using the payload or the `$` prefix.
 ```
@@ -76,7 +76,7 @@ payload.user["first name"]
 !!! Note
     Use the bracket notation `["first name"]` when the key contains spaces, special characters, or reserved words.
 
-### Accessing variables
+### Access variables
 
 Variables defined using the variable mediator, are accessed using the `var` prefix.
 ```
@@ -85,7 +85,7 @@ var.totalPrice
 var["last name"]
 ```
 
-### Accessing transport headers
+### Access transport headers
 
 Transport headers can be accessed using the `headers` prefix.
 ```
@@ -93,7 +93,7 @@ headers.Host
 headers["Content-Type"]
 ```
 
-### Accessing properties
+### Access properties
 
 Properties scoped to Synapse or Axis2 can be retrieved using the `properties` or `props` (shortened) prefix.
 ```
@@ -101,7 +101,7 @@ props.synapse.propertyName
 properties.axis2.propertyName
 ```
 
-### Accessing query and path parameters
+### Access query and path parameters
 
 Query and path parameters are available through the `params` prefix.
 ```
@@ -109,7 +109,7 @@ params.queryParams.parameterName
 params.uriParams.pathName
 ```
 
-### Accessing function parameters
+### Access function parameters
 
 Function parameters used in templates are available through the params prefix.
 ```
@@ -349,7 +349,7 @@ pow(payload.base, payload.exponent)</code></pre></td>
 </table>
 
 
-### Encoding and decoding functions
+### Encode and decode functions
 
 Synapse expressions provide XPath functions to encode and decode strings.
 
