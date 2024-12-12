@@ -118,7 +118,7 @@ params.functionParams.paramName
 
 ## Operators
 
-Synapse Expressions support arithmetic, comparison and logical operators between operands.
+Synapse expressions support arithmetic, comparison, and logical operators between operands.
 
 ### Arithmetic operators
 
