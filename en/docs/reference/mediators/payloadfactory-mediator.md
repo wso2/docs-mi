@@ -49,7 +49,7 @@ Parameters available to configure the PayloadFactory mediator are as follows:
   </tr>
 </table>
 
-### Advanced Configurations
+### Advanced configurations
 
 Parameters available to configure advanced properties of the PayloadFactory mediator are as follows:
 
@@ -147,7 +147,7 @@ The following root variables are available when you format a FreeMarker payload:
       <code>var</code>
     </th>
     <td>
-      You can use the var variable to access variables. For example, if you have a variable named `customer_id`, you can get the variable in the FreeMarker template by using `var.customer_id`.
+      You can use the var variable to access variables. For example, if you have a variable named <code>customer_id</code>, you can get the variable in the FreeMarker template by using <code>var.customer_id</code>.
     </td>
   </tr>
   <tr>
@@ -155,7 +155,7 @@ The following root variables are available when you format a FreeMarker payload:
       <code>ctx</code>
     </th>
     <td>
-      You can use the ctx variable to access properties with the 'default' scope. For example, if you have a property named `endpoint_status` in the default scope, you can get the property in the FreeMarker template by using `ctx.endpoint_status`.
+      You can use the ctx variable to access properties with the 'default' scope. For example, if you have a property named <code>endpoint_status</code> in the default scope, you can get the property in the FreeMarker template by using <code>ctx.endpoint_status</code>.
     </td>
   </tr>
   <tr>
@@ -262,7 +262,7 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
 ### Suppressing the namespace
 
 To prevent the MI from adding the default Synapse namespace in
-an element in the payload format, use `xmlns=""` as shown in the following example.
+an element in the payload format, use <code>xmlns=""</code> as shown in the following example.
 
 ``` java
 <ser:getPersonByUmid xmlns:ser="http://service.directory.com">
@@ -346,7 +346,7 @@ request.
 ```
 
 In the above example, the following property mediator configuration sets
-the message type as `multipart/form-data` .
+the message type as <code>multipart/form-data</code> .
 
 ```xml
 <property name="messageType"
@@ -355,11 +355,11 @@ the message type as `multipart/form-data` .
     value="multipart/form-data"/>
 ```
 
-The below `file` parameter of the payload factory
+The below <code>file</code> parameter of the payload factory
 mediator defines the HTTP multipart request.
 
 !!! Tip
-    Do not change the `http://org.apache.axis2/xsd/form-data` namespace.
+    Do not change the <code>http://org.apache.axis2/xsd/form-data</code> namespace.
 
 ```xml
 <file xmlns="http://org.apache.axis2/xsd/form-data"
@@ -395,7 +395,7 @@ To have a literal value, you need to enclose the synapse expression with double 
 </api>
 ```
 
-Following is a sample payload (i.e., `request.xml` file), which you can process using the above configuration.
+Following is a sample payload (i.e., <code>request.xml</code> file), which you can process using the above configuration.
 
 **request.xml**
 
@@ -1005,7 +1005,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
 2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 3. Create the artifacts (proxy service, registry resource) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
-5. Send a POST request to the `xml-to-edi-proxy` with the above given payload.
+5. Send a POST request to the <code>xml-to-edi-proxy</code> with the above given payload.
 	
 -   Output Payload
     ```text
@@ -1026,7 +1026,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
     
 ### Accessing variables and properties
 
-This example shows how to access variables and properties using the following variables: `var`, `ctx`, `axis2`, and `trp`.
+This example shows how to access variables and properties using the following variables: <code>var</code>, <code>ctx</code>, <code>axis2</code>, and <code>trp</code>.
 
 -   FreeMarker Tamplate
     ```json
@@ -1038,7 +1038,7 @@ This example shows how to access variables and properties using the following va
     }
     ```
 
-    In this freemarker template, we have referenced the variable named `user_id`, default scoped property named `user_name`, the axis2 scoped property named `REST_URL_POSTFIX`, and the transport header `Host`. The output is returned as a JSON object.
+    In this freemarker template, we have referenced the variable named <code>user_id</code>, default scoped property named <code>user_name</code>, the axis2 scoped property named <code>REST_URL_POSTFIX</code>, and the transport header <code>Host</code>. The output is returned as a JSON object.
 
 -   Output Payload
     ```json
@@ -1107,7 +1107,7 @@ FreeMarker template by using the **Default value operator** described in the Fre
     </payloadFactory>
     ```
 
-In this example, The FreeMarker template is expecting a property named `last_name` from the input payload. However, the 
+In this example, The FreeMarker template is expecting a property named <code>last_name</code> from the input payload. However, the 
 payload does not contain that property. To handle that, the
-`${payload.last_name ! "" }` syntax is used in the template. This syntax replaces the `last_name` value with an empty 
+<code>${payload.last_name ! "" }</code> syntax is used in the template. This syntax replaces the <code>last_name</code> value with an empty 
 string if it is not present in the input payload.
