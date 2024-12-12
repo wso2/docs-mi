@@ -101,7 +101,7 @@ props.synapse.propertyName
 properties.axis2.propertyName
 ```
 
-### Accessing Query and Path Parameters
+### Accessing query and path parameters
 
 Query and path parameters are available through the params prefix.
 ```
