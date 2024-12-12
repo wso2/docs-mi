@@ -95,7 +95,7 @@ headers["Content-Type"]
 
 ### Accessing properties
 
-Properties scoped to Synapse or Axis2 can be retrieved using the properties or props (shortened) prefix
+Properties scoped to Synapse or Axis2 can be retrieved using the `properties` or `props` (shortened) prefix.
 ```
 props.synapse.propertyName
 properties.axis2.propertyName
