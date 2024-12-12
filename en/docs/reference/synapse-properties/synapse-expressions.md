@@ -648,7 +648,7 @@ Ex:
 45 == (  $["null"] ? var.num1 : var.num2)
 ```
  
-if we are to evaluate above expression, first we need to evaluate the conditional expression part. Then with that result, we can check the equality condition with 45. Here, if $[“null”] is a null value the conditional expression fails and exists the evaluation with empty result without evaluating the rest of the expression.
+If you want to evaluate the above expression, evaluate the conditional expression part first. Then, with that result, you can check the equality condition with 45. Here, if `$[“null”]` is a null value, the conditional expression fails and exits the evaluation, returning an empty result without evaluating the rest of the expression.
 
 ### Check for null values
 
