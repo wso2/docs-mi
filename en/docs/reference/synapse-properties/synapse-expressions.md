@@ -122,7 +122,7 @@ Synapse Expressions support arithmetic, comparison and logical operators between
 
 ### Arithmetic Operators
 
-Addition `+`, Subtraction `-`, Multiplication `*`, Division `/`, Modulus `%` operators are supported between operands.
+Addition `+`, subtraction `-`, multiplication `*`, division `/`, and modulus `%` operators are supported between operands.
 
 ``` 
 var.num1 + var.num2
