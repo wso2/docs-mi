@@ -2,7 +2,7 @@
 
 Mediators are individual processing units that perform a specific actions on messages that pass through the Micro Integrator. The mediator takes the message received by the REST API or proxy service, carries out predefined actions on it (such as transforming, enriching, filtering), and outputs the modified message. 
 
-For example, the [Scatter Gather]({{base_path}}/reference/mediators/scatter-gather-mediator) mediator splits a message into several clones and aggregate the results, the [Call]({{base_path}}/reference/mediators/call-mediator) mediator calls a backend endpoint with the message and the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator sends the message back to the client.
+For example, the [Scatter Gather]({{base_path}}/reference/mediators/scatter-gather-mediator) mediator splits a message into several clones and aggregates the results, the [Call]({{base_path}}/reference/mediators/call-mediator) mediator calls a backend endpoint with the message and the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator sends the message back to the client.
 
 ## Classification of mediators
 
