@@ -676,7 +676,7 @@ isNumber(var.num1) ? var.num1 * 2 : 0
 
 ### Check expression results
 
-As described above, Synapse Expressions returns an empty result if an error occurs during evaluation. Therefore, it is important to check for empty values before proceeding with further operations.
+As described above, Synapse expressions return an empty result if an error occurs during evaluation. Therefore, it is important to check for empty values before proceeding with further operations.
 
 ## Example
 
