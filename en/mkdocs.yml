@@ -851,6 +851,7 @@ nav:
               - Property Mediator: reference/mediators/property-mediator.md
               - Property Group Mediator: reference/mediators/property-group-mediator.md
               - Respond Mediator: reference/mediators/respond-mediator.md
+              - Scatter Gather Mediator: reference/mediators/scatter-gather-mediator.md
               - Script Mediator: reference/mediators/script-mediator.md
               - Send Mediator: reference/mediators/send-mediator.md
               - Sequence Mediator: reference/mediators/sequence-mediator.md
