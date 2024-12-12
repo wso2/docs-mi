@@ -470,7 +470,7 @@ After conversion, JSONPath syntax can be used to access the object. For example,
 <td><pre><code>array</code></pre></td>
 <td><pre><code>array(payload.value)</code></pre></td>
 <td>Converts the string representation of a JSON array to a JSON array.
-After conversion, JSONPath syntax can be used to access the array, e.g., array(value)[3].name.</td>
+After conversion, JSONPath syntax can be used to access the array. For example, <code>array(value)[3].name<code></td>
 </tr>
 </tbody>
 </table>
