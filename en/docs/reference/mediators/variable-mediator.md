@@ -1,6 +1,6 @@
 # Variable mediator
 
-The Variable mediator is used to manage variables within a mediation flow. The Variable Mediator allows you to set or remove variables, which can then be used later in the mediation flow.
+The Variable mediator is used to manage variables within a mediation flow. The Variable mediator allows you to set or remove variables, which can then be used later in the mediation flow.
 
 ## Syntax
 
@@ -62,7 +62,7 @@ The parameters available to configure the Variable mediator are as follows:
 
 ## Examples
 
-### Set a Variable with a Literal Value
+### Set a variable with a static value
 
 This example demonstrates setting a variable with a static value.
 
@@ -70,7 +70,7 @@ This example demonstrates setting a variable with a static value.
 <variable name="username" action="set" value="JohnDoe" type="STRING"/>
 ```
 
-### Set a Variable with an Expression
+### Set a variable with an expression
 
 This example demonstrates dynamically setting a variable using an expression.
 
@@ -79,7 +79,7 @@ This example demonstrates dynamically setting a variable using an expression.
 <variable name="userId" action="set" expression="${payload.user.id}" type="INTEGER"/>
 ```
 
-### Remove a Variable
+### Remove a variable
 
 This example demonstrates removing a variable from the message.
 
