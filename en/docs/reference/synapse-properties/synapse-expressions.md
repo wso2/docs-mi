@@ -538,7 +538,7 @@ Accepts string inputs or results from <code>now()</code>.</td>
 
 Synapse expressions can be used to fetch secrets from the secure-vault.
 
-Syntax for fetching secrets
+Syntax for fetching secrets:
 ```
 secret(alias)
 ```
