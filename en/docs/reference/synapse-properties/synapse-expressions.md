@@ -85,7 +85,7 @@ var.totalPrice
 var["last name"]
 ```
 
-### Accessing Transport Headers
+### Accessing transport headers
 
 Transport headers can be accessed using the headers prefix.
 ```
