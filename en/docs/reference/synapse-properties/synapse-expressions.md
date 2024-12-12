@@ -536,7 +536,7 @@ Accepts string inputs or results from <code>now()</code>.</td>
 
 ### Fetch secrets
 
-Synapse Expressions can be used to fetch secrets from the secure-vault.
+Synapse expressions can be used to fetch secrets from the secure-vault.
 
 Syntax for fetching secrets
 ```
