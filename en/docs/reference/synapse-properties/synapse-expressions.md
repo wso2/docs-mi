@@ -120,7 +120,7 @@ params.functionParams.paramName
 
 Synapse Expressions support arithmetic, comparison and logical operators between operands.
 
-### Arithmetic Operators
+### Arithmetic operators
 
 Addition `+`, subtraction `-`, multiplication `*`, division `/`, and modulus `%` operators are supported between operands.
 
