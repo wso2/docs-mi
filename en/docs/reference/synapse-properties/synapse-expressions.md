@@ -610,7 +610,7 @@ Example usage:
 
 ## Reserved Keywords
 
-The following keywords are reserved in Synapse Expressions and cannot be used in value access expressions with dot notation (instead we should use the bracket notation).
+The following keywords are reserved in Synapse Expressions and cannot be used in value access expressions with dot notation. Instead, use the bracket notation.
 
 <table>
 <thead></thead>
