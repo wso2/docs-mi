@@ -204,7 +204,7 @@ payload.users[?(@.age >= var.minAge)]
 
 ## Functions
 
-Synapse Expressions support a wide range of functions essential in integration use cases.
+Synapse Expressions support a wide range of functions that are essential for integration use cases.
 
 ### String functions
 
