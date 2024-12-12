@@ -642,7 +642,7 @@ The following keywords are reserved in Synapse Expressions and cannot be used in
 
 SynapsePath provides a fault tolerance design which avoids disruptive failures. In case of an error in a complex expression, it fails in the first evaluation without propagating the invalid result to the rest of the evaluation steps.
 
-Ex: 
+For example:
 ```
 45 == (  $["null"] ? var.num1 : var.num2)
 ```
