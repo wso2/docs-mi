@@ -581,7 +581,7 @@ Example usage:
 
 Synapse Expressions provide XPATH functions to work with XML payloads.
 
-Syntax for calling a XPATH functions without namespaces
+Syntax for calling an XPath function without namespaces:
 
 ```
 xpath(expression)
