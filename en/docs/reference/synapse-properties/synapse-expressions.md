@@ -196,7 +196,7 @@ Selects users with age greater than or equal to 18:
 payload.users[?(@.age >= 18)]
 ```
 
-Selects users with age greater than or equal minAge variable value.
+Selects users with age greater than or equal to the value of the `minAge` variable:
 
 ```
 payload.users[?(@.age >= var.minAge)]
