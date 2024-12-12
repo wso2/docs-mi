@@ -566,7 +566,7 @@ Example usage:
 
 Not function can be used to invert a boolean value.
 
-Syntax for inverting a boolean value
+Syntax for inverting a boolean value:
 ```
 not(value)
 ```
