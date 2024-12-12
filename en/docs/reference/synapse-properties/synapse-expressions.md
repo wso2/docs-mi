@@ -181,7 +181,7 @@ var.age > 18 ? "Adult" : "Child"
 var.num1 > var.num2 ? var.num1 : var.num2  
 ```
 
-## Filter Expressions
+## Filter expressions
 
 Filter expressions are used to filter arrays based on a condition. The filter expression is enclosed within square brackets and the condition is specified within the brackets.
 
