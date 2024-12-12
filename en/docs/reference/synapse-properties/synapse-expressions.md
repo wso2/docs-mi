@@ -591,7 +591,7 @@ Example usage: Calling an XPath function without namespaces:
 <variable name="StudentName" expression="${xpath('//student/text()')}"/>
 ```
 
-Example usage: Calling a XPath functions with namespaces
+Example usage: Calling an XPath function with namespaces:
 ```
 <variable name="Width" expression="${xpath('//a:parent/b:child/a:value/text()')}" xmlns:a="http://namespaceA.com" xmlns:b="http://namespaceB.com"/>
 ```
