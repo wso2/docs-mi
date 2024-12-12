@@ -109,7 +109,7 @@ params.queryParams.parameterName
 params.uriParams.pathName
 ```
 
-### Accessing Function Parameters
+### Accessing function parameters
 
 Function parameters used in templates are available through the params prefix.
 ```
