@@ -299,7 +299,7 @@ Specify a starting index as third parameter for the search.</code></pre></td>
 
 ### Numerical functions
 
-Following functions are applicable when the value is a number.
+The following functions are applicable when the value is a number.
 
 <table>
 <thead>
