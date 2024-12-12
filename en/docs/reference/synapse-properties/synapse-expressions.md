@@ -2,7 +2,7 @@
 
 ## Overview
 
-Synapse Expressions is a powerful expression designed to streamline the handling of JSON payloads. Handling of XML payloads is also supported using a dedicated function to evaluate XPath expressions.
+Synapse Expressions are powerful expressions designed to streamline the handling of JSON payloads. Handling of XML payloads is also supported using a dedicated function to evaluate XPath expressions.
 
 Since JSONPath is limited to extracting JSON content only, it's necessary to use XPath to perform additional operations on the extracted data (for example, addition and substring extraction). Synapse Expressions addresses this limitation by enabling direct operations on JSON payloads, eliminating the need for complex workarounds.
 
