@@ -66,7 +66,7 @@ The following types of literals are supported in Synapse expressions.
 
 ### Accessing values in payloads
 
-Synapse Expression allows direct access to payload content using the payload or $ prefix.
+Synapse expressions allow direct access to payload content using the payload or the `$` prefix.
 ```
 payload.students
 $.orders
@@ -74,11 +74,11 @@ payload.user["first name"]
 ```
 
 !!! Note
-    We need to use the bracket notation ["first name"] when the key contains spaces or special characters or reserved words.
+    Use the bracket notation `["first name"]` when the key contains spaces, special characters, or reserved words.
 
 ### Accessing variables
 
-Variables, defined using the variable mediator, are accessed using the var prefix.
+Variables defined using the variable mediator, are accessed using the `var` prefix.
 ```
 var.name
 var.totalPrice
@@ -87,7 +87,7 @@ var["last name"]
 
 ### Accessing transport headers
 
-Transport headers can be accessed using the headers prefix.
+Transport headers can be accessed using the `headers` prefix.
 ```
 headers.Host
 headers["Content-Type"]
@@ -147,7 +147,7 @@ var.num1 != var.num2
 
 ### Logical operators
 
-Logical AND '&&', Logical OR '||' operators are supported between operands.
+Logical AND (`&&`) and Logical OR (`||`) operators are supported between operands.
 
 ```
 var.boolValue1 and var.boolValue2
