@@ -10,7 +10,7 @@ Furthermore, Synapse Expressions provides a unified syntax to access a wide rang
 
 ## Syntax
 
-The Synapse Expression syntax is as follows:
+The syntax for Synapse Expressions is as follows:
 
 ```
 ${expression}
