@@ -464,7 +464,7 @@ Synapse Expressions include the following type conversion functions to convert t
 <td><pre><code>object</code></pre></td>
 <td><pre><code>object(payload.value)</code></pre></td>
 <td>Converts the string representation of a JSON object to a JSON object.
-After conversion, JSONPath syntax can be used to access the object, e.g., object(value).students..*</td>
+After conversion, JSONPath syntax can be used to access the object. For example, <code>object(value).students..*</code></td>
 </tr>
 <tr class="even">
 <td><pre><code>array</code></pre></td>
