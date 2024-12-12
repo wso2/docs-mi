@@ -103,7 +103,7 @@ properties.axis2.propertyName
 
 ### Accessing query and path parameters
 
-Query and path parameters are available through the params prefix.
+Query and path parameters are available through the `params` prefix.
 ```
 params.queryParams.parameterName
 params.uriParams.pathName
