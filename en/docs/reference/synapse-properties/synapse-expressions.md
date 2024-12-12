@@ -132,7 +132,7 @@ var.num1 / var.num2
 var.num1 % var.num2
 ```
 
-### Comparison Operators
+### Comparison operators
 
 Greater than '>' and less than '<' greater than or equal to '>=' less than or equal to '<=' equal to '==' and not equal to '!=' operators are supported between operands.
 
