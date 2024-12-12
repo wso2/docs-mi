@@ -765,7 +765,7 @@ curl --location 'http://localhost:8290/test/john?age=3&category=fiction' \
 
 You will get a similar log to the following in the server. 
 
-You can play around with different query params to get different results. 
+You can try out different query parameters to get different results.
 
 ```
 Today is 2024-Dec-05
