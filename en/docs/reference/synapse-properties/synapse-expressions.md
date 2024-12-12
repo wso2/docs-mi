@@ -164,7 +164,7 @@ var.boolValue1 && (var.boolValue2 || var.boolValue3)
 (var.num1 + 5) > var.num2 && (var.num3 - 3) < var.num4
 ```
 
-## Conditional Expressions
+## Conditional expressions
 
 Synapse Expressions support conditional expressions using the ternary operator with the following syntax.
 
