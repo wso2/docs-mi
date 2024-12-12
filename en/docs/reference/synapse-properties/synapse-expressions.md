@@ -186,7 +186,7 @@ var.num1 > var.num2 ? var.num1 : var.num2
 Filter expressions are used to filter arrays based on a condition. The filter expression is enclosed within square brackets and the condition is specified within the brackets.
 
 !!! Note
-    Filter expressions have the same syntax as JSONPath filter expressions (with the added functionality of injecting parameters using access expressions) and internally also uses the JSONPath engine to evaluate the filter expression.
+    Filter expressions have the same syntax as JSONPath filter expressions (with the added functionality of injecting parameters using access expressions) and internally also use the JSONPath engine to evaluate the filter expression.
 
 Example usage:
 
