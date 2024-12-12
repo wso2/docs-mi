@@ -550,7 +550,7 @@ Example usage:
 
 ### Check exists function
 
-Synapse Expressions includes the following function to check if a property exists.
+Synapse Expressions include the following function to check if a property exists.
 
 Syntax for checking if a property exists
 ```
