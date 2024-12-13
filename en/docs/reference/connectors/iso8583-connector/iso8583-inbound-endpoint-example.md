@@ -57,7 +57,7 @@ For example, while transferring bank and financial sector information using the 
     !!! Info
         In this example, we are using the **Automatic** option and that will create an injecting sequence named `ISOInboundEndpoint-inboundSequence` and an error sequence named `ISOInboundEndpoint-inboundErrorSequence`.<br/>
        
-4. Implement the injecting sequence which process the message - `ISOInboundEndpoint-inboundSequence`.
+4. Implement the injecting sequence which processes the message - `ISOInboundEndpoint-inboundSequence`.
 
     For simplicity, in this example you will just log the message. However, in a real-world use case, this could involve any type of message mediation.
     
