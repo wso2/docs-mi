@@ -8,7 +8,7 @@ The ISO8583 inbound endpoint of WSO2 acts as a message consumer. The ISO8583 inb
 
 This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. In this scenario, to generate ISO8583 messages we use a sample Java client program.
 
-The ISO8583 inbound endpoint listens on port 5001 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5001, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence in the integration runtime.
+The ISO8583 inbound endpoint listens on port `5001` and acts as a ISO8583 standard message consumer. When a sample Java client connects on port `5001`, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence in the integration runtime.
 
 See [ISO8583 connector configuration]({{base_path}}/reference/connectors/iso8583-connector/iso8583-connector-configuration/) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [mediators]({{base_path}}/reference/mediators/about-mediators). 
 
@@ -18,15 +18,15 @@ For example, while transferring bank and financial sector information using the 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
 
-## Set up the Inbound Endpoint
+## Set up the integration project
 
-1. Follow the steps in the [Creating an Integration Project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+1. Follow the steps in [Creating an Integration Project]({{base_path}}/develop/create-integration-project/) to set up the integration project.
 
-2. Add a new **ISO8583 Inbound Endpoint** by clicking **+** icon in the `Inbound Endpoints` and select `ISO8583 WSO2 Listener`. 
+2. Add a new **ISO8583 Inbound Endpoint** by clicking the **+** icon in **Inbound Endpoints** and select **ISO8583 WSO2 Listener Connector**.
    
     <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound.png" title="Creating inbound endpoint Listener selector" width="800" alt="Creating inbound endpoint"/>
    
-3. Provide Inbound Endpoint Name and Port values as shown below and click `Create`.
+3. Provide values for **Inbound Endpoint Name** and **Port** as shown below and click **Create**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-form.png" title="Creating ISO8583 inbound endpoint form" width="800" alt="Creating ISO8583 inbound endpoint form"/>
 
@@ -55,11 +55,11 @@ For example, while transferring bank and financial sector information using the 
         <br/>- **Manual**: You can select already defined sequences as injecting and error sequences.<br/>
     
     !!! Info
-        In this example, we are using `Automatic` option and that will create an injecting sequence named `ISOInboundEndpoint-inboundSequence` and error sequence named `ISOInboundEndpoint-inboundErrorSequence`.<br/>
+        In this example, we are using the **Automatic** option and that will create an injecting sequence named `ISOInboundEndpoint-inboundSequence` and an error sequence named `ISOInboundEndpoint-inboundErrorSequence`.<br/>
        
 4. Implement the injecting sequence which process the message - `ISOInboundEndpoint-inboundSequence`.
-   
-    In this example for simplicity we will just log the message, but in a real world use case, this can be any type of message mediation.
+
+    For simplicity, in this example you will just log the message. However, in a real-world use case, this could involve any type of message mediation.
     
     ```xml
     <?xml version="1.0" encoding="UTF-8"?><?xml version="1.0" encoding="UTF-8"?>
