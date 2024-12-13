@@ -30,10 +30,17 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 4. Select Java from the **Driver** menu.
 
-5. Select the correct driver version from the **Version**(`3.3`) menu.
+5. Select the correct driver version from the **Version**(`4.3 or later`) menu.
 
 6. Clear the **Include full driver code example** check box to get the connection string.
 
+## Copy the MongoDB driver JAR files
+
+Copy the following JAR files to the `<MI_HOME>/dropins` directory.
+
+* [mongodb-driver-sync - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/4.9.1/mongodb-driver-sync-4.9.1.jar)
+* [mongodb-driver-core - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/4.9.1/mongodb-driver-core-4.9.1.jar)
+* [bson - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/bson/4.9.1/bson-4.9.1.jar)
 
 ## Create the integration project
 
@@ -92,7 +99,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
     - Collection - json-eval($.collection)
     - Query - json-eval($.query)
 
-14. Add [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+14. Add [Respond Mediator](https://mi.docs.wso2.com/en/latest/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
 15. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
 

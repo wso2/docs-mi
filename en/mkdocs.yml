@@ -334,7 +334,7 @@ nav:
       - Develop Integration Solutions: develop/intro-integration-development.md
       #- API-led Integration: develop/api-led-integration.md
       - WSO2 MI for VSCode:
-          - Overview - Micro Integrator for VSCode:  develop/mi-for-vscode/mi-for-vscode-overview.md
+          - Micro Integrator for VSCode Overview:  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
           - MI Copilot: develop/mi-for-vscode/mi-copilot.md
@@ -345,40 +345,41 @@ nav:
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
-      - Create Projects:
-          - Create an Integration Project: develop/create-integration-project.md
-          - Open Projects: develop/opening-projects.md
-      - Create Artifacts:
-          - Create a REST API: develop/creating-artifacts/creating-an-api.md
-          - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
-          #- Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
-          - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
-          - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
-          - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
-          - Create an Endpoint: develop/creating-artifacts/creating-endpoints.md
-          - Create an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
-          - Create a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
-          - Create a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
-          - Create a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
-          - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
-          - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
-          - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
-          - Adding Connectors: develop/creating-artifacts/adding-connectors.md
-          #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
-          - Opening Artifacts: develop/opening-artifacts.md
-      - Create Custom Artifacts:
-          - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
-          - Create a Custom Mediator: develop/customizations/creating-custom-mediators.md
-          - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
-          - Create a New Connector: develop/customizations/creating-new-connector.md
-          - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
-
-      - Securing Artifacts:
-          - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
-          - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
-          - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
-          - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
-          - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
+      - Integration Projects:
+          - Create a Project: develop/create-integration-project.md
+          - Open a Project: develop/opening-projects.md
+      - Integration Artifacts:
+          - Integration Artifacts Overview: develop/creating-artifacts/creating-artifacts-overview.md
+          - Create Artifacts:
+              - Create a REST API: develop/creating-artifacts/creating-an-api.md
+              - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
+              #- Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
+              - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
+              - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
+              - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
+              - Create an Endpoint: develop/creating-artifacts/creating-endpoints.md
+              - Create an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
+              - Create a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
+              - Create a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
+              - Create a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
+              - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
+              - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
+              - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
+              - Adding Connectors: develop/creating-artifacts/adding-connectors.md
+              #- Generate Service Catalog Metadata Artifacts: develop/generate-service-catalog-metadata.md
+              - Opening Artifacts: develop/opening-artifacts.md
+          - Create Extensions:
+              - Create a Custom Inbound Endpoint: develop/customizations/creating-custom-inbound-endpoint.md
+              - Create a Custom Mediator: develop/customizations/creating-custom-mediators.md
+              - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
+              - Create a New Connector: develop/customizations/creating-new-connector.md
+              - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+          - Securing Artifacts:
+              - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
+              - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
+              - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
+              - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
+              - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
