@@ -4,7 +4,7 @@ The AmazonSQS Inbound Endpoint allows you to connect to Amazon and consume messa
 
 ## What you'll build
 
-This scenario demonstrates how the AmazonSQS inbound endpoint works as a message consumer. The Amazon SQS queue will receive messages from a third party system, while the integration runtime will keep listening to the messages from that queue. The WSO2 AmazonSQS Inbound Endpoint will receive the message and notify. If you are extending this sample scenario, you can perform any kind of mediation using the [mediators]({{base_path}}/reference/mediators/about-mediators/).
+This scenario demonstrates how the AmazonSQS inbound endpoint works as a message consumer. The Amazon SQS queue will receive messages from a third-party system, while the integration runtime will keep listening to the messages from that queue. The WSO2 AmazonSQS Inbound Endpoint will receive the message and notify. If you are extending this sample scenario, you can perform any kind of mediation using the [mediators]({{base_path}}/reference/mediators/about-mediators/).
 
 ## Prerequisites - Create AmazonSQS Simple Queue
 
@@ -21,7 +21,7 @@ To proceed with this scenario, ensure you have connectivity to an Amazon AWS acc
     2. Create a new Queue and obtain the **URL of the Amazon SQS Queue**.
 
 !!! Info
-    The parameters obtained in [Create AmazonSQS Simple Queue](#prerequisites---create-amazonsqs-simple-queue) step are used for configurations as detailed below.
+    The parameters obtained in the [Create AmazonSQS Simple Queue](#prerequisites---create-amazonsqs-simple-queue) step are used for configurations as detailed below.
 
     - **secret Key**    : The secret key used to sign requests.
     - **access Key**    : The access key that corresponds to the secret key that you used to sign the request.
@@ -32,7 +32,7 @@ To proceed with this scenario, ensure you have connectivity to an Amazon AWS acc
 
 1. Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
-2. Add a new **AmazonSQS inbound endpoint** by clicking `+` icon in the `Inbound Endpoints` and select `AmazonSQS WSO2 Listner Connector`.
+2. Add a new **AmazonSQS inbound endpoint** by clicking the **+** icon in the **Inbound Endpoints** and select **AmazonSQS WSO2 Listner Connector**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sqs-inbound.png" title="Creating inbound endpoint" width="800" alt="Creating inbound endpoint"/>
 
@@ -46,7 +46,7 @@ To proceed with this scenario, ensure you have connectivity to an Amazon AWS acc
         <br/>- **Manual**: You can select already defined sequences as injecting and error sequences.
 
     !!! Info
-        In this example, we are using `Automatic` option and that will create an injecting sequence named `AmazonSQSInboundEndpoint-inboundSequence` and an error sequence named `AmazonSQSInboundEndpoint-inboundErrorSequence`.<br/>
+        In this example, we are using the **Automatic** option and that will create an injecting sequence named `AmazonSQSInboundEndpoint-inboundSequence` and an error sequence named `AmazonSQSInboundEndpoint-inboundErrorSequence`.<br/>
 
     The source view of the created inbound endpoint is shown below.
 
@@ -67,9 +67,9 @@ To proceed with this scenario, ensure you have connectivity to an Amazon AWS acc
      </inboundEndpoint> 
      ```
 
-4. Implement the injecting sequence which process the message - `AmazonSQSInboundEndpoint-inboundSequence`. 
+4. Implement the injecting sequence which processes the message - `AmazonSQSInboundEndpoint-inboundSequence`. 
    
-    In this example, for simplicity we will just log the message, but in a real world use case, this can be any type of message mediation.
+    For simplicity, in this example you will just log the message. However, in a real-world use case, this could involve any type of message mediation.
  
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -88,8 +88,8 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 ## Test 
 
-- Please log in to the Amazon **Simple Queue Service**-> created **Queue**. 
-- Select the Queue and **right click**-> **Send a Message**-> enter **Message**, or you can even use [AmazonSQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example) we have implemented before.
+1. Log in to the Amazon **Simple Queue Service** -> created **Queue**. 
+2. Select the Queue and right click -> **Send a Message**-> enter `Message`, or you can even use [AmazonSQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example) we have implemented before.
 
 **Sample Message**
 
