@@ -880,6 +880,7 @@ plugins:
   - exclude:
       glob:
         - wip/*
+        - 'includes/*'
   - redirects:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.2.0/reference/mediation-sequences'
