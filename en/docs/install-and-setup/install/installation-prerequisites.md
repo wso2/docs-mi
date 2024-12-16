@@ -81,7 +81,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
         <td>
             <ul>
                 <li>
-         Ubuntu 18.04
+         Ubuntu 22.04
                 </li>
                 <li>
          SUSE Linux 12
@@ -103,10 +103,10 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
         <td>
             <ul>
                 <li>
-           Microsoft SQL Server 2017
+           Microsoft SQL Server 2019
                 </li>
                 <li>
-           MySql 8.0
+           MySql 5.7, 8
                 </li>
                 <li>
            MariaDB 10.5
