@@ -361,7 +361,7 @@ nav:
               - Create an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
               - Create a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
               - Create a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
-              - Create a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
+              - Create a Resource: develop/creating-artifacts/creating-registry-resources.md
               - Create Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
               - Create a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
               - Create a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
