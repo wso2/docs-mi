@@ -28,7 +28,7 @@ For example, while transferring bank and financial sector information using the 
    
 3. Provide values for **Inbound Endpoint Name** and **Port** as shown below and click **Create**.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-form.png" title="Creating ISO8583 inbound endpoint form" width="800" alt="Creating ISO8583 inbound endpoint form"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/iso-inbound-form.png" title="Creating ISO8583 inbound endpoint form" width="800" alt="Creating ISO8583 inbound endpoint form"/>
 
     The source view of the created inbound endpoint is shown below. 
 
