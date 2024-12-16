@@ -225,7 +225,7 @@ The JMS connection factory parameters can be specified at the server level or th
             parameter.jms_spec_version
          </td>
          <td>
-            JMS API version. Possible values are <code>1.1</code> or <code>1.0.2b</code>. The default value is <code>1.1</code>.
+            JMS API version. Possible values are <code>1.1</code>, <code>1.0.2b</code>, or <code>2.0</code>. The default value is <code>1.1</code>.
          </td>
       </tr>
       <tr>
