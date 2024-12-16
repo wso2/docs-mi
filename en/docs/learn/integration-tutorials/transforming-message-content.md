@@ -60,7 +60,7 @@ An Integration project is a maven multi module project containing all the requir
 
 {!includes/create-new-project.md!}
 
-4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
+4. In the **Project Creation Form**, enter `TransformMessageTutorial` as the **Project Name**.
 
 5. Provide a location under **Select Project Directory**.
 

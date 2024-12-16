@@ -31,7 +31,7 @@ Follow the instructions given in this section to create and configure the requir
 
 {!includes/create-new-project.md!}
 
-4. In the **Project Creation Form**, enter `SampleServices` as the **Project Name**.
+4. In the **Project Creation Form**, enter `SimpleMessageTutorial` as the **Project Name**.
 
 5. Provide a location under **Select Project Directory**.
 
