@@ -510,7 +510,6 @@ nav:
       - Reference:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-          - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
           - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
           - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
   - Observe and Manage:
