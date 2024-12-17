@@ -1021,6 +1021,7 @@ plugins:
               'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/file-processing/'
               'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/storing-and-forwarding-messages/'
               'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
+              'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installation-prerequisites/'
 
   # Extra
 extra_css:
