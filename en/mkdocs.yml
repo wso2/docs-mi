@@ -15,7 +15,7 @@
 # under the License.
 
 # Project information
-site_name: WSO2 Micro Integrator Documentation 4.3.0
+site_name: WSO2 Micro Integrator Documentation 4.4.0
 site_description: Documentation for WSO2 Micro Integrator
 site_author: WSO2
 site_url: https://mi.docs.wso2.com/en/latest/
@@ -23,7 +23,7 @@ site_url: https://mi.docs.wso2.com/en/latest/
 # Repository
 repo_name: wso2/docs-mi
 repo_url: https://github.com/wso2/docs-mi
-edit_uri: https://github.com/wso2/docs-mi/edit/4.3.0/en/docs/
+edit_uri: https://github.com/wso2/docs-mi/edit/4.4.0/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -1059,7 +1059,7 @@ extra:
     helm_chart:
       version: 1.2.0-1
       git_tag: v1.2.0.1
-  site_version: 4.3.0
+  site_version: 4.4.0
   #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.3.0
+  base_path: https://mi.docs.wso2.com/en/4.4.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
