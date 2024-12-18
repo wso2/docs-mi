@@ -4,7 +4,7 @@ Google Ads are customizable advertising units that allow businesses to reach the
 
 The Google Ads Connector allows you to access the Google Ads API. This lets you create, update, and delete ad campaigns and ads.
 
-To see the Google Ads Connector, go to the [WSO2 Connector Store](https://store.wso2.com) and search for "Google".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-googleads">WSO2 Connector Store</a> to download the Google Ads connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/google-ads-store.png" title="Google Ads Connector Store" width="200" alt="Google Ads Connector Store"/>
 

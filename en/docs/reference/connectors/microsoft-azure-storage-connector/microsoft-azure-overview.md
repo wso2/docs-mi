@@ -2,7 +2,7 @@
 
 The Microsoft Azure Storage Connector allows you to access the [Azure Storage services](https://azure.microsoft.com/en-us/) (using Microsoft Azure Storage Java SDK) from an integration sequence. Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable and redundant. The Azure Storage consists of four primary Azure Storage types. They are blob storage, table storage, file storage, and queue storage.
 
-To see the available Microsoft Azure Storage connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Azure".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-msazurestorage">WSO2 Connector Store</a> to download the Microsoft Azure Storage connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/azure-store.png" title="Microsoft Azure Storage Connector Store" width="200" alt="Microsoft Azure Storage Connector Store"/>
 
