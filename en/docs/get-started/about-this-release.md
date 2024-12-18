@@ -2,7 +2,7 @@
 
 ## What's new in this release?
 
-The following features and improvements were introduced with <b>Micro Integrator</b> 4.3.0:
+The following features and improvements were introduced with <b>Micro Integrator</b> 4.3.0.
 
 ??? note "Enhanced low code developer experience with new VSCode extension"
     Micro Integrator for VSCode brings a user-friendly interface and enhanced productivity with AI-assisted development, community support, and cloud integration capabilities.
