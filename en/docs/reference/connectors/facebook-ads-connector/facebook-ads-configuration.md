@@ -892,18 +892,71 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Properties of the users to be added to the audience.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>inputStructure</code></td>
+            <td>Structure of the user data to be added.</td>
+            <td>No</td>
+        </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configurations for Facebook API compatible input**
 
     ```xml
     <facebookAds.addUsersToAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
     </facebookAds.addUsersToAudience>
+
+    <facebookAds.addUsersToAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>FACEBOOK_API_COMPATIBLE</inputStructure>
+    </facebookAds.addUsersToAudience>
     ```
  
-    **Sample request**
+    **Sample request for Facebook API compatible input**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": {
+            "payload": {
+                "schema": [
+                    "COUNTRY",
+                    "EMAIL",
+                    "FN",
+                    "GEN",
+                    "LN",
+                    "MADID",
+                    "PHONE"
+                ],
+                "data": [
+                    [
+                        "79adb2a2fce5c6ba215fe5f27f532d4e7edbac4b6a5e09e1ef3a08084a904621",
+                        "23b9cb38c8e9c75a466a349eec16aff2c3eabc707cf57432a872aab7e532d069",
+                        "b54f08623ae4039f55bcecba4961037fb4513d2ba9cb2b0667c5db970ac94911",
+                        "252f10c83610ebca1a059c0bae8255eba2f95be4d1d7bcfa89d7248a82d9f111",
+                        "d07227456ed0f3a3ca01456ee769b4662c1c679d754465b44c93b075fea751cd",
+                        "aece52e7-03ee-455a-b3c4-e57283966239",
+                        "c7e1a5948418c64b472abbe6a7b443ec83c4e31573874d600de828f89dd71339"
+                    ]
+                ]
+            }
+        }
+    }
+    ```
+
+    **Sample configurations for JSON array input**
+
+    ```xml
+    <facebookAds.addUsersToAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>JSON_ARRAY</inputStructure>
+    </facebookAds.addUsersToAudience>
+    ```
+ 
+    **Sample request for JSON array input**
 
     ```json
     {
@@ -963,18 +1016,71 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Properties of the users to be removed from the audience.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>inputStructure</code></td>
+            <td>Structure of the user data to be removed.</td>
+            <td>No</td>
+        </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configurations for Facebook API compatible input**
 
     ```xml
     <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
     </facebookAds.removeUsersFromAudience>
+
+    <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>FACEBOOK_API_COMPATIBLE</inputStructure>
+    </facebookAds.removeUsersFromAudience>
     ```
  
-    **Sample request**
+    **Sample request for Facebook API compatible input**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": {
+            "payload": {
+                "schema": [
+                    "COUNTRY",
+                    "EMAIL",
+                    "FN",
+                    "GEN",
+                    "LN",
+                    "MADID",
+                    "PHONE"
+                ],
+                "data": [
+                    [
+                        "79adb2a2fce5c6ba215fe5f27f532d4e7edbac4b6a5e09e1ef3a08084a904621",
+                        "23b9cb38c8e9c75a466a349eec16aff2c3eabc707cf57432a872aab7e532d069",
+                        "b54f08623ae4039f55bcecba4961037fb4513d2ba9cb2b0667c5db970ac94911",
+                        "252f10c83610ebca1a059c0bae8255eba2f95be4d1d7bcfa89d7248a82d9f111",
+                        "d07227456ed0f3a3ca01456ee769b4662c1c679d754465b44c93b075fea751cd",
+                        "aece52e7-03ee-455a-b3c4-e57283966239",
+                        "c7e1a5948418c64b472abbe6a7b443ec83c4e31573874d600de828f89dd71339"
+                    ]
+                ]
+            }
+        }
+    }
+    ```
+
+    **Sample configurations for JSON array input**
+
+    ```xml
+    <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>JSON_ARRAY</inputStructure>
+    </facebookAds.removeUsersFromAudience>
+    ```
+ 
+    **Sample request for JSON array input**
 
     ```json
     {
