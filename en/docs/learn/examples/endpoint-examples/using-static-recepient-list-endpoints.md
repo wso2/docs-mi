@@ -1,69 +1,82 @@
 # How to Route Messages to a Static List of Recipients
-This example demonstrates how messages can be routed to a list of static endpoints. This configuration routes a cloned copy of a message to each recipient defined within the static recipient list. The Micro Integrator will create cloned copies of the message and route to the three endpoints mentioned in the configuration. The back-end service prints the details of the placed order. 
+This example demonstrates how messages can be routed to a list of static endpoints. This configuration routes a cloned copy of a message to each recipient defined within the static recipient list. The Micro Integrator will create cloned copies of the message and route to the endpoints mentioned in the configuration.
 
 ## Synapse configuration
-Following is a sample proxy service configuration and mediation sequence that we can use to implement this scenario.
+Following are the synapse configurations that we can use to implement this scenario. 
 
-=== "Proxy Service"
+!!! Note
+    Add the URI templates of your backend services replacing the placeholders and if there are more or less endpoints they also can be added or removed accordingly. The payload also can be updated based on the requirement.
+
+=== "API"
     ```xml
-    <proxy name="RecipientListProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-       <target>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/callEndpoint" name="callEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/">
             <inSequence>
-                <header name="Action" value="urn:placeOrder"/>
-                <call>
-                    <endpoint>
-                        <!--List of Recipients (static)-->
-                        <recipientlist>
-                            <endpoint>
-                                <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
-                            </endpoint>
-                            <endpoint>
-                                <address uri="http://localhost:9002/services/SimpleStockQuoteService"/>
-                            </endpoint>
-                            <endpoint>
-                                <address uri="http://localhost:9003/services/SimpleStockQuoteService"/>
-                            </endpoint>
-                        </recipientlist>
-                    </endpoint>
-                </call>
+                <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+                <payloadFactory media-type="json" template-type="default">
+                    <format>{"payload": "sample"}</format>
+                    <args></args>
+                </payloadFactory>
+                <sequence key="EndpointCaller"/>
                 <respond/>
             </inSequence>
             <faultSequence>
                 <sequence key="ErrorHandler"/>
             </faultSequence>
-        </target>
-    </proxy>
+        </resource>
+    </api>
     ```
+
+=== "Recipient List Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint name="RecipientListEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <recipientlist>
+            <endpoint>
+                <http method="post" uri-template="<URI_TEMPLATE_01>"/>
+            </endpoint>
+            <endpoint>
+                <http method="post" uri-template="<URI_TEMPLATE_02>"/>
+            </endpoint>
+            <endpoint>
+                <http method="post" uri-template="<URI_TEMPLATE_03>"/>
+            </endpoint>
+        </recipientlist>
+    </endpoint>
+    ```
+
+=== "Endpoint Calling Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="EndpointCaller" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <call>
+            <endpoint key="RecipientListEndpoint"/>
+        </call>
+        <aggregate>
+            <onComplete expression="json-eval($)">
+                <log level="full"/>
+            </onComplete>
+        </aggregate>
+    </sequence>
+    ```
+
 === "Error Handling Sequence"    
     ```xml
     <sequence name="ErrorHandler" xmlns="http://ws.apache.org/ns/synapse">
         <makefault response="true" version="soap12">
             <code xmlns:soap12Env="http://www.w3.org/2003/05/soap-envelope" value="soap12Env:Receiver"/>
-            <reason value="COULDN'T SEND THE MESSAGE TO THE SERVER."/>
+            <reason value="Couldn't send the request to the server"/>
         </makefault>
         <respond/>
     </sequence>
     ```
 
-<!--
-Set up the back-end service.
+## Testing the scenario
 
-Invoke the Micro Integrator:
+Open a terminal and execute the following curl to invoke the API.
+    ```bash
+    curl --location http://localhost:8290/callEndpoint/
+    ```
 
-To test this, run
-the StockQuote client to send an out-only message as follows:
-
-```bash
-ant stockquote -Dmode=placeorder -Dtrpurl=http://localhost:8280/
-```
-
-If you examine the console output of
-each server, you can see that requests are processed by the three
-servers as follows:
-
-```bash
-Accepted order #1 for : 15738 stocks of IBM at $ 185.51155223506518
-```
-
-Now shutdown MyServer1 and resend the request. You will observe that requests are still processed by MyServer2 and MyServer3.
--->
+The response received will be the aggregated output of the responses received from each endpoint which shows that the payload was cloned and it was sent to all the endpoints.
