@@ -4,7 +4,7 @@ Facebook Ads are customizable advertising units that allow businesses to reach t
 
 The Facebook Ads Connector allows you to access the Facebook Marketing API. This lets you create, update, and delete ad campaigns and ads.
 
-To see the Facebook Ads Connector, navigate to the [connector store](https://store.wso2.com) and search for "facebook".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-facebookads">WSO2 Connector Store</a> to download the Facebook Ads connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/facebook-ads-store.png" title="Facebook Ads Connector Store" width="200" alt="Facebook Ads Connector Store"/>
 

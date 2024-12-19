@@ -6,7 +6,7 @@ The Amazon S3 Connector versions 1.0.10 and below allow you to access the REST A
 
 The versions 2.0.0 and above allow you to access the AWS component via AWS [SDK](https://aws.amazon.com/sdk-for-java/). The SDK makes it easy to call AWS services using idiomatic Java APIs.
 
-To see the Amazon S3 connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Amazon".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-amazons3">WSO2 Connector Store</a> to download the Amazon S3 connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-store.png" title="Amazon S3 Connector Store" width="200" alt="Amazon S3 Connector Store"/>
 

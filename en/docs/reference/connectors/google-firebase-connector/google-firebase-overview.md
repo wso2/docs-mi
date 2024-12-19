@@ -4,7 +4,7 @@ Google Firebase is a rich modern platform to create quick mobile app back-ends, 
 
 You can use the Firebase console itself to trigger out messages to the registered devices or you can even schedule a CRON job. Firebase provides a `Messaging Console`, which you can use to send all kinds of push messages, filter target users, schedule messages, and much more. Needless to state, it provides notification history and reports as well. However, when it come to integration scenarios we should be able to generate a notification externally and send it to Google Firebase.
 
-To see the Google Firebase Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "firebase".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-googlefirebase">WSO2 Connector Store</a> to download the Google Firebase connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/google-firebase-store.png" title="Google Firebase Connector Store" width="200" alt="Google Firebase Connector Store"/>
 
