@@ -12,7 +12,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.2    | MI 4.3.0 |
+| 1.1.0    | MI 4.3.0 |
 
 ## Facebook Ads Connector documentation
 
