@@ -908,15 +908,40 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```json
     {
         "audience_id": "456456456",
-        "properties": {
-            "payload": {
-                "schema": "EMAIL_SHA256",
-                "data": [
-                    "b36a83701f1c3191e19722d6f90274bc1b5501fe69ebf33313e440fe4b0fe210",
-                    "2b3b2b9ce842ab8b6a6c614cb1f9604bb8a0d502d1af49c526b72b10894e95b5"
-                ]
+        "properties": [
+            {
+                "email": "elizabetho@fb.com",
+                "phone": "1-(650)-561-5622",
+                "madid": "aece52e7-03ee-455a-b3c4-e57283966239",
+                "fn": "Elizabeth",
+                "ln": "Olsen",
+                "zip": "94046",
+                "ct": "Menlo Park",
+                "st": "CA",
+                "country": "US",
+                "dob": "10\/21\/68",
+                "doby": 1968,
+                "gen": "F",
+                "age": 48,
+                "uid": 1234567890
+            },
+            {
+                "email": "andrewj@fb.com",
+                "phone": "1-(212) 736-3100",
+                "madid": "BEBE52E7-03EE-455A-B3C4-E57283966239",
+                "fn": "Andrew",
+                "ln": "Jamison",
+                "zip": "10118",
+                "ct": "New York",
+                "st": "NY",
+                "country": "US",
+                "dob": "10\/17\/78",
+                "doby": 1978,
+                "gen": "M",
+                "age": 38,
+                "uid": 1443637309
             }
-        }
+        ]
     }
     ```
 
@@ -954,15 +979,88 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```json
     {
         "audience_id": "456456456",
-        "properties": {
-            "payload": {
-                "schema": "EMAIL_SHA256",
-                "data": [
-                    "b36a83701f1c3191e19722d6f90274bc1b5501fe69ebf33313e440fe4b0fe210",
-                    "2b3b2b9ce842ab8b6a6c614cb1f9604bb8a0d502d1af49c526b72b10894e95b5"
-                ]
+        "properties": [
+            {
+                "email": "elizabetho@fb.com",
+                "phone": "1-(650)-561-5622",
+                "madid": "aece52e7-03ee-455a-b3c4-e57283966239",
+                "fn": "Elizabeth",
+                "ln": "Olsen",
+                "zip": "94046",
+                "ct": "Menlo Park",
+                "st": "CA",
+                "country": "US",
+                "dob": "10\/21\/68",
+                "doby": 1968,
+                "gen": "F",
+                "age": 48,
+                "uid": 1234567890
+            },
+            {
+                "email": "andrewj@fb.com",
+                "phone": "1-(212) 736-3100",
+                "madid": "BEBE52E7-03EE-455A-B3C4-E57283966239",
+                "fn": "Andrew",
+                "ln": "Jamison",
+                "zip": "10118",
+                "ct": "New York",
+                "st": "NY",
+                "country": "US",
+                "dob": "10\/17\/78",
+                "doby": 1978,
+                "gen": "M",
+                "age": 38,
+                "uid": 1443637309
             }
-        }
+        ]
+    }
+    ```
+
+??? note "getCustomAudiences"
+    The `getCustomAudiences` operation retrieves all custom audiences. Provide a value for the `filterByName` parameter to retrieve specific audiences by name.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>adAccountId</code></td>
+            <td>ID of the ad account.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>filterByName</code></td>
+            <td>Provide a name to filter and retrieve specific audiences.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.getCustomAudiences configKey="FB_CONN_1">
+        <adAccountId>{json-eval($.ad_account_id)}</adAccountId>
+        <filterByName>{json-eval($.filter_name)}</filterByName>
+    </facebookAds.getCustomAudiences>
+    ```
+ 
+    **Sample request**
+
+    Retrieve all the custom audiences.
+
+    ```json
+    {
+        "ad_account_id": "123123123"
+    }
+    ```
+
+    Retrieve specific audiences by name.
+    
+    ```json
+    {
+        "ad_account_id": "123123123",
+        "filter_name": "Custom Audience With Users"
     }
     ```
 
