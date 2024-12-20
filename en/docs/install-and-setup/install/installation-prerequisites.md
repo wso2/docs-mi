@@ -69,7 +69,6 @@ The Micro Integrator runtime is tested with the following operating systems:
 | Rocky Linux              | 8.10       |
 | MacOS                    | 10.15      |
 | SUSE Linux               | 12         |
-| RHEL                     | 7.4, 8.2   |
 
 ### Tested JDKs
 
