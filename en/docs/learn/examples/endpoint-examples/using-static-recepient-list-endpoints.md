@@ -40,7 +40,7 @@ Following are the synapse configurations that we can use to implement this scena
                 <http method="post" uri-template="<ENDPOINT_URL_02>"/>
             </endpoint>
             <endpoint>
-                <http method="post" uri-template="<URI_TEMPLATE_03>"/>
+                <http method="post" uri-template="<ENDPOINT_URL_03>"/>
             </endpoint>
         </recipientlist>
     </endpoint>
