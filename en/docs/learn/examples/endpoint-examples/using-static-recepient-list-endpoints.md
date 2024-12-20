@@ -34,7 +34,7 @@ Following are the synapse configurations that we can use to implement this scena
     <endpoint name="RecipientListEndpoint" xmlns="http://ws.apache.org/ns/synapse">
         <recipientlist>
             <endpoint>
-                <http method="post" uri-template="<URI_TEMPLATE_01>"/>
+                <http method="post" uri-template="<ENDPOINT_URL_01>"/>
             </endpoint>
             <endpoint>
                 <http method="post" uri-template="<URI_TEMPLATE_02>"/>
