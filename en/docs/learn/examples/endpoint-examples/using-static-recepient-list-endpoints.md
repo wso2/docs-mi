@@ -5,7 +5,7 @@ This example demonstrates how messages can be routed to a list of static endpoin
 Following are the synapse configurations that we can use to implement this scenario. 
 
 !!! Note
-    Add the URI templates of your backend services replacing the placeholders and if there are more or less endpoints they also can be added or removed accordingly. The payload also can be updated based on the requirement.
+    Add the endpoints of your backend services replacing the placeholders and if there are more or less endpoints they also can be added or removed accordingly. The payload also can be updated based on the requirement.
 
 === "API"
     ```xml
@@ -80,3 +80,6 @@ Open a terminal and execute the following curl to invoke the API.
     ```
 
 The response received will be the aggregated output of the responses received from each endpoint which shows that the payload was cloned and it was sent to all the endpoints.
+
+!!! Note
+    The **Aggregate** mediator was used in the above configuration to aggregate the responses received from each endpoint.
