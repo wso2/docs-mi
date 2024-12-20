@@ -978,8 +978,8 @@ To use the Google Ads connector, first create the connection with your configura
     }
     ```
 
-??? note "uploadUserData"
-    The `uploadUserData` operation adds or removes users from user lists.
+??? note "userDataMutate"
+    The `userDataMutate` operation adds or removes users from user lists.
     <table>
         <tr>
             <th>Parameter Name</th>
