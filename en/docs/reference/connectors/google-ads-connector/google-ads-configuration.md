@@ -970,7 +970,7 @@ To use the Google Ads connector, first create the connection with your configura
                     "membershipLifeSpan": 30,
                     "crmBasedUserList": {
                         "uploadKeyType": "CONTACT_INFO",
-                        "dataSourceType": "FIRST_PARTY"
+                        "": "FIRST_PARTY"
                     }
                 }
             }
@@ -997,11 +997,11 @@ To use the Google Ads connector, first create the connection with your configura
             <td>Yes</td>
         </tr>
         <tr>
-            <td><code>dataSourceType</code></td>
+            <td><code>inputStructure</code></td>
             <td>Required. Defines the data source for the user list. Options:
                 <ul>
-                    <li><code>From a Google Ads API request</code> — Enables the previous operation parameters.</li>
-                    <li><code>From a JSON array</code> — Activates attributes for uploading user data as a JSON array.</li>
+                    <li><code>GOOGLE_API_COMPATIBLE</code> — Enables the Google Ads API-friendly input body as input.</li>
+                    <li><code>JSON_ARRAY</code> — Activates attributes for uploading user data as a JSON array.</li>
                 </ul>
             </td>
             <td>Yes</td>
@@ -1009,17 +1009,17 @@ To use the Google Ads connector, first create the connection with your configura
         <tr>
             <td><code>operations</code></td>
             <td>The list of operations to perform on individual user lists. Type: [UserListOperation](https://developers.google.com/google-ads/api/rest/reference/rest/v17/UserListOperation) object.</td>
-            <td>Required if <code>dataSourceType</code> is <code>From a Google Ads API request</code></td>
+            <td>Required if <code>inputStructure</code> is <code>GOOGLE_API_COMPATIBLE</code></td>
         </tr>
         <tr>
             <td><code>jsonArrayContent</code></td>
             <td>A JSON array containing user data to upload.</td>
-            <td>Required if <code>dataSourceType</code> is <code>From a JSON array</code></td>
+            <td>Required if <code>inputStructure</code> is <code>JSON_ARRAY</code></td>
         </tr>
         <tr>
             <td><code>operationType</code></td>
             <td>Defines the operation to be performed on the user list. Options: <code>create</code> or <code>remove</code>. </td>
-            <td>Required if <code>dataSourceType</code> is <code>From a JSON array</code></td>
+            <td>Required if <code>inputStructure</code> is <code>JSON_ARRAY</code></td>
         </tr>
         <tr>
             <td><code>userIdentifierSource</code></td>
@@ -1043,7 +1043,7 @@ To use the Google Ads connector, first create the connection with your configura
         </tr>
     </table>
 
-    **Sample configuration for "From a Google Ads API request"**
+    **Sample configuration for "GOOGLE_API_COMPATIBLE"**
 
     ```xml
     <googleAds.userListsMutate configKey="GOOGLE_ADS_CONN">
@@ -1053,7 +1053,7 @@ To use the Google Ads connector, first create the connection with your configura
     </googleAds.userListsMutate>
     ```
 
-    **Sample request for "From a Google Ads API request"**
+    **Sample request for "GOOGLE_API_COMPATIBLE"**
 
     ```json
     {
@@ -1076,12 +1076,12 @@ To use the Google Ads connector, first create the connection with your configura
     }
     ```
 
-    **Sample configuration for "From a JSON array"**
+    **Sample configuration for "JSON_ARRAY"**
 
     ```xml
     <googleAds.userListsMutate configKey="GOOGLE_ADS_CONN">
         <customerId>{json-eval($.customer_id)}</customerId>
-        <dataSourceType>From a JSON array</dataSourceType>
+        <inputStructure>JSON_ARRAY</inputStructure>
         <jsonArrayContent>{json-eval($.jsonArrayContent)}</jsonArrayContent>
         <operationType>create</operationType>
         <userIdentifierSource>UNSPECIFIED</userIdentifierSource>
@@ -1089,7 +1089,7 @@ To use the Google Ads connector, first create the connection with your configura
     </googleAds.userListsMutate>
     ```
 
-    **Sample request for "From a JSON array"**
+    **Sample request for "JSON_ARRAY"**
 
     ```json
     {
