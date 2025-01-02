@@ -10,7 +10,7 @@
     synapse.enable_xpath_dom_failover=true
     ```
 
-## XPath Syntax
+## XPath syntax
 
 The syntax provides a way to select nodes such as elements and attributes in an XML document.
 

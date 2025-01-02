@@ -69,7 +69,7 @@ The following table summarizes sample JSONPath expressions and their outputs:
 </tbody>
 </table>
 
-You can evaluate a JSONPath expression against a property that contains a JSON payload using [Variables](#variables).
+You can evaluate a JSONPath expression against a property that contains a JSON payload using [Variables]({{base_path}}/reference/synapse-properties/expressions/#variables).
 
 To evaluate a JSONPath expression against a property, use the following syntax.
 
@@ -77,19 +77,19 @@ To evaluate a JSONPath expression against a property, use the following syntax.
 json-eval(<scope_of_the_property>:<property_name>.<JSONPath_expression>)
 ```
 
-Example 1: When the property is in the default scope you can use [$ctx](#ctx).
+Example 1: When the property is in the default scope you can use [$ctx]({{base_path}}/reference/synapse-properties/expressions/#ctx).
 
 ```json
 json-eval($ctx:propertyName.student.name)
 ```
 
-Example 2: When the property is in the Axis2 scope you can use [$axis2](#axis2).
+Example 2: When the property is in the Axis2 scope you can use [$axis2]({{base_path}}/reference/synapse-properties/expressions/#axis2).
 
 ```json
 json-eval($axis2:propertyName.student.name)
 ```
 
-Example 3: When the property is in the transport scope you can use [$trp](#trp).
+Example 3: When the property is in the transport scope you can use [$trp]({{base_path}}/reference/synapse-properties/expressions/#trp).
 
 ```json
 json-eval($trp:propertyName.student.name)
