@@ -79,7 +79,7 @@ Open a terminal and execute the following curl to invoke the API.
     curl --location http://localhost:8290/callEndpoint/
     ```
 
-The response received will be the aggregated output of the responses received from each endpoint which shows that the payload was cloned and it was sent to all the endpoints.
+You will receive a response that aggregates the outputs from each endpoint, showing that the payload was cloned and sent to all the endpoints.
 
 !!! Note
     The **Aggregate** mediator was used in the above configuration to aggregate the responses received from each endpoint.
