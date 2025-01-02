@@ -4,7 +4,7 @@ Amazon DynamoDB Connector allows you to access the [Amazon DynamoDB REST API](ht
 
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. AmazonDynamoDB enables customers to offload the administrative burdens of operating and scaling distributed databases to AWS, so they do not have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling.
 
-To see the Amazon DynamoDB connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "DynamoDB".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-amazondynamodb">WSO2 Connector Store</a> to download the Amazon DynamoDB connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-store.png" title="Amazon DynamoDB Connector Store" width="200" alt="Amazon DynamoDB Connector Store"/>
 

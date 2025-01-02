@@ -4,7 +4,7 @@ Dayforce is a comprehensive human capital management system that covers the enti
 
 The Ceridian Dayforce connector allows you to  access the REST API of Ceridian Dayforce HCM. 
 
-To see the Ceridian Dayforce Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "dayforce".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-dayforce">WSO2 Connector Store</a> to download the Ceridian Dayforce connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/dayforce-store.png" title="Ceridian Dayforce Connector Store" width="200" alt="Ceridian Dayforce Connector Store"/>
 

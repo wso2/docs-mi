@@ -4,7 +4,7 @@ ServiceNow is an application platform as a service, which is a cloud-based compu
 
 The WSO2 ServiceNow connector allows you to access the ServiceNow REST API from an integration sequence. Using ServiceNow connector you can work with Aggregate API, Import Set API and Table API in ServiceNow. You can further read about ServiceNow REST APIs from [here](https://developer.servicenow.com/dev.do#!/reference/api/orlando/rest/c_TableAPI).
 
-To see the available ServiceNow connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "ServiceNow".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-servicenow">WSO2 Connector Store</a> to download the ServiceNow connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/servicenow-store.png" title="ServiceNow Connector Store" width="200" alt="ServiceNow Connector Store"/>
 

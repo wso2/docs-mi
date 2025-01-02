@@ -2,7 +2,7 @@
 
 The Google Sheets API lets users to read and modify any aspect of a spreadsheet. The WSO2 Google Spreadsheet Connector allows you to access the [Google Spreadsheet API Version v4](https://developers.google.com/sheets/api/guides/concepts) through an integration sequence. It allows users to read/write any aspect of the spreadsheet via the spreadsheets collection.
 
-To see the Google Spreadsheet Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "google".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-googlespreadsheet">WSO2 Connector Store</a> to download the Google Spreadsheet connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/google-spreadsheet-store.png" title="Google Spreadsheet Connector Store" width="200" alt="Google Spreadsheet Connector Store"/>
 

@@ -110,18 +110,22 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SMPP Connector`. Click on `SMPP Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into **PRODUCT-HOME/lib** folder. 
+1. Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-inbound-smpp">WSO2 Connector Store</a>.
 
-2. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **PRODUCT-HOME/lib** folder.
+2. Download the SMPP inbound endpoint JAR file.
+
+3. Copy this JAR file to the `<PRODUCT_HOME>/lib` folder. 
+
+4. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **PRODUCT-HOME/lib** folder.
 
     !!! Tip
         Alternatively, for deployment steps 1 and 2, MI for VS Code provides the capability to copy JARs to the `<PRODUCT_HOME>/lib` folder while exporting the CApp. You can copy the necessary JARs to the **deployment** > **libs** folder in the **Explorer** view.
        
         <img src="{{base_path}}/assets/img/integrate/connectors/copy-libs-via-vscode.png" title="Copy libs with VS Code" width="400" alt="Copy libs with VS Code" />
 
-3. Copy the exported carbon application to the **PRODUCT-HOME/repository/deployment/server/carbonapps** folder. 
+5. Copy the exported carbon application to the **PRODUCT-HOME/repository/deployment/server/carbonapps** folder. 
 
-4. [Start the integration server]({{base_path}}/get-started/quick-start-guide/#start-the-micro-integrator). 
+6. [Start the integration server]({{base_path}}/get-started/quick-start-guide/#start-the-micro-integrator). 
 
 ## Test  
 

@@ -4,7 +4,7 @@ AWS Lambda is a compute service that lets you run code without provisioning or m
 
 The Amazon Lambda Connector allows you to access the REST API of [Amazon Web Service Lambda (AWS Lambda)](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), which lets you run code without provisioning or managing servers. AWS Lambda is one such serverless compute service. Therefore you do not need to worry about which AWS resources to launch, or how will they manage them. Instead, you need to put the code on Lambda, and it runs.
 
-To see the Amazon Lambda connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Amazon".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-amazonlambda">WSO2 Connector Store</a> to download the Amazon Lambda connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/amazon-lambda-store.png" title="Amazon Lambda Connector Store" width="200" alt="Amazon Lambda Connector Store"/>
 

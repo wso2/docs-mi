@@ -2,6 +2,8 @@
 
 The JIRA Connector allows you to connect to JIRA, which is an online issue-tracking database. The connector uses the JIRA REST API to connect to JIRA, view and update issues, work with filters, and more.
 
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-jira">WSO2 Connector Store</a> to download the Jira connector.
+
 <img src="{{base_path}}/assets/img/integrate/connectors/jira-store.png" title="Jira Connector Store" width="200" alt="Jira Connector Store"/>
 
 ## Compatibility

@@ -4,7 +4,7 @@ Fast Healthcare Interoperability Resources (FHIR) is an interoperability standar
 
 This connector uses the [HAPI FHIR APIs](https://hapifhir.io) to connect with a Test Server, which is an open source server licensed under the Apache Software License 2.0 (Java-based implementation of the FHIR specification).
 
-To see the FHIR Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "fhir".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/mediation-fhirbase-module">WSO2 Connector Store</a> to download the FHIR connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/fhir-store.png" title="FHIR Connector Store" width="200" alt="FHIR Connector Store"/>
 

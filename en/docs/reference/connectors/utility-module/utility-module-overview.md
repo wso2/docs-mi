@@ -8,9 +8,9 @@ The Utility Module allows you to do the following.
 - Generate a random UUID.
 - Check a string against a regular expression.
 
-Access the Utility Module by navigating to the [Connector Store](https://store.wso2.com/store/assets/esbconnector/list) and search for `Utility`.
+Go to the <a target="_blank" href="https://store.wso2.com/connector/mediation-utility-module">WSO2 Connector Store</a> to download the Utility Module connector.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/utility-store.png"><img src="http://localhost:8000/assets/img/integrate/connectors/utility-store.png" title="Utility Module" width="200" alt="Utility Module logo in Connector Store"/></img>
+<img src="{{base_path}}/assets/img/integrate/connectors/utility-store.png" title="Utility Module" width="200" alt="Utility Module Connector"/>
 
 ## Compatibility
 

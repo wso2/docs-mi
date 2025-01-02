@@ -4,7 +4,10 @@ Salesforce is a Customer Relationship Management (CRM) solution that helps bridg
 
 ## Types of Salesforce connectors
 
-To see the available Salesforce connectors, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Salesforce". You get the following connectors:
+* <a target="_blank" href="https://store.wso2.com/connector/esb-connector-salesforce">Salesforce connector</a>
+* <a target="_blank" href="https://store.wso2.com/connector/esb-inbound-salesforce">Salesforce inbound endpoint</a>
+* <a target="_blank" href="https://store.wso2.com/connector/esb-connector-salesforcebulk">Salesforce Bulk connector</a>
+* <a target="_blank" href="https://store.wso2.com/connector/esb-connector-salesforcerest">Salesforce REST connector</a>
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sf-connector-store.png" title="Salesforce Connector Store" width="1000" alt="Salesforce Connector Store"/>
 

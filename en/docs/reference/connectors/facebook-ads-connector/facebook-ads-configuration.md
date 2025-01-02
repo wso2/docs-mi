@@ -892,31 +892,109 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Properties of the users to be added to the audience.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>inputStructure</code></td>
+            <td>Structure of the user data to be added.</td>
+            <td>No</td>
+        </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configurations for Facebook API compatible input**
 
     ```xml
     <facebookAds.addUsersToAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
     </facebookAds.addUsersToAudience>
+
+    <facebookAds.addUsersToAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>FACEBOOK_API_COMPATIBLE</inputStructure>
+    </facebookAds.addUsersToAudience>
     ```
  
-    **Sample request**
+    **Sample request for Facebook API compatible input**
 
     ```json
     {
         "audience_id": "456456456",
         "properties": {
             "payload": {
-                "schema": "EMAIL_SHA256",
+                "schema": [
+                    "COUNTRY",
+                    "EMAIL",
+                    "FN",
+                    "GEN",
+                    "LN",
+                    "MADID",
+                    "PHONE"
+                ],
                 "data": [
-                    "b36a83701f1c3191e19722d6f90274bc1b5501fe69ebf33313e440fe4b0fe210",
-                    "2b3b2b9ce842ab8b6a6c614cb1f9604bb8a0d502d1af49c526b72b10894e95b5"
+                    [
+                        "79adb2a2fce5c6ba215fe5f27f532d4e7edbac4b6a5e09e1ef3a08084a904621",
+                        "23b9cb38c8e9c75a466a349eec16aff2c3eabc707cf57432a872aab7e532d069",
+                        "b54f08623ae4039f55bcecba4961037fb4513d2ba9cb2b0667c5db970ac94911",
+                        "252f10c83610ebca1a059c0bae8255eba2f95be4d1d7bcfa89d7248a82d9f111",
+                        "d07227456ed0f3a3ca01456ee769b4662c1c679d754465b44c93b075fea751cd",
+                        "aece52e7-03ee-455a-b3c4-e57283966239",
+                        "c7e1a5948418c64b472abbe6a7b443ec83c4e31573874d600de828f89dd71339"
+                    ]
                 ]
             }
         }
+    }
+    ```
+
+    **Sample configurations for JSON array input**
+
+    ```xml
+    <facebookAds.addUsersToAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>JSON_ARRAY</inputStructure>
+    </facebookAds.addUsersToAudience>
+    ```
+ 
+    **Sample request for JSON array input**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": [
+            {
+                "email": "elizabetho@fb.com",
+                "phone": "1-(650)-561-5622",
+                "madid": "aece52e7-03ee-455a-b3c4-e57283966239",
+                "fn": "Elizabeth",
+                "ln": "Olsen",
+                "zip": "94046",
+                "ct": "Menlo Park",
+                "st": "CA",
+                "country": "US",
+                "dob": "10\/21\/68",
+                "doby": 1968,
+                "gen": "F",
+                "age": 48,
+                "uid": 1234567890
+            },
+            {
+                "email": "andrewj@fb.com",
+                "phone": "1-(212) 736-3100",
+                "madid": "BEBE52E7-03EE-455A-B3C4-E57283966239",
+                "fn": "Andrew",
+                "ln": "Jamison",
+                "zip": "10118",
+                "ct": "New York",
+                "st": "NY",
+                "country": "US",
+                "dob": "10\/17\/78",
+                "doby": 1978,
+                "gen": "M",
+                "age": 38,
+                "uid": 1443637309
+            }
+        ]
     }
     ```
 
@@ -938,31 +1016,157 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Properties of the users to be removed from the audience.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>inputStructure</code></td>
+            <td>Structure of the user data to be removed.</td>
+            <td>No</td>
+        </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configurations for Facebook API compatible input**
 
     ```xml
     <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
     </facebookAds.removeUsersFromAudience>
+
+    <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>FACEBOOK_API_COMPATIBLE</inputStructure>
+    </facebookAds.removeUsersFromAudience>
     ```
  
-    **Sample request**
+    **Sample request for Facebook API compatible input**
 
     ```json
     {
         "audience_id": "456456456",
         "properties": {
             "payload": {
-                "schema": "EMAIL_SHA256",
+                "schema": [
+                    "COUNTRY",
+                    "EMAIL",
+                    "FN",
+                    "GEN",
+                    "LN",
+                    "MADID",
+                    "PHONE"
+                ],
                 "data": [
-                    "b36a83701f1c3191e19722d6f90274bc1b5501fe69ebf33313e440fe4b0fe210",
-                    "2b3b2b9ce842ab8b6a6c614cb1f9604bb8a0d502d1af49c526b72b10894e95b5"
+                    [
+                        "79adb2a2fce5c6ba215fe5f27f532d4e7edbac4b6a5e09e1ef3a08084a904621",
+                        "23b9cb38c8e9c75a466a349eec16aff2c3eabc707cf57432a872aab7e532d069",
+                        "b54f08623ae4039f55bcecba4961037fb4513d2ba9cb2b0667c5db970ac94911",
+                        "252f10c83610ebca1a059c0bae8255eba2f95be4d1d7bcfa89d7248a82d9f111",
+                        "d07227456ed0f3a3ca01456ee769b4662c1c679d754465b44c93b075fea751cd",
+                        "aece52e7-03ee-455a-b3c4-e57283966239",
+                        "c7e1a5948418c64b472abbe6a7b443ec83c4e31573874d600de828f89dd71339"
+                    ]
                 ]
             }
         }
+    }
+    ```
+
+    **Sample configurations for JSON array input**
+
+    ```xml
+    <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
+        <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
+        <properties>{json-eval($.properties)}</properties>
+        <inputStructure>JSON_ARRAY</inputStructure>
+    </facebookAds.removeUsersFromAudience>
+    ```
+ 
+    **Sample request for JSON array input**
+
+    ```json
+    {
+        "audience_id": "456456456",
+        "properties": [
+            {
+                "email": "elizabetho@fb.com",
+                "phone": "1-(650)-561-5622",
+                "madid": "aece52e7-03ee-455a-b3c4-e57283966239",
+                "fn": "Elizabeth",
+                "ln": "Olsen",
+                "zip": "94046",
+                "ct": "Menlo Park",
+                "st": "CA",
+                "country": "US",
+                "dob": "10\/21\/68",
+                "doby": 1968,
+                "gen": "F",
+                "age": 48,
+                "uid": 1234567890
+            },
+            {
+                "email": "andrewj@fb.com",
+                "phone": "1-(212) 736-3100",
+                "madid": "BEBE52E7-03EE-455A-B3C4-E57283966239",
+                "fn": "Andrew",
+                "ln": "Jamison",
+                "zip": "10118",
+                "ct": "New York",
+                "st": "NY",
+                "country": "US",
+                "dob": "10\/17\/78",
+                "doby": 1978,
+                "gen": "M",
+                "age": 38,
+                "uid": 1443637309
+            }
+        ]
+    }
+    ```
+
+??? note "getCustomAudiences"
+    The `getCustomAudiences` operation retrieves all custom audiences. Provide a value for the `filterByName` parameter to retrieve specific audiences by name.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>adAccountId</code></td>
+            <td>ID of the ad account.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>filterByName</code></td>
+            <td>Provide a name to filter and retrieve specific audiences.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <facebookAds.getCustomAudiences configKey="FB_CONN_1">
+        <adAccountId>{json-eval($.ad_account_id)}</adAccountId>
+        <filterByName>{json-eval($.filter_name)}</filterByName>
+    </facebookAds.getCustomAudiences>
+    ```
+ 
+    **Sample request**
+
+    Retrieve all the custom audiences.
+
+    ```json
+    {
+        "ad_account_id": "123123123"
+    }
+    ```
+
+    Retrieve specific audiences by name.
+    
+    ```json
+    {
+        "ad_account_id": "123123123",
+        "filter_name": "Custom Audience With Users"
     }
     ```
 

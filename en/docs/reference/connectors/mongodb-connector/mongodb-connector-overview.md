@@ -4,7 +4,7 @@ The MongoDB Connector allows you to connect to the MongoDB database via differen
 
 The supported connection URI types and connection options are listed in the [MongoDB Connection String](https://docs.mongodb.com/manual/reference/connection-string/) documentation.
 
-To download the MongoDB Connector, go to the [connector store](https://store.wso2.com/?page=1&product=MI+Connector) and search for "MongoDB".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-mongodb">WSO2 Connector Store</a> to download the MongoDB connector.
 
 It is always recommended to download the latest version of the connector.
 

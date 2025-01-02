@@ -7,7 +7,7 @@ The financial transaction involves communication between two systems through a s
 For example, the purchase made in a store may travel from the merchant terminal through another terminal such as banking systems. This requires a network or networks to the issuing bank where the card holder's account is held.
 Cardholder-originated transactions include purchase, withdrawal, deposit, refund, reversal, balance inquiry, payments, and inter-account transfers. ISO8583 also defines system-to-system messages for secure key exchanges, reconciliation of totals, and other administrative purposes. The response on authorizing or declining the transaction needs to be returned by the same route to the terminal.
 
-To see the ISO8583 Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "ISO8583".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-iso8583">WSO2 Connector Store</a> to download the ISO8583 connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-store.png" title="ISO8583 Connector Store" width="200" alt="ISO8583 Connector Store"/>
 

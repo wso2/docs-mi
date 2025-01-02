@@ -4,7 +4,7 @@ Redis is an open source (BSD licensed), in-memory data structure store, used as 
 
 This connector enables developers to use an external Redis server as a cache or a database in the mediation logic.
 
-To see the available Redis connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Redis".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-redis">WSO2 Connector Store</a> to download the Redis connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/redis-store.png" title="Redis Connector Store" width="200" alt="Redis Connector Store"/>
 

@@ -5,9 +5,9 @@ The Twitter Connector allows you to work with Twitter, a social networking site 
 !!! info
     If your Twitter application is using **Twitter API v1.1**, you have to use the [Twitter v2.0.7 Connector](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50860507/Twitter+Connector+and+Inbound) to interact with Twitter.
 
-To see the Twitter Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "twitter".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-twitter">WSO2 Connector Store</a> to download the Twitter connector.
 
-<center><img src="{{base_path}}/assets/img/integrate/connectors/twitter-connector-store.png" title="Twitter Connector Store" width="200" alt="Twitter Connector Store"/></center>
+<img src="{{base_path}}/assets/img/integrate/connectors/twitter-connector-store.png" title="Twitter Connector Store" width="200" alt="Twitter Connector Store"/>
 
 ## Compatibility
 

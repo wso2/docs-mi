@@ -11,7 +11,7 @@ The Google Pub/Sub Connector allows developers to make asynchronous messaging fl
 
 Inspired from: [Google Pub/Sub docs](https://cloud.google.com/pubsub/docs/overview)
 
-To see the Google Pub/Sub Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "pubsub".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-googlepubsub">WSO2 Connector Store</a> to download the Google PubSub connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-store.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
 

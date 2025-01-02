@@ -78,9 +78,13 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for **Kafka**. Click on **Kafka Inbound Endpoint** and download the .jar file by clicking on **Download Inbound Endpoint**. Copy this .jar file into  **<MI_HOME\>/lib** folder. 
+1. Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-inbound-kafka">WSO2 Connector Store</a>.
 
-2. Refer [Build and Run](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/#build-and-run) guide to deploy and run the project. 
+2. Download the Kafka inbound endpoint JAR file.
+
+3. Copy this JAR file to the `<MI_HOME\>/lib` folder. 
+
+4. Refer [Build and Run](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/#build-and-run) guide to deploy and run the project. 
 
 ## Test 
    
