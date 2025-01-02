@@ -124,7 +124,7 @@ Following is a sample REST API configuration that we can used to implement this 
 
 In this example, the timeout value is defined using a [Property mediator]({{base_path}}/reference/mediators/property-mediator) outside
 the endpoint configuration. The timeout parameter in the endpoint
-configuration is then evaluated against an [XPATH expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions) that is used
+configuration is then evaluated against an [XPATH expression]({{base_path}}/reference/synapse-properties/xpath-expressions) that is used
 to reference and read the timeout value. Using this timeout values can
 be configured without having to change the endpoint configuration.
 

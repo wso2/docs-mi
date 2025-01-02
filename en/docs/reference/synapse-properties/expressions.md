@@ -2,7 +2,7 @@
 
 In WSO2 Micro Integrator, expressions are a way to dynamically compute values within various integration artifacts such as sequences, APIs, endpoints, and proxies. These expressions are used to extract data as it flows through the integration logic.
 
-The most commonly used expression languages in WSO2 MI are [Variables](#variables), [Functions](#functions), [JSONPath (for JSON)](#jsonpath-expressions), and [XPath (for XML)](#xpath-expressions).
+The most commonly used expression languages in WSO2 MI are [Variables](#variables), [Functions](#functions), [JSONPath (for JSON)]({{base_path}}/reference/synapse-properties/jsonpath-expressions), and [XPath (for XML)]({{base_path}}/reference/synapse-properties/xpath-expressions).
 
 ## Variables
 

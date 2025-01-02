@@ -1009,7 +1009,7 @@ plugins:
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
-              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/synapse-properties/expressions/#xpath-expressions'
+              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/synapse-properties/xpath-expressions'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
               'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/customizations/creating-new-connector/'
