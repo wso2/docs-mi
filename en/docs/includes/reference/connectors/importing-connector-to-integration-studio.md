@@ -1,7 +1,7 @@
 1. Open WSO2 Integration Studio and select **New Integration Project** to create an Integration Project.
    <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png"><img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" /></a>
 
-2. Right-click the project that you created and click on **Add or Remove Connector** -> **Add Connector**. You will get directed to the WSO2 Connector Store.
+2. Right-click on the ESB Config project of the project that you created and click on **Add or Remove Connector** -> **Add Connector**. You will get directed to the WSO2 Connector Store.
 
 3. Search for the specific connector required for your integration scenario and download it to the workspace.
    <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/search-connector.png"><img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/search-connector.png" title="Search Connector in the Connector Store" width="40%" alt="Search Connector in the Connector Store" /></a>
