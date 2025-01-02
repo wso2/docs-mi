@@ -32,7 +32,7 @@ Indirect endpoints are useful when the actual endpoints are stored in the regist
 
 ### Resolving Endpoints
 
-The resolving endpoint refers to an actual endpoint using a dynamic key (which is an XPath expression). The [XPath expression]({{base_path}}/reference/synapse-properties/expressions/#xpath-expressions) dynamically calls another endpoint at runtime. The XPath is evaluated against the current message and the key-expression is calculated at runtime. The resolving endpoint then fetches the actual endpoint using the calculated key and delegates the message sending to the actual endpoint. Shown below is an example of a resolving endpoint.
+The resolving endpoint refers to an actual endpoint using a dynamic key (which is an XPath expression). The [XPath expression]({{base_path}}/reference/synapse-properties/xpath-expressions) dynamically calls another endpoint at runtime. The XPath is evaluated against the current message and the key-expression is calculated at runtime. The resolving endpoint then fetches the actual endpoint using the calculated key and delegates the message sending to the actual endpoint. Shown below is an example of a resolving endpoint.
 
 ```xml
 <send>
