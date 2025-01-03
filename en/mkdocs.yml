@@ -860,6 +860,7 @@ nav:
               - Store Mediator: reference/mediators/store-mediator.md
               - Switch Mediator: reference/mediators/switch-mediator.md
               - Throttle Mediator: reference/mediators/throttle-mediator.md
+              - ThrowError Mediator: reference/mediators/throw-error-mediator.md
               - Transaction Mediator: reference/mediators/transaction-mediator.md
               - URLRewrite Mediator: reference/mediators/urlrewrite-mediator.md
               - Validate Mediator: reference/mediators/validate-mediator.md

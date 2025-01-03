@@ -278,6 +278,12 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
   </tr>
   <tr>
     <td>
+      <a href="{{base_path}}/reference/mediators/throw-error-mediator">ThrowError mediator</a>
+    </td>
+    <td>Conditionally content-aware</td>
+  </tr>
+  <tr>
+    <td>
       <a href="{{base_path}}/reference/mediators/callout-mediator">Callout mediator</a>
     </td>
     <td>Content-aware</td>
