@@ -103,7 +103,13 @@ The Expression Editor is used to define the mapping with additional operations b
 !!! info "Expressions"
     You can define any expression in the Expression Editor by clicking on the output element. The expression editor will be enabled and you can define the expression.
 
-    ![expressions]({{base_path}}/assets/img/integrate/mediators/datamapper/expressions.png) 
+    ![expressions]({{base_path}}/assets/img/integrate/mediators/datamapper/expressions.png)
+
+### Array Mappings
+
+Mapping between array types is supported. This process can begin similarly to one-to-one mapping by simply creating a map between the input and output fields. By selecting the 'Map Input Array to Output Array' option, users can directly assign the input array to the output array. Selecting 'Map Array Elements Individually' directs users to a focused view where they can further map array elements individually. Child properties can be previewed from the root view before mapping, but the parent array must be mapped first to access child properties. Furthermore, filters can be applied to filter elements.
+
+![array mapping]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mapping.gif) 
 
 ### Sub Mapping
 
