@@ -35,11 +35,15 @@ sender_enable = true
 
 Add the following parameters to enable SSL for the RabbitMQ listener.
 
+```toml
+[[transport.rabbitmq.listener]]
+parameter.ssl_enable = true
+parameter.ssl_version = "SSL"
+```
+
 !!! Tip
-	  Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator (using the `parameter.ssl_enable` parameter shown below).
-
-    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the Micro Integrator.
-
+	  Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator (using the `parameter.ssl_enable` parameter shown above). You can check the <code>fail_if_no_peer_cert</code> parameter in the <code>rabbitmq.conf</code> file in its <a target="_blank" href="https://www.rabbitmq.com/docs/configure#config-location">OS-specific location</a>.
+    
     Shown below is an example of the config file where `fail_if_no_peer_cert` is set to `false`:
     ```
     ssl_options.cacertfile = /path/to/ca_certificate.pem
@@ -49,17 +53,16 @@ Add the following parameters to enable SSL for the RabbitMQ listener.
     ssl_options.fail_if_no_peer_cert = false
     ```
 
-```toml
-[[transport.rabbitmq.listener]]
-parameter.ssl_enable = true
-parameter.ssl_version = "SSL"
-parameter.keystore_location ="repository/resources/security/wso2carbon.jks"
-parameter.keystore_type = "JKS"
-parameter.keystore_password = "wso2carbon"
-parameter.truststore_location ="repository/resources/security/client-truststore.jks"
-parameter.truststore_type = "JKS"
-parameter.truststore_password = "wso2carbon"
-```
+    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the Micro Integrator.
+
+    ```
+    parameter.keystore_location ="repository/resources/security/wso2carbon.jks"
+    parameter.keystore_type = "JKS"
+    parameter.keystore_password = "wso2carbon"
+    parameter.truststore_location ="repository/resources/security/client-truststore.jks"
+    parameter.truststore_type = "JKS"
+    parameter.truststore_password = "wso2carbon"
+    ```
 
 ## Configuring connection recovery
 
