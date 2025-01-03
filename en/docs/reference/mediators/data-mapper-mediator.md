@@ -314,8 +314,17 @@ The sample input XML payload is as follows.
                 <type>application/vnd.google.drive.ext-type.png</type>
                 <type>application/vnd.google.drive.ext-type.jpg</type>
                 <type>application/vnd.google.drive.ext-type.gif</type>
-                <href>http://your_web_url/</href>
+                <href>http://your_web_url_1/</href>
                 <title>Open</title>
+                <disposition>window</disposition>
+            </opendrivedoc>
+            <opendrivedoc>
+                <type>image/png</type>
+                <type>image/gif</type>
+                <type>application/vnd.google.drive.ext-type.png</type>
+                <type>application/vnd.google.drive.ext-type.gif</type>
+                <href>http://your_web_url_2/</href>
+                <title>Close</title>
                 <disposition>window</disposition>
             </opendrivedoc>
         </gdrive_mime_types>
