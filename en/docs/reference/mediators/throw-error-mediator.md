@@ -48,7 +48,7 @@ The following API configuration demonstrates how to use the ThrowError mediator 
 </api>
 ```
 
-Invoking the above API with a payload that does not contain the required field will raise an error.
+Invoking the above API with a payload that does not contain the required field will throw an error.
 ```
 curl --location 'http://localhost:8290/testThrowError' \
 --header 'Content-Type: application/json' \
