@@ -107,7 +107,7 @@ The Expression Editor is used to define the mapping with additional operations b
 
 ### Array Mappings
 
-Mappings between arrays are supported with multiple options. Users can do,
+Mappings between arrays are supported with multiple options. You can do,
 
 1. [Map array-array directly](#1-map-array-array-directly)
 
@@ -117,22 +117,23 @@ Mappings between arrays are supported with multiple options. Users can do,
 
 4. [Access single element and map](#4-access-single-element-and-map)
 
-Child properties can be previewed from the root view before mapping, but the parent arrays must be mapped first by **Map elements individually** option to access child properties. 
+!!! info
+    You can preview array structure by expanding the field
 
 #### **1. Map array-array directly**
-When input array and output array have same data type/structure users can directly assign an input array to an output array. Select this option from the menu that appears after mapping the input array to the output array.
+When input array and output array have same data type/structure you can directly assign an input array to an output array. Select this option from the menu that appears after mapping the input array to the output array.
 ![direct array mappings]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-direct.png)
 
 ### **2. Map elements individually**
-When input array and output array have different data types/structures, users can map elements individually. This option directs the users to a focused view where they can further access and map child elements. Additionally, filters can be applied to filter elements.
+When input array and output array have different data types/structures, you can map elements individually. This option directs the you to a focused view where they can further access and map child elements. Additionally, filters can be applied to filter elements.
 ![individual array mappings]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-individual.gif)
 
 ### **3. Map into initialized elements**
-Users can initialize an array and add elements to the array. Input fields can be mapped into the elements or inner child properties of the elements. Use context menu options of the output array field to initialize and add elements.
+You can initialize an array and add elements to the array. Input fields can be mapped into the elements or inner child properties of the elements. Use context menu options of the output array field to initialize and add elements.
 ![init arrays]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-init.png)
 
 ### **4. Access single element and map**
-Users can map an element of an input field array to an output field. By default it access the 0th element, use the Expression Editor to edit the accessed element.
+You can map an element of an input field array to an output field. By default it access the 0th element, use the [Expression Editor](#expression-editor) to edit the accessed element.
 ![singleton array mapping]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-singleton.png) 
 
 ### Sub Mapping
