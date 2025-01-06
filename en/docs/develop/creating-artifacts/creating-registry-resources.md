@@ -2,28 +2,26 @@
 
 The steps to create a resource in the project are detailed below.
 
-## Create the resource artifact
+1. Select the project in Project Explorer.
 
-Select the project in Project Explorer.
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-resource-add-registry-1.png" width="300">
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-resource-add-registry-1.png" width="300">
+2. Click on **+ Add Artifact**. 
 
-Click on **+ Add Artifact**. 
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-resource-add-registry-2.png" width="800">
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-resource-add-registry-2.png" width="800">
+3. Select **Resource** from the appeared menu. 
 
-Select **Resource** from the appeared menu. 
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-in-menu.png" width="800">
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-in-menu.png" width="800">
+    This will open the **New Resource** window.
 
-This will open the **New Resource** window.
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-create-form.png" width="800">
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-create-form.png" width="800">
+4. Select one of the following options.
 
-Select one of the following options.
-
-- [From existing template](#from-existing-template)
-- [Import from file system](#import-from-file-system)
+    - [From existing template](#from-existing-template)
+    - [Import from file system](#import-from-file-system)
 
 ### From the existing template
 
