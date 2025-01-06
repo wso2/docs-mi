@@ -22,7 +22,7 @@ A listening inbound endpoint listens on a given port for requests that are comin
     'synapse.transport.portCloseVerifyTimeout' = 20
     ```
 
-    Also note that this setting may be required in Windows environments as the process of closing a port can sometimes take longer than 10 seconds.
+    Note that this setting may be required in Windows environments as the process of closing a port can sometimes take longer than 10 seconds.
 
 <!--
 
