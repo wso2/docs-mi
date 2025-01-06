@@ -58,7 +58,7 @@ curl --location 'http://localhost:8290/testThrowError' \
 }'
 ```
 
-Response log will contain the error message as follows.
+The response log will contain the following error message:
 ```
 INFO {LogMediator} - {api:TestThrowErrorMediatorAPI} ERROR_CODE = PAYLOAD_ERROR, ERROR_MESSAGE = Required field does not exist
 ```
