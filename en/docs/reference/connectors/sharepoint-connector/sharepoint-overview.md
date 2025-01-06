@@ -4,7 +4,7 @@ SharePoint is a collaboration and document management platform that allows busin
 
 The SharePoint Connector enables you to access the SharePoint API. This allows you to create, update, and delete sites, lists, libraries, and other SharePoint resources.
 
-To find the Sharepoint Connector, go to the [WSO2 Connector Store](https://store.wso2.com) and search for "Sharepoint".
+Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-sharepoint">WSO2 Connector Store</a> to download the Sharepoint connector.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sharepoint-store.png" title="Sharepoint Connector Store" width="200" alt="Sharepoint Connector Store"/>
 

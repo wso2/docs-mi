@@ -510,7 +510,6 @@ nav:
       - Reference:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-          - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
           - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
           - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
   - Observe and Manage:
@@ -971,6 +970,7 @@ plugins:
   - exclude:
       glob:
         - wip/*
+        - 'includes/*'
   - redirects:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
@@ -1016,6 +1016,7 @@ plugins:
               'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/file-processing/'
               'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/storing-and-forwarding-messages/'
               'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
+              'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installation-prerequisites/'
               'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
