@@ -155,7 +155,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter.
     1. Add the file connection created in the earlier steps as the file connection for this operation.
     2. Configure the file path as `/dataCollection/employees/employees.csv`.
     3. The <b>Write Mode</b> needs to be `Append`.
-    4. Set the <b>Position<b> to `2`. This will always append the message to line number 2 as we need the newest message at the top.
+    4. Set the <b>Position</b> to `2`. This will always append the message to line number 2 as we need the newest message at the top.
     5. Set <b>Append New Line</b> to `true`. 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon15.png" title="append to file" width="800" alt="append to file"/>
