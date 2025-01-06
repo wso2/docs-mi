@@ -16,7 +16,7 @@ The ThrowError mediator allows you to raise an error from the mediation sequence
 
 ## Examples
 
-Following examples demonstrate the use of Throw Error mediator.
+The following examples demonstrate the use of the ThrowError mediator.
 
 ### Example 1
 
