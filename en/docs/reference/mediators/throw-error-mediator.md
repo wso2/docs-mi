@@ -18,7 +18,6 @@ The ThrowError mediator allows you to raise an error from the mediation sequence
 
 The following examples demonstrate the use of the ThrowError mediator.
 
-### Example 1
 
 The following API configuration demonstrates how to use the ThrowError mediator to raise an error if a required field is not present in the incoming payload.
 
