@@ -117,14 +117,14 @@ Mappings between arrays are supported with multiple options. Users can do,
 
 4. [Access single element and map](#4-access-single-element-and-map)
 
-Child properties can be previewed from the root view before mapping, but the parent arrays must be mapped first by map elements individually option to access child properties. 
+Child properties can be previewed from the root view before mapping, but the parent arrays must be mapped first by **Map elements individually** option to access child properties. 
 
 #### **1. Map array-array directly**
-This option allows users to directly assign an input array to an output array. Select this option from the menu that appears after mapping the input array to the output array.
+When input array and output array have same data type/structure users can directly assign an input array to an output array. Select this option from the menu that appears after mapping the input array to the output array.
 ![direct array mappings]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-direct.png)
 
 ### **2. Map elements individually**
-This option directs users to a focused view where they can further access and map child elements individually. Additionally, filters can be applied to filter elements.
+When input array and output array have different data types/structures, users can map elements individually. This option directs the users to a focused view where they can further access and map child elements. Additionally, filters can be applied to filter elements.
 ![individual array mappings]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-individual.gif)
 
 ### **3. Map into initialized elements**
