@@ -118,6 +118,7 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
         </profile>
     </parameter>
     ```
+    
     !!! Note
         Note that the `xmlns:svns="http://org.wso2.securevault/configuration"` namespace has to be added in the SSL profile configuration to work with secure vault.
     The SSL profile will be applied to each request that is received at
