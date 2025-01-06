@@ -20,7 +20,7 @@ The following examples demonstrate the use of the ThrowError mediator.
 
 ### Example 1
 
-The following API configuration demonstrates how to use the Throw Error mediator to raise an error when some required field is not present in the incoming payload.
+The following API configuration demonstrates how to use the ThrowError mediator to raise an error if a required field is not present in the incoming payload.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
