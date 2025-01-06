@@ -1,6 +1,6 @@
 # ThrowError Mediator
 
-The ThrowError mediator allows you to raise an error from the mediation sequence. The error type and message can be customized as required.
+The ThrowError mediator allows you to throw an error from the mediation sequence. The error type and message can be customized as required.
 
 !!! Info 
     Errors thrown by the ThrowError mediator is handled by the onError sequence (if defined) or the default fault sequence.
