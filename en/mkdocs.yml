@@ -668,14 +668,6 @@ nav:
                       - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
           - CSV Module:
                 - CSV Module Reference: reference/connectors/csv-module/csv-module-config.md
-          - DB Event Listener Inbound Endpoint:
-              - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
-              - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
-              - Database Event Listener Reference: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md
-          - Documentum Connector:
-              - Documentum Overview: reference/connectors/documentum/documentum-overview.md
-              - Documentum Example: reference/connectors/documentum/documentum-example.md
-              - Documentum Reference: reference/connectors/documentum/documentum-reference.md
           - Email Connector:
               - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
               - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
@@ -1025,6 +1017,12 @@ plugins:
               'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/storing-and-forwarding-messages/'
               'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
               'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installation-prerequisites/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'reference/connectors/documentum/documentum-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
 
   # Extra
 extra_css:
