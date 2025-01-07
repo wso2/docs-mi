@@ -103,7 +103,38 @@ The Expression Editor is used to define the mapping with additional operations b
 !!! info "Expressions"
     You can define any expression in the Expression Editor by clicking on the output element. The expression editor will be enabled and you can define the expression.
 
-    ![expressions]({{base_path}}/assets/img/integrate/mediators/datamapper/expressions.png) 
+    ![expressions]({{base_path}}/assets/img/integrate/mediators/datamapper/expressions.png)
+
+### Array mappings
+
+Mappings between arrays are supported with multiple options. You can do,
+
+- [Map array-array directly](#map-array-array-directly)
+
+- [Map elements individually](#map-elements-individually)
+
+- [Map into initialized elements](#map-into-initialized-elements)
+
+- [Access single element and map](#access-single-element-and-map)
+
+!!! info
+    You can preview array structure by expanding the field
+
+#### Map array-array directly
+When the input array and the output array have the same data type/structure, you can directly assign an input array to an output array. Select this option from the menu that appears after mapping the input array to the output array.
+![direct array mappings]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-direct.png)
+
+#### Map elements individually
+When the input array and the output array have different data types/structures, you can map elements individually. This option directs you to a focused view where you can further access and map child elements. Additionally, filters can be applied to filter the elements.
+![individual array mappings]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-individual.gif)
+
+#### Map into initialized elements
+You can initialize an array and add elements to it. Input fields can be mapped into the elements or inner child properties of the elements. Use the context menu options of the output array field to initialize and add elements.
+![init arrays]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-init.png)
+
+#### Access single element and map
+You can map an element of an input field array to an output field. By default, it accesses the 0th element. Use the [Expression Editor](#expression-editor) to edit the accessed element.
+![singleton array mapping]({{base_path}}/assets/img/integrate/mediators/datamapper/array-mappings-singleton.png) 
 
 ### Sub Mapping
 
@@ -308,8 +339,17 @@ The sample input XML payload is as follows.
                 <type>application/vnd.google.drive.ext-type.png</type>
                 <type>application/vnd.google.drive.ext-type.jpg</type>
                 <type>application/vnd.google.drive.ext-type.gif</type>
-                <href>http://your_web_url/</href>
+                <href>http://your_web_url_1/</href>
                 <title>Open</title>
+                <disposition>window</disposition>
+            </opendrivedoc>
+            <opendrivedoc>
+                <type>image/png</type>
+                <type>image/gif</type>
+                <type>application/vnd.google.drive.ext-type.png</type>
+                <type>application/vnd.google.drive.ext-type.gif</type>
+                <href>http://your_web_url_2/</href>
+                <title>Close</title>
                 <disposition>window</disposition>
             </opendrivedoc>
         </gdrive_mime_types>
