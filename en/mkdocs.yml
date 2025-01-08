@@ -148,6 +148,11 @@ nav:
             - What is File Processing: learn/integration-use-case/file-processing-overview.md
             - How to Process a File: learn/integration-tutorials/file-processing.md
             - How to Access a Windows Share using VFS Transport: learn/examples/file-processing/accessing-windows-share-using-vfs-transport.md
+      - Periodic Execution of Integration Processes:
+            - What is Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
+            - How to Periodically Execute Integration Processes: learn/integration-tutorials/using-scheduled-tasks.md
+            - How to Schedule Tasks using a Simple Trigger: learn/examples/scheduled-tasks/task-scheduling-simple-trigger.md
+            - How to Inject Messages to a RESTful Endpoint: learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
       - REST APIs:
             - How to Use a Simple REST API: learn/examples/rest-api-examples/introduction-rest-api.md
             - How to Set Query Parameters on Outgoing Messages: learn/examples/rest-api-examples/setting-query-params-outgoing-messages.md
@@ -208,11 +213,6 @@ nav:
             - How to Break Complex Flows into Multiple Sequences: learn/examples/sequence-examples/using-multiple-sequences.md
             - How to Use Fault Sequences: learn/examples/sequence-examples/using-fault-sequences.md
             - How to Reuse Mediation Sequences: learn/integration-tutorials/using-templates.md
-      - Periodic Execution of Integration Processes:
-            - What is Periodic Execution of Integration Processes: learn/integration-use-case/scheduled-task-overview.md
-            - How to Periodically Execute Integration Processes: learn/integration-tutorials/using-scheduled-tasks.md
-            - How to Schedule Tasks using a Simple Trigger: learn/examples/scheduled-tasks/task-scheduling-simple-trigger.md
-            - How to Inject Messages to a RESTful Endpoint: learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
       - Transports:
             - How to Use TCP Transport: learn/examples/transport-examples/tcp-transport-examples.md
             - How to Use FIX Transport: learn/examples/transport-examples/fix-transport-examples.md
