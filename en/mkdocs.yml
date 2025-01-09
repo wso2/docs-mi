@@ -100,7 +100,7 @@ nav:
           - Asynchronous Messaging:
               - Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
           - Integrate with SaaS Systems:
-              - Send Emails from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+              - Send Emails from an Integration Service: learn/integration-tutorials/send-email-from-integration-service.md
           - Data Integration:
               - Expose Datasources as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
           - File Processing: learn/integration-tutorials/file-processing.md
@@ -884,6 +884,7 @@ plugins:
   - redirects:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.2.0/reference/mediation-sequences'
+              'learn/integration-tutorials/using-the-gmail-connector.md' : 'https://mi.docs.wso2.com/en/4.2.0/learn/integration-tutorials/send-email-from-integration-service'
 
   # Extra
 extra_css:
