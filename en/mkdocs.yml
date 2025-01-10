@@ -127,7 +127,7 @@ nav:
             - How to Switch from HTTP to MSMQ: learn/examples/protocol-switching/switching-between-http-and-msmq.md
       - SaaS and B2B Connectivity:
             - What is SaaS and B2B Connectivity: learn/integration-use-case/connectors.md
-            - How to Send an Email from an Integration Service: learn/integration-tutorials/using-the-gmail-connector.md
+            - How to Send an Email from an Integration Service: learn/integration-tutorials/send-email-from-integration-service.md
       - Data Integration:
             - What is Data Integration: learn/integration-use-case/data-integration-overview.md
             - How to Expose a Datasource as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
@@ -1016,6 +1016,7 @@ plugins:
               'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
               'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installation-prerequisites/'
+              'learn/integration-tutorials/using-the-gmail-connector.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/send-email-from-integration-service'
 
   # Extra
 extra_css:
