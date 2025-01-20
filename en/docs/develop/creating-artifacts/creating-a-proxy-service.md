@@ -1,28 +1,29 @@
 # Create a Proxy Service
 
-Follow the instructions below to create a new [Proxy Service]({{base_path}}/reference/synapse-properties/proxy-service-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow these instructions to create a [Proxy Service]({{base_path}}/reference/synapse-properties/proxy-service-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
-## Instructions
-
-### Create the proxy service artifact
+## Create a new proxy service artifact
 
 {!includes/creating-project.md!}
 
+    Hereafter, this project will be referred to as `<PROJECT_NAME>`.
+
 3. Go to **MI Project Explorer** > **Proxy Services**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/create-proxy-service.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/create-proxy-service.png" alt="Create proxy service" width="35%"></a>
-   
 4. Hover over **Proxy Services** and click the **+** icon that appears to open the **Proxy Service Form** below.
-
-5. Enter a unique name for the proxy service.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service.png" alt="proxy service" width="80%"></a>
 
-6. Click **Create**.
+5. Enter a unique name for the proxy service.
 
-The proxy service is created in the `src/main/wso2mi/artifacts/proxy-services` folder under the project you created.
+6. Once you complete the **Proxy Service Form**, click **Create**.
 
-### Design the integration
+!!! info
+    You can switch to the default Visual Studio Code **Explorer** to view the folder structure.
+
+    The newly-created proxy service will be stored in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/proxy-services` folder of your integration project.
+
+## Design the integration
 
 1. Go to the **MI Overview** interface.
 
@@ -36,23 +37,21 @@ The proxy service is created in the `src/main/wso2mi/artifacts/proxy-services` f
 
 3. Add the required mediators and connectors and design the integration flow.
 
-   <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-graphical-editor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-graphical-editor.png" alt="source view" width="80%"></a>
+## Update the configurations
 
-### Update the properties
+1. Go to **MI Overview**.
 
-#### To update from the Form View:
+2. Under **Proxy Services**, select the proxy service you want to edit to go to its **Resource View**.
 
-1. In the MI Overview, select the proxy service to go to its **Resource View**.
-
-2. Click the **Edit** icon to edit the proxy service.
+3. Click the **Edit** icon to edit the proxy service.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-service.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-service.png" alt="Edit proxy service" width="80%"></a>
 
-3. Add the required parameters.
+4. Add the required parameters.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-view.png" alt="Edit proxy view" width="80%"></a>
 
-4. Click **Update**.
+5. Click **Update**.
 
    See the following links for the list of transport parameters you can use:
 
@@ -65,7 +64,7 @@ The proxy service is created in the `src/main/wso2mi/artifacts/proxy-services` f
 
    See the complete list of [service-level properties and parameters]({{base_path}}/reference/synapse-properties/proxy-service-properties) that you can configure.
 
-#### To update from the Source View:
+## Source View
 
 Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the proxy service.
 

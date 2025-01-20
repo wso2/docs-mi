@@ -4,7 +4,7 @@ See the topics in the following sections for details and instructions.
 
 ### Integration Use Cases
 
-Learn about the main integration capabilities of the Micro Integrator. You can also follow the [tutorials](#integration-tutorials) on these use cases to gain hands-on knowledge.
+Learn about the main integration capabilities of the Micro Integrator.
 
 <table>
     <tr>
@@ -22,7 +22,39 @@ Learn about the main integration capabilities of the Micro Integrator. You can a
         <td>
             Explore how messages are transformed into different formats.
         </td>
-    </tr>     
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/service-orchestration-overview">Service Orchestration</a>
+        </th>
+        <td>
+            Explore how multiple Restful services are exposed as a single coarse-grained service.
+        </td>
+    </tr> 
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/asynchronous-message-overview">Asynchronous Message Processing</a>
+        </th>
+        <td>
+            Explore asynchronous messaging patterns using message brokers.
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/protocol-switching-overview">Protocol Switching</a>
+        </th>
+        <td>
+            Explore how message protocols are changed during message mediation.
+        </td>
+    </tr> 
+    <tr>
+        <th>
+            <a href="{{base_path}}/learn/integration-use-case/connectors">SaaS and B2B Connectivity</a>
+        </th>
+        <td>
+            Explore how to integrate with third-party systems using WSO2 connectors.
+        </td>
+    </tr>  
     <tr>
         <th>
             <a href="{{base_path}}/learn/integration-use-case/data-integration-overview">Data Integration</a>
@@ -38,47 +70,15 @@ Learn about the main integration capabilities of the Micro Integrator. You can a
         <td>
             Explore how data from file systems are moved and used during message mediation.
         </td>
-    </tr>  
+    </tr>   
     <tr>
         <th>
-            <a href="{{base_path}}/learn/integration-use-case/connectors">SaaS and B2B Connectivity</a>
-        </th>
-        <td>
-            Explore how to integrate with third-party systems using WSO2 connectors.
-        </td>
-    </tr>  
-    <tr>
-        <th>
-            <a href="{{base_path}}/learn/integration-use-case/service-orchestration-overview">Service Orchestration</a>
-        </th>
-        <td>
-            Explore how multiple Restful services are exposed as a single coarse-grained service.
-        </td>
-    </tr>  
-    <tr>
-        <th>
-            <a href="{{base_path}}/learn/integration-use-case/asynchronous-message-overview">Enterprise Messaging</a>
-        </th>
-        <td>
-            Explore asynchronous messaging patterns using message brokers.
-        </td>
-    </tr>  
-    <tr>
-        <th>
-            <a href="{{base_path}}/learn/integration-use-case/scheduled-task-overview">Scheduled Integration Processes</a>
+            <a href="{{base_path}}/learn/integration-use-case/scheduled-task-overview">Periodic Execution of Integration Processes</a>
         </th>
         <td>
             Explore how integration processes are scheduled and executed periodically.
         </td>
-    </tr>  
-    <tr>
-        <th>
-            <a href="{{base_path}}/learn/integration-use-case/protocol-switching-overview">Protocol Switching</a>
-        </th>
-        <td>
-            Explore how message protocols are changed during message mediation.
-        </td>
-    </tr>  
+    </tr>
 </table>
 
 <!--
