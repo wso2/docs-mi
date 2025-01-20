@@ -32,3 +32,7 @@ node_modules
 
 # generated docs
 en/site
+
+# Ignore node modules
+en/tools/config-catalog-generator-mi/node_modules
+en/tools/config-catalog-generator-mi/dist
