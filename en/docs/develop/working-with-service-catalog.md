@@ -9,7 +9,7 @@ Follow the steps given below to publish REST APIs from the Micro Integrator to t
 
 ## Prerequisites
 
-Develop a REST API artifact using the MI for VS Code extension. This is your integration service with the mediation logic that will run on the Micro Integrator.
+[Develop a REST API artifact]({{base_path}}/develop/creating-artifacts/creating-an-api) using the MI for VS Code extension. This is your integration service with the mediation logic that will run on the Micro Integrator.
 
 ## Step 1 - Configure the Micro Integrator server
 
@@ -25,7 +25,7 @@ password = "admin"
 
 See the descriptions of the [service catalog parameters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
 
-## Step 1 - Start the servers
+## Step 2 - Start the servers
 
 Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). 
 
