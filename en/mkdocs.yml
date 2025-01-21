@@ -344,7 +344,6 @@ nav:
           - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
           - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
-      #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Integration Projects:
           - Create a Project: develop/create-integration-project.md
           - Open a Project: develop/opening-projects.md
@@ -394,6 +393,7 @@ nav:
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
           - Endpoint Trace: develop/endpoint-trace-logs.md
       - Advanced Development Tasks:
+          - Publish Integrations to the API Manager: develop/working-with-service-catalog.md
           - Inject Parameters: develop/injecting-parameters.md
           - Change the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
           - Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
@@ -986,7 +986,6 @@ plugins:
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-docker-image'
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/learn-overview/'
               'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
-              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.3.0/develop/intro-integration-development/'
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.3.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.3.0/mi-analytics/mi-elk-installation-guide/'
