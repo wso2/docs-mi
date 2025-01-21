@@ -286,7 +286,7 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
 
     In real-world scenarios, you might encounter use cases where you pre-process before doing the XSLT message transformation using the XSLT mediator. In such use cases, you have to use the XSLT mediator instead of the FastXSLT mediator. You can specify the source, properties, features, or resources with the XSLT mediator, but the downside with the XSLT mediator is that it does not perform well when the message size is larger.
     
-    It is possible to tune the XSLT mediator configuration to perform better for large message sizes. In the XSLT mediator, the following two parameters control the memory usage of the server. These two parameters can be configured in the `<MI_HOME>/conf/synapse.properties` file.
+    It is possible to tune the XSLT mediator configuration to perform better for large message sizes. In the XSLT mediator, the following two parameters control the memory usage of the server. These two parameters can be configured in the `<MI_HOME>/conf/deployment.toml` file.
     
     ```toml
     [synapse_properties]
