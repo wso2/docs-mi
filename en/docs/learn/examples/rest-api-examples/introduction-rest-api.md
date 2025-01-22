@@ -11,43 +11,44 @@ This is a REST API with two API resources. The GET calls are handled by the firs
 === "REST API"
     ```xml
     <api name="StockQuoteAPI" context="/stockquote" xmlns="http://ws.apache.org/ns/synapse">
-       <resource uri-template="/view/{symbol}" methods="GET">
-          <inSequence>
-             <payloadFactory media-type="xml">
-             <format>
-                <m0:getQuote xmlns:m0="http://services.samples">
-                   <m0:request>
-                      <m0:symbol>$1</m0:symbol>
-                   </m0:request>
-                </m0:getQuote>
-             </format> 
-                <args>
-                <arg expression="get-property('uri.var.symbol')"/>
-                </args>
-             </payloadFactory>
-             <header name="Action" value="urn:getQuote"/>
-             <call>
-                <endpoint key="SimpleStockQuoteService" />
-             </call>
-            <respond />
-          </inSequence>
-       </resource>
-       <resource methods="POST" url-mapping="/order/*">
-          <inSequence>
-             <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-             <property name="OUT_ONLY" value="true"/>
-             <header name="Action" value="urn:placeOrder"/>
-             <call>
-                <endpoint key="SimpleStockQuoteService" />
-             </call>
-          </inSequence>
-       </resource>
+        <resource methods="GET" uri-template="/view/{symbol}">
+            <inSequence>
+                <payloadFactory media-type="xml" template-type="default">
+                    <format>
+                        <m0:getQuote xmlns:m0="http://services.samples">
+                            <m0:request>
+                                <m0:symbol>${params.uriParams.symbol}</m0:symbol>
+                            </m0:request>
+                        </m0:getQuote>
+                    </format>
+                </payloadFactory>
+                <header name="SOAPAction" scope="transport" value="urn:getQuote"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteService" />
+                </call>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+        <resource methods="POST" uri-template="/order/*">
+            <inSequence>
+                <property name="FORCE_SC_ACCEPTED" scope="axis2" value="true"/>
+                <property name="OUT_ONLY" value="true"/>
+                <header name="SOAPAction" scope="transport" value="urn:placeOrder"/>
+                <call>
+                    <endpoint key="SimpleStockQuoteService"/>
+                </call>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
     </api>
     ```
 === "Endpoint"
     ```xml
     <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
-       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService"/>
     </endpoint>
     ```
 ## Build and run
