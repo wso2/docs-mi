@@ -56,74 +56,54 @@ Follow the instructions given in this section to create and configure the requir
 
 Now let's start designing the integration by adding the necessary artifacts.
 
-#### Create an Endpoint
+#### Create HTTP Connection 
 
-An Endpoint artifact is required to expose the back-end service.
+1. Navigate to **Micro Integrator Project Explorer**.
 
-1. Navigate to the **MI Project Explorer** > **Endpoints**.
+2. Click on the **+** symbol to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
-2. Hover over **Endpoints** and click the **+** icon that appears.
+3. Click **+ View More** under **Create an Integration**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
+5. Select **Http**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
-
-4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
-
+6. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
     <table>
-    <thead>
-      <tr>
-         <th>Property</th>
-         <th>Value</th>
-         <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-         <td>Endpoint Name</td>
-         <td><code>QueryDoctorEP</code></td>
-         <td>The name of the endpoint.</td>
-      </tr>
-      <tr>
-         <td>URI Template</td>
-         <td>
-            <code>http://localhost:9090/healthcare/{uri.var.category}</code>
-         </td>
-         <td>The template for the request URL expected by the back-end service. In this case, the variable 'category' that needs to be included in the request for querying doctors is represented as <code>{uri.var.category}</code> in the template.</td>
-      </tr>
-      <tr>
-         <td>Method</td>
-         <td><code>GET</code></td>
-         <td>Indicates that we are creating this endpoint for GET requests that are sent to the back-end service.</td>
-      </tr>
-     </tbody>
+        <thead>
+          <tr>
+             <th>Property</th>
+             <th>Value</th>
+             <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+             <td>Connection Name</td>
+             <td><code>QueryDoctorConn</code></td>
+             <td>The name of the connection.</td>
+          </tr>
+          <tr>
+             <td>Base URL</td>
+             <td>
+                <code>http://localhost:9090/healthcare</code>
+             </td>
+             <td>The base of the request URL for the back-end service.</td>
+          </tr>
+        </tbody>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png" alt="endpoint artifact" width="80%"></a>
-
-5. Click **Create**.
-
-    Once the endpoint artifact is created, it will appear on the **MI Overview** interface.    
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/service-catalog-project-overview.png" alt="mi overview endpoint" width="80%"></a>
+4. Click **Add**.
 
 #### Create a REST API
 
 A REST API is required for receiving the client requests and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
-1. Go to **MI Project Explorer** > **APIs**.
+1. Go to **MI Project Explorer** > **+ Add Artifact** > **API**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
-
-2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
-
-3. Specify values for the required REST API properties:
+2. Specify values for the required REST API properties:
 
     <table>
       <tr>
@@ -142,26 +122,26 @@ A REST API is required for receiving the client requests and the REST resource w
         <td>Context</td>
         <td><code>/healthcare</code></td>
         <td>
-          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to <code>/healthcare</code> means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to <code>/healthcare</code> means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare</code>.
         </td>
       </tr>
     </table>
 
     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png" alt="synapse API artifact" width="80%"></a>
 
-4. Click **Create**. This opens the **Service Designer** interface.
+3. Click **Create**. This opens the **Service Designer** interface.
 
     You can now start configuring the API resource.
 
-5. Click on the `GET` API resource under **Available resources** on the **Service Designer**.
+4. Click on the `GET` API resource under **Available resources** on the **Service Designer**.
 
     You will now see the graphical view of the `HealthcareAPI` with its default API Resource.
 
-6. Click the **Edit** icon to edit the API resource.
+5. Click the **Edit** icon to edit the API resource.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
 
-7. Specify values for the required resource properties:
+6. Specify values for the required resource properties:
 
     <table>
       <tr>
@@ -169,15 +149,9 @@ A REST API is required for receiving the client requests and the REST resource w
         <th>Description</th>
       </tr>
       <tr>
-        <td>URI-Template</td>
+        <td>Resource Path</td>
         <td>
           <code>/querydoctor/{category}</code> </br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/querydoctor/{category}</code> where <code>{category}</code> is a variable.
-        </td>
-      </tr>
-      <tr>
-        <td>URL Style</td>
-        <td>
-          <code>URI_TEMPLATE</code>
         </td>
       </tr>
       <tr>
@@ -190,7 +164,7 @@ A REST API is required for receiving the client requests and the REST resource w
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
 
-8. Click **Update**.
+7. Click **Update**.
 
 #### Create the mediation logic
 
@@ -200,100 +174,87 @@ You can now configure the mediation logic to handle requests.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
 
-2. Select **Log** mediator in the **Generic** section under **All Mediators**. The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
+2. Select **Log** mediator in the **Mediators** section. The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
 
 3. Once you select the Log mediator, the **Log** pane will be opened. Fill in the information in the table below:
-    <table>
-  <tr>
-     <th>Field</th>
-     <th>Value</th>
-     <th>Description</th>
-  </tr>
-<tbody>
-  <tr>
-     <td>Log Category</td>
-     <td><code>INFO</code></td>
-     <td>Indicates that the log contains an informational message.</td>
-  </tr>
-  <tr>
-     <td>Log Level</td>
-     <td><code>Custom</code></td>
-     <td>When <code>Custom</code> is selected, only specified properties will be logged by this mediator.
-     </td>
-  </tr>
-  <tr>
-     <td>Log Separator</td>
-     <td><code>(blank)</code></td>
-     <td>Since there is only one property that is being logged, you do not require a separator. Therefore, leave this field blank.</td>
-  </tr>
-  <tr>
-     <td>Properties</td>
-     <td><br />
-     </td>
-     <td>
-        <div class="content-wrapper">
-           1. To edit the **Properties** and print a welcome message in the log, click **Add Parameter**. <br />
-               <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png" alt="add-parameter" width="30%"></a>, <br />
-           2. Then add the following values:<br />
-           <ul>
-              <li><strong>Property Name</strong>: <code>Log Property message</code></li>
-              </li>
-              <li><strong>Property Value</strong> : <code>"Welcome to HealthcareService"</code></li>
-           </ul>
-           <p>
-           <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png" alt="log-property" width="30%"></a></p> <br />
-         3. Click **Save** to save the properties.
-        </div>
-     </td>
-  </tr>
-  <tr>
-     <td>Description</td>
-     <td><code>Request Log</code></td>
-     <td>The <strong>Description</strong> field provides the name that appears for the Log mediator icon in the design view.</td>
+<table>
+    <tr>
+         <th>Field</th>
+         <th>Value</th>
+         <th>Description</th>
     </tr>
+    <tbody>
+        <tr>
+             <td>Log Category</td>
+             <td><code>INFO</code></td>
+             <td>Indicates that the log contains an informational message.</td>
+        </tr>
+        <tr>
+             <td>Message</td>
+             <td><code>Welcome to HealthcareService</code></td>
+             <td>Indicates the message.</td>
+        </tr> 
+        <tr>
+             <td>Description</td>
+             <td><code>Request Log</code></td>
+             <td>The <strong>Description</strong> field provides the name that appears for the Log mediator icon in the design view.</td>
+        </tr>
     </tbody>
+</table>
+
+4. Click **Submit** to save the Log mediator configuration.
+
+    Let's configure a `GET` operation to send the request message to the `HealthcareService` endpoint and receive the response message.
+
+5. Click on the **+** icon in the sequence to add a **GET** operation for **QueryDoctorConn** after the Log mediator.
+From the palette, select **Mediators** > **HTTP** > **GET** operation.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/http-connector-get-operation.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/http-connector-get-operation.png" alt="http connector get operation" width="30%"></a>
+
+6. Once the **GET** operation form is opened, fill in the information in the table below:
+
+    <table>
+        <tr>
+             <th>Field</th>
+             <th>Value</th>
+             <th>Description</th>
+        </tr>
+        <tbody>
+            <tr>
+                 <td>Connection</td>
+                 <td><code>QueryDoctorConn</code></td>
+                 <td>The connection to be used to execute the operation.</td>
+            </tr>
+            <tr>
+                 <td>Relative Path</td>
+                 <td><code>/${params.uriParams.category}</code></td>
+                 <td>Indicates the relative path added to the base URL of the connection. In this case, 
+    the variable 'category' that needs to be included in the request for querying doctors is represented as 
+    <code>{params.uriParams.category}</code> in the relative path.</td>
+            </tr>
+        </tbody>
     </table>
-
-3.  Click **Submit** to save the Log mediator configuration.
-
-    Let's configure a **Call** mediator to send the request message to the `HealthcareService` endpoint and receive the response message.
-
-4. Click on the **+** icon in the sequence to add a Call mediator after the Log mediator.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" alt="add call" width="80%"></a>
-
-5. From the **Palette**, select **Call Endpoint** mediator under the **Mediators** > **Generic** section.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" alt="call endpoint mediator" width="30%"></a>
-
-6. From the **Call Endpoint** pane, select the **QueryDoctorEP** endpoint, which we created in a previous step.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png" alt="call endpoint" width="30%"></a>
 
 7. Click **Submit**.
 
-    Now let's add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
+    Now let's add a **Respond** mediator at the end of the sequence to send the response message from the healthcare service back to the client.
 
-8. Click on the **+** icon in the sequence to add a Respond mediator after the Call mediator.
+8. Click on the **+** icon below the **GET** operation in the sequence to add a Respond mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
-
-9. From the **Palette**, select **Respond** mediator under the **Mediators** > **Generic** section.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
+9. From the Palette, select **Respond** mediator under the **Mediators** section.
 
 10. Click **Submit**.
 
 You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" alt="integration sequence" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png" alt="integration sequence with http connector" width="80%"></a>
 
 ### Step 3: Configure the Micro Integrator
 
 !!! info "Prerequisites"
     Before you begin, install Micro Integrator on your machine:
 
-    1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, provide necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+    1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, provide the necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
     
     2. Extract the ZIP file. The extracted folder will be referred to as the `<MI_HOME>` folder.
 
@@ -315,7 +276,7 @@ Let's enable this feature in the Micro Integrator.
     ```
 
 !!! Note
-    Since the integration developer may not know the API URL when it gets deployed in the Micro Integrator, the URL of the API will be parameterize as `https://{MI_HOST}:{MI_PORT}/healthcare` which will be resolved later using environment variables `MI_HOST` and `MI_PORT` respectively. By default, `localhost` will be used as the `MI_HOST` and `8253` as the `MI_PORT`. Depending on your deployment, you may need to update these environment variables.
+    Since the integration developer may not know the API URL when it gets deployed in the Micro Integrator, the URL of the API will be parameterized as `https://{MI_HOST}:{MI_PORT}/healthcare` which will be resolved later using environment variables `MI_HOST` and `MI_PORT` respectively. By default, `localhost` will be used as the `MI_HOST` and `8253` as the `MI_PORT`. Depending on your deployment, you may need to update these environment variables.
 
 ### Step 4: Start the API Manager runtime
 
@@ -340,7 +301,7 @@ Let's start the API Manager runtime before starting the Micro Integrator.
 
 6. Run the project.
 
-    Click the **Build and Run** icon located on the top right corner of the VS Code.
+    Click the **Build and Run** icon located in the top right corner of the VS Code.
 
     <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
