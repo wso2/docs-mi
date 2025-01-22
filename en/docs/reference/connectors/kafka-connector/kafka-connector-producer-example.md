@@ -98,7 +98,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 **Create a topic**:
 
 Let’s create a topic named `test` with a single partition and only one replica.
-Navigate to the <KAFKA_HOME> and run following command. 
+Navigate to the `<KAFKA_HOME>` and run following command. 
 ```bash
 bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test     
 ```
@@ -112,7 +112,7 @@ curl -X POST -d '{"name":"sample"}' "http://localhost:8290/publishMessages" -H "
 
 **Expected response**: 
    
-Navigate to the <KAFKA_HOME> and run the following command to verify the messages:
+Navigate to the `<KAFKA_HOME>` and run the following command to verify the messages:
 ```bash
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
