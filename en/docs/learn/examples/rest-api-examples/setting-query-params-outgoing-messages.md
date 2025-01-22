@@ -10,44 +10,41 @@ curl -v -X GET "http://localhost:8290/stockquote/view/IBM?param1=value1&param2=v
 
 ## Synapse configuration
 
-Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following is a sample REST API configuration that can be used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-There are two query parameters (customer name and ID) that must be set in the outgoing message from the Micro Integrator. We can configure the API to set those parameters as shown below. The query parameter values can be accessed through the `get-property` function by specifying the parameter number as highlighted in the request (given above).
+There are two query parameters (customer name and ID) that must be set in the outgoing message from the Micro Integrator. We can configure the API to set those parameters as shown below. The path and query parameter values can be accessed through expressions.
 
 === "REST API"
-    ```xml 
-    <api xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteAPI" context="/stockquote">
-       <resource methods="GET" uri-template="/view/{symbol}">
-          <inSequence>
-             <payloadFactory media-type="xml">
-                <format>
-                   <m0:getQuote xmlns:m0="http://services.samples">
-                      <m0:request>
-                         <m0:symbol>$1</m0:symbol>
-                         <m0:customerName>$2</m0:customerName>
-                         <m0:customerId>$3</m0:customerId>
-                      </m0:request>
-                   </m0:getQuote>
-                </format>
-                <args>
-                   <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
-                   <arg evaluator="xml" expression="get-property('query.param.param1')"/>
-                   <arg evaluator="xml" expression="get-property('query.param.param2')"/>
-                </args>
-             </payloadFactory>
-             <property name="SOAPAction" value="urn:getQuote" scope="transport"/>
-             <call>
-                <endpoint key="SimpleStockQuoteService" />
-             </call>
-             <respond/>
-          </inSequence>
-       </resource>
+    ```xml
+    <api name="StockQuoteAPI" context="/stockquote" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/view/{symbol}?param1={param1}&amp;param2={param2}">
+            <inSequence>
+                <payloadFactory media-type="xml" template-type="default">
+                    <format>
+                        <m0:getQuote xmlns:m0="http://services.samples">
+                            <m0:request>
+                                <m0:symbol>${params.uriParams.symbol}</m0:symbol>
+                                <m0:customerName>${params.queryParams.param1}</m0:customerName>
+                                <m0:customerId>${params.queryParams.param2}</m0:customerId>
+                            </m0:request>
+                        </m0:getQuote>
+                    </format>
+                </payloadFactory>
+                <property name="SOAPAction" scope="transport" type="STRING" value="urn:getQuote" />
+                <call>
+                    <endpoint key="SimpleStockQuoteService"/>
+                </call>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
     </api>
     ```
 === "Endpoint"
     ```xml
     <endpoint name="SimpleStockQuoteService" xmlns="http://ws.apache.org/ns/synapse">
-       <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService"/>
     </endpoint>
     ```
 
@@ -56,29 +53,23 @@ There are two query parameters (customer name and ID) that must be set in the ou
 You can define a REST API and access the query parameters or path parameters by defining them in expressions. The following is a sample code that shows how the resource is defined.
 
 ```xml
-<resource methods="GET" uri-template="/{val1}/groups/{val2}/json?q1={v1}&q2={v2}">
+<resource methods="GET" uri-template="/{val1}/groups/{val2}/json?q1={v1}&amp;q2={v2}">
 ```
 
 **Reading a query parameter**
 
-The following sample indicates how the expressions can be defined using `get-property('query.param.xxx')` to read a query parameter.
+The following sample indicates how the expressions can be defined using `${params.queryParams.param1}` to read a query parameter.
 
 ```xml
-<property name="queryParam" expression="get-property('query.param.q1')"></property>
-```
-
-Alternately, you can use the following.
-
-```xml
-<property name="queryParam" expression="$url:q1"></property>
+<property name="queryParam" expression="${params.queryParams.param1}"></property>
 ```
 
 **Reading a path parameter**
 
-The following sample indicates how the expressions can be defined using `get-property('uri.var.yyy')` to read a path parameter.
+The following sample indicates how the expressions can be defined using `${params.uriParams.symbol}` to read a path parameter.
 
 ```xml
-<property name="pathParam" expression="get-property('uri.var.val1')"></property>
+<property name="pathParam" expression="${params.uriParams.symbol}"></property>
 ```
 
 ## Build and run
