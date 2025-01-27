@@ -37,7 +37,7 @@ In places where the Synapse Expressions are used, the tooling support is provide
 ${expression}
 ```
 
-Here, the expression can just be a parameter to access a value from the payload, properties, variables, headers, registry. Or it can be an expression which combines multiple parameters to perform operations on them.
+Here, the expression can just be a parameter to access a value from the payload, properties, variables, headers, or registry. Or, it can be an expression that combines multiple parameters to perform operations on them.
 
 Example usage:
 
