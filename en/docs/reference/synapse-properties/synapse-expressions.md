@@ -16,7 +16,7 @@ Each expression can just be a parameter or an expression which combines multiple
 
 We can chain the above building blocks to create complex expressions required by integration use cases. 
 
-Ex: The following expression is checking if the given customer is eligible for a promotion, based on number of orders he/she has placed and the total amount spent on a given order.
+For example, the following expression checks if the given customer is eligible for a promotion, based on the number of orders he/she has placed and the total amount spent on a given order.
 
 ```
 length(payload.orders[?(@.customerID == vars.customerId && @.total > params.queryParams.minimumBillAmount)]) > configs.promoEligibilityCount ? "Eligible" : "Not eligible";
