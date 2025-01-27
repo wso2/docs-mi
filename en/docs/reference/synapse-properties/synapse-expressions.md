@@ -2,21 +2,42 @@
 
 ## Overview
 
-Synapse Expressions are powerful expressions designed to streamline the handling of JSON payloads. Handling of XML payloads is also supported using a dedicated function to evaluate XPath expressions.
+Synapse Expressions is a powerful, single-line expression type designed to overcome the limitations we faced when using JSONPath and XPath expressions in WSO2 Micro Integrator.
 
-Since JSONPath is limited to extracting JSON content only, it's necessary to use XPath to perform additional operations on the extracted data (for example, addition and substring extraction). Synapse Expressions address this limitation by enabling direct operations on JSON payloads, eliminating the need for complex workarounds.
+Since JSONPath is limited to extracting JSON content, it's often necessary to use XPath to perform additional operations on the extracted data (for example, addition and substring operations). Synapse Expressions address this limitation by enabling direct operations on JSON payloads, eliminating the need for complex workarounds.
 
 Furthermore, Synapse Expressions provide a unified syntax to access a wide range of system elements, including properties, variables, configurations, headers, registry content, secrets, and parameters. This cohesive approach simplifies development, making it significantly more efficient and user-friendly for developers.
 
-## Syntax
+The main building blocks of Synapse Expressions are expressions and parameters.
 
-The syntax for Synapse Expressions is as follows:
+<a href="{{base_path}}/assets/img/reference/expression_overview.png"><img src="{{base_path}}/assets/img/reference/expression_overview.png" alt="Expression Syntax" width="80%"></a>
+
+Each expression can just be a parameter or an expression which combines multiple parameters.
+
+We can chain the above building blocks to create complex expressions required by integration use cases. 
+
+For example, the following expression checks if the given customer is eligible for a promotion, based on the number of orders he/she has placed and the total amount spent on a given order.
+
+```
+length(payload.orders[?(@.customerID == vars.customerId && @.total > params.queryParams.minimumBillAmount)]) > configs.promoEligibilityCount ? "Eligible" : "Not eligible";
+```
+
+<a href="{{base_path}}/assets/img/reference/complex_expression.png"><img src="{{base_path}}/assets/img/reference/complex_expression.png" alt="Expression Syntax" width="100%"></a>
+
+## Tooling support
+
+In places where the Synapse Expressions are used, the tooling support is provided to assist the user in writing the expressions. 
+
+<a href="{{base_path}}/assets/img/reference/VSCode_expression_support.gif"><img src="{{base_path}}/assets/img/reference/VSCode_expression_support.gif" alt="Expression Syntax" width="80%"></a>
+
+
+## Syntax
 
 ```
 ${expression}
 ```
 
-Here, the expression can be a combination of literals, value access expressions, operators, filter expressions, conditional expressions, and functions.
+Here, the expression can just be a parameter to access a value from the payload, properties, variables, headers, or registry. Or, it can be an expression that combines multiple parameters to perform operations on them.
 
 Example usage:
 
@@ -345,6 +366,13 @@ log(payload.value)</code></pre></td>
 pow(payload.base, payload.exponent)</code></pre></td>
 <td>Returns the result of raising the base to the power of the exponent.</td>
 </tr>
+<tr class="odd">
+<td><pre><code>round</code></pre></td>
+<td><pre><code>round(2.7543)
+round(2.7543, 2)
+round(payload.value, payload.decimalPlaces)</code></pre></td>
+<td>Round the number to the given decimal places</td>
+</tr>
 </tbody>
 </table>
 
@@ -619,21 +647,12 @@ The following keywords are reserved in Synapse expressions and cannot be used in
 <td>in</td>
 <td>nin</td>
 <td>subsetof</td>
-<td>size</td>
 </tr>
 <tr class="even">
+<td>size</td>
 <td>empty</td>
 <td>empty true</td>
 <td>empty false</td>
-<td>var</td>
-<td>payload</td>
-</tr>
-<tr class="odd">
-<td>headers</td>
-<td>config</td>
-<td>properties</td>
-<td>props</td>
-<td>params</td>
 </tr>
 </tbody>
 </table>
