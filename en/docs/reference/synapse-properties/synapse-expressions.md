@@ -8,7 +8,7 @@ Since JSONPath is limited to extracting JSON content, it's often necessary to us
 
 Furthermore, Synapse Expressions provide a unified syntax to access a wide range of system elements, including properties, variables, configurations, headers, registry content, secrets, and parameters. This cohesive approach simplifies development, making it significantly more efficient and user-friendly for developers.
 
-Main building blocks of Synapse Expressions are expressions and parameters.
+The main building blocks of Synapse Expressions are expressions and parameters.
 
 <a href="{{base_path}}/assets/img/reference/expression_overview.png"><img src="{{base_path}}/assets/img/reference/expression_overview.png" alt="Expression Syntax" width="80%"></a>
 
