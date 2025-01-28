@@ -105,7 +105,7 @@ Let's create three different HTTP connections for the above services.
 
 1. Navigate to the **Project Overview** page.
 
-2. Click on the **Add artifact**.
+2. Click on **Add artifact**.
 
    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
