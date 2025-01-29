@@ -5,7 +5,7 @@ The **Scatter Gather Mediator** can be used to clone a message into several mess
 ## Syntax
 
 ```xml
-<scatter-gather parallel-execution=(true | false) result-target=(Body | variable) content-type=(JSON | XML) root-element=(string)>
+<scatter-gather parallel-execution=(true | false) target=(Body | Variable) target-variable=(string) result-content-type=(JSON | XML) result-enclosing-element=(string)>
     <aggregation expression="expression" condition="expression" timeout="long" min-messages="expression" max-messages="expression"/>
         <sequence>
         (mediator)+
@@ -66,7 +66,7 @@ The parameters available to configure the Scatter Gather mediator are as follows
          </td>
       </tr>
       <tr class="odd">
-         <td><strong>Root Element Name</strong></td>
+         <td><strong>Result Enclosing Element Name</strong></td>
          <td>Specifies the name of the root element wrapping the aggregation result. Applicable only when <strong>Content Type</strong> is XML.</td>
       </tr>
       <tr class="even">
@@ -74,7 +74,7 @@ The parameters available to configure the Scatter Gather mediator are as follows
          <td>
             Determines where the aggregated result will be stored. 
             <ul>
-               <li><strong>Body</strong>: Note that this will Replace the existing message body with the aggregated result. (Default)</li>
+               <li><strong>Body</strong>: Note that this will replace the existing message body with the aggregated result. (Default)</li>
                <li><strong>Variable</strong>: Saves the result to a variable defined under <strong>Variable Name</strong> parameter.</li>
             </ul>
          </td>
@@ -120,7 +120,7 @@ The parameters available to configure the Scatter Gather mediator are as follows
 In this example, the Scatter Gather mediator execute the sequences parallelly and replace the message body with the aggregated JSON result.
 
 ```xml
-<scatter-gather parallel-execution="true" result-target="Body" content-type="JSON">
+<scatter-gather parallel-execution="true" target="Body" result-content-type="JSON">
    <aggregation expression="${payload}" />
    <sequence>
       <log category="INFO">
@@ -153,7 +153,7 @@ In this example, the Scatter Gather mediator execute the sequences parallelly an
 In this example, the Scatter Gather work in sequential mode and save the aggregated XML result to a variable named <code>servicesResult</code>.
 
 ```xml
-<scatter-gather parallel-execution="false" result-target="servicesResult" content-type="XML" root-element="AggregatedResults">
+<scatter-gather parallel-execution="false" target="Variable" target-variable="servicesResult" result-content-type="XML" result-enclosing-element="AggregatedResults">
    <aggregation expression="xpath('$body/node()')" />
    <sequence>
       <log category="INFO">
