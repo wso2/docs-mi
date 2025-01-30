@@ -28,74 +28,55 @@ When you integrate the systems in your organization, it is also necessary to int
 
 Now let's start designing the integration by adding the necessary artifacts.
 
-#### Create an endpoint
+#### Create an HTTP connection
 
-An Endpoint artifact is required to expose the URL that connects to the back-end service.
+1. Navigate to the **Project Overview** page.
 
-1. Navigate to the **MI Project Explorer** > **Endpoints**.
+2. Click on **Add artifact**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
-2. Hover over **Endpoints** and click the **+** icon that appears.
+3. Click **+ View More** under **Create an Integration**.
+4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
-3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
-
-4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
-
-    <table>
-        <tr>
-            <th>Property</th>
-            <th>Value</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Endpoint Name</td>
-            <td>
-                <code>HospitalServicesEP</code>
-            </td>
-            <td>
-                This is a single endpoint configured to forward requests to the relevant hospital by reading the hospital specified in the request payload.
-            </td>
-        </tr>
-        <tr>
-            <td>URI Template</td>
-            <td>
-                <code>http://localhost:9090/{uri.var.hospital}/categories/{uri.var.category}/reserve</code>
-            </td>
-            <td>
-                The template for the request URL is expected by the back-end service. The following two variables will be replaced by the corresponding values in the request message:
-                <ul>
-                  <li>{uri.var.hospital}</li>
-                  <li>{uri.var.category}</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>Method</td>
-            <td>
-                <code>POST</code>
-            </td>
-            <td>
-                Endpoint HTTP REST Method.
-            </td>
-        </tr>
-    </table>
+5. Select **Http**.
+   You need to add dependencies to the project, if not added yet.
+6. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
+     <table>
+         <thead>
+           <tr>
+              <th>Property</th>
+              <th>Value</th>
+              <th>Description</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+              <td>Connection Name</td>
+              <td><code>HospitalServicesConn</code></td>
+              <td>The name of the connection.</td>
+           </tr>
+           <tr>
+              <td>Base URL</td>
+              <td>
+                 <code>http://localhost:9090</code>
+              </td>
+              <td>The base of the request URL for the back-end service.</td>
+           </tr>
+         </tbody>
+     </table>
 
 #### Create an email connection
 
-1. Navigate to the **MI Project Explorer** > **Connections**. Hover over **Connections** and click the **+** icon that appears.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/add-connection.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/add-connection.png" alt="Add connection" width="30%"></a>
-
-2. Next, select the **Email** connector from the appeared connector menu. 
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/select-email-connector.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/select-email-connector.png" alt="Select email connector" width="80%"></a>
-
-3. In the **Add New Connection** form that appears, specify the following values to create the new endpoint.
+1. Navigate to the **Project Overview** page.
+2. Click on **Add artifact**.
+3. Click **+ View More** under **Create an Integration**.
+4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
+5. From the available connections for the email connector, select **SMTPS**.
+   You need to add dependencies to the project, if not added yet.
+6. In the **Add New Connection** form, specify the following values to create a new SMTPS connection.
 
     !!! Tip
         If you have enabled 2-factor authentication, an app password should be obtained as instructed [here](https://support.google.com/accounts/answer/185833?hl=en).
@@ -109,12 +90,6 @@ An Endpoint artifact is required to expose the URL that connects to the back-end
             <td>Connection Name</td>
             <td>
                 Enter `smtpsconnection`
-            </td>
-        </tr>
-        <tr>
-            <td>Connection Type</td>
-            <td>
-                Select `SMTPS` for SMTP Secured Connection.
             </td>
         </tr>
         <tr>
@@ -151,15 +126,13 @@ An Endpoint artifact is required to expose the URL that connects to the back-end
 
 #### Create the REST API
 
-1. Go to **MI Project Explorer** > **APIs**.
+1. Navigate to the **Project Overview** page.
+2. Click on **Add artifact**.
+3. Select **APIs** under **Create an Integration** to open the **API Form**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
-
-2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
-
-3.  Specify values for the required REST API properties:
+    <a href="{{base_path}}/assets/img/integrate/connectors/api-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/api-artifact.png" alt="api artifact" width="80%"></a>
+        
+4. Specify values for the required REST API properties:
 
     <table>
       <tr>
@@ -203,16 +176,11 @@ An Endpoint artifact is required to expose the URL that connects to the back-end
             <th>Description</th>
         </tr>
         <tr>
-            <td>URI Template</td>
+            <td>Resource Path</td>
             <td>
                 <code>/categories/{category}/reserve</code> </br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/categories/{category}/reserve</code> where <code>{category}</code> is a variable.
             </td>
         </tr>
-        <tr>
-          <td>URL Style</td>
-          <td>
-            <code>URI_TEMPLATE</code>
-          </td>
         <tr>
             <td>Methods</td>
             <td>
@@ -233,9 +201,9 @@ You can now start updating the API resource with the mediation flow.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/update-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/update-mediation-flow.png" alt="edit API resource" width="30%"></a>
 
-2. To add **Property mediator** click **+** icon in the design view and select **Property mediator** from the palette. This is used to extract the hospital name that is sent in the request payload. 
+2. To add **Variable mediator** click **+** icon in the design view and select **Variable mediator** from the palette. This is used to extract the hospital name that is sent in the request payload. 
 
-3.  With the **Property mediator** selected, access the **Property** tab and specify the details given below.
+3. With the **Variable mediator** selected, specify the details given below.
     <table>
       <tr>
         <th>Property</th>
@@ -243,39 +211,39 @@ You can now start updating the API resource with the mediation flow.
         <th>Description</th>
       </tr>
       <tr>
-        <td>Property Name</td>
-        <td><code>uri.var.hospital</code></td>
-        <td>The name that will be used to refer to this property's values.</td>
-      </tr>
-      <tr>
-        <td>Property Action</td>
+        <td>Action</td>
         <td><code>set</code></td>
-        <td>The property action.</td>
+        <td>The variable action.</td>
       </tr>
       <tr>
-         <td>Property Data Type</td>
+        <td>Name</td>
+        <td><code>hospital</code></td>
+        <td>The name that will be used to refer to this variable's values.</td>
+      </tr>
+      <tr>
+        <td>Action</td>
+        <td><code>set</code></td>
+        <td>The variable action.</td>
+      </tr>
+      <tr>
+         <td>Data Type</td>
          <td>STRING</td>
-         <td>The data type of the property.</td>
-      </tr>
-      <tr>
-        <td>Property Scope</td>
-        <td><code>default</code></td>
-        <td>The scope of the property.</td>
+         <td>The data type of the variable.</td>
       </tr>
       <tr>
         <td>Value (Expression)</td>
-        <td><code>json-eval(&#36;.hospital_id)</code></td>
+        <td><code>payload.hospital_id</code></td>
         <td>
           <ol>
               <li>
                   Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as an <i>expression</i>.
               </li>
               <li>
-                  Enter <code>json-eval($.hospital_id)</code> as the expression value.
+                  Enter <code>payload.hospital_id</code> as the expression value.
               </li>
           </ol>
               <b>Note</b>:
-              This is the JSONPath expression that will extract the hospital from the request payload.
+              This is the synapse expression that will extract the hospital from the request payload.
           </div>
         </td>
       </tr>
@@ -288,9 +256,9 @@ You can now start updating the API resource with the mediation flow.
 
 4. Click **Submit**.
 
-5. Add another **Property Mediator** by clicking **+** after the previously added property mediator and selecting **Property Mediator** from the palette. This is used to extract the patient's email address. 
+5. Add another **Variable Mediator** by clicking **+** after the previously added variable mediator and select **Variable Mediator** from the palette. This is used to extract the patient's email address. 
 
-6. With the Property mediator selected, access the **Property** tab and specify the details given below.
+6. With the variable mediator selected, specify the details given below.
 
     <table>
       <tr>
@@ -298,20 +266,20 @@ You can now start updating the API resource with the mediation flow.
           <th>Description</th>
       </tr>
       <tr>
-        <td>Property Name</td>
-        <td>Enter <code>email_id</code>.</td>
-      </tr>
-      <tr>
-        <td>Property Action</td>
+        <td>Action</td>
         <td>Enter <code>set</code>.</td>
       </tr>
       <tr>
-        <td>Property Data Type</td>
-        <td>STRING</td>
+        <td>Name</td>
+        <td>Enter <code>email_id</code>.</td>
       </tr>
       <tr>
-        <td>Property Scope</td>
-        <td>Enter <code>default</code></td>
+        <td>Action</td>
+        <td>Enter <code>set</code>.</td>
+      </tr>
+      <tr>
+        <td>Data Type</td>
+        <td>STRING</td>
       </tr>
       <tr>
         <td>Value</td>
@@ -321,7 +289,7 @@ You can now start updating the API resource with the mediation flow.
                     Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as <i>expression</i>.
                 </li>
                 <li>
-                    Enter <code>json-eval($.patient.email)</code> to overwrite the default expression.
+                    Enter <code>payload.patient.email</code> to overwrite the default expression.
                 </li>
             </ol>
         </td>
@@ -332,10 +300,32 @@ You can now start updating the API resource with the mediation flow.
       </tr>
     </table>
 
-7.  Add a **Call Mediator** by clicking **+** after the added property mediators and selecting **Call Mediator** from the palette. Then select the **HospitalServicesEP** endpoint from the endpoint drop-down and click **Submit**.
+7. Click on the **+** icon in the sequence after the previously added variable mediator to add a **GET** operation. From the palette, select **Mediators** > **HTTP** > **GET** operation.
+8. Once the **GET** operation form is opened, fill in the information in the table below:
 
-    !!! Info
-        Using the Call mediator allows us to define other service invocations following this mediator.
+     <table>
+         <tr>
+              <th>Field</th>
+              <th>Value</th>
+              <th>Description</th>
+         </tr>
+         <tbody>
+             <tr>
+                  <td>Connection</td>
+                  <td><code>HospitalServiceConn</code></td>
+                  <td>The connection to be used to execute the operation.</td>
+             </tr>
+             <tr>
+                  <td>Relative Path</td>
+                  <td><code>/${vars.hospital}/categories/${params.uriParams.category}/reserve</code></td>
+                  <td>Indicates the relative path added to the base URL of the connection. In this case, 
+     the variable 'category' that needs to be included in the request is accessed as 
+     <code>{params.uriParams.category}</code> in the relative path.</td>
+             </tr>
+         </tbody>
+     </table>
+
+9. Click **Submit**.
 
     !!! Note
         The following response will be returned from GrandOakEP, ClemencyEP, or PineValleyEP:
@@ -356,55 +346,51 @@ You can now start updating the API resource with the mediation flow.
                "confirmed":false}
         ```
 
-8. Add another **Property mediator** just after the call mediator to retrieve and store the response sent from HospitalServiceEP. This will be used within the body of the email.
+10. Add another **Variable mediator** just after the **GET** operation to retrieve and store the response sent from HospitalService endpoint. This will be used within the body of the email.
 
-9. With the Property mediator selected, access the **Property** tab and specify the details given below.
+11. With the variable mediator selected, specify the details given below.
 
-    <table>
-      <tr>
-          <th>Property</th>
-          <th>Description</th>
-      </tr>
-      <tr>
-        <td>Property Name</td>
-        <td>Enter <code>hospital_response</code>.</td>
-      </tr>
-      <tr>
-        <td>Property Action</td>
-        <td>Enter <code>set</code>.</td>
-      </tr>
-      <tr>
-        <td>Property Data Type</td>
-        <td>STRING</td>
-      </tr>
-      <tr>
-        <td>Property Scope</td>
-        <td>Enter <code>default</code></td>
-      </tr>
-      <tr>
-        <td>Value</td>
-        <td>
-            <ol>
-                <li>
-                    Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as <i>expression</i>.
-                </li>
-                <li>
-                    Enter <code>json-eval($)</code> to overwrite the default expression.
-                </li>
-            </ol>
-        </td>
-      </tr>
-      <tr>
-          <td>Description</td>
-          <td>Get Hospital Response</td>
-      </tr>
-    </table>
+     <table>
+       <tr>
+           <th>Property</th>
+           <th>Description</th>
+       </tr>
+       <tr>
+         <td>Name</td>
+         <td>Enter <code>hospital_response</code>.</td>
+       </tr>
+       <tr>
+         <td>Action</td>
+         <td>Enter <code>set</code>.</td>
+       </tr>
+       <tr>
+         <td>Data Type</td>
+         <td>STRING</td>
+       </tr>
+       <tr>
+         <td>Value</td>
+         <td>
+             <ol>
+                 <li>
+                     Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as <i>expression</i>.
+                 </li>
+                 <li>
+                     Enter <code>payload</code> to overwrite the default expression.
+                 </li>
+             </ol>
+         </td>
+       </tr>
+       <tr>
+           <td>Description</td>
+           <td>Get Hospital Response</td>
+       </tr>
+     </table>
 
-10. Click **+** icon below the previously added property mediator and add the **Send** operation from the **Email Connector** palette.
+12. Click **+** icon below the previously added variable mediator and add the **Send** operation from the **Email** connector.
 
-11. With the **Send** operation selected, access the property tab, and select the created connection as **Connection** from the drop-down in the properties window.
+13. With the **Send** operation selected, specify the following details in the property tab.
 
-12. Specify the following details in the property tab;
+14. Specify the following details in the property tab;
 
     <table>
         <tr>
@@ -412,9 +398,20 @@ You can now start updating the API resource with the mediation flow.
             <th>Description</th>
         </tr>
         <tr>
+            <td>Connection</td>
+            <td>
+                Select the created <code>smtpsconnection</code> from the drop-down list.
+            </td>
+        <tr>
             <td>From</td>
             <td>
               Enter your email address as the value. This will be the account from which the email is sent.
+            </td>
+        </tr>
+        <tr>
+            <td>Personal Name</td>
+            <td>
+              Enter personal name of the person who is sending the email.
             </td>
         </tr>
         <tr>
@@ -425,7 +422,7 @@ You can now start updating the API resource with the mediation flow.
                         Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as <i>expression</i>.
                     </li>
                     <li>
-                        Enter <code>&#36;ctx:email_id</code> as the value. This retrieves the patient's email address that was stored in the relevant Property mediator. 
+                        Enter <code>vars.email_id</code> as the value. This retrieves the patient's email address, which was stored in the relevant variable mediator. 
                     </li>
                 </ol>
             </td>
@@ -444,14 +441,16 @@ You can now start updating the API resource with the mediation flow.
                         Click the <strong>Ex</strong> button in the <b>Value</b> field towards the end. This specifies the value type as <i>expression</i>.
                     </li>
                     <li>
-                        Enter <code>&#36;ctx:hospital_response</code> as the value. This retrieves the payment response that was stored in the relevant Property mediator.
+                        Enter <code>vars.hospital_response</code> as the value. This retrieves the payment response that was stored in the relevant variable mediator.
                     </li>
                 </ol>
             </td>
         </tr>
     </table>
 
-13.  Add a **Respond** mediator to end the sequence processing.
+15. Add a **Respond** mediator to end the sequence processing.
+
+<a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/final-integration.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/final-integration.png" alt="final integration" width="80%"></a>
 
 We have now finished creating all the required artifacts.
 
