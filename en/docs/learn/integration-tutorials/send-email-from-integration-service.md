@@ -32,7 +32,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 1. Navigate to the **Project Overview** page.
 
-2. Click on the **Add artifact**.
+2. Click on **Add artifact**.
 
    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
@@ -42,8 +42,8 @@ Now let's start designing the integration by adding the necessary artifacts.
     <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **Http**.
-6. You need to add dependencies to the project, if not added yet.
-7. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
+   You need to add dependencies to the project, if not added yet.
+6. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
      <table>
          <thead>
            <tr>
@@ -71,12 +71,12 @@ Now let's start designing the integration by adding the necessary artifacts.
 #### Create an email connection
 
 1. Navigate to the **Project Overview** page.
-2. Click on the **Add artifact**.
+2. Click on **Add artifact**.
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 5. From the available connections for the email connector, select **SMTPS**.
-6. You need to add dependencies to the project, if not added yet.
-7. In the **Add New Connection** form, specify the following values to create a new SMTPS connection.
+   You need to add dependencies to the project, if not added yet.
+6. In the **Add New Connection** form, specify the following values to create a new SMTPS connection.
 
     !!! Tip
         If you have enabled 2-factor authentication, an app password should be obtained as instructed [here](https://support.google.com/accounts/answer/185833?hl=en).
@@ -127,7 +127,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 #### Create the REST API
 
 1. Navigate to the **Project Overview** page.
-2. Click on the **Add artifact**.
+2. Click on **Add artifact**.
 3. Select **APIs** under **Create an Integration** to open the **API Form**.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/api-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/api-artifact.png" alt="api artifact" width="80%"></a>
@@ -400,7 +400,7 @@ You can now start updating the API resource with the mediation flow.
         <tr>
             <td>Connection</td>
             <td>
-                Select the created `smtpsconnection` from the drop-down list.
+                Select the created <code>smtpsconnection</code> from the drop-down list.
             </td>
         <tr>
             <td>From</td>
