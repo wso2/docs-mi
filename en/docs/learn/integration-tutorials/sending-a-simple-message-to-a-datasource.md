@@ -2,10 +2,10 @@
 
 ## What you'll build
 
-A **data service** provides a web service interface to access data that is stored in various datasources. The following sections describe how you can use Micro Integrator Extension for Visual Studio Code (MI for VS Code) to work with data services' artifacts. 
+A **data service** provides a web service interface to access data that is stored in various data sources. The following sections describe how you can use Micro Integrator Extension for Visual Studio Code (MI for VS Code) to work with data services' artifacts. 
 
 !!! Tip
-    Note that this feature is currently supported in Micro Integrator Extension for Visual Studio Code (MI for VS Code) for relational datasources and CSV files.
+    Note that this feature is currently supported in Micro Integrator Extension for Visual Studio Code (MI for VS Code) for relational data sources and CSV files.
 
 ## Let's get started!
 
@@ -13,9 +13,10 @@ A **data service** provides a web service interface to access data that is stor
 
 {!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
-- **MySQL server:** Follow the below steps to set up MySQL server.
+- **MySQL server:** Follow the steps below to set up the MySQL server.
     1. Install the MySQL server.
-    2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). You will need this when you configure the MySQL server with the Micro Integrator.
+    2. Connect to the MySQL server using the MySQL client. 
+    2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). Ensure that you download the JDBC driver version that matches your MySQL server version. You will need this when you configure the MySQL server with the Micro Integrator.
         
     3. Create a database named `Employees`.
 
@@ -56,15 +57,9 @@ Follow the steps given below to create a new data service.
 
 #### Create a data service with a data source
 
-1.  Navigate to the **MI Project Explorer** > **Data Services**.
-   
-   <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-data-source.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-data-source.png" width="30%"></a>
+1. Navigate to the **MI Project Explorer** > **Add artifact** > **Data Services**.
 
-2.  Hover over **Data Services** and click the **+** icon that appears.
-   
-   <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-data-source.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-data-source.png" width="30%"></a>
-
-3.  Enter a name for the data service:
+2. Enter a name for the data service:
 
     <table>
         <tr>
@@ -79,66 +74,77 @@ Follow the steps given below to create a new data service.
     </tbody>
     </table>
 
-4. Click **Add Datasource**.
+3. Click **Add Datasource**.
    
-<a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
     
-1. To create the datasource connection specify the following values to create the new datasource:
+4. To create the data source connection specify the following values to create the new data source:
 
     <table>
-    <caption>Datasource Properties</caption>
     <tr>
         <th>Property</th>
         <th>Value</th>
     </tr>
     <tr>
-        <td>Datasource ID</td>
-        <td>Datasource</td>
+        <td>Datasource Identifier</td>
+        <td><code>Datasource</code></td>
     </tr>
     <tr>
         <td>Datasource Type</td>
-        <td>RDBMS</td>
-    </tr>
-    <tr>
-        <td>Datasource Type (Default/External)</td>
-        <td>Leave <strong>Default</strong> selected.</td>
+        <td><code>RDBMS</code></td>
     </tr>
     <tr>
         <td>Database Engine</td>
-        <td>MySQL</td>
+        <td><code>MySQL</code></td>
     </tr>
     <tr>
-        <td>Driver Class</td>
-        <td>com.mysql.jdbc.Driver</td>
+        <td>Hostname</td>
+        <td><code>localhost</code></td>
     </tr>
     <tr>
-        <td>URL</td>
-        <td>jdbc:mysql://localhost:3306/Employees</td>
+        <td>Port</td>
+        <td><code>3306</code></td>
     </tr>
     <tr>
-        <td>User Name</td>
-        <td>user</td>
+        <td>Database Name</td>
+        <td><code>Employees</code></td>
+    </tr>
+    <tr>
+        <td>Username</td>
+        <td><code>user</code></td>
     </tr>
     <tr>
         <td>Password</td>
-        <td>password</td>
+        <td><code>password</code></td>
+    </tr>
+    <tr>
+        <td>Driver Class</td>
+        <td><code>com.mysql.jdbc.Driver</code></td>
     </tr>
 </table>
 
-<a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
 
-1.  Click **Add**.
-   
-2.  Click **Create** to create a data service with datasource.
+5. Click **Next**. 
+
+6. You will be directed to the **Select Database Driver** window to choose a driver. Browse and select the driver file, such as a JAR file. For example: `/Users/chathurangaj/Downloads/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar`.
+
+7. Click **Next** to complete creating the data source.
+
+8. You will then see the **Test Connection** form, where you can test the connection to the data source using the provided username and password.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection   .png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" width="80%"></a>
+
+9. Click **Test Connection** to verify the connection. A success or failure message will appear.
+
+10. Once the connection is successful, click **Create** to finalize the data source creation.
 
 #### Create a resource
 
 Now, let's create a REST resource that can be used to invoke the query.
 
-1. Click new **Data Service** created in the previous step.
+1. Click the new **Data Service** created in the previous step either from the side panel or from the overview page.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-dataservice.png" width="80%"></a>
-   
 2. Click **+ Resources**. 
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" width="80%"></a>
@@ -165,13 +171,12 @@ Now, let's create a REST resource that can be used to invoke the query.
 4. Click **Add**.
 
 !!!	tip
-    Alternatively, you can generate a data service from a datasource. For more information, refer to [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
+    Alternatively, you can generate a data service from a data source. For more information, refer to [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
 #### Configure data service
 
-Let's write an SQL query to GET data from the MySQL datasource that you
-configured in the previous step:
+Let's write an SQL query to GET data from the MySQL data source that you configured in the previous step:
 
 1. Click new **Resource** created in the previous step.
 
@@ -343,19 +348,13 @@ configured in the previous step:
  
 14. Click **Submit**.
 
-### Step 3: Configure the Micro Integrator server
-
-To add the MySQL database driver to the server:
-
-1. Copy the MySQL driver JAR (see [Setting up the Workspace](#step-1-set-up-the-workspace)) to `/project-path/deployment/libs`.
-
-If the driver class does not exist in the relevant directory, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver` when the Micro Integrator starts.
-
-### Step 4: Build and run the artifacts
+### Step 3: Build and run the artifacts
 
 {!includes/build-and-run-artifacts.md!}
 
-### Step 5: Test the data service
+If the MySQL driver JAR does not exist in the `/project-path/deployment/libs` directory, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver` when the Micro Integrator starts.
+
+### Step 4: Test the data service
 
 Let's test the use case by sending a simple client request that invokes the service.
 
