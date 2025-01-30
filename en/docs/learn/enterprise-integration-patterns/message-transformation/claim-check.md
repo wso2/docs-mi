@@ -13,7 +13,7 @@ The Claim Check EIP reduces the data volume of messages sent across a system wit
 
 ## Sample scenario
 
-The following scenario illustrates an instance where a stock quote requires authentication in order for it to allow access to the back-end service on the Axis2 server. For authentication, it is not necessary for the whole message to flow through the mediation. Instead, initially, the whole request will be stored in a property using the Enrich mediator, and the request will then be filtered to contain only the user name. The filtered message will be taken through the authentication step by the Filter mediator. If the authentication succeeds, the original content will be retrieved from the property by the Enrich mediator, and the whole message will be forwarded to the Axis2 server.
+The following scenario illustrates an instance where a stock quote requires authentication in order for it to allow access to the back-end service on the Axis2 server. For authentication, it is not necessary for the whole message to flow through the mediation. Instead, initially, the whole request will be stored in a property using the Enrich mediator, and the request will then be filtered to contain only the user name. The filtered message will be taken through the authentication step by the If Else mediator. If the authentication succeeds, the original content will be retrieved from the property by the Enrich mediator, and the whole message will be forwarded to the Axis2 server.
 
 The diagram below depicts how to simulate the example scenario using WSO2 MI.
 
@@ -99,7 +99,7 @@ Let's investigate the elements of the synapse configuration in detail.
 
 - Enrich mediator append the original message body as a new property `CLAIM_STORE` inside the message context.
 - The PayloadFactory is used to simplify the original message to contain credential information only.
-- A filter mediator is used to check if the credential information exists inside the new message body. The property `Validity` is set based on this.
+- An If Else mediator is used to check if the credential information exists inside the new message body. The property `Validity` is set based on this.
 - Once the validity is set, another enrich mediator is used to retrieve the original message stored in the `CLAIM_STORE` context and replace the body of the SOAP payload with it.
 
 The message is optimized as shown below to go through the authentication process inside the WSO2 MI. Once the authentication is done, the original message will be attached back to the payload and sent to the back-end service. 

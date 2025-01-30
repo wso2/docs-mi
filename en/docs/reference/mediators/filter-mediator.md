@@ -1,15 +1,13 @@
-# Filter Mediator
+# If Else Mediator
 
-The **Filter Mediator** can be used for filtering messages based on an
-XPath, JSONPath or a regular expression. If the test succeeds, the
-Filter mediator executes the other mediators enclosed in the sequence.
-
-The Filter Mediator closely resembles the "If-else" control structure.
+The **If Else Mediator** can be used for filtering messages based on a Synapse expression, 
+XPath, JSONPath or a regular expression. If the condition succeeds, the
+If Else mediator executes the other mediators enclosed in the sequence.
 
 ## Syntax
 
 ``` java
-<filter (source="[XPath|json-eval(JSONPath)]" regex="string") | xpath="[XPath|json-eval(JSONPath)]">
+<filter (source="[SynapseExpression|XPath|json-eval(JSONPath)]" regex="string") | xpath="[SynapseExpression|XPath|json-eval(JSONPath)]">
    mediator+
 </filter>
 ```
@@ -19,17 +17,17 @@ different sequences are applied to messages that meet the filter
 criteria and messages that do not meet the filter criteria.
 
 ``` java
-<filter (source="[XPath|json-eval(JSONPath)]" regex="string") | xpath="[XPath|json-eval(JSONPath)]">
-   <then [sequence="string"]>
+<filter (source="[SynapseExpression|XPath|json-eval(JSONPath)]" regex="string") | xpath="[SynapseExpression|XPath|json-eval(JSONPath)]">
+   <then>
      mediator+
    </then>
-   <else [sequence="string"]>
+   <else>
      mediator+
    </else>
 </filter>
 ```
 
-In this case, the Filter condition remains the same. The messages that
+In this case, the filter condition remains the same. The messages that
 match the filter criteria will be mediated using the set of mediators
 enclosed in the `         then        ` element. The messages that do
 not match the filter criteria will be mediated using the set of
@@ -37,7 +35,7 @@ mediators enclosed in the `         else        ` element.
 
 ## Configuration
 
-The parameters available for configuring the Filter mediator are as
+The parameters available for configuring the If Else mediator are as
 follows:
 
 <table>
@@ -49,69 +47,71 @@ follows:
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Specify As</strong></td>
-<td><p>This is used to specify whether you want to specify the filter criteria via an XPath expression or a regular expression.</p>
-<ul>
-<li><strong>XPath</strong> : If this option is selected, the Filter mediator tests the given XPath/JSONPath expression as a Boolean expression. When specifying a JSONPath, use the format <code>               json-eval(&lt;JSON_PATH&gt;)              </code> , such as <code>               json-eval(getQuote.request.symbol)              </code>.</li>
-<li><strong>Source and Regular Expression</strong> : If this option is selected, the Filter mediator matches the evaluation result of a source XPath/JSONPath expression as a string against the given regular expression.</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>Source</strong></td>
-<td><div class="content-wrapper">
-<p>The expression to locate the value that matches the regular expression that you can define in the <strong>Regex</strong> parameter.</p>
-<p>Tip</p>
-<p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
-
-</div></td>
-</tr>
-<tr class="odd">
-<td><strong>Regex</strong></td>
-<td>The regular expression to match the source value.</td>
+<td><strong>Condition</strong></td>
+<td><p>This is used to specify the condition that resolves to a boolean value. The message will be branched based on the result of this condition.</p>
 </tr>
 </tbody>
 </table>
 
+### Advanced configurations
+
+Parameters available to configure advanced properties of the If Else mediator are as follows:
+
+<table>
+  <tr>
+    <th>
+      Parameter Name
+    </th>
+    <th>
+      Description
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <strong>Use a regex pattern</strong>
+    </td>
+    <td>
+      If this is selected, the condition will use a regex-based evaluation.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Expression</strong>
+    </td>
+    <td>An expression that resolves to a string value, which will be compared with the regex pattern. This field is enabled only when 
+      <strong>Use a regex pattern</strong> is selected.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Matches</strong>
+    </td>
+    <td>The regex pattern to compare with the evaluated expression. This field is enabled only when 
+      <strong>Use a regex pattern</strong> is selected.
+    </td>
+  </tr>
+</table>
+
 ##  Examples
 
-### Sending only messages matching the filter criteria
+### Approving or Rejecting Loan Applications based on a condition
 
-In this example, the Filter will get the `         To        ` header
-value and match it against the given regular expression. If this
-evaluation returns `         true        ` , it will send the message.
-If the evaluation returns `         false        ` , it will drop the
-message.
+In this example, the If Else Mediator will check the credit score in a loan application and decide whether to approve or reject it. 
+If the credit score is 1000, the application is approved; otherwise, it is rejected.
 
 ``` java
-<filter source="get-property('To')" regex=".*/StockQuote.*">
-      <then>
-          <send/>
-      </then>
-      <else>
-          <drop/>
-      </else>
-</filter>
-```
-
-### Applying separate sequences
-
-In this example, the [Log mediator]({{base_path}}/reference/mediators/log-mediator) is used to log
-information from a service named Bus Services via a property when the
-request matches the filter criteria. When the request does not match the
-filter criteria, another log mediator configuration is used log
-information from a service named Train Service in a similar way.
-
-```
-<filter source="get-property('Action')" regex=".*getBusNo"> 
-   <then> 
-      <log level="custom"> 
-         <property name="service" value="Bus Services is called"/> 
-      </log> 
-   </then> 
-   <else> 
-      <log level="custom"> 
-         <property name="service" value="Train Service is called"/> 
-      </log> 
-   </else> 
+<filter xpath="${payload.loanApplication.creditScore == 1000}">
+   <then>
+      <log category="INFO">
+         <message>ApprovalStatus = Approved</message>
+      </log>
+      <sequence key="loan_approval_seq"/>
+   </then>
+   <else>
+      <log category="INFO">
+         <message>ApprovalStatus = Rejected</message>
+      </log>
+      <sequence key="loan_rejection_seq"/>
+   </else>
 </filter>
 ```

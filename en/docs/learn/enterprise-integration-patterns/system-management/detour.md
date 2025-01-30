@@ -97,7 +97,7 @@ Send a request using the Stock Quote client to WSO2 ESB in the following manner.
 ant stockquote -Daddurl=http://localhost:9000/services/SimpleStockQuoteService -Dtrpurl=http://localhost:8280
 ```
 
-Based on the **To** endpoint reference of `http://localhost:9000/services/SimpleStockQuoteService`, the ESB performs a comparison to the path `StockQuote`, and if the request matches the XPath expression of the filter mediator, the filter mediator's child mediators will be executed. Next, the child mediators start validating the request. Because we are sending the `stockquote` request using `ant stockquote ...` commands, we will get a fault as 'Invalid custom quote request'. This indicates that the schema validation has failed, which happens because the schema used in the example expects a `stocksymbol` element instead of a symbol to specify the stock symbol.
+Based on the **To** endpoint reference of `http://localhost:9000/services/SimpleStockQuoteService`, the ESB performs a comparison to the path `StockQuote`, and if the request matches the XPath expression of the If Else mediator, the If Else mediator's child mediators will be executed. Next, the child mediators start validating the request. Because we are sending the `stockquote` request using `ant stockquote ...` commands, we will get a fault as 'Invalid custom quote request'. This indicates that the schema validation has failed, which happens because the schema used in the example expects a `stocksymbol` element instead of a symbol to specify the stock symbol.
 
 ## How the implementation works
 
@@ -107,7 +107,7 @@ Let's investigate the elements of the ESB configuration in detail. The line numb
 
 - **sequence** [line 31 in ESB config] - The main sequence for the ESB, which is the default sequence.
 
-- **filter** [line 33 in ESB config] - The filter mediator that is used to provide content based routing. In this case, the SOAP Header field To is matched against a regular expression that checks to see whether the To field contains `StockQuote`.
+- **filter** [line 33 in ESB config] - The If Else mediator that is used to provide content based routing. In this case, the SOAP Header field To is matched against a regular expression that checks to see whether the To field contains `StockQuote`.
 
 - **validate** [line 34 in ESB config] - Performs validation on the SOAP body using the XML Schema defined in the `localEntry` (line 2 in ESB config).
 
