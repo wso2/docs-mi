@@ -10,11 +10,11 @@ Externalized configuration in WSO2 Micro Integrator allows for the dynamic resol
 
 Micro Integrator (MI) manages configuration properties from multiple sources by following a specific order of precedence. This hierarchy is essential for understanding which configuration will take precedence when properties are duplicated across various sources.
 
-- **Environment Variables:** These are given the highest precedence. They allow runtime settings to be specified externally, typically at the container or operating system level. By using environment variables, configurations can be adjusted without altering application code, which is particularly useful in different deployment environments or for security-sensitive settings.
+- **Environment Variables:** Granted the highest precedence, these settings are specified externally, typically at the container or OS level, allowing configurations to be adjusted without code changes.
 
-- **System Properties:** These hold the next level of precedence and can be set at the JVM level. System properties provide a flexible way to configure the application without modifying the codebase. They are often used to pass dynamic values specific to the runtime environment.
+- **System Properties:** Set at the JVM level, these are the second-highest in precedence and offer a flexible way to configure the application dynamically without altering the codebase.
 
-- **File Properties:** Residing in the `file.properties` file within the `MI_HOME/conf` directory, these hold the lowest precedence. This file generally contains default settings that are universally applied unless overridden by settings from sources with higher precedence.
+- **File Properties:** Residing in the `file.properties` file within the `MI_HOME/conf` directory, these have the lowest precedence and usually contain default settings that apply unless higher precedence sources override them.
 
 For example, If the `connection_name` property is defined in both an environment variable and as a system property, the value set in the environment variable will take precedence.
 
