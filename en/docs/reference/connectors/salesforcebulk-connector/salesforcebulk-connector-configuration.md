@@ -10,7 +10,7 @@ Salesforce uses the OAuth protocol to allow application users to securely access
 
 Follow the steps below to create a connected application using Salesforce and to obtain the consumer key as well as the consumer secret for the created connected application.
 
-{!includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md!} 
+Generate the Access Tokens for Salesforce by following the [Salesforce Access Token Generation]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation/) documentation.
 
 ### Configuring Axis2 configurations
 
