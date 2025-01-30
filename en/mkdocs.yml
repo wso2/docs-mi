@@ -1016,6 +1016,7 @@ plugins:
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/connectors-overview'
               'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install/installation-prerequisites/'
               'learn/integration-tutorials/using-the-gmail-connector.md' : 'https://mi.docs.wso2.com/en/4.3.0/learn/integration-tutorials/send-email-from-integration-service'
+              'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.3.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
 
   # Extra
 extra_css:
