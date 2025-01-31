@@ -240,6 +240,7 @@ nav:
           - Generate Docker Images: develop/generate-docker-image.md
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
+          - Mediator Tryout: develop/mediator-tryout.md
           - Use Wire Logs: develop/using-wire-logs.md
           - Monitor Composite Application-Level Logs: develop/monitoring-capp-level-logs.md
           - Monitor Service-Level Logs: develop/monitoring-service-level-logs.md
