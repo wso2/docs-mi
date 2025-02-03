@@ -123,7 +123,7 @@ Config parameters are accessed via the `config` prefix with the property name.
 ${config.<parameter_name>}
 ```
 
-For more information about `Config parameters`, see [Injecting Parameters]({{base_path}}/develop/injecting-parameters/).
+For more information about Config parameters, see [Injecting Parameters]({{base_path}}/develop/injecting-parameters/).
 
 ## Operators
 
