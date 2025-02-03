@@ -94,7 +94,7 @@ Parameters available to configure advanced properties of the If Else mediator ar
 
 ##  Examples
 
-### Approving or Rejecting Loan Applications based on a condition
+### Approving or rejecting loan applications based on a condition
 
 In this example, the If Else Mediator will check the credit score in a loan application and decide whether to approve or reject it. 
 If the credit score is 1000, the application is approved; otherwise, it is rejected.
