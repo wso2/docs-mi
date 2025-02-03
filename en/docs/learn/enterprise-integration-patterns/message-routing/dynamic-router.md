@@ -138,7 +138,7 @@ Let's break down the elements of the configuration:
 
 - **case**: Each case within the switch block checks if the message is destined for a specific service endpoint (`http://localhost:9000`, `http://localhost:9001`, or `http://localhost:9002`). If the message matches one of these URLs, it proceeds to check a specific property in the message.
 
-- **filter**: Inside each case, the filter mediator is used to validate the message content. It checks if the symbol in the incoming message matches a pre-configured value stored in the local entry (`ConfigA`, `ConfigB`, or `ConfigC`). If it matches, the message is sent to the corresponding service endpoint.
+- **filter**: Inside each case, the If Else mediator is used to validate the message content. It checks if the symbol in the incoming message matches a pre-configured value stored in the local entry (`ConfigA`, `ConfigB`, or `ConfigC`). If it matches, the message is sent to the corresponding service endpoint.
 
 - **local entry**: These are registry entries that store the expected values (`foo`, `bar`, `WSO2`) for each service. They act as the criteria against which incoming messages are validated.
 

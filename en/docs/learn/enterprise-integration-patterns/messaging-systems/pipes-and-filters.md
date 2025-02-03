@@ -17,7 +17,7 @@ The example scenario depicts how a stock quote request is sent from a client to 
 * Check User ID filter: to verify the user ID.
 
 !!! note
-    Filter Mediators are used in the service to verify the validity of the message (checking the username and user ID).
+    If Else Mediators are used in the service to verify the validity of the message (checking the username and user ID).
 
 If the message meets the criteria of the first filter, it passes to the second filter. Once it passes the second filter, the service sends the stock quote request to the back-end service (Stock Quote Service) for processing.
 
