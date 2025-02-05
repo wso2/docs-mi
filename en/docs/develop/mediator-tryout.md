@@ -1,6 +1,6 @@
 # Utilizing the Mediator Tryout Feature
 
-The Mediator Tryout feature in the WSO2 Micro Integrator VS Code extension streamlines the process of testing and validating mediator behavior during the development phase. This feature enables developers to easily verify the correctness of their integration configurations without the need for extensive debugging.
+The Mediator Tryout feature in the WSO2 Micro Integrator for VS Code extension (MI for VS Code) streamlines the process of testing and validating mediator behavior during the development phase. This feature enables developers to easily verify the correctness of their integration configurations without the need for extensive debugging.
 
 The Tryout feature simplifies development workflows by allowing users to experiment with mediators in real-time, helping to ensure that mediators function as expected.
 
@@ -20,7 +20,7 @@ The tryout feature allows you to visualize the following mediation properties:
     2. Query Parameters: Parameters that are appended to the URI after the question mark (?).
     3. Function Parameters: Parameters that are defined in the sequence template.
 
-## Using the Mediator Tryout
+## Use the Mediator Tryout feature
 
 !!!Note
     This feature is supported only from MI 4.4.0 onwards.
@@ -32,7 +32,7 @@ The tryout feature allows you to visualize the following mediation properties:
 
 1. Navigate to the **Add Artifact** page and add a new API artifact to your project.
 
-2. Access the design view of the API resource.
+2. Access the **Design View** of the API resource.
 
 3. Click on the **Start** node in the diagram. Here, you can add a new request to utilize the tryout feature. The payload specified on this page will be used to tryout the mediator.
 <img src="{{base_path}}/assets/img/develop/tryout/tryout_start_node.png" alt="Set Payload" width="700"/>
