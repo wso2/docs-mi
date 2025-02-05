@@ -6,19 +6,19 @@ The Tryout feature simplifies development workflows by allowing users to experim
 
 The tryout feature allows you to visualize the following mediation properties:
 
-1. Payload: The payload passed into and out of the mediator.
-2. Headers: The headers passed into and out of the mediator.
-3. Variables: The variables passed into and out of the mediator.
-4. Properties: The underlying message context properties, including:
-    1. Synapse Properties
-    2. Axis2 Properties
-    3. Axis2Client Properties
-    4. Axis2Transport Properties
-    5. Axis2Operation Properties
-5. Parameters: The parameters used in the mediation, such as:
-    1. Path Parameters: Parameters that are part of the URI path and are used to identify specific resources.
-    2. Query Parameters: Parameters that are appended to the URI after the question mark (?).
-    3. Function Parameters: Parameters that are defined in the sequence template.
+- Payload: The payload passed into and out of the mediator.
+- Headers: The headers passed into and out of the mediator.
+- Variables: The variables passed into and out of the mediator.
+- Properties: The underlying message context properties, including:
+    - Synapse Properties
+    - Axis2 Properties
+    - Axis2Client Properties
+    - Axis2Transport Properties
+    - Axis2Operation Properties
+- Parameters: The parameters used in the mediation, such as:
+    - Path Parameters: Parameters that are part of the URI path and are used to identify specific resources.
+    - Query Parameters: Parameters that are appended to the URI after the question mark (?).
+    - Function Parameters: Parameters that are defined in the sequence template.
 
 ## Use the Mediator Tryout feature
 
@@ -26,7 +26,7 @@ The tryout feature allows you to visualize the following mediation properties:
     This feature is supported only from MI 4.4.0 onwards.
 
 !!!Warning
-    The Mediator Tryout feature executes the entire mediation sequence, not just a specific mediator. Any external resources referenced in the mediation (e.g., databases, message queues) will be executed as per the defined mediation logic. To prevent unintended interactions or modifications, please refrain from using any external resources that are in production.
+    The Mediator Tryout feature executes the entire mediation sequence, not just a specific mediator. Any external resources referenced in the mediation (for example, databases and message queues) will be executed as per the defined mediation logic. To prevent unintended interactions or modifications, please refrain from using any external resources that are in production.
 
 {!includes/create-new-project.md!}
 
