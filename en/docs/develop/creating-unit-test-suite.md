@@ -157,7 +157,7 @@ Once you have developed an integration solution, WSO2 Micro Integrator VS Code E
      <img src="{{base_path}}/assets/img/develop/unit-tests/generate-with-ai.png" alt="generate test" width="700">
 
 !!! Note
-    The tests automatically run when executing `mvn clean install`. If you want to run unit tests with your configured server, follow the steps:
+    Additionally, the tests automatically run when executing `mvn clean install`. If you want to run unit tests with your configured server, follow the steps:
 
     1. Run a separate Micro Integrator Instance in unit testing mode. To start the server in unit testing mode, you can pass the argument `-DsynapseTest` as below. If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` argument. Default port is `9008`. It is recommended running on a new MI server without any previously deployed integrations to avoid conflicts.
     
