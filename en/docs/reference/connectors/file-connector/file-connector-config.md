@@ -834,28 +834,6 @@ There are different connection configurations that can be used for the above pro
            No
         </td>
     </tr>
-    <tr>
-        <td>
-           Enable Encryption
-        </td>
-        <td>
-           enableEncryption
-        </td>
-        <td>
-           Boolean
-        </td>
-        <td>
-           Determines whether to enable data encryption. This needs to be enabled when connecting to an SMB server that enforces encryption.</br> 
-           Available in file-connector <b>v4.0.34</b> and above.
-        </td>
-        <td>
-           false
-        </td>
-        <td>
-           No
-        </td>
-    </tr>
-
 </table>
 
 ### SMB connection configs
@@ -1011,6 +989,27 @@ There are different connection configurations that can be used for the above pro
         </td>
         <td>
            <code>WHEN_EXHAUSTED_BLOCK</code>
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Enable Encryption
+        </td>
+        <td>
+           enableEncryption
+        </td>
+        <td>
+           Boolean
+        </td>
+        <td>
+           Determines whether to enable data encryption. This needs to be enabled when connecting to an SMB server that enforces encryption.</br> 
+           Available in file-connector <b>v4.0.34</b> and above.
+        </td>
+        <td>
+           false
         </td>
         <td>
            No
