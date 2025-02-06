@@ -102,7 +102,7 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 3. [Create an API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `googlebooks_listVolume`. Click on the resource, then click on the + sign in the flow diagram, you will see that the new connector has been added to the tool palette under the **Mediators** section.  
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/connector-view-pallet.png" width="500">
 
-4. Now, update the API service as shown below. You will be defining a mediation logic using the [Property mediator]({{base_path}}/reference/mediators/variable-mediator/), the new **googleBooks** connector, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/).:
+4. Now, update the API as shown below. You will be defining a mediation logic using the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/), the new **googleBooks** connector, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/).:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/googlebooks_listvolume" name="googlebooks_listVolume" xmlns="http://ws.apache.org/ns/synapse">
@@ -128,7 +128,10 @@ In order to build and deploy the artifacts, refer the [build and run]({{base_pat
 Post a request to the proxy service using Curl as shown below.
 
 ```bash
-curl -v -X POST -d "{"searchQuery":"rabbit"}" -H "Content-Type: application/json"  http://localhost:8290/services/googlebooks_listVolume 
+curl -X 'POST' \
+  'http://localhost:8290/googlebooks_listvolume/' \
+  -H 'Content-Type: application/json' \
+  -d '{"searchQuery":"rabbit"}'
 ```
 
 This performs a search and displays a list of volumes that meet the specified search criteria.  
