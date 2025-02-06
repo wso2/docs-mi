@@ -14,19 +14,15 @@ However, when your solutions are ready to be moved to your production environmen
 
 2. Launch Visual Studio Code with the [Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 
-3. Open the command palette of the VS Code and type command `Add MI Server`.
+3. Create a new MI project or open an existing project. If you create a new project, you will be prompted to enter a project name and select the runtime MI version.  
 
     <img src="{{base_path}}/assets/img/develop/remote-server/add-server-command.png" alt="add server command" width="700">
 
-4. Click on `Add MI Server` and when the file selector opens, select the Micro Integrator server directory.
-
-    <img src="{{base_path}}/assets/img/develop/remote-server/change-server-path.png" alt="change server path" width="700">
-
-5. Click on the **Run** button on top right corner of the **Project Overview** page.
+4. Click on the **Run** button on top right corner of the **Project Overview** page.
 
     <img src="{{base_path}}/assets/img/develop/remote-server/build-and-run.png" alt="build and run" width="700">
 
-6. This will deploy the artifacts in the Micro Integrator server and start the server. Then the server logs can be viewed in the Terminal.
+5. This will deploy the artifacts in the Micro Integrator server and start the server. Then the server logs can be viewed in the Terminal.
     
     <img src="{{base_path}}/assets/img/develop/remote-server/server-started.png" alt="server started" width="700">
 
