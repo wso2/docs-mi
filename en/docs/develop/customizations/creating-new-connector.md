@@ -94,15 +94,17 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 ### Step 1: Add the connector to your mediation sequence
 
 1. [Set up WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/).
-2. [Create an MI Config project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
+2. [Create an integration project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
 
     !!! Tip
         Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
 
-3. [Create an API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `googlebooks_listVolume`. Click on the resource, then click on the + sign in the flow diagram, you will see that the new connector has been added to the tool palette under the **Mediators** section.  
+3. [Create an API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `googlebooks_listVolume`. 
+
+4. Click on the resource, then click on the + sign in the flow diagram, you will see that the new connector has been added to the tool palette under the **Mediators** section.  
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/connector-view-pallet.png" width="500">
 
-4. Now, update the API as shown below. You will be defining a mediation logic using the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/), the new **googleBooks** connector, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/).:
+5. Now, update the API as shown below. You will be defining a mediation logic using the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/), the new **googleBooks** connector, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/).:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/googlebooks_listvolume" name="googlebooks_listVolume" xmlns="http://ws.apache.org/ns/synapse">
