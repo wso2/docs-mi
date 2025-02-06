@@ -1,7 +1,7 @@
 # How to Expose a Mongo Datasource
 
 This example demonstrates how Mongo data can be exposed as a data service.
-These data services are compatible with MongoDB Java Driver version 4.9.1
+These data services are compatible with MongoDB Java Driver version 4.9.1.
 
 ## Prerequisites
 
