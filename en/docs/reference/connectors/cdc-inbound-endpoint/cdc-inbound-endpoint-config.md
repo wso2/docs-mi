@@ -22,6 +22,15 @@ The following configurations allow you to configure the CDC Inbound Endpoint for
     <td>true</td>
   </tr>
   <tr>
+    <td>preserve.event</td>
+    <td>
+      This property specifies whether the original event needs to be injected to the sequence as it is. When this is set to false, only the <code>op</code>, <code>before</code>, <code>after</code> attributes of the Debezium event are injected to the event.</br>
+      Available in CDC inbound endpoint <b>v1.2.0</b> and above.
+    </td>
+    <td>No</td>
+    <td>false</td>
+  </tr>
+  <tr>
     <td>sequential</td>
     <td>Whether the messages need to be polled and injected sequentially or not. By default, this is set to <code>true</code>.</td>
     <td>Yes</td>
