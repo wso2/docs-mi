@@ -18,11 +18,15 @@ However, when your solutions are ready to be moved to your production environmen
 
     <img src="{{base_path}}/assets/img/develop/remote-server/add-server-command.png" alt="add server command" width="700">
 
-4. Click on the **Run** button on top right corner of the **Project Overview** page.
+4. Or, if you want to change the MI server of an already opened project, you can do so by opening the command palette in VS Code and typing the command `Add MI Server`. Then, select the new server location.
+
+    <img src="{{base_path}}/assets/img/develop/remote-server/change-server-path.png" alt="change server path" width="700">
+
+5. Click on the **Run** button on top right corner of the **Project Overview** page.
 
     <img src="{{base_path}}/assets/img/develop/remote-server/build-and-run.png" alt="build and run" width="700">
 
-5. This will deploy the artifacts in the Micro Integrator server and start the server. Then the server logs can be viewed in the Terminal.
+6. This will deploy the artifacts in the Micro Integrator server and start the server. Then the server logs can be viewed in the Terminal.
     
     <img src="{{base_path}}/assets/img/develop/remote-server/server-started.png" alt="server started" width="700">
 
