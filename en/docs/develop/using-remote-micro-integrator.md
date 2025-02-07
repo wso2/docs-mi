@@ -14,7 +14,7 @@ However, when your solutions are ready to be moved to your production environmen
 
 2. Launch Visual Studio Code with the [Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 
-3. Create a new MI project or open an existing project. If you create a new project, you will be prompted to enter a project name and select the runtime MI version.  
+3. Create a new integration project or open an existing project. If you create a new project, you will be prompted to enter a project name and select the MI runtime version.  
 
     <img src="{{base_path}}/assets/img/develop/remote-server/add-server-command.png" alt="add server command" width="700">
 
