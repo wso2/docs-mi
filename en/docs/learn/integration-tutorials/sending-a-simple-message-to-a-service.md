@@ -33,7 +33,7 @@ Follow the instructions given in this section to create and configure the requir
 
 4. In the **Project Creation Form**, enter `SimpleMessageTutorial` as the **Project Name**.
 
-5. Provide a location under **Select Project Directory**.
+5. Select the **Micro Integrator runtime version** and provide a location under **Select Project Directory**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
 
@@ -45,17 +45,17 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
 
-1. Navigate to the **MI Project Explorer** > **Endpoints**.
+1. Click on **+View More** on the **Add Artifact** page.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-endpoint.png" alt="create new endpoint" width="30%"></a>
 
-2. Hover over **Endpoints** and click the **+** icon that appears.
+2. Navigate to the **Other Artifacts** > **Endpoints**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-endpoint.png" alt="Add endpoint" width="30%"></a>
 
-3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
+3. Next, select **HTTP Endpoint** type on the **Endpoint Form**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-http-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
 
 4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
 
@@ -102,13 +102,13 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
 
 A REST API is required for receiving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
-1. Go to **MI Project Explorer** > **APIs**.
+1. To open the **Add Artifact** page, go to **MI Project Explorer** and click on **+**
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png" alt="add artifact" width="30%"></a>
 
-2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+2. Click on **API** to open the **API Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-api.png" alt="add API" width="30%"></a>
 
 3. Specify values for the required REST API properties:
 
@@ -156,15 +156,9 @@ A REST API is required for receiving the client response and the REST resource w
         <th>Description</th>
       </tr>
       <tr>
-        <td>URI-Template</td>
+        <td>Resource Path</td>
         <td>
-          <code>/querydoctor/{category}</code> </br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/querydoctor/{category}</code> where <code>{category}</code> is a variable.
-        </td>
-      </tr>
-      <tr>
-        <td>URL Style</td>
-        <td>
-          <code>URI_TEMPLATE</code>
+          <code>/querydoctor/{category}</code> </br> This defines the request URL format. In this case, the full request URL format is <code>http://host:port/healthcare/querydoctor/{category}</code> where <code>{category}</code> is a variable.
         </td>
       </tr>
       <tr>
@@ -208,12 +202,6 @@ You can now configure the mediation logic to handle requests.
      <td>Indicates that the log contains an informational message.</td>
   </tr>
   <tr>
-     <td>Log Level</td>
-     <td><code>Custom</code></td>
-     <td>When <code>Custom</code> is selected, only specified properties will be logged by this mediator.
-     </td>
-  </tr>
-  <tr>
      <td>Log Separator</td>
      <td><code>(blank)</code></td>
      <td>Since there is only one property that is being logged, you do not require a separator. Therefore, leave this field blank.</td>
@@ -254,7 +242,7 @@ You can now configure the mediation logic to handle requests.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" alt="add call" width="80%"></a>
 
-5. From the **Palette**, select **Call Endpoint** mediator under the **Mediators** > **Generic** section.
+5. From the **Palette**, select **Call Endpoint** mediator under the **Mediators** > **Others** section.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" alt="call endpoint mediator" width="30%"></a>
 
@@ -266,11 +254,11 @@ You can now configure the mediation logic to handle requests.
 
     Now let's add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
 
-8. Click on the **+** icon in the sequence to add a Respond mediator after the Call mediator.
+8. Click on the **+** icon in the sequence to add a **Respond** mediator after the Call mediator.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
 
-9. From the **Palette**, select **Respond** mediator under the **Mediators** > **Generic** section.
+9. From the **Palette**, select **Respond** mediator under the **Mediators** > **Favourites** section.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
 
