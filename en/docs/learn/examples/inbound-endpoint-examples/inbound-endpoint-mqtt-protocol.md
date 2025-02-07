@@ -25,6 +25,7 @@ Following are the integration artifacts that we can used to implement this scena
             <parameter name="mqtt.session.clean">false</parameter>
             <parameter name="mqtt.ssl.enable">false</parameter>
             <parameter name="mqtt.reconnection.interval">1000</parameter>
+            <parameter name="mqtt.client.id">clientTestID</parameter>
         </parameters>
     </inboundEndpoint>
     ```
