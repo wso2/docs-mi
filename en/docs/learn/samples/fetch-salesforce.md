@@ -10,7 +10,7 @@ The sample includes an API called `SalesforceAccountServiceAPI`, which facilitat
 
 1.  Open the sample by clicking on the **Fetch SalesForce Accounts** card.
 2.  Give a folder location to save the sample.
-3.  Follow this guide on [Salesforce access token generation]({{base_path}}/includes/reference/connectors/salesforce-connectors/sf-access-token-generation/) to obtain the required credentials.
+3.  Follow this guide on [Salesforce access token generation]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation) to obtain the required credentials.
 4.  Go to `SalesforceConnection1` in the **Integration-Configurations** folder and update the required properties with your Salesforce credentials.
     - accessToken
     - refreshToken
