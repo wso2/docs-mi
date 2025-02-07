@@ -14,22 +14,22 @@ Listed below are the synapse configurations for implementing this scenario. See 
     <proxy name="HeaderBasedRoutingProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <switch source="get-property('transport','CustomHeader')">
+                <switch source="${headers.CustomHeader}">
                     <case regex="application/json">
-                        <log category="INFO" level="custom">
-                            <property name="CustomHeader" value="application/json"/>
+                        <log category="INFO">
+                            <message>Custom Header = application/json</message>
                         </log>
                         <sequence key="sequence1"/>
                     </case>
                     <case regex="text/xml">
-                        <log category="INFO" level="custom">
-                            <property name="CustomHeader" value="text/xml"/>
+                        <log category="INFO">
+                            <message>Custom Header = text/xml</message>
                         </log>
                         <sequence key="sequence2"/>
                     </case>
                     <default>
-                        <log category="INFO" level="custom">
-                            <property name="AcceptHeader" value="other"/>
+                        <log category="INFO">
+                            <message>Accept Header = other</message>
                         </log>
                         <sequence key="sequence3"/>
                     </default>
