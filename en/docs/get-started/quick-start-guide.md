@@ -61,15 +61,25 @@ To develop the above scenario, let's get started with creating an integration pr
    Once you click **Create**, the **Add Artifact** pane will be opened.
 
 !!! note
-    You need the following to work with the MI for VS Code extension. If you don't have them installed in your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
+    You need the following to work with the MI for VS Code extension.
 
     - Java Development Kit (JDK) version 21
     - WSO2 Micro Integrator (MI) 4.4.0 runtime
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
+    If you don't have them installed in your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
 
+    1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
-    If you have different versions of JDK and WSO2 MI installed in your local machine, you can configure Java Home path and MI path respectively in this step. 
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
+
+        !!! info
+            If you have different versions of JDK and WSO2 MI installed in your local machine, you can configure Java Home path and MI path respectively in this step. 
+
+        Once the process is complete, a window reload will be required, and you will be prompted with the following message:
+
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
+
+    2. Click **Reload Window**.
 
 ## Step 2 - Create an API
 
