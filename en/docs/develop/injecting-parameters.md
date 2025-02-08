@@ -34,17 +34,17 @@ http_connection_cert: cert
     1. Click on the `Ex` button on the right side of the input field to launch the Expression Editor.
     2. Click directly inside the input field where the value needs to be entered. Alternatively, you can click on the `edit icon` positioned to the right of the `Ex` button. This will open the Expression Editor, where you can view, modify, or add new configuration values.
 
-          <a href="{{base_path}}/assets/img/integrate/externalized_config/add-modify-config.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/add-modify-config.png" alt="add or modify configs" width="400"></a>
+          <a href="{{base_path}}/assets/img/integrate/externalized-config/add-modify-config.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/add-modify-config.png" alt="add or modify configs" width="400"></a>
 
 - **Via Project Summary Page**
 
     1. Navigate to the configurable editor by clicking on `Manage Configurables`.
          
-          <a href="{{base_path}}/assets/img/integrate/externalized_config/manage-config.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/manage-config.png" alt="manage config" width="400"></a>
+          <a href="{{base_path}}/assets/img/integrate/externalized-config/manage-config.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/manage-config.png" alt="manage config" width="400"></a>
 
     2. To add a new configuration, click on `Add Configurable`. Use the specific buttons to remove or update configurations as needed.
 
-          <a href="{{base_path}}/assets/img/integrate/externalized_config/add-config.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/add-config.png" alt="add config" width="400"></a>
+          <a href="{{base_path}}/assets/img/integrate/externalized-config/add-config.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/add-config.png" alt="add config" width="400"></a>
 
 !!! info "Adding Environment Variables"
 
@@ -89,7 +89,7 @@ Example:
 <property name="connection_name" scope="default" type="STRING" expression="${configs.connection_name}"/>
 ```
 
-<a href="{{base_path}}/assets/img/integrate/externalized_config/add-config-to-integration.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/add-config-to-integration.png" alt="add config to the integration" width="400"></a>
+<a href="{{base_path}}/assets/img/integrate/externalized-config/add-config-to-integration.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/add-config-to-integration.png" alt="add config to the integration" width="400"></a>
 
 === "API"
     ``` xml
