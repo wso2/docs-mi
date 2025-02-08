@@ -34,29 +34,29 @@ http_connection_cert: cert
     1. Click on the `Ex` button on the right side of the input field to launch the Expression Editor.
     2. Click directly inside the input field where the value needs to be entered. Alternatively, you can click on the `edit icon` positioned to the right of the `Ex` button. This will open the Expression Editor, where you can view, modify, or add new configuration values.
 
-          <a href="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_3.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_4.png" alt="get studio information" width="400"></a>
+          <a href="{{base_path}}/assets/img/integrate/externalized_config/add-modify-config.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/add-modify-config.png" alt="add or modify configs" width="400"></a>
 
 - **Via Project Summary Page**
 
     1. Navigate to the configurable editor by clicking on `Manage Configurables`.
-
-         <a href="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_1.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_1.png" alt="get studio information" width="400"></a>
+         
+          <a href="{{base_path}}/assets/img/integrate/externalized_config/manage-config.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/manage-config.png" alt="manage config" width="400"></a>
 
     2. To add a new configuration, click on `Add Configurable`. Use the specific buttons to remove or update configurations as needed.
 
-         <a href="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_2.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_2.png" alt="get studio information" width="400"></a>
+          <a href="{{base_path}}/assets/img/integrate/externalized_config/add-config.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/add-config.png" alt="add config" width="400"></a>
 
 !!! info "Adding Environment Variables"
 
-    To efficiently manage environment-specific configurations in WSO2 Micro Integrator, you can utilize an .env file located in your PROJECT_HOME. This approach allows you to maintain a clear separation between your development environment and production settings, facilitating easier adjustments and deployments across different environments.
+    To efficiently manage environment-specific configurations in WSO2 Micro Integrator, you can utilize an `.env` file located in your `PROJECT_HOME`. This approach allows you to maintain a clear separation between your development environment and production settings, facilitating easier adjustments and deployments across different environments.
 
-    Populate the .env file with key-value pairs that represent the configuration settings you want to externalize. Here’s an example of what this file might contain:
+    Populate the `.env` file with key-value pairs that represent the configuration settings you want to externalize. Here’s an example of what this file might contain:
     ```env
     connection_name=dev_coonection
     http_connection_cert=/Users/wso2/Documents/http.crt
     ```
 
-    When you start the Micro Integrator server, specify the .env file using the --env-file flag. This flag tells the server to load the environment variables from the .env file, integrating them into the server's runtime environment.    
+    When you start the Micro Integrator server, specify the `.env` file using the `--env-file` flag. This flag tells the server to load the environment variables from the `.env` file, integrating them into the server's runtime environment.    
 
     ```script
     sh micro-integrator.sh --env-file=/PROJECT_HOME/.env
@@ -89,7 +89,7 @@ Example:
 <property name="connection_name" scope="default" type="STRING" expression="${configs.connection_name}"/>
 ```
 
-<a href="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_4.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/Screenshot_4.png" alt="get studio information" width="400"></a>
+<a href="{{base_path}}/assets/img/integrate/externalized_config/add-config-to-integration.png"><img src="{{base_path}}/assets/img/integrate/externalized_config/add-config-to-integration.png" alt="add config to the integration" width="400"></a>
 
 === "API"
     ``` xml
