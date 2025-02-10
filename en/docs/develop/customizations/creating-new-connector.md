@@ -73,7 +73,7 @@ Now, let's configure files in the `org.wso2.carbon.esb.connector.googlebooks/src
 5. Create a folder named `icon` in the `/src/main/resources` directory and add two icons.
 
     !!! Tip
-        You can download icons from the following location: [icons](http://svn.wso2.org/repos/wso2/scratch/connectors/icons/)
+        You can see a sample icon in the following location: [icons](https://github.com/wso2-extensions/mi-connector-http/blob/main/src/main/resources/icon/icon-small.png)
 
 You are now ready to build the connector.
 
