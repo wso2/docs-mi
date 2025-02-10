@@ -14,7 +14,7 @@ Follow the steps given below to set up a single-node RabbitMQ deployment. Note t
 
 1. Download the RabbitMQ distribution to the desired location. 
 
-       You can copy the following URL to your browser to start the download.
+	   You can copy the following URL to your browser to start the download.
 	    ```bash
 	    https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.0.5/rabbitmq-server-generic-unix-4.0.5.tar.xz
 	    ```
