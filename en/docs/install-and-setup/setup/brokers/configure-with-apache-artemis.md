@@ -60,7 +60,7 @@ Follow the instructions below to set up and configure.
             ```
 
 4.  Remove any existing Apache ActiveMQ client JAR files from the `MI_HOME/dropins/` and `MI_HOME/lib/` directories.  
-5.  Download the [artemis-jms-client-all-2.39.0.jar](https://mvnrepository.com/artifact/org.apache.activemq/artemis-jms-client-all/2.39.0) file and copy it to the `MI_HOME/lib/` directory.  
+5.  Download the [artemis-jms-client-all-2.39.0.jar](https://mvnrepository.com/artifact/org.apache.activemq/artemis-jms-client-all/2.39.0) file and copy it to the `<MI_HOME>/lib/` directory.  
     
 6.  Start Apache Artemis. For instructions, see the [Apache Artemis Documentation](https://activemq.apache.org/components/artemis/documentation/latest/using-server.html).
 7.  Start the Micro Integrator.
