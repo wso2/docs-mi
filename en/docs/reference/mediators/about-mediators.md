@@ -124,7 +124,7 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
   <tr>
     <td rowspan="5">Flow control mediators</td>
     <td>
-      <a href="{{base_path}}/reference/mediators/filter-mediator">Filter mediator</a>
+      <a href="{{base_path}}/reference/mediators/filter-mediator">If Else mediator</a>
     </td>
     <td>Conditionally content-aware</td>
   </tr>

@@ -176,7 +176,7 @@ The following properties are available when you want to configure a target prope
 In this example, the Call mediator invokes a backend service. An [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator) stores the response received for
 that service invocation.
 
-The [Filter Mediator]({{base_path}}/reference/mediators/filter-mediator) added after the Call mediator
+The [If Else Mediator]({{base_path}}/reference/mediators/filter-mediator) added after the Call mediator
 carries out a filter to determine whether the first call has been
 successful. If it is successful, second backend service is invoked. The
 payload of the request to the second backend is the response of the

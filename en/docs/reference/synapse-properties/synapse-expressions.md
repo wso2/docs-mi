@@ -137,6 +137,15 @@ Function parameters used in templates are available through the params prefix.
 params.functionParams.paramName
 ```
 
+### Access config parameters
+
+Config parameters are accessed via the `config` prefix with the property name.
+```
+${config.<parameter_name>}
+```
+
+For more information about Config parameters, see [Injecting Parameters]({{base_path}}/develop/injecting-parameters/).
+
 ## Operators
 
 Synapse expressions support arithmetic, comparison, and logical operators between operands.

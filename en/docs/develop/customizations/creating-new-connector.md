@@ -1,6 +1,6 @@
 # Create a New Connector
 
-You can write a new connector for a specific requirement that cannot be addressed via any of the existing connectors that can be downloaded from the [connector store](https://store.wso2.com/store/pages/top-assets).
+You can write a new connector for a specific requirement that cannot be addressed via any of the existing connectors that can be downloaded from the [connector store](https://store.wso2.com/?page=1&product=MI+Connector).
 
 Follow the steps given below to write a new connector to integrate with the **Google Books** service. You can then use the connector inside a mediation sequence to connect with Google Books and get information.
 
@@ -93,34 +93,32 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 
 ### Step 1: Add the connector to your mediation sequence
 
-1. [Set up WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/installing-wso2-integration-studio).
-2. [Create an ESB Config project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
+1. [Set up WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/).
+2. [Create an integration project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
 
     !!! Tip
         Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
 
-3. [Create a custom proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) named `googlebooks_listVolume`. In the graphical view, you will see that the new connector has been added to the tool palette under the **Local Connectors** section.  
+3. [Create an API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `googlebooks_listVolume`. 
+
+4. Click on the resource, then click on the + sign in the flow diagram, you will see that the new connector has been added to the tool palette under the **Mediators** section.  
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/connector-view-pallet.png" width="500">
 
-4. Now, update the proxy service as shown below. You will be defining a mediation logic using the [Property mediator]({{base_path}}/reference/mediators/property-mediator/), the new **googleBooks** connector, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/).:
+5. Now, update the API as shown below. You will be defining a mediation logic using the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/), the new **googleBooks** connector, and the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/).:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <proxy xmlns="http://ws.apache.org/ns/synapse"
-           name="googlebooks_listVolume"
-           transports="https,http"
-           statistics="disable"
-           trace="disable"
-           startOnLoad="true">
-       <target>
-          <inSequence>
-             <property name="searchQuery" expression="json-eval($.searchQuery)"/>
-             <googleBooks.listVolume>
-                <searchQuery>{$ctx:searchQuery}</searchQuery>
-             </googleBooks.listVolume>
-             <respond/>
-          </inSequence>
-       </target>
-    </proxy>
+    <api context="/googlebooks_listvolume" name="googlebooks_listVolume" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" uri-template="/">
+            <inSequence>
+                <variable name="searchQuery" type="JSON" expression="${payload.searchQuery}"/>
+                <googleBooks.listVolume>
+                    <searchQuery>${vars.searchQuery}</searchQuery>
+                </googleBooks.listVolume>
+            <respond description="respond" /></inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
     ```
 
 ### Step 2: Build and deploy the artifacts
@@ -132,7 +130,10 @@ In order to build and deploy the artifacts, refer the [build and run]({{base_pat
 Post a request to the proxy service using Curl as shown below.
 
 ```bash
-curl -v -X POST -d "{"searchQuery":"rabbit"}" -H "Content-Type: application/json"  http://localhost:8290/services/googlebooks_listVolume 
+curl -X 'POST' \
+  'http://localhost:8290/googlebooks_listvolume/' \
+  -H 'Content-Type: application/json' \
+  -d '{"searchQuery":"rabbit"}'
 ```
 
 This performs a search and displays a list of volumes that meet the specified search criteria.  

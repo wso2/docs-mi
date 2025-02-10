@@ -28,7 +28,7 @@ Before digging into implementation details, let's take a look at the correlation
 | Message Filter EIP            | Message Filter Sample Scenario                                        | 
 |-------------------------------|-----------------------------------------------------------------------|
 | Quote                         | Stock Quote Request                                                   | 
-| Message Filter                | Filter Mediator is used to filter the content of the incoming message | 
+| Message Filter                | If Else Mediator is used to filter the content of the incoming message | 
 
 ## Synapse configuration of the artifacts
 
