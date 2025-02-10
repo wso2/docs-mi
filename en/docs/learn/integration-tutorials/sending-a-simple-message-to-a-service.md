@@ -102,7 +102,7 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
 
 A REST API is required for receiving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
-1. To open the **Add Artifact** page, go to **MI Project Explorer** and click on **+**
+1. To open the **Add Artifact** page, go to **MI Project Explorer** and click on the **+** icon.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png" alt="add artifact" width="30%"></a>
 
