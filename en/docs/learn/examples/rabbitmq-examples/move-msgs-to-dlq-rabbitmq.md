@@ -25,7 +25,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
       </log>
       <call blocking="true">
           <endpoint>
-            <http uri-template="http://localhost:8280/orders"/>
+            <http uri-template="http://localhost:8290/orders"/>
           </endpoint>
       </call>
       <log level="custom">
@@ -60,6 +60,6 @@ dead letter exchange for it (`orders-error-exchange`).
 8. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
 9. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
-10. Make the `http://localhost:8280/orders` endpoint unavailable temporarily. 
+10. Make the `http://localhost:8290/orders` endpoint unavailable temporarily. 
 11. Publish a message to the orders queue.
 12. You will see that the failed message has been moved to the dead-letter-exchange.

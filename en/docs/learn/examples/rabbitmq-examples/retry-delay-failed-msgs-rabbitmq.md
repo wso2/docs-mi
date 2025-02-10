@@ -30,7 +30,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
       </log>
       <call blocking="true">
           <endpoint>
-            <http uri-template="http://localhost:8280/enrollment"/>
+            <http uri-template="http://localhost:8290/enrollment"/>
           </endpoint>
       </call>
       <log level="custom">
@@ -103,6 +103,6 @@ Make sure you have a RabbitMQ broker instance running.
 9. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
 10. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
-11. Make the `http://localhost:8280/enrollment` endpoint unavailable temporarily. 
+11. Make the `http://localhost:8290/enrollment` endpoint unavailable temporarily. 
 12. Publish a message to the enrollment queue.
 13. You will see that the failed message will be retried 3 times for delivery by the EnrollmentService proxy and then be discarded.
