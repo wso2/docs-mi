@@ -9,21 +9,21 @@ Follow the steps given below to set up a single-node RabbitMQ deployment. Note t
 !!! Note
      **Before you begin**, note that the following guide is tested on the following version.
 
-     - RabbitMQ version 3.8.2 
-     - On Unix OS
+     - RabbitMQ version 4.0.5 
+     - On Unix OS and MacOS
 
 1. Download the RabbitMQ distribution to the desired location. 
 
 	   You can copy the following URL to your browser to start the download.
 	    ```bash
-	    https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.2/rabbitmq-server-generic-unix-3.8.2.tar.xz
+	    https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.0.5/rabbitmq-server-generic-unix-4.0.5.tar.xz
 	    ```
     
 2. Extract the distribution. 
 
 	   You can open a terminal, navigate to the download location, and execute the following command.
 	    ```bash
-	    tar -xf rabbitmq-server-generic-unix-3.8.2.tar.xz
+	    tar -xf rabbitmq-server-generic-unix-4.0.5.tar.xz
 	    ```
 
 3. Install the `erlang` distribution:
@@ -34,6 +34,10 @@ Follow the steps given below to set up a single-node RabbitMQ deployment. Note t
     sudo apt update && \
     sudo apt -y install erlang
     ```
+
+!!! Note
+     If you are using MacOS, you can straight away install RabbitMQ using Homebrew and follow the rest of the steps to start the broker.
+
 
 4. Navigate to the `<RABBITMQ_HOME>/sbin` folder (where `<RABBITMQ_HOME>` is the location of the extracted RabbitMQ distribution) and execute the following command.
 
