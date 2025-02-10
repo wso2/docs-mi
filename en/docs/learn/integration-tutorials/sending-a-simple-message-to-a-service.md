@@ -254,7 +254,7 @@ You can now configure the mediation logic to handle requests.
 
     Now let's add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
 
-8. Click on the **+** icon in the sequence to add a **Respond** mediator after the Call mediator.
+8. Click on the **+** icon in the sequence to add a **Respond** mediator after the Call Endpoint mediator.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
 
