@@ -729,7 +729,7 @@ nav:
                   - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
           - Salesforce Connectors:
               - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
-              - Salesforce Access Token Generation: includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md
+              - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
               - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
               - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
               - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
@@ -1018,7 +1018,6 @@ plugins:
               'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
               'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/customizations/creating-new-connector/'
               'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/mediators/data-mapper-mediator'
-              'develop/creating-artifacts/creating-an-inbound-endpoint.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/intro-integration-development/'
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.4.0/observe-and-manage/working-with-integration-control-plane/'
               'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
@@ -1035,6 +1034,7 @@ plugins:
               'reference/connectors/documentum/documentum-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
 
   # Extra
 extra_css:

@@ -31,13 +31,13 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create a REST API
 
-1. Go to **MI Project Explorer** > **APIs**.
+1. Go to **MI Project Explorer**  and click **+** button to add artifact.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-artifact.png" alt="add artifact" width="80%"></a>
 
-2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+2. Navigate to **Create an Integration** and click **API**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-api.png" alt="create new API" width="80%"></a>
 
 3.  Specify values for the required REST API properties:
     <table>
@@ -109,19 +109,23 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 Now, let's create a message store artifact to represent the broker.
 
-1.  Go to **MI Project Explorer** > **Message Stores**.
+1.  Go to **MI Project Explorer** > **+** button to add artifact.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png" alt="create Message Store" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png" alt="create Message Store" width="80%"></a>
 
-2. Hover over **Message Stores** and click the **+** icon that appears to open the **Message Store Form**.
+2. Expand the artifact section by clicking **+ View More**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png" alt="edit API resource" width="80%"></a>
 
-3. Create a **RabbitMQ Message Store**.
+3. Select **Message Store**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-3.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-3.png" alt="edit API resource" width="80%"></a>
 
-4.  Specify values for the required Message Store properties:
+4. Create a **RabbitMQ Message Store**.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-4.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-4.png" alt="edit API resource" width="50%"></a>
+
+5.  Specify values for the required Message Store properties:
 
     <table>
     <tr>
@@ -145,7 +149,7 @@ Now, let's create a message store artifact to represent the broker.
     <td>The port number of the RabbitMQ message broker.</td>
     </tr>
     <tr>
-    <td>RabbitMQ Queue Name</td>
+    <td>RabbitMQ Queue Name (In Miscellaneous Properties)</td>
     <td>`HospitalServiceMessageStoreQueue`</td>
     <td>The queue to which the subscription is created.</td>
     </tr>
@@ -170,23 +174,19 @@ Now, let's create a message store artifact to represent the broker.
     </tr>
     </table>
 
-3.  Click **Create**.
+6.  Click **Create**.
 
 #### Create new Endpoint
 
 Let's create an Endpoint to represent the Hospital Service back-end service.
 
-1. Navigate to the **MI Project Explorer** > **Endpoints**.
+1. Navigate to the **Add artifacts** > **Endpoints**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/create-new-endpoint.png" alt="create new endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-endpoint.png" alt="Create new endpoint" width="80%"></a>
 
-2. Hover over **Endpoints** and click the **+** icon that appears.
+2. Next, select **HTTP Endpoint** type from the **Create Endpoint** interface.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-endpoint.png" alt="Add endpoint" width="30%"></a>
-
-3. Next, select **HTTP Endpoint** type from the **Create Endpoint Artifact** interface.
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-endpoint-http.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-endpoint-http.png" alt="Create new http endpoint" width="50%"></a>
 
 3.  Let's create the hospital service endpoint (**HospitalServicesEP**) using the following values:
 
@@ -235,46 +235,29 @@ Let's create an Endpoint to represent the Hospital Service back-end service.
 
 Let's create a Sequence that uses the message in the message store to send the request to the hospital service endpoint.
 
-1. Navigate to the **MI Project Explorer** > **Sequences**.
+1. Navigate to the **Add artifacts** and click the **Sequences**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png" alt="create sequence" width="40%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png" alt="Create new sequence" width="80%"></a>
 
-2. Hover over **Sequences** and click the **+** icon that appears.
+2. In the Sequence Form that appears, provide `HospitalServiceSequence` as the **Name**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-sequence.png" alt="add sequence" width="40%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png" alt="Create new HospitalServiceSequence" width="50%"></a> 
 
-3. In the Sequence Form that appears, provide `HospitalServiceSequence` as the **Name**.
+3.  Click **Create**. Then you will be directed to the **MI Overview** page.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png" alt="Create new sequence" width="80%"></a> 
+4. Click on `HospitalServiceSequence` under **Other Artifacts > Sequences** that you have just created to open its diagram view.
 
-4.  Click **Create**. Then you will be directed to the **MI Overview** page.
-
-5. Click on `HospitalServiceSequence` under **Sequences** that you have just created to open its diagram view.
-
-6. Next, add a Call mediator to the sequence. Click the **+** icon and select **Call mediator** from the Palette.
+5. Next, add a Call mediator to the sequence. Click the **+** icon and select **Call mediator** from the **Other** section in the palette.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-call-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-call-mediator.png" alt="Add call mediator" width="80%"></a>
 
-4.  In the sequence palette specify the endpoint as `HospitalServicesEP`. Click **Submit**.
+6.  In the sequence palette specify the endpoint as `HospitalServicesEP`. Click **Submit**.
 
-5.  Click **+** icon after the **Call mediator** and add a **Log mediator** from the palette and specify the following details:
+7.  Click **+** icon after the **Call mediator** and add a **Log mediator** from the palette and specify the following details:
 
-    <table>
-    <tr>
-        <th>Field</th>
-        <th>Value</th>
-    </tr>
-    <tr>
-        <td>Log Category</td>
-        <td>INFO</td>
-    </tr>
-    <tr>
-        <td>Log Level</td>
-        <td>FULL</td>
-    </tr>
-    </table>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-log-mediator.png" alt="Add log mediator" width="30%"></a>
 
-6.  Click **+** icon after the **Log mediator** and add a **Drop mediator** from the palette. Click **Submit**.
+8.  Click **+** icon after the **Log mediator** and add a **Drop mediator** from the palette. Click **Submit**.
 
 #### Create the Message Processor
 
@@ -283,11 +266,14 @@ Let's create a **Message Sampling Processor** to dispatch the request message fr
 !!! Info
     You can also use the **Scheduled Message Forwarding Processor** here and define the endpoint within the processor. The Message Sampling Processor is used because you need to perform mediation on the request message in the next tutorial.
 
-1. Navigate to the **MI Project Explorer** > **Message Processors**.
+1. Navigate to the **Add artifacts** and click the **Message Processors**.
 
-2. Hover over **Message Processors** and click the **+** icon that appears.
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor.png" alt="Create-message-processor" width="80%"></a>
 
-3. Next, select **Message Sampling Processor** type from the **Create New Message Processor** interface.
+2. Next, select **Message Sampling Processor** type from the **Create New Message Processor** interface and specify the following details:
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor-2.png" alt="Create new message processor" width="50%"></a>
+
     <table>
         <tr>
         <th>Property</th>
@@ -316,7 +302,7 @@ Let's create a **Message Sampling Processor** to dispatch the request message fr
         </tr>
     </table>
 
-2.  Click **Create**.
+3.  Click **Create**.
 
 #### Update the mediation flow
 
@@ -324,7 +310,7 @@ Let's update the REST API so that the client request is forwarded to the message
 
 1. Navigate to the **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png" alt="Edit API resource" width="30%"></a>
 
 2.  To add **Property mediator** click **+** icon and select **Property mediator** from the palette.
 
@@ -360,10 +346,10 @@ Let's update the REST API so that the client request is forwarded to the message
             <ol>
                 <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.
                 </li>
-               <li>Enter <code>json-eval($.hospital_id)</code> as the expression value.</li>
+               <li>Enter <code>payload.hospital_id</code> as the expression value.</li>
             </ol>
                <b>Note</b>:
-               This is the JSONPath expression that will extract the hospital from the request payload.
+               This is the expression that will extract the hospital from the request payload.
             </div>
          </td>
       </tr>
