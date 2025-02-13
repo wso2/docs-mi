@@ -23,7 +23,7 @@ Follow the steps given below to install the Integration Control Plane (ICP).
         group_id = "<GROUP_ID>"
         node_id = "<NODE_ID>"
         ```
-        Eg:
+        For example:
         ```toml
         [dashboard_config]
         dashboard_url = "https://localhost:9743/dashboard/api/"

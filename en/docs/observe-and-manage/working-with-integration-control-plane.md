@@ -75,7 +75,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
     group_id = "<GROUP_ID>"
     node_id = "<NODE_ID>"
     ```
-    Eg: 
+    For example: 
     ```toml
     [dashboard_config]
      dashboard_url = "https://localhost:9743/dashboard/api/"
