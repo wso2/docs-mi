@@ -6,7 +6,7 @@ In the dynamic landscape of integration solutions, the ability to secure sensiti
 
 Externalized configuration in WSO2 Micro Integrator allows for the dynamic resolution of configuration parameters at runtime. This capability ensures that sensitive information is securely managed and that deployments can be tailored efficiently to different environments without the need to maintain multiple versions of artifacts.
 
-## Configuration Sources and Priority
+## Configuration sources and priority
 
 Micro Integrator (MI) manages configuration properties from multiple sources by following a specific order of precedence. This hierarchy is essential for understanding which configuration will take precedence when properties are duplicated across various sources.
 
@@ -14,15 +14,15 @@ Micro Integrator (MI) manages configuration properties from multiple sources by 
 
 - **System Properties:** Set at the JVM level, these are the second-highest in precedence and offer a flexible way to configure the application dynamically without altering the codebase.
 
-- **File Properties:** Residing in the `file.properties` file within the `MI_HOME/conf` directory, these have the lowest precedence and usually contain default settings that apply unless higher precedence sources override them.
+- **File Properties:** Residing in the `file.properties` file within the `<MI_HOME>/conf` directory, these have the lowest precedence and usually contain default settings that apply unless higher precedence sources override them.
 
-For example, If the `connection_name` property is defined in both an environment variable and as a system property, the value set in the environment variable will take precedence.
+For example, if the `connection_name` property is defined in both an environment variable and as a system property, the value set in the environment variable will take precedence.
 
-## Initialize Configuration
+## Initialize configuration
 
-The `config.properties` file, located at `PROJECT_PATH/src/main/wso2mi/resources/conf/`, plays a critical role in initializing configurable parameters. This file supports flexibility in configuration management, allowing updates to be made manually, through the `Expression Editor`, or via `Project Summary Page`. Parameters can be set as either `string` or `cert` types, with `cert` specifically used for adding a certificate file to the trust store at deployment time.
+The `config.properties` file, located at `<PROJECT_PATH>/src/main/wso2mi/resources/conf/`, plays a critical role in initializing configurable parameters. This file supports flexibility in configuration management, allowing updates to be made manually, through the **Expression Editor**, or via the **Project Summary** page. Parameters can be set as either `string` or `cert` types, with `cert` specifically used for adding a certificate file to the trust store at deployment time.
 
-The parameters should be defined in the config.properties file as follows:
+The parameters should be defined in the `config.properties` file as follows:
 
 ```properties
 connection_name: string
@@ -31,24 +31,24 @@ http_connection_cert: cert
 
 - **Using Expression Editor**
 
-    1. Click on the `Ex` button on the right side of the input field to launch the Expression Editor.
-    2. Click directly inside the input field where the value needs to be entered. Alternatively, you can click on the `edit icon` positioned to the right of the `Ex` button. This will open the Expression Editor, where you can view, modify, or add new configuration values.
+    1. Click on the **Ex** button on the right side of the input field to launch the Expression Editor.
+    2. Click directly inside the input field where the value needs to be entered. Alternatively, you can click on the **edit** icon positioned to the right of the **Ex** button. This will open the Expression Editor, where you can view, modify, or add new configuration values.
 
           <a href="{{base_path}}/assets/img/integrate/externalized-config/add-modify-config.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/add-modify-config.png" alt="add or modify configs" width="400"></a>
 
 - **Via Project Summary Page**
 
-    1. Navigate to the configurable editor by clicking on `Manage Configurables`.
+    1. Navigate to the configurable editor by clicking on **Manage Configurables**.
          
           <a href="{{base_path}}/assets/img/integrate/externalized-config/manage-config.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/manage-config.png" alt="manage config" width="400"></a>
 
-    2. To add a new configuration, click on `Add Configurable`. Use the specific buttons to remove or update configurations as needed.
+    2. To add a new configuration, click on **Add Configurable**. Use the specific buttons to remove or update configurations as needed.
 
           <a href="{{base_path}}/assets/img/integrate/externalized-config/add-config.png"><img src="{{base_path}}/assets/img/integrate/externalized-config/add-config.png" alt="add config" width="400"></a>
 
 !!! info "Adding Environment Variables"
 
-    To efficiently manage environment-specific configurations in WSO2 Micro Integrator, you can utilize an `.env` file located in your `PROJECT_HOME`. This approach allows you to maintain a clear separation between your development environment and production settings, facilitating easier adjustments and deployments across different environments.
+    To efficiently manage environment-specific configurations in WSO2 Micro Integrator, you can utilize an `.env` file located in your `<PROJECT_HOME>`. This approach allows you to maintain a clear separation between your development environment and production settings, facilitating easier adjustments and deployments across different environments.
 
     Populate the `.env` file with key-value pairs that represent the configuration settings you want to externalize. Here’s an example of what this file might contain:
     ```env
@@ -76,7 +76,7 @@ For example, If you want to access a configuration named `connection_timeout`, y
 ${configs.connection_timeout}
 ```
 
-## Implementing Externalized Configurations
+## Implementing externalized configurations
 
 Below are detailed methods on how to implement this strategy effectively within your integration, focusing on `expressions` and `Synapse artifacts`.
 
@@ -124,15 +124,15 @@ Example:
 
 For more information about `Expression`, refer to this [documentation]({{base_path}}/reference/synapse-properties/synapse-expressions/).
 
-### In Synapse Artifacts
+### In Synapse artifacts
 
-Utilizing externalized configuration in Synapse artifacts such as endpoints, data services, and proxies allows these components to automatically adapt to different environments by fetching values at runtime: This  is particularly useful for tailoring backend connections, API endpoints, and service configurations without manual intervention for each environment. 
+Utilizing externalized configuration in Synapse artifacts such as endpoints, data services, and proxies allows these components to automatically adapt to different environments by fetching values at runtime: This is particularly useful for tailoring backend connections, API endpoints, and service configurations without manual intervention for each environment. 
 It ensures that sensitive configurations are handled securely and remain flexible to changes in the deployment environment.
 
 !!! Note
     While Synapse artifacts continue to support the `$FILE` and `$SYSTEM` sources, it is now recommended to use `${configs.<parameter_name>}` for managing configurations to enhance security and deployment flexibility.
 
-#### Supported Parameters
+#### Supported parameters
 
 Listed below are the synapse artifact parameters to which you can dynamically inject values.
 
@@ -212,7 +212,7 @@ Listed below are the data service parameters that can be dynamically injected.
 </data>
 ```
 
-##### Scheduled Task parameters
+##### Scheduled task parameters
 
 The <b>pinned servers</b> parameter can be dynamically injected to a scheduled task or proxy service. See the example given below.
 
@@ -231,7 +231,7 @@ The <b>pinned servers</b> parameter can be dynamically injected to a scheduled t
 </task>
 ```
 
-##### Inbound Endpoint parameters
+##### Inbound endpoint parameters
 
 See the list of inbound endpoint parameters that can be dynamically injected.
 
@@ -276,7 +276,7 @@ In the following example, JMS transport parameters in an inbound endpoint are co
 </inboundEndpoint>
 ```
 
-##### Proxy Service parameters
+##### Proxy service parameters
 
 The <b>pinned servers</b> parameter as well as all the service-level <b>transport parameters</b> can be dynamically injected to a proxy service.
 
@@ -315,7 +315,7 @@ In the following example, JMS transport parameters are dynamically injected to t
 </proxy>
 ```
 
-##### Message Store parameters
+##### Message store parameters
 
 Listed below are the message store parameters that can be dynamically injected.
 
