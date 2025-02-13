@@ -16,13 +16,21 @@ Follow the steps given below to install the Integration Control Plane (ICP).
 
 !!! info
     To connect the MI servers with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
-    ```
-    [dashboard_config]
-    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-    heartbeat_interval = 5
-    group_id = "mi_dev"
-    node_id = "dev_node_2"
-    ```
+        ```toml
+        [dashboard_config]
+        dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+        heartbeat_interval = "<HEARTBEAT_INTERVAL>"
+        group_id = "<GROUP_ID>"
+        node_id = "<NODE_ID>"
+        ```
+        For example:
+        ```toml
+        [dashboard_config]
+        dashboard_url = "https://localhost:9743/dashboard/api/"
+        heartbeat_interval = 5
+        group_id = "mi_dev"
+        node_id = "dev_node_2"
+        ```
     For more information, see [Configure the MI servers]({{base_path}}/observe-and-manage/working-with-integration-control-plane/#step-2-configure-the-mi-servers).
 
 ## Setting up JAVA_HOME
