@@ -76,7 +76,7 @@ WSO2 Micro Integrator supports environment variables for server configurations a
 	To be able to dynamically inject parameters to the embedded Micro Integrator, you must first define the relevant configurations as environment variables. See the following topics for instructions:
 
 	- [Environment variables for server Configurations]({{base_path}}/install-and-setup/setup/dynamic-server-configurations)
-	- [Environment variables for synapse configurations]({{base_path}}/develop/injecting-parameters)
+	- [Environment variables for synapse configurations]({{base_path}}/develop/externalized-configuration)
 
 Follow the steps given below.
 
