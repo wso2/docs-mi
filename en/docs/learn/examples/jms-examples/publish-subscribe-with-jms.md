@@ -19,12 +19,15 @@ Shown below are the synapse artifacts that are used to define this use case. See
     ```xml
     <proxy name="StockQuoteProxy" transports="http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
       <target>
-        <endpoint>
-          <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic"/>
-        </endpoint>
         <inSequence>
-            <property name="OUT_ONLY" value="true"/>
-            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+            <property name="OUT_ONLY" value="true" />
+            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" />
+            <call>
+                <endpoint>
+                    <address
+                        uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic" />
+                </endpoint>
+            </call>
         </inSequence>
       </target>
     </proxy> 
