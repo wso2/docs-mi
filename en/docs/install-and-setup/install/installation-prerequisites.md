@@ -76,10 +76,10 @@ The Micro Integrator runtime is tested with the following JDKs:
 
 | JDK         |Versions|
 |-------------|--------|
-| CorrettoJDK | 11, 17 |
-| AdoptOpenJDK | 11, 17 |
-| OpenJDK     | 11, 17 |
-| Oracle JDK  | 11, 17 |
+| CorrettoJDK | 11, 17, 21 |
+| AdoptOpenJDK | 11, 17, 21 |
+| OpenJDK     | 11, 17, 21 |
+| Oracle JDK  | 11, 17, 21 |
 
 ### Tested DBMSs
 
