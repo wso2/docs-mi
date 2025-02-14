@@ -73,7 +73,12 @@ To develop the above scenario, let's get started with creating an integration pr
         <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
 
         !!! info
-            If you have different versions of JDK and WSO2 MI installed in your local machine, you can configure Java Home path and MI path respectively in this step. 
+            If a different JDK or WSO2 MI version is installed on your local machine, you'll be prompted to download the required versions. 
+
+            1. Click **Download** to install the required JDK or/and MI version(s).
+            2. Once the download is complete, configure the Java Home or/and MI Home paths by clicking **Select Java Home** or/and **Select MI Path**, respectively.
+
+            If the required JDK and WSO2 MI versions are already installed, you can directly configure the Java Home and MI Home paths in this step by clicking **Select Java Home** and **Select MI Path**, respectively.
 
         Once the process is complete, a window reload will be required, and you will be prompted with the following message:
 
