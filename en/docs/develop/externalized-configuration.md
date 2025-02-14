@@ -15,6 +15,16 @@ Micro Integrator (MI) manages configuration properties from multiple sources by 
 - **System Properties:** Set at the JVM level, these are the second-highest in precedence and offer a flexible way to configure the application dynamically without altering the codebase.
 
 - **File Properties:** Residing in the `file.properties` file within the `<MI_HOME>/conf` directory, these have the lowest precedence and usually contain default settings that apply unless higher precedence sources override them.
+    If you are using a custom configuration file, instead of the file.properties file, you need to configure the particular file path in the product startup script as shown below.
+           
+    === "On Linux/MacOs"
+         ```bash  
+            -Dproperties.file.path=/home/user/ei_configs/dev/dev.properties
+         ```
+    === "On Windows"    
+         ```bash  
+            -Dproperties.file.path="%CONFIG_DIR%\dev\dev.properties
+         ```
 
 For example, if the `connection_name` property is defined in both an environment variable and as a system property, the value set in the environment variable will take precedence.
 
