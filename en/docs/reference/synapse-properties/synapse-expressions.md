@@ -12,10 +12,10 @@ Also, it provides a rich set of functions to manipulate the data, such as string
 
 ## Features
 
-- **Single-line expressions**: Perform complex operations in a single line. (refer the [comparison]({{base_path}}/reference/synapse-properties/synapse-expressions-comparison/#single-line-expression-vs-multiple-jsonpath-evaluations) for a detailed explanation)
-- **Access to system elements**: Access properties, variables, configurations, headers, registry content, secrets, and parameters. (refer [accessing values]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/#accessing-values) section in the syntax guide)
-- **Rich set of functions**: Manipulate data using string, math, date, and array functions. (refer [functions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/#functions) section in the syntax guide)
-- **Performance**: Yield faster results compared to the same implementation done using JSONPath and Xpath expressions. (refer the [comparison]({{base_path}}/reference/synapse-properties/synapse-expressions-comparison#performance-comparison) for a performance test results)
+- **Single-line expressions**: Perform complex operations in a single line. (See [comparison]({{base_path}}/reference/synapse-properties/synapse-expressions-comparison/#single-line-expression-vs-multiple-jsonpath-evaluations) for a detailed explanation.)
+- **Access to system elements**: Access properties, variables, configurations, headers, registry content, secrets, and parameters. (See [accessing values]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/#accessing-values) section in the syntax guide.)
+- **Rich set of functions**: Manipulate data using string, math, date, and array functions. (See [functions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/#functions) section in the syntax guide.)
+- **Performance**: Yield faster results compared to the same implementation done using JSONPath and Xpath expressions. (See [comparison]({{base_path}}/reference/synapse-properties/synapse-expressions-comparison#performance-comparison) for performance test results.)
 
 ## Usage
 
