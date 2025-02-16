@@ -1,6 +1,6 @@
 # Comparison with JSONPath
 
-## Single line expression vs. multiple JSONPath Evaluations
+## Single line expression vs. multiple JSONPath evaluations
 
 In the following example, we are implementing a simple use case to compare **JSONPath** with **Synapse Expressions**.
 
