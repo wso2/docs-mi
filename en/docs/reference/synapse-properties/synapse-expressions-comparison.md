@@ -110,7 +110,7 @@ There, we have to use multiple variables to store intermediate results. Also, we
 
 Hence, the **Synapse Expressions** provides a more concise and readable way to achieve the same functionality. As a bonus, it provides a better performance due to minimal evaluations.
 
-## Performance Comparison
+## Performance comparison
 
 We conducted a performance test to compare the execution time of the two resources. The test was conducted with 50 and 100 concurrent threads invoking the API for an extended amount of time.
 
