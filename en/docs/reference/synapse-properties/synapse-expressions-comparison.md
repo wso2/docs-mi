@@ -48,7 +48,7 @@ Suppose we have the following customer orders payload coming in the request. We 
     ]
 }
 ```
-Now, we need develop an API to check if a given customer (Ex: CUST123) is eligible for the promotion
+Now, we need to develop an API to check if a given customer (for example: `CUST123`) is eligible for the promotion.
 
 In the following API, we have two resources to check the eligibility of the customer for the promotion. The first resource uses Synapse Expressions and the second resource uses JSONPath expressions.
 ```
