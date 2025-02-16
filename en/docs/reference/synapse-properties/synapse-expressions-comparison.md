@@ -96,7 +96,7 @@ In the following API, we have two resources to check the eligibility of the cust
 
 ### Explanation
 
-In the first resource we are using the following single-line Synapse Expression to check the eligibility.
+In the first resource, we are using the following single-line Synapse Expression to check the eligibility.
 ```
 length($.orders[?(@.customerID == vars.customerId && @.total > params.queryParams.minimumBillAmount)]) > configs.promoEligibilityCount ? "Eligible" : "Not eligible"
 ```
