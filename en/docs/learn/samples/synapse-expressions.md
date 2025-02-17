@@ -23,7 +23,7 @@ The API have the following resources dedicated to explain different usages of Sy
 
 ## Invoking the sample
 
-You can download the **Postman collection** for this sample from <a href="{{base_path}}/assets/attachments/learn/SynapseExpressions.postman_collection.json" download="SynapseExpressions.postman_collection.json">here.</a>
+You can download the **Postman collection** for this sample from <a href="{{base_path}}/assets/attachments/learn/synapse_expressions_postman_collection.json" download="SynapseExpressions.postman_collection.json">here.</a>
 
 ### Literal values
 
