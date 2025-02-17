@@ -258,7 +258,7 @@ You can now configure the mediation logic to handle requests.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
 
-9. From the **Palette**, select **Respond** mediator under the **Mediators** > **Favourites** section.
+9. From the **Palette**, select **Respond** mediator under the **Mediators** section.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
 
