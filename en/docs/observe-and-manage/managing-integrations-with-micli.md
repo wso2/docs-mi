@@ -954,7 +954,7 @@ Follow the instructions below to display a list of artifacts or get information 
         inbound.thread.id                      PassThroughInboundWorkerPool
         ```
 
-3. Activate/Deactivate a specific inbound endpoint in an environment.
+3. Activate/deactivate a specific inbound endpoint in an environment.
 
     -   **Command**
         ``` bash
@@ -966,7 +966,7 @@ Follow the instructions below to display a list of artifacts or get information 
         ```
 
         !!! info
-        **Flags:**
+            **Flags:**
 
             -   Required :  
                 `--environment` or `-e` : Environment of the Micro Integrator to be searched
@@ -974,17 +974,18 @@ Follow the instructions below to display a list of artifacts or get information 
                 `--format` : pretty-print using templates
 
         !!! example
-        ```bash
-        mi deactivate inbound-endpoint sampleFileInboundEndpoint -e dev
-        ```
+            ```bash
+            mi deactivate inbound-endpoint sampleFileInboundEndpoint -e dev
+            ```
 
     -   **Response**
 
         ```go
         sampleFileInboundEndpoint : is deactivated
-        ```
+        ```      
+        
 !!! note
-The activate/deactivate capability of inbound endpoints is currently supported only for the `file` protocol.
+    The activate/deactivate capability of inbound endpoints is currently supported only for the `file` protocol.
 
 ### Local Entries
 
