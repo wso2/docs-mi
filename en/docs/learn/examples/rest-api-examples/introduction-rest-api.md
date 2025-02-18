@@ -17,7 +17,7 @@ This is a REST API with two API resources. The GET calls are handled by the firs
                     <format>
                         <m0:getQuote xmlns:m0="http://services.samples">
                             <m0:request>
-                                <m0:symbol>${params.uriParams.symbol}</m0:symbol>
+                                <m0:symbol>${params.pathParams.symbol}</m0:symbol>
                             </m0:request>
                         </m0:getQuote>
                     </format>
