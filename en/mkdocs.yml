@@ -412,6 +412,7 @@ nav:
       - Samples:
           - Overview: learn/samples/samples-overview.md
           - Hello World Service: learn/samples/hello-world-service.md
+          - Synapse Expressions: learn/samples/synapse-expressions.md
           - JMS Integration: learn/samples/jms-integration.md
           - Content Based Routing: learn/samples/content-based-routing.md
           - Database Polling: learn/samples/database-polling.md

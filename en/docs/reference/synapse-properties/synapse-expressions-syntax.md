@@ -20,7 +20,7 @@ We can chain the above building blocks to create complex expressions required by
     For the rest of this document, we will refer to the Synapse Expression without the enclosing `${}`.
 
 !!! Note
-    We have a dedicated sample in the VSCode extension to demonstrate each of the following sections. You can deploy the sample in Micro Integrator and follow along by invoking the relevant resources to see the results.
+    We have a dedicated [sample]({{base_path}}/learn/samples/synapse-expressions/) in the MI for VS Code extension to demonstrate each of the following sections. You can deploy the sample in Micro Integrator and follow along by invoking the relevant resources to see the results.
 
 ## Literals
 
@@ -54,6 +54,9 @@ The following types of literals are supported in Synapse expressions.
 </tr>
 </tbody>
 </table>
+
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#literal-values) to test the literals.
 
 ## Accessing values
 
@@ -118,6 +121,9 @@ configs.configName
 
 For more information about Config parameters, see [Injecting Parameters]({{base_path}}/develop/injecting-parameters/).
 
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#accessing-values-from-payloads-variables-properties-etc) to test accessing values.
+
 ## Operators
 
 Synapse expressions support arithmetic, comparison, and logical operators between operands.
@@ -166,6 +172,9 @@ vars.boolValue1 && (vars.boolValue2 || vars.boolValue3)
 (vars.num1 + 5) > vars.num2 && (vars.num3 - 3) < vars.num4
 ```
 
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#operators) to test operators.
+
 ## Conditional expressions
 
 Synapse Expressions support conditional expressions using the ternary operator with the following syntax.
@@ -182,6 +191,9 @@ Example usage:
 vars.age > 18 ? "Adult" : "Child"
 vars.num1 > vars.num2 ? vars.num1 : vars.num2  
 ```
+
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#conditional-expressions) to test conditional expressions.
 
 ## Filter expressions
 
@@ -203,6 +215,9 @@ Selects users with age greater than or equal to the value of the `minAge` variab
 ```
 payload.users[?(@.age >= vars.minAge)]
 ```
+
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#filter-expressions) to test filter expressions.
 
 ## Functions
 
@@ -587,6 +602,10 @@ Example usage:
 <variable name="var1" expression="${not(payload.booleanValue)}"/>
 ```
 
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#functions) to test functions.
+
+
 ### XPath functions
 
 Synapse expressions provide XPath functions to work with XML payloads.
@@ -617,6 +636,10 @@ Example usage:
 ```
 <variable name="StudentName" expression="${xpath('//student/text()', 'Students')}"/>
 ```
+
+!!! Note
+    Refer the [sample]({{base_path}}/learn/samples/synapse-expressions/#xpath-expressions) to test XPath functions.
+
 
 ## Reserved keywords
 

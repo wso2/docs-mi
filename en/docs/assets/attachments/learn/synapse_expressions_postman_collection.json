@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "b8d1cb0f-949f-4dab-a96a-6a7eb6a44cb6",
+		"name": "SynapseExpressions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2018688"
+	},
+	"item": [
+		{
+			"name": "Literals",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8290/test/literals"
+			},
+			"response": []
+		},
+		{
+			"name": "Accessing values",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"books\": [\n        {\n            \"category\": \"fiction\",\n            \"author\": \"Herman Melville\",\n            \"title\": \"Moby Dick\",\n            \"isbn\": \"0-553-21311-3\",\n            \"price\": 8.99\n        },\n        {\n            \"category\": \"fiction\",\n            \"author\": \"J.R.R. Tolkien\",\n            \"title\": \"The Lord of the Rings\",\n            \"isbn\": \"0-395-19395-8\",\n            \"price\": 22.99\n        },\n        {\n            \"category\": \"fiction\",\n            \"author\": \"Harper Lee\",\n            \"title\": \"To Kill a Mockingbird\",\n            \"price\": 10.99\n        },\n        {\n            \"category\": \"fiction\",\n            \"author\": \"George Orwell\",\n            \"title\": \"Animal Farm\",\n            \"price\": 7.99\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/test/accessingValues/books?qParamKey=fiction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"test",
+						"accessingValues",
+						"books"
+					],
+					"query": [
+						{
+							"key": "qParamKey",
+							"value": "fiction"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operators",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"num1\" : 10,\n    \"num2\" : 5,\n    \"num3\" : -2,\n    \"num4\" : 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8290/test/operators"
+			},
+			"response": []
+		},
+		{
+			"name": "Conditional",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\" : 17\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8290/test/conditional"
+			},
+			"response": []
+		},
+		{
+			"name": "Filters",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"store\": {\n      \"books\": [\n        {\n          \"category\": \"reference\",\n          \"author\": \"Nigel Rees\",\n          \"title\": \"Sayings of the Century\",\n          \"price\": 8.95\n        },\n        {\n          \"category\": \"fiction\",\n          \"author\": \"Herman Melville\",\n          \"title\": \"Moby Dick\",\n          \"isbn\": \"0-553-21311-3\",\n          \"price\": 8.99\n        },\n        {\n          \"category\": \"fiction\",\n          \"author\": \"J.R.R. Tolkien\",\n          \"title\": \"The Lord of the Rings\",\n          \"isbn\": \"0-395-19395-8\",\n          \"price\": 22.99\n        },\n        {\n          \"category\": \"fiction\",\n          \"author\": \"Harper Lee\",\n          \"title\": \"To Kill a Mockingbird\",\n          \"price\": 10.99\n        },\n        {\n          \"category\": \"fiction\",\n          \"author\": \"George Orwell\",\n          \"title\": \"Animal Farm\",\n          \"price\": 7.99\n        },\n        {\n          \"category\": \"biography\",\n          \"author\": \"Anne Frank\",\n          \"title\": \"The Diary of a Young Girl\",\n          \"price\": 6.99\n        }\n      ]\n    },\n    \"expensive\": 20\n  }\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8290/test/filters"
+			},
+			"response": []
+		},
+		{
+			"name": "Functions",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\" : \"Hello World\",\n    \"trimText\" :\"     Hello    \",\n    \"num1\" : -2.6,\n    \"num2\" : 1.2345,\n    \"num3\" : 100,\n    \"encoded\" : \"SGVsbG8gV29ybGQ=\",\n    \"url\" : \"search?query=hello world&category=books&sort=price&page=1\",\n    \"encodedURL\" : \"https://example.com/search?query=hello%20world&category=books&sort=price&page=1\",\n    \"array\" : [1,2,3],\n    \"object\" : \"{\\\"a\\\":\\\"b\\\"}\",\n    \"convert_int\" : \"123\",\n    \"convert_float\" : \"3.14\",\n    \"convert_boolean\" : \"true\",\n    \"convert_array\" : \"[1,\\\"Hello\\\",true]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8290/test/functions"
+			},
+			"response": []
+		},
+		{
+			"name": "XPATH",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root xmlns:a=\"http://namespaceA.com\" xmlns:b=\"http://namespaceB.com\">\n    <a:parent>\n        <b:child>\n            <a:value>Value1</a:value>\n        </b:child>\n    </a:parent>\n</root>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "http://localhost:8290/test/xpath"
+			},
+			"response": []
+		}
+	]
+}
