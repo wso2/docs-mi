@@ -943,6 +943,7 @@ Follow the instructions below to display a list of artifacts or get information 
         Type - http
         Stats - enabled
         Tracing - enabled
+        Status - active
         Parameters :
         NAME                                   VALUE
         inbound.http.port                      8697
@@ -952,6 +953,38 @@ Follow the instructions below to display a list of artifacts or get information 
         inbound.worker.pool.queue.length       -1
         inbound.thread.id                      PassThroughInboundWorkerPool
         ```
+
+3. Activate/Deactivate a specific inbound endpoint in an environment.
+
+    -   **Command**
+        ``` bash
+        mi activate inbound-endpoint [inbound-name] -e <environment>
+        ```
+
+        ``` bash
+        mi deactivate inbound-endpoint [inbound-name] -e <environment>
+        ```
+
+        !!! info
+        **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+        ```bash
+        mi deactivate inbound-endpoint sampleFileInboundEndpoint -e dev
+        ```
+
+    -   **Response**
+
+        ```go
+        sampleFileInboundEndpoint : is deactivated
+        ```
+!!! note
+The activate/deactivate capability of inbound endpoints is currently supported only for the `file` protocol.
 
 ### Local Entries
 
