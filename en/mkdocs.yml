@@ -23,7 +23,7 @@ site_url: https://mi.docs.wso2.com/en/latest/
 # Repository
 repo_name: wso2/docs-mi
 repo_url: https://github.com/wso2/docs-mi
-edit_uri: https://github.com/wso2/docs-mi/edit/4.4.0/en/docs/
+edit_uri: https://github.com/wso2/docs-mi/edit/main/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
