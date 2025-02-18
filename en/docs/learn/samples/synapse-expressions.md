@@ -112,7 +112,7 @@ curl --location 'http://localhost:8290/test/operators' \
 }'
 ```
 
-You will get a console output similar to follows
+You will get a console output similar to the following:
 
 ```
 Operations in Synapse Expressions
@@ -128,7 +128,7 @@ Multiplication : -20
 
 If you are using the Postman collection, you can invoke the **Conditional** resource.
 
-If you are using cURL, you can invoke the API using the following command
+If you are using cURL, you can invoke the API using the following command:
 
 ```
 curl --location 'http://localhost:8290/test/conditional' \
@@ -149,7 +149,7 @@ Child
 
 If you are using the Postman collection, you can invoke the **Filters** resource.
 
-If you are using cURL, you can invoke the API using the following command
+If you are using cURL, you can invoke the API using the following command:
 
 ```
 curl --location 'http://localhost:8290/test/filters' \
@@ -214,7 +214,7 @@ Filter expensive books : [{"category":"fiction","author":"J.R.R. Tolkien","title
 
 If you are using the Postman collection, you can invoke the **Functions** resource.
 
-If you are using cURL, you can invoke the API using the following command
+If you are using cURL, you can invoke the API using the following command:
 
 ```
 curl --location 'http://localhost:8290/test/functions' \
@@ -237,7 +237,7 @@ curl --location 'http://localhost:8290/test/functions' \
 }'
 ```
 
-You will get a console output similar to follows
+You will get a console output similar  to the following:
 
 ```
 Functions in Synapse Expressions
@@ -253,7 +253,7 @@ Substring :  World , llo
 
 If you are using the Postman collection, you can invoke the **XPath** resource.
 
-If you are using cURL, you can invoke the API using the following command
+If you are using cURL, you can invoke the API using the following command:
 
 ```
 curl --location 'http://localhost:8290/test/xpath' \

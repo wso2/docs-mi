@@ -20,7 +20,7 @@ We can chain the above building blocks to create complex expressions required by
     For the rest of this document, we will refer to the Synapse Expression without the enclosing `${}`.
 
 !!! Note
-    We have a dedicated [sample]({{base_path}}/learn/samples/synapse-expressions/) in the VSCode extension to demonstrate each of the following sections. You can deploy the sample in Micro Integrator and follow along by invoking the relevant resources to see the results.
+    We have a dedicated [sample]({{base_path}}/learn/samples/synapse-expressions/) in the MI for VS Code extension to demonstrate each of the following sections. You can deploy the sample in Micro Integrator and follow along by invoking the relevant resources to see the results.
 
 ## Literals
 
