@@ -985,7 +985,7 @@ Follow the instructions below to display a list of artifacts or get information 
         ```      
         
 !!! note
-    The activate/deactivate capability of inbound endpoints is currently supported only for the `file` protocol.
+    The activate/deactivate capability of inbound endpoints is currently supported only for the `file` inbound endpoint protocol.
 
 ### Local Entries
 
