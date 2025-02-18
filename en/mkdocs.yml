@@ -394,7 +394,7 @@ nav:
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
           - Endpoint Trace: develop/endpoint-trace-logs.md
       - Advanced Development Tasks:
-          - Inject Parameters: develop/injecting-parameters.md
+          - Externalized Configuration: develop/externalized-configuration.md
           - Change the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
           - Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
           - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
