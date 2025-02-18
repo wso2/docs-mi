@@ -912,8 +912,8 @@ Follow the instructions below to display a list of artifacts or get information 
     -   **Response**
 
         ```go
-        NAME                 TYPE
-        httpInboundEP        http
+        NAME                 TYPE        STATUS
+        httpInboundEP        http        active
         ```
 
 2.  Get information on a specific inbound endpoint in an environment.
