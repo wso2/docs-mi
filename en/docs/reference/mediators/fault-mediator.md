@@ -173,7 +173,7 @@ In the following example, the `test message` string value is given as the reas
 
 ### Example 2
 
-The following sample proxy validates the content type using the Filter Mediator based on the `Content-Type` header property. If the result is true, it sends an exception back to the client using the Fault Mediator. Otherwise, if the result is false, it continues the flow.
+The following sample proxy validates the content type using the If Else Mediator based on the `Content-Type` header property. If the result is true, it sends an exception back to the client using the Fault Mediator. Otherwise, if the result is false, it continues the flow.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>

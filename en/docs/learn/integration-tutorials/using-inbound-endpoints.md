@@ -35,17 +35,17 @@ Follow the instructions given in this section to create and configure the requir
 
     <a href="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" alt="Inbound project explorer" width="40%"></a>
 
-2. Navigate to the **MI Project Explorer** > **Inbound Endpoints**.
+2. Click the **+** icon in the **MI Project Explorer**.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png" alt="create inbound endpoint" width="40%"></a>
 
-2. Hover over **Inbound Endpoints** and click the **+** icon that appears.
+3. Select the  **Event Integration** and click it.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png" alt="add inbound endpoint" width="40%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png" alt="add inbound endpoint" width="80%"></a>
 
-3. On the **Inbound EP Form**, select **HTTP** as the inbound endpoint type.
+4. On the **Create Event Integration panel**, select **HTTP** as the inbound endpoint type.
 
-3.  Enter the following details and click **Add**.
+5. Enter the following details and click **Add**.
     
     <table>
         <tr>

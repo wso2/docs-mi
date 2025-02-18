@@ -5,7 +5,7 @@ The ForEach Mediator processes a collection, such as a JSON array or XML list de
 ## Syntax
 
 ```
-<foreach collection="expression" parallel-execution=(true | false) result-target=(string) result-type="JSON | XML" counter-variable=(string) >
+<foreach collection="expression" parallel-execution=(true | false) continue-without-aggregation=(true | false) update-original=(true | false) target-variable=(string) result-content-type="JSON | XML" result-enclosing-element=(string) counter-variable=(string) >
     <sequence>
         (mediator)+
     </sequence>+
@@ -66,6 +66,24 @@ The parameters available to configure the ForEach mediator are as follows.
             </ul>
          </td>
       </tr>
+      <tr class="odd">
+         <td>
+            <strong>Continue without aggregation</strong>
+         </td>
+         <td>
+            Specifies whether the parent flow should continue without waiting for the aggregation.
+            <ul>
+               <li>
+                  <strong>True</strong>
+                  : Continue the parent flow without waiting for the aggregation.
+               </li>
+               <li>
+                  <strong>False</strong>
+                  (default): Wait till aggregation completes and continue the flow.
+               </li>
+            </ul>
+         </td>
+      </tr>
    </tbody>
 </table>
 
@@ -111,6 +129,10 @@ The parameters available to configure the ForEach mediator are as follows.
             This parameter is required if <strong>Update Original Collection</strong> is disabled.
          </td>
       </tr>
+      <tr class="odd">
+         <td><strong>Result Enclosing Element Name</strong></td>
+         <td>Specifies the name of the root element wrapping the aggregation result. Applicable only when <strong>Variable Type</strong> is XML.</td>
+      </tr>
    </tbody>
 </table>
 
@@ -141,7 +163,7 @@ The parameters available to configure the ForEach mediator are as follows.
 ### Example 1 - Iterating over an XML list derived from the message body and updating the original collection
 
 ```xml
-<foreach collection="${xpath('//data/list')}" parallel-execution="true">
+<foreach collection="${xpath('//data/list')}" parallel-execution="true" update-original="true" continue-without-aggregation="false">
     <sequence>
         <payloadFactory media-type="xml">
             <format>
@@ -163,7 +185,7 @@ The parameters available to configure the ForEach mediator are as follows.
 ### Example 2 - Iterating over a JSON array derived from the message body and setting the new content to a variable
 
 ```xml
-<foreach collection="${payload.data.list}" parallel-execution="true" result-target="processedList" result-type="JSON">
+<foreach collection="${payload.data.list}" parallel-execution="true" update-original="false" target-variable="processedList" result-content-type="JSON" continue-without-aggregation="false">
     <sequence>
         <log category="INFO">
             <message>Processing message : ${payload}</message>
@@ -187,7 +209,7 @@ The parameters available to configure the ForEach mediator are as follows.
 ### Example 2 - Iterating over a JSON array derived from a variable
 
 ```xml
-<foreach collection="${var.list}" parallel-execution="true">
+<foreach collection="${var.list}" parallel-execution="true" update-original="true" continue-without-aggregation="false">
     <sequence>
         <log category="INFO">
             <message>Processing message : ${payload}</message>

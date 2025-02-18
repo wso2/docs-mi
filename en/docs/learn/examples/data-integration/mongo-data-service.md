@@ -1,6 +1,7 @@
 # How to Expose a Mongo Datasource
 
 This example demonstrates how Mongo data can be exposed as a data service.
+These data services are compatible with MongoDB Java Driver version 4.9.1.
 
 ## Prerequisites
 
@@ -10,7 +11,7 @@ Let's create a simple Mongo database that stores employee information.
 2.  Use the following commands to create the database.
 
     ```bash
-    mongo
+    mongosh
     use employeesdb
     db.createCollection("employees")
     db.things.insert( { id: 1, name: "Document1" } )

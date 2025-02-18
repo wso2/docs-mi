@@ -26,7 +26,7 @@ Before digging into implementation details, let's take a look at the relationshi
 | Application Messages                          | Simple Stock Quote Client                                                    |
 | Test Data Generator                           | Test data generator role is played by the Task Scheduler in the ESB. It creates a message after a given interval and hands over the message to the main sequence.                                                   |
 | Test Message Injector                         | Main sequence injects messages it gets from Task scheduler into `sendSeq`, where the rest of the messages go.                                                   |
-| Test Message Separator and Test Data Verifier | A Filter mediator inside `receiveSeq` filters out the test messages and prints the outcome of the test. There's another filter in fault c to monitor any failures in sending test messages.                                                   |
+| Test Message Separator and Test Data Verifier | An If Else mediator inside `receiveSeq` filters out the test messages and prints the outcome of the test. There's another filter in fault c to monitor any failures in sending test messages.                                                   |
 
 ### Environment setup
 
@@ -158,7 +158,7 @@ Let's investigate the elements of the ESB configuration in detail. The line numb
 
 - **sequence** [line 8 in ESB config] -  The sequence with key sendSeq defines the endpoint where messages will be sent and defines the sequence (receiveSeq) that will receive responses.
 - **fault sequence** [line 17 in ESB config] - The fault sequence provides a channel for handling faults.
-- **filter** [line 29 in ESB config] - A filter mediator is used within the fault sequence to determine whether the symbol property of the message passing through this filter contains TEST. If it does, it will be logged, and no fault message is passed onto the requesting client. If TEST does not exist, a fault message is passed as usual.
+- **filter** [line 29 in ESB config] - An If Else mediator is used within the fault sequence to determine whether the symbol property of the message passing through this filter contains TEST. If it does, it will be logged, and no fault message is passed onto the requesting client. If TEST does not exist, a fault message is passed as usual.
 - **sequence** [line 68 in ESB config] - This is the main sequence invoked by default when a request is made to the ESB. This sequence calls the sendSeq sequence (line 8 in ESB config).
 - **task** [line 78 in ESB config] - A task in the ESB runs periodically based on a given timer. This timer is specified using the trigger element. In this case, the task is set to run every 25 seconds. This task uses the Synapse MessageInjector class to inject a message into the Synapse environment.
 - **property** [line 85 in ESB config] - This property, defined inside the task, specifies the message body.

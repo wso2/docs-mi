@@ -37,59 +37,31 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create the Sequence
 
-1. Navigate to the **MI Project Explorer** > **Sequences**.
+1. Go to **MI Project Overview** > **Add Artifact**.
+2. Click **+ View More** under **Create an Integration**.
+3. Select **Sequence** under **Other Artifacts** to open the **Create New Sequence** form.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/create-sequence.png" alt="create sequence" width="40%"></a>
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-artifact.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-artifact.png" alt="add sequence artifact" width="80%"></a>
 
-2. Hover over **Sequences** and click the **+** icon that appears.
+4. In the Sequence Form that appears, provide `InjectXMLSequence` as the **Name**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-sequence.png" alt="add sequence" width="40%"></a>
+5. Click **Create**. Then you will be directed to the **MI Overview** page.
 
-3. In the Sequence Form that appears, provide `InjectXMLSequence` as the **Name**.
+6. Click on `InjectXMLSequence` under **Other Artifacts** > **Sequences** in project explorer to open its diagram view.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-sequence.png" alt="Create new sequence" width="80%"></a>
+7. Next, add a Log mediator to the sequence. Click the **+** icon and select **Log mediator** from the **Palette** under **Mediators** > **Generic**.
 
-4. Click **Create**. Then you will be directed to the **MI Overview** page.
+8. Enter the following details in the **Log** details pane.  
+    - **Log Category**: `INFO`
+    - **Message**: `City = ${xpath("//city")}`
 
-5. Click on `InjectXMLSequence` under **Sequences** that you have just created to open its diagram view.
+9. Click **Submit** to save the Log details.
 
-6. Next, add a Log mediator to the sequence. Click the **+** icon and select **Log mediator** from the **Palette** under **Mediators** > **Generic**.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-log-mediator.png" alt="Add log mediator" width="80%"></a>
-
-6. Enter the following details in the **Log** details pane.  
-    -  **Log Category**: `INFO`
-    -  **Log Level**: `CUSTOM`
-
-7. Under **Properties**, click **Add Parameter** to add a new property with the following details:
-        <table>
-           <tr>
-              <th>Property</th>
-              <th>Description</th>
-           </tr>
-           <tr>
-              <td>Property Name</td>
-              <td><code>City</code></td>
-           </tr>
-           <tr>
-              <td>Property Value</td>
-              <td><code>//city</code></td>
-           </tr> 
-        </table>
-    
-8. Click on `EX` to set the value to the expression type. 
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/log-details.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/log-details.png" alt="Log details" width="40%"></a>
-
-9. Click **Save** to save the properties.
-
-10. Click **Submit** to save the Log details.
-
-11. Next, add the Drop mediator. Click on the **+** icon and select **Drop** mediator from **Mediators** > **Generic**.
+10. Next, add the Drop mediator. Click on the **+** icon and select **Drop** mediator from **Mediators** > **Generic**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-drop-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/add-drop-mediator.png" alt="Add drop mediator" width="80%"></a>
 
-12. Click **Submit**.
+11. Click **Add**.
 
 Below is the complete source configuration of the Sequence (i.e., the `InjectXMLSequence.xml` file).
 
@@ -105,13 +77,10 @@ Below is the complete source configuration of the Sequence (i.e., the `InjectXML
 
 #### Create the Scheduled Task
 
-1. Navigate to the **MI Project Explorer** > **Tasks**.
+1. Navigate to the **Project Overview** > **Add Artifact**.
+2. Click on **Automation**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-tasks.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-tasks.png" alt="create sequence" width="40%"></a>
-
-2. Hover over **Tasks** and click the **+** icon that appears.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-task.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-task.png" alt="add sequence" width="40%"></a>
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/automation-artifact.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/automation-artifact.png" alt="create automation artifact" width="80%"></a>
 
 3. In the Task Form that appears, enter the following details:
 

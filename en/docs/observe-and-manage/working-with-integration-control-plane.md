@@ -71,9 +71,17 @@ Follow the steps given below to configure the MI servers to publish data to the 
     ```toml
     [dashboard_config]
     dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-    heartbeat_interval = 5
-    group_id = "mi_dev"
-    node_id = "dev_node_2"
+    heartbeat_interval = "<HEARTBEAT_INTERVAL>"
+    group_id = "<GROUP_ID>"
+    node_id = "<NODE_ID>"
+    ```
+    For example: 
+    ```toml
+    [dashboard_config]
+     dashboard_url = "https://localhost:9743/dashboard/api/"
+     heartbeat_interval = 5
+     group_id = "mi_dev"
+     node_id = "dev_node_2"
     ```
     
     If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
@@ -157,7 +165,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
 3.  Regardless of the user who logs in, the ICP server uses the user configured in its `deployment.toml` to fetch the data to the ICP server. Then the ICP server renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<ICP_HOME>/conf/` folder).
 
     ```toml
-    [mi_user_store]
+    [mi_super_admin]
     username = "admin"
     password = "admin"
     ```

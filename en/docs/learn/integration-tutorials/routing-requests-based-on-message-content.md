@@ -9,9 +9,8 @@ When the client sends the appointment reservation request to the Micro Integrato
 ### Concepts and artifacts used
 
 -   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
--   [HTTP Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties)
--   [Property Mediator]({{base_path}}/reference/mediators/property-mediator)
--   [Call Mediator]({{base_path}}/reference/mediators/call-mediator)
+-   [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview)
+-   [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator)
 
 ## Let's get started!
 
@@ -37,7 +36,7 @@ Follow the instructions given in this section to create and configure the requir
 
 You will now see the projects listed in the **Project Explorer**.
 
-#### Create endpoints
+#### Create HTTP connections
 
 In this tutorial, we have three hospital services hosted as the backend:
 
@@ -48,75 +47,68 @@ In this tutorial, we have three hospital services hosted as the backend:
 The request method is `POST` and the format of the request URL expected by the back-end services is as below.
 `http://localhost:9090/grandoaks/categories/{category}/reserve`
 
-Let's create three different HTTP endpoints for the above services.
+Let's create three different HTTP connections for the above services.
 
-1. Go to **Micro Integrator Project Explorer** > **Endpoints**. This will open the **Endpoint Form**, from which you can select the **HTTP Endpoint**.
+1. Navigate to the **Project Settings** page.
 
-2. Enter the information given below to create the new endpoint.
-    <table>
-        <tr>
-            <th>Property</th>
-            <th>Value</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Endpoint Name </td>
-            <td>
-                <code>GrandOakEP</code>
-            </td>
-            <td>
-                The name of the endpoint representing the Grand Oaks Hospital service.
-            </td>
-        </tr>
-        <tr>
-            <td>URI Template</td>
-            <td>
-                <code>http://localhost:9090/grandoaks/categories/{uri.var.category}/reserve</code>
-            </td>
-            <td>
-                The template for the request URL expected by the back-end service.
-            </td>
-        </tr>
-        <tr>
-            <td>Method</td>
-            <td>
-                <code>POST</code>
-            </td>
-            <td>
-                Endpoint HTTP REST Method.
-            </td>
-        </tr>
-    </table>
+2. Click on **Add artifact**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/grandoak-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/grandoak-endpoint.png" alt="Grand Oak endpoint" width="80%"></a>
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
-3.  Click **Create**.
+3. Click **+ View More** under **Create an Integration**.
+4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-4.  Similarly, create the HTTP endpoints for the other two hospital services using the URI Templates given below:
+   <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
-   | Endpoint Name | Type   | URI Template                                                             | Method   |
-   |---------------|--------|--------------------------------------------------------------------------|----------|
-   | ClemencyEP    | `HTTP` | `http://localhost:9090/clemency/categories/{uri.var.category}/reserve`   | `POST`   |
-   | PineValleyEP  | `HTTP` | `http://localhost:9090/pinevalley/categories/{uri.var.category}/reserve` | `POST`   |
+5. Select **HTTP**.
+6. You need to add dependencies to the project, if not added yet.
+7. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
+     <table>
+         <thead>
+           <tr>
+              <th>Property</th>
+              <th>Value</th>
+              <th>Description</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+              <td>Connection Name</td>
+              <td><code>GrandOakConn</code></td>
+              <td>The name of the connection.</td>
+           </tr>
+           <tr>
+              <td>Base URL</td>
+              <td>
+                 <code>http://localhost:9090/grandoaks</code>
+              </td>
+              <td>The base of the request URL for the back-end service.</td>
+           </tr>
+         </tbody>
+     </table>
 
-You have now created the three endpoints for the hospital back-end services that will be used to make appointment reservations.
+8. Click **Add**.
+
+9. Similarly, create the HTTP connections for the other two hospital services using the Base URLs given below:
+
+   | Connection Name | Base URL                           |
+   |-----------------|------------------------------------|
+   | ClemencyConn    | `http://localhost:9090/clemency`   |
+   | PineValleyConn  | `http://localhost:9090/pinevalley` |
+
+You have now created the three connections for the hospital back-end services that will be used to make appointment reservations.
 
 !!! Tip
-    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service).
+    You can also create a single connection where the differentiation of the hospital name can be handled using a variable in the relative path of an operation. See the tutorial on [Exposing Several Services as a Single Service]({{base_path}}/learn/integration-tutorials/exposing-several-services-as-a-single-service).
 
-    Using three different endpoints is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
+    Using three different connections is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
 
 #### Create a REST API
 
-1. Go to **MI Project Explorer** > **APIs**.
+1. Go to **Project Settings** > **Add Artifact**.
+2. Select **API** under **Create an Integration**.
+3. Enter the details given below to create a new REST API.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/create-rest-api.png" alt="create new api" width="30%"></a>
-
-2. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-api.png" alt="add API" width="30%"></a>
-
-3.  Enter the details given below to create a new REST API.
     <table>
       <tr>
         <th>Property</th>
@@ -132,9 +124,9 @@ You have now created the three endpoints for the hospital back-end services that
       </tr>
       <tr>
         <td>Context</td>
-        <td><code>/healthcare </code></td>
+        <td><code>/healthcare</code></td>
         <td>
-          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+          Here you are anchoring the API in the <code>/healthcare</code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare</code>.
         </td>
       </tr>
     </table>                                                                   
@@ -155,15 +147,9 @@ You have now created the three endpoints for the hospital back-end services that
         <th>Description</th>
     </tr>
     <tr>
-        <td>URI Template</td>
+        <td>Resource Path</td>
         <td>
             <code>/categories/{category}/reserve</code>
-        </td>
-    </tr>
-    <tr>
-        <td>URL Style</td>
-        <td>
-            <code>URI_TEMPLATE</code>
         </td>
     </tr>
     <tr>
@@ -174,7 +160,7 @@ You have now created the three endpoints for the hospital back-end services that
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-api-resource.png" alt="Edit API resource" width="35%"></a>
+   <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
 
 7. Click **Update**.
 
@@ -182,13 +168,13 @@ You have now created the three endpoints for the hospital back-end services that
 
 You can now start configuring the API resource.
 
-1. Open the **Resource View** of the API resource.
+1. Navigate to **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve** to open the **Resource View**.
 
 2. Click on the **+** icon to open the **Palette**. 
 
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png" alt="open palette" width="60%"></a>
 
-3. Select **Property** mediator under **Mediators** > **Generic**.
+3. Select **Variable** mediator under **Mediators**.
 
 4. Specify the following values.
 
@@ -201,181 +187,165 @@ You can now start configuring the API resource.
             <th>Description</th>
         </tr>
       <tr>
-         <td>Property Name</td>
+         <td>Name</td>
          <td><code>Hospital</code></td>
       </tr>
       <tr>
-         <td>Property Action</td>
-         <td><code>set</code></td>
+         <td>Data Type</td>
+         <td>Select <code>STRING</code>.</td>
       </tr>
       <tr>
-         <td>Property Scope</td>
-         <td><code>DEFAULT</code></td>
-      </tr>
-      <tr>
-         <td>Property Value</td>
+         <td>Value</td>
          <td>
             <div class="content-wrapper">
               <p>Follow the steps given below to specify the expression value:</p>
             <ol>
-                <li>Click the **EX** button next to the <b>Property Value</b> field. This specifies the value type as <i>expression</i>.</li>
-                <li>
-                  Now, click the pen icon to open the <b>Expression Editor</b>.
-                </li>
-               <li>Enter <code>json-eval($.hospital)</code> as the **Expression Value**.</li>
+               <li>Click the **EX** button next to the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
+               <li>Enter <code>payload.hospital</code> as the **Expression Value**.</li>
             </ol>
                <b>Note</b>:
-               This is the JSONPath expression that will extract the hospital from the request payload.</br>
+               This is the synapse expression that will extract the hospital from the request payload.</br>
                Click **Save**.
             </div>
          </td>
       </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/property.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/property.png" alt="Property pane" width="35%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/variable.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/variable.png" alt="Variable properties" width="35%"></a>
 
 5. Click **Submit**.
 
-6. Next, add a **Switch** mediator from the **palette** just after the Property mediator.
+6. Add a **Switch** mediator by clicking the **+** sign after the **Variable** mediator, and selecting **Switch** mediator from the palette. In the form that appears, specify the following values.
 
-7. In the **Switch** pane, specify the details for **Source XPath**:
-
-      1. Add `get-property('Hospital')` as the **Source XPath**. 
-   
-      2. Click the `EX` button next to the Source XPath value field. This specifies the value type as expression.
-
-8. Specify the details for **Case Branches**:
-
-      We have three different hospital endpoints, which corresponds to three switch cases. Therefore, add three Case Branches with the below details.
-
-      1. Click **Add Parameter** under **Case Branches** to add a branch.  
-   
-      2. Change the **Case RegEx** value for the switch cases as follows:
-
-         Case1: 
-         ```
-         grand oak community hospital
-         ```
-         
-      3. Click **Save**.
-
-      4. Similarly, add two other branches and change the **Case RegEx** value for the respective switch cases as follows.
-
-         Case 2:
-         ```
-         clemency medical center
-         ```
-         Case3:
-         ```
-         pine valley community hospital
-         ```
-
-9. Click **Submit** to save the values for Switch mediator.
-
-10.  Add a Log mediator to the first Case box of the Switch mediator and name it **Grand Oak Log**.  
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/grandoak-case-box.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/grandoak-case-box.png" alt="grandoak case box" width="60%"></a>
-
-    !!! Info
-        This prints a message indicating to which hospital the request message is being routed. 
-
-11.  With the Log mediator selected, access the **Properties** tab and give the following details:
-    <table>
-    <tr>
-        <th>Property</th>
-        <th>Value</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>Log Category</td>
-        <td>
-           <code>INFO</code> 
-        </td>
-        <td>
-            Indicates that the log contains an informational message.
-        </td>
-    </tr>
-    <tr>
-        <td>Log Level</td>
-        <td>
-            <code>CUSTOM</code>
-        </td>
-        <td>
-            Only specified properties will be logged by this mediator.
-        </td>
-    </tr>
-    <tr>
-        <td>Log Separator</td>
-        <td>(blank)</td>
-        <td>
-           Since there is only one property that is being logged, we do not require a separator. Therefore, this field can be left blank. 
-        </td>
-    </tr>
-    <tr>
-        <td>Properties</td>
-        <td colspan="2">
-            Follow the steps given below to extract the stock symbol from the request and print a welcome message in the log:
-            <ol>
-                <li>
-                    Click **Add Parameter** under **Properties**.
-                </li>
-                <li>
-                    Add the following values:
-                    <ul>
-                        <li>
-                            <b>Property Name</b> : `message`
-                        </li>
-                        <li> 
-                            <b>Prperty Value</b> : `fn:concat('Routing to ', get-property('Hospital'))`
-                            </br>Next, click on the `EX` icon, because the required properties for the log message must be extracted from the request, which we can do using an XPath expression.)
-                        </li>
-                    </ul>
-                    <b>Note</b>: This XPath expression value gets the value stored in the Property mediator and concatenates the two strings to display the log message: `Routing to <hospital name>`
-                </li>
-                <li>
-                    Click <b>Save</b>.
-                </li>
-            </ol>
-        </td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td><code>GrandOak Log</code></td>
-        <td>
-           A description for the log mediator.
-        </td>
-    </tr>
+   <table>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Expression</td>
+            <td>
+                <p>The <strong>Expression</strong> field is where we specify the synapse expression, which obtains the value of the Hospital that we stored in the Variable mediator.</p>
+                <p>Follow the steps given below to specify the expression:</p>
+                <ol>
+                    <li>Click <b>Ex</b> button in the <b>Value</b> field towards the end</li>
+                    <li>Enter <code>vars.Hospital</code></li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>Cases</td>
+            <td>
+                <p>You can use <b>+ Add new case</b> button to add case branches</p>
+                <ol>
+                    <li>Case 1: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>grand oak community hospital</code></li>
+                    <li>Case 2: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>clemency medical center</code></li>
+                    <li>Case 3: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>pine valley community hospital</code></li>
+                </ol>
+            </td>
+        </tr>
     </table>
 
-12. Click **Submit**.
+9. Click **Add** to save the values for the Switch mediator.
 
-13. Add a **Call Endpoint** mediator from the palette after the Log mediator.
+10. Add a **Log** mediator to each case branch by clicking the **+** sign in each case branch, and selecting **Log** mediator from the palette. In the form that appears, specify the following values.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/add-call-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/add-call-mediator.png" alt="add call mediator" width="60%"></a>
+    <table>
+        <tr>
+            <th></th>
+            <th>Case 1 (grand oak community hospital)</th>
+            <th>Case 2 (clemency medical center)</th>
+            <th>Case 3 (pine valley community hospital)</th>
+            <th>Default</th>
+        </tr>
+        <tr>
+            <td>Log Category</td>
+            <td><code>INFO</code></td>
+            <td><code>INFO</code></td>
+            <td><code>INFO</code></td>
+            <td><code>ERROR</code></td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td><code>Routing to: ${vars.Hospital}</code></td>
+            <td><code>Routing to: ${vars.Hospital}</code></td>
+            <td><code>Routing to: ${vars.Hospital}</code></td>
+            <td><code>Invalid hospital: ${vars.Hospital}</code></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><code>GrandOak Log</code></td>
+            <td><code>Clemency Log</code></td>
+            <td><code>PineValley Log</code></td>
+            <td><code>Fault Log</code></td>
+        </tr>
+    </table>
 
-14. On the **Call Endpoint** pane, select **GrandOakEP** from **Select Endpoint** dropdown.
-15. Click **Submit**.
+   <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>   
 
-16. Similarly, add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to add a description for the two Log mediators as follows:
+!!! Info
+    You have now configured the Switch mediator to log the `Routing to: <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
+    
+    The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital: <Hospital Name>`) for requests that have an invalid hospital name.
 
-    -   `Clemency Log`
-    -   `Pine Valley Log`
+11. Add an HTTP **POST** operation by clicking the **+** sign after the **Log** mediator in each case branch except for `default`. In the form that appears, specify the following values.
 
-17. Add **Call** mediators after these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Case 1 (grand oak community hospital)</th>
+                <th>Case 2 (clemency medical center)</th>
+                <th>Case 3 (pine valley community hospital)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Connection</td>
+                <td><code>GrandOakConn</code></td>
+                <td><code>ClemencyConn</code></td>
+                <td><code>PineValleyConn</code></td>
+            </tr>
+            <tr>
+                <td>Relative Path</td>
+                <td>Enter <code>/categories/\${params.pathParams.category}/reserve</code></td>
+                <td>Enter <code>/categories/\${params.pathParams.category}/reserve</code></td>
+                <td>Enter <code>/categories/\${params.pathParams.category}/reserve</code></td>
+            </tr>
+            <tr>
+                <td>Headers</td>
+                <td>Leave empty</td>
+                <td>Leave empty</td>
+                <td>Leave empty</td>
+            </tr>
+            <tr>
+                <td>Content Type</td>
+                <td>Select <code>JSON</code></td>
+                <td>Select <code>JSON</code></td>
+                <td>Select <code>JSON</code></td>
+            </tr>
+            <tr>
+                <td>Request Body</td>
+                <td>Enter <code>\${payload}</code></td>
+                <td>Enter <code>\${payload}</code></td>
+                <td>Enter <code>\${payload}</code></td>
+            </tr>
+            <tr>
+                <td>Response Variable Name</td>
+                <td>Enter <code>hospital_res</code></td>
+                <td>Enter <code>hospital_res</code></td>
+                <td>Enter <code>hospital_res</code></td>
+            </tr>
+            <tr>
+                <td>Overwrite Message Body</td>
+                <td>Select</td>
+                <td>Select</td>
+                <td>Select</td>
+            </tr>
+        </tbody>
+    </table>
 
-    !!! Info
-        You have now configured the Switch mediator to log the `Routing to <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
-
-18. Add a **Log mediator** to the **Default** case of the Switch mediator and configure it the same way as the previous Log mediators.
-
-     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/default-case.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/default-case.png" alt="default case" width="60%"></a>
-
-    !!! Note
-        Make sure to name this **Fault Log** and change its <b>Property Expression</b> as follows:`fn:concat('Invalid hospital - ', get-property('Hospital'))`
-
-    The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital - <Hospital Name>`) for requests that have the invalid hospital name.
-
-19. Add a **Respond mediator** just after the **Switch** mediator to return the response from the health care service back to the client.
+19. Add a **Respond** mediator just after the **Switch** mediator to return the response from the health care service back to the client.
 
 You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
 
@@ -397,7 +367,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 #### Start the back-end service
 
 1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-2. Open a terminal, navigate to the location where your saved the back-end service.
+2. Open a terminal, and navigate to the location where you saved the back-end service.
 3. Execute the following command to start the service:
 
     ```bash
@@ -406,7 +376,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a request to the API resource to make a reservation. You can use Postman application as follows:
+Let's send a request to the API resource to make a reservation. You can use the Postman application as follows:
 
 1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
