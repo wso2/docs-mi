@@ -94,6 +94,6 @@ The Micro Integrator runtime is tested with the following databases:
 | MariaDB              | 10.5               |
 | DB2                  | 11.5               |
 
-### ARM Compatibility
+### ARM compatibility
 
 WSO2 Micro Integrator is compatible with ARM processors. It can run on ARM-based systems, such as those with Apple Silicon or ARM-based Linux distributions.
