@@ -247,7 +247,7 @@ nav:
           - Monitor API-Level Logs: develop/monitoring-api-level-logs.md
           - Endpoint Trace: develop/endpoint-trace-logs.md
       - Advanced Development Tasks:
-          - Inject Parameters: develop/injecting-parameters.md
+          - Externalized Configuration: develop/externalized-configuration.md
           - Change the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
           - Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
           - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
@@ -1039,6 +1039,7 @@ plugins:
               'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
+              'develop/injecting-parameters.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/externalized-configuration'
 
   # Extra
 extra_css:
