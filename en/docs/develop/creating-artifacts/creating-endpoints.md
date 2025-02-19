@@ -2,7 +2,8 @@
 
 Follow the instructions below to create a new [Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
-## Instructions
+!!! note
+    For HTTP use cases, you can now use the HTTP Connector instead of defining an endpoint. See the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview) documentation for more information.
 
 ### Create the endpoint artifact
 
