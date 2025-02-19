@@ -56,7 +56,7 @@ Following are the integration artifacts that we can used to implement this scena
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
+3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates) and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
