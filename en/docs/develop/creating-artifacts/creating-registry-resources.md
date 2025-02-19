@@ -1,55 +1,46 @@
 # Create a Resource
 
-The steps to create a resource in the project are detailed below.
+Follow these steps to create a new resource artifact in MI for VS Code.
 
-1. Select the project in Project Explorer.
+{!includes/creating-project.md!}
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-resource-add-registry-1.png" width="300">
+3. To add a new Resource, navigate to **Micro Integrator Project Explorer**.
 
-2. Click on **+ Add Artifact**. 
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/registry-resource-add-registry-2.png" width="800">
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
-3. Select **Resource** from the appeared menu. 
+5. Click **+ View More** under **Create an Integration**.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-in-menu.png" width="800">
+6. Click **Resource** under **Other Artifacts** to open the **Resource Creation Form**.
 
     This will open the **New Resource** window.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-create-form.png" width="800">
 
-4. Select one of the following options.
+7. Select one of the following options:
 
     - [From existing template](#from-existing-template)
     - [Import from file system](#import-from-file-system)
 
-### From the existing template
+    ### From existing template
 
-Use the **From existing template** option if you want to generate a resource from a template.
+    Use the **From existing template** option if you want to generate a resource from a template.
+    
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-from-existing-template.png" width="800">
+    
+    Select a resource template for the **Template Type** field. Then enter a unique name for the **Resource Name**. In this example, a **XSLT File** template is used.
+    
+    ### Import from file system
+    
+    Use the **Import from file system** option to import a file.
+    
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-importing.png" width="800">
+    
+    Use **Browse file** to find the relevant file.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-from-existing-template.png" width="800">
+8. Under **Resource Path**, specify the location to save the resource.
 
-Select a resource template for the **Template Type** field. Then enter a unique name for the **Resource Name**. In this example, a **XSLT File** template is used.
-
-### Import from the file system
-
-#### Step 1: Import a file
-
-Use the **Import from file system** option to import a file.
-
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-importing.png" width="800">
-
-Use **Browse file** to find the relevant file. 
-
-#### Step 2: Save the resource artifact
-
-Specify the location to save the resource and click **Create**.
-
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-save.png" width="800">  
-
-<table>
-  <tr>
-    <th>Resource path</th>
-    <td>Specify where the resource should be saved in the project.</td>
-  </tr>
-</table>
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/resource-save.png" width="800">   
+   
+9. Once you specify the necessary properties, click **Create**.
