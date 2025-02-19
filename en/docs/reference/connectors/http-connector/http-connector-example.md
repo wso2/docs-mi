@@ -282,9 +282,7 @@ curl --request DELETE 'http://localhost:8290/jsonplaceholder/deletePost'
 2. Under **Other Artifacts**, select **Connections**.
 3. Choose the **HTTPS** connection.
 4. Use the following values to configure the connection:
-    - **Connection Name** - `HTTPConnection`
+    - **Connection Name** - `HTTPSConnection`
     - **Base URL** - HTTPS URL Path
     - **Auth Type** - `None`
-5. In the **Certificate** section, select the certificate type as either **File** or **Configurable**:
-    - **File** - Allows you to upload a certificate file to the project.
-    - **Configurable** - Enables you to define the certificate as a configurable setting.
+5. If a certificate is required for the HTTPS connection, it must be added as a certificate type configurable of the project. For more details on adding certificate type configurable, refer to the [Externalized Configuration]({{base_path}}/develop/externalized-configuration/) documentation.
