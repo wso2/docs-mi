@@ -6,10 +6,7 @@ The following are some ways to troubleshoot errors you may encounter when workin
 
 To address issues such as frozen views or errors while designing integrations using the graphical view, follow these steps:
 
-
 1. Open the VS Code Command Palette by selecting **View** > **Command Palette** from the menu, or by using the shortcut `Command`+`Shift`+`P` on macOS or `Ctrl`+`Shift`+`P` on Windows.
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/command-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/command-palette.png" alt="Command Palette" width="80%"></a>
 
 2. Select **Developer: Reload Window** from the list of commands.
 

@@ -8,56 +8,52 @@ Follow these instructions to create an [Inbound Endpoint]({{base_path}}/referenc
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new inbound endpoint, go to **Micro Integrator Project Explorer** > **Inbound Endpoints**.
+3. To add a new Inbound Endpoint, navigate to **Micro Integrator Project Explorer**.
 
-4. Hover over **Inbound Endpoints** and click the **+** icon that appears to open the **Inbound EP Form**.
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-form.png" alt="Create inbound endpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
-5. Select the inbound endpoint type.
+5. On the **Add artifact** pane, click **Event Integration** under **Create an Integration** to open the **Event Integration Form**.
 
-6. Provide details for the inbound endpoint artifact.
+6. Select the Event Integration type.
 
-    !!! note
-        **Injecting Sequence Name** and **Error Sequence Name** are mandatory fields.
-        If you don't have any sequences created in the integration project, tick the checkbox to **Automatically generate sequences**, to generate new sequences for the inbound endpoint. Otherwise, you can select sequences that already exist in the project to the **Injecting Sequence Name** and **Error Sequence Name** fields from the dropdown.
+8. Once you complete the **Event Integration Form**, click **Create**.
 
-7. Once you complete the **Inbound EP Form**, click **Create**.
-<br>
+The created inbound endpoint will be available in **Project Overview** under **Event Integration**.
 
-The created inbound endpoint will be available in the **MI Overview** under **Inbound Endpoints**.
-If you checked the option to **Automatically generate sequences** in the previous step, the automatically generated inbound sequence and error sequence will also be available in the **MI Overview** under **Sequences**.
+<!--
+If you checked the option to **Automatically generate sequences** in the previous step, the automatically generated inbound sequence and error sequence will also be available in **Project Overview** under **Sequences**.
+-->
 
 !!! info                                                                                                                                                              
     You can switch to the default Visual Studio Code **Explorer** to view the folder structure.                                                                       
                                                                                                                                                                       
     The newly-created inbound endpoint will be stored in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/inbound-endpoints` folder of your integration project. 
 
-    If you checked the option to **Automatically generate sequences** in the previous step, the inbound sequence and error sequence will also be created and stored in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/sequences` folder of your integration project.
+    The inbound sequence and error sequence will also be created and stored in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/sequences` folder of your integration project.
 
 ### Design the integration
 
-The integration flow for an inbound endpoint is defined within [named sequences]({{base_path}}/reference/mediation-sequences/#named-sequences).
+1. To design the integration, go to **MI Project Explorer** > **Event Integrations**.
 
-1. To design the integration, go to **MI Project Explorer** > **Inbound Endpoints**.
+2. Select the inbound endpoint you want to design.
 
-2. Select the inbound endpoint.
+3. Click on the **+** icon to open the palette.
 
-Alternatively, to open this view, go to **MI Overview** and select the inbound sequence you want to design under **Sequences**.
-
-This will open the design view of the inbound endpoint. You can design the inbound sequence now.
+4. Add the mediation artifacts from the palette and design the integration flow.
 
 Follow the below steps to design the error sequence:
 
-1. Go to **MI Overview**.
+1. Go to **MI Project Explorer** > **Other Artifacts** > **Sequences**.
 
-2. Select the inbound error sequence you want to design under **Sequences**.
+2. Select the previously-created error sequence you want to design.
 
-You can now add the mediation artifacts from the palette and design the integration flow.
+3. Add the mediation artifacts from the palette and design the integration flow.
 
 ### Update the configurations
 
-1. Go to **MI Project Explorer** > **Inbound Endpoints**.
+1. Go to **MI Project Explorer** > **Event Integrations**.
 
 2. Select the inbound endpoint you want to edit.
 
@@ -65,7 +61,7 @@ You can now add the mediation artifacts from the palette and design the integrat
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-view-edit.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-view-edit.png" alt="Edit inbound endpoint" width="80%"></a>
 
-    This will open the **Edit Listener** interface.
+    This will open the **Event Integration** form.
 
 4. Once you update the details, click **Update**.
 
@@ -83,25 +79,28 @@ See the following links for the list of parameters for each inbound endpoint typ
 
 ### Source View
 
-Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the inbound endpoint using this view.
+Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the inbound endpoint using this view.
 
 <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/source-view.png" alt="Edit inbound endpoint" width="80%"></a>
 
-!!! abstract "Learn more about inbound endpoints"
+## Tutorials
 
-    Follow our examples on inbound endpoints: 
+Follow our tutorial on inbound endpoints:
     
-    - [JMS Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol)
-    - [File Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/file-inbound-endpoint)
-    - [HTTP Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol)
-    - [HTTPS Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol)
-    - [HL7 Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack)
-    - [MQTT Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol)
-    - [RabbitMQ Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol)
-    - [Kafka Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka)
-    - [WebSocket Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket)
-    - [Using Inbound Endpoints with Registry]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry)
+- See the tutorial on [using inbound endpoints]({{base_path}}/learn/integration-tutorials/using-inbound-endpoints)
+
+## Examples
+
+Follow our examples on inbound endpoints: 
+
+- [JMS Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-jms-protocol)
+- [File Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/file-inbound-endpoint)
+- [HTTP Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-http-protocol)
+- [HTTPS Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-https-protocol)
+- [HL7 Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack)
+- [MQTT Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol)
+- [RabbitMQ Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol)
+- [Kafka Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka)
+- [WebSocket Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket)
+- [Using Inbound Endpoints with Registry]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry)
     
-    Follow our tutorial on inbound endpoints:
-    
-    - See the tutorial on [using inbound endpoints]({{base_path}}/learn/integration-tutorials/using-inbound-endpoints)

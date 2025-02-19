@@ -8,17 +8,19 @@ Follow the instructions below to create a Scheduled Task in the Micro Integrator
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. Go to **Micro Integrator Project Explorer** > **Tasks**.
+3. To add a new Scheduled Task, navigate to **Micro Integrator Project Explorer**.
 
-4. Hover over **Tasks** and click the **+** icon that appears.
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    This will open the below **Task Form**.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
-5. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the scheduled task.
+5. On the **Add artifact** pane, click **Automation** under **Create an Integration** to open the **Task Form**.
+
+6. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the scheduled task.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" alt="create new scheduled task" width="80%"></a>
 
-The created scheduled task will be available in the **MI Overview** under Tasks.
+The created scheduled task will be available in **Project Overview** under **Automation**.
 
 !!! info
     You can switch to the default Visual Studio Code Explorer to view the folder structure.
@@ -29,9 +31,9 @@ The created scheduled task will be available in the **MI Overview** under Tasks.
 
 You can later update the task configurations to specify the incoming message that should trigger the task and the destination where the message should be injected.
 
-1. Go to **MI Overview**.
+1. Go to **MI Project Explorer**.
 
-2. Under **Tasks**, select the task you want to edit.
+2. Under **Automation**, select the task you want to edit.
 
 3. This will open the **Task View**.
 
@@ -46,13 +48,15 @@ You can later update the task configurations to specify the incoming message tha
 !!! info
     See the [Scheduled Tasks Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available configurations for tasks.
 
-!!! abstract "Learn more about scheduled tasks"
+## Tutorials
 
-    Follow our examples on scheduled tasks:     
+Follow our tutorial on scheduled tasks:
 
-    - [Task Scheduling using a Simple Trigger]({{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger)
-    - [Inject Messages to a RESTful Endpoint]({{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)
+- [Periodically execute an integration process]({{base_path}}/learn/integration-tutorials/using-scheduled-tasks) using a scheduled task
 
-    Follow our tutorial on scheduled tasks:
+## Examples
 
-    - [Periodically execute an integration process]({{base_path}}/learn/integration-tutorials/using-scheduled-tasks) using a scheduled task
+Follow our examples on scheduled tasks:     
+
+- [Task Scheduling using a Simple Trigger]({{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger)
+- [Inject Messages to a RESTful Endpoint]({{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)

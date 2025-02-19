@@ -1,4 +1,4 @@
-# Create Local Registry Entries
+# Create a Local Registry Entry
 
 The **local registry** acts as a memory registry where you can store static content as a key-value pair. This could be a static text specified as **inline text**, static XML specified as an **inline XML** fragment, or a **URL** (using the `src` attribute).
 
@@ -20,15 +20,19 @@ The **local registry** acts as a memory registry where you can store static cont
 
 This is useful for the type of static content often found in XSLT files, WSDL files, URLs, etc. Local entries can be referenced from mediators in the Micro Integrator mediation flows and resolved at runtime. These entries are top-level entries and are globally visible within the entire system. Values of these entries can be retrieved via the extension XPath function `synapse:get-property(prop-name)`, and the keys of these entries could be specified wherever a registry key is expected within the configuration. A local entry shadows any entry with the same name from a remote Registry.
 
-## Instructions
+Follow these steps to create a local entry artifact.
 
-### Create the local entry
+{!includes/creating-project.md!}
 
-Follow these steps to create a new local entry.
+3. To add a new local entry, navigate to **Micro Integrator Project Explorer**.
 
-1. Click on the **+** mark next to **Local Entries** in the **Project Explorer**.
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-add.png" width="300">
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+
+5. Click **+ View More** under **Create an Integration**.
+
+5. Click **Local Entry** under **Other Artifacts** to open the **Local Entry Form**.
 
 2. Select one of the following types of local entries.
 
@@ -39,15 +43,14 @@ Follow these steps to create a new local entry.
     -   **Source URL Entry**: Type or browse to the URL you want to store
 
 3. Enter a unique name for the local entry and specify the values.
-4. Typically, a Local Entry is saved in the `src/main/wso2mi/artifacts/local-entries` directory. However, you can choose to save the Local Entry to the registry directory (`src/main/wso2mi/resources/registry`) if needed. To do this, select the appropriate option, which will display the form shown below. 
-
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-save-in-registry.png" width="600">
 
 5. Click **Create**.
 
+The Local Entry will be saved in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/local-entries` directory.
+
 ### Update the properties
 
-Open the new Local Entry artifact from the **Project Explorer**. You can use the **Form** view or the **Source** view to update Local Entry properties.
+Open the created local entry artifact from the **MI Project Explorer**. You can use the **Form** view or the **Source** view to update Local Entry properties.
 
 ### Use a local entry
 
@@ -58,17 +61,17 @@ After you create a local entry, you can reference it from a mediator in your med
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-add-xslt.png" width="800">
 
-3. It will open up the **Properties** tab. 
+    It will open up the **Properties** tab. 
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-xslt-properties.png" width="400">
+3. Select the **XSLT Static Schema Key** and enter other properties. 
 
-4. Select the **XSLT Static Schema Key** and enter other properties. 
-
-5. Click **Submit**.
+4. Click **Submit**.
 
 !!! Info
-    If you want to add local entries before deploying the server, you can add them to the top-level bootstrap file `synapse.xml`, or separate XML files in the `local-entries` directory, which are located under `MI_HOME\repository\deployment\server\synapse-configs\default`. When the server is started, these configurations will be added to the registry.
+    If you want to add local entries before deploying the server, you can add them to the top-level bootstrap file `synapse.xml`, or separate XML files in the `local-entries` directory, which are located under `<MI_HOME>\repository\deployment\server\synapse-configs\default`. When the server is started, these configurations will be added to the registry.
 
 ## Examples
+
+Follow our examples on local entries:
 
 - [Sequences and Endpoints as Local Registry Entries]({{base_path}}/learn/examples/registry-examples/local-registry-entries)

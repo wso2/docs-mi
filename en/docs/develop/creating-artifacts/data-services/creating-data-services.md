@@ -1,60 +1,54 @@
 # Create a Data Service
 
-Follow the instructions given below to create a new data service artifact.
-
-!!!	Tip	
-	You can also use a sample template to create your data service.
-
-	1.	Open the **Explore Samples** view of WSO2 Micro Integrator VS Code extension. 
-	2.	In the **Samples** tab, go to the **REST Data Service** and click on **Download**. This will download the project to your chosen directory and open it in a new VS Code window.
-
-## Instructions
-
 ### Create the data service artifact
 
-Follow the steps given below to create the data service file:
+Follow the instructions given below to create a new data service artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
-1. [Create a new integration project]({{base_path}}/develop/create-integration-project/#datasource-project) or select an existing one.
+{!includes/creating-project.md!}
 
-2. In the **Micro Integrator: Project Explorer** sidebar, hover over **Data Services** and click the **+** icon that appears to create a new data service.
+3. To add a new data service artifact, navigate to **Micro Integrator Project Explorer**.
 
-    <a href="{{base_path}}/assets/img/integrate/data-services/add-new-data-service.png"><img src="{{base_path}}/assets/img/integrate/data-services/add-new-data-service.png" width="80%"></a>
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-	This will open a form where you can configure the data service.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
-    <a href="{{base_path}}/assets/img/integrate/data-services/create-data-service.png"><img src="{{base_path}}/assets/img/integrate/data-services/create-data-service.png" width="80%"></a>
+5. Click **+ View More** under **Create an Integration**.
 
-3.  Enter a name for the data service and click **Create**.
+6. Click **Data Service** under **Other Artifacts** to open the **Data Service Form** where you can configure the data service.
 
-	A data service file (DBS file) will now be created in your data service project as shown below.
+7. Enter a name for the data service.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/data-service-project-structure.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/data-service-project-structure.png" width="80%"></a>
+8. Specify other required properties.
 
-### Add a datasource
+<!--
+9. Click **Create**.
 
-You can configure the datasource connection details using this section.
+	The data service (`.dbs`) file will be created in your integration project in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/data-services` directory.
+-->
 
-1.	Open the **Service Designer** page of the created data service and click on **Edit** to reopen the **Data Service Form**.  
+### Add a data source
+
+You can configure the data source connection details in this step.
+
+1.	Go to the **Service Designer** of the created data service and click on **Edit** to reopen the **Data Service Form**.  
+
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png" width="80%"></a>
 
 2.	Click on the **+ Add Datasource** to open the **Create Datasource** form.  
+
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png" width="80%"></a>
 
-3.	Enter the datasource connection details.
+3. Enter the data source connection details.
 
-4. Click **Add** to save the datasource configurations to the data service.
+4. Click **Add** to save the data source configurations to the data service.
 
-### Advanced properties 
-
-Click **Advanced Configurations** to expand the section and add the required configurations.  
-
-<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/advances_properties_expanded.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/advances_properties_expanded.png" width="80%"></a>  
+5. Click **Advanced Configurations** to expand the section and add the required configurations.  
 
 The data service should now have the query element added.
 
 ### Add a resource
 
-Use this section to configure an REST resource to invoke the data service.
+In this step, you can configure a REST resource to invoke the data service.
 
 1.  Select **REST** and click on **+ Resource** to add a REST resource.
 	
@@ -103,7 +97,7 @@ Use this section to configure an REST resource to invoke the data service.
 
 ### Add a SOAP operation
 
-Use this section to configure a SOAP operation for invoking the data service.
+In this step you can configure a SOAP operation for invoking the data service.
 
 1.  Select **SOAP** and click on **+ Operation** to add a SOAP operation.
 
@@ -153,7 +147,7 @@ You can configure the main query details for both SOAP operations and REST resou
 				Datasource
 			</td>
 			<td>
-			   All the datasources created for this data service are listed. Select the required datasource from the list.
+			   All the data sources created for this data service are listed. Select the required data source from the list.
 			</td>
 		</tr>
 		<tr>
@@ -290,7 +284,15 @@ You can configure output result parameters for the query using this section.
 
 		<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png" width="80%"></a>
 
-## Examples
+## Tutorials
+
+Follow our tutorial on data services:
+
+- [How to Expose a Datasource as a Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource)
+
+## Examples 
+
+Follow our examples on data services:
 
 <ul>
 	<li>
@@ -319,8 +321,11 @@ You can configure output result parameters for the query using this section.
 	</li>
 </ul>
 
-## Tutorials
+## Samples
 
-<li>
-	<a href="{{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
-</li>
+You can use a sample template to create your data service.
+
+1.	Go to **Explore Samples** in MI for VS Code. 
+2.	In the **Samples** tab, go to the **REST Data Service** and click on **Download**. This will download the project to your chosen directory and open it in a new VS Code window.
+
+For more information

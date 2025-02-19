@@ -8,11 +8,15 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new API, go to **Micro Integrator Project Explorer** > **APIs**.
+3. To add a new API, navigate to **Micro Integrator Project Explorer**.
 
-4. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-5. Provide details for the API artifact.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+
+5. On the **Add artifact** pane, click **API** under **Create an Integration** to open the **API Form**.
+
+6. Provide details for the API artifact.
     
      <table>
         <thead>
@@ -133,13 +137,9 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
     - The newly-created API will be stored in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/apis` folder of your integration project. 
     - A Swagger file for the API will be generated in the `<PROJECT_NAME>/src/main/wso2mi/resources/api-definitions` folder.
 
-- The created APIs will be available in the **MI Overview**.
+- The created APIs will be displayed in **Project Overview**.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-apis.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-apis.png" alt="available-apis" width="80%"></a>
-
-- The created API resources will be available in **Service Designer** under **Available Resources**.
-
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png" alt="available-resources" width="80%"></a>
 
 ## Add new API resources
 
@@ -176,6 +176,10 @@ When you create the API, an API resource is created by default. If you want to a
         <resource inSequence="seq2"/>
         </api>
         ```    
+
+The created API resources will be available in **Service Designer** under **Available Resources** for each created API.
+
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png" alt="available-resources" width="80%"></a>
 
 <!--
 
@@ -241,7 +245,9 @@ The service's metadata is used by the API management runtime to generate the API
     1. Go to **MI Project Explorer** > **APIs**.
     2. Under the API you created, click the API resource to open the **Resource View** of the API resource.
 
-2. Click on the **+** icon below the API resource to open the mediator palette.
+2. Click on the **+** icon below the API resource to open the palette.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-palette.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-palette.png" alt="open-palette" width="80%"></a>
 
 3. Add the required mediators and connectors to the API resource and design the integration flow.
 
@@ -249,15 +255,15 @@ The service's metadata is used by the API management runtime to generate the API
 
 ### Update the API configurations
 
-1. Go to **MI Overview**.
+1. Go to **Project Overview**.
 
 2. Under **APIs**, select the API you want to edit. This will open the **Service Designer**.
 
 3. On the **Service Designer**, click the **Edit** icon to edit the API. 
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png" alt="available-apis" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-interface.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-interface.png" alt="available-apis" width="80%"></a>
 
-    This will open the **Edit API** interface.
+    This will open the **Edit API** pane.
 
 4. Once you edit, click **Save Changes**.
 
@@ -265,7 +271,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 ### Update the API resource configurations
 
-1. Go to **MI Overview**.
+1. Go to **Project Overview**.
 
 2. Under **APIs**, select the API you want to edit. This will open the **Service Designer**.
 
@@ -275,15 +281,15 @@ The service's metadata is used by the API management runtime to generate the API
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png" alt="available-apis" width="80%"></a>
 
-    This will open the **Edit API Resource** interface.
+    This will open the **Edit API Resource** pane.
 
 5. Once you edit, click **Update**.
 
     See the complete list of [API Resource configurations]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
 
-## Source View
+## Source view
 
-Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the API. You can update the API using this view.
+Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the API.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show source view" width="30%"></a>
 
@@ -291,7 +297,7 @@ You can update the API using this view.
 
 <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png" alt="source view" width="80%"></a>
 
-## Swagger View
+## Swagger view
 
 1. Go to **Service Designer**.
 
@@ -304,17 +310,17 @@ You can interact with the API using the **Swagger View**.
 !!! Note
     If you have created the API by adding a custom Swagger definition, this view displays the API's default Swagger definition, not the custom one you have added.
 
-!!! abstract "Learn more about APIs"
+## Examples
 
-    Follow our examples on APIs: 
+Follow our examples on APIs: 
 
-    - [Using a Simple Rest API]({{base_path}}/learn/examples/rest-api-examples/introduction-rest-api)
-    - [Working with Query Parameters]({{base_path}}/learn/examples/rest-api-examples/setting-query-params-outgoing-messages)
-    - [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/learn/examples/rest-api-examples/enabling-rest-to-soap)
-    - [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/learn/examples/rest-api-examples/configuring-non-http-endpoints)
-    - [Handling Non Matching Resources]({{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources)
-    - [Handling HTTP Status Codes]({{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes)
-    - [Manipulating Content Types]({{base_path}}/learn/examples/rest-api-examples/transforming-content-type)
-    - [Securing a REST API]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
-    - [Special Cases]({{base_path}}/learn/examples/rest-api-examples/special-cases)
+- [Using a Simple Rest API]({{base_path}}/learn/examples/rest-api-examples/introduction-rest-api)
+- [Working with Query Parameters]({{base_path}}/learn/examples/rest-api-examples/setting-query-params-outgoing-messages)
+- [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/learn/examples/rest-api-examples/enabling-rest-to-soap)
+- [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/learn/examples/rest-api-examples/configuring-non-http-endpoints)
+- [Handling Non Matching Resources]({{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources)
+- [Handling HTTP Status Codes]({{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes)
+- [Manipulating Content Types]({{base_path}}/learn/examples/rest-api-examples/transforming-content-type)
+- [Securing a REST API]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
+- [Special Cases]({{base_path}}/learn/examples/rest-api-examples/special-cases)
     
