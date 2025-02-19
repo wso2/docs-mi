@@ -42,7 +42,7 @@
 
     <img src="{{base_path}}/assets/img/develop/debugger/select-debugger.png" alt="debugger selection" width="700">
 
-Then the server will start up in debug mode and the server logs can be viewed in the Terminal alongside with the Debug Console.
+Then the server will start up in debug mode and the server logs can be viewed in the Output alongside with the Debug Console.
 
 <img src="{{base_path}}/assets/img/develop/debugger/terminal-view.png" alt="terminal view" width="700">
 
