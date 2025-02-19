@@ -1227,7 +1227,8 @@ The management API has multiple resources to provide information regarding the d
 		        "list": [
     	    	{
             		"protocol": "http",
-            		"name": "HelloHTTPIEP"
+            		"name": "HelloHTTPIEP",
+            		"status": "active"
     	    	}
     	    	]
 		    }
@@ -1237,6 +1238,25 @@ The management API has multiple resources to provide information regarding the d
 -	**Resource**: `/inbound-endpoints?inboundEndpointName={inboundEndpoint}`
 
 	**Description**: Retrieves information related to a specified inbound endpoint.
+
+### ACTIVATE/DEACTIVATE INBOUND ENDPOINTS
+
+-	**Resource**: `/inbound-endpoints`
+
+	**Description**: Activate or deactivate a specific inbound endpoint. The status can be set to `active` or `inactive` to activate or deactivate the inbound endpoint, respectively.
+
+	!!! note
+		The activate/deactivate capability of inbound endpoints is currently supported only for the `file` inbound endpoint protocol.
+
+	**Example**:
+
+	```bash
+	curl -X POST \
+	 "https://localhost:9164/management/inbound-endpoints" \
+	 -H "Content-Type: application/json" \
+	 -H "Authorization: Bearer TOKEN" \
+	 -d '{"name": "sampleFileInboundEndpoint", "status": "inactive"}'
+	```
 
 ### ENABLE/DISABLE MESSAGE TRACING for INBOUND ENDPOINTS
 
