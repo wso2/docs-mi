@@ -74,11 +74,15 @@ Accept: */*
 ontent-Type: application/xml
 Content-Length: 180
 
-<ser:getQuote xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
-    <ser:request>
-        <xsd:symbol>IBM</xsd:symbol>
-    </ser:request>
-</ser:getQuote>
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+    <soapenv:Body>
+        <ser:getQuote xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+            <ser:request>
+                <xsd:symbol>IBM</xsd:symbol>
+            </ser:request>
+        </ser:getQuote>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 
 You will see that the sequence and the endpoint are fetched from the local entry and that the property named `direction` (which was set by the proxy service) is logged by the sequence.
@@ -94,23 +98,29 @@ HTTP/1.1 200 OK
 Content-Type: application/xml; charset=UTF-8
 Date: Tue, 02 Jul 2024 06:55:36 GMT
 Transfer-Encoding: chunked
-
-<ns:getQuoteResponse xmlns:ns="http://services.samples">
-<ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-    <ax21:change>-2.2697098428306304</ax21:change>
-    <ax21:earnings>13.026833862989434</ax21:earnings>
-    <ax21:high>69.21072689664607</ax21:high>
-    <ax21:last>67.17176636344576</ax21:last>
-    <ax21:lastTradeTimestamp>Tue Jul 02 12:25:36 IST 2024</ax21:lastTradeTimestamp>
-    <ax21:low>-66.19040627867486</ax21:low>
-    <ax21:marketCap>5.701823203899602E7</ax21:marketCap>
-    <ax21:name>IBM Company</ax21:name>
-    <ax21:open>-66.56991575858342</ax21:open>
-    <ax21:peRatio>-18.513042883210343</ax21:peRatio>
-    <ax21:percentageChange>3.4493276334361993</ax21:percentageChange>
-    <ax21:prevClose>-65.80151507873896</ax21:prevClose>
-    <ax21:symbol>IBM</ax21:symbol>
-    <ax21:volume>16115</ax21:volume>
-</ns:return>
-</ns:getQuoteResponse>
+        
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ns:getQuoteResponse xmlns:ns="http://services.samples">
+            <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+                <ax21:change>4.191087083572446</ax21:change>
+                <ax21:earnings>-9.952474232055817</ax21:earnings>
+                <ax21:high>-72.8171065535778</ax21:high>
+                <ax21:last>73.50526521380392</ax21:last>
+                <ax21:lastTradeTimestamp>Wed Feb 19 14:51:56 IST 2025</ax21:lastTradeTimestamp>
+                <ax21:low>76.57490051860815</ax21:low>
+                <ax21:marketCap>4.566278143927491E7</ax21:marketCap>
+                <ax21:name>IBM Company</ax21:name>
+                <ax21:open>-72.42408809905557</ax21:open>
+                <ax21:peRatio>23.2031816177439</ax21:peRatio>
+                <ax21:percentageChange>-6.010932770929779</ax21:percentageChange>
+                <ax21:prevClose>-69.72440456897945</ax21:prevClose>
+                <ax21:symbol>IBM</ax21:symbol>
+                <ax21:volume>15961</ax21:volume>
+            </ns:return>
+        </ns:getQuoteResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
