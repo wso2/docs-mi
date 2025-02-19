@@ -142,139 +142,139 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 Test getting a post. Send an HTTP request as below.
 
-    ```bash
-    curl -X GET "http://localhost:8290/jsonPlaceHolder/getOnePost/1"
-    ```
+```bash
+curl -X GET "http://localhost:8290/jsonPlaceHolder/getOnePost/1"
+```
 
 **Expected response**:
 
-    ```json
-    {
-        "userId": 1,
-        "id": 1,
-        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-    }
-    ```
+```json
+{
+    "userId": 1,
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+```
 
 Test getting given comments for a post. Send an HTTP request as below.
     
-    ```bash
-    curl -X GET "http://localhost:8290/jsonPlaceHolder/commentsForPost?postId=1"
-    ```
+```bash
+curl -X GET "http://localhost:8290/jsonPlaceHolder/commentsForPost?postId=1"
+```
 
 **Expected response**:
 
-    ```json
-    [
-        {
-            "postId": 1,
-            "id": 1,
-            "name": "id labore ex et quam laborum",
-            "email": "Eliseo@gardner.biz",
-            "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
-        },
-        {
-            "postId": 1,
-            "id": 2,
-            "name": "quo vero reiciendis velit similique earum",
-            "email": "Jayne_Kuhic@sydney.com",
-            "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
-        },
-        {
-            "postId": 1,
-            "id": 3,
-            "name": "odio adipisci rerum aut animi",
-            "email": "Nikita@garfield.biz",
-            "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
-        },
-        {
-            "postId": 1,
-            "id": 4,
-            "name": "alias odio sit",
-            "email": "Lew@alysha.tv",
-            "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
-        },
-        {
-            "postId": 1,
-            "id": 5,
-            "name": "vero eaque aliquid doloribus et culpa",
-            "email": "Hayden@althea.biz",
-            "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
-        }
-    ]
-    ```
+```json
+[
+    {
+        "postId": 1,
+        "id": 1,
+        "name": "id labore ex et quam laborum",
+        "email": "Eliseo@gardner.biz",
+        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+    },
+    {
+        "postId": 1,
+        "id": 2,
+        "name": "quo vero reiciendis velit similique earum",
+        "email": "Jayne_Kuhic@sydney.com",
+        "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+    },
+    {
+        "postId": 1,
+        "id": 3,
+        "name": "odio adipisci rerum aut animi",
+        "email": "Nikita@garfield.biz",
+        "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
+    },
+    {
+        "postId": 1,
+        "id": 4,
+        "name": "alias odio sit",
+        "email": "Lew@alysha.tv",
+        "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
+    },
+    {
+        "postId": 1,
+        "id": 5,
+        "name": "vero eaque aliquid doloribus et culpa",
+        "email": "Hayden@althea.biz",
+        "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
+    }
+]
+```
 
 ### HTTP POST operation 
 
 Test creating a post.
 
-    ```bash
-    curl --request PATCH 'http://localhost:8290/jsonplaceholder/createPost' --header 'Content-Type: application/json' \
-    --data '{ "userId": 200, "id": 1, "title": "new post" }'
-    ```
+```bash
+curl --request PATCH 'http://localhost:8290/jsonplaceholder/createPost' --header 'Content-Type: application/json' \
+--data '{ "userId": 200, "id": 1, "title": "new post" }'
+```
 
 **Expected response**:
 
-    ```json
-    {
-        "userId": 1,
-        "id": 1,
-        "title": "new post"
-    }
-    ```
+```json
+{
+    "userId": 1,
+    "id": 1,
+    "title": "new post"
+}
+```
 
 ### HTTP PUT operation 
 
 Test replacing a post.
 
-    ```bash
-    curl --request PATCH 'http://localhost:8290/jsonplaceholder/replacePost' --header 'Content-Type: application/json' \
-    --data '{ "userId": 100, "id": 1, "title": "santa is coming" }'
-    ```
+```bash
+curl --request PATCH 'http://localhost:8290/jsonplaceholder/replacePost' --header 'Content-Type: application/json' \
+--data '{ "userId": 100, "id": 1, "title": "santa is coming" }'
+```
 
 **Expected response**:
 
-    ```json
-    {
-        "userId": 100,
-        "id": 1,
-        "title": "santa is coming"
-    }
-    ```
+```json
+{
+    "userId": 100,
+    "id": 1,
+    "title": "santa is coming"
+}
+```
 
 ### HTTP PATCH operation
 
 Test updating the post.
 
-    ```bash
-    curl --request PATCH 'http://localhost:8290/jsonplaceholder/updatePost' --header 'Content-Type: application/json' \
-    --data '{ "title": "holiday is over" }'
-    ```
+```bash
+curl --request PATCH 'http://localhost:8290/jsonplaceholder/updatePost' --header 'Content-Type: application/json' \
+--data '{ "title": "holiday is over" }'
+```
 
 **Expected response**:
 
-    ```json
-    {
-        "userId": 200,
-        "id": 1,
-        "title": "santa is coming"
-    }
-    ```
+```json
+{
+    "userId": 200,
+    "id": 1,
+    "title": "santa is coming"
+}
+```
 
 ### HTTP DELETE operation
 
 Test deleting the post.
 
-    ```bash
-    curl --request DELETE 'http://localhost:8290/jsonplaceholder/deletePost'
-    ```
+```bash
+curl --request DELETE 'http://localhost:8290/jsonplaceholder/deletePost'
+```
 
 **Expected response**:
 
-     ```json
-     {}
-     ```
+```json
+{}
+```
 
 ## How to create a HTTPS Connection?
 
