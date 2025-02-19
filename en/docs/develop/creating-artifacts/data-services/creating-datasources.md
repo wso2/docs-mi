@@ -1,41 +1,39 @@
-# Creating a Datasource
+# Creating a Data Source
 
-Follow the instructions given below to create a new Datasource connection in WSO2 Integration Studio.
+Follow the instructions given below to create a data source artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
 
-## Instructions
+{!includes/creating-project.md!}
 
-Follow the steps given below to create the datasource file:
+3. To add a new Sequence Template, navigate to **Micro Integrator Project Explorer**.
 
-1.  [Create a new integration project]({{base_path}}/develop/create-integration-project/#datasource-project) or select an existing one.
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-2. Click on the `+` beside **Data Sources** in the **Micro Integrator: Project Explorer** sidebar to create a new datasource.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
-    <img src="{{base_path}}/assets/img/integrate/data-services/add-datasource-from-sidebar.png", title="Add datasource", width="800", alt="Add datasource"> 
+5. Click **+ View More** under **Create an Integration**.
+
+5. Click **Data Source** under **Other Artifacts** to open the **Data Source Creation Form**.
 
     This will open a form to create a new datasource.
 
 3. Enter the following details:
 
-    - **Datasource Name**: Enter a name for the datasource.
-    - **Description**: Enter a description for the datasource.
-    - **Datasource Type**: Select the type of the datasource. 
-    - **Data source provider**: Choose between `default` and `external data source`.
-    - **Database Engine**: Select the database engine for the datasource.
-    - **Driver**: Select the driver for the datasource.
-    - **URL**: Enter the URL for the datasource.
-    - **Username**: Enter the username for the datasource.
-    - **Password**: Enter the password for the datasource.
-    - **JNDI Name**: Enter the JNDI name for the datasource to expose it as a JNDI datasource.  
+    | Property Name            | Description                                                    |
+    |--------------------------|----------------------------------------------------------------|
+    | **Datasource Name**      | Name of the datasource                                         |
+    | **Description**          | Description                                                    |
+    | **Datasource Type**      | Type of the datasource                                         |
+    | **Data source provider** | Choose between  `default`  and  `external data source`         |
+    | **Database Engine**      | Database engine for the data source                            |
+    | **Driver**               | Driver for the data source                                     |
+    | **URL**                  | URL for the data source                                        |
+    | **Username**             | Username for the datasource                                    |
+    | **Password**             | password for the datasource                                    |
+    | **JNDI Name**            | JNDI name for the datasource to expose it as a JNDI datasource |
    
-    <img src="{{base_path}}/assets/img/integrate/data-services/create-datasource.png", title="Create datasource", width="800", alt="Create datasource">
 
-4. Use the expand/collapse buttons to expand and add additional datasource configurations. 
+4. Click **Create** to create the data source.
 
-    <img src="{{base_path}}/assets/img/integrate/data-services/additional-datasource-configurations.png", title="Add additional configs", width="800", alt="Add additional configs">
-
-5. Click **Create** to complete the datasource creation.
-
-A datasource file will now be created in your datasource config module. 
 Shown below is the sample configuration that is created. You can now update the values in this configuration.
 
 ```xml
@@ -57,10 +55,12 @@ Shown below is the sample configuration that is created. You can now update the 
 ```
 
 !!!	Tip
-    You can generate dataservices for the created datasource. 
+    You can generate data services for the created datasource. 
     For more information, you can follow the steps given in [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
 ## Examples
+
+Follow our example on data sources:
 
 -	<a href="{{base_path}}/learn/examples/data-integration/carbon-data-service">Exposing a Carbon Datasource</a>
