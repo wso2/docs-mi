@@ -8,15 +8,17 @@ Follow the instructions below to create a new Endpoint Template in the Micro Int
 
 {!includes/creating-project.md!}
 
-3. Go to **Micro Integrator Project Explorer** > **Templates**. 
+3. To add a new Endpoint Template, navigate to **MI Project Explorer**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/create-new-template.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/create-new-template.png" alt="Create endpoint template" width="30%"></a>
+4. Click on the **+** icon to open the **Add Artifact** pane.
 
-4. Hover over **Templates** and click the **+** icon that appears to open the **Template Form** below.
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-template.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-template.png" alt="Add-template" width="30%"></a>
+5. Click **+ View More** under **Create an Integration**.
 
-5. This will open the **Template Form** shown below, where you can select the **Template Artifact**. Select the endpoint template type.
+6. Click **Template** under **Other Artifacts** to open the **Template Form**.
+
+7. This will open the **Template Form** shown below, where you can select the **Template Artifact**. Select an endpoint template type.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png" alt="Template form" width="80%"></a>
 
@@ -30,23 +32,29 @@ Follow the instructions below to create a new Endpoint Template in the Micro Int
 
     This will open the respective **Endpoint Form**.
 
-6. Enter a unique name for the template.
+8. Enter a unique name for the template.
 
-7. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
+9. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
 
-8. Also, update the endpoint parameter values with placeholders prefixed by `$`.
+10. Also, update the endpoint parameter values with placeholders prefixed by `$`.
 
-9. Click **Create**.
+11. Click **Create**.
 
-    The template endpoint artifact is created in the `src/main/wso2mi/artifacts/templates` folder under the project you created.
+    The template endpoint artifact is created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/templates` folder under the project you created.
 
 ### Design the integration
 
 Follow the steps below to add the already-created endpoint template to your mediation sequence.
 
-1. Go to **MI Project Explorer** > **Endpoints**.
+1. Go to **MI Project Explorer**.
 
-2. Hover over **Endpoints** and click the **+** icon that appears to open the below **Endpoint Form**.
+2. Click on the **+** icon to open the **Add Artifact** pane.
+
+3. Click **+ View More** under **Create an Integration**.
+
+4. Click **Endpoint** under **Other Artifacts** to open the **Endpoint Form**.
+
+5. Click **+ View More**.
 
 3. Select **Template Endpoint** from the set of available endpoints on the **Endpoint Form**.
 
@@ -54,7 +62,9 @@ Follow the steps below to add the already-created endpoint template to your medi
 
 4. In the **Template Endpoint Form**, specify the values for the required properties.
 
-5. From the **Template** dropdown, select the endpoint template you created in a [previous step](#create-the-endpoint-template-artifact).
+5. From the **Template** dropdown, select the endpoint template you created [earlier](#create-the-endpoint-template-artifact).
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/created-endpoint-template.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/created-endpoint-template.png" alt="created endpoint template" width="80%"></a>
 
 6. Click **Create**.
 
@@ -65,7 +75,7 @@ Follow the steps below to add the already-created endpoint template to your medi
 1.	Open the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 2.  Add the **Call Endpoint** mediator from the palette under **All Mediators** > **Generic** section to the relevant position in the mediation sequence:
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="80%"></a>
 
     !!! Tip
         Similarly, you can use the Send Mediator instead of the Call Mediator.
@@ -86,8 +96,8 @@ You can update the properties you specified for the endpoint template later.
 
 4. Click **Save Changes**.
 
-!!! abstract "Learn more about endpoint templates"
+## Examples
 
-    Follow our examples on endpoint templates:
+Follow our examples on endpoint templates:
 
-    - [Using Endpoint Templates]({{base_path}}/learn/examples/template-examples/using-endpoint-templates)
+- [Using Endpoint Templates]({{base_path}}/learn/examples/template-examples/using-endpoint-templates)
