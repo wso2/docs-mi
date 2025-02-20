@@ -815,7 +815,7 @@ nav:
           - Entitlement Mediator: reference/mediators/entitlement-mediator.md
           - FastXSLT Mediator: reference/mediators/fastxslt-mediator.md
           - Fault Mediator: reference/mediators/fault-mediator.md
-          - Filter Mediator: reference/mediators/filter-mediator.md
+          - If Else Mediator: reference/mediators/filter-mediator.md
           - ForEach Mediator: reference/mediators/foreach-mediator.md
           - Header Mediator: reference/mediators/header-mediator.md
           - Iterate Mediator: reference/mediators/iterate-mediator.md
