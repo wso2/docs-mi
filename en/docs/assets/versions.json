@@ -1,7 +1,6 @@
 {
   "4.4.0": "4.4.0",
   "current": "4.4.0",
-  "latest": "4.4.0",
   "list": [
     "4.4.0",
     "4.3.0",
@@ -9,7 +8,7 @@
    ],
   "all": {
     "4.4.0":{
-        "doc": "latest",
+        "doc": "main",
         "notes": "4.4.0/get-started/about-this-release"
     },
     "4.3.0":{
