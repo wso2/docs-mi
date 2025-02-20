@@ -17,10 +17,12 @@ See the instructions on how to [build and run](#build-and-run) this example.
         <inSequence>
             <header name="Action" value="urn:getQuote"/>
             <property action="set" name="OUT_ONLY" value="true"/>
-        </inSequence>     
-        <endpoint>
-            <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-        </endpoint>
+            <call>
+                <endpoint>
+                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                </endpoint>
+            </call>
+        </inSequence>
     </target>
     <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory</parameter>
     <parameter name="transport.jms.ContentType">
