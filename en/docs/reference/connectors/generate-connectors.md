@@ -1,6 +1,6 @@
 # Generate a connector
 
-## Generate a Connector from an OpenAPI Definition
+## Generate a connector from an OpenAPI definition
 
 This document explains how to generate a connector from an OpenAPI definition using Micro Integrator for VSCode Extension. By using an OpenAPI definition, users can automatically create a connector that enables seamless integration with RESTful APIs. The connector will be added to your project and you can use it in your integration flows. When you share your Integration Project with others, the connector will be included in the project.
 
@@ -11,7 +11,7 @@ Follow the below steps to generate a connector using the WSO2 Micro Integrator f
     !!! info
         Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
-2. Create a new integration project
+2. Create a new integration project.
 
     Click **Create New Project** on **Micro Integrator Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
@@ -42,6 +42,6 @@ Follow the below steps to generate a connector using the WSO2 Micro Integrator f
 
     <a href="{{base_path}}/assets/img/integrate/connectors/generated-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/generated-connector.png" alt="generated connector" width="60%"></a>
 
-10. To use the connector operations, you can create an Integration artifact (Eg: API, Sequence, etc.) and add it from the Mediator Palette.
+10. To use the connector operations, you can create an integration artifact (such as API and sequence) and add it from the Mediator Palette.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/use-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/use-connector.png" alt="use connector" width="60%"></a>
