@@ -4,6 +4,9 @@ You can write a new connector for a specific requirement that cannot be addresse
 
 Follow the steps given below to write a new connector to integrate with the **Google Books** service. You can then use the connector inside a mediation sequence to connect with Google Books and get information.
 
+!!! Note
+    If you have a OpenAPI definition file, you can generate a connector using the [WSO2 Micro Integrator for VS Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/). For more information, see [Generate a Connector]({{base_path}}/reference/connectors/generate-connectors/).
+
 ## Write a new connector
 
 Follow the steps given below to write the new connector.

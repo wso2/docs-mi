@@ -30,6 +30,10 @@ The WSO2 integration runtime is shipped with a set of inbound and outbound trans
 
 This brings the capability of fulfilling legacy modernization requirements. Brownfield integration is a major part of that. As enterprises are interested in accelerating their digital transformation, they tend to integrate new technologies with legacy technologies rather than waiting until all legacy technologies are transformed to new ones. 
 
+### Connector versus connection
+
+A connector is not a connection. A connection is a configuration that is used to connect to a specific instance of a service. A connector is a set of operations that can be used to interact with a service. For example, to access a Salesforce instance, you must create a Salesforce connection. Based on your requirement, you can create multiple connections for a connector type, and each connection is uniquely identified by its name. For example, you can have `salesforce_con_1`, `salesforce_con_2`, and `salesforce_con_3` connections, where each connection accesses a different Salesforce instance or uses different credentials in the same instance.
+
 ## MI VS Code Extension support 
 
 MI VS Code Extension is the tooling or IDE developers use to code their integration logic. Integration connectors can be easily imported and immediately used in the MI VS Code Extension. When the connector UI model is provided in the connector, all custom operations and their properties will be rendered in the VS Code extension automatically. Any integration logic developer can use it with the extension so that the connector developer does not need to worry about it as long as development rules are met. 

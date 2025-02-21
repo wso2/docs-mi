@@ -121,12 +121,7 @@ We have to be honest; we would really like to encourage developers who want to s
 
 ### Report an issue
 
-You can report issues for any connector under the [Micro Integrator repository](https://github.com/wso2/micro-integrator/issues/new). Once you have reported the issue, do the following:
-
-* Add the label `Connector`. 
-* Add to the project `WSO2 Connectors`.
-
-For an example, please refer to [this issue](https://github.com/wso2/micro-integrator/issues/1358). 
+You can report issues for any connector under the [Micro Integrator repository](https://github.com/wso2/micro-integrator/issues/new). 
 
 ### Contribute to the connector project
 
