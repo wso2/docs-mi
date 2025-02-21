@@ -35,11 +35,14 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 4. Create a resource with resource path `/getOnePost/{id}` and select `GET` as the method. This resource will retrieve information about a post.
 
-5. Select the created resource, click the **+** sign, navigate to **Connections** and select the connection **JsonPlaceHolderConnection**. Then, select the **GET** operation to send a GET request.
+5. Select the created resource, and click the **+** sign. Then, select the **GET** operation under the HTTP connector to send a GET request.
 
 6. In the form that opens, provide the following details:
-    - **Relative Path** - `/posts/${params.uriParams.id}`
+    - **Connection** - `JsonPlaceHolderConnection`
+    - **Relative Path** - `/posts/${params.pathParams.id}`
     - **Headers** - ""
+    - **Output Variable Name** - `http_get_1`
+    - **Overwrite Message Body** - keep selected
 
 7. Click the **+** icon below the **GET** operation and add a respond mediator.
 
@@ -47,11 +50,14 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 8. For the `JsonPlaceHolder` API, create another resource with resource path `/commentsForPost?postId={postId}` and select `GET` as the method. This resource will get comments for a post.
 
-9. Select the created resource, click the **+** icon, navigate to **Connections** and select the connection **JsonPlaceHolderConnection**. Then select the **GET** operation to send a GET request.
+9. Select the created resource, and click the **+** sign. Then, select the **GET** operation under the HTTP connector to send a GET request.
 
 10. In the form that opens, provide the following details:
-     - **Relative Path** - `/comments?postId=${params.queryParams.postId}`
-     - **Headers** - ""
+    - **Connection** - `JsonPlaceHolderConnection`
+    - **Relative Path** - `/comments?postId=${params.queryParams.postId}`
+    - **Headers** - ""
+    - **Output Variable Name** - `http_get_1`
+    - **Overwrite Message Body** - keep selected
 
 11. Click the **+** icon below the **GET** operation and add a respond mediator.
 
@@ -59,13 +65,16 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 12. For the `JsonPlaceHolder` API, create another resource with resource path `/createPost` and select `POST` as the method. This resource will handle post creation.
 
-13. Select the resource, click the **+** sign, navigate to **Connections**, and select the connection **JsonPlaceHolderConnection**. Then, select the **POST** operation to send a POST request.
+13. Select the resource, and click the **+** sign. Then, select the **POST** operation under the HTTP connector to send a POST request.
 
 14. In the form that opens, provide the following details:
+    - **Connection** - `JsonPlaceHolderConnection`
     - **Relative Path** - `/posts`
     - **Headers** - ""
     - **Content Type** - Select `JSON`
     - **Request Body** - `${payload}`
+    - **Output Variable Name** - `http_post_1`
+    - **Overwrite Message Body** - keep selected
 
 15. Click the **+** icon below the **POST** operation and add a respond mediator.
 
@@ -73,9 +82,10 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 16. Create a resource for the `JsonPlaceHolder` API with the resource path `/replacePost` and select `PUT` as the method. This resource will replace an existing post.
 
-17. Select the resource, click the **+** sign, navigate to **Connections**, and select the connection **JsonPlaceHolderConnection**. Then, select the **PUT** operation to send a PUT request.
+17. Select the resource, and click the **+** sign. Then, select the **PUT** operation under the HTTP connector to send a PUT request.
 
 18. In the form that opens, provide the following details:
+    - **Connection** - `JsonPlaceHolderConnection`
     - **Relative Path** - `/posts/1`
     - **Headers** - ""
     - **Content Type** - Select `JSON`
@@ -88,6 +98,8 @@ If you do not want to configure this yourself, you can simply [get the project](
             "body": "christmas holiday is coming"
         }
         ```
+    - **Output Variable Name** - `http_put_1`
+    - **Overwrite Message Body** - keep selected
 
 19. Click the **+** icon below the **PUT** operation and add a respond mediator.
 
@@ -95,13 +107,16 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 20. Create a resource for the `JsonPlaceHolder` API with the resource path `/updatePost` and select `PATCH` as the method. This resource will update an existing post.
 
-21. Select the resource, click the **+** icon, navigate to **Connections**, and select the connection **JsonPlaceHolderConnection**. Then, select the **PATCH** operation to send a PATCH request.
+21. Select the resource, and click the **+** sign. Then, select the **PATCH** operation to send a PATCH request.
 
 22. In the form that opens, provide the following details:
+    - **Connection** - `JsonPlaceHolderConnection`
     - **Relative Path** - `/posts/1`
     - **Headers** - ""
     - **Content Type** - Select `JSON`
     - **Payload** - `${payload}`
+    - **Output Variable Name** - `http_patch_1`
+    - **Overwrite Message Body** - keep selected
 
 23. Click the **+** icon below the **PATCH** operation and add a respond mediator.
 
@@ -109,11 +124,14 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 24. Create a resource for the `JsonPlaceHolder` API with the resource path `/deletePost` and select `DELETE` as the method. This resource will handle post deletion.
 
-25. Select the resource, click on the **+** sign, navigate to **Connections** and select the connection **JsonPlaceHolderConnection**. Then, select the **DELETE** operation to send a DELETE request.
+25. Select the resource, and click the **+** sign. Then, select the **DELETE** operation to send a DELETE request.
 
 26. In the form that opens, provide the following details:
+    - **Connection** - `JsonPlaceHolderConnection`
     - **Relative Path** - `/posts/1`
     - **Headers** - ""
+    - **Output Variable Name** - `http_delete_1`
+    - **Overwrite Message Body** - keep selected
 
 27. Click the **+** icon below the **DELETE** operation and add a respond mediator.
 
@@ -143,7 +161,7 @@ You can further refer the application deployed through the CLI tool. See the ins
 Test getting a post. Send an HTTP request as below.
 
 ```bash
-curl -X GET "http://localhost:8290/jsonPlaceHolder/getOnePost/1"
+curl -X 'GET' 'http://localhost:8290/jsonplaceholder/getOnePost/1' -H 'accept: */*'
 ```
 
 **Expected response**:
@@ -160,7 +178,7 @@ curl -X GET "http://localhost:8290/jsonPlaceHolder/getOnePost/1"
 Test getting given comments for a post. Send an HTTP request as below.
     
 ```bash
-curl -X GET "http://localhost:8290/jsonPlaceHolder/commentsForPost?postId=1"
+curl -X 'GET' 'http://localhost:8290/jsonplaceholder/commentsForPost?postId=1' -H 'accept: */*'
 ```
 
 **Expected response**:
@@ -210,16 +228,18 @@ curl -X GET "http://localhost:8290/jsonPlaceHolder/commentsForPost?postId=1"
 Test creating a post.
 
 ```bash
-curl --request PATCH 'http://localhost:8290/jsonplaceholder/createPost' --header 'Content-Type: application/json' \
---data '{ "userId": 200, "id": 1, "title": "new post" }'
+curl -X 'POST' 'http://localhost:8290/jsonplaceholder/createPost' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{ "userId": 200, "id": 1, "title": "new post" }'
 ```
 
 **Expected response**:
 
 ```json
 {
-    "userId": 1,
-    "id": 1,
+    "userId": 200,
+    "id": 101,
     "title": "new post"
 }
 ```
@@ -229,17 +249,20 @@ curl --request PATCH 'http://localhost:8290/jsonplaceholder/createPost' --header
 Test replacing a post.
 
 ```bash
-curl --request PATCH 'http://localhost:8290/jsonplaceholder/replacePost' --header 'Content-Type: application/json' \
---data '{ "userId": 100, "id": 1, "title": "santa is coming" }'
+curl -X 'PUT' 'http://localhost:8290/jsonplaceholder/replacePost' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{}'
 ```
 
 **Expected response**:
 
 ```json
 {
-    "userId": 100,
+    "userId": 1,
     "id": 1,
-    "title": "santa is coming"
+    "title": "christmas holiday",
+    "body": "christmas holiday is coming"
 }
 ```
 
@@ -248,17 +271,20 @@ curl --request PATCH 'http://localhost:8290/jsonplaceholder/replacePost' --heade
 Test updating the post.
 
 ```bash
-curl --request PATCH 'http://localhost:8290/jsonplaceholder/updatePost' --header 'Content-Type: application/json' \
---data '{ "title": "holiday is over" }'
+curl -X 'PATCH' 'http://localhost:8290/jsonplaceholder/updatePost' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{ "title": "holiday is over" }'
 ```
 
 **Expected response**:
 
 ```json
 {
-    "userId": 200,
+    "userId": 1,
     "id": 1,
-    "title": "santa is coming"
+    "title": "holiday is over",
+    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
 }
 ```
 
@@ -267,7 +293,7 @@ curl --request PATCH 'http://localhost:8290/jsonplaceholder/updatePost' --header
 Test deleting the post.
 
 ```bash
-curl --request DELETE 'http://localhost:8290/jsonplaceholder/deletePost'
+curl -X 'DELETE' 'http://localhost:8290/jsonplaceholder/deletePost' -H 'accept: */*'
 ```
 
 **Expected response**:
