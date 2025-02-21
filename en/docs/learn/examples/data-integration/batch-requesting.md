@@ -31,7 +31,7 @@ Given below is the data service configuration you need to build. See the instruc
     Be sure to replace the datasource username and password with the correct values for your MySQL instance.
 
 ```xml
-<data name="batch_requesting_sample" transports="http https local">
+<data name="batch_requesting_sample" enableBatchRequests="true" transports="http https local">
    <config enableOData="false" id="Datasource">
       <property name="driverClassName">com.mysql.jdbc.Driver</property>
       <property name="url">jdbc:mysql://localhost:3306/Company</property>
