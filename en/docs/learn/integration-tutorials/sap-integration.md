@@ -193,7 +193,7 @@ for [Sending IDocs](#sending-idocs) or [Receiving IDocs](#receiving-idocs) when 
 Follow the instructions below to configure the Micro Integrator as an IDoc
 client using the SAP adapter.
 
-1.  Add the following config in
+1.  Add the following configuration in
     `<MI_HOME>/conf/deployment.toml` file to
     enable the IDoc transport sender.
 
@@ -260,7 +260,7 @@ client using the SAP adapter.
 
 Follow the instructions below to configure the Micro Integrator as an IDoc server using the SAP adapter.
 
-1.  Add the following config in the
+1.  Add the following configuration in the
     `<MI_HOME>/conf/deployment.toml` file to
     enable IDoc transport receiver.
 
