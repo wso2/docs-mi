@@ -14,6 +14,9 @@ The Iterate Mediator implements the [Splitter enterprise integration pattern]({{
     -   In Iterate mediator, you need to send the split messages to an endpoint to continue the message flow. However, ForEach mediator does not allow using [Call]({{base_path}}/reference/mediators/call-mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
     -   The ForEach mediator does not split the message flow, unlike the Iterate mediator. It guarantees execution in the same thread until all iterations are complete.
 
+!!! Info
+    When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
+
 ## Syntax
 
 ``` java
