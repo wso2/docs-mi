@@ -16,7 +16,7 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
 
 4. On the **New Connected App** page, fill the required fields as listed below.<br>
    
-    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/create-connected-app.jpg" title="Create new connected app" /> 
+    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/create-connected-app.png" title="Create new connected app" /> 
 
     * Fill in **Connected App Name**, **API Name**, and **Contact Email** under **Basic Information**.
 
@@ -25,9 +25,9 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
     * In the **Callback URL** field, enter **https://login.salesforce.com**. 
 
     * In the **Selected OAuth Scopes** field, select the following: 
-        * Access and manage your data (API).
-        * Perform requests on your behalf at any time (refresh_token, offline_access).
-        * Provide access to your data via the Web (web), and then click Add.
+        * Manage user data via APIs (API).
+        * Manage user data via Web browsers (web).
+        * Perform requests at any time (refresh_token, offline_access).
     
     * Untick the **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows** field.
 
