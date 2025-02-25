@@ -227,10 +227,10 @@ From the palette, select **Mediators** > **HTTP** > **GET** operation.
             </tr>
             <tr>
                  <td>Relative Path</td>
-                 <td><code>/${params.uriParams.category}</code></td>
+                 <td><code>/${params.pathParams.category}</code></td>
                  <td>Indicates the relative path added to the base URL of the connection. In this case, 
     the variable 'category' that needs to be included in the request for querying doctors is represented as 
-    <code>{params.uriParams.category}</code> in the relative path.</td>
+    <code>{params.pathParams.category}</code> in the relative path.</td>
             </tr>
         </tbody>
     </table>
