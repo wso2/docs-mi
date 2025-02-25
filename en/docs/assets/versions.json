@@ -8,8 +8,8 @@
    ],
   "all": {
     "4.4.0":{
-        "doc": "main",
-        "notes": "main/get-started/about-this-release"
+        "doc": "latest",
+        "notes": "latest/get-started/about-this-release"
     },
     "4.3.0":{
         "doc": "https://mi.docs.wso2.com/en/4.3.0/",
