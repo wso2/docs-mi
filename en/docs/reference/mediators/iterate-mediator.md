@@ -24,6 +24,10 @@ is, the Iterate mediator splits a message into different parts, whereas the Clon
         guarantees to execute in the same thread until all iterations are
         complete.
 
+!!! Info
+    When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath/#synapse-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
+
+
 When you use ForEach mediator, you can only loop through segments of the
 message and do changes to a particular segment. For example, you can
 change the payload using payload factory mediator. But you cannot send
@@ -32,9 +36,6 @@ loop, it automatically aggregates the split segments. This replaces the
 for-each function of the complex XSLT mediators using a ForEach mediator
 and a Payload Factory mediator. However, to implement the
 split-aggregate pattern, you still need to use Iterate mediator.
-
-!!! Info
-    When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
 
 ## Syntax
 
