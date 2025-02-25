@@ -1,7 +1,24 @@
-{#-
-  This file was automatically generated - do not edit
--#}
 {% extends "main.html" %}
 {% block content %}
-  <h1>404 - Not found. Try one of the navigation links above or use the search engine in the top right corner.</h1>
+  <h1>Page Not Found (404)</h1>
+  <p>Sorry, the page you are looking for doesn't exist. It may have been moved, renamed, or removed.</p>
+  <p>Here are some things you can try:</p>
+  <ul>
+    <li>Use the search bar at the top of the page</li>
+    <li>Return to the <a href="/">home page</a></li>
+  </ul>
+  <script>
+    window.onload = function() {
+        if (typeof gtag === "function") {
+            var brokenURL = window.location.pathname;
+            var referrerURL = document.referrer || "Direct Visit";
+
+            gtag('event', '404_error', {
+                'event_category': 'Error',
+                'event_label': brokenURL,
+                'page_referrer': referrerURL
+            });
+        }
+    };
+  </script>
 {% endblock %}
