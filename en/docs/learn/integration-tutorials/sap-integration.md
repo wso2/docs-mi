@@ -223,7 +223,6 @@ client using the SAP adapter.
                 </endpoint>
             </call>
         </inSequence>
-        <outSequence/>
     </target>
     <parameter name="serviceType">proxy</parameter>
     <description/>
@@ -288,7 +287,6 @@ Follow the instructions below to configure the Micro Integrator as an IDoc serve
              <log level="full"/>
              <drop/>
         </inSequence>
-        <outSequence/>
       </target>
       <parameter name="transport.sap.enableTIDHandler">enabled</parameter>
       <parameter name="transport.sap.serverName">SAPSYS</parameter>
@@ -323,7 +321,7 @@ Micro Integrator can be configured for [Sending BAPIs](#sending-bapis) or
 Follow the instructions below to configure the Micro Integrator as a BAPI
 client using the SAP adapter.
 
-1.  Uncomment the following line in
+1.  Add the following configuration in the
     `<MI_HOME>/conf/deployment.toml` file to
     enable the BAPI transport sender.
 
@@ -352,8 +350,6 @@ client using the SAP adapter.
                 <log level="full"/>
                 <respond/>
             </inSequence>
-            <outSequence>
-            </outSequence>
         </target>
     </proxy>
     ```
@@ -386,7 +382,7 @@ client using the SAP adapter.
 
 Follow the instructions below to configure the Micro Integrator as a BAPI server using the SAP adapter.
 
-1.  Uncomment the following line in the
+1.  Add the following configuration in the
     `<MI_HOME>/conf/deployment.toml` file to
     enable BAPI transport receiver.
 
@@ -411,7 +407,6 @@ Follow the instructions below to configure the Micro Integrator as a BAPI server
              <log level="full"/>
              <drop/>
         </inSequence>
-        <outSequence/>
       </target>
       <parameter name="transport.sap.enableTIDHandler">enabled</parameter>
       <parameter name="transport.sap.serverName">SAPSYS</parameter>
