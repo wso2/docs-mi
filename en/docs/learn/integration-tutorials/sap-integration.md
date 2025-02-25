@@ -52,7 +52,7 @@ Follow the instructions below to install and set up the SAP adapter.
 7.  Start the Micro Integrator using the
     `           -Djava.library.path          ` switch to specify the
     location of your SAP jco library.  
-    For example, you can execute the following command to start the Micro Integrator from the `MI_HOME/bin` directory:
+    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -193,8 +193,8 @@ for [Sending IDocs](#sending-idocs) or [Receiving IDocs](#receiving-idocs) when 
 Follow the instructions below to configure the Micro Integrator as an IDoc
 client using the SAP adapter.
 
-1.  Uncomment the following line in
-    `MI_HOME/conf/deployment.toml` file to
+1.  Add the following config in
+    `<MI_HOME>/conf/deployment.toml` file to
     enable the IDoc transport sender.
 
     ```toml
@@ -217,11 +217,11 @@ client using the SAP adapter.
         <inSequence>
             <log level="full"/>
             <property name="OUT_ONLY" value="true"/>
-            <send>
+            <call>
                 <endpoint name="sapidocendpoint">
                     <address uri="idoc:/SAPSYS"/>
                 </endpoint>
-            </send>
+            </call>
         </inSequence>
         <outSequence/>
     </target>
@@ -244,12 +244,12 @@ client using the SAP adapter.
         
         -   The SAP endpoint client properties file
             `SAPSYS.dest` should be in
-            `Mi_HOME/conf/sap` folder .
+            `<MI_HOME>/conf/sap` folder .
             
 3.  Start the Micro Integrator using the
      `              -Djava.library.path             ` switch to specify
      the location of your SAP jco library.  
-     For example, you can execute the following command to start the Micro Integrator from the `MI_HOME/bin` directory:
+     For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
  
      ```bash
      ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -260,8 +260,8 @@ client using the SAP adapter.
 
 Follow the instructions below to configure the Micro Integrator as an IDoc server using the SAP adapter.
 
-1.  Uncomment the following line in the
-    `MI_HOME/conf/deployment.toml` file to
+1.  Add the following config in the
+    `<MI_HOME>/conf/deployment.toml` file to
     enable IDoc transport receiver.
 
     ```toml
@@ -272,7 +272,7 @@ Follow the instructions below to configure the Micro Integrator as an IDoc serve
 
 2.  Ensure the server configuration file
     `             SAPSYS.server            ` is available in
-    `MI_HOME/conf/sap            ` folder.
+    `<MI_HOME>/conf/sap            ` folder.
 
 3.  Create the `IDocReceiver` proxy service with the following configuration:
 
@@ -299,13 +299,13 @@ Follow the instructions below to configure the Micro Integrator as an IDoc serve
     !!! Info
         -   The SAP endpoint server properties file
             `SAPSYS.server` should be in the
-            `MI_HOME/conf/sap` folder.
+            `<MI_HOME>/conf/sap` folder.
         -   Additional proxy level listener parameters that can be defined in the proxy configuration are listed in [Proxy Service Listener Parameters](#proxy-service-listener-parameters).
         
 4.  Start the Micro Integrator using the
     `              -Djava.library.path             ` switch to specify
     the location of your SAP jco library.  
-    For example, you can execute the following command to start the Micro Integrator from the `MI_HOME/bin` directory:
+    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -324,7 +324,7 @@ Follow the instructions below to configure the Micro Integrator as a BAPI
 client using the SAP adapter.
 
 1.  Uncomment the following line in
-    `MI_HOME/conf/deployment.toml` file to
+    `<MI_HOME>/conf/deployment.toml` file to
     enable the BAPI transport sender.
 
     ```toml
@@ -344,15 +344,15 @@ client using the SAP adapter.
            trace="disable">
         <target>
             <inSequence>
-                <send>
+                <call>
                     <endpoint name="sap_bapi_endpoint">
                         <address uri="bapi:/SAPSYS"/>
                     </endpoint>
-                </send>
+                </call>
+                <log level="full"/>
+                <respond/>
             </inSequence>
             <outSequence>
-                <log level="full"/>
-                <send/>
             </outSequence>
         </target>
     </proxy>
@@ -360,9 +360,9 @@ client using the SAP adapter.
 
     !!! Info
         -   If you set the property shown below (use the **Property**
-            mediator before the **Send** mediator in the above sequence),
+            mediator before the **Call** mediator in the above sequence),
             any business-level error messages that are sent back from the
-            SAP endpoint will be successfully passed through the out flow
+            SAP endpoint will be successfully passed through the same flow
             sequence. Without this property, the business-level errors from
             SAP can get detected as faulty messages and passed to the Fault
             sequence.
@@ -370,13 +370,13 @@ client using the SAP adapter.
             <property name="sap.escape.error.handling" scope="axis2" value="true"/>
             ```
         
-        -   The SAP endpoint client properties file `SAPSYS.dest` should be in the `MI_HOME/conf/sap` folder .
+        -   The SAP endpoint client properties file `SAPSYS.dest` should be in the `<MI_HOME>/conf/sap` folder .
         
 3.  Start the Micro Integrator using the
     `-Djava.library.path` switch to specify
     the location of your SAP jco library.  
 
-    For example, you can execute the following command to start the Micro Integrator from the `MI_HOME/bin` directory:
+    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -387,7 +387,7 @@ client using the SAP adapter.
 Follow the instructions below to configure the Micro Integrator as a BAPI server using the SAP adapter.
 
 1.  Uncomment the following line in the
-    `MI_HOME/conf/deployment.toml` file to
+    `<MI_HOME>/conf/deployment.toml` file to
     enable BAPI transport receiver.
 
     ```toml
@@ -422,14 +422,14 @@ Follow the instructions below to configure the Micro Integrator as a BAPI server
     !!! Info
         -   The SAP endpoint server properties file
             `SAPSYS.server` should be in the
-            `MI_HOME/conf/sap` folder .
+            `<MI_HOME>/conf/sap` folder .
         -   Additional proxy level listener parameters that can be defined
             in the proxy configuration are listed in [Proxy Service Listener Parameters](#proxy-service-listener-parameters).
             
 3.  Start the Micro Integrator using the
     `               -Djava.library.path              ` switch to specify
     the location of your SAP jco library.  
-    For example, you can execute the following command to start the Micro Integrator from the `MI_HOME/bin` directory:
+    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/

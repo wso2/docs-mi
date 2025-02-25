@@ -409,6 +409,7 @@ nav:
       #- How to work with transactions: learn/examples/working-with-transactions.md
       - How to Work with JSON Message Payloads: learn/examples/json-examples/json-examples.md
       - How to Integrate MI with SI: learn/examples/integrating-mi-with-si.md
+      - Integrate with SAP: learn/integration-tutorials/sap-integration.md
       - Samples:
           - Overview: learn/samples/samples-overview.md
           - Hello World Service: learn/samples/hello-world-service.md
@@ -1001,7 +1002,6 @@ plugins:
               'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
               'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
               'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/intro-integration-development/'
-              'learn/integration-tutorials/sap-integration.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
               'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.4.0/learn/examples/protocol-switching/switching-from-fix-to-jms'
               'install-and-setup/install/installing-mi-dashboard.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installing-integration-control-plane'
               'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/config-catalog-integration-control-plane/'
