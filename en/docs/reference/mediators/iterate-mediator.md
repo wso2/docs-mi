@@ -33,6 +33,9 @@ for-each function of the complex XSLT mediators using a ForEach mediator
 and a Payload Factory mediator. However, to implement the
 split-aggregate pattern, you still need to use Iterate mediator.
 
+!!! Info
+    When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
+
 ## Syntax
 
 ``` java
