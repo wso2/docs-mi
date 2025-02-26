@@ -1041,7 +1041,9 @@ plugins:
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
               'develop/injecting-parameters.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/externalized-configuration'
-
+              'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/performance-test-results-mi/'
+              'develop/integration-development-kickstart.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/quick-start-guide/'
+              'learn/examples/routing-examples/routing-based-on-payloads.md': 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/routing-requests-based-on-message-content/'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
