@@ -35,16 +35,21 @@ The tryout feature allows you to visualize the following mediation properties:
 2. Access the **Design View** of the API resource.
 
 3. Click on the **Start** node in the diagram. Here, you can add a new request to utilize the tryout feature. The payload specified on this page will be used to tryout the mediator.
-<img src="{{base_path}}/assets/img/develop/tryout/tryout_start_node.png" alt="Set Payload" width="700"/>
+   
+    <img src="{{base_path}}/assets/img/develop/tryout/tryout_start_node.png" alt="Set Payload" width="700"/>
 
-4. Add a mediator to the sequence and save your changes. For demonstration purposes, we will add a variable mediator in this example.
-<img src="{{base_path}}/assets/img/develop/tryout/tryout_add_a_mediator.png" alt="Add the mediator" width="700"/>
+5. Add a mediator to the sequence and save your changes. For demonstration purposes, we will add a variable mediator in this example.
+   
+    <img src="{{base_path}}/assets/img/develop/tryout/tryout_add_a_mediator.png" alt="Add the mediator" width="700"/>
 
-5. Open the mediator and click on the **Tryout** tab. This action will load the input data for the mediator by executing the mediation flow.
-<img src="{{base_path}}/assets/img/develop/tryout/tryout_mediator.png" alt="Get the input for tryout" width="700"/>
+6. Open the mediator and click on the **Tryout** tab. This action will load the input data for the mediator by executing the mediation flow.
+   
+    <img src="{{base_path}}/assets/img/develop/tryout/tryout_mediator.png" alt="Get the input for tryout" width="700"/>
 
-6. You can modify the input data if needed, and then press the **Run** button to view the mediator's output.
-<img src="{{base_path}}/assets/img/develop/tryout/tryout_input.png" alt="Run the mediator" width="700"/>
+7. You can modify the input data if needed, and then press the **Run** button to view the mediator's output.
+   
+    <img src="{{base_path}}/assets/img/develop/tryout/tryout_input.png" alt="Run the mediator" width="700"/>
 
-7. After clicking **Run**, the output of the mediator will be displayed as follows.
-<img src="{{base_path}}/assets/img/develop/tryout/tryout_input_output.png" alt="Input/Output of the mediator" width="700"/>
+8. After clicking **Run**, the output of the mediator will be displayed as follows.
+   
+    <img src="{{base_path}}/assets/img/develop/tryout/tryout_input_output.png" alt="Input/Output of the mediator" width="700"/>
