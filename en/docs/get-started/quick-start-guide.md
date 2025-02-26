@@ -46,7 +46,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
-3. Click **Create New Project** on **Micro Integrator Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+3. Click **Create New Project** on **Micro Integrator Project Explorer**. For more options for creating a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 4. In the **Project Creation Form**, enter `HelloWorld` as the **Project Name**.
 
@@ -66,7 +66,7 @@ To develop the above scenario, let's get started with creating an integration pr
     - Java Development Kit (JDK) version 21
     - WSO2 Micro Integrator (MI) 4.4.0 runtime
 
-    If you don't have them installed in your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
+    If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
 
     1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
@@ -96,16 +96,24 @@ To develop the above scenario, let's get started with creating an integration pr
 
 3. Click **+ View More** under **Create an Integration**.
 
-4. Select **Connections** under **Other Artifacts**. This opens the **Connector Store Form**.
+4. Select **Connections** under **Other Artifacts**.
+
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/connections.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/connections.png" alt="Connections" width="80%"></a>
+
+    This opens the **Connector Store Form**.
 
 5. Select **HTTPS**. You need to add dependencies to the project, if not added yet.
 
-6. In the **Add New Connection** form, specify the following values to create the new HTTPS connection.
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/https-connection.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/https-connection.png" alt="HTTPS Connection" width="80%"></a>
+
+6. In the **Connector Store Form**, under **Add New Connection**, specify the following values to create the new HTTPS connection.
     
     | Property            | Value                   |
     |---------------------|-------------------------|
     | **Connection Name** | `HelloWorldConn`        |
     | **Base URL**        | `https://apis.wso2.com` |
+ 
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-new-connection.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-new-connection.png" alt="Add new connection" width="80%"></a>
 
 7. Click **Add**.
 
@@ -117,13 +125,13 @@ Now the integration project is ready to add an API. In this scenario, the API ca
 
 2. Click on the **+** icon to open the **Add Artifact** interface.
 
-1. In the **Add Artifact** interface, under **Create an Integration**, click on **API**. This opens the **API Form**.
+3. In the **Add Artifact** interface, under **Create an Integration**, click on **API**. This opens the **API Form**.
 
-3. Enter `HelloWorldAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value.
+4. Enter `HelloWorldAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-api.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-api.png" alt="Create New API" width="80%"></a>
 
-4. Click **Create**.
+5. Click **Create**.
 
 Once you create the API, a default resource will be automatically generated. You can see this default resource listed in the **Service Designer** under **Available resources**. You'll use this resource in this tutorial.
 
@@ -134,7 +142,7 @@ Once you create the API, a default resource will be automatically generated. You
 
 ## Step 4 - Design the integration
 
-Now it is time to design your API. This is the underlying logic that is executed behind the scenes when an API request is made. In this scenario first, you need to call the backend service. For that, you have to add an [HTTP connection AAA LINK]({{base_path}}/reference/synapse-properties/endpoint-properties). Follow the below steps to create an HTTPS connection.
+Now it is time to design your API. This is the underlying logic that is executed behind the scenes when an API request is made. In this scenario first, you need to call the backend service. For that, you have to add an [HTTP connection]({{base_path}}/reference/connectors/http-connector/http-connector-overview). Follow the below steps to create an HTTPS connection.
 
 1. Open the **Resource View** of the API resource.
 
@@ -142,28 +150,28 @@ Now it is time to design your API. This is the underlying logic that is executed
 
     2. Under `HelloWorldAPI`, click the default API resource to open the **Resource View** of the API resource.
 
-7. Once you open the **Resource View**, click on the **+** icon on the Canvas to open the palette.
+2. Once you open the **Resource View**, click on the **+** icon on the canvas to open the palette.
 
-8. Select the **GET** operation under **Mediators** > **HTTP**.
+3. Select the **GET** operation under **Mediators** > **HTTP**.
 
-9. In the **Add GET** pane that appears, specify the following values.
+4. In the **Add GET** pane that appears, specify the following values.
 
     | Property           | Value               |
     |--------------------|---------------------|
     | **Connection**     | `HelloWorldConn`    |
     | **Relative Path**  | `/zvdz/mi-qsg/v1.0` |
 
-10. Click **Submit**.
+5. Click **Submit**.
 
     Now let's add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to respond the message to the client.
 
-11. Click on the **+** icon placed just after the HTTPS GET operation to open the palette.
+6. Click on the **+** icon placed just after the HTTPS GET operation to open the palette.
 
-12. Select **Respond** mediator under **Mediators**.
+7. Select **Respond** mediator under **Mediators**.
 
-13. Click **Add**.
+8. Click **Add**.
 
-[//]: # (    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" alt="Design API" width="80%"></a>)
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" alt="Design API" width="80%"></a>
 
 Following is what you'll see in the **Source View** of the VS Code.
 
@@ -176,7 +184,7 @@ Following is what you'll see in the **Source View** of the VS Code.
     <resource methods="GET" uri-template="/">
         <inSequence>
             <http.get configKey="HelloWorldConn">
-                <relativePath></relativePath>
+                <relativePath>/zvdz/mi-qsg/v1.0</relativePath>
                 <headers>[]</headers>
                 <forceScAccepted>false</forceScAccepted>
                 <disableChunking>false</disableChunking>
@@ -185,7 +193,8 @@ Following is what you'll see in the **Source View** of the VS Code.
                 <responseVariable>http_get_1</responseVariable>
                 <overwriteBody>true</overwriteBody>
             </http.get>
-            <respond /></inSequence>
+            <respond/>
+        </inSequence>
         <faultSequence>
         </faultSequence>
     </resource>
@@ -216,7 +225,7 @@ Now that you have developed an integration using the Micro Integrator for the Vi
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-[//]: # (<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png" alt="Build and run" width="80%"></a>)
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png" alt="Build and run" width="80%"></a>
 
 ## Step 6 - Test the integration service
 
@@ -226,7 +235,7 @@ When you run the integration artifact as in [Step 4](#step-4-run-the-integration
 
 Select `HelloWorldAPI` that you have developed and test the resource.
 
-[//]: # (<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" alt="Test API" width="80%"></a>)
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" alt="Test API" width="80%"></a>
 
 Congratulations!
 Now, you have created your first integration service.
