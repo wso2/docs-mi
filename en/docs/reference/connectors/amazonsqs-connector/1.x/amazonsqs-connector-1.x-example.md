@@ -14,7 +14,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the environment 
 
-1. Follow the steps mentioned in the [Setting up the Amazon S3 Environment]({{base_path}}/reference/connectors/amazonsqs-connector/1.x/amazonsqs-connector-config) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.  
+1. Follow the steps mentioned in the [Setting up Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-setting-up.html) document to create an Amazon account and obtain access key ID and secret access key. Keep them saved to use in the next steps.  
 
 2. In this example, we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 

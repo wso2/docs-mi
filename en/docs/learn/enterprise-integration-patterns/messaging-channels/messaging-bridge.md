@@ -24,7 +24,7 @@ Before digging into implementation details, let's take a look at the relationshi
 | Messaging Bridge EIP            | Messaging Bridge Example Scenario                                                        |
 |---------------------------------|-----------------------------------------------------------------------------------------------------|
 | Messaging System1               | Stock Quote client                                                                                  |
-| Messaging Bridge                | PayloadFactory Mediator (You can add any transformation mediator here. Also see [Message Translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator.md)) |
+| Messaging Bridge                | PayloadFactory Mediator (You can add any transformation mediator here. Also see [Message Translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator)) |
 | Messaging System2               | Stock Quote service                                                                                 |
 
 ## Synapse configuration of the artifacts

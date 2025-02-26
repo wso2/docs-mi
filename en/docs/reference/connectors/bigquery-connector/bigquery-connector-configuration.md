@@ -76,7 +76,7 @@ Follow the steps below to generate user credentials.
 
 4. Click on **Authorize APIs** button and select your Gmail account when you are asked and allow the scopes.
 
-     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-scope.png" title="Grant Permission" width="300" alt="Grant Permission" />
+     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-add-scopes.png" title="Grant Permission" width="300" alt="Grant Permission" />
 
 5.  Under Step 2, click **Exchange authorization code for tokens** to generate and display the Access Token and Refresh Token.
 
