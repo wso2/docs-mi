@@ -542,7 +542,7 @@ The following is an HTTP endpoint configured with basic authentication.
 The following properties <b>only</b> apply to HTTP endpoint. 
 
 !!! Note
-      1. You can also use environment variables for these parameters. For more information, see [Externalized Configuration]({{base_path}}/develop/externalized-configuration.md).
+      1. You can also use environment variables for these parameters. For more information, see [Externalized Configuration]({{base_path}}/develop/externalized-configuration/).
       2. You can use dynamic values for OAuth configurations such as XPATH, JSON expressions or vault-lookup. For more information, see [Define dynamic expressions]({{base_path}}/reference/synapse-properties/endpoint-properties/#define-dynamic-expressions).
       3. You can send additional parameters as well in the OAuth request body. For more information, see [Send additional parameters in the OAuth request body]({{base_path}}/reference/synapse-properties/endpoint-properties/#send-additional-parameters-in-the-oauth-request-body).
 

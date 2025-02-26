@@ -287,7 +287,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     }
     ```
     Navigate to the AWS S3 console and click on the bucket `wso2-engineers`. You will note that a file has been created with the name `Julian.txt`.
-    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.jpg" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
 ### Read objects from the Amazon S3 bucket
 

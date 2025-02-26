@@ -133,7 +133,7 @@ Follow the steps given below to create a new data service.
 
 8. You will then see the **Test Connection** form, where you can test the connection to the data source using the provided username and password.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection   .png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" width="80%"></a>
 
 9. Click **Test Connection** to verify the connection. A success or failure message will appear.
 

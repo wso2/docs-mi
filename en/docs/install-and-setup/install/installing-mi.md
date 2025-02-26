@@ -92,8 +92,6 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     2.  In the System Properties window, click the **Advanced** tab, and then click **Environment Variables**.
 
-        ![]({{base_path}}/assets/attachments/26838941/27042150.png)
-
     3.  Click **New** under **System variables** (for all users) or under **User variables** (just for the user who is currently logged in).
 
         ![]({{base_path}}/assets/attachments/thumbnails/26838941/27042154)
