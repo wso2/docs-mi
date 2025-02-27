@@ -204,6 +204,13 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
 !!! Note
          The Script mediator now utilizes the GraalVM JS engine for the `js` language. The GraalVM JS engine does not provide E4X support for XML. For E4X support, you can use the Rhino engine. To use the Rhino engine, you need to specify the language as `rhinoJs` in the Script mediator language configuration.
 
+         If you want to use the Rhino engine as default, you need to add the following configuration to the `deployment.toml` file in the `<MI_HOME>/conf` directory.
+
+         ```toml
+         [synapse_properties]
+         'synapse.script.mediator.default.engine' = "rhinoJs"  # rhinoJs or graalJs
+         ```
+
 
 ## Examples
 
