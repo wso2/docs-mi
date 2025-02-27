@@ -191,7 +191,6 @@ nav:
           - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
-      #- API-led Integration: develop/api-led-integration.md
       - WSO2 MI for VSCode:
           - Micro Integrator for VSCode Overview:  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
@@ -999,9 +998,6 @@ plugins:
               'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/'
               'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/opening-projects/'
               'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/opening-artifacts/'
-              'learn/integration-tutorials/develop-an-integration-with-a-managed-api.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
-              'learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
-              'develop/api-led-integration.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/intro-integration-development/'
               'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.4.0/learn/examples/protocol-switching/switching-from-fix-to-jms'
               'install-and-setup/install/installing-mi-dashboard.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installing-integration-control-plane'
               'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/config-catalog-integration-control-plane/'
@@ -1010,7 +1006,6 @@ plugins:
               'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/#build-docker-image/'
               'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
               'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/service-catalog-tutorial/'
-              'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/intro-integration-development/'
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
               'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
@@ -1025,19 +1020,15 @@ plugins:
               'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/mediators/data-mapper-mediator'
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
               'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.4.0/observe-and-manage/working-with-integration-control-plane/'
-              'develop/creating-artifacts/data-services/creating-input-validators.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
               'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install-and-setup-overview/'
               'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.4.0/get-started/quick-start-guide/'
               'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
               'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/file-processing/'
               'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/storing-and-forwarding-messages/'
               'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installation-prerequisites/'
-              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
-              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
-              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
-              'reference/connectors/documentum/documentum-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
-              'reference/connectors/documentum/documentum-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
-              'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
               'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
               'develop/injecting-parameters.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/externalized-configuration'
               'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/performance-test-results-mi/'
