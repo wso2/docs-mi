@@ -232,4 +232,17 @@ header.md-header .md-header__button:not([hidden]) {
     color: rgb(255, 112, 67) !important;
 }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".link").forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        gtag('event', 'link_click', {
+          'event_category': 'engagement',
+          'event_label': event.target.textContent,
+          'link_url': event.target.href
+        });
+      });
+    });
+  });
+</script>
 {% endraw %}
