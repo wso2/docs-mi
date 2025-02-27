@@ -39,7 +39,7 @@ The parameters available to configure the Scatter Gather mediator are as follows
    </tbody>
 </table>
 
-### Output Configurations
+### Aggregate Configurations
 
 <table>
    <thead>
@@ -60,33 +60,39 @@ The parameters available to configure the Scatter Gather mediator are as follows
          </td>
       </tr>
       <tr class="even">
-         <td><strong>Expression</strong></td>
-         <td>
-            Defines the expression specifying which data should be aggregated from each message. If clone sequences result in XML, you need to use an XPath synapse expression like <code>${xpath('//data/user')}</code> instead of <code>${payload.user}</code>. By default, the whole body will be aggregated.
-         </td>
-      </tr>
-      <tr class="odd">
          <td><strong>Result Enclosing Element Name</strong></td>
          <td>Specifies the name of the root element wrapping the aggregation result. Applicable only when <strong>Content Type</strong> is XML.</td>
       </tr>
-      <tr class="even">
-         <td><strong>Save Result to</strong></td>
+      <tr class="odd">
+         <td><strong>Aggregate Entire Payloads</strong></td>
          <td>
-            Determines where the aggregated result will be stored. 
-            <ul>
-               <li><strong>Body</strong>: Note that this will replace the existing message body with the aggregated result. (Default)</li>
-               <li><strong>Variable</strong>: Saves the result to a variable defined under <strong>Variable Name</strong> parameter.</li>
-            </ul>
+            By default, the entire message payload is aggregated across all flows. If you prefer to aggregate only specific parts of the payload, disable this option and specify the required portions using an expression.
          </td>
       </tr>
       <tr class="even">
-         <td><strong>Variable Name</strong></td>
-         <td>The name of the variable where the aggregated result is saved. Applicable only when <strong>Save Result to</strong> is Variable.</td>
+         <td><strong>Partial payload to Aggregate</strong></td>
+         <td>
+            Specifies the expression that defines which part of the message payload should be aggregated.
+            This parameter is applicable only when <strong>Aggregate Entire Payloads</strong> is disabled.
+         </td>
+      </tr>
+      <tr class="odd">
+         <td><strong>Filter Messages for Aggregation</strong></td>
+         <td>
+            By default, all messages are aggregated. Enable this option to filter messages based on a specified condition before aggregation.
+         </td>
+      </tr>
+      <tr class="even">
+         <td><strong>Condition</strong></td>
+         <td>
+            Defines the condition used to filter which responses should be included in the final aggregation.
+            To prevent indefinite waiting, either a <strong>Completion Timeout</strong> or a <strong>Minimum flows to complete</strong> value must be configured under <a href="{{base_path}}/reference/mediators/scatter-gather-mediator/#advanced-configurations">Advanced configurations</a>.
+         </td>
       </tr>
    </tbody>
 </table>
 
-### Aggregation Configurations
+### Advanced Configurations
 
 <table>
    <thead>
@@ -97,20 +103,49 @@ The parameters available to configure the Scatter Gather mediator are as follows
    </thead>
    <tbody>
       <tr>
-         <td><strong>Condition</strong></td>
-         <td>An optional expression defining a condition that determines when the messages should be aggregated.</td>
+         <td><strong>Completion Timeout</strong></td>
+         <td>
+            Specifies the maximum duration (in milliseconds) to wait for flows to complete aggregation before timing out.
+         </td>
       </tr>
       <tr>
-         <td><strong>Timeout</strong></td>
-         <td>The maximum time (in milliseconds) to wait for messages to complete aggregation.</td>
+         <td><strong>Minimum flows to complete</strong></td>
+         <td>
+            Specifies the minimum number of flows that must be completed before aggregation can proceed.
+         </td>
       </tr>
       <tr>
-         <td><strong>Minimum Messages</strong></td>
-         <td>The minimum number of messages required before aggregation can proceed.</td>
+         <td><strong>Maximum flows to complete</strong></td>
+         <td>
+            Specifies the maximum number of flows that should be processed for aggregation.
+         </td>
+      </tr>
+   </tbody>
+</table>
+
+### Output Configurations
+
+<table>
+   <thead>
+      <tr>
+         <th>Parameter Name</th>
+         <th>Description</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>Overwrite Message Body</strong></td>
+         <td>
+            By default, replaces the message body with the aggregated response from the Scatter Gather mediator.
+            You can disable this option and specify a variable name to store the aggregated response instead.
+         </td>
       </tr>
       <tr>
-         <td><strong>Maximum Messages</strong></td>
-         <td>The maximum number of messages processed for aggregation.</td>
+         <td><strong>Output Variable Name</strong></td>
+         <td>
+            Specifies the variable name to store the output of the Scatter Gather mediator.
+            This is applicable only when <strong>Overwrite Message Body</strong> is disabled.
+         </td>
       </tr>
    </tbody>
 </table>
