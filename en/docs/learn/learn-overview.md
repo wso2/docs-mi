@@ -143,8 +143,8 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Routing</b> 
             <ul>
-                <li><a href="{{base_path}}/learn/examples/routing-examples/routing-based-on-headers">How to route requests based on message content</a></li>
-                <li><a href="{{base_path}}/learn/examples/routing-examples/routing-based-on-payloads">How to route requests based on message headers</a></li>
+                <li><a href="{{base_path}}/learn/integration-tutorials/routing-requests-based-on-message-content/">How to route requests based on message content</a></li>
+                <li><a href="{{base_path}}/learn/examples/routing-examples/routing-based-on-headers">How to route requests based on message headers</a></li>
             </ul>
         </td>
     </tr>
@@ -328,7 +328,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                     <ul>
                         <li><a href="{{base_path}}/learn/examples/sequence-examples/using-multiple-sequences">How to break complex flows into multiple sequences</a></li>
                         <li><a href="{{base_path}}/learn/examples/sequence-examples/using-fault-sequences">How to use fault sequences</a></li>
-                        <li><a href="{{base_path}}/learn/examples/sequence-examples/custom-sequences-with-proxy-services">How to reuse mediation sequences</a></li>
+                        <li><a href="{{base_path}}/learn/integration-tutorials/using-templates/">How to reuse mediation sequences</a></li>
                     </ul>
                 </li>
                 <li>Transports 

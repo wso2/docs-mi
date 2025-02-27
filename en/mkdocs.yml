@@ -406,7 +406,7 @@ nav:
                 - How to Acknowledge HL7 Messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
       - How to Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
-      #- How to work with transactions: learn/examples/working-with-transactions.md
+      - How to work with transactions: learn/examples/working-with-transactions.md
       - How to Work with JSON Message Payloads: learn/examples/json-examples/json-examples.md
       - How to Integrate MI with SI: learn/examples/integrating-mi-with-si.md
       - Integrate with SAP: learn/integration-tutorials/sap-integration.md
@@ -993,8 +993,8 @@ plugins:
       redirect_maps:
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'
-              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/create-integration-project'
-              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/create-integration-project'
+              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/creating-artifacts/data-services/creating-data-services/'
+              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/creating-artifacts/data-services/creating-datasources/'
               'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.4.0/observe-and-manage/managing-integrations-with-micli/'
               'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/'
               'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/opening-projects/'
@@ -1007,9 +1007,9 @@ plugins:
               'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/config-catalog-integration-control-plane/'
               'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/exporting-artifacts/'
               'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/#build-docker-image'
-              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
+              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/#build-docker-image/'
               'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
-              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/intro-integration-development/'
+              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/service-catalog-tutorial/'
               'develop/generate-service-catalog-metadata.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/intro-integration-development/'
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
@@ -1031,7 +1031,6 @@ plugins:
               'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
               'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/file-processing/'
               'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/storing-and-forwarding-messages/'
-              'learn/examples/working-with-transactions.md' : 'https://mi.docs.wso2.com/en/4.4.0/learn/learn-overview/'
               'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/install/installation-prerequisites/'
               'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
@@ -1041,7 +1040,9 @@ plugins:
               'reference/connectors/documentum/documentum-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/connectors-overview'
               'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
               'develop/injecting-parameters.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/externalized-configuration'
-
+              'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/performance-test-results-mi/'
+              'develop/integration-development-kickstart.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/quick-start-guide/'
+              'learn/examples/routing-examples/routing-based-on-payloads.md': 'https://mi.docs.wso2.com/en/4.4.0/learn/integration-tutorials/routing-requests-based-on-message-content/'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply

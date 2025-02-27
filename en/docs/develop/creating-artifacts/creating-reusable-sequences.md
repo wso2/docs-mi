@@ -91,4 +91,4 @@ Follow our examples on endpoint templates:
 
 - [Breaking Complex Flows into Multiple Sequences]({{base_path}}/learn/examples/sequence-examples/using-multiple-sequences)
 - [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences)
-- [Reusing Sequences]({{base_path}}/learn/examples/sequence-examples/custom-sequences-with-proxy-services)
+- [Reusing Sequences]({{base_path}}/learn/integration-tutorials/using-templates/)
