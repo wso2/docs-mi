@@ -55,7 +55,7 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Micro Integrator (MI) 4.3.0 runtimes are given below.
+The details of the tested environments for the WSO2 Micro Integrator (MI) 4.4.0 runtimes are given below.
 
 ### Tested operating systems
 

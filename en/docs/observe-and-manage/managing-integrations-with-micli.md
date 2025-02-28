@@ -6,13 +6,13 @@ The Micro Integrator CLI allows you to monitor the Synapse artifacts (deployed i
 
 1.  Download **MI CLI** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For Mac with Intel Chip](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-darwin-amd64.tar.gz)
-    - [For Mac with Apple Silicon](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-darwin-arm64.tar.gz)
-    - [For Linux 32-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-linux-i586.tar.gz)
-    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-linux-amd64.tar.gz)
-    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi-4.3.0-linux-arm64.tar.gz)
-    - [For Windows 32-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi.exe-4.3.0-windows-i586.zip)
-    - [For Windows 64-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.3.0/mi.exe-4.3.0-windows-x64.zip)
+    - [For Mac with Intel Chip](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi-4.4.0-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi-4.4.0-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi-4.4.0-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi-4.4.0-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi-4.4.0-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi.exe-4.4.0-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-mi-tooling/releases/download/v4.4.0/mi.exe-4.4.0-windows-x64.zip)
 
 2.  Extract the downloaded archive of the mi to the desired location.
 3.  Navigate to the working directory where the executable mi resides.
@@ -59,8 +59,8 @@ Run the following MI CLI command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.3.0
-    Build Date: 2024-07-17 10:38:09 UTC
+    Version: 4.4.0
+    Build Date: 2025-02-07 12:58:05 UTC
     ```
 ## Set proxy environment variables for MI CLI
 
@@ -120,7 +120,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2mi/mai
 mi add env <environment-name> 
 ```
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.3.0 version is started and that the 4.3.0 version of MI CLI is set up.     
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.     
 For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 2.  Run the following MI CLI command to add an environment.
 
@@ -149,7 +149,7 @@ For more information, see [Download and Initialize the MI CLI](#download-and-ini
 
 ## Delete an environment
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.3.0 version is started and that the 4.3.0 version of MI CLI is set up.  
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.  
 For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 2.  Run the following MI CLI command to delete an environment.
 
@@ -179,7 +179,7 @@ For more information, see [Download and Initialize the MI CLI](#download-and-ini
 
 ## Get environments
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.3.0 version is started and that the 4.3.0 version of MI CLI is set up.    
+1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.    
 For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 2.  Run the following MI CLI command to list the environments.  
 
