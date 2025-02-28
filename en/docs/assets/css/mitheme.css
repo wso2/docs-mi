@@ -311,3 +311,8 @@ header>.md-grid {
     color: var(--md-default-fg-color);
     font-size: 0.80rem;
 }
+
+.md-content img {
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
