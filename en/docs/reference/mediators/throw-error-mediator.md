@@ -11,7 +11,7 @@ The ThrowError mediator allows you to throw an error from the mediation sequence
 <!-- Error message as string -->
 <throwError type="string" errorMessage="string"></throwError>
 <!-- Dynamic error message -->
-<throwError type="string" errorMessage="${expression}"></throwError>
+<throwError type="string" errorMessage="{${expression}}"></throwError>
 ```
 
 ## Examples
