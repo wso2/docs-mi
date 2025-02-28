@@ -7,7 +7,7 @@ For more information on logging, see [Monitoring Logs]({{base_path}}/observe-and
 ## Syntax
 
 ```xml
-<log [category="INFO|TRACE|DEBUG|WARN|ERROR|FATAL"] [separator="string"]>
+<log [category="INFO|TRACE|DEBUG|WARN|ERROR|FATAL"] [separator="string"] logMessageID=(true | false) logFullPayload=(true | false)>
    <message></message>
    <property name="string" (value="string" | expression="expression")/>+
 </log>
@@ -37,6 +37,26 @@ follows.
 <li><strong>ERROR</strong> - provides error events that might still allow the application to continue running.</li>
 <li><p><strong>FATAL</strong> - provides very severe error events that will presumably lead the application to abort.</p></li>
 </ul></td>
+</tr>
+<tr class="even">
+<td><strong>Append Message ID</strong></td>
+<td>
+Determines whether the Message ID is included in the log along with other selected details.
+<ul>
+  <li><strong>True</strong>: Includes the Message ID in the log.</li>
+  <li><strong>False</strong>: Excludes the Message ID from the log. (Default)</li>
+</ul>
+</td>
+</tr>
+<tr class="odd">
+<td><strong>Append Payload</strong></td>
+<td>
+Determines whether the full message payload is included in the log along with other selected details.
+<ul>
+  <li><strong>True</strong>: Includes the full message payload in the log.</li>
+  <li><strong>False</strong>: Excludes the message payload from the log. (Default)</li>
+</ul>
+</td>
 </tr>
 <tr class="even">
 <td><strong>Message</strong></td>
@@ -87,6 +107,21 @@ In this example, we define a message template using [Synapse Expressions]({{base
 A sample log output:
 ```xml
 [2024-09-09 15:23:03,998]  INFO {LogMediator} - {api:StockQuoteAPI} Processing user details : {"firstName":"Johne", "lastName": "Doe"} with Purchase data : {"itemCode": 8987, "price": 45}
+```
+
+### Logging message ID
+
+In this example, we enable logging of the message ID by setting `logMessageID="true"` in the log configuration. Additionally, we define a message template using [Synapse Expressions]({{base_path}}/reference/synapse-properties/synapse-expressions).
+
+```xml
+<log category="INFO" logMessageID="true">
+   <message>Test message ${payload}</message>
+</log>
+```
+
+A sample log output:
+```xml
+[2025-02-27 21:18:38,015]  INFO {LogMediator} - {api:TestApi POST /testapi/} MessageID: urn:uuid:7137bda5-065d-41b9-85c9-1b23b8c3fd8e, correlation_id: 7137bda5-065d-41b9-85c9-1b23b8c3fd8e, Test message {"payload":"Hello World"}
 ```
 
 ### Using parameters in addition to message template
