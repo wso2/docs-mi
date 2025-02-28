@@ -73,10 +73,6 @@ The following connectors are available in the <a target="_blank" href="https://s
             <th>Description</th>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview/">DB Event Listener</a></td>
-            <td>DB Event Inbound Endpoint is the DB event listener. You can configure it with any popular Database systems such as `MySQL` and `Oracle`.</td>
-        </tr>
-        <tr>
             <td><a href="{{base_path}}/reference/connectors/fhir-connector/fhir-connector-overview/">FHIR</a></td>
             <td>This connector uses the <a href="https://hapifhir.io">HAPI FHIR APIs</a> to connect with a Test Server, which is an open source server licensed under the Apache Software License 2.0 (Java-based implementation of the FHIR specification).</td>
         </tr>
