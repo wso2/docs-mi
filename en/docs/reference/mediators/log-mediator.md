@@ -111,7 +111,7 @@ A sample log output:
 
 ### Logging message ID
 
-In this example, we define a message template using [Synapse Expressions]({{base_path}}/reference/synapse-properties/synapse-expressions).
+In this example, we enable logging of the message ID by setting `logMessageID="true"` in the log configuration. Additionally, we define a message template using [Synapse Expressions]({{base_path}}/reference/synapse-properties/synapse-expressions).
 
 ```xml
 <log category="INFO" logMessageID="true">
