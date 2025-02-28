@@ -9,9 +9,9 @@ The ThrowError mediator allows you to throw an error from the mediation sequence
 
 ``` java
 <!-- Error message as string -->
-<throw-error type="string" errorMessage="string"></throw-error>
+<throwError type="string" errorMessage="string"></throwError>
 <!-- Dynamic error message -->
-<throw-error type="string" errorMessage="{string}"></throw-error>
+<throwError type="string" errorMessage="${expression}"></throwError>
 ```
 
 ## Examples
@@ -33,7 +33,7 @@ The following API configuration demonstrates how to use the ThrowError mediator 
                 </then>
                 <else>
                     <variable name="ERROR_MSG" value="Required field does not exist"/>
-                    <throwError type="PAYLOAD_ERROR" errorMessage="{${var.ERROR_MSG}}"/>
+                    <throwError type="PAYLOAD_ERROR" errorMessage="{${vars.ERROR_MSG}}"/>
                 </else>
             </filter>
         </inSequence>
