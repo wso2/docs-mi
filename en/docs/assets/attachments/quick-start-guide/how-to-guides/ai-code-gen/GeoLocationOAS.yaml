@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: OpenWeatherMap Geographic Data API
+  description: API for fetching geographic data from OpenWeatherMap
+  version: 1.0.0
+servers:
+  - url: http://api.openweathermap.org
+    description: OpenWeatherMap API Server
+paths:
+  /geo/1.0/direct:
+    get:
+      summary: Get geographic data
+      description: Fetch geographic data by city name.
+      parameters:
+        - name: q
+          in: query
+          description: City name
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Number of results to return
+          required: false
+          schema:
+            type: integer
+            default: 5
+        - name: appid
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    local_names:
+                      type: object
+                      additionalProperties:
+                        type: string
+                    lat:
+                      type: number
+                    lon:
+                      type: number
+                    country:
+                      type: string
+                    state:
+                      type: string
