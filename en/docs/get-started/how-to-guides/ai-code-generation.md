@@ -22,7 +22,7 @@ You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-project-creation.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-project-creation.png" alt="create new project" width="80%"></a>
 
-6. Click **Finish**.
+6. Click **Create**.
 
 You will now see the projects listed in the **Project Explorer**.
 

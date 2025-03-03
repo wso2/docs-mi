@@ -76,6 +76,7 @@ nav:
       - Quick Start Guide: get-started/quick-start-guide.md
       - How-to Guides:
           - AI Code Generation: get-started/how-to-guides/ai-code-generation.md
+          - AI Data Mapping: get-started/how-to-guides/ai-data-mapping.md
       - About this Release: get-started/about-this-release.md
   - Install and Setup:
       - Overview: install-and-setup/install-and-setup-overview.md
