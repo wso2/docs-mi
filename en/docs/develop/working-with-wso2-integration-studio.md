@@ -1,5 +1,8 @@
 # Working with WSO2 Integration Studio
 
+!!! warning
+    WSO2 Integration Studio is deprecated. It is recommended to use the [Micro Integrator extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
+
 Once you have created a [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) or a [Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) in WSO2 Integration Studio, you can update the mediation flow by adding new mediation artifacts and changing the existing artifacts.
 
 Follow the steps given below.
