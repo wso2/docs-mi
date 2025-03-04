@@ -8,18 +8,18 @@ This scenario demonstrates how the CDC inbound endpoint can be used to capture c
 
 In this example, a relational database table is used to store product information. The product data is added to the database by an external system that is outside of the enterprise's control. As soon as a new product is inserted, the system needs to detect and process the data. The integration runtime is used here to listen for database changes and trigger the relevant processes. It can either invoke backend APIs or place the data onto a message bus after performing the necessary data transformations. However, for the sake of simplicity in this example, we will simply log the message. You can extend this example as needed using WSO2 mediators.
 
-## Set up the environment 
+!!! Note
+    Before starting this scenario, you need [Set up the CDC Environment]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-configuration/) for your database.
 
-1. First, install [MySQL database](https://www.mysql.com/) locally. If you have a remote server, please obtain the credentials required to connect.  
+## Create Sample Database
+1. Connect to MySQL server.
 
-2. Connect to MySQL server.
-
-3. Create a database called `inventory`. 
+2. Create a database called `inventory`. 
     ```sql
     CREATE DATABASE inventory;
     ```
 
-4. Switch to the database `inventory`.
+3. Switch to the database `inventory`.
     ```sql
     USE inventory;
     ```
@@ -31,13 +31,7 @@ In this example, a relational database table is used to store product informatio
         name VARCHAR(255) NOT NULL,
         price REAL NOT NULL
     );
-    ```
-
-5. Create a user. For detailed instructions, refer to the [MySQL Creating User](https://debezium.io/documentation/reference/stable/connectors/mysql.html#mysql-creating-user) documentation. 
-
-6. Enable binlog. For detailed instructions, refer to the [Enable MySQL Binlog](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-binlog) documentation. 
-
-7. Enable GTIDs. For detailed instructions, refer to the [Enable MySQL GTIDs](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-gtids) documentation. 
+    ``` 
 
 ## Configure inbound endpoint using Micro Integrator
 
@@ -86,13 +80,9 @@ In this example, a relational database table is used to store product informatio
     </inboundEndpoint>
     ```
 
-8. Download the latest Debezium Orbit JAR from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs` directory. Here, `<PROJECT_HOME>` refers to the directory path where your integration project is located.
-
-9. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<PROJECT_HOME>/deployment/libs` directory.
-
 !!! info 
-    If you're using a different database, you'll need to download the appropriate JDBC driver and place it in the `<PROJECT_HOME>/deployment/libs` directory.
-
+    If you're using a different database, you'll need to change inbound endpoint configurations. [CDC Inbound Endpoint Reference]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-reference)
+    
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
