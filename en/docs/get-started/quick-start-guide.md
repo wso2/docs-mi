@@ -231,7 +231,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 Now, let's test the integration service. For that, you can use the inbuilt try-it functionality in the MI for VS Code extension.
 
-When you run the integration artifact as in [Step 4](#step-4-run-the-integration-artifacts), the **Runtime Services** interface is opened up. You can see all the available services.
+When you run the integration artifact as in [Step 5](#step-5-run-the-integration-artifacts), the **Runtime Services** interface is opened up. You can see all the available services.
 
 Select `HelloWorldAPI` that you have developed and test the resource.
 
