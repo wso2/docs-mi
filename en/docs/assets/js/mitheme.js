@@ -203,3 +203,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    var searchInput = document.querySelector("input.md-search__input");
+    let timeout = null;
+
+    if (searchInput) {
+        searchInput.addEventListener("input", function (event) {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                let searchTerm = event.target.value.trim();
+                gtag("event", "search", {
+                    search_term: searchTerm
+                });
+            }, 500);
+        });
+    }
+});

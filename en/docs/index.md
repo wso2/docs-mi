@@ -31,7 +31,7 @@
         "title": "References",
         "icon": "🔧",
         "links": [
-            {"name": "Deployment Configurations", "url": "reference/config-catalog-mi/"},
+            {"name": "Product Configurations", "url": "reference/config-catalog-mi/"},
             {"name": "Integration Properties", "url": "reference/mediators/property-reference/generic-properties/"}
         ]
     }
