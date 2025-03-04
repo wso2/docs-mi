@@ -6,7 +6,7 @@
             {"name": "Introduction", "url": "get-started/introduction/"},
             {"name": "Key Concepts", "url": "get-started/key-concepts/"},
             {"name": "Quick Start Guide", "url": "get-started/quick-start-guide/"},
-            {"name": '"How To" Guides', "url": "get-started/how-to-guides/"}
+            {"name": "What's New", "url": "get-started/about-this-release/#whats-new-in-this-release"}
         ]
     },
     {
@@ -28,6 +28,16 @@
         ]
     },
     {
+        "title": "References",
+        "icon": "🔧",
+        "links": [
+            {"name": "Deployment Configurations", "url": "reference/config-catalog-mi/"},
+            {"name": "Integration Properties", "url": "reference/mediators/property-reference/generic-properties/"}
+        ]
+    }
+    ],
+    [
+    {
         "title": "Tutorials",
         "icon": "📚",
         "links": [
@@ -35,29 +45,13 @@
             {"name": "Service Orchestration", "url": "learn/integration-use-case/service-orchestration-overview/"},
             {"name": "Asynchronous Messaging", "url": "learn/integration-use-case/asynchronous-message-overview/"},
             {"name": "File Processing", "url": "learn/integration-use-case/file-processing-overview/"},
+            {"name": "Data Integration", "url": "learn/integration-use-case/data-integration-overview/"},
+            {"name": "SaaS and B2B Integration", "url": "learn/integration-use-case/connectors/"},
             {"name": "Enterprise Integration Patterns", "url": "learn/enterprise-integration-patterns/eip-overview/"}
         ],
         "more_btn": {"name": "View all", "url": "learn/learn-overview/"}
     }
-    ],
-    [{
-        "title": "References",
-        "icon": "🔧",
-        "links": [
-            {"name": "Product Configurations", "url": "reference/config-catalog-mi/"},
-            {"name": "Synapse Configurations", "url": "reference/mediators/property-reference/generic-properties/"}
-        ]
-    },
-    {
-        "title": "What's New",
-        "icon": "📢",
-        "links": [
-            {"name": "Enhanced VS Code User Interface", "url": "develop/mi-for-vscode/mi-for-vscode-overview/"},
-            {"name": "Simplified Expressions", "url": "reference/synapse-properties/synapse-expressions/#tooling-support"},
-            {"name": "Mediator Tryout", "url": "develop/mediator-tryout/#mediator-tryout-feature"}
-        ],
-        "more_btn": {"name": "View all", "url": "get-started/about-this-release/#whats-new-in-this-release"}
-    }]
+    ]
 ] %}
 
 <div class="homePage">
@@ -172,13 +166,12 @@ header.md-header .md-header__button:not([hidden]) {
 .tile {
     display: inline-block;
     vertical-align: top;
-    background-color: rgba(255, 255, 255, 0.6); 
+    background-color: rgba(255, 255, 255, 0.03);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease-in-out;
     position: relative;
-    border: 1px solid rgb(215, 215, 215);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -206,7 +199,7 @@ header.md-header .md-header__button:not([hidden]) {
 .link {
     display: inline-block;
     margin-left: -30px;
-    color:rgb(0, 0, 0) !important;
+    color: var(--text-color) !important;
     text-decoration: none;
 }
 .link:hover {
@@ -224,7 +217,7 @@ header.md-header .md-header__button:not([hidden]) {
 .view-all-button {
     display: inline-block;
     background-color: none;
-    color: rgb(80, 80, 80) !important;
+    color: var(--text-color) !important;
     text-decoration: none;
     border-radius: 5px;
 }
@@ -232,17 +225,4 @@ header.md-header .md-header__button:not([hidden]) {
     color: rgb(255, 112, 67) !important;
 }
 </style>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll(".link").forEach(function(link) {
-      link.addEventListener("click", function(event) {
-        gtag('event', 'link_click', {
-          'event_category': 'engagement',
-          'event_label': event.target.textContent,
-          'link_url': event.target.href
-        });
-      });
-    });
-  });
-</script>
 {% endraw %}

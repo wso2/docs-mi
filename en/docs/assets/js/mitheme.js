@@ -187,3 +187,19 @@ request.onerror = function() {
 };
 
 request.send();
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("click", function(event) {
+        let link = event.target.closest("a");
+        if (link && link.href) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'link_click', {
+            'event_category': 'engagement',
+            'event_label': link.textContent.trim(),
+            'link_url': link.href,
+            'current_page': document.location.href
+            });
+        }
+        }
+    });
+});
