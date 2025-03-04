@@ -70,20 +70,20 @@ You can now start configuring the API resource.
             <th>Parameter</th>
             <th>Value</th>
         </tr>
-      <tr>
-         <td>Name</td>
-         <td><code>API_KEY</code></td>
-      </tr>
-      <tr>
-         <td>Data Type</td>
-         <td>Select <code>STRING</code>.</td>
-      </tr>
-      <tr>
-         <td>Value</td>
-         <td>
+        <tr>
+            <td>Name</td>
+            <td><code>API_KEY</code></td>
+        </tr>
+        <tr>
+            <td>Data Type</td>
+            <td>Select <code>STRING</code>.</td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>
             Your OpenWeather API Key
-         </td>
-      </tr>
+            </td>
+        </tr>
     </table>
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png" alt="API key variable" width="30%"></a>
@@ -113,21 +113,21 @@ You can now start configuring the API resource.
             <th>Is Expression</th>
             <th>Value</th>
         </tr>
-      <tr>
-         <td>q</td>
-         <td>true</td>
-         <td><code>params.queryParams.city</code></td>
-      </tr>
-      <tr>
-         <td>limit</td>
-         <td>false</td>
-         <td><code>1</code></td>
-      </tr>
-      <tr>
-         <td>appid</td>
-         <td>true</td>
-         <td><code>vars.API_KEY</code></td>
-      </tr>
+        <tr>
+            <td>q</td>
+            <td>true</td>
+            <td><code>params.queryParams.city</code></td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>false</td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td>appid</td>
+            <td>true</td>
+            <td><code>vars.API_KEY</code></td>
+        </tr>
     </table>
 
 9. Click **Submit** to add the operation to the integration flow.
@@ -144,21 +144,21 @@ You can now start configuring the API resource.
             <th>Is Expression</th>
             <th>Value</th>
         </tr>
-      <tr>
-         <td>lat</td>
-         <td>true</td>
-         <td><code>payload[0].lat</code></td>
-      </tr>
-      <tr>
-         <td>lon</td>
-         <td>true</td>
-         <td><code>payload[0].lon</code></td>
-      </tr>
-      <tr>
-         <td>appid</td>
-         <td>true</td>
-         <td><code>vars.API_KEY</code></td>
-      </tr>
+        <tr>
+            <td>lat</td>
+            <td>true</td>
+            <td><code>payload[0].lat</code></td>
+        </tr>
+        <tr>
+            <td>lon</td>
+            <td>true</td>
+            <td><code>payload[0].lon</code></td>
+        </tr>
+        <tr>
+            <td>appid</td>
+            <td>true</td>
+            <td><code>vars.API_KEY</code></td>
+        </tr>
     </table>
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" alt="weather http request" width="30%"></a>
@@ -299,40 +299,45 @@ You can now start configuring the API resource.
     You may refer to the following API, HTTP connection and Data Mapper configurations for reference,
 
     ??? "Weather API"
-        ```yaml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/weather" name="Weather"
-            xmlns="http://ws.apache.org/ns/synapse">
-            <resource methods="GET" uri-template="/?city={city}">
-                <inSequence>
-                    <variable name="API_KEY" type="STRING" value="REPLACE_API_KEY"/>
-                    <http.get configKey="OpenWeather">
-                        <relativePath>/geo/1.0/direct?q=${params.queryParams.city}&amp;limit=1&amp;appid=${vars.API_KEY}</relativePath>
-                        <headers>[]</headers>
-                        <forceScAccepted>false</forceScAccepted>
-                        <disableChunking>false</disableChunking>
-                        <forceHttp10>false</forceHttp10>
-                        <noKeepAlive>false</noKeepAlive>
-                        <responseVariable>http_get_1</responseVariable>
-                        <overwriteBody>true</overwriteBody>
-                    </http.get>
-                    <http.get configKey="OpenWeather">
-                        <relativePath>/data/2.5/weather?lat=${payload[0].lat}&amp;lon=${payload[0].lon}&amp;appid=${vars.API_KEY}</relativePath>
-                        <headers>[]</headers>
-                        <forceScAccepted>false</forceScAccepted>
-                        <disableChunking>false</disableChunking>
-                        <forceHttp10>false</forceHttp10>
-                        <noKeepAlive>false</noKeepAlive>
-                        <responseVariable>http_get_2</responseVariable>
-                        <overwriteBody>true</overwriteBody>
-                    </http.get>
-                    <datamapper config="resources:datamapper/weatherDataMapper/weatherDataMapper.dmc" inputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_inputSchema.json" outputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_outputSchema.json"/>
-                    <respond/>
-                </inSequence>
-                <faultSequence></faultSequence>
-            </resource>
-        </api>
-        ```
+
+        === "Design View"
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png" alt="ai datamapping api" width="70%"></a>
+
+        === "Source View"
+            ```yaml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <api context="/weather" name="Weather"
+                xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET" uri-template="/?city={city}">
+                    <inSequence>
+                        <variable name="API_KEY" type="STRING" value="REPLACE_API_KEY"/>
+                        <http.get configKey="OpenWeather">
+                            <relativePath>/geo/1.0/direct?q=${params.queryParams.city}&amp;limit=1&amp;appid=${vars.API_KEY}</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <responseVariable>http_get_1</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <http.get configKey="OpenWeather">
+                            <relativePath>/data/2.5/weather?lat=${payload[0].lat}&amp;lon=${payload[0].lon}&amp;appid=${vars.API_KEY}</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <responseVariable>http_get_2</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <datamapper config="resources:datamapper/weatherDataMapper/weatherDataMapper.dmc" inputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_inputSchema.json" outputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_outputSchema.json"/>
+                        <respond/>
+                    </inSequence>
+                    <faultSequence></faultSequence>
+                </resource>
+            </api>
+            ```
 
     ??? "HTTP Connection"
         === "Design View"

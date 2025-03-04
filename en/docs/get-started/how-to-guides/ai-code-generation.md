@@ -1,7 +1,7 @@
-# AI Code Generation
+# AI Integration Generation
 
 Did you know that the WSO2 Micro Integrator component of WSO2 Integrator includes an AI-powered assistant to help you effortlessly generate integration flows?
-In this guide, We are generating an API to retrieve weather information for a specified city and send it via email to a designated recipient.
+In this guide, we are generating an API to retrieve weather information for a specified city and send it via email to a designated recipient.
 
 ## Let's get started!
 
@@ -55,90 +55,110 @@ You will now see the projects listed in the **Project Explorer**.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="add artifacts" width="80%"></a>
 
-    You may refer to the following API, Email connection, and HTTP connection for reference.
+    The API will resemble the following structure once all the generated artifacts have been added.
+
+    !!! Note 
+        The generated view may differ from ours, as AI-generated designs can vary. For example, AI may create separate sequences for the Weather API calls and email operation.
+
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="add artifacts" width="80%"></a>
 
     ??? "WeatherEmailService API"
-        ```yaml
-        <api xmlns="http://ws.apache.org/ns/synapse" name="WeatherEmailService" context="/weatherEmail">
-            <resource methods="GET" uri-template="/getWeather?city={city}&amp;email={email}">
-                <inSequence>
-                    <variable name="API_KEY" type="STRING" value="REPLACE_WITH_YOUR_KEY"/>
-                    <http.get configKey="OpenWeather">
-                        <relativePath>/geo/1.0/direct?q=${params.queryParams.city}&amp;limit=1&amp;appid=${vars.API_KEY}</relativePath>
-                        <headers>[]</headers>
-                        <forceScAccepted>false</forceScAccepted>
-                        <disableChunking>false</disableChunking>
-                        <forceHttp10>false</forceHttp10>
-                        <noKeepAlive>false</noKeepAlive>
-                        <responseVariable>http_get_1</responseVariable>
-                        <overwriteBody>true</overwriteBody>
-                    </http.get>
-                    <http.get configKey="OpenWeather">
-                        <relativePath>/data/2.5/weather?lat=${payload[0].lat}&amp;lon=${payload[0].lon}&amp;appid=${vars.API_KEY}</relativePath>
-                        <headers>[]</headers>
-                        <forceScAccepted>false</forceScAccepted>
-                        <disableChunking>false</disableChunking>
-                        <forceHttp10>false</forceHttp10>
-                        <noKeepAlive>false</noKeepAlive>
-                        <responseVariable>http_get_2</responseVariable>
-                        <overwriteBody>true</overwriteBody>
-                    </http.get>
-                    <email.send configKey="EMAIL_CONN">
-                        <from>weather@example.com</from>
-                        <personalName></personalName>
-                        <to>{${params.queryParams.email}}</to>
-                        <cc></cc>
-                        <bcc></bcc>
-                        <replyTo></replyTo>
-                        <subject>Weather Update</subject>
-                        <content>{${payload}}</content>
-                        <contentType>text/html</contentType>
-                        <encoding>UTF-8</encoding>
-                        <attachments></attachments>
-                        <inlineImages>[]</inlineImages>
-                        <contentTransferEncoding>Base64</contentTransferEncoding>
-                    </email.send>
-                    <respond/>
-                </inSequence>
-            </resource>
-        </api>
-        ```
+        === "Design View"
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="ai-code-gen-api" width="70%"></a>
+		    
+        === "Source View"
+            ```yaml
+            <api xmlns="http://ws.apache.org/ns/synapse" name="WeatherEmailService" context="/weatherEmail">
+                <resource methods="GET" uri-template="/getWeather?city={city}&amp;email={email}">
+                    <inSequence>
+                        <variable name="API_KEY" type="STRING" value="REPLACE_WITH_YOUR_KEY"/>
+                        <http.get configKey="OpenWeather">
+                            <relativePath>/geo/1.0/direct?q=${params.queryParams.city}&amp;limit=1&amp;appid=${vars.API_KEY}</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <responseVariable>http_get_1</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <http.get configKey="OpenWeather">
+                            <relativePath>/data/2.5/weather?lat=${payload[0].lat}&amp;lon=${payload[0].lon}&amp;appid=${vars.API_KEY}</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <responseVariable>http_get_2</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <email.send configKey="EMAIL_CONN">
+                            <from>weather@example.com</from>
+                            <personalName></personalName>
+                            <to>{${params.queryParams.email}}</to>
+                            <cc></cc>
+                            <bcc></bcc>
+                            <replyTo></replyTo>
+                            <subject>Weather Update</subject>
+                            <content>{${payload}}</content>
+                            <contentType>text/html</contentType>
+                            <encoding>UTF-8</encoding>
+                            <attachments></attachments>
+                            <inlineImages>[]</inlineImages>
+                            <contentTransferEncoding>Base64</contentTransferEncoding>
+                        </email.send>
+                        <respond/>
+                    </inSequence>
+                </resource>
+            </api>
+            ```
 
     ??? "Email Connection"
-        ```yaml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <localEntry key="EMAIL_CONN" xmlns="http://ws.apache.org/ns/synapse">
-            <email.init>
-                <connectionType>SMTPS</connectionType>
-                <host>smtp.gmail.com</host>
-                <port>465</port>
-                <username>REPLACE</username>
-                <password>REPLACE</password>
-                <name>EMAIL_CONN</name>
-            </email.init>
-        </localEntry>
-        ```
+        === "Design View"
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png" alt="http connection config" width="40%"></a>
+		    
+        === "Source View"
+            ```yaml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <localEntry key="EMAIL_CONN" xmlns="http://ws.apache.org/ns/synapse">
+                <email.init>
+                    <connectionType>SMTPS</connectionType>
+                    <host>smtp.gmail.com</host>
+                    <port>465</port>
+                    <username>REPLACE</username>
+                    <password>REPLACE</password>
+                    <name>EMAIL_CONN</name>
+                </email.init>
+            </localEntry>
+            ```
     
     ??? "HTTP Connection"
-        ```yaml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <localEntry key="OpenWeather" xmlns="http://ws.apache.org/ns/synapse">
-            <http.init>
-                <connectionType>HTTPS</connectionType>
-                <baseUrl>https://api.openweathermap.org/</baseUrl>
-                <authType>None</authType>
-                <timeoutAction>Never</timeoutAction>
-                <retryCount>0</retryCount>
-                <retryDelay>0</retryDelay>
-                <suspendInitialDuration>-1</suspendInitialDuration>
-                <suspendProgressionFactor>1</suspendProgressionFactor>
-                <name>OpenWeather</name>
-            </http.init>
-        </localEntry>
-        ```
+        === "Design View"
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" alt="http connection config" width="40%"></a>
+		    
+        === "Source View"
+            ```yaml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <localEntry key="OpenWeather" xmlns="http://ws.apache.org/ns/synapse">
+                <http.init>
+                    <connectionType>HTTPS</connectionType>
+                    <baseUrl>https://api.openweathermap.org/</baseUrl>
+                    <authType>None</authType>
+                    <timeoutAction>Never</timeoutAction>
+                    <retryCount>0</retryCount>
+                    <retryDelay>0</retryDelay>
+                    <suspendInitialDuration>-1</suspendInitialDuration>
+                    <suspendProgressionFactor>1</suspendProgressionFactor>
+                    <name>OpenWeather</name>
+                </http.init>
+            </localEntry>
+            ```
 
     !!! Note
-        After adding the synapse configurations to the project, make sure to update the email connection with the credentials of the sender’s email account and update the relevant synapse configurations (API or sequence based on the configurations generated by MI Copilot) with the OpenWeather key obtained to retrieve the weather data.
+        After adding the synapse artifacts to the project, make sure to update the synapse configurations as follows,
+
+          - Update email connection with the credentials of the sender’s email account.
+          - Update the `API_KEY` variable with the OpenWeather key obtained to retrieve the weather data.
 
 ### Step 4: Build and Run
 
