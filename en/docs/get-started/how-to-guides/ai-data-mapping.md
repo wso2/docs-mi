@@ -1,7 +1,7 @@
-# AI Data Mapping
+# Data Mapping using AI
 
 Did you know that the WSO2 Micro Integrator component of WSO2 Integrator comes with built-in data mapping capabilities to streamline your integration workflows?
-This data mapping solution brings you a powerful graphical interface, combined with AI-driven assistance to perform all sorts of data mappings in mere seconds.
+This data mapping solution brings you a powerful graphical interface, combined with AI-driven assistance, to perform all sorts of data mappings in mere seconds.
 
 In this guide, we are generating an API that processes weather data retrieved from the OpenWeather API for a mobile app. The app only requires a selected set of data from the API response and needs to modify some of the retrieved data to meet its requirements.
 
@@ -70,25 +70,25 @@ You can now start configuring the API resource.
             <th>Parameter</th>
             <th>Value</th>
         </tr>
-      <tr>
-         <td>Name</td>
-         <td><code>API_KEY</code></td>
-      </tr>
-      <tr>
-         <td>Data Type</td>
-         <td>Select <code>STRING</code>.</td>
-      </tr>
-      <tr>
-         <td>Value</td>
-         <td>
+        <tr>
+            <td>Name</td>
+            <td><code>API_KEY</code></td>
+        </tr>
+        <tr>
+            <td>Data Type</td>
+            <td>Select <code>STRING</code>.</td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>
             Your OpenWeather API Key
-         </td>
-      </tr>
+            </td>
+        </tr>
     </table>
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png" alt="API key variable" width="30%"></a>
 
-5. Click on the **+** icon and search for `get` in the **Mediator Palette** to add the HTTP GET operation to get the coordinates of a location.
+5. Click on the **+** icon and search for `get` in the **Mediator Palette** to add the HTTP GET operation for retrieving the coordinates of a location.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-get.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-get.png" alt="search get in palette" width="80%"></a>
 
@@ -96,11 +96,11 @@ You can now start configuring the API resource.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png" alt="add new connection" width="80%"></a>
 
-7. Select `HTTPS` and fill the following details to create a connection to OpenWeather API. Finally, click **Add** in the **Add New Connection** form to create the connection.
+7. Select `HTTPS` and fill in the following details to create a connection to OpenWeather API. Finally, click **Add** in the **Add New Connection** form to create the connection.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png" alt="create connection" width="80%"></a>
 
-8. Provide `/geo/1.0/direct` as the **Relative Path** and click **+ Add Query Param** to add the following query parameters.
+8. Provide `/geo/1.0/direct` as the **Relative Path**, and click **+ Add Query Param** to add the following query parameters.
 
     !!! Note
         To add an expression as the query parameter value, make sure the **EX** button is checked as follows,
@@ -113,30 +113,30 @@ You can now start configuring the API resource.
             <th>Is Expression</th>
             <th>Value</th>
         </tr>
-      <tr>
-         <td>q</td>
-         <td>true</td>
-         <td><code>params.queryParams.city</code></td>
-      </tr>
-      <tr>
-         <td>limit</td>
-         <td>false</td>
-         <td><code>1</code></td>
-      </tr>
-      <tr>
-         <td>appid</td>
-         <td>true</td>
-         <td><code>vars.API_KEY</code></td>
-      </tr>
+        <tr>
+            <td>q</td>
+            <td>true</td>
+            <td><code>params.queryParams.city</code></td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>false</td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td>appid</td>
+            <td>true</td>
+            <td><code>vars.API_KEY</code></td>
+        </tr>
     </table>
 
 9. Click **Submit** to add the operation to the integration flow.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-geo-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-geo-request.png" alt="geo http request" width="30%"></a>
 
-10. Next, click on the **+** icon in the diagram and search for `get` in the **Mediator Palette** to add the HTTP GET operation to get the weather details using the coordinates.
+10. Next, click on the **+** icon in the diagram and search for `get` in the **Mediator Palette** to add the HTTP GET operation for retrieving the weather details using the coordinates.
 
-11. Select the connection created in Step 6, provide `/data/2.5/weather` as the **Relative Path** and click **+ Add Query Param** to add the following query parameters. Finally, click **Submit** to add the operation to the integration flow.
+11. Select the connection created in Step 6, provide `/data/2.5/weather` as the **Relative Path**, and click **+ Add Query Param** to add the following query parameters. Finally, click **Submit** to add the operation to the integration flow.
 
     <table>
         <tr>
@@ -144,21 +144,21 @@ You can now start configuring the API resource.
             <th>Is Expression</th>
             <th>Value</th>
         </tr>
-      <tr>
-         <td>lat</td>
-         <td>true</td>
-         <td><code>payload[0].lat</code></td>
-      </tr>
-      <tr>
-         <td>lon</td>
-         <td>true</td>
-         <td><code>payload[0].lon</code></td>
-      </tr>
-      <tr>
-         <td>appid</td>
-         <td>true</td>
-         <td><code>vars.API_KEY</code></td>
-      </tr>
+        <tr>
+            <td>lat</td>
+            <td>true</td>
+            <td><code>payload[0].lat</code></td>
+        </tr>
+        <tr>
+            <td>lon</td>
+            <td>true</td>
+            <td><code>payload[0].lon</code></td>
+        </tr>
+        <tr>
+            <td>appid</td>
+            <td>true</td>
+            <td><code>vars.API_KEY</code></td>
+        </tr>
     </table>
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" alt="weather http request" width="30%"></a>
@@ -177,12 +177,12 @@ You can now start configuring the API resource.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-open-src.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-open-src.png" alt="open mapping file" width="80%"></a>
 
-16. To import the input schema, click on the **Import input schema**. Since this scenario involves JSON to JSON mapping, you can choose to either import from JSON sample or a JSON schema. In this guide, we will be using the **Import from JSON** option.
+16. Click on the **Import input schema** to import the input schema. Since this scenario involves JSON to JSON mapping, you can import from either a JSON sample or a JSON schema. In this guide, we will be using the **Import from JSON** option.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-import-json.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-import-json.png" alt="input output mapping" width="80%"></a>
 
     ??? "Sample Input JSON"
-        Here’s a sample response received from the OpenWeatherMap API. You can copy paste this as your input schema in this scenario.
+        Here’s a sample response received from the OpenWeatherMap API. You can copy and paste this as your input schema in this scenario.
 
         ```json
         {
@@ -234,7 +234,7 @@ You can now start configuring the API resource.
 17. Follow the same steps to import the following output schema.
 
     ??? "Sample Output JSON"
-        The data mapper will map the above input schema to the below output schema. You can copy paste this as your output schema in this scenario.
+        The data mapper will map the above input schema to the below output schema. You can copy and paste this as your output schema in this scenario.
 
         ```json
         {
@@ -281,9 +281,9 @@ You can now start configuring the API resource.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-daylight.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-daylight.png" alt="daylight mapping" width="80%"></a>
 
-    - The `humidity` field in the input data is a percentage value and needs to be accurately reflected when displayed to the user. 
+    - The `humidity` field in the input data is a percentage value and must be displayed accurately to the user.
 
-    The AI Data Mapper is fully capable of recognizing and managing these types of use cases effectively.
+    The AI Data Mapper can recognize and manage these types of use cases effectively.
 
 19. If you need to apply additional operations to define mappings between the input and output data, try using the Expression Editor. Explore the following scenarios to gain insight into how you can utilize the Expression Editor effectively.
 
@@ -294,45 +294,50 @@ You can now start configuring the API resource.
     !!! Tip
         You can learn further about the Expression Editor and other features from our [documentation]({{base_path}}/reference/mediators/data-mapper-mediator/#expression-editor).
 
-20. Click on the **+** icon in the diagram, select the **Respond** mediator in the **Mediator Palette** and click **Add** to add it to the integration flow.
+20. Click on the **+** icon in the diagram, select the **Respond** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
 
-    You may refer to the following API, HTTP connection and Data Mapper configurations for reference,
+    You may refer to the following API, HTTP connection, and Data Mapper configurations for reference,
 
     ??? "Weather API"
-        ```yaml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/weather" name="Weather"
-            xmlns="http://ws.apache.org/ns/synapse">
-            <resource methods="GET" uri-template="/?city={city}">
-                <inSequence>
-                    <variable name="API_KEY" type="STRING" value="REPLACE_API_KEY"/>
-                    <http.get configKey="OpenWeather">
-                        <relativePath>/geo/1.0/direct?q=${params.queryParams.city}&amp;limit=1&amp;appid=${vars.API_KEY}</relativePath>
-                        <headers>[]</headers>
-                        <forceScAccepted>false</forceScAccepted>
-                        <disableChunking>false</disableChunking>
-                        <forceHttp10>false</forceHttp10>
-                        <noKeepAlive>false</noKeepAlive>
-                        <responseVariable>http_get_1</responseVariable>
-                        <overwriteBody>true</overwriteBody>
-                    </http.get>
-                    <http.get configKey="OpenWeather">
-                        <relativePath>/data/2.5/weather?lat=${payload[0].lat}&amp;lon=${payload[0].lon}&amp;appid=${vars.API_KEY}</relativePath>
-                        <headers>[]</headers>
-                        <forceScAccepted>false</forceScAccepted>
-                        <disableChunking>false</disableChunking>
-                        <forceHttp10>false</forceHttp10>
-                        <noKeepAlive>false</noKeepAlive>
-                        <responseVariable>http_get_2</responseVariable>
-                        <overwriteBody>true</overwriteBody>
-                    </http.get>
-                    <datamapper config="resources:datamapper/weatherDataMapper/weatherDataMapper.dmc" inputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_inputSchema.json" outputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_outputSchema.json"/>
-                    <respond/>
-                </inSequence>
-                <faultSequence></faultSequence>
-            </resource>
-        </api>
-        ```
+
+        === "Design View"
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png" alt="ai datamapping api" width="70%"></a>
+
+        === "Source View"
+            ```yaml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <api context="/weather" name="Weather"
+                xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET" uri-template="/?city={city}">
+                    <inSequence>
+                        <variable name="API_KEY" type="STRING" value="REPLACE_API_KEY"/>
+                        <http.get configKey="OpenWeather">
+                            <relativePath>/geo/1.0/direct?q=${params.queryParams.city}&amp;limit=1&amp;appid=${vars.API_KEY}</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <responseVariable>http_get_1</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <http.get configKey="OpenWeather">
+                            <relativePath>/data/2.5/weather?lat=${payload[0].lat}&amp;lon=${payload[0].lon}&amp;appid=${vars.API_KEY}</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <responseVariable>http_get_2</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <datamapper config="resources:datamapper/weatherDataMapper/weatherDataMapper.dmc" inputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_inputSchema.json" outputSchema="resources:datamapper/weatherDataMapper/weatherDataMapper_outputSchema.json"/>
+                        <respond/>
+                    </inSequence>
+                    <faultSequence></faultSequence>
+                </resource>
+            </api>
+            ```
 
     ??? "HTTP Connection"
         === "Design View"
@@ -457,21 +462,21 @@ You can now start configuring the API resource.
         }
         ```
 
-### Step 4: Build and Run
+### Step 4: Build and run
 
 1. Click on the **Build and Run** button to build and deploy the integration.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-build.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-build.png" alt="build and run" width="80%"></a>
 
-2. **Runtime Services** will open after the server is up and running and from that panel select the API that you need to try out using the **Try It** button.
+2. **Runtime Services** will open after the server is up and running, and from that panel, select the API that you need to try out using the **Try It** button.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-tryit.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-tryit.png" alt="try it out" width="80%"></a>
 
-3. Click on the **Try it Out** button to provide the required query parameters.
+3. Click the **Try it Out** button to provide the required query parameters.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-operation-tryit.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-operation-tryit.png" alt="try it out operation" width="80%"></a>
 
-4. Provide the required parameters and click on the **Execute** button to invoke the API.
+4. Provide the required parameters and click the **Execute** button to invoke the API.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-request.png" alt="execute request" width="80%"></a>
 
@@ -479,4 +484,4 @@ You can now start configuring the API resource.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-response.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-response.png" alt="response" width="80%"></a>
 
-Data mapping in seconds. Try out this and our other cool AI features, and see for yourself how much easier integration development can be.
+Try this feature along with our other exciting AI capabilities and discover how much simpler integration development can be.
