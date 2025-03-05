@@ -1,91 +1,98 @@
+{% set tiles = [
+    [{
+        "title": "Get Started",
+        "icon": "🚀",
+        "links": [
+            {"name": "Introduction", "url": "get-started/introduction/"},
+            {"name": "Key Concepts", "url": "get-started/key-concepts/"},
+            {"name": "Quick Start Guide", "url": "get-started/quick-start-guide/"},
+            {"name": "What's New", "url": "get-started/about-this-release/#whats-new-in-this-release"}
+        ]
+    },
+    {
+        "title": "Community & Support",
+        "icon": "❓",
+        "links": [
+            {"name": "GitHub", "url": "https://github.com/wso2/product-micro-integrator/issues"},
+            {"name": "Discord", "url": "https://discord.com/invite/wso2"},
+            {"name": "Enterprise Support", "url": "https://wso2.com/subscription/"}
+        ]
+    }],
+    [{
+        "title": "Mediators & Connectors",
+        "icon": "🔗",
+        "links": [
+            {"name": "Mediators", "url": "reference/mediators/about-mediators/"},
+            {"name": "Connectors", "url": "reference/connectors/connectors-overview/"},
+            {"name": "Extensions", "url": "develop/customizations/creating-custom-mediators/"}
+        ]
+    },
+    {
+        "title": "References",
+        "icon": "🔧",
+        "links": [
+            {"name": "Product Configurations", "url": "reference/config-catalog-mi/"},
+            {"name": "Integration Properties", "url": "reference/mediators/property-reference/generic-properties/"}
+        ]
+    }
+    ],
+    [
+    {
+        "title": "Tutorials",
+        "icon": "📚",
+        "links": [
+            {"name": "Routing and Transformation", "url": "learn/integration-use-case/message-routing-overview/"},
+            {"name": "Service Orchestration", "url": "learn/integration-use-case/service-orchestration-overview/"},
+            {"name": "Asynchronous Messaging", "url": "learn/integration-use-case/asynchronous-message-overview/"},
+            {"name": "File Processing", "url": "learn/integration-use-case/file-processing-overview/"},
+            {"name": "Data Integration", "url": "learn/integration-use-case/data-integration-overview/"},
+            {"name": "SaaS and B2B Integration", "url": "learn/integration-use-case/connectors/"},
+            {"name": "Enterprise Integration Patterns", "url": "learn/enterprise-integration-patterns/eip-overview/"}
+        ],
+        "more_btn": {"name": "View all", "url": "learn/learn-overview/"}
+    }
+    ]
+] %}
+
 <div class="homePage">
-    <div class="section01">
-        <div class="leftContent">
-            <div class="about-home">
-                <div>
-                    WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.
-                </div>
-                <div>
-                    <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>
-                </div>
-            </div>
+    <div class="description-section">
+        <div>
+            WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.
+        </div>
+        <div>
+            <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>
         </div>
     </div>
     <div class="section02">
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide';">
-                <a href="get-started/quick-start-guide"><h3>Quick Start Guide</h3></a>
-                <p>
-                    Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment.
-                </p>
+        <div class="tiles-container">
+            {% for column in tiles %}
+            <div class="tiles-column">
+                {% for tile in column %}
+                <div class="tile">
+                    <div class="tile-header">
+                        <h3>{{ tile.title }}</h3>
+                        <span class="tile-icon">{{ tile.icon }}</span>
+                    </div>
+                    <ul class="links-list">
+                        {% for link in tile.links %}
+                        <li>
+                            {% if tile.title == "Community & Support" %}
+                                <a href="{{ link.url }}" target="_blank" class="link">{{ link.name }}</a>
+                            {% else %}
+                                <a href="{{ base_path }}/{{ link.url }}" class="link">{{ link.name }}</a>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% if tile.more_btn %}
+                    <div class="button-container">
+                        <a href="{{base_path}}/{{ tile.more_btn.url }}" class="view-all-button">{{ tile.more_btn.name }}</a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
-        </div>
-    </div>
-    <div class="section03">
-        <h3>What can WSO2 Micro Integrator do?</h3>
-        <div class="linkWrapper">
-            <div class="linkSet3" onclick="location.href='{{base_path}}/learn/integration-use-case/message-routing-overview';">
-                <a href="learn/integration-use-case/message-routing-overview"><h3>Routing and Transformation</h3></a>
-                <p>
-                    Supports content-based routing, header-based routing, and policy-based routing. Transforms the message to different formats.
-                </p>
-            </div>
-            <div class="linkSet3 middle" onclick="location.href='{{base_path}}learn/integration-use-case/service-orchestration-overview';">
-                <a href="learn/integration-use-case/service-orchestration-overview"><h3>Service Orchestration</h3></a>
-                <p>
-                    Has the ability to present multiple fine-grained services using a single coarse-grained service.
-                </p>
-            </div>
-            <div class="linkSet3 last" onclick="location.href='{{base_path}}/learn/integration-use-case/asynchronous-message-overview';">
-                <a href="learn/integration-use-case/asynchronous-message-overview"><h3>Asynchronous Messaging</h3></a>
-                <p>
-                    Messages can be queued and do not require an immediate response to continue processing.
-                </p>
-            </div>
-        </div>
-    </div>
-<div class="section04">
-        <div class="linkWrapper">
-            <div class="linkSet4" onclick="location.href='{{base_path}}/learn/integration-use-case/connectors';">
-                <a href="learn/integration-use-case/connectors"><h3>SaaS Integration</h3></a>
-                <p>
-                    Connectors are available across various categories such as payments, CRM, ERP, social networks, and legacy systems.
-                </p>
-            </div>
-            <div class="linkSet4 middle" onclick="location.href='{{base_path}}/get-started/introduction';">
-                <a href="get-started/introduction"><h3>Microservices Integration</h3></a>
-                <p>
-                    Lightweight runtime for container-based deployments. Native integration with container-management platforms.
-                </p>
-            </div>
-            <div class="linkSet4 last" onclick="location.href='{{base_path}}/{{base_path}}/learn/integration-use-case/data-integration-overview';">
-                <a href="learn/integration-use-case/data-integration-overview"><h3>Data Integration</h3></a>
-                <p>
-                    Decouples the data from the datasource layer and exposes them as data services.
-                </p>
-            </div>
-        </div>
-    </div>
-<div class="section05">
-        <div class="linkWrapper">
-            <div class="linkSet5" onclick="location.href='{{base_path}}/learn/integration-use-case/file-processing-overview';">
-                <a href="learn/integration-use-case/file-processing-overview"><h3>File Integration</h3></a>
-                <p>
-                    Supports processing of files with large amounts of data.
-                </p>
-            </div>
-            <div class="linkSet5 middle" onclick="location.href='https://mi.docs.wso2.com/en/latest/learn/enterprise-integration-patterns/eip-overview';">
-                <a href="https://mi.docs.wso2.com/en/latest/learn/enterprise-integration-patterns/eip-overview"><h3>Enterprise Integration Patterns</h3></a>
-                <p>
-                    Support for all enterprise integration patterns (EIPs) and common enterprise messaging scenarios.
-                </p>
-            </div>
-            <div class="linkSet5 last" onclick="location.href='{{base_path}}/learn/integration-use-case/scheduled-task-overview';">
-                <a href="learn/integration-use-case/scheduled-task-overview"><h3>Periodic Execution of Integration Processes</h3></a>
-                <p>
-                    Execute an integration process at a specified time.
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -99,7 +106,8 @@
 }
 .section02 {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* background: linear-gradient(100deg, #fff9ee, #ffffff); */
 }
 header.md-header .md-header__button:not([hidden]) {
     /* display: none; */
@@ -143,6 +151,78 @@ header.md-header .md-header__button:not([hidden]) {
 }
 .md-search-result__article.md-typeset h1{
     visibility: visible;
+}
+.description-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 100px;
+}
+.tiles-container {
+    display: flex;
+    align-items: start;
+}
+.tile {
+    display: inline-block;
+    vertical-align: top;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 0 25px 25px;
+}
+.tile:hover {
+    transform: scale(1.01);
+}
+.tile-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(215, 215, 215);
+}
+.tile h3 {
+    font-size: 0.9rem;
+    margin-top: 0px;
+}
+.tile-icon {
+    margin-left: 30px;
+    font-size: 1rem;
+}
+.links-list li {
+    list-style-type: none;
+}
+.link {
+    display: inline-block;
+    margin-left: -30px;
+    color: var(--text-color) !important;
+    text-decoration: none;
+}
+.link:hover {
+    color: rgb(255, 112, 67) !important;
+    text-decoration: none;
+}
+.link:before {
+    content: '→';
+    font-weight: bold;
+    margin-right: 5px;
+}
+.button-container {
+    text-align: right;
+}
+.view-all-button {
+    display: inline-block;
+    background-color: none;
+    color: var(--text-color) !important;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.view-all-button:hover {
+    color: rgb(255, 112, 67) !important;
 }
 </style>
 {% endraw %}
