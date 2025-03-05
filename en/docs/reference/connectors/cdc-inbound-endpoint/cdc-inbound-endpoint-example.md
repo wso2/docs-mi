@@ -11,7 +11,7 @@ In this example, a relational database table is used to store product informatio
 !!! Note
     Before starting this scenario, you need [Set up the CDC Environment]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-configuration/) for your database.
 
-## Create Sample Database
+## Create sample database
 1. Connect to MySQL server.
 
 2. Create a database called `inventory`. 
