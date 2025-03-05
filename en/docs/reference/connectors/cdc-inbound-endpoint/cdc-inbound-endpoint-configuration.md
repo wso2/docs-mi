@@ -51,7 +51,7 @@
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
     - `<MI_HOME>` refers to the extracted folder of the WSO2 Micro Integrator zip.
 
-## MS SQL Server Setup
+## Setup MS SQL Server
 
 1. Install [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) locally or ensure you have access to a remote SQL Server instance with the necessary credentials.
 
