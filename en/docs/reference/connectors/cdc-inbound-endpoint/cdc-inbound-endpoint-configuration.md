@@ -28,7 +28,7 @@
     - `<MI_HOME>` refers to the extracted folder of the WSO2 Micro Integrator zip.
 
 
-## PostgreSQL Setup
+## Setup PostgreSQL
 
 1. Install [PostgreSQL](https://www.postgresql.org/download/) locally or ensure you have access to a remote PostgreSQL instance with the necessary credentials.
    
