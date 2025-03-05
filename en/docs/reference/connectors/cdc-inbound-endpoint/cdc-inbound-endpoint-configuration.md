@@ -1,4 +1,4 @@
-# Set up the CDC Inbound Endpoint
+# Set up the CDC Inbound Endpoint Environment
 
 ## Setup MySQL
 
