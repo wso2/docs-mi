@@ -1,6 +1,6 @@
 # Set up the CDC Inbound Endpoint
 
-## MySQL
+## Setup MySQL
 
 1. First, install [MySQL database v8.x.x](https://www.mysql.com/) locally. If you have a remote server, please obtain the credentials required to connect.  
 
