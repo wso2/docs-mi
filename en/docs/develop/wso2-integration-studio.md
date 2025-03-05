@@ -2,6 +2,9 @@
 
 WSO2 Integration Studio is your development environment for designing, developing, debugging, and testing integration solutions. As an integration developer, you can execute all the phases of the development lifecycle using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline.
 
+!!! warning
+    WSO2 Integration Studio is deprecated. It is recommended to use the [Micro Integrator extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
+
 !!! Tip
     The base of the WSO2 Integration Studio is Eclipse IDE. You can install any supported Eclipse plugin for Integration
     Studio by navigating to **Help** -> **Install New Software**.
