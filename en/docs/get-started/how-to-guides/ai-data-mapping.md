@@ -5,6 +5,8 @@ This data mapping solution brings you a powerful graphical interface, combined w
 
 In this guide, we are generating an API that processes weather data retrieved from the OpenWeather API for a mobile app. The app only requires a selected set of data from the API response and needs to modify some of the retrieved data to meet its requirements.
 
+Check out this <a target="_blank" href="https://www.youtube.com/watch?v=O3qiFdjfS00">video on YouTube</a> to see it in action.
+
 ## Let's get started!
 
 ### Prerequisites
