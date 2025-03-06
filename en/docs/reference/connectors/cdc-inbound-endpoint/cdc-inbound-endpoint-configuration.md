@@ -14,7 +14,7 @@
 
 6. Download the latest Debezium Orbit JAR v2.7.4 from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs` directory. 
 
-7.  Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
+7. Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
     - `mysql-connector-j-8.3.0.jar`
     - `antlr4-runtime-4.10.1.jar`
 
