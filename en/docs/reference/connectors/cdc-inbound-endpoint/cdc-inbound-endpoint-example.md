@@ -81,7 +81,7 @@ In this example, a relational database table is used to store product informatio
     ```
 
 !!! info 
-    If you need to use a different database, you will need to update the inbound endpoint configurations. For more details, see the [CDC Inbound Endpoint Reference]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-reference).
+    If you need to use a different database, you may need to update the inbound endpoint configurations. For more details, see the [CDC Inbound Endpoint Reference]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-reference).
     
 ## Get the project
 
