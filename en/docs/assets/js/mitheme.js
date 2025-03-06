@@ -214,7 +214,9 @@ document.addEventListener("DOMContentLoaded", function () {
             timeout = setTimeout(function () {
                 let searchTerm = event.target.value.trim();
                 gtag("event", "search", {
-                    search_term: searchTerm
+                    'event_category': 'search',
+                    'event_label': searchTerm,
+                    'current_page': document.location.href
                 });
             }, 500);
         });
