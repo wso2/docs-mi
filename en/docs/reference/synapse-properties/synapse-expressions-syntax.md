@@ -60,6 +60,10 @@ The following types of literals are supported in Synapse expressions.
 
 ## Accessing values
 
+Synapse expression has six top level access operators and some of them are branched out to access nested values.
+
+<a href="{{base_path}}/assets/img/reference/accessing_values.png"><img src="{{base_path}}/assets/img/reference/accessing_values.png" alt="Access values" width="60%"></a>
+
 ### Access values in payloads
 
 Synapse expressions allow direct access to payload content using the `payload` or the `$` prefix.
@@ -564,14 +568,14 @@ Synapse expressions can be used to fetch secrets from the default secure-vault a
 
 Syntax for fetching secrets:
 ```
-secret('alias')
+wso2-vault('alias')
 hashicorp-vault('pathName','fieldName')
 hashicorp-vault('namespace', 'pathname','fieldname')
 ```
 
 Example usage:
 ```
-<variable name="password" expression="${secret('mysqlpassword')}"/>
+<variable name="password" expression="${wso2-vault('mysqlpassword')}"/>
 ```
 
 ### Check exists function
