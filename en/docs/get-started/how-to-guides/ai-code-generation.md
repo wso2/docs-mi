@@ -3,6 +3,8 @@
 Did you know that the WSO2 Micro Integrator component of WSO2 Integrator includes an AI-powered assistant to help you effortlessly generate integration flows?
 In this guide, we are generating an API to retrieve weather information for a specified city and send it via email to a designated recipient.
 
+Check out this <a target="_blank" href="https://www.youtube.com/watch?v=XfXjwqhO9dY">video on YouTube</a> to see it in action.
+
 ## Let's get started!
 
 ### Prerequisites
