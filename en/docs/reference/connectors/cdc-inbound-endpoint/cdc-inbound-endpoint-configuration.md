@@ -64,7 +64,7 @@
 5. Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
     - `mssql-jdbc-12.8.1.jre8.jar`
 
-6.  Copy the following JAR files to `<MI_HOME>/wso2/lib`:
+6. Copy the following JAR files to `<MI_HOME>/wso2/lib`:
     - `debezium-connector-sqlserver-2.7.4.Final.jar`
     - `debezium-core-2.7.4.Final.jar`
 
