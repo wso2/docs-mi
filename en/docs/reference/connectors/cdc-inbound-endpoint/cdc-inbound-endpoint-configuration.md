@@ -18,7 +18,7 @@
     - `mysql-connector-j-8.3.0.jar`
     - `antlr4-runtime-4.10.1.jar`
 
-8.  Copy the following JAR files to `<MI_HOME>/wso2/lib`:
+8. Copy the following JAR files to `<MI_HOME>/wso2/lib`:
     - `debezium-connector-mysql-2.7.4.Final.jar`
     - `debezium-core-2.7.4.Final.jar`
 
