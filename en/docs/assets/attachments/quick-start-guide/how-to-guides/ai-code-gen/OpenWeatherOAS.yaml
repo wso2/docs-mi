@@ -1,0 +1,114 @@
+openapi: 3.0.1
+info:
+  title: OpenWeatherMap Weather Data API
+  description: API for fetching weather data from OpenWeatherMap
+  version: 1.0.0
+servers:
+  - url: https://api.openweathermap.org
+    description: OpenWeatherMap API Server
+paths:
+  /data/2.5/weather:
+    get:
+      summary: Get weather data
+      description: Fetch weather data by geographic coordinates.
+      parameters:
+        - name: lat
+          in: query
+          description: Latitude
+          required: true
+          schema:
+            type: number
+        - name: lon
+          in: query
+          description: Longitude
+          required: true
+          schema:
+            type: number
+        - name: appid
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  coord:
+                    type: object
+                    properties:
+                      lon:
+                        type: number
+                      lat:
+                        type: number
+                  weather:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        main:
+                          type: string
+                        description:
+                          type: string
+                        icon:
+                          type: string
+                  base:
+                    type: string
+                  main:
+                    type: object
+                    properties:
+                      temp:
+                        type: number
+                      feels_like:
+                        type: number
+                      temp_min:
+                        type: number
+                      temp_max:
+                        type: number
+                      pressure:
+                        type: integer
+                      humidity:
+                        type: integer
+                  visibility:
+                    type: integer
+                  wind:
+                    type: object
+                    properties:
+                      speed:
+                        type: number
+                      deg:
+                        type: integer
+                  clouds:
+                    type: object
+                    properties:
+                      all:
+                        type: integer
+                  dt:
+                    type: integer
+                  sys:
+                    type: object
+                    properties:
+                      type:
+                        type: integer
+                      id:
+                        type: integer
+                      country:
+                        type: string
+                      sunrise:
+                        type: integer
+                      sunset:
+                        type: integer
+                  timezone:
+                    type: integer
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  cod:
+                    type: integer
