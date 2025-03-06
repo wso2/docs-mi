@@ -42,7 +42,7 @@
     - `postgresql-42.6.1.jar`
     - `protobuf-java-3.25.5.jar`
 
-6.  Copy the following JAR files to `<MI_HOME>/wso2/lib`:
+6. Copy the following JAR files to `<MI_HOME>/wso2/lib`:
     - `debezium-connector-postgres-2.7.4.Final.jar`
     - `debezium-core-2.7.4.Final.jar`
 
