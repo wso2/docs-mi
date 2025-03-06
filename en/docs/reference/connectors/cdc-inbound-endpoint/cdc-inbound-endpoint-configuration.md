@@ -61,7 +61,7 @@
 
 4. Download the latest Debezium Orbit JAR v2.7.4 from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs`.
 
-5.  Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
+5. Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
     - `mssql-jdbc-12.8.1.jre8.jar`
 
 6.  Copy the following JAR files to `<MI_HOME>/wso2/lib`:
