@@ -9,7 +9,7 @@ This scenario demonstrates how the CDC inbound endpoint can be used to capture c
 In this example, a relational database table is used to store product information. The product data is added to the database by an external system that is outside of the enterprise's control. As soon as a new product is inserted, the system needs to detect and process the data. The integration runtime is used here to listen for database changes and trigger the relevant processes. It can either invoke backend APIs or place the data onto a message bus after performing the necessary data transformations. However, for the sake of simplicity in this example, we will simply log the message. You can extend this example as needed using WSO2 mediators.
 
 !!! Note
-    Before starting this scenario, you need [Set up the CDC Environment]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-configuration/) for your database.
+    Before starting this scenario, you need to [set up the CDC environment]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-configuration/) for your database.
 
 ## Create sample database
 1. Connect to MySQL server.
