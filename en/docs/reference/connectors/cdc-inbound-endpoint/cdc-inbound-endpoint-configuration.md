@@ -38,7 +38,7 @@
 
 4. Download the latest Debezium Orbit JAR v2.7.4 from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs`.
 
-5.  Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
+5. Copy the following JAR files to `<PROJECT_HOME>/deployment/libs`:
     - `postgresql-42.6.1.jar`
     - `protobuf-java-3.25.5.jar`
 
