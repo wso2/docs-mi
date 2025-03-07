@@ -161,6 +161,86 @@
 				"url": "http://localhost:8290/test/xpath"
 			},
 			"response": []
+		},
+		{
+			"name": "compare_new",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orders\": [\n        {\n            \"orderId\": \"ORD001\",\n            \"customerID\": \"CUST123\",\n            \"total\": 150.00,\n            \"date\": \"2025-01-20\"\n        },\n        {\n            \"orderId\": \"ORD002\",\n            \"customerID\": \"CUST123\",\n            \"total\": 250.00,\n            \"date\": \"2025-01-22\"\n        },\n        {\n            \"orderId\": \"ORD003\",\n            \"customerID\": \"CUST456\",\n            \"total\": 300.00,\n            \"date\": \"2025-01-25\"\n        },\n        {\n            \"orderId\": \"ORD004\",\n            \"customerID\": \"CUST123\",\n            \"total\": 80.00,\n            \"date\": \"2025-01-26\"\n        },\n        {\n            \"orderId\": \"ORD005\",\n            \"customerID\": \"CUST123\",\n            \"total\": 120.00,\n            \"date\": \"2025-01-27\"\n        },\n        {\n            \"orderId\": \"ORD006\",\n            \"customerID\": \"CUST456\",\n            \"total\": 330.00,\n            \"date\": \"2025-01-28\"\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/promotion/new?minimumBillAmount=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"promotion",
+						"new"
+					],
+					"query": [
+						{
+							"key": "minimumBillAmount",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "compare_old",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orders\": [\n        {\n            \"orderId\": \"ORD001\",\n            \"customerID\": \"CUST123\",\n            \"total\": 150.00,\n            \"date\": \"2025-01-20\"\n        },\n        {\n            \"orderId\": \"ORD002\",\n            \"customerID\": \"CUST123\",\n            \"total\": 250.00,\n            \"date\": \"2025-01-22\"\n        },\n        {\n            \"orderId\": \"ORD003\",\n            \"customerID\": \"CUST456\",\n            \"total\": 300.00,\n            \"date\": \"2025-01-25\"\n        },\n        {\n            \"orderId\": \"ORD004\",\n            \"customerID\": \"CUST123\",\n            \"total\": 80.00,\n            \"date\": \"2025-01-26\"\n        },\n        {\n            \"orderId\": \"ORD005\",\n            \"customerID\": \"CUST123\",\n            \"total\": 120.00,\n            \"date\": \"2025-01-27\"\n        },\n        {\n            \"orderId\": \"ORD006\",\n            \"customerID\": \"CUST456\",\n            \"total\": 330.00,\n            \"date\": \"2025-01-28\"\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/promotion/old?minimumBillAmount=100&promoBillCount=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"promotion",
+						"old"
+					],
+					"query": [
+						{
+							"key": "minimumBillAmount",
+							"value": "100"
+						},
+						{
+							"key": "promoBillCount",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

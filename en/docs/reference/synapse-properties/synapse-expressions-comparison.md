@@ -118,3 +118,4 @@ The following chart shows the performance comparison between the two cases.
 
 <a href="{{base_path}}/assets/img/reference/performance_chart.png"><img src="{{base_path}}/assets/img/reference/performance_chart.png" alt="Performance" width="60%"></a>
 
+You can download the performance test artifacts from <a href="{{base_path}}/assets/attachments/reference/performance-test-artifacts.zip">here</a>, to reproduce the test results.
