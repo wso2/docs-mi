@@ -1,7 +1,7 @@
 
 :root {
-    --md-primary-fg-color: #45578c;
-    --md-primary-fg-color--light: #1bcdff;
+    --md-primary-fg-color: #000000;
+    --md-primary-fg-color--light: #ffffff;
     --md-primary-fg-color--dark: #147ecc;
     --md-primary-bg-color: #fff;
     --md-primary-bg-color--light: #ffffffb3;
@@ -12,6 +12,8 @@
     --md-banner: url(../img/wso2-micro-integrator-hero-image.png) no-repeat right top;
     --md-hjs-color: #00f;
     --md-primary-heder-fg-color: var(--md-primary-fg-color);
+    --md-typeset-a-hover-color: #e1562b;
+    --md-nav-link-color: rgb(255, 112, 67);
 }
 :root {
     --md-text-font: 'Source Sans Pro', sans-serif;
@@ -22,24 +24,31 @@
     --md-primary-fg-color: #23272f;
     --md-primary-fg-color-header: #23272f;
     --md-primary-fg-color-header-text: #f5f6f7;
-    --md-primary-fg-color-header-text-active: #259dc9;
-    --md-accent-fg-color: #3d8fca;
+    --md-primary-fg-color-header-text-active: #cccccc;
+    --md-accent-fg-color: #ff6a00;
     --md-default-bg-color: #23272f;
-    --md-typeset-a-color: #75c9e7;
+    --md-typeset-a-color: #ff7300;
  /*    --md-banner: url(../img/banner-for-blue-alt-dark.png) no-repeat right top;  */
     --md-hjs-color: rgb(186, 186, 255);
     --md-primary-bg-color: #23272f;
     --md-primary-heder-fg-color: var(--md-primary-fg-color--light);
     --md-logo: transparent url(../img/logo.svg) no-repeat left top;
+    --md-primary-fg-color-header-search-bg: #000000;
+    --md-primary-fg-color-header-search-text: #e4e4e4;
+    --md-md-code-bg-color: #000000;
 }
 /* colors for the light theme */
 [data-md-color-scheme="default"] {
     --md-primary-fg-color-header: #f5f6f7;
     --md-primary-fg-color-header-text: #1d1d1d;
-    --md-primary-fg-color-header-text-active: #094570;
+    --md-primary-fg-color-header-text-active: #444444;
     --md-default-bg-color: #ffffff;
-    --md-typeset-a-color: var(--md-primary-fg-color);
+    --md-accent-fg-color: #ff6a00;
+    --md-typeset-a-color: #ff7300;
     --md-logo: transparent url(../img/logo-for-light.svg) no-repeat left top;
+    --md-primary-fg-color-header-search-bg: #cacaca42;
+    --md-primary-fg-color-header-search-text: #303030;
+    --md-md-code-bg-color: #e6e6e6;
 }
 .md-tabs {
     background-color: var(--md-primary-fg-color-header);
@@ -58,4 +67,28 @@
 .md-header__button {
     color: var(--md-primary-heder-fg-color);
     
+}
+
+.md-content a {
+    color: var(--md-typeset-a-color);
+}
+
+.md-content a:hover {
+    color: var(--md-typeset-a-hover-color);
+}
+
+.md-nav__link:hover {
+    color: var(--md-typeset-a-color);
+}
+
+.md-nav__link--active {
+    color: var(--md-nav-link-color);
+}
+
+.md-tabs__link:hover {
+    color: var(--md-typeset-a-color);
+}
+
+.md-tabs__link--active {
+    color: var(--md-nav-link-color);
 }
