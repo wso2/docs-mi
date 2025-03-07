@@ -682,6 +682,9 @@ nav:
           - Sharepoint Connector:
               - Sharepoint Overview: reference/connectors/sharepoint-connector/sharepoint-overview.md
               - Sharepoint Reference: reference/connectors/sharepoint-connector/sharepoint-configuration.md
+          - Salesforce Marketing Cloud Connector:
+              - Salesforce Marketing Cloud Overview: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-overview.md
+              - Salesforce Marketing Cloud Reference: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-configuration.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
