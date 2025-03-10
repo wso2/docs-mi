@@ -129,7 +129,7 @@
     margin: 0 .29412em;
     padding: .07353em .3em;
     border-radius: .2rem;
-    background-color: var(--md-primary-fg-color--light);
+    background-color: var(--md-accent-fg-color);
     color: #fff;
     font-size: 75%;
 }
@@ -155,7 +155,7 @@
 .mb-config-catalog .mb-config .param>.param-name {
     display: table-cell;
     vertical-align: top;
-    border-left: 2px solid var(--md-primary-fg-color--light);
+    border-left: 2px solid var(--md-accent-fg-color);
     box-sizing: border-box;
     position: relative;
     padding: 1.7em 0;
@@ -177,7 +177,7 @@
     display: inline-block;
     width: 2px;
     height: 8px;
-    background-color: var(--md-primary-fg-color--light);
+    background-color: var(--md-accent-fg-color);
     margin: -4px 10px 0;
     vertical-align: middle;
 }
@@ -185,7 +185,7 @@
 .mb-config-catalog .mb-config .param>.param-name>span::after {
     content: '';
     position: absolute;
-    border-top: 2px solid var(--md-primary-fg-color--light);
+    border-top: 2px solid var(--md-accent-fg-color);
     width: 10px;
     left: 0;
     top: 2.3em;
@@ -239,7 +239,7 @@ html .md-typeset .superfences-tabs>label {
     color: var(--md-primary-fg-color);
     font-weight: normal;
     padding: 20px;
-    border-bottom: 0.05rem dashed var(--md-primary-fg-color--light);
+    border-bottom: 0.05rem dashed var(--md-accent-fg-color);
 }
 
 .md-typeset .superfences-tabs {
@@ -250,7 +250,7 @@ html .md-typeset .superfences-tabs>label {
     border: 0.05rem solid rgba(0,0,0,.07);
 }
 .md-typeset .superfences-tabs {
-    border: 0.05rem dashed var(--md-primary-fg-color--light);
+    border: 0.05rem dashed var(--md-accent-fg-color);
     border-radius: 5px;
 }
 
