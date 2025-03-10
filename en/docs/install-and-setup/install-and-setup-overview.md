@@ -378,14 +378,14 @@ To implement continuous integration and continuous deployment pipelines for inte
             See the instructions on how to implement a CI/CD pipeline for integrations in a VM deployment of the Micro Integrator.
         </td>
     </tr>
-    <tr>
+    <!-- <tr>
         <th>
             <a href="{{base_path}}/install-and-setup/setup/deployment/mi-cicd-k8s">Building a CI/CD Pipeline for Integrations (K8s deployment)</a>
         </th>
         <td>
             See the instructions on how to implement a CI/CD pipeline for integrations in a Kubernetes deployment of the Micro Integrator.
         </td>
-    </tr>
+    </tr> -->
 </table>
 
 To manage integration artifacts and logs in the Micro Integrator by using the Micro Integrator CLI (micli), see the topics given below.
