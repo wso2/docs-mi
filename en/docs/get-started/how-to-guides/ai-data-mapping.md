@@ -65,7 +65,7 @@ You can now start configuring the API resource.
 4. Specify the following values and click **Add**.
 
     !!! Info
-        This parameter is used to store the API key required for OpenWeather. It is recommended to use secure vault to store credentials. For more information, refer to <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text/">Encrypting Secrets</a>.
+        This parameter is used to store the API key required for <a target="_blank" href="https://openweathermap.org">OpenWeather</a>. It is recommended to use secure vault to store credentials. For more information, refer to <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text/">Encrypting Secrets</a>.
 
     <table>
         <tr>
@@ -99,6 +99,11 @@ You can now start configuring the API resource.
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png" alt="add new connection" width="80%"></a>
 
 7. Select `HTTPS` and fill in the following details to create a connection to OpenWeather API. Finally, click **Add** in the **Add New Connection** form to create the connection.
+
+    | Property            | Value                   |
+    |---------------------|-------------------------|
+    | **Connection Name** | `OpenWeather`        |
+    | **Base URL**        | `https://api.openweathermap.org/` |
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png" alt="create connection" width="80%"></a>
 
