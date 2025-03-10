@@ -16,7 +16,7 @@ Follow the instructions below to deploy the Micro Integrator on Kubernetes (K8s)
 - Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
     !!! Note
-        Helm resources for WSO2 product deployment patterns are compatible with the ingress-nginx [`controller-v1.12.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.12.0) release.
+        Helm resources for WSO2 product deployment patterns are compatible with the ingress-nginx [controller-v1.12.0](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.12.0) release.
 
 ## Step 1 - Get the Helm resources
 
