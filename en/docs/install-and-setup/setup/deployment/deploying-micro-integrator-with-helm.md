@@ -143,8 +143,8 @@ NAME                  HOSTS                      ADDRESS     PORTS     AGE
 cloud-<RELEASE_NAME>  mi.wso2.com                10.0.2.15   80, 443   2m
 ```
 
-    !!! Tip
-        The HOST of the ingress is the `hostname` given in the `values.yaml` file. The default host is `mi.wso2.com`.
+!!! Tip
+    The HOST of the ingress is the `hostname` given in the `values.yaml` file. The default host is `mi.wso2.com`.
     
 You can list the pods deployed using the command:
 
@@ -299,16 +299,16 @@ Follow the steps given below:
     You will receive the following response:
 
     ```bash
-    {"Hello":"World"}%
+    {"Hello":"World"}
     ```
 
 ## Update the existing deployment 
 
 You can update the configurations in the `values.yaml` file or the Docker image used by the deployment and upgrade your existing deployment.
 
-    ```bash
-    helm upgrade <RELEASE_NAME> ./ -f values_local.yaml -n <NAMESPACE>
-    ```
+```bash
+helm upgrade <RELEASE_NAME> ./ -f values_local.yaml -n <NAMESPACE>
+```
 
-    !!! Note
-        The `pullPolicy` parameter in the `values.yaml` file should be set appropriately if you expect an updated Docker image to be pulled from the image resigstry.
+!!! Note
+    The `pullPolicy` parameter in the `values.yaml` file should be set appropriately if you expect an updated Docker image to be pulled from the image resigstry.
