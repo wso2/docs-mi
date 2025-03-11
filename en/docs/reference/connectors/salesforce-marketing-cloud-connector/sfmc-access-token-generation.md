@@ -5,44 +5,51 @@ This guide explains how to generate an access token in Salesforce Marketing Clou
 **Step 1: Log in to Marketing Cloud**
 
 1. Navigate to your [Salesforce Marketing Cloud login page](https://mc.exacttarget.com/cloud/login.html) and log in with your credentials.
-// <image 1>
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-login.png" title="SFMC login" width="95%" alt="SFMC login"/>
+
 2. Once logged in, click on your username in the top right corner and select Setup from the dropdown menu.
-// <image 2>
-   
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-setup.png" title="SFMC setup" width="95%" alt="SFMC setup"/>
+
 **Step 2: Create an Installed Package**
-   
+
 1. In the Setup menu, scroll down to the Platform Tools section.
 2. Click on Apps and then select Installed Packages.
-// <image 3>
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-packages.png" title="SFMC packages" width="95%" alt="SFMC installed packages"/>
+
 3. Click the New button.
 4. Enter a Name and Description for your package (for example, “API Integration Package”).
 5. Click Save.
-// <image 4>
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-new-component.png" title="SFMC new component" width="95%" alt="SFMC installed package component"/>
 
 **Step 3: Add an API Integration Component**
 
 1. After saving, click on the package you just created to view its details.
-// <image 5>
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-component-details.png" title="SFMC new component details" width="95%" alt="SFMC installed package component details"/>
+
 2. Click on Add Component.
 3. Choose **API Integration** as the component type.
-// <image 6>
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-component-type.png" title="SFMC new component type" width="95%" alt="SFMC installed package component type"/>
+
 4. Select Server-to-Server as the integration type.
-// <image 7> 
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-integration-type.png" title="SFMC new integration type" width="95%" alt="SFMC installed package integration type"/>
+
 5. In the list of available scopes, check the required permissions for your integration. For most token generation and API calls, you might need:
-     * Read and Write access to Email Studio
-     * Access to the REST API
-     * Any additional scopes based on your specific use case
-// <image 8>
+   * Read and Write access to Email Studio
+   * Access to the REST API
+   * Any additional scopes based on your specific use case
+     <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-scope.png" title="SFMC component scope" width="95%" alt="SFMC component scopes"/>
+
 6. Click Save to add the component.
 
 **Step 4: Retrieve the Client ID and Client Secret**
 
 On the package detail page, note down the Base URIs, Client ID and Client Secret generated for your integration. These credentials are required to authenticate API calls.
 If necessary, click on Edit to update any integration details or to add further scopes.
-// <image 9>
-// <image 10>
+<img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-secret.png" title="SFMC secret" width="95%" alt="SFMC client secret"/>
 
-**Step 5: Retrieve Your User Subdomain (Required for setting up MI)** 
+<img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-client.png" title="SFMC client id" width="95%" alt="SFMC client id"/>
+
+**Step 5: Retrieve Your User Subdomain (Required for setting up MI)**
 
 Extract the subdomain by taking the portion between `https://` and `.auth.marketingcloudapis.com` in your base URI. For example, from `https://mczl3z3cmqr47kmts5x34v1cdlky.auth.marketingcloudapis.com/`, the subdomain is `mczl3z3cmqr47kmts5x34v1cdlky`.
 
@@ -66,14 +73,14 @@ The token endpoint is:
 
 4. The POST request must include your Client ID and Client Secret along with the `grant_type` set to `client_credentials`.
 
-    - Using Postman:
-   
+   - Using Postman:
+
    Open Postman and create a new POST request.
    Set the URL to:
    ```
       https://YOUR_SUBDOMAIN.auth.marketingcloudapis.com/v2/token
    ```
-   
+
    In the Body tab, select raw and JSON as the format, then enter:
    ```json
    {
@@ -82,7 +89,7 @@ The token endpoint is:
       "client_secret": "YOUR_CLIENT_SECRET"
    }
    ```
-   
+
    Click the Send button.
    The response will include an access_token along with its expiration time.
 
