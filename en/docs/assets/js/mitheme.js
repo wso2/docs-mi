@@ -192,14 +192,15 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("click", function(event) {
         let link = event.target.closest("a");
         if (link && link.href) {
-        if (typeof gtag === 'function') {
-            gtag('event', 'link_click', {
-            'event_category': 'engagement',
-            'event_label': link.textContent.trim(),
-            'link_url': link.href,
-            'current_page': document.location.href
-            });
-        }
+        // if (typeof gtag === 'function') {
+        //     gtag('event', 'link_click', {
+        //     'event_category': 'engagement',
+        //     'event_label': link.textContent.trim(),
+        //     'link_url': link.href,
+        //     'current_page': document.location.href
+        //     });
+        // }
+        dataLayer.push({'event':'link_click','event_label':link.textContent.trim(), 'current_page': document.location.href});
         }
     });
 });
@@ -213,11 +214,12 @@ document.addEventListener("DOMContentLoaded", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
                 let searchTerm = event.target.value.trim();
-                gtag("event", "search", {
-                    'event_category': 'search',
-                    'event_label': searchTerm,
-                    'current_page': document.location.href
-                });
+                // gtag("event", "search", {
+                //     'event_category': 'search',
+                //     'event_label': searchTerm,
+                //     'current_page': document.location.href
+                // });
+                dataLayer.push({'event':'search','event_label':searchTerm});
             }, 500);
         });
     }
