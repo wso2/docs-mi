@@ -3,18 +3,6 @@ This file is the main template use in every page except the redoc and home page.
 -#}
 {% extends "base.html" %}
 
-{% block analytics %}
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L7950XSLB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-0L7950XSLB');
-  </script>
-{% endblock %}
-
 {% block extrahead %}
   <meta name="google-site-verification" content="pRwRUP0jDUECheRt5DziuVd3gSs2UTw6EhL4nud3NMk" />
   {{ super() }}
@@ -22,8 +10,4 @@ This file is the main template use in every page except the redoc and home page.
 
 {% block content %}
   {{ super() }}
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CR98L58" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 {% endblock %}
