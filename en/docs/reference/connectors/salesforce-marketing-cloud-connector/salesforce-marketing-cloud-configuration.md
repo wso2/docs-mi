@@ -817,14 +817,6 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <td>Yes</td>
         </tr>
     </table>
-    Prerequisites for sending an email
-    - Develop an email template in Email Studio with your desired content and design.
-    - Configure a sender profile by specifying a valid "From" name and email address.
-    - Set up a delivery profile that includes a reply-to email address and other delivery settings.
-    - Create a send-classification that links your sender and delivery profiles and defines the send-type.
-    - Build an email send definition that associates your email template, send classification, and target audience.
-    - Test your email template using preview and test send features in Email Studio.
-    - Execute a test send to a small group to verify all settings are correct.
 
     **Sample configuration**
 
