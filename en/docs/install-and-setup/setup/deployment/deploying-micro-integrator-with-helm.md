@@ -52,7 +52,7 @@ Follow the steps below to configure your Micro Integrator deployment.
                 password: "<password>"
         ```
 
-        Alternatively, you can skip this step and pass your subscription details during deployment (see section [Update configurations during deployment] for details).
+        Alternatively, you can skip this step and pass your subscription details during deployment (see section [Update configurations during deployment](#update-configurations-during-deployment) for details).
 
     - **Update the Micro Integrator Docker images**
 
