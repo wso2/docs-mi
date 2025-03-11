@@ -11,16 +11,16 @@ Follow the instructions below to deploy the Micro Integrator on Kubernetes (K8s)
     
 - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and the [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
     
-- Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
+- Set up a Kubernetes cluster. You can also try deploying Micro Integrator locally with a [local Kubernetes cluster](https://kubernetes.io/docs/tasks/tools/).
     
 - Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
     !!! Note
-        Helm resources for WSO2 product deployment patterns are compatible with the ingress-nginx [`controller-v1.11.2`](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.11.2) release.
+        Helm resources for WSO2 product deployment patterns are compatible with the ingress-nginx [controller-v1.12.0](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.12.0) release.
 
 ## Step 1 - Get the Helm resources
 
-Check out the Helm resources for the WSO2 Micro Integrator Git repository.
+Check out the Helm resources for the WSO2 Micro Integrator Git repository. WSO2 releases Helm resources for all product deployments.
 
 1. Open a terminal and navigate to the location where you want to save the local copy.
 2. Clone the Micro Integrator Git repository with Helm resources:
@@ -43,7 +43,7 @@ Follow the steps below to configure your Micro Integrator deployment.
 
     - **Update the WSO2 subscription details**
     
-        You can update the username and password in the following section. If you don't have an active WSO2 subscription, leave these parameters empty.
+        You can update the username and password in the following section. If you don't have an active WSO2 subscription or plan on using the community version of the Docker images, leave these parameters empty.
     
         ```yaml
         wso2:
@@ -52,7 +52,7 @@ Follow the steps below to configure your Micro Integrator deployment.
                 password: "<password>"
         ```
 
-        Alternatively, you can skip this step and pass your subscription details during deployment (see the next step for details).
+        Alternatively, you can skip this step and pass your subscription details during deployment (see section [Update configurations during deployment](#update-configurations-during-deployment) for details).
 
     - **Update the Micro Integrator Docker images**
 
@@ -64,7 +64,7 @@ Follow the steps below to configure your Micro Integrator deployment.
             deployment:
                 image: 
                     repository: "wso2mi"
-                    tag: "4.3.0"
+                    tag: "4.4.0"
         ```
 
         If you have a custom Docker image with integrations, update the `containerRegistry` parameter and provide the details of your custom image.
@@ -126,7 +126,31 @@ If needed, you can set deployment configurations at the time of deployment inste
     --set wso2.deployment.imagePullSecrets=<IMAGE_PULL_SECRET>
     ```
 
-Your Micro Integrator Kubernetes deployment should now be created.
+When Micro Integrator is successfully deployed, it should create the following resources.
+
+```bash
+kubectl get deploy -n <NAMESPACE>
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+cloud-<RELEASE_NAME>     1/1     1            1           2m
+
+kubectl get services -n <NAMESPACE>
+
+NAME                     TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
+cloud-<RELEASE_NAME>     ClusterIP   10.101.107.154   <none>        8253/TCP,9201/TCP,9164/TCP      2m
+
+kubectl get ingress -n <NAMESPACE>
+NAME                  HOSTS                      ADDRESS     PORTS     AGE
+cloud-<RELEASE_NAME>  mi.wso2.com                10.0.2.15   80, 443   2m
+```
+
+    !!! Tip
+        The HOST of the ingress is the `hostname` given in the `values.yaml` file. The default host is `mi.wso2.com`.
+    
+You can list the pods deployed using the command:
+
+```bash
+kubectl get po -n <NAMESPACE>
+```
 
 ## Step 4 - Access the Micro Integrator deployment
 
@@ -141,7 +165,7 @@ To access the Micro Integrator deployment, follow these steps from your terminal
     Example:
 
     ```log
-    NAME            CLASS   HOSTS         ADDRESS        PORTS     AGE
+    NAME                   CLASS   HOSTS         ADDRESS        PORTS     AGE
     cloud-<RELEASE_NAME>   nginx   mi.wso2.com   <EXTERNAL-IP>   80, 443   27m
     ```
 
@@ -155,6 +179,35 @@ To access the Micro Integrator deployment, follow these steps from your terminal
     
     ```bash
     curl https://mi.wso2.com/healthz -k
+    ```
+
+## View integration process logs
+
+Once you have deployed your integrations in the Kubernetes cluster, see the output of the running integration solutions using the pod's logs. 
+
+1. First, you need to get the associated **pod id**. Use the `kubectl get pods` command to list down all the deployed pods.
+
+    ```bash
+    kubectl get pods -n <NAMESPACE>
+
+    NAME                                        READY   STATUS    RESTARTS   AGE
+    cloud-mi4-4-5b5c9b9c49-5hr44                1/1     Running   0          14h
+    ingress-nginx-controller-5486b65c4d-57dkc   1/1     Running   2          2d
+    ```
+
+2.  To view the logs of the associated pod, run the `kubectl logs <pod name>` command. This will print the output of the given pod ID.
+
+    ```bash
+    kubectl logs cloud-mi4-4-5b5c9b9c49-5hr44 -n <NAMESPACE>
+
+    [2025-03-06 10:19:15,026]  INFO {org.wso2.config.mapper.ConfigParser} - Overriding files in configuration directory /home/wso2carbon/wso2mi-4.4.0
+    [2025-03-06 10:19:15,202]  INFO {org.wso2.config.mapper.ConfigParser} - Applying configurations with deployment configurations
+    [2025-03-06 10:19:21,811] [] : mi :  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through HTTP Listener started on 0.0.0.0:8290
+    [2025-03-06 10:19:21,813] [] : mi :  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through HTTPS Listener started on 0.0.0.0:8253
+    [2025-03-06 10:19:22,006] [] : mi :  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through EI_INTERNAL_HTTP_INBOUND_ENDPOINT Listener started on 0.0.0.0:9201
+    [2025-03-06 10:19:22,054] [] : mi :  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through EI_INTERNAL_HTTPS_INBOUND_ENDPOINT Listener started on 0.0.0.0:9164
+    [2025-03-06 10:19:22,055] [] : mi :  INFO {org.wso2.micro.integrator.initializer.StartupFinalizer} - WSO2 Micro Integrator started in 7.04 seconds
+    ...
     ```
 
 ## Deploy the Micro Integrator with an integration
@@ -225,3 +278,37 @@ For a local deployment, use the `values_local.yaml` file, which is specifically 
     {"Hello": "World"}
     ```
 
+### Invoke without Ingress controller
+
+Once you have deployed your integrations in the Kubernetes cluster, you can also invoke the integration solutions without going through the Ingress controller by using the [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/#forward-a-local-port-to-a-port-on-the-pod) method for services. 
+
+Follow the steps given below:
+
+1. Apply port forwarding:
+
+    ```bash
+    kubectl port-forward service/<SERVICE_NAME> -n <NAMESPACE> 8290:8290
+    ```
+
+2. Invoke the proxy service:
+
+    ```bash
+    curl http://localhost:8290/HellowWorld -k
+    ```
+
+    You will receive the following response:
+
+    ```bash
+    {"Hello":"World"}%
+    ```
+
+## Update the existing deployment 
+
+You can update the configurations in the `values.yaml` file or the Docker image used by the deployment and upgrade your existing deployment.
+
+    ```bash
+    helm upgrade <RELEASE_NAME> ./ -f values_local.yaml -n <NAMESPACE>
+    ```
+
+    !!! Note
+        The `pullPolicy` parameter in the `values.yaml` file should be set appropriately if you expect an updated Docker image to be pulled from the image resigstry.
