@@ -129,7 +129,7 @@ If needed, you can set deployment configurations at the time of deployment inste
 When Micro Integrator is successfully deployed, it should create the following resources.
 
 ```bash
-kubectl get deploy -n <NAMESPACE>
+kubectl get deployments -n <NAMESPACE>
 NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
 cloud-<RELEASE_NAME>     1/1     1            1           2m
 
@@ -149,7 +149,7 @@ cloud-<RELEASE_NAME>  mi.wso2.com                10.0.2.15   80, 443   2m
 You can list the pods deployed using the command:
 
 ```bash
-kubectl get po -n <NAMESPACE>
+kubectl get pods -n <NAMESPACE>
 ```
 
 ## Step 4 - Access the Micro Integrator deployment
@@ -159,7 +159,7 @@ To access the Micro Integrator deployment, follow these steps from your terminal
 1. Get the external IP (`EXTERNAL-IP`) of the Ingress resources by listing the Kubernetes ingresses.
 
     ```bash
-    kubectl get ing -n <NAMESPACE>
+    kubectl get ingress -n <NAMESPACE>
     ```
 
     Example:
