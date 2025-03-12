@@ -225,7 +225,7 @@ You can now start configuring the API resource.
          <tr>
              <td>Expression</td>
              <td>
-                 <p>The <strong>Expression</strong> field is where we specify the synapse expression, which obtains the value of the Hospital that we stored in the Variable mediator.</p>
+                 <p>The <strong>Expression</strong> field is where we specify the synapse <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a>, which obtains the value of the Hospital that we stored in the Variable mediator.</p>
                  <p>Follow the steps given below to specify the expression:</p>
                  <ol>
                      <li>Click <b>Ex</b> button in the <b>Value</b> field towards the end</li>
