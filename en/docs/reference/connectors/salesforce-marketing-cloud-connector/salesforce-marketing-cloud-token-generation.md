@@ -2,17 +2,17 @@
 
 This guide explains how to generate an access token in Salesforce Marketing Cloud using an Installed Package. Follow the steps below for a complete walk through from creating the package to obtaining the token using tools like Postman or curl.
 
-**Step 1: Log in to Marketing Cloud**
+### Step 1: Log in to Marketing Cloud
 
 1. Navigate to your [Salesforce Marketing Cloud login page](https://mc.exacttarget.com/cloud/login.html) and log in with your credentials.
 
-   <**img** src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-login.png" title="SFMC login" width="50%" alt="SFMC login"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-login.png" title="SFMC login" width="50%" alt="SFMC login"/>
 
 2. Once logged in, click on your username in the top right corner and select Setup from the dropdown menu.
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-setup.png" title="SFMC setup" width="50%" alt="SFMC setup"/>
 
-**Step 2: Create an Installed Package**
+### Step 2: Create an Installed Package
 
 1. In the Setup menu, scroll down to the Platform Tools section.
 2. Click on Apps and then select Installed Packages.
@@ -25,7 +25,7 @@ This guide explains how to generate an access token in Salesforce Marketing Clou
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-new-component.png" title="SFMC new component" width="75%" alt="SFMC installed package component"/>
 
-**Step 3: Add an API Integration Component**
+### Step 3: Add an API Integration Component
 
 1. After saving, click on the package you just created to view its details.
 
@@ -49,7 +49,7 @@ This guide explains how to generate an access token in Salesforce Marketing Clou
 
 6. Click Save to add the component.
 
-**Step 4: Retrieve the Client ID and Client Secret**
+### Step 4: Retrieve the Client ID and Client Secret
 
 On the package detail page, note down the Base URIs, Client ID and Client Secret generated for your integration. These credentials are required to authenticate API calls.
 If necessary, click on Edit to update any integration details or to add further scopes.
@@ -58,11 +58,11 @@ If necessary, click on Edit to update any integration details or to add further 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sfmc-client.png" title="SFMC client id" width="95%" alt="SFMC client id"/>
 
-**Step 5: Retrieve Your User Subdomain (Required for setting up MI)**
+### Step 5: Retrieve Your User Subdomain (Required for setting up MI)
 
 Extract the subdomain by taking the portion between `https://` and `.auth.marketingcloudapis.com` in your base URI. For example, from `https://mczl3z3cmqr47kmts5x34v1cdlky.auth.marketingcloudapis.com/`, the subdomain is `mczl3z3cmqr47kmts5x34v1cdlky`.
 
-**Step 6: Obtain the Access Token**
+### Step 6: Obtain the Access Token
 
 To generate the access token, you need to make an HTTP POST request to the Salesforce Marketing Cloud authentication endpoint you retrieved in Step 4.
 
