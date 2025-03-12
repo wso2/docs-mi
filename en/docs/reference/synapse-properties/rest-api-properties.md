@@ -112,8 +112,8 @@ When you are creating a REST API artifact, you need to configure the API resourc
             </table>
         <div class="admonition info">
             <p class="admonition-title">Info</p>
-            <p>It is possible to retrieve the exact values of the two variables using the <a href="{{base_path}}/reference/synapse-properties/expressions/#get-property-function">get-property</a> expression and prefixing the variable with <code>uri.var</code>.</p>
-            <p>For example: <code>&lt;property name=&quot;char&quot; expression=&quot;get-property(&#39;uri.var.char&#39;)&quot;/&gt;</code></p>
+            <p>You can retrieve the values of the two path parameters using <code>params.pathParams</code>. For more information, refer to <a href="{{base_path}}/reference/synapse-properties/synapse-expressions-syntax/#access-query-and-path-parameters">Access query and path parameters</a>.
+            <p>For example: <code>&lt;variable name=&quot;word&quot; expression=&quot;${params.pathParams.word}&quot;/&gt;</code></p>
         </div>
         <div class="admonition note">
             <p class="admonition-title">Note</p>

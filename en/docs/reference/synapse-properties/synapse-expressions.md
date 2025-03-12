@@ -1,4 +1,4 @@
-# Synapse Expressions
+# Expressions
 
 ## Overview
 

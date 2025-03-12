@@ -1,4 +1,4 @@
-# Synapse Expressions Syntax
+# Expressions Syntax
 
 **Synapse Expressions** are identified by the enclosing `${}` syntax. 
 

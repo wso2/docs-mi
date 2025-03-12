@@ -1,4 +1,12 @@
+---
+search:
+  boost: 0.4
+---
+
 # JSONPath Expressions
+
+!!! Note
+    WSO2 Micro Integrator will continue to support existing JSONPath expressions. However, it is recommended to use the new [Synapse Expressions]({{base_path}}/reference/synapse-properties/synapse-expressions), as they simplify data extraction and provide a rich set of functions.
 
 [JSONPath](http://goessner.net/articles/JsonPath/) expressions are used for navigating and querying JSON data. JSONPath allows you to extract specific data from JSON documents.
 
