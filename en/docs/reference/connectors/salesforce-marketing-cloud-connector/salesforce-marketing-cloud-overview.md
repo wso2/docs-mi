@@ -20,7 +20,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector
 
 ## How to contribute
 
-As an open source project, WSO2 extensions welcome contributions from the community. 
+As an open-source project, WSO2 extensions welcome contributions from the community. 
 
 To contribute to the code for this connector, create a pull request in the following repository. 
 

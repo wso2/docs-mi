@@ -21,7 +21,7 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         </tr>
         <tr>
             <td><code>subdomain</code></td>
-            <td>Your Salesforce Marketing Cloud sub domain.</td>
+            <td>Your Salesforce Marketing Cloud subdomain.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -855,7 +855,7 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
     ```
 
 ??? note "sendSmsMessage"
-    The `sendSmsMessage` operation sends an sms message to multiple recipients using a send definition.
+    The `sendSmsMessage` operation sends an SMS message to multiple recipients using a send definition.
     <table>
         <tr>
             <th>Parameter Name</th>

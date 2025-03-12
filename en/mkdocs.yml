@@ -685,6 +685,7 @@ nav:
           - Salesforce Marketing Cloud Connector:
               - Salesforce Marketing Cloud Overview: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-overview.md
               - Salesforce Marketing Cloud Reference: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-configuration.md
+              - Salesforce Marketing Cloud Token Generation: reference/connectors/salesforce-marketing-cloud-connector/sfmc-access-token-generation.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
