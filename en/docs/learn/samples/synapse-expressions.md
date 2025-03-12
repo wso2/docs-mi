@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.8
+---
+
 # Synapse Expressions Sample
 
 This sample contains a REST API that demonstrates the use of **Synapse Expressions** in WSO2 Micro Integrator.

@@ -847,13 +847,13 @@ nav:
           - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
           - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
       - Expressions:
-          - Expressions Overview: reference/synapse-properties/expressions.md
-          - JSONPath expressions: reference/synapse-properties/jsonpath-expressions.md
-          - XPath Expressions: reference/synapse-properties/xpath-expressions.md
-          - Synapse Expressions:
-              - Overview: reference/synapse-properties/synapse-expressions.md
-              - Syntax: reference/synapse-properties/synapse-expressions-syntax.md
-              - Comparison with JSONPath : reference/synapse-properties/synapse-expressions-comparison.md
+          - Overview: reference/synapse-properties/synapse-expressions.md
+          - Syntax: reference/synapse-properties/synapse-expressions-syntax.md
+          - Comparison with JSONPath : reference/synapse-properties/synapse-expressions-comparison.md 
+          - Legacy Expressions:
+              - Overview: reference/synapse-properties/expressions.md
+              - JSONPath expressions: reference/synapse-properties/jsonpath-expressions.md
+              - XPath Expressions: reference/synapse-properties/xpath-expressions.md
       - Scopes: reference/synapse-properties/scopes.md
       - Templates: reference/synapse-properties/template-properties.md
       - Mediation Sequences: reference/mediation-sequences.md

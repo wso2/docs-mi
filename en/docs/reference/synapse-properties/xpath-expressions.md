@@ -1,4 +1,12 @@
+---
+search:
+  boost: 0.4
+---
+
 # XPath Expressions
+
+!!! Note
+    WSO2 Micro Integrator will continue to support existing XPath expressions. However, it is recommended to use the new [Synapse Expressions]({{base_path}}/reference/synapse-properties/synapse-expressions), as they simplify data extraction and provide a rich set of functions.
 
 [XPath (XML Path Language)](https://www.w3schools.com/xml/xpath_intro.asp) is a language used to navigate through elements and attributes in an XML document. It allows you to identify and extract specific portions of XML data, making it ideal for working with complex XML payloads, which are common in service integration scenarios.
 
