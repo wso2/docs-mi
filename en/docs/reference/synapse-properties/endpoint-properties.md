@@ -7,6 +7,9 @@ For example, the endpoint for the simple stock quote sample is `http://localhost
 
 Endpoints are independent of transports, which allows you to use the same endpoint with multiple transports. When you configure a message mediation sequence or a proxy service to handle the incoming message, you can specify which transport to use and the endpoint to which the message is sent.
 
+!!! Note  
+    Starting from WSO2 MI 4.4.0, a new [**HTTP Connector**]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) is available for invoking HTTP backends. While **HTTP endpoints** can still be used, the HTTP connector provides a more flexible and feature-rich approach for handling HTTP requests. It is **recommended** to use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for new implementations.
+
 ## Classification of Endpoints
 
 ### Named Endpoints

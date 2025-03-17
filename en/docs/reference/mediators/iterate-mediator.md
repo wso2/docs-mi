@@ -1,18 +1,17 @@
 # Iterate Mediator
 
+!!! Note  
+        From WSO2 MI 4.4.0 onwards, you can use the [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) instead of the **Iterate mediator**. The [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) includes all the functionality of the Iterate mediator and eliminates the need to use the **Aggregate mediator** to merge flows. It provides a more streamlined and efficient way to process individual elements in a message payload. It is recommended to use the [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) for new implementations.
+
 The Iterate Mediator implements the [Splitter enterprise integration pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/splitter/) and splits the message into several different messages derived from the parent message.
 
 !!! Info
     The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-mediator). The difference between the two mediators is, that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
-    Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex expressions to conditionally select elements to iterate over in both mediators. Following are the main differences between ForEach and Iterate mediators:
-    
-    -   Use the ForEach mediator only for message transformations. If you need to make back-end calls from each iteration, use the iterate mediator.
-    -   The ForEach mediator supports modifying the original payload. You can use the Iterate mediator for situations where you send the split messages to a target and collect them by an [Aggreagte]({{base_path}}/reference/mediators/aggregate-mediator) mediator in a different flow.
-    -   You need to always accompany an Iterate mediator with an Aggregate mediator to aggregate responses. For [out-only (fire-and-forget) invocations]({{base_path}}/reference/mediators/property-reference/generic-properties/#out_only), Aggregate mediator is not needed, as there is no response to aggregate. ForEach mediator loops over the sub-messages and merges them back to the same parent element of the message.
-    -   In Iterate mediator, you need to send the split messages to an endpoint to continue the message flow. However, ForEach mediator does not allow using [Call]({{base_path}}/reference/mediators/call-mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
-    -   The ForEach mediator does not split the message flow, unlike the Iterate mediator. It guarantees execution in the same thread until all iterations are complete.
+    -   You can use complex expressions to conditionally select elements to iterate over in the Iterate mediator.
+    -   You need to always accompany an Iterate mediator with an Aggregate mediator to aggregate responses. For [out-only (fire-and-forget) invocations]({{base_path}}/reference/mediators/property-reference/generic-properties/#out_only), Aggregate mediator is not needed, as there is no response to aggregate. 
+    -   In Iterate mediator, you need to send the split messages to an endpoint to continue the message flow.
 
 !!! Info
     When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
