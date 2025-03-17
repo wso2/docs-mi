@@ -49,16 +49,16 @@ The request method is `POST` and the format of the request URL expected by the b
 
 Let's create three different HTTP connections for the above services.
 
-1. Navigate to the **Project Settings** page.
+1. Navigate to **MI Project Explorer**.
 
-2. Click on **Add artifact**.
+2. Click on **+ Add artifact**.
 
-   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **HTTP**.
 6. You need to add dependencies to the project, if not added yet.
@@ -91,10 +91,10 @@ Let's create three different HTTP connections for the above services.
 
 9. Similarly, create the HTTP connections for the other two hospital services using the Base URLs given below:
 
-   | Connection Name | Base URL                           |
-   |-----------------|------------------------------------|
-   | ClemencyConn    | `http://localhost:9090/clemency`   |
-   | PineValleyConn  | `http://localhost:9090/pinevalley` |
+    | Connection Name | Base URL                           |
+    |-----------------|------------------------------------|
+    | ClemencyConn    | `http://localhost:9090/clemency`   |
+    | PineValleyConn  | `http://localhost:9090/pinevalley` |
 
 You have now created the three connections for the hospital back-end services that will be used to make appointment reservations.
 
@@ -160,7 +160,7 @@ You have now created the three connections for the hospital back-end services th
     </tr>
     </table>
 
-   <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
 
 7. Click **Update**.
 
@@ -217,34 +217,34 @@ You can now start configuring the API resource.
 
 6. Add a **Switch** mediator by clicking the **+** sign after the **Variable** mediator, and selecting **Switch** mediator from the palette. In the form that appears, specify the following values.
 
-   <table>
-        <tr>
-            <th>Property</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Expression</td>
-            <td>
-                <p>The <strong>Expression</strong> field is where we specify the synapse expression, which obtains the value of the Hospital that we stored in the Variable mediator.</p>
-                <p>Follow the steps given below to specify the expression:</p>
-                <ol>
-                    <li>Click <b>Ex</b> button in the <b>Value</b> field towards the end</li>
-                    <li>Enter <code>vars.Hospital</code></li>
-                </ol>
-            </td>
-        </tr>
-        <tr>
-            <td>Cases</td>
-            <td>
-                <p>You can use <b>+ Add new case</b> button to add case branches</p>
-                <ol>
-                    <li>Case 1: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>grand oak community hospital</code></li>
-                    <li>Case 2: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>clemency medical center</code></li>
-                    <li>Case 3: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>pine valley community hospital</code></li>
-                </ol>
-            </td>
-        </tr>
-    </table>
+    <table>
+         <tr>
+             <th>Property</th>
+             <th>Description</th>
+         </tr>
+         <tr>
+             <td>Expression</td>
+             <td>
+                 <p>The <strong>Expression</strong> field is where we specify the synapse <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a>, which obtains the value of the Hospital that we stored in the Variable mediator.</p>
+                 <p>Follow the steps given below to specify the expression:</p>
+                 <ol>
+                     <li>Click <b>Ex</b> button in the <b>Value</b> field towards the end</li>
+                     <li>Enter <code>vars.Hospital</code></li>
+                 </ol>
+             </td>
+         </tr>
+         <tr>
+             <td>Cases</td>
+             <td>
+                 <p>You can use <b>+ Add new case</b> button to add case branches</p>
+                 <ol>
+                     <li>Case 1: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>grand oak community hospital</code></li>
+                     <li>Case 2: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>clemency medical center</code></li>
+                     <li>Case 3: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>pine valley community hospital</code></li>
+                 </ol>
+             </td>
+         </tr>
+     </table>
 
 9. Click **Add** to save the values for the Switch mediator.
 
@@ -281,12 +281,12 @@ You can now start configuring the API resource.
         </tr>
     </table>
 
-   <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>   
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>   
 
-!!! Info
-    You have now configured the Switch mediator to log the `Routing to: <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
-    
-    The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital: <Hospital Name>`) for requests that have an invalid hospital name.
+    !!! Info
+        You have now configured the Switch mediator to log the `Routing to: <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
+        
+        The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital: <Hospital Name>`) for requests that have an invalid hospital name.
 
 11. Add an HTTP **POST** operation by clicking the **+** sign after the **Log** mediator in each case branch except for `default`. In the form that appears, specify the following values.
 
@@ -347,9 +347,9 @@ You can now start configuring the API resource.
 
 19. Add a **Respond** mediator just after the **Switch** mediator to return the response from the health care service back to the client.
 
-You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
+    You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
 
-<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png" alt="Resource view" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png" alt="Resource view" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 
