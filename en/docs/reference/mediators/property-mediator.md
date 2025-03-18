@@ -150,7 +150,7 @@ based on the `Accept` header using the `$ctx:accept` expression. The message is 
 
 ### Set the HTTP status code
 
-The Property mediator can be used to set the HTTP status code for responses. In the example below, the status code is set to `500`,
+The Property mediator can be used to set the HTTP status code for responses. In the example below, the status code is set to `500`.
 
 ```xml
 <property name="HTTP_SC" value="500" scope="axis2"/>
