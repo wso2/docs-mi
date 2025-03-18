@@ -1,6 +1,9 @@
 # Property mediator
 
-The Property mediator is used to manage message properties within a mediation flow. Properties in WSO2 MI are key-value pairs that can be used to store and retrieve values during message processing. The Property Mediator allows you to set or remove these properties, which can then be used later in the mediation flow.
+The Property mediator is used to define configuration settings that control how an integration behaves. These properties manage transport settings, security configurations, or mediator-specific parameters that influence message processing. The Property mediator allows you to set or remove these properties, ensuring they are available within the mediation flow.
+
+!!! Note
+    With the introduction of the [**Variable mediator**]({{base_path}}/reference/mediators/variable-mediator/) in WSO2 MI 4.4.0 onwards, it is now recommended to use the **Property mediator** only for managing configuration-related properties within a mediation flow. To store data for future use, the [**Variable mediator**]({{base_path}}/reference/mediators/variable-mediator/) should be used instead.
 
 ## Syntax
 
@@ -126,18 +129,6 @@ The parameters available to configure the property mediator are as follows:
 
 ## Examples
 
-### Set and log and property
-
-In this example, we are setting the property symbol, and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-mediator).
-
-```xml
-<property name="symbol" expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)" xmlns:m0="http://services.samples/xsd"/>
-
-<log level="custom">
-    <property name="symbol" expression="$ctx:symbol"/>
-</log>
-```
-
 ### Send a fault message based on the Accept http header
 
 In this configuration, a response is sent to the client based on the `Accept` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
@@ -157,69 +148,10 @@ based on the `Accept` header using the `$ctx:accept` expression. The message is 
 <respond/>
 ```
 
-### Read a property stored in the Registry
+### Set the HTTP status code
 
-You can read a property that is stored in the Registry by using the `get-property()` method in your Synapse configuration. 
-For example, the following Synapse configuration retrieves the `abc` property of the collection `gov:/data/xml/collectionx`, and stores it in the `regProperty` property.
-
-``` xml
-<property name="regProperty" expression="get-property('registry', 'gov:/data/xml/collectionx@abc')"/>
-```
-
-!!! Info
-    You can use the following syntax to read properties or resources stored in the `gov` or `conf` registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `gov` or `conf` prefixes.
-
-#### Read a property stored under a collection
-
--   `get-property('registry','gov:<path to resource from governance>@<propertyname>')`
--   `get-property('registry','conf:<path to resource from config>@<propertyname>')`
-
-#### Read a property stored under a resource
-
--   `get-property('registry','gov:<path to resource from governance>/@<propertyname>')`
--   `get-property('registry','conf:<path to resource from config>/@<propertyname>')`
-
-#### Read an XML resource
-
--   `get-property('registry','gov:<path to resource from governance>')`
--   `get-property('registry','conf:<path to resource from config>')`
-
-### Read a file stored in the Registry
-
-Following is an example, in which you read an XML file that is stored in the registry using an [expression]({{base_path}}/reference/synapse-properties/expressions), to retrieve a value from it. Assume you have the following XML file stored in the registry in the path `gov:/test.xml`.
-
-**test.xml**
+The Property mediator can be used to set the HTTP status code for responses. In the example below, the status code is set to `500`.
 
 ```xml
-<root>
-  <book>A Song of Ice and Fire</book>
-  <author>George R. R. Martin</author>
-</root>
-```
-
-In the mediation flow, you can use the following expression to read XML.
-
-**reg_xpath.xml**
-
-``` xml
-<property name="xmlFile" expression="get-property('registry','gov:/test.xml')" scope="default" type="OM"></property>
-<log level="custom">
-    <property name="Book_Name" expression="$ctx:xmlFile//book"></property>
-</log>
-```
-
-Your output log will look like this.
-
-``` text
-[2015-09-21 16:01:28,750]  INFO - LogMediator Book_Name = A Song of Ice and Fire
-```
-
-### Read SOAP headers
-
-SOAP headers provide information about the message, such as the To and From values. You can use the `get-property()` function in the Property mediator to retrieve these headers. See the [SOAP headers]({{base_path}}/reference/mediators/property-reference/soap-headers) documentation for more information.
-
-For example, the following property stores the `To` header.
-
-```xml
-<property name="ToHeader" expression="get-property('To')" scope="axis2"/>
+<property name="HTTP_SC" value="500" scope="axis2"/>
 ```

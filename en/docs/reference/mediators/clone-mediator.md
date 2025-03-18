@@ -1,5 +1,8 @@
 # Clone Mediator
 
+!!! Note  
+      From WSO2 MI 4.4.0 onwards, if your use case requires processing and merging multiple message flows, you don't need to use the **Clone Mediator** along with the **Aggregate Mediator**. Instead, you can use the [**Scatter Gather mediator**]({{base_path}}/reference/mediators/scatter-gather-mediator/) as a single-step solution, simplifying the integration flow. It is recommended to use the [**Scatter Gather mediator**]({{base_path}}/reference/mediators/scatter-gather-mediator/) for new implementations.
+
 The **Clone Mediator** can be used to clone a message into several messages. It resembles the [Scatter-Gather enterprise integration pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/scatter-gather/). The Clone mediator is similar to the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator). The difference between the two mediators is that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
