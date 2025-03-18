@@ -202,3 +202,39 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+var feedback = document.forms.feedback
+
+if (hasUserAcceptedCookies() && !isHomePage()) {
+    feedback.hidden = false
+}
+
+feedback.addEventListener("submit", function(ev) {
+  ev.preventDefault()
+
+  var page = document.location.pathname
+  var data = ev.submitter.getAttribute("data-md-value")
+
+  const pageLabel = page + "_" + data;
+  dataLayer.push({'event':'feedback','pageLabel':pageLabel});
+
+  feedback.firstElementChild.disabled = true
+
+  var note = feedback.querySelector(
+    ".md-feedback__note [data-md-value='" + data + "']"
+  )
+  if (note)
+    note.hidden = false
+})
+
+function isHomePage() {
+    return window.location.pathname === "/" || window.location.pathname === "/en/latest/";
+}
+
+function hasUserAcceptedCookies() {
+    const consentCookie = document.cookie.split('; ').find(row => row.startsWith('OptanonConsent='));
+    if (consentCookie) {
+        return consentCookie.includes('isGpcEnabled=0'); // Check if user has interacted with consent
+    }
+    return false;
+}

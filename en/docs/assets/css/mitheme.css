@@ -363,3 +363,37 @@ header>.md-grid {
     outline: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
+
+.md-feedback {
+    border-top: #7a7a7aa3 1px solid;
+    padding-top: 20px;
+}
+
+.md-feedback__title {
+    font-weight: 600;
+}
+
+.md-feedback__icon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--md-feedback-button-color);
+    color: var(--md-feedback-button-color);
+    background: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.md-feedback__icon:hover {
+    border: 1px solid var(--md-accent-fg-color);
+}
+
+.md-feedback__icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.md-feedback__icon:disabled {
+    border: 1px solid var(--md-default-fg-color--lightest);
+}

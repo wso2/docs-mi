@@ -36,6 +36,7 @@
     --md-primary-fg-color-header-search-bg: #000000;
     --md-primary-fg-color-header-search-text: #e4e4e4;
     --md-md-code-bg-color: #000000;
+    --md-feedback-button-color: #c6c6c6;
 }
 /* colors for the light theme */
 [data-md-color-scheme="default"] {
@@ -49,6 +50,7 @@
     --md-primary-fg-color-header-search-bg: #cacaca42;
     --md-primary-fg-color-header-search-text: #303030;
     --md-md-code-bg-color: #e6e6e6;
+    --md-feedback-button-color: #636363;
 }
 .md-tabs {
     background-color: var(--md-primary-fg-color-header);

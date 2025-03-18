@@ -195,6 +195,32 @@
                 {% block content %}
                   {% include "partials/content.html" %}
                 {% endblock %}
+                <form class="md-feedback" name="feedback" hidden>
+                  <fieldset>
+                    <legend class="md-feedback__title">
+                      Was this page helpful?
+                    </legend>
+                    <div class="md-feedback__inner">
+                      <div class="md-feedback__list">
+                          <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+                            {% include ".icons/fontawesome/regular/thumbs-up.svg" %} Yes
+                          </button>
+                          <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+                            {% include ".icons/fontawesome/regular/thumbs-down.svg" %} No
+                          </button>
+                      </div>
+                      <div class="md-feedback__note">
+                          <div data-md-value="1" hidden>
+                            Thanks for your feedback!
+                          </div>
+                          <div data-md-value="0" hidden>
+                            Thanks for your feedback! Help us improve this page by
+                            <a href="https://github.com/wso2/docs-mi/issues/new/?title=[Feedback]+{{ page.title | striptags }}+-+{{ page.url | striptags }}" target="_blank" rel="noopener">reporting a GitHub issue</a>.
+                          </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>              
               </article>
             </div>
           {% endblock %}
