@@ -852,7 +852,7 @@ nav:
           - Comparison with JSONPath : reference/synapse-properties/synapse-expressions-comparison.md 
           - Legacy Expressions:
               - Overview: reference/synapse-properties/expressions.md
-              - JSONPath expressions: reference/synapse-properties/jsonpath-expressions.md
+              - JSONPath Expressions: reference/synapse-properties/jsonpath-expressions.md
               - XPath Expressions: reference/synapse-properties/xpath-expressions.md
       - Scopes: reference/synapse-properties/scopes.md
       - Templates: reference/synapse-properties/template-properties.md
