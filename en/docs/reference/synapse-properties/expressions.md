@@ -1,4 +1,12 @@
-# Expressions
+---
+search:
+  boost: 0.5
+---
+
+# Legacy Expressions
+
+!!! Note
+    WSO2 Micro Integrator will continue to support existing XPath and JSONPath expressions. However, it is recommended to use the new [Synapse Expressions]({{base_path}}/reference/synapse-properties/synapse-expressions), as they simplify data extraction and provide a rich set of functions.
 
 In WSO2 Micro Integrator, expressions are a way to dynamically compute values within various integration artifacts such as sequences, APIs, endpoints, and proxies. These expressions are used to extract data as it flows through the integration logic.
 
