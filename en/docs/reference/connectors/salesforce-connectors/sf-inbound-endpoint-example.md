@@ -10,6 +10,8 @@ The Salesforce inbound endpoint is a listening inbound endpoint that can consume
 
 In this example, we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [Setting up the PushTopic in Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) documentation.
 
+You can also consume the Change Data Capture (CDC) events for Salesforce Records by enabling it in the Salesforce platform. For more information, see the <a target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/cdc_select_objects.htm">Change Data Capture Events</a> documentation. Once you enable the CDC events, you can consume the CDC events using the Salesforce Inbound Endpoint by providing the `connection.salesforce.salesforceObject` parameter as `/data/<RecordName>ChangeEvent` (Eg: `/data/AccountChangeEvent`).
+
 The following diagram illustrates all the required functionality of the Salesforce inbound operations that you are going to build. 
 
 For example, we are building an integrated example driven through the [Salesforce connector]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/) and Salesforce Inbound Endpoint. The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then, through the **retrieve** sequence, it displays all the existing account details to the user.
@@ -81,6 +83,10 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    ```
    
 > **Note**: To configure the `connection.salesforce.password` parameter value, please use the steps given under the topic `Reset Security Token` in the [Salesforce inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) document.
+
+!!! Info
+
+    If you want to use the Salesforce Inbound Endpoint to consume the Change Data Capture (CDC) events for Salesforce Records, you can provide the `connection.salesforce.salesforceObject` parameter as `/data/<RecordName>ChangeEvent` (Eg: `/data/AccountChangeEvent`).
    
 ## Export integration logic as a CApp
 

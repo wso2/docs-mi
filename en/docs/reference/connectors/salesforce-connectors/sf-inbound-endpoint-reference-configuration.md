@@ -19,9 +19,9 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
   </tr>
   <tr>
     <td><code>connection.salesforce.salesforceObject</code></td>
-    <td>The name of the Push Topic or the Platform Event that is added to the Salesforce account.</td>
+    <td>The name of the Push Topic or the Platform Event that is added to the Salesforce account, or the Record the you want to listen for Change Data Capture events.</td>
     <td>Yes</td>
-    <td><code>/topic/Account</code></td>
+    <td><code>/topic/Account</code><br/><code>/data/AccountChangeEvent</td>
     <td>-</td>
   </tr>
   <tr>
