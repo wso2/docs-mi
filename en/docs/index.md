@@ -19,12 +19,12 @@
         ]
     }],
     [{
-        "title": "Mediators & Connectors",
-        "icon": "🔗",
+        "title": "Install & Setup",
+        "icon": "⏬",
         "links": [
-            {"name": "Mediators", "url": "reference/mediators/about-mediators/"},
-            {"name": "Connectors", "url": "reference/connectors/connectors-overview/"},
-            {"name": "Extensions", "url": "develop/customizations/creating-custom-mediators/"}
+            {"name": "Micro Integrator", "url": "install-and-setup/install/installing-mi/"},
+            {"name": "VS Code extension for MI", "url": "develop/mi-for-vscode/install-wso2-mi-for-vscode/"},
+            {"name": "Integration Control Plane", "url": "install-and-setup/install/installing-integration-control-plane/"}
         ]
     },
     {
@@ -32,7 +32,9 @@
         "icon": "🔧",
         "links": [
             {"name": "Product Configurations", "url": "reference/config-catalog-mi/"},
-            {"name": "Integration Properties", "url": "reference/mediators/property-reference/generic-properties/"}
+            {"name": "Integration Properties", "url": "reference/mediators/property-reference/generic-properties/"},
+            {"name": "Mediators", "url": "reference/mediators/about-mediators/"},
+            {"name": "Connectors", "url": "reference/connectors/connectors-overview/"}
         ]
     }
     ],
