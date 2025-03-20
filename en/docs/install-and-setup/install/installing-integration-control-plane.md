@@ -2,6 +2,11 @@
 
 Follow the steps given below to install the Integration Control Plane (ICP).
 
+## Before you begin
+
+See the [Integration Control Plane Installation Prerequisites]({{base_path}}/install-and-setup/install/icp-installation-prerequisites).
+Java Development Kit (JDK) is essential to run the product.
+
 ## Installing the Integration Control Plane
 
 1. Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/integration-control-plane/).

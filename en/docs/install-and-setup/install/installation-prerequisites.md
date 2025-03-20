@@ -1,4 +1,4 @@
-# Installation Prerequisites
+# WSO2 Micro Integrator Installation Prerequisites
 
 Prior to installing WSO2 Micro Integrator, make sure that the appropriate prerequisites are fulfilled.
 

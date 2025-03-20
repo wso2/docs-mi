@@ -81,7 +81,8 @@ nav:
   - Install and Setup:
       - Overview: install-and-setup/install-and-setup-overview.md
       - Install:
-          - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
+          - MI Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
+          - ICP Installation Prerequisites: install-and-setup/install/icp-installation-prerequisites.md
           - Install the Micro Integrator (MI):
               - Install MI: install-and-setup/install/installing-mi.md
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
