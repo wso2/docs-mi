@@ -1,3 +1,9 @@
+---
+tags:
+  - filter
+  - ifelse
+---
+
 # If Else Mediator
 
 The **If Else Mediator** can be used for filtering messages based on a Synapse expression, 
