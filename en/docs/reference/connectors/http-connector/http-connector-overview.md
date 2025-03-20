@@ -1,3 +1,14 @@
+---
+tags:
+  - http
+  - get
+  - post
+  - put
+  - patch
+  - head
+  - options
+---
+
 # HTTP Connector Overview
 
 HTTP (Hypertext Transfer Protocol) is a foundational protocol used for transferring data enabling communication between clients and servers.

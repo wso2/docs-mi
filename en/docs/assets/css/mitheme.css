@@ -397,3 +397,7 @@ header>.md-grid {
 .md-feedback__icon:disabled {
     border: 1px solid var(--md-default-fg-color--lightest);
 }
+
+.md-tag {
+    display: none !important;
+}

@@ -1,3 +1,9 @@
+---
+tags:
+  - vscode
+  - extension
+---
+
 # Micro Integrator for VS Code Overview
 
 WSO2 Micro Integrator (MI) offers an extension for Visual Studio Code (VS Code) that simplifies the development of integration solutions.
