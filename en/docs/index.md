@@ -23,7 +23,7 @@
         "icon": "⏬",
         "links": [
             {"name": "Micro Integrator", "url": "install-and-setup/install/installing-mi/"},
-            {"name": "VSCode extension for MI", "url": "develop/mi-for-vscode/install-wso2-mi-for-vscode/"},
+            {"name": "VS Code extension for MI", "url": "develop/mi-for-vscode/install-wso2-mi-for-vscode/"},
             {"name": "Integration Control Plane", "url": "install-and-setup/install/installing-integration-control-plane/"}
         ]
     },
