@@ -26,12 +26,12 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         </tr>
         <tr>
             <td><code>clientId</code></td>
-            <td>Client ID issued when you create the API integration in Installed Packages.</td>
+            <td>Client ID issued when you create the API integration in <b>Installed Packages</b>.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td><code>clientSecret</code></td>
-            <td>Client secret issued when you create the API integration in Installed Packages.</td>
+            <td>Client secret issued when you create the API integration in <b>Installed Packages</b>.</td>
             <td>Yes</td>
         </tr>
         <tr>
