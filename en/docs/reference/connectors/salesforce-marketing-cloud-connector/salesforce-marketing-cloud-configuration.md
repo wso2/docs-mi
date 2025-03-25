@@ -67,9 +67,9 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new asset.</td>
-            <td>Yes</td></tr>
+            <td>Yes</td>
+        </tr>
     </table>
-
 
     **Sample configuration**
 
@@ -95,6 +95,43 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
                     "content": "<html><body><p>Hello, this is an email from the SFMC API!</p></body></html>"
                 }
             }
+        }
+    }
+    ```
+
+??? note "Create Campaign"
+    The `Create Campaign` operation creates a new marketing campaign with defined objectives, target audience, and parameters.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>payload</code></td>
+            <td>The properties required to create a new campaign.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <SalesforceMarketingCloud.createCampaign configKey="SFMC_CON">
+        <payload>{${payload.body}}</payload>
+    </SalesforceMarketingCloud.createCampaign>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "body": {
+            "name": "Final Hours for Summer Sale",
+            "description": "Invite our most engaged customers to shop our Summer Sale before it ends.",
+            "campaignCode": "summer2023",
+            "color": "800080",
+            "favorite": false
         }
     }
     ```
@@ -237,7 +274,8 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new email definition.</td>
-            <td>Yes</td></tr>
+            <td>Yes</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -283,8 +321,8 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <th>Required</th>
         </tr>
         <tr>
-            <td><code>payload</code>
-            </td><td>The properties required to create a new SMS definition.</td>
+            <td><code>payload</code></td>
+            <td>The properties required to create a new SMS definition.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -344,8 +382,8 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <td>No</td>
         </tr>
         <tr>
-            <td><code>orderBy</code>
-            </td><td>Determines which asset property to use for sorting, and also determines the direction in which to sort the data.</td>
+            <td><code>orderBy</code></td>
+            <td>Determines which asset property to use for sorting, and also determines the direction in which to sort the data.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -385,6 +423,53 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
     }
     ```
 
+??? note "getCampaigns"
+    The `getCampaigns` operation retrieve a list of campaigns in your account.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>page</code></td>
+            <td>Page number to return from the paged results.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>pagesize</code></td>
+            <td>Number of results per page to return.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>orderBy</code></td>
+            <td>The field and sort method to use to sort the results.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+
+    **Sample configuration**
+
+    ```xml
+    <SalesforceMarketingCloud.getCampaigns configKey="SFMC_CON">
+        <page>{${payload.page}}</page>
+        <pagesize>{${payload.pagesize}}</pagesize>
+        <orderBy>{${payload.orderBy}}</orderBy>
+    </SalesforceMarketingCloud.getCampaigns>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "page": 1,
+        "pagesize": 10,
+        "orderBy": "assetId asc",
+        "filter": "status eq 'active'",
+        "fields": "assetId,name,status"
+    }
+
 ??? note "getContactDeleteRequests"
     The `getContactDeleteRequests` operation retrieves details of contact delete requests for a date range.
     <table>
@@ -394,8 +479,8 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <th>Required</th>
         </tr>
         <tr>
-            <td><code>startdateutc</code>
-            </td><td>Start date and time in UTC of the date range.</td>
+            <td><code>startdateutc</code></td>
+            <td>Start date and time in UTC of the date range.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -404,9 +489,10 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <td>No</td>
         </tr>
         <tr>
-            <td><code>statusid</code
-            ></td><td>Delete request status ID.</td>
-            <td>No</td></tr>
+            <td><code>statusid</code></td>
+            <td>Delete request status ID.</td>
+            <td>No</td>
+            </tr>
         <tr>
             <td><code>page</code></td>
             <td>Page number to return from the paged results.</td>
@@ -494,13 +580,13 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <td>No</td>
         </tr>
         <tr>
-            <td><code>mostRecentVersionOnly</code>
-            </td><td>Specifies whether to return the most recent version of each journey matching the filter criteria.</td>
+            <td><code>mostRecentVersionOnly</code></td>
+            <td>Specifies whether to return the most recent version of each journey matching the filter criteria.</td>
             <td>No</td>
         </tr>
         <tr>
-            <td><code>nameOrDescription</code>
-            </td><td>A search string to apply to the request. Matches name and description of each journey.</td>
+            <td><code>nameOrDescription</code></td>
+            <td>A search string to apply to the request. Matches name and description of each journey.</td>
             <td>No</td>
         </tr>
         <tr>
