@@ -68,8 +68,10 @@ An example implementation of this class is shown below:
         @Override
         public Map<String, Object> getCustomProperties(MessageContext messageContext) {
             Map<String, Object> properties = new HashMap<>();
-            Mediator mediator = messageContext.getMainSequence();
-            properties.put("mediatorName", mediator.getMediatorName());
+            Object contentType = ((Axis2MessageContext) messageContext).getAxis2MessageContext().getProperty("ContentType");
+            if (contentType != null) {
+                properties.put("contentType", contentType);
+            }
             return properties;
         }
     }
