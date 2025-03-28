@@ -65,7 +65,7 @@ The Micro Integrator runtime is tested with the following operating systems:
 |--------------------------|------------|
 | Windows                  | 2025       |
 | Ubuntu                   | 24.04      |
-| Red Hat Enterprise Linux | 15   |
+| Red Hat Enterprise Linux | 9   |
 | Rocky Linux              | 9.5       |
 | MacOS                    | 14.6      |
 | SUSE Linux               | 15         |
@@ -89,7 +89,7 @@ The Micro Integrator runtime is tested with the following databases:
 |----------------------|--------------------|
 | MySQL                | 9             |
 | Oracle               | 12c release 2, 19c |
-| Microsoft SQL Server | 2019               |
+| Microsoft SQL Server | 2022               |
 | PostgreSQL           | 17.2         |
 | MariaDB              | 10.5               |
 | DB2                  | 11.5               |
