@@ -95,7 +95,7 @@ Edit the `analytics` configuration in the `deployment.toml` file, located inside
 
 ``` toml
     [analytics]
-    enable = true
+    enabled=true
     custom_data_provider_class="org.wso2.ei.SampleCustomDataProvider"
 ```
 
