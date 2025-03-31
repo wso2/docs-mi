@@ -327,7 +327,7 @@ Shutdown the node in which the task is scheduled and observe the following log i
 
 The above log describes the failover capability of the tasks when the task server becomes unavailable.
 
-## Monitoring the cluster with ICP
+## Monitor the cluster with ICP
 
 1. Follow the instructions in the [Installing the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
 
@@ -353,7 +353,7 @@ The above log describes the failover capability of the tasks when the task serve
     node_id = "dev_node_2"
     ```
 
-   Please refer to the [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/) guide for further details.
+   Refer to the [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/) guide for further details.
 
 3. Start the ICP by following the instructions in the [Starting the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#starting-the-integration-control-plane) guide.
 
