@@ -67,14 +67,160 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new asset.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>customerKey</code></td>
+            <td>Reference to customer's private ID/name for the asset.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>contentType</code></td>
+            <td>The type that the content attribute will be in.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>data</code></td>
+            <td>Property bag containing the asset data.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>assetType</code></td>
+            <td>The type of the asset saved as a name/ID pair.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>version</code></td>
+            <td>The version of the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>locked</code></td>
+            <td>Specifies if the asset can be modified or not.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>fileProperties</code></td>
+            <td>Properties referred to by the asset if it is a file type.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Name of the asset, set by the client. 200 character maximum.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>Description of the asset, set by the client.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>category</code></td>
+            <td>ID of the category the asset belongs to.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>tags</code></td>
+            <td>List of tags associated with the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>content</code></td>
+            <td>The actual content of the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>design</code></td>
+            <td>Fallback for display when neither content nor supercontent are provided.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>superContent</code></td>
+            <td>Content that supersedes content in terms of display.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>customFields</code></td>
+            <td>Custom fields within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>views</code></td>
+            <td>Views within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>blocks</code></td>
+            <td>Blocks within the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>minBlocks</code></td>
+            <td>Minimum number of blocks within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>maxBlocks</code></td>
+            <td>Maximum number of blocks within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>channels</code></td>
+            <td>List of channels that are allowed to use this asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>allowedBlocks</code></td>
+            <td>List of blocks that are allowed in the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>slots</code></td>
+            <td>Slots within the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>businessUnitAvailability</code></td>
+            <td>A dictionary of member IDs that have been granted access to the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>template</code></td>
+            <td>Template the asset follows.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>file</code></td>
+            <td>Base64-encoded string of a file associated with an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>generateFrom</code></td>
+            <td>Indicates which view to use to generate this view’s content.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties</code></td>
+            <td>Allows you to share content with business units with Content Builder Sharing enabled.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties.sharedWith</code></td>
+            <td>List of MID IDs the asset is shared with.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties.sharingType</code></td>
+            <td>Permission granted to MIDs in <code>sharedWith</code> (view, edit, or local).</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.createAsset configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.createAsset>
     ```
@@ -110,14 +256,40 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new campaign.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>The name of the campaign.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>A description of the campaign.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>campaignCode</code></td>
+            <td>A campaign code to associate with the campaign.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>color</code></td>
+            <td>The color used to identify the campaign in the Marketing Cloud Engagement web interface, expressed as an HTML color code.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>favorite</code></td>
+            <td>Indicates whether to identify the campaign as a favorite.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <SalesforceMarketingCloud.createCampaign configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </SalesforceMarketingCloud.createCampaign>
     ```
@@ -147,14 +319,60 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new category.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Name of the category.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>parentId</code></td>
+            <td>ID of the parent category.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>categoryType</code></td>
+            <td>The type of category, either asset or asset-shared, automatically set to match the parent. If asset-shared, include SharingProperties.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>enterpriseId</code></td>
+            <td>ID of the enterprise this business unit belongs to.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>memberId</code></td>
+            <td>ID of the member who creates the category.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>Description of the category.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties</code></td>
+            <td>Allows sharing the category with business units with Content Builder Sharing enabled. Includes MIDs and sharing type.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties.sharedWith</code></td>
+            <td>List of up to 100 MID IDs the category is shared with. Use 0 to share across the enterprise if enabled.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties.sharingType</code></td>
+            <td>Permission for MIDs in <code>sharedWith</code>. Only possible value for categories is <code>edit</code>.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.createCategory configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.createCategory>
     ```
@@ -183,14 +401,40 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new contact.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>contactKey</code></td>
+            <td>Primary address for the contact. You must provide either a value for contactKey or contactID.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>contactID</code></td>
+            <td>Unique ID for the contact. You must provide either a value for contactKey or contactID.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>attributeSets</code></td>
+            <td>Array of information used to create a new contact.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>attributeSets.name</code></td>
+            <td>Required. Name of attribute group to which to add the contact information.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>attributeSets.values</code></td>
+            <td>Name and value pairs indicating the attribute and applicable value.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.createContact configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.createContact>
     ```
@@ -235,14 +479,50 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new journey.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>key</code></td>
+            <td>Required. The customer key as a GUID (UUID) to be used while referencing this journey.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Required. The name of this journey.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>A description of this journey.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>workflowApiVersion</code></td>
+            <td>Required. The Journey Spec version to use for this journey. Possible values: 0.5, 1.0.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>goals</code></td>
+            <td>The goal for this particular journey. Expressed as an object of type ContactDecision from the Journey Spec.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>triggers</code></td>
+            <td>The trigger for this particular journey. Expressed as an object of type ContactEvent from the Journey Spec.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>activities</code></td>
+            <td>The activities which compose this particular journey. Expressed as objects of types supported by the Journey Spec.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.createJourney configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.createJourney>
     ```
@@ -274,14 +554,85 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new email definition.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>definitionKey</code></td>
+            <td>Required. Unique, user-generated key to access the definition object.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Required. Name of the definition. Must be unique.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>content.customerKey</code></td>
+            <td>Required. Unique identifier of the content asset.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>Operational state of the definition: active, inactive, or deleted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>User-provided description of the send definition.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>classification</code></td>
+            <td>The external key of a sending classification defined in Email Studio Administration. Only transactional classifications are permitted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.list</code></td>
+            <td>Required. The external key of the list or all subscribers. Contains the subscriber keys and profile attributes.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.dataExtension</code></td>
+            <td>The external key of the triggered send data extension.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.autoAddSubscriber</code></td>
+            <td>Adds the recipient’s email address and contact key as a subscriber key to subscriptions.list. Default is true.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.updateSubscriber</code></td>
+            <td>Updates the recipient’s contact key as a subscriber key. Default is true.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.trackLinks</code></td>
+            <td>Wraps links for tracking and reporting. Default is true.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.cc</code></td>
+            <td>Include CC email addresses with every send. Can use %%attribute%% syntax for dynamic CCs.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.bcc</code></td>
+            <td>Include BCC email addresses with every send. Can use %%attribute%% syntax for dynamic BCCs.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.createJourney</code></td>
+            <td>Marks the definition as available for use in Journey Builder as a Transactional Send Journey.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.createEmailDefinition configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.createEmailDefinition>
     ```
@@ -323,14 +674,80 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to create a new SMS definition.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>definitionKey</code></td>
+            <td>Required. Unique, user-generated key to access the definition object.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Required. Name of the definition. Must be unique.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>content.message</code></td>
+            <td>Required. The message content that you want sent with each message. Use substitution strings and AMPscript to personalize the message.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>Operational state of the definition: active, inactive, or deleted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>User-provided description of the send definition.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.shortCode</code></td>
+            <td>Required. The short or long code for the mobile transmissions for each message on this definition.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.countryCode</code></td>
+            <td>The country code associated with the shortCode. Don't use for long codes unless required by your account configuration.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.keyword</code></td>
+            <td>Required. The keyword used to track messages.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>subscriptions.autoAddSubscriber</code></td>
+            <td>Allows you to add a recipient as a subscriber using contactKey. When false, the message is rejected if contactKey doesn't exist as a subscriber.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.urlShortenerOptions.IsLinkShorteningEnabled</code></td>
+            <td>Indicates if URL shortening is enabled for URLs in the message body.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.urlShortenerOptions.isSubscriberTrackingEnabled</code></td>
+            <td>Indicates if subscriber-level tracking is enabled. Required if shortenerType is <code>SFMC</code>.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.urlShortenerOptions.shortenerType</code></td>
+            <td>The type of URL shortener. The value is <code>SFMC</code>.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>options.SmsMessageRegulatoryAuthorityTemplateId</code></td>
+            <td>The ID of the DLT template used in the SMS. Available only for customers in India.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.createSmsDefinition configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.createSmsDefinition>
     ```
@@ -559,56 +976,6 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
             <td>The field and sort method to use to sort the results. You can sort on these fields: ModifiedDate, Name, Performance.</td>
             <td>No</td>
         </tr>
-        <tr>
-            <td><code>definitionType</code></td>
-            <td>The type of definition to retrieve. The only accepted value is 'transactional'.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>extras</code></td>
-            <td>Additional information to include in the response. Possible values: activities, outcome, stats, all. 'All' provides all available extra details but may impact query performance.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>key</code></td>
-            <td>The external key of a journey to retrieve.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>id</code></td>
-            <td>The ID of a journey to retrieve. Returns all versions of the journey when specified.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>mostRecentVersionOnly</code></td>
-            <td>Specifies whether to return the most recent version of each journey matching the filter criteria.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>nameOrDescription</code></td>
-            <td>A search string to apply to the request. Matches name and description of each journey.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>specificApiVersionNumber</code></td>
-            <td>The version number of the workflowApiVersion value to retrieve.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>status</code></td>
-            <td>A journey status value to filter the results. Possible values: Deleted, Draft, Published, ScheduledToPublish, Stopped, Unpublished.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>tag</code></td>
-            <td>A tag to filter the results. Returns only journeys with the specified tag.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td><code>versionNumber</code></td>
-            <td>The version number of the journey to retrieve. Default is the currently published version or the latest version number meeting the criteria.</td>
-            <td>No</td>
-        </tr>
     </table>
 
     **Sample configuration**
@@ -618,16 +985,6 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <page>{${payload.page}}</page>
         <pageSize>{${payload.pageSize}}</pageSize>
         <orderBy>{${payload.orderBy}}</orderBy>
-        <definitionType>{${payload.definitionType}}</definitionType>
-        <extras>{${payload.extras}}</extras>
-        <key>{${payload.key}}</key>
-        <id>{${payload.id}}</id>
-        <mostRecentVersionOnly>{${payload.mostRecentVersionOnly}}</mostRecentVersionOnly>
-        <nameOrDescription>{${payload.nameOrDescription}}</nameOrDescription>
-        <specificApiVersionNumber>{${payload.specificApiVersionNumber}}</specificApiVersionNumber>
-        <status>{${payload.status}}</status>
-        <tag>{${payload.tag}}</tag>
-        <versionNumber>{${payload.versionNumber}}</versionNumber>
     </salesforceMarketingCloud.getJourneys>
     ```
  
@@ -637,17 +994,7 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
     {
         "orderBy": "modifiedDate DESC",
         "page": 1,
-        "pageSize": 50,
-        "definitionType": "transactional",
-        "extras": "activities,stats",
-        "key": "journeyKeyExample",
-        "id": "journeyIdExample",
-        "mostRecentVersionOnly": true,
-        "nameOrDescription": "Welcome",
-        "specificApiVersionNumber": 1,
-        "status": "Published",
-        "tag": "marketing",
-        "versionNumber": 2
+        "pageSize": 50
     }
     ```
 
@@ -719,15 +1066,161 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to update the asset.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>customerKey</code></td>
+            <td>Reference to customer's private ID/name for the asset.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>contentType</code></td>
+            <td>The type that the content attribute will be in.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>data</code></td>
+            <td>Property bag containing the asset data.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>assetType</code></td>
+            <td>The type of the asset saved as a name/ID pair.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>version</code></td>
+            <td>The version of the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>locked</code></td>
+            <td>Specifies if the asset can be modified or not.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>fileProperties</code></td>
+            <td>Stores the different properties that this asset refers to if it is a file type.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Name of the asset, set by the client. 200 character maximum.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>Description of the asset, set by the client.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>category</code></td>
+            <td>ID of the category the asset belongs to.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>tags</code></td>
+            <td>List of tags associated with the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>content</code></td>
+            <td>The actual content of the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>design</code></td>
+            <td>Fallback for display when neither content nor supercontent are provided.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>superContent</code></td>
+            <td>Content that supersedes content in terms of display.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>customFields</code></td>
+            <td>Custom fields within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>views</code></td>
+            <td>Views within an asset.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>blocks</code></td>
+            <td>Blocks within the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>minBlocks</code></td>
+            <td>Minimum number of blocks within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>maxBlocks</code></td>
+            <td>Maximum number of blocks within an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>channels</code></td>
+            <td>List of channels that are allowed to use this asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>allowedBlocks</code></td>
+            <td>List of blocks that are allowed in the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>slots</code></td>
+            <td>Slots within the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>businessUnitAvailability</code></td>
+            <td>A dictionary of member IDs that have been granted access to the asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>template</code></td>
+            <td>Template the asset follows.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>file</code></td>
+            <td>Base64-encoded string of a file associated with an asset.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>generateFrom</code></td>
+            <td>Tells the sending compiler what view to use for generating this view's content.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties</code></td>
+            <td>Allows you to share content with one or more business units that have Content Builder Sharing enabled.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties.sharedWith</code></td>
+            <td>List of MID IDs the asset is shared with.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>sharingProperties.sharingType</code></td>
+            <td>Indicates the permission that you are granting to the list of MIDs in sharedWith. Possible values are view, edit, or local.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.updateAsset configKey="SFMC_CON">
         <assetId>{${payload.assetId}}</assetId>
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.updateAsset>
     ```
@@ -774,15 +1267,40 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to update the contact.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>contactKey</code></td>
+            <td>Primary address for the contact. You must provide either a value for contactKey or contactID.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>contactID</code></td>
+            <td>Unique ID for the contact. You must provide either a value for contactKey or contactID.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>attributeSets</code></td>
+            <td>Array of information used to create a new contact.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>attributeSets.name</code></td>
+            <td>Required. Name of attribute group to which to add the contact information.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>attributeSets.values</code></td>
+            <td>Name and value pairs indicating the attribute and applicable value.</td>
+            <td>No</td>
         </tr>
     </table>
 
-
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.updateContact configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.updateContact>
     ```
@@ -817,6 +1335,76 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
     }
     ```
 
+??? note "updateCampaign"
+    The `updateCampaign` operation updates a campaign.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>campaignId</code></td>
+            <td>ID of the campaign to be updated.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>payload</code></td>
+            <td>The properties required to update the campaign.</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>The name of the campaign.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>A description of the campaign.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>campaignCode</code></td>
+            <td>A campaign code to associate with the campaign.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>color</code></td>
+            <td>The color used to identify the campaign in the Marketing Cloud Engagement web interface, expressed as an HTML color code.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>favorite</code></td>
+            <td>Indicates whether to identify the campaign as a favorite.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configuration for "INLINE"**
+
+    ```xml
+    <SalesforceMarketingCloud.updateCampaign configKey="OSCON">
+        <inputStructure>INLINE</inputStructure>
+        <campaignId>{${payload.id}}</campaignId>
+        <payload>{${payload.body}}</payload>
+    </SalesforceMarketingCloud.updateCampaign>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "id": 237
+        "body": {
+            "name": "Final Hours for Summer Sale",
+            "description": "Invite our most engaged customers to shop our Summer Sale before it ends.",
+            "campaignCode": "summer2023",
+            "color": "800080",
+            "favorite": false
+        }
+    }
+    ```
+
 ??? note "deleteAsset"
     The `deleteAsset` operation deletes an asset.
     <table>
@@ -828,7 +1416,7 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>assetId</code></td>
             <td>The ID of the asset to delete.</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
     </table>
 
@@ -845,6 +1433,74 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
     ```json
     {
         "assetId": 3456
+    }
+
+??? note "deleteCampaign"
+    The `deleteCampaign` operation deletes a campaign.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>campaignId</code></td>
+            <td>The ID of the campaign to delete.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforceMarketingCloud.deleteCampaign configKey="SFMC_CON">
+        <campaignId>{${payload.campaignId}}</campaignId>
+    </salesforceMarketingCloud.deleteCampaign>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "campaignId": 3456
+    }
+
+??? note "deleteContact"
+    The `deleteContact` operation deletes a given list of contacts.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td><code>values</code></td>
+            <td>Array of contact ID values to delete.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>deleteOperationType</code></td>
+            <td>Type of delete operation to perform.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <SalesforceMarketingCloud.deleteContact configKey="OSCON">
+        <values>{${payload.values}}</values>
+        <deleteOperationType>ContactAndAttributes</deleteOperationType>
+    </SalesforceMarketingCloud.deleteContact>
+    ```
+ 
+    **Sample request**
+
+    ```json
+    {
+        "values": [
+            207807736
+        ]
     }
     ```
 
@@ -881,11 +1537,21 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
 
     ```json
     {
-        "ad_id": "456456456",
-        "properties": {
-            "name": "New Furniture Ad 2",
-            "status": "PAUSED"
-        }
+        "externalKey": "AB8F0F80-065C-4B1C-85FC-545DB1D55767",
+        "body": [
+            {
+                "values": {
+                    "SubscriberKey": "email address",
+                    "EmailAddress": "email address"
+                }
+            },
+            {
+                "values": {
+                    "SubscriberKey": "email address",
+                    "EmailAddress": "email address"
+                }
+            }
+        ]
     }
     ```
 
@@ -900,14 +1566,30 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to send an e-mail message.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>definitionKey</code></td>
+            <td>The ID of the send definition.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>recipients</code></td>
+            <td>Recipient parameters and metadata. Cannot be used with single recipient array.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>attributes</code></td>
+            <td>Personalization attributes for the message as key-value pairs.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.sendEmailMessage configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.sendEmailMessage>
     ```
@@ -951,14 +1633,40 @@ To use the Salesforce Marketing Cloud connector, first create the connection wit
         <tr>
             <td><code>payload</code></td>
             <td>The properties required to send SMS message.</td>
-            <td>Yes</td>
+            <td>Required if <code>inputStructure</code> is <code>INLINE</code></td>
+        </tr>
+        <tr>
+            <td><code>definitionKey</code></td>
+            <td>The ID of the send definition.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>recipients</code></td>
+            <td>An array of recipient objects that contain tracking and personalization metadata.</td>
+            <td>Required if <code>inputStructure</code> is <code>FORM</code></td>
+        </tr>
+        <tr>
+            <td><code>subscriptions</code></td>
+            <td>Resubscribe the recipient even if previously opted out.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>content</code></td>
+            <td>Overrides content in send definition. Supports substitution strings.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code>attributes</code></td>
+            <td>Key-value pairs used to personalize the message globally.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration for "INLINE"**
 
     ```xml
     <salesforceMarketingCloud.sendSmsMessage configKey="SFMC_CON">
+        <inputStructure>INLINE</inputStructure>
         <payload>{${payload.body}}</payload>
     </salesforceMarketingCloud.sendSmsMessage>
     ```
