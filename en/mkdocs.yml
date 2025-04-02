@@ -456,6 +456,7 @@ nav:
           - ELK Based Analytics:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
+              - Publish Custom Analytics Events Data: mi-analytics/mi-custom-analytics.md
           - MI Analytics:
               - Setup: mi-analytics/setting-up-mi-analytics.md
               - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
