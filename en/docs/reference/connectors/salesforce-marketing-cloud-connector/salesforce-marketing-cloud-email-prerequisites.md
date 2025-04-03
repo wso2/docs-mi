@@ -1,6 +1,7 @@
 # Prerequisites for Sending an Email
 
-**Note**: Make sure authentication is set up before sending emails to prevent them from being bounced. Specifically, if the sending domain fails any of the SPF, DKIM, or DMARC checks, the email will be rejected.
+!!!Note
+    Make sure authentication is set up before sending emails to prevent them from being bounced. Specifically, if the sending domain fails any of the SPF, DKIM, or DMARC checks, the email will be rejected.
 
 To ensure reliable email delivery and avoid bounces, it's important to properly configure the following authentication mechanisms:
 
@@ -8,9 +9,9 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 2. DomainKeys Identified Mail (DKIM): DKIM adds a cryptographic signature to outgoing emails, verifying they weren't altered in transit. Generate and activate DKIM keys in Salesforce and add the provided CNAME records to your DNS. [Learn more about DKIM setup](https://help.salesforce.com/s/articleView?id=sf.emailadmin_setup_dkim_key.htm&type=5).
 3. Domain-based Message Authentication, Reporting, and Conformance (DMARC): DMARC builds on SPF and DKIM to define how email receivers should handle authentication failures and provides reporting. [Learn more about DMARC](https://help.salesforce.com/s/articleView?id=sf.emailadmin_dmarc.htm&type=5).
 
-## Create and Send Emails in Salesforce Marketing Cloud
+## Create and send emails in Salesforce Marketing Cloud
 
-### Step 1: Log in and Access Email Studio
+### Step 1: Log in and access Email Studio
 
 1. Navigate to your [Salesforce Marketing Cloud login page](https://mc.exacttarget.com/cloud/login.html) and log in with your credentials.
 
@@ -24,7 +25,7 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/email-template-home.png" title="Email Template Home" width="50%" alt="Email Template Home"/>
 
-2. Click “New Email Template,” fill in the required details, and save.
+2. Click **New Email Template**, fill in the required details, and save.
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/email-template-new.png" title="New Email Template" width="100%" alt="New Email Template"/>
 
@@ -36,8 +37,8 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 
 ### Step 3: Create the Email Message in Content Builder
 
-1. From Email Studio, click on “Content.”
-2. Choose “Create” and select your preferred email type (Template Based, HTML Paste, or Text Only).
+1. From Email Studio, click on **Content**.
+2. Choose **Create** and select your preferred email type (Template Based, HTML Paste, or Text Only).
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/create-email.png" title="Create Email" width="100%" alt="Create Email"/>
 
@@ -51,16 +52,16 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 
 ### Step 4 Configure a Sender Profile
 
-1. In Email Studio, click the “Admin” tab (or use the Email drop-down to find Admin).
-2. Find the “Sender Profiles” option in the left-hand menu.
+1. In Email Studio, click the **Admin** tab (or use the Email drop-down to find **Admin**).
+2. Find the **Sender Profiles** option in the left-hand menu.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/sender-profiles.png" title="Sender Profiles" width="30%" alt="Sender Profiles"/>
 
-3. Click “Create” to make a new profile or select an existing profile to update.
+3. Click **Create** to make a new profile or select an existing profile to update.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/new-profile.png" title="New Profile" width="100%" alt="New Profile"/>
 
-4. Provide a “From Name” and a verified “From Email Address” that is authorized in your Salesforce Marketing Cloud account.
+4. Provide a **From Name** and a verified **From Email Address** that is authorized in your Salesforce Marketing Cloud account.
 5. Confirm and save your sender profile.
 
 ### Step 5: Set Up a Delivery Profile
