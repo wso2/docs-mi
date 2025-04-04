@@ -1,9 +1,36 @@
 # Email Connector Reference
 
-The following operations allow you to work with the Email Connector. Click an operation name to see parameter details and samples on how to use it.
+This documentation provides a reference guide for the Email Connector.
+The Email Connector allows you to list, send emails and perform other actions such as get body, get attachment,mark email as read, mark email as deleted, delete email and expunge folder on different mailboxes using protocols IMAP, POP3 and SMTP.
 
-??? note "init"
-    The init operation configures the connection parameters used to establish a connection to the mail server.
+## Connection Configurations
+
+<img src="{{base_path}}/assets/img/integrate/connectors/email-2.x/email-conn.png" title="Email Connector Configuration" width="700" alt="Email Connector Configuration"/>
+
+The WSO2 MI Email Connector supports multiple email protocols, allowing seamless integration with mail servers.
+
+- **SMTP (Simple Mail Transfer Protocol)**  
+  SMTP is a standard communication protocol used for sending emails between mail servers. It is primarily responsible for the transmission of outgoing messages from email clients to mail servers and between mail servers.  
+
+- **SMTPS (Secure SMTP)**  
+  SMTPS is the secure version of SMTP that encrypts email communication using SSL/TLS to enhance security and protect sensitive information from interception during transmission.  
+
+- **POP3 (Post Office Protocol v3)**  
+  POP3 is a protocol used to retrieve emails from a mail server. It downloads messages to the local device and typically removes them from the server, making it suitable for single-device email access.  
+
+- **POP3S (Secure POP3)**  
+  POP3S is the secure version of POP3, where email retrieval is encrypted using SSL/TLS, ensuring that email data remains protected during transmission.  
+
+- **IMAP (Internet Message Access Protocol)**  
+  IMAP is a protocol used for retrieving emails while keeping them stored on the mail server. It allows users to manage emails across multiple devices, providing synchronization between the client and server.  
+
+- **IMAPS (Secure IMAP)**  
+  IMAPS is the secure version of IMAP, where email communication is encrypted using SSL/TLS, ensuring that sensitive data remains protected while being accessed or synchronized.  
+
+### Connection Configuration Parameters
+The connection configuration parameters are used to establish a connection with the email server. These parameters are needed to provide based on the protocol you are using.
+
+??? note "SMTP"
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -11,119 +38,538 @@ The following operations allow you to work with the Email Connector. Click an op
             <th>Required</th>
         </tr>
         <tr>
+            <td>connectionName</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
             <td>host</td>
-            <td>Host name of the mail server.</td>
+            <td>Hostname of the SMTP server.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>port</td>
-            <td>The port number of the mail server.</td>
+            <td>Port number of the SMTP server.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>name</td>
-            <td>Unique name the connection is identified by.</td>
+            <td>requireAuthentication</td>
+            <td>Specifies if authentication is required.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>username</td>
-            <td>Username used to connect with the mail server.</td>
+            <td>Username for authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Password for authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <th colspan="3">Additional parameters for connection</td>
+        </tr>
+            <td>Read Timeout</td>
+            <td>Timeout for reading the response from the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>connectionTimeout</td>
+            <td>Timeout for establishing the connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>writeTimeout</td>
+            <td>Timeout for writing the request to the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Active Connections</td>
+            <td>Maximum number of active connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Idle Connections</td>
+            <td>Maximum number of idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Wait Time</td>
+            <td>Maximum wait time for a connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Min Eviction Time</td>
+            <td>Minimum time before an idle connection is evicted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Eviction Check Interval</td>
+            <td>Interval for checking idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Exhausted Action </td>
+            <td>Action to take when the connection pool is exhausted.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+??? note "SMTPS"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>connectionName</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>Hostname of the SMTPS server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>Port number of the SMTPS server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>Username for authentication.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>password</td>
-            <td>Password to connect with the mail server.</td>
+            <td>Password for authentication.</td>
             <td>Yes</td>
-        </tr>
-        <tr>
-            <td>connectionType</td>
-            <td>Email connection type (protocol) that should be used to establish the connection with the server. (IMAP/IMAPS/POP3/POP3S/SMTP/SMTPS).</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>readTimeout</td>
-            <td>The socket read timeout value. E.g., 100000.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>connectionTimeout</td>
-            <td>The socket connection timeout value. E.g., 100000.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>writeTimeout</td>
-            <td>The socket write timeout value. E.g., 100000.</td>
-            <td>Optional</td>
         </tr>
         <tr>
             <td>requireTLS</td>
-            <td>Whether the connection should be established using TLS. The default value is false. Therefore, for secured protocols SSL will be used by default.</td>
-            <td>Optional</td>
+            <td>Specifies if TLS is required.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>checkServerIdentity</td>
-            <td>Whether server identity should be checked.</td>
-            <td>Optional</td>
+            <th colspan="3">Additional parameters for connection</td>
+        </tr>
+            <td>Read Timeout</td>
+            <td>Timeout for reading the response from the server.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>trustedHosts</td>
-            <td>Comma separated string of trust host names.</td>
-            <td>Optional</td>
+            <td>connectionTimeout</td>
+            <td>Timeout for establishing the connection.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>sslProtocols</td>
-            <td>Comma separated string of SSL protocols.</td>
-            <td>Optional</td>
+            <td>writeTimeout</td>
+            <td>Timeout for writing the request to the server.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>cipherSuites</td>
-            <td>Comma separated string of Cipher Suites.</td>
-            <td>Optional</td>
+            <td>Max Active Connections</td>
+            <td>Maximum number of active connections.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>maxActiveConnections</td>
-            <td>Maximum number of active connections in the pool. When negative, there is no limit to the number of objects that can be managed by the pool at one time. Default is 8.</td>
-            <td>Optional</td>
+            <td>Max Idle Connections</td>
+            <td>Maximum number of idle connections.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>maxIdleConnections</td>
-            <td>Maximum number of idle connections in the pool. When negative, there is no limit to the number of objects that may be idle at one time. Default is 8.</td>
-            <td>Optional</td>
+            <td>Max Wait Time</td>
+            <td>Maximum wait time for a connection.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>maxWaitTime</td>
-            <td>Specifies the number of milliseconds to wait for a pooled component to become available when the pool is exhausted and the exhaustedAction is set to WHEN_EXHAUSTED_WAIT. If maxWait is negative, it will be blocked indefinitely. Default is -1.</td>
-            <td>Optional</td>
+            <td>Min Eviction Time</td>
+            <td>Minimum time before an idle connection is evicted.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>evictionCheckInterval</td>
-            <td>The number of milliseconds between runs of the object evictor. When non-positive, no eviction thread will be launched. The default setting for this parameter is -1</td>
-            <td>Optional</td>
+            <td>Eviction Check Interval</td>
+            <td>Interval for checking idle connections.</td>
+            <td>No</td>
         </tr>
         <tr>
-            <td>minEvictionTime</td>
-            <td>The minimum amount of time an object may sit idle in the pool before it is eligible for eviction. When non-positive, no object will be dropped from the pool due to idle time alone. This setting has no effect unless timeBetweenEvictionRunsMillis > 0. The default setting for this parameter is 30 minutes.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>exhaustedAction</td>
-            <td>The behavior of the pool when the pool is exhausted. (WHEN_EXHAUSTED_FAIL/WHEN_EXHAUSTED_BLOCK/WHEN_EXHAUSTED_GROW) Default is WHEN_EXHAUSTED_FAIL.</td>
-            <td>Optional</td>
+            <td>Exhausted Action </td>
+            <td>Action to take when the connection pool is exhausted.</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configuration**
+??? note "POP3"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>connectionName</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>Hostname of the POP3 server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>Port number of the POP3 server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>Username for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Password for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <th colspan="3">Additional parameters for connection</td>
+        </tr>
+            <td>Read Timeout</td>
+            <td>Timeout for reading the response from the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>connectionTimeout</td>
+            <td>Timeout for establishing the connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>writeTimeout</td>
+            <td>Timeout for writing the request to the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Active Connections</td>
+            <td>Maximum number of active connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Idle Connections</td>
+            <td>Maximum number of idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Wait Time</td>
+            <td>Maximum wait time for a connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Min Eviction Time</td>
+            <td>Minimum time before an idle connection is evicted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Eviction Check Interval</td>
+            <td>Interval for checking idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Exhausted Action </td>
+            <td>Action to take when the connection pool is exhausted.</td>
+            <td>No</td>
+        </tr>
+    </table>
 
-    ```xml
-    <email.connection>
-        <host>127.0.0.1</host>
-        <port>465</port>
-        <connectionType>SMTPS</connectionType>
-        <name>smtpconnection</name>
-        <username>user1</username>
-        <password>user1</password>
-    </email.connection>
-    ```
+??? note "POP3S"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>connectionName</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>Hostname of the POP3S server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>Port number of the POP3S server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>Username for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Password for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <th colspan="3">Additional parameters for connection</td>
+        </tr>
+            <td>Read Timeout</td>
+            <td>Timeout for reading the response from the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>connectionTimeout</td>
+            <td>Timeout for establishing the connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>writeTimeout</td>
+            <td>Timeout for writing the request to the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Active Connections</td>
+            <td>Maximum number of active connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Idle Connections</td>
+            <td>Maximum number of idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Wait Time</td>
+            <td>Maximum wait time for a connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Min Eviction Time</td>
+            <td>Minimum time before an idle connection is evicted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Eviction Check Interval</td>
+            <td>Interval for checking idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Exhausted Action </td>
+            <td>Action to take when the connection pool is exhausted.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+??? note "IMAP"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>connectionName</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>Hostname of the IMAP server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>Port number of the IMAP server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>Username for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Password for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <th colspan="3">Additional parameters for connection</td>
+        </tr>
+            <td>Read Timeout</td>
+            <td>Timeout for reading the response from the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>connectionTimeout</td>
+            <td>Timeout for establishing the connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>writeTimeout</td>
+            <td>Timeout for writing the request to the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Active Connections</td>
+            <td>Maximum number of active connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Idle Connections</td>
+            <td>Maximum number of idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Wait Time</td>
+            <td>Maximum wait time for a connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Min Eviction Time</td>
+            <td>Minimum time before an idle connection is evicted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Eviction Check Interval</td>
+            <td>Interval for checking idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Exhausted Action </td>
+            <td>Action to take when the connection pool is exhausted.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+??? note "IMAPS"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>connectionName</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>Hostname of the IMAPS server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>Port number of the IMAPS server.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>Username for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Password for authentication.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>requireTLS</td>
+            <td>Specifies if TLS is required.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <th colspan="3">Oauth2 Authentication</td>
+        </tr>
+        <tr>
+            <td>Enable OAuth2</td>
+            <td>Specifies if OAuth2 authentication is required.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Grant Type</td>
+            <td>Type of OAuth2 grant to be used.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Client Id</td>
+            <td>Client ID for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Client Secret</td>
+            <td>Client Secret for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Refresh Token</td>
+            <td>Refresh Token for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Token URL</td>
+            <td>URL to obtain the OAuth2 token.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Scope</td>
+            <td>Scope for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <th colspan="3">Additional parameters for connection</td>
+        </tr>
+            <td>Read Timeout</td>
+            <td>Timeout for reading the response from the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>connectionTimeout</td>
+            <td>Timeout for establishing the connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>writeTimeout</td>
+            <td>Timeout for writing the request to the server.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Active Connections</td>
+            <td>Maximum number of active connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Idle Connections</td>
+            <td>Maximum number of idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Max Wait Time</td>
+            <td>Maximum wait time for a connection.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Min Eviction Time</td>
+            <td>Minimum time before an idle connection is evicted.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Eviction Check Interval</td>
+            <td>Interval for checking idle connections.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Exhausted Action </td>
+            <td>Action to take when the connection pool is exhausted.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+## Operations
     
     
 ??? note "list"
@@ -209,33 +655,29 @@ The following operations allow you to work with the Email Connector. Click an op
     **Sample configuration**
     
     ```xml
-    <email.list configKey="imapconnection">
-        <subjectRegex>{json-eval($.subjectRegex)}</subjectRegex>
-        <seen>{json-eval($.seen)}</seen>
-        <answered>{json-eval($.answered)}</answered>
-        <deleted>{json-eval($.deleted)}</deleted>
-        <recent>{json-eval($.recent)}</recent>
-        <offset>{json-eval($.offset)}</offset>
-        <limit>{json-eval($.limit)}</limit>
-        <folder>{json-eval($.folder)}</folder>
+    <email.list configKey="IMAPS_CONN">
+        <deleteAfterRetrieve>false</deleteAfterRetrieve>
+        <receivedSince></receivedSince>
+        <receivedUntil></receivedUntil>
+        <sentSince></sentSince>
+        <sentUntil></sentUntil>
+        <subjectRegex></subjectRegex>
+        <fromRegex></fromRegex>
+        <seen></seen>
+        <answered></answered>
+        <deleted></deleted>
+        <recent>true</recent>
+        <offset>0</offset>
+        <limit>10</limit>
+        <folder>Inbox</folder>
+        <responseVariable>email_list_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </email.list>
-    ```
-    
-    **Sample request**
-    
-    Following is a sample REST/JSON request that can be handled by the list operation.
-    ```json
-    {
-    	"subjectRegex":"This is the subject",
-    	"offset":"0",
-    	"limit":"2",
-    	"folder":"INBOX"
-    }
     ```
     
     **Sample response**
     
-    The response received would contain the meta data of the email as below. 
+    The response received will be stored in the variable `email_list_1` as a JSON object. The following is a sample response.
     
     ```json
     {
@@ -243,7 +685,7 @@ The following operations allow you to work with the Email Connector. Click an op
             "email": [
                 {
                     "index": 0,
-                    "emailID": "<1623446944.0.152334336343@localhost>",
+                    "emailId": "<1623446944.0.152334336343@localhost>",
                     "to": "<your-email>@gmail.com",
                     "from": "<your-email>@gmail.com",
                     "replyTo": "<your-email>@gmail.com",
@@ -259,96 +701,101 @@ The following operations allow you to work with the Email Connector. Click an op
     }
     ```
         
-    > **Note:** The index of the email can be used to retrieve the email content and attachment content using below operations.
+    > **Note:** The emailId of the email can be used to retrieve the email content and attachment content using below operations.
     
-    ??? note "getEmailBody"
-    
-        > **Note:** 'List' operation MUST be invoked prior to invoking this operation as it will retrieve the email body of the emails retrieved by the 'list' operation.
+??? note "getEmailBody"
 
-        The getEmailBody operation retrieves the email content.
-        <table>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Description</th>
-                <th>Required</th>
-            </tr>
-            <tr>
-                <td>emailIndex</td>
-                <td>Index of the email as per above response of which to retrieve the email body and content.</td>
-                <td>Yes</td>
-            </tr>
-        </table>
-    
-        **Sample configuration**
-        
-        ```xml
-        <email.getEmailBody>
-            <emailIndex>0</emailIndex>
-        </email.getEmailBody>
-        ```
-        
-        Following properties will be set in the message context containing email data.
-        
-        * EMAIL_ID: Email ID of the email.
-        * TO: Recipients of the email.
-        * FROM: Sender of the email.
-        * SUBJECT: Subject of the email.
-        * CC: CC Recipients of the email.
-        * BCC: BCC Recipients of the email.
-        * REPLY_TO: Reply to Recipients of the email.
-        * HTML_CONTENT: HTML content of the email.
-        * TEXT_CONTENT: Text content of the email.
+    The getEmailBody operation retrieves the email content.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>emailId</td>
+            <td>Email Id of the email to retrieve the content.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>folder</td>
+            <td>Name of the mailbox folder from which to retrieve the email. Default is `INBOX`.</td>
+            <td>Optional</td>
+        </tr>
+    </table>
 
+    **Sample configuration**
 
-    ??? note "getEmailAttachment"
-    
-        > **Note:** 'List' operation MUST be invoked prior to invoking this operation as it will retrieve the attachment of the emails retrieved by the 'list' operation.
+    ```xml
+    <email.getEmailBody configKey="IMAPS_CONN">
+        <emailId >&lt;CAJDNsXYtN9_QnACnZP=MRp5E2u3_StvQ0SO4QQu5THxSA=mAXg@mail.wso2.com&gt;</emailId>
+        <folder >Inbox</folder>
+        <responseVariable >email_getEmailBody_1</responseVariable>
+        <overwriteBody >false</overwriteBody>
+    </email.getEmailBody>
+    ```
 
-        The getEmailAttachment operation retrieves the email content.
-        <table>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Description</th>
-                <th>Required</th>
-            </tr>
-            <tr>
-                <td>emailIndex</td>
-                <td>Index of the email as per above response of which to retrieve the email body and content.</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>attachmentIndex</td>
-                <td>Index of the attachment as per above response of which to retrieve the attachment content.</td>
-                <td>Yes</td>
-            </tr>
-        </table>
-    
-        **Sample configuration**
-        
-        ```xml
-        <email.getEmailAttachment>
-            <emailIndex>0</emailIndex>
-            <attachmentIndex>0</attachmentIndex>
-        </email.getEmailAttachment>
-        ```
-        
-        Following properties will be set in the message context containing attachment data.
-        
-        * ATTACHMENT_TYPE: Content Type of the attachment.
-        * ATTACHMENT_NAME: Name of the attachment.
-        
-        This operation will set the content of the attachment in the message context according to its content type. 
-        
-         **Sample response**
-        
-        ```csv
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><axis2ns3:text xmlns:axis2ns3="http://ws.apache.org/commons/ns/payload">id,firstname,surname,phone,email
-        1,John1,Doe,096548763,john1.doe@texasComp.com
-        2,Jane2,Doe,091558780,jane2.doe@texasComp.com
-        </axis2ns3:text></soapenv:Body></soapenv:Envelope>
-        
-        ```
-        
+    Following properties will be set in the message context or to a new variable if the `overwriteBody` parameter is set to `false`.
+
+    ```
+    {
+        "email": {
+            "emailId": "<email@mail.wso2.com>",
+            "to": "toemail@email.com",
+            "from": "fromemail@email.com",
+            "cc": "",
+            "bcc": "",
+            "subject": "Subject",
+            "replyTo": "email@email.com",
+            "htmlContent": "<div dir=\"auto\"></div>\r\n",
+            "textContent": "\r\n"
+        }
+    }
+    ```
+
+??? note "getEmailAttachment"
+
+    The getEmailAttachment operation retrieves the email content.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>emailId</td>
+            <td>Email Id of the email to retrieve the content.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>folder</td>
+            <td>Name of the mailbox folder from which to retrieve the email. Default is `INBOX`.</td>
+            <td>Optional</td>
+        </tr>
+            <td>attachmentIndex</td>
+            <td>Index of the attachment as per above response of which to retrieve the attachment content.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <email.getEmailAttachment configKey="IMAPS_CONN">
+        <emailId>emailId</emailId>
+        <folder>Inbox</folder>
+        <attachmentIndex>0</attachmentIndex>
+        <responseVariable>email_getEmailAttachment_1</responseVariable>
+        <overwriteBody>true</overwriteBody>
+    </email.getEmailAttachment>
+    ```
+
+    Following properties will be set as attributes.
+
+    * ATTACHMENT_TYPE: Content Type of the attachment.
+    * ATTACHMENT_NAME: Name of the attachment.
+
+    This operation will set the content of the attachment in the message context according to its content type or assign it to a new variable if the `overwriteBody` parameter is set to `false`. The content will be set in the variable context as a base64 encoded string.
 
 ??? note "send"
     The send operation sends an email to specified recipients with the specified content.
@@ -481,33 +928,34 @@ The following operations allow you to work with the Email Connector. Click an op
     **Sample configuration**
 
     ```xml
-    <email.send configKey="smtpconnection">
-        <from>{json-eval($.from)}</from>
-        <to>{json-eval($.to)}</to>
-        <subject>{json-eval($.subject)}</subject>
-        <content>{json-eval($.content)}</content>
-        <attachments>{json-eval($.attachments)}</attachments>
+    <email.send configKey="SMTP_CONN">
+        <from>email1@wso2.com</from>
+        <personalName></personalName>
+        <to>email2@wso2.com</to>
+        <cc></cc>
+        <bcc></bcc>
+        <replyTo></replyTo>
+        <subject>WSO2 MI Email Connector Test</subject>
+        <content>Sample Email</content>
+        <contentType>text/html</contentType>
+        <encoding>UTF-8</encoding>
+        <attachments></attachments>
+        <inlineImages>[]</inlineImages>
+        <contentTransferEncoding>Base64</contentTransferEncoding>
+        <responseVariable>email_send_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </email.send>
     ```
+
+    **Sample response**
+    The response received will be stored in the variable `email_send_1` as a JSON object. The following is a sample response.
     
-    **Sample request**
-
     ```json
     {
-    	"from": "user1@gmail.com",
-    	"to": "user2@gmail.com",
-    	"subject": "This is the subject",
-    	"content": "This is the body",
-    	"attachments": "/Users/user1/Desktop/contacts.csv"
+        "success":true
     }
     ```
-
-    > NOTE: The latest Email connector (v1.0.2 onwards) supports the attachments from JSON request payload. The connector is tested with .txt, .pdf and images (.png and .jpg).
-    ```json
-    {
-    	"attachments": [{"name": "sampleimagefile.png", "content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="}]
-    }
-    ```
+    > **Note:** The response will be set in the message context or to a new variable if the `overwriteBody` parameter is set to `false`.
 
 ??? note "delete"
     The delete operation deletes an email.
@@ -518,8 +966,8 @@ The following operations allow you to work with the Email Connector. Click an op
             <th>Required</th>
         </tr>
         <tr>
-            <td>emailID</td>
-            <td>Email ID of the email to delete.</td>
+            <td>emailId</td>
+            <td>Email Id of the email to delete.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -532,21 +980,22 @@ The following operations allow you to work with the Email Connector. Click an op
     **Sample configuration**
 
     ```xml
-    <email.delete configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
-        <emailID>{json-eval($.emailID)}</emailID>
+    <email.delete configKey="IMAPS_CONN">
+        <folder>INBOX</folder>
+        <emailId>sampleId</emailId>
+        <responseVariable>email_delete_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </email.delete>
     ```
-    
-    **Sample request**
+
+    **Sample response**
+    The response received will be stored in the variable `email_delete_1` as a JSON object. The following is a sample response.
     
     ```json
     {
-    	"folder":"Inbox",
-    	"emailID": "<296045440.2.15945432523040@localhost>"
+        "success":true
     }
     ```
-
 
 ??? note "markAsDeleted"
     The markAsDeleted operation marks an email as deleted.
@@ -557,8 +1006,8 @@ The following operations allow you to work with the Email Connector. Click an op
             <th>Required</th>
         </tr>
         <tr>
-            <td>emailID</td>
-            <td>Email ID of the email to mark as deleted.</td>
+            <td>emailId</td>
+            <td>Email Id of the email to mark as deleted.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -571,18 +1020,20 @@ The following operations allow you to work with the Email Connector. Click an op
     **Sample configuration**
     
     ```xml
-    <email.markAsRead configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
-        <emailID>{json-eval($.emailID)}</emailID>
+    <email.markAsRead configKey="IMAPCONN">
+        <folder>INBOX</folder>
+        <emailId>sampleId</emailId>
+        <responseVariable>email_markAsDelete_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </email.markAsRead>
     ```
-    
-    **Sample request**
+
+    **Sample response**
+    The response received will be stored in the variable `email_markAsDelete_1` as a JSON object. The following is a sample response.
     
     ```json
     {
-    	"folder":"Inbox",
-    	"emailID": "<296045440.2.15945432523040@localhost>"
+        "success":true
     }
     ```
 
@@ -596,8 +1047,8 @@ The following operations allow you to work with the Email Connector. Click an op
             <th>Required</th>
         </tr>
         <tr>
-            <td>emailID</td>
-            <td>Email ID of the email to mark as read.</td>
+            <td>emailId</td>
+            <td>Email Id of the email to mark as read.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -610,18 +1061,20 @@ The following operations allow you to work with the Email Connector. Click an op
     **Sample configuration**
     
     ```xml
-    <email.markAsRead configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
-        <emailID>{json-eval($.emailID)}</emailID>
+    <email.markAsRead configKey="IMAPCONN">
+        <folder>INBOX</folder>
+        <emailId>sampleId</emailId>
+        <responseVariable>email_markAsRead_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </email.markAsRead>
     ```
 
-    **Sample request**
+    **Sample response**
+    The response received will be stored in the variable `email_markAsRead_1` as a JSON object. The following is a sample response.
     
     ```json
     {
-        "folder":"Inbox",
-        "emailID": "<296045440.2.15945432523040@localhost>"
+        "success":true
     }
     ```
 
@@ -644,44 +1097,9 @@ The following operations allow you to work with the Email Connector. Click an op
     **Sample configuration**
     
     ```xml
-    <email.expungeFolder configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
+    <email.expungeFolder configKey="IMAPCONN">
+        <folder>INBOX</folder>
     </email.expungeFolder>
     ```
-    
-    **Sample request**
-    
-    ```json
-    {
-    	"folder":"Inbox"
-    }
-    ```
-
-### Sample configuration in a scenario
-
-The following is a sample proxy service that illustrates how to connect to the Email connector and use the send operation to send an email. You can use this sample as a template for using other operations in this category.
-
-**Sample Proxy**
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="SendEmail"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-   <target>
-      <inSequence>
-         <email.send configKey="smtpsconnection">
-             <from>{json-eval($.from)}</from>
-             <to>{json-eval($.to)}</to>
-             <subject>{json-eval($.subject)}</subject>
-             <content>{json-eval($.content)}</content>
-         </email.send>
-         <respond/>
-      </inSequence>
-   </target>
-   <description/>
-</proxy>         
-```
 
 **Note**: For more information on how this works in an actual scenario, see [Email Connector Example]({{base_path}}/reference/connectors/email-connector/email-connector-example/).
