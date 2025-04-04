@@ -1015,6 +1015,28 @@ There are different connection configurations that can be used for the above pro
            No
         </td>
     </tr>
+    <tr>
+        <td>
+           Encode Password
+        </td>
+        <td>
+           encodePassword
+        </td>
+        <td>
+           Boolean
+        </td>
+        <td>
+           Determines whether special characters in the password should be URL-encoded.           
+           Available in file-connector version <b>v4.0.30</b> and above.
+        </td>
+        <td>
+           false
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+
 </table>
 
 ## Operations
