@@ -1027,7 +1027,7 @@ There are different connection configurations that can be used for the above pro
         </td>
         <td>
            Determines whether special characters in the password should be URL-encoded.           
-           Available in file-connector <b>v4.0.30</b> and above.
+           Available in file-connector version <b>v4.0.30</b> and above.
         </td>
         <td>
            false
