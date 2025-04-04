@@ -1,7 +1,7 @@
 .mb-config-catalog {
     display: table;
     width: 100%;
-    max-width: 770px;
+    max-width: 900px;
 }
 
 .hide-toc .mb-config-catalog {
@@ -26,16 +26,29 @@
     order: 0;
 }
 
-.mb-config-catalog .superfences-tabs>input+label:after {
-    content: "View Sample";
-    cursor: pointer;
-    font-size: 16px;
+.md-typeset .superfences-tabs>input {
+    display: none
 }
 
-.mb-config-catalog .superfences-tabs>input:checked+label:after {
-    content: "Hide Sample";
+.mb-config-catalog .superfences-tabs .icon {
+    font-size: 0.64rem;
+}
+
+.mb-config-catalog .superfences-tabs > input:checked + label:after {
+    content: "Hide Example";
+    font-weight: 500;
+    font-size: 0.64rem;
+}
+
+.mb-config-catalog .superfences-tabs>input+label:after {
+    content: "Show Example";
+    font-weight: 500;
+    font-size: 0.64rem;
+}
+
+.md-typeset .superfences-tabs > label:hover {
+    color: var(--md-nav-link-color);
     cursor: pointer;
-    font-size: 16px;
 }
 
 .mb-config-catalog .superfences-tabs .doc-wrapper {
@@ -88,9 +101,9 @@
     border-bottom: 1px solid #eee;
 }
 
-.mb-config-catalog>section.title>.mb-config-example {
+/* .mb-config-catalog>section.title>.mb-config-example {
     display: none;
-}
+} */
 
 .mb-config-catalog .mb-config-example code,
 .mb-config-catalog .mb-config-example pre {
@@ -236,10 +249,9 @@
 }
 
 html .md-typeset .superfences-tabs>label {
-    color: var(--md-primary-fg-color);
+    color: var(--md-primary-fg-color-header-text);
     font-weight: normal;
-    padding: 20px;
-    border-bottom: 0.05rem dashed var(--md-accent-fg-color);
+    padding: 0.6rem;
 }
 
 .md-typeset .superfences-tabs {
@@ -250,7 +262,7 @@ html .md-typeset .superfences-tabs>label {
     border: 0.05rem solid rgba(0,0,0,.07);
 }
 .md-typeset .superfences-tabs {
-    border: 0.05rem dashed var(--md-accent-fg-color);
+    border: 0.05rem solid rgba(159, 159, 159, 0.52);
     border-radius: 5px;
 }
 
