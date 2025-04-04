@@ -1005,7 +1005,7 @@ There are different connection configurations that can be used for the above pro
            Boolean
         </td>
         <td>
-           Determines whether to enable data encryption. This needs to be enabled when connecting to an SMB server that enforces encryption.</br> 
+           Determines whether to enable data encryption. This must be enabled when connecting to an SMB server that enforces encryption.</br> 
            Available in file-connector <b>v4.0.34</b> and above.
         </td>
         <td>
