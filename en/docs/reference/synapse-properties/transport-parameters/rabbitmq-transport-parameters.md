@@ -323,7 +323,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
       <tr>
          <td>rabbitmq.connection.pool.size</td>
          <td>
-            You can increase the connection pool size to improve the performance of the RabbitMQ sender. The default connection pool size is 20.
+            You can increase the connection pool size to improve the performance of the RabbitMQ sender. The default connection pool size is 100.
          </td>
       </tr>
    </tbody>
