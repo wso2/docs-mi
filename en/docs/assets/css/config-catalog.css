@@ -225,7 +225,7 @@
     display: block;
     position: absolute;
     left: -2px;
-    border-left: 3px solid #fff;
+    border-left: 3px solid var(--md-default-bg-color);
     top: 36px;
     background-color: #fff;
     bottom: 0;
@@ -234,7 +234,7 @@
 .mb-config-catalog .mb-config .param>.param-info {
     display: table-cell;
     width: 100%;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(159, 159, 159, 0.52);;
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
     word-break: break-word;
