@@ -108,4 +108,10 @@ Enable statistics for Micro Integrator following the instructions [here]({{base_
 
 Create a log appender following the instructions [here]({{base_path}}/mi-analytics/mi-elk-installation-guide/#creating-log-appender).
 
-Now, trigger an event and check the `<MI_HOME>/repository/logs/synapse-analytics.log` to verify the event data being published by WSO2 Micro Integrator.
+Now, trigger an event and check the `<MI_HOME>/repository/logs/synapse-analytics.log` to verify the event data being published by WSO2 Micro Integrator as below. 
+
+```
+10:43:43,504 [-] [message-flow-reporter-1-tenant--1234]  INFO ElasticStatisticsPublisher SYNAPSE_ANALYTICS_DATA {"serverInfo":{"hostname":"user.local","serverName":"localhost","ipAddress":"127.0.0.1","id":"localhost"},"timestamp":"2025-04-07T05:13:39.910Z","schemaVersion":1,"payload":{"metadata":{"contentType":"application/json"},"entityType":"API","failure":false,"latency":39,"messageId":"urn:uuid:903f5342-2cbf-42c7-a334-8147435acdd3","correlation_id":"cf615bbc-4c60-4023-87a0-3c70b51a273f","apiDetails":{"method":"POST","apiContext":"/helloworldapi","api":"HelloWorldAPI","transport":"http","subRequestPath":"/signup"},"faultResponse":false,"entityClassName":"org.apache.synapse.api.API"}}
+```
+
+The `metadata` object under the `payload` object in the log will contain the custom data, populated by the custom data provider.
