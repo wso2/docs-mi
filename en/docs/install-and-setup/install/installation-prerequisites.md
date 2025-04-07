@@ -65,7 +65,7 @@ The Micro Integrator runtime is tested with the following operating systems:
 |--------------------------|------------|
 | Windows                  | 2019       |
 | Ubuntu                   | 22.04      |
-| Red Hat Enterprise Linux | 7.4, 8.2   |
+| Red Hat Enterprise Linux | 9.5   |
 | Rocky Linux              | 8.10       |
 | MacOS                    | 10.15      |
 | SUSE Linux               | 12         |
