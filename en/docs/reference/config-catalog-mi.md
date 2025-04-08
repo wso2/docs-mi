@@ -39,10 +39,10 @@ algorithm = "AES"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="2" type="checkbox" id="_tab_2">
-                <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <label class="tab-selector skip-toggle" for="_tab_2"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[server]
 hostname="localhost"
@@ -237,7 +237,7 @@ enable_swa=false
 
             <input name="3" type="checkbox" id="_tab_3">
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[service_catalog]]
 apim_host = "https://localhost:9443"
@@ -357,7 +357,7 @@ password = "$secret{password}"</code></pre>
 
             <input name="4" type="checkbox" id="_tab_4">
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[dashboard_config]
 dashboard_url = "https://localhost:9743/dashboard/api/"
@@ -477,7 +477,7 @@ node_id = "dev_node_2"</code></pre>
 
             <input name="5" type="checkbox" id="_tab_5">
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[keystore.primary]
 file_name = "wso2carbon.jks"
@@ -615,7 +615,7 @@ key_password = "wso2carbon"</code></pre>
 
             <input name="6" type="checkbox" id="_tab_6">
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[keystore.primary]
 file_name = "wso2carbon.jks"
@@ -753,7 +753,7 @@ key_password = "wso2carbon"</code></pre>
 
             <input name="7" type="checkbox" id="_tab_7">
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[system.parameter]
 org.wso2.SecureVaultPasswordRegEx = "any_valid_regex"</code></pre>
@@ -809,7 +809,7 @@ org.wso2.SecureVaultPasswordRegEx = "any_valid_regex"</code></pre>
 
             <input name="8" type="checkbox" id="_tab_8">
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[truststore]
 file_name="wso2truststore.jks"
@@ -927,7 +927,7 @@ alias="symmetric.key.value"</code></pre>
 
             <input name="9" type="checkbox" id="_tab_9">
                 <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[internal_apis.file_user_store]
 enable = true
@@ -1065,7 +1065,7 @@ user.password = "pwd-2"
 
             <input name="10" type="checkbox" id="_tab_10">
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[user_store]
 type = "read_only_ldap"
@@ -1759,7 +1759,7 @@ connection_retry_delay = "120000"
 
             <input name="11" type="checkbox" id="_tab_11">
                 <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[datasource]]
 id = "WSO2_CARBON_DB"
@@ -2431,7 +2431,7 @@ pool_options.testOnBorrow = true</code></pre>
 
             <input name="12" type="checkbox" id="_tab_12">
                 <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[management_api.jwt_token_security_handler]
 enable = true
@@ -2598,7 +2598,7 @@ token_config.size= "2048"
 
             <input name="13" type="checkbox" id="_tab_13">
                 <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[management_api.authorization_handler]
 enable = false
@@ -2691,7 +2691,7 @@ path = "/apis"
 
             <input name="14" type="checkbox" id="_tab_14">
                 <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[management_api.cors]
 enabled = true
@@ -2791,7 +2791,7 @@ allowed_headers = "Authorization"</code></pre>
 
             <input name="15" type="checkbox" id="_tab_15">
                 <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_builders]
 application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
@@ -3023,7 +3023,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
 
             <input name="16" type="checkbox" id="_tab_16">
                 <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_builders]
 application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
@@ -3066,7 +3066,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
 
             <input name="17" type="checkbox" id="_tab_17">
                 <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_formatters]
 form_urlencoded =  "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
@@ -3342,7 +3342,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
 
             <input name="18" type="checkbox" id="_tab_18">
                 <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_formatters]
 form_urlencoded =  "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
@@ -3387,7 +3387,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
 
             <input name="19" type="checkbox" id="_tab_19">
                 <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_builders]]
 content_type = "application/json/badgerfish"
@@ -3465,7 +3465,7 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
 
             <input name="20" type="checkbox" id="_tab_20">
                 <label class="tab-selector" for="_tab_20"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_builders]]
 content_type = "application/json/badgerfish"
@@ -3501,7 +3501,7 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
 
             <input name="21" type="checkbox" id="_tab_21">
                 <label class="tab-selector" for="_tab_21"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_formatters]]
 content_type = "application/json/badgerfish"
@@ -3579,7 +3579,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
 
             <input name="22" type="checkbox" id="_tab_22">
                 <label class="tab-selector" for="_tab_22"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_formatters]]
 content_type = "application/json/badgerfish"
@@ -3615,7 +3615,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
 
             <input name="23" type="checkbox" id="_tab_23">
                 <label class="tab-selector" for="_tab_23"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[server.get_request_processor]]
 item = "swagger.yaml"
@@ -3697,7 +3697,7 @@ class = "org.wso2.micro.integrator.transport.handlers.requestprocessors.swagger.
 
             <input name="24" type="checkbox" id="_tab_24">
                 <label class="tab-selector" for="_tab_24"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.http]
 socket_timeout = "3m"
@@ -4706,7 +4706,7 @@ force_json_validation = false</code></pre>
 
             <input name="25" type="checkbox" id="_tab_25">
                 <label class="tab-selector" for="_tab_25"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.http]
 
@@ -5183,7 +5183,7 @@ sender.so_timeout = 60000</code></pre>
 
             <input name="26" type="checkbox" id="_tab_26">
                 <label class="tab-selector" for="_tab_26"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.http.proxy_profile]]
 target_hosts = ["example.com", ".*.sample.com"]
@@ -5328,7 +5328,7 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
 
             <input name="27" type="checkbox" id="_tab_27">
                 <label class="tab-selector" for="_tab_27"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.http.secured_proxy_profile]]
 target_hosts = ["example.com", ".*.sample.com"]
@@ -5494,7 +5494,7 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
 
             <input name="28" type="checkbox" id="_tab_28">
                 <label class="tab-selector" for="_tab_28"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.vfs]
 
@@ -5687,7 +5687,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="29" type="checkbox" id="_tab_29">
                 <label class="tab-selector" for="_tab_29"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.vfs]
 
@@ -5880,7 +5880,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="30" type="checkbox" id="_tab_30">
                 <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.mail.listener]
 enable = true   
@@ -5959,7 +5959,7 @@ parameter.customParameter = ""</code></pre>
 
             <input name="31" type="checkbox" id="_tab_31">
                 <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.mail.listener]
 enable = true
@@ -5996,7 +5996,7 @@ parameter.customParameter = "value"</code></pre>
 
             <input name="32" type="checkbox" id="_tab_32">
                 <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.mail.sender]]
 name = "mailto"
@@ -6185,7 +6185,7 @@ parameter.from = "demo_user@wso2.com"</code></pre>
 
             <input name="33" type="checkbox" id="_tab_33">
                 <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.mail.listener]
 enable = true
@@ -6222,7 +6222,7 @@ parameter.customParameter = "value"</code></pre>
 
             <input name="34" type="checkbox" id="_tab_34">
                 <label class="tab-selector" for="_tab_34"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.jms.listener]]
 
@@ -7032,7 +7032,7 @@ parameter.consume_error_progression = "2.0"</code></pre>
 
             <input name="35" type="checkbox" id="_tab_35">
                 <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.blocking.jms.listener]]
 
@@ -7106,7 +7106,7 @@ parameter.consume_error_progression = "2.0"</code></pre>
 
             <input name="36" type="checkbox" id="_tab_36">
                 <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.jms.sender]]
 
@@ -7981,7 +7981,7 @@ parameter.vender_class_loader = false</code></pre>
 
             <input name="37" type="checkbox" id="_tab_37">
                 <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.blocking.jms.sender]]
 
@@ -8056,7 +8056,7 @@ parameter.vender_class_loader = false</code></pre>
 
             <input name="38" type="checkbox" id="_tab_38">
                 <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.jndi.connection_factories]
 QueueConnectionFactory = "amqp://admin:admin@clientID/carbon?brokerlist='tcp://localhost:5675'"
@@ -8134,7 +8134,7 @@ TopicConnectionFactory = "amqp://admin:admin@clientID/carbon?brokerlist='tcp://l
 
             <input name="39" type="checkbox" id="_tab_39">
                 <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.jndi.queue]
 JMSMS = "JMSMS"
@@ -8191,7 +8191,7 @@ StockQuotesQueue = "StockQuotesQueue"</code></pre>
 
             <input name="40" type="checkbox" id="_tab_40">
                 <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.jndi.topic]
 MyTopic = "example.MyTopic"</code></pre>
@@ -8247,7 +8247,7 @@ MyTopic = "example.MyTopic"</code></pre>
 
             <input name="41" type="checkbox" id="_tab_41">
                 <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.rabbitmq.listener]]
 
@@ -8256,7 +8256,6 @@ parameter.hostname = "localhost"
 parameter.port = 5672
 parameter.username = "guest"
 parameter.password = "guest"
-parameter.connection_factory = ""
 parameter.exchange_name = "amq.direct"
 parameter.queue_name = "MyQueue"
 parameter.queue_auto_ack = false
@@ -8273,7 +8272,7 @@ parameter.exchange_durable = ""
 parameter.exchange_auto_delete = ""
 parameter.message_content_type = ""
 
-parameter.retry_interval = "10s"
+parameter.retry_interval = 10000
 parameter.retry_count = 5
 
 parameter.ssl_enable = true
@@ -8281,7 +8280,7 @@ parameter.ssl_version = "SSL"
 parameter.keystore_location ="$ref{keystore.tls.file_name}"
 parameter.keystore_type = "$ref{keystore.tls.type}"
 parameter.keystore_password = "$ref{keystore.tls.password}"
-parameter.truststore_file_name ="$ref{truststore.file_name}"
+parameter.truststore_location ="$ref{truststore.file_name}"
 parameter.truststore_type = "$ref{truststore.type}"
 parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                     </div>
@@ -8292,7 +8291,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ broker. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8314,7 +8313,10 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The name of the broker.</p>
+                                        <p>
+                                        The user-defined name of the RabbitMQ listener. This value must be used as the <code>rabbitmq.connection.factory</code> parameter in the <a href="{{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters/#required-parameters">RabbitMQ proxy service</a> configuration.
+                                        <br><b>Note:</b> The following globally configured parameters can be overridden by <a href="{{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters/#service-level-parameters-receiving-messages">Service-Level parameters</a> when defining the RabbitMQ proxy service.
+                                        </p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8335,7 +8337,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The IP address of the server node.</p>
+                                        <p>The IP address of the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8377,7 +8379,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The user name for connecting to RabbitMQ broker.</p>
+                                        <p>The username used to connect to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8398,28 +8400,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password for connecting to the RabbitMQ broker.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.connection_factory</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>org.apache.axis2.transport.rabbitmq.RabbitMQListener</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The name of the connection factory.</p>
+                                        <p>The password used to connect to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8430,17 +8411,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>amq.direct</code></span>
+                                            <span class="param-default-value">Default: AMQP default</span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of rabbitmq.queue.routing.key, if you need to use the default exchange and publish to a queue.</p>
+                                        <p>Name of the RabbitMQ exchange to which the queue is bound. If not specified, the queue will be bound to the AMQP default exchange.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8451,17 +8431,36 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
+                                        <p>The name of the queue from which messages will be consumed. If this parameter is not specified, you must provide the <code>parameter.queue_routing_key</code> instead.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_routing_key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the routing key used to route messages to the queue.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8472,17 +8471,36 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
+                                        <p>Determines whether message acknowledgments are sent automatically after a message is consumed by the Micro Integrator.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.channel_consumer_qos</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines the maximum number of unacknowledged messages the listener can process at a time. Applicable only when <code>parameter.queue_auto_ack</code> is <code>false</code>. A value of <code>0</code> allows unlimited message delivery.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8493,7 +8511,6 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -8503,28 +8520,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The client­ generated consumer tag to establish context.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.channel_consumer_qos</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The consumer qos value. You need to specify this parameter only if the rabbitmq.queue.auto.ack parameter is set to false.</p>
+                                        <p>A unique identifier for the consumer attached to the queue. If not specified, RabbitMQ will generate a consumer tag automatically.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8534,14 +8530,13 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8555,14 +8550,13 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8576,39 +8570,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to keep the queue even if it is not being consumed anymore.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_routing_key</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The routing key of the queue.</p>
+                                        <p>Determines whether the queue should be automatically deleted when there are no active consumers.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8618,18 +8590,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                        <p>Specifies whether to create the queue if it does not already exist on the broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8639,18 +8610,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                        <p>Specifies whether to create the exchange if it does not already exist on the broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8661,17 +8631,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>direct</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>direct</code>, <code>fanout</code>, <code>topic</code>, <code>headers</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the exchange.</p>
+                                        <p>Specifies the type of the RabbitMQ exchange.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8681,14 +8650,13 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8702,39 +8670,37 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Determines whether the exchange should be automatically deleted when there are no active consumers.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.message_content_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>text/plain</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to keep the exchange even if it is not bound to any queue anymore.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.default_destination_type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>text/xml</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The content type of the consumer. &lt;/br&gt;Note that if the content type is specified in the message, this parameter does not override the specified content type.</p>
+                                        <p>The content type to be used by the consumer. This parameter takes priority over the content type specified in the incoming message. If this parameter is not set, the Micro Integrator will fall back to the content type in the message, and finally to the default content type if neither is available.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8745,7 +8711,6 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30000</code></span>
@@ -8755,18 +8720,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the case of network failure or broker shut down, the Micro Integrator will attempt to reconnect a number of times (as sepcified by the parameter.retry_count parameter) with an interval (specified by this parameter) between the retry attempts.</p>
+                                        <p>In the event of a network failure or broker shutdown, the Micro Integrator will attempt to reconnect a number of times (as specified by the <code>parameter.retry_count</code> parameter), waiting for the interval defined by this parameter (in milliseconds) between each retry attempt.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.retry_interval</code> </span>
+                                  <span class="param-name-wrap"> <code>parameter.retry_count</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>3</code></span>
@@ -8776,7 +8740,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the case of network failure or broker shut down, the Micro Integrator will attempt to reconnect as many times as sepcified by this parameter with an interval (specified by the parameter.retry_interval parameter) between the retry attempts.</p>
+                                        <p>In the event of a network failure or broker shutdown, the Micro Integrator will attempt to reconnect as many times as specified by this parameter. If set to <code>-1</code>, the Micro Integrator will retry indefinitely until the connection is restored.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8787,17 +8751,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether or not SSL is enabled for RabbitMQ connection. If you set this to &#39;true&#39;, be sure to update the keystore and trust store parameters given below.</p>
+                                        <p>Specifies whether SSL is enabled for the RabbitMQ connection. If set to <code>true</code>, make sure to configure the keystore and truststore parameters provided below.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8808,17 +8771,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>SSL</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The SSL versions.</p>
+                                        <p>Specifies the SSL versions to be used.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8829,17 +8791,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MI_HOME/repository/resources/security/wso2carbon.jks</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The path to the keystore file that is used for securing a RabbitMQ connection. By default, the keystore file of the primary keystore is enabled for this purpose.</p>
+                                        <p>The path to the keystore file used to secure the RabbitMQ connection.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8850,17 +8811,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>JKS</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose.</p>
+                                        <p>The type of the keystore file.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8871,17 +8831,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the keystore file that is used for securing a RabbitMQ connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose.</p>
+                                        <p>The password of the keystore file used to secure the RabbitMQ connection.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8892,17 +8851,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MI_HOME/repository/resources/security/wso2truststore.jks</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The path to the keystore file that is used for storing the trusted digital certificates. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                        <p>The path to the truststore file used for storing trusted digital certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8913,17 +8871,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>JKS</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                        <p>The type of the truststore file used for storing trusted certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8934,15 +8891,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                        <p>The password of the truststore file used for storing trusted certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -8964,7 +8922,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
 
             <input name="42" type="checkbox" id="_tab_42">
                 <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.rabbitmq]
 sender_enable = true
@@ -8975,18 +8933,6 @@ parameter.hostname = "localhost"
 parameter.port = 5672
 parameter.username = "guest"
 parameter.password = "guest"
-parameter.exchange_name = "amq.direct"
-parameter.routing_key = "MyQueue"
-parameter.reply_to_name = ""
-parameter.queue_delivery_mode = 1 # 1/2
-parameter.exchange_type = ""
-parameter.queue_name = "MyQueue"
-parameter.queue_durable = false
-parameter.queue_exclusive = false
-parameter.queue_auto_delete = false
-parameter.exchange_durable = ""
-parameter.queue_auto_declare = ""
-parameter.exchange_auto_declare = ""
 parameter.connection_pool_size = 10</code></pre>
                     </div>
                 </div>
@@ -9014,11 +8960,11 @@ parameter.connection_pool_size = 10</code></pre>
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this parameter to &#39;true&#39; if you want to configure the Micro Integrator to send messages to a RabbitMQ client.</p>
+                                        <p>Set this parameter to <code>true</code> if you want to configure the Micro Integrator to send messages to a RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div>
@@ -9026,7 +8972,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[[transport.rabbitmq.sender]]</code>
                             
                             <p>
-                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is optional when you have the RabbitMQ sender enabled (<code>[transport.rabbitmq]</code>). Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9048,7 +8994,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The name of the broker.</p>
+                                        <p>The user-defined name of the RabbitMQ sender.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9069,7 +9015,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The IP address of the server node.</p>
+                                        <p>The IP address of the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9111,7 +9057,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The user name for connecting to RabbitMQ broker.</p>
+                                        <p>The username used to connect to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9132,322 +9078,27 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password for connecting to the RabbitMQ broker.</p>
+                                        <p>The password used to connect to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.exchange_name</code> </span>
+                                  <span class="param-name-wrap"> <code>parameter.connection_pool_size</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> integer </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>amq.direct</code></span>
+                                            <span class="param-default-value">Default: <code>100</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of rabbitmq.queue.routing.key, if you need to use the default exchange and publish to a queue.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.routing_key</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The routing key of the queue.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_name</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.reply_to_name</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The name of the call back­ queue. Specify this parameter if you expect a response.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_delivery_mode</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>persistent</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The delivery mode of the queue. Possible values are Non­-persistent and Persistent.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.exchange_type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The type of the exchange.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_name</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_durable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Whether the queue should remain declared even if the broker restarts. The default value is false.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_exclusive</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Whether the queue should be exclusive or should be consumable by other connections. The default value is false.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_auto_delete</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies whether to keep the queue even if it is not being consumed anymore.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.exchange_auto_declare</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_auto_declare</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.exchange_durable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies whether the exchange should remain declared even if the broker restarts.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_auto_declare</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Whether to keep the queue even if it is not being consumed anymore. The default value is false.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.exchange_auto_declare</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                        <p>Specifies the number of connections to maintain in the RabbitMQ connection pool. This helps manage concurrent connections efficiently when handling multiple messages. Increase the value for higher throughput scenarios.</p>
                                     </div>
                                 </div>
                             </div>
@@ -9469,7 +9120,7 @@ parameter.connection_pool_size = 10</code></pre>
 
             <input name="43" type="checkbox" id="_tab_43">
                 <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.fix]
 
@@ -9550,7 +9201,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="44" type="checkbox" id="_tab_44">
                 <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.mqtt]
 
@@ -9796,7 +9447,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="45" type="checkbox" id="_tab_45">
                 <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.sap]
 
@@ -10011,7 +9662,7 @@ sender.bapi.parameter.customParameter = ""</code></pre>
 
             <input name="46" type="checkbox" id="_tab_46">
                 <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.msmq]
 
@@ -10115,7 +9766,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="47" type="checkbox" id="_tab_47">
                 <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.tcp]
 
@@ -10285,7 +9936,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="48" type="checkbox" id="_tab_48">
                 <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.tcp]
 
@@ -10329,7 +9980,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="49" type="checkbox" id="_tab_49">
                 <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.ws]
 
@@ -10452,7 +10103,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="50" type="checkbox" id="_tab_50">
                 <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.wss]
 
@@ -10620,7 +10271,7 @@ sender.truststore_password = "$ref{truststore.password}"</code></pre>
 
             <input name="51" type="checkbox" id="_tab_51">
                 <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.udp]
 
@@ -10702,7 +10353,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="52" type="checkbox" id="_tab_52">
                 <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.udp]
 
@@ -10742,7 +10393,7 @@ sender.parameter.customParameter = ""</code></pre>
 
             <input name="53" type="checkbox" id="_tab_53">
                 <label class="tab-selector" for="_tab_53"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_transport.listener]]
 class = "org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportListener"
@@ -10820,7 +10471,7 @@ protocol = "hl7"</code></pre>
 
             <input name="54" type="checkbox" id="_tab_54">
                 <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_transport.sender]]
 class = "org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportSender"
@@ -10898,7 +10549,7 @@ protocol = "hl7"</code></pre>
 
             <input name="55" type="checkbox" id="_tab_55">
                 <label class="tab-selector" for="_tab_55"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[mediation]
 synapse.core_threads = 20
@@ -11234,7 +10885,7 @@ inbound.max_threads = 100</code></pre>
 
             <input name="56" type="checkbox" id="_tab_56">
                 <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[[synapse_handlers]]
 name = <handler_name>
@@ -11313,7 +10964,7 @@ class = <handler_class>
 
             <input name="57" type="checkbox" id="_tab_57">
                 <label class="tab-selector" for="_tab_57"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">#Static Token Authentication
 
@@ -11611,3 +11262,16 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
     </section>
 </div>
 
+{% raw %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".tab-selector:not(.skip-toggle)").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const codeBlock = btn.nextElementSibling;
+      const isHidden = codeBlock.style.display === "none" || !codeBlock.style.display;
+      codeBlock.style.display = isHidden ? "block" : "none";
+    });
+  });
+});
+</script>
+{% endraw %}

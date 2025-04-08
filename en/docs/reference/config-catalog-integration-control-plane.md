@@ -38,8 +38,8 @@ key_password = "wso2carbon"
             <div class="superfences-tabs">
             
             <input name="2" type="checkbox" id="_tab_2">
-                <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <label class="tab-selector skip-toggle" for="_tab_2"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[server_config]
 port = 9743
@@ -92,7 +92,7 @@ port = 9743
             
             <input name="3" type="checkbox" id="_tab_3">
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[heartbeat_config]
 pool_size = 15
@@ -145,7 +145,7 @@ pool_size = 15
             
             <input name="4" type="checkbox" id="_tab_4">
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[mi_super_admin]
 username = "admin"
@@ -218,7 +218,7 @@ password = "admin"
             
             <input name="5" type="checkbox" id="_tab_5">
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[keystore]
 file_name = "conf/security/dashboard.jks"
@@ -313,7 +313,7 @@ key_password = "wso2carbon"</code></pre>
             
             <input name="8" type="checkbox" id="_tab_8">
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[truststore]
 file_name="con/security/wso2truststore.jks"
@@ -381,7 +381,7 @@ password="wso2carbon"</code></pre>
             
             <input name="7" type="checkbox" id="_tab_7">
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
+                <div class="superfences-content" style="display: none;">
                     <div class="mb-config-example">
 <pre><code class="toml">[sso]
 enable = true
@@ -875,3 +875,17 @@ value = "C123d"
         </div>
     </section>
 </div>
+
+{% raw %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".tab-selector:not(.skip-toggle)").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const codeBlock = btn.nextElementSibling;
+      const isHidden = codeBlock.style.display === "none" || !codeBlock.style.display;
+      codeBlock.style.display = isHidden ? "block" : "none";
+    });
+  });
+});
+</script>
+{% endraw %}
