@@ -92,7 +92,7 @@ The following operations allow you to work with the Email Connector. Click an op
         </tr>
         <tr>
             <td>maxWaitTime</td>
-            <td>Specifies the number of milliseconds to wait for a pooled component to become available when the pool is exhausted and the exhaustedAction is set to WHEN_EXHAUSTED_WAIT. If maxWait is negative, it will be blocked indefinitely. Default is -1.</td>
+            <td>Specifies the number of milliseconds to wait for a pooled component to become available when the pool is exhausted and the exhaustedAction is set to <code>WHEN_EXHAUSTED_WAIT</code>. If <code>maxWait</code> is negative, it will be blocked indefinitely. Default is <code>-1</code>.</td>
             <td>Optional</td>
         </tr>
         <tr>
