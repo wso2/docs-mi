@@ -1123,8 +1123,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -1134,7 +1134,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -1471,8 +1471,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -1482,7 +1482,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -1739,8 +1739,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -1750,7 +1750,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2249,8 +2249,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -2260,7 +2260,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2406,8 +2406,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -2417,7 +2417,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2570,8 +2570,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -2581,7 +2581,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2899,8 +2899,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -2910,7 +2910,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -3146,8 +3146,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -3157,7 +3157,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -3395,8 +3395,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -3406,7 +3406,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -3776,8 +3776,8 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The `diskShareAccessMask` configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported `diskShareAccessMask` Values:
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
                 <ul>
                 <li>**READ**: Grants read-only access.</li>
                 <li>**WRITE**: Grants write-only access.</li>
@@ -3787,7 +3787,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </ul>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.2.0.120 (U2) or later to use this parameter.</p>
                 </div>
             </td>
             <td>
