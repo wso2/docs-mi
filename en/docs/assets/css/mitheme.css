@@ -402,9 +402,52 @@ header>.md-grid {
     display: none !important;
 }
 
+.md-button {
+    padding: 5px 15px 5px 15px!important;
+}
+
 .inline-icon {
     vertical-align: middle;
     outline: none !important;
     box-shadow: none !important;
     max-height: 28px;
+}
+
+/* Target only "Build your first integration" list */
+.custom-integration-list li {
+    display: flex;
+    align-items: center;
+    margin-left: -15px;
+}
+
+/* Make the link a flex container */
+.custom-integration-list li a {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ensures proper spacing between icon and text */
+    color: var(--md-primary-fg-color-header-text-active);
+}
+
+/* Default empty circle (not completed) */
+.custom-integration-list .custom-number {
+    content: ""; 
+    font-weight: 700;
+    color: #fff;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8a7d6f;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    /* border: 1px solid #f57c00; */
+    border-radius: 50%;
+    text-align: center;
+    flex-shrink: 0;
+    padding: 5px;
+}
+
+.custom-integration-list .md-nav__link--completed .custom-number {
+    background-color: #f57c00;
 }
