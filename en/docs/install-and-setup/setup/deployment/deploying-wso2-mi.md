@@ -326,3 +326,37 @@ Shutdown the node in which the task is scheduled and observe the following log i
 ```
 
 The above log describes the failover capability of the tasks when the task server becomes unavailable.
+
+## Monitor the cluster with ICP
+
+1. Follow the instructions in the [Installing the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
+
+2. After installing ICP, configure each Micro Integrator node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
+
+    Node 1:
+    
+    ```
+    [dashboard_config]
+    dashboard_url = "https://localhost:9743/dashboard/api/"
+    heartbeat_interval = 5
+    group_id = "mi_dev"
+    node_id = "dev_node_1"
+    ```
+    
+    Node 2:
+    
+    ```
+    [dashboard_config]
+    dashboard_url = "https://localhost:9743/dashboard/api/"
+    heartbeat_interval = 5
+    group_id = "mi_dev"
+    node_id = "dev_node_2"
+    ```
+
+   Refer to the [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/) guide for further details.
+
+3. Start the ICP by following the instructions in the [Starting the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#starting-the-integration-control-plane) guide.
+
+4. Next, start all Micro Integrator instances using the steps mentioned in the [Starting MI Server]({{base_path}}/install-and-setup/install/running-the-mi/#starting-the-mi-server) guide.
+
+5. Once all components are running, access the ICP dashboard by following the instructions in the [Accessing the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#accessing-the-integration-control-plane) guide. You should see all configured Micro Integrator nodes listed in the ICP dashboard.
