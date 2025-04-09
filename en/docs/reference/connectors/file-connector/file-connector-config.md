@@ -1171,6 +1171,38 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Yes
             </td>
         </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -1523,6 +1555,38 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
     
     **Sample configuration**
@@ -1778,6 +1842,38 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 false
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
             </td>
             <td>
                 No
@@ -2286,6 +2382,38 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
     
     **Sample configuration**
@@ -2441,6 +2569,38 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
     
     **Sample configuration**
@@ -2587,6 +2747,38 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
             </td>
             <td>
                 No
@@ -2926,6 +3118,38 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Yes
             </td>
         </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
     
      **Sample configuration**
@@ -3158,6 +3382,38 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
             </td>
             <td>
                 No
@@ -3417,6 +3673,38 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
+            </td>
+            <td>
+                No
             </td>
         </tr>
     </table>
@@ -3785,6 +4073,38 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disk Share Access Mask
+            </td>
+            <td>
+                diskShareAccessMask
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
+                Supported <code>diskShareAccessMask</code> Values:
+                <ul>
+                <li>**READ**: Grants read-only access.</li>
+                <li>**WRITE**: Grants write-only access.</li>
+                <li>**READ_WRITE**: Grants both read and write access.</li>
+                <li>**ALL**: Grants full control over the file share.</li>
+                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Requires Micro Integrator version 4.3.0.21 (U2) or later to use this parameter.</p>
+                </div>
+            </td>
+            <td>
+                MAXIMUM
             </td>
             <td>
                 No
