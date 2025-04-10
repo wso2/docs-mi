@@ -59,9 +59,6 @@ Now, it's time to configure the MI runtime to connect to the Integration Control
 
 ## Step 2 - Start the Integration Control Plane (ICP)
 
-!!! Warning
-    The Integration Control Plane (ICP) **must be installed** before proceeding to the next step. If you haven't installed it yet, refer to the [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane/) documentation for installation instructions.
-
 1. <a target="_blank" href="https://code.visualstudio.com/docs/terminal/basics">Open a new terminal</a> in VS Code and navigate to the `<ICP_HOME>/bin` folder.
 
 2. Execute one of the following commands to start the Integration Control Plane (ICP).
@@ -124,6 +121,9 @@ Now that the Integration Control Plane (ICP) is running, log in to the web porta
     To view details about the deployed artifacts—such as integration applications, APIs, connectors, and more—use the options available in the left-hand navigation panel.
 
 4. Click **Carbon Applications** to view the deployed integration applications. You should see `BankIntegration` listed. Click on a node to view the integration details, including the packaged artifacts.
+
+    !!! Info "What is a Carbon Application?"
+        A Carbon Application in WSO2 Micro Integrator (MI) is a deployable archive that packages and distributes integration artifacts in a structured manner. To learn more, see the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts/) documentation.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png" alt="Create New Project"></a>
 

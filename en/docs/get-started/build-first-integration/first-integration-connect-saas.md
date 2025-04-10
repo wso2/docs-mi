@@ -78,7 +78,8 @@ To develop the above scenario, let's get started with creating a new API resourc
 5. Search for `email` in the **Mediator Palette**, then click the download (<img src="{{base_path}}/assets/img/get-started/build-first-integration/connector_download_icon.png" alt="inline expression editor" class="inline-icon">) icon to add the [Email connector]({{base_path}}/reference/connectors/email-connector/email-connector-overview/) to the project. In the confirmation pane, select **Yes** to add the required dependencies.
 
     !!! Tip "What is a connector?"
-        Connectors in WSO2 Micro Integrator (MI) enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
+        - Connectors in WSO2 Micro Integrator (MI) enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
+        - In VS Code, you can view all available connectors by clicking **Add Module** under the **Mediators** tab in the **Mediator Palette**.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png" alt="Create New Project" width="80%"></a>
 
@@ -102,6 +103,9 @@ To develop the above scenario, let's get started with creating a new API resourc
     | **Port**        | `465` |
     | **Username**        | Your email address |
     | **Password**        | Your email password or app password|
+
+    !!! Note
+        It is recommended to use secure vault to store credentials. For more information, refer to <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text/">Encrypting Secrets</a>.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_create_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_create_connection.png" alt="Create New Project" width="80%"></a>
 
@@ -196,34 +200,34 @@ You have successfully updated the integration flow to send an email with the loa
             </resource>
             <resource methods="POST" uri-template="/deposit">
                 <inSequence>
-                    <filter xpath="${payload.currency == 'USD'}">
+                    <http.post configKey="CurrencyConverter">
+                        <relativePath>/currency/rate</relativePath>
+                        <headers>[]</headers>
+                        <requestBodyType>JSON</requestBodyType>
+                        <requestBodyJson>{
+                            &quot;fromCurrency&quot;: &quot; ${payload.currency} &quot;,
+                            &quot;toCurrency&quot;: &quot;USD&quot;
+                            }
+                        </requestBodyJson>
+                        <forceScAccepted>false</forceScAccepted>
+                        <disableChunking>false</disableChunking>
+                        <forceHttp10>false</forceHttp10>
+                        <noKeepAlive>false</noKeepAlive>
+                        <forcePostPutNobody>false</forcePostPutNobody>
+                        <responseVariable>http_post_1</responseVariable>
+                        <overwriteBody>false</overwriteBody>
+                    </http.post>
+                    <filter xpath="${vars.http_post_1.attributes.statusCode == 200}">
                         <then>
                             <payloadFactory media-type="json" template-type="default">
-                                <format>{
-                                    "status": "successful",
-                                    "amountDeposited": ${payload.amount}
-                                    }
-                                </format>
+                                <format>{ "status": "successful", "amountDeposited": ${payload.amount * vars.http_post_1.payload.rate} }</format>
                             </payloadFactory>
                         </then>
                         <else>
-                            <http.post configKey="CurrencyConverter">
-                                <relativePath>/currency-converter</relativePath>
-                                <headers>[]</headers>
-                                <requestBodyType>JSON</requestBodyType>
-                                <requestBodyJson>{${payload}}</requestBodyJson>
-                                <forceScAccepted>false</forceScAccepted>
-                                <disableChunking>false</disableChunking>
-                                <forceHttp10>false</forceHttp10>
-                                <noKeepAlive>false</noKeepAlive>
-                                <forcePostPutNobody>false</forcePostPutNobody>
-                                <responseVariable>http_post_1</responseVariable>
-                                <overwriteBody>true</overwriteBody>
-                            </http.post>
                             <payloadFactory media-type="json" template-type="default">
                                 <format>{
-                                    "status": "successful",
-                                    "amountDeposited": ${payload.convertedValue}
+                                    "status": "unsuccessful",
+                                    "error": "${vars.http_post_1.payload.message}"
                                     }
                                 </format>
                             </payloadFactory>
