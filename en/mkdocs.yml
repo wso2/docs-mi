@@ -15,15 +15,15 @@
 # under the License.
 
 # Project information
-site_name: WSO2 Micro Integrator Documentation 4.4.0
+site_name: WSO2 Micro Integrator Documentation 4.4.0 (Staging)
 site_description: Documentation for WSO2 Micro Integrator
 site_author: WSO2
-site_url: https://mi.docs.wso2.com/en/latest/
+site_url: https://mi-docs-stg.wso2.com/en/staging-4.4.0/
 
 # Repository
 repo_name: wso2/docs-mi
 repo_url: https://github.com/wso2/docs-mi
-edit_uri: https://github.com/wso2/docs-mi/edit/main/en/docs/
+edit_uri: https://github.com/wso2/docs-mi/edit/staging-main/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
