@@ -238,3 +238,41 @@ function hasUserAcceptedCookies() {
     }
     return false;
 }
+// Define the exact displayed names for "Build your first integration" steps
+const integrationSteps = [
+    "Develop an Integration API",
+    "Route and Transform messages",
+    "Connect to SaaS or B2B Systems",
+    "Monitor and Manage Integrations"
+];
+
+document.querySelectorAll("label.md-nav__title").forEach(label => {
+    if (label.textContent.trim() === "Build your first Integration") {
+        const ul = label.nextElementSibling;
+        if (ul && ul.tagName === "UL") {
+            ul.classList.add("custom-integration-list");
+            const listItems = ul.querySelectorAll("li");
+            count = 1;
+            completed = true;
+            listItems.forEach(li => {
+                const link = li.querySelector("a.md-nav__link");
+                if (link) {
+                    const linkText = link.textContent.trim();
+                    if (integrationSteps.includes(linkText)) {
+                        // Remove any existing numbers (if script runs again)
+                        link.innerHTML = link.innerHTML.replace(/^\d+\.\s*/, "");
+                        link.innerHTML = `<span class="custom-number">${count}</span> ${link.innerHTML}`;
+                        count++;
+                        if (completed) {
+                            li.classList.add("md-nav__link--completed");
+                        }
+                        if (li.classList.contains("md-nav__item--active")) {
+                            console.log("active");
+                            completed = false;
+                        }
+                    }
+                }
+            });
+        }
+    }
+});
