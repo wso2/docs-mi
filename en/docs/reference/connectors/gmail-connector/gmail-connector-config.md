@@ -4,10 +4,11 @@ The following operations allow you to work with the Gmail Connector. Click an op
 
 ---
 
-To use the Gmail connector, add the `<gmail.init>` element in your configuration before carrying out any other Gmail operations. 
+### Connection Configuration
 
-??? note "gmail.init"
-    The Gmail API uses OAuth2 authentication with Tokens. For more information on authentication, go to [Authorizing Your App with Gmail](https://developers.google.com/gmail/api/auth/about-auth).
+The Gmail API uses OAuth2 authentication with Tokens. For more information on authentication, go to [Authorizing Your App with Gmail](https://developers.google.com/gmail/api/auth/about-auth).
+
+??? note "GMAIL Connection"
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -15,8 +16,13 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
             <th>Required</th>
         </tr>
         <tr>
-            <td>accessToken</td>
-            <td>Value of the Access Token to access the Gmail REST API.</td>
+            <td>clientId</td>
+            <td>Value of the Client ID you obtained when you registered your application with Gmail API.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>Value of the Client Secret you obtained when you registered your application with the Gmail API.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -30,23 +36,18 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
             <td>Yes</td>
         </tr>
         <tr>
+            <td>apiVersion</td>
+            <td>Version of the Gmail API.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
             <td>userId</td>
             <td>User mail ID.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>clientSecret</td>
-            <td>Value of the Client Secret you obtained when you registered your application with the Gmail API.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>clientId</td>
-            <td>Value of the Client ID you obtained when you registered your application with Gmail API.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>registryPath</td>
-            <td>Registry Path of the connector where the Access Token will be stored (if not provided, the connector stores the Access Token in the connectors/Gmail/accessToken Registry Path).</td>
+            <td>tokenEndpoint</td>
+            <td>The token endpoint URL for OAuth authentication.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -55,22 +56,22 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.init>
-        <userId>{$ctx:userId}</userId>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <clientId>{$ctx:clientId}</clientId>
-        <registryPath>{$ctx:registryPath}</registryPath>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <connectionType>GMAIL</connectionType>
+        <clientId>00339149310-2h1dc24k9d5sn22k309dc578agjjwso2.apps.googleusercontent.com</clientId>
+        <clientSecret>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</clientSecret>
+        <refreshToken>1//04CeqvBsifESwCgYIARAAGAQSNwF-L9IrBtD40NRB0jiWSO20x5hOHhNppXnB9S9VKvguwUVVkZSp_OkL-MI-tFwahvF5K7reXUI</refreshToken>
+        <apiUrl>https://www.googleapis.com/gmail</apiUrl>
+        <apiVersion>v1</apiVersion>
+        <userId>me</userId>
+        <tokenEndpoint>https://oauth2.googleapis.com/token</tokenEndpoint>
+        <name>CONN</name>
     </gmail.init>
     ```
 
----
+### Mail Management 
 
-### Config
-
-??? note "passwordLogin"
-    The passwordLogin operation establishes a connection to Gmail using SASL (Simple Authentication and Security Layer) authentication. 
+??? note "listAllMails"
+    The listAllMails operation lists all messages. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/get) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -78,13 +79,28 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
             <th>Required</th>
         </tr>
         <tr>
-            <td>username</td>
-            <td>E-mail address of the user.</td>
+            <td>includeSpamTrash</td>
+            <td>Includes messages from SPAM and TRASH in the results (default: false).</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>password</td>
-            <td>Password of the user.</td>
+            <td>labelIds</td>
+            <td>Only returns messages with labels that match all of the specified label IDs.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>maxResults</td>
+            <td>Maximum number of messages to return.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>pageToken</td>
+            <td>Page token to retrieve a specific page of results in the list.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>q</td>
+            <td>Only returns messages matching the specified query. Supports the same query format as the Gmail search box.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -92,23 +108,31 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.passwordLogin>
-        <username>{$ctx:username}</username>
-        <password>{$ctx:password}</password>
-    </gmail.passwordLogin>
+    <gmail.listAllMails configKey="GmailConnection">
+        <includeSpamTrash>{${payload.includeSpamTrash}}</includeSpamTrash>
+        <labelIds>{${payload.labelIds}}</labelIds>
+        <maxResults>{${payload.maxResults}}</maxResults>
+        <pageToken>{${payload.pageToken}}</pageToken>
+        <q>{${payload.q}}</q>
+        <responseVariable>gmail_listAllMails_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.listAllMails>
     ```
     
     **Sample request**
 
     ```json
     {
-        "username":"asha@gmail.com"
-        "password":"asha123"
+        "maxResults":"10",
+        "includeSpamTrash":"true",
+        "pageToken":"00965906535058580458",
+        "labelIds":"UNREAD",
+        "q":"Jira"
     }
     ```
 
-??? note "getAccessTokenFromRefreshToken"
-    The getAccessTokenFromRefreshToken operation generates the  new access token from the refresh token.
+??? note "readMail"
+    The readMail operation retrieves a message by its ID. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/get) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -116,39 +140,343 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
             <th>Required</th>
         </tr>
         <tr>
-            <td>clientId</td>
-            <td>clientId of your App, given by google console when you registered your application.</td>
-            <td>No</td>
+            <td>id</td>
+            <td>The ID of the message to retrieve.</td>
+            <td>Yes</td>
         </tr>
         <tr>
-            <td>clientSecret</td>
-            <td>clientSecret of your App, given by google console when you registered your application.</td>
-            <td>No</td>
+            <td>format</td>
+            <td>The format to return.</td>
+            <td>Yes</td>
         </tr>
         <tr>
-            <td>refreshToken</td>
-            <td>Refresh token to exchange with an access token.</td>
-            <td>No</td>
+            <td>metadataHeaders</td>
+            <td>When the format is METADATA, only include the headers specified in this property.</td>
+            <td>Yes</td>
         </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    </gmail.getAccessTokenFromRefreshToken>
+    <gmail.readMail ConfigKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <format>{${payload.format}}</format>
+        <metadataHeaders>{${payload.metadataHeaders}}</metadataHeaders>
+        <responseVariable>gmail_readMail_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.readMail>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "id":"14bbb686ba287e1d",
+        "format":"minimal"
+    }
     ```
 
-??? note "endSession"
-    The endSession operation terminates the authenticated IMAP and SMTP connections with Gmail.
+??? note "sendMail"
+    The sendMail operation sends a plain message. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/send) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>to</td>
+            <td>The email address of the recipient of the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>subject</td>
+            <td>Subject of the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>from</td>
+            <td>The email address of the sender of the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>cc</td>
+            <td>The email addresses of recipients who will receive a copy of this message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>bcc</td>
+            <td>The email addresses of recipients who will privately receive a copy of this message (their email addresses will be hidden).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>messageBody</td>
+            <td>The content of the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>contentType</td>
+            <td>If the message body is in the format of html or need to send a rich text then we must give the parameter value as "text/html; charset=UTF-8" otherwise it takes the default value as text/plain.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
 
     **Sample configuration**
 
     ```xml
-    </gmail.endSession>
+    <gmail.sendMail configKey="GmailConnection">
+        <to>{${payload.to}}</to>
+        <subject>{${payload.subject}}</subject>
+        <from>{${payload.from}}</from>
+        <cc>{${payload.cc}}</cc>
+        <bcc>{${payload.bcc}}</bcc>
+        <messageBody>{${payload.messageBody}}</messageBody>
+        <contentType>{${payload.contentType}}</contentType>
+        <responseVariable>gmail_sendMail_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.sendMail>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "to":"ashalya86@gmail.com",
+        "subject":"Hello",
+        "cc":"vanii@gamil.com",
+        "bcc":"elil@gmail.com",
+        "messageBody":"Hello! Thank you for contacting us.",
+        "contentType":"text/html; charset=UTF-8"
+    }
     ```
 
+??? note "modifyExistingMessage"
+    The modifyExistingMessage operation modifies an existing message. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/modify) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>The ID of the message to modify.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>addLabelIds</td>
+            <td>A list of IDs of labels to add to this message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>removeLabelIds</td>
+            <td>A list of IDs of labels to remove from this message.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
 
-### Drafts
+    **Sample configuration**
+
+    ```xml
+    <gmail.modifyExistingThread configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <addLabelIds>{${payload.addLabelIds}}</addLabelIds>
+        <removeLabelIds>{${payload.removeLabelIds}}</removeLabelIds>
+        <responseVariable>gmail_modifyExistingThread_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.modifyExistingThread>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "id":"14ba5cd56fcb61ee",
+        "addLabelIds": [
+            "Label_33",
+            "Label_24"],
+        "removeLabelIds": [
+            "Label_28",
+            "Label_31"]
+    }
+    ```
+
+??? note "trashMessage"
+    The trashMessage operation sends a message to the trash. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/trash) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>The ID of the message to send to trash.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <gmail.trashMessage configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_trashMessage_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.trashMessage>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "id":"4647683792802"
+    }
+    ```
+
+??? note "unTrashMessage"
+    The unTrashMessage operation removes a message from trash. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/untrash) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>The ID of the message to untrash.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <gmail.unTrashMessage configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_unTrashMessage_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.unTrashMessage>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "id":"4647683792802"
+    }
+    ```
+
+??? note "deleteMessage"
+    The deleteMessage operation permanently deletes a message. The message cannot be recovered after it is deleted. You can use trashMessages instead if you do not want to permanently delete the message. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/delete) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>The ID of the message to delete.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <gmail.deleteMessage configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_deleteMessage_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.deleteMessage>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "id":"4647683792802"
+    }
+    ```
+
+??? note "sendMailWithAttachment"
+    The sendMailWithAttachment operation sends a message with attachments. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/send) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>to</td>
+            <td>The email addresses of the recipients of the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>subject</td>
+            <td>Subject of the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>cc</td>
+            <td>The email addresses of recipients who will receive a copy of this message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>bcc</td>
+            <td>The email addresses of recipients who will privately receive a copy of this message (their email addresses will be hidden).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>fileName</td>
+            <td>A comma-seperated list of file names of the attachments you want to include with the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>filePath</td>
+            <td>A comma-seperated list of file paths of the attachments you want to include with the message.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>messageBody</td>
+            <td>Content of the message.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <gmail.sendMailWithAttachment configKey="GmailConnection">
+        <subject>{${payload.subject}}</subject>
+        <to>{${payload.to}}</to>
+        <cc>{${payload.cc}}</cc>
+        <bcc>{${payload.bcc}}</bcc>
+        <messageBody>{${payload.messageBody}}</messageBody>
+        <fileName>{${payload.fileName}}</fileName>
+        <filePath>{${payload.filePath}}</filePath>
+        <responseVariable>gmail_sendMailWithAttachment_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.sendMailWithAttachment>
+    ```
+    
+    **Sample request**
+
+    ```json
+    {
+        "subject":"WSO2 Gmail Connector",
+        "to":"hmrajas1990@gmail.com",
+        "cc":"hmrajas1990@gmail.com",
+        "bcc":"rajjaz@wso2.com",
+        "messageBody":"Welcome to WSO2 ESB Gmail Connector!!!!!",
+        "fileName":"/home/rajjaz/Documents/ESB/esb-connector-gmail/src/test/resources/artifacts/ESB/config/smile.png",
+        "filePath":"smile.png"
+    }
+    ```
+
+### Drafts Management
 
 ??? note "listDrafts"
     The listDrafts operation lists all drafts in Gmail. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/drafts/list) for more information.
@@ -173,9 +501,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.listDrafts>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
+    <gmail.listDrafts configKey="GmailConnection">
+        <maxResults>{${payload.maxResults}}</maxResults>
+        <pageToken>{${payload.pageToken}}</pageToken>
+        <responseVariable>gmail_listDrafts_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.listDrafts>
     ```
     
@@ -183,7 +513,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```json
     {
-        "maxResults":"10"
+        "maxResults":"10",
         "pageToken":"09876536614133772469"
     }
     ```
@@ -211,9 +541,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.readDraft>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
+    <gmail.readDraft configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <format>{${payload.format}}</format>
+        <responseVariable>gmail_readDraft_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.readDraft>
     ```
     
@@ -244,8 +576,10 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.deleteDraft>
-        <id>{$ctx:id}</id>
+    <gmail.deleteDraft configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_deleteDraft_1</responseVariable>
+        <overwriteBody>false</overwriteBo`dy>
     </gmail.deleteDraft>
     ```
     
@@ -315,16 +649,18 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.createDraft>
-        <to>{$ctx:to}</to>
-        <subject>{$ctx:subject}</subject>
-        <from>{$ctx:from}</from>
-        <cc>{$ctx:cc}</cc>
-        <bcc>{$ctx:bcc}</bcc>
-        <id>{$ctx:id}</id>
-        <threadId>{$ctx:threadId}</threadId>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <contentType>{$ctx:contentType}</contentType>
+    <gmail.createDraft configKey="GmailConnection">
+        <to>{${payload.to}}</to>
+        <subject>{${payload.subject}}</subject>
+        <from>{${payload.from}}</from>
+        <cc>{${payload.cc}}</cc>
+        <bcc>{${payload.bcc}}</bcc>
+        <id>{${payload.id}}</id>
+        <threadId>{${payload.threadId}}</threadId>
+        <messageBody>{${payload.messageBody}}</messageBody>
+        <contentType>{${payload.contentType}}</contentType>
+        <responseVariable>gmail_createDraft_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.createDraft>
     ```
     
@@ -339,12 +675,12 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
         "cc":"tharis63@outlook.com",
         "bcc":"tharis63@yahoo.com",
         "id":"154b8c77e551c509",
-        "threadId":"154b8c77e551c509"
+        "threadId":"154b8c77e551c509",
         "contentType":"text/html; charset=UTF-8"
     }
     ```
 
-### Labels
+### Labels Management
 
 ??? note "listLabels"
      The listLabels operation lists all existing labels. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/list) for more information.
@@ -352,9 +688,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
+    </gmail.listLabels configKey="GmailConnection">
+        <responseVariable>gmail_listLabels_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.listLabels>
-    ```
-    
+    ```    
 
 ??? note "readLabel"
     The readLabel operation gets a label's details. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/get) for more information.
@@ -374,8 +712,10 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.readLabel>
-        <id>{$ctx:id}</id>
+    <gmail.readLabel configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_readLabel_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.readLabel>
     ```
     
@@ -405,8 +745,10 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.deleteLabel>
-        <id>{$ctx:id}</id>
+    <gmail.deleteLabel configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_deleteLabel_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.deleteLabel>
     ```
     
@@ -418,8 +760,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-??? note "createLabels"
-    The createLabels operation creates a new label. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/create) for more information.
+??? note "createLabel"
+    The createLabel operation creates a new label. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/create) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -471,18 +813,20 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.createLabels>
-        <name>{$ctx:name}</name>
-        <messageListVisibility>{$ctx:messageListVisibility}</messageListVisibility>
-        <labelListVisibility>{$ctx:labelListVisibility}</labelListVisibility>
-        <type>{$ctx:type}</type>
-        <messagesTotal>{$ctx:messagesTotal}</messagesTotal>
-        <messagesUnread>{$ctx:messagesUnread}</messagesUnread>
-        <threadsTotal>{$ctx:threadsTotal}</threadsTotal>
-        <threadsUnread>{$ctx:threadsUnread}</threadsUnread>
-    </gmail.createLabels>
+    <gmail.createLabel configKey="GmailConnection">
+        <name>{${payload.name}}</name>
+        <messageListVisibility>{${payload.messageListVisibility}}</messageListVisibility>
+        <labelListVisibility>{${payload.labelListVisibility}}</labelListVisibility>
+        <type>{${payload.type}}</type>
+        <messagesTotal>{${payload.messagesTotal}}</messagesTotal>
+        <messagesUnread>{${payload.messagesUnread}}</messagesUnread>
+        <threadsTotal>{${payload.threadsTotal}}</threadsTotal>
+        <threadsUnread>{${payload.threadsUnread}}</threadsUnread>
+        <responseVariable>gmail_createLabel_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.createLabel>
     ```
-    
+
     **Sample request**
 
     ```json
@@ -498,8 +842,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-??? note "updateLabels"
-    The updateLabels operation updates an existing label. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/update) for more information.
+??? note "updateLabel"
+    The updateLabel operation updates an existing label. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/update) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -556,17 +900,19 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.updateLabels>
-        <name>{$ctx:name}</name>
-        <messageListVisibility>{$ctx:messageListVisibility}</messageListVisibility>
-        <labelListVisibility>{$ctx:labelListVisibility}</labelListVisibility>
-        <type>{$ctx:type}</type>
-        <messagesTotal>{$ctx:messagesTotal}</messagesTotal>
-        <messagesUnread>{$ctx:messagesUnread}</messagesUnread>
-        <threadsTotal>{$ctx:threadsTotal}</threadsTotal>
-        <threadsUnread>{$ctx:threadsUnread}</threadsUnread>
-        <id>{$ctx:id}</id>
-    </gmail.updateLabels>
+    <gmail.updateLabel configKey="GmailConnection">
+        <name>{${payload.name}}</name>
+        <messageListVisibility>{${payload.messageListVisibility}}</messageListVisibility>
+        <labelListVisibility>{${payload.labelListVisibility}}</labelListVisibility>
+        <type>{${payload.type}}</type>
+        <messagesTotal>{${payload.messagesTotal}}</messagesTotal>
+        <messagesUnread>{${payload.messagesUnread}}</messagesUnread>
+        <threadsTotal>{${payload.threadsTotal}}</threadsTotal>
+        <threadsUnread>{${payload.threadsUnread}}</threadsUnread>
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_updateLabel_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.updateLabel>
     ```
     
     **Sample request**
@@ -585,397 +931,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### Messages
 
-??? note "listAllMails"
-    The listAllMails operation lists all messages. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/labels/get) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>includeSpamTrash</td>
-            <td>Includes messages from SPAM and TRASH in the results (default: false).</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>labelIds</td>
-            <td>Only returns messages with labels that match all of the specified label IDs.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>maxResults</td>
-            <td>Maximum number of messages to return.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>pageToken</td>
-            <td>Page token to retrieve a specific page of results in the list.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>q</td>
-            <td>Only returns messages matching the specified query. Supports the same query format as the Gmail search box.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.listAllMails>
-        <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-        <labelIds>{$ctx:labelIds}</labelIds>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <q>{$ctx:q}</q>
-    </gmail.listAllMails>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "maxResults":"10",
-        "includeSpamTrash":"true",
-        "pageToken":"00965906535058580458",
-        "labelIds":"UNREAD",
-        "q":"Jira"
-    }
-    ```
-
-??? note "readMail"
-    The readMail operation retrieves a message by its ID. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/get) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>id</td>
-            <td>The ID of the message to retrieve.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>format</td>
-            <td>The format to return.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>metadataHeaders</td>
-            <td>When the format is METADATA, only include the headers specified in this property.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.readMail>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
-        <metadataHeaders>{$ctx:metadataHeaders}</metadataHeaders>
-    </gmail.readMail>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "id":"14bbb686ba287e1d",
-        "format":"minimal"
-    }
-    ```
-
-??? note "sendMail"
-    The sendMail operation sends a plain message. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/send) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>to</td>
-            <td>The email address of the recipient of the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>subject</td>
-            <td>Subject of the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>from</td>
-            <td>The email address of the sender of the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>cc</td>
-            <td>The email addresses of recipients who will receive a copy of this message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>bcc</td>
-            <td>The email addresses of recipients who will privately receive a copy of this message (their email addresses will be hidden).</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>messageBody</td>
-            <td>The content of the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>contentType</td>
-            <td>If the message body is in the format of html or need to send a rich text then we must give the parameter value as "text/html; charset=UTF-8" otherwise it takes the default value as text/plain.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.sendMail>
-        <to>{$ctx:to}</to>
-        <subject>{$ctx:subject}</subject>
-        <from>{$ctx:from}</from>
-        <cc>{$ctx:cc}</cc>
-        <bcc>{$ctx:bcc}</bcc>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <contentType>{$ctx:contentType}</contentType>
-    </gmail.sendMail>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "to":"ashalya86@gmail.com",
-        "subject":"Hello",
-        "cc":"vanii@gamil.com",
-        "bcc":"elil@gmail.com",
-        "messageBody":"Hello! Thank you for contacting us."
-        "contentType":"text/html; charset=UTF-8"
-    }
-    ```
-
-??? note "modifyExistingMessages"
-    The modifyExistingMessages operation modifies an existing message. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/modify) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>id</td>
-            <td>The ID of the message to modify.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>addLabelIds</td>
-            <td>A list of IDs of labels to add to this message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>removeLabelIds</td>
-            <td>A list of IDs of labels to remove from this message.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.modifyExistingThreads>
-        <id>{$ctx:id}</id>
-        <addLabelIds>{$ctx:addLabelIds}</addLabelIds>
-        <removeLabelIds>{$ctx:removeLabelIds}</removeLabelIds>
-    </gmail.modifyExistingThreads>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "id":"14ba5cd56fcb61ee",
-        "addLabelIds": [
-            "Label_33",
-            "Label_24"],
-        "removeLabelIds": [
-            "Label_28",
-            "Label_31"]
-    }
-    ```
-
-??? note "trashMessages"
-    The trashMessages operation sends a message to the trash. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/trash) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>id</td>
-            <td>The ID of the message to send to trash.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.trashMessages>
-        <id>{$ctx:id}</id>
-    </gmail.trashMessages>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "id":"4647683792802"
-    }
-    ```
-
-??? note "unTrashMessages"
-    The unTrashMessages operation removes a message from trash. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/untrash) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>id</td>
-            <td>The ID of the message to untrash.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.unTrashMessages>
-        <id>{$ctx:id}</id>
-    </gmail.unTrashMessages>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "id":"4647683792802"
-    }
-    ```
-
-??? note "deleteMessages"
-    The deleteMessages operation permanently deletes a message. The message cannot be recovered after it is deleted. You can use trashMessages instead if you do not want to permanently delete the message. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/delete) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>id</td>
-            <td>The ID of the message to untrash.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.deleteMessages>
-        <id>{$ctx:id}</id>
-    </gmail.deleteMessages>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "id":"4647683792802"
-    }
-    ```
-
-??? note "sendMailWithAttachment"
-    The sendMailWithAttachment operation sends a message with attachments. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/messages/send) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>to</td>
-            <td>The email addresses of the recipients of the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>subject</td>
-            <td>Subject of the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>cc</td>
-            <td>The email addresses of recipients who will receive a copy of this message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>bcc</td>
-            <td>The email addresses of recipients who will privately receive a copy of this message (their email addresses will be hidden).</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>fileName</td>
-            <td>A comma-seperated list of file names of the attachments you want to include with the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>filePath</td>
-            <td>A comma-seperated list of file paths of the attachments you want to include with the message.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>messageBody</td>
-            <td>Content of the message.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <gmail.sendMailWithAttachment>
-        <subject>{$ctx:subject}</subject>
-        <to>{$ctx:to}</to>
-        <cc>{$ctx:cc}</cc>
-        <bcc>{$ctx:bcc}</bcc>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <fileName>{$ctx:fileName}</fileName>
-        <filePath>{$ctx:filePath}</filePath>
-    </gmail.sendMailWithAttachment>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "subject":"WSO2 Gmail Connector",
-        "to":"hmrajas1990@gmail.com",
-        "cc":"hmrajas1990@gmail.com",
-        "bcc":"rajjaz@wso2.com",
-        "messageBody":"Welcome to WSO2 ESB Gmail Connector!!!!!",
-        "fileName":"/home/rajjaz/Documents/ESB/esb-connector-gmail/src/test/resources/artifacts/ESB/config/smile.png",
-        "filePath":"smile.png"
-    }
-    ```
 
 ### Threads
 
@@ -1017,12 +973,14 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.listAllThreads>
-        <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-        <labelIds>{$ctx:labelIds}</labelIds>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <q>{$ctx:q}</q>
+    <gmail.listAllThreads configKey="GmailConnection">
+        <includeSpamTrash>{${payload.includeSpamTrash}}</includeSpamTrash>
+        <labelIds>{${payload.labelIds}}</labelIds>
+        <maxResults>{${payload.maxResults}}</maxResults>
+        <pageToken>{${payload.pageToken}}</pageToken>
+        <q>{${payload.q}}</q>
+        <responseVariable>gmail_listAllThreads_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.listAllThreads>
     ```
     
@@ -1066,10 +1024,12 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.readThread>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
-        <metadataHeaders>{$ctx:metadataHeaders}</metadataHeaders>
+    <gmail.readThread configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <format>{${payload.format}}</format>
+        <metadataHeaders>{${payload.metadataHeaders}}</metadataHeaders>
+        <responseVariable>gmail_readThread_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.readThread>
     ```
     
@@ -1100,9 +1060,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.trashThreads>
-        <id>{$ctx:id}</id>
-    </gmail.trashThreads>
+    <gmail.trashThread configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_trashThread_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.trashThread>
     ```
     
     **Sample request**
@@ -1131,9 +1093,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.unTrashThreads>
-        <id>{$ctx:id}</id>
-    </gmail.unTrashThreads>
+    <gmail.unTrashThread configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_unTrashThread_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.unTrashThread>
     ```
     
     **Sample request**
@@ -1144,8 +1108,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-??? note "modifyExistingThreads"
-    The modifyExistingThreads operation modifies an existing thread. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/threads/modify) for more information.
+??? note "modifyExistingThread"
+    The modifyExistingThread operation modifies an existing thread. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/threads/modify) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1172,11 +1136,13 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.modifyExistingThreads>
-        <id>{$ctx:id}</id>
-        <addLabelIds>{$ctx:addLabelIds}</addLabelIds>
-        <removeLabelIds>{$ctx:removeLabelIds}</removeLabelIds>
-    </gmail.modifyExistingThreads>
+    <gmail.modifyExistingThread configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <addLabelIds>{${payload.addLabelIds}}</addLabelIds>
+        <removeLabelIds>{${payload.removeLabelIds}}</removeLabelIds>
+        <responseVariable>gmail_modifyExistingThread_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.modifyExistingThread>
     ```
     
     **Sample request**
@@ -1193,8 +1159,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-??? note "deleteThreads"
-    The deleteThreads operation deletes the specified thread. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/threads/delete) for more information.
+??? note "deleteThread"
+    The deleteThreads operation deletes the specified thread`. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/threads/delete) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1211,9 +1177,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.deleteThreads>
-        <id>{$ctx:id}</id>
-    </gmail.deleteThreads>
+    <gmail.deleteThread configKey="GmailConnection">
+        <id>{${payload.id}}</id>
+        <responseVariable>gmail_deleteThread_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.deleteThread>
     ```
     
     **Sample request**
@@ -1224,7 +1192,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### User history
+### Account Management
 
 ??? note "listTheHistory"
     The listTheHistory operation lists the history of changes to the user's mailbox. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/history/list) for more information.
@@ -1254,11 +1222,13 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     **Sample configuration**
 
     ```xml
-    <gmail.listTheHistory>
-        <startHistoryId>{$ctx:startHistoryId}</startHistoryId>
-        <labelId>{$ctx:labelId}</labelId>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
+    <gmail.listTheHistory configKey="GmailConnection">
+        <startHistoryId>{${payload.startHistoryId}}</startHistoryId>
+        <labelId>{${payload.labelId}}</labelId>
+        <maxResults>{${payload.maxResults}}</maxResults>
+        <pageToken>{${payload.pageToken}}</pageToken>
+        <responseVariable>gmail_listTheHistory_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </gmail.listTheHistory>
     ```
     
@@ -1272,273 +1242,27 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
     }
     ```
 
-### User profiles
-
 ??? note "getUserProfile"
     The getUserProfile operation lists all details about the user's profile. See the [related API documentation](https://developers.google.com/gmail/api/v1/reference/users/getProfile) for more information.
 
     **Sample configuration**
 
     ```xml
-    <gmail.getUserProfile/>
+    <gmail.getUserProfile configKey="GmailConnection">
+        <responseVariable>gmail_getUserProfile_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </gmail.getUserProfile>
     ```
 
-### Sample configuration in a scenario
 
-The following is a sample proxy service that illustrates how to connect to Gmail with the init operation and use the listDrafts operation. The sample request for this proxy can be found in listDrafts sample request. You can use this sample as a template for using other operations in this category.
+??? note "endSession"
+    The endSession operation terminates the authenticated IMAP and SMTP connections with Gmail.
 
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="gmail_listDrafts"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-    <target>
-        <target>
-        <inSequence>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
-            <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
-            </gmail.init>
-            <gmail.listDrafts>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
-            </gmail.listDrafts>
-            <respond/>
-        </inSequence>
-    </target>
-    <parameter name="serviceType">proxy</parameter>
-    <description/>
-</proxy>
-```
+    **Sample configuration**
 
-The following is a sample proxy service that illustrates how to connect to Gmail with the init operation and use the readLabel operation. The sample request for this proxy can be found in readLabel sample request. You can use this sample as a template for using other operations in this category.
-
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="gmail_listLabels"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-        <target>
-        <inSequence>
-            <property name="id" expression="json-eval($.id)"/>
-            <property name="format" expression="json-eval($.format)"/>
-            <property name="metadataHeaders" expression="json-eval($.metadataHeaders)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
-            <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
-            </gmail.init>
-            <gmail.readLabel>
-              <id>{$ctx:id}</id>
-            </gmail.readLabel>
-            <respond/>
-        </inSequence>
-    </target>
-    <parameter name="serviceType">proxy</parameter>
-    <description/>
-</proxy>
-```
-
-The following is a sample proxy service that illustrates how to connect to Gmail with the init operation and use the listAllMails operation. The sample request for this proxy can be found in listAllMails sample request. You can use this sample as a template for using other operations in this category.
-
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="gmail_listAllMails"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-    <target>
-        <inSequence>
-            <property name="includeSpamTrash" expression="json-eval($.includeSpamTrash)"/>
-            <property name="labelIds" expression="json-eval($.labelIds)"/>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="q" expression="json-eval($.q)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
-            <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
-            </gmail.init>
-            <gmail.listAllMails>
-                <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-                <labelIds>{$ctx:labelIds}</labelIds>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
-                <q>{$ctx:q}</q>
-            </gmail.listAllMails>
-            <respond/>
-        </inSequence>
-    </target>
-    <parameter name="serviceType">proxy</parameter>
-    <description/>
-</proxy>
-```
-
-The following is a sample proxy service that illustrates how to connect to Gmail with the init operation and use the listAllThreads operation. The sample request for this proxy can be found in listAllThreads sample request. You can use this sample as a template for using other operations in this category.
-
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="gmail_listAllThreads"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-    <target>
-        <inSequence>
-            <property name="includeSpamTrash" expression="json-eval($.includeSpamTrash)"/>
-            <property name="labelIds" expression="json-eval($.labelIds)"/>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="q" expression="json-eval($.q)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
-            <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
-            </gmail.init>
-            <gmail.listAllThreads>
-                <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-                <labelIds>{$ctx:labelIds}</labelIds>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
-                <q>{$ctx:q}</q>
-            </gmail.listAllThreads>
-            <respond/>
-        </inSequence>
-    </target>
-    <parameter name="serviceType">proxy</parameter>
-    <description/>
-</proxy>
-```
-
-The following is a sample proxy service that illustrates how to connect to Gmail with the init operation and use the listTheHistory operation. The sample request for this proxy can be found in listTheHistory sample request.
-
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="gmail_listTheHistory"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-    <target>
-        <inSequence>
-            <property name="startHistoryId" expression="json-eval($.startHistoryId)"/>
-            <property name="labelId" expression="json-eval($.labelId)"/>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
-            <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
-            </gmail.init>
-            <gmail.listTheHistory>
-                <startHistoryId>{$ctx:startHistoryId}</startHistoryId>
-                <labelId>{$ctx:labelId}</labelId>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
-            </gmail.listTheHistory>
-            <respond/>
-        </inSequence>
-    </target>
-    <parameter name="serviceType">proxy</parameter>
-    <description/>
-</proxy>
-```
-
-The following is a sample proxy service that illustrates how to connect to Gmail with the init operation and use the getUserProfile operation. The sample request for this proxy can be found in listTheProfile sample request. 
-
-```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="gmail_getUserProfile"
-       transports="https,http"
-       statistics="disable"
-       trace="disable"
-       startOnLoad="true">
-    <target>
-        <inSequence>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
-                <gmail.init>
-                    <userId>{$ctx:userId}</userId>
-                    <refreshToken>{$ctx:refreshToken}</refreshToken>
-                    <clientSecret>{$ctx:clientSecret}</clientSecret>
-                    <clientId>{$ctx:clientId}</clientId>
-                    <registryPath>{$ctx:registryPath}</registryPath>
-                    <accessToken>{$ctx:accessToken}</accessToken>
-                    <apiUrl>{$ctx:apiUrl}</apiUrl>
-                 </gmail.init>
-                 <gmail.getUserProfile/>
-             <respond/>
-        </inSequence>
-    </target>
-    <parameter name="serviceType">proxy</parameter>
-    <description/>
-</proxy>
-```
+    ```xml
+    <gmail.endSession configKey="GmailConnection">
+        <responseVariable >gmail_endSession_1</responseVariable>
+        <overwriteBody >false</overwriteBody>
+    </gmail.endSession>
+    ```
