@@ -57,7 +57,7 @@ The following operations allow you to work with the Email Connector. Click an op
         </tr>
         <tr>
             <td>requireTLS</td>
-            <td>Whether the connection should be established using TLS. The default value is false. Therefore, for secured protocols SSL will be used by default.</td>
+            <td>Whether the connection should be established using TLS. The default value is <code>false</code>. Therefore, for secured protocols SSL will be used by default.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -82,12 +82,12 @@ The following operations allow you to work with the Email Connector. Click an op
         </tr>
         <tr>
             <td>maxActiveConnections</td>
-            <td>Maximum number of active connections in the pool. When negative, there is no limit to the number of objects that can be managed by the pool at one time. Default is 8.</td>
+            <td>Maximum number of active connections in the pool. When negative, there is no limit to the number of objects that can be managed by the pool at one time. Default is <code>8</code>.</td>
             <td>Optional</td>
         </tr>
         <tr>
             <td>maxIdleConnections</td>
-            <td>Maximum number of idle connections in the pool. When negative, there is no limit to the number of objects that may be idle at one time. Default is 8.</td>
+            <td>Maximum number of idle connections in the pool. When negative, there is no limit to the number of objects that may be idle at one time. Default is <code>8</code>.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -102,12 +102,12 @@ The following operations allow you to work with the Email Connector. Click an op
         </tr>
         <tr>
             <td>minEvictionTime</td>
-            <td>The minimum amount of time an object may sit idle in the pool before it is eligible for eviction. When non-positive, no object will be dropped from the pool due to idle time alone. This setting has no effect unless timeBetweenEvictionRunsMillis > 0. The default setting for this parameter is 30 minutes.</td>
+            <td>The minimum amount of time an object may sit idle in the pool before it is eligible for eviction. When non-positive, no object will be dropped from the pool due to idle time alone. This setting has no effect unless <code>timeBetweenEvictionRunsMillis</code> > 0. The default setting for this parameter is 30 minutes.</td>
             <td>Optional</td>
         </tr>
         <tr>
             <td>exhaustedAction</td>
-            <td>The behavior of the pool when the pool is exhausted. (WHEN_EXHAUSTED_FAIL/WHEN_EXHAUSTED_BLOCK/WHEN_EXHAUSTED_GROW) Default is WHEN_EXHAUSTED_FAIL.</td>
+            <td>The behavior of the pool when the pool is exhausted. (<code>WHEN_EXHAUSTED_FAIL</code>/<code>WHEN_EXHAUSTED_BLOCK</code>/<code>WHEN_EXHAUSTED_GROW</code>) Default is <code>WHEN_EXHAUSTED_FAIL</code>.</td>
             <td>Optional</td>
         </tr>
     </table>
