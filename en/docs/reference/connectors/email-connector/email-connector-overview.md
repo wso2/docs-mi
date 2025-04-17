@@ -8,11 +8,32 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector version | Supported product versions |
-| ------------- |------------- |
-|  [1.0.0](https://github.com/wso2-extensions/esb-connector-email/releases/download/v1.0.0/email-connector-1.0.0.zip)        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0 |
-
-For older versions, see the details in the connector store.
+<table>
+	<tr>
+		<th>
+			Connector version
+		</th>
+		<th>
+			Supported product versions
+		</th>
+	</tr>
+	<tr>
+		<td>
+			2.x (latest)
+		</td>
+		<td>
+			MI 4.4.0
+		</td>
+	</tr>
+	<tr>
+		<td>
+			1.x
+		</td>
+		<td>
+			APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0
+		</td>
+	</tr>
+</table>
 
 ## Email Connector documentation
 
