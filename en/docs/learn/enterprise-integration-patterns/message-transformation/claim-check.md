@@ -98,7 +98,7 @@ Before digging into implementation details, let's take a look at the relationshi
 Let's investigate the elements of the synapse configuration in detail.
 
 - Enrich mediator append the original message body as a new property `CLAIM_STORE` inside the message context.
-- The PayloadFactory is used to simplify the original message to contain credential information only.
+- The Payload mediator is used to simplify the original message to contain credential information only.
 - An If Else mediator is used to check if the credential information exists inside the new message body. The property `Validity` is set based on this.
 - Once the validity is set, another enrich mediator is used to retrieve the original message stored in the `CLAIM_STORE` context and replace the body of the SOAP payload with it.
 

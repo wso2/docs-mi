@@ -147,7 +147,7 @@ Configure a resource that sets up a Redis hash map and sets a specific field in 
 
 2. Click on the **+** icon under **start** to add a mediator.
 
-3. Add a payload factory mediator from the mediator palette to extract the selected stock details. In this sample, we attempt to get WSO2 stock details from the `SimpleStockQuoteService`.
+3. Add a Payload mediator from the mediator palette to extract the selected stock details. In this sample, we attempt to get WSO2 stock details from the `SimpleStockQuoteService`.
     <table>
       <tr>
          <th>Parameter</th>
@@ -193,7 +193,7 @@ Configure a resource that sets up a Redis hash map and sets a specific field in 
       </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/redis/add-payload-factory.png" title="Add payloadfactory to extract WSO2 details" width="600" alt="Add payloadfactory to extract WSO2 details"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/redis/add-payload-factory.png" title="Add Payload mediator to extract WSO2 details" width="600" alt="Add Payload mediator to extract WSO2 details"/> 
 
 4. Add a header to get a quote from the `SimpleStockQuoteService`.
 

@@ -1,6 +1,12 @@
-# PayloadFactory mediator
+---
+tags:
+  - payload
+  - payloadfactory
+---
 
-The **PayloadFactory Mediator** transforms or replaces the contents of a
+# Payload mediator
+
+The **Payload mediator** transforms or replaces the contents of a
 message. That is, you can configure the format of the request or response
 using a template with inline [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions).
 
@@ -20,7 +26,7 @@ You can use two methods to format the payload using this mediator.
 
 ## Configuration
 
-Parameters available to configure the PayloadFactory mediator are as follows:
+Parameters available to configure the Payload mediator are as follows:
 
 <table>
   <tr>
@@ -51,7 +57,7 @@ Parameters available to configure the PayloadFactory mediator are as follows:
 
 ### Advanced configurations
 
-Parameters available to configure advanced properties of the PayloadFactory mediator are as follows:
+Parameters available to configure advanced properties of the Payload mediator are as follows:
 
 <table>
   <tr>
@@ -110,7 +116,7 @@ If you select **default** as the **Template Type**, you can define the payload u
 
 ### FreeMarker template
 
-The PayloadFactory mediator supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **Template Type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
+The Payload mediator supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **Template Type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
 
 !!! Note
     -   FreeMarker version 2.3.30 is tested with WSO2 MI 4.x.x.
@@ -183,7 +189,7 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
 ### Using XML
 
 !!! Note
-    When you need to access XML with custom namespaces, you need to first assign the result to a variable and then use it in the Payload Factory mediator.
+    When you need to access XML with custom namespaces, you need to first assign the result to a variable and then use it in the Payload mediator.
     ```xml
     <variable name="symbol" type="STRING" expression="${xpath('//m0:Code')}" xmlns:m0="http://services.samples"/>
     ```
@@ -193,7 +199,7 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
      <target>
         <inSequence>
             <variable name="symbol" type="STRING" expression="${xpath('//m0:Code')}" xmlns:m0="http://services.samples"/>
-            <!-- using payloadFactory mediator to transform the message -->
+            <!-- using Payload mediator to transform the message -->
             <payloadFactory media-type="xml">
                 <format>
                     <m:getQuote xmlns:m="http://services.samples">
@@ -274,7 +280,7 @@ an element in the payload format, use <code>xmlns=""</code> as shown in the foll
 
 In the following configuration, an entire SOAP envelope is added as the
 format defined inline. This is useful when you want to generate the
-result of the PayloadFactory mediator as a complete SOAP message with
+result of the Payload mediator as a complete SOAP message with
 SOAP headers.
 
 ```xml
@@ -355,8 +361,7 @@ the message type as <code>multipart/form-data</code> .
     value="multipart/form-data"/>
 ```
 
-The below <code>file</code> parameter of the payload factory
-mediator defines the HTTP multipart request.
+The below <code>file</code> parameter of the Payload mediator defines the HTTP multipart request.
 
 !!! Tip
     Do not change the <code>http://org.apache.axis2/xsd/form-data</code> namespace.
@@ -419,7 +424,7 @@ You view the below output:
 ```
 
 !!! Info
-    If you do not use double quotes(<code>"${expression}"</code>) in the Payload Factory mediator of the above configuration, you view the output as follows:
+    If you do not use double quotes(<code>"${expression}"</code>) in the Payload mediator of the above configuration, you view the output as follows:
 
     ```json
     {
@@ -432,7 +437,7 @@ You view the below output:
     }
     ```
 
-If you want to evaluate a valid JSON object as a string, you can use double quotes(<code>"${expression}"</code>) in the PayloadFactoryMediator as indicated below,
+If you want to evaluate a valid JSON object as a string, you can use double quotes(<code>"${expression}"</code>) in the Payload mediator as indicated below,
 
 ```xml
 <payloadFactory media-type="json">
@@ -443,7 +448,7 @@ If you want to evaluate a valid JSON object as a string, you can use double quot
 
 ### Adding a custom SOAP header
 
-You can add custom SOAP headers to a request by using the PayloadFactory
+You can add custom SOAP headers to a request by using Payload
 Mediator in a proxy service as shown in the example below.
 
 ```xml

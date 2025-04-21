@@ -186,7 +186,7 @@ WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide
   </tr>
   <tr>
     <td>
-      <a href="{{base_path}}/reference/mediators/payloadfactory-mediator">PayloadFactory mediator</a>
+      <a href="{{base_path}}/reference/mediators/payloadfactory-mediator">Payload mediator</a>
     </td>
     <td>Content-aware</td>
   </tr>

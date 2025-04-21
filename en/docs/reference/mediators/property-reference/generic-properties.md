@@ -753,7 +753,7 @@ Generic properties allow you to configure messages as they're processed by the 
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
 <td><div class="content-wrapper">
-<p>When you create a JSON payload using the PayloadFactory mediator, a string value evaluated from an argument is replaced as it is. If you want to force double quotes to be added to a string value evaluated from an argument, set this property to <code>               true              </code> .</p>
+<p>When you create a JSON payload using the Payload mediator, a string value evaluated from an argument is replaced as it is. If you want to force double quotes to be added to a string value evaluated from an argument, set this property to <code>               true              </code> .</p>
 <p><b>Note</b></p>
 <p>Double quotes are added only if the value evaluated from an argument is string. If the value is a valid JSON number, boolean value or null, double quotes are not added.</p>
 

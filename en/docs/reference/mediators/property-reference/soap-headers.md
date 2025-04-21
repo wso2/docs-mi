@@ -7,7 +7,7 @@ SOAP headers provide information about the message, such as the To and
 From values. You can use the `get-property()` function
 in the [Property mediator]({{base_path}}/reference/mediators/property-mediator) to retrieve these
 headers. You can also add Custom SOAP headers using either the
-[PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
+[Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
 or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 
 ## To

@@ -4,7 +4,7 @@ This sample demonstrates the routing capability of WSO2 Micro Integrator (WSO2 M
 
 The use case involves an arithmetic operations service. Depending on the operation type, the message needs to be routed to the relevant service. Specifically, the routing decision is based on the value of the `Operation` attribute in the request payload.
 
-The Switch mediator handles the routing by extracting the attribute value using a JSON evaluation expression. Subsequently, the PayloadFactory mediator constructs the message payload required by the backend service. Additionally, the Property mediator sets the message type to JSON, ensuring that the response is converted from XML (as returned by the backend services) to JSON format.
+The Switch mediator handles the routing by extracting the attribute value using a JSON evaluation expression. Subsequently, the Payload mediator constructs the message payload required by the backend service. Additionally, the Property mediator sets the message type to JSON, ensuring that the response is converted from XML (as returned by the backend services) to JSON format.
 
 ## Deploying the sample
 

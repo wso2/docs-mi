@@ -2,7 +2,7 @@
 
 This sample demonstrates the routing capability of WSO2 Micro Integrator (WSO2 MI). In this scenario, routing occurs based on a header in the message. The integration involves a service that performs arithmetic operations. Depending on the value of the `operation` header in the message, it needs to be routed to the relevant service.
 
-The routing decision is made based on the content of the HTTP header called `Operation`. Specifically, the Switch mediator extracts the value of the element using an XPath expression. Subsequently, the PayloadFactory mediator constructs the message payload required by the backend service.
+The routing decision is made based on the content of the HTTP header called `Operation`. Specifically, the Switch mediator extracts the value of the element using an XPath expression. Subsequently, the Payload mediator constructs the message payload required by the backend service.
 
 ## Deploying the sample
 

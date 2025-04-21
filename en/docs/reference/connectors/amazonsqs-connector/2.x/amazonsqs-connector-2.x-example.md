@@ -104,7 +104,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     
     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs/create-new-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
-8. Provide the Sequence name as `buildMessage` and click **Create**. You can go to the source view of the XML configuration file of the sequence and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload Factory Mediator.
+8. Provide the Sequence name as `buildMessage` and click **Create**. You can go to the source view of the XML configuration file of the sequence and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload mediator.
    ```xml
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="buildMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">

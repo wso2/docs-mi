@@ -47,7 +47,7 @@ When importing the connector, you can click and select operations to add them to
 
 Some connectors use message content in the $body to execute the operation. In such situations, you may need to transform the current message in the way the connector operation needs before using that with the connector operation. Following are some of the mediators you can use to transform the message. 
 
-* **[PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)** - This replaces the current message with a message in the format we specify. We can use the information of the current message to construct this new message.
+* **[Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)** - This replaces the current message with a message in the format we specify. We can use the information of the current message to construct this new message.
 * **[Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)** - Enrich the current message modifying or adding new elements. This is also useful to save the current message as a property and to place a message in a property as the current message.
 * **[Datamapper mediator]({{base_path}}/reference/mediators/data-mapper-mediator)** - Transform JSON, XML, CSV messages between formats.
 * **[Script mediator]({{base_path}}/reference/mediators/script-mediator)** - Use JavaScript, Groovy, or Ruby scripting languages to transform messages in a custom manner.

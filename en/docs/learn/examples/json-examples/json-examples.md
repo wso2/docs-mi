@@ -381,7 +381,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="{{base_path}}/reference/mediators/payloadfactory-mediator/">PayloadFactory</a></td>
+<td><a href="{{base_path}}/reference/mediators/payloadfactory-mediator/">Payload</a></td>
 <td><div class="content-wrapper">
 <p>As the payload arguments:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -394,7 +394,7 @@ You can use JSON path expressions with following mediators:
 &lt;/payloadFactory&gt;</code></pre>
 </div>
 </div>
-<p><strong>IMPORTANT</strong> : You MUST omit the <code>               json-eval()              </code> method within the payload arguments to evaluate JSON paths within the PayloadFactory mediator. Instead, you MUST select the correct expression evaluator ( <code>               xml              </code> or <code>               json              </code> ) for a given argument.</p>
+<p><strong>IMPORTANT</strong> : You MUST omit the <code>               json-eval()              </code> method within the payload arguments to evaluate JSON paths within the Payload mediator. Instead, you MUST select the correct expression evaluator ( <code>               xml              </code> or <code>               json              </code> ) for a given argument.</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -451,12 +451,12 @@ For more information on logging, see [Troubleshooting, debugging, and logging]({
 
 ### Construct and transforming JSON payloads
 
-To construct and transform JSON payloads, you can use the PayloadFactory
+To construct and transform JSON payloads, you can use the Payload
 mediator or Script mediator as described in the rest of this section.
 
-#### PayloadFactory mediator
+#### Payload mediator
 
-The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
+The [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
 
 ``` javascript
 {
@@ -542,7 +542,7 @@ The response payload would look like this:
 
 Note the following aspects of the proxy service configuration:
 
--   We use the `          payloadFactory         ` mediator to construct the new JSON payload.
+-   We use the `          Payload         ` mediator to construct the new JSON payload.
 -   The `          media-type         ` attribute is set to `          json         ` .
 -   Because JSONPath expressions are used in arguments, the `          json         ` evaluators are specified.
 
@@ -555,11 +555,11 @@ quotes ("), which creates a string value in the final response. If you
 do not use quotes, the value that gets assigned uses the real type
 evaluated by the expression (boolean, number, object, array, or null).
 
-It is also possible to instruct the PayloadFactory mediator to load a
+It is also possible to instruct the Payload mediator to load a
 payload format definition from the registry. This approach is
 particularly useful when using large/complex payload formats in the
 definitions. To load a format from the registry, click **Pick From
-Registry** instead of **Define inline** when defining the PayloadFactory
+Registry** instead of **Define inline** when defining the Payload
 mediator.
 
 For example, suppose we have saved the following text content in the
@@ -575,7 +575,7 @@ following registry location:
 }
 ```
 
-We can now modify the definition of the PayloadFactory mediator to use
+We can now modify the definition of the Payload mediator to use
 this format text saved as a registry resource as the payload format. The
 new configuration would look as follows (note that the
 `         <format>        ` element now uses the key attribute to point
@@ -589,7 +589,7 @@ to the registry resource key):
 ```
 
 !!! Note
-    When saving format text for the PayloadFactory mediator as a registry resource, be sure to save it as text content with the “text/plain” media type.
+    When saving format text for the Payload mediator as a registry resource, be sure to save it as text content with the “text/plain” media type.
 
 #### Script mediator
 
@@ -1031,7 +1031,7 @@ see [Adding a Resource]({{base_path}}/develop/creating-artifacts/registry/creati
 ```
 
 In this example, the required schema for validating messages going through the Validate mediator is given as a registry key (i.e.
-`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault to be sent back to the party, which sends the message.
+`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault to be sent back to the party, which sends the message.
 
 ```
 <validate>
@@ -1081,7 +1081,7 @@ JSON utility class
 
 `org.apache.synapse.commons.json.JsonUtil`
 
-PayloadFactory mediator
+Payload mediator
 
 `org.apache.synapse.mediators.transform.PayloadFactoryMediator`
 

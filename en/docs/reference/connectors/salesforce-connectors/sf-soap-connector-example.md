@@ -84,7 +84,7 @@ Now follow the steps below to add configurations to the resource.
 
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="80%" alt="Add values to capture sObjectName value"/>
 
-    5. Add the [payload factory]({{base_path}}/reference/mediators/payloadfactory-mediator) mediator to capture the sObject content.
+    5. Add the [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) mediator to capture the sObject content.
 
          <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/salesforcesoap-payloadfactory-mediator-property1-value1.png" title="Add values to capture sObject value" width="80%" alt="Add values to capture sObject value"/>
     

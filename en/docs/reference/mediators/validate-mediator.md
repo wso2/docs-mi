@@ -205,7 +205,7 @@ The following examples use the below sample schema `StockQuoteSchema.json` file.
 #### Example 1 - Basic configuration
 
 In this example, the required schema for validating messages going through the Validate mediator is given as the registry key `schema\StockQuoteSchema.json`. You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON payload. The mediation logic to follow if the
-validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault to be sent back to the client.
+validation fails is defined within the on-fail element. In this example, the [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault to be sent back to the client.
 
 ``` java
 <validate cache-schema="true">
