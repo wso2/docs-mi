@@ -10,7 +10,7 @@ When the client sends the appointment reservation request to the Micro Integrato
 
 -   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
 -   [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview)
--   [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator)
+-   [Switch Mediator]({{base_path}}/reference/mediators/switch-mediator)
 
 ## Let's get started!
 
@@ -209,9 +209,9 @@ You can now start configuring the API resource.
          </tr>
      </table>
 
-5. Click **Add** to insert the Switch mediator to the integration flow.
+5. Click **Add** to insert the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> to the integration flow.
 
-6. Add a **Log** mediator to each case branch by clicking on the **+** icon in the respective case branch and selecting the **Log** mediator from the **Mediator Palette**. In the pane that appears, specify the following values.
+6. Add a <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator">Log mediator</a> to each case branch by clicking on the **+** icon in the respective case branch and selecting the **Log** mediator from the **Mediator Palette**. In the pane that appears, specify the following values.
 
     <table>
         <tr>
@@ -247,9 +247,9 @@ You can now start configuring the API resource.
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>
 
     !!! Info
-        You have now configured the Switch mediator to log the message `Routing to: <Hospital Name>` whenever a request is sent to this API resource. The request will then be routed to the relevant hospital back-end service based on the hospital name provided in the request payload.
+        You have now configured the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> to log the message `Routing to: <Hospital Name>` whenever a request is sent to this API resource. The request will then be routed to the relevant hospital back-end service based on the hospital name provided in the request payload.
 
-        The default case of the Switch mediator handles invalid hospital requests. It logs the message `Invalid hospital: <Hospital Name>` for requests with an invalid or unrecognized hospital name.
+        The default case of the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> handles invalid hospital requests. It logs the message `Invalid hospital: <Hospital Name>` for requests with an invalid or unrecognized hospital name.
 
 7. Add an HTTP **POST** operation by clicking the **+** icon after the **Log** mediator in each case branch, except for the `default` branch. In the pane that appears, specify the following values.
 
@@ -288,7 +288,7 @@ You can now start configuring the API resource.
     </table>
 
     !!! Note
-        We will leave the rest of the configurations as defaults — that is, **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
+        We will leave the rest of the configurations as defaults: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png" alt="HTTP POST operation" width="30%"></a>
 
@@ -437,6 +437,6 @@ You will see the following response received to your <b>HTTP Client</b>:
 
 Now, check the **Output** tab in VS Code. You should see a message similar to the following: `INFO {LogMediator} - {api:HealthcareAPI POST /healthcare/categories/surgery/reserve} Routing to: grand oak community hospital`.
 
-This message is printed by the **Log** mediator when the client request is routed to the appropriate backend using the **Switch** mediator.
+This message is printed by the <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator">Log mediator</a> when the client request is routed to the appropriate backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>.
 
-You have successfully completed this tutorial and learned how requests received by the Micro Integrator can be routed to the relevant backend using the **Switch** mediator.
+You have successfully completed this tutorial and learned how requests received by the Micro Integrator can be routed to the relevant backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>
