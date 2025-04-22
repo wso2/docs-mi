@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-In this tutorial, we are creating the mediation artifacts that can route a message to the relevant endpoint depending on the content of the message payload.
+In this tutorial, we are creating the mediation artifacts that can route a message to the relevant backend depending on the content of the message payload.
 
 When the client sends the appointment reservation request to the Micro Integrator, the message payload of the request contains the name of the hospital where the appointment needs to be confirmed. The HTTP request method that is used for this is POST. Based on the hospital name sent in the request message, the Micro Integrator should route the appointment reservation to the relevant hospital's back-end service.
 
@@ -10,7 +10,7 @@ When the client sends the appointment reservation request to the Micro Integrato
 
 -   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
 -   [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview)
--   [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator)
+-   [Switch Mediator]({{base_path}}/reference/mediators/switch-mediator)
 
 ## Let's get started!
 
@@ -28,13 +28,13 @@ Follow the instructions given in this section to create and configure the requir
 
 4. In the **Project Creation Form**, enter `ContentBasedRouteTutorial` as the **Project Name**.
 
-5. Provide a location under the **Select Project Directory**.
+5. Provide a location under the **Project Directory**.
 
      <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/create-new-project.png" alt="create new project" width="80%"></a>
 
-6. Click **Finish**.
+6. Click **Create**.
 
-You will now see the projects listed in the **Project Explorer**.
+Once you click **Create**, the **Add Artifact** pane will be opened.
 
 #### Create HTTP connections
 
@@ -61,8 +61,10 @@ Let's create three different HTTP connections for the above services.
     <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **HTTP**.
-6. You need to add dependencies to the project, if not added yet.
-7. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/select-http.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/select-http.png" alt="select HTTP connection" width="80%"></a>
+
+6. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
      <table>
          <thead>
            <tr>
@@ -87,9 +89,9 @@ Let's create three different HTTP connections for the above services.
          </tbody>
      </table>
 
-8. Click **Add**.
+7. Click **Add**.
 
-9. Similarly, create the HTTP connections for the other two hospital services using the Base URLs given below:
+8. Similarly, create the HTTP connections for the other two hospital services using the Base URLs given below:
 
     | Connection Name | Base URL                           |
     |-----------------|------------------------------------|
@@ -105,7 +107,7 @@ You have now created the three connections for the hospital back-end services th
 
 #### Create a REST API
 
-1. Go to **Project Settings** > **Add Artifact**.
+1. In the **MI Project Explorer** click on **+ Add artifact**.
 2. Select **API** under **Create an Integration**.
 3. Enter the details given below to create a new REST API.
 
@@ -126,7 +128,7 @@ You have now created the three connections for the hospital back-end services th
         <td>Context</td>
         <td><code>/healthcare</code></td>
         <td>
-          Here you are anchoring the API in the <code>/healthcare</code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare</code>.
+          Here you are anchoring the API in the <code>/healthcare</code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to <code>/healthcare</code> means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare</code>.
         </td>
       </tr>
     </table>                                                                   
@@ -135,7 +137,7 @@ You have now created the three connections for the hospital back-end services th
 
 4. Click **Create**.
 
-5. On the Service Designer, click on the default API resource to access the **Properties** tab to edit the default API resource.
+5. On the Service Designer, click on the three dots (**⋮**) and then **Edit** to access the **Properties** of the default API resource.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" alt="Edit API resource" width="70%"></a>
 
@@ -170,52 +172,13 @@ You can now start configuring the API resource.
 
 1. Navigate to **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve** to open the **Resource View**.
 
-2. Click on the **+** icon to open the **Palette**. 
+2. Click on the **+** icon to open the **Mediator Palette**. 
 
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png" alt="open palette" width="60%"></a>
 
-3. Select **Variable** mediator under **Mediators**.
+3. Select the **Switch** mediator under **Mediators**.
 
-4. Specify the following values.
-
-    !!! Info
-        This is used to extract the hospital name that is sent in the request payload.
-
-    <table>
-        <tr>
-            <th>Property</th>
-            <th>Description</th>
-        </tr>
-      <tr>
-         <td>Name</td>
-         <td><code>Hospital</code></td>
-      </tr>
-      <tr>
-         <td>Data Type</td>
-         <td>Select <code>STRING</code>.</td>
-      </tr>
-      <tr>
-         <td>Value</td>
-         <td>
-            <div class="content-wrapper">
-              <p>Follow the steps given below to specify the expression value:</p>
-            <ol>
-               <li>Click the **EX** button next to the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
-               <li>Enter <code>payload.hospital</code> as the **Expression Value**.</li>
-            </ol>
-               <b>Note</b>:
-               This is the synapse expression that will extract the hospital from the request payload.</br>
-               Click **Save**.
-            </div>
-         </td>
-      </tr>
-    </table>
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/variable.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/variable.png" alt="Variable properties" width="35%"></a>
-
-5. Click **Submit**.
-
-6. Add a **Switch** mediator by clicking the **+** sign after the **Variable** mediator, and selecting **Switch** mediator from the palette. In the form that appears, specify the following values.
+4. In the **Add Switch Mediator** pane that appears, specify the following values.
 
     <table>
          <tr>
@@ -225,30 +188,30 @@ You can now start configuring the API resource.
          <tr>
              <td>Expression</td>
              <td>
-                 <p>The <strong>Expression</strong> field is where we specify the synapse <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a>, which obtains the value of the Hospital that we stored in the Variable mediator.</p>
+                 <p>The <strong>Expression</strong> field is where you specify the <a href="{{base_path}}/reference/synapse-properties/expressions">Synapse expression</a> used to extract the hospital name from the request payload.</p>
                  <p>Follow the steps given below to specify the expression:</p>
                  <ol>
-                     <li>Click <b>Ex</b> button in the <b>Value</b> field towards the end</li>
-                     <li>Enter <code>vars.Hospital</code></li>
+                     <li>Click the <b>EX</b> button at the end of the <b>Value</b> field.</li>
+                     <li>Enter <code>payload.hospital</code>.</li>
                  </ol>
              </td>
          </tr>
          <tr>
              <td>Cases</td>
              <td>
-                 <p>You can use <b>+ Add new case</b> button to add case branches</p>
-                 <ol>
-                     <li>Case 1: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>grand oak community hospital</code></li>
-                     <li>Case 2: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>clemency medical center</code></li>
-                     <li>Case 3: Click on <b>+ Add new case</b> and specify <b>Case Regex</b> as <code>pine valley community hospital</code></li>
-                 </ol>
-             </td>
+                <p>Use the <b>+ Add New Case</b> button to add each of the following case branches by setting the following Regex patterns:</p>
+                <ol>
+                    <li><code>grand oak community hospital</code></li>
+                    <li><code>clemency medical center</code></li>
+                    <li><code>pine valley community hospital</code></li>
+                </ol>
+            </td>
          </tr>
      </table>
 
-9. Click **Add** to save the values for the Switch mediator.
+5. Click **Add** to insert the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> to the integration flow.
 
-10. Add a **Log** mediator to each case branch by clicking the **+** sign in each case branch, and selecting **Log** mediator from the palette. In the form that appears, specify the following values.
+6. Add a <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator">Log mediator</a> to each case branch by clicking on the **+** icon in the respective case branch and selecting the **Log** mediator from the **Mediator Palette**. In the pane that appears, specify the following values.
 
     <table>
         <tr>
@@ -267,10 +230,10 @@ You can now start configuring the API resource.
         </tr>
         <tr>
             <td>Message</td>
-            <td><code>Routing to: ${vars.Hospital}</code></td>
-            <td><code>Routing to: ${vars.Hospital}</code></td>
-            <td><code>Routing to: ${vars.Hospital}</code></td>
-            <td><code>Invalid hospital: ${vars.Hospital}</code></td>
+            <td><code>Routing to: ${payload.hospital}</code></td>
+            <td><code>Routing to: ${payload.hospital}</code></td>
+            <td><code>Routing to: ${payload.hospital}</code></td>
+            <td><code>Invalid hospital: ${payload.hospital}</code></td>
         </tr>
         <tr>
             <td>Description</td>
@@ -281,14 +244,17 @@ You can now start configuring the API resource.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>   
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>
 
     !!! Info
-        You have now configured the Switch mediator to log the `Routing to: <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
-        
-        The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital: <Hospital Name>`) for requests that have an invalid hospital name.
+        You have now configured the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> to log the message `Routing to: <Hospital Name>` whenever a request is sent to this API resource. The request will then be routed to the relevant hospital back-end service based on the hospital name provided in the request payload.
 
-11. Add an HTTP **POST** operation by clicking the **+** sign after the **Log** mediator in each case branch except for `default`. In the form that appears, specify the following values.
+        The default case of the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> handles invalid hospital requests. It logs the message `Invalid hospital: <Hospital Name>` for requests with an invalid or unrecognized hospital name.
+
+7. Add an HTTP **POST** operation by clicking the **+** icon after the **Log** mediator in each case branch, except for the `default` branch. In the pane that appears, specify the following values.
+
+    !!! Tip
+        You can search for `post` in the **Mediator Palette** to quickly find the HTTP POST operation.
 
     <table>
         <thead>
@@ -308,57 +274,37 @@ You can now start configuring the API resource.
             </tr>
             <tr>
                 <td>Relative Path</td>
-                <td>Enter <code>/categories/\${params.pathParams.category}/reserve</code></td>
-                <td>Enter <code>/categories/\${params.pathParams.category}/reserve</code></td>
-                <td>Enter <code>/categories/\${params.pathParams.category}/reserve</code></td>
-            </tr>
-            <tr>
-                <td>Headers</td>
-                <td>Leave empty</td>
-                <td>Leave empty</td>
-                <td>Leave empty</td>
-            </tr>
-            <tr>
-                <td>Content Type</td>
-                <td>Select <code>JSON</code></td>
-                <td>Select <code>JSON</code></td>
-                <td>Select <code>JSON</code></td>
-            </tr>
-            <tr>
-                <td>Request Body</td>
-                <td>Enter <code>\${payload}</code></td>
-                <td>Enter <code>\${payload}</code></td>
-                <td>Enter <code>\${payload}</code></td>
+                <td><code>/categories/\${params.pathParams.category}/reserve</code></td>
+                <td><code>/categories/\${params.pathParams.category}/reserve</code></td>
+                <td><code>/categories/\${params.pathParams.category}/reserve</code></td>
             </tr>
             <tr>
                 <td>Response Variable Name</td>
-                <td>Enter <code>hospital_res</code></td>
-                <td>Enter <code>hospital_res</code></td>
-                <td>Enter <code>hospital_res</code></td>
-            </tr>
-            <tr>
-                <td>Overwrite Message Body</td>
-                <td>Select</td>
-                <td>Select</td>
-                <td>Select</td>
+                <td><code>hospital_res</code></td>
+                <td><code>hospital_res</code></td>
+                <td><code>hospital_res</code></td>
             </tr>
         </tbody>
     </table>
 
-19. Add a **Respond** mediator just after the **Switch** mediator to return the response from the health care service back to the client.
+    !!! Note
+        We will leave the rest of the configurations as defaults: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
 
-    You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png" alt="HTTP POST operation" width="30%"></a>
+
+8. Add a **Respond** mediator right after the **Switch** mediator to return the response from the healthcare service back to the client.
+
+    You have successfully created all the artifacts required to route messages to a back-end service based on the content of the request payload. 
 
     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png" alt="Resource view" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 
-{!includes/build-and-run-artifacts.md!}
+Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
 
-The artifacts will be deployed in the Micro Integrator server and the server will start.
+Click the **Build and Run** icon located in the top right corner of VS Code.
 
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab.
+<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
 
 ### Step 4: Test the use case
 
@@ -376,119 +322,121 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a request to the API resource to make a reservation. You can use the Postman application as follows:
+Now, let's test the integration service. For that, you can use the inbuilt try-it functionality in the MI for VS Code extension.
 
-1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
+When you run the integration artifact as in [Step 3](#step-3-build-and-run-the-artifacts), the **Runtime Services** interface is opened up. You can see all the available services.
 
-2. Add the request information as given below and click the <b>Send</b> button.
+Select the `HealthcareAPI` you have developed and test the resource using the following category and payload.
+
+<table>
+    <tr>
+        <th>Category</th>
+        <td>
+            <code>surgery</code> 
+        </td>
+    </tr>
+    <tr>
+        <th>Payload</th>
+        <td>
+        <div>
+            <code>
+            {
+                "patient": {
+                "name": "John Doe",
+                "dob": "1940-03-19",
+                "ssn": "234-23-525",
+                "address": "California",
+                "phone": "8770586755",
+                "email": "johndoe@gmail.com"
+                },
+                "doctor": "thomas collins",
+                "hospital_id": "grandoaks",
+                "hospital": "grand oak community hospital",
+                "appointment_date": "2025-04-02"
+            }
+            </code>
+        </div></br>
+        This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and data of appointment.
+    </tr>
+</table>
+
+<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/try_out.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/try_out.png" alt="Try Out" width="80%"></a>
+
+Optionally, you can use [Postman](https://www.postman.com/downloads/) or [cURL](https://curl.haxx.se/) to send the request. You can refer to the following request information.
     
-    <table>
-        <tr>
-            <th>Method</th>
-            <td>
-               <code>POST</code> 
-            </td>
-        </tr>
-        <tr>
-            <th>Headers</th>
-            <td>
-              <code>Content-Type=application/json</code>
-            </td>
-        </tr>
-        <tr>
-            <th>URL</th>
-            <td><code>http://localhost:8290/healthcare/categories/surgery/reserve</code></br></br>
-              <ul>
-                <li>
-                  The URI-Template format that is used in this URL was defined when creating the API resource:
-          <code>http://host:port/categories/{category}/reserve</code>
-                </li>
-              </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>Body</th>
-            <td>
-            <div>
-              <code>
-                {
-                    "patient": {
-                    "name": "John Doe",
-                    "dob": "1940-03-19",
-                    "ssn": "234-23-525",
-                    "address": "California",
-                    "phone": "8770586755",
-                    "email": "johndoe@gmail.com"
-                    },
-                    "doctor": "thomas collins",
-                    "hospital_id": "grandoaks",
-                    "hospital": "grand oak community hospital",
-                    "appointment_date": "2025-04-02"
-                }
-              </code>
-            </div></br>
-            <ul>
-              <li>
-                This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and data of appointment.
-              </li>
-            </ul>
-        </tr>
-     </table>
-     <br/><br/>
-     <video src="{{base_path}}/assets/vids/surgery-reserve.webm" width="720" height="480" controls></video>
-     <br/><br/>
-     
-If you want to send the client request from your terminal:
-
-1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.
-2. Create a JSON file named `request.json` with the following request payload.
-    ```json
-    {
-        "patient": {
-        "name": "John Doe",
-        "dob": "1940-03-19",
-        "ssn": "234-23-525",
-        "address": "California",
-        "phone": "8770586755",
-        "email": "johndoe@gmail.com"
-        },
-        "doctor": "thomas collins",
-        "hospital_id": "grandoaks",
-        "hospital": "grand oak community hospital",
-        "appointment_date": "2025-04-02"
-    }
-    ```
-3. Open a terminal and navigate to the directory where you have saved the `request.json` file.
-4. Execute the following command.
-    ```json
-    curl -v -X POST --data @request.json http://localhost:8290/healthcare/categories/surgery/reserve --header "Content-Type:application/json"
-    ```
+<table>
+    <tr>
+        <th>Method</th>
+        <td>
+            <code>POST</code> 
+        </td>
+    </tr>
+    <tr>
+        <th>Headers</th>
+        <td>
+            <code>Content-Type=application/json</code>
+        </td>
+    </tr>
+    <tr>
+        <th>URL</th>
+        <td><code>http://localhost:8290/healthcare/categories/surgery/reserve</code></br></br>
+                The URI-Template format that is used in this URL was defined when creating the API resource:
+        <code>http://host:port/categories/{category}/reserve</code>
+        </td>
+    </tr>
+    <tr>
+        <th>Body</th>
+        <td>
+        <div>
+            <code>
+            {
+                "patient": {
+                "name": "John Doe",
+                "dob": "1940-03-19",
+                "ssn": "234-23-525",
+                "address": "California",
+                "phone": "8770586755",
+                "email": "johndoe@gmail.com"
+                },
+                "doctor": "thomas collins",
+                "hospital_id": "grandoaks",
+                "hospital": "grand oak community hospital",
+                "appointment_date": "2025-04-02"
+            }
+            </code>
+        </div>
+    </tr>
+</table>
 
 #### Analyze the response
 
 You will see the following response received to your <b>HTTP Client</b>:
 
 ```json
-{"appointmentNumber":1,
-    "doctor":
-         {"name":"thomas collins",
-          "hospital":"grand oak community hospital",
-          "category":"surgery","availability":"9.00 a.m - 11.00 a.m",
-          "fee":7000.0},
-    "patient":
-        {"name":"John Doe",
-         "dob":"1990-03-19",
-         "ssn":"234-23-525",
-         "address":"California",
-         "phone":"8770586755",
-         "email":"johndoe@gmail.com"},
-    "fee":7000.0,
-"confirmed":false,
-"appointmentDate":"2025-04-02"}
+{
+  "appointmentNumber": 1,
+  "doctor": {
+    "name": "thomas collins",
+    "hospital": "grand oak community hospital",
+    "category": "surgery",
+    "availability": "9.00 a.m - 11.00 a.m",
+    "fee": 7000
+  },
+  "patient": {
+    "name": "John Doe",
+    "dob": "1940-03-19",
+    "ssn": "234-23-525",
+    "address": "California",
+    "phone": "8770586755",
+    "email": "johndoe@gmail.com"
+  },
+  "fee": 7000,
+  "confirmed": false
+}
 ```
 
-Now check the **Console** tab and you will see the following message: `INFO - LogMediator message = Routing to grand oak community hospital`
-    
-This is the message printed by the Log mediator when the message from the client is routed to the relevant endpoint in the Switch mediator.
+Now, check the **Output** tab in VS Code. You should see a message similar to the following: `INFO {LogMediator} - {api:HealthcareAPI POST /healthcare/categories/surgery/reserve} Routing to: grand oak community hospital`.
 
-You have successfully completed this tutorial and have seen how the requests received by the Micro Integrator can be routed to the relevant endpoint using the Switch mediator.
+This message is printed by the <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator">Log mediator</a> when the client request is routed to the appropriate backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>.
+
+You have successfully completed this tutorial and learned how requests received by the Micro Integrator can be routed to the relevant backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>
