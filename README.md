@@ -1,233 +1,196 @@
 # WSO2 Micro Integrator Documentation
 
-This repository contains the source code for WSO2 Micro Integrator documentation.
+[![Documentation Site](https://img.shields.io/badge/Visit%20Docs-mi.docs.wso2.com-blue)](https://mi.docs.wso2.com/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 
-This repository is open and we welcome your contributions!
+This repository contains the source code for WSO2 Micro Integrator documentation. We welcome your contributions!
 
-To access the WSO2 Micro Integrator documentation site, visit https://mi.docs.wso2.com/.
+## 📚 Table of Contents
 
-Follow the below topics to learn more:
+- [Getting Started](#getting-started)
+- [How to contribute](#contributing)
+  - [Quick Edits (Minor Changes)](#quick-edits-minor-changes)
+  - [Major Changes](#major-changes)
+- [Setting Up Your Development Environment](#setting-up-your-development-environment)
+  - [Prerequisites](#prerequisites)
+  - [Installation Steps](#installation-steps)
+- [Running the Project Locally](#running-the-project-locally)
+- [Troubleshooting](#troubleshooting)
+  - [MkDocs Command Issues](#mkdocs-command-not-found)
+  - [Image and Page Updates](#when-adding-new-images-or-pages)
+  - [Markdown Formatting](#formatting-help)
+- [Legal](#legal)
+   - [Contributor License Agreement (CLA)](#contributor-license-agreement-cla)
+   - [License](#license)
 
-- [Contributing to WSO2 Micro Integrator documentation](#contribute)
-   - [For minor modifications](#minor-modification)
-   - [For major modifications](#major-modification)
-- [Running the project locally](#run-locally)
-- [Signing the CLA](#cla)
+## Getting Started
 
-## <a name="contribute"></a> Contributing to WSO2 Micro Integrator documentation
+The WSO2 Micro Integrator documentation provides comprehensive guides, tutorials, and reference materials for working with the **WSO2 Micro Integrator** platform.
 
-As an open-source project, WSO2 Micro Integrator documentation welcomes contributions from the community. Before you contribute, read the following guidelines to understand how you can contribute:
+- **Documentation Website**: [https://mi.docs.wso2.com/](https://mi.docs.wso2.com/)
+- **Repository Structure**:
+  - `docs-mi/en/docs/` : Contains all the `.md` files with content. 
 
-### <a name="minor-modification"></a> For minor modifications
-
-Follow the steps below if you need to perform a minor modification (For example: changing a term, fixing a link, adding another bullet point, etc.):
-
-1. Go to the page you want to edit. 
-2. Click the edit (pen) icon in the top right corner.
-3. Edit the `.md` file.
-4. Add a commit message and commit. This will open a Pull Request (PR). 
-5. Fill in the relevant details and submit the PR.
-6. Get the PR reviewed and merged by a maintainer.
-
-### <a name="major-modification"></a> For major modifications
-
-Follow the steps below if you need to perform a major modification (For example: adding a new page, replacing an image, etc.):
-
->**Prerequisites:**
->
->Set up the machine and run the project locally by following the [Running the project locally](#local) documentation.
->
-
-1. When working, always start by getting a pull from upstream so that you are in sync with the upstream.
-
-2. In your forked repository, make your changes in a new git branch.
-
-3. The `docs-mi/en/docs/` directory contains all the `.md` files with content. Find the relevant location and do the modification. 
-
-   > **NOTE:**
-   >
-   > Refer to the [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for styling and formatting.
-   >
-
-4. Navigate to the `docs-mi/en/` directory in the terminal and build the repository with the following command:
-
-    ```shell
-    mkdocs serve
-    ```
-
-    > **NOTE:**
-    >
-    >Refer to [Run MkDocs](#run) for more information.
-    >
-
-5. If the styling and formatting are fine, you can commit the changes, push them and send in a pull request.
-
-## <a name="run-locally"></a> Running the project locally
-
-To locally execute the project, ensure that both [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) are installed on your machine.
-
-### Step 1 - Install Python
-
-#### MacOS
-
-1. If you are using MacOS, it is likely that a version of Python is pre-installed on your machine. To confirm this, execute the following command in your terminal:
-
-   ```shell
-   python --version
-   ```
-
-      Upon running the command, you should observe an output similar to the following example which is the default version of Python on your machine:
-
-      ```shell
-      Python 2.7.2
+      > **Tip** :
+      > `docs-mi/en/docs/` directory is reffered by {{base_path}} through out the documentation.
+      ```html 
+      e.g.
+      <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
       ```
 
-2. You also need to install python3. Check if you have python3 installed by running the following command:
+  - `docs-mi/en/docs/assets` : Contains all the resources (images/attachments/videos) used throughout the documentation
 
-   ```shell
-   python3 --version
-   ```
+  - `docs-mi/en/docs/mkdocs.yaml` : The configuration file used by MkDocs, a static site generator that's geared towards project documentation. It defines the structure, theme, plugins, and other settings for building and deploying the documentation site. 
 
-   > **NOTE:**
-   >
-   > For a seamless experience and compatibility with the versions of MkDocs and other plugins we utilize, it is recommended to use Python 3.8.x, 3.9.x, or 3.10.x.
-
-3. If you don't have Python installed, download Python from the [official downloads page](https://www.python.org/downloads/) and install.
-
-4. Verify the python3 version by running the following command:
-
-   ```shell
-   python3 --version
-   ```
-
-     Upon running the command, you should observe an output similar to the following:
-
-      ```shell
-      Python 3.9.6
+      > **Tip** : You have to update `nav` section in `mkdocs.yaml` for new pages you add.
+      ```yml
+      nav:
+         - Home: index.md
+         - Get Started:
+            - Introduction: get-started/introduction.md
+            - Key Concepts: get-started/key-concepts.md
+            - Quick Start Guide: get-started/quick-start-guide.md
       ```
-     
-- Once you are done, you will have two versions of Python on your machine; python2 and python3.
-  
-#### Ubuntu and other versions of Debian Linux
 
-- python3 is pre-installed in these versions, which you can verify with `python3 -V`.
+   - `docs-mi/en/docs/requirements.txt` : This file lists all the Python dependencies required to build and run the documentation site locally. These dependencies include MkDocs and its plugins, which are essential for generating and serving the static site.
 
-- Run `sudo apt install -y python3-pip` to install `pip` and verify with `pip3 -V`.
 
-### Step 2 - Install Pip
+## How to contribute 
 
-pip is already installed if you are using Python 3 >=3.4 downloaded from [python.org](https://www.python.org/).
+### Quick Edits (Minor Changes)
 
-- Verify the pip3 version by running the following command:
+For small changes like fixing typos, updating links, or adding short sections:
 
-   ```shell
-   pip3 --version
-   ```
+1. Navigate to the page you want to edit on GitHub
+2. Click the edit (pen) icon  in the top right corner
+<br/><image src="en/docs/assets/img/edit-button.png" />
+3. Make your changes to the `.md` file
+4. Add a descriptive commit message
+5. Click "Commit changes" to open a Pull Request (PR)
+6. Fill in the PR details and submit
 
-   Upon running the command, you should observe an output similar to the following:
+### Major Changes
 
-   ```shell
-   pip 21.2.4
-   ```
+For significant modifications like adding new pages or replacing images:
 
-- If pip is not already installed on your machine, download `get-pip.py` to install pip by clicking [here](https://bootstrap.pypa.io/get-pip.py). Then run the following command to install it:
+1. Fork and clone the repository
+2. Create a new branch for your changes
+3. Make your modifications in the `docs-mi/en/docs/` directory
+4. Test your changes locally (see [Running the Project Locally](#running-the-project-locally))
+5. Commit and push your changes
+6. Open a Pull Request
 
-   ```shell
-   python3 get-pip.py
-   ```
+If you encounter any issues, check the [Troubleshooting](#troubleshooting) section.
+
+## 🖥️ Setting Up Your Development Environment
+
+### Prerequisites
+
+You'll need:
+
+- Python 3.x.x (Recommended : 3.8.x, 3.9.x, or 3.10.x )
+- pip (Python package manager)
+
+### Installation Steps
+
+#### Installing Python
+
+**macOS**:
+```bash
+# Check if Python is installed
+python3 --version
+
+# If not installed, download from python.org or use Homebrew
+brew install python3
+```
+
+**Ubuntu/Debian**:
+```bash
+# Python3 is usually pre-installed
+python3 --version
+
+# Install pip if needed
+sudo apt install -y python3-pip
+```
+
+**Windows**:
+1. Download Python from [python.org](https://www.python.org/downloads/)
+2. During installation, check "Add Python to PATH"
+3. Verify installation: `python --version` or `python3 --version`
+
+#### Setting Up the Project
+
+1. **Fork the repository**
    
-### Step 3 - Fork the repository
+   Go to [https://github.com/wso2/docs-mi](https://github.com/wso2/docs-mi) and click the "Fork" button.
 
-Fork the GitHub repository: https://github.com/wso2/docs-mi.git
-
-### Step 4 - Clone the repository
-
-Navigate to the location where you want to clone the repository and clone the forked repository.
-
-   ```shell
-   git clone https://github.com/<git-username>/docs-mi.git
+2. **Clone your fork**
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/docs-mi.git
+   cd docs-mi
    ```
-    
-### Step 5 - Install the dependencies
 
-1. Navigate to the `<language-folder>` inside the folder containing the repository that you cloned.
+3. **Install dependencies**
+   ```bash
+   cd en/
+   pip3 install -r requirements.txt
+   ```
 
-    ```shell
-    cd docs-mi/en/
-    ```
+If you face any installation issues, see [Troubleshooting](#troubleshooting).
 
-2. Install the required pip packages.
+## Running the Project Locally
 
-    This will install MkDocs and the required theme, extensions, and plugins.
+1. **Start the local server**
+   ```bash
+   # From the docs-mi/en/ directory
+   mkdocs serve
+   ```
 
-    For python3, use the following command:
+   If this command fails, see [MkDocs Command Issues](#mkdocs-command-not-found).
 
-      ```shell
-      pip3 install -r requirements.txt
+2. **View the site**
+   
+   Open [http://localhost:8000](http://localhost:8000) in your browser
+
+3. **For faster development** (to see changes immediately):
+   ```bash
+   # Edit mkdocs.yml and set strict: false
+   mkdocs serve --dirtyreload
+   
+   # Remember to set strict: true before submitting PR
+   ```
+
+When adding new content, check [Image and Page Updates](#when-adding-new-images-or-pages) for important configuration steps.
+
+## 🛠️ Troubleshooting
+
+- <a id="mkdocs-command-not-found"></a>**MkDocs Command Not Found**
+  
+  If you get an error that MkDocs is not found, try:
+  ```bash
+  python3 -m mkdocs serve
+  ```
+
+- <a id="when-adding-new-images-or-pages"></a>**When Adding New Images or Pages**
+  1. Open `mkdocs.yml`
+  2. Update `base_path` to `http://localhost:8000/en/latest`
+
+      ```yml
+      base_path: http://localhost:8000/en/latest
+      #base_path: https://mi.docs.wso2.com/en/4.4.0
       ```
 
-### Step 6 - Run MkDocs
+  3. Revert this change before submitting your PR
 
-1. Run the following command to start the server and view the site on your local server.
+- <a id="formatting-help"></a>**Formatting Help**
+  - Refer to the [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for styling your content
 
-    ```shell
-    mkdocs serve
-    ```
+## Legal
 
-    > **NOTE:**
-    > 
-    > If you get any error saying that MkDocs command is not found, try the following command:
-    > 
-    >```
-    >python3 -m mkdocs serve
-    >```
-    >
+### **Contributor License Agreement (CLA)**
   
-2. Open the following URL on a new browser window to view the Micro Integrator documentation site locally:
+  You'll be prompted to sign the CLA via GitHub when submitting your first PR. For any changes to be accepted, the CLA must be signed.
 
-    http://localhost:8000
-
-    > **INFO:**
-    >
-    > If you are making changes and want to see them on the fly, run the following command to start the server and view the site on your local server.
-    > 
-    > 1. Navigate to the `mkdocs.yml` file.
-    >    
-    > 2. Change the following configuration to `false` as shown below:
-    >    
-    >     ```
-    >     #Breaks build if there's a warning
-    >     strict: false
-    >     ```
-    >     
-    > 3. Run the following command to start the server and to make the server load only the changed items and display the changes faster. 
-    >
-    >     `mkdocs serve --dirtyreload`
-    >    
-    > 4. If you are running the `mkdocs serve --dirtyreload` command to run the MkDocs server, make sure to change the configuration in the `mkdocs.yml` file as follows before sending a pull request.
-    >
-    >     `strict: true`
-    > 
-
-    > **NOTE**:
-    >
-    > If you are adding new images or new pages to the doc space, update the base path when locally running the project. 
-    >  
-    > 1. Open the `mkdocs.yml` file located in the `docs-mi/en/docs/` directory.
-    >
-    > 2. Update the `base_path` to `http://localhost:8000/en/latest`.
-    >
-    > 3. Make sure to undo this change before submitting the pull request.
-    >    
-   
-## Signing the CLA
-
-- Accept and sign the Contributor License Agreement (CLA) before sending pull requests. For any changes to be accepted, the CLA must be signed.
-
-- You need to accept the CLA when you are prompted via a GitHub email notification on sending your first PR. Subsequent PRs will not require CLA acceptance.
-
-- If the CLA gets changed for some (unlikely) reason, you will be presented with the new CLA text after sending your first PR after the change.
-
-## License
-
-Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)). You may not use this file except in compliance with the License.
+### **License**
+  
+  This project is licensed under the [Apache License, Version 2.0](LICENSE).
