@@ -20,6 +20,8 @@ This repository contains the source code for WSO2 Micro Integrator documentation
   - [Image and Page Updates](#when-adding-new-images-or-pages)
   - [Markdown Formatting](#formatting-help)
 - [Legal](#legal)
+   - [Contributor License Agreement (CLA)](#contributor-license-agreement-cla)
+   - [License](#license)
 
 ## Getting Started
 
@@ -185,10 +187,10 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
 
 ## Legal
 
-- **Contributor License Agreement (CLA)**
+### **Contributor License Agreement (CLA)**
   
-  You'll be prompted to sign the CLA via GitHub when submitting your first PR.
+  You'll be prompted to sign the CLA via GitHub when submitting your first PR. For any changes to be accepted, the CLA must be signed.
 
-- **License**
+### **License**
   
   This project is licensed under the [Apache License, Version 2.0](LICENSE).
