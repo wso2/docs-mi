@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-A **data service** provides a web service interface to access data that is stored in various data sources. The following sections describe how you can use Micro Integrator Extension for Visual Studio Code (MI for VS Code) to work with data services' artifacts. 
+A [Data service]({{base_path}}/reference/synapse-properties/data-services/) provides a web service interface to access data that is stored in various data sources. The following sections describe how you can use Micro Integrator Extension for Visual Studio Code (MI for VS Code) to work with data services' artifacts. 
 
 !!! Tip
     Note that this feature is currently supported in Micro Integrator Extension for Visual Studio Code (MI for VS Code) for relational data sources and CSV files.
@@ -47,7 +47,7 @@ Follow the steps given below to create a new data service.
 
 {!includes/create-new-project.md!}
 
-1. In the **Project Creation Form**, enter `DataSourceServiceTutorial` as the **Project Name**.
+1. In the **Project Creation Form**, enter `EmployeeDataServiceTutorial` as the **Project Name**.
 
 2. Provide a location under **Select Project Directory**.
 
@@ -55,73 +55,92 @@ Follow the steps given below to create a new data service.
 
 3. Click **Create**.
 
+Once you click **Create**, the **Add Artifact** pane will be opened.
+
 #### Create a data service with a data source
 
-1. Navigate to the **MI Project Explorer** > **Add artifact** > **Data Services**.
+1. In the **Add Artifact** interface, click **+ View More** under **Create an Integration**.
 
-2. Enter a name for the data service:
+2. Select **Data Service** under **Other Artifacts** to open the **Data Service Form**.
 
-    <table>
-        <tr>
-            <th>Property</th>
-            <th>Description</th>
-        </tr>
-    <tbody>
-        <tr>
-            <td>Data Service Name</td>
-            <td>RDBMSDataService</td>
-        </tr>
-    </tbody>
-    </table>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/select_dataservice_artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/select_dataservice_artifact.png" width="80%"></a>
 
-3. Click **Add Datasource**.
+3. Provide `EmployeeDataService` as the **Data Service Name**. In the next step, you will configure a datasource that enables the service to connect to the MySQL database.
+
+4. Click **Add Datasource**.
    
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
     
-4. To create the data source connection specify the following values to create the new data source:
+5. Set `EmployeeDatasource` as the **Datasource Identifier**, and select `RDBMS` for the **Datasource Type**, since this tutorial uses a MySQL database. Once you select the datasource type, the relevant configuration fields will be displayed.
 
     <table>
-    <tr>
-        <th>Property</th>
-        <th>Value</th>
-    </tr>
-    <tr>
-        <td>Datasource Identifier</td>
-        <td><code>Datasource</code></td>
-    </tr>
-    <tr>
-        <td>Datasource Type</td>
-        <td><code>RDBMS</code></td>
-    </tr>
-    <tr>
-        <td>Database Engine</td>
-        <td><code>MySQL</code></td>
-    </tr>
-    <tr>
-        <td>Hostname</td>
-        <td><code>localhost</code></td>
-    </tr>
-    <tr>
-        <td>Port</td>
-        <td><code>3306</code></td>
-    </tr>
-    <tr>
-        <td>Database Name</td>
-        <td><code>Employees</code></td>
-    </tr>
-    <tr>
-        <td>Username</td>
-        <td><code>user</code></td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><code>password</code></td>
-    </tr>
-    <tr>
-        <td>Driver Class</td>
-        <td><code>com.mysql.jdbc.Driver</code></td>
-    </tr>
-</table>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Database Engine</strong>
+                </td>
+                <td>
+                    Select <code>MySQL</code>
+                </td>
+                <td>Type of the relational database.</td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hostname</strong>
+                </td>
+                <td>
+                    <code>localhost</code>
+                </td>
+                <td>Hostname of the MySQL instance.</td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Port</strong>
+                </td>
+                <td>
+                    <code>3306</code>
+                </td>
+                <td>Port used to access the MySQL instance.</td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Database Name</strong>
+                </td>
+                <td>
+                    <code>Employees</code>
+                </td>
+                <td>Name of the database to connect to.</td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Username</strong>
+                </td>
+                <td>
+                    <code>wso2mi</code>
+                </td>
+                <td>Username for database authentication.</td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Password</strong>
+                </td>
+                <td>
+                    <code>wso2mi</code>
+                </td>
+                <td>Password for database authentication.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    !!! Note
+        We will leave the rest of the configurations as default. For advanced configurations, refer to [Datasource Parameters]({{base_path}}/reference/synapse-properties/data-services/datasource-configuration-parameters/).
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
 
