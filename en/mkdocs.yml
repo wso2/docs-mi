@@ -74,6 +74,7 @@ nav:
       - Introduction: get-started/introduction.md
       - Key Concepts: get-started/key-concepts.md
       - Quick Start Guide: get-started/quick-start-guide.md
+      - Event-driven Integrations: get-started/event-driven-integrations.md
       - How-to Guides:
           - Generate integrations using AI: get-started/how-to-guides/ai-code-generation.md
           - Data Mapping using AI: get-started/how-to-guides/ai-data-mapping.md
