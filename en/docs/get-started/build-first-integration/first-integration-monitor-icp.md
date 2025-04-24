@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 # Monitor and Manage Integrations
 
 In the previous tutorial, you learned how to route and transform messages, connect to a SaaS provider, deploy, and test integrations in WSO2 MI. Now, let's explore how to monitor the integrations using the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane/) (ICP).

@@ -329,14 +329,9 @@ You have now learned how to integrate with an email SaaS provider using connecto
 
 ## What's Next?  
 
-So far, you have learned how to route and transform payloads efficiently and integrate with an email SaaS provider using connectors. Next, you'll explore how to monitor and manage your integrations using the Integration Control Plane (ICP).
+You have now completed this tutorial series, where you learned how to build a complete integration flow step by step. Throughout this journey, you have explored how to create Integration APIs, route and transform messages, connect to external SaaS and B2B systems.
 
-Click on the **Next** button below to continue to the next tutorial.
-
-<div style="display: flex; justify-content: center; align-items: center; gap: 100px; margin-top: 20px;">
-  <a href="{{base_path}}/get-started/build-first-integration/first-integration-route-and-transform/" class="md-button">← Previous</a>
-  <a href="{{base_path}}/get-started/build-first-integration/first-integration-monitor-icp/" class="md-button md-button--primary">Next →</a>
-</div>
+Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Micro Integrator.
 
 {% raw %}
 <style>

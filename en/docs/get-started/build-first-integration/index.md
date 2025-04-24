@@ -13,7 +13,6 @@ By following this series, you will gain hands-on experience in:
 - Developing an Integration API – Expose an Integration API and handle requests.
 - Routing and Transforming Messages – Process and modify data dynamically.
 - Connecting to SaaS or B2B Systems – Integrate with external platforms like Gmail.
-- Monitoring and Managing Integrations – Use the Integration Control Plane (ICP) to monitor and manage deployed artifacts.
 
 ## Get Started
 
