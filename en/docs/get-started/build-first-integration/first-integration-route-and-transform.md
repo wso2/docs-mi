@@ -32,6 +32,9 @@ To develop the above scenario, let's get started with creating a new API resourc
 
 1. Click on the Service Designer (<img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon.png" alt="inline expression editor" class="inline-icon">) icon of the `Bank` API in the **Micro Integrator Project Explorer** to open the Service Designer.
 
+    !!! Note
+        The **Service Designer** icon will appear when you hover over the API name in the Project Explorer.
+
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api.png" alt="Create New Project" width="80%"></a>
 
 2. In the Service Designer, click the **+ Resource** button to add a new API resource.
@@ -143,15 +146,15 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 
 11. Finally, click **Sumbit** to insert the **HTTP POST** operation into the integration flow.
 
-    <!-- !!! Tip
+    !!! Tip
         Since we have half way completed the flow, let's verify everything up to this point. You can use the **Mediator TryOut** feature to execute the flow up to a specific mediator and inspect its input and output.  
         To explore this feature in detail, see the [Mediator TryOut documentation]({{base_path}}/develop/mediator-tryout/).
 
         1. Here, we’ll use this feature to check the output of the HTTP call. On the canvas, click the **HTTP POST** operation to open the **Edit** pane, then select the **Tryout** tab.<br>
             <a href="{{base_path}}/assets/img/get-started/build-first-integration/click_http_post.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/click_http_post.png" alt="create connection" width="80%"></a>
 
-        4. Once the data is loaded, click **Run** to execute the flow through this mediator and review the output. Expand the **Payload** section to view the JSON response from the currency converter service.<br>
-            <a href="{{base_path}}/assets/img/get-started/build-first-integration/tryout_http.gif"><img src="{{base_path}}/assets/img/get-started/build-first-integration/tryout_http.gif" alt="Create New Project" width="30%"></a> -->
+        2. Once the data is loaded, click **Run** to execute the flow through this mediator and review the output. Expand the **Variables** section and check the **http_post_1** → **payload** element to view the JSON response from the currency converter service.<br>
+            <a href="{{base_path}}/assets/img/get-started/build-first-integration/tryout_http.gif"><img src="{{base_path}}/assets/img/get-started/build-first-integration/tryout_http.gif" alt="Create New Project" width="30%"></a>
     
     !!! Info
         - The output variable of the HTTP call contains the following data:
