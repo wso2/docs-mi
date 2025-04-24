@@ -6,7 +6,7 @@ When information from several services is required to construct a response to a 
 
 In this tutorial, when a client sends a request for a medical appointment, the Micro Integrator performs several service calls to multiple back-end services to construct a response that includes all the necessary details. The <a target="_blank" href="{{base_path}}/reference/connectors/http-connector/http-connector-overview/">HTTP connector</a> will be used to invoke services sequentially within a single integration flow.
 
-You will also use the <a target="_blank" href="{{base_path}}/reference/mediators/payloadfactory-mediator/">PayloadFactory mediator</a> to transform the response from one back-end service into the format required by another service.
+You will also use the <a target="_blank" href="{{base_path}}/reference/mediators/payloadfactory-mediator/">Payload mediator</a> to transform the response from one back-end service into the format required by another service.
 
 <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/what_you_will_build.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/what_you_will_build.png" alt="service orchestration" width="80%"></a>
 
