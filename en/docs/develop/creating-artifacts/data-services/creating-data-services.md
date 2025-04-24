@@ -288,7 +288,7 @@ You can configure output result parameters for the query using this section.
 
 Follow our tutorial on data services:
 
-- [Build your first Data Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource)
+- [How to Expose a Datasource as a Service]({{base_path}}/learn/integration-tutorials/sending-a-simple-message-to-a-datasource)
 
 ## Examples 
 

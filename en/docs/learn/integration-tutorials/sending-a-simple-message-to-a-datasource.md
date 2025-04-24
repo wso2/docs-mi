@@ -1,4 +1,4 @@
-# Build your first Data Service
+# How to Expose a Datasource as a Service
 
 ## What you'll build
 
@@ -21,25 +21,25 @@ Follow the steps below to set up the MySQL server.
 
 1. Install the <a target="_blank" href="https://www.mysql.com/downloads/">MySQL</a> server.
 
-2. Connect to the MySQL server using a MySQL client to create and populate the necessary database for this tutorial. Follow the steps below to create the `Employees` database, a new user named `wso2mi`, and the `Employee` table.
+2. Connect to the MySQL server using a MySQL client to create and populate the necessary database for this tutorial. Follow the steps below to create the `Company` database, a new user named `wso2mi`, and the `Employees` table.
     
-3. Create a database named `Employees`.
+3. Create a database named `Company`.
 
     ```bash
-    CREATE DATABASE Employees;
+    CREATE DATABASE Company;
     ```
 
 4. Create a user and grant the user access to the Database.
 
     ```
     CREATE USER 'wso2mi'@'localhost' IDENTIFIED BY 'wso2mi';
-    GRANT ALL PRIVILEGES ON Employees.* TO 'wso2mi'@'localhost';
+    GRANT ALL PRIVILEGES ON Company.* TO 'wso2mi'@'localhost';
     ```
 
-5. Create the Employee table inside the Employees database:
+5. Create the Employees table inside the Company database:
 
     ```bash
-    USE Employees;
+    USE Company;
     CREATE TABLE Employees (EmployeeNumber int(11) NOT NULL, FirstName varchar(255) NOT NULL, LastName varchar(255) DEFAULT NULL, Email varchar(255) DEFAULT NULL, Salary varchar(255));
     INSERT INTO Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values (3, "Edgar", "Code", "edgar@rdbms.com", 100000);
     ```
@@ -121,7 +121,7 @@ Once you click **Create**, the **Add Artifact** pane will be opened.
                     <strong>Database Name</strong>
                 </td>
                 <td>
-                    <code>Employees</code>
+                    <code>Company</code>
                 </td>
                 <td>Name of the database to connect to.</td>
             </tr>
@@ -147,7 +147,7 @@ Once you click **Create**, the **Add Artifact** pane will be opened.
     </table>
 
     !!! Note
-        We will leave the rest of the configurations as default. For advanced configurations, refer to [Datasource Parameters]({{base_path}}/reference/synapse-properties/data-services/datasource-configuration-parameters/).
+        The rest of the configurations will be left as default. For advanced configurations, refer to [Datasource Parameters]({{base_path}}/reference/synapse-properties/data-services/datasource-configuration-parameters/).
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
 
@@ -179,7 +179,7 @@ Now, let's create a REST resource that will be used to invoke the SQL query.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" width="80%"></a>
 
-    In the next step, we will create a resource that accepts the Employee Number as a path parameter, which will be used to query the SQL database.
+    In the next step, you will create a resource that accepts the Employee Number as a path parameter. This value will be used to query the SQL database.
 
 3. Enter the following resource details, then click **Add** to insert the resource into the Data Service.
 
@@ -229,7 +229,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/c.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png" width="80%"></a>
 
-    Here, we will map the `EmployeeNumber` path parameter to the SQL query variable `employee_number`, which will be used in the SQL query.
+    Here, you will map the `EmployeeNumber` path parameter to the SQL query variable `employee_number`, which will be used in the SQL query.
 
 3. Click **Add Parameter**, specify the following values, and click **Save** to add the input mapping for the Employee Number.
 
@@ -263,7 +263,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
 4. Finally, click **Submit** in the **Edit Input Mapping** pane to complete the input mapping configuration.
 
-5. Click on **Query** in the **DataService** view. Here, we will write the SQL query to retrieve employee data using the SQL query variable `employee_number`.
+5. Click on **Query** in the **DataService** view. Here, you will write the SQL query to retrieve employee data using the `employee_number` SQL query variable.
     
 6. Enter the following SQL query in the **Query / Expression** field, then click **Submit** to save the query.
 
@@ -276,13 +276,13 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png" width="30%"></a>
 
-7. Click on **Transformation** in the **DataService** view. Here, we will set the content type to **JSON**, as the user expects a JSON response.
+7. Click on **Transformation** in the **DataService** view. Here, you will set the content type to **JSON**, as the client expects a JSON response.
 
 8. Choose `JSON` as the **Output Type**, then click **Submit** to save the transformation settings.
     
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png" width="80%"></a>
 
-9. Click on **Output Mapping** in the **DataService** view. Here, we will create the response JSON using the SQL results (`EmployeeNumber`, `FirstName`, `LastName`, and `Email`) retrieved from the query defined earlier.
+9. Click on **Output Mapping** in the **DataService** view. Here, you will define the response JSON using the SQL results (`EmployeeNumber`, `FirstName`, `LastName`, and `Email`) retrieved from the query defined earlier.
     
 10. Provide the following JSON template, then click **Submit** to save the output mapping.
     
@@ -348,8 +348,6 @@ Let's send a request to the API resource. You can use Postman or any other **HTT
             </td>
         </tr>
      </table>
-     
-     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/rdbms-employee.png" width="800">
      
 If you want to send the client request from your terminal:
 

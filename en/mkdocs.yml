@@ -308,7 +308,7 @@ nav:
             - How to Send an Email from an Integration Service: learn/integration-tutorials/send-email-from-integration-service.md
       - Data Integration:
             - What is Data Integration: learn/integration-use-case/data-integration-overview.md
-            - Build your first Data Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+            - How to Expose a Datasource as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
             - How to Expose an RDBMS Datasource: learn/examples/data-integration/rdbms-data-service.md
             - How to Expose other Datasources:
                   - CSV Datasource: learn/examples/data-integration/csv-data-service.md
