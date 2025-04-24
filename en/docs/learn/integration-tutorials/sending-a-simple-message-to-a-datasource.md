@@ -1,11 +1,13 @@
-# How to Expose a Datasource as a Service
+# Build your first Data Service
 
 ## What you'll build
 
-A [Data service]({{base_path}}/reference/synapse-properties/data-services/) provides a web service interface to access data that is stored in various data sources. The following sections describe how you can use Micro Integrator Extension for Visual Studio Code (MI for VS Code) to work with data services' artifacts. 
+In this tutorial, you will create a [Data Service]({{base_path}}/reference/synapse-properties/data-services/) that exposes an RDBMS data source as a RESTful API.
 
-!!! Tip
-    Note that this feature is currently supported in Micro Integrator Extension for Visual Studio Code (MI for VS Code) for relational data sources and CSV files.
+!!! Tip "What is a Data Service?"
+    A Data Service in WSO2 Micro Integrator allows you to expose data from relational databases, CSV files, or other data sources as RESTful or SOAP APIs. It simplifies integration by handling database queries, input/output mappings, and data transformation without writing custom code. To explore Data Services in detail, see the [Data Services]({{base_path}}/reference/synapse-properties/data-services/) documentation.
+
+When a client sends a request to the Micro Integrator, the employee number will be extracted from the request, used in a SQL query to retrieve employee information, and the result will be returned in JSON format.
 
 ## Let's get started!
 
@@ -13,31 +15,36 @@ A [Data service]({{base_path}}/reference/synapse-properties/data-services/) prov
 
 {!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
-- **MySQL server:** Follow the steps below to set up the MySQL server.
-    1. Install the MySQL server.
-    2. Connect to the MySQL server using the MySQL client. 
-    2. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). Ensure that you download the JDBC driver version that matches your MySQL server version. You will need this when you configure the MySQL server with the Micro Integrator.
-        
-    3. Create a database named `Employees`.
+#### Set up MySQL server
 
-        ```bash
-        CREATE DATABASE Employees;
-        ```
+Follow the steps below to set up the MySQL server.
 
-    4. Create a user and grant the user access to the Database.
+1. Install the <a target="_blank" href="https://www.mysql.com/downloads/">MySQL</a> server.
+
+2. Connect to the MySQL server using a MySQL client to create and populate the necessary database for this tutorial. Follow the steps below to create the `Employees` database, a new user named `wso2mi`, and the `Employee` table.
     
-        ```
-       CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
-       GRANT ALL PRIVILEGES ON Employees.* TO 'user'@'localhost';
-       ```
+3. Create a database named `Employees`.
 
-    5. Create the Employee table inside the Employees database:
+    ```bash
+    CREATE DATABASE Employees;
+    ```
 
-        ```bash
-        USE Employees;
-        CREATE TABLE Employees (EmployeeNumber int(11) NOT NULL, FirstName varchar(255) NOT NULL, LastName varchar(255) DEFAULT NULL, Email varchar(255) DEFAULT NULL, Salary varchar(255));
-        INSERT INTO Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values (3, "Edgar", "Code", "edgar@rdbms.com", 100000);
-        ```
+4. Create a user and grant the user access to the Database.
+
+    ```
+    CREATE USER 'wso2mi'@'localhost' IDENTIFIED BY 'wso2mi';
+    GRANT ALL PRIVILEGES ON Employees.* TO 'wso2mi'@'localhost';
+    ```
+
+5. Create the Employee table inside the Employees database:
+
+    ```bash
+    USE Employees;
+    CREATE TABLE Employees (EmployeeNumber int(11) NOT NULL, FirstName varchar(255) NOT NULL, LastName varchar(255) DEFAULT NULL, Email varchar(255) DEFAULT NULL, Salary varchar(255));
+    INSERT INTO Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values (3, "Edgar", "Code", "edgar@rdbms.com", 100000);
+    ```
+
+6. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). Make sure to download a version that is compatible with your MySQL server version. You will need this driver when configuring the MySQL server with the Micro Integrator.
 
 ### Step 2: Create a data service
 
@@ -144,71 +151,89 @@ Once you click **Create**, the **Add Artifact** pane will be opened.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
 
-5. Click **Next**. 
+6. Click **Next**. 
 
-6. You will be directed to the **Select Database Driver** window to choose a driver. Browse and select the driver file, such as a JAR file. For example: `/Users/chathurangaj/Downloads/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar`.
+7. You will be directed to the **Select Database Driver** window to choose a driver. Browse and select the driver JAR file that you downloaded in the [Set up MySQL Server](#set-up-mysql-server) step, and then click **Next**.
 
-7. Click **Next** to complete creating the data source.
+    You will then see the **Test Connection** form, where you can verify the connection to the data source using the provided username and password.
 
-8. You will then see the **Test Connection** form, where you can test the connection to the data source using the provided username and password.
+8. Click **Test Connection** to verify the connection. A success or failure message will appear based on the result.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" width="80%"></a>
 
-9. Click **Test Connection** to verify the connection. A success or failure message will appear.
+9. Once the connection is successful, click **Create** to finalize the data source setup.
 
-10. Once the connection is successful, click **Create** to finalize the data source creation.
+10. Finally, click **Create** in the **Data Service** form to add the Data Service to the integration project. In the next steps, you will learn how to create a resource and define a SQL query.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/insert-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/insert-dataservice.png" width="80%"></a>
 
 #### Create a resource
 
-Now, let's create a REST resource that can be used to invoke the query.
+Now, let's create a REST resource that will be used to invoke the SQL query.
 
-1. Click the new **Data Service** created in the previous step either from the side panel or from the overview page.
+1. In the **MI Project Explorer**, select the **EmployeeDataService** that you created in the previous step.
 
-2. Click **+ Resources**. 
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/select-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/select-dataservice.png" width="80%"></a>
+
+2. In the **Data Service Designer**, click the **+ Resources** button to add a new resource.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" width="80%"></a>
 
-3. Enter the following resource details.
+    In the next step, we will create a resource that accepts the Employee Number as a path parameter, which will be used to query the SQL database.
+
+3. Enter the following resource details, then click **Add** to insert the resource into the Data Service.
 
     <table>
     <tr>
     <th>Property</th>
+    <th>Value</th>
     <th>Description</th>
     </tr>
     <tbody>
     <tr>
     <td>Resource Path</td>
-    <td>Employee/{EmployeeNumber}</td>
+    <td><code>Employee/{EmployeeNumber}</code></td>
+    <td>
+        The request URL should match this resource path. The <code>{EmployeeNumber}</code> variable will be replaced with the value sent in the request.
+    </td>
     </tr>
     <tr>
     <td>Resource Method</td>
-    <td>GET</td>
+    <td><code>GET</code></td>
+    <td>This resource will accept POST requests.</td>
     </tr>
     </tbody>
     </table>
-       
-4. Click **Add**.
 
 !!!	tip
-    Alternatively, you can generate a data service from a data source. For more information, refer to [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
+    Alternatively, you can generate a Data Service directly from a data source. For more information, refer to [Generate Data Services]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
 #### Configure data service
 
-Let's write an SQL query to GET data from the MySQL data source that you configured in the previous step:
+Let’s write an SQL query to retrieve data from the MySQL data source you configured in the previous step, using the Employee Number provided as a path parameter in the GET resource.
 
-1. Click new **Resource** created in the previous step.
+1. Open the **DataService View** of the newly created resource by clicking the `GET Employee/{EmployeeNumber}` resource under **Resources** in the **Data Service Designer**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png" width="80%"></a>
 
-2. Click **Input Mapping** in DataService View.
+    !!! Info
+        A single Data Service resource consists of the following key elements:
 
-3. Click **Add Parameter**.
-   
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png" width="80%"></a>
+        - **Input Mapping** – Binds incoming request parameters to SQL query variables.
+        - **Query** – Defines the database query using the mapped input parameters.
+        - **Transformation** – Defines the output type (such as XML or JSON) and allows optional reshaping of the query result before it is sent in the response.
+        - **Output Mapping** – Performs the actual mapping of the SQL query result to the selected response structure, organizing it into a user-friendly format.
 
-4. Specify the following values
-   <table>
+2. Click on **Input Mapping** in the **DataService** view.
+
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/c.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png" width="80%"></a>
+
+    Here, we will map the `EmployeeNumber` path parameter to the SQL query variable `employee_number`, which will be used in the SQL query.
+
+3. Click **Add Parameter**, specify the following values, and click **Save** to add the input mapping for the Employee Number.
+
+    <table>
     <tr>
     <th>Property</th>
     <th>Description</th>
@@ -216,168 +241,87 @@ Let's write an SQL query to GET data from the MySQL data source that you configu
     <tbody>
     <tr>
     <td>Mapping Name</td>
-    <td>EmployeeNumber</td>
+    <td><code>employee_number</code></td>
     </tr>
     <tr>
     <tr>
     <td>Query Parameter</td>
-    <td>EmployeeNumber</td>
+    <td><code>EmployeeNumber</code></td>
     </tr>
     <tr>
     <td>Parameter Type</td>
-    <td>SCALAR</td>
+    <td><code>SCALAR</code></td>
     </tr>
     <tr>
     <td>SQL Type</td>
-    <td>STRING</td>
+    <td><code>STRING</code></td>
     </tr>
     </tbody>
     </table>
 
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png" width="30%"></a>
 
-5. Click **Add**. Then Click **Submit**.
+4. Finally, click **Submit** in the **Edit Input Mapping** pane to complete the input mapping configuration.
 
-6.  Click **Query** in DataService View.
+5. Click on **Query** in the **DataService** view. Here, we will write the SQL query to retrieve employee data using the SQL query variable `employee_number`.
     
-7.  Specify the following values in the query details:
+6. Enter the following SQL query in the **Query / Expression** field, then click **Submit** to save the query.
 
-    <table>
-    <tr>
-    <th>Parameter</th>
-    <th>Value</th>
-    </tr>
-    <tr>
-    <td>Query ID</td>
-    <td>GetEmployeeDetails</td>
-    </tr>
-    <tr>
-    <td>Datasource</td>
-    <td>Datasource</td>
-    </tr>
-    <tr>
-    <td>SQL Query</td>
-    <td>select EmployeeNumber, FirstName, LastName, Email from Employees where EmployeeNumber=:EmployeeNumber</td>
-    </tr>
-    </table>
+    ```sql
+    SELECT EmployeeNumber, FirstName, LastName, Email FROM Employees WHERE EmployeeNumber=:employee_number
+    ```
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/query.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/query.png" width="80%"></a>
+    The `:employee_number` syntax is used to reference the SQL query variable you configured earlier.
+    When the resource is invoked, the value passed through the `EmployeeNumber` path parameter will be substituted into this query.
 
-8.  Click **Submit**.
-   
-9.  Click **Transformation** in DataService View.
-    
-10. Specify the following value:
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png" width="30%"></a>
 
-    <table>
-    <tr>
-    <th>Property</th>
-    <th>Description</th>
-    </tr>
-    <tr>
-    <td>Grouped by Element</td>
-    <td>Employees</td>
-    </tr>
-    </table>
+7. Click on **Transformation** in the **DataService** view. Here, we will set the content type to **JSON**, as the user expects a JSON response.
+
+8. Choose `JSON` as the **Output Type**, then click **Submit** to save the transformation settings.
     
     <a href="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png" width="80%"></a>
 
-11. Click **Submit**.
-
-12. Click **Output Mapping** in DataService View.
-
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping.png" width="80%"></a>
+9. Click on **Output Mapping** in the **DataService** view. Here, we will create the response JSON using the SQL results (`EmployeeNumber`, `FirstName`, `LastName`, and `Email`) retrieved from the query defined earlier.
     
-13. Click **Add Parameter**. Specify the following values:
-    <table>
-    <tr>
-    <th>Property</th>
-    <th>Description</th>
-    </tr>
-    <tbody>
-    <tr>
-    <td>Mapping Type</td>
-    <td>Element</td>
-    </tr>
-    <tr>
-    <td>Datasource Type</td>
-    <td>column</td>
-    </tr>
-    <tr>
-    <td>Output Field Name</td>
-    <td>EmployeeNumber</td>
-    </tr>
-    <tr>
-    <td>Datasource Column Name</td>
-    <td>EmployeeNumber</td>
-    </tr>
-    <tr>
-    <td>Parameter Type</td>
-    <td>Scalar</td>
-    </tr>
-    <tr>
-    <td>Schema Type</td>
-    <td>String</td>
-    </tr>
-    </tbody>
-    </table>   
+10. Provide the following JSON template, then click **Submit** to save the output mapping.
+    
+    ```json
+    {
+        "Employee":{
+            "EmployeeNumber":"$EmployeeNumber",
+            "FirstName":"$FirstName",
+            "LastName":"$LastName",
+            "Email":"$Email"
+        }
+    }
+    ```
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-2.png" width="30%"></a>
+    In this JSON template, each placeholder (e.g., `$EmployeeNumber`, `$FirstName`) refers to a column in the SQL query result.  
+    The **Output Mapping** binds each of these individual values to a corresponding field in the JSON response.  
 
-14. Save the parameter.
+    Since we're returning a single record, the mapping is done for a single row, and each key in the `Employee` object maps directly to a column value from the query.
 
-15. Follow the same steps to create the following output parameters:
-
-    <table>
-    <tr>
-    <th>Mapping Type</th>
-    <th>Datasource Type</th>
-    <th>Output Field Name</th>
-    <th>Datasource Column Name</th>
-    <th>Parameter Type</th>
-    <th>Schema Type</th>
-    </tr>
-    <tr>
-    <td>Element</td>
-    <td>column</td>
-    <td>FirstName</td>
-    <td>FirstName</td>
-    <td>Scalar</td>
-    <td>string</td>
-    </tr>
-    <tr>
-    <td>Element</td>
-    <td>column</td>
-    <td>LastName</td>
-    <td>LastName</td>
-    <td>Scalar</td>
-    <td>string</td>
-    </tr>
-    <tr>
-    <td>Element</td>
-    <td>column</td>
-    <td>Email</td>
-    <td>Email</td>
-    <td>Scalar</td>
-    <td>string</td>
-    </tr>
-    </table>
-   
-   <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-3.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output-mapping-3.png" width="30%"></a>
- 
-14. Click **Submit**.
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output_mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output_mapping.png" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 
-{!includes/build-and-run-artifacts.md!}
+Now that you have developed the data service using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
 
-If the MySQL driver JAR does not exist in the `/project-path/deployment/libs` directory, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver` when the Micro Integrator starts.
+!!! Note
+    If you didn’t select a driver JAR file in the [Create a Data Service with a Data Source](#create-a-data-service-with-a-data-source) step, make sure you have added the JAR file to the `<Project_Path>/deployment/libs` directory, or copied it to the `<MI_HOME>/lib` directory.
+
+Click the **Build and Run** icon located in the top right corner of VS Code.
+
+<a href="{{base_path}}/assets/img/learn/tutorials/data-service/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/build_and_run_btn.png" width="80%"></a>
 
 ### Step 4: Test the data service
 
 Let's test the use case by sending a simple client request that invokes the service.
 
 #### Send the client request
+
+When you run the integration artifact as in [Step 3](#step-3-build-and-run-the-artifacts), the **Runtime Services** interface is opened up. You can see all the available services.
 
 Let's send a request to the API resource. You can use Postman or any other **HTTP Client**:
 
@@ -393,8 +337,14 @@ Let's send a request to the API resource. You can use Postman or any other **HTT
             </td>
         </tr>
         <tr>
+            <th>Headers</th>
+            <td>
+               <code>Accept=application/json</code> 
+            </td>
+        </tr>
+        <tr>
             <th>URL</th>
-            <td><code>http://localhost:8290/services/RDBMSDataService.HTTPEndpoint/Employee/3</code></br></br>
+            <td><code>http://localhost:8290/services/EmployeeDataService.HTTPEndpoint/Employee/3</code></br></br>
             </td>
         </tr>
      </table>
@@ -406,18 +356,20 @@ If you want to send the client request from your terminal:
 1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.
 2. Execute the following command.
     ```bash
-    curl -X GET http://localhost:8290/services/RDBMSDataService.HTTPEndpoint/Employee/3
+    curl -X GET http://localhost:8290/services/EmployeeDataService.HTTPEndpoint/Employee/3 -H "Accept: application/json"
     ```
 
 #### Analyze the response
 
 You will see the following response received by your <b>HTTP Client</b>:
 
-```xml
-<Employees xmlns="http://ws.wso2.org/dataservice">
-  <EmployeeNumber>3</EmployeeNumber>
-  <FirstName>Edgar</FirstName>
-  <LastName>Code</LastName>
-  <Email>edgar@rdbms.com</Email>
-</Employees>
+```json
+{
+    "Employee": {
+        "Email": "edgar@rdbms.com",
+        "FirstName": "Edgar",
+        "EmployeeNumber": "3",
+        "LastName": "Code"
+    }
+}
 ```
