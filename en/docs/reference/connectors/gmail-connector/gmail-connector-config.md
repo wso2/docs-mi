@@ -4,7 +4,7 @@ The following operations allow you to work with the Gmail Connector. Click an op
 
 ---
 
-### Connection Configuration
+### Connection configuration
 
 The Gmail API uses OAuth2 authentication with Tokens. For more information on authentication, go to [Authorizing Your App with Gmail](https://developers.google.com/gmail/api/auth/about-auth).
 
