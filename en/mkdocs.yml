@@ -632,8 +632,8 @@ nav:
                   - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
                   - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
               - 1.x:
-                  - Email Connector Example: reference/connectors/email-connector/1.x/email-connector-example.md
-                  - Email Connector Reference: reference/connectors/email-connector/1.x/email-connector-config.md
+                  - Email Connector Example: reference/connectors/email-connector/1.x/email-connector-1.x-example.md
+                  - Email Connector Reference: reference/connectors/email-connector/1.x/email-connector-1.x-config.md
           - HTTP Connector:
               - HTTP Connector Overview: reference/connectors/http-connector/http-connector-overview.md
               - HTTP Connector Example: reference/connectors/http-connector/http-connector-example.md
