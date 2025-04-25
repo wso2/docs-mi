@@ -628,8 +628,12 @@ nav:
               - CSV Module Reference: reference/connectors/csv-module/csv-module-config.md
           - Email Connector:
               - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
-              - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
-              - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
+              - 2.x:
+                  - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
+                  - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
+              - 1.x:
+                  - Email Connector Example: reference/connectors/email-connector/1.x/email-connector-example.md
+                  - Email Connector Reference: reference/connectors/email-connector/1.x/email-connector-config.md
           - HTTP Connector:
               - HTTP Connector Overview: reference/connectors/http-connector/http-connector-overview.md
               - HTTP Connector Example: reference/connectors/http-connector/http-connector-example.md
