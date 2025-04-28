@@ -487,7 +487,9 @@ nav:
                       # - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
                       # - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
                       # - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
-          - Deployment Best Practices:
+              - Integration Control Plane (ICP) on K8s: install-and-setup/setup/deployment/deploying-icp-with-helm.md
+              - Setup User Stores on K8s: install-and-setup/setup/deployment/setup-userstores-with-helm.md
+          - Deployment Best Practices: 
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
               - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
