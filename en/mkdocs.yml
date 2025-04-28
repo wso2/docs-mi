@@ -680,9 +680,13 @@ nav:
               - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
           - Google Spreadsheet Connector:
               - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
-              - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
               - Get Credentials for Google Spreadsheet: reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md
-              - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+              - 4.x:
+                    - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+                    - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+              - 3.x:
+                    - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-example.md
+                    - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-config.md
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md

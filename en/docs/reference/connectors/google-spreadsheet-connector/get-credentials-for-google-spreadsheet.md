@@ -5,13 +5,13 @@ To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need 
 1. Open the [Google API Console Credentials](https://console.developers.google.com/apis/credentials) page. You will be prompted to log in to a Google Account. Log in to your relevant Google Account. 
 
 2. Click on **Select a Project** and click **NEW PROJECT**, to create a project.
- <img src="{{base_path}}/assets/img/integrate/connectors/create-project.png" title="Creating a new Project" width="800" alt="Creating a new Project" />
+ <img src="{{base_path}}/assets/img/integrate/connectors/create-project.png" title="Creating a new Project" width="600" alt="Creating a new Project" />
 
 3. Enter `SpreadsheetConnector` as the name of the project and click **Create**.
 
 4. Click **Configure consent screen** in the next screen.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.jpg" title="Consent Screen" width="800" alt="Consent Screen" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.jpg" title="Consent Screen" width="600" alt="Consent Screen" />
 
 5. Provide the Application Name as `SpreadsheetConnector` in the Consent Screen.
 
@@ -32,7 +32,7 @@ To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need 
   
 8. A Client ID and a Client Secret are provided. Keep them saved.
   
-    <img src="{{base_path}}/assets/img/integrate/connectors/credentials.png" title="Credentials" width="800" alt="Credentials" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/credentials.png" title="Credentials" width="400" alt="Credentials" />
 
 9. Click Library on the side menu, search for **Google Sheets API** and click on it.
 
@@ -50,13 +50,13 @@ To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need 
 
 3. Under Step 1, select `Google Sheets API v4` from the list of APIs and select all the scopes. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetsapi2.png" title="Selecting Scopes" width="800" alt="Selecting Scopes" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/sheetsapi2.png" title="Selecting Scopes" width="500" alt="Selecting Scopes" />
 
 4. Click on **Authorize APIs** button and select your Gmail account when you are asked and allow the scopes.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheetsapi4.png" title="Grant Permission" width="800" alt="Grant Permission" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/sheetsapi4.png" title="Grant Permission" width="500" alt="Grant Permission" />
 
 5.  Under Step 2, click **Exchange authorization code for tokens** to generate and display the Access Token and Refresh Token. Now we are done with configuring the Google Sheets API.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/refreshtoken.png" title="Getting Tokens" width="800" alt="Getting Tokens" />
+    <img src="{{base_path}}/assets/img/integrate/connectors/refreshtoken.png" title="Getting Tokens" width="400" alt="Getting Tokens" />
 
