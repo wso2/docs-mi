@@ -18,24 +18,25 @@ Follow the instructions below to deploy the ICP on Kubernetes (K8s) using Helm r
     !!! Note
         Helm resources for WSO2 product deployment patterns are compatible with the ingress-nginx [`controller-v1.11.2`](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.11.2) release.
 
-## Step 1 - Get the Helm resources
+## Step 1 - Get the Helm resources 
 
-Check out the Helm resources for the WSO2 Micro Integrator Git repository.
+Check out the Helm Micro Integrator Git repository.
 
 1. Open a terminal and navigate to the location where you want to save the local copy.
-2. Clone the Micro Integrator Git repository with Helm resources:
+2. Clone the Helm Micro Integrator Git (helm-mi) repository with Helm resources:
 
     ```bash
     git clone https://github.com/wso2/helm-mi.git
+    git checkout origin/4.3.x
     ```
 
-This creates a local copy of the [`wso2/helm-mi`](https://github.com/wso2/helm-mi/) repository, which includes all the Helm resources for WSO2 Micro Integrator.
+This creates a local copy of the [`wso2/helm-mi`](https://github.com/wso2/helm-mi/) repository, which includes all the Helm resources for WSO2 MI and ICP.
 
 Let's refer to the root folder of the local copy as `<HELM_HOME>`.
 
 ## Step 2 - Update the deployment configurations 
 
-Follow the steps below to configure your Micro Integrator deployment.
+Follow the steps below to configure your ICP deployment.
 
 1. Open the `values.yaml` file in the `<HELM_HOME>/icp` folder of your local copy.
 
