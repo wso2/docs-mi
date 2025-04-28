@@ -6,9 +6,9 @@ When the JSON client sends a message to the SOAP backend, the REST API in the Mi
 
 The following examples explain different methods of converting JSON messages to SOAP using the Micro Integrator.
 
-## Using the PayloadFactory mediator
+## Using the Payload mediator
 
-Let's convert JSON messages to SOAP using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
+Let's convert JSON messages to SOAP using the [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
 
 ### Synapse configuration
 Following is a sample REST API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-1) this example.

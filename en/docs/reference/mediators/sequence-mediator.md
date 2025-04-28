@@ -63,7 +63,7 @@ In this example, the following sequence named `StoreSend` includes a [store medi
     </endpoint>
     ```
 
-The Sequence mediator configuration can be as follows to invoke the `StoreSend` sequence after using a [payloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) to transform the contents of the request.
+The Sequence mediator configuration can be as follows to invoke the `StoreSend` sequence after using a [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) to transform the contents of the request.
 
 ### Example 1: If the `StoreSend` sequence configured in registry
 

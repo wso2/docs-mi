@@ -131,7 +131,7 @@ The parameters available to configure the property mediator are as follows:
 
 ### Send a fault message based on the Accept http header
 
-In this configuration, a response is sent to the client based on the `Accept` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
+In this configuration, a response is sent to the client based on the `Accept` header. The [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
 based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
 
 ``` xml

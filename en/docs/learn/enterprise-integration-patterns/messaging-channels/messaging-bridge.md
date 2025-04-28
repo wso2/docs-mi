@@ -13,7 +13,7 @@ The Messaging Bridge EIP facilitates the connection between messaging systems an
 
 ## Sample scenario
 
-An enterprise might use more than one messaging system in communication. This example illustrates a message bridge, which accepts a REST message from the client, transforms the REST message to SOAP format, and sends the SOAP message to the back-end Axis2 server. To transform the sent REST request to a SOAP message, we use the API functionality of the WSO2 MI. It restructures the message to a REST format using the Payload Factory mediator.
+An enterprise might use more than one messaging system in communication. This example illustrates a message bridge, which accepts a REST message from the client, transforms the REST message to SOAP format, and sends the SOAP message to the back-end Axis2 server. To transform the sent REST request to a SOAP message, we use the API functionality of the WSO2 MI. It restructures the message to a REST format using the Payload mediator.
 
 The diagram below depicts how to simulate the example scenario using the WSO2 MI.
 
@@ -24,7 +24,7 @@ Before digging into implementation details, let's take a look at the relationshi
 | Messaging Bridge EIP            | Messaging Bridge Example Scenario                                                        |
 |---------------------------------|-----------------------------------------------------------------------------------------------------|
 | Messaging System1               | Stock Quote client                                                                                  |
-| Messaging Bridge                | PayloadFactory Mediator (You can add any transformation mediator here. Also see [Message Translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator)) |
+| Messaging Bridge                | Payload mediator (You can add any transformation mediator here. Also see [Message Translator]({{base_path}}/learn/enterprise-integration-patterns/messaging-systems/message-translator)) |
 | Messaging System2               | Stock Quote service                                                                                 |
 
 ## Synapse configuration of the artifacts
@@ -71,7 +71,7 @@ Given below is the Synapse configuration of this sample.
 
 Let's investigate the elements of the configuration in detail.
 
-- Payload Factory - Builds the necessary SOAP request for the back-end service. It uses the value of the HTTP GET variable (from the REST request made to the API).
+- Payload mediator - Builds the necessary SOAP request for the back-end service. It uses the value of the HTTP GET variable (from the REST request made to the API).
 - args - A list of arguments that will be concatenated in the same order inside the format tags (in a `printf` style).
 
 ## Set up the sample scenario

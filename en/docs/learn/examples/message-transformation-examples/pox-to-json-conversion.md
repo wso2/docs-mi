@@ -93,15 +93,15 @@ The converted JSON response is returned as follows:
 }
 ```
 
-## Using the PayloadFactory Mediator
+## Using the Payload Mediator
 
-Let's convert a POX message to JSON using a [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
+Let's convert a POX message to JSON using a [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
 
 ### Synapse configuration
 Following is a sample proxy service configuration that we can use to implement this scenario. 
 
 !!! Tip
-    Note that after the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) completes the message convertion, we are using the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) to return the converted message back to the JSON client.
+    Note that after the [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) completes the message convertion, we are using the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) to return the converted message back to the JSON client.
 
 See the instructions on how to [build and run](#build-and-run-example-2) this example.
 

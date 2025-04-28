@@ -157,9 +157,9 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     > **NOTE**: Further, you can use the `getAttachment` operation to retrieve attachment content if there is any. Refer to the [Reference Documentation]({{base_path}}/reference/connectors/email-connector/email-connector-config/) to learn more.
 
-7. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/), to add the email content to the same response we received from the `list` operation and configure the Payload Factory mediator as shown below.
+16. Next, we will use a [Payload Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/), to add the email content to the same response we received from the `list` operation and configure the Payload mediator as shown below.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-2.x/email-conn-add-payload.png" title="Adding payload factory mediator." width="400" alt="Adding payload facotry mediator."/>
-    
+
     Entered payload:
     ```json
     {"To":"${payload.email.to}","From":"${payload.email.from}","Subject":"${payload.email.subject}","Content":"${payload.email.textContent}"}

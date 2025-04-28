@@ -51,7 +51,7 @@ Following is a sample REST API configuration that we can used to implement this 
 
 In this API configuration we have defined two resources. One is for the HTTP method GET and the other one is for POST. In the first resource, we have defined the uri-template as `/view/{symbol}` so that request will be dispatched to this resource when you invoke the API using the following URI: `http://127.0.0.1:8290/stockquote/view/IBM`
     
-The context of this REST API is `stockquote`. The SOAP payload required for the SOAP back-end service is constructed using the payload factory mediator defined in the `inSequence`. The value for the `<m0:symbol\>` element is extracted using the following expression:
+The context of this REST API is `stockquote`. The SOAP payload required for the SOAP back-end service is constructed using the Payload mediator defined in the `inSequence`. The value for the `<m0:symbol\>` element is extracted using the following expression:
     
 `get-property('uri.var.symbol')`
     

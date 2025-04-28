@@ -15,7 +15,7 @@ You will also use the <a target="_blank" href="{{base_path}}/reference/mediators
 -   [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties)
 -   [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview)
 -   [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator)
--   [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
+-   [Payload Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
 
 ## Let's get started!
 
