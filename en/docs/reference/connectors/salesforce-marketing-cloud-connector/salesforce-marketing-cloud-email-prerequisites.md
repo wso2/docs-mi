@@ -29,7 +29,7 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/email-template-new.png" title="New Email Template" width="100%" alt="New Email Template"/>
 
-3. Open the template details page and click "Edit in Builder." From there, you can modify the HTML, paste an existing template, or choose from their available templates. I have also added a custom HTML template, which you can find [here](https://gist.github.com/aashikam/999fc472ebc16e06be4e72f644fff55d).
+3. Open the template details page and click **Edit in Builder** From there, you can modify the HTML, paste an existing template, or choose from their available templates. I have also added a custom HTML template, which you can find [here](https://github.com/wso2-extensions/mi-connector-salesforcemarketingcloud/blob/main/docs/email_template.html).
 
    <img src="{{base_path}}/assets/img/integrate/connectors/sfmc/email-template-edit.png" title="Edit Email Template" width="100%" alt="Edit Email Template"/>
 
