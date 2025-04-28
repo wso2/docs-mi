@@ -401,3 +401,10 @@ header>.md-grid {
 .md-tag {
     display: none !important;
 }
+
+.inline-icon {
+    vertical-align: middle;
+    outline: none !important;
+    box-shadow: none !important;
+    max-height: 28px;
+}
