@@ -34,7 +34,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
 
     <img src="{{base_path}}/assets/img/integrate/connectors/gmail/CreateAPI2.png" title="Creating a new API" width="600" alt="Creating a new API"/>
 
-3. Add the Gmail Connector to the API by clicking on the **+** button in the **Design View** and search for `Gmail` in the **Mediator** section. Then, select the `Gmail` connector and click **Download**.
+3. Add the Gmail Connector to the API by clicking on the **+** button in the **Design View** and search for `Gmail` in the **Mediator** section. Then, select the **Gmail** connector and click **Download**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/gmail/AddGmailConnector.png" title="Adding Gmail Connector" width="800" alt="Adding Gmail Connector"/>
 
