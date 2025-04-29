@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 # Quick Start Guide
 
 Welcome to the WSO2 Micro Integrator Quick Start Guide, your step-by-step tutorial for getting started with WSO2 Micro Integrator (MI). WSO2 MI enables you to build, deploy, and manage integration solutions with ease, providing flexibility and scalability to connect applications, services, and systems.
