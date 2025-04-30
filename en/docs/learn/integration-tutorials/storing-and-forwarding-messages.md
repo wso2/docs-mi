@@ -128,7 +128,7 @@ Now, let's create a message store artifact that connects to the RabbitMQ broker 
 5. Enter the following details to create a new RabbitMQ message store.
 
     !!! Note  
-        In this tutorial, we will use a local RabbitMQ broker with the default configurations. If you plan to use a different RabbitMQ broker, update the following fields accordingly. You may refer to the [RabbitMQ Message Store]({{base_path}}/reference/synapse-properties/message-stores/rabbitmq-msg-store-properties/) documentation for more details and configuration options.
+        In this tutorial, you will use a local RabbitMQ broker with the default configurations. If you plan to use a different RabbitMQ broker, update the following fields accordingly. Refer to the [RabbitMQ Message Store]({{base_path}}/reference/synapse-properties/message-stores/rabbitmq-msg-store-properties/) documentation for more details and configuration options.
 
     <table>
     <tr>
@@ -186,13 +186,13 @@ Now, let's create a message store artifact that connects to the RabbitMQ broker 
 
 #### Update the mediation flow
 
-Let's update the REST API so that the request send by the client is forwarded to the message store we created above.
+Let’s update the REST API so that incoming client requests are forwarded to the Message Store you created earlier.
 
 1. Navigate to **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve** to open the **Resource View**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png" alt="Edit API resource" width="80%"></a>
 
-2. Click on the **+** icon on the canvas to open the **Mediator Palette**. We will be adding a [Store mediator]({{base_path}}/reference/mediators/store-mediator/) in the next step. This mediator will store the incoming message in the Message Store configured in the previous step.
+2. Click on the **+** icon on the canvas to open the **Mediator Palette**. In the next step, you will add a [Store mediator]({{base_path}}/reference/mediators/store-mediator/) to store the incoming message in the Message Store you configured earlier.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-mediator-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-mediator-mediation-flow.png" alt="Add mediator" width="80%"></a>
 
@@ -224,7 +224,7 @@ Let's create a sequence that will use the messages saved in the message store an
 
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png" alt="Create new HospitalServiceSequence" width="80%"></a>
 
-    In the next steps, we will design the integration flow to call the hospital service backend and log the response it returns.
+    In the next steps, you will design the integration flow to call the hospital service backend and log the response it returns.
 
 5. Click on the **+** icon on the canvas to open the **Mediator Palette**, to add the HTTP POST operation to call the hospital service backend.
 
@@ -250,7 +250,7 @@ Let's create a sequence that will use the messages saved in the message store an
 9. Provide `/${payload.hospital_id}/categories/${params.pathParams.category}/reserve` as the **Relative Path**, and click **Add** to add the operation to the integration flow.
 
     !!! Note
-        We will leave the rest of the configurations as defaults: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
+        You can leave the rest of the configurations as default: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" alt="HTTP operation" width="30%"></a>
 
@@ -265,11 +265,11 @@ Let's create a sequence that will use the messages saved in the message store an
     <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_drop_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_drop_mediator.png" alt="HTTP operation" width="80%"></a>
 
 You have now completed the integration flow that will be executed when the message processor picks up a message.  
-In the next step, we will create a [Message Processor]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties/) that will pick messages from the Message Store configured in the [previous step](#create-the-message-store).
+In the next step, you will create a [Message Processor]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties/) that will pick messages from the Message Store configured in the [previous step](#create-the-message-store).
 
 #### Create the Message Processor
 
-We need to create a **Message Sampling Processor** which will fetch the messages from the **Message Store** and dispatch them to a sequence. In this tutorial we will dispatch the messages to the `HospitalServiceSequence` created in the [previous step](#create-a-sequence).
+You need to create a **Message Sampling Processor**, which will retrieve messages from the **Message Store** and forward them to a specified sequence. In this tutorial, the messages will be dispatched to the `HospitalServiceSequence` created in the [previous step](#create-a-sequence).
 
 !!! Tip "What is a Message Processor?"
     A **Message Processor** in WSO2 Micro Integrator (WSO2 MI) is a background task that retrieves messages from a **Message Store** and forwards them to a defined sequence for processing. It supports scheduled, asynchronous, and reliable message delivery which is useful for store-and-forward patterns and retry mechanisms. To learn more, see the [Message Stores and Processors]({{base_path}}/reference/synapse-properties/about-message-stores-processors/) documentation.
@@ -311,7 +311,7 @@ We need to create a **Message Sampling Processor** which will fetch the messages
         </tr>
     </table>
 
-We have now finished creating all the required artifacts.
+You have now completed creating all the required artifacts for this integration.
 
 ### Step 3: Start the RabbitMQ Broker
     
