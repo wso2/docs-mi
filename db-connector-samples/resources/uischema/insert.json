@@ -1,0 +1,270 @@
+{
+  "connectorName": "db",
+  "operationName": "insert",
+  "title": "Execute Query",
+  "help": "<h1>DB Connector</h1> <b>The DB connector supports MySQL, Oracle, MSSQL and PostgreSQL databases for handling database operations</b>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Database Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "MySQL",
+                "PostgreSQL",
+                "Microsoft SQL Server",
+                "Oracle",
+                "IBM DB2"
+              ],
+              "defaultType": "MySQL",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "DB connection to be used",
+              "onValueChange": {
+                "function": "updateTargetCombo",
+                "params": [
+                  {
+                    "rpc": "fetchDSSTables",
+                    "target": "table"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "readOnly": true,
+                    "readonly": "readonly",
+                    "name": "query",
+                    "displayName": "Query",
+                    "inputType": "expressionTextArea",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Specifies the database query to be executed. Although this field accepts raw SQL, it is executed internally as a prepared statement with the parameters. This approach prevents SQL injection vulnerabilities, so manual sanitization is not required.",
+                    "parentField": "table",
+                    "onValueChange": {
+                      "function": "buildQuery"
+                    }
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "preparedStmt",
+                    "displayName": "Prepared Statement",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Query as a prepared statement",
+                    "hidden": true
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "columnTypes",
+                    "displayName": "Column Types",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Types of the columns in the query",
+                    "hidden": true
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "columnNames",
+                    "displayName": "Column Names",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Names of the columns in the query",
+                    "hidden": true
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "format",
+                    "displayName": "Output Format",
+                    "inputType": "combo",
+                    "comboValues": ["json", "xml", "csv", "text"],
+                    "defaultValue": "json",
+                    "required": "true",
+                    "helpTip": "Output format of the query result (json, xml, csv, text)",
+                    "hidden": true
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "queryType",
+                    "displayName": "Query Type",
+                    "inputType": "combo",
+                    "comboValues": ["online", "offline"],
+                    "defaultValue": "offline",
+                    "required": false,
+                    "helpTip": "Type of the query",
+                    "hidden": true
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "table",
+                    "displayName": "Table Name",
+                    "inputType": "comboOrExpression",
+                    "comboValues": [],
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Type of the query result",
+                    "onValueChange": {
+                      "function": "handleDynamicContent",
+                      "params": [
+                        {
+                          "rpc": "getDynamicFields",
+                          "value": "table",
+                          "onDynamicFieldChange": {
+                            "function": "buildQuery",
+                            "params": [
+                              {
+                                "queryType": "insert",
+                                "resultField": "query",
+                                "preparedResultField": "preparedStmt",
+                                "columnTypesField": "columnTypes",
+                                "columnNamesField": "columnNames"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "parentField": "columns"
+                  }
+                },
+                {
+                  "type": "table",
+                  "value": {
+                    "hidden": false,
+                    "name": "columns",
+                    "displayName": "Table Columns",
+                    "title": "Table Columns",
+                    "description": "Table columns to be used in where clause",
+                    "tableKey": "columnName",
+                    "tableValue": "columnValue",
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "columnName",
+                          "displayName": "Column Name",
+                          "inputType": "string",
+                          "required": false,
+                          "helpTip": ""
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "columnValue",
+                          "displayName": "Column Value",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": ""
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "propertyType",
+                          "displayName": "Column Type",
+                          "inputType": "stringOrExpression",
+                          "defaultValue": "VARCHAR",
+                          "required": false,
+                          "helpTip": ""
+                        }
+                      }
+                    ],
+                    "inputType": "ParamManager",
+                    "onValueChange": {
+                      "function": "buildQuery",
+                      "params": [
+                        {
+                          "queryType": "insert",
+                          "resultField": "query"
+                        }
+                      ]
+                    },
+                    "parentField": "table"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Advanced",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "queryTimeout",
+                    "displayName": "Query Timeout",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Query timeout in seconds"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Name of the variable to which the output of the operation should be assigned"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+                    "required": "true"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

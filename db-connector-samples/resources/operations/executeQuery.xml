@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~  Copyright (c) 2025, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+~
+~  WSO2 Inc. licenses this file to you under the Apache License,
+~  Version 2.0 (the "License"); you may not use this file except
+~  in compliance with the License.
+~  You may obtain a copy of the License at
+~
+~   http://www.apache.org/licenses/LICENSE-2.0
+~
+~  Unless required by applicable law or agreed to in writing,
+~  software distributed under the License is distributed on an
+~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~  KIND, either express or implied.  See the License for the
+~  specific language governing permissions and limitations
+~  under the License.
+-->
+
+<template xmlns="http://ws.apache.org/ns/synapse" name="executeQuery">
+    <parameter name="query" />
+    <parameter name="format" />
+    <parameter name="parameters" />
+    <parameter name="isPreparedStatement" />
+
+    <parameter name="isResultSet" description="If the query is expected to return a result set."/>    
+    
+    <parameter name="queryTimeout" />
+    <parameter name="fetchSize" />
+    <parameter name="maxRows" />
+    <parameter name="transactionIsolation" />
+
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+    
+    <sequence>
+        <class name="org.wso2.carbon.esb.connector.operations.ExecuteQuery">
+            <property name="queryTimeout" expression="$func:queryTimeout" />
+            <property name="fetchSize" expression="$func:fetchSize" />
+            <property name="maxRows" expression="$func:maxRows" />
+            <property name="parameters" expression="$func:parameters" />
+
+            <property name="operation" value="EXECUTE_QUERY"/>
+        </class>
+    </sequence>
+</template>

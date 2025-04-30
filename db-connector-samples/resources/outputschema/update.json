@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Output Schema for Update Operation",
+    "description": "Output schema for the update operation.",
+    "properties": {
+      "payload": {
+        "type": "object",
+        "description": "The main response payload from the update operation",
+        "properties": {
+          "affectedRows": {
+            "type": "integer",
+            "description": "Number of rows updated by the operation"
+          },
+          "error": {
+            "type": "object",
+            "description": "Error details if operation failed",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code"
+              },
+              "message": {
+                "type": "string",
+                "description": "Error message"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Detailed error information"
+              }
+            },
+            "required": ["code", "message"],
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": ["payload"],
+    "additionalProperties": false
+  }

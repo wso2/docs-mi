@@ -1,0 +1,77 @@
+{
+  "connectorName": "db",
+  "operationName": "beginTransaction",
+  "title": "Begin Transaction",
+  "help": "<h1>DB Connector</h1> <b>Begin a transaction. Please make sure to end the transaction using the Commit Transaction operation, otherwise the transaction will be rolled back</b>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Database Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "MySQL",
+                "PostgreSQL",
+                "Microsoft SQL Server",
+                "Oracle",
+                "IBM DB2"
+              ],
+              "defaultType": "MySQL",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "DB connection to be used",
+              "onValueChange": {
+                "function": "updateTargetCombo",
+                "params": [
+                  {
+                    "rpc": "fetchDSSTables",
+                    "target": "table"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "timeout",
+                    "displayName": "Transcation Timeout (in seconds)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "300",
+                    "required": "true",
+                    "helpTip": "Timeout for the transaction",
+                    "hidden": false
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "isolationLevel",
+                    "displayName": "Isolation Level",
+                    "inputType": "combo",
+                    "comboValues": ["TRANSACTION_NONE", "TRANSACTION_READ_UNCOMMITTED", "TRANSACTION_READ_COMMITTED", "TRANSACTION_REPEATABLE_READ", "TRANSACTION_SERIALIZABLE"],
+                    "defaultValue": "TRANSACTION_NONE",
+                    "required": "true",
+                    "helpTip": "Isolation level for the transaction",
+                    "hidden": false
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

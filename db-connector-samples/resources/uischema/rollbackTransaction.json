@@ -1,0 +1,35 @@
+{
+  "connectorName": "db",
+  "operationName": "rollbackTransaction",
+  "title": "Rollback Transaction",
+  "help": "<h1>DB Connector</h1> <b>Rollback an active transaction. Please make sure to add the Begin Transaction operation before the actual operations, otherwise this will have no effect and will throw an error</b>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Database Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "MySQL",
+                "PostgreSQL",
+                "Microsoft SQL Server",
+                "Oracle",
+                "IBM DB2"
+              ],
+              "defaultType": "MySQL",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "DB connection to be used"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

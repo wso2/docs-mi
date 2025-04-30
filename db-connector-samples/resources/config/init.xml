@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (c) 2025, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 Inc. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template name="init" onError="fault" xmlns="http://ws.apache.org/ns/synapse">
+
+   <!-- common -->
+	<parameter name="name" description="Unique name the connection is identified by"/>
+   <parameter name="connectionType" description="Database type to connect. Possible values 'MYSQL', 'ORACLE', 'MSSQL', 'POSTGRESQL', 'IBM DB2'"/>
+   <parameter name="dbUrl" description="Database URL"/>
+   <parameter name="dbUser" description="Database username"/>
+   <parameter name="dbPassword" description="Database password"/>
+   <parameter name="driverClass" description="JDBC driver class"/>
+   <parameter name="driverPath" description="JDBC driver path"/>
+
+   <!-- pool configuration parameters -->
+   <!-- <parameter name="poolType" description="The type of connection pool to use. Possible values are 'DBCP', 'C3P0', 'HikariCP'"/> -->
+   <parameter name="maxActiveConnections" description="The maximum number of objects (including both idle and active/borrowed) that can exist within the pool at the same time."/>
+	<parameter name="maxIdleConnections" description="The maximum number of objects that can remain idle in the pool, awaiting to be borrowed. Excess idle objects may be removed"/>
+	<parameter name="minIdleConnections" description="The minimum number of objects that should always be available in the pool. If the number of idle objects falls below this number, the pool will create new objects to meet this requirement"/>
+   <parameter name="poolConnectionAgedTimeout" description="The maximum amount of time that an object can sit idle in the pool before it is eligible for eviction by the idle object evictor"/>
+   
+   <parameter name="maxWaitTime" description="The maximum amount of time that the borrowObject() method should block before throwing an exception when the pool is exhausted and no objects are available"/>
+	<parameter name="evictionCheckInterval" description="The time interval between runs of the idle object evictor thread"/>
+	<parameter name="minEvictionTime" description="The minimum amount of time an object must sit idle in the pool before it is eligible for eviction by the idle object evictor "/>
+	<parameter name="exhaustedAction" description="Determines the action to take when the borrowObject() method is called, but the pool is exhausted"/>
+	
+   <sequence>
+      <property name="name" expression="$func:name"/>
+      <class name="org.wso2.carbon.esb.connector.operations.DBConfig" />
+	</sequence>
+</template>

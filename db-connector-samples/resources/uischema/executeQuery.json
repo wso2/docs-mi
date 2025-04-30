@@ -1,0 +1,236 @@
+{
+  "connectorName": "db",
+  "operationName": "executeQuery",
+  "title": "Execute Query",
+  "help": "<h1>DB Connector</h1> <b>The DB connector supports MySQL, Oracle, MSSQL and PostgreSQL databases for handling database operations</b>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Database Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "MySQL",
+                "PostgreSQL",
+                "Microsoft SQL Server",
+                "Oracle",
+                "IBM DB2"
+              ],
+              "defaultType": "MySQL",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "DB connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "readOnly": true,
+                    "readonly": "readonly",
+                    "name": "query",
+                    "displayName": "Query",
+                    "inputType": "expressionTextArea",
+                    "defaultValue": "",
+                    "required": "true",
+                    "parentField": "table",
+                    "helpTip": "Specifies the database query to be executed. Although this field accepts raw SQL, it is executed internally as a prepared statement with the parameters. This approach prevents SQL injection vulnerabilities, so manual sanitization is not required."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "format",
+                    "displayName": "Output Format",
+                    "inputType": "combo",
+                    "comboValues": ["json", "xml", "csv", "text"],
+                    "defaultValue": "json",
+                    "required": "true",
+                    "helpTip": "Output format of the query result (json, xml, csv, text)",
+                    "hidden": true
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "isResultSet",
+                    "displayName": "Result Set",
+                    "inputType": "boolean",
+                    "defaultValue": true,
+                    "required": false,
+                    "helpTip": "Whether the query returns a result set or not"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "isPreparedStatement",
+                    "displayName": "Prepared Statement",
+                    "inputType": "boolean",
+                    "defaultValue": false,
+                    "required": false,
+                    "helpTip": "Use prepared statement for the query",
+                    "onValueChange": {
+                      "function": "togglePreparedStatement"
+                    }
+                  }
+                },
+                {
+                  "type": "table",
+                  "value": {
+                    "hidden": false,
+                    "name": "parameters",
+                    "displayName": "Parameters",
+                    "title": "Parameters",
+                    "description": "Parameters to be used in prepared statement. The order of the parameters should be same as the order of the placeholders in the query.",
+                    "tableKey": "parameterValue",
+                    "tableValue": "parameterType",
+                    "enableCondition": [{ "isPreparedStatement": true }],
+                    "elements": [
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "parameterValue",
+                          "displayName": "Parameter Value",
+                          "inputType": "stringOrExpression",
+                          "required": false,
+                          "helpTip": ""
+                        }
+                      },
+                      {
+                        "type": "attribute",
+                        "value": {
+                          "name": "parameterType",
+                          "displayName": "Parameter Type",
+                          "inputType": "comboOrExpression",
+                          "comboValues": [
+                            "CHAR",
+                            "VARCHAR",
+                            "INTEGER",
+                            "FLOAT",
+                            "DOUBLE",
+                            "BOOLEAN",
+                            "DECIMAL",
+                            "DATE",
+                            "TIME",
+                            "TIMESTAMP",
+                            "BLOB",
+                            "CLOB"
+                          ],
+                          "required": false,
+                          "helpTip": ""
+                        }
+                      }
+                    ],
+                    "inputType": "ParamManager",
+
+                    "parentField": "table"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Advanced",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fetchSize",
+                    "displayName": "Fetch Size",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Number of rows to fetch at a time"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "maxRows",
+                    "displayName": "Max Rows",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Maximum number of rows to return"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "queryTimeout",
+                    "displayName": "Query Timeout",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Query timeout in seconds"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "transactionIsolation",
+                    "displayName": "Transaction Isolation (If set, this query will be executed in a separate transaction)",
+                    "inputType": "combo",
+                    "comboValues": [
+                      "TRANSACTION_NONE",
+                      "TRANSACTION_READ_COMMITTED",
+                      "TRANSACTION_READ_UNCOMMITTED",
+                      "TRANSACTION_REPEATABLE_READ",
+                      "TRANSACTION_SERIALIZABLE"
+                    ],
+                    "defaultValue": "TRANSACTION_NONE",
+                    "required": "false",
+                    "helpTip": "Transaction isolation level"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Name of the variable to which the output of the operation should be assigned"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+                    "required": "true"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
