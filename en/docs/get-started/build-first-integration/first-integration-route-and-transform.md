@@ -1,6 +1,6 @@
 # Route and transform messages
 
-In the previous tutorial, we learned how to develop, deploy, and test our first integration in WSO2 MI. In this tutorial, you'll learn how to call an HTTP backend service and dynamically build a payload.
+In the previous tutorial, you learned how to develop, deploy, and test your first integration in WSO2 MI. In this tutorial, you will learn how to call an HTTP backend service and dynamically build a payload.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_new_mediator_deposit.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_new_mediator_deposit.png" alt="Create New Project" width="80%"></a>
 
-    To convert the amount from the given currency to USD, we need to call a currency converter service. You can use the following currency converter service as the backend.
+    To convert the amount from the given currency to USD, you need to call a currency converter service. You can use the following currency converter service as the backend.
 
     <table>
         <tr>
@@ -122,11 +122,11 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 8. Provide `/currency/rate` as the **Relative Path**, and uncheck **Overwrite Message Body**. In the next step, we’ll create the payload required for the HTTP POST operation.
 
     !!! Note
-        **Overwrite Message Body** determines whether the current payload should be replaced with the response payload from the HTTP call. Since we need to preserve the original payload to extract the `amount`, make sure to uncheck **Overwrite Message Body**. When this is unchecked, the response from the HTTP call will be stored in the specified output variable instead of overwriting the original payload.
+        The **Overwrite Message Body** option determines whether the current payload should be replaced with the response from the HTTP call. Since you need to preserve the original payload to extract the `amount`, make sure to uncheck **Overwrite Message Body**. When this option is unchecked, the response will be stored in the specified output variable instead of overwriting the original payload.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_http_post.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_http_post.png" alt="geo http request" width="30%"></a>
 
-9. In the **Request Body** box, enter the following sample JSON object. In the next step, we will use an inline expression to extract the currency from the incoming payload and insert it into this sample JSON.
+9. In the **Request Body** box, enter the following sample JSON object. In the next step, you will use an inline expression to extract the currency from the incoming payload and insert it into this JSON object.
 
     !!! Tip "What is an expression?"
         Expressions in WSO2 Micro Integrator (MI) allow you to dynamically access, evaluate, and manipulate message content during processing. To explore expressions in detail, see the [Expressions documentation]({{base_path}}/reference/synapse-properties/synapse-expressions/).
@@ -147,7 +147,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 11. Finally, click **Sumbit** to insert the **HTTP POST** operation into the integration flow.
 
     !!! Tip
-        Since we have half way completed the flow, let's verify everything up to this point. You can use the **Mediator TryOut** feature to execute the flow up to a specific mediator and inspect its input and output.  
+        Since you're halfway through the flow, it's a good time to verify everything so far. You can use the **Mediator TryOut** feature to execute the flow up to a specific mediator and inspect its input and output.
         To explore this feature in detail, see the [Mediator TryOut documentation]({{base_path}}/develop/mediator-tryout/).
 
         1. Here, we’ll use this feature to check the output of the HTTP call. On the canvas, click the **HTTP POST** operation to open the **Edit** pane, then select the **Tryout** tab.<br>
@@ -162,7 +162,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
             - **Attributes** – Metadata such as the status code.
             - **Headers** – The response headers of the HTTP call.
 
-        - The currency converter service returns a JSON object like `{"fromCurrency":"LKR", "toCurrency":"USD", "rate":0.0033}`. Since we stored the response in the variable `http_post_1`, you can access this JSON object using the expression `vars.http_post_1.payload`, which you’ll explore in later steps.
+        - The currency converter service returns a JSON object like `{"fromCurrency":"LKR", "toCurrency":"USD", "rate":0.0033}`. Since the response is stored in the variable `http_post_1`, you can access this JSON object using the expression `vars.http_post_1.payload`. You will work with this data in the upcoming steps.
 
 12. Click the **+** icon placed just after the **HTTP POST** operation to open the **Mediator Palette** to add an [If Else Mediator]({{base_path}}/reference/mediators/filter-mediator) to check the HTTP status code and continue the integration accordingly.
 
@@ -170,7 +170,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_ifelse.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_ifelse.png" alt="Create New Project" width="80%"></a>
 
-    We will use an expression to define the condition for the **If Else** mediator. This condition checks whether the HTTP status code is `200` and determines which flow to execute. If the status code is `200`, we’ll convert the request amount and send a deposit success message. Otherwise, an error message will be sent to the client.
+    You will use an expression to define the condition for the **If Else** mediator. This condition checks whether the HTTP status code is `200` and determines which flow to execute. If the status code is `200`, the integration will convert the request amount and send a deposit success message. Otherwise, it will send an error message to the client.
 
 14. In the **Add If Else Mediator** pane that appears, click on the expression editor (<img src="{{base_path}}/assets/img/get-started/build-first-integration/expression_editor_icon.png" alt="inline expression editor" class="inline-icon">) icon to open the editor.
 
@@ -190,7 +190,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_payload_then_branch.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_payload_then_branch.png" alt="Create New Project" width="80%"></a>
 
-    In the next step, we use a template with inline expressions to calculate the converted amount using the incoming payload and the exchange rate returned from the HTTP POST call.
+    In the next step, you will use a template with inline expressions to calculate the converted amount based on the incoming payload and the exchange rate returned from the HTTP POST call.
 
     !!! Tip
         You can use the following pre-filled template in the **Payload** box to skip the inline expression insertion steps and continue from **Step 23**.

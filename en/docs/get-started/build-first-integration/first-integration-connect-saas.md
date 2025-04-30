@@ -21,7 +21,7 @@ Follow the instructions below to modify the API so it sends an email to the clie
 
 Let's consider a scenario where a client sends a loan request to the `Bank` API deployed in WSO2 Micro Integrator. Upon receiving the request, the API sends an email notification to the client indicating that the loan request has been received and is under review. This is done using a SaaS-based email service.
 
-In this example, we use <a target="_blank" href="https://developers.google.com/gmail/imap/imap-smtp">Gmail's SMTP service</a> as the email provider.
+In this example, you will use <a target="_blank" href="https://developers.google.com/gmail/imap/imap-smtp">Gmail's SMTP service</a> as the email provider.
 
 <a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png" alt="Create New Project" width="60%"></a>
 
@@ -114,7 +114,7 @@ To develop the above scenario, let's get started with creating a new API resourc
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_set_subject.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_set_subject.png" alt="Create New Project" width="30%"></a>
 
-    In the next step, we will extract the recipient's email address from the incoming payload and assign it to the **To** field using an expression.
+    In the next step, you will extract the recipient's email address from the incoming payload and assign it to the **To** field using an expression.
 
 10. Click on the expression (<img src="{{base_path}}/assets/img/get-started/build-first-integration/enable_expression_icon.png" alt="inline expression editor" class="inline-icon">) icon to enable expression mode for the **To** field.
 
@@ -128,7 +128,7 @@ To develop the above scenario, let's get started with creating a new API resourc
         <img src="{{base_path}}/assets/img/get-started/build-first-integration/email_set_to.gif" width="50%" alt="Add inline expression">
     </a>
 
-    In the next step, we use a template with inline expressions to extract data from the incoming payload and construct the email body.
+    In the next step, you will use a template with inline expressions to extract data from the incoming payload and construct the email body.
 
     !!! Tip
         You can use the following pre-filled template in the **Content** field to skip the inline expression insertion steps and continue from **Step 16**.

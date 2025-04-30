@@ -183,7 +183,7 @@ Now, you have created your first Integration API.
 
 ## What's Next?  
 
-So far, we have responded to the client with a mock payload. Next, we will explore how to route and transform the payload effectively.
+So far, you have responded to the client with a mock payload. Next, you will explore how to route and transform the payload effectively.
 
 Click on the **Next** button below to continue to the next tutorial.
 

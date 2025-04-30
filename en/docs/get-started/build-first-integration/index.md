@@ -1,3 +1,9 @@
+---
+tags:
+  - qsg
+  - quick start guide
+---
+
 # Build your first Integration
 
 ## Introduction
