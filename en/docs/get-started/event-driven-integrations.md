@@ -1,3 +1,8 @@
+---
+tags:
+  - kafka inbound
+---
+
 # Event-driven Integrations
 
 ## Introduction
