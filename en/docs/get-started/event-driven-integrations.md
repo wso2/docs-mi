@@ -41,7 +41,7 @@ Let’s try a simple scenario where WSO2 Micro Integrator listens to a Kafka top
 
 To start building an event-driven integration, you'll first need a Kafka broker running. Kafka acts as a message hub, where producers publish events and consumers subscribe to them.
 
-In this tutorial, we use the official <a target="_blank" href="https://hub.docker.com/layers/apache/kafka/3.7.2/images/sha256-e81f67cd3ca9c018d9b6a2d2354dc6067a5a25908c642383c652f0c6b3e8c4a4">Apache Kafka Docker v3.7.2 image</a> for simplicity.
+In this tutorial, you will use the official <a target="_blank" href="https://hub.docker.com/layers/apache/kafka/3.7.2/images/sha256-e81f67cd3ca9c018d9b6a2d2354dc6067a5a25908c642383c652f0c6b3e8c4a4">Apache Kafka Docker image (v3.7.2)</a> for simplicity and ease of setup.
 
 ### Prerequisites
 
@@ -101,32 +101,6 @@ To develop the above scenario, let's get started with creating an integration pr
 
    Once you click **Create**, the **Add Artifact** pane will be opened.
 
-!!! note
-    You need the following to work with the MI for VS Code extension.
-
-    - Java Development Kit (JDK) version 21
-    - WSO2 Micro Integrator (MI) 4.4.0 runtime
-
-    If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
-
-    1. Click **Download Java & MI** to download and set up Java and MI runtime.
-
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
-
-        !!! info
-            If a different JDK or WSO2 MI version is installed on your local machine, you'll be prompted to download the required versions. 
-
-            1. Click **Download** to install the required JDK or/and MI version(s).
-            2. Once the download is complete, configure the Java Home or/and MI Home paths by clicking **Select Java Home** or/and **Select MI Path**, respectively.
-
-            If the required JDK and WSO2 MI versions are already installed, you can directly configure the Java Home and MI Home paths in this step by clicking **Select Java Home** and **Select MI Path**, respectively.
-
-        Once the process is complete, a window reload will be required, and you will be prompted with the following message:
-
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
-
-    2. Click **Reload Window**.
-
 ## Step 3 - Create an event listener
 
 Now that the integration project is ready, let's create a Kafka event listener.
@@ -141,9 +115,9 @@ Now that the integration project is ready, let's create a Kafka event listener.
 
 3. In the **Create Event Integration** form, enter `BankTransactionListener` as the **Event Integration Name** and `bank-transactions` as the **Topic Name**.
 
-    !!! Note  
-        1. In this tutorial, we will use the local Kafka broker configured in [Step 1 - Setup Kafka](#step-1-setup-kafka). If you plan to use a different Kafka broker, update the **Kafka Servers** field accordingly.
-        2. We will use the default values for the remaining fields. You may refer to the [Kafka listener]({{base_path}}/reference/connectors/kafka-connector/kafka-inbound-endpoint-config/) documentation and update them if needed.
+    !!! Note
+        1. In this tutorial, you will use the local Kafka broker configured in [Step 1 – Set Up Kafka](#step-1-setup-kafka). If you plan to use a different Kafka broker, update the **Kafka Servers** field accordingly.
+        2. You can use the default values for the remaining fields. For advanced configurations, refer to the [Kafka listener]({{base_path}}/reference/connectors/kafka-connector/kafka-inbound-endpoint-config/) documentation.
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/configure_kafka_listener.png"><img src="{{base_path}}/assets/img/get-started/event-integration/configure_kafka_listener.png" alt="Create New Project" width="80%"></a>
 
@@ -186,7 +160,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/select_log_mediator.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_log_mediator.png" alt="Create New Project" width="80%"></a>
 
-5. We will use the following template to log the message. It will log the incoming message payload along with the text `Kafka event received`. You can either copy and paste the template or use the inline expression editor to construct it.
+5. You will use the following template to log the message. It logs the incoming message payload along with the text `Kafka event received`. You can either copy and paste the template or use the inline expression editor to construct it.
 
     ```text
     Kafka event received, data = ${payload}
@@ -202,7 +176,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/select_payload_mediator.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_payload_mediator.png" alt="Create New Project" width="80%"></a>
 
-9. In the **Payload** box, enter the following sample JSON object. In the next step, we will use an inline expression to extract the JSON payload from the Kafka message and insert it into this template.
+9. In the **Payload** box, enter the following sample JSON object. In the next step, you will use an inline expression to extract the JSON payload from the Kafka message and insert it into this template.
 
     ```json
     {
@@ -224,7 +198,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/add_mediator_after_payload.png"><img src="{{base_path}}/assets/img/get-started/event-integration/add_mediator_after_payload.png" alt="Create New Project" width="80%"></a>
 
-    We will use the Kafka connector to publish the transformed message to the `bank-audit` topic in the next steps.
+    In the next steps, you will use the Kafka connector to publish the transformed message to the `bank-audit` topic.
 
 5. Search for `kafka` in the **Mediator Palette**, then click the download (<img src="{{base_path}}/assets/img/get-started/build-first-integration/connector_download_icon.png" alt="connector download icon" class="inline-icon">) icon to add the [Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-overview/) to the project. In the confirmation pane, select **Yes** to add the required dependencies.
 
@@ -238,7 +212,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_add_new_connection_btn.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_add_new_connection_btn.png" alt="Create New Project" width="80%"></a>
 
-15. Select `KAFKA` and fill in the following details to create a connection to the Kafka broker. Then, click **Add** in the **Add New Connection** form to complete the connection setup. In the next step, we will configure the operational-level parameters, such as the topic to which the messages will be published.
+15. Select `KAFKA` and fill in the following details to create a connection to the Kafka broker. Then, click **Add** in the **Add New Connection** form to complete the connection setup. In the next step, you will configure the operational-level parameters, such as the topic to which the messages will be published.
 
     | Property            | Value                   |
     |---------------------|-------------------------|
@@ -247,9 +221,9 @@ Now it's time to design your integration. This defines the underlying logic that
     | **Key Serializer Class** | `org.apache.kafka.common.serialization.StringSerializer` |
     | **Value Serializer Class** | `org.apache.kafka.common.serialization.StringSerializer` |
 
-    !!! Note  
-        1. In this tutorial, we will use the local Kafka broker configured in [Step 1 - Setup Kafka](#step-1-setup-kafka). If you plan to use a different Kafka broker, update the **Bootstrap Servers** field accordingly.
-        2. We will use the default values for the remaining fields. You may refer to the [Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation and update them if needed.
+    !!! Note
+        1. In this tutorial, you will use the local Kafka broker configured in [Step 1 – Set Up Kafka](#step-1-setup-kafka). If you plan to use a different Kafka broker, update the **Bootstrap Servers** field accordingly.
+        2. You can keep the default values for the remaining fields. For more information, refer to the [Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_create_new_connection.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_create_new_connection.png" alt="Create New Project" width="80%"></a>
 
