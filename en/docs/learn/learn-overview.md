@@ -79,6 +79,14 @@ Learn about the main integration capabilities of the Micro Integrator.
             Explore how integration processes are scheduled and executed periodically.
         </td>
     </tr>
+    <tr>
+        <th>
+            <a href="{{base_path}}/get-started/event-driven-integrations/">Event-driven Integrations</a>
+        </th>
+        <td>
+            Explore how to build event-driven integrations that react to incoming events.
+        </td>
+    </tr>
 </table>
 
 <!--
@@ -274,7 +282,6 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                         <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack">How to use an HL7 Inbound Endpoint</a></li>
                         <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol">How to use an MQTT Inbound Endpoint</a></li>
                         <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol">How to use a RabbitMQ Inbound Endpoint</a></li>
-                        <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka">How to use a Kafka Inbound Endpoint</a></li>
                         <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket">How to use a Secured WebSocket Inbound Endpoint</a></li>
                         <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry">How to use an Inbound Endpoints with Registry</a></li>
                     </ul>

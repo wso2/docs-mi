@@ -100,7 +100,6 @@ Follow our examples on inbound endpoints:
 - [HL7 Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-hl7-protocol-auto-ack)
 - [MQTT Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-mqtt-protocol)
 - [RabbitMQ Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-rabbitmq-protocol)
-- [Kafka Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka)
 - [WebSocket Inbound Endpoint example]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket)
 - [Using Inbound Endpoints with Registry]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry)
     
