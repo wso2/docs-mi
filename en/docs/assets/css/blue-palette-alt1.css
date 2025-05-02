@@ -21,7 +21,7 @@
 }
 /* colors for dark theme */
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color: #23272f;
+    --md-primary-fg-color: #ffffff;
     --md-primary-fg-color-header: #23272f;
     --md-primary-fg-color-header-text: #f5f6f7;
     --md-primary-fg-color-header-text-active: #cccccc;
@@ -40,6 +40,7 @@
 }
 /* colors for the light theme */
 [data-md-color-scheme="default"] {
+    --md-primary-fg-color: #000000;
     --md-primary-fg-color-header: #f5f6f7;
     --md-primary-fg-color-header-text: #1d1d1d;
     --md-primary-fg-color-header-text-active: #444444;
@@ -51,6 +52,12 @@
     --md-primary-fg-color-header-search-text: #303030;
     --md-md-code-bg-color: #e6e6e6;
     --md-feedback-button-color: #636363;
+}
+.md-button {
+    color: var(--md-primary-fg-color-header-text) !important;
+}
+.md-button--primary {
+    color: var(--md-default-bg-color) !important;
 }
 .md-tabs {
     background-color: var(--md-primary-fg-color-header);
