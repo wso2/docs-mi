@@ -1001,7 +1001,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
-              'get-started/quick-start-guide.md': https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
+              'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/creating-artifacts/data-services/creating-data-services/'
