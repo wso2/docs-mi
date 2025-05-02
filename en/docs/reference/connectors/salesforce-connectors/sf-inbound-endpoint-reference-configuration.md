@@ -75,7 +75,7 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
   </tr>
   <tr>
     <td><code>connection.salesforce.initialEventId</code></td>
-    <td>The initial event id to start message reading. If message replaying is enabled, this value will be used only if <code>connection.salesforce.EventIDStoredFilePath</code> is not configured and if this <code>initialEventId</code> is greater than the replayId stored in the registry.
+    <td>Specifies the initial event ID from which to start reading messages. This value is applicable only when message replaying is enabled. It will be used only if <code>connection.salesforce.EventIDStoredFilePath</code> is not configured, and the value of this parameter(<code>initialEventId</code>) is greater than the replay ID stored in the registry.
 </td>
     <td>No</td>
     <td><code>100</code></td>
@@ -90,7 +90,7 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
   </tr>
   <tr>
     <td><code>connection.salesforce.replayWithMultipleInbounds</code></td>
-    <td>This field is visible only if replay is enabled. If you are having multiple salesforce inbound endpoints, this config needs to be enabled to ensure proper message replaying.</td>
+    <td>This parameter is applicable only when replay is enabled. If you are using multiple Salesforce inbound endpoints, enabling this configuration ensures proper message replay across all endpoints.</td>
     <td>No</td>
     <td>-</td>
     <td><code>False</code></td>
