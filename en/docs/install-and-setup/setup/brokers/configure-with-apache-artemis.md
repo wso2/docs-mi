@@ -3,7 +3,7 @@
 This section describes how to configure WSO2 Micro Integrator to connect with Apache Artemis (version 2.39.0).
 
 !!! NOTE
-    The maximum artemis client jar version supported is 2.26.0 (artemis-jms-client-all-2.26.0.jar). This client jar version is compatible with the Apache Artemis server version 2.39.0.
+    The maximum supported Artemis client JAR version is `2.26.0` (`artemis-jms-client-all-2.26.0.jar`). This version is compatible with Apache Artemis server version `2.39.0`.
 
 Follow the instructions below to set up and configure.
 
