@@ -12,9 +12,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
 > **Note**: To work with the Microsoft Azure Data Lake Storage connector, you need to have a Microsoft Azure account. If you do not have a Microsoft Azure account, go to [https://azure.microsoft.com/en-in/free/](https://azure.microsoft.com/en-in/free/) and create a Microsoft Azure account.
 
-### Initialize using Account name and Access key
-
-??? note "init"
+??? note "MSAzureDataLake"
     The init operation is used to initialize the connection to Microsoft Azure.
     <table>
         <tr>
@@ -28,27 +26,12 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
             <td>Yes</td>
         </tr>
         <tr>
-            <td>accountKey</td>
-            <td>The access key for the storage account.</td>
+            <td>accessType</td>
+            <td>The method for accessing the Azure Data Lake storage account.(Access Key, Shared Access Signature, OAuth2)</td>
             <td>Yes</td>
         </tr>
     </table>
-
-    **Sample configuration**
-
-    ```xml
-    <msazuredatalakestorage.init>
-        <accountName>{${payload.accountName}}</accountName>
-        <accountKey>{${payload.accountKey}}</accountKey>
-    </msazuredatalakestorage.init>
-    ```
-    
----
-
-### Initialize using Azure Active Directory(Oauth2)
-
-??? note "init"
-    The init operation is used to initialize the connection to Microsoft Azure.
+    If you are using the Access Key method,
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -56,9 +39,17 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
             <th>Required</th>
         </tr>
         <tr>
-            <td>accountName</td>
-            <td>The name of the Azure storage account.</td>
+            <td>accountKey</td>
+            <td>The access key of the Azure Data Lake storage account.</td>
             <td>Yes</td>
+        </tr>
+    </table>
+    If you are using the OAuth2 method,
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
         </tr>
         <tr>
             <td>clientId</td>
@@ -76,34 +67,12 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
             <td>Yes</td>
         </tr>
     </table>
-
-    **Sample configuration**
-
-    ```xml
-    <msazuredatalakestorage.init>
-        <accountName>{${payload.accountName}}</accountName>
-        <clientId>{${payload.clientId}}</clientId>
-        <clientSecret>{${payload.clientSecret}}</clientSecret>
-        <tenantId>{${payload.tenantId}}</tenantId>
-    </msazuredatalakestorage.init>
-    ```
-    
----
-
-### Initialize using Shared Access Signature(SAS)
-
-??? note "init"
-    The init operation is used to initialize the connection to Microsoft Azure.
+    If you are using the Shared Access Signature method,
     <table>
         <tr>
             <th>Parameter Name</th>
             <th>Description</th>
             <th>Required</th>
-        </tr>
-        <tr>
-            <td>accountName</td>
-            <td>The name of the Azure storage account.</td>
-            <td>Yes</td>
         </tr>
         <tr>
             <td>sasToken</td>
@@ -117,9 +86,10 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
     ```xml
     <msazuredatalakestorage.init>
         <accountName>{${payload.accountName}}</accountName>
-        <sasToken>{${payload.sasToken}}</sasToken>
+        <accountKey>{${payload.accountKey}}</accountKey>
     </msazuredatalakestorage.init>
     ```
+    
 ---
 
 ## File Systems
