@@ -79,10 +79,10 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     - **File System Name** - payload.filesystemName
     - **Metadata(Optional)** - payload.metadata
-    - **Timeout (Optional)** 
-    - **Public Access Type (Optional)**
+    - **Response Variable** - msazuredatalakestorage_createFileSystem_1
+    - **Overwrite Message Body** - true
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/configure_create_directory_operation.png" title="Adding create file system operation" width="800" alt="Microsoft Azure Storage use case"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/configure_create_file_system_operation.png" title="Adding create file system operation" width="800" alt="Microsoft Azure Storage use case"/>
 
     > **Note** Tick on overwrite message body, if you want to replace the Message Body in Message Context with the response of the operation (This will remove the payload from the above variable).
 
@@ -94,8 +94,10 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 8. Follow the same steps to create the next API resource, `/createdirectory`. This API resource will create the directory from the  incoming HTTP POST request.
 
 9. Next, add the `CreateDirectory` operation from the **Connections** tab using the created connection. In the properties view, provide the following expressions for the below properties:
-    - **File System name** - payload.fileSystemName
-    - **Target Path** - payload.targetPath (eg: `raw-data/transactions/`, no need to add file system name)
+    - **File System name** - payload.filesystemName
+    - **Target Path** - payload.targetPath (eg: `raw-data/transactions`, no need to add file system name)
+    - **Response Variable** - msazuredatalakestorage_createDirectory_504
+    - **Overwrite Message Body** - true
    
 
 10. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `CreateDirectory` operation.
@@ -111,6 +113,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - **Input Type** - Local File
     - **Metadata** - payload.source
     - **Local File Path** - payload.localPath 
+    - **Response Variable** - msazuredatalakestorage_uploadFile_1
+    - **Overwrite Message Body** - true
 
 >>Note: The example `transactions_2025_01.json` file is as follows:
 ```json
@@ -171,6 +175,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - **File System name** - payload.filesystemName
     - **Target File** - payload.targetFile (eg: `raw-data/transactions/transactions_2025_01.json`, no need to add file system name)
     - **Download Location** - payload.downloadLocation(eg: local-path/transactions_2025_01.json)
+    - **Response Variable** - msazuredatalakestorage_uploadFile_1
+    - **Overwrite Message Body** - true
 
 16. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `DownloadFile` operation.
 
@@ -182,6 +188,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     - **File System name** - payload.filesystemName
     - **Target Path** - payload.targetPath (eg: `raw-data/transactions/transactions_2025_01.json`, no need to add file system name)
+    - **Response Variable** - msazuredatalakestorage_uploadFile_1
+    - **Overwrite Message Body** - true
 
 19. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `GetMetadata` operation.
 
@@ -192,6 +200,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 21. Next, add the `DeleteFileSystem` operation from the **Connections** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
     - **File System name** - payload.filesystemName
+    - **Response Variable** - msazuredatalakestorage_uploadFile_1
+    - **Overwrite Message Body** - true
 
 22. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `DeleteFileSystem` operation.
 
@@ -204,15 +214,15 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 <api context="/azure" name="MSAzureDataLakeStorageTestAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/createfilesystem">
         <inSequence>
-            <msazuredatalakestorage.createFileSystem configKey="con1">
-                <fileSystemName>{${payload.filesystemName}}</fileSystemName>
-                <timeout></timeout>
-                <metadata>[["source","${payload.metadata}"],]</metadata>
-                <accessType>NONE</accessType>
-                <responseVariable>msazuredatalakestorage_createFileSystem_1</responseVariable>
-                <overwriteBody>true</overwriteBody>
+        <msazuredatalakestorage.createFileSystem configKey="con1">
+    <fileSystemName >{${payload.filesystemName}}</fileSystemName>
+    <timeout ></timeout>
+    <metadata >[["source","${payload.metadata}"],]</metadata>
+    <accessType >NONE</accessType>
+    <responseVariable >msazuredatalakestorage_createFileSystem_204</responseVariable>
+    <overwriteBody >true</overwriteBody>
             </msazuredatalakestorage.createFileSystem>
-            <respond description="create file system"/>
+            <respond description="create-file-system"/>
         </inSequence>
         <faultSequence>
         </faultSequence>
@@ -222,7 +232,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
             <msazuredatalakestorage.createDirectory configKey="con1">
                 <fileSystemName>{${payload.filesystemName}}</fileSystemName>
                 <directoryName>{${payload.targetPath}}</directoryName>
-                <responseVariable>msazuredatalakestorage_createDirectory_504</responseVariable>
+                <responseVariable>msazuredatalakestorage_createDirectory_1</responseVariable>
                 <overwriteBody>true</overwriteBody>
                 <metadata>[]</metadata>
                 <timeout></timeout>
@@ -237,6 +247,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                 <group></group>
                 <owner></owner>
             </msazuredatalakestorage.createDirectory>
+
+
             <respond description="create-directory"/>
         </inSequence>
         <faultSequence>
@@ -246,11 +258,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
         <inSequence>
             <msazuredatalakestorage.uploadFile configKey="con1">
                 <fileSystemName>{${payload.filesystemName}}</fileSystemName>
-                <filePathToUpload>{${payload.targetPath}}</filePathToUpload>
-                <localFilePath>{${payload.localPath}}</localFilePath>
-                <metadata>[]</metadata>
+                <filePathToUpload>{${payload.targ}}</filePathToUpload>
+                <localFilePath>{${payload.localPath }}</localFilePath>
+                <metadata>[["source","${ payload.source}"],]</metadata>
                 <timeout></timeout>
-                <responseVariable>msazuredatalakestorage_uploadFile_1</responseVariable>
+                <responseVariable>msazuredatalakestorage_uploadFile_428</responseVariable>
                 <overwriteBody>true</overwriteBody>
                 <contentLanguage></contentLanguage>
                 <contentType></contentType>
@@ -271,9 +283,9 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
         <inSequence>
             <msazuredatalakestorage.downloadFile configKey="con1">
                 <fileSystemName>{${payload.filesystemName}}</fileSystemName>
-                <filePathToDownload>{${payload.targetFile}}</filePathToDownload>
+                <filePathToDownload>{${ payload.targetFile}}</filePathToDownload>
                 <downloadLocation>{${payload.downloadLocation}}</downloadLocation>
-                <responseVariable>msazuredatalakestorage_downloadFile_640</responseVariable>
+                <responseVariable>msazuredatalakestorage_downloadFile_741</responseVariable>
                 <overwriteBody>true</overwriteBody>
                 <timeout></timeout>
                 <leaseId></leaseId>
@@ -288,7 +300,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                 <maxRetryRequests></maxRetryRequests>
                 <rangeGetContentMd5>false</rangeGetContentMd5>
             </msazuredatalakestorage.downloadFile>
-            <respond description="download-file"/>
+            <respond description="doenload-file"/>
         </inSequence>
         <faultSequence>
         </faultSequence>
@@ -298,7 +310,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
             <msazuredatalakestorage.getMetadata configKey="con1">
                 <fileSystemName>{${payload.filesystemName}}</fileSystemName>
                 <filePath>{${payload.targetPath}}</filePath>
-                <responseVariable>msazuredatalakestorage_getMetadata_1</responseVariable>
+                <responseVariable>msazuredatalakestorage_getMetadata_316</responseVariable>
                 <overwriteBody>true</overwriteBody>
             </msazuredatalakestorage.getMetadata>
             <respond description="read-metadata"/>
@@ -309,8 +321,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/deletefilesystem">
         <inSequence>
             <msazuredatalakestorage.deleteFileSystem configKey="con1">
-                <fileSystemName>{${payload.filesystemName}}</fileSystemName>
-                <responseVariable>msazuredatalakestorage_deleteFileSystem_1</responseVariable>
+                <fileSystemName>{${ payload.filesystemName}}</fileSystemName>
+                <responseVariable>msazuredatalakestorage_deleteFileSystem_137</responseVariable>
                 <overwriteBody>true</overwriteBody>
                 <timeout></timeout>
                 <leaseId></leaseId>
@@ -319,14 +331,23 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                 <ifModifiedSince></ifModifiedSince>
                 <ifNoneMatch></ifNoneMatch>
             </msazuredatalakestorage.deleteFileSystem>
-
-            <respond description="delete-file-system"/>
+            <respond description="delete-filesystem"/>
         </inSequence>
         <faultSequence>
         </faultSequence>
     </resource>
 </api>
 ```
+
+## Build and run the artifacts
+
+Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+
+Click the **Build and Run** icon located in the top right corner of VS Code.
+
+Refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/run-button.png" title="Build and Run" width="800" alt="Microsoft Azure Storage use case"/>
 
 ## Get the project
 
@@ -339,20 +360,35 @@ You can download the ZIP file and extract the contents to get the project code.
 !!! tip
     You may need to update the value of the credentials and make other such changes before deploying and running this project.
 
-## Deployment
-
-Follow these steps to deploy the exported CApp in the integration runtime. 
-
-**Deploying on Micro Integrator**
-To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 ## Test
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using inbuilt try-it functionality in the MI for VS Code extension or the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+
+For inbuilt try-it functionality, Select `MSAzureDataLakeStorageTestAPI` API and click on the `Try it` button. Then, select the required API resource and add sample payload. Click on the `Execute` button to invoke the API.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/try-it.png" title="Try it" width="800" alt="Microsoft Azure Storage use case"/>
+
+<img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/all-endpoints.png" title="Try it execute" width="800" alt="Microsoft Azure Storage use case"/>
+
+<img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/try-it-out.png" title="Try it execute" width="800" alt="Microsoft Azure Storage use case"/>
+
 
 1. Creating a new file system in Microsoft Azure Data Lake Storage for storing customer behavior data.
+
+    **Sample Payload**
+
+    ```json
+    {
+        "filesystemName":"customer-behavior-analytics",
+        "metadata":"customers"
+    }
+    ```
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/add-payload-create-filesystem.png" title="Try it execute" width="800" alt="Microsoft Azure Storage use case"/>
+
  
-    **Sample request**
+    **Sample Curl request**
 
     ```curl
     curl -v POST -d {"filesystemName":"customer-behavior-analytics", "metadata":"customers"} "http://localhost:8290/azure/createfilesystem" -H "Content-Type:application/json"
@@ -371,10 +407,19 @@ Invoke the API as shown below using the curl command. Curl Application can be do
     
 2. Create a directory.
 
-    **Sample request**
+    **Sample Payload**
+
+    ```json
+    {
+        "filesystemName":"customer-behavior-analytics",
+        "targetPath":"raw-data/transactions"
+    }
+    ```
+
+    **Sample Curl request**
 
     ```curl
-    curl -v POST 'http://localhost:8290/azure/createdirectory' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetPath": "raw-data/transactions/"}'
+    curl -v POST 'http://localhost:8290/azure/createdirectory' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetPath": "raw-data/transactions"}'
     ```
 
     **Expected Response**
@@ -390,10 +435,23 @@ Invoke the API as shown below using the curl command. Curl Application can be do
  
 3. Upload a file.
 
-    **Sample request**
+   >>**Note**: The `localPath` should be the absolute path of the file in your local machine.
+
+    **Sample Payload**
+
+    ```json
+    {
+        "filesystemName":"customer-behavior-analytics",
+        "targetPath":"raw-data/transactions/transactions_2025_01.json",
+        "localPath":"/path_to_file/transactions_2025_01.json",
+        "source":"customers"
+    }
+    ```
+
+    **Sample Curl request**
         
     ```curl
-    curl -v POST 'http://localhost:8290/azure/uploadfile' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetPath": "raw-data/transactions/transactions_2025_01.json", "localPath" : "/home/pasindusa/Downloads/transactions_2025_01.json", "source":"customers" }'
+    curl -v POST 'http://localhost:8290/azure/uploadfile' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetPath": "raw-data/transactions/transactions_2025_01.json", "localPath" : "/path_to_file/transactions_2025_01.json", "source":"customers" }'
     ```
 
     **Expected Response**
@@ -411,10 +469,22 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 4. Download a file.
 
-    **Sample request**
+    >>**Note**: The `downloadLocation` should be the absolute path of the file in your local machine.
+
+    **Sample Payload**
+
+    ```json
+    {
+        "filesystemName":"customer-behavior-analytics",
+        "targetFile":"raw-data/transactions/transactions_2025_01.json",
+        "downloadLocation":"/path_to_download/transactions_2025_01.json"
+    }
+    ```
+
+    **Sample Curl request**
 
     ```curl
-    curl -v POST 'http://localhost:8290/azure/downloadfile' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetFile": "raw-data/transactions/transactions_2025_01.json", "downloadLocation":"/home/pasindusa/Downloads/transactions_2025_01.json"}'
+    curl -v POST 'http://localhost:8290/azure/downloadfile' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetFile": "raw-data/transactions/transactions_2025_01.json", "downloadLocation":"/path_to_download/transactions_2025_01.json"}'
     ```
 
     **Expected Response**
@@ -430,7 +500,16 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 5. Retrieve the metadata from a specific file.
 
-    **Sample request**
+    **Sample Payload**
+
+    ```json
+    {
+        "filesystemName":"customer-behavior-analytics",
+        "targetPath":"raw-data/transactions/transactions_2025_01.json"
+    }
+    ```
+
+    **Sample Curl request**
 
     ```curl
     curl -v POST 'http://localhost:8290/azure/readmetadata' --header 'Content-Type: application/json' -d '{"filesystemName": "customer-behavior-analytics", "targetPath": "raw-data/transactions/transactions_2025_01.json"}'
@@ -449,7 +528,15 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 7. Remove created File System.
 
-    **Sample request**
+    **Sample Payload**
+
+    ```json
+    {
+        "fileSystemName":"customer-behavior-analytics"
+    }
+    ```
+
+    **Sample Curl request**
         
     ```curl
     curl -v POST -d {"fileSystemName":"customer-behavior-analytics"} "http://localhost:8290/azure/deletefilesystem" -H "Content-Type:application/json"

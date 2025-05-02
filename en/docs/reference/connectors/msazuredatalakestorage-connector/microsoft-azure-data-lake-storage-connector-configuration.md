@@ -17,7 +17,7 @@ Part of the sign-up procedure involves receiving a phone call and entering a ver
 Follow the steps below to obtain the access credentials from Microsoft Azure Storage account.
 
    1. Go to [Microsoft Azure Portal](https://azure.microsoft.com/en-us/get-started/azure-portal), and sign in to the created Microsoft Azure account. On the Azure portal menu, Type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.                                                                                                                 
-      <img src="{{base_path}}/assets/img/integrate/connectors/home-page.png" title="MS Azure Home Page" width="800" alt="MS Azure Home Page"/>
+      <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/home-page.png" title="MS Azure Home Page" width="800" alt="MS Azure Home Page"/>
 
    2. Go to the dashboard and click **Storage accounts** then click **Create** and fill the required details to create a new storage account.
    
@@ -59,26 +59,6 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
 
       <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/create.png" title="Review and create" width="800" alt="Review and create"/>
 
-## Obtaining the Client credentials
-
-!!! Note
-    If you are planning to use Access key for authentication, skip this and check [Obtaining the access credentials]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#obtaining-the-access-key)
-
-!!! Note
-    If you are planning to use Shared Access Signature(SAS) for authentication, skip this and check [Obtaining the Shared Access Signature (SAS) Token]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#Obtaining-the-Shared-Access-Signature-(SAS)-Token)
-   
-   1. Create an Azure Active Directory application and service principal. For more information refer [Create an Azure Active Directory application](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal).
-
-      <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/azure-active-directory.png" title="Azure Active Directory" width="800" alt="Azure Active Directory"/>
-
-   2. Go to **App Registrations**. Click on the created app registration. Obtain the **Client ID**, client and **Tenant ID**. Click on **Client Credentials** and obtain **Secret ID**. For more information refer [Create a new application secret](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-3-create-a-new-application-secret) and [Active Directory tenant ID](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/how-to-find-tenant).
-
-   <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/app-registrations.png" title="App Registrations" width="800" alt="App Registrations"/>
-
-   <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/get-client-details.png" title="App Registrations" width="800" alt="App Registrations"/>
-
-   3. Assign an Azure role for access to blob data. For more information refer [Assign an Azure role](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) and [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
-
 ## Obtaining the Access Key
 
 !!! Note
@@ -96,7 +76,7 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
       
    3. Obtain the access key.   
             
-      <img src="{{base_path}}/assets/img/integrate/connectors/access_key.png" title="Copy access keys" width="800" alt="Copy access keys"/>  
+      <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/access_key.png" title="Copy access keys" width="800" alt="Copy access keys"/> 
 
 ## Obtaining the Shared Access Signature (SAS) Token
 
@@ -104,7 +84,7 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
     If you are planning to use Client credentials for authentication, skip this and check [Obtaining the Client credentials]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#obtaining-the-client-credentials)
 
 !!! Note
-   If you are planning to use Access key for authentication, skip this and check [Obtaining the Access Key]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#obtaining-the-access-key)
+    If you are planning to use Access key for authentication, skip this and check [Obtaining the Access Key]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#obtaining-the-access-key)
 
    1. Navigate to the created storage account and click it.
 
@@ -118,8 +98,28 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/generate_sas.png" title="Copy sas keys" width="800" alt="Copy sas keys"/>
 
-   5. Copy the SAS token and use it for authentication.
-           
+   5. Copy the SAS token and use it for authentication. 
+
+## Obtaining the Client credentials
+
+!!! Note
+    If you are planning to use Access key for authentication, skip this and check [Obtaining the access credentials]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#obtaining-the-access-key)
+
+!!! Note
+    If you are planning to use Shared Access Signature(SAS) for authentication, skip this and check [Obtaining the Shared Access Signature (SAS) Token]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/#Obtaining-the-Shared-Access-Signature-(SAS)-Token)
+   
+   1. Create an Azure Active Directory application and service principal. For more information refer [Create an Azure Active Directory application](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal).
+
+      <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/azure-active-directory.png" title="Azure Active Directory" width="800" alt="Azure Active Directory"/>
+
+   2. Go to **App Registrations**. Click on the created app registration. Obtain the **Client ID**, client and **Tenant ID**. Click on **Client Credentials** and obtain **Secret ID**. For more information refer [Create a new application secret](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-3-create-a-new-application-secret) and [Active Directory tenant ID](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/how-to-find-tenant).
+
+      <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/app-registrations.png" title="App Registrations" width="800" alt="App Registrations"/>
+
+      <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/get-client-details.png" title="App Registrations" width="800" alt="App Registrations"/>
+
+   3. Assign an Azure role for access to blob data. For more information refer [Assign an Azure role](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) and [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+            
 > **Note**:  Azure Storage Account does not support HTTP requests. If you are using a storage key to access the storage account, please set **Secure transfer required** to **Disabled** in storage account configuration on Azure Portal. 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/secure-transfer.png" title="Secure transfer" width="800" alt="Secure transfer"/> 
   

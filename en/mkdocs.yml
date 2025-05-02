@@ -712,6 +712,11 @@ nav:
               - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
               - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
               - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+          - Microsoft Azure Data Lake  Connector:
+             - Microsoft Azure Data Lake Storage Connector Overview: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-overview.md
+             - Set up Microsoft Azure Data Lake Storage: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration.md
+             - Microsoft Azure Data Lake Storage Connector Example: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-examples.md
+             - Microsoft Azure Data Lake Storage Connector Reference: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-reference.md
           - Microsoft Azure Storage Connector:
               - Microsoft Azure Storage Overview: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md
               - Set up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
@@ -1086,6 +1091,6 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.4.0
-  #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.4.0
+  base_path: http://localhost:8000/en/latest
+  #base_path: https://mi.docs.wso2.com/en/4.4.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
