@@ -1182,22 +1182,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -1566,22 +1558,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -1858,22 +1842,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2393,22 +2369,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2580,22 +2548,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2763,22 +2723,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -3129,22 +3081,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -3398,22 +3342,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -3686,22 +3622,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -4089,22 +4017,14 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share. Choose a value that matches your security policies and operational needs. </p>
-                Supported <code>diskShareAccessMask</code> Values:
-                <ul>
-                <li>**READ**: Grants read-only access.</li>
-                <li>**WRITE**: Grants write-only access.</li>
-                <li>**READ_WRITE**: Grants both read and write access.</li>
-                <li>**ALL**: Grants full control over the file share.</li>
-                <li>**MAXIMUM**: Grants the maximum permissions allowed.</li>
-                </ul>
+                <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.3 (U2) or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
