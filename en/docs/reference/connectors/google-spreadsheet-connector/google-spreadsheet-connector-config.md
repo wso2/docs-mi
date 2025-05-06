@@ -1169,7 +1169,7 @@ You can obtain these credentials by following the steps in the [Configure Google
         </tr>
         <tr>
             <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Specifying which fields to include in a partial response. For the following request only the `spreadsheetId` will be included in the response.</td>
             <td>Optional.</td>
         </tr>
     </table>
