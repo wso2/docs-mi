@@ -2,6 +2,18 @@
 
 In this tutorial, you'll learn the basics of setting up and using WSO2 MI to create and deploy an Integration API service with minimal hassle.
 
+## What you'll build
+
+Let’s try a simple scenario where the client sends a request to the `Bank` API deployed in the WSO2 Micro Integrator and receives a `Welcome to O2 Bank !!` greeting response.
+
+<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_greeting.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_greeting.png" alt="Create New Project" width="40%"></a>
+
+## What you'll learn
+
+- How to create an integration project.
+- How to create an Integration API.
+- How to deploy and test.
+
 ## Prerequisites
 
 You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
@@ -10,18 +22,6 @@ You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://
     See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
 
 Follow the instructions below to create your first Integration API.
-
-## What you'll learn
-
-- How to create an integration project.
-- How to create an Integration API.
-- How to deploy and test.
-
-## What you'll build
-
-Let’s try a simple scenario where the client sends a request to the `Bank` API deployed in the WSO2 Micro Integrator and receives a `Welcome to O2 Bank !!` greeting response.
-
-<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_greeting.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_greeting.png" alt="Create New Project" width="40%"></a>
 
 ## Step 1 - Create a new integration project
 

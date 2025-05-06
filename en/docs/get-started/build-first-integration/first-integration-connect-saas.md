@@ -2,6 +2,18 @@
 
 In the previous tutorial, you learned how to route and transform messages, deploy, and test integrations in WSO2 Micro Integrator (MI). In this tutorial, you’ll learn how to create a loan review email notification flow that sends an email based on the client's loan status.
 
+## What you'll build
+
+Let's consider a scenario where a client sends a loan request to the `Bank` API deployed in WSO2 Micro Integrator. Upon receiving the request, the API sends an email notification to the client indicating that the loan request has been received and is under review. This is done using a SaaS-based email service.
+
+In this example, you will use <a target="_blank" href="https://developers.google.com/gmail/imap/imap-smtp">Gmail's SMTP service</a> as the email provider.
+
+<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png" alt="Create New Project" width="60%"></a>
+
+## What you'll learn
+
+- How to integrate and send emails using the Email connector.
+
 ## Prerequisites
 
 1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
@@ -10,20 +22,6 @@ In the previous tutorial, you learned how to route and transform messages, deplo
         See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
 
 2. You must have completed the **Route and Transform messages** tutorial under **Build your first Integration** before proceeding. Start the [Route and Transform messages]({{base_path}}/get-started/build-first-integration/first-integration-route-and-transform/) tutorial if you haven’t completed it yet.
-
-Follow the instructions below to modify the API so it sends an email to the client with the loan status.
-
-## What you'll learn
-
-- How to integrate and send emails using the Email connector.
-
-## What you'll build
-
-Let's consider a scenario where a client sends a loan request to the `Bank` API deployed in WSO2 Micro Integrator. Upon receiving the request, the API sends an email notification to the client indicating that the loan request has been received and is under review. This is done using a SaaS-based email service.
-
-In this example, you will use <a target="_blank" href="https://developers.google.com/gmail/imap/imap-smtp">Gmail's SMTP service</a> as the email provider.
-
-<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png" alt="Create New Project" width="60%"></a>
 
 Now, it's time to design the email notification flow. Follow the steps below to create the email notification integration.
 
