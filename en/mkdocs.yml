@@ -74,7 +74,11 @@ nav:
   - Get Started:
       - Introduction: get-started/introduction.md
       - Key Concepts: get-started/key-concepts.md
-      - Quick Start Guide: get-started/quick-start-guide.md
+      - Build your first Integration:
+          - get-started/build-first-integration/index.md
+          - Develop an Integration API: get-started/build-first-integration/first-integration-api-service.md
+          - Route and Transform messages: get-started/build-first-integration/first-integration-route-and-transform.md
+          - Connect to SaaS or B2B Systems: get-started/build-first-integration/first-integration-connect-saas.md
       - How-to Guides:
           - Generate integrations using AI: get-started/how-to-guides/ai-code-generation.md
           - Data Mapping using AI: get-started/how-to-guides/ai-data-mapping.md
@@ -997,6 +1001,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+              'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/creating-artifacts/data-services/creating-data-services/'
