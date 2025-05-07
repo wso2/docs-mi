@@ -4,214 +4,162 @@ The Google Sheets API lets users to read and modify any aspect of a spreadsheet.
 
 ## What you'll build
 
-This example explains how to use Google Spreadsheet Connector to create a Google spreadsheet, write data to it, and read it. Further, it explains how the data in the spreadsheet can be edited. 
+This example explains how to use Google Spreadsheet Connector to create a Google spreadsheet, write data to it.
 
-It will have three HTTP API resources, which are `insert`, `read` and `edit`. 
+It will have three HTTP API resources, which are `/create`, `/write` and `/read`. 
 
-* `/insert `: The user sends the request payload, which includes the name of the spreadsheet, the sheet names, and what data should be inserted to which sheet and which range of cells.  This request is sent to the integration runtime by invoking the Spreadsheet API. It creates a spreadsheet with specified data in the specified cell range. 
+* `/create `: The user sends the request payload, which includes the name of the spreadsheet. This request is sent to the integration runtime by invoking the Spreadsheet API. It creates a spreadsheet with specified title and returns the spreadsheet ID and URL.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheet-insert.png" title="Calling insert operation" width="800" alt="Calling insert operation"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-sheet.png" title="Calling create operation" width="800" alt="Calling create operation"/>
 
-* `/read `: The user sends the request payload, which includes the spreadsheet Id that should be obtained from calling the `insert` API resource, and the range of the cell range to be read. 
+* `/write `: The user sends a request payload containing the spreadsheet ID and the data to be inserted into cell A1. This request is routed to the integration runtime by invoking the Spreadsheet API, which writes the data to the specified range in the spreadsheet.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheet-read.png" title="Calling read operation" width="800" alt="Calling read operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/write-cell.png" title="Calling write operation" width="800" alt="Calling write operation"/>
 
-* `/edit `: The user sends the request payload, which includes the spreadsheet Id that should be obtained from calling the `insert` API resource, and the data to be edited that includes values and the range. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/sheet-edit.png" title="Calling edit operation" width="800" alt="Calling edit operation"/>
-
+* `/read `: The user sends a request payload containing the spreadsheet ID to the integration runtime by invoking the Spreadsheet API, which then reads data from cell A1 of the specified spreadsheet.
+    <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/read-cell.png" title="Calling read operation" width="800" alt="Calling read operation"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Setup the Integration Project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+### Create a new project
 
-## Creating the Integration Logic
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the **WSO2 MI** and create the integration project with the **Project Name** as follows:
+
+1. Open the WSO2 MI VS Code extension and click on the **Create Integration Project** icon.
+  <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration-project-1.png" title="Creating a new project" width="800" alt="Creating a new project"/>
+
+2. Give the **Project Name** as `GSheetIntegration` and click the **create** button.
+  <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration-project-2.png" title="Creating a new project" width="800" alt="Creating a new project"/>
+
+### Create the Integration Logic for the Create Operation
 
 1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
-2. Select Micro Integrator and click on `+` in APIs to create a REST API. 
-   <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-api-creation.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+2. Click on the **API** button in create an integration project pane.
+  <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration-api-1.png" title="Creating a new API" width="800" alt="Creating a new API"/>
 
-3. Provide the API name as `SpreadsheetAPI` and the API context as `/spreadsheet`.
+3. Then, enter the API name as `/create` and click **Create**.</br>
+  <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration-api-2.png" title="Creating a new API" width="600" alt="Creating a new API"/>
 
-4. First we will create the `/insert` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/insert` as we have two API resources inside single API. The method will be `Post`.
+4. Select the newly created `create` API and Click the **edit** icon to change the API method. Then select the **POST** method and click **OK**.
+  <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/change-api-method.png" title="Changing the API method" width="800" alt="Changing the API method"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-insert.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+5. Add the Google Spreadsheet Connector to the API by clicking on the **+** button in the **Design View** and search for `Google Spreadsheet` in the **Mediator** section. Then, select the **Google Spreadsheet** connector and click **Download**.
+  <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-gsheet-connector.png" title="Adding Google Spreadsheet Connector" width="800" alt="Adding Google Spreadsheet Connector"/>
 
-5. In this operation we are going to receive input from the user, which are `properties`, `sheets`, `range` and `values`. 
-    - properties - It can provide the spreadsheet properties such as title of the spreadsheet. 
-    - sheets - It can provide set of sheets to be created.
-    - range - It provides the sheet name and the range that data need to be inserted. 
-    - values - Data to be inserted.
+#### Create Connection
 
-6. The above four parameters are saved to a property group. Drag and drop the Property Group mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator). You can add set of properties as below. 
+1. Go to the **Design View** and click on the **+** button next to the **Connections** in the created integration project and select **Google Spreadsheet** connector.</br>
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-connection-1.png" title="Adding Google Spreadsheet Connection" width="400" alt="Adding Google Spreadsheet Connection"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-adding-property.png" title="Adding a property into a property group" width="800" alt="Adding a property"/>
+2. Enter the connection name as `GoogleSheet` and provide the following details in the **Google Spreadsheet Connection** configuration pane.
 
-7. Once all the properties are added to the Property Group Mediator, it looks as below. 
+      - **Client ID**: Value of the Client Id you obtained when you registered your application with the Google Sheets API.
+      - **Client Secret**: Value of the Client Secret you obtained when you registered your application with the Google Sheets API.
+      - **Refresh Token**: Value of the Refresh Token, which generates a new Access Token when the previous one gets expired.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-all-properties.png" title="Property Group Mediator" width="800" alt="Property Group Mediator"/>
+    Note: You can obtain these values by following the steps in the [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) section.
 
-8. The `createSpreadsheet` operation is going to be added as a separate sequence. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the `createSpreadsheet` sequence.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-connection-2.png" title="Adding Google Spreadsheet Connection" width="500" alt="Adding Google Spreadsheet Connection"/>
 
-9. Drag and drop the **init** operation in the Googlespreadsheet Connector as below. Fill the following values that you obtained in the step 1. 
-    - accessToken
-    - apiUrl: https://sheets.googleapis.com/v4/spreadsheets
-    - clientId
-    - clientSecret
-    - refreshToken
+#### Implement the API
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-init.png" title="init operation" width="800" alt="init operation"/>
+1. First, Let's create a sample payload request to send API. Click on the **Start** node and select the **Add Request** option. This will create a new example payload request.</br>
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-sample-payload.png" title="Adding sample payload" width="800" alt="Adding sample payload"/>
 
-10. Drag and drop **createSpreadsheet** operation to the Canvas next. Parameter values are defined in step 6 and 7 in the property group. 
+2. Click on the **+** button in the **Design View** and select the `Google Spreadsheet` connector.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-createSpreadSheet.png" title="Parameters" width="800" alt="Parameters"/>
+3. Select the `Create New Spreadsheet` operation and click **OK**.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-operation.png" title="Adding Google Spreadsheet Operation" width="800" alt="Adding Google Spreadsheet Operation"/>
 
-11. The complete XML configuration for the `createSpreadsheet.xml` looks as below. 
-```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="createSpreadsheet" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <googlespreadsheet.init>
-            <accessToken></accessToken>
-            <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
-            <clientId></clientId>
-            <clientSecret></clientSecret>
-            <refreshToken></refreshToken>
-        </googlespreadsheet.init>
-        <googlespreadsheet.createSpreadsheet>
-            <properties>{$ctx:properties}</properties>
-            <sheets>{$ctx:sheets}</sheets>
-        </googlespreadsheet.createSpreadsheet>
-    </sequence>
+4. Now as **Connection** field, select the `GoogleSheet` connection you created earlier.
+
+5. As the spreadsheet title, select the **Spreadsheet Title** field from the request payload. then click on the **fx** button and select **payload**.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/config-operation-1.png" title="Configuring Google Spreadsheet Operation" width="800" alt="Configuring Google Spreadsheet Operation"/>
+
+6. Then, select the `title` field from the response payload and click **OK**.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/config-operation-2.png" title="Configuring Google Spreadsheet Operation" width="800" alt="Configuring Google Spreadsheet Operation"/>
+
+7. Now we need to add a **Payload mediator** after the create operation so that we can return the response from the create operation. To add the Payload mediator and select the `Payload` mediator from the **mediator pane**.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-payload-1.png" title="Adding Payload mediator" width="800" alt="Adding Payload mediator"/>
+
+8. Then, create the payload as below and click **Add**.
 ```
-
-12. Next we need to create the `addData.xml` sequence as above. As explained in step 8, create a sequence by right clicking the Integration Project that has already been created. 
-
-13. Below is the complete XML configuration for `addData.xml` file. 
-```xml
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="addData" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.spreadsheetId)" name="spreadsheetId" scope="default" type="STRING"/>
-        <googlespreadsheet.init>
-            <accessToken></accessToken>
-            <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
-            <clientId></clientId>
-            <clientSecret></clientSecret>
-            <refreshToken></refreshToken>
-        </googlespreadsheet.init>
-        <googlespreadsheet.addRowsColumnsData>
-            <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-            <range>{$ctx:range}</range>
-            <insertDataOption>INSERT_ROWS</insertDataOption>
-            <valueInputOption>RAW</valueInputOption>
-            <majorDimension>ROWS</majorDimension>
-            <values>{$ctx:values}</values>
-        </googlespreadsheet.addRowsColumnsData>
-    </sequence>
-
+  {
+    {"id":"${vars.googlespreadsheet_createNewSheet_1.payload.spreadsheetId}","link":"${vars.googlespreadsheet_createNewSheet_1.payload.spreadsheetUrl}"}
+  }
 ```
+To select the `spreadsheetId` and `spreadsheetUrl` fields from the response payload, click on the **fx** button and select **payload**. Then select the `spreadsheetId` and `spreadsheetUrl` fields from the response payload and click **OK**.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/add-payload-2.png" title="Adding Payload mediator" width="800" alt="Adding Payload mediator"/>
 
-14. Now go back to `SpreadsheeetAPI.xml` file, and from **Defined Sequences** drag and drop **createSpreadsheet** sequence, **addData** sequence and finally the Respond Mediator to the canvas. Now we are done with creating the first API resource, and it is displayed as shown below. 
+9. Finally, add a **Response** mediator to the API. To do this, click on the **+** button in the **Design View** and select the `Response` mediator.
+After that, your integration logic should look like below.
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration.png" title="Integration Logic" width="800" alt="Integration Logic"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-insert-resource.png" title="insert operation xml config" width="800" alt="insert operation xml config"/>
+### Create the Integration Logic for the Write and Read Operation
 
-15. Create the next API resource, which is `/read`. From this, we are going to read the specified spreadsheet data. Use the URL template as `/read`. The method will be POST. 
+1. Follow the same steps as above to create a new API with the name `/write` and `/read` respectively.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-read.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+2. Go to the **Design View** and click on the **</>** button top right corner to switch to the **Code View**.
 
-16. Let's create `readData.xml` sequence. The complete XML configuration looks as below. 
-```xml
+3. Copy the code below and paste it in the **Code View** in the `/write` and `/read` APIs.
+
+??? note "Source view of the `/write` API"
+    ```xml  
     <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="readData" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.spreadsheetId)" name="spreadsheetId" scope="default" type="STRING"/>
-        <property expression="json-eval($.range)" name="range" scope="default" type="STRING"/>
-        <googlespreadsheet.init>
-            <accessToken></accessToken>
-            <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
-            <clientId></clientId>
-            <clientSecret></clientSecret>
-            <refreshToken></refreshToken>
-        </googlespreadsheet.init>
-        <googlespreadsheet.getCellData>
-            <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-            <range>{$ctx:range}</range>
-            <dateTimeRenderOption>SERIAL_NUMBER</dateTimeRenderOption>
-            <majorDimension>ROWS</majorDimension>
-            <valueRenderOption>UNFORMATTED_VALUE</valueRenderOption>
-        </googlespreadsheet.getCellData>
-    </sequence>
-```
-
-19. In this operation, the user sends the spreadsheetId and range as the request payload. They will be written to properties as we did in step 10.  
-
-20. Go back to SpreadsheetAPI. Drag and drop `readData` sequence from the **Defined Sequences** to the canvas followed by a Respond mediator. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-read-resource.png" title="Adding the read resource" width="800" alt="Adding read resource"/>
-
-21. Next go to SpreadsheetAPI. To create the next API resource, drag and drop another API resource to the design view. Use the URL template as `/edit`. The method will be POST. 
-
-22. Create the sequence  `editSpeadsheet.xml` which looks as below.
-```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <sequence name="editSpreadsheet" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-      <property expression="json-eval($.spreadsheetId)" name="spreadsheetId" scope="default" type="STRING"/>
-      <property expression="json-eval($.data)" name="data" scope="default" type="STRING"/>
-      <googlespreadsheet.init>
-          <accessToken></accessToken>
-          <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
-          <clientId></clientId>
-          <clientSecret></clientSecret>
-          <refreshToken></refreshToken>
-      </googlespreadsheet.init>
-      <googlespreadsheet.editMultipleCell>
-          <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-          <valueInputOption>RAW</valueInputOption>
-          <data>{$ctx:data}</data>
-      </googlespreadsheet.editMultipleCell>
-  </sequence>
-
-```
-23. Go back to SpreadsheetAPI. Drag and drop `editSpeadsheet` sequence from the **Defined Sequences** to the canvas followed by a Respond mediator. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-edit.png" title="Adding the edit resource" width="800" alt="Adding edit resource"/>
-
-24. Below is the complete XML configuration of the SpreadsheetAPI. 
-```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <api context="/spreadsheet" name="SpreadsheetAPI" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="POST" uri-template="/insert">
+    <api context="/write" name="write" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" uri-template="/">
             <inSequence>
-                <propertyGroup description="It contains the set of properties related to spreadsheet creation and addData operations. ">
-                    <property expression="json-eval($.properties)" name="properties" scope="default" type="STRING"/>
-                    <property expression="json-eval($.sheets)" name="sheets" scope="default" type="STRING"/>
-                    <property expression="json-eval($.range)" name="range" scope="default" type="STRING"/>
-                    <property expression="json-eval($.values)" name="values" scope="default" type="STRING"/>
-                </propertyGroup>
-                <sequence description="This sequence will create a spreadsheet and outputs the spreadsheet url. " key="createSpreadsheet"/>
-                <sequence description="This sequence will insert the data to the created spreadsheet. " key="addData"/>
+                <googlespreadsheet.editCellData configKey="GoogleSheet">
+                    <configLevel>BASIC</configLevel>
+                    <spreadsheetId>{${payload.sheetId}}</spreadsheetId>
+                    <sheetName>Sheet1</sheetName>
+                    <cellId>A1</cellId>
+                    <value>{${payload.data}}</value>
+                    <responseVariable>googlespreadsheet_editCellData_7</responseVariable>
+                    <overwriteBody>false</overwriteBody>
+                </googlespreadsheet.editCellData>
+                <payloadFactory media-type="json" template-type="default">
+                    <format>{"results":${vars.googlespreadsheet_editCellData_7.payload}}</format>
+                </payloadFactory>
                 <respond/>
             </inSequence>
-            <faultSequence/>
-        </resource>
-        <resource methods="POST" uri-template="/read">
-            <inSequence>
-                <sequence description="This sequence will read data of the spreadsheet. " key="readData"/>
-                <respond/>
-            </inSequence>
-            <outSequence/>
-            <faultSequence/>
-        </resource>
-        <resource methods="POST" uri-template="/edit">
-            <inSequence>
-                <sequence key="editSpreadsheet"/>
-                <respond/>
-            </inSequence>
-            <faultSequence/>
+            <faultSequence>
+            </faultSequence>
         </resource>
     </api>
+    ```
+    Design view of the `/write` API should look like below.
+    <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/write-integration.png" title="Integration Logic" width="800" alt="Integration Logic"/>
 
-```
+??? note "Source view of the `/read` API"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/read" name="read" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST" uri-template="/">
+            <inSequence>
+                <googlespreadsheet.getCellData configKey="GoogleSheet">
+                    <configLevel >BASIC</configLevel>
+                    <spreadsheetId >{${payload.sheetId}}</spreadsheetId>
+                    <sheetName >Sheet1</sheetName>
+                    <cellId >A1</cellId>
+                    <responseVariable >googlespreadsheet_getCellData_1</responseVariable>
+                    <overwriteBody >false</overwriteBody>
+                </googlespreadsheet.getCellData>
+                <payloadFactory media-type="json" template-type="default">
+                    <format>{"value":${vars.googlespreadsheet_getCellData_1.payload.values}}</format>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
+    ```
+    Design view of the `/read` API should look like below.
+    <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/read-integration.png" title="Integration Logic" width="800" alt="Integration Logic"/>
 
 ## Exporting Integration Logic as a CApp
 In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
@@ -221,7 +169,7 @@ In order to export the project, refer to the [build and export the carbon applic
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/google-spreadsheet-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/google-spreadsheet-connector-2.0.0.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -236,155 +184,79 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Testing
 
-### Spreadsheet insert Operation
+Invoke the SpreadsheetAPI with the following URL. You can use inbuilt HTTP client in WSO2 MI or an application such as [Postman](https://www.postman.com/) to invoke the API.
 
-Invoke the SpreadsheetAPI with the following URL. An application such as [Postman](https://www.postman.com/) can be used to invoke the API. 
-
-```
-  Resource method: POST
-  URL: http://localhost:8290/spreadsheet/insert
-```
-
-  ```
-    {
-      "properties":{
-          "title": "Company"
-        },
-      "sheets":[
-          {
-            "properties":
-            {
-              "title": "Employees"
-            }
-          },
-          {
-            "properties":
-            {
-              "title": "Hector"
-            }
-          }
-        ], 
-        "range":"Employees!A1:C3",
-        "values":[
-            [
-                "First Name",
-                "Last Name",
-                "Gender"
-            ],
-            [
-                "John",
-                "Doe",
-                "Male"
-            ],
-            [
-              "Leon",
-                "Wins",
-                "Female"
-              ]
-        ]
-    }
-    
-  ```
-**Expected Response**: 
-You should get a success response as below, and the spreadsheet should be created in the given ID in the response with data inserted.  
+### Create sheet Operation
 
 ```
-  {
-    "spreadsheetId": "1ddnO00fcjuLvEMCUORVjYQ4C0VLeAPNGmcvSvELHbPU",
-    "updates": {
-      "spreadsheetId": "1ddnO00fcjuLvEMCUORVjYQ4C0VLeAPNGmcvSvELHbPU",
-      "updatedRange": "Employees!A1:C3",
-      "updatedRows": 3,
-      "updatedColumns": 3,
-      "updatedCells": 9
-    }
+curl -X 'POST' \
+  'http://localhost:8290/create/' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title":"Sample Sheet"
+}'
+```
+
+You should get a success response as below with the spreadsheet ID and URL:
+
+```json
+{
+  "id": "1Vk3CJ0ZE0hhw06vZvNqFdd3hw7idqNkgqzo4rzsAI_4",
+  "link": "https://docs.google.com/spreadsheets/d/1Vk3CJ0ZE0ddw06vZvNqF7F3hw7idqNkgqzo4rzsAI_4/edit"
+}
+```
+
+### Write to cell Operation
+
+```
+curl -X 'POST' \
+  'http://localhost:8290/write/' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "sheetId": "1fOrE1y96Qh-EVV_Uln68-fDhrKDzeVglsYWAXjMN23Y",
+  "data":"Sample Record Value"
+}'
+```
+
+You should get a success response as below with the updated cell value:
+
+```json
+{
+  "results": {
+    "spreadsheetId": "1fOrE1y96Qh-EVV_Uln68-fDhrKDzeVgWSO2WAXjMN23Y",
+    "updatedRange": "Sheet1!A1",
+    "updatedRows": 1,
+    "updatedColumns": 1,
+    "updatedCells": 1
   }
+}
 ```
 
-### Spreadsheet Read Operation
+### Read to cell Operation
 
-Invoke the SpreadsheetAPI with the following URL. An application such as [Postman](https://www.postman.com/) can be used to invoke the API. Obtain the Spreadsheet ID from step 1. 
 ```
-  Resource method: POST
-  URL: http://localhost:8290/spreadsheet/read
+curl -X 'POST' \
+  'http://localhost:8290/read/' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "sheetId": "1fOrE1y96Qh-EVV_Uln68-WSOrKDzeVglsYWAXjMN23Y"
+}'
 ```
 
-  ```
-    {
-      "spreadsheetId":"1Ht0FWeKtKqBb1pEEzLcRMM8s5mktJdhivX3iaFXo-qQ",
-      "range":"Employees!A1:C3"
-    }
-  ```
+You should get the following response returned.
 
-**Expected Response**: 
-You should get the following response returned. 
 ```
-  {
-    "range": "Employees!A1:C3",
-    "majorDimension": "ROWS",
-    "values": [
-      [
-        "First Name",
-        "Last Name",
-        "Gender"
-      ],
-      [
-        "John",
-        "Doe",
-        "Male"
-      ],
-      [
-        "Leon",
-        "Wins",
-        "Female"
-      ]
+{
+  "value": [
+    [
+      "Sample Record Value"
     ]
-  }
-
+  ]
+}
 ```
-
-### Spreadsheet Edit Operation
-
-1. Invoke the SpreadsheetAPI with the following URL. Application such as [Postman](https://www.postman.com/) can be used to invoke the API. Obtain the Spreadsheet ID from the step 1. 
-```
-  Resource method: POST
-  URL: http://localhost:8290/spreadsheet/edit
-```
-
-  ```
-    {
-      "spreadsheetId":"1Ht0FWeKtKqBb1pEEzLcRMM8s5mktJdhivX3iaFXo-qQ",
-      "data": [
-          {
-            "values": [["Isuru","Uyanage","Female"],["Supun","Silva","Male"]],
-            "range": "Employees!A6"
-      }
-      ]
-    }
-  ```
-
-**Expected Response**: 
-You should get the following response returned. 
-
-```
-  {
-    "spreadsheetId": "1Ht0FWeKtKqBb1pEEzLcRMM8s5mktJdhivX3iaFXo-qQ",
-    "totalUpdatedRows": 2,
-    "totalUpdatedColumns": 3,
-    "totalUpdatedCells": 6,
-    "totalUpdatedSheets": 1,
-    "responses": [
-      {
-        "spreadsheetId": "1Ht0FWeKtKqBb1pEEzLcRMM8s5mktJdhivX3iaFXo-qQ",
-        "updatedRange": "Employees!A6:C7",
-        "updatedRows": 2,
-        "updatedColumns": 3,
-        "updatedCells": 6
-      }
-    ]
-  }
-```
-The spreadsheet should be edited within the above specified cell range. 
 
 ## What's Next
 

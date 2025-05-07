@@ -1,17 +1,30 @@
-# Google Spreadsheet Connector Reference
+# Google Spreadsheet Connector
 
-The following operations allow you to work with the Google Spreadsheet Connector. Click an operation name to see parameter details and samples on how to use it.
+The Google Spreadsheet Connector allows you to access the [Google Sheets API](https://developers.google.com/sheets/api/reference/rest) from an integration sequence. This connector provides operations for working with spreadsheets, sheets, cells, and formatting.
 
----
+## Connection Configuration
 
-## Initialize the connector
+To use the Google Spreadsheet Connector, you need to configure a connection. The connection configuration requires the following parameters:
 
-To use the Google Spreadsheet connector, add the <googlespreadsheet.init> element in your proxy configuration before use any other Google Spreadsheet operations. The <googlespreadsheet.init> element is used to authenticate the user using OAuth2 authentication and allows the user to access the Google account which contains the spreadsheets. For more information on authorizing requests in Google Spreadsheets, see [https://developers.google.com/sheets/api/guides/authorizing](https://developers.google.com/sheets/api/guides/authorizing).
+- **Client ID**: The client ID of your Google Cloud project.
+- **Client Secret**: The client secret of your Google Cloud project.
+- **Refresh Token**: The refresh token for your Google account.
 
-> **Note**: When trying it out the first time, you need to use valid accessToken to use the connector operations. If the provided accessToken has expired then the token refreshing flow will be handled inside the connector. See the [Get Credentials for Google Spreadsheet]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet) documentation to set up Google Spreadsheets and get credentials such as clientId, clientSecret, accessToken, and refreshToken.
+You can obtain these credentials by following the steps in the [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/).
 
-??? note "googlespreadsheet.init"
-    The googlespreadsheet.init operation initializes the connector to interact with Google Spreadsheet.
+### Sheet-level Operations
+
+
+??? note "googlespreadsheet.createSpreadsheet"
+    Creates a new spreadsheet in Google Sheets with specified properties. The operation supports Basic and Advanced configuration modes.
+
+    **Configuration Levels:**
+
+    - **BASIC**: Create a simple spreadsheet with minimal configuration <br/>
+    - **ADVANCED**: Full control over spreadsheet creation with multiple sheets and properties
+
+    *Basic Mode*
+    
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -19,130 +32,57 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
             <th>Required</th>
         </tr>
         <tr>
-            <td>accessToken</td>
-            <td>Access token which is obtained through the OAuth2 playground.</td>
-            <td>Yes.</td>
+            <td>title</td>
+            <td>Name of the spreadsheet</td>
+            <td>Yes</td>
         </tr>
         <tr>
-            <td>apiUrl</td>
-            <td>The application URL of Google Sheet version v4. </td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>clientId</td>
-            <td>Value of your client id, which can be obtained via Google developer console.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>clientSecret</td>
-            <td>Value of your client secret, which can be obtained via Google developer console.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>refreshToken</td>
-            <td>Refresh token which is obtained through the OAuth2 playground. It is used to refresh the accesstoken.</td>
-            <td>Yes.</td>
+            <td>initialSheetName</td>
+            <td>Name for the first sheet</td>
+            <td>No (defaults to "Sheet1")</td>
         </tr>
     </table>
 
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.init>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-    </googlespreadsheet.init>
-    ```
-
-    To get the OAuth access token directly call the init method (this method call getAccessTokenFromRefreshToken method itself) or add  <googlespreadsheet.getAccessTokenFromRefreshToken> element before <googlespreadsheet.init> element in your configuration.
-
-    **Sample for getAccessTokenFromRefreshToken**
-
-    ```xml
-    <googlespreadsheet.getAccessTokenFromRefreshToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-    </googlespreadsheet.getAccessTokenFromRefreshToken>
-    ```
-
----
-
-### Spreadsheet operation
-
-??? note "googlespreadsheet.createSpreadsheet"
-    This createSpreadsheet operation allows you to create a new spreadsheet by specifying the spreadsheet id, sheet properties, and add named ranges.
+    *Advanced Mode*
+    
     <table>
         <tr>
             <th>Parameter Name</th>
             <th>Description</th>
             <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Optional.</td>
         </tr>
         <tr>
             <td>properties</td>
-            <td>Properties of the spreadsheet.</td>
-            <td>Optional.</td>
+            <td>Spreadsheet properties (title, locale, etc.)</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>sheets</td>
-            <td>List of sheets and their properties that you want to add into the spreadsheet. You can add multiple sheets.</td>
-            <td>Optional.</td>
+            <td>Array of sheet configurations</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>namedRanges</td>
-            <td>Create names that refer to a single cell or a group of cells on the sheet. Following sample request will create name range with the name "Name" for  the range A1:A6.</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifying which fields to include in a partial response. For the following request only the "spreadsheetId" will be included in the response.</td>
-            <td>Optional.</td>
+            <td>Named cell ranges definitions</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configurations**
+    **Sample configuration**
 
     ```xml
-    <googlespreadsheet.createSpreadsheet>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <properties>{$ctx:properties}</properties>
-        <sheets>{$ctx:sheets}</sheets>
-        <namedRanges>{$ctx:namedRanges}</namedRanges>
-        <fields>{$ctx:fields}</fields>
+    <googlespreadsheet.createSpreadsheet configKey="SpreadsheetConnection">
+        <configLevel>BASIC</configLevel>
+        <title>{${payload.title}}</title>
+        <initialSheetName>First Sheet</initialSheetName>
     </googlespreadsheet.createSpreadsheet>
     ```
 
     **Sample request**
 
-    The sample request given below calls the createSpreadsheet operation. With the following request we can specify spreadsheet details such as spreadsheet name ("Company"), sheet details such as sheet name ("Employees") as an array. So the spreadsheet will be created inside Google Sheets with the name "Company" and the sheet will be created with the name "Employees". Here we specify the "fields" property to get a partial response. As per the following request, only the "spreadsheetId" will be included in the response.
-
     ```json
     {
-        "clientId":"xxxxxxxxxxxxxxxxxxxxxxxn6f2m.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxxxxxxxxxxxxx",
-        "refreshToken":"1/xxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "properties":{
-            "title": "Company"
-        },
-        "sheets":[
-            {
-            "properties":
-                {
-                    "title": "Employees"
-                }
-            }
-        ],
-        "fields": "spreadsheetId"
+        "title": "Annual Budget 2025"
     }
     ```
 
@@ -150,16 +90,30 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```json
     {
-        "spreadsheetId": "1bWbo72MAhKgeNDCPcE4Wj3uGgN7K9lW1ckDScZV8b30"
+        "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+        "properties": {
+            "title": "Annual Budget 2025"
+        },
+        "sheets": [
+            {
+                "properties": {
+                    "sheetId": 0,
+                    "title": "First Sheet",
+                    "index": 0,
+                    "sheetType": "GRID",
+                    "gridProperties": {
+                        "rowCount": 1000,
+                        "columnCount": 26
+                    }
+                }
+            }
+        ],
+        "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit"
     }
     ```
 
----
-
-### Sheet operations
-
-??? note "googlespreadsheet.addSheetBatchRequest"
-    The addSheetBatchRequest operation allows you to add new sheets to an existing spreadsheet. You can specify the sheet properties for the new sheet. An error is thrown if you provide a title that is used for an existing sheet. For more information, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#AddSheetRequest).
+??? note "googlespreadsheet.addSheet"
+    The addSheet operation allows you to add new sheets to an existing spreadsheet. You can specify the sheet properties for the new sheet. An error is thrown if you provide a title that is used for an existing sheet. For more information, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#AddSheetRequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -173,7 +127,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         </tr>
         <tr>
             <td>requests</td>
-            <td>It contains data that is an update to apply to a spreadsheet. To add multiple sheets within the spread sheet, need to repeat "addSheetBatchRequest" property within the requests attribute as below.</td>
+            <td>It contains data that is an update to apply to a spreadsheet. To add multiple sheets within the spread sheet, need to repeat "addSheet" property within the requests attribute as below.</td>
             <td>Yes.</td>
         </tr>
         <tr>
@@ -186,16 +140,16 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.addSheetBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.addSheetBatchRequest>
+    <googlespreadsheet.addSheet configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.addSheet>
     ```
 
     **Sample request**
 
-    The sample request given below calls the addSheetBatchRequest operation. The request specifies the multiple sheet properties, such as the sheet name ("Expenses1", "Expenses2"), sheet type ("GRID"), and the dimension ((50,10), (70,10)) of the sheet as an array. The fields property is specified to get a partial response. The spreadsheetId and replies values will be included in the response. replies contain properties such as sheet name, type, row, column count, and sheetId.
+    The sample request given below calls the addSheet operation. The request specifies the multiple sheet properties, such as the sheet name ("Expenses1", "Expenses2"), sheet type ("GRID"), and the dimension ((50,10), (70,10)) of the sheet as an array. The fields property is specified to get a partial response. The spreadsheetId and replies values will be included in the response. replies contain properties such as sheet name, type, row, column count, and sheetId.
 
     ```json
     {
@@ -272,8 +226,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
 
-??? note "googlespreadsheet.deleteSheetBatchRequest"
-    The deleteSheetBatchRequest operation allows you to remove sheets from a given spreadsheet using "sheetId". You can get the "sheetId" using the getSheetMetaData operation. For more information, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#deletesheetrequest).
+??? note "googlespreadsheet.deleteSheet"
+    The deleteSheet operation allows you to remove sheets from a given spreadsheet using "sheetId". You can get the "sheetId" using the getSheetMetaData operation. For more information, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#deletesheetrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -287,7 +241,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         </tr>
         <tr>
             <td>requests</td>
-            <td>It contains data that is an update to apply to a spreadsheet. To add multiple sheets within the spread sheet, need to repeat "addSheetBatchRequest" property within the requests attribute as below.</td>
+            <td>It contains data that is an update to apply to a spreadsheet. To add multiple sheets within the spread sheet, need to repeat "addSheet" property within the requests attribute as below.</td>
             <td>Yes.</td>
         </tr>
         <tr>
@@ -300,11 +254,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.deleteSheetBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.deleteSheetBatchRequest>
+    <googlespreadsheet.deleteSheet configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.deleteSheet>
     ```
 
     **Sample request**
@@ -369,11 +323,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.getSheetMetaData>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <includeGridData>{$ctx:includeGridData}</includeGridData>
-        <ranges>{$ctx:ranges}</ranges>
-        <fields>{$ctx:fields}</fields>
+    <googlespreadsheet.getSheetMetaData configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <includeGridData>{${payload.includeGridData}}</includeGridData>
+        <ranges>{${payload.ranges}}</ranges>
+        <fields>{${payload.fields}}</fields>
     </googlespreadsheet.getSheetMetaData>
     ```
 
@@ -444,8 +398,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.updateSheetPropertiesBatchRequest"
-    The updateSheetPropertiesBatchRequest operation allows you to update all sheet properties. This method allows you to update the size, title, and other sheet properties, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#UpdateSheetPropertiesRequest).
+??? note "googlespreadsheet.updateSheetProperties"
+    The updateSheetProperties operation allows you to update all sheet properties. This method allows you to update the size, title, and other sheet properties, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#UpdateSheetPropertiesRequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -472,11 +426,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.updateSheetPropertiesBatchRequest>
-          <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-          <requests>{$ctx:requests}</requests>
-          <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.updateSheetPropertiesBatchRequest>
+    <googlespreadsheet.updateSheetProperties configKey="SpreadsheetConnection">
+          <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+          <requests>{${payload.requests}}</requests>
+          <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.updateSheetProperties>
     ```
 
     **Sample request**
@@ -515,8 +469,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.copyTo"
-    The copyTo operation allows you to copy a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.sheets/copyTo).
+??? note "googlespreadsheet.copySheet"
+    The copySheet operation allows you to copy a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.sheets/copySheet).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -548,12 +502,12 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.copyTo>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <sheetId>{$ctx:sheetId}</sheetId>
-         <destinationSpreadsheetId>{$ctx:destinationSpreadsheetId}</destinationSpreadsheetId>
-         <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.copyTo>
+    <googlespreadsheet.copySheet configKey="SpreadsheetConnection">
+         <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+         <sheetId>{${payload.sheetId}}</sheetId>
+         <destinationSpreadsheetId>{${payload.destinationSpreadsheetId}}</destinationSpreadsheetId>
+         <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.copySheet>
     ```
 
     **Sample request**
@@ -587,180 +541,18 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
  
 ---    
     
-### Sheet Data operations
-        
-??? note "googlespreadsheet.addRowsColumnsData"
-    The addRowsColumnsData method allows you to add a new rows or columns of data to a sheet, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/append).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>range</td>
-            <td>The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#a1_notation) of the values to retrieve.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>insertDataOption</td>
-            <td>How the input data should be inserted. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append#insertdataoption).</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>valueInputOption</td>
-            <td> How the input data should be interpreted. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption).</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>majorDimension</td>
-            <td>The major dimension that results should use. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values#Dimension).</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifying which fields to include in a partial response. For the following request only the `updates` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>values</td>
-            <td>The data that was to be written. For more detail [click here](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#listvalue).</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
+### Cell-level Operations
 
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.deleteDimensionBatchRequest>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <requests>{$ctx:requests}</requests>
-         <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.deleteDimensionBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request appends data in row major fashion. The range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table.
-    
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxxxxxxxxxxx",
-        "refreshToken":"1/xxxxxxxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.xxxxxxxxxxxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CxxxxxxxxxxxxxxxxxxxxxxxxxxdrXFGA",
-        "range":"Sheet1!A1:B2",
-        "insertDataOption":"INSERT_ROWS",
-        "majorDimension":"ROWS",
-        "valueInputOption":"RAW",
-        "values":[
-              [
-                   "20",
-                   "21"
-               ],
-               [
-                   "22",
-                  "23"
-               ]
-          ]
-    }
-    ```
-    **Sample response**
-        
-    The response include the updates details.
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CxxxxxxxxxxxxxxxxxxxxxxxxxxdrXFGA",
-        "updates": {
-            "spreadsheetId": "12KoqoxmykLLYbtsm6CxxxxxxxxxxxxxxxxxxxxxxxxxxdrXFGA",
-            "updatedRange": "Sheet1!A1:B2",
-            "updatedRows": 2,
-            "updatedColumns": 2,
-            "updatedCells": 4
-        }
-    }
-    ```
-    
-??? note "googlespreadsheet.deleteDimensionBatchRequest"
-    The deleteDimensionBatchRequest method allows you to delete rows or columns by specifying the dimension, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#DeleteDimensionRequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple delete operation within the spreadsheet, need to repeat `deleteDimension` property within the requests property.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifying which fields to include in a partial response. For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.deleteDimensionBatchRequest>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <requests>{$ctx:requests}</requests>
-         <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.deleteDimensionBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request deletes the first three rows in the sheet since we specify dimension as ROWS.
-
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"ry_AXMsEe5Sn9iVoOY7ATnb8",
-        "refreshToken":"1/xxxxxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.xxxxxxxxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
-        "requests": [
-          {
-           "deleteDimension": {
-            "range": {
-             "sheetId": 121832844,
-             "dimension": "ROWS",
-             "startIndex": 0,
-             "endIndex": 3
-            }
-           }
-          }
-         ],
-          "fields": "spreadsheetId"
-    }
-    ```
-    **Sample response**
-
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ``` 
-    
 ??? note "googlespreadsheet.getCellData"
-    The getCellData method allows you to retrieve any set of cell data from a sheet. It return cell contents not only as input values (as would be entered by a user at a keyboard) but also it grants full access to values, formulas, formatting, hyperlinks, data validation, and other properties. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/get).
+    Retrieves cell contents and formatting. Supports both Basic and Advanced modes for different levels of control.
+
+    **Configuration Levels:**
+
+    - **BASIC**: Simple cell data retrieval using sheet name and cell reference <br/>
+    - **ADVANCED**: Complex data retrieval with formatting options
+
+    *Basic Mode*
+    
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -769,88 +561,175 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         </tr>
         <tr>
             <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
+            <td>Unique identifier of the spreadsheet</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sheetName</td>
+            <td>Name of the sheet</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>cellId</td>
+            <td>Cell reference (e.g., "A1")</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    *Advanced Mode*
+    
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique identifier of the spreadsheet</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>range</td>
-            <td>The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#a1_notation) of the values to retrieve.</td>
-            <td>Yes.</td>
+            <td>A1 notation range</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>valueRenderOption</td>
+            <td>How to render cell values (FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA)</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>dateTimeRenderOption</td>
-            <td>How dates, times, and durations should be represented in the output. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/DateTimeRenderOption).</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>majorDimension</td>
-            <td>The major dimension that results should use. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values#Dimension).</td>
-            <td>Optional.</td>
-        </tr>                
-        <tr>
-            <td>valueRenderOption</td>
-            <td> How values should be represented in the output. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/ValueRenderOption).</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifying which fields to include in a partial response. For the following request only the `values` will be included in the response.</td>
-            <td>Optional.</td>
+            <td>How to render dates/times</td>
+            <td>No</td>
         </tr>
     </table>
 
-    **Sample configurations**
+    **Sample configuration**
 
     ```xml
-    <googlespreadsheet.getCellData>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <range>{$ctx:range}</range>
-        <dateTimeRenderOption>{$ctx:dateTimeRenderOption}</dateTimeRenderOption>
-        <majorDimension>{$ctx:majorDimension}</majorDimension>
-        <valueRenderOption>{$ctx:valueRenderOption}</valueRenderOption>
-        <fields>{$ctx:fields}</fields>
+    <googlespreadsheet.getCellData configKey="SpreadsheetConnection">
+        <configLevel>BASIC</configLevel>
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <sheetName>Sheet1</sheetName>
+        <cellId>A1</cellId>
     </googlespreadsheet.getCellData>
     ```
 
-    **Sample request**
-    
-    The following returns the cells data in the range A1:E14 of sheet Sheet1 in row-major order.
-
-    ```json
-    {
-    	"clientId":"617729022812-xxxxxxx.apps.googleusercontent.com",
-    	"clientSecret":"xxxxxxxxxxxxxx",
-    	"refreshToken":"1/xxxxxxxxxxxx-x-LpK6fDWF9DgcM",
-    	"accessToken":"ya29.xxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-    	"apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-    	"spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
-    	"range":"Sheet1!A1:E14",
-    	"dateTimeRenderOption":"SERIAL_NUMBER",
-    	"majorDimension":"ROWS",
-    	"valueRenderOption":"UNFORMATTED_VALUE"
-    }
-    ```
     **Sample response**
-    
-    In the response cell values in the rage A1:E14 will be return.
 
     ```json
     {
-        "range": "Sheet1!A1:E14",
+        "range": "Sheet1!A1",
         "majorDimension": "ROWS",
         "values": [
-            [
-                "20",
-                "21"
-            ],
-            [
-                "22",
-                "23"
-            ]
+            ["Cell Content"]
         ]
     }
     ```
-                    
+
+??? note "googlespreadsheet.editCellData"
+    Edits cell contents with new values. Supports both Basic and Advanced configuration modes.
+
+    **Configuration Levels:**
+
+    - **BASIC**: Simple cell value updates <br/>
+    - **ADVANCED**: Complex updates with formatting and multiple cells
+
+    *Basic Mode*
+    
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique identifier of the spreadsheet</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sheetName</td>
+            <td>Name of the sheet</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>cellId</td>
+            <td>Cell reference (e.g., "A1")</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>value</td>
+            <td>New value for the cell</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    *Advanced Mode*
+    
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique identifier of the spreadsheet</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>range</td>
+            <td>A1 notation range</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>values</td>
+            <td>Array of values to update</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>valueInputOption</td>
+            <td>How to interpret input (RAW or USER_ENTERED)</td>
+            <td>No (defaults to USER_ENTERED)</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <googlespreadsheet.editCellData configKey="SpreadsheetConnection">
+        <configLevel>BASIC</configLevel>
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <sheetName>Sheet1</sheetName>
+        <cellId>A1</cellId>
+        <value>New Value</value>
+    </googlespreadsheet.editCellData>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+        "value": "Updated Content"
+    }
+    ```
+
+    **Sample response**
+
+    ```json
+    {
+        "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+        "updatedRange": "Sheet1!A1",
+        "updatedRows": 1,
+        "updatedColumns": 1,
+        "updatedCells": 1
+    }
+    ```
+              
 ??? note "googlespreadsheet.getMultipleCellData"
     The getMultipleCellData method allow you to retrieve any set of cell data from a sheet (including multiple ranges). It return cell contents not only as input values (as would be entered by a user at a keyboard) but also it grants full access to values, formulas, formatting, hyperlinks, data validation, and other properties. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchGet).
     <table>
@@ -894,13 +773,13 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.getMultipleCellData>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <ranges>{$ctx:ranges}</ranges>
-        <dateTimeRenderOption>{$ctx:dateTimeRenderOption}</dateTimeRenderOption>
-        <majorDimension>{$ctx:majorDimension}</majorDimension>
-        <valueRenderOption>{$ctx:valueRenderOption}</valueRenderOption>
-        <fields>{$ctx:fields}</fields>
+    <googlespreadsheet.getMultipleCellData configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <ranges>{${payload.ranges}}</ranges>
+        <dateTimeRenderOption>{${payload.dateTimeRenderOption}}</dateTimeRenderOption>
+        <majorDimension>{${payload.majorDimension}}</majorDimension>
+        <valueRenderOption>{${payload.valueRenderOption}}</valueRenderOption>
+        <fields>{${payload.fields}}</fields>
     </googlespreadsheet.getMultipleCellData>
     ```
 
@@ -965,9 +844,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         ]
     }
     ```
-          
-??? note "googlespreadsheet.editCell"
-    The editCell method allow you to edit the content of the cell with new values. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/update).
+ 
+??? note "googlespreadsheet.updateMultipleCell"
+    The updateMultipleCell method allow you to edit the content of multiple cell with new values. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchUpdate).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -999,96 +878,12 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.editCell>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <range>{$ctx:range}</range>
-        <valueInputOption>{$ctx:valueInputOption}</valueInputOption>
-        <fields>{$ctx:fields}</fields>
-        <majorDimension>{$ctx:majorDimension}</majorDimension>
-        <values>{$ctx:values}</values>
-    </googlespreadsheet.editCell>
-    ```
-
-    **Sample request**
-    
-    In the request we can specify which sheet.
-
-    ```json
-    {
-    	"clientId":"617729022812-xxxxxxxxxxxxxx.apps.googleusercontent.com",
-    	"clientSecret":"xxxxxxxxxxxxxxxxxx",
-    	"refreshToken":"1/Si2q4aOZsaMlYW7bBIoO-fCyxRTyf-xxxxxxxxxxxxx",
-    	"accessToken":"ya29.xxxxxxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-    	"apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-    	"spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
-    	"range":"Sheet1!A1:E3",
-        "majorDimension":"ROWS",
-        "valueInputOption":"RAW",
-        "values":[
-          [
-               "1111",
-               "2222"
-          ],
-          [
-               "3333",
-               "4444"
-          ]
-         ]
-    }
-    ```
-    **Sample response**
-    
-    In the response we will get updated details such as cell dimension, cell count, sheet range.
-
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
-        "updatedRange": "Sheet1!A1:B2",
-        "updatedRows": 2,
-        "updatedColumns": 2,
-        "updatedCells": 4
-    }
-    ```
-    
-??? note "googlespreadsheet.editMultipleCell"
-    The editMultipleCell method allow you to edit the content of multiple cell with new values. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchUpdate).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>data</td>
-            <td>The new values to apply to the spreadsheet.</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>valueInputOption</td>
-            <td>How the input data should be interpreted. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption).</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifying which fields to include in a partial response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.editMultipleCell>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <data>{$ctx:data}</data>
-         <valueInputOption>{$ctx:valueInputOption}</valueInputOption>
-         <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.editMultipleCell>
+    <googlespreadsheet.updateMultipleCell configKey="SpreadsheetConnection">
+         <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+         <data>{${payload.data}}</data>
+         <valueInputOption>{${payload.valueInputOption}}</valueInputOption>
+         <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.updateMultipleCell>
     ```
 
     **Sample request**
@@ -1134,9 +929,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         ]
     }
     ```
-    
-??? note "googlespreadsheet.updateCellsBatchRequest"
-    The updateCellsBatchRequest method allows you to removes all values from a sheet while leaving any formatting unaltered. Specifying userEnteredValue in fields(within the requests property) without providing a corresponding value is interpreted as an instruction to clear values in the range. This can be used with other fields as well. For example, changing the fields(within the requests property) value to userEnteredFormat and making the request clears the sheet of all formatting, but leaves the cell values untouched..see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatecellsrequest).
+
+### Row and Column Operations
+
+??? note "googlespreadsheet.updateDimensionProperties"
+    The updateDimensionProperties method allows you to updates properties of dimensions within the specified range,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatedimensionpropertiesrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1150,12 +947,12 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         </tr>
         <tr>
             <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple updateCells operation within the spread sheet, need to repeat `updateCells` property within the `requests` property.</td>
-            <td>Optional.</td>
+            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple updateDimensionProperties operation within the spreadsheet, need to repeat `updateDimensionProperties` property within the `requests` property.</td>
+            <td>Yes.</td>
         </tr>
         <tr>
             <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response. For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
             <td>Optional.</td>
         </tr>
     </table>
@@ -1163,44 +960,42 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.updateCellsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.updateCellsBatchRequest>
+    <googlespreadsheet.updateDimensionProperties configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.updateDimensionProperties>
     ```
 
     **Sample request**
     
+    The following request updates the width of column A to 160 pixels.
+        
     ```json
     {
-        "clientId":"617729022812-cxxxxxxxxxxxx.apps.googleusercontent.com",
+        "clientId":"617729022812-vjo2edd0i4bcb38ifu4qg17ke5nn6f2m.apps.googleusercontent.com",
         "clientSecret":"ry_AXMsEe5Sn9iVoOY7ATnb8",
-        "refreshToken":"1/xxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.xxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
+        "refreshToken":"1/Si2q4aOZsaMlYW7bBIoO-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.Ci-CA9sR2IXoOaVg9fpRwf8fEhF8lqfOJL1FpRihUlNxEa8kw-kQ9Wri4bsf4TEulw",
         "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
+        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
         "requests": [
-             {
-                 "updateCells": {
-                     "start": {
-                         "columnIndex": 3,
-                         "rowIndex": 2,
-                         "sheetId": 121832844
-                     },
-                     "rows": [
-                         {
-                             "values": [
-                                 {"userEnteredValue": {"numberValue": 444}},
-                                 {"userEnteredValue": {"numberValue": 777}}
-                             ]
-                         }
-                     ],
-                "fields": "userEnteredValue"
-                }
-            }
-         ],
-         "fields": "spreadsheetId"
+        {
+          "updateDimensionProperties": {
+            "range": {
+              "sheetId": 1020069232,
+              "dimension": "COLUMNS",
+              "startIndex": 0,
+              "endIndex": 1
+            },
+            "properties": {
+              "pixelSize": 160
+            },
+            "fields": "pixelSize"
+          }
+        }
+      ],
+      "fields": "spreadsheetId"
     }
     ```
     **Sample response**
@@ -1211,8 +1006,293 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.appendDimensionBatchRequest"
-    The appendDimensionBatchRequest method allows you to appends empty rows and columns to the end of the sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#appenddimensionrequest).
+??? note "googlespreadsheet.autoResizeDimensions"
+    The autoResizeDimensions method allows you to automatically resize one or more dimensions based on the contents of the cells in that dimension,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#autoresizedimensionsrequest).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique value of the spreadsheet</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple autoResizeDimensions operation within the spread sheet, need to repeat `autoResizeDimensions` property within the `requests` property.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>fields (Outside the requests property)</td>
+            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <googlespreadsheet.autoResizeDimensions configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.autoResizeDimensions>
+    ```
+
+    **Sample request**
+    
+    The following request turns on automatic resizing of columns A:C, based on the size of the column content. Automatic resizing of rows is not supported.
+        
+    ```json
+    {
+        "clientId":"617729022812-xxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"xxxxxxxxxxxx",
+        "refreshToken":"1/xxxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.Ci-xxxxxxxxxxx-kQ9Wri4bsf4TEulw",
+        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
+        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
+        "requests": [
+        {
+          "autoResizeDimensions": {
+            "dimensions": {
+              "sheetId": 1020069232,
+              "dimension": "COLUMNS",
+              "startIndex": 0,
+              "endIndex": 3
+            }
+          }
+        }
+      ],
+      "fields": "spreadsheetId"
+    }
+    ```
+    **Sample response**
+    
+    ```json
+    {
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
+    }
+    ```
+    
+??? note "googlespreadsheet.insertDimension"
+    The insertDimension method allows you to inserts rows or columns in a sheet at a particular index.,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#insertdimensionrequest).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique value of the spreadsheet</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple insertDimension operation within the spread sheet, need to repeat `insertDimension` property within the `requests` property.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>fields (Outside the requests property)</td>
+            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <googlespreadsheet.insertDimension configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.insertDimension>
+    ```
+
+    **Sample request**
+    
+    The following request inserts two blank columns at column C. The inheritBefore field, if true, tells the API to give the new columns or rows the same properties as the prior row or column; otherwise the new columns or rows acquire the properties of those that follow them. inheritBefore cannot be true if inserting a row at row 1 or a column at column A.
+        
+    ```json
+    {
+        "clientId":"617729022812-xxxxxxxxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"xxxxxxxxxxxxx",
+        "refreshToken":"1/Si2q4aOZsaMlYW7bBIxxxxxxxxxxxxxxoO-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.Ci-xxxxxxxxxxxxxxxxxx-kQ9Wri4bsf4TEulw",
+        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
+        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
+        "requests":[
+        {
+          "insertDimension":
+          {
+            "range":
+            {
+              "sheetId": 1020069232,
+              "dimension": "COLUMNS",
+              "startIndex": 2,
+              "endIndex": 4
+            },
+            "inheritFromBefore": true
+          }
+        }
+      ],
+      "fields": "spreadsheetId"
+    }
+    ```
+    **Sample response**
+    
+    ```json
+    {
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
+    }
+    ```
+      
+??? note "googlespreadsheet.moveDimension"
+    The moveDimension method allows you to moves one or more rows or columns,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#movedimensionrequest).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique value of the spreadsheet</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple moveDimension operation within the spread sheet, need to repeat `moveDimension` property within the `requests` property.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>fields (Outside the requests property)</td>
+            <td>Specifying which fields to include in a partial response. For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <googlespreadsheet.insertDimension configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.insertDimension>
+    ```
+
+    **Sample request**
+    
+    The following request moves column A to the column D position.
+        
+    ```json
+    {
+        "clientId":"617729022812-xxxxxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"xxxxxxxxxxxxxx",
+        "refreshToken":"1/xxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.Ci-xxxxxxxxxxxx-kQ9Wri4bsf4TEulw",
+        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
+        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
+        "requests":[
+        {
+          "moveDimension":
+          {
+            "source":
+            {
+              "sheetId": 1020069232,
+              "dimension": "COLUMNS",
+              "startIndex": 0,
+              "endIndex": 1
+            },
+            "destinationIndex": 3
+          }
+        }
+      ],
+      "fields": "spreadsheetId"
+    }
+    ```
+    **Sample response**
+    
+    ```json
+    {
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
+    }
+    ```
+??? note "googlespreadsheet.deleteDimension"
+    The deleteDimension method allows you to delete rows or columns by specifying the dimension, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#DeleteDimensionRequest).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique value of the spreadsheet</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple delete operation within the spreadsheet, need to repeat `deleteDimension` property within the requests property.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>fields</td>
+            <td>Specifying which fields to include in a partial response. For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <googlespreadsheet.deleteDimension configKey="SpreadsheetConnection">
+         <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+         <requests>{${payload.requests}}</requests>
+         <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.deleteDimension>
+    ```
+
+    **Sample request**
+    
+    The following request deletes the first three rows in the sheet since we specify dimension as ROWS.
+
+    ```json
+    {
+        "clientId":"617729022812-xxxxxxxxxxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"ry_AXMsEe5Sn9iVoOY7ATnb8",
+        "refreshToken":"1/xxxxxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.xxxxxxxxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
+        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
+        "requests": [
+          {
+           "deleteDimension": {
+            "range": {
+             "sheetId": 121832844,
+             "dimension": "ROWS",
+             "startIndex": 0,
+             "endIndex": 3
+            }
+           }
+          }
+         ],
+          "fields": "spreadsheetId"
+    }
+    ```
+    **Sample response**
+
+    ```json
+    {
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
+    }
+    ``` 
+    
+??? note "googlespreadsheet.appendDimension"
+    The appendDimension method allows you to appends empty rows and columns to the end of the sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#appenddimensionrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1239,11 +1319,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.appendDimensionBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.appendDimensionBatchRequest>
+    <googlespreadsheet.appendDimension configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.appendDimension>
     ```
 
     **Sample request**
@@ -1277,9 +1357,10 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
     }
     ```
-     
-??? note "googlespreadsheet.updateBordersBatchRequest"
-    The updateBordersBatchRequest method allow you to edit cell borders. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
+### Cell Formatting Operations
+    
+??? note "googlespreadsheet.updateBorders"
+    The updateBorders method allow you to edit cell borders. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1306,11 +1387,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.updateBordersBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.updateBordersBatchRequest>
+    <googlespreadsheet.updateBorders configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.updateBorders>
     ```
 
     **Sample request**
@@ -1366,96 +1447,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.updateBordersBatchRequest"
-    The updateBordersBatchRequest method allow you to edit cell borders. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple updateCells operation within the spread sheet, need to repeat `updateCells` property within the `requests` property.</td>
-            <td>Optional.</td>
-        </tr>
-        <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response. For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.updateBordersBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.updateBordersBatchRequest>
-    ```
-
-    **Sample request**
-    
-    In following request we can specify for which range of the sheet the border need to be updated and the formatting details of the border.
-    
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxxxxxxxxxxx",
-        "refreshToken":"1/xxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.xxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
-        "requests": [
-            {
-              "updateBorders":
-              {
-                "range": {
-                  "sheetId": 121832844,
-                  "startRowIndex": 0,
-                  "endRowIndex": 10,
-                  "startColumnIndex": 0,
-                  "endColumnIndex": 6
-                },
-                "top": {
-                  "style": "DASHED",
-                  "width": 1,
-                  "color": {"blue": 1}
-                },
-                "bottom":
-                {
-                  "style": "DASHED",
-                  "width": 1,
-                  "color": {"blue": 1}
-                },
-                "innerHorizontal": {
-                  "style": "DASHED",
-                  "width": 1,
-                  "color": {"blue": 1}
-                }
-               }
-           }
-        ],
-      "fields": "spreadsheetId"
-    }
-    ```
-    **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-    
-??? note "googlespreadsheet.repeatCellsBatchRequest"
-    The repeatCellsBatchRequest method allow you to updates all cells in the range to the values in the given Cell object. Only the fields listed in the fields(within the requests property)will be updated. Others are unchanged. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#repeatcellrequest).
+??? note "googlespreadsheet.repeatCells"
+    The repeatCells method allow you to updates all cells in the range to the values in the given Cell object. Only the fields listed in the fields(within the requests property)will be updated. Others are unchanged. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#repeatcellrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1482,11 +1475,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.repeatCellsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.repeatCellsBatchRequest>
+    <googlespreadsheet.repeatCells configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.repeatCells>
     ```
 
     **Sample request**
@@ -1533,8 +1526,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.mergeCellsBatchRequest"
-    The mergeCellsBatchRequest  method allow you to merges all cells in the range. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#mergecellsrequest).
+??? note "googlespreadsheet.mergeCells"
+    The mergeCells  method allow you to merges all cells in the range. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#mergecellsrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1561,11 +1554,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.mergeCellsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.mergeCellsBatchRequest>
+    <googlespreadsheet.mergeCells configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.mergeCells>
     ```
 
     **Sample request**
@@ -1603,8 +1596,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.setDataValidationBatchRequest"
-    The setDataValidationBatchRequest Sets a data validation rule to every cell in the range. To clear validation in a range, call this with no rule specified..see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#setdatavalidationrequest).
+??? note "googlespreadsheet.setDataValidation"
+    The setDataValidation Sets a data validation rule to every cell in the range. To clear validation in a range, call this with no rule specified..see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#setdatavalidationrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1631,11 +1624,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.setDataValidationBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.setDataValidationBatchRequest>
+    <googlespreadsheet.setDataValidation configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.setDataValidation>
     ```
 
     **Sample request**
@@ -1673,165 +1666,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.copyPasteBatchRequest"
-    The copyPasteBatchRequest method allows you to copy cell formatting in one range and paste it into another range on the same sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#copypasterequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td> It contains data that is a kind of update to apply to a spreadsheet. To perform multiple copyPaste operation within the spread sheet, need to repeat `copyPaste` property within the `requests` property.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.copyPasteBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.copyPasteBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request copies the formatting in range A1:D10 and pastes it to the F1:I10 range on the same sheet. The original values in A1:I10 remain unchanged.
-        
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"ry_AXMsEe5Sn9iVoOY7ATnb8",
-        "refreshToken":"1/xxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.xxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
-        "requests": [
-        {
-          "copyPaste": {
-            "source": {
-              "sheetId": 121832844,
-              "startRowIndex": 0,
-              "endRowIndex": 10,
-              "startColumnIndex": 0,
-              "endColumnIndex": 4
-            },
-            "destination": {
-              "sheetId": 121832844,
-              "startRowIndex": 0,
-              "endRowIndex": 10,
-              "startColumnIndex": 5,
-              "endColumnIndex": 9
-            },
-            "pasteType": "PASTE_FORMAT",
-            "pasteOrientation": "NORMAL"
-          }
-        }
-      ],
-      "fields": "spreadsheetId"
-    }
-    ```
-    **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-    
-??? note "googlespreadsheet.cutPasteBatchRequest"
-    The cutPasteBatchRequest method allows you to cuts the one range and pastes its data, formats, formulas, and merges to the another range on the same sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#cutpasterequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple cutPaste operation within the spread sheet, need to repeat `cutPaste` property within the `requests` property.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.cutPasteBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.cutPasteBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request cuts the range A1:D10 and pastes its data, formats, formulas, and merges to the F1:I10 range on the same sheet. The original source range cell contents are removed.
-        
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxxx",
-        "refreshToken":"1/xxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.Ci-xxxxxxxxxxxxx",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
-        "requests": [
-        {
-          "cutPaste": {
-            "source": {
-              "sheetId": 1020069232,
-              "startRowIndex": 0,
-              "endRowIndex": 10,
-              "startColumnIndex": 0,
-              "endColumnIndex": 4
-            },
-            "destination": {
-              "sheetId": 401088778,
-              "rowIndex": 0,
-              "columnIndex": 5
-            },
-            "pasteType": "PASTE_NORMAL"
-          }
-        }
-      ],
-      "fields": "spreadsheetId"
-    }
-    ```
-    **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-    
-??? note "googlespreadsheet.updateConditionalFormatRuleBatchRequest"
-    The updateConditionalFormatRuleBatchRequest method allows you to updates a conditional format rule at the given index, or moves a conditional format rule to another index,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updateconditionalformatrulerequest).
+??? note "googlespreadsheet.updateConditionalFormatRule"
+    The updateConditionalFormatRule method allows you to updates a conditional format rule at the given index, or moves a conditional format rule to another index,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updateconditionalformatrulerequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1858,11 +1694,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.updateConditionalFormatRuleBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.updateConditionalFormatRuleBatchRequest>
+    <googlespreadsheet.updateConditionalFormatRule configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.updateConditionalFormatRule>
     ```
 
     **Sample request**
@@ -1922,8 +1758,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.addConditionalFormatRuleBatchRequest"
-    The addConditionalFormatRuleBatchRequest method allows you to adds a new conditional format rule at the given index,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#addconditionalformatrulerequest).
+??? note "googlespreadsheet.addConditionalFormatRule"
+    The addConditionalFormatRule method allows you to adds a new conditional format rule at the given index,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#addconditionalformatrulerequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1950,11 +1786,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.addConditionalFormatRuleBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.addConditionalFormatRuleBatchRequest>
+    <googlespreadsheet.addConditionalFormatRule configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.addConditionalFormatRule>
     ```
 
     **Sample request**
@@ -2011,8 +1847,8 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     }
     ```
     
-??? note "googlespreadsheet.deleteConditionalFormatRuleBatchRequest"
-    The deleteConditionalFormatRuleBatchRequest method allows you to deletes a conditional format rule at the given index,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#DeleteConditionalFormatRuleRequest).
+??? note "googlespreadsheet.deleteConditionalFormatRule"
+    The deleteConditionalFormatRule method allows you to deletes a conditional format rule at the given index,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#DeleteConditionalFormatRuleRequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2039,11 +1875,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.deleteConditionalFormatRuleBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.deleteConditionalFormatRuleBatchRequest>
+    <googlespreadsheet.deleteConditionalFormatRule configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.deleteConditionalFormatRule>
     ```
 
     **Sample request**
@@ -2076,9 +1912,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
         "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
     }
     ```
-    
-??? note "googlespreadsheet.updateDimensionPropertiesBatchRequest"
-    The updateDimensionPropertiesBatchRequest method allows you to updates properties of dimensions within the specified range,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatedimensionpropertiesrequest).
+
+### Data Manipulation Operations
+
+??? note "googlespreadsheet.addRowsColumnsData"
+    The addRowsColumnsData method allows you to add a new rows or columns of data to a sheet, see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/append).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2091,13 +1929,33 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
             <td>Yes.</td>
         </tr>
         <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple updateDimensionProperties operation within the spreadsheet, need to repeat `updateDimensionProperties` property within the `requests` property.</td>
+            <td>range</td>
+            <td>The [A1 notation](https://developers.google.com/sheets/api/guides/concepts#a1_notation) of the values to retrieve.</td>
             <td>Yes.</td>
         </tr>
         <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>insertDataOption</td>
+            <td>How the input data should be inserted. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append#insertdataoption).</td>
+            <td>Optional.</td>
+        </tr>
+        <tr>
+            <td>valueInputOption</td>
+            <td> How the input data should be interpreted. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption).</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>majorDimension</td>
+            <td>The major dimension that results should use. For more detail [click here](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values#Dimension).</td>
+            <td>Optional.</td>
+        </tr>
+        <tr>
+            <td>fields</td>
+            <td>Specifying which fields to include in a partial response. For the following request only the `updates` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+        <tr>
+            <td>values</td>
+            <td>The data that was to be written. For more detail [click here](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#listvalue).</td>
             <td>Optional.</td>
         </tr>
     </table>
@@ -2105,270 +1963,60 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.updateDimensionPropertiesBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.updateDimensionPropertiesBatchRequest>
+    <googlespreadsheet.deleteDimension configKey="SpreadsheetConnection">
+         <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+         <requests>{${payload.requests}}</requests>
+         <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.deleteDimension>
     ```
 
     **Sample request**
     
-    The following request updates the width of column A to 160 pixels.
-        
+    The following request appends data in row major fashion. The range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table.
+    
     ```json
     {
-        "clientId":"617729022812-vjo2edd0i4bcb38ifu4qg17ke5nn6f2m.apps.googleusercontent.com",
-        "clientSecret":"ry_AXMsEe5Sn9iVoOY7ATnb8",
-        "refreshToken":"1/Si2q4aOZsaMlYW7bBIoO-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.Ci-CA9sR2IXoOaVg9fpRwf8fEhF8lqfOJL1FpRihUlNxEa8kw-kQ9Wri4bsf4TEulw",
+        "clientId":"617729022812-xxxxxxxxxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"xxxxxxxxxxxxxxxxxxxxx",
+        "refreshToken":"1/xxxxxxxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.xxxxxxxxxxxxxxxxxxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
         "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
-        "requests": [
-        {
-          "updateDimensionProperties": {
-            "range": {
-              "sheetId": 1020069232,
-              "dimension": "COLUMNS",
-              "startIndex": 0,
-              "endIndex": 1
-            },
-            "properties": {
-              "pixelSize": 160
-            },
-            "fields": "pixelSize"
-          }
-        }
-      ],
-      "fields": "spreadsheetId"
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CxxxxxxxxxxxxxxxxxxxxxxxxxxdrXFGA",
+        "range":"Sheet1!A1:B2",
+        "insertDataOption":"INSERT_ROWS",
+        "majorDimension":"ROWS",
+        "valueInputOption":"RAW",
+        "values":[
+              [
+                   "20",
+                   "21"
+               ],
+               [
+                   "22",
+                  "23"
+               ]
+          ]
     }
     ```
     **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-    
-??? note "googlespreadsheet.autoResizeDimensionsBatchRequest"
-    The autoResizeDimensionsBatchRequest method allows you to automatically resize one or more dimensions based on the contents of the cells in that dimension,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#autoresizedimensionsrequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple autoResizeDimensions operation within the spread sheet, need to repeat `autoResizeDimensions` property within the `requests` property.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.autoResizeDimensionsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.autoResizeDimensionsBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request turns on automatic resizing of columns A:C, based on the size of the column content. Automatic resizing of rows is not supported.
         
+    The response include the updates details.
+    
     ```json
     {
-        "clientId":"617729022812-xxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxx",
-        "refreshToken":"1/xxxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.Ci-xxxxxxxxxxx-kQ9Wri4bsf4TEulw",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
-        "requests": [
-        {
-          "autoResizeDimensions": {
-            "dimensions": {
-              "sheetId": 1020069232,
-              "dimension": "COLUMNS",
-              "startIndex": 0,
-              "endIndex": 3
-            }
-          }
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CxxxxxxxxxxxxxxxxxxxxxxxxxxdrXFGA",
+        "updates": {
+            "spreadsheetId": "12KoqoxmykLLYbtsm6CxxxxxxxxxxxxxxxxxxxxxxxxxxdrXFGA",
+            "updatedRange": "Sheet1!A1:B2",
+            "updatedRows": 2,
+            "updatedColumns": 2,
+            "updatedCells": 4
         }
-      ],
-      "fields": "spreadsheetId"
     }
     ```
-    **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-    
-??? note "googlespreadsheet.insertDimensionBatchRequest"
-    The insertDimensionBatchRequest method allows you to inserts rows or columns in a sheet at a particular index.,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#insertdimensionrequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple insertDimension operation within the spread sheet, need to repeat `insertDimension` property within the `requests` property.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
 
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.insertDimensionBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.insertDimensionBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request inserts two blank columns at column C. The inheritBefore field, if true, tells the API to give the new columns or rows the same properties as the prior row or column; otherwise the new columns or rows acquire the properties of those that follow them. inheritBefore cannot be true if inserting a row at row 1 or a column at column A.
-        
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxxx",
-        "refreshToken":"1/Si2q4aOZsaMlYW7bBIxxxxxxxxxxxxxxoO-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.Ci-xxxxxxxxxxxxxxxxxx-kQ9Wri4bsf4TEulw",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
-        "requests":[
-        {
-          "insertDimension":
-          {
-            "range":
-            {
-              "sheetId": 1020069232,
-              "dimension": "COLUMNS",
-              "startIndex": 2,
-              "endIndex": 4
-            },
-            "inheritFromBefore": true
-          }
-        }
-      ],
-      "fields": "spreadsheetId"
-    }
-    ```
-    **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-      
-??? note "googlespreadsheet.moveDimensionBatchRequest"
-    The moveDimensionBatchRequest method allows you to moves one or more rows or columns,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#movedimensionrequest).
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>spreadsheetId</td>
-            <td>Unique value of the spreadsheet</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>requests</td>
-            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple moveDimension operation within the spread sheet, need to repeat `moveDimension` property within the `requests` property.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>fields (Outside the requests property)</td>
-            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
-            <td>Optional.</td>
-        </tr>
-    </table>
-
-    **Sample configurations**
-
-    ```xml
-    <googlespreadsheet.insertDimensionBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.insertDimensionBatchRequest>
-    ```
-
-    **Sample request**
-    
-    The following request moves column A to the column D position.
-        
-    ```json
-    {
-        "clientId":"617729022812-xxxxxxxxxxxx.apps.googleusercontent.com",
-        "clientSecret":"xxxxxxxxxxxxxx",
-        "refreshToken":"1/xxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
-        "accessToken":"ya29.Ci-xxxxxxxxxxxx-kQ9Wri4bsf4TEulw",
-        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
-        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
-        "requests":[
-        {
-          "moveDimension":
-          {
-            "source":
-            {
-              "sheetId": 1020069232,
-              "dimension": "COLUMNS",
-              "startIndex": 0,
-              "endIndex": 1
-            },
-            "destinationIndex": 3
-          }
-        }
-      ],
-      "fields": "spreadsheetId"
-    }
-    ```
-    **Sample response**
-    
-    ```json
-    {
-        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
-    }
-    ```
-    
-??? note "googlespreadsheet.sortRangeBatchRequest"
-    The sortRangeBatchRequest method allows you to sorts data in rows based on a sort order per column,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#sortrangerequest).
+??? note "googlespreadsheet.sortRange"
+    The sortRange method allows you to sorts data in rows based on a sort order per column,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#sortrangerequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2395,11 +2043,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     **Sample configurations**
 
     ```xml
-    <googlespreadsheet.sortRangeBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
-    </googlespreadsheet.sortRangeBatchRequest>
+    <googlespreadsheet.sortRange configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.sortRange>
     ```
 
     **Sample request**
@@ -2438,6 +2086,164 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
                 "sortOrder": "DESCENDING"
               }
             ]
+          }
+        }
+      ],
+      "fields": "spreadsheetId"
+    }
+    ```
+    **Sample response**
+    
+    ```json
+    {
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
+    }
+    ```
+
+        
+??? note "googlespreadsheet.copyRange"
+    The copyRange method allows you to copy cell formatting in one range and paste it into another range on the same sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#copypasterequest).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique value of the spreadsheet</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td> It contains data that is a kind of update to apply to a spreadsheet. To perform multiple copyRange operation within the spread sheet, need to repeat `copyPaste` property within the `requests` property.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>fields (Outside the requests property)</td>
+            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <googlespreadsheet.copyRange configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.copyRange>
+    ```
+
+    **Sample request**
+    
+    The following request copies the formatting in range A1:D10 and pastes it to the F1:I10 range on the same sheet. The original values in A1:I10 remain unchanged.
+        
+    ```json
+    {
+        "clientId":"617729022812-xxxxxxxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"ry_AXMsEe5Sn9iVoOY7ATnb8",
+        "refreshToken":"1/xxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.xxxxxxxxxxx-pOuVvnbnHhkVn5u8t6Qr",
+        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA",
+        "requests": [
+        {
+          "copyPaste": {
+            "source": {
+              "sheetId": 121832844,
+              "startRowIndex": 0,
+              "endRowIndex": 10,
+              "startColumnIndex": 0,
+              "endColumnIndex": 4
+            },
+            "destination": {
+              "sheetId": 121832844,
+              "startRowIndex": 0,
+              "endRowIndex": 10,
+              "startColumnIndex": 5,
+              "endColumnIndex": 9
+            },
+            "pasteType": "PASTE_FORMAT",
+            "pasteOrientation": "NORMAL"
+          }
+        }
+      ],
+      "fields": "spreadsheetId"
+    }
+    ```
+    **Sample response**
+    
+    ```json
+    {
+        "spreadsheetId": "12KoqoxmykLLYbtsm6CEOggk5bTKMEIFGCD9EBdrXFGA"
+    }
+    ```
+    
+??? note "googlespreadsheet.cutRange"
+    The cutRange method allows you to cuts the one range and pastes its data, formats, formulas, and merges to the another range on the same sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#cutpasterequest).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>spreadsheetId</td>
+            <td>Unique value of the spreadsheet</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td>It contains data that is a kind of update to apply to a spreadsheet. To perform multiple cutRange operation within the spread sheet, need to repeat `cutPaste` property within the `requests` property.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>fields (Outside the requests property)</td>
+            <td>Specifying which fields to include in a partial response.For the following request only the `spreadsheetId` will be included in the response.</td>
+            <td>Optional.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <googlespreadsheet.cutRange configKey="SpreadsheetConnection">
+        <spreadsheetId>{${payload.spreadsheetId}}</spreadsheetId>
+        <requests>{${payload.requests}}</requests>
+        <fields>{${payload.fields}}</fields>
+    </googlespreadsheet.cutRange>
+    ```
+
+    **Sample request**
+    
+    The following request cuts the range A1:D10 and pastes its data, formats, formulas, and merges to the F1:I10 range on the same sheet. The original source range cell contents are removed.
+        
+    ```json
+    {
+        "clientId":"617729022812-xxxxxxxxxxx.apps.googleusercontent.com",
+        "clientSecret":"xxxxxxxxxxxxx",
+        "refreshToken":"1/xxxxxxxxxxxxxx-fCyxRTyf-LpK6fDWF9DgcM",
+        "accessToken":"ya29.Ci-xxxxxxxxxxxxx",
+        "apiUrl":"https://sheets.googleapis.com/v4/spreadsheets",
+        "spreadsheetId": "14PJALKcIXLr75rJWXlHhVjOt7z0Nby7AvcKXJGhMN2s",
+        "requests": [
+        {
+          "cutPaste": {
+            "source": {
+              "sheetId": 1020069232,
+              "startRowIndex": 0,
+              "endRowIndex": 10,
+              "startColumnIndex": 0,
+              "endColumnIndex": 4
+            },
+            "destination": {
+              "sheetId": 401088778,
+              "rowIndex": 0,
+              "columnIndex": 5
+            },
+            "pasteType": "PASTE_NORMAL"
           }
         }
       ],
