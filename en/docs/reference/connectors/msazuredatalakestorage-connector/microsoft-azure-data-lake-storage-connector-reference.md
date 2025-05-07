@@ -10,7 +10,7 @@ To use the Microsoft Azure Data Lake Storage connector, you need to initialize t
 
 To use the Microsoft Azure Storage connector, add the element in your configuration before carrying out any Azure Data Lake Storage operations. This Microsoft Azure Data Lake Storage configuration authenticates with Microsoft Azure Data Lake Storage by Access Key, Azure Active Directory(Oauth2), or Shared Access Signature(SAS) which are used for every operation.
 
-> **Note**: To work with the Microsoft Azure Data Lake Storage connector, you need to have a Microsoft Azure account. If you do not have a Microsoft Azure account, go to [https://azure.microsoft.com/en-in/free/](https://azure.microsoft.com/en-in/free/) and create a Microsoft Azure account.
+> **Note**: To work with the Microsoft Azure Data Lake Storage connector, you need to create a **Storage Account** in **Microsoft Azure Data Lake Storage account**. See [Azure Storage Configuration]({{base_path}}/reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration/) documentation for more information.
 
 ??? note "MSAzureDataLake"
     The init operation is used to initialize the connection to Microsoft Azure.
@@ -119,7 +119,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name.</td>
+            <td>Name of the variable to which the output of the operation should be assigned.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -165,7 +165,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>No</td>
         </tr>
         <tr>
@@ -310,7 +310,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>No</td>
         </tr>
         <tr>
@@ -432,7 +432,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -526,7 +526,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -650,7 +650,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -758,7 +758,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -920,7 +920,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -1002,7 +1002,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -1151,7 +1151,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -1235,12 +1235,12 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>overwriteBody</td>
-            <td>Replace the Message Body in Message Context with the response of the operation.</td>
+            <td>Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -1295,7 +1295,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name.</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -1384,7 +1384,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -1452,7 +1452,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         </tr>
         <tr>
             <td>responseVariable</td>
-            <td>Response variable name</td>
+            <td>Name of the variable to which the output of the operation should be assigned</td>
             <td>Yes</td>
         </tr>
         <tr>

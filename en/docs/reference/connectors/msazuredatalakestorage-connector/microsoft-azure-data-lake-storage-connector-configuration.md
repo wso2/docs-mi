@@ -1,8 +1,8 @@
-# Setting up the Microsoft Azure Data Lake Storage Environment
+# Set up the Microsoft Azure Data Lake Storage Environment
 
 To work with the Microsoft Azure Storage connector, you need to have a Microsoft Azure account. If you do not have a Microsoft Azure account, you are prompted to create one when you sign up.
 
-## Signing Up for Microsoft Azure
+## Sign Up for Microsoft Azure
 
 To sign up for Microsoft Azure:
 
@@ -120,6 +120,6 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
 
    3. Assign an Azure role for access to blob data. For more information refer [Assign an Azure role](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) and [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
             
-> **Note**:  Azure Storage Account does not support HTTP requests. If you are using a storage key to access the storage account, please set **Secure transfer required** to **Disabled** in storage account configuration on Azure Portal. 
+> **Note**:  Azure Storage Account does not support HTTP requests. If you are using a storage key to access the storage account, set **Secure transfer required** to **Disabled** in storage account configuration on Azure Portal. 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazuredatalakestorage-connector/secure-transfer.png" title="Secure transfer" width="800" alt="Secure transfer"/> 
   
