@@ -33,8 +33,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 2. Give the **Project Name** as `GSheetIntegration` and click the **create** button.
   <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration-project-2.png" title="Creating a new project" width="800" alt="Creating a new project"/>
 
-
-### Creating the Integration Logic for Create Operation
+### Create the Integration Logic for the Create Operation
 
 1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
@@ -99,7 +98,7 @@ To select the `spreadsheetId` and `spreadsheetUrl` fields from the response payl
 After that, your integration logic should look like below.
 <img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/create-integration.png" title="Integration Logic" width="800" alt="Integration Logic"/>
 
-### Creating the Integration Logic for Write and Read Operation
+### Create the Integration Logic for the Write and Read Operation
 
 1. Follow the same steps as above to create a new API with the name `/write` and `/read` respectively.
 
