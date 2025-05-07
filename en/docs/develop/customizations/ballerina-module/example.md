@@ -8,17 +8,17 @@ This document demonstrates how to use Ballerina code inside MI projects using th
 
 This example demonstrates the transformation of a JSON payload representing patient data into a new format. The Ballerina module mapPatient processes the input data, extracts relevant details such as name, gender, and address, and maps them into a structured response.
 
-<img src="{{base_path}}/assets/img/reference/ballerina-module/patient-mapping.png" title="Patient Mapping Flow" width="800" alt="Patient Mapping Flow"/>
+<img src="{{base_path}}/assets/img/develop/ballerina-module/patient-mapping.png" title="Patient Mapping Flow" width="800" alt="Patient Mapping Flow"/>
 
 #### Example 2: Price Calculation
 This example illustrates the use of a Ballerina module to calculate the total price of items in an XML payload. The module calculates the total price by summing up the prices of individual items and returns the result as a JSON response.
 
-<img src="{{base_path}}/assets/img/reference/ballerina-module/price-calculation.png" title="Price Calculation Flow" width="800" alt="Price Calculation Flow"/>
+<img src="{{base_path}}/assets/img/develop/ballerina-module/price-calculation.png" title="Price Calculation Flow" width="800" alt="Price Calculation Flow"/>
 
 #### Example 3: Dynamic Type-Based Transformation
 This example handles various data types like string, integer, boolean, float, and decimal. Based on the input type, the corresponding Ballerina module performs operations such as doubling a string, inverting a boolean, or calculating a reciprocal of a float. The result is returned in a standardized format.
 
-<img src="{{base_path}}/assets/img/reference/ballerina-module/dynamic-type-transformation.png" title="Dynamic Type-Based Transformation Flow" width="800" alt="Dynamic Type-Based Transformation Flow"/>
+<img src="{{base_path}}/assets/img/develop/ballerina-module/dynamic-type-transformation.png" title="Dynamic Type-Based Transformation Flow" width="800" alt="Dynamic Type-Based Transformation Flow"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -29,19 +29,22 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 2. **Create or Open an Integration Project**
    Use the extension to [Create a new integration project](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) given the name `ballerina-module-example` or open an existing integration project. This project will serve as the workspace for your Ballerina module development.
-   <img src="{{base_path}}/assets/img/reference/ballerina-module/createNewProject.png" title="Create Integration Project" width="800" alt="Create Integration Project"/>
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/createNewProject.png" title="Create Integration Project" width="800" alt="Create Integration Project"/>
 
 
 ## Create the Ballerina Module
 
-1. Expand the artifact types in the `Add artifact` view and select **Ballerina Module**.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/addModule.png" title="Select Ballerina Module" width="800" alt="Select Ballerina Module"/>
+1. Expand the artifact types in the **Add artifact** view and select **Ballerina Module**.
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/addModule.png" title="Select Ballerina Module" width="800" alt="Select Ballerina Module"/>
 
 2. In the `Create Ballerina Module` form, enter a **name** and a **version** for the module and click **Create**.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-bal.png" title="Create Ballerina Module Form" width="800" alt="Create Ballerina Module Form"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-bal.png" title="Create Ballerina Module Form" width="800" alt="Create Ballerina Module Form"/>
 
 3. Update the generated sample Ballerina code with following transformation logic and save the file.
-??? note "Ballerina Implementation for All Three Examples"
+    
+    ??? note "Ballerina Implementation for All Three Examples"
 
         import wso2/mi;
 
@@ -188,35 +191,59 @@ If you do not want to configure this yourself, you can simply [get the project](
             xml y = x/<name>;
             return xml `<result>${y}</result>`;
         }
+
 4. Click the **Build Ballerina Module** icon.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-bal-code.png" title="Ballerina Module Code" width="800" alt="Ballerina Module Code"/>
-5. Once the Ballerina module is successfully built, it will appear in the `Mediator palette`.<br/>
-<img src="{{base_path}}/assets/img/reference/ballerina-module/built-module.png" title="Mediator Palette View" width="800" alt="Mediator Palette View"/><br/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-bal-code.png" title="Ballerina Module Code" width="800" alt="Ballerina Module Code"/>
+
+5. Once the Ballerina module is successfully built, it will appear in the `Mediator palette`.
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/built-module.png" title="Mediator Palette View" width="800" alt="Mediator Palette View"/>
 
 ## Create the Integration Logic
 
-1. Lets build the 3 apis that will use the above Ballerina module. Go the **Project Overview** and click on the **+** button. and select **API**.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+1. Lets build the three APIs that will use the above Ballerina module. Go the **Project Overview** and click on the **+** button. and select **API**.
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+
 2. Provide the name of the API as `/patientmap` and click **Create**.<br/>
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-api-name.png" title="Adding a Rest API Name" width="600" alt="Adding a Rest API Name"/>
-<br/>Following the above steps, you can create the other two APIs (`/pricecal` and `/typeprocess`) as well.
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-api-name.png" title="Adding a Rest API Name" width="600" alt="Adding a Rest API Name"/>
+
+    Following the above steps, you can create the other two APIs (`/pricecal` and `/typeprocess`) as well.
 3. By default, the API will be created with a get method. Click on the **pateintmap** API and click on **Edit**.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-edit-api.png" title="Edit API" width="800" alt="Edit API"/>
-4. Select the **POST** method and click on **Update**.<br/>
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-edit-api-method.png" title="Edit API Method" width="400" alt="Edit API Method"/>
-<br/>Repeat the above steps for the other two APIs as well.
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-edit-api.png" title="Edit API" width="800" alt="Edit API"/>
+
+4. Select the **POST** method and click on **Update**.
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-edit-api-method.png" title="Edit API Method" width="400" alt="Edit API Method"/>
+
+    Repeat the above steps for the other two APIs as well.
+
 5. Now, click on the **patientmap** API and click on **+** to add a new mediator then select *MapPatient* operation in **Ballerina Module**.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-ballerina-mediator.png" title="Add Mediator" width="800" alt="Add Mediator"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-ballerina-mediator.png" title="Add Mediator" width="800" alt="Add Mediator"/>
+
 6. Click the **Ex** button and select the **payload** as the input and click **OK**.<br/>
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-ballerina-mediator-input.png" title="Add Mediator Input" width="600" alt="Add Mediator Input"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-ballerina-mediator-input.png" title="Add Mediator Input" width="600" alt="Add Mediator Input"/>
+
 7. Now click on the **+** button again and add a **payload mediator**.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-payload-factory-mediator.png" title="Add Payload Mediator" width="800" alt="Add Payload Mediator"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-payload-factory-mediator.png" title="Add Payload Mediator" width="800" alt="Add Payload Mediator"/>
+
 8. As payload, click the **fx** button and select **variables>ballerina_functions_mapPatient1>payload** and click **OK**.<br/>
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-payload-factory-mediator-payload.png" title="Add Payload" width="600" alt="Add Payload"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-payload-factory-mediator-payload.png" title="Add Payload" width="600" alt="Add Payload"/>
+
 9. Click on the **+** button again and add a **Response** mediator.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-add-response-mediator.png" title="Add Response Mediator" width="800" alt="Add Response Mediator"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-add-response-mediator.png" title="Add Response Mediator" width="800" alt="Add Response Mediator"/>
+
 11. We need to build the other two APIs as well for that following Synaps codes can be used. Open the `pricecal` and `typeprocess` APIs and go to the **Code View** and replace the code with the following.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-code-view.png" title="Code View" width="800" alt="Code View"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-code-view.png" title="Code View" width="800" alt="Code View"/>
 
 ??? note "Synapse Code for Price Calculation API"
         <api xmlns="http://ws.apache.org/ns/synapse" name="pricecal" context="/pricecal">
@@ -312,76 +339,90 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Run the Project and Test the APIs
 1. Click on the **Run** icon to run the integration project.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-run-integration-project.png" title="Run Integration Project" width="800" alt="Run Integration Project"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-run-integration-project.png" title="Run Integration Project" width="800" alt="Run Integration Project"/>
+
 2. Open the integrated **Try it** feature or use a tool like Postman to test the APIs.
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-try-it.png" title="Try It Feature" width="800" alt="Try It Feature"/>
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-try-it.png" title="Try It Feature" width="800" alt="Try It Feature"/>
+    
 3. For the **Patient Mapping API**, use the following JSON payload:
-```json
-{
-   "patientType": "Patient",
-   "patientId": "123456",
-   "version": "1",
-   "lastUpdatedOn": "2020-02-01T05:30:41.785+00:00",
-   "originSource": "#hYoipn8902",
-   "status": "generated",
-   "identifiers": [
-      {
-         "id_type": {
-         "codes": [
-            {
-               "system_source": "http://hl7.org/fhir/v2/0203",
-               "identifier_code": "MR"
-            }
-         ]
-         },
-         "id_value": "1213I7-bhjasb-80232-82032-shab9201212"
-      }
-   ],
-   "firstName": "Andrew",
-   "lastName": "Simons",
-   "description": {
-      "status": "generated"
-   },
-   "gender": "male",
-   "locationDetail": [
-      {
-         "nation": "US",
-         "town": "Seattle",
-         "region": "WA",
-         "zipCode": "98101",
-         "identifier": "5648223",
-         "province": "WA"
-      }
-   ]
-   }
-```
-You will get a response similar to the following:
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-patient-response.png" title="Patient Mapping API Response" width="800" alt="Patient Mapping API Response"/>
+
+    ```json
+    {
+    "patientType": "Patient",
+    "patientId": "123456",
+    "version": "1",
+    "lastUpdatedOn": "2020-02-01T05:30:41.785+00:00",
+    "originSource": "#hYoipn8902",
+    "status": "generated",
+    "identifiers": [
+        {
+            "id_type": {
+            "codes": [
+                {
+                "system_source": "http://hl7.org/fhir/v2/0203",
+                "identifier_code": "MR"
+                }
+            ]
+            },
+            "id_value": "1213I7-bhjasb-80232-82032-shab9201212"
+        }
+    ],
+    "firstName": "Andrew",
+    "lastName": "Simons",
+    "description": {
+        "status": "generated"
+    },
+    "gender": "male",
+    "locationDetail": [
+        {
+            "nation": "US",
+            "town": "Seattle",
+            "region": "WA",
+            "zipCode": "98101",
+            "identifier": "5648223",
+            "province": "WA"
+        }
+    ]
+    }
+    ```
+
+    You will get a response similar to the following:
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-patient-response.png" title="Patient Mapping API Response" width="800" alt="Patient Mapping API Response"/>
+
 4. For the **Price Calculation API**, use the following XML payload:
-```xml
-    <items>
-      <item>
-         <name>book</name>
-         <price>180</price>
-      </item>
-      <item>
-         <name>pen</name>
-         <price>25</price>
-      </item>
-      <item>
-         <name>pencil</name>
-         <price>12</price>
-      </item>
-   </items>
-```
-You will get a response similar to the following:
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-price-response.png" title="Price Calculation API Response" width="800" alt="Price Calculation API Response"/>
+
+    ```xml
+        <items>
+        <item>
+            <name>book</name>
+            <price>180</price>
+        </item>
+        <item>
+            <name>pen</name>
+            <price>25</price>
+        </item>
+        <item>
+            <name>pencil</name>
+            <price>12</price>
+        </item>
+    </items>
+    ```
+
+    You will get a response similar to the following:
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-price-response.png" title="Price Calculation API Response" width="800" alt="Price Calculation API Response"/>
+
 5. For the **Type Processing API**, use the following JSON payload:
-```json
-{
-   "type": "decimal",
-   "val": 5.3
-}
-```
-You will get a response similar to the following:
-<img src="{{base_path}}/assets/img/reference/ballerina-module/example-type-response.png" title="Type Processing API Response" width="800" alt="Type Processing API Response"/>
+
+    ```json
+    {
+    "type": "decimal",
+    "val": 5.3
+    }
+    ```
+    You will get a response similar to the following:
+
+    <img src="{{base_path}}/assets/img/develop/ballerina-module/example-type-response.png" title="Type Processing API Response" width="800" alt="Type Processing API Response"/>

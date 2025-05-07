@@ -221,6 +221,9 @@ nav:
               - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
               - Create a New Connector: develop/customizations/creating-new-connector.md
               - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+              - Create a Ballerina Module:
+                - Overview: develop/customizations/ballerina-module/overview.md
+                - Examples: develop/customizations/ballerina-module/example.md
           - Securing Artifacts:
               - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
               - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
@@ -895,9 +898,6 @@ nav:
           - FIX Parameters: reference/synapse-properties/transport-parameters/fix-transport-parameters.md
           - MailTo Parameters: reference/synapse-properties/transport-parameters/mailto-transport-parameters.md
           - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
-      - Ballerina Module:
-          - Overview: reference/ballerina-module/overview.md
-          - Examples: reference/ballerina-module/example.md
       - Security References:
           - Customize Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
           - Use Keystores: reference/mi-security-reference/using-keystores.md
