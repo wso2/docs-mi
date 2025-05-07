@@ -115,15 +115,13 @@ password = "$secret{server_secret}"
 
 ### In synapse configurations
 
-You can refer an encrypted secret in your synapse configurations by using the **vault lookup** function (`{wso2:vault-lookup('alias')`) in place of the plain-text secret as shown below. Replace `alias` with the secret's alias that is defined under the `[secrets]` section.
+You can refer an encrypted secret in your synapse configurations by using the **vault lookup** function (`${wso2-vault('alias')}`) in place of the plain-text secret as shown below. Replace `alias` with the secret's alias that is defined under the `[secrets]` section.
 
 !!! Note
     You can only use encrypted [static secrets](#static-secrets) here.
 
 ```xml
-<log level="custom">
-  <property expression="wso2:vault-lookup('synapse_secret')" name="secret"/>
-</log>
+<variable name="password" expression="${wso2-vault('mysqlpassword')}"/>
 ```
 
 ## Step 4: Populating dynamic secrets
