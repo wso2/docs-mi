@@ -1580,4 +1580,4 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 | 700717 | MS_AZURE_DATALAKE_GEN2:DIRECTORY_ALREADY_EXISTS_ERROR |
 | 710018 | MS_AZURE_DATALAKE_GEN2:INVALID_MAX_RETRY_REQUESTS |
 
-In addition to the above `ERROR_DETAIL` property will contain detail information about the error. For more information refer [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
+In addition to the above `ERROR_DETAIL` property will contain detail information about the error. For more information, refer to [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
