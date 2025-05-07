@@ -8,14 +8,14 @@ The WSO2 Micro Integrator module for Ballerina enables integration developers to
 - VS Code with WSO2 Micro Integrator extension installed
 - Ballerina VS Code extension installed
 
-## Getting Started with Ballerina Module for MI
+## Get Started with Ballerina Module for MI
 
 There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 1. Using the WSO2 MI VS Code Extension
 2. Using the Command Line Interface (CLI)
 
-### Method 1: Using WSO2 MI VS Code Extension
+### Method 1: Use WSO2 MI VS Code Extension
 
 1. Install the [WSO2 Micro Integrator VSCode Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/).
 2. [Create](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) a new integration project or open an existing project.
@@ -36,7 +36,7 @@ There are two ways to use the Ballerina module in your WSO2 MI projects:
 <img src="{{base_path}}/assets/img/reference/ballerina-module/built-module.png" title="Mediator Palette View" width="800" alt="Mediator Palette View"/><br/>
 If any changes are made to the transformation logic, the module can be rebuilt by clicking the **Build Ballerina Module** icon or by clicking the **Refresh** icon next to the relevant module in the Mediator Palette.<br/><img src="{{base_path}}/assets/img/reference/ballerina-module/refresh.png" title="Refresh Module" width="400" alt="Refresh Module"/>
 
-### Method 2: Using Command Line Interface (CLI)
+### Method 2: Use Command Line Interface (CLI)
 
 #### Pull `mi-module-gen` tool
 
