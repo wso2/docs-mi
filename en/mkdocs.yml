@@ -895,6 +895,9 @@ nav:
           - FIX Parameters: reference/synapse-properties/transport-parameters/fix-transport-parameters.md
           - MailTo Parameters: reference/synapse-properties/transport-parameters/mailto-transport-parameters.md
           - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
+      - Ballerina Module:
+          - Overview: reference/ballerina-module/overview.md
+          - Examples: reference/ballerina-module/example.md
       - Security References:
           - Customize Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
           - Use Keystores: reference/mi-security-reference/using-keystores.md
