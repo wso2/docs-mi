@@ -3,7 +3,7 @@
 WSO2 Integration Studio provides a comprehensive development experience for building integration solutions.
 
 !!! warning
-    WSO2 Integration Studio is deprecated. It is recommended to use the [Micro Integrator extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
+    WSO2 Integration Studio is now deprecated. Transition to the new [Micro Integrator Developer Toolkit for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) — a fully featured, AI powered low code environment to develop, test, and deploy integration solutions.
 
 ### Installation prerequisites
 
