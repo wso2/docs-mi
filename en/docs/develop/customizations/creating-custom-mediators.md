@@ -20,7 +20,7 @@ Follow the steps below to create a custom mediator artifact:
 
 3. Enter the package name and class name of your mediator project.
 
-      ![new mediator project]({{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png)  
+    <a href="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png"><img src="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png" alt="class mediator form" width="80%"></a>
 
 4. Click <b>Create</b> and see that the project is now listed in the project explorer.  
 
