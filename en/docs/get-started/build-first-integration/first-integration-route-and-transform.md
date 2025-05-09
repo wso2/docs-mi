@@ -2,6 +2,19 @@
 
 In the previous tutorial, you learned how to develop, deploy, and test your first integration in WSO2 MI. In this tutorial, you will learn how to call an HTTP backend service and dynamically build a payload.
 
+## What you'll build
+
+Let's consider a scenario where a client sends a deposit request to the `Bank` API deployed in WSO2 Micro Integrator. The API calls a currency converter service to convert the amount to USD, and then responds to the client with the converted deposit value and status.
+
+<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_route.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_route.png" alt="Create New Project" width="60%"></a>
+
+## What you'll learn
+
+- How to create an API resource.
+- How to use the HTTP connector.
+- How to use expressions.
+- How to use the Mediator TryOut.
+
 ## Prerequisites
 
 1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
@@ -12,19 +25,6 @@ In the previous tutorial, you learned how to develop, deploy, and test your firs
 2. You must have completed the **Develop an Integration API** tutorial under **Build your first Integration** before proceeding. Start the [Develop an Integration API]({{base_path}}/get-started/build-first-integration/first-integration-api-service/)  tutorial if you haven’t completed it yet.
 
 Follow the instructions below to modify the API to call an HTTP endpoint and dynamically build a payload.
-
-## What you'll learn
-
-- How to create an API resource.
-- How to use the HTTP connector.
-- How to use expressions.
-- How to use the Mediator TryOut.
-
-## What you'll build
-
-Let's consider a scenario where a client sends a deposit request to the `Bank` API deployed in WSO2 Micro Integrator. The API calls a currency converter service to convert the amount to USD, and then responds to the client with the converted deposit value and status.
-
-<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_route.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_route.png" alt="Create New Project" width="60%"></a>
 
 ## Step 1 - Create a new API resource
 

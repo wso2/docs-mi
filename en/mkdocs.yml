@@ -226,6 +226,9 @@ nav:
               - Create a Synapse Handler: develop/customizations/creating-synapse-handlers.md
               - Create a New Connector: develop/customizations/creating-new-connector.md
               - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+              - Create a Ballerina Module:
+                - Overview: develop/customizations/ballerina-module/overview.md
+                - Examples: develop/customizations/ballerina-module/example.md
           - Securing Artifacts:
               - Use Docker Secrets in Synapse Configurations: develop/creating-artifacts/using-docker-secrets.md
               - Use Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using-k8s-secrets.md
@@ -689,9 +692,13 @@ nav:
               - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
           - Google Spreadsheet Connector:
               - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
-              - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
               - Get Credentials for Google Spreadsheet: reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md
-              - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+              - 4.x:
+                    - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+                    - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
+              - 3.x:
+                    - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-example.md
+                    - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-config.md
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
@@ -1001,7 +1008,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
-              'get-started/quick-start-guide.md': https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
+              'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'
               'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.4.0/develop/creating-artifacts/data-services/creating-data-services/'

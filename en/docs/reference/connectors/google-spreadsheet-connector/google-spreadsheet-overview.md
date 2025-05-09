@@ -4,13 +4,14 @@ The Google Sheets API lets users to read and modify any aspect of a spreadsheet.
 
 Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connector-googlespreadsheet">WSO2 Connector Store</a> to download the Google Spreadsheet connector.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/google-spreadsheet-store.png" title="Google Spreadsheet Connector Store" width="200" alt="Google Spreadsheet Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/googlesheet/logo.png" title="Google Spreadsheet Connector Store" width="200" alt="Google Spreadsheet Connector Store"/>
 
 ## Compatibility
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
-| 3.0.1    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| 4.0.0    | MI 4.4.x|
+| 3.0.2    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, MI 4.3.x|
 
 For older versions, see the details in the connector store.
 
@@ -28,6 +29,6 @@ As an open source project, WSO2 extensions welcome contributions from the commun
 
 To contribute to the code for this connector, create a pull request in the following repository. 
 
-* [Google Spreadsheet Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-googlespreadsheet)
+[Google Spreadsheet Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-googlespreadsheet)
 
 Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
