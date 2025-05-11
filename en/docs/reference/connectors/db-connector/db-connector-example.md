@@ -4,21 +4,19 @@ The DB Connector can be used to interact with relational databases using JDBC, p
 
 ## What you'll build
 
-This example demonstrates how to use the DB Connector to create a simple Order Management API with two resources:
+This example demonstrates how to use the DB Connector to create a simple Order Management API.
 
-1.  **POST `/orders`**: Accepts new order details (customer ID, product ID, quantity). It checks product availability, inserts the order details into `Orders` and `OrderItems` tables, and updates the product inventory in the `Products` table, all within a single database transaction. It returns the newly created `order_id`.
-2.  **GET `/orders/{orderId}`**: Retrieves the details of a specific order by joining `Orders`, `OrderItems`, `Products`, and `Customers` tables. It returns the result in JSON or XML format based on the `Accept` header.
+1.  **GET `/place_order`**: Accepts new order details (customer ID, product ID, quantity). It checks product availability, inserts the order details into `Orders` and `OrderItems` tables, and updates the product inventory in the `Products` table, all within a single database transaction. It returns the newly created `order_id`.
 
 This example showcases:
-*   Using `select`, `insert`, and `update` operations.
+*   Using `select`, `insert`, and `executeQuery` operations.
 *   Using prepared statements for security and efficiency.
 *   Managing database transactions (`beginTransaction`, `commitTransaction`, `rollbackTransaction`).
 *   Retrieving auto-generated keys.
-*   Handling results (JSON/XML).
 *   Conditional processing based on database query results (Filter mediator).
 *   Reading URI parameters and request payloads.
 
-### Database Schema (Example - PostgreSQL/MySQL)
+### Database Schema (Example - MySQL)
 
 You'll need a database with the following tables and sample data:
 
@@ -33,14 +31,14 @@ CREATE TABLE Products (
 
 -- Customers Table
 CREATE TABLE Customers (
-    customer_id INT PRIMARY KEY,
+    customer_id INT PRIMARY KEY AUTO_INCREMENT, -- Or SERIAL for PostgreSQL
     customer_name VARCHAR(255) NOT NULL,
     email VARCHAR(255)
 );
 
 -- Orders Table
 CREATE TABLE Orders (
-    order_id SERIAL PRIMARY KEY, -- Or AUTO_INCREMENT for MySQL
+    order_id INT PRIMARY KEY AUTO_INCREMENT, -- Or SERIAL for PostgreSQL
     customer_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_amount DECIMAL(10, 2),
@@ -50,7 +48,7 @@ CREATE TABLE Orders (
 
 -- OrderItems Table
 CREATE TABLE OrderItems (
-    order_item_id SERIAL PRIMARY KEY, -- Or AUTO_INCREMENT for MySQL
+    order_item_id INT PRIMARY KEY AUTO_INCREMENT, -- Or SERIAL for PostgreSQL
     order_id INT NOT NULL,
     product_id VARCHAR(50) NOT NULL,
     quantity INT NOT NULL,
@@ -74,180 +72,158 @@ If you do not want to configure this yourself, you can simply [get the project](
 ## Set up the integration project
 
 1.  Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up an **Integration Project**.
-2.  Add the DB Connector to your project. Search for `rdbms` or `db` connector in the tooling palette and add it.
-3.  Configure a DB Connection Pool:
-    *   Create a new **DB Connection** configuration element in your project (e.g., under `src/main/synapse-config/connections`).
-    *   Configure it with the details for your database (MySQL, PostgreSQL, etc.) similar to the examples in the [DB Connector Reference]({{base_path}}/reference/connectors/db-connector/db-connector-config/#connection-configurations). Give it a unique name, e.g., `OrderDBPool`.
 
-## Create the integration logic for placing an order (POST /orders)
+2.  Click Add Artifact button in the home view
 
-1.  Under the **Create an integration** section, select **API** to create a new REST API. Name it `OrderManagementAPI` and set the context to `/ordermgmt`.
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/create-api.png" title="Create API" width="800" alt="Create API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-artifact.png" title="Add Artifact" width="500" alt="Add Artifact"/>
 
-2.  Create a new API resource for the path `/orders` with the `POST` method.
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/create-post-resource.png" title="Create POST Resource" width="800" alt="Create POST Resource"/>
+3.  Select **API** and click
 
-3.  **Extract Request Payload**: Drag a **Property** mediator onto the canvas. Configure it to extract `customerId`, `productId`, and `quantity` from the incoming JSON payload. Repeat for each property.
-    *   Property Name: `customerId`, Type: `INTEGER`, Value Type: `Expression`, Value Expression: `json-eval($.customerId)`
-    *   Property Name: `productId`, Type: `STRING`, Value Type: `Expression`, Value Expression: `json-eval($.productId)`
-    *   Property Name: `reqQuantity`, Type: `INTEGER`, Value Type: `Expression`, Value Expression: `json-eval($.quantity)`
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/extract-payload.png" title="Extract Payload Properties" width="400" alt="Extract Payload Properties"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-api.png" title="Add API" width="500" alt="Add API"/>
 
-4.  **Start Transaction**: Add the `db.beginTransaction` operation from the DB Connector palette. Configure it to use your connection pool (`OrderDBPool`).
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/begin-transaction.png" title="Begin Transaction" width="400" alt="Begin Transaction"/>
+4. Set the name as `ordermgmt` and click **Create**.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/set-name-to-api.png" title="Add API Name" width="500" alt="Add API Name"/>
+
+5. Click on the three dots next to the GET resource and select **Edit**.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/edit-resource.png" title="Edit Resource" width="500" alt="Edit Resource"/>
+
+6. Set the resource path as `place_order`
+
+7. Click **Add Query Param** and set the name as `customerId` and click **Add**.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-query-param.png" title="Add Query Param" width="500" alt="Add Query Param"/>
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-query-param-item.png" title="Add Query Param" width="500" alt="Add Query Param"/>
+
+8. Repeat the above step to add the following query parameters:
+    *   `productId`
+    *   `quantity`
+
+
+9. Click **Update** to save the changes.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/update-query-params.png" title="Update Query Params" width="500" alt="Update Query Params"/>
+
+10. Click on the updated resource. It opens the API in the diagram view. Then click on the + button below to START to add connectors or mediators
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-connector.png" title="Add Mediator" width="500" alt="Add Mediator"/>
+
+11. Click on the **Connections** tab and click on the **Add new connection** button.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-connection.png" title="Add Connection" width="500" alt="Add Connection"/>
+
+12. Search for **MySQL** or **PostgreSQL** and click the appropriate connection.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-mysql-connection.png" title="Add MySQL Connection" width="500" alt="Add MySQL Connection"/>
+
+13. Fill in the connection details and click **Add**.
+    *   **Connection Name**: `DBCon1`
+    *   **JDBC URL**: `jdbc:mysql://localhost:3306/your_database_name`
+    *   **Username**: `your_db_username`
+    *   **Password**: `your_db_password`
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/add-connection-details.png" title="Add Connection Details" width="500" alt="Add Connection Details"/>
+
+## Create the integration logic for placing an order (GET /place_order)
+
+1. Create the integration flow as shown in the image. The XML code is provided below.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/db/place-order-flow.png" title="Place Order Flow" width="500" alt="Place Order Flow"/>
+
+??? note "Source view"
     ```xml
-    <db.beginTransaction configKey="OrderDBPool"/>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/ordermgmt" name="ordermgmt" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/place_order?customerId={customerId}&amp;productId={productId}&amp;quantity={quantity}">
+            <inSequence>
+                <db.beginTransaction configKey="DBCon1">
+                    <timeout>300</timeout>
+                    <isolationLevel>TRANSACTION_READ_COMMITTED</isolationLevel>
+                </db.beginTransaction>
+                <db.select configKey="DBCon11">
+                    <query>SELECT * FROM `products` WHERE `product_id` = '${params.queryParams.productId}'</query>
+                    <preparedStmt>SELECT * FROM `products` WHERE `product_id` = ?</preparedStmt>
+                    <columnNames>productid</columnNames>
+                    <columnTypes>VARCHAR</columnTypes>
+                    <format>json</format>
+                    <table>products</table>
+                    <columns>[]</columns>
+                    <queryType>online</queryType>
+                    <orderBy></orderBy>
+                    <queryTimeout></queryTimeout>
+                    <responseVariable>db_select_1</responseVariable>
+                    <overwriteBody>false</overwriteBody>
+                    <productid>{${params.queryParams.productId}}</productid>
+                </db.select>
+                <filter xpath="${vars.db_select_1.payload.rows[0].stock_quantity &gt;= params.queryParams.quantity}">
+                    <then>
+                        <db.insert configKey="DBCon11">
+                            <query>INSERT INTO `orders` (`customer_id`, `order_date`, `total_amount`) VALUES (${params.queryParams.customerId}, 2025-04-30 14:23:45, ${vars.db_select_1.payload.rows[0].price * params.queryParams.quantity})</query>
+                            <preparedStmt>INSERT INTO `orders` (`customer_id`, `order_date`, `total_amount`) VALUES (?, ?, ?)</preparedStmt>
+                            <columnNames>customerid, orderdate, totalamount</columnNames>
+                            <columnTypes>INT, TIMESTAMP, DECIMAL</columnTypes>
+                            <format>json</format>
+                            <table>orders</table>
+                            <columns>[]</columns>
+                            <queryType>online</queryType>
+                            <queryTimeout></queryTimeout>
+                            <responseVariable>db_insert_1</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                            <customerid>{${params.queryParams.customerId}}</customerid>
+                            <orderdate>2025-04-30 14:23:45</orderdate>
+                            <totalamount>{${vars.db_select_1.payload.rows[0].price * params.queryParams.quantity}}</totalamount>
+                            <status></status>
+                        </db.insert>
+                        <db.executeQuery configKey="DBCon1">
+                            <query>UPDATE `products` SET `stock_quantity` = `stock_quantity` - ? WHERE product_id = ?</query>
+                            <format>json</format>
+                            <parameters>[[${params.queryParams.quantity}, "INTEGER"], [${params.queryParams.productId}, "VARCHAR"], ]</parameters>
+                            <isPreparedStatement>true</isPreparedStatement>
+                            <isResultSet>false</isResultSet>
+                            <queryTimeout></queryTimeout>
+                            <fetchSize></fetchSize>
+                            <maxRows></maxRows>
+                            <transactionIsolation>TRANSACTION_NONE</transactionIsolation>
+                            <responseVariable>db_executeQuery_1</responseVariable>
+                            <overwriteBody>false</overwriteBody>
+                        </db.executeQuery>
+                        <db.commitTransaction configKey="DBCon1"/>
+                        <respond/>
+                    </then>
+                    <else>
+                        <db.rollbackTransaction configKey="DBCon1"/>
+                    </else>
+                </filter>
+            </inSequence>
+            <faultSequence>
+            </faultSequence>
+        </resource>
+    </api>
     ```
-
-5.  **Check Stock & Get Price**: Add the `db.select` operation.
-    *   Configure the `configKey` to `OrderDBPool`.
-    *   SQL: `SELECT price, stock_quantity FROM Products WHERE product_id = ?`
-    *   Add one parameter: Type `VARCHAR`, Value `{$ctx:productId}`.
-    *   Set `responseVariable` to `productInfo`.
-    *   Set `overwriteBody` to `false`.
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/select-product.png" title="Select Product Info" width="600" alt="Select Product Info"/>
-    ```xml
-    <db.select configKey="OrderDBPool">
-        <sql>SELECT price, stock_quantity FROM Products WHERE product_id = ?</sql>
-        <parameters>
-            <parameter type="VARCHAR" value="{$ctx:productId}"/>
-        </parameters>
-        <responseVariable>productInfo</responseVariable>
-        <overwriteBody>false</overwriteBody>
-    </db.select>
-    ```
-
-6.  **Extract Product Details**: Add Property mediators to extract the price and stock from the `productInfo` variable. Check if results exist first.
-    *   Property Name: `productPrice`, Type: `DOUBLE`, Value Expression: `json-eval($.results[0].price)`
-    *   Property Name: `currentStock`, Type: `INTEGER`, Value Expression: `json-eval($.results[0].stock_quantity)`
-    *   *(Add error handling if `productInfo.results` is empty)*
-
-7.  **Validate Stock**: Add a **Filter** mediator.
-    *   Condition (XPath): `get-property('currentStock') >= get-property('reqQuantity')`
-    *   *(Alternative: Use a Script mediator for more complex validation)*
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/filter-stock.png" title="Filter Stock" width="600" alt="Filter Stock"/>
-
-8.  **Handle Insufficient Stock (Filter 'Else' path)**:
-    *   Add the `db.rollbackTransaction` operation (`configKey="OrderDBPool"`).
-    *   Add a **PayloadFactory** mediator to create an error response:
-        ```json
-        {
-          "error": "Insufficient stock or product not found",
-          "productId": "{$ctx:productId}",
-          "requested": "{$ctx:reqQuantity}",
-          "available": "{$ctx:currentStock}"
-        }
-        ```
-    *   Set HTTP Status Code (e.g., 400) using a Property mediator: ` <property name="HTTP_SC" value="400" scope="axis2"/>`
-    *   Add a **Respond** mediator.
-
-9.  **Continue Order Processing (Filter 'Then' path)**:
-    *   **Calculate Total Amount**: Add a Property mediator.
-        *   Name: `totalAmount`, Type: `DOUBLE`, Expression: `get-property('productPrice') * get-property('reqQuantity')`
-    *   **Insert Order Header**: Add the `db.insert` operation.
-        *   `configKey="OrderDBPool"`
-        *   SQL: `INSERT INTO Orders (customer_id, total_amount, status) VALUES (?, ?, 'PENDING')`
-        *   Parameters: `INTEGER` value `{$ctx:customerId}`, `DECIMAL` value `{$ctx:totalAmount}`.
-        *   `retrieveGeneratedKeys="true"`
-        *   `generatedKeysVariable="orderInsertResult"`
-        *   `overwriteBody="false"`
-    *   **Extract New Order ID**: Add a Property mediator.
-        *   Name: `newOrderId`, Type: `INTEGER`, Expression: `json-eval($.generatedKeys[0].GENERATED_KEY)` (Adjust key name based on your DB/driver).
-    *   **Insert Order Item**: Add another `db.insert` operation.
-        *   `configKey="OrderDBPool"`
-        *   SQL: `INSERT INTO OrderItems (order_id, product_id, quantity, unit_price) VALUES (?, ?, ?, ?)`
-        *   Parameters: `INTEGER` value `{$ctx:newOrderId}`, `VARCHAR` value `{$ctx:productId}`, `INTEGER` value `{$ctx:reqQuantity}`, `DECIMAL` value `{$ctx:productPrice}`.
-        *   `overwriteBody="false"`
-    *   **Update Stock**: Add the `db.update` operation.
-        *   `configKey="OrderDBPool"`
-        *   SQL: `UPDATE Products SET stock_quantity = stock_quantity - ? WHERE product_id = ?`
-        *   Parameters: `INTEGER` value `{$ctx:reqQuantity}`, `VARCHAR` value `{$ctx:productId}`.
-        *   `overwriteBody="false"`
-    *   **Commit Transaction**: Add the `db.commitTransaction` operation (`configKey="OrderDBPool"`).
-    *   **Success Response**: Add a **PayloadFactory** mediator.
-        ```json
-        {
-          "message": "Order created successfully",
-          "orderId": "{$ctx:newOrderId}"
-        }
-        ```
-        *   Set Content-Type header: `<property name="messageType" value="application/json" scope="axis2"/>`
-    *   Add a **Respond** mediator.
-
-    <!-- Placeholder image for the 'Then' path flow -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/post-flow-then.png" title="POST Flow - Success Path" width="900" alt="POST Flow - Success Path"/>
-
-## Create the integration logic for retrieving an order (GET /orders/{orderId})
-
-1.  Create another API resource for the path `/orders/{orderId}` with the `GET` method.
-    <!-- Placeholder image -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/create-get-resource.png" title="Create GET Resource" width="800" alt="Create GET Resource"/>
-
-2.  **Extract Order ID**: Add a Property mediator.
-    *   Name: `uri.var.orderId`, Type: `INTEGER`, Expression: `$ctx:uri.var.orderId`
-
-3.  **Retrieve Order Details**: Add the `db.select` operation.
-    *   `configKey="OrderDBPool"`
-    *   SQL:
-        ```sql
-        SELECT o.order_id, o.order_date, o.status, o.total_amount,
-               c.customer_name, c.email,
-               oi.product_id, p.name AS product_name, oi.quantity, oi.unit_price
-        FROM Orders o
-        JOIN Customers c ON o.customer_id = c.customer_id
-        JOIN OrderItems oi ON o.order_id = oi.order_id
-        JOIN Products p ON oi.product_id = p.product_id
-        WHERE o.order_id = ?
-        ```
-    *   Parameter: `INTEGER` value `{$ctx:uri.var.orderId}`.
-    *   `responseVariable="orderDetails"`
-    *   `overwriteBody="false"`
-
-4.  **Format Response (JSON/XML)**: Add a **Switch** mediator based on the `Accept` header.
-    *   Source: `$trp:Accept`
-    *   Case (Regex `application/xml`):
-        *   Use a **PayloadFactory** to transform the `orderDetails` JSON variable into the desired XML structure.
-        *   Set Content-Type: `<property name="messageType" value="application/xml" scope="axis2"/>`
-    *   Default Case (Assume JSON):
-        *   Use a **PayloadFactory** to format the `orderDetails` variable if needed, or directly set it as the payload.
-        *   Set Content-Type: `<property name="messageType" value="application/json" scope="axis2"/>`
-        *   Example PayloadFactory (to set body directly from variable):
-            ```xml
-            <payloadFactory media-type="json">
-                <format>{$ctx:orderDetails}</format>
-                <args/>
-            </payloadFactory>
-            ```
-
-5.  Add a **Respond** mediator after the Switch mediator.
-
-    <!-- Placeholder image for the GET flow -->
-    <img src="{{base_path}}/assets/img/integrate/connectors/db-connector/get-flow.png" title="GET Flow" width="900" alt="GET Flow"/>
-
-## Export integration logic as a carbon application
-To export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<!-- Placeholder for download link -->
-<!-- <a href="{{base_path}}/assets/attachments/connectors/dbconnector_ordermgmt.zip">
+<a href="{{base_path}}/assets/attachments/connectors/dbConnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
-</a> -->
-**Note**: Project ZIP not available yet.
+</a>
+
 
 ## Deployment
 
-1.  Ensure your database (MySQL/PostgreSQL) is running and the schema/sample data is loaded.
-2.  Ensure the DB Connection pool configuration in your project matches your database credentials and URL.
-3.  Deploy the exported Carbon Application (CApp) to your WSO2 Micro Integrator instance. Refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+1.  Ensure your database (MySQL) is running and the schema/sample data is loaded.
+2.  Ensure the DB Connection configuration in your project matches your database credentials and URL.
+3.  Once you have [built your artifacts]({{base_path}}/develop/packaging-artifacts) into a composite application, you can
+export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension:
+4.  Open the project overview and click on **Export**.
+
+     <img src="{{base_path}}/assets/img/integrate/connectors/export_artifacts.jpeg" width="300" alt="Download ZIP">
+    
+5.  Click on **Select Destination** to select a destination folder to export the CAR file.
+
 
 ## Test
 
@@ -255,98 +231,22 @@ You can download the ZIP file and extract the contents to get the project code.
 
 1.  Use a tool like `curl` or Postman to send a POST request:
     ```bash
-    curl -X POST http://localhost:8290/ordermgmt/orders \
-    -H "Content-Type: application/json" \
-    -d '{
-        "customerId": 101,
-        "productId": "PROD001",
-        "quantity": 5
-    }'
+    curl -X GET "http://localhost:8290/ordermgmt/place_order?customerId=101&productId=PROD001&quantity=2"
     ```
+2.  You should receive a response with the `order_id` of the newly created order.
 
-2.  **Expected Success Response**:
+??? "Sample Response"
     ```json
     {
-        "message": "Order created successfully",
-        "orderId": 1 # The actual generated order ID
-    }
-    ```
-    *(Verify in your database that the order was created and stock was updated)*
-
-3.  **Example Insufficient Stock Response** (if you try to order more than available):
-    ```bash
-    curl -X POST http://localhost:8290/ordermgmt/orders \
-    -H "Content-Type: application/json" \
-    -d '{
-        "customerId": 102,
-        "productId": "PROD002",
-        "quantity": 100
-    }'
-    ```
-    ```json
-    # Status Code: 400 Bad Request
-    {
-        "error": "Insufficient stock or product not found",
-        "productId": "PROD002",
-        "requested": "100",
-        "available": "50" # Actual available stock
-    }
-    ```
-    *(Verify in your database that no order was created and stock remains unchanged)*
-
-### Retrieve an order
-
-1.  Assuming an order with ID `1` was created successfully, send a GET request:
-    ```bash
-    # Request JSON (Default)
-    curl -X GET http://localhost:8290/ordermgmt/orders/1
-
-    # Request XML
-    curl -X GET http://localhost:8290/ordermgmt/orders/1 -H "Accept: application/xml"
-    ```
-
-2.  **Expected JSON Response**: (Structure might vary based on `db.select` result format)
-    ```json
-    {
-        "results": [
-            {
-                "order_id": 1,
-                "order_date": "2023-10-27T10:30:00Z", # Example date
-                "status": "PENDING",
-                "total_amount": 99.95, # 19.99 * 5
-                "customer_name": "Alice Wonderland",
-                "email": "alice@example.com",
-                "product_id": "PROD001",
-                "product_name": "Super Widget",
-                "quantity": 5,
-                "unit_price": 19.99
-            }
-            # Potentially multiple items if the query returns multiple rows per order
-        ]
+        "generatedKeys": [
+            { "GENERATED_KEY": 1 }
+        ],
+        "affectedRows": 1,
     }
     ```
 
-3.  **Expected XML Response**: (Structure depends on your PayloadFactory transformation)
-    ```xml
-    <OrderDetails>
-        <Order>
-            <OrderId>1</OrderId>
-            <OrderDate>2023-10-27T10:30:00Z</OrderDate>
-            <Status>PENDING</Status>
-            <TotalAmount>99.95</TotalAmount>
-            <Customer>
-                <Name>Alice Wonderland</Name>
-                <Email>alice@example.com</Email>
-            </Customer>
-            <Item>
-                <ProductId>PROD001</ProductId>
-                <ProductName>Super Widget</ProductName>
-                <Quantity>5</Quantity>
-                <UnitPrice>19.99</UnitPrice>
-            </Item>
-        </Order>
-    </OrderDetails>
-    ```
+3.  Check your database to verify that the order has been created and the product stock has been updated.
+4.  You can also check the `Orders` and `OrderItems` tables to see the inserted records.
 
 ## What's next
 

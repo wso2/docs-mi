@@ -2,8 +2,7 @@
 
 The DB Connector allows you to connect to and interact with various relational databases using JDBC. It enables you to perform operations such as executing queries (SELECT), data manipulation (INSERT, UPDATE, DELETE), calling stored procedures, and managing transactions directly from your WSO2 Micro Integrator integration flows.
 
-<!-- Placeholder for WSO2 Connector Store link/image if applicable -->
-<!-- <img src="{{base_path}}/assets/img/integrate/connectors/db-connector-store.png" title="DB Connector Store" width="200" alt="DB Connector Store"/> -->
+<img src="{{base_path}}/assets/img/integrate/connectors/db-store.png" title="DB Connector Store" width="200" alt="DB Connector Store"/>
 
 ## Compatibility
 
