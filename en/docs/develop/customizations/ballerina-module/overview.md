@@ -3,10 +3,11 @@ The WSO2 Micro Integrator module for Ballerina enables integration developers to
 ## Prerequisites
 
 - WSO2 Micro Integrator 4.2.0 or later
-- Ballerina 2201.12.0 or later
 - Java Development Kit (Version 17 for MI 4.2.0/4.3.0, Version 21 for MI 4.4.0)
 - VS Code with WSO2 Micro Integrator extension installed
-- Ballerina VS Code extension installed
+- Ballerina 2201.12.0 or later
+- Ballerina VS Code extensions installed
+- Ballerina Integrator VS Code extensions installed
 
 ## Get Started with Ballerina Module for MI
 
@@ -20,21 +21,30 @@ There are two ways to use the Ballerina module in your WSO2 MI projects:
 1. Install the [WSO2 Micro Integrator VSCode Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/).
 2. [Create](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) a new integration project or open an existing project.
 3. Expand the artifact types in the **Add artifact** view and select **Ballerina Module**.
-<img src="{{base_path}}/assets/img/develop/ballerina-module/addModule.png" title="Select Ballerina Module" width="800" alt="Select Ballerina Module"/>
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/addModule.png" title="Select Ballerina Module" width="800" alt="Select Ballerina Module"/>
 
 4. In the `Create Ballerina Module` form, enter a **name** and a **version** for the module and click **Create**.
-<img src="{{base_path}}/assets/img/develop/ballerina-module/addModuleName.png" title="Create Ballerina Module Form" width="800" alt="Create Ballerina Module Form"/>
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/addModuleName.png" title="Create Ballerina Module Form" width="800" alt="Create Ballerina Module Form"/>
 
 5. Update the generated sample Ballerina code with your transformation logic and save the file.
 
 6. Click the **Build Ballerina Module** icon.
-<img src="{{base_path}}/assets/img/develop/ballerina-module/build.png" title="Build Ballerina Module" width="800" alt="Build Ballerina Module"/>
-<br/>Then, there will be a notification in the bottom right corner of the VS Code window indicating that the module is being built.</br>
-<img src="{{base_path}}/assets/img/develop/ballerina-module/build-success.png" title="Build Notification" width="400" alt="Build Notification"/>
 
-7. Once the Ballerina module is successfully built, it will appear in the `Mediator palette`, allowing it to be added when constructing integration flows.<br/>
-<img src="{{base_path}}/assets/img/develop/ballerina-module/built-module.png" title="Mediator Palette View" width="800" alt="Mediator Palette View"/><br/>
-If any changes are made to the transformation logic, the module can be rebuilt by clicking the **Build Ballerina Module** icon or by clicking the **Refresh** icon next to the relevant module in the Mediator Palette.<br/><img src="{{base_path}}/assets/img/develop/ballerina-module/refresh.png" title="Refresh Module" width="400" alt="Refresh Module"/>
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/build.png" title="Build Ballerina Module" width="800" alt="Build Ballerina Module"/>
+
+   Then, there will be a notification in the bottom right corner of the VS Code window indicating that the module is being built.
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/build-success.png" title="Build Notification" width="400" alt="Build Notification"/>
+
+7. Once the Ballerina module is successfully built, it will appear in the `Mediator palette`, allowing it to be added when constructing integration flows.
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/built-module.png" title="Mediator Palette View" width="800" alt="Mediator Palette View"/>
+
+   If any changes are made to the transformation logic, the module can be rebuilt by clicking the **Build Ballerina Module** icon or by clicking the **Refresh** icon next to the relevant module in the Mediator Palette.
+   
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/refresh.png" title="Refresh Module" width="400" alt="Refresh Module"/>
 
 ### Method 2: Use Command Line Interface (CLI)
 
@@ -74,21 +84,25 @@ Ballerina function that contains `@mi:Operation` annotation maps with an operati
 #### Generate the module
 
 1. Use the `bal mi-module-gen` command to generate the WSO2 Micro Integrator module from Ballerina project.
-```bash
-bal mi-module-gen -i <path_to_ballerina_project>
-```
-<br/><img src="{{base_path}}/assets/img/develop/ballerina-module/code-gen.png" title="Generate Module" width="800" alt="Generate Module"/><br/>
+
+   ```bash
+   bal mi-module-gen -i <path_to_ballerina_project>
+   ```
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/code-gen.png" title="Generate Module" width="800" alt="Generate Module"/>
 
 2. Above command generates the module zip in the same location. Now, goto the mediator palette and go to the **Connection** section. Then click on **Add connection** .
-<br/><img src="{{base_path}}/assets/img/develop/ballerina-module/addNewCon.png" title="Add Connection" width="400" alt="Add Connection"/><br/>
+   
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/addNewCon.png" title="Add Connection" width="400" alt="Add Connection"/>
 
 3. Then select the **Import Connector** option.
-<br/><img src="{{base_path}}/assets/img/develop/ballerina-module/importCon.png "title="Import Connector" width="500" alt="Import Connector"/><br/>
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/importCon.png "title="Import Connector" width="500" alt="Import Connector"/>
 
 4. Select the **Upload connector zip file** option and select the generated zip file.
-<br/><img src="{{base_path}}/assets/img/develop/ballerina-module/importzip.png" title="Upload Connector Zip File" width="500" alt="Upload Connector Zip File"/><br/>
-<br/>
-That's it! Now you can use the Ballerina module in your WSO2 Micro Integrator project.
-<br/><img src="{{base_path}}/assets/img/develop/ballerina-module/addedCon.png" title="Added Connector" width="800" alt="Added Connector"/>
-<br/>
 
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/importzip.png" title="Upload Connector Zip File" width="500" alt="Upload Connector Zip File"/>
+
+   That's it! Now you can use the Ballerina module in your WSO2 Micro Integrator project.
+
+   <img src="{{base_path}}/assets/img/develop/ballerina-module/connector.png" title="Added Connector" width="800" alt="Added Connector"/>
