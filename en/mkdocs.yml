@@ -922,6 +922,8 @@ nav:
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
           - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
+      - Compliance:
+          - Accessibility Compliance: reference/compliance/accessibility-compliance.md
 
   - Observe and Manage:
       - Overview: observe-and-manage/observe-overview.md
