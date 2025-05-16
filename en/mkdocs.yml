@@ -42,6 +42,7 @@ theme:
     - content.action.edit
     - content.action.view
     - navigation.indexes
+    - content.code.annotate
   #highlightjs: true
   feature:
     tabs: true
@@ -164,7 +165,8 @@ nav:
               - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
           - Deploy on Kubernetes:
               - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
-              - Deploy Integrations Using Helm Resources: install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md
+              - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
+              - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -1008,6 +1010,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+              'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
               'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'
               'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/development-kickstart/'

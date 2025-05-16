@@ -1,0 +1,59 @@
+# -- Container registry (When running on a local Kubernetes cluster using local image, make this empty)
+containerRegistry: ""
+
+wso2:
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  config:
+    keyStore:
+      primary:
+        # -- Primary keystore file name
+        fileName: "wso2carbon.jks"
+        # -- Primary keystore alias
+        alias: "wso2carbon"
+        # -- Primary keystore password
+        password: "wso2carbon"
+        # -- Primary keystore key password
+        keyPassword: "wso2carbon"
+      internal:
+        # -- Internal keystore file name
+        fileName: "wso2carbon.jks"
+        # -- Internal keystore alias
+        alias: "wso2carbon"
+        # -- Internal keystore password
+        password: "wso2carbon"
+        # -- Internal keystore key password
+        keyPassword: "wso2carbon"
+    trustStore:
+      primary:
+        # -- Primary truststore file name
+        fileName: "client-truststore.jks"
+        # -- Primary truststore password
+        password: "wso2carbon"
+    icp:
+      # -- ICP URL
+      url: "https://cloud-icp:9743/dashboard/api/"
+  deployment:
+    securityContext:
+      # -- Enable/Disable AppArmor (https://kubernetes.io/docs/tutorials/security/apparmor/)
+      apparmor: false
+      # -- Enable/Disable seccomp profile (https://kubernetes.io/docs/tutorials/security/seccomp/)
+      seccompProfile: false
+      runAsUser: "10802"
+    # -- Hostname of the Micro Integrator deployment
+    hostname: "mi.wso2.com"
+    # -- Build version of the Micro Integrator
+    BuildVersion: "4.4.0"
+    image:
+      # -- Container image repository name
+      repository: "currencyconverter"
+      # -- Container image tag
+      tag: "1.0.0"
+    # -- Number of deployment replicas
+    replicas: 2
+    # -- (list) Environment variables for the Micro integrator deployment
+    envs:
+      currency_service_url: "https://dev-tools.wso2.com/gs/helpers/v1.0"
