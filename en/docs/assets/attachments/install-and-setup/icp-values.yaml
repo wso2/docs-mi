@@ -1,0 +1,42 @@
+containerRegistry: "wso2"
+wso2:
+  ingress:
+    # -- Enable Ingress for ICP
+    enabled: true
+    # -- Ingress class name
+    ingressClassName: "nginx"
+    # -- (list) Ingress annotations
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  config:
+    miUserstore:
+      # -- The user name for signing in to the Micro Integrator runtimes
+      username: "admin"
+      # -- The user password for signing in to the Micro Integrator runtimes.
+      password: "admin"
+    keyStore:
+      #  -- The keystore file name
+      fileName: "dashboard.jks"
+      # -- The keystore alias
+      alias: "wso2carbon"
+      # -- The keystore password
+      password: "wso2carbon"
+      # -- The keystore key password
+      keyPassword: "wso2carbon"
+  deployment:
+    securityContext:
+      # -- Enable/Disable AppArmor (https://kubernetes.io/docs/tutorials/security/apparmor/)
+      apparmor: false
+      # -- Enable/Disable seccomp profile (https://kubernetes.io/docs/tutorials/security/seccomp/)
+      seccompProfile: false
+      # -- The UID to run the entrypoint of the container process
+      runAsUser: "802"
+      # -- Hostname of the ICP deployment
+    hostname: "icp.wso2.com"
+      # -- Build version of the ICP
+    BuildVersion: "1.0.0"
+    image:
+      # -- Container image repository name
+      repository: "wso2-integration-control-plane"
+      # -- Container image tag
+      tag: "1.0.0"
