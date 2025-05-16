@@ -80,6 +80,12 @@ nav:
           - Develop an Integration API: get-started/build-first-integration/first-integration-api-service.md
           - Route and Transform messages: get-started/build-first-integration/first-integration-route-and-transform.md
           - Connect to SaaS or B2B Systems: get-started/build-first-integration/first-integration-connect-saas.md
+      - Build your first AI Integration:
+          - get-started/build-first-ai-integration/index.md
+          - Build an AI Chatbot: get-started/build-first-ai-integration/first-integration-ai-chatbot.md
+          - Build a Knowledge Base: get-started/build-first-ai-integration/first-integration-knowledge-base.md
+          - Connect a Knowledge Base to the Chatbot: get-started/build-first-ai-integration/first-integration-rag-chat.md
+          - Create an AI Agent: get-started/build-first-ai-integration/first-integration-ai-agent.md
       - How-to Guides:
           - Generate integrations using AI: get-started/how-to-guides/ai-code-generation.md
           - Data Mapping using AI: get-started/how-to-guides/ai-data-mapping.md
