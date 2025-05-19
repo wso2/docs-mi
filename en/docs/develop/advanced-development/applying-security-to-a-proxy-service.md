@@ -12,44 +12,40 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
 
 1. Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.  
 2. Open the project overview and click on **+ Add Artifact**.  
-    [![Add Artifact]({{base_path}}/assets/img/integrate/apply-security/119130870/open-project-overview.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/open-project-overview.png)  
+    [![Add Artifact]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/add-artifact-option.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/open-project-overview.png)  
 3. Click on **+ View More** to expand the list of artifacts.  
-    [![View More]({{base_path}}/assets/img/integrate/apply-security/119130870/expand-artifacts-view.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/expand-artifacts-view.png)  
-4. Select **Registry** under the **Other Artifacts** section.  
-    [![Select Registry]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)  
-5. Add the following details in the **Create New Registry Resource** window that opens and click on **Create**.  
-    **Create Options**: Select `From existing template`.   
-    **Template Type**: Select `WS-Policy`.  
-    **Resource Name**: Enter a name for the resource.
-    **Artifact Name**: Enter a name for the artifact.
-    **Select registry type**: Select the registry type where the resource should be saved. Select `Governance registry (gov)` for this example.
-    **Registry Path**: Provide the registry path where the resource should be saved.  
-    [![Create New Registry Resource]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)  
+    [![View More]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/view-more-option.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/expand-artifacts-view.png)  
+4. Select **Resource** under the **Other Artifacts** section.  
+    [![Select Resource]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/resource-card.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)  
+5. Add the following details in the **Create New Resource** window that opens and click on **Create**.  
+       **Create Options**: Select `From existing template`.       
+       **Resource Name**: Enter a name for the resource.    
+       **Template Type**: Select `WS-Policy`.    
+       **Resource Path**: Provide the resource path where the resource should be saved.  
+       [![Create New Resource]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)  
 6. The created policy file will be listed in the project explorer.  
-    [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)  
-    You can also find this security policy file under the **Registry Explorer** section in the sidebar. Double-click on the file to open it.  
-    [![Registry Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)  
+    [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/resource-view.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)
 
     !!! Note
         Currently, the **Design View** of the policy editor is not available in WSO2 MI for VSCode. You can edit the properties via the **Source View**.  
 
 7. Edit the policy file in the **Source View** to enable the required security scenario.  
     For example, to enable the **Sign and Encrypt** security scenario, add the following encryption/signature properties to the policy file.  
-    **Alias**: `wso2carbon`
-    **Privatestore**: `wso2carbon.jks`
-    **Tenant id**: `-1234`
-    **Truststores**: `wso2carbon.jks`
-    **User**: `wso2carbon`
+    **Alias**: `wso2carbon`    
+    **Privatestore**: `wso2carbon.jks`    
+    **Tenant id**: `-1234`    
+    **Truststores**: `wso2carbon.jks`    
+    **User**: `wso2carbon`    
 
     The following advanced rampart properties have been added to your policy file by default.  
-    **User**: `wso2carbon`
-    **encryptionUser**: `useReqSigCert`
-    **timestampPrecisionInMilliseconds**: `true`
-    **timestampTTL**: `300`
-    **timestampMaxSkew**: `300`
-    **timestampStrict**: `false`
-    **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`
-    **nonceLifeTime**: `300`
+    **User**: `wso2carbon`    
+    **encryptionUser**: `useReqSigCert`    
+    **timestampPrecisionInMilliseconds**: `true`    
+    **timestampTTL**: `300`    
+    **timestampMaxSkew**: `300`    
+    **timestampStrict**: `false`    
+    **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`    
+    **nonceLifeTime**: `300`    
 
     The complete policy file with enabled **Sign and Encrypt - X509 Authentication** security scenario will look as follows.
     ```xml
@@ -189,11 +185,11 @@ Either define the user roles inline or retrieve the user roles from the server.
 
 3. Click on **Advanced Options** and navigate to the **Security** section.
 
-    [![Security tab]({{base_path}}/assets/img/integrate/apply-security/119130870/edit-proxy-service-advanced-options.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/edit-proxy-service-advanced-options.png)  
+    [![Security tab]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/advanced-options.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/edit-proxy-service-advanced-options.png)  
 
 4. Select the **Security Enabled** checkbox and click on the **+ Add Policy** to select the security policy file you created in the previous step.
 
-    [![Security Policy]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)  
+    [![Security Policy]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/security-section.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)  
 
     Select the security policy file from the drop-down list and click **Save**.
 
