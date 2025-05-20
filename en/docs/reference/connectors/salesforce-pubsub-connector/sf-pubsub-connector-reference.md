@@ -7,7 +7,7 @@ The following operations allow you to work with the Salesforce Pub/Sub Connector
 ### Connection configuration
 
 
-The Salesforce Pub/Sub Connector uses  Basic Authentication or Authorization headers. For more information on authentication, go to [Setting up Salesforce Pub/Sub Connector Connection]({{base_path}}/reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration/).
+The Salesforce Pub/Sub Connector uses  Basic Authentication or Authorization headers. For more information on authentication, go to [Set up Salesforce Pub/Sub Connector Connection]({{base_path}}/reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration/).
 
 
 ??? note "Salesforce Pub/Sub Connection"
@@ -35,6 +35,31 @@ The Salesforce Pub/Sub Connector uses  Basic Authentication or Authorization hea
         </tr>
     </table>
 
+    **Sample configuration**
+    ```xml
+    <salesforcePubSub.init>
+        <connectionType>SALESFORCEPUBSUB</connectionType>
+        <server>{$ctx:server}</server>
+        <port>{$ctx:port}</port>
+        <tlsEnabled>true</tlsEnabled>
+        <authType>Basic Auth</authType>
+        <username>{$ctx:username}</username>
+        <password>{$ctx:password}</password>
+        <securityToken>{$ctx:securityToken}</securityToken>
+        <name>sfpubsub</name>
+    </salesforcePubSub.init>
+    ```
+    **Sample request**
+    ```json
+     {
+        "server": "api.pubsub.salesforce.com",
+        "port": 7443,
+        "tlsEnabled": true,
+        "username": XXXXXXXXXXXX,
+        "password": XXXXXXXXXXXX,
+        "securityToken": XXXXXXXXXXXX
+     }
+    ```
 
 ### Publish Events
 
@@ -61,7 +86,34 @@ The **publish** operation allows you to publish events to a Salesforce topic. Th
             <td>Yes</td>
         </tr>
     </table>
+    
+    **Sample configuration**
 
+    ```xml
+    <salesforcePubSub.publish configKey="sfpubsub">
+        <topic_name>{$ctx:topic_name}</topic_name>
+        <events>{$ctx:events}</events>
+        <auth_refresh></auth_refresh>
+        <responseVariable>salesforcePubSub_publish_229</responseVariable>
+        <overwriteBody>true</overwriteBody>
+    </salesforcePubSub.publish>
+    ```
+    **Sample request**
+    ```json
+     {
+        "topic_name": "/event/order__e",
+        "events": [
+            {
+                "schema_id": "Cj6--yRyVY72q2Wfo0Fs1w",
+                "payload": "2uqVkNRlJDAwNWdMMDAwMDAwZHN3YlFBQQIA"
+            },
+            {
+                "schema_id": "Cj6--yRyVY72q2Wfo0Fs1w",
+                "payload": "2uqVkNRlJDAwNWdMMDAwMDAwZHN3YlFBQQIA"
+            }
+            ]
+     }
+    ```
 
 ### Get Topic
 
@@ -82,7 +134,19 @@ The **getTopic** operation allows you to retrieve the metadata of a Salesforce t
         </tr>
     </table>
 
-
+    ```xml
+    <salesforcePubSub.getTopic configKey="sfpubsub">
+        <topic_name>{$ctx:topic_name}</topic_name>
+        <responseVariable>salesforcePubSub_getTopic_1</responseVariable>
+        <overwriteBody>true</overwriteBody>
+    </salesforcePubSub.getTopic>
+    ```
+    **Sample request**
+    ```json
+     {
+        "topic_name": "/event/order__e"
+     }
+    ```
 ### Get Schema
 
 The **getSchema** operation allows you to retrieve the JSON schema of a Salesforce topic. This schema defines the structure of the events that can be published to the topic.
@@ -102,3 +166,19 @@ The **getSchema** operation allows you to retrieve the JSON schema of a Salesfor
             <td>Yes</td>
         </tr>
     </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcePubSub.getSchema configKey="sfpubsub">
+        <schema_id>{$ctx:schema_id}</schema_id>
+        <responseVariable>salesforcePubSub_getSchema_1</responseVariable>
+        <overwriteBody>true</overwriteBody>
+    </salesforcePubSub.getSchema>
+    ```
+    **Sample request**
+    ```json
+     { 
+        "schema_id": "Cj6--yRyVY72q2Wfo0Fs1w"
+     }
+    ```
