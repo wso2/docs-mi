@@ -767,6 +767,11 @@ nav:
               - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
               - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
               - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
+          - Salesforce Pub/Sub Connector:
+              - Salesforce Pub/Sub Overview: reference/connectors/salesforce-pubsub-connector/sf-pubsub-overview.md
+              - Set up the Salesforce Pub/Sub Connector: reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration.md
+              - Salesforce Pub/Sub Example: reference/connectors/salesforce-pubsub-connector/sf-pubsub-example.md
+              - Salesforce Pub/Sub Reference: reference/connectors/salesforce-pubsub-connector/sf-pubsub-connector-reference.md
           - ServiceNow Connector:
               - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
               - Set up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
