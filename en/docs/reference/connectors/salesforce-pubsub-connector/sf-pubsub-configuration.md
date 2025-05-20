@@ -1,15 +1,15 @@
-# Setting up Salesforce Pub/Sub Connector Connection
+# Set up Salesforce Pub/Sub Connector Connection
 
 You can follow one of the following methods to set up the Salesforce Pub/Sub Connector connection.
 
-## 1. Basic Authentication for Connection
+## 1. Basic authentication for connection
 a. To work with the Salesforce Pub/Sub connector, you need to have a Salesforce account. If you do not have a Salesforce account, go to https://developer.salesforce.com/signup  and create a Salesforce developer account.
 
 b. After creating a Salesforce account you will get a Salesforce security token.
 
 c. To configure the Salesforce Pub/Sub Connector you need to save and keep the username, password, and security token of your Salesforce account.
 
-## 2. Authorization Headers for Connection
+## 2. Authorization headers for connection
 
 Every time an RPC method executes, it sends a set of HTTP/gRPC headers to authorize access to your Salesforce resources.  
 If you already have the following header values, you can establish a connection immediately.

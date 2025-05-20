@@ -29,8 +29,7 @@ The **Salesforce Pub/Sub Connector** lets WSO2 Micro Integrator talk directly to
 
 As an open-source project, WSO2 extensions welcome community contributions.
 
-1. **Fork** the [Salesforce Pub/Sub Connector repository](https://github.com/wso2-extensions/esb-connector-salesforcepubsub).
-2. Check the **issue tracker** for tasks that interest you.
-3. Create a **pull request** with your improvements.
+1. **Fork** the [Salesforce Pub/Sub Connector repository](https://github.com/wso2-extensions/mi-connector-salesforcepubsub).
+2. Create a **pull request** with your improvements.
 
 We look forward to your contributions!
