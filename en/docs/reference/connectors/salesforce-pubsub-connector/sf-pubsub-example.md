@@ -10,7 +10,13 @@ following operations by publishing the event to the already defined event in sal
 
 #### Step 01: Define A Platform Event in Salesforce
 
-- In Setup, open Platform Events, click New Platform Event, create Order Event (description “Example event for the Pub/Sub API client”), save it, and add three custom fields: Order_Number__c (Text 18), City__c (Text 50), and Amount__c (Number 16, 2).
+In Salesforce, go to **Setup**, search for **Platform Events**, and click **New Platform Event** to create the **Order Event** (with the description "Example event for the Pub/Sub API client"). Save the event and add the following custom fields:
+
+* **Order\_Number\_\_c** (Text, 18 characters)
+* **City\_\_c** (Text, 50 characters)
+* **Amount\_\_c** (Number, 16 digits, 2 decimal places)
+
+
 
 #### Step 02: Add the Salesforce Pub/Sub connector to your WSO2 Micro Integrator project.
 
