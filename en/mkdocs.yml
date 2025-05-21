@@ -186,7 +186,7 @@ nav:
       - CI/CD:
           - CI/CD for Integrations - Overview: install-and-setup/setup/deployment/integration-cicd-overview.md
           - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/deployment/mi-cicd-vm.md
-          # - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
+          - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/deployment/mi-cicd-k8s.md
       - Reference:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -1043,7 +1043,6 @@ plugins:
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
               'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.4.0/mi-analytics/mi-elk-installation-guide/'
-              'install-and-setup/setup/deployment/mi-cicd-k8s.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/integration-cicd-overview'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
