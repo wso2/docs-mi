@@ -7,7 +7,7 @@ This guide contains three parts.
 
 1. [VM based CI/CD - MI]({{base_path}}/install-and-setup/setup/deployment/mi-cicd-vm).
 
-<!-- 2. [Kubernetes based CI/CD - MI]({{base_path}}/install-and-setup/setup/deployment/mi-cicd-k8s). -->
+2. [Kubernetes based CI/CD - MI]({{base_path}}/install-and-setup/setup/deployment/mi-cicd-k8s).
 
 ## Phases of SDLC
 
