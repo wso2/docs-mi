@@ -6,6 +6,7 @@
             {"name": "Introduction", "url": "get-started/introduction/"},
             {"name": "Key Concepts", "url": "get-started/key-concepts/"},
             {"name": "Build your first Integration", "url": "get-started/build-first-integration/"},
+            {"name": "Build your first AI Integration", "url": "get-started/build-first-ai-integration/"},
             {"name": "What's New", "url": "get-started/about-this-release/#whats-new-in-this-release"}
         ]
     },
