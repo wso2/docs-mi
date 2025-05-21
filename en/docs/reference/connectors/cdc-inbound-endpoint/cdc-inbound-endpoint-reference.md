@@ -192,6 +192,18 @@ By default, truncate operations are skipped.</td>
     <td>No</td>
     <td>-</td>
   </tr>
+  <tr>
+  <td>maximum.retry.count</td>
+  <td>The maximum number of retry attempts for processing an event when a fault occurs. If set to -1 (default), the system will retry indefinitely. After reaching the maximum retry count, if the event still cannot be processed successfully, the inbound endpoint will deactivate. For this feature to work correctly, you must set <code>&lt;property name="SET_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/&gt;</code> in your fault sequence and <code>sequential</code> to true. Without this properties, faulty events will be skipped and potentially lost.</td>
+  <td>No</td>
+  <td>-1</td>
+  </tr>
+  <tr>
+  <td>deactivate.sequence</td>
+  <td>Specifies a sequence to run when the inbound endpoint deactivates after maximum retry attempts fail. For this feature to work correctly, you must set <code>&lt;property name="SET_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/&gt;</code> in your fault sequence and <code>sequential</code> to true. Without this properties, faulty events will be skipped and potentially lost.</td>
+  <td>No</td>
+  <td>-</td>
+  </tr>
 </table>
 
 For more custom configurations, please refer to the [Debezium](https://debezium.io/documentation/reference/stable/index.html) documentation.
