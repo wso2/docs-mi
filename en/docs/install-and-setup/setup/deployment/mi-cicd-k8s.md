@@ -5,6 +5,8 @@ This document explains the Continuous Integration and Continuous Deployment (CI/
 !!! Note
     This pipeline setup is provided for demonstration purposes using Jenkins. In production environments, you may implement similar flows using other CI/CD platforms such as GitHub Actions, GitLab CI, Azure DevOps etc.
 
+<a href="{{base_path}}/assets/img/setup-and-install/mi-cicd-K8s.png"><img src="{{base_path}}/assets/img/setup-and-install/mi-cicd-K8s.png" alt="CICD pipeline"></a>
+
 ## Integration Project Build Job
 
 - You need to maintain one Jenkins job per integration project repository.
@@ -36,7 +38,7 @@ The integration project build pipeline conatins the following main 5 stages:
 
 ### Pipeline Steps
 
-The deployment pipeline contains the following four main stages:
+The deployment pipeline contains the following four three stages:
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment_pipeline.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment_pipeline.png" alt="Deployment pipeline" width="70%"></a>
 
@@ -49,9 +51,7 @@ The deployment pipeline contains the following four main stages:
 
 2. **Clone Deployment Repository**: Pulls the latest deployment repository content.
 
-3. **Bake deployment**: Uses `helm template` to generate Kubernetes manifests from the Helm chart.
-
-4. **Deploy to K8s**: Applies the backed artifacts to a local or remote Kubernetes cluster.
+3. **Deploy to K8s**: Deploy the Helm chart to a local or remote Kubernetes cluster.
 
 ## Setting up the environment
 
@@ -61,7 +61,7 @@ To configure the CI/CD pipeline for deploying WSO2 Micro Integrator integrations
 
 #### Integration project
 
-You should have an integration project created using the [Micro Integrator Extension for VS Code]().
+You should have an integration project created using the [Micro Integrator Extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/).
 
 **Update the `pom.xml` with SCM information**
 
@@ -86,9 +86,9 @@ This is required for the Maven Release Plugin to tag and push versions correctly
 
 Maintain a separate GitHub repository to store deployment configurations. This repository should include:
 
-1. A clone of the [MI Helm Chart]()
+1. A clone of the <a target="_blank" href="https://github.com/wso2/helm-mi/tree/4.4.x">MI Helm Chart</a>.
 
-2. An updated `mi-values.yaml` file to suit your environment. For configuration details, refer to the [Helm Chart Configuration]() Guide.
+2. An updated `mi-values.yaml` file to suit your environment. For configuration details, refer to the [Configure Helm charts for Micro Integrator]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
 
 3. A `mi-config.json` file inside the `mi/` directory with the following initial content:
 
