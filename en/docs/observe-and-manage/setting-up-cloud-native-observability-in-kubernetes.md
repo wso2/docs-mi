@@ -4,6 +4,9 @@ Follow the instructions given below to set up a Grafana based observability solu
 
 To streamline the deployment of the Grafana based observability solution in Kubernetes, the Micro Integrator provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a few additional configurations.
 
+!!! Note
+    We recommend deploying both MI and the observability solution in the same cluster. Prometheus treats multiple replicas as a single target when scraped through a load balancer, preventing accurate metrics collection from individual pods.
+
 ## Prerequisites
 
 - Set up a Kubernetes cluster. For instructions, see [Kubernetes Documentation](https://kubernetes.io/docs/home/).
