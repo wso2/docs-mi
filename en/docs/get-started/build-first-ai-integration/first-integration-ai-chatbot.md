@@ -4,9 +4,9 @@ In this tutorial, you will learn how to create an AI chatbot using WSO2 MI, enab
 
 ## What you will build
 
-In this tutorial, you will implement a simple scenario where a client sends a request to the `Chatbot` API deployed in the WSO2 Micro Integrator and receives a response from the LLM.
+In this tutorial, you will implement a chatbot, which will serve customer requests. The chatbot will be deployed as the `Chat` API in the WSO2 Micro Integrator, enabling seamless integration and hassle-free deployment.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png" alt="Create New Project" width="40%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
 ## What you will learn
 
@@ -15,10 +15,12 @@ In this tutorial, you will implement a simple scenario where a client sends a re
 
 ## Prerequisites
 
-You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
 
-!!! Info
-    See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+    !!! Info
+        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+
+2. You need an OpenAI API key to proceed. Visit the [OpenAI API Documentation](https://platform.openai.com/docs/api-reference) for more details on obtaining and managing your API key.
 
 Follow the instructions below to create your first Integration API.
 
@@ -92,7 +94,7 @@ Once you create the API, a default resource will be automatically generated. You
 
 ## Step 3 - Design the integration
 
-Now it is time to design your API. This is the underlying logic that's executed behind the scenes when an API request is made. In this scenario, you need to send the user request to the LLM and send back the response from LLM to user. For that, you have to add a [Chat operation of AI Module]({{base_path}}/reference/connectors/ai-connector/ai-connector-reference/#operations). Follow the below steps to add a Chat operation.  
+Now it is time to design your API. This is the underlying logic that's executed behind the scenes when an API request is made. In this scenario, you need to send the user request to the LLM and send back the response from LLM to user. For that, you have to add a [Chat operation of AI Module]({{base_path}}/reference/connectors/ai-module/ai-module-reference/#operations). Follow the below steps to add a Chat operation.  
 
 !!! Tip "What is a connector?"
     - Connectors in WSO2 Micro Integrator (MI) enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
@@ -146,12 +148,25 @@ Now it is time to design your API. This is the underlying logic that's executed 
 
 10. Complete the connection form by entering `OPENAI_CONN` as the **Connection Name** and providing your API key in the **OpenAI Key** field.
 
+    !!! note
+        Refer to the [OpenAI API Documentation](https://platform.openai.com/docs/api-reference) to obtain your API key.
+
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/create_openai_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/create_openai_connection.png" alt="OpenAI Connection Form" width="80%"></a>
 
-11. For this tutorial, we shall ignore the memory connection. However, you can create a memory connection by following the same steps as above.  
+11. For this tutorial, we will use file-based memory to store conversation history. 
 
     !!! note
         The memory connection is used to store the conversation history. This is useful for maintaining context in a conversation, especially when dealing with multiple turns of dialogue.
+    
+    !!! warning
+        The file-based memory connection is not suitable for production use cases. It is intended only for development purposes. For production applications, it is recommended to use the database based memory.
+
+    1. Click on the **+ Add new connection** in the **Memory Connection** field.
+    2. In the **Add New Connection** page, select `FILE_MEMORY` as the **Memory Type**.
+    3. Enter `FILE_MEMORY_CONN` as the **Connection Name**.
+    4. Submit the form.  
+
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
 12. Now, we shall complete the **Chat** operation configuration by filling the `User Query/Prompt` field with the payload value.
 
@@ -184,9 +199,9 @@ You may refer to the following API configuration for reference,
                     <ai.chat>
                         <connections>
                             <llmConfigKey>OPENAI_CONN</llmConfigKey>
-                            <memoryConfigKey>CHAT_MEMORY_CONN</memoryConfigKey>
+                            <memoryConfigKey>FILE_MEMORY_CONN</memoryConfigKey>
                         </connections>
-                        <userID>{${payload.userID}}</userID>
+                        <sessionId>{${payload.userID}}</sessionId>
                         <prompt>${payload.query}</prompt>
                         <outputType>string</outputType>
                         <responseVariable>ai_chat_1</responseVariable>
@@ -226,12 +241,34 @@ When you run the integration as in [Step 4](#step-4-run-the-integration-api), th
 
     ```json
     {
+        "userID":"001",
         "query":"Hi!"
     }
     ```
 4. Click **Execute** to send the request to the API.  
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout.gif" alt="Test API" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout_chat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout_chat.gif" alt="Test API" width="80%"></a>
+
+Here is the response returned by the Chat API:
+```json
+{
+"content": "Hello! How can I assist you today?",
+"tokenUsage": {
+    "inputTokensDetails": {
+    "cachedTokens": 0
+    },
+    "outputTokensDetails": {
+    "reasoningTokens": 0
+    },
+    "inputTokenCount": 26,
+    "outputTokenCount": 9,
+    "totalTokenCount": 35
+},
+"finishReason": "STOP",
+"toolExecutions": []
+}
+```
+The AI's response is located in the `content` section of the API response. This field contains the message generated by the AI based on the user's query.
 
 Congratulations!
 Now, you have created your first AI Integration API.

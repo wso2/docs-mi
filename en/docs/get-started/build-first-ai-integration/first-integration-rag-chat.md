@@ -1,10 +1,9 @@
 # Connect a Knowledge Base to the Chatbot
 
-In the previous tutorial, you learned how to build a knowledge base. In this tutorial, you’ll learn how to create a knowledge base and integrate it with a Large Language Model (LLM) for Retrieval-Augmented Generation (RAG).
+In the previous tutorial, you learned how to build a knowledge base. In this tutorial, you’ll learn how to integrate it with a Large Language Model (LLM) for Retrieval-Augmented Generation (RAG).
 
 ## What you'll build
-
-Let's consider a scenario where a client interacts with a `RAGChatAPI` API of PineValley bank deployed in WSO2 Micro Integrator. Upon receiving a query from the client, the API uses Retrieval-Augmented Generation (RAG) to provide instant customer service assistance. The RAG functionality integrates a knowledge base with a Large Language Model (LLM) to retrieve relevant information and generate accurate, context-aware responses tailored to the client's query.
+PineValley Bank needs to develop a chatbot powered by Retrieval-Augmented Generation (RAG) to assist customers in understanding the bank's offerings and products. This chatbot leverages a knowledge base built from the bank's documents, stored in a vector database, and integrates with a Large Language Model (LLM). By combining these technologies, the chatbot can retrieve relevant information and generate accurate, context-aware responses to customer queries, providing instant and personalized assistance.  
 
 <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
@@ -78,6 +77,7 @@ To develop the above scenario, let's get started with creating a new API in the 
     **Embedding Model Connection**: `OPENAI_CONN`  
     **Vector Store Connection**: `KB_CONN`  
     **LLM Connection**: `OPENAI_CONN`  
+    **Memory Connection**: `FILE_MEMORY_CONN`  
     **User ID**: `payload.userID` (with `EX` enabled)  
     **User Query/Prompt**: `${payload.query}`  
     **Overwrite Message Body**: `true`  
@@ -110,7 +110,7 @@ For reference, you can review the configured API.
                     <ai.ragChat>
                         <connections>
                             <llmConfigKey>OPENAI_CONN</llmConfigKey>
-                            <memoryConfigKey></memoryConfigKey>
+                            <memoryConfigKey>FILE_MEMORY_CONN</memoryConfigKey>
                             <embeddingConfigKey>OPENAI_CONN</embeddingConfigKey>
                             <vectorStoreConfigKey>KB_CONN</vectorStoreConfigKey>
                         </connections>
@@ -147,6 +147,8 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 ## Step 4 - Test the integration service
 
+Let us test a scenario where a customer wants to know about the interest rate, minimum balance, and withdrawal rules for a High-Interest Savings Account (HISA) at PineValley Bank.
+
 1. Once the **Runtime Services** interface is open, select the `RAGChatAPI`, and click the **Try It** button.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_tryout.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_tryout.png" alt="Create New Project" width="80%"></a>
@@ -157,16 +159,46 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
     ```json
     {
-        "userID": "C567",
-        "query": "What are the contribution limits and withdrawal rules for a TFSA at PineValley Bank?"
+        "userID": "001",
+        "query": "Can you tell me the interest rate and minimum balance for a High Interest Savings Account?"
     }
     ```
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragchat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragchat.gif" alt="Create New Project" width="80%"></a>
     
-3. Check the response received from the server, and verify whether the response was generated using the knowledge base. You can confirm this by reviewing the content of the response and ensuring it aligns with the information stored in the knowledge base.
+3. Review the following response to identify the sources retrieved from the vector database. The AI-generated response is available in the `content` section, while the relevant sources are listed in the `sources` section of the response.
 
-Congratulations!
+    ```json
+    {
+    "content": "The High-Interest Savings Account (HISA) at PineValley Bank offers an interest rate of 3.5% per annum and requires a minimum balance of $1,000.",
+    "tokenUsage": {
+        "inputTokensDetails": {
+        "cachedTokens": 0
+        },
+        "outputTokensDetails": {
+        "reasoningTokens": 0
+        },
+        "inputTokenCount": 1073,
+        "outputTokenCount": 38,
+        "totalTokenCount": 1111
+    },
+    "sources": [
+        {
+        "textSegment": {
+            "text": "Article: Overview of High-Interest Savings Account (HISA)\nDocument Title: PineValley Bank – HISA Product Brochure\nLast Updated: March 2025\nDocument Type: Product Brochure\nApplies To: All US residents aged 18 and older\n\nProduct Summary\nA High-Interest Savings Account (HISA) offers a competitive interest rate to help you grow your savings faster while maintaining easy access to your funds.\n\nKey Features\n\n- Interest Rate: 3.5% per annum\n- Minimum Balance: $1,000\n- Withdrawals: Unlimited and free\n- Eligibility: US residents, 18+ years old\n\nOnboarding Requirements\nTo open a HISA with PineValley Bank:\n\n1. Provide a valid government-issued ID\n2. Upload proof of address (e.g., utility bill)\n3. Agree to HISA terms & conditions via e-signature\n\nEstimated completion time: 10 minutes",
+            "metadata": {
+            "index": "0"
+            }
+        },
+        "metadata": {}
+        }
+    ],
+    "finishReason": "STOP",
+    "toolExecutions": []
+    }    
+    ```
+
+Congratulations!  
 You have now learned how to create a Retrieval-Augmented Generation (RAG) application by integrating a knowledge base with a Large Language Model (LLM) to enhance your integration flow.
 
 ## What's Next?  
