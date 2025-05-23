@@ -6,6 +6,9 @@ The Generative AI Module enables you to perform various operations such as chat,
 ## Connection Configurations
 
 ### LLM Connection
+
+LLM (Large Language Model) connections are used to connect to various LLM providers. These connections are essential for enabling the Generative AI Module to interact with different LLM services.
+
 <img src="{{base_path}}/assets/img/integrate/connectors/ai/llm-connections.png" title="LLM Provider Connections" width="700" alt="LLM Provider Connections"/>
 
 The WSO2 MI Generative AI Module supports multiple LLM providers, allowing seamless integration with llm models.
@@ -157,6 +160,9 @@ The connection configuration parameters are used to establish a connection with 
     </table>
 
 ### Embedding Model Connection
+
+Embedding model connections are used to connect to various embedding model providers. These connections are essential for enabling the Generative AI Module to interact with different embedding model services.
+
 <img src="{{base_path}}/assets/img/integrate/connectors/ai/embedding-connections.png" title="Embedding Model Provider Connections" width="250" alt="Embedding Model Provider Connections"/>
 
 The WSO2 MI Generative AI Module supports Open AI embedding model provider.
@@ -186,6 +192,9 @@ The connection configuration parameters are used to establish a connection with 
     </table>
 
 ### Vector Database (Knowledgebase) Connection
+
+Vector database connections are used to connect to various vector database providers. These connections are essential for enabling the Generative AI Module to interact with different vector database services.
+
 <img src="{{base_path}}/assets/img/integrate/connectors/ai/vector-store-connections.png" title="Vector Store Connections" width="700" alt="Vector Store Connections"/>
 
 The WSO2 MI Generative AI Module supports multiple vector stores.  
@@ -197,7 +206,7 @@ The WSO2 MI Generative AI Module supports multiple vector stores.
     Postgres DB is a powerful, open-source relational database that can be used as a vector store for managing embeddings.
 
     !!! note
-        To use Postgres DB as a vector store, ensure the `pgvector` extension is installed on your machine.  
+        To use Postgres DB as a vector store, ensure the `pgvector` extension is installed on the machine where the Postgres DB is running.  
         After installation, execute the following SQL command in your Postgres database to enable the creation of vector columns:
 
         ```sql
@@ -208,7 +217,10 @@ The WSO2 MI Generative AI Module supports multiple vector stores.
     Pinecone is a managed vector database service that provides high-performance and scalable storage for embeddings.
 
 - **MI Vector Store**  
-    MI Vector Store is an in-memory vector database offered by WSO2 MI which will persist the data in the MI registry. It is designed specifically for testing purposes and is not recommended for production use.
+    MI Vector Store is an in-memory vector database offered by WSO2 MI which will persist the data in the MI resources.  
+
+    !!! info
+        MI Vector Store is designed specifically for testing purposes and is not recommended for production use. Please use other vector stores for production scenarios.
 
 #### Connection Configuration Parameters
 The connection configuration parameters are used to establish a connection with the vector store. These parameters are needed to provide based on the store you are using.
@@ -364,21 +376,24 @@ The connection configuration parameters are used to establish a connection with 
             <td>Name of the connection.</td>
             <td>Yes</td>
         </tr>
-        <tr>
-            <td>persistence</td>
-            <td>Persist to MI registry</td>
-            <td>Whether to persist the vector store to the WSO2 MI registry.</td>
-            <td>Yes</td>
-        </tr>
     </table>
 
 ### Chat Memory Connection
-<img src="{{base_path}}/assets/img/integrate/connectors/ai/chat-memory-connections.png" title="Chat Memory Connections" width="250" alt="Chat Memory Connections"/>
 
-The WSO2 MI Generative AI Module supports **Postgres DB** as the chat memory provider.
+Chat memory connections are used to connect to various chat memory providers. Chat memory is essential for enabling the Generative AI Module to manage chat history and context.  
+
+<img src="{{base_path}}/assets/img/integrate/connectors/ai/chat-memory-connections.png" title="Chat Memory Connections" width="500" alt="Chat Memory Connections"/>
+
+The WSO2 MI Generative AI Module supports multiple chat memory providers.
 
 - **Postgres DB**  
     Postgres DB is a powerful, open-source relational database that can be used as a chat memory provider for managing chat history.
+
+- **File Memory**  
+    File memory is a simple file-based storage solution for managing chat history which will persist the data in the MI resources.
+
+    !!! info
+        File memory is designed specifically for testing purposes and is not recommended for production use. Please use other chat memory providers for production scenarios.
 
 #### Connection Configuration Parameters
 The connection configuration parameters are used to establish a connection with the chat memory database. These parameters are needed to provide based on the database you are using.
@@ -433,6 +448,22 @@ The connection configuration parameters are used to establish a connection with 
             <td>Yes</td>
         </tr>
     </table>  
+
+??? note "File Memory"
+    <table>
+        <tr>
+            <th> Parameter Name</th>
+            <th>Display Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>Connection Name</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
     
 ## Operations
     
