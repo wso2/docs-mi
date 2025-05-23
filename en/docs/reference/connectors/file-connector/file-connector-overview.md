@@ -21,7 +21,15 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 	</tr>
 	<tr>
 		<td>
-			4.x (latest)
+			5.x
+		</td>
+		<td>
+			MI 4.4.0
+		</td>
+	</tr>
+	<tr>
+		<td>
+			4.x
 		</td>
 		<td>
 			APIM 4.0.0, EI 6.4.0, EI 6.5.0, EI 6.6.0, EI 7.0.x, EI 7.1.0
@@ -39,11 +47,11 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 For older versions, see the details in the connector store.
 
-## File Connector documentation (latest - 4.x version)
+## File Connector documentation (latest - 5.x version)
 
-* **[File Connector Example]({{base_path}}/reference/connectors/file-connector/file-connector-example/)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
+* **[File Connector Example]({{base_path}}/reference/connectors/file-connector/5.x/file-connector-example/)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
 
-* **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/file-connector-config/)**: This documentation provides a reference guide for the File Connector.
+* **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/5.x/file-connector-config/)**: This documentation provides a reference guide for the File Connector.
 
 For older versions, see the details in the relevant links.
 
