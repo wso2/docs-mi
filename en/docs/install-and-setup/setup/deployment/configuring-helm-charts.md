@@ -285,6 +285,34 @@ wso2:
     1. It is recommended to **include the JDBC driver in your Docker image**, ensuring the Micro Integrator can connect to databases without additional configuration. If you choose not to bundle the driver in the image, you must update the Helm chart to mount the driver JAR into the deployment.
     2. Ensure that the **database schema is initialized** before deploying the Micro Integrator. Refer to [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/#configuring-an-rdbms-user-store/) for guidance on setting up the database.
 
+## Coordination configurations
+
+This is an **optional configuration**, required only if you plan to deploy stateful artifacts such as Scheduled Tasks, Message Processors, or Polling and Event-based Inbound Endpoints across multiple replicas. These artifacts require coordination to prevent duplicate executions and ensure consistent behavior across the cluster.
+
+Update the following values in your `values.yaml` file.
+
+```yaml
+wso2:
+  config:
+    coordination:
+      # -- Node ID for coordination
+      nodeId: "$env{POD_NAME}"
+      rdbms:
+        # -- Coordination Database URL
+        url: "jdbc:mysql://<DB_HOST>:<DB_PORT>/clusterdb"
+        # -- Coordination Database username
+        username: "<REPLACE>"
+        # -- Coordination Database password
+        password: "<REPLACE>"
+        jdbc:
+          # Fully qualified class name of the JDBC driver. Update based on your RDBMS.
+          driver: "com.mysql.cj.jdbc.Driver"
+```
+
+!!! Note
+    1. It is recommended to **include the JDBC driver in your Docker image**, ensuring the Micro Integrator can connect to databases without additional configuration. If you choose not to bundle the driver in the image, you must update the Helm chart to mount the driver JAR into the deployment.
+    2. Ensure that the **database schema is initialized** before deploying the Micro Integrator. Refer to [Configuring Coordination database]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#database) for guidance on setting up the database.
+
 ## Analytics configuration
 
 WSO2 Micro Integrator supports ELK-based analytics. It publishes analytics events as logs via log4j2 appenders. For cloud deployments, it is recommended to publish logs to stdout and use log collection agents such as Fluent Bit, CloudWatch Agent, or similar to stream logs to your preferred analytics backend.
