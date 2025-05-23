@@ -43,7 +43,7 @@ Log growth in [Carbon Logs]({{base_path}}/observe-and-manage/classic-observabili
 
         - To retain backups per day
          ```toml
-          appender.CARBON_LOGFILE.filePattern=${sys:carbon.home}/repository/logs/wso2carbon-%d{mm-dd-yyyy}-%i.log
+          appender.CARBON_LOGFILE.filePattern=${sys:logfiles.home}/wso2carbon-%d{mm-dd-yyyy}-%i.log
          ```   
 
         - To retain backups per Month
