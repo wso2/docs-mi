@@ -713,8 +713,12 @@ nav:
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
-              - ISO8583 Example: reference/connectors/iso8583-connector/iso8583-connector-example.md
-              - ISO8583 Reference: reference/connectors/iso8583-connector/iso8583-connector-reference.md
+              - 2.x:
+                    - ISO8583 Example: reference/connectors/iso8583-connector/iso8583-connector-example.md
+                    - ISO8583 Reference: reference/connectors/iso8583-connector/iso8583-connector-reference.md
+              - 1.x:
+                    - ISO8583 Example: reference/connectors/iso8583-connector/1.x/iso8583-connector-example.md
+                    - ISO8583 Reference: reference/connectors/iso8583-connector/1.x/iso8583-connector-reference.md
           - Kafka Connector:
               - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
               - Set up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
@@ -789,8 +793,12 @@ nav:
           - SMPP Connector:
               - SMPP Overview: reference/connectors/smpp-connector/smpp-connector-overview.md
               - Set up the SMPP Connector: reference/connectors/smpp-connector/smpp-connector-configuration.md
-              - SMPP Example: reference/connectors/smpp-connector/smpp-connector-example.md
-              - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
+              - 2.x:
+                - SMPP Example: reference/connectors/smpp-connector/smpp-connector-example.md
+                - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
+              - 1.x:
+                - SMPP Example: reference/connectors/smpp-connector/1.x/smpp-connector-example.md
+                - SMPP Reference: reference/connectors/smpp-connector/1.x/smpp-connector-config.md  
           - Twitter Connector:
               - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
               - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md

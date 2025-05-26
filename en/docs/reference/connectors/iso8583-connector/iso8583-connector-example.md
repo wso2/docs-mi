@@ -6,75 +6,99 @@ Given below is a sample scenario that demonstrates how the WSO2 ISO8583 Connecto
 
 This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here, the integration runtime acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we use a test mock server.
 
-Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for financial transactions.
-
-To know further information about the `init` and `iso8583.sendMessage` operations please refer to this link.
+Given below is a sample API that illustrates how you can configure ISO8583 connection and then use the `iso8583.sendMessage` operation to send an ISO8583 message for financial transactions.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-connector.png" title="ISO8583 Connector" width="800" alt="ISO8583 Connector"/>
 
-If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
-
 ## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
+Follow the steps in the [Creating an Integration Project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
+## Add integration logic
 
-2. Specify the API name as `SendisoTestAPI` and API context as `/sendiso`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
+Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creating-an-api/) guide to create a REST API. Specify the API name as `SendisoTestAPI` and the API context as `/sendiso`.
 
-   ```
-   <?xml version="1.0" encoding="UTF-8"?>
-   <api context="/sendiso" name="SendisoTestAPI" xmlns="http://ws.apache.org/ns/synapse">
-       <resource methods="POST">
-           <inSequence>
-               <log>
-                   <property name="status" value="Sending_an_ISO8583_Message"/>
-               </log>
-               <iso8583.init>
-                   <serverHost>localhost</serverHost>
-                   <serverPort>5010</serverPort>
-               </iso8583.init>
-               <iso8583.sendMessage/>
-               <respond/>
-           </inSequence>
-           <faultSequence/>
-       </resource>
-   </api>
-   ```
-Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
+### Configure the API
+
+1. First, we will create the `/send` resource. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
+    - **URI Template**: `/send`
+    - **HTTP Method**: `POST`
+
+2. Set up the **sendMessage** operation.
+    1. Select the **send** resource. Click on the **+** mark indicated below to go to the **ISO8583** connector and select **sendMessage** operation. 
+           
+        <img src="{{base_path}}/assets/img/integrate/connectors/common/add-connector-operation.png" title="Add connector operation" width="400" alt="Add connector operation"/>
+
+    2. Then, click on **Add new connection** to create a new ISO8583 Connection. Provide your values for **Host** and **Port**You can reuse the ISO8583 connection with other operators.
+        <br/>
+        
+        - **serverHost**: IP address of the server. 
+        - **serverPort**: Port to access the server. 
+    
+    3. Click on **Add** to create the connection. You can see the created connection in the **Connection** drop-down list. Select the created connection from the list.
+
+    4. Since there is no need to configure the `sendMessage` operation parameters, add the operation as it is. 
+        
+3. Get a response from the user.          
+    
+    Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
+       
+4.  Now you can switch to the Source view and check the XML configuration files of the created API and connections. 
+    
+    ??? note "SendisoTestAPI.xml"
+        ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <api context="/sendiso" name="SendisoTestAPI" xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="POST" uri-template="/send">
+                <inSequence>
+                    <iso8583.sendMessage configKey="isoCon">
+                    </iso8583.sendMessage>
+                    <respond/>
+                </inSequence>
+                <faultSequence>
+                </faultSequence>
+            </resource>
+        </api>
+        ``` 
+
+    ??? note "isoCon.xml"
+        ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <localEntry key="isoCon" xmlns="http://ws.apache.org/ns/synapse">
+            <iso8583.init>
+                <connectionType>ISO8583</connectionType>
+                <serverHost>localhost</serverHost>
+                <serverPort>5010</serverPort>
+            </iso8583.init>
+        </localEntry>
+        ``` 
+
    
-## Export integration logic as a CApp
-In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide. 
-
-## Get the project
-
-You can download the ZIP file and extract the contents to get the project code.
-
-<a href="{{base_path}}/assets/attachments/connectors/iso8583-connector.zip">
-    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
-</a>
-
 ## Deployment
 
-In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-  
 ## Test
 
-Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the MI VSCode Extension.
 
-   ```
-          curl -v POST -d 
-          '<ISOMessage>
+<img src="{{base_path}}/assets/img/integrate/connectors/common/runtime-services.png" title="Runtime services" width="600" alt="Runtime services"/>
+
+**Sample request**:
+
+- Content-Type: `application/xml`
+- Request body:
+    ```
+             <ISOMessage>
                <data>
                 <field id="104">000001161204171926FABCDE123ABD06414243</field>
                 <field id="109">000termid1210Community106A5DFGR1112341234234</field>
                 <field id="125">1048468112122012340000100000001107221800</field>
                 <field id="127">01581200F230040102B000000000000004000000</field>
                </data>
-           </ISOMessage>' "http://localhost:8290/sendiso" -H "Content-Type:application/xml"
-   ```
+           </ISOMessage>
+    ```
+   
 **Expected Response**:
    
    ```
