@@ -192,6 +192,34 @@ By default, truncate operations are skipped.</td>
     <td>No</td>
     <td>-</td>
   </tr>
+  <tr>
+  <td>maximum.retry.count</td>
+  <td>The maximum number of retry attempts when an error occurs during the injecting sequence. If set to <code>-1</code> (default), the system will retry indefinitely. Once the maximum retry count is reached and the error persists, the inbound endpoint will be deactivated.  
+    For this feature to work correctly:
+    <ul>
+      <li>The injecting sequence must not contain any non-blocking and parallel processing operations.</li>
+      <li>You must set <code>&lt;property name="SET_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/&gt;</code> in your fault sequence.</li>
+      <li><code>sequential</code> must be set to <code>true</code>.</li>
+    </ul>
+    Without these configurations, events that fail due to injecting sequence errors will be treated as successfully processed, and the offset will be updated.
+  </td>
+  <td>No</td>
+  <td>-1</td>
+  </tr>
+  <tr>
+  <td>deactivate.sequence</td>
+  <td>Specifies a sequence to run when the inbound endpoint is deactivated after repeated failures in the injecting sequence.  
+    For this feature to work correctly:
+    <ul>
+      <li>The injecting sequence must not contain any non-blocking and parallel processing operations.</li>
+      <li>You must set <code>&lt;property name="SET_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/&gt;</code> in your fault sequence.</li>
+      <li><code>sequential</code> must be set to <code>true</code>.</li>
+    </ul>
+    Without these configurations, events that fail due to injecting sequence errors will be treated as successfully processed, and the offset will be updated.
+  </td>
+  <td>No</td>
+  <td>-</td>
+  </tr>
 </table>
 
 For more custom configurations, please refer to the [Debezium](https://debezium.io/documentation/reference/stable/index.html) documentation.
