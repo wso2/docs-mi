@@ -818,8 +818,9 @@ nav:
               - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example
               - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
           - Salesforce Inbound Endpoint:
-              - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
-              - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
+              - Salesforce Inbound Endpoint PushTopic Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic.md
+              - Salesforce Inbound Endpoint CDC Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-cdc.md
+              - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-overview.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
