@@ -99,7 +99,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
     Ensure all interactions are professional, accurate, and regulatory-compliant.
     ```  
-    **User Query/Prompt**: `${payload}`  
+    **User Query/Prompt**: `${payload}`  *(Tip: Click the `fx` icon next to the `User Query/Prompt` field, select **Payload** from the expression panel, choose `payload`, and click **Add** to insert this expression.)*  
     **Overwrite Message Body**: `true`
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_agent_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_agent_operation.gif" alt="Create New Project" width="80%"></a>
@@ -160,7 +160,9 @@ To develop the above scenario, let's get started with creating a new API in the 
         "status": "Pending Approval"
         }
         ```  
+
     11. Click **Add** to add the payload to the integration flow.  
+
     12. Now, we need to add a **Respond** mediator to respond to the client.
 
     Now that we have created the mock API to create investment accounts, let's proceed to add the tools to the agent.
@@ -313,6 +315,7 @@ For reference, you can review the configured API.
                             <tool name="InvestmentCreationTool" template="http_post_tool_2" resultExpression="${vars.http_post_809.payload}" description="Create investment account for the customer"/>
                         </tools>
                     </ai.agent>
+                    <respond/>
                 </inSequence>
                 <faultSequence>
                 </faultSequence>

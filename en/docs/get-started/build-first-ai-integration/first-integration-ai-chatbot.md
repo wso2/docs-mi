@@ -168,15 +168,24 @@ Now it is time to design your API. This is the underlying logic that's executed 
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
-12. Now, we shall complete the **Chat** operation configuration by filling the `User Query/Prompt` field with the payload value.
+12. Now, we shall complete the **Chat** operation configuration by filling the `User Query/Prompt` field with the payload value.  
 
+    Here, we will use the `query` value from the request payload as the user query for the Chat operation. Follow these steps to set it up:
+
+    1. Click the **fx** icon next to the **User Query/Prompt** field to open the **Expression Editor**.
+    2. In the **Expression Editor**, choose **Payload** and select the `query` field.
+    3. Click **Add** to insert the expression into the field.
+
+13. Next, enable the **Overwrite Body** option to ensure the API response body is replaced with the AI's output.  
+    Otherwise, we need to manually set the response body using the [Payload Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/).
+      
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/complete_chat_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/complete_chat_operation.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
-    Now let us add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to respond the message to the client.
+    Next, add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to send the AI's response back to the client.
 
-15. Click on the **+** icon placed just after the Chat operation to open the **Mediator Palette**.
+14. Click on the **+** icon placed just after the Chat operation to open the **Mediator Palette**.
 
-7. Select the **Respond** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
+15. Select the **Respond** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_respond_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_respond_mediator.png" alt="Create New Project" width="80%"></a>
 
