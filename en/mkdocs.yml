@@ -697,10 +697,14 @@ nav:
               - Google Firebase Example: reference/connectors/google-firebase-connector/google-firebase-connector-example.md
               - Google Firebase Reference: reference/connectors/google-firebase-connector/google-firebase-configuration.md
           - Google Pub/Sub Connector:
+              - 2.x:
+                    - Google PubSub Example: reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md
+                    - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
+              - 1.x:
+                    - Google PubSub Example: reference/connectors/google-pubsub-connector/1.x/googlepubsub-connector-1.x-example.md
+                    - Google PubSub Reference: reference/connectors/google-pubsub-connector/1.x/googlepubsub-connector-1.x-reference.md
               - Google PubSub Overview: reference/connectors/google-pubsub-connector/googlepubsub-connector-overview.md
               - Set up the Google PubSub Environment: reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md
-              - Google PubSub Example: reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md
-              - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
           - Google Spreadsheet Connector:
               - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
               - Get Credentials for Google Spreadsheet: reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md

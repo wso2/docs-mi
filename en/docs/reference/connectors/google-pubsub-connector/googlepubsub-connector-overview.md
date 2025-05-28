@@ -13,12 +13,13 @@ Inspired from: [Google Pub/Sub docs](https://cloud.google.com/pubsub/docs/overvi
 
 Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-googlepubsub">WSO2 Connector Store</a> to download the Google PubSub connector.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/pubsub-store.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/logo.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
 
 ## Compatibility
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
+| 2.0.0    | MI 4.4.0 |
 | 1.0.2    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
