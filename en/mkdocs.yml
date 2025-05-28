@@ -173,6 +173,7 @@ nav:
               - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
               - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
               - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
+          - Deploy on OpenShift: install-and-setup/setup/deployment/openshift-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
