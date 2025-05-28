@@ -59,7 +59,7 @@ However, the following integration artifacts are **stateful** and require coordi
     -   MQTT Inbound Endpoint
     -   RabbitMQ Inbound Endpoint
 
-You can still deploy these stateful artifacts in multiple replicas as long as coordination is properly configured. WSO2 Micro Integrator supports clustering via a coordination database, which ensures that only one instance actively executes a given task, while others remain passive. This prevents duplicate executions and maintains consistency across the cluster.
+You can still deploy these stateful artifacts in multiple replicas as long as coordination is properly configured. WSO2 Micro Integrator supports clustering via a coordination database, which ensures that only one instance actively executes a given task. This prevents duplicate executions and maintains consistency across the cluster.
 
 !!! Tip
     - See [Coordination configurations]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/#coordination-configurations) for instructions on configuring coordination across multiple Micro Integrator instances using the Helm charts.
@@ -74,4 +74,6 @@ You can still deploy these stateful artifacts in multiple replicas as long as co
 
 ### High availability
 
-When stateful artifacts are deployed with coordination enabled across multiple replicas, only one instance actively executes the task at a time, while others remain passive. If the active instance (pod or node) becomes unavailable due to a failure, one of the passive replicas will automatically take over execution. This ensures high availability and prevents downtime, as the failover happens seamlessly without service interruption.
+When stateful artifacts are deployed with coordination enabled across multiple Micro Integrator (MI) replicas, each artifact such as scheduled tasks or message processors is executed by only one MI instance at a time. By default, these artifacts are automatically assigned to available nodes in the cluster, ensuring consistent and conflict free execution.
+
+If the MI instance currently executing a particular artifact becomes unavailable, another node will seamlessly take over its execution. This ensures high availability and avoids service interruptions by enabling automatic failover of stateful tasks.
