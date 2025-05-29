@@ -39,7 +39,7 @@ Log growth in [Carbon Logs]({{base_path}}/observe-and-manage/classic-observabili
     3.  Append timestamp(mm-dd-yyyy) to file pattern `appender.CARBON_LOGFILE.filePattern`.
 
         !!!Note
-        When file size based log rollover has been enabled, the timestamp should be appended to file pattern in order to differentiate the backup file names by time stamp. Unless, the current backup file will be replaced by the next backup which is created on the same day, since both file  will be having the same name(ie: wso2carbon-12-16-2019.log).
+            When file size based log rollover has been enabled, the timestamp should be appended to file pattern in order to differentiate the backup file names by time stamp. Unless, the current backup file will be replaced by the next backup which is created on the same day, since both file  will be having the same name(ie: wso2carbon-12-16-2019.log).
 
         - To retain backups per day
          ```toml
