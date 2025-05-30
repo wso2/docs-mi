@@ -1,19 +1,81 @@
 # Google Pub/Sub Connector Reference
 
-The Google Pub/Sub connector allows you to access the [Google Cloud Pub/Sub API Version v1](https://cloud.google.com/pubsub/docs/reference/rest/) from an integration sequence. Google Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.
-
-## Connection Configuration
-
-To use the Google Pub/Sub Connector, you need to configure a connection. The connection configuration requires the following parameters:
-
-- **Client ID**: The client ID of your Google Cloud project.
-- **Client Secret**: The client secret of your Google Cloud project.
-- **Refresh Token**: The refresh token for your Google account.
-
-You can obtain these credentials by following the steps in the [Configure Google Pub/Sub API]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/).
-
 The following operations allow you to work with the Google Pub/Sub Connector. Click an operation name to see parameter details and samples on how to use it.
 
+---
+
+To use the Google Pub/Sub connector, add the <googlepubsub.init> element in your configuration before any other Google Pub/Sub operation. This configuration authenticates with Google Pub/Sub via user credentials.
+
+Google Pub/Sub uses the OAuth 2.0 protocol for authentication and authorization. All requests to the Google Cloud Pub/Sub API must be authorized by an authenticated user.
+
+??? note "googlepubsub.init"
+    This operation allows you to initialize the connection to Google Pub/Sub.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>apiUrl</td>
+            <td>The application URL of Google Pub/Sub.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>apiVersion</td>
+            <td>The version of the Google Pub/Sub API.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>accessToken</td>
+            <td>The access token that grants access to the Google Pub/Sub API on behalf of a user.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>The client id provided by the Google developer console.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>The client secret provided by the Google developer console.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>refreshToken</td>
+            <td>The refresh token provided by the Google developer console, which can be used to obtain new access tokens.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>blocking</td>
+            <td>Set this to true if you want the connector to perform blocking invocations to Google Pub/Sub.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>tokenEndpoint</td>
+            <td>The token endpoint of the Google API. The default will be set to https://www.googleapis.com/oauth2/v4/token if not provided.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <googlepubsub.init>
+        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <apiVersion>{$ctx:apiVersion}</apiVersion>
+        <accessToken>{$ctx:accessToken}</accessToken>
+        <clientId>{$ctx:clientId}</clientId>
+        <clientSecret>{$ctx:clientSecret}</clientSecret>
+        <refreshToken>{$ctx:refreshToken}</refreshToken>
+        <blocking>{$ctx:blocking}</blocking>
+        <tokenEndpoint>{$ctx:tokenEndpoint}</tokenEndpoint>
+    </googlepubsub.init>
+    ```
+
+---
+
+### Project Topics
 
 ??? note "createTopic"
     The createTopic operation creates a new topic with a name that you specify. See the [related API documentation](https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics/create) for more information.
@@ -39,8 +101,8 @@ The following operations allow you to work with the Google Pub/Sub Connector. Cl
 
     ```xml
     <googlepubsub.createTopic>
-        <topicName>{${payload.topicName}}</topicName>
-        <projectId>{${payload.projectId}}</projectId>
+        <topicName>{$ctx:topicName}</topicName>
+        <projectId>{$ctx:projectId}</projectId>
     </googlepubsub.createTopic>
     ```
     
@@ -90,10 +152,10 @@ The following operations allow you to work with the Google Pub/Sub Connector. Cl
 
     ```xml
     <googlepubsub.publishMessage>
-        <topicName>{${payload.topicName}}</topicName>
-        <projectId>{${payload.projectId}}</projectId>
-        <data>{${payload.data}}</data>
-        <attributes>{${payload.attributes}}</attributes>
+        <topicName>{$ctx:topicName}</topicName>
+        <projectId>{$ctx:projectId}</projectId>
+        <data>{$ctx:data}</data>
+        <attributes>{$ctx:attributes}</attributes>
     </googlepubsub.publishMessage>
     ```
     
@@ -109,7 +171,9 @@ The following operations allow you to work with the Google Pub/Sub Connector. Cl
     }
     ```
 
-??? note "subscribeTopic"
+### Project Subscriptions
+
+??? note "createTopicSubscription"
     The createTopicSubscription operation creates a subscription to a topic that you specify. See the [related API documentation](https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.subscriptions/create) for more information.
     <table>
         <tr>
@@ -153,12 +217,12 @@ The following operations allow you to work with the Google Pub/Sub Connector. Cl
 
     ```xml
     <googlepubsub.createTopicSubscription>
-        <topicName>{${payload.topicName}}</topicName>
-        <projectId>{${payload.projectId}}</projectId>
-        <subscriptionName>{${payload.subscriptionName}}</subscriptionName>
-        <ackDeadlineSeconds>{${payload.ackDeadlineSeconds}}</ackDeadlineSeconds>
-        <pushEndpoint>{${payload.pushEndpoint}}</pushEndpoint>
-        <attributes>{${payload.attributes}}</attributes>
+        <topicName>{$ctx:topicName}</topicName>
+        <projectId>{$ctx:projectId}</projectId>
+        <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
+        <ackDeadlineSeconds>{$ctx:ackDeadlineSeconds}</ackDeadlineSeconds>
+        <pushEndpoint>{$ctx:pushEndpoint}</pushEndpoint>
+        <attributes>{$ctx:attributes}</attributes>
     </googlepubsub.createTopicSubscription>
     ```
     
@@ -217,11 +281,11 @@ The following operations allow you to work with the Google Pub/Sub Connector. Cl
 
     ```xml
     <googlepubsub.pullMessage>
-        <topicName>{${payload.topicName}}</topicName>
-        <projectId>{${payload.projectId}}</projectId>
-        <subscriptionName>{${payload.subscriptionName}}</subscriptionName>
-        <maxMessages>{${payload.maxMessages}}</maxMessages>
-        <returnImmediately>{${payload.returnImmediately}}</returnImmediately>
+        <topicName>{$ctx:topicName}</topicName>
+        <projectId>{$ctx:projectId}</projectId>
+        <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
+        <maxMessages>{$ctx:maxMessages}</maxMessages>
+        <returnImmediately>{$ctx:returnImmediately}</returnImmediately>
     </googlepubsub.pullMessage>
     ```
     
