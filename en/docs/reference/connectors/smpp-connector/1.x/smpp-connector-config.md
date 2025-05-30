@@ -2,9 +2,12 @@
 
 The following operations allow you to work with the SMPP Connector. Click an operation name to see parameter details and samples on how to use it.
 
-## Connection Configurations
+## Create SMSC Connection
 
-??? note "SMPP"
+To use the SMPP connector, need to have a SMSC connection. To create a SMSC connection add the `<SMPP.init>` element as a local entry configuration before carrying out any other SMPP operation. This is used to bind with the SMSC (Short Message service center). Once a connection is defined this can be reused among other SMPP operators.
+
+??? note "init"
+    The init operation appends content to an existing file in a specified location.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -12,71 +15,90 @@ The following operations allow you to work with the SMPP Connector. Click an ope
             <th>Required</th>
         </tr>
         <tr>
-            <td>SMSC Connection Name</td>
-            <td>Name of the SMSC Connection</td>
+            <td>host</td>
+            <td>IP address of the SMSC.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <th colspan="3">Basic</td>
-        </tr>
-        <tr>
-            <td>Host</td>
-            <td>Hostname of the SMSC</td>
+            <td>port</td>
+            <td>Port to access the SMSC.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>Port</td>
-            <td>Port to access the SMSC</td>
+            <td>systemId</td>
+            <td>username to access the SMSC.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>System ID</td>
-            <td>User requesting to bind (username)</td>
+            <td>password</td>
+            <td>password to access the SMSC.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td>Password to allow access</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <th colspan="3">Advanced</td>
-        </tr>
-        <tr>
-            <td>Enquire Link Timer</td>
-            <td>SMSC is connected or not</td>
+            <td>enquireLinkTimer</td>
+            <td>Used to check the connectivity between the SMPP connector and SMSC.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>Session Binding Timeout</td>
-            <td>session binding timeout,max time to wait for a response after sending a bind request</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>Transaction Timer</td>
+            <td>transactionTimer</td>
             <td>Time elapsed between SMPP connector request and corresponding response.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>System Type</td>
+            <td>systemType</td>
             <td>It is used to categorize the type of ESME that is binding to the SMSC. Examples include “CP” (Content providers), “VMS” (voice mail system) and “OTA” (over-the-air activation system).</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>Address Ton</td>
-            <td>Indicates Type of Number of the ESME address.</td>
+            <td>addressTon</td>
+            <td>Indicates Type of Number of the ESME address.  </td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>Address NPI</td>
+            <td>addressNpi</td>
             <td>Numbering Plan Indicator for ESME address.</td>
             <td>Optional</td>
         </tr>
     </table>
 
-## Operations
+    **Sample configuration**
+
+    ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <localEntry key="SMSC_CONFIG_1" xmlns="http://ws.apache.org/ns/synapse">
+         <SMPP.init>
+            <host>{$ctx:host}</host>
+            <port>{$ctx:port}</port>
+            <systemId>{$ctx:systemId}</systemId>
+            <password>{$ctx:password}</password>
+            <enquireLinkTimer>{$ctx:enquireLinkTimer}</enquireLinkTimer>
+            <transactionTimer>{$ctx:transactionTimer}</transactionTimer>
+            <systemType>{$ctx:systemType}</systemType>
+            <addressTon>{$ctx:addressTon}</addressTon>
+            <addressNpi>{$ctx:addressNpi}</addressNpi>
+            <connectionType>init</connectionType>
+            <name>SMSC_CONFIG_1</name>
+         </SMPP.init>
+      </localEntry>
+    ```
     
-## Send SMS message
+    **Sample request**
+    
+    Following is a sample REST/JSON request that can be handled by the init operation.
+    ```json
+    {
+      "host": "127.0.0.1",
+      "port": 2775,
+      "systemId": "DAMIEN",
+      "password": "neimad",
+      "systemType": "UNKNOWN",
+      "addressTon": "UNKNOWN",
+      "addressNpi": "UNKNOWN",
+      "enquireLinkTimer": "50000",
+    }
+    ```
+
+## Send SMS Message
 
 ??? note "sendSMS"
     Use to send SMS Message to the SMSC (Short Message Service Center),
@@ -515,18 +537,125 @@ The following operations allow you to work with the SMPP Connector. Click an ope
          </td>
          <td>Optional</td>
       </tr>
-      <tr>
-            <td>responseVariable</td>
-            <td>Name of the variable to which the output of the operation should be assigned</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>overwriteBody</td>
-            <td>Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).</td>
-            <td>Optional</td>
-        </tr>
     </table>
 
+    **Sample configuration**
+
+    ```xml
+    <SMPP.sendSMS configKey="SMSC_CONFIG_1">
+      <serviceType>{$ctx:serviceType}</serviceType>
+      <sourceAddressTon>{$ctx:sourceAddressTon}</sourceAddressTon>
+      <sourceAddressNpi>{$ctx:sourceAddressNpi}</sourceAddressNpi>
+      <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
+      <destinationAddressTon>{$ctx:destinationAddressTon}</destinationAddressTon>
+      <destinationAddressNpi>{$ctx:destinationAddressNpi}</destinationAddressNpi>
+      <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
+      <alphabet>{$ctx:alphabet}</alphabet>
+      <charset>{$ctx:charset}</charset>
+      <message>{$ctx:message}</message>
+      <smscDeliveryReceipt>{$ctx:smscDeliveryReceipt}</smscDeliveryReceipt>
+      <messageClass>{$ctx:messageClass}</messageClass>
+      <isCompressed>{$ctx:isCompressed}</isCompressed>
+      <esmclass>{$ctx:esmclass}</esmclass>
+      <protocolid>{$ctx:protocolid}</protocolid>
+      <priorityflag>{$ctx:priorityflag}</priorityflag>
+      <replaceIfPresentFlag>{$ctx:replaceIfPresentFlag}</replaceIfPresentFlag>
+      <submitDefaultMsgId>{$ctx:submitDefaultMsgId}</submitDefaultMsgId>
+      <validityPeriod>{$ctx:validityPeriod}</validityPeriod>
+    </SMPP.sendSMS>
+    ```
+    
+    **Sample request**
+   
+    Following is a sample REST/JSON request that can be handled by the sendSMS operation.
+    ```json
+    {
+      "serviceType": "CMT",
+      "sourceAddressTon": "NETWORK_SPECIFIC",
+      "sourceAddressNpi": "INTERNET",
+      "sourceAddress": "16116",
+      "destinationAddressTon": "SUBSCRIBER_NUMBER",
+      "destinationAddressNpi": "LAND_MOBILE",
+      "destinationAddress": "628176504657",
+      "messageClass":"CLASS1",
+      "alphabet": "ALPHA_DEFAULT",
+      "charset": "UTF-8",
+      "isCompressed":"true",
+      "esmclass": "0",
+      "protocolid": "0",
+      "priorityflag":"1",
+      "replaceIfPresentFlag": "0",
+      "submitDefaultMsgId": "1",
+      "validityPeriod": “020610233429000R”,
+      "message": "hi hru",
+      "smscDeliveryReceipt": "SUCCESS_FAILURE",
+      "enquireLinkTimer": "50000",
+      "transactionTimer": "100"
+    }
+    ```
+
+### Sample configuration in a scenario
+
+The following is a sample proxy service that illustrates how to connect to the SMPP connector and use the sendSMS operation to send a SMS message to the SMSC (Short Message Service Center). You can use this sample as a template for using other operations in this category.
+
+**Sample Proxy**
+```xml
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+      name="SMPP"
+      transports="http,https,local"
+      statistics="disable"
+      trace="disable"
+      startOnLoad="true">
+   <target>
+       <inSequence>
+           <property name="OUT_ONLY" value="true"/>
+           <property name="serviceType" expression="json-eval($.serviceType)"/>
+           <property name="sourceAddressTon" expression="json-eval($.sourceAddressTon)"/>
+           <property name="sourceAddressNpi" expression="json-eval($.sourceAddressNpi)"/>
+           <property name="sourceAddress" expression="json-eval($.sourceAddress)"/>
+           <property name="destinationAddressTon" expression="json-eval($.destinationAddressTon)"/>
+           <property name="destinationAddressNpi" expression="json-eval($.destinationAddressNpi)"/>
+           <property name="destinationAddress" expression="json-eval($.destinationAddress)"/>
+           <property name="alphabet" expression="json-eval($.alphabet)"/>
+           <property name="message" expression="json-eval($.message)"/>
+           <property name="smscDeliveryReceipt" expression="json-eval($.smscDeliveryReceipt)"/>
+           <property name="messageClass" expression="json-eval($.messageClass)"/>
+           <property name="isCompressed" expression="json-eval($.isCompressed)"/>
+           <property name="esmclass" expression="json-eval($.esmclass)"/>
+           <property name="protocolid" expression="json-eval($.protocolid)"/>
+           <property name="priorityflag" expression="json-eval($.priorityflag)"/>
+           <property name="replaceIfPresentFlag" expression="json-eval($.replaceIfPresentFlag)"/>
+           <property name="submitDefaultMsgId" expression="json-eval($.submitDefaultMsgId)"/>
+           <property name="validityPeriod" expression="json-eval($.validityPeriod)"/>
+           <property name="enquireLinkTimer" expression="json-eval($.enquireLinkTimer)"/>
+           <property name="transactionTimer" expression="json-eval($.transactionTimer)"/>
+           <SMPP.sendSMS configKey="SMSC_CONFIG_1">
+               <serviceType>{$ctx:serviceType}</serviceType>
+               <sourceAddressTon>{$ctx:sourceAddressTon}</sourceAddressTon>
+               <sourceAddressNpi>{$ctx:sourceAddressNpi}</sourceAddressNpi>
+               <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
+               <destinationAddressTon>{$ctx:destinationAddressTon}</destinationAddressTon>
+               <destinationAddressNpi>{$ctx:destinationAddressNpi}</destinationAddressNpi>
+               <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
+               <alphabet>{$ctx:alphabet}</alphabet>
+               <charset>{$ctx:charset}</charset>
+               <message>{$ctx:message}</message>
+               <smscDeliveryReceipt>{$ctx:smscDeliveryReceipt}</smscDeliveryReceipt>
+               <messageClass>{$ctx:messageClass}</messageClass>
+               <isCompressed>{$ctx:isCompressed}</isCompressed>
+               <esmclass>{$ctx:esmclass}</esmclass>
+               <protocolid>{$ctx:protocolid}</protocolid>
+               <priorityflag>{$ctx:priorityflag}</priorityflag>
+               <replaceIfPresentFlag>{$ctx:replaceIfPresentFlag}</replaceIfPresentFlag>
+               <submitDefaultMsgId>{$ctx:submitDefaultMsgId}</submitDefaultMsgId>
+               <validityPeriod>{$ctx:validityPeriod}</validityPeriod>
+           </SMPP.sendSMS>
+           <respond/>
+       </inSequence>
+   </target>
+   <description/>
+</proxy>       
+```
 **Note**: For more information on how this works in an actual scenario, see [SMPP Connector Example]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-example/).
 
 ## Send bulk SMS message
@@ -870,15 +999,60 @@ The following operations allow you to work with the SMPP Connector. Click an ope
                 </td>
                 <td>Optional</td>
              </tr>
-         </table>
-         <tr>
-            <td>responseVariable</td>
-            <td>Name of the variable to which the output of the operation should be assigned</td>
-            <td>Yes</td>
-         </tr>
-         <tr>
-            <td>overwriteBody</td>
-            <td>Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).</td>
-            <td>Optional</td>
-         </tr>
+          </table>
       </table>
+
+    **Sample configuration**
+
+    ```xml
+    <SMPP.sendBulkSMS configKey="SMSC_CONFIG_1">
+      <serviceType>{$ctx:serviceType}</serviceType>
+      <sourceAddressTon>{$ctx:sourceAddressTon}</sourceAddressTon>
+      <sourceAddressNpi>{$ctx:sourceAddressNpi}</sourceAddressNpi>
+      <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
+      <destinationAddress>{$ctx:destinationAddresses}</destinationAddress>
+      <alphabet>{$ctx:alphabet}</alphabet>
+      <charset>{$ctx:charset}</charset>
+      <message>{$ctx:message}</message>
+      <smscDeliveryReceipt>{$ctx:smscDeliveryReceipt}</smscDeliveryReceipt>
+      <messageClass>{$ctx:messageClass}</messageClass>
+      <isCompressed>{$ctx:isCompressed}</isCompressed>
+      <esmclass>{$ctx:esmclass}</esmclass>
+      <protocolid>{$ctx:protocolid}</protocolid>
+      <priorityflag>{$ctx:priorityflag}</priorityflag>
+      <replaceIfPresentFlag>{$ctx:replaceIfPresentFlag}</replaceIfPresentFlag>
+      <submitDefaultMsgId>{$ctx:submitDefaultMsgId}</submitDefaultMsgId>
+      <validityPeriod>{$ctx:validityPeriod}</validityPeriod>
+    </SMPP.sendBulkSMS>
+    ```
+    
+    **Sample request**
+    
+    Following is a sample REST/JSON request that can be handled by the sendbulkSMS operation.
+    ```json
+      {
+      "serviceType": "CMT",
+      "sourceAddressTon": "NETWORK_SPECIFIC",
+      "sourceAddressNpi": "INTERNET",
+      "sourceAddress": "16116",
+      "destinationAddresses": {
+            "type": "ALPHANUMERIC",
+            "numberingPlan": "LAND_MOBILE",
+            "mobileNumbers": ["+189718785", "+189718674"]
+         },
+      "messageClass":"CLASS1",
+      "alphabet": "ALPHA_DEFAULT",
+      "charset": "UTF-8",
+      "isCompressed":"true",
+      "esmclass": "0",
+      "protocolid": "0",
+      "priorityflag":"1",
+      "replaceIfPresentFlag": "0",
+      "submitDefaultMsgId": "1",
+      "validityPeriod": “020610233429000R”,
+      "message": "hi hru",
+      "smscDeliveryReceipt": "SUCCESS_FAILURE",
+      "enquireLinkTimer": "50000",
+      "transactionTimer": "100"
+      }
+    ```
