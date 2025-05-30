@@ -6,6 +6,11 @@ You need to start with the [Grafana based metrics](#step-1-set-up-grafana-based-
 
 These capabilities provide comprehensive visibility into the performance and behavior of your integration runtime.
 
+!!! Warning "Disclaimer"
+    The configuration provided in this guide is intended for quick evaluation and testing of Grafana based observability with a WSO2 Micro Integrator deployment on Kubernetes.
+
+    It is not recommended for production use. For production grade deployments, refer to the official best practices and security guidelines from <a target="_blank" href="https://grafana.com/docs/">Grafana</a>, <a target="_blank" href="https://prometheus.io/docs/">Prometheus</a>, <a target="_blank" href="https://docs.fluentbit.io/">Fluent Bit</a>, <a target="_blank" href="https://grafana.com/docs/loki/">Loki</a>, and <a target="_blank" href="https://www.jaegertracing.io/docs/1.69/">Jaeger</a>.
+
 ## Prerequisites
 
 - Set up a Kubernetes cluster. For instructions, see <a target="_blank" href="https://kubernetes.io/docs/home/">Kubernetes Documentation</a>.
