@@ -1,6 +1,8 @@
 # Salesforce Inbound Endpoint Reference
 
-The following configurations allow you to configure Salesforce Inbound Endpoint for your scenario. 
+The Salesforce Inbound Endpoint in WSO2 Micro Integrator is built on top of the Salesforce EMP (Event Monitoring Platform) Connector, which leverages Salesforce’s Streaming API to subscribe to real-time events. This includes support for PushTopics and Change Data Capture (CDC), allowing your integration to respond immediately to changes in Salesforce data—such as when a record is created, updated, deleted, or undeleted.
+
+This reference page documents all the configuration parameters supported by the Salesforce Inbound Endpoint. These parameters control how the connector authenticates with Salesforce, what data it listens to, the polling behavior, event replay settings, and more. Use this table as a guide when configuring your inbound endpoint to ensure seamless and reliable integration with Salesforce's event stream.
 
 <table>
   <tr>
