@@ -290,7 +290,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       </tr>
       <tr>
          <td>transport.vfs.FileSortAttribute</td>
-         <td>The attribute by which the files should be sorted and processed. The possible values are <code>NONE</code>, <code>Size</code>, or <code>Lastmodifiedtimestamp</code>.</td>
+         <td>The attribute by which the files should be sorted and processed. The possible values are <code>NONE</code>, <code>Size</code>, <code>Name</code>, or <code>Lastmodifiedtimestamp</code>.</td>
       </tr>
       <tr>
          <td>transport.vfs.FileSortAsscending</td>
