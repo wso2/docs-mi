@@ -10,6 +10,9 @@ Before you start configuring the ISO8583 connector, you also need WSO2 MI, and w
 
 To configure the ISO8583 connector, copy the following client libraries from the given locations to the `<PRODUCT_HOME>/repository/components/lib` directory.
 
+!!! info "Note"
+    If you are using MI 4.4.0 or later with the MI VSCode extension, you can skip this step as the required libraries are downloaded and packed automatically.
+
 * [jpos-1.9.4.jar](http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4)  
 * [jdom-1.1.3.jar](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3) 
 * [commons-cli-1.3.1.jar](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1) 

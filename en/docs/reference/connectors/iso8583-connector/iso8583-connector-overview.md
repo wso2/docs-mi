@@ -15,7 +15,8 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.3    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| 2.x    | MI 4.4.0 |
+| 1.0.x    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
