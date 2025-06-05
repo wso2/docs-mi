@@ -748,6 +748,10 @@ nav:
               - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
               - MongoDB Connector Example: reference/connectors/mongodb-connector/mongodb-connector-example.md
               - MongoDB Connector Reference: reference/connectors/mongodb-connector/mongodb-connector-config.md
+          - Apache Pulsar Connector:
+              - Apache Pulsar Connector Overview: reference/connectors/pulsar-connector/pulsar-connector-overview.md
+              - Apache Pulsar Connector Example: reference/connectors/pulsar-connector/pulsar-connector-example.md
+              - Apache Pulsar Connector Reference: reference/connectors/pulsar-connector/pulsar-connector-reference.md
           - Redis Connector:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
