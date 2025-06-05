@@ -951,15 +951,9 @@ nav:
   - Observe and Manage:
       - Overview: observe-and-manage/observe-overview.md
       - Observability:
-          - Grafana based Observability:
-              - Overview: observe-and-manage/cloud-native-observability-overview.md
-              - Getting Started Guide - VM Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
-              - Getting Started Guide - K8s Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
-              - View Statistics: observe-and-manage/viewing-cloud-native-observability-statistics.md
           - Basic Observability:
               - Logs:
                   - Configure Logs: observe-and-manage/classic-observability-logs/configuring-log4j2-properties.md
-                  - Enable Logs for a Component: observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md
                   - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
                   - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
                   - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
@@ -972,6 +966,11 @@ nav:
                   - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
                   - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
                   - Other Usages of TCPMon: observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon.md
+          - Grafana based Observability:
+              - Overview: observe-and-manage/cloud-native-observability-overview.md
+              - Configure for VM based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
+              - Configure for K8s based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+              - Access the Dashboard: observe-and-manage/viewing-cloud-native-observability-statistics.md
       - Analytics:
           - ELK Based Analytics:
               - Setup: mi-analytics/mi-elk-installation-guide.md
@@ -1033,6 +1032,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+              'observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md': 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/'
               'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
               'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.4.0/get-started/build-first-integration'
               'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/mediation-sequences'

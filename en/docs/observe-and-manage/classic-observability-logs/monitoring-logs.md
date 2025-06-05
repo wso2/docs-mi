@@ -1,4 +1,4 @@
-# Monitoring Logs
+# Monitor Logs
 
 Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.
 
@@ -9,30 +9,31 @@ By default, the Micro Integrator is configured to generate the basic log files t
 The following topics explain how you can use the default logs that are configured in the Micro Integrator. If you have additional logs configured,
 you will be able to access those logs as well.
 
-See [Configuring Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties) for details on how logs are configured in the Micro Integrator.
+See [Configure Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties) for details on how to configure logging in Micro Integrator.
 
-## Downloading Log Files
+## Download Log files
 
-You can easily download them from the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane). 
+You can download log files directly from the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
 
-!!! Info
-    Alternatively, you can open the log file from the `<MI_HOME>/repository/logs` directory.
+!!! info
+    - You can also access the log files from the `<MI_HOME>/repository/logs` directory
+    - Alternatively, use the MI CLI. Refer to [Download log files]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-log-files) for instructions.
 
-1.  Sign in to the integration control plane. 
-2.  Click <b>Log Files</b> as shown below to view the complete list.
+1. Sign in to the Integration Control Plane.  
+2. Click **Log Files** in the left-hand menu to view the list of available logs.
 
-    <img alt="download log files" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/log-files-dashboard.png" width="80%">
+    <img alt="Download log files" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/log-files-dashboard.png" width="80%">
 
-3.  User the <b>Search</b> option to find a specific log file.
-4.  Click the log file to download.
+3. Use the **Search** option to locate a specific log file.  
+4. Click the log file to download it.
 
-The default log files available on the ICP server are explained below.
+The default log files used in the Micro Integrator are explained below.
 
-## Monitoring Carbon logs
+## Monitor Carbon logs
 
-The Carbon log file (`wso2carbon.log`) covers all the management features of a product. These logs are printed to the console as defined in the log4j2 configurations.
+The Carbon log file (`wso2carbon.log`) captures all management related logs for the Micro Integrator. These logs are also printed to the console, as configured in the `log4j2.properties` file.
 
-Shown below is a sample log that is printed when you start the Micro Integrator with some integration artifacts deployed.
+Below is a sample log entry printed when starting the Micro Integrator with some deployed integration artifacts.
 
 ```bash
 TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Initializing configurations with deployment configurations {org.wso2.config.mapper.ConfigParser}
@@ -48,11 +49,13 @@ TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Ini
 [2020-09-24 23:00:14,616]  INFO {org.wso2.micro.integrator.management.apis.security.handler.AuthenticationHandlerAdapter} - User admin logged in successfully
 ```
 
-## Monitoring API Logs
+## Monitor API Logs
 
-The API log file covers the logs related to APIs deployed in the Micro Integrator. By default, all APIs in the server will print logs to this common log file (`wso2-mi-api.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI are being used.
+The API log file (`wso2-mi-api.log`) captures logs related to all APIs deployed in the Micro Integrator. By default, all API related logs are written to this common file.
 
-If you have [individual log files]({{base_path}}/develop/monitoring-api-level-logs/) configured for APIs, you can download the log file that is specific to the API.
+Below are sample logs generated when the **Healthcare API** and the **UserInfoRESTAPI** are invoked.
+
+If you have configured [individual log files]({{base_path}}/develop/monitoring-api-level-logs/) for specific APIs, you can download the log file corresponding to each API separately.
 
 ```bash
 [2020-11-10 08:44:15,258]  INFO {API_LOGGER.UserInfoRestAPI} - Initializing API: UserInfoRestAPI
@@ -65,11 +68,13 @@ If you have [individual log files]({{base_path}}/develop/monitoring-api-level-lo
 [2020-11-10 08:57:49,400]  INFO {API_LOGGER.StockQuoteAPI} - Destroying API: StockQuoteAPI
 ```
 
-## Monitoring Service Logs
+## Monitor Service Logs
 
-The service log file covers the logs related to proxy services deployed in the Micro Integrator. By default, all services in the server will print logs to this common log file (`wso2-mi-service.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI are being used.
+The service log file (`wso2-mi-service.log`) captures logs related to all proxy services deployed in the Micro Integrator. By default, all service related logs are written to this common log file.
 
-If you have [individual log files]({{base_path}}/develop/monitoring-service-level-logs/) configured for services, you can download the log file that is specific to the service.
+Below are sample log entries generated when the **hl7testproxy** and **HL7Proxy1** services are invoked.
+
+If you have configured [individual log files]({{base_path}}/develop/monitoring-service-level-logs/) for specific services, you can download the log file corresponding to each service separately.
 
 ```bash
 [2020-10-14 10:16:15,399]  INFO {SERVICE_LOGGER.hl7testproxy} - Building Axis service for Proxy service : hl7testproxy
@@ -81,11 +86,11 @@ If you have [individual log files]({{base_path}}/develop/monitoring-service-leve
 [2020-10-14 10:37:21,791]  INFO {SERVICE_LOGGER.HL7Proxy1} - Successfully created the Axis2 service for Proxy service : HL7Proxy1
 ```
 
-## Monitoring Error Logs
+## Monitor Error Logs
 
-The Error log file (`wso2error.log`) contains the error logs that are generated when the server is running. Note that these logs are also printed to the console of the Micro Integrator.
+The error log file (`wso2error.log`) captures all error-level logs generated while the Micro Integrator is running. These error logs are also printed to the server console by default.
 
-Shown below is an example server error that is printed in the error log file.
+Below is an example of a server error entry recorded in the error log file.
 
 ```bash
 [2020-10-14 10:26:16,361] ERROR {org.apache.synapse.deployers.ProxyServiceDeployer} - ProxyService named : HL7Proxy already exists
@@ -114,24 +119,41 @@ Shown below is an example server error that is printed in the error log file.
     at java.lang.Thread.run(Thread.java:748)
 ```
 
-## Monitoring Audit Logs
+## Monitor Audit Logs
 
-Audit logs are used for tracking the sequence of actions that affect a particular task carried out on the server.
+Audit logs track the sequence of actions performed on the server, providing visibility into operations that affect system behavior or configuration.
 
-For more information, see [Monitoring MI Audit Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs).
+See [Monitor MI Audit Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs) for more information.
 
-## Monitoring Service/Event Tracing Logs 
+## Monitor Service/Event Tracing Logs 
 
-These are logs that are enabled in the Micro Integrator for tracing services and events using a separate log file (`wso2carbon-trace-messages.log`).
+The Micro Integrator provides a dedicated log file `wso2carbon-trace-messages.log` for tracing service and event flows. These logs help track how messages are processed through the system, which is useful for debugging and auditing purposes.
 
-## Monitoring HTTP Access Logs
+Below is an example of a trace entry recorded in the trace log file.
 
-HTTP access logs (requests and responses) help you monitor information such as the clients that access the product, how many hits are received, what the errors are, etc. This information is useful for troubleshooting errors.
+```bash
+[2025-06-04 14:33:52,240]  INFO {TRACE_LOGGER} - {api:PartAQ1} Start : Enrich mediator
+[2025-06-04 14:33:52,240] TRACE {TRACE_LOGGER} - {api:PartAQ1} Message : <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><jsonObject><name>ibm</name><stock>154.25</stock></jsonObject></soapenv:Body></soapenv:Envelope>
+[2025-06-04 14:33:52,243]  INFO {TRACE_LOGGER} - {api:PartAQ1} End : Enrich mediator
+[2025-06-04 14:33:52,243]  INFO {TRACE_LOGGER} - {api:PartAQ1} Switch mediator : Mediating from ContinuationState
+[2025-06-04 14:33:52,243]  INFO {TRACE_LOGGER} - {api:PartAQ1} Sequence <AnonymousListMediator> :: mediate()
+[2025-06-04 14:33:52,243]  INFO {TRACE_LOGGER} - {api:PartAQ1} Mediation started from mediator position : 1
+[2025-06-04 14:33:52,244]  INFO {TRACE_LOGGER} - {api:PartAQ1} Sequence <SequenceMediator> :: mediate()
+[2025-06-04 14:33:52,244]  INFO {TRACE_LOGGER} - {api:PartAQ1} Mediation started from mediator position : 2
+[2025-06-04 14:33:52,244]  INFO {TRACE_LOGGER} - {api:PartAQ1} Start : Respond Mediator
+[2025-06-04 14:33:52,244] TRACE {TRACE_LOGGER} - {api:PartAQ1} Message : <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><jsonObject><name>ibm</name><stock>154.25</stock></jsonObject></soapenv:Body></soapenv:Envelope>
+[2025-06-04 14:33:52,251]  INFO {TRACE_LOGGER} - {api:PartAQ1} End : Respond Mediator
+[2025-06-04 14:42:30,382]  INFO {TRACE_LOGGER} - {api:PartAQ1} Destroying API: PartAQ1
+```
 
-In the Micro Integrator, access logs are generated for the PassThrough transport. The PassThrough transport works on 8290/8253 ports and is used for API/Service invocations. By default, all access logs from the PassThrough transport are written to a common access log file - `http_access_.log`.
+## Monitor HTTP Access Logs
 
-!!! Note
-    See [Configuring Access Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#configuring-http-access-logs) for instructions on configuring access logs.
+HTTP access logs capture request and response details, helping you monitor client activity, request volumes, error patterns, and more which are useful for troubleshooting and analytics.
+
+In the Micro Integrator, access logs are generated for the **PassThrough transport**, which handles API and service invocations over ports `8290` (HTTP) and `8253` (HTTPS). By default, all access logs from the PassThrough transport are written to the common access log file: `http_access.log`.
+
+!!! note
+    See [HTTP Access Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#http-access-logs) for instructions on how to configure access logging.
 
 ```xml
 [10/Nov/2020:08:52:35.604 +0530] "GET /healthcare/querydoctor/surgery HTTP/1.1" - - "-" "curl/7.64.1"
@@ -140,7 +162,7 @@ In the Micro Integrator, access logs are generated for the PassThrough transport
 [10/Nov/2020:08:52:35.604 +0530] "- - " 200 - "-" "-"
 ```
 
-## Monitoring Patch Logs 
+## Monitor Patch Logs 
 
 The Patch log file contains details related to patches applied to the product. Patch logs cannot be customized.
 
@@ -153,14 +175,14 @@ The Patch log file contains details related to patches applied to the product. P
 [2020-10-14 10:16:07,815]  FINE {org.wso2.micro.integrator.server.util.PatchUtils processPatches} - No new patch or service pack detected, server will start 
 ```
 
-## Monitoring Correlation Logs
+## Monitor Correlation Logs
 
-Correlation logs are used for monitoring the round trip of a message that is sent to the Micro Integrator.
+Correlation logs help trace the complete round trip of a message processed by the Micro Integrator. This is particularly useful when diagnosing end-to-end message flow across multiple services.
 
-For more information, see [Monitoring Correlation Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-correlation-logs).
+See [Monitor Correlation Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-correlation-logs) for more information.
 
-## Monitoring Console Logs
+## Monitor Console Logs
 
-When you run the Micro Integrator, the console will print logs from the [Carbon log file](#monitoring-carbon-logs) as well as the [Error log file](#monitoring-error-logs).
+When you run the Micro Integrator, the console outputs logs from the [Carbon log file](#monitor-carbon-logs) and the [Error log file](#monitor-error-logs) by default.
 
-If you have enabled <b>wire logs</b>, these will also be printed on the console. See the instructions on how to [enable and use Wire Logs]({{base_path}}/develop/using-wire-logs/).
+If you have enabled **wire logs**, these will also be printed to the console. See [Enable and Use Wire Logs]({{base_path}}/develop/using-wire-logs/) for more details.
