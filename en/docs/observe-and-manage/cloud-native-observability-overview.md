@@ -41,7 +41,7 @@ These solutions are suitable for the following combination of operations.
         <th><b>Description</b></th>
     </tr>
     <tr>
-        <td>Grafana based Kubernetes solution</td>
+        <td>Grafana based observability for a Micro Integrator Deployment in Kubernetes</td>
         <td>
             <ul>
                 <li>Metrics only</li>

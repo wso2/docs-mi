@@ -164,7 +164,7 @@ Let us test a scenario where a customer wants to know about the interest rate, m
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragchat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragchat.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragChat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragChat.gif" alt="Create New Project" width="80%"></a>
     
 3. Review the following response to identify the sources retrieved from the vector database. The AI-generated response is available in the `content` section, while the relevant sources are listed in the `sources` section of the response.
 

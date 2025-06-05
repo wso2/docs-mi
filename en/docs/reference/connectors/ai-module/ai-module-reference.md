@@ -390,7 +390,7 @@ The WSO2 MI Generative AI Module supports multiple chat memory providers.
     Postgres DB is a powerful, open-source relational database that can be used as a chat memory provider for managing chat history.
 
 - **File Memory**  
-    File memory is a simple file-based storage solution for managing chat history which will persist the data in the MI resources.
+    File memory is a simple file-based storage solution for managing chat history. It persists chat data within the MI resources, storing the memory file at `<MI_SERVER_HOME>/registry/governance/ai/chat-memory/<CONNECTION_NAME>.json`.
 
     !!! info
         File memory is designed specifically for testing purposes and is not recommended for production use. Please use other chat memory providers for production scenarios.

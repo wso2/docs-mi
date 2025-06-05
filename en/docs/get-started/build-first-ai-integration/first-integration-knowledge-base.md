@@ -85,9 +85,9 @@ Follow the steps below to design these operations.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_mediator.png" alt="Create New Project" width="80%"></a>
 
-6. Under **Mediators**, select the **+ Add Module**.
+6. Under **Mediators**, go to **AI** section and select the **Add to Knowledge** operation.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_module.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_module.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToKnowledgeBase_operation.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToKnowledgeBase_operation.png" alt="Create New Project" width="80%"></a>
 
 7. Select the **+ Add new connection** in the **Vector Store Connection** field.
 
@@ -119,7 +119,10 @@ Follow the steps below to design these operations.
     4. Enter your **API Key** in the designated field.  
     5. Click **Add** to finalize and store the connection.   
 
-11. Now, we shall complete the **Add To Knowledge** operation configuration by filling the `Input` field and disabling the `Parse`.
+11. Now, we shall complete the **Add To Knowledge** operation configuration by filling the `Input` field and disabling the `Parse`.  
+
+    !!! note
+        Enable parsing only when the input is an encoded string. If you are sending plain text content, you can safely disable the `Parse` option.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_addToKnowledge_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_addToKnowledge_operation.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
