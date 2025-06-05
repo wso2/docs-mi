@@ -1,4 +1,4 @@
-# Viewing Grafana based Observability Statistics
+# View Grafana based Observability Statistics
 
 Let's use the **dashboards** from the Grafana based observability deployment to monitor **statistics** from your integration artifacts.
 

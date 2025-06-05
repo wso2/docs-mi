@@ -313,9 +313,6 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                     <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
             </li>
             <li>
-                <a href="{{base_path}}/observe-and-manage/classic-observability-logs/enabling-logs-for-a-component">Enabling Logs for a Component</a>
-            </li>
-            <li>
                 <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth">Managing Log Growth</a>
             </li>
             <li>
