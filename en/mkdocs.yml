@@ -828,6 +828,9 @@ nav:
               - Amazon SQS Inbound Endpoint Reference:
                   - 1.0.x: reference/connectors/amazonsqs-connector/amazon-inbound-endpoint-1.0.x/amazonsqs-inbound-endpoint-reference-configuration.md
                   - 1.1.x: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md
+          - Apache Pulsar Inbound Endpoint:
+              - Apache Pulsar Inbound Endpoint Example: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-example.md
+              - Apache Pulsar Inbound Endpoint Reference: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-reference.md
           - ISO8583 Inbound Endpoint:
               - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
               - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
