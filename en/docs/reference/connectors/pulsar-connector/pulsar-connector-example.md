@@ -94,7 +94,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/CreateAPI.png" title="Creating a new API" width="800" alt="Creating a new API"/>
 
-3. Select the newly created `PublishMessage` API and click the `edit` button to change the API method.
+3. Select the newly created `PublishMessage` API and click the **Edit** button to change the API method.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/UpdateResource1.png" title="Adding the API resource step 1." width="900" alt="Adding the API resource step 1."/>
 
