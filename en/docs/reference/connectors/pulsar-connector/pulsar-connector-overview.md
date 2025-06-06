@@ -25,7 +25,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector
 
 | Connector Version | Supported Product Versions |
 |-------------------|----------------------------|
-| 1.0.0             | MI 4.4.0                   |
+| 0.9.3             | MI 4.4.0                   |
 
 ## Apache Pulsar Connector documentation
 

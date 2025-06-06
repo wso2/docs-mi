@@ -1,63 +1,26 @@
 # Apache Pulsar Connector Example
 
-The **Apache Pulsar Connector** allows publishing messages to Apache Pulsar topics hosted on either local brokers or managed Pulsar services. It supports secure communication using **TLS encryption** and **JWT-based authentication**, and exposes the publishing functionality through a **RESTful API**. Users can send messages to Pulsar over HTTP/HTTPS, simplifying integration with external systems.
+The **Apache Pulsar Connector** allows publishing messages to Apache Pulsar topics hosted on either local brokers or managed Pulsar services. It supports secure communication using **TLS encryption** and **JWT-based authentication**, and exposes the publishing functionality through a RESTful API. Users can send messages to Pulsar over HTTP/HTTPS, simplifying integration with external systems.
 
 ## What you'll build
 
-Given below is a sample API that illustrates how you can connect to a Apache Pulsar broker with the `init` operation and then use the `publishMessage` operation to publish messages to the topics. It exposes Apache Pulsar functionalities as a RESTful service. Users can invoke the API using HTTP/HTTPs with the required information.
+This example demonstrates how to use the Apache Pulsar Connector to publish messages to an Apache Pulsar topic through a REST API. The API exposes the resource `/publishmessage`, which enables users to send messages to a Pulsar topic.
 
-API has the context `/publishMessage`. It will publish messages via the topic to the Apache Pulsar server.
+The user sends a  payload containing the necessary information, such as topic, message content, key, and message properties. The integration runtime then uses the Pulsar Connector to publish the message to the configured Pulsar broker.
 
-The following diagram illustrates all the required functionality of the Apache Pulsar service that you are going to build.
+- `/publishMessage`: This resource accepts a request payload that includes details such as the topic name, message content, key, and any message properties. Upon invocation, the API uses the Apache Pulsar Connector to connect with the Pulsar broker and publish the message to the specified topic.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/kafkaconnectorpublishmessage.png"><img src="{{base_path}}/assets/img/integrate/connectors/kafkaconnectorpublishmessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/></a>
+The following diagram illustrates an overview of the Apache Pulsar RESTful service that you are going to build in this example.
+
+<a href="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnectorDiagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnectorDiagram.png" title="PulsarConnectorUseCase" width="800" alt="PulsarConnectorUseCase"/></a>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Before you begin
 
-To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Connector, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Follow the steps below to prepare the Pulsar environment:
+### Setup Apache Pulsar
 
-### 1. Download and Extract Pulsar
-
-- Download the latest Apache Pulsar release from the [official website](https://pulsar.apache.org/download/).
-- Extract the archive to a preferred location on your machine.
-
----
-
-### 2. Configure TLS Encryption
-
-- For this example, **TLS encryption using PEM certificates** is used to ensure secure communication with the Pulsar broker. To configure TLS with PEM, refer to the official [Apache Pulsar documentation](https://pulsar.apache.org/docs/next/security-tls-transport/#configure-mtls-encryption-with-pem) for a step-by-step guide and ensure that you have the following components prepared:
-
-    - A **Certificate Authority (CA)** certificate - `tlsTrustCertsFilePath`
-    - A **server certificate** - `tlsCertificateFilePath`
-    - The **server's private key** - `tlsKeyFilePath`
-
----
-
-### 3. Configure Authentication using tokens based on JSON Web Tokens (JWT)
-
-- For this example, **JWT-based authentication** is used to restrict access to authorized clients only. To configure JWT authentication, refer to the official [Apache Pulsar documentation](https://pulsar.apache.org/docs/next/security-jwt/) for a step-by-step guide. Ensure that you have the following components prepared:
-
-    - A **JWT token** that includes the necessary claims for authentication. The compact representation of a signed JWT is a string that looks like:
-        ```bash
-        eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb2UifQ.ipevRNuRP6HflG8cFKnmUPtypruRC4fb1DWtoLL62SY
-        ```
-  
-    Once the JWT token is generated, configure the Pulsar broker to enable JWT-based authentication.
-
-### 4. Start the Pulsar Standalone Server
-
-- Navigate to the extracted Pulsar directory.
-- Start the standalone server using the following command:
-
-      ```bash
-      bin/pulsar standalone
-      ```
-
-!!!Note
-    - For setting up Pulsar in other environments such as Docker or Kubernetes, please refer to the [official Apache Pulsar documentation](https://pulsar.apache.org/docs/next/getting-started-home/).
-    - The recommended version of Java for Apache Pulsar is 21 or above.
+To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Connector, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
 
 ### Setup Environment for Apache Pulsar Connector
 
@@ -72,7 +35,7 @@ To configure the Apache Pulsar connector with Apache Pulsar version 4.0.4, copy 
 * [netty-transport-classes-epoll-4.1.119.Final.jar](https://repo1.maven.org/maven2/io/netty/netty-transport-classes-epoll/4.1.119.Final/netty-transport-classes-epoll-4.1.119.Final.jar)
 * [netty-incubator-transport-classes-io_uring-0.0.26.Final.jar](https://repo1.maven.org/maven2/io/netty/incubator/netty-incubator-transport-classes-io_uring/0.0.26.Final/netty-incubator-transport-classes-io_uring-0.0.26.Final.jar)
 
-## Set up the integration project
+## Develop the integration logic
 
 Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
 
@@ -108,50 +71,49 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 To map elements from the request payload to the configuration parameters, you can define a sample request payload. To do this, follow the steps below:
 
-5. Click on the resource and you will be redirected to the **Design View** of the API. Now, click on the `Start` node on the canvas and select the `Add Request` option. This will open a pane to create a new example payload request.
+Click on the resource and you will be redirected to the **Design View** of the API. Now, click on the `Start` node on the canvas and select the `Add Request` option. This will open a pane to create a new example payload request.
 
-       In this operation, we are going to receive the following inputs from the user.
+In this operation, we are going to receive the following inputs from the user.
+
+- **topic** - The name of the Pulsar topic to which the message will be published.
+- **message** - The content of the message to be published.
+- **key** - The key associated with the message, used for partition routing.
+- **properties** - Additional named properties to be included with the message.
     
-        - **topic** - The name of the Pulsar topic to which the message will be published.
-        - **message** - The content of the message to be published.
-        - **key** - The key associated with the message, used for partition routing.
-        - **properties** - Additional named properties to be included with the message.
-    
-       Therefore, provide the following JSON payload to the request.
-        ```json
-        {
-            "topic": "<your-email>@gmail.com",
-            "message": "<your-email>@gmail.com",
-            "key": "Sample email",
-            "properties": {
-                "message-type":"text/plain",
-                "event-date": "2025-05-20"
-              }  
-           
-        }
-        ```
-    <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/AddApiRequestPayload.png" title="Adding the sample API request." width="400" alt="Adding the API request."/>
+   Therefore, provide the following JSON payload to the request.
+    ```json
+    {
+        "topic": "cities",
+        "message": "Hello World!",
+        "key": "my-key",
+        "properties": {
+            "message-type":"text/plain",
+            "event-date": "2025-05-20"
+          }
+    }
+    ```
+  <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/AddApiRequestPayload.png" title="Adding the sample API request." width="400" alt="Adding the API request."/>
 
 #### Add Pulsar Connector to the Project
 
-6. Now we will add the `publishMessage` operation of the Pulsar Connector to the integration flow. To do this, we need to add the Apache Pulsar Connector to the integration project first. 
+1. Now we will add the `publishMessage` operation of the Pulsar Connector to the integration flow. To do this, we need to add the Apache Pulsar Connector to the integration project first. 
     For that, open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette** and search for `Pulsar` in the **Mediators** section. Then, select the **Pulsar** connector and click on the **Download** button.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/CreateConnection1.png" title="Adding Pulsar Connector" width="800" alt="Adding Pulsar Connector"/>
 
-7. Click on the `publishMessage` operation to add that operation to the integration flow.
+2. Click on the `publishMessage` operation to add that operation to the integration flow.
 
 #### Create Connection
 
-8. Create a new connection by clicking on the '+ Add new connection' button as shown below. It will open a new pop-up window.
+1. Create a new connection by clicking on the '+ Add new connection' button as shown below. It will open a new pop-up window.
    
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/CreateConnection2.png" title="Creating a new Connection" width="600" alt="Creating a new Connection"/>
 
-9. Click on the **PulsarSecure** tile under the Pulsar Connector.
+2. Click on the **PulsarSecure** tile under the Pulsar Connector.
    
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/CreateConnection3.png" title="Creating a new Connection" width="600" alt="Creating a new Connection"/>
 
-10. Enter the connection name as `PulsarSecureConnection` and provide the following details in the **Pulsar Connection** configuration pane.
+3. Enter the connection name as `PulsarSecureConnection` and provide the following details in the **Pulsar Connection** configuration pane.
 
       - **Broker URL**: pulsar://localhost:6651/
       - **Authentication Type**: JWT
@@ -162,12 +124,12 @@ To map elements from the request payload to the configuration parameters, you ca
 
 ### Implement the API
 
-11. Once the Pulsar connection is successfully created, it will be listed in the drop-down on the **Connection** section of the **Add PublishMessage** operation window.
+1. Once the Pulsar connection is successfully created, it will be listed in the drop-down on the **Connection** section of the **Add PublishMessage** operation window.
 
-12. Now we need to configure the necessary parameters of the `publishMessage` operation. For some of the fields, we will use Synapse expressions to map values from the sample request defined in [Create Sample Request Payload](#create-sample-request-payload).
+2. Now we need to configure the necessary parameters of the `publishMessage` operation. For some of the fields, we will use Synapse expressions to map values from the sample request defined in [Create Sample Request Payload](#create-sample-request-payload).
     - Input Section
         - **Message**: `${payload.message}`
-        - **Key**: ${payload.key}
+        - **Key**: `${payload.key}`
         - **Message Properties**: 
           ```json
           [
@@ -176,15 +138,14 @@ To map elements from the request payload to the configuration parameters, you ca
           ]
           ```
     - Producer Settings
-        - **Topic Name**: ${payload.topic}
+        - **Topic Name**: `${payload.topic}`
         - **Compression Type**: NONE
         - **Send Mode**: Sync
         - **Batching Enabled**: true
     - Output Section
-        - **Output Variable**: pulsar_publishMessage_28
         - **Overwrite Message Body**: true
       
-- To do this, click on the `Expression` icon in the Message field and select the `Payload` option.
+3. To do this, click on the `Expression` icon in the Message field and select the `Payload` option.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/AddExpression.png" title="Adding the send parameters." width="700" alt="Configuring publishMessage operation."/>
 
@@ -202,18 +163,18 @@ To map elements from the request payload to the configuration parameters, you ca
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/OutputSchema.png" title="publishmessage operation output schema." width="400" alt="publishmessage operation output schema."/>
 
-13. Add a Log mediator to log the response of the `publishMessage` operation. To do this, click on the `+` icon after the `publishMessage` operation and select the `Log` mediator from the **Mediator Palette**.
+4. Add a Log mediator to log the response of the `publishMessage` operation. To do this, click on the `+` icon after the `publishMessage` operation and select the `Log` mediator from the **Mediator Palette**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/AddLogMediator1.png" title="Adding Log Mediator" width="700" alt="Adding Log Mediator"/>
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/AddLogMediator2.png" title="Adding Log Mediator" width="500" alt="Adding Log Mediator"/>
 
 
-14. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response of the `publishMessage` operation as shown below.
+5. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response of the `publishMessage` operation as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/AddRespondMediator.png" title="Adding the respond mediator." width="900" alt="Adding the respond mediator."/>
 
-## Export integration logic as a carbon application
+## Export the integration project as a carbon application
 To export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
 
 ## Get the project
