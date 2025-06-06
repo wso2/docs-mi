@@ -166,7 +166,7 @@ To map elements from the request payload to the configuration parameters, you ca
 
 12. Now we need to configure the necessary parameters of the `publishMessage` operation. For some of the fields, we will use Synapse expressions to map values from the sample request defined in [Create Sample Request Payload](#create-sample-request-payload).
     - Input Section
-        - **Message**: ${payload.message}
+        - **Message**: `${payload.message}`
         - **Key**: ${payload.key}
         - **Message Properties**: 
           ```json
