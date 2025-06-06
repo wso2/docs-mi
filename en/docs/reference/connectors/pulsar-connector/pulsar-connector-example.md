@@ -98,7 +98,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/UpdateResource1.png" title="Adding the API resource step 1." width="900" alt="Adding the API resource step 1."/>
 
-4. Then select the `POST` method and click `Update`.
+4. Then select the `POST` method and click **Update**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/UpdateResource.png" title="Adding the API resource step 1." width="900" alt="Adding the API resource step 1."/>
    <br/> 
