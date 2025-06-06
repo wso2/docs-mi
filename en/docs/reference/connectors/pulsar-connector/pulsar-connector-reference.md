@@ -5,7 +5,7 @@ Click an operation name to see parameter details and samples on how to use it.
 
 ## Connection Configurations
 
-<img src="{{base_path}}/assets/img/integrate/connectors/pulsar/pulsar-conn.png" title="Apache Pulsar Connector Configuration" width="700" alt="Apache Pulsar Connector Configuration"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnections.png" title="Apache Pulsar Connections" width="700" alt="Apache Pulsar Connections"/>
 
 The WSO2 Apache Pulsar Connector allows you to establish both secure and non-secure connections to Apache Pulsar. 
 
