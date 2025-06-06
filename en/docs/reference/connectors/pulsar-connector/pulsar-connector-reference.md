@@ -7,7 +7,7 @@ Click an operation name to see parameter details and samples on how to use it.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/pulsar/pulsar-conn.png" title="Apache Pulsar Connector Configuration" width="700" alt="Apache Pulsar Connector Configuration"/>
 
-The WSO2 Apache Pulsar Connector allows you to establish both secure and non-secure connections to Apache Pulsar. To configure the connection, use the `<pulsar.init>` element, which must be defined before any other Apache Pulsar operations. This element specifies all required connection parameters, including security settings, depending on your environment's needs.
+The WSO2 Apache Pulsar Connector allows you to establish both secure and non-secure connections to Apache Pulsar. 
 
 ---
 
