@@ -20,7 +20,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
 ### Configure the API
 
-1. First, we will create the `/send` resource. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
+1. First, create the `/send` resource. For guidance, refer to the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#add-new-api-resources) guide. Use the following details when configuring the resource.
     - **URI Template**: `/send`
     - **HTTP Method**: `POST`
 
