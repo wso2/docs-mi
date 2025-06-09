@@ -7,7 +7,7 @@ SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS f
 Given below is a sample scenario that demonstrates how to work with the WSO2 SMPP Connector and send SMS messages via the SMPP protocol.
 
 The SMPP server in SMSC has all the ESME (External Short Messaging Entity) addresses. This is an external application that connects to an SMSC and the active connection. When you send an SMS to a destination, it comes to the SMSC. Then one of the modules in SMSC checks if the destination address is available or not. If it is available, it creates a connection object that is responsible for sending the SMS message.
-There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer to the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
+There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario you will try it with **SMSC simulator**. Please refer to the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
 
 The following `sendSMS`operation is exposed via an API. The API with the context `/send` has one resource.
 
@@ -16,8 +16,6 @@ The following `sendSMS`operation is exposed via an API. The API with the context
 The following diagram shows the overall solution. There is an HTTP API that you can invoke with an HTTP call with JSON. The API can send an SMS for the request number in a JSON request with the message in JSON. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-connector-example.png" title="SMPP connector example" width="800" alt="smpp connector example"/>
-
-If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Set up the integration project
 
@@ -29,7 +27,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
 ### Configure the API
 
-1. First, we will create the `/send` resource to send an SMS to the Short Message Service Center. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
+1. First, you will create the `/send` resource to send an SMS to the Short Message Service Center. Refer to the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
     - **URI Template**: `/send`
     - **HTTP Method**: `POST`
 
@@ -55,7 +53,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-config-new-connection.png" title="Config SMPP connection" width="400" height="400" alt="Config SMPP connection"/>
 
-    3. In this operation we will send SMS messages peer-to-peer using the SMPP protocol. It provides a flexible data communications interface for transferring short message data between Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server, or other types of Message Centers, and an SMS application system, such as a WAP Proxy Server, Email Gateway, or other Messaging Gateways. Please find the mandatory `send` operation parameters listed here.
+    3. In this operation you will send SMS messages peer-to-peer using the SMPP protocol. It provides a flexible data communications interface for transferring short message data between Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server, or other types of Message Centers, and an SMS application system, such as a WAP Proxy Server, Email Gateway, or other Messaging Gateways. Please find the mandatory `send` operation parameters listed here.
                
         - **Source Address**: Source address of the SMS message. 
         - **Destination Address**: The destination address of the SMS message. 
@@ -87,7 +85,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
                         <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
                         <message>{$ctx:message}</message>
                         <responseVariable>SMPP_sendSMS_1</responseVariable>
-                        <overwriteBody>false</overwriteBody>
+                        <overwriteBody>true</overwriteBody>
                     </SMPP.sendSMS>
                     <respond/>
                 </inSequence>
