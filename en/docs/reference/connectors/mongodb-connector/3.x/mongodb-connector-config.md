@@ -2,7 +2,7 @@
 
 This documentation provides a reference guide for the MongoDB Connector.
 
-## Connection
+## Connection configurations
 
 The MongoDB connector can be used to deal with two types of connections:
 
@@ -885,6 +885,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     Yes
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
     
     **Sample Configuration**
@@ -967,6 +1001,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     <td>
     No
     </td>
+    </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
     </tr>
     </table>
 
@@ -1077,6 +1145,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     No
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
 
     **Sample Configuration**
@@ -1085,6 +1187,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
     <mongodb.findOne configKey="connectionURI">
         <collection>{json-eval($.collection)}</collection>
         <query>{json-eval($.query)}</query>
+        <responseVariable>mongodb_findOne_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </mongodb.findOne>
     ```
 
@@ -1190,6 +1294,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     No
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
     
     **Sample Configuration**
@@ -1198,6 +1336,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
     <mongodb.find configKey="connectionURI">
         <collection>{json-eval($.collection)}</collection>
         <query>{json-eval($.query)}</query>
+        <responseVariable>mongodb_find_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </mongodb.find>
     ```
 
@@ -1320,6 +1460,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     No
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
 
     !!! Info
@@ -1354,6 +1528,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
         <query>{json-eval($.query)}</query>
         <update>{json-eval($.update)}</update>
         <upsert>False</upsert>
+        <responseVariable>mongodb_updateOne_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </mongodb.updateOne>
     ```
 
@@ -1481,6 +1657,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     No
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
 
     !!! Info
@@ -1515,6 +1725,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
         <query>{json-eval($.query)}</query>
         <update>{json-eval($.update)}</update>
         <upsert>False</upsert>
+        <responseVariable>mongodb_updateMany_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </mongodb.updateMany>
     ```
 
@@ -1593,6 +1805,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     No
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
     
     **Sample Configuration**
@@ -1601,6 +1847,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
     <mongodb.deleteOne configKey="connectionURI">
         <collection>{json-eval($.collection)}</collection>
         <query>{json-eval($.query)}</query>
+        <responseVariable>mongodb_deleteOne_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </mongodb.deleteOne>
     ```
 
@@ -1674,6 +1922,40 @@ The following operations allow you to work with the MongoDB connector. Click an 
     No
     </td>
     </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
     </table>
 
     **Sample Configuration**
@@ -1682,6 +1964,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
     <mongodb.deleteMany configKey="connectionURI">
         <collection>{json-eval($.collection)}</collection>
         <query>{json-eval($.query)}</query>
+        <responseVariable>mongodb_deleteMany_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </mongodb.deleteMany>
     ```
 

@@ -2,7 +2,7 @@
 
 The MongoDB Connector can be used to perform CRUD operations in the local database as well as in MongoDB Atlas (cloud version of MongoDB).
 
-## What you&#39;ll build
+## What you'll build
 
 This example explains how to use MongoDB Connector to insert and find documents from a MongoDB database.
 
@@ -34,105 +34,106 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 6. Clear the **Include full driver code example** check box to get the connection string.
 
-## Copy the MongoDB driver JAR files
 
-Copy the following JAR files to the `<MI_HOME>/dropins` directory.
+## Set up the integration project
 
-* [mongodb-driver-sync - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/4.9.1/mongodb-driver-sync-4.9.1.jar)
-* [mongodb-driver-core - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/4.9.1/mongodb-driver-core-4.9.1.jar)
-* [bson - 4.9.1](https://repo1.maven.org/maven2/org/mongodb/bson/4.9.1/bson-4.9.1.jar)
+Follow the steps in the [Creating an Integration Project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
-## Create the integration project
+## Add integration logic
 
-1.  Create a new integration project named `MongodbConnector`.
+Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creating-an-api/) guide to create a REST API. Specify the API name as `MongoConnector` and the API context as `/mongodbconnector`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-3.png" title="Create project" width="500" alt="Create project"/>
+### Configure the API
 
-2.  Click `+` on Extension panal APIs to create the REST API.
+1. First, we will create the `/insertmany` resource. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
+    - **URI Template**: `/insertmany`
+    - **HTTP Method**: `POST`
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-api-create-1.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+2. Set up the **Insert Many** operation.
+    1. Select the **insertmany** resource. Click on the **+** mark indicated below to search for the **Mongo** connector.
 
-3.  Provide the API name as `MongoConnector` and the API context as `/mongodbconnector`. Click **create**.
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-api-create-2.png" title="Adding Rest API Values" width="800" alt="Adding Rest API Values"/>
-4.  Delete default resource created by Extension.
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-api-create-3.png" title="Delete default resource" width="800" alt="Delete default resource"/> <br/>
-    Then click `+ Resource` to create the `/insertmany` resource. This API resource inserts documents into the MongoDB database. Let's use a **URL_template** as URL style and insert `/insertmany` to URI Template. Select methods as `Post`. Then click **create**.
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-4.png" title="Adding the API resource." width="800" alt="Adding the API resource."/><br/>
-    Click created `/insertmany` resource open **Resource View**. Then click `+` arrow below Start node to open side panel.
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-open-resource-view.png" title="Open Resource View" width="800" alt="Open Resource View"/><br/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/common/add-connector-operation.png" title="Add connector operation" width="400" alt="Add connector operation"/>
 
-5.  Select **Connectors** and search **mongodb** connector. Click the mongodb connector to open opareation panal then click **insertMany**. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-5.png" title="Adding the insert many operation." width="800" alt="Adding the insert many operation."/>
+    2. Search for the **MongoDB** connector and download the connector if you have not done so already. After downloading, you can see the MongoDB connector in the mediator palette. Click on the **Insert Many** operation under the MongoDB connector.
 
-6.  Create a connection by clicking **Add new Connection**.
+        <img src="{{base_path}}/assets/img/integrate/connectors/mongodb/mongo-insert-many-add.png" title="Insert Many Operation" width="800" alt="Insert Many Operation"/>
 
-    Following values can be provided when connecting to the MongoDB database. <br/>
+    3. Then, click on **Add new connection** to create a new MongoDB Connection.
+        
+        Following values can be provided when connecting to the MongoDB database. <br/>
 
-    - Connection Type - URI
-    - Connection Name - connectionURI
-    - Connection URI - mongodb+srv://server.example.com/?connectTimeoutMS=300000&amp;authSource=aDifferentAuthDB
-    - Database - TestDatabase
+        - Connection Name - connectionURI
+        - Connection URI - mongodb+srv://server.example.com/?connectTimeoutMS=300000&amp;authSource=aDifferentAuthDB
+        - Database - TestDatabase
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-6.png" title="Adding the connection." width="800" alt="Adding the connection."/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/mongodb/mongo-add-new-connection.png" title="Add connection" width="800" alt="Add connection"/>
 
-7.  After the connection is successfully created, you can select the new connection from the 'Connection' menu in the properties view.
+    3. Click on **Add** to create the connection. You can see the created connection in the **Connection** drop-down list. Select the created connection from the list.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-7.png" title="Selecting the connection." width="800" alt="Selecting the connection."/>
+    4. Configure the **insertMany** operation by providing the following expressions for the properties. These expressions will retrieve the respective values from the JSON request payload.
 
-8.  Next, provide JSON expressions for the following two properties. These expressions will retrieve the respective values from the JSON request payload.
+        - **Collection**: `payload.collection`
+        - **Documents**: `payload.documents`
 
-    - Collection - json-eval($.collection)
-    - Documents - json-eval($.documents)
+    5. Select **Overwrite Body** as `true` to overwrite the response body with the response from the operation.
 
-9.  Click `+` arrow under `insertMany` node then click [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-mediator/) and submit to add to the canvas. This returns the response message to the client (after inserting documents) as shown below.
+    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb/mongo-insert-many-operation.png" title="Insert Many Operation" width="800" alt="Insert Many Operation"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-8.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/><br/>
-    Final diagram should look like this.
-    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-8-1.png" title="Final Diagram" width="800" alt="Final Diagram"/><br/>
+3. Get a response from the user.          
 
-10. Create the next API resource (which is `/find`) by doing same steps as create `/insertmany`. This API resource will find all the documents matching the find query given by the user. This will also be a `POST` request.
+    Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
 
-11. Select 'connectionURI' as the connection from the 'Connection' menu in the properties view.
+    <img src="{{base_path}}/assets/img/integrate/connectors/mongodb/mongdo-insert-many-resource.png" title="Insert Many Operation" width="800" alt="Insert Many Operation"/>
 
-12. Next, provide JSON expressions for the following two properties. These expressions will retrieve the respective values from the JSON request payload.
+5. Create the next API resource (which is `/find`) by doing same steps as create `/insertmany`. This API resource will find all the documents matching the find query given by the user. This will also be a `POST` request.
 
-    - Collection - json-eval($.collection)
-    - Query - json-eval($.query)
+6. Setup the **Find** operation.
 
-14. Add [Respond Mediator](https://mi.docs.wso2.com/en/latest/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+    1. Provide expressions for the following two properties. These expressions will retrieve the respective values from the JSON request payload.
 
-15. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
+        - Collection - payload.collection
+        - Query - payload.query
+
+    2. Select **Overwrite Body** as `true` to overwrite the response body with the response from the operation.
+
+7. Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
+
+8. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/mongodbconnector" name="MongoConnector" xmlns="http://ws.apache.org/ns/synapse">
-	<resource methods="POST" uri-template="/insertmany">
-		<inSequence>
-			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
-			<property expression="json-eval($.documents)" name="documents" scope="default" type="JSON"/>
-			<mongodb.insertMany configKey="connectionURI">
-				<collection>{$ctx:collection}</collection>
-				<documents>{$ctx:documents}</documents>
-				<ordered>True</ordered>
-			</mongodb.insertMany>
-			<respond/>
-		</inSequence>
-		<faultSequence>
-		</faultSequence>
-	</resource>
-	<resource methods="POST" uri-template="/find">
-		<inSequence>
-			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
-			<property expression="json-eval($.query)" name="query" scope="default" type="JSON"/>
-			<mongodb.find configKey="connectionURI">
-				<collection>{$ctx:collection}</collection>
-				<query>{$ctx:query}</query>
-			</mongodb.find>
-			<respond/>
-		</inSequence>
-		<faultSequence>
-		</faultSequence>
-	</resource>
+    <resource methods="POST" uri-template="/insertmany">
+        <inSequence>
+            <mongodb.insertMany configKey="connectionURI">
+                <collection>{${payload.collection}}</collection>
+                <documents>{${payload.documents}}</documents>
+                <ordered>True</ordered>
+                <responseVariable>mongodb_insertMany_1</responseVariable>
+                <overwriteBody>true</overwriteBody>
+            </mongodb.insertMany>
+            <respond/>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" uri-template="/find">
+        <inSequence>
+            <mongodb.find configKey="connectionURI">
+                <collection>{${payload.collection}}</collection>
+                <query>{${payload.query}}</query>
+                <projection></projection>
+                <collation></collation>
+                <limit></limit>
+                <sort></sort>
+                <responseVariable>mongodb_find_1</responseVariable>
+                <overwriteBody>true</overwriteBody>
+            </mongodb.find>
+            <respond/>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
 </api>
 ```
 
@@ -147,48 +148,48 @@ You can download the ZIP file and extract the contents to get the project code.
 ## Deployment
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-
-## Testing
+## Test
 
 ### Insert Many Operation
 
-1.  Create a file named `insertmany.json` with the following payload:
+1.  Invoke the API `insertmany` resource as shown below using the MI VSCode Extension.
 
-    ```json
-    {
-    	"collection": "TestCollection",
-    	"documents": [
-    		{
-    			"name": "Jane Doe",
-    			"_id": "123"
-    		},
-    		{
-    			"name": "John Doe",
-    			"_id": "1234"
-    		},
-    		{
-    			"name": "Jane Doe",
-    			"_id": "12345"
-    		}
-    	]
-    }
-    ```
+    <img src="{{base_path}}/assets/img/integrate/connectors/common/runtime-services.png" title="Runtime services" width="600" alt="Runtime services"/>
 
-2.  Invoke the API as shown below using the curl command.
+    **Sample Request**:
 
-    !!! Info
-        The Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
-
-    ```bash
-    curl -H "Content-Type: application/json" --request POST --data @insertmany.json http://localhost:8290/mongodbconnector/insertmany
-    ```
+    - Content-Type: `application/json`
+    - Request body:
+        ```json
+        {
+            "collection": "TestCollection",
+            "documents": [
+                {
+                    "name": "Jane Doe",
+                    "_id": "123"
+                },
+                {
+                    "name": "John Doe",
+                    "_id": "1234"
+                },
+                {
+                    "name": "Jane Doe",
+                    "_id": "12345"
+                }
+            ]
+        }
+        ```
 
     **Expected Response** : You should get a response as given below and the data will be added to the database.
 
     ```json
     {
-    	"InsertManyResult": "Successful"
+        "insertedIds": [
+            "6846963a436675569b109b1a",
+            "6846963a436675569b109b1b",
+            "6846963a436675569b109b1c"
+        ],
+        "insertedCount": 3
     }
     ```
 
@@ -207,40 +208,40 @@ You can further refer the application deployed through the CLI tool. See the ins
     }
     ```
 
-1.  Create a file called `find.json` with the following payload.
+1.  Invoke the API `find` resource using the MI VSCode Extension.
+
+    **Sample Request**:
+
+    - Content-Type: `application/json`
+    - Request body:
+        ```json
+        {
+            "collection": "TestCollection",
+            "query": {
+                "name": "Jane Doe"
+            }
+        }
+        ```
+
+    **Expected Response** : You should get a response as given below and the data will be added to the database.
 
     ```json
     {
-    	"collection": "TestCollection",
-    	"query": {
-    		"name": "Jane Doe"
-    	}
+        "found": true,
+        "data": [
+            {
+                "name": "Jane Doe",
+                "_id": "123"
+            },
+            {
+                "name": "Jane Doe",
+                "_id": "12345"
+            }
+        ],
+        "count": 2
     }
     ```
 
-2.  Invoke the API using the curl command shown below.
-
-    !!! Info
-        Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
-
-    ```bash
-    curl -H "Content-Type: application/json" --request POST --data @find.json http://localhost:8290/mongodbconnector/find
-    ```
-
-    **Expected Response** : You should get a response similar to the one given below.
-
-    ```json
-    [
-    	{
-    		"_id": "123",
-    		"name": "Jane Doe"
-    	},
-    	{
-    		"_id": "12345",
-    		"name": "Jane Doe"
-    	}
-    ]
-    ```
 
 ## What's next
 
