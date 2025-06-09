@@ -34,7 +34,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
     - **HTTP Method**: `POST`
 
 2. Set up the **sendSMS** operation.
-    1. Select the **send** resource. Click on the **+** mark indicated below to go to the **SMPP** connector and select **sendSMS** operation. 
+    1. Select the **send** resource. Click on the **+** icon on the canvas to open the **Mediator Palette**, search for the **SMPP** connector, and select the **sendSMS** operation.
            
         <img src="{{base_path}}/assets/img/integrate/connectors/common/add-connector-operation.png" title="Add connector operation" width="400" alt="Add connector operation"/>
 
@@ -68,11 +68,11 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         - **Destination Address** - expression `payload.destinationAddress` 
         - **Message** - expression `payload.message`
 
-        To store the response of the operation in the message context, select "Overwrite Message Body" in the Output Section. This will allow you to send the response back to the user as a response of the API invocation.
+        To store the response of the operation in the message body, select **Overwrite Message Body** in the Output Section. This will allow you to send the response back to the user as a response of the API invocation.
         
-3. Get a response from the user.          
+3. Send a response to the user.          
     
-    Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
+    Add a [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
        
 4.  Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
     
