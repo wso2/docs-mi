@@ -29,7 +29,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
            
         <img src="{{base_path}}/assets/img/integrate/connectors/common/add-connector-operation.png" title="Add connector operation" width="400" alt="Add connector operation"/>
 
-    2. Then, click on **Add new connection** to create a new ISO8583 Connection. Provide your values for **Host** and **Port**You can reuse the ISO8583 connection with other operators.
+    2. Then, click on **Add new connection** to create a new ISO8583 Connection. Provide your values for **Host** and **Port**. 
         <br/>
         
         - **serverHost**: IP address of the server. 
@@ -39,9 +39,9 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
     4. Since there is no need to configure the `sendMessage` operation parameters, add the operation as it is. 
         
-3. Get a response from the user.          
+3. Send a response to the user.          
     
-    Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
+    Add a [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
        
 4.  Now you can switch to the Source view and check the XML configuration files of the created API and connections. 
     
