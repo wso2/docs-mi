@@ -1104,6 +1104,8 @@ plugins:
               'reference/connectors/file-connector/file-connector-config.md' : 'reference/connectors/file-connector/5.x/file-connector-config.md'
               'reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
               'reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
+              'reference/connectors/mongodb-connector/mongodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-example'
+              'reference/connectors/mongodb-connector/mongodb-connector-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-config'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
