@@ -37,7 +37,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 ## Set up the integration project
 
-Follow the steps in the [Creating an Integration Project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
+Follow the steps in the [Create Integration Project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project. 
 
 ## Add integration logic
 
@@ -45,12 +45,12 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
 ### Configure the API
 
-1. First, we will create the `/insertmany` resource. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
+1. First, create the `/insertmany` resource. For guidance, refer to the [Add new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#add-new-api-resources) guide. Use the following details when configuring the resource.
     - **URI Template**: `/insertmany`
     - **HTTP Method**: `POST`
 
 2. Set up the **Insert Many** operation.
-    1. Select the **insertmany** resource. Click on the **+** mark indicated below to search for the **Mongo** connector.
+    1. Select the **insertmany** resource. Click on the **+** icon on the canvas to open the **Mediator Palette** and search for the **MongoDB** connector.
 
         <img src="{{base_path}}/assets/img/integrate/connectors/common/add-connector-operation.png" title="Add connector operation" width="400" alt="Add connector operation"/>
 
@@ -75,11 +75,11 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         - **Collection**: `payload.collection`
         - **Documents**: `payload.documents`
 
-    5. Select **Overwrite Body** as `true` to overwrite the response body with the response from the operation.
+    5. To store the response of the operation in the message body, select **Overwrite Message Body** in the Output Section. This will allow you to send the response back to the user as a response of the API invocation.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb/mongo-insert-many-operation.png" title="Insert Many Operation" width="800" alt="Insert Many Operation"/>
 
-3. Get a response from the user.          
+3. Send a response to the user.       
 
     Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
 
@@ -96,7 +96,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
     2. Select **Overwrite Body** as `true` to overwrite the response body with the response from the operation.
 
-7. Add [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
+7. Add a [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
 
 8. You can find the complete API XML configuration below. Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
 
@@ -141,7 +141,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/MongodbConnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/MongodbConnector3xx.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
