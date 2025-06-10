@@ -7,7 +7,7 @@ SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS f
 Given below is a sample scenario that demonstrates how to work with the WSO2 SMPP Connector and send SMS messages via the SMPP protocol.
 
 The SMPP server in SMSC has all the ESME (External Short Messaging Entity) addresses. This is an external application that connects to an SMSC and the active connection. When you send an SMS to a destination, it comes to the SMSC. Then one of the modules in SMSC checks if the destination address is available or not. If it is available, it creates a connection object that is responsible for sending the SMS message.
-There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer to the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
+There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario you will try it with **SMSC simulator**. Please refer to the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
 
 The following `sendSMS`operation is exposed via an API. The API with the context `/send` has one resource.
 
@@ -16,8 +16,6 @@ The following `sendSMS`operation is exposed via an API. The API with the context
 The following diagram shows the overall solution. There is an HTTP API that you can invoke with an HTTP call with JSON. The API can send an SMS for the request number in a JSON request with the message in JSON. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/smpp-connector-example.png" title="SMPP connector example" width="800" alt="smpp connector example"/>
-
-If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Set up the integration project
 
@@ -29,13 +27,14 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
 ### Configure the API
 
-1. First, we will create the `/send` resource to send an SMS to the Short Message Service Center. Refer the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details below.
-    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-create-send-resource.png" title="Create send resource" width="800" alt="Create send resource"/>
+1. First, you will create the `/send` resource to send an SMS to the Short Message Service Center. Refer to the [Adding new API resources]({{base_path}}/develop/creating-artifacts/creating-an-api/#adding-new-api-resources) guide to create a new resource. Provide the resource details as below.
+    - **URI Template**: `/send`
+    - **HTTP Method**: `POST`
 
 2. Set up the **sendSMS** operation.
-    1. Select the **send** resource. Click on the **+** mark indicated below to go to the **SMPP** connector and select **sendSMS** operation. 
+    1. Select the **send** resource. Click on the **+** icon on the canvas to open the **Mediator Palette**, search for the **SMPP** connector, and select the **sendSMS** operation.
            
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-add-send-sms-operation.png" title="Add send sms operation" width="800" alt="Add send sms operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/common/add-connector-operation.png" title="Add connector operation" width="400" alt="Add connector operation"/>
 
     2. Then, click on **Add new connection** to create a new SMSC Connection. Provide your values for **Host**, **Port**, **System ID**, and **Password**. You can reuse the SMSC connection with other operators.
         <br/>
@@ -54,7 +53,7 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
 
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-config-new-connection.png" title="Config SMPP connection" width="400" height="400" alt="Config SMPP connection"/>
 
-    3. In this operation we will send SMS messages peer-to-peer using the SMPP protocol. It provides a flexible data communications interface for transferring short message data between Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server, or other types of Message Centers, and an SMS application system, such as a WAP Proxy Server, Email Gateway, or other Messaging Gateways. Please find the mandatory `send` operation parameters listed here.
+    3. In this operation you will send SMS messages peer-to-peer using the SMPP protocol. It provides a flexible data communications interface for transferring short message data between Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server, or other types of Message Centers, and an SMS application system, such as a WAP Proxy Server, Email Gateway, or other Messaging Gateways. Please find the mandatory `send` operation parameters listed here.
                
         - **Source Address**: Source address of the SMS message. 
         - **Destination Address**: The destination address of the SMS message. 
@@ -62,52 +61,16 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         
         While invoking the API, the values of the above three parameters come from user input.
     
-    4. To get the input values into the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Add the **Property** mediators into the Design pane as shown bellow.
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-add-property-mediators.png" title="Add property mediators" width="800" alt="Add property mediators"/>
+    4. Add the `sendSMS` operation in the `SMPP` connector. Select the previously created connection. Provide the following expressions for source address, destination address, and message as below. 
+        - **Source Address** - expression `payload.sourceAddress`
+        - **Destination Address** - expression `payload.destinationAddress` 
+        - **Message** - expression `payload.message`
 
-        The parameters available for configuring the Property mediator are as follows:
-    
-        > **Note**: The properties should be added to the pallet before creating the operation.
-    
-    4. Add the property mediator to capture the `sourceAddress` value. The `sourceAddress` contains the source address of the SMS message. 
-   
-        - **Property Name**: `sourceAddress`
-        - **Property Value**: expression `json-eval($.sourceAddress)`
-   
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-source-address-property.png" title="Add property mediators sourceAddress" width="800" alt="Add property mediators sourceAddress"/>
-    
-    5. Add the property mediator to capture the `message` values. The message contains the content of the SMS message.                  
-   
-        - **Property Name**: `message`
-        - **Property Value**: expression `json-eval($.message)`
-     
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-message-property.png" title="Add values to capture message" width="800" alt="Add values to capture message"/>  
-      
-    6. Add the property mediator to capture the `destinationAddress` values. The message contains the content of the SMS message.                  
-       
-        - **Property Name**: `destinationAddress`
-        - **Property Value**: expression `json-eval($.destinationAddress)`
-         
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-destination-address-property.png" title="Add values to capture destinationAddress" width="800" alt="Add values to capture destinationAddress"/>  
-    
-    7. Add the `sendSMS` operation in the `SMPP` connector. Select the previously created connection. Provide the following expressions for source address, destination address, and message as below. 
-        - **Source Address** - expression `$ctx:sourceAddress`
-        - **Destination Address** - expression `$ctx:destinationAddress` 
-        - **Message** - expression `$ctx:message`
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-again-add-send-sms-operation.png" title="Again add send sms operation" width="800" alt="Again add send sms operation"/> 
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-select-sms-conn.png" title="Select created SMSC connection" width="400" alt="Select created SMSC connection"/> 
+        To store the response of the operation in the message body, select **Overwrite Message Body** in the Output Section. This will allow you to send the response back to the user as a response of the API invocation.
         
-3. Get a response from the user.
+3. Send a response to the user.          
     
-    When you are invoking the created API, the request of the message is going through the `/send` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.            
-    
-    Add **respond mediator** to the **Design view**. <br/>
-    
-    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-add-respond.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
- 
-    > **Note**: The properties should be added to the pallet before creating the operation.
+    Add a [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/) after the above operation.
        
 4.  Now you can switch to the Source view and check the XML configuration files of the created API and sequences. 
     
@@ -117,13 +80,12 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         <api context="/smpptest" name="SmppTestApi" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="POST" uri-template="/send">
                 <inSequence>
-                    <property name="sourceAddress" scope="default" type="STRING" expression="json-eval($.sourceAddress)"/>
-                    <property name="message" scope="default" type="STRING" expression="json-eval($.message)"/>
-                    <property name="destinationAddress" scope="default" type="STRING" expression="json-eval($.destinationAddress)"/>
                     <SMPP.sendSMS configKey="SMSC_CONFIG_1">
                         <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
                         <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
                         <message>{$ctx:message}</message>
+                        <responseVariable>SMPP_sendSMS_1</responseVariable>
+                        <overwriteBody>true</overwriteBody>
                     </SMPP.sendSMS>
                     <respond/>
                 </inSequence>
@@ -148,14 +110,6 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         </localEntry>
         ``` 
 
-## Get the project
-
-You can download the ZIP file and extract the contents to get the project code.
-
-<a href="{{base_path}}/assets/attachments/connectors/smpp-connector.zip">
-    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
-</a>
-
 !!! tip
     You may need to update the simulator details and make other such changes before deploying and running this project.
 
@@ -163,17 +117,18 @@ You can download the ZIP file and extract the contents to get the project code.
 
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
-You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
-
 ## Test
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the MI VSCode Extension.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/common/runtime-services.png" title="Runtime services" width="600" alt="Runtime services"/>
 
 **Sample request**
 
   ```
-  curl -v POST -d '{"sourceAddress":"16111", "message":"Hi! This is the first test SMS message.","destinationAddress":"071XXXXXXX"}' "http://localhost:8290/smpptest/send" -H "Content-Type:application/json"
+{"sourceAddress":"16111", "message":"Hi! This is the first test SMS message.","destinationAddress":"071XXXXXXX"}
   ```
+
 **You will receive the `messageId` as expected response**
 
   ```
