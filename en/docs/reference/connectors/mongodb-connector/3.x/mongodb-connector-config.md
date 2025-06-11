@@ -761,83 +761,83 @@ The supported connection URI types and connection options are listed in the [Mon
 
 **Sample Configuration of Connection URI**
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <localEntry key="uriConnection" xmlns="http://ws.apache.org/ns/synapse">
-        <mongodb.init>
-            <name>uriConnection</name>
-            <connectionType>MONGODB</connectionType>
-            <inputType>Connection String URI</connectionType>
-            <connectionURI>mongodb+srv://server.example.com/?connectTimeoutMS=300000&authSource=aDifferentAuthDB</connectionURI>
-            <database>users</database>
-        </mongodb.init>
-    </localEntry>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="uriConnection" xmlns="http://ws.apache.org/ns/synapse">
+    <mongodb.init>
+        <name>uriConnection</name>
+        <connectionType>MONGODB</connectionType>
+        <inputType>Connection String URI</connectionType>
+        <connectionURI>mongodb+srv://server.example.com/?connectTimeoutMS=300000&authSource=aDifferentAuthDB</connectionURI>
+        <database>users</database>
+    </mongodb.init>
+</localEntry>
+```
 
 **Sample configuration of Connection parameters configs**
 
-    Sample configuration of STANDARD (standalone) configs.
+Sample configuration of STANDARD (standalone) configs.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <localEntry key="standaloneStandardConnection" xmlns="http://ws.apache.org/ns/synapse">
-        <mongodb.init>
-            <name>standaloneStandardConnection</name>
-            <connectionType>MONGODB</connectionType>
-            <inputType>Connection Parameters</inputType>
-            <useDnsSrvLookup>false</useDnsSrvLookup>
-            <database>users</database>
-            <host>localhost</host>
-            <port>27017</port>
-            <username>administrator</username>
-            <password>1234</password>
-        </mongodb.init>
-    </localEntry>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="standaloneStandardConnection" xmlns="http://ws.apache.org/ns/synapse">
+    <mongodb.init>
+        <name>standaloneStandardConnection</name>
+        <connectionType>MONGODB</connectionType>
+        <inputType>Connection Parameters</inputType>
+        <useDnsSrvLookup>false</useDnsSrvLookup>
+        <database>users</database>
+        <host>localhost</host>
+        <port>27017</port>
+        <username>administrator</username>
+        <password>1234</password>
+    </mongodb.init>
+</localEntry>
+```
 
 **Sample configuration of Connection parameters (replica set) configs**
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <localEntry key="replicaSetStandardConnection" xmlns="http://ws.apache.org/ns/synapse">
-        <mongodb.init>
-            <name>replicaSetStandardConnection</name>
-            <connectionType>MONGODB</connectionType>
-            <inputType>Connection Parameters</inputType>
-            <useDnsSrvLookup>false</useDnsSrvLookup>
-            <seedList>mongodb1.example.com:27317,mongodb2.example.com:27017</seedList>
-            <database>users</database>
-            <username>administrator</username>
-            <password>1234</password>
-            <authSource>aDifferentAuthDB</authSource>
-            <ssl>true</ssl>
-            <w>majority</w>
-            <replicaSet>mySet</replicaSet>
-            <retryWrites>true</retryWrites>
-        </mongodb.init>
-    </localEntry>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="replicaSetStandardConnection" xmlns="http://ws.apache.org/ns/synapse">
+    <mongodb.init>
+        <name>replicaSetStandardConnection</name>
+        <connectionType>MONGODB</connectionType>
+        <inputType>Connection Parameters</inputType>
+        <useDnsSrvLookup>false</useDnsSrvLookup>
+        <seedList>mongodb1.example.com:27317,mongodb2.example.com:27017</seedList>
+        <database>users</database>
+        <username>administrator</username>
+        <password>1234</password>
+        <authSource>aDifferentAuthDB</authSource>
+        <ssl>true</ssl>
+        <w>majority</w>
+        <replicaSet>mySet</replicaSet>
+        <retryWrites>true</retryWrites>
+    </mongodb.init>
+</localEntry>
+```
 
  **Sample Configuration of Connection parameters (with DNS SRV lookup) configs**
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <localEntry key="dslConnection" xmlns="http://ws.apache.org/ns/synapse">
-        <mongodb.init>
-            <name>dslConnection</name>
-            <connectionType>MONGODB</connectionType>
-            <inputType>Connection Parameters</inputType>
-            <useDnsSrvLookup>true</useDnsSrvLookup>
-            <host>server.example.com</host>
-            <database>users</database>
-            <username>administrator</username>
-            <password>1234</password>
-            <authSource>aDifferentAuthDB</authSource>
-            <retryWrites>true</retryWrites>
-            <w>majority</w>
-        </mongodb.init>
-    </localEntry>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="dslConnection" xmlns="http://ws.apache.org/ns/synapse">
+    <mongodb.init>
+        <name>dslConnection</name>
+        <connectionType>MONGODB</connectionType>
+        <inputType>Connection Parameters</inputType>
+        <useDnsSrvLookup>true</useDnsSrvLookup>
+        <host>server.example.com</host>
+        <database>users</database>
+        <username>administrator</username>
+        <password>1234</password>
+        <authSource>aDifferentAuthDB</authSource>
+        <retryWrites>true</retryWrites>
+        <w>majority</w>
+    </mongodb.init>
+</localEntry>
+```
 
 ## Operations
 
