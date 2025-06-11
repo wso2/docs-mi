@@ -1,8 +1,8 @@
-# Configuring Logs
+# Configure Logs
 
 ## Introduction
 
-All WSO2 products are shipped with Log4j2 logging capabilities, which generate server-side logs. The `<MI_HOME>/conf/log4j2.properties` file governs how logging is performed by the server.
+All WSO2 products are shipped with Log4j2 logging capabilities, which generate server-side logs. The `<MI_HOME>/conf/log4j2.properties` file governs how logging is performed by the Micro Integrator.
 
 ??? note "Java logging and Log4j2 integration"
     In addition to the logs from libraries that use Log4j2, all logs from libraries that use the Java logging framework are also visible in the same log files. That is, when Java logging is enabled in Carbon, only the Log4j2 appenders will write to the log files. If the Java Logging Handlers have logs, these logs will be delegated to the log events of the corresponding Log4j2 appenders. A Pub/Sub registry pattern implementation has been used in the latter mentioned scenario to plug the handlers and appenders. The following default log4j2 appenders in the `log4j2.properties` file are used for this implementation:<br/><ul>
@@ -44,7 +44,7 @@ The logger attributes are described below.
             additivity
         </th>
         <td>
-           Allows to inherit all the appenders of the parent Logger if set as `true`.
+           Allows to inherit all the appenders of the parent Logger if set as <code>true</code>.
         </td>
     </tr>
     <tr>
@@ -67,15 +67,16 @@ loggers = <LOGGER_NAME>, <LOGGER_NAME_1>, <LOGGER_NAME_2>,
 Log4j2 allows logging requests to print to multiple destinations. These output destinations are called 'Appenders'. All the defined appenders should be listed as shown below in the `log4j2.properties` file.
 
 !!! Note
-    If the output destination is in another environment (such as a cloud storage), you need to [use custom log appenders](#using-custom-log-appenders).
+    - By default, the Micro Integrator uses console and rolling file appenders. Depending on your use case, you can refer to the <a target="_blank" href="https://logging.apache.org/log4j/2.x/manual/appenders.html">Log4j2 documentation</a> and customize the `log4j2.properties` file accordingly.
+    - If the output destination is in another environment (such as a cloud storage), you need to [use custom log appenders](#using-custom-log-appenders).
 
 ```xml
 appenders = CARBON_CONSOLE, CARBON_LOGFILE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CARBON_TRACE_LOGFILE, osgi, SERVICE_LOGFILE, API_LOGFILE, ERROR_LOGFILE, CORRELATION
 ```
 
-Once the appenders are defined, a logger can refer the appender by using the `appenderRef.APPENDER_NAME.ref` element. You can also attach several appenders to one logger. For example, see how the [<b>root logger</b>](#root-logs) is linked to three appenders. Also, see how [other loggers](#configuring-log4j2-logs) in the `log4j2.properties` file are configured to use appenders.
+Once the appenders are defined, a logger can refer the appender by using the `appenderRef.APPENDER_NAME.ref` element. You can also attach several appenders to one logger. For example, see how the [<b>root logger</b>](#root-logs) is linked to three appenders. Also, see how [other loggers](#configure-log4j2-logs) in the `log4j2.properties` file are configured to use appenders.
 
-## Configuring Log4j2 Logs
+## Configure Log4j2 Logs
 
 The list below shows some of the main loggers (excluding the [root logger](#root-logs)) that are configured by default in the Micro Integrator. Open the `log4j2.properties` file to see the complete list.
 
@@ -120,8 +121,8 @@ Listed below are the default log destinations (appenders) used by the root logge
         # CARBON_LOGFILE is set to be a DailyRollingFileAppender using a PatternLayout.
         appender.CARBON_LOGFILE.type = RollingFile
         appender.CARBON_LOGFILE.name = CARBON_LOGFILE
-        appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
-        appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
+        appender.CARBON_LOGFILE.fileName = ${sys:logfiles.home}/wso2carbon.log
+        appender.CARBON_LOGFILE.filePattern = ${sys:logfiles.home}/wso2carbon-%d{MM-dd-yyyy}.log
         appender.CARBON_LOGFILE.layout.type = PatternLayout
         appender.CARBON_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
         appender.CARBON_LOGFILE.policies.type = Policies
@@ -143,8 +144,8 @@ Listed below are the default log destinations (appenders) used by the root logge
         # Appender config to SERVICE_APPENDER
         appender.ERROR_LOGFILE.type = RollingFile
         appender.ERROR_LOGFILE.name = ERROR_LOGFILE
-        appender.ERROR_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2error.log
-        appender.ERROR_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2error-%d{MM-dd-yyyy}.log
+        appender.ERROR_LOGFILE.fileName = ${sys:logfiles.home}/wso2error.log
+        appender.ERROR_LOGFILE.filePattern = ${sys:logfiles.home}/wso2error-%d{MM-dd-yyyy}.log
         appender.ERROR_LOGFILE.layout.type = PatternLayout
         appender.ERROR_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
         appender.ERROR_LOGFILE.policies.type = Policies
@@ -170,7 +171,7 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
     logger.SERVICE_LOGGER.name = SERVICE_LOGGER.TestProxy
     ```
 
-    See the instructions on [monitoring per-service logs]({{base_path}}/develop/monitoring-service-level-logs).
+    Refer to the instructions on [Monitor Service-Level Logs]({{base_path}}/develop/monitoring-service-level-logs).
 
 === "SERVICE_LOGGER"
     ```xml 
@@ -184,8 +185,8 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
     # Appender config to SERVICE_LOGFILE
     appender.SERVICE_LOGFILE.type = RollingFile
     appender.SERVICE_LOGFILE.name = SERVICE_LOGFILE
-    appender.SERVICE_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2-mi-service.log
-    appender.SERVICE_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2-mi-service-%d{MM-dd-yyyy}.log
+    appender.SERVICE_LOGFILE.fileName = ${sys:logfiles.home}/wso2-mi-service.log
+    appender.SERVICE_LOGFILE.filePattern = ${sys:logfiles.home}/wso2-mi-service-%d{MM-dd-yyyy}.log
     appender.SERVICE_LOGFILE.layout.type = PatternLayout
     appender.SERVICE_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
     appender.SERVICE_LOGFILE.policies.type = Policies
@@ -206,7 +207,7 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
     logger.API_LOG.name=API_LOGGER.TestAPI
     ```
 
-    See the instructions on [monitoring per-API logs]({{base_path}}/develop/monitoring-api-level-logs/).
+    Refer to the instructions on [Monitor API-Level Logs]({{base_path}}/develop/monitoring-api-level-logs/).
 
 === "API_LOGGER"
     ```xml 
@@ -220,8 +221,8 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
     # Appender config to API_APPENDER
     appender.API_LOGFILE.type = RollingFile
     appender.API_LOGFILE.name = API_LOGFILE
-    appender.API_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2-mi-api.log
-    appender.API_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2-mi-api-%d{MM-dd-yyyy}.log
+    appender.API_LOGFILE.fileName = ${sys:logfiles.home}/wso2-mi-api.log
+    appender.API_LOGFILE.filePattern = ${sys:logfiles.home}/wso2-mi-api-%d{MM-dd-yyyy}.log
     appender.API_LOGFILE.layout.type = PatternLayout
     appender.API_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
     appender.API_LOGFILE.policies.type = Policies
@@ -247,8 +248,8 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
     # Appender config to AUDIT_LOGFILE
     appender.AUDIT_LOGFILE.type = RollingFile
     appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
-    appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
-    appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
+    appender.AUDIT_LOGFILE.fileName = ${sys:logfiles.home}/audit.log
+    appender.AUDIT_LOGFILE.filePattern = ${sys:logfiles.home}/audit-%d{MM-dd-yyyy}.log
     appender.AUDIT_LOGFILE.layout.type = PatternLayout
     appender.AUDIT_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
     appender.AUDIT_LOGFILE.policies.type = Policies
@@ -268,10 +269,11 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
 This logger generates correlation logs for monitoring individual HTTP requests from the point that a message is received by the Micro Integrator until the corresponding response message is sent back to the original message sender. It refers to the details in the `CORRELATION` appender and prints logs to the `<MI_HOME>/repository/logs/correlation.log` file.
 
 !!! Note
-    The maximum file size of the correlation log is set to
+    - The maximum file size of the correlation log is set to
     10MB in the following <b>appender</b>. That is, when the size of the file
     exceeds 10MB, a new log file is created. If required, you can change
     this file size.
+    - Correlation logging is disabled by default. To enable and monitor correlation logs, refer to [Monitor Correlation Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-correlation-logs).
 
 === "correlation"
     ```xml 
@@ -285,8 +287,8 @@ This logger generates correlation logs for monitoring individual HTTP requests f
     # Appender config to put correlation Log.
     appender.CORRELATION.type = RollingFile
     appender.CORRELATION.name = CORRELATION
-    appender.CORRELATION.fileName =${sys:carbon.home}/repository/logs/correlation.log
-    appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.log
+    appender.CORRELATION.fileName = ${sys:logfiles.home}/correlation.log
+    appender.CORRELATION.filePattern = ${sys:logfiles.home}/correlation-%d{MM-dd-yyyy}.log
     appender.CORRELATION.layout.type = PatternLayout
     appender.CORRELATION.layout.pattern = %d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%m%n
     appender.CORRELATION.policies.type = Policies
@@ -303,14 +305,12 @@ This logger generates correlation logs for monitoring individual HTTP requests f
 
 <b>Additional configurations</b>:
 
-If required, you can change the default HTTP header (which is 'activity_id'), which is used to carry the Correlation ID, by adding the following property to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` directory). Replace `<correlation_id>` with a value of your choice.
+If required, you can change the default HTTP header (which is `activityid`), which is used to carry the Correlation ID, by adding the following property to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` directory). Replace `<correlation_id>` with a value of your choice.
 
 ```toml
 [passthru_properties]
 correlation_header_name="<correlation_id>"
 ```
-
-Once you have configured this logger, see the instructions on [monitoring correlation logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-correlation-logs).
 
 ### Message Tracing Logs
 
@@ -318,7 +318,7 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
 
 === "trace-messages"
     ```xml 
-    logger.trace-messages.name = trace.messages
+    logger.trace-messages.name = TRACE_LOGGER
     logger.trace-messages.level = TRACE
     logger.trace-messages.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
     ```
@@ -327,8 +327,8 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
     # Appender config to CARBON_TRACE_LOGFILE
     appender.CARBON_TRACE_LOGFILE.type = RollingFile
     appender.CARBON_TRACE_LOGFILE.name = CARBON_TRACE_LOGFILE
-    appender.CARBON_TRACE_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon-trace-messages.log
-    appender.CARBON_TRACE_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-trace-messages-%d{MM-dd-yyyy}.log
+    appender.CARBON_TRACE_LOGFILE.fileName = ${sys:logfiles.home}/wso2carbon-trace-messages.log
+    appender.CARBON_TRACE_LOGFILE.filePattern = ${sys:logfiles.home}/wso2carbon-trace-messages-%d{MM-dd-yyyy}.log
     appender.CARBON_TRACE_LOGFILE.layout.type = PatternLayout
     appender.CARBON_TRACE_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
     appender.CARBON_TRACE_LOGFILE.policies.type = Policies
@@ -343,7 +343,7 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
 
 ### Wire Logs and Header Logs
 
-These logs are disabled by default by setting the log level to `OFF`. You can enable these logs by [changing the log level](#updating-the-log4j2-log-level) of the loggers to `DEBUG`.
+These logs are disabled by default by setting the log level to `OFF`. You can enable them by [Update the Log4j2 Log level](#update-the-log4j2-log-level) of the relevant loggers to `DEBUG`.
 
 !!! Info
     It is not recommended to use these logs in production environments. Developers can enable them for testing and troubleshooting purposes. Note that appenders are not specified for these loggers, and therefore, the logs will be printed as specified for the [root logger](#root-logs).
@@ -378,13 +378,13 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
         logger.httpclient-wire-content.level=OFF
         ```
 
-See the instructions on [using wire logs to debug]({{base_path}}/develop/using-wire-logs) your integration solution during development.
+See the instructions on [Use Wire Logs]({{base_path}}/develop/using-wire-logs) to debug your integration solution during development.
 
-## Configuring HTTP Access Logs
+### HTTP Access Logs
 
 Access logs related to service/API invocations are enabled by default in the Micro Integrator. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
 
-By default, access logs are printed to the `http_access.log` file (stored in the `<MI_HOME>/repository/logs` folder). If required, you can use the log4j2 configurations to print the access logs to other destinations. Simply apply the following [logger](#log4j2-loggers) with an [appender](#log4j2-appenders).
+By default, access logs are printed to the `http_access.log` file (stored in the `<MI_HOME>/repository/logs` folder). If required, you can use the log4j2 configurations to print the access logs to other destinations.
 
 -   <b>Logger Name</b>: `PassThroughAccess`
 -   <b>Logger Class</b>: `org.apache.synapse.transport.http.access.logs`
@@ -420,7 +420,7 @@ To disable the access logs, set the log level of `logger.PassThroughAccess.level
 
 The output file name and the file pattern can be customized as required by changing the `fileName` and `filePattern` attributes of the `HTTP_ACCESS_LOGFILE` appender.
 
-### Customizing the Access Log format
+#### Customizing the Access Log format
 
 You can customize the format of this access log by changing the following property values in the `<MI_HOME>/conf/access-log.properties` configuration file. If this file does not exist in the product by default, you can create a new file.
 
@@ -428,21 +428,6 @@ You can customize the format of this access log by changing the following proper
 
     <table>
     <tbody>
-      <tr class="even">
-         <td>access_log_file_date_format</td>
-         <td>
-            <div class="content-wrapper">
-               <p>The date format used in access logs. The default value is as follows:</p>
-               <div class="code panel pdl" style="border-width: 1px;">
-                  <div class="codeContent panelContent pdl">
-                     <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-                        <pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1"></a>access_log_file_date_format=yyyy-MM-dd</span></code></pre>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </td>
-      </tr>
       <tr class="odd">
          <td>access_log_pattern</td>
          <td>
@@ -452,8 +437,8 @@ You can customize the format of this access log by changing the following proper
                   <li>
                      <p>A standard value to represent a particular string. For example, "%h" represents the remote host name in the request. Note that all the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by Tomcat</a> are NOT supported for the PassThrough transport's access logs. The list of supported values are <a href="#supported-log-pattern-formats">given below</a>.</p>
                   </li>
-                  <li><strong>%{xxx}i</strong> is used to represent the header in the incoming request (xxx=header value).</li>
-                  <li><strong>%{xxx}o</strong> is used to represents the header in the outgoing request (xxx=header value).</li>
+                  <li><strong>%{header-name}i</strong> is used to represent a specific header from the incoming request. For example, to log the <code>User-Agent</code> header, use <code>%{User-Agent}i</code>.</li>
+                  <li><strong>%{header-name}o</strong> is used to represent a header in the outgoing response.</li>
                </ul>
                <p>While you can use the above attributes to define a custom pattern, the standard patterns shown below can be used.</p>
                <ul>
@@ -478,7 +463,7 @@ You can customize the format of this access log by changing the following proper
                      </div>
                   </li>
                </ul>
-               <p>By default, a modified version of the <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log format</a> is enabled in the ESB, as shown below. Note that the "X-Forwarded-For" header is appended to the beginning of the usually <strong>combined</strong> log format. This correctly identifies the original node that sent the request (in situations where requests go through a proxy such as a load balancer). The "X-Forwarded-For" header must be present in the incoming request for this to be logged.</p>
+               <p>By default, the Micro Integrator uses a modified version of the <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log format</a>, as shown below. In this format, the <code>X-Forwarded-For</code> header is prepended to the standard combined log entry. This helps accurately identify the original client that sent the request specially in scenarios where the request passes through a proxy or load balancer. <strong>Note</strong>: The <code>X-Forwarded-For</code> header must be present in the incoming request for this information to be logged.</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -495,7 +480,7 @@ You can customize the format of this access log by changing the following proper
 3.  Restart the server.
 4.  Invoke a proxy service or REST API that is deployed in the Micro Integrator. The access log file for the service/API will be created in the `<MI_HOME>/repository/logs` directory. The default name of the log file is `http_access.log`.
 
-### Supported log pattern formats
+#### Supported log pattern formats
 
 <table>
 <thead>
@@ -608,12 +593,66 @@ You can customize the format of this access log by changing the following proper
 </tbody>
 </table>
 
-## Updating the Log4j2 Log level
+## Add a new logger
 
-You can <b>dynamically</b> update the log level for a specific logger by using the [Integration Control Plane](#viewing-logs-via-the-integration-control-plane) or [CLI](#viewing-logs-via-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the ICP or CLI), the Micro Integrator needs to be restarted for the changes to become effective.
+You can enable logs for a specific component in the Micro Integrator using one of the methods described below. By default, all loggers output logs to the destinations configured for the [root logger]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#root-logs).
+
+If you want to send logs to additional or custom destinations, you can define new [appenders]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#log4j2-appenders).
+
+### Update `log4j2.properties` directly
+
+Update the [log configurations]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#log4j2-loggers) in the `log4j2.properties` file located in the `<MI_HOME>/conf` directory.
+
+!!! Note
+    You must restart the Micro Integrator for changes made directly to the `log4j2.properties` file to take effect. However, changes made via the **Integration Control Plane (ICP)** or **MI CLI** are applied dynamically and do not require a restart.
+
+### Use the Integration Control Plane
+
+1.  Sign in to the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
+2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Log Configs</b> window.
+3.  Click the <b>Add Logging Configuration</b> button and define the new logger.
+
+     <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/add-logger.png"><img alt="add new loggers using ICP" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/add-logger.png" width="80%"></a>
+
+    <table>
+        <tr>
+            <th>
+                Logger Name
+            </th>
+            <td>
+                Give a name for the logger.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Class
+            </th>
+            <td>
+                The fully qualified class name of the component to be logged.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Log Level
+            </th>
+            <td>
+                Select the desired <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#update-the-log4j2-log-level">log level</a>.
+            </td>
+        </tr>
+    </table>
+ 
+### Use the MI CLI
+
+1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
+
+2.  Use the commands under [Add a new logger]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#add-a-new-logger) to configure a new logger in the Micro Integrator.
+
+## Update the Log4j2 Log level
+
+You can <b>dynamically</b> update the log level for a specific logger by using the [Integration Control Plane](#view-logs-via-the-integration-control-plane) or [CLI](#view-logs-via-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the ICP or CLI), the Micro Integrator needs to be restarted for the changes to become effective.
 
 ??? Info "Log Levels"
-    The following table explains the log4j2 log levels you can use. Refer <b>Log4j2 documentation</b> for more information.
+    The following table explains the log4j2 log levels you can use. Refer <a target="_blank" href="https://logging.apache.org/log4j/2.x/manual/customloglevels.html">Log4j2 documentation</a> for more information.
 
     | Level | Description                                                                                                                                                                                                                                                                     |
     |-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -625,42 +664,61 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
     | DEBUG | Provides detailed information on the flow through the system. This information is expected to be written to logs only. Generally, most lines logged by your application should be written as DEBUG logs.                                                                        |
     | TRACE | Provides additional details on the behavior of events and services. This information is expected to be written to logs only.                                                                                                                                                    |
 
-### Viewing logs via the integration control plane
+### View logs via the Integration Control Plane
 
 1.  Sign in to the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane).
-2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Logging Management</b> window.
+2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Log Configs</b> window.
 
     <img alt="change log level from ICP" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/change-log-level-dashboard.png">
 
 3.  Use the <b>Search</b> option to find the required logger, and change the log level as shown above.
 
-### Viewing logs via the CLI
+### View logs via the CLI
 
 1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
 
-2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+2. Use the appropriate commands to manage the loggers in Micro Integrator. For more details, see [Managing Integrations with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 
-## Updating the threshold Level
+## Update the threshold level
 
-The threshold value filters log entries based on the [log level](#updating-the-log4j2-log-level). This value is set for the log appender in the `log4j2.properties` file. For example, a threshold set to 'WARN' allows the log entry to pass into the appender. If its level is 'WARN', 'ERROR' or 'FATAL', other entries will be discarded. This is the minimum log level at which you can log a message.
+The threshold value filters log entries based on the [log level](#update-the-log4j2-log-level). This setting is applied to the log appender in the `log4j2.properties` file and defines the minimum level of log messages that should be passed to the appender.
 
-Shown below is how the log level is set to DEBUG for the `CARBON_LOGFILE` appender:
+For example, if the threshold is set to `WARN`, only log messages with levels `WARN`, `ERROR`, or `FATAL` will be written. Messages below this level (e.g., `INFO` or `DEBUG`) will be discarded.
+
+The following example shows how to set the threshold level to `DEBUG` for the `CARBON_LOGFILE` appender.
 
 ```bash
 appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 ```
 
-## Updating the Log4j2 Log pattern
+## Update the Log4j2 log pattern
 
-The log pattern defines the output format of the log file. This is the layout pattern that describes the log message format.
+The **log pattern** defines the output format of the log file. It is a layout string that specifies how each log message is formatted.
 
-**Identifying forged messages**:
-The conversion character 'u' can be used in the pattern layout to log a UUID. For example, the log pattern can be  [%u] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n, where [%u] is the UUID.
+### Identifying forged messages
 
-## Hiding current parameters in the printed log
+To help identify forged log entries, you can include a unique identifier in each log line using the `u` conversion character. This inserts a UUID for every log event.
 
-By default, when an error occurs while invoking a data service, the Micro Integrator logs a set of parameters in the error message.
+For example, the following pattern includes a UUID at the beginning of each log entry:
+
+```
+appender.CARBON_LOGFILE.layout.pattern = [%u] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+```
+
+Here,
+
+- `[%u]` logs the UUID
+- `[%d]` logs the timestamp
+- `%5p` logs the log level with right padding
+- `{% raw %}{%c}{% endraw %}` logs the logger name
+- `%m` logs the message
+- `%ex` logs the exception (if any)
+- `%n` adds a new line
+
+## Hide current parameters in the printed log
+
+By default, when an error occurs while invoking a data service, the Micro Integrator logs a set of details including the parameters used in the request in the error message.
 
 For example:
 
@@ -675,10 +733,10 @@ Current Request Name: _addEmployee
 Current Params: {% raw %}{firstName=Will, lastName=Smith, salary=1200, email=will@abc.com}{% endraw %}
 ```
 
-You can hide the 'Current Params' in the printed logs by passing the following system property:
+To prevent the `Current Params` from being printed in the logs, add the following system property to the Micro Integrator startup script.
 
 ```xml
--Ddss.disable.current.params=true \
+-Ddss.disable.current.params=true
 ```
 
 ## Using Custom Log appenders
@@ -756,5 +814,4 @@ However, since WSO2 Micro Integrator works in an OSGi environment, such Log4j2 e
 
 ## What's Next?
 
-Once you have configured the logs, you can start [using the logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs).
-
+Once you have configured the logs, you can start [monitoring and analyzing logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs) to troubleshoot issues and observe runtime behavior.
