@@ -758,13 +758,13 @@ nav:
                   # - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
           - MongoDB Connector:
+              - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
               - 3.x:
                 - MongoDB Connector Example: reference/connectors/mongodb-connector/3.x/mongodb-connector-example.md
                 - MongoDB Connector Reference: reference/connectors/mongodb-connector/3.x/mongodb-connector-config.md
               - 2.x:
                 - MongoDB Connector Example: reference/connectors/mongodb-connector/2.x/mongodb-connector-example.md
                 - MongoDB Connector Reference: reference/connectors/mongodb-connector/2.x/mongodb-connector-config.md
-              - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
           - Redis Connector:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
