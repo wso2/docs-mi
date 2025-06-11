@@ -1,10 +1,9 @@
 # Jira Connector Reference
 
-### Connection configuration
+The following operations allow you to work with the Jira Connector. Click an operation name to see parameter details and samples on how to use it.
 
-The connection is used to establish a connection to the Jira server. Jira APIs support basic authentication using a username and API token.
-
-??? note "JIRA Connection"
+??? note "init"
+    The init operation configures the connection parameters used to establish a connection to the Jira server.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -13,28 +12,28 @@ The connection is used to establish a connection to the Jira server. Jira APIs s
         </tr>
         <tr>
             <td>username</td>
-            <td>The username of the Jira account.</td>
+            <td>The username of the user.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>password</td>
-            <td>The password associated with the Jira account.</td>
+            <td>The password of the user.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>uri</td>
-            <td>The base URI of the Jira instance.</td>
+            <td>The instance URI of Jira account.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>blocking</td>
-            <td>Specifies whether the connector should use blocking mode when invoking Jira APIs.</td>
+            <td>This property helps the connector perform blocking invocations to Jira.</td>
             <td>Yes</td>
         </tr>
     </table>
 
-    **Sample Configuration**
-    
+    **Sample configuration**
+
     ```xml
     <jira.init>
         <username>{$ctx:username}</username>
@@ -43,22 +42,21 @@ The connection is used to establish a connection to the Jira server. Jira APIs s
         <blocking>{$ctx:blocking}</blocking>
     </jira.init>
     ```
-    
-    **Sample Request**
-    
+
+    **Sample request**
+
+    The following sample REST request can be handled by the init operation.
+
     ```json
     {
-        "username": "admin",
-        "password": "jira@jaffna",
-        "uri": "http://localhost:8080",
-        "blocking": "false"
+        "username":"admin",
+        "password":"jira@jaffna",
+        "uri":"http://localhost:8080",
+        "blocking":"false"
     }
     ```
-
-The following operations allow you to work with the Jira Connector. Click an operation name to see parameter details and samples on how to use it.
-
-### Dashboard Management
-
+    
+    
 ??? note "getDashboards"
     This operation returns a JSON representation of the list of dashboards, including their names, IDs, and more.
     <table>
@@ -176,7 +174,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
         "view": "http://localhost:8080/secure/Dashboard.jspa?selectPageId=10100"
     }
     ```
-### Filter Management
 
 ??? note "getFilterById"
 
@@ -606,7 +603,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     For the successful response, you will get 204 No Content status code without any body.
 
-### Group Management
 
 ??? note "getGroup"
     This operation returns a JSON representation of the list of groups, including their names, IDs, and more.
@@ -833,8 +829,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
         }
     }
     ```
-
-### Issue Management
 
 ??? note "getIssue"
     To get an existing issue, use `getIssue` and specify the issue ID.
@@ -2369,96 +2363,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     Returned 204 if the watcher was removed successfully.
 
-??? note "searchJira"
-
-    To get an existing issue, use `searchJira` with the JQL query.
-
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>query</td>
-            <td>The JQL expression to use for finding issues. The query must include an ORDER BY clause. For more information, see the Jira documentation.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>maxResults</td>
-            <td>The maximum number of issues to return, up to 1000 (default is 50).</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>startAt</td>
-            <td>The 0-based index of the first issue to return (default is 0).</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>fields</td>
-            <td>Specifies a comma-separated list of fields to be included in the response.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>validateQuery</td>
-            <td>Specify whether to validate the JQL query.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>expand</td>
-            <td>A comma-separated list of parameters to expand.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-    
-    ```xml
-    <jira.C>
-        <query>{$ctx:query}</query>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <startAt>{$ctx:startAt}</startAt>
-        <fields>{$ctx:fields}</fields>
-        <validateQuery>{$ctx:validateQuery}</validateQuery>
-        <expand>{$ctx:expand}</expand>
-    </jira.searchJira>
-    ```
-    
-    **Sample request**
-
-    The following is a sample REST/JSON request that can be handled by the `searchJira` operation.
-    
-    ```json
-    {
-        "username":"admin",
-        "password":"jira@jaffna",
-        "uri":"http://localhost:8080",
-        "query":"text~\"issue2\""
-    }
-    ```
-
-    **Sample response**
-
-    Given below is a sample response for the `searchJira` operation.
-
-    ```json
-    {
-        "expand": "names,schema",
-        "startAt": 0,
-        "maxResults": 50,
-        "total": 1,
-        "issues": [
-            {
-                "expand": "",
-                "id": "10001",
-                "self": "http://localhost:8080/jira/rest/api/2/issue/10001",
-                "key": "HSP-1"
-            }
-        ]
-    }
-    ```
-### Project Managements
-
 ??? note "getProject"
 
     To get information about a specific project, use `getProject` with the project key. This operation returns a JSON representation of the entire project, including name, ID, components, and more.
@@ -3185,7 +3089,94 @@ The following operations allow you to work with the Jira Connector. Click an ope
     }
     ```
 
-### User Management
+??? note "searchJira"
+
+    To get an existing issue, use `searchJira` with the JQL query.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>query</td>
+            <td>The JQL expression to use for finding issues. The query must include an ORDER BY clause. For more information, see the Jira documentation.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>maxResults</td>
+            <td>The maximum number of issues to return, up to 1000 (default is 50).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>startAt</td>
+            <td>The 0-based index of the first issue to return (default is 0).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>fields</td>
+            <td>Specifies a comma-separated list of fields to be included in the response.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>validateQuery</td>
+            <td>Specify whether to validate the JQL query.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>expand</td>
+            <td>A comma-separated list of parameters to expand.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    
+    ```xml
+    <jira.C>
+        <query>{$ctx:query}</query>
+        <maxResults>{$ctx:maxResults}</maxResults>
+        <startAt>{$ctx:startAt}</startAt>
+        <fields>{$ctx:fields}</fields>
+        <validateQuery>{$ctx:validateQuery}</validateQuery>
+        <expand>{$ctx:expand}</expand>
+    </jira.searchJira>
+    ```
+    
+    **Sample request**
+
+    The following is a sample REST/JSON request that can be handled by the `searchJira` operation.
+    
+    ```json
+    {
+        "username":"admin",
+        "password":"jira@jaffna",
+        "uri":"http://localhost:8080",
+        "query":"text~\"issue2\""
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the `searchJira` operation.
+
+    ```json
+    {
+        "expand": "names,schema",
+        "startAt": 0,
+        "maxResults": 50,
+        "total": 1,
+        "issues": [
+            {
+                "expand": "",
+                "id": "10001",
+                "self": "http://localhost:8080/jira/rest/api/2/issue/10001",
+                "key": "HSP-1"
+            }
+        ]
+    }
+    ```
 
 ??? note "getUser"
 
@@ -3584,7 +3575,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
         }
     }
     ```
-### Attachment Management
 
 ??? note "getAttachmentById"
 
@@ -3703,7 +3693,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     You will get 200 response code with the attached image as a response.
 
-### Component Management
 
 ??? note "createComponent"
 
@@ -4087,8 +4076,6 @@ The following operations allow you to work with the Jira Connector. Click an ope
     }      
     ```
 
-### Issue Link Management
-
 ??? note "createIssueLink"
 
     The `createIssueLink` operation creates an issue link between two issues.
@@ -4291,3 +4278,40 @@ The following operations allow you to work with the Jira Connector. Click an ope
         }
     }
     ```
+
+### Sample configuration in a scenario
+
+The following is a sample proxy service that illustrates how to connect to the Jira connector and use the getDashboardById operation to get dashboard details. You can use this sample as a template for using other operations in this category.
+
+**Sample Proxy**
+```xml
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="getDashboardById"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <property name="username" expression="json-eval($.username)"/>
+         <property name="password" expression="json-eval($.password)"/>
+         <property name="uri" expression="json-eval($.uri)"/>
+         <property name="id" expression="json-eval($.id)"/>
+         <jira.init>
+            <username>{$ctx:username}</username>
+            <password>{$ctx:password}</password>
+            <uri>{$ctx:uri}</uri>
+         </jira.init>
+         <jira.getDashboardById>
+            <id>{$ctx:id}</id>
+         </jira.getDashboardById>
+         <log level="full"/>
+         <respond/>
+      </inSequence>
+      <outSequence/>
+      <faultSequence/>
+   </target>
+</proxy>        
+```
+
+**Note**: For more information on how this works in an actual scenario, see [Jira Connector Example]({{base_path}}/reference/connectors/jira-connector/jira-connector-example).

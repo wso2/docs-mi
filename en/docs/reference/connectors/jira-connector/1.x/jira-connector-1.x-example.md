@@ -18,85 +18,56 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the integration project
 
-Follow the steps below to set up the integration project using the WSO2 Micro Integrator Visual Studio Code extension.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
 
-### Create a new project
+## Create the integration logic
 
-Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up WSO2 MI and create a new integration project. Use a suitable Project Name for your integration.
+1. Click `+` on the Extension panel APIs to create the REST API.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/jira/create-new-project.png" title="Creating a new Project" width="500" alt="Creating a new Project"/>
+2. Provide the API name as `jiraAPI` and the API context as `/jira`. You can go to the source view of the XML configuration file of the API and copy the following configuration.
+   ![Adding a Rest API]({{base_path}}/assets/img/integrate/connectors/jira-conn-1.png "Adding a Rest API")
 
-#### Create an API
+3. Click the `/resource` default endpoint to open the **Resource View**. Then click the `+` arrow below the Start node to open the side panel. Select **Connectors** and search for the **Jira** connector. Click the Jira connector to open the operation panel, then click **init**. This will download the connector.
+   ![Adding a Jira Connector]({{base_path}}/assets/img/integrate/connectors/jira-conn-2.png "Adding a Jira Connector")
 
-1. Click on the **API** button in create an integration project pane.
+4. You can go to the source view (click the `</>` icon on the top right corner) of the XML configuration file of the API and copy the following configuration. Modify username, password and site url. For password you can use `api key`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/jira/create-api1.png" title="Creating a new API" width="600" alt="Creating a new API"/>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/jira" name="jiraAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/createIssue">
+        <inSequence>
+            <property expression="json-eval($.issueFields)" name="issueFields" scope="default" type="JSON"/>
+            <jira.init>
+                    <username>****</username>
+                    <password>****</password>
+                    <uri>https://<site-url></uri>
+            </jira.init>
+            <jira.createIssue>
+                <issueFields>{$ctx:issueFields}</issueFields>
+            </jira.createIssue>
+            <respond/>
+        </inSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/getIssue">
+        <inSequence>
+        <property expression="json-eval($.id)" name="id" scope="default" type="JSON"/>
+            <jira.init>
+                    <username>****</username>
+                    <password>****</password>
+                    <uri>https://<site-url></uri>
+            </jira.init>
+            <jira.getIssue>
+                <issueIdOrKey>{$ctx:id}</issueIdOrKey>
+            </jira.getIssue>
+            <respond/>
+        </inSequence>
+        <faultSequence/>
+    </resource>
+</api>
+```
 
-2. Enter the API Name as `jiraAPI` and the Context as `jira`, then click **Create**.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/jira/create-api2.png" title="Creating a new API" width="600" alt="Creating a new API"/>
-
-3. To add the Jira connector:
-     - In the **Design View**, click the **+** button. 
-     - In the **Mediator** section, search for `Jira`. 
-     - Select the **Jira** connector and click **Download**
-   
-    <img src="{{base_path}}/assets/img/integrate/connectors/jira/add-jira-connector.png" title="Adding Jira Connector" width="600" alt="Adding Jira Connector"/>
-
-#### Create a Connection
-
-1. In the Design View, click the **+** button and select **Connection**.
-
-2. In the search bar, type `Jira` and select the `Jira connector` from the list.
-   
-    <img src="{{base_path}}/assets/img/integrate/connectors/jira/create_connection.png" title="Creating a new Connection" width="600" alt="Creating a new Connection"/>
-
-3. In the connection configuration pane, set the **Connection Name** to `JIRA_CONNECTION` and fill in the required details:
-     - **Username**: Your Jira username. 
-     - **Password**: Jira API token. 
-     - **API URL**: Base URL of your Jira instance (e.g., `https://<site-url>`).
-
-     <img src="{{base_path}}/assets/img/integrate/connectors/jira/add_connection.png" title="Creating a new Connection" width="600" alt="Creating a new Connection"/>
-
-### Implement the API
-
-1. Go to the **Source View** of the API by clicking on the **<>** icon in the top right corner of the **Design View**.
-   <img src="{{base_path}}/assets/img/integrate/connectors/jira/source_view.png" title="Source view of the implemented resource" width="600" alt="Source view of the implemented resource"/>
-
-2. Copy and paste the following code in the **Source View** of the API.
-
-??? note "Source view of the implemented resource"
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <api context="/jira" name="jiraAPI" xmlns="http://ws.apache.org/ns/synapse">
-       <resource methods="POST" uri-template="/createIssue">
-          <inSequence>
-             <jira.createIssue configKey="JIRA_CONNECTION">
-                <issueFields>{${payload}}</issueFields>
-                <responseVariable>jira_createIssue_1</responseVariable>
-                <overwriteBody>true</overwriteBody>
-             </jira.createIssue>
-             <respond/>
-          </inSequence>
-          <faultSequence>
-          </faultSequence>
-       </resource>
-       <resource methods="POST" uri-template="/getIssue">
-          <inSequence>
-             <jira.getIssue configKey="JIRA_CONNECTION">
-                <issueIdOrKey>{${payload.id}}</issueIdOrKey>
-                <fields></fields>
-                <expand></expand>
-                <responseVariable>jira_createIssue_1</responseVariable>
-                <overwriteBody>true</overwriteBody>
-             </jira.getIssue>
-             <respond/>
-          </inSequence>
-          <faultSequence>
-          </faultSequence>
-       </resource>
-    </api>
-    ```
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
@@ -116,60 +87,72 @@ You can further refer the application deployed through the CLI tool. See the ins
 
 ## Testing
 
+
 ### Create issue operation
 
-Invoke the API using the following curl command.
-
-!!! Info
-    The Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
-
-```bash
-  curl --location 'http://localhost:8290/jira/createIssue' \
-   --header 'Content-Type: application/json' \
-   --data '{
-       "fields": {
-           "project": {
-               "key": "<project-key>"
-           },
-           "summary": "For Testing1",
-           "description": "Test issue",
-           "issuetype": {
-               "id": "<issue_type>"
-           }
-       }
-   }'
-```
-
-**Expected Response** : You should get a response as given below and the data will be added to the database.
+1.  Create a file named `createIssue.json` with the following payload:
     ```json
     {
-        "id": "<issue-id>",
-        "key": "<issue-key>",
+	    "issueFields":{
+            "fields": {
+                "project":{
+                    "key": "<project-key>"
+                },
+                "summary": "For Testing",
+                "description": "Test issue",
+                "issuetype": {
+                    "id": "6"
+                }
+            }
+        }
+    }
+    ```
+
+2. Invoke the API using the following curl command.
+
+    !!! Info
+        The Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
+
+    ```bash
+    curl -H "Content-Type: application/json" --request POST --data @createIssue.json http://localhost:8290/jira/createIssue
+    ```
+
+    **Expected Response** : You should get a response as given below and the data will be added to the database.
+    ```json
+    {
+        "id": "340135",
+        "key": "<project-key>-3400",
         "self": "https://<site-url>/jira/rest/api/2/issue/340135"
     }
     ```
 
 ### Read issue operation
 
-Invoke the API using the curl command shown below.
+1.  Create a file named `getIssue.json` with the following payload:
 
-!!! Info
+    ```json
+    {
+        "id": "<project-key>-3400"
+    }
+    ```
+
+2. Invoke the API using the curl command shown below.
+
+    !!! Info
         Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
 
-```bash
-      curl --location 'http://localhost:8290/jira/getIssue' \
-      --header 'Content-Type: application/json' \
-      --data '{
-          "id": "<issue-id> or <issue-key>",
-      }'
-```
-**Expected Response** : You should get a response similar to the one given below.
+    ```bash
+    curl -H "Content-Type: application/json" --request POST --data @getIssue.json http://localhost:8290/jira/getIssue
+    ```
+
+    **Expected Response** : You should get a response similar to the one given below.
+
     ```json
     {
         "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
-        "id": "<issue-id>",
+        "id": "340135",
         "self": "https://<site-url>/jira/rest/api/2/issue/340135",
-        "key": "<issue-key>",
+        "key": "<project-key>-3400",
         "fields": {
             "issuetype": {
                 "self": "https://<site-url>/jira/rest/api/2/issuetype/6",

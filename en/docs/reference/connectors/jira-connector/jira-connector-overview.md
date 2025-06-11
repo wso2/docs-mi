@@ -8,9 +8,10 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector version | Supported product versions |
-| ------------- |------------- |
-|  1.0.5      |  APIM 4.0.0, EI 7.1.0, EI 6.5.0 |
+| Connector version | Supported product versions     |
+|-------------------|--------------------------------|
+| 2.0.0(latest)     | MI 4.4.0                       |
+| 1.0.5             | APIM 4.0.0, EI 7.1.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
