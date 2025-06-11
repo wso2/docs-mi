@@ -659,9 +659,13 @@ nav:
               - HTTP Connector Example: reference/connectors/http-connector/http-connector-example.md
               - HTTP Connector Reference: reference/connectors/http-connector/http-connector-configuration.md
           - Jira Connector:
+              - 2.x:
+                  - Jira Connector Reference: reference/connectors/jira-connector/jira-connector-config.md
+                  - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
+              - 1.x:
+                  - Jira Connector Reference: reference/connectors/jira-connector/1.x/jira-connector-1.x-config.md
+                  - Jira Connector Example: reference/connectors/jira-connector/1.x/jira-connector-1.x-example.md
               - Jira Connector Overview: reference/connectors/jira-connector/jira-connector-overview.md
-              - Jira Connector Example: reference/connectors/jira-connector/jira-connector-example.md
-              - Jira Connector Reference: reference/connectors/jira-connector/jira-connector-config.md
           - Facebook Ads Connector:
               - Facebook Ads Overview: reference/connectors/facebook-ads-connector/facebook-ads-overview.md
               - Facebook Ads Reference: reference/connectors/facebook-ads-connector/facebook-ads-configuration.md
