@@ -72,7 +72,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/jira-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/jira-connector-1.x.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -86,7 +86,6 @@ To deploy and run the project, refer to the [Build and Run]({{base_path}}/develo
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 ## Testing
-
 
 ### Create issue operation
 
