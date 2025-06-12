@@ -8,7 +8,7 @@ The following operations allow you to work with the Kafka Connector. Click an op
 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-connection-types.png" title="Apache Kafka Connections" width="700" alt="Apache Kafka Connections"/>
 
-The WSO2 Apache Pulsar Connector allows you to establish both secure and non-secure connections to Apache Pulsar.
+The WSO2 Kafka Connector allows you to establish both secure and non-secure connections to Apache Kafka.
 
 ---
 
