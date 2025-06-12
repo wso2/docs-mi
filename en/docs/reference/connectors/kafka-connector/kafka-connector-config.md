@@ -4,10 +4,18 @@ The following operations allow you to work with the Kafka Connector. Click an op
 
 ---
 
-To use the Kafka connector, add the `<kafkaTransport.init>` element in your configuration before carrying out any other Kafka operations. This can be with or without security depending on your requirements.
+## Connection Configurations
 
-??? note "kafkaTransport.init"
-    You can configure the kafkaTransport.init operation to setup your Kafka producer with or without security.
+<img src="{{base_path}}/assets/img/integrate/connectors/kafka-connection-types.png" title="Apache Kafka Connections" width="700" alt="Apache Kafka Connections"/>
+
+The WSO2 Kafka Connector allows you to establish both secure and non-secure connections to Apache Kafka.
+
+---
+
+### Connection Configuration Parameters
+
+??? note "Kafka"
+    This operation allows you to initialize the connection to Apache Kafka.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -50,8 +58,23 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>acks</td>
-            <td>The number of acknowledgments that the producer requires for the leader to receive before considering a request to be complete.</td>
+            <td>keySubjectNameStrategy</td>
+            <td>The strategy for determining the subject name under which the key schema is registered.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>subjectNameStrategy</td>
+            <td>The strategy for determining the subject name under which the value schema is registered.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>autoRegisterSchemas</td>
+            <td>Serializer will/will not attempt to register new schemas.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>useLatestVersion</td>
+            <td>Serializer retrieve the latest schema version for the subject.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -67,31 +90,6 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         <tr>
             <td>retries</td>
             <td>Set a value greater than zero if you want the client to resent any records automatically when a request fails.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeyPassword</td>
-            <td>The password of the private key in the keystore file. Setting this for the client is optional.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeystoreLocation</td>
-            <td>The location of the key store file. Setting this for the client is optional. Set this when you want to have two-way authentication for the client.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeystorePassword</td>
-            <td>The store password for the keystore file. Setting this for the client is optional. Set it only if ssl.keystore.location is configured.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTruststoreLocation</td>
-            <td>The location of the trust store file.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTruststorePassword</td>
-            <td>The password for the trust store file.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -130,6 +128,11 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
+            <td>sendBufferBytes</td>
+            <td>The size of the TCP send buffer (SO_SNDBUF) to use when sending data.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>receiveBufferBytes</td>
             <td>The size of the TCP receive buffer (SO_RCVBUF) to use when reading data.</td>
             <td>Optional</td>
@@ -140,63 +143,13 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>saslJaasConfig</td>
-            <td>JAAS login context parameters for SASL connections in the format used by JAAS configuration files.</td>
+            <td>acks</td>
+            <td>The number of acknowledgments that the producer requires for the leader to receive before considering a request to be complete.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>saslKerberosServiceName</td>
-            <td>The Kerberos principal name that Kafka runs as.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>saslMechanism</td>
-            <td>The mechanism used for SASL.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>securityProtocol</td>
-            <td>The protocol used to communicate with brokers.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sendBufferBytes</td>
-            <td>The size of the TCP send buffer (SO_SNDBUF) to use when sending data.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslEnabledProtocols</td>
-            <td>The list of protocols enabled for SSL connections.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeystoreType</td>
-            <td>The format of the keystore file. Setting this for the client is optional.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslProtocol</td>
-            <td>The SSL protocol used to generate the SSLContext.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslProvider</td>
-            <td>The name of the security provider used for SSL connections. The default value is the default security provider of the JVM.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTruststoreType</td>
-            <td>The format of the trust store file.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>timeout</td>
-            <td>The maximum amount of time, in milliseconds, that the server waits for the acknowledgments from followers to meet the acknowledgment requirements that the producer has specified with acks configuration.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>blockOnBufferFull</td>
-            <td>Set to true to stop accepting new records when the memory buffer is full. When blocking is not desirable, set this property to false, which causes the producer to throw an exception if a recrord is sent to the memory buffer when it is full.</td>
+            <td>enableIdempotence</td>
+            <td>When set to ‘true’, the producer will ensure that exactly one copy of each message is written in the stream. If ‘false’, producer retries due to broker failures, etc., may write duplicates of the retried message in the stream.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -205,13 +158,38 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>metadataFetchTimeout</td>
-            <td>The maximum amount of time, in milliseconds, to block and wait for the metadata fetch to succeed before throwing an exception to the client.</td>
+            <td>timeout</td>
+            <td>The maximum amount of time, in milliseconds, that the server waits for the acknowledgments from followers to meet the acknowledgment requirements that the producer has specified with acks configuration.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>reconnectBackoff</td>
+            <td>The amount of time to wait before attempting to reconnect to a given host.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>reconnectBackoffMax</td>
+            <td>The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>retryBackoff</td>
+            <td>The amount of time, in milliseconds, to wait before attempting to retry a failed request to a given topic partition.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>blockOnBufferFull</td>
+            <td>Set to true to stop accepting new records when the memory buffer is full. When blocking is not desirable, set this property to false, which causes the producer to throw an exception if a recrord is sent to the memory buffer when it is full.</td>
             <td>Optional</td>
         </tr>
         <tr>
             <td>metadataMaxAge</td>
             <td>The period of time, in milliseconds, after which you should refresh metadata even if there was no partition leadership changes to proactively discover any new brokers or partitions.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>metadataFetchTimeout</td>
+            <td>The maximum amount of time, in milliseconds, to block and wait for the metadata fetch to succeed before throwing an exception to the client.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -230,58 +208,22 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>reconnectBackoff</td>
-            <td>The amount of time to wait before attempting to reconnect to a given host.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>retryBackoff</td>
-            <td>The amount of time, in milliseconds, to wait before attempting to retry a failed request to a given topic partition.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>saslKerberosKinitCmd</td>
-            <td>The kerberos kinit command path.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>saslKerberosMinTimeBeforeRelogin</td>
-            <td>Login thread's sleep time, in milliseconds, between refresh attempts.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>saslKerberosTicketRenewJitter</td>
-            <td>Percentage of random jitter added to the renewal time.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>saslKerberosTicketRenewWindowFactor</td>
-            <td>The login thread sleeps until the specified window factor of time from the last refresh to the ticket's expiry is reached, after which it will try to renew the ticket.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslCipherSuites</td>
-            <td>A list of cipher suites.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslEndpointIdentificationAlgorithm</td>
-            <td>The endpoint identification algorithm to validate the server hostname using a server certificate.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeymanagerAlgorithm</td>
-            <td>The algorithm used by the key manager factory for SSL connections. The default value is the key manager factory algorithm configured for the Java Virtual Machine.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslSecureRandomImplementation</td>
-            <td>The SecureRandom PRNG implementation to use for SSL cryptography operations.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTrustmanagerAlgorithm</td>
-            <td>The algorithm used by the trust manager factory for SSL connections. The default value is the trust manager factory algorithm configured for the Java Virtual Machine.</td>
+            <td>sendCallbackHandlerClass</td>
+            <td>
+            The class name of the producer(send) callback handler implementation. The connector supports two built-in callback handler classes:<br><br>
+            <code>org.wso2.carbon.connector.callbackhandler.DefaultLoggingCallbackHandler</code><br>
+            - Logs topic and offset on success<br>
+            - Logs error details (topic, key, headers, etc.) on failure<br><br>
+              <code>org.wso2.carbon.connector.callbackhandler.DefaultKafkaSendCallbackWithDlq</code><br>
+            - Same success logging as above<br>
+            - Sends failed messages to a configured Dead Letter Queue (DLQ)<br><br>
+            You can also implement your own custom send callback handler by overriding the <code>onCompletion</code> method in the <code>KafkaSendCallbackHandler</code> interface.
+            See the sample implementation here:
+            <a href="https://github.com/wso2-extensions/esb-connector-kafka/blob/master/src/main/java/org/wso2/carbon/connector/callbackhandler/DefaultLoggingCallbackHandler.java" target="_blank">
+            DefaultLoggingCallbackHandler.java
+            </a><br>
+            Available in Kafka Connector <b>v3.3.8</b> and above.
+            </td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -385,7 +327,170 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         <basicAuthUserInfo>admin:admin</basicAuthUserInfo>
     </kafkaTransport.init>
     ````
----
+
+??? note "KafkaSecure"
+    In addition to the common configurations listed above, the following parameters are specific to setting up a secure connection with the Apache Kafka.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>securityProtocol</td>
+            <td>The protocol used to communicate with brokers.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <th colspan="3">SSL Configurations</tr>
+        <tr>
+            <td>sslTruststoreLocation</td>
+            <td>The location of the trust store file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslTruststorePassword</td>
+            <td>The password for the trust store file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslTruststoreType</td>
+            <td>The format of the trust store file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeystoreLocation</td>
+            <td>The location of the key store file. Setting this for the client is optional. Set this when you want to have two-way authentication for the client.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeystorePassword</td>
+            <td>The store password for the keystore file. Setting this for the client is optional. Set it only if ssl.keystore.location is configured.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeystoreType</td>
+            <td>The format of the keystore file. Setting this for the client is optional.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeyPassword</td>
+            <td>The password of the private key in the keystore file. Setting this for the client is optional.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslEnabledProtocols</td>
+            <td>The list of protocols enabled for SSL connections.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslCipherSuites</td>
+            <td>A list of cipher suites.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslProtocol</td>
+            <td>The SSL protocol used to generate the SSLContext.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslProvider</td>
+            <td>The name of the security provider used for SSL connections. The default value is the default security provider of the JVM.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslEndpointIdentificationAlgorithm</td>
+            <td>The endpoint identification algorithm to validate the server hostname using a server certificate.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeymanagerAlgorithm</td>
+            <td>The algorithm used by the key manager factory for SSL connections. The default value is the key manager factory algorithm configured for the Java Virtual Machine.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslTrustmanagerAlgorithm</td>
+            <td>The algorithm used by the trust manager factory for SSL connections. The default value is the trust manager factory algorithm configured for the Java Virtual Machine.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslSecureRandomImplementation</td>
+            <td>The SecureRandom PRNG implementation to use for SSL cryptography operations.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <th colspan="3">SASL Configurations</tr>
+        <tr>
+            <td>saslMechanism</td>
+            <td>The mechanism used for SASL.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslJaasConfig</td>
+            <td>JAAS login context parameters for SASL connections in the format used by JAAS configuration files.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosServiceName</td>
+            <td>The Kerberos principal name that Kafka runs as.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosKinitCmd</td>
+            <td>The kerberos kinit command path.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosMinTimeBeforeRelogin</td>
+            <td>Login thread's sleep time, in milliseconds, between refresh attempts.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosTicketRenewJitter</td>
+            <td>Percentage of random jitter added to the renewal time.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosTicketRenewWindowFactor</td>
+            <td>The login thread sleeps until the specified window factor of time from the last refresh to the ticket's expiry is reached, after which it will try to renew the ticket.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosTicketRenewWindowFactor</td>
+            <td></td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslOauthbearerTokenEndpointUrl</td>
+            <td>The URL for the OAuth/OIDC identity provider.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslOauthbearerScopeClaimName</td>
+            <td>The override name of the scope claim.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslLoginConnectTimeout</td>
+            <td>The duration, in milliseconds, for HTTPS connect timeout.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslLoginReadTimeout</td>
+            <td>The duration, in milliseconds, for HTTPS read timeout.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslLoginRetryBackoff</td>
+            <td>The duration, in milliseconds, to wait between HTTPS call attempts.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslLoginRetryBackoffMax</td>
+            <td>The maximum duration, in milliseconds, for HTTPS call attempts.</td>
+            <td>Optional</td>
+        </tr>
+    </table>
 
 ### Publishing messages to Kafka
 
@@ -409,7 +514,7 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         </tr>
         <tr>
             <td>key</td>
-            <td>Key of the kafka message.</td>
+            <td>Key of the kafka message. If not specified, a random UUID will be created as the key.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -423,8 +528,28 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
+            <td>keySchemaVersion</td>
+            <td>The Version of the key schema that is stored in the confluent schema registry.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>keySchemaSubject</td>
+            <td>The Subject of the key schema that is stored in the confluent schema registry.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>keySchemaMetadata</td>
+            <td>The Schema metadata of the key schema that is stored in the confluent schema registry.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>keySchemaSoftDeleted</td>
+            <td>Whether soft deleted key schemas also need to be considered.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>value</td>
-            <td>The kafka value/message.</td>
+            <td>The message to be published to Kafka. If not specified, the message body from message context will be considered as the message.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -438,49 +563,110 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>Content-Type</td>
-            <td>The Content-Type of the message.</td>
+            <td>valueSchemaVersion</td>
+            <td>The Version of the value schema that is stored in the confluent schema registry.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>valueSchemaSubject</td>
+            <td>The Subject of the value schema that is stored in the confluent schema registry.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>valueSchemaMetadata</td>
+            <td>The Schema metadata of the value schema that is stored in the confluent schema registry.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>valueSchemaSoftDeleted</td>
+            <td>Whether soft deleted value schemas also need to be considered.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>dlqTopic</td>
+            <td>The topic name of the Dead Letter Queue to which the failed messages should be redirected. This is applicable only when the sendCallbackHandler class has support for Dead Letter Queue (DLQ) handling.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <th colspan="3">Kafka Headers Configurations</tr>
+        <tr>
+            <td>forwardExistingHeaders</td>
+            <td>Specifies whether to include existing transport headers in the Kafka message; can be <code>none</code>, <code>all</code>, or <code>filtered</code><br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>kafkaHeaderPrefix</td>
+            <td>Specifies a prefix to filter out the Kafka related headers from the transport headers that start when <code>forwardExistingHeaders</code> is set to <code>filtered</code><br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>removeHeaderPrefix</td>
+            <td>Indicates whether the configured prefix should be removed from header names before sending them to Kafka (applies when <code>filtered</code>).<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>removeFilteredAfterSend</td>
+            <td>Determines whether the filtered transport headers should be removed from the transport headers after being forwarded to Kafka.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>customHeaders</td>
+            <td>Specifies a list of Kafka headers as a JSON array of objects, where each object represents a Kafka header as a key-value pair. E.g., <code>[{"headerName":"headerValue"}]</code>.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>customHeaderExpression</td>
+            <td>Inject a list of headers via an expression that is evaluated at runtime. E.g., <code>json-eval($.headers)</code>.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
             <td>Optional</td>
         </tr>
     </table>
 
-    If required, you can add [custom headers](https://cwiki.apache.org/confluence/display/KAFKA/A+Case+for+Kafka+Headers) to the records in publishMessage operation:
-
-    ```xml
-    <topic.Content-Type>Value</topic.Content-Type>
-    ```
-
     You can add the parameter as follows in the publishMessage operation:
 
     ```xml
-    <kafkaTransport.publishMessage configKey="kafka_init">
-        <topic>topicName</topic>
-        <partitionNo>partitionNo</partitionNo>
-        <topicName.Content-Type>Value</topicName.Content-Type>
+    <kafkaTransport.publishMessage configKey="kafkaConnection">
+        <topic>cities</topic>
+        <partitionNo>0</partitionNo>
+        <key>myKey</key>
+        <value>Hello, Kafka!</value>
     </kafkaTransport.publishMessage>
     ```
     When dealing with Avro Serialization the key and value parameters can be configured as:
     
     ```xml
-    <kafkaTransport.publishMessages>
-       <topic>topicName</topic>
-       <key>key of the message</key>
-       <keySchema>schema of the configured key</keySchema>
-       <value>value of the message</value>
-       <valueSchema>schema of the configured value</valueSchema>
+    <kafkaTransport.publishMessages configKey="kafkaConnection">
+        <topic>cities</topic>
+        <partitionNo>0</partitionNo>
+        <key>myKey</key>
+        <keySchema>{"type":"string"}</keySchema>
+        <value>{"userId": "abc123"}</value>
+        <valueSchema>{"type":"record","name":"UserKey","namespace":"com.example","fields":[{"name":"userId","type":"string"}]}</valueSchema>
     </kafkaTransport.publishMessages>
     ```
     Sample configuration to retrieve the key/value schema from the Confluent Schema Registry:
     
     ```xml
-    <kafkaTransport.publishMessages>
-       <topic>topicName</topic>
-       <key>key of the message</key>
-       <keySchemaId>schemaId of the configured key</keySchema>
-       <value>value of the message</value>
-       <valueSchemaId>schemaId of the configured value</valueSchema>
+    <kafkaTransport.publishMessages configKey="kafkaConnection">
+        <topic>cities</topic>
+        <partitionNo>0</partitionNo>
+        <key>myKey</key>
+        <keySchemaId>10</keySchema>
+        <value>value of the message</value>
+        <valueSchemaId>12</valueSchema>
     </kafkaTransport.publishMessages>
     ```
+
+    !!!Note
+        In connector versions earlier than v3.3.8, custom Kafka headers can be added by using the header name as the XML element name and its value as the element's content, as shown below.
+
+        ```xml
+        <kafkaTransport.publishMessages configKey="kafkaConnection">
+            .
+            .
+             <Content-Type>application/json</Content-Type>
+             <Keep-Alive>true</Keep-Alive>
+        </kafkaTransport.publishMessages>
+        ```
 
 ### Error codes related to Kafka Connector
 
