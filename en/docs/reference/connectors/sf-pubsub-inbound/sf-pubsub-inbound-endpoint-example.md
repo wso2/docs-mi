@@ -8,6 +8,7 @@ The **Subscribe** RPC in Salesforce Pub/Sub API provides bidirectional streaming
 * The client initiates a subscription by sending a FetchRequest with:
     - The **topic name** to subscribe to.
     - A **replay preset** (e.g., **LATEST**, **EARLIEST**, or a **custom replay ID**).
+    - If the replay preset is **LATEST** or **EARLIEST**, the user can define the behavior for the next server restart—whether to use the last replay ID or the initial value. This can be enabled by selecting the **Enable to retrieve with last replay ID** option in the inbound endpoint configuration.
     - The **number of requests** fetches up to the given values.
 * The server responds by delivering events in one or more FetchResponse messages, up to the number of events requested.
 * All subsequent requests must use the same topic name as the initial request. A mismatch results in an INVALID_ARGUMENT error.
