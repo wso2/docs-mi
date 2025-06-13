@@ -14,6 +14,7 @@ It is always recommended to download the latest version of the connector.
 
 | Connector version | Supported product versions |
 |-------------------|----------------------------|
+| 3.x.x             | MI 4.4.0                   |
 | 2.0.0             | MI 4.3.0.10                |
 
 This connector was tested with MongoDB version 8.0.3.
@@ -23,9 +24,9 @@ This connector was tested with MongoDB version 8.0.3.
 
 ## MongoDB Connector documentation
 
-- **[MongoDB Connector Example]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-example/)**: This example demonstrates how to use MongoDB connector to connect to the MongoDB database and perform CRUD operations on it.
+- **[MongoDB Connector Example]({{base_path}}/reference/connectors/mongodb-connector/3.x/mongodb-connector-example/)**: This example demonstrates how to use MongoDB connector to connect to the MongoDB database and perform CRUD operations on it.
 
-- **[MongoDB Connector Reference]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-config/)**: This documentation provides a reference guide for the MongoDB Connector.
+- **[MongoDB Connector Reference]({{base_path}}/reference/connectors/mongodb-connector/3.x/mongodb-connector-config/)**: This documentation provides a reference guide for the MongoDB Connector.
 
 ## How to contribute
 
