@@ -15,7 +15,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 For older versions, see the details in the connector store.
 
-## Email Connector documentation
+## Jira Connector Documentation
 
 * **[Jira Connector Example]({{base_path}}/reference/connectors/jira-connector/jira-connector-example)**: This example explains how to use the Jira Connector to create new issues and to get existing issues from Jira.
 
