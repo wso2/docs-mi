@@ -611,7 +611,7 @@ The WSO2 Kafka Connector allows you to establish both secure and non-secure conn
         </tr>
         <tr>
             <td>customHeaders</td>
-            <td>Specifies a list of Kafka headers as a JSON array of objects, where each object represents a Kafka header as a key-value pair. E.g., <code>[{"headerName":"headerValue"}]</code>.<br>Available in Kafka Connector <b>v3.3.8</b> and above.</td>
+            <td>Specifies a list of Kafka headers as a JSON array of objects, where each object represents a Kafka header as a key-value pair. E.g., <code>[{"headerName":"headerValue"}]</code>.<br>Available in Kafka Connector <b>v3.3.8</b> and above.<br>Support for configuring header values dynamically using expressions is available starting from MI-4.3.0.</td>
             <td>Optional</td>
         </tr>
         <tr>
