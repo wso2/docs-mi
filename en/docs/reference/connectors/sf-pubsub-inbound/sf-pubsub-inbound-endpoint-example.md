@@ -38,7 +38,7 @@ In Salesforce, go to Setup, search for Platform Events, and click New Platform E
 #### **Step 02: Add the Salesforce Pub/Sub connector to your WSO2 Micro Integrator project.**
 In MI, create a new project and add the Salesforce Pub/Sub connector to the project.
 
-1. Create a new project in WSO2 Micro Integrator (MI).
+1. [Create a new project]({{base_path}}/develop/create-integration-project/) in WSO2 Micro Integrator (MI).
 2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Micro Integrator.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/sf-pubsub-inb-2.png" title="Salesforce Pub/Sub Inbound Endpoint Example" width="80%" alt="Event Integration"/>
@@ -56,11 +56,11 @@ In MI, create a new project and add the Salesforce Pub/Sub connector to the proj
 
      <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/sf-pubsub.png" title="Salesforce Pub/Sub Inbound User Scenario" alt="Order Notification" width="40%" height="50%"/>
 
-6. Add a Log Mediator to the sequence to log the incoming messages and tick the Append Payload option to include the payload in the log.
+6. Add [a Log Mediator]({{base_path}}/reference/mediators/log-mediator/) to the sequence to log the incoming messages and tick the Append Payload option to include the payload in the log.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/pubsub-log.png" title="Salesforce Pub/Sub Inbound User Scenario" alt="Log Mediator" width="50%" height="40%"/>
 
-7. Add a Drop Mediator to the sequence to drop the messages after logging.
+7. Add [a Drop Mediator]({{base_path}}/reference/mediators/drop-mediator/) to the sequence to drop the messages after logging.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/pubsub-log-drop.png" title="Salesforce Pub/Sub Inbound User Scenario" alt="Order Notification" width="40%" height="50%"/>
 
