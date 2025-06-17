@@ -25,7 +25,9 @@ Follow the steps below to open your existing integration project:
        
         If you open an integration project created using WSO2 Integration Studio, you will be prompted with the following interface.
     
-        Click **Migrate Project** to automatically migrate your project using the migration tool provided in the MI for VS Code extension.
+        Click **Migrate Project** to automatically migrate your project using the migration tool provided in the MI for VS Code extension. 
+
+        For a maven multi module project, each composite exporter will have its own project created, and only the files selected within the composite exporter will be added to the respective project.
     
         <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png" alt="Migrate project"></a>
 
