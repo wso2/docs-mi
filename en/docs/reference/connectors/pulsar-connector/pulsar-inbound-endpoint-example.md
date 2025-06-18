@@ -10,7 +10,7 @@ By following this tutorial, you will gain hands-on experience in:
 - Consuming and processing messages from a Pulsar topic.
 - Run and test the integration to receive real-time notifications.
 
-The inbound endpoint acts as a message receiver and injects those messages into an integration sequence. In this section, we will demonstrate how to configure the inbound endpoint to establish a secure connection with the Apache Pulsar server using **TLS encryption** and **JWT-based authentication**. In this example, we will simply log the message, but you can extend this to perform any complex mediation logic using [WSO2 Micro Integrator mediators]({{base_path}}/reference/mediators/about-mediators/).
+The inbound endpoint acts as a message receiver and injects those messages into an integration sequence. In this section, we will demonstrate how to configure the inbound endpoint to establish a secure connection with the Apache Pulsar server using **TLS encryption** and **JWT-based authentication**. In this example, we will simply log the message. However, you can extend the flow to perform complex mediation tasks using [mediators]({{base_path}}/reference/mediators/about-mediators/).
 
 ## Prerequisites 
 
