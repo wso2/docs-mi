@@ -45,7 +45,7 @@ To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Inbo
 
     <img src="{{base_path}}/assets/img/integrate/connectors/pulsar-inbound/AddPulsarInboundEndpoint.png" title="Create Pulsar Inbound Endpoint" width="800" alt="Create Pulsar Inbound Endpoint"/>
 
-4. Fill in the form with the following values and click on `create`.
+4. Enter the following values in the form and click **Create**.
 
       * **Inbound Functional:**
         * **Event Integration Name**: `ApachePulsarInboundEP`
