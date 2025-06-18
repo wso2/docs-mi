@@ -16,7 +16,7 @@ The inbound endpoint acts as a message receiver and injects those messages into 
 
 ### Setup Apache Pulsar
 
-To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Connector, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
+To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Inbound Endpoint, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
 
 ## Configure Inbound Endpoint
 
