@@ -39,7 +39,7 @@ To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Inbo
 
 2. Then, go to the **Add Artifact** section and select **Event Integration**.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/pulsar-inbound/AddEventIntegration.png" title="Add an Event Integration" width="800" alt="Add an Event Integration"/>
+    <img src="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" title="Add an Event Integration" width="800" alt="Add an Event Integration"/>
 
 3. Create an **Apache Pulsar Inbound Endpoint**.
 
@@ -70,7 +70,7 @@ To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Inbo
          * **Message Wait Timeout (in milliseconds)**: `3000`
          * **Processing Mode**: `sync`
 
-    The source view of the created inbound endpoint is shown below.
+    The source view of the created inbound endpoint is shown below. For detailed descriptions of each parameter, please refer to the [Apache Pulsar reference documentation]({{base_path}}/reference/connectors/pulsar-connector/pulsar-inbound-endpoint-reference).
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -128,17 +128,17 @@ Alternatively, you can use the [Apache Pulsar Connector example]({{base_path}}/r
 
 1. Save the following payload as `data.json`:
 
-   ```json
-   {
-        "topic": "persistent://public/default/baa",
-        "message": "{\"Hello\": \"Pulsar\"}",
-        "key": "sample-key",
-        "properties": {
-            "message-type": "json",
-            "event-date": "2025-05-20"
+       ```json
+       {
+            "topic": "persistent://public/default/baa",
+            "message": "{\"Hello\": \"Pulsar\"}",
+            "key": "sample-key",
+            "properties": {
+                "message-type": "json",
+                "event-date": "2025-05-20"
+            }
         }
-    }
-   ```
+       ```
 
 2. Invoke the API using the following `curl` command:
 
