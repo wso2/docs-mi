@@ -1,6 +1,6 @@
 # Apache Pulsar Inbound Endpoint Example
 
-The Apache Pulsar Inbound Endpoint allows you to connect to Apache Pulsar server and consume messages form topics. The messages are then injected into the mediation engine for further processing and mediation.
+The Apache Pulsar Inbound Endpoint allows you to connect to Apache Pulsar server and consume messages from specified topics. The messages are then injected into the mediation engine for further processing and mediation.
 
 ## What you’ll build
 
