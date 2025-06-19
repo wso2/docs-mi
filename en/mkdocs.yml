@@ -849,6 +849,9 @@ nav:
               - Salesforce Inbound Endpoint PushTopic Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic.md
               - Salesforce Inbound Endpoint CDC Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-cdc.md
               - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-overview.md
+          - Salesforce Pub/Sub Inbound Endpoint:
+                - Salesforce Pub/Sub Inbound Endpoint Example: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-example.md
+                - Salesforce Pub/Sub Inbound Endpoint Reference: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
