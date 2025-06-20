@@ -12,15 +12,16 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 | Connector version | Supported product versions |
 | ------------- |------------- |
-|  [1.0.1](https://github.com/wso2-extensions/esb-connector-amazondynamodb/tree/1.0.1)        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0 |
+|  2.x          |  MI 4.4.0 |
+|  1.0.1        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0 |
 
 For older versions, see the details in the connector store.
 
 ## Amazon DynamoDB Connector documentation
 
-* **[Amazon DynamoDB Connector Example]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example/)**: This example explains how to perform various `table` and `items` operations with Amazon DynamoDB. 
+* **[Amazon DynamoDB Connector Example]({{base_path}}/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example/)**: This example explains how to perform various `table` and `items` operations with Amazon DynamoDB. 
 
-* **[Amazon DynamoDB Connector Reference]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration/)**: This documentation provides a reference guide for the Amazon DynamoDB Connector.
+* **[Amazon DynamoDB Connector Reference]({{base_path}}/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-configuration/)**: This documentation provides a reference guide for the Amazon DynamoDB Connector.
 
 ## How to contribute
 
