@@ -544,13 +544,21 @@ nav:
           - Amazon DynamoDB Connector:
               - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
               - Set up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
-              - Amazon DynamoDB Example: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md
-              - Amazon DynamoDB Reference: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md
+              - 2.x:
+                  - Amazon DynamoDB Example: reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example.md
+                  - Amazon DynamoDB Reference: reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference.md
+              - 1.x:
+                  - Amazon DynamoDB Example: reference/connectors/amazondynamodb-connector/1.x/amazondynamodb-connector-example.md
+                  - Amazon DynamoDB Reference: reference/connectors/amazondynamodb-connector/1.x/amazondynamodb-connector-reference.md
           - Amazon Lambda Connector:
               - Amazon Lambda Overview: reference/connectors/amazonlambda-connector/amazonlambda-connector-overview.md
               - Set up Amazon Lambda: reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md
-              - Amazon Lambda Example: reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md
-              - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md
+              - 2.x:
+                  - Amazon Lambda Example: reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-example.md
+                  - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config.md
+              - 1.x:
+                  - Amazon Lambda Example: reference/connectors/amazonlambda-connector/1.x/amazonlambda-connector-1.x-example.md
+                  - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/1.x/amazonlambda-connector-1.x-config.md
           - Amazon S3 Connector:
               - AmazonS3 Overview: reference/connectors/amazons3-connector/amazons3-connector-overview.md
               - 2.x:
@@ -1088,8 +1096,8 @@ plugins:
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.4.0/reference/synapse-properties/xpath-expressions'
-              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference/' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference/'
-              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example/' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example/'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example'
               'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.4.0/develop/customizations/creating-new-connector/'
               'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/mediators/data-mapper-mediator'
               'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
@@ -1116,6 +1124,10 @@ plugins:
               'reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
               'reference/connectors/mongodb-connector/mongodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-example'
               'reference/connectors/mongodb-connector/mongodb-connector-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-config'
+              'reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-example'
+              'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config'
+              'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example'
+              'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply

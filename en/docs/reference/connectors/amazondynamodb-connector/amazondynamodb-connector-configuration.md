@@ -10,7 +10,7 @@ Before you start configuring the  Amazon DynamoDB connector, you also need to co
 
 Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the integration service.
 
-If you are using the Micro Integrator of **EI7** or **APIM 4.0.0**, you need to enable this property by adding the following to the `<PRODUCT_HOME>/conf/deployment.toml` file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters/) and [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport) documentations.
+You need to enable this property by adding the following to the `<PRODUCT_HOME>/conf/deployment.toml` file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters/) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentations.
 
 ```toml
 [[custom_message_formatters]]
@@ -20,21 +20,6 @@ content_type = "application/x-amz-json-1.0"
 [[custom_message_builders]]
 class="org.apache.synapse.commons.json.JsonStreamBuilder"
 content_type = "application/x-amz-json-1.0"
-```
-
-If you are using **EI 6**, you can enable this property by doing the following Axis2 configurations in the `<PRODUCT_HOME>\repository\conf\axis2\axis2.xml` file.
-
-**messageFormatters**
-
-```xml
-<messageFormatter contentType="application/x-amz-json-1.0"
-class="org.apache.synapse.commons.json.JsonStreamFormatter"/>
-```
-**messageBuilders**
-
-```xml
-<messageBuilder contentType="application/x-amz-json-1.0"
-class="org.apache.synapse.commons.json.JsonStreamBuilder"/>
 ```
 
 !!! note
