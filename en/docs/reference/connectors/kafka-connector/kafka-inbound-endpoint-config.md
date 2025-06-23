@@ -396,12 +396,12 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
 
 ---
 
-## Manual Offset Control
+## Manual offset control
 
-Manual offset committing gives you explicit control over when Kafka offsets are committed, ensuring that messages are only acknowledged after successful processing. Follow the steps below to configure manual offset commit behavior in WSO2 Kafka Inbound Endpoint.
+Manual offset committing gives you explicit control over when Kafka offsets are committed, ensuring that messages are acknowledged only after successful processing. Follow the steps below to configure manual offset commit behavior in WSO2 Kafka Inbound Endpoint.
 
 
-### Step 1: Disable Auto Commit
+### Step 1: Disable auto commit
 
 Disabling auto commit ensures that the WSO2 Kafka Inbound Endpoint does not commit the Kafka offset automatically, allowing your mediation logic to determine when an offset should be committed.
 
@@ -411,7 +411,7 @@ To disable auto commit, set the following parameter in your Kafka inbound endpoi
 <parameter name="enable.auto.commit">false</parameter>
 ```
 
-### Step 2: Use `SET_ROLLBACK_ONLY` to Prevent Commit on Failure
+### Step 2: Use `SET_ROLLBACK_ONLY` to prevent commit on failure
 
 Add the following property to your **onError sequence** to signal the Inbound Endpoint not to commit the current offset if message processing fails. This will cause the same message to be re-polled in the next cycle.
 
@@ -420,7 +420,7 @@ Add the following property to your **onError sequence** to signal the Inbound En
 <property name="SET_ROLLBACK_ONLY" value="true" scope="default" type="STRING"></property>
 ```
 
-### Step 3: Configure Retry Behavior using `failure.retry.count` (Optional)
+### Step 3: Configure retry behavior using `failure.retry.count` (optional)
 
 Add this parameter to the inbound endpoint to control the retry behavior:
 
@@ -429,7 +429,7 @@ Add this parameter to the inbound endpoint to control the retry behavior:
 ```
 
 - `N` is the number of retry attempts for a failed message.
-- If not set or set to `-1` (default), the same message will be retried **indefinitely**.
+- If not set or set to `-1` (default), the same message will be retried indefinitely.
 - If the retry count is exceeded, the offset will move to the next record, and the failed message will be discarded.
 
 
