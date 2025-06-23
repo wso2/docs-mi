@@ -398,7 +398,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
 
 ## Manual Offset Control
 
-Manual offset committing gives you explicit control over when Kafka offsets are committed, ensuring that messages are only acknowledged after successful processing. Follow the steps below to configure manual offset commit behavior in WSO2 Kafka Inbound Endpoint.
+Manual offset committing gives you explicit control over when Kafka offsets are committed, ensuring that messages are acknowledged only after successful processing. Follow the steps below to configure manual offset commit behavior in WSO2 Kafka Inbound Endpoint.
 
 
 ### Step 1: Disable Auto Commit
