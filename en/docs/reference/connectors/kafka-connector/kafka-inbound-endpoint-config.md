@@ -1,6 +1,6 @@
 # Kafka Inbound Endpoint Reference
 
-## Mandatory parameters for Kafka Inbound Endpoint
+## Mandatory parameters
 
 The following parameters are required when configuring Kafka Inbound Endpoint.
 
@@ -39,7 +39,7 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
 </table>
 
-## Optional parameters for Kafka Inbound Endpoint
+## Optional parameters
 
 <table>
         <tr>
@@ -394,5 +394,59 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
         </tr>
 </table>
 
+---
+
+## Manual offset control
+
+Manual offset committing gives you explicit control over when Kafka offsets are committed, ensuring that messages are acknowledged only after successful processing. Follow the steps below to configure manual offset commit behavior in WSO2 Kafka Inbound Endpoint.
+
+
+### Step 1: Disable auto commit
+
+Disabling auto commit ensures that the WSO2 Kafka Inbound Endpoint does not commit the Kafka offset automatically, allowing your mediation logic to determine when an offset should be committed.
+
+To disable auto commit, set the following parameter in your Kafka inbound endpoint configuration:
+
+```xml
+<parameter name="enable.auto.commit">false</parameter>
+```
+
+### Step 2: Use `SET_ROLLBACK_ONLY` to prevent commit on failure
+
+Add the following property to your **onError sequence** to signal the Inbound Endpoint not to commit the current offset if message processing fails. This will cause the same message to be re-polled in the next cycle.
+
+
+```xml
+<property name="SET_ROLLBACK_ONLY" value="true" scope="default" type="STRING"></property>
+```
+
+### Step 3: Configure retry behavior using `failure.retry.count` (optional)
+
+Add this parameter to the inbound endpoint to control the retry behavior:
+
+```xml
+<parameter name="failure.retry.count">N</parameter>
+```
+
+- `N` is the number of retry attempts for a failed message.
+- If not set or set to `-1` (default), the same message will be retried indefinitely.
+- If the retry count is exceeded, the offset will move to the next record, and the failed message will be discarded.
+
+
 !!! Note
-    The `<property name="SET_ROLLBACK_ONLY" value="true"/>` property should be set in the fault sequence to poll the same record if in a failure case. The internal logic does not commit if the above property is set and the offset is set to the current record. The `failure.retry.count` parameter controls the polling of the same record during failure scenarios. If the retry count is exceeded, the offset is set to the next record, discarding the current one. The default value is `-1`, meaning the same record will be polled infinitely in failure cases. Both the `<property name="SET_ROLLBACK_ONLY" value="true"/>` and `failure.retry.count` parameters are effective only when `enable.auto.commit` is set to `false`.
+    Manual offset committing is **reliable only when used with sequential and synchronous mediation flows**.
+    
+    **Why?**<br>
+    
+    - In parallel processing mode in the current connector architecture, the actual result of message processing may be ignored, and offsets may get committed under the assumption that the processing was successful. This may lead to message loss, especially if some records fail during message processing<br>
+    - Additionally, asynchronous mediation flows (e.g., using `non-blocking Call mediator`, using `Clone` and `Iterate` mediators with `sequential` mode disabled, or `Scatter-Gather` and `Foreach` mediators with `parallelExecution` mode enabled) can cause offsets to be committed before message processing completes, which may lead to unprocessed messages being skipped.
+
+
+    **Recommendation**
+
+    To ensure reliable manual offset committing:
+    
+    - Use **sequential processing** with **synchronous flows** wherever possible.
+    - For throughput and scalability:
+        - Configure your Kafka topic with **multiple partitions**.
+        - Run **multiple Kafka Inbound Endpoints** (within the same consumer group) to read from different partitions concurrently.
