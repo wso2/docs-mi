@@ -429,7 +429,7 @@ Add this parameter to the inbound endpoint to control the retry behavior:
 ```
 
 - `N` is the number of retry attempts for a failed message.
-- If not set or set to `-1` (default), the same message will be retried **indefinitely**.
+- If not set or set to `-1` (default), the same message will be retried indefinitely.
 - If the retry count is exceeded, the offset will move to the next record, and the failed message will be discarded.
 
 
