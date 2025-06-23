@@ -411,7 +411,7 @@ To disable auto commit, set the following parameter in your Kafka inbound endpoi
 <parameter name="enable.auto.commit">false</parameter>
 ```
 
-### Step 2: Use `SET_ROLLBACK_ONLY` to Prevent Commit on Failure
+### Step 2: Use `SET_ROLLBACK_ONLY` to prevent commit on failure
 
 Add the following property to your **onError sequence** to signal the Inbound Endpoint not to commit the current offset if message processing fails. This will cause the same message to be re-polled in the next cycle.
 
