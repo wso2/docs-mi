@@ -420,7 +420,7 @@ Add the following property to your **onError sequence** to signal the Inbound En
 <property name="SET_ROLLBACK_ONLY" value="true" scope="default" type="STRING"></property>
 ```
 
-### Step 3: Configure Retry Behavior using `failure.retry.count` (Optional)
+### Step 3: Configure retry behavior using `failure.retry.count` (optional)
 
 Add this parameter to the inbound endpoint to control the retry behavior:
 
@@ -439,7 +439,7 @@ Add this parameter to the inbound endpoint to control the retry behavior:
     **Why?**<br>
     
     - In parallel processing mode in the current connector architecture, the actual result of message processing may be ignored, and offsets may get committed under the assumption that the processing was successful. This may lead to message loss, especially if some records fail during message processing<br>
-    - Additionally, asynchronous mediation flows (e.g., using `non-blocking Call mediator`, using `Clone` and `Iterate` mediators with `sequential` mode disabled, or `Scatter-Gather` and `Foreach` mediators with `parallelExecution` mode enabled) can cause offsets to be committed before message processing completes, which may lead to unprocessed messages being skipped.
+    - Additionally, asynchronous mediation flows (e.g., using `non-blocking Call mediator`, using `Clone` and `Iterate` mediators with `sequential` mode disabled) can cause offsets to be committed before message processing completes, which may lead to unprocessed messages being skipped.
 
 
     **Recommendation**
