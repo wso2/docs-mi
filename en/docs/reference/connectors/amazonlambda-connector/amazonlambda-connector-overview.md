@@ -12,15 +12,16 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
+|  2.x          |  MI 4.4.0 |
 | 1.0.0    | EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0 |
 
 For older versions, see the details in the connector store.
 
 ## Amazon Lambda Connector documentation
 
-* **[Amazon Lambda Connector Example]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-example/)**: This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation. 
+* **[Amazon Lambda Connector Example]({{base_path}}/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-example/)**: This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation. 
 
-* **[Amazon Lambda Connector Reference]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-config/)**: This documentation provides a reference guide for the Amazon Lambda Connector.
+* **[Amazon Lambda Connector Reference]({{base_path}}/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config/)**: This documentation provides a reference guide for the Amazon Lambda Connector.
 
 ## How to contribute
 
