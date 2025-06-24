@@ -128,6 +128,73 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
     !!! Note
         It is recommended to configure the hostname as the server when configuring custom SSL profiles. If you want to use the IP address as the server, be sure to map the hostname in the Host file before using the hostname as the server.
 
+### Client-based dynamic SSL profiles for the Multi-HTTPS transport sender
+
+This section shows how to attach **several client certificates to one backend host** and let your mediation flow decide which certificate to use at runtime.
+
+ 1. Point the transport sender to the profile file
+
+    Add (or reuse) the following block in `deployment.toml`:
+
+    ```toml
+    [transport.http]
+    sender.ssl_profile.file_path = "conf/sslprofiles/senderprofiles.xml"
+    sender.ssl_profile.read_interval = 600000
+    ```
+
+ 2. Create the profile file with multiple client entries
+
+    Create `MI_HOME/conf/sslprofiles/senderprofiles.xml` and define one `<client>` element per certificate:
+
+    ```xml
+    <parameter xmlns:svns="http://org.wso2.securevault/configuration" name="customSSLProfiles">
+        <profile>
+            <!-- Back-end host this profile applies to -->
+            <servers>backend.example.com</servers>
+
+            <!-- ── Certificate A ── -->
+            <client>
+                <clientID>cert-alpha</clientID>
+                <KeyStore>
+                    <Location>repository/resources/security/alpha-keystore.jks</Location>
+                    <Type>JKS</Type>
+                    <Password>changeit</Password>
+                    <KeyPassword>changeit</KeyPassword>
+                </KeyStore>
+                <TrustStore>
+                    <Location>repository/resources/security/alpha-truststore.jks</Location>
+                    <Type>JKS</Type>
+                    <Password>changeit</Password>
+                </TrustStore>
+            </client>
+
+            <!-- ── Certificate B ── -->
+            <client>
+                <clientID>cert-bravo</clientID>
+                <KeyStore>
+                    <Location>repository/resources/security/bravo-keystore.jks</Location>
+                    <Type>JKS</Type>
+                    <Password>changeit</Password>
+                    <KeyPassword>changeit</KeyPassword>
+                </KeyStore>
+                <TrustStore>
+                    <Location>repository/resources/security/bravo-truststore.jks</Location>
+                    <Type>JKS</Type>
+                    <Password>changeit</Password>
+                </TrustStore>
+            </client>
+        </profile>
+    </parameter>
+    ```
+
+    Copy the referenced keystore and truststore files to the paths given above.
+
+    !!! Note
+        If you want to pick a specific certificate for the outbound call, set the following message-level property before the outbound call:
+        ```xml
+            <property name="clientID" value="cert-alpha" scope="axis2"/>
+        ```
+
 ## Loading SSL profiles at runtime
 
 You can either use a periodic schedule or a JMX invocation to apply
