@@ -130,7 +130,7 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
 
 ### Client-based dynamic SSL profiles for the Multi-HTTPS transport sender
 
-This section shows how to attach **several client certificates to one backend host** and let your mediation flow decide which certificate to use at runtime.
+This section shows how to attach several client certificates to one backend host and let your mediation flow decide which certificate to use at runtime.
 
  1. Point the transport sender to the profile file
 
