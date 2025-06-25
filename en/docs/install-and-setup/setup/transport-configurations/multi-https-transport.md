@@ -192,7 +192,7 @@ This section shows how to attach several client certificates to one backend host
     !!! Note
         If you want to pick a specific certificate for the outbound call, set the following message-level property before the outbound call:
         ```xml
-            <property name="clientID" value="cert-alpha" scope="axis2"/>
+            <property name="ssl.profile.client.identifier" scope="axis2" type="STRING" value="cert-alpha"/>
         ```
 
 ## Loading SSL profiles at runtime
