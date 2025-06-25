@@ -12,10 +12,12 @@ You can split the following sample request input message in different ways as ex
 
 The following are the properties that are specific to sending multiple messages via the same TCP channel.
 
-| **Property**       | **Description**                                       | **Required**                        | **Possible Values**         | **Default Value**       |
-|--------------------|-------------------------------------------------------|-------------------------------------|-----------------------------|-------------------------|
-|recordDelimiterType          |Type of the record delimiter you use to split the message	                                        | No   | Character, byte or String	                                     | String |
-|recordDelimiter              |The delimiter of the record you use to split the message	                                        | No   | A valid value that matches the specified delimiter type	| N/A    |
+| **Property**       | **Description**                                                                                 | **Required**                        | **Possible Values**         | **Default Value**       |
+|--------------------|-------------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------|-------------------------|
+|recordDelimiterType          | Type of the record delimiter you use to split the message	                                      | No   | Character, byte or String	                                     | String |
+|recordDelimiter              | The delimiter of the record you use to split the message	                                       | No   | A valid value that matches the specified delimiter type	| N/A    |
+|responseDelimiter            | The delimiter of the response message that is sent back to the client.                          | No   | A valid value that matches the specified delimiter type	| N/A    |
+|responseDelimiterType          | Type of the record delimiter you use to split the response message	                             | No   | Character, byte or String	                                     | Character |
 |recordLength                 | Length of the message to be split. If you set this, then the delimiter properties are omitted.	 | No   | A valid integer value. This will be identified in bytes.	   | N/A    |
 |inputType	                  | Input type of the message	                                                                      | No   | String or binary	                                              | String |
 
