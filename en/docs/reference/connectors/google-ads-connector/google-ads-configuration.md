@@ -1,10 +1,9 @@
 # Google Ads Connector Reference
 
-The following operations allow you to work with the Google Ads API. Click an operation name to see parameter details and samples on how to use it.
 
-## Initialize the connector
+### Connection configuration
 
-To use the Google Ads connector, first create the connection with your configuration. When calling a Google Ads operation, ensure the connection is referenced using the `configKey` attribute.
+The connection is used to establish a connection to the Google Ads. The Google Ads API uses OAuth2 authentication with Tokens. For more information on authentication, go to [Authorizing Your App with Google Ads](https://developers.google.com/google-ads/api/docs/get-started/configure-cloud-project).
 
 ??? note "init"
     The `init` operation initializes the connection to Google Ads API.
@@ -23,6 +22,11 @@ To use the Google Ads connector, first create the connection with your configura
             <td><code>base</code></td>
             <td>The service root URL. The default value is `https://googleads.googleapis.com`.</td>
             <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>apiVersion</code></td>
+            <td>The API version to access the endpoint. The default value is `v18`.</td>
+            <td>No</td>
         </tr>
         <tr>
             <td><code>clientId</code></td>
@@ -63,6 +67,7 @@ To use the Google Ads connector, first create the connection with your configura
         <connectionType>googleAds</connectionType>
         <name>GOOGLE_ADS_CONN</name>
         <base>https://googleads.googleapis.com</base>
+        <apiVersion>v18</apiVersion>
         <clientId>REPLACE_WITH_CLIENT_ID</clientId>
         <clientSecret>REPLACE_WITH_CLIENT_SECRET</clientSecret>
         <refreshToken>REPLACE_WITH_REFRESH_TOKEN</refreshToken>
@@ -72,7 +77,7 @@ To use the Google Ads connector, first create the connection with your configura
     </googleAds.init>
     ```
 
-## Operations
+The following operations allow you to work with the Google Ads API. Click an operation name to see parameter details and samples on how to use it.
 
 ??? note "createCustomerClient"
     The `createCustomerClient` operation creates a new client under the provided manager. The new client customer is returned.
