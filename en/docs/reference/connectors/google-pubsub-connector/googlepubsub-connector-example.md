@@ -12,7 +12,7 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 Goo
 
 To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/) documentation to setup an account.
 
-In this scenario, the user needs to create a **Topic** in **Google Cloud Platform account** under **Big Data**. This topic is used to store notifications related to company updates. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally, the user can retrieve the company updates from the subscribed topic while invoking the API.
+In this scenario, the user needs to create a **Topic** in **Google Cloud Platform account**. This topic is used to store notifications related to company update notifications. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally, the user can retrieve the company updates from the subscribed topic while invoking the API.
 
 All three operations are exposed via an API. The API with the context `/resources` has three resources.
 
@@ -20,15 +20,9 @@ All three operations are exposed via an API. The API with the context `/resource
 * `/insertCompanyNotifications` : Used to insert company update notifications to the subscribed topic.
 * `/getCompanyNotifications` : Used to retrieve information about company updates.
 
-> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. If you are using **EI 7** or **APIM 4.0.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](https://apim.docs.wso2.com/en/4.2.0/reference/config-catalog/#http-transport). If you are using **EI 6**, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
-   ```   
-   [mediation]
-   synapse.enable_xpath_dom_failover=true
-   ```
-   
 The following diagram shows the overall solution. The user creates a topic, stores some company update notifications, and then receives them back. To invoke each operation, the user uses the same API.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-connector1.png" title="pub-sub connector example" width="700" alt="pub-sub connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/diagram-overview.png" title="pub-sub connector example" width="800" alt="pub-sub connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -40,213 +34,167 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 First create an API, which will be where we configure the integration logic. Specify the API name as `pubsubApi` and API context as `/resources`.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configure the API
 
-**Configure a resource for the createTopic operation**
+**Configure a resource for the /createTopic operation**
 
 1. Initialize the connector.
 
     1. Create the `/createTopic` resource. We will use a URL template called `/createTopic` and the method will be `Post`.
 
-    2. Navigate into the **Connectors** pane and select the **Googlepubsub Connector** section. Then select the `init` operation.
+    2. Click **Connection** and select **Google Pub Sub** to initialize the connector.
 
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-drag-and-drop-init.png" title="Drag and drop init operation" width="800" alt="Drag and drop init operation"/>   
+    3.  Then fill the `clientId`, `clientSecret`, and `refreshToken` fields with the values that you obtained while setting up the Google Pub/Sub environment. 
 
-    3. Add the property values into the `init` operation as shown below. Replace the `accessToken`, `apiUrl`, `apiVersion` with your values.
-        
-        - **accessToken** : The access token that grants access to the Google Pub/Sub API on behalf of a user.
-        - **apiUrl** : The application URL of Google Pub/Sub.
-        - **apiVersion** : The version of the Google Pub/Sub API.
+        - **clientId** : The client ID of the Google Cloud project.
+        - **clientSecret** : The client secret of the Google Cloud project.
+        - **refreshToken** : The refresh token that you obtained while setting up the Google Pub/Sub environment.
 
+        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/connection-config.png" title="Initialize connector" width="400" alt="Initialize connector"/>
 
-2. Set up the **createTopic** operation.
-
-    1. Navigate into the **Connectors** pane and select the `createTopic` operation listed under **Googlepubsub Connector** section.
-
-    2. The createTopic operation creates a new topic with the name that you specify.
-
-        - **projectId** : The unique ID of the project within which you want to create a topic.
-        - **topicName** : The name that you want to give the topic that you are creating.
-
-        While invoking the API, topicName values is populated as an input value for the operation.
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-drag-and-drop.createtopic.png" title="Drag and drop createTopic operation" width="800" alt="Drag and drop createTopic operation"/>    
+2. Set up the **Create Topic** operation.
     
-    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Mediator** pane and select the `Property` mediators.
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
-
-        The parameters available for configuring the Property mediator are as follows:
+    Navigate into the **Connectors** pane and select the `createTopic` operation listed under **Googlepubsub Connector** section. The createTopic operation creates a new topic with the name that you specify.
     
-        > **Note**: The properties should be added to the pallet before creating the operation.
-    
-    4. Add the property mediator to capture the `topicName` value. The topicName contains the name that you want to give to the topic that you are creating.
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/add-create-topic.png" title="Add values to the createTopic operation" width="800" alt="Add values to the createTopic operation"/>
 
-        - **name** : `topicName`
-        - **expression** : `json-eval($.topicName)`
+    - **projectId** : The unique ID of the project within which you want to create a topic.
+    - **topicName** : The name that you want to give the topic that you are creating.
 
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property1-value1.png" title="Add property mediators topicName" width="800" alt="Add property mediators topicName"/>
+    While invoking the API, topicName values is populated as an input value for the operation.
 
-3. Set up the **createTopicSubscription** operation.
+    Therefore, we can use `${$payload.topicName}` to capture the topicName value from the request payload.
 
-    1. Navigate into the **Connectors** pane and select the **Googlepubsub Connector** section. Then select the `createTopicSubscription` operation.
-         - **projectId** : The unique ID of the project within which the topic is created.
-         - **subscriptionName** : The name of the subscription.
-         - **topicName** : The name of the topic for which you want to create a subscription.
-         - **ackDeadlineSeconds** :  The maximum time a subscriber can take to acknowledge a message that is received.
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/create-topic.png" title="Add values to the createTopic operation" width="800" alt="Add values to the createTopic operation"/>
 
-         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-createtopicsubscription-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
+3. Set up the **Subscribe Topic** operation.
 
-    2. Add the property mediator to capture the `subscriptionName` values. This contains the name of the subscription.
+    Navigate into the **Connectors** pane and select the **Googlepubsub Connector** section. Then select the `Subscribe Topic` operation.
 
-        - **name** : `subscriptionName`
-        - **expression** : `json-eval($.subscriptionName)`
+    - **projectId** : The unique ID of the project within which the topic is created.
+    - **subscriptionName** : The name of the subscription.
+    - **topicName** : The name of the topic for which you want to create a subscription.
 
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property2-value2.png" title="Add values to capture subscriptionName" width="800" alt="Add values to capture subscriptionName"/>  
-
-    3. Add the property mediator to store the name of the created topic value from the response of the createTopic operation. 
-
-        - **name** : `nameforsubscription`
-        - **expression** : `json-eval($.name)`
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-nameforsubscription.png" title="Add values to capture nameforsubscription" width="800" alt="Add values to capture nameforsubscription"/>
-
-    4. Add the property mediator to capture the topic name from the response using the splitting separators in the results.  
-
-         - **name** : `test`
-         - **expression** : `fn:tokenize($ctx:nameforsubscription,'/')[last()]`
-
-        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-splitting.png" title="Add values to capture splitting value" width="800" alt="Add values to capture splitting value"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/create-subscription.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
 
 4. Forward the backend response to the API caller.
 
-    When you are invoke the created resource, the request for the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.
+    When you are invoke the created resource, the request for the message is going through the `/createTopic` resource.Then it will invoke the **Create Topic** operation and then the **Subscribe Topic** operation. The response from these operations is captured in variables and then a payload mediator is used to format the response. Finally, it is passed to the Respond mediator. The Respond Mediator stops the processing of the current message and sends the message back to the client as a response.
 
-    1. Add the **respond mediator** to the **Design view**. 
+    1. Add a **payload** mediator to capture the response from the **Create Topic** operation and **Subscribe Topic** operation.
 
-         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/smpp-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/add-payload-mediator.png" title="Add Payload mediator" width="800" alt="Add Payload mediator"/>
 
-    2. Once you have setup the sequences and API, you can see the `/createTopic` resource as shown below.
+        (You can click on the **fx** icon and go to **variables** to select the response payload from the **Create Topic** operation and **Subscribe Topic** operation.)
 
-         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/createtopic-design-view.png" title="API Design view" width="800" alt="API Design view"/>
+    2. Add the **respond mediator** to the **Design view**. 
 
-**Configure a resource for the publishMessage operation**
+         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/add-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/>
 
-1. Initialize the connector.
+    3. Once you have setup the sequences and API, you can see the `/createTopic` resource as shown below.
 
-   1. Initialize the connector. You can use the same configuration to initialize the connector. Please follow the steps given in section 1 for setting up the `init` operation to the `createTopic` operation.
+         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/overall-create-topic.png" title="Overall createTopic resource" width="800" alt="Overall createTopic resource"/>
 
-   2. Set up the `publishMessage` operation. Navigate into the **Connectors** pane and select the **Googlepubsub Connector** section. Then select the `publishMessage` operation.
+**Configure a resource for the /insertCompanyNotifications operation**
 
-       - **projectId** : The unique ID of the project within which the topic is created.
-       - **topicName** : The name of the topic for which you want to create a subscription.
-       - **data** :  The message payload.
+1. Create the `/insertCompanyNotifications` resource. We will use a URL template called `/insertCompanyNotifications` and the method will be `Post`.
 
-       <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-publishmessage-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/add-insert-company-notifications.png" title="Add insertCompanyNotifications resource" width="800" alt="Add insertCompanyNotifications resource"/>
 
-   3. Add the property mediator to capture the `topicName` values.
+2. Set up the **publishMessage** operation. Navigate into the **Connectors** pane and select the **Google Pub/Sub Connector** section. Then select the **publishMessage** operation.
 
-       - **name** : `topicName`
-       - **expression** : `json-eval($.topicName)`
+    - **projectId** : The unique ID of the project within which the topic is created.
+    - **topicName** : The name of the topic for which you want to create a subscription.
+    - **data** :  The message payload.
 
-       <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-topicname1.png" title="Add values to the topicName operation" width="800" alt="Add values to the topicName operation"/>
-       
-   4. Add the property mediator to capture the `data` values.    
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/publish-message.png" title="Add values to the publishMessage operation" width="800" alt="Add values to the publishMessage operation"/>
 
-       - **name** : `data`
-       - **expression** : `json-eval($.data)`
+3. Add the **Respond mediator** to return the response to the API caller. The response will contain the message ID of the published message.
+   Overall, the `/insertCompanyNotifications` resource will look like the following.
 
-       <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-data.png" title="Add values to the data operation" width="800" alt="Add values to the data operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/overall-insert-company-notifications.png" title="Overall insertCompanyNotifications resource" width="800" alt="Overall insertCompanyNotifications resource"/>
 
-**Configure a resource for the pullMessage operation**
+**Configure a resource for the /getCompanyNotifications operation**
 
-1. Initialize the connector.
+1. Create the `/getCompanyNotifications` resource. We will use a URL template called `/getCompanyNotifications` and the method will be `Post`.
 
-   1. Initialize the connector. You can use the same configuration to initialize the connector. Please follow the steps given in section 1 for setting up the init operation for the createTopic operation
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/add-get-company-notifications.png" title="Add getCompanyNotifications resource" width="800" alt="Add getCompanyNotifications resource"/>
 
-   2. Set up the `pullMessage` operation. Navigate into the **Connectors** pane and select the **Googlepubsub Connector** section. Then select the `pullMessage` operation.
+2. Set up the **pullMessage** operation. Navigate into the **Connectors** pane and select the **Google Pub/Sub Connector** section. Then select the **pullMessage** operation.
+    - **projectId** : The unique ID of the project within which the topic is created.
+    - **subscriptionName** : The name of the subscription from which you want to pull messages.
+    - **maxMessages** : The maximum number of messages to return.
+    - **returnImmediately** : If set to true, the server will return immediately even if there are no messages available to return.
 
-       - **projectId** : The unique ID of the project within which the topic is created.
-       - **subscriptionName** : The name of the topic for which you want to create a subscription.
-       - **maxMessages** :  The maximum number of messages to retrieve.
-       - **returnImmediately** : Set this to true if you want the server to respond immediately.
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/pull-message.png" title="Add values to the pullMessage operation" width="800" alt="Add values to the pullMessage operation"/>
 
-       <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-pullmessages.png" title="Add values to the pull messages operation" width="800" alt="Add values to the pull messages operation"/>
+3. Add the **Respond mediator** to return the response to the API caller. The response will contain the received messages.
+   Overall, the `/getCompanyNotifications` resource will look like the following.
 
-   3. Add the property mediator to capture the `subscriptionName` values. Follow the steps given in createTopicSubscription operation.     
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/overall-get-company-notifications.png" title="Overall getCompanyNotifications resource" width="800" alt="Overall getCompanyNotifications resource"/>
 
 Now you can switch into the Source view and check the XML configuration files of the created API and sequences.    
-!!! note "pubsubApi.xml"
+??? note "Full Synapse Code : pubsubApi.xml"
     ```
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/resources" name="pubsubApi" xmlns="http://ws.apache.org/ns/synapse">
-        <resource methods="POST" url-mapping="/createTopic">
+        <resource methods="POST" uri-template="/createTopic">
             <inSequence>
-                <property expression="json-eval($.topicName)" name="topicName" scope="default" type="STRING"/>
-                <property expression="json-eval($.subscriptionName)" name="subscriptionName" scope="default" type="STRING"/>
-                <googlepubsub.init>
-                    <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
-                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                    <apiVersion>v1</apiVersion>
-                </googlepubsub.init>
-                <googlepubsub.createTopic>
-                    <projectId>ei-connector-improvement</projectId>
-                    <topicName>{$ctx:topicName}</topicName>
+                <googlepubsub.createTopic configKey="GooglePubSub">
+                    <projectId>mirelated-455805</projectId>
+                    <topicName>{${payload.topicName}}</topicName>
+                    <responseVariable>googlepubsub_createTopic_1</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </googlepubsub.createTopic>
-                <property expression="json-eval($.name)" name="nameforsubscription" scope="default" type="STRING"/>
-                <property expression="fn:tokenize($ctx:nameforsubscription,'/')[last()]" name="test" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
-                <googlepubsub.init>
-                    <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
-                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                    <apiVersion>v1</apiVersion>
-                </googlepubsub.init>
-                <googlepubsub.createTopicSubscription>
-                    <projectId>ei-connector-improvement</projectId>
-                    <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-                    <topicName>{$ctx:test}</topicName>
-                    <ackDeadlineSeconds>30</ackDeadlineSeconds>
-                </googlepubsub.createTopicSubscription>
+            <googlepubsub.subscribeTopic configKey="GooglePubSub">
+        <projectId >mirelated-455805</projectId>
+        <subscriptionName >{${payload.subscriptionName}}</subscriptionName>
+        <topicName >{${payload.topicName}}</topicName>
+        <ackDeadlineSeconds ></ackDeadlineSeconds>
+        <pushEndpoint ></pushEndpoint>
+        <attributes ></attributes>
+        <responseVariable >googlepubsub_subscribeTopic_1</responseVariable>
+        <overwriteBody >false</overwriteBody>
+                </googlepubsub.subscribeTopic>
+                <payloadFactory media-type="json" template-type="default">
+                    <format>{"CreateTopicResponse":${vars.googlepubsub_createTopic_1.payload},"SubscribeTopicResponce":${vars.googlepubsub_subscribeTopic_1.payload}}</format>
+                </payloadFactory>
                 <respond/>
             </inSequence>
-            <faultSequence/>
+            <faultSequence>
+            </faultSequence>
         </resource>
-        <resource methods="POST" url-mapping="/insertcompanynotifications">
+        <resource methods="POST" uri-template="/insertCompanyNotifications">
             <inSequence>
-                <property expression="json-eval($.topicName)" name="topicName" scope="default" type="STRING"/>
-                <property expression="json-eval($.data)" name="data" scope="default" type="STRING"/>
-                <googlepubsub.init>
-                    <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
-                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                    <apiVersion>v1</apiVersion>
-                </googlepubsub.init>
-                <googlepubsub.publishMessage>
-                    <projectId>ei-connector-improvement</projectId>
-                    <topicName>{$ctx:topicName}</topicName>
-                    <data>{$ctx:data}</data>
+            <googlepubsub.publishMessage configKey="GooglePubSub">
+        <projectId >mirelated-455805</projectId>
+        <topicName >{${payload.topicName}}</topicName>
+        <data >{${payload.notification}}</data>
+        <attributes ></attributes>
+        <responseVariable >googlepubsub_publishMessage_1</responseVariable>
+        <overwriteBody >true</overwriteBody>
                 </googlepubsub.publishMessage>
                 <respond/>
             </inSequence>
-            <faultSequence/>
+            <faultSequence>
+            </faultSequence>
         </resource>
-        <resource methods="POST" url-mapping="/getcompanynotifictions">
+        <resource methods="POST" uri-template="/getCompanyNotifications">
             <inSequence>
-                <property expression="json-eval($.subscriptionName)" name="subscriptionName" scope="default" type="STRING"/>
-                <googlepubsub.init>
-                    <accessToken>ya29.a0AfH6SMDDFZCdoo37Tb48MrJU-ZnNoyrYqNY8r5cgWX0kD7n3GBhZr_TbicfvywjKwGYaZEBV50_yGINVOhZr_4jFMu2O03c87NiDCBpKW5zdsnl3x9iWdsosjDoE7uAGEKKLikPgnKfcgilGB2d-MBzu_c2e53kXG6A</accessToken>
-                    <apiUrl>https://pubsub.googleapis.com</apiUrl>
-                    <apiVersion>v1</apiVersion>
-                </googlepubsub.init>
-                <googlepubsub.pullMessage>
-                    <projectId>ei-connector-improvement</projectId>
-                    <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-                    <maxMessages>2</maxMessages>
-                    <returnImmediately>false</returnImmediately>
+                <googlepubsub.pullMessage configKey="GooglePubSub">
+                    <projectId>mirelated-455805</projectId>
+                    <subscriptionName>{${payload.subscriptionName}}</subscriptionName>
+                    <maxMessages>10</maxMessages>
+                    <returnImmediately>true</returnImmediately>
+                    <responseVariable>googlepubsub_pullMessage_1</responseVariable>
+                    <overwriteBody>true</overwriteBody>
                 </googlepubsub.pullMessage>
                 <respond/>
             </inSequence>
-            <faultSequence/>
+            <faultSequence>
+            </faultSequence>
         </resource>
     </api>
     ```
@@ -255,12 +203,12 @@ Now you can switch into the Source view and check the XML configuration files of
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/googlepubsub-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/googlepubsub-connector2.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
-    You may need to update the simulator details and make other such changes before deploying and running this project.
+    You may need to update the connection configurations and make other such changes before deploying and running this project.
 
 ## Deployment
 
@@ -268,81 +216,44 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 ## Test
 
-Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the inbuilt API tester or using a tool like [Postman](https://www.postman.com/) or [curl](https://curl.se/).
 
 1. Create a Topic for store company update notifications.
 
-**Sample request**
+    **Sample request**
 
-  ```
-    curl -v POST -d '{"topicName":"CompanyUpdates","subscriptionName": "SubscriptionForCompanyUpdates"}' "http://localhost:8290/resources/createTopic" -H "Content-Type:application/json"
-  ```
-**Expected response**
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/create-topic-request.png" title="Create Topic request" width="800" alt="Create Topic request"/>
 
-  ```json
-  {
-      "name": "projects/ei-connector-improvement/subscriptions/SubscriptionForCompanyUpdates",
-      "topic": "projects/ei-connector-improvement/topics/CompanyUpdates",
-      "pushConfig": {},
-      "ackDeadlineSeconds": 30,
-      "messageRetentionDuration": "604800s",
-      "expirationPolicy": {
-          "ttl": "2678400s"
-      }
-  }
-  ```
-**You will see the results from G-Cloud console**
-  
-  - Created Topic.
-  
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudtopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
+    **Expected response**
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/create-topic-response.png" title="Create Topic response" width="800" alt="Create Topic response"/>
+
+    **You will see the results from G-Cloud console**
     
-  - Created subscription for the Topic that you specify in the G-Cloud.
+    - Created Topic.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/pubsub-gcloudtopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
+        
+    - Created subscription for the Topic that you specify in the G-Cloud.
+        
+        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/pubsub-gcloudsubscription.png" title="pubsub-gcloudSubscription" width="800" alt="pubsub-gcloudSubscription"/>
     
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudsubscription.png" title="pubsub-gcloudSubscription" width="800" alt="pubsub-gcloudSubscription"/>
-  
 2. Insert company update notifications to the created topic.
 
-**Sample request**
+    **Sample request**
 
-  ```
-    curl -v POST -d '{"topicName":"CompanyUpdates", "data":"This is first notification"}' "http://localhost:8290/resources/insertcompanynotifications" -H "Content-Type:application/json"
-  ```
-**Expected response**
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/insert-company-notifications-request.png" title="Insert company notifications request" width="800" alt="Insert company notifications request"/>
 
-  ```json
-  {
-      "messageIds": [
-          "1268617220412368"
-      ]
-  }
-  ```
+    **Expected response**
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/insert-company-notifications-response.png" title="Insert company notifications response" width="800" alt="Insert company notifications response"/>
+
 3. Retrieve company updates from the created topic.
 
-**Sample request**
+    **Sample request**
 
-  ```
-    curl -v POST -d '{"subscriptionName":"SubscriptionForCompanyUpdates"}' "http://localhost:8290/resources/getcompanynotifictions" -H "Content-Type:application/json"
-  ```
-**Expected response**
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/get-company-notifications-request.png" title="Get company notifications request" width="800" alt="Get company notifications request"/>
 
-  ```json
-  {
-      "receivedMessages": [
-          {
-              "ackId": "ISE-MD5FU0RQBhYsXUZIUTcZCGhRDk9eIz81IChFEgIIFAV8fXFYW3VfVBoHUQ0Zcnxmd2NTQQhXRFB_VVsRDXptXFcnUA8fentgcmhYEwUDR1B4V3Pr67-C9PCXYxclSpuLu6xvM8byp5xMZho9XxJLLD5-NjNFQV5AEkw9BkRJUytDCypYEU4E",
-              "message": {
-                  "data": "VGhpcyBpcyBmaXJzdCBub3RpZmljYXRpb24=",
-                  "messageId": "1268617220412368",
-                  "publishTime": "2020-06-09T15:36:35.632Z"
-              }
-          }
-      ]
-  }
-  ```  
-**You will see the results from G-Cloud console**
-  
-  - View published company update notification.
-  
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-viewmessages.png" title="pubsub-viewmessages" width="800" alt="pubsub-viewmessages"/>  
-    
+    **Expected response**
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/v2/get-company-notifications-response.png" title="Get company notifications response" width="800" alt="Get company notifications response"/>
