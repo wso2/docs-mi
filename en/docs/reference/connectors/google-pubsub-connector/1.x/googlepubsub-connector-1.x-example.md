@@ -278,7 +278,7 @@ Invoke the API as shown below using the inbuilt API tester or using a tool like 
 
     **Expected response**
 
-     ```json
+    ```json
      {
          "name": "projects/ei-connector-improvement/subscriptions/SubscriptionForCompanyUpdates",
          "topic": "projects/ei-connector-improvement/topics/CompanyUpdates",
@@ -289,7 +289,7 @@ Invoke the API as shown below using the inbuilt API tester or using a tool like 
              "ttl": "2678400s"
          }
      }
-     ```
+    ```
 
     **You will see the results from G-Cloud console**
      
@@ -310,13 +310,13 @@ Invoke the API as shown below using the inbuilt API tester or using a tool like 
 
     **Expected response**
 
-     ```json
+    ```json
      {
          "messageIds": [
              "1268617220412368"
          ]
      }
-     ```
+    ```
      
 3. Retrieve company updates from the created topic.
 
@@ -326,22 +326,22 @@ Invoke the API as shown below using the inbuilt API tester or using a tool like 
 
     **Expected response**
    
-     ```json
-     {
-         "receivedMessages": [
-             {
-                 "ackId": "ISE-MD5FU0RQBhYsXUZIUTcZCGhRDk9eIz81IChFEgIIFAV8fXFYW3VfVBoHUQ0Zcnxmd2NTQQhXRFB_VVsRDXptXFcnUA8fentgcmhYEwUDR1B4V3Pr67-C9PCXYxclSpuLu6xvM8byp5xMZho9XxJLLD5-NjNFQV5AEkw9BkRJUytDCypYEU4E",
-                 "message": {
-                     "data": "VGhpcyBpcyBmaXJzdCBub3RpZmljYXRpb24=",
-                     "messageId": "1268617220412368",
-                     "publishTime": "2020-06-09T15:36:35.632Z"
-                 }
-             }
-         ]
-     }
-  ```
+    ```json
+        {
+            "receivedMessages": [
+                {
+                    "ackId": "ISE-MD5FU0RQBhYsXUZIUTcZCGhRDk9eIz81IChFEgIIFAV8fXFYW3VfVBoHUQ0Zcnxmd2NTQQhXRFB_VVsRDXptXFcnUA8fentgcmhYEwUDR1B4V3Pr67-C9PCXYxclSpuLu6xvM8byp5xMZho9XxJLLD5-NjNFQV5AEkw9BkRJUytDCypYEU4E",
+                    "message": {
+                        "data": "VGhpcyBpcyBmaXJzdCBub3RpZmljYXRpb24=",
+                        "messageId": "1268617220412368",
+                        "publishTime": "2020-06-09T15:36:35.632Z"
+                    }
+                }
+            ]
+        }
+    ```
 
-   **You will see the results from the G-Cloud console**
+    **You will see the results from the G-Cloud console**
      
      - View the published company update notification.
      
