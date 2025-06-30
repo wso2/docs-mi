@@ -264,85 +264,85 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+In order to deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 ## Test
 
-Invoke the API as shown below using the curl command. Curl application can be downloaded from [here](https://curl.haxx.se/download.html).
+Invoke the API as shown below using the inbuilt API tester or using a tool like [Postman](https://www.postman.com/) or [curl](https://curl.se/).
 
 1. Create a Topic for store company update notifications.
 
-**Sample request**
+    **Sample request**
 
-  ```
-    curl -v POST -d '{"topicName":"CompanyUpdates","subscriptionName": "SubscriptionForCompanyUpdates"}' "http://localhost:8290/resources/createTopic" -H "Content-Type:application/json"
-  ```
-**Expected response**
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/create-topic-request.png" title="Create Topic request" width="800" alt="Create Topic request"/>
 
-  ```json
-  {
-      "name": "projects/ei-connector-improvement/subscriptions/SubscriptionForCompanyUpdates",
-      "topic": "projects/ei-connector-improvement/topics/CompanyUpdates",
-      "pushConfig": {},
-      "ackDeadlineSeconds": 30,
-      "messageRetentionDuration": "604800s",
-      "expirationPolicy": {
-          "ttl": "2678400s"
-      }
-  }
-  ```
-**You will see the results from G-Cloud console**
-  
-  - Created Topic.
-  
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudtopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
+    **Expected response**
+
+     ```json
+     {
+         "name": "projects/ei-connector-improvement/subscriptions/SubscriptionForCompanyUpdates",
+         "topic": "projects/ei-connector-improvement/topics/CompanyUpdates",
+         "pushConfig": {},
+         "ackDeadlineSeconds": 30,
+         "messageRetentionDuration": "604800s",
+         "expirationPolicy": {
+             "ttl": "2678400s"
+         }
+     }
+     ```
+
+    **You will see the results from G-Cloud console**
+     
+     - Created Topic.
+     
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudtopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
+       
+     - Created subscription for the Topic that you specify in the G-Cloud.
+       
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudsubscription.png" title="pubsub-gcloudSubscription" width="800" alt="pubsub-gcloudSubscription"/>
+     
     
-  - Created subscription for the Topic that you specify in the G-Cloud.
-    
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudsubscription.png" title="pubsub-gcloudSubscription" width="800" alt="pubsub-gcloudSubscription"/>
-  
 2. Insert company update notifications to the created topic.
 
-**Sample request**
+    **Sample request**
 
-  ```
-    curl -v POST -d '{"topicName":"CompanyUpdates", "data":"This is first notification"}' "http://localhost:8290/resources/insertcompanynotifications" -H "Content-Type:application/json"
-  ```
-**Expected response**
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/insert-company-notifications-request.png" title="Insert company notifications request" width="800" alt="Insert company notifications request"/>
 
-  ```json
-  {
-      "messageIds": [
-          "1268617220412368"
-      ]
-  }
-  ```
+    **Expected response**
+
+     ```json
+     {
+         "messageIds": [
+             "1268617220412368"
+         ]
+     }
+     ```
+     
 3. Retrieve company updates from the created topic.
 
-**Sample request**
+    **Sample request**
 
-  ```
-    curl -v POST -d '{"subscriptionName":"SubscriptionForCompanyUpdates"}' "http://localhost:8290/resources/getcompanynotifictions" -H "Content-Type:application/json"
-  ```
-**Expected response**
+    <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/get-company-notifications-request.png" title="Get company notifications request" width="800" alt="Get company notifications request"/>
 
-  ```json
-  {
-      "receivedMessages": [
-          {
-              "ackId": "ISE-MD5FU0RQBhYsXUZIUTcZCGhRDk9eIz81IChFEgIIFAV8fXFYW3VfVBoHUQ0Zcnxmd2NTQQhXRFB_VVsRDXptXFcnUA8fentgcmhYEwUDR1B4V3Pr67-C9PCXYxclSpuLu6xvM8byp5xMZho9XxJLLD5-NjNFQV5AEkw9BkRJUytDCypYEU4E",
-              "message": {
-                  "data": "VGhpcyBpcyBmaXJzdCBub3RpZmljYXRpb24=",
-                  "messageId": "1268617220412368",
-                  "publishTime": "2020-06-09T15:36:35.632Z"
-              }
-          }
-      ]
-  }
-  ```  
-**You will see the results from G-Cloud console**
-  
-  - View published company update notification.
-  
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-viewmessages.png" title="pubsub-viewmessages" width="800" alt="pubsub-viewmessages"/>  
-    
+    **Expected response**
+   
+     ```json
+     {
+         "receivedMessages": [
+             {
+                 "ackId": "ISE-MD5FU0RQBhYsXUZIUTcZCGhRDk9eIz81IChFEgIIFAV8fXFYW3VfVBoHUQ0Zcnxmd2NTQQhXRFB_VVsRDXptXFcnUA8fentgcmhYEwUDR1B4V3Pr67-C9PCXYxclSpuLu6xvM8byp5xMZho9XxJLLD5-NjNFQV5AEkw9BkRJUytDCypYEU4E",
+                 "message": {
+                     "data": "VGhpcyBpcyBmaXJzdCBub3RpZmljYXRpb24=",
+                     "messageId": "1268617220412368",
+                     "publishTime": "2020-06-09T15:36:35.632Z"
+                 }
+             }
+         ]
+     }
+  ```
+
+   **You will see the results from the G-Cloud console**
+     
+     - View the published company update notification.
+     
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-viewmessages.png" title="pubsub-viewmessages" width="800" alt="pubsub-viewmessages"/>  
