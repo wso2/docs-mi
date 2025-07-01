@@ -88,21 +88,21 @@ Follow the steps below to generate the gRPC connector:
 
 6. Select **Connections** under **Other Artifacts** to open the **Connector Store** form.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="60%"></a>
 
 7. Click on the **For gRPC (Proto)**
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png" alt="connections artifact" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png" alt="connections artifact" width="60%"></a>
 
 8. Then select a location for the .proto file and click the **import**
 
 9. If the given proto file is valid, You can view the generated connection type in the **Connections**.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
 
 10. To use the connector operations, you can create an integration artifact (such as API and sequence) and add it from the Mediator Palette.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
 
 #### Option 02: Using the WSO2 MI Connector Tooling
 
@@ -167,36 +167,240 @@ generator.bat C:\path\to\order-service.proto C:\path\to\output-directory 4.4.0
 
 By following these steps, you can generate a fully functional gRPC connector from a `.proto` file, enabling seamless integration with gRPC-based services in WSO2 Micro Integrator.
 
-##### Steps to use generated connector
+##### Steps to import generated connector
 
 1. Navigate to the **Mediator Palette** page
 2. Select the **Add Module** under the Mediator Palette.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png" alt="generated connector" width="40%" height="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png" alt="generated connector" width="60%" ></a>
 
 3. Select **Import Module**
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png" alt="import connector" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png" alt="import connector" width="60%"></a>
 
 4. Select Location to upload the generated connector. After providing the generated connector zip file, click **Import**
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png" alt="generated connector" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png" alt="generated connector" width="60%"></a>
 
 5. You can view the connector type in **the Connections**
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
 
 6. To use the connector operations, you can create an integration artifact (such as API and sequence) and add it from the Mediator Palette.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
 
+### Examples of using the generated connector
 
-**Note**
+##### Order management integration example
 
-The gRPC Connector Generator does **not** yet handle:
+This example demonstrates how to integrate with the `OrderService` gRPC API to handle the lifecycle of an order in a retail system—from creation to retrieval and updates. This API facilitates seamless backend communication for e-commerce platforms, inventory systems, and similar applications.
 
- * **Streaming RPCs** : server, client, or bidirectional streams
- * **Custom `.proto` options**:  e.g., `deadline`, multiple `package` imports, or any other non-standard option fields
- * **Specific data types**: `oneof` unions, `enum` values, `map` fields, and deeply nested complex structures
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png" alt="generated connector" width="80%" ></a>
 
- > For the full list of features the tool *does* support, see the [gRPC generator tool specification guide](https://github.com/wso2-extensions/esb-connector-tooling/blob/master/docs/grpc-spec.md).
+1. Create a new integration project in WSO2 Micro Integrator for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+2. Create a new sequence or API artifact within your integration project, see [Create Sequence]({{base_path}}/reference/mediators/sequence-mediator).
+         
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png" alt="generated connector" width="20%" hight="40%" ></a>
+
+3. From the Mediator Palette, select the `orderservice` connector that was generated from the [`order-service.proto`]({{base_path}}/assets/attachments/learn/grpc-tool/order-service.proto) file using above one of options.
+
+     <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png" alt="generated connector" width="60%" ></a>
+
+4. Create a connection by filling in the form with the required authentication details.
+
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/2_connection_form.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/2_connection_form.png" alt="Create Order" width="50%" height="60%" ></a>
+
+5. Add the `CreateOrder` operation to your sequence or API. Provide the necessary input as a JSON object that matches the input message defined in the `.proto` file. Ensure the response is set to overwrite the payload.
+      - Request message for creating an order.
+           ```proto
+           message CreateOrderRequest {
+              string customer_id = 1;
+              string product_id = 2;
+              int32 quantity = 3;
+              float price = 4;
+              }
+           ```
+      - JSON values for the above message type
+         ```json
+         {
+           "customer_id": "cust123",
+           "product_id": "prod789",
+           "quantity": 2,
+           "price": 299.99
+         }
+         ```
+   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png" alt="generated connector" width="30%" height="40%" ></a>
+
+6. Similarly, you can use the `GetOrder` operation to retrieve order details by supplying the `order_id`. Again, make sure the response overwrites the payload. <image4>
+
+      ```json
+      {
+        "order_id": "order456"
+      }
+      ```
+      
+7. Optionally, add the `UpdateOrder` operation to modify existing orders by providing the order ID and updated details.
+8. Add any response handling logic needed to process the output from the gRPC calls at the end of your sequence or API.
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/simple-usecase.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/simple-usecase.png" alt="generated connector" width="40%" ></a>
+
+---
+
+##### Advanced data mapping example with order management integration
+
+This example shows how to use the generated gRPC connector alongside the `Data Mapper` mediator in WSO2 Micro Integrator to perform advanced data mapping and transformation.
+
+  - Follow steps 1–4 above to set up your integration project and connection.
+    - Imagine a scenario where you have a complex JSON object with 30 fields from another data source, and you need to map it to the `CreateOrder` request message defined in the `order-service.proto` file. You can use the `Data Mapper` mediator to transform this complex structure into the expected input for your gRPC call.
+      - **Input JSON Example**: This is the complex JSON object you might receive from another service or data source.
+
+          ```json
+              {
+                       "customer_id": "cust123",
+                       "product_id": "prod789",
+                       "quantity": 2,
+                       "price": 299.99,
+                       "shipping_address": {
+                       "street": "123 Main St",
+                       "city": "Springfield",
+                       "state": "IL",
+                       "zip_code": "62701"
+                       },
+                       "billing_address": {
+                       "street": "456 Elm St",
+                       "city": "Springfield",
+                       "state": "IL",
+                       "zip_code": "62701"
+                       }
+                       // ... other fields
+              }
+            
+          ```
+      - **Data Mapping**: Use the [`Data Mapper mediator`]({{base_path}}/reference/mediators/data-mapper-mediator) to map the complex JSON structure to the `CreateOrderRequest` message. The mapping can be done visually in the WSO2 Micro Integrator for VS Code.
+      
+
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png" alt="data mapper mediator" width="30%" height="40%" ></a>
+             
+     
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/5_datamapper.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/5_datamapper.png" alt="data mapping" width="80%" ></a>
+      
+           - With the Data Mapper, you can add expression conditions to your mappings, allowing you to transform or filter data as needed. For example, you can set conditions to map certain fields only when specific criteria are met, or format data before sending it to the gRPC service.
+        
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/condition_mapping.gif"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/condition_mapping.gif" alt="data mapping with condition" width="80%" ></a>
+
+        ??? note "Data Mapper sourcecode"
+            ```
+             import * as dmUtils from "./dm-utils";
+    
+                /*
+                * title : "root",
+                  * inputType : "JSON",
+                    */
+                    interface Root {
+                    order: {
+                    metadata: {
+                    order_id: string
+                    created_at: string
+                    status: string
+                    priority: string
+                    }
+                    customer_info: {
+                    customer_id: string
+                    name: string
+                    email: string
+                    phone: string
+                    loyalty_points: number
+                    }
+                    shipping: {
+                    address: {
+                    line1: string
+                    line2: string
+                    city: string
+                    state: string
+                    zip_code: string
+                    country: string
+                    }
+                    method: string
+                    tracking_number: string
+                    estimated_delivery: string
+                    }
+                    billing: {
+                    payment_method: string
+                    transaction_id: string
+                    payment_status: string
+                    billing_address_same_as_shipping: boolean
+                    }
+                    product: {
+                    product_id: string
+                    name: string
+                    quantity: number
+                    price: number
+                    category: string
+                    in_stock: boolean
+                    }
+                    summary: {
+                    subtotal: number
+                    discount: number
+                    tax: number
+                    shipping_fee: number
+                    total: number
+                    }
+                    flags: {
+                    is_gift: boolean
+                    gift_message: string
+                    requires_signature: boolean
+                    }
+                    custom_data: {
+                    tags: string[]
+                    comments: string
+                    custom_reference: string
+                    }
+                    }
+                    }
+                
+                
+                /*
+                * title : "Order",
+                  * outputType : "JSON",
+                    */
+                    interface OutputOrder {
+                    order_id?: string
+                    customer_id: string
+                    product_id: string
+                    quantity: number
+                    price: number
+                    }
+                
+                interface Orders {
+                orderId: string
+                }
+                
+                
+                /**
+                * functionName : map_S_root_S_Order
+                  * inputVariable : inputroot
+                    */
+                    export function mapFunction(input: Root): OutputOrder {
+                    return {
+                    customer_id: input.order.customer_info.customer_id,
+                    product_id: input.order.product.product_id,
+                    order_id: input.order.metadata.order_id,
+                    quantity: (input.order.product.quantity == 0) ? 5 : input.order.product.quantity,
+                    price: input.order.product.price * 300
+                    }
+                    }
+                
+            ```
+
+        This approach makes it easy to work with large or differently structured input payloads, ensuring they conform to your gRPC request messages.
+
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/4_grpc_full_sequence.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/4_grpc_full_sequence.png" alt="generated connector" ></a>
+
+!!! Note
+    The gRPC Connector Generator does **not** yet handle:
+
+    - **Streaming RPCs** : server, client, or bidirectional streams
+    - **Custom `.proto` options**:  e.g., `deadline`, multiple `package` imports, or any other non-standard option fields
+    - **Specific data types**: `oneof` unions, `enum` values, `map` fields, and deeply nested complex structures
+    
+    > For the full list of features the tool *does* support, see the [gRPC generator tool specification guide](https://github.com/wso2-extensions/esb-connector-tooling/blob/master/docs/grpc-spec.md).
