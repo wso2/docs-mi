@@ -815,10 +815,14 @@ nav:
               - Salesforce Pub/Sub Example: reference/connectors/salesforce-pubsub-connector/sf-pubsub-example.md
               - Salesforce Pub/Sub Reference: reference/connectors/salesforce-pubsub-connector/sf-pubsub-connector-reference.md
           - ServiceNow Connector:
-              - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
+              - ServiceNow Connector Overview: reference/connectors/servicenow-connector/servicenow-overview.md
               - Set up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
-              - ServiceNow Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
-              - ServiceNow Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
+              - 2.x:
+                - ServiceNow Connector Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
+                - ServiceNow Connector Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
+              - 1.x:
+                - ServiceNow Example: reference/connectors/servicenow-connector/1.x/servicenow-connector-1.x-example.md
+                - ServiceNow Reference: reference/connectors/servicenow-connector/1.x/servicenow-connector-1.x-config.md
           - SMPP Connector:
               - SMPP Overview: reference/connectors/smpp-connector/smpp-connector-overview.md
               - Set up the SMPP Connector: reference/connectors/smpp-connector/smpp-connector-configuration.md
