@@ -34,8 +34,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     - **Username**: The username of the ServiceNow account.
     - **Password**: The password of the ServiceNow account.
     - **API URL**: Base URL of your ServiceNow instance (e.g., `https://<site-url>`).
-   
-<img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-service-now-connection.png" title="Adding new connectio" height="300" width="800" alt="Adding new connectio"/>  
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-service-now-connection.png" title="Adding new connectio" height="100" width="500" alt="Adding new connectio"/>  
       
 ## Create an API
 
