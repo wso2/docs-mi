@@ -2,21 +2,21 @@
 
 This section explains how to generate a gRPC connector from a `.proto` file using the WSO2 Micro Integrator (MI) Connector Generator tool. The gRPC connector enables seamless communication between services, facilitating integration with systems that expose gRPC APIs. By utilizing a `.proto` file, which defines the service and message structure, the connector is automatically generated, allowing you to implement a fully functional gRPC client in your integration.
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following:
 
 * **Java Development Kit (JDK) 8 or later**
 * **Apache Maven 3.6.x or higher**
 
-### Steps to generate the connector
+## Steps to generate the connector
 
 There are two ways of generating a gRPC connector from a `.proto` file:
 
 1. **Using the WSO2 Integrator: MI for VS Code extension**: This method allows you to generate a connector directly from the VS Code IDE.
 2. **Using the WSO2 MI Connector Tooling**: This method involves using a command-line tool to generate the connector from a `.proto` file.
 
-#### Option 01: Using the WSO2 Integrator: MI for VS Code extension
+## Option 01: Using the WSO2 Integrator: MI for VS Code extension
 
 Follow the steps below to generate the gRPC connector:
 
@@ -55,7 +55,7 @@ Follow the steps below to generate the gRPC connector:
 
       <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
 
-#### Option 02: Using the WSO2 MI Connector Tooling
+## Option 02: Using the WSO2 MI Connector Tooling
 
 Follow the steps below to generate the gRPC connector:
 
