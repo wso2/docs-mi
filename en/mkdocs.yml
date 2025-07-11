@@ -860,6 +860,9 @@ nav:
           - Salesforce Pub/Sub Inbound Endpoint:
                 - Salesforce Pub/Sub Inbound Endpoint Example: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-example.md
                 - Salesforce Pub/Sub Inbound Endpoint Reference: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-reference.md
+          - Google Pub/Sub Inbound Endpoint:
+                - Google Pub/Sub Inbound Endpoint Example: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-example.md
+                - Google Pub/Sub Inbound Endpoint Reference: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
@@ -1166,6 +1169,6 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.4.0
-  #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.4.0
+  base_path: http://localhost:8000/en/latest
+  #base_path: https://mi.docs.wso2.com/en/4.4.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
