@@ -25,7 +25,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png" alt="generated connector" width="20%" hight="40%" ></a>
 
 
-**Step 03:** From the Mediator Palette, select the `orderservice` connector that was generated from the [`order-service.proto`]({{base_path}}/assets/attachments/learn/grpc-tool/order-service.proto) file using above one of options in [generate the gRPC connector]({{base_path}}/develop/grpc-connector-overview).
+**Step 03:** From the Mediator Palette, select the `orderservice` connector that was generated from the [`order-service.proto`]({{base_path}}/assets/attachments/learn/grpc-tool/order-service.proto) file using above one of options in [generate the gRPC connector]({{base_path}}/reference/connectors/connector-tools/grpc/grpc-connector-overview).
 
 <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png" alt="generated connector" width="60%" ></a>
 
