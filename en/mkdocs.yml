@@ -537,7 +537,14 @@ nav:
           - Connectors Overview: reference/connectors/connectors-overview.md
           - When to Use Connectors: reference/connectors/why-connectors.md
           - Connector Usage Guidelines: reference/connectors/connector-usage.md
-          - Generate a Connector: reference/connectors/generate-connectors.md
+          - Develop a Connector:
+              - Create a New Connector: develop/customizations/creating-new-connector.md
+              - Generate a New Connector:
+                  - REST Connector:
+                      - Steps to Generate: reference/connectors/connector-tools/rest/rest-connector-overview.md
+                  - gRPC Connector:
+                      - Steps to Generate: reference/connectors/connector-tools/grpc/grpc-connector-overview.md
+                      - Examples: reference/connectors/connector-tools/grpc/grpc-examples.md
           - AI Module:
               - AI Module Overview: reference/connectors/ai-module/ai-module-overview.md
               - AI Module Reference: reference/connectors/ai-module/ai-module-reference.md
