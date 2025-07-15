@@ -27,7 +27,9 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
 6. The created policy file will be listed in the project explorer.  
     [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/resource-view.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)
 
-        
+!!! Note
+    If you want to change any other properties, you can edit via the **Source View**.
+
 <!--
 #### Specifying role-based access?
 
