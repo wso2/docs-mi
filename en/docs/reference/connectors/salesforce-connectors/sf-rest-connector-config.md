@@ -1,127 +1,146 @@
-# Salesforce Connector Reference
+# Salesforce REST Connector Reference
 
-The following operations allow you to work with the Salesforce Connector. Click an operation name to see parameter details and sample usage.
+The following operations allow you to work with the Salesforce REST Connector. Click an operation name to see parameter details and samples on how to use it.
 
 ---
+
 ## Initialize the connector
 
-The WSO2 Micro Integrator Salesforce connector offers **two connection types**, each suited to a different API family:
-
-| Connection type            | Typical use-case                                                 | Provide                                                                                                                                     | What the connector does                                                                                                                                                                 |
-| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **OAuth 2.0**              | REST & Bulk APIs                                                 | Client Credentials grant**<br/>• `clientId`<br/>• `clientSecret` | *Access-token only:* uses it until it expires, then fails.<br/><br/>*Client Credentials:* automatically exchanges `clientId` + `clientSecret` for a fresh access token whenever needed. |
-| **BasicAuth (SOAP login)** | SOAP Partner/Enterprise APIs (`query`, `create`, `update`, etc.) | • `username`<br/>• `password`                                                                                                               | Calls the Salesforce SOAP `login` operation, retrieves a session ID, and attaches it to every subsequent SOAP request.                                                                  |
-
-> **Note:** BasicAuth is **only** for SOAP operations. REST and Bulk calls **must** use OAuth 2.0. For more information on how authentication is done in Salesforce, see
+Salesforce REST API uses the OAuth protocol to allow application users to securely access data without having to reveal 
+their user credentials. For more information on how authentication is done in Salesforce, see 
 [Understanding Authentication](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_authentication.htm).
+You can provide only access token and use it until it expires. After expiry, you will be responsible for getting a new 
+access token and using it. Alternatively, you have the option of providing refresh token, client secret, and client ID 
+which will be used to get access token initially and after every expiry by the connector itself. You will not be 
+required to handle access token expiry in this case.
 
-??? note "salesforce.init"
-    The `salesforce.init` operation initializes the connector to interact with the Salesforce REST & Bulk APIs. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) for more information.
+There also option to use basic authentication with username and password.
+
+To use the Salesforce REST connector, add the `<salesforcerest.init>` element in your configuration before carrying out any other Salesforce REST operations. 
+
+??? note "salesforcerest.init"
+    The salesforcerest.init operation initializes the connector to interact with the Salesforce REST API. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
             <th>Description</th>
             <th>Required</th>
             <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>connectionName</td>
-            <td>A logical name to identify this connection.</td>
-            <td>Yes</td>
-            <td>SALESFORCE_OAUTH_2</td>
-        </tr>
-        <tr>
-            <td>scope</td>
-            <td>Space-separated OAuth scopes.</td>
-            <td>No</td>
-            <td>full refresh_token</td>
-        </tr>
-        <tr>
-            <td>clientId</td>
-            <td>Consumer Key from your connected app.</td>
-            <td>Yes</td>
-            <td>XXXXXXXXXXXX</td>
-        </tr>
-        <tr>
-            <td>clientSecret</td>
-            <td>Consumer Secret from your connected app.</td>
-            <td>Yes</td>
-            <td>XXXXXXXXXXXX</td>
-        </tr>
-        <tr>
-            <td>tokenUrl</td>
-            <td>OAuth 2.0 token endpoint URL.</td>
-            <td>Yes</td>
-            <td>https://login.salesforce.com/services/oauth2/token</td>
-        </tr>
-        <tr>
-            <td>instanceUrl</td>
-            <td>Base URL for API requests.</td>
-            <td>Yes</td>
-            <td>https://your_instance.salesforce.com</td>
         </tr>
         <tr>
             <td>apiVersion</td>
-            <td>Salesforce API version.</td>
-            <td>No</td>
-            <td>v60.0</td>
+            <td>The version of the Salesforce API.</td>
+            <td>Yes</td>
+            <td>v32.0</td>
         </tr>
         <tr>
-            <td>timeout</td>
-            <td>Connection timeout in milliseconds.</td>
+            <td>accessToken</td>
+            <td>The access token to authenticate your API calls.</td>
             <td>No</td>
-            <td>3000</td>
+            <td>XXXXXXXXXXXX (Replace with your access token)</td>
         </tr>
         <tr>
-            <td>readTimeout</td>
-            <td>Socket read timeout in milliseconds.</td>
+            <td>apiUrl</td>
+            <td>The instance URL for your organization.</td>
+            <td>Yes</td>
+            <td>https://ap2.salesforce.com</td>
+        </tr>
+        <tr>
+            <td>hostName</td>
+            <td>SalesforceOAuth endpoint when issuing authentication requests in your application.</td>
+            <td>Yes</td>
+            <td>https://login.salesforce.com</td>
+        </tr>
+        <tr>
+            <td>refreshToken</td>
+            <td>The refresh token that you received to refresh the API access token.</td>
             <td>No</td>
-            <td>3000</td>
+            <td>XXXXXXXXXXXX (Replace with your refresh token)</td>
+        </tr>
+        <tr>
+            <td>tokenEndpointHostname</td>
+            <td>The endpoint of the refresh token that you invoke to refresh the API access token. </td>
+            <td>No</td>
+            <td>XXXXXXXXXXXX (Replace this with your refresh token endpoint)</td>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>The consumer key of the connected application that you created.</td>
+            <td>No</td>
+            <td>XXXXXXXXXXXX (Replace with your client ID)</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>The consumer secret of the connected application that you created.</td>
+            <td>No</td>
+            <td>XXXXXXXXXXXX (Replace with your client secret)</td>
         </tr>
         <tr>
             <td>blocking</td>
-            <td>Enable blocking API calls.</td>
-            <td>No</td>
+            <td>Indicates whether the connector needs to perform blocking invocations to Salesforce.</td>
+            <td>Yes</td>
             <td>false</td>
         </tr>
     </table>
 
     **Sample configuration**
-    
+
     ```xml
     <salesforcerest.init>
-        <connectionName>{${payload.connectionName}}</connectionName>
-        <grantType>{${payload.grantType}}</grantType>
-        <scope>{${payload.scope}}</scope>
-        <clientId>{${payload.clientId}}</clientId>
-        <clientSecret>{${payload.clientSecret}}</clientSecret>
-        <tokenUrl>{${payload.tokenUrl}}</tokenUrl>
-        <instanceUrl>{${payload.instanceUrl}}</instanceUrl>
-        <apiVersion>{${payload.apiVersion}}</apiVersion>
-        <timeout>{${payload.timeout}}</timeout>
-        <readTimeout>{${payload.readTimeout}}</readTimeout>
-        <blocking>{${payload.blocking}}</blocking>
+        <accessToken>{$ctx:accessToken}</accessToken>
+        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <hostName>{$ctx:hostName}</hostName>
+        <apiVersion>{$ctx:apiVersion}</apiVersion>
+        <blocking>{$ctx:blocking}</blocking>
     </salesforcerest.init>
     ```
 
     **Sample request**
-    
+
     ```json
     {
-      "connectionName": "SALESFORCE_OAUTH_2",
-      "scope": "full refresh_token",
-      "clientId": "XXXXXXXXXXXX",
-      "clientSecret": "XXXXXXXXXXXX",
-      "tokenUrl": "https://login.salesforce.com/services/oauth2/token",
-      "instanceUrl": "https://your_instance.salesforce.com",
-      "apiVersion": "v60.0",
-      "timeout": "3000",
-      "readTimeout": "3000",
-      "blocking": "false"
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "blocking" : "false"
     }
     ```
+    
+    Or if you want conector to handle token expiry
+    
+    **Sample configuration**
+    
+    ```xml
+    <salesforcerest.init>
+        <accessToken>{$ctx:accessToken}</accessToken>
+        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <hostName>{$ctx:hostName}</hostName>
+        <apiVersion>{$ctx:apiVersion}</apiVersion>
+        <refreshToken>{$ctx:refreshToken}</refreshToken>
+        <clientId>{$ctx:clientId}</clientId>
+        <clientSecret>{$ctx:clientSecret}</clientSecret>
+        <blocking>{$ctx:blocking}</blocking>
+    </salesforcerest.init>
+    ```
 
-The `salesforce.init` operation also initializes the connector to interact with Salesforce via Basic Authentication using the SOAP login API. See the [SOAP API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/intro_soap_api.htm) for more information.
+    **Sample request**
+
+    ```json
+    {
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "refreshToken":"XXXXXXXXXXXX (Replace with your refresh token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "clientId": "XXXXXXXXXXXX (Replace with your client ID)",
+        "clientSecret": "XXXXXXXXXXXX (Replace with your client secret)",
+        "blocking" : "false"
+    }
+    ```
+    
+
+??? note "salesforcerest.init for username/password flow"
+    The salesforcerest.init operation initializes the connector to interact with the Salesforce REST API using a username/password flow. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_username_password_oauth_flow.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -130,39 +149,51 @@ The `salesforce.init` operation also initializes the connector to interact with 
             <th>Sample Value</th>
         </tr>
         <tr>
-            <td>connectionName</td>
-            <td>A logical name to identify this connection.</td>
+            <td>apiVersion</td>
+            <td>The version of the Salesforce API.</td>
             <td>Yes</td>
-            <td>BasicAuth</td>
+            <td>v32.0</td>
+        </tr>
+        <tr>
+            <td>apiUrl</td>
+            <td>The instance URL for your organization.</td>
+            <td>Yes</td>
+            <td>https://ap2.salesforce.com</td>
+        </tr>
+        <tr>
+            <td>hostName</td>
+            <td>SalesforceOAuth endpoint when issuing authentication requests in your application.</td>
+            <td>Yes</td>
+            <td>https://login.salesforce.com</td>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>The consumer key of the connected application that you created.</td>
+            <td>Yes</td>
+            <td>XXXXXXXXXXXX (Replace with your client ID)</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>The consumer secret of the connected application that you created.</td>
+            <td>Yes</td>
+            <td>XXXXXXXXXXXX (Replace with your client secret)</td>
         </tr>
         <tr>
             <td>username</td>
-            <td>Salesforce login username.</td>
+            <td>The username for Salesforce.</td>
             <td>Yes</td>
-            <td>user@example.com</td>
+            <td>youruser@gmail.com</td>
         </tr>
         <tr>
             <td>password</td>
-            <td>Password followed by your security token.</td>
+            <td>The password for Salesforce (need to append the password with security key).</td>
             <td>Yes</td>
-            <td>MyP@ssw0rdXyZ</td>
-        </tr>
-        <tr>
-            <td>loginUrl</td>
-            <td>Salesforce login endpoint URL.</td>
-            <td>Yes</td>
-            <td>https://login.salesforce.com/services/Soap/u/60.0</td>
-        </tr>
-        <tr>
-            <td>forceLogin</td>
-            <td>Always start a new session if enabled.</td>
-            <td>No</td>
-            <td>false</td>
+            <td>xxxxxxxxxxxxxxxxxxxxxx</td>
         </tr>
         <tr>
             <td>blocking</td>
-            <td>Enable blocking API calls to Salesforce.</td>
-            <td>No</td>
+            <td>Indicates whether the connector needs to perform blocking invocations to Salesforce.</td>
+            <td>Yes</td>
             <td>false</td>
         </tr>
     </table>
@@ -171,32 +202,249 @@ The `salesforce.init` operation also initializes the connector to interact with 
 
     ```xml
     <salesforcerest.init>
-        <connectionName>{${payload.connectionName}}</connectionName>
-        <username>{${payload.username}}</username>
-        <password>{${payload.password}}</password>
-        <loginUrl>{${payload.loginUrl}}</loginUrl>
-        <forceLogin>{${payload.forceLogin}}</forceLogin>
-        <blocking>{${payload.blocking}}</blocking>
+        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <clientId>{$ctx:clientId}</clientId>
+        <clientSecret>{$ctx:clientSecret}</clientSecret>
+        <hostName>{$ctx:hostName}</hostName>
+        <apiVersion>{$ctx:apiVersion}</apiVersion>
+        <username>{$ctx:username}</username>
+        <password>{$ctx:password}</password>
+        <blocking>{$ctx:blocking}</blocking>
     </salesforcerest.init>
+    ```
+
+    **Sample request**
+    
+    ```json
+    {
+        "clientId": "xxxxxxxxxxxxxxxxxxxxxxxx",
+        "clientSecret": "xxxxxxxxxxxxxxxxxxxxxxxx",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "username": "youruser@gmail.com",
+        "password": "xxxxxxxxxxxxxxxxxxxxxx",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "blocking" : "false"
+    }
+    ```
+
+---
+
+### AppMenu
+
+??? note "listItemsInMenu"
+    To retrieve the list of items in either the Salesforce app drop-down menu or the Salesforce1 navigation menu, use salesforcerest.listItemsInMenu and specify the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_appmenu.htm?search_text=menu) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>menuType</td>
+            <td>The type of the menu, either AppSwitcher or Salesforce.</td>
+            <td>Yes</td>
+            <td>AppSwitcher, Salesforce</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listItemsInMenu>
+        <menuType>{$ctx:menuType}</menuType>
+    </salesforcerest.listItemsInMenu>
     ```
     
     **Sample request**
 
     ```json
     {
-        "connectionName": "BasicAuth",
-        "username": "user@example.com",
-        "password": "MyP@ssw0rdXyZ",
-        "loginUrl": "https://login.salesforce.com/services/Soap/u/60.0",
-        "forceLogin": "false",
-        "blocking": "false"
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "menuType": "AppSwitcher",
     }
-    ``` 
+    ```
 
-### Search
+    **Sample response**
 
-??? note "search"
-    The `salesforce.search` operation allows you to search for records by specifying a search string. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_search.htm) for more information.
+    ```json
+        {"NetworkTabs":"/services/data/v32.0/appMenu/NetworkTabs","Salesforce1":"/services/data/v32.0/appMenu/Salesforce1","AppSwitcher":"/services/data/v32.0/appMenu/AppSwitcher"}  
+    ```
+
+??? note "tabs"
+    To retrieve a list of all tabs, use salesforcerest.tabs. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_tabs.htm?search_text=tabs) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.tabs/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the tabs operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the tabs operation.
+
+    ```json
+    {"output":"[{\"colors\":[{\"color\":\"4dca76\",\"context\":\"primary\",\"theme\":\"theme4\"},{\"color\":\"319431\",\"context\":\"primary\",\"theme\":\"theme3\"}],\"custom\":true,\"iconUrl\":\"https://sampletest-dev-ed.my.salesforce.com/img/icon/form32.png\",..}
+    ```
+
+??? note "themes"
+    To retrieve a list of icons and colors used by themes in the Salesforce application, use salesforcerest.themes. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_themes.htm?search_text=themes) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.themes/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the themes operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the themes operation.
+
+    ```json
+    {
+        "themeItems":[
+            {
+                "name":"Account",
+                "icons":[
+                    {
+                    "width":32,
+                    "theme":"theme3",
+                    "contentType":"image/png",
+                    "url":"https://kesavan-dev-ed.my.salesforce.com/img/icon/accounts32.png",
+                    "height":32
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+
+---
+
+### Approvals
+
+??? note "listApprovals"
+    To retrieve the list of approvals in Salesforce, use salesforcerest.listApprovals. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_process_approvals.htm) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listApprovals/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the listApprovals operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the listApprovals operation.
+
+    ```json
+    {
+        "approvals":{
+
+        }
+    }
+    ```
+
+---
+
+### Event Monitoring
+
+??? note "describeEventMonitoring"
+    To retrieve the description of the event monitoring log, use salesforcerest.describeEventMonitoring. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_event_log_file_describe.htm) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.describeEventMonitoring/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the describeEventMonitoring operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the describeEventMonitoring operation.
+
+    ```json
+    {
+        "updateable":false,
+        "activateable":false,
+        "childRelationships":[
+
+         ],
+        "recordTypeInfos":[
+
+        ],
+        "deprecatedAndHidden":false,
+        "searchLayoutable":false,
+        "deletable":false,
+        "replicateable":false,
+        "actionOverrides":[
+
+        ],
+        .
+        .
+        ],
+        "labelPlural":"Event Log Files",
+        "triggerable":false
+    }
+    ```
+
+??? note "queryEventMonitoringData"
+    To retrieve the field values from a record, use salesforcerest.queryEventMonitoringData and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_event_log_file_query.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -205,33 +453,113 @@ The `salesforce.init` operation also initializes the connector to interact with 
             <th>Sample Value</th>
         </tr>
         <tr>
-            <td>searchString</td>
-            <td>The SOQL query to execute the search.</td>
+            <td>queryStringForEventMonitoringData</td>
+            <td>The query string to use to get the field values from the log.</td>
             <td>Yes</td>
-            <td>sample string</td>
+            <td>SELECT+Id+,+EventType+,+LogFile+,+LogDate+,+LogFileLength+FROM+EventLogFile+WHERE+LogDate+>+Yesterday+AND+EventType+=+'API'
+            </td>
         </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.search>
-        <searchString>{${payload.searchString}}</searchString>
-    </salesforce.search>
+    <salesforcerest.queryEventMonitoringData>
+        <queryStringForEventMonitoringData>{$ctx:queryStringForEventMonitoringData}</queryStringForEventMonitoringData>
+    </salesforcerest.queryEventMonitoringData>
     ```
-
+    
     **Sample request**
+
+    The following is a sample request that can be handled by the queryEventMonitoringData operation.
 
     ```json
     {
-        "searchString": "FIND {map*} IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead",
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "clientId": "3MVG9ZL0ppGP5UrBztM9gSLYyUe7VwAVhD9.yQnZX2mmCu_48Uwc._doxrBTgY4jqmOSDhxRAiUBf8gCr2mk7",
+        "refreshToken": "5Aep861TSESvWeug_ztpnAk6BGQxRdovMLhHso81iyYKO6hTm45JVxz3FLewCKgI4BbUp19OzGfqG2TdCfqa2ZU",
+        "clientSecret": "1187341468789253319",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v34.0",
+        "queryStringForEventMonitoringData": "SELECT+Id+,+EventType+,+LogFile+,+LogDate+,+LogFileLength+FROM+EventLogFile+WHERE+LogDate+>+Yesterday+AND+EventType+=+'API'",
     }
     ```
 
-### Users
+    **Sample response**
 
-??? note "getUserInformation"
-    The `salesforce.getUserInformation` operation retrieves information about a specific user by specifying the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_process_rules.htm) for more information.
+    Given below is a sample response for the queryEventMonitoringData operation.
+
+    ```json
+    {
+        "totalSize" : 4,
+        "done" : true,
+        "records" : [ {
+            "attributes" : {
+            "type" : "EventLogFile",
+            "url" : "/services/data/v32.0/sobjects/EventLogFile/0ATD000000001bROAQ"     }
+            "Id" : "0ATD000000001bROAQ",
+            "EventType" : "API",
+            "LogFile" : "/services/data/v32.0/sobjects/EventLogFile/0ATD000000001bROAQ/LogFile",
+            "LogDate" : "2014-03-14T00:00:00.000+0000",
+            "LogFileLength" : 2692.0
+            }, 
+            .
+        ]
+    }
+    ```
+
+---
+
+### Invocable Actions
+
+??? note "getListOfAction"
+    To retrieve the list of general action types for the current organization, use salesforcerest.getListOfAction and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_actions_invocable.htm?search_text=action) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>actionType</td>
+            <td>The type of the invocable action.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getListOfAction/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the getListOfAction operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample response**
+
+    Given below is a sample response for the getListOfAction operation.
+
+    ```json
+    {
+        "standard":"/services/data/v32.0/actions/standard",
+        "custom":"/services/data/v32.0/actions/custom"
+    }
+    ```
+
+??? note "getSpecificListOfAction"
+    To retrieve an attribute of a single action, use salesforcerest.getAttributeOfSpecificAction and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_actions_invocable_standard.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -240,31 +568,48 @@ The `salesforce.init` operation also initializes the connector to interact with 
             <th>Sample Value</th>
         </tr>
         <tr>
-            <td>userId</td>
-            <td>The ID of the user whose details you want to retrieve.</td>
+            <td>actionType</td>
+            <td>The type of the invocable action.</td>
             <td>Yes</td>
-            <td>00528000000yl7j</td>
+            <td>standard</td>
         </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.getUserInformation>
-        <userId>{${payload.userId}}</userId>
-    </salesforce.getUserInformation>
+    <salesforcerest.getSpecificListOfAction>
+        <actionType>{$ctx:actionType}</actionType>
+    </salesforcerest.getSpecificListOfAction>
     ```
-
+    
     **Sample request**
+
+    The following is a sample request that can be handled by the getSpecificListOfAction operation.
 
     ```json
     {
-        "userId": "00528000000yl7j"
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "actionType": "standard",
     }
     ```
 
-??? note "resetPassword"
-The `salesforce.resetPassword` operation resets a specific user’s password by specifying the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_user_password.htm) for more information.
+    **Sample response**
+
+    Given below is a sample response for the getSpecificListOfAction operation.
+
+    ```json
+    {
+        "standard":"/services/data/v32.0/actions/standard",
+        "custom":"/services/data/v32.0/actions/custom"
+    }
+    ```
+
+??? note "getAttributeOfSpecificAction"
+    To retrieve an attribute of a single action, use salesforcerest.getAttributeOfSpecificAction and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_actions_invocable_standard.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -273,31 +618,69 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             <th>Sample Value</th>
         </tr>
         <tr>
-            <td>userId</td>
-            <td>The ID of the user whose password you want to reset.</td>
+            <td>actionType</td>
+            <td>The type of the invocable action.</td>
             <td>Yes</td>
-            <td>00528000000yl7j</td>
+            <td>standard</td>
+        </tr>
+        <tr>
+            <td>attribute</td>
+            <td>The attribute whose details you want to retrieve.</td>
+            <td>Yes</td>
+            <td>emailSimple</td>
         </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.resetPassword>
-        <userId>{${payload.userId}}</userId>
-    </salesforce.resetPassword>
+    <salesforcerest.getAttributeOfSpecificAction>
+        <actionType>{$ctx:actionType}</actionType>
+        <attribute>{$ctx:attribute}</attribute>
+    </salesforcerest.getAttributeOfSpecificAction>
     ```
-
+    
     **Sample request**
+
+    The following is a sample request that can be handled by the getAttributeOfSpecificAction operation.
 
     ```json
     {
-        "userId": "00528000000yl7j",
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "actionType": "standard",
+        "attribute": "emailSimple",
     }
     ```
 
-??? note "setPassword"
-    The `salesforce.setPassword` operation sets a specific user’s password by specifying the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_user_password.htm) for more information.
+    **Sample response**
+
+    Given below is a sample response for the getAttributeOfSpecificAction operation.
+
+    ```json
+    {
+        "actions":[
+        {
+            "name":"chatterPost",
+            "label":"Post to Chatter",
+            "type":"CHATTERPOST"
+        },
+        {
+            "name":"emailSimple",
+            "label":"Send Email",
+            "type":"EMAILSIMPLE"
+        }
+        .
+        ]
+    }
+    ```
+
+### Layouts
+
+??? note "sObjectLayouts"
+    To retrieve a list of layouts and descriptions (including for actions) for a specific object, use salesforcerest.sObjectLayouts and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_layouts.htm?search_text=layouts) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -306,41 +689,906 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             <th>Sample Value</th>
         </tr>
         <tr>
-            <td>userId</td>
-            <td>The ID of the user whose password you want to set.</td>
+            <td>sObjectName</td>
+            <td>The type of object whose layouts and descriptions you want to retrieve.</td>
             <td>Yes</td>
-            <td>00528000000yl7j</td>
-        </tr>
-        <tr>
-            <td>fieldAndValue</td>
-            <td>JSON object containing the new password field and its value — for example: <code>{"NewPassword":"MyNewP@ssw0rd"}</code></td>
-            <td>Yes</td>
-            <td>{"NewPassword":"MyNewP@ssw0rd"}</td>
+            <td>Account</td>
         </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.setPassword>
-        <userId>{${payload.userId}}</userId>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.setPassword>
+    <salesforcerest.sObjectLayouts>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.sObjectLayouts>
     ```
-
+    
     **Sample request**
+
+    The following is a sample request that can be handled by the sObjectLayouts operation.
 
     ```json
     {
-        "userId": "00528000000yl7j",
-        "fieldAndValue": "{\"NewPassword\":\"MyNewP@ssw0rd\"}"
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
     }
     ```
 
-### Query
+    **Sample Response**
+
+    Given below is a sample response for the sObjectLayouts operation.
+
+    ```json
+    "layouts":[
+        {
+         "detailLayoutSections":[
+            {
+               "heading":"Account Information",
+               "columns":2,
+               "tabOrder":"TopToBottom",
+               "useCollapsibleSection":false,
+               "rows":8,
+               "useHeading":false,
+               "layoutRows":[
+                  {
+                     "layoutItems":[
+                        {
+                           "editableForUpdate":false,
+                           "editableForNew":false,
+                           "layoutComponents":[
+                              {
+                                 "tabOrder":1,
+                                 "details":{
+                                    "defaultValue":null,
+                                    "precision":0,
+                                    "nameField":false,
+                                    "type":"reference",
+                                    "restrictedDelete":false,
+                                    "relationshipName":"Owner",
+                                    "calculatedFormula":null,
+                                    "controllerName":null,
+                                    "namePointing":false,
+                                    "defaultValueFormula":null,
+                                    "calculated":false,
+                                    "writeRequiresMasterRead":false,
+                                    "inlineHelpText":null,
+                                    "picklistValues":[
+
+                                    ]
+                               }
+                        }
+                    ]
+                 }
+        .
+        }
+    ```
+
+??? note "globalSObjectLayouts"
+    To retrieve descriptions of global publisher layouts, use salesforcerest.globalSObjectLayouts. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_layouts.htm?search_text=layouts) for more information.
+    
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.globalSObjectLayouts/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the globalSObjectLayouts operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the globalSObjectLayouts operation.
+
+    ```json
+    {
+        "layouts":[
+        {
+            "detailLayoutSections":[
+
+            ],
+            "relatedContent":null,
+            "editLayoutSections":[
+
+            ],
+            "relatedLists":[
+
+            ],
+            "buttonLayoutSection":null,
+            "id":"00h28000001hExeAAE",
+            "offlineLinks":[
+
+            ],
+            .
+            .
+        }
+    }
+    ```
+
+??? note "compactLayouts"
+    To retrieve a list of compact layouts for multiple objects, use salesforcerest.compactLayouts and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_compact_layouts.htm?search_text=layouts) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>sObjectNameList</td>
+            <td>A comma-separated list of the objects whose compact layouts you want to retrieve.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.compactLayouts/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the compactLayouts operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectNameList":"Account,User",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the compactLayouts operation.
+
+    ```json
+    {
+        "Account":{
+        "name":"SYSTEM",
+        "id":null,
+        "label":"System Default",
+        "actions":[
+            {
+                "showsStatus":false,
+                "custom":false,
+                "label":"Call",
+                "overridden":false,
+                "encoding":null,
+                "icons":[
+                {
+                    "width":0,
+                    "theme":"theme4",
+                    "contentType":"image/svg+xml",
+                    "url":"https://kesavan-dev-ed.my.salesforce.com/img/icon/t4v32/action/call.svg",
+                    "height":0
+                },
+                ],
+                "windowPosition":null,
+                "colors":[
+                {
+                    "color":"F2CF5B",
+                    "context":"primary",
+                    "theme":"theme4"
+                }
+                ],
+        .
+        .
+        ],
+        "objectType":"User"
+        }
+    }
+    ```
+
+??? note "sObjectApprovalLayouts"
+    To retrieve a list of approval layouts for a specified object, use salesforcerest.sObjectApprovalLayouts and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_approvallayouts.htm?search_text=layouts) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object whose layouts you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectApprovalLayouts>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.sObjectApprovalLayouts>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectApprovalLayouts operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectApprovalLayouts operation.
+
+    ```json
+    {"approvalLayouts":[]}
+    ```
+
+??? note "sObjectCompactLayouts"
+    To retrieve a list of compact layouts for a specific object, use salesforcerest.sObjectCompactLayouts and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_compactlayouts.htm?search_text=layouts) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object whose layouts you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectCompactLayouts>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.sObjectCompactLayouts>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectCompactLayouts operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectCompactLayouts operation.
+
+    ```json
+    {
+        "compactLayouts":[
+        {
+            "name":"SYSTEM",
+            "id":null,
+            "label":"System Default",
+            "actions":[
+                {
+                "showsStatus":false,
+                "custom":false,
+                "label":"Call",
+                "overridden":false,
+                "encoding":null,
+                "icons":[
+                    {
+                        "width":0,
+                        "theme":"theme4",
+                        "contentType":"image/svg+xml",
+                        "url":"https://kesavan-dev-ed.my.salesforce.com/img/icon/t4v32/action/call.svg",
+                        "height":0
+                    }
+                ],
+                "defaultCompactLayoutId":null
+        .
+        ]
+    }
+    ```
+
+??? note "sObjectNamedLayouts"
+    To retrieve information about alternative named layouts for a specific object, use salesforcerest.sObjectNamedLayouts and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_named_layouts.htm?search_text=layouts) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object whose layouts you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>layoutName</td>
+            <td>The type of layout.</td>
+            <td>Yes</td>
+            <td>UserAlt</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectNamedLayouts>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <layoutName>{$ctx:layoutName}</layoutName>
+    </salesforcerest.sObjectNamedLayouts>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectCompactLayouts operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+        "layoutName": "UserAlt",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectCompactLayouts operation.
+
+    ```json
+    {
+        "layouts":[
+        {
+            "detailLayoutSections":[
+                {
+                "heading":"About",
+                "columns":2,
+                "tabOrder":"LeftToRight",
+                "useCollapsibleSection":false,
+                "rows":2,
+                "useHeading":false,
+                "layoutRows":[
+                    {
+                        "layoutItems":[
+                            {
+                            "editableForUpdate":false,
+                            "editableForNew":false,
+                            "layoutComponents":[
+                                {
+                                    "components":[
+                                        {
+                                        "tabOrder":2,
+                                        "details":{
+                                            "defaultValue":null,
+                                            "precision":0,
+                                            "nameField":false,
+                                            "type":"string",
+                                            "restrictedDelete":false,
+                                            "relationshipName":null,
+                                            "calculatedFormula":null,
+                                            "controllerName":null,
+                                            "namePointing":false,
+                                            "defaultValueFormula":null,
+                                            "calculated":false,
+                                            "writeRequiresMasterRead":false,
+                                            "inlineHelpText":null,
+                                            "picklistValues":[
+
+                                            ]
+                                        }
+                                }     
+                            ]
+                        }
+    .
+    }
+    ```
+
+### List Views
+
+??? note "listViews"
+    To retrieve a list of list views for the specific sObject, use salesforcerest.listViews and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_listviews.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object whose list views you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listViews>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.listViews>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the listViews operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listViews operation.
+
+    ```json
+    {
+        "nextRecordsUrl":null,
+        "size":7,
+        "listviews":[
+        {
+            "resultsUrl":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE/results",
+            "soqlCompatible":true,
+            "id":"00B280000032AihEAE",
+            "label":"New This Week",
+            "describeUrl":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE/describe",
+            "developerName":"NewThisWeek",
+            "url":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE"
+        },
+        .
+        .
+        ],
+        "done":true,
+        "sobjectType":"Account"
+    }
+    ```
+
+??? note "listViewById"
+    To retrieve the basic information about one list view for the specific sObject, use salesforcerest.listViewById and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_listviews.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object whose list of list views you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>listViewId</td>
+            <td>The ID of the specific list view whose information you want to return. This can be obtained by `listViews` operation</td>
+            <td>Yes</td>
+            <td>00B28000002yqeVEAQ</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listViewById>
+        <listViewID>{$ctx:listViewID}</listViewID>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.listViewById>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the listViewById operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+        "listViewID":"00B28000002yqeVEAQ",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listViewById operation.
+
+    ```json
+    {
+        "resultsUrl":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE/results",
+        "soqlCompatible":true,
+        "id":"00B280000032AihEAE",
+        "label":"New This Week",
+        "describeUrl":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE/describe",
+        "developerName":"NewThisWeek",
+        "url":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE"
+    }
+    ```
+
+??? note "recentListViews"
+    To retrieve the list of recently used list views for the given sObject type, use salesforcerest.recentListViews and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_recentlistviews.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object whose recently used list views you want to return.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.recentListViews>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.recentListViews>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the recentListViews operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the recentListViews operation.
+
+    ```json
+    {
+        "nextRecordsUrl":null,
+        "size":2,
+        "listviews":[
+        {
+            "resultsUrl":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE/results",
+            "soqlCompatible":true,
+            "id":"00B280000032AihEAE",
+            "label":"New This Week",
+            "describeUrl":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE/describe",
+            "developerName":"NewThisWeek",
+            "url":"/services/data/v32.0/sobjects/Account/listviews/00B280000032AihEAE"
+        }
+        .
+        .
+        ],
+        "done":true,
+        "sobjectType":"Account"
+    }
+    ```
+
+??? note "describeListViewById"
+    To retrieve detailed information (ID, columns, and SOQL query) about a specific list view for the given sObject type, use salesforcerest.describeListViewById and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_listviewdescribe.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object to which the list view applies.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>listViewID</td>
+            <td>The ID of the list view.</td>
+            <td>Yes</td>
+            <td>00B28000002yqeVEAQ (obtained by `listViews` operation)</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.describeListViewById>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <listViewID>{$ctx:listViewID}</listViewID>
+    </salesforcerest.describeListViewById>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the describeListViewById operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+        "listViewID":"00B28000002yqeVEAQ",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the describeListViewById operation.
+
+    ```json
+    {
+        "whereCondition":{
+        "field":"CreatedDate",
+        "values":[
+            "THIS_WEEK"
+        ],
+        "operator":"equals"
+        },
+        "columns":[
+        {
+            "fieldNameOrPath":"Name",
+            "sortDirection":"ascending",
+            "hidden":false,
+            "sortIndex":0,
+            "ascendingLabel":"Z-A",
+            "label":"Account Name",
+            "sortable":true,
+            "type":"string",
+            "descendingLabel":"A-Z",
+            "selectListItem":"Name"
+        },
+        .
+        .
+        ],
+        "query":"SELECT Name, Site, BillingState, Phone, toLabel(Type), Owner.Alias, Id, CreatedDate, LastModifiedDate, SystemModstamp FROM Account WHERE CreatedDate = THIS_WEEK ORDER BY Name ASC NULLS FIRST, Id ASC NULLS FIRST",
+        "scope":null,
+        "orderBy":[
+        {
+            "fieldNameOrPath":"Name",
+            "sortDirection":"ascending",
+            "nullsPosition":"first"
+        },
+        {
+            "fieldNameOrPath":"Id",
+            "sortDirection":"ascending",
+            "nullsPosition":"first"
+        }
+        ],
+        "id":"00B280000032Aih",
+        "sobjectType":"Account"
+    }
+    ```
+
+??? note "listViewResults"
+    To execute the SOQL query for the list view and return the resulting data and presentation information, use salesforcerest.listViewResults and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_listviewresults.htm?search_text=list%20view) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object to which the list view applies.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>listViewID</td>
+            <td>The ID of the list view (obtained by `listViews` operation).</td>
+            <td>Yes</td>
+            <td>00B28000002yqeVEAQ</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listViewResults>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <listViewID>{$ctx:listViewID}</listViewID>
+    </salesforcerest.listViewResults>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the listViewResults operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+        "listViewID":"00B28000002yqeVEAQ",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listViewResults operation.
+
+    ```json
+    {
+        "size":0,
+        "records":[
+
+        ],
+        "columns":[
+            {
+                "fieldNameOrPath":"Name",
+                "sortDirection":"ascending",
+                "hidden":false,
+                "sortIndex":0,
+                "ascendingLabel":"Z-A",
+                "label":"Account Name",
+                "sortable":true,
+                "type":"string",
+                "descendingLabel":"A-Z",
+                "selectListItem":"Name"
+            },
+            .
+            .
+        ],
+        "id":"00B280000032Aih",
+        "label":"New This Week",
+        "developerName":"NewThisWeek",
+        "done":true
+    }
+    ```
+
+### Process Rules
+
+??? note "listProcessRules"
+    To retrieve the list of process rules in the organization, use salesforcerest.listProcessRules. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_process_rules.htm) for more information.
+    
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listProcessRules/>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the listProcessRules operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listProcessRules operation.
+
+    ```json
+    {
+        "rules":{
+
+        }
+    }
+    ```
+
+??? note "getSpecificProcessRule"
+    To retrieve the metadata for a specific sObject process rule, use salesforcerest.getSpecificProcessRule and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_process_rules_particular.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object whose process rule you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>workflowRuleId</td>
+            <td>The ID of the process rule. You can get IDs using operation `listProcessRules`.</td>
+            <td>Yes</td>
+            <td>01QD0000000APli</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getSpecificProcessRule>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <workflowRuleId>{$ctx:workflowRuleId}</workflowRuleId>
+    </salesforcerest.getSpecificProcessRule>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the getSpecificProcessRule operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+        "workflowRuleId": "01QD0000000APli",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the getSpecificProcessRule operation.
+
+    ```json
+    {
+        "actions" : [ {
+            "id" : "01VD0000000D2w7",
+            "name" : "ApprovalProcessTask",
+            "type" : "Task"
+            } ],
+            "description" : null,
+            "id" : "01QD0000000APli",
+            "name" : "My Rule",
+            "namespacePrefix" : null,
+            "object" : "Account"
+    }
+    ```
+
+### Queries
 
 ??? note "query"
-    The `salesforce.query` operation retrieves data from a Salesforce object by specifying the following properties. To include deleted records in the Recycle Bin, use the `salesforce.queryAll` operation in place of `salesforce.query`. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm) for more information.
+    To retrieve data from an object, use salesforcerest.query and specify the following properties. If you want your results to include deleted records in the Recycle Bin, use salesforcerest.queryAll in place of salesforcerest.query. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -361,29 +1609,69 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     query:
 
     ```xml
-    <salesforce.query>
-        <queryString>{${payload.queryString}}</queryString>
-    </salesforce.query>
+    <salesforcerest.query>
+        <queryString>{$ctx:queryString}</queryString>
+    </salesforcerest.query>
     ```
 
     queryAll:
 
     ```xml
-    <salesforce.queryAll>
-        <queryString>{${payload.queryString}}</queryString>
-    </salesforce.queryAll>
+    <salesforcerest.queryAll>
+        <queryString>{$ctx:queryString}</queryString>
+    </salesforcerest.queryAll>
     ```
     
     **Sample request**
 
+    The following is a sample request that can be handled by the query operation.
+
     ```json
     {
-        "queryString": "SELECT ID, NAME FROM ACCOUNT",
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "queryString": "select id, name from Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the query operation.
+
+    ```json
+    {
+        "done" : false,
+        "totalSize" : 2014,
+        "nextRecordsUrl" : "/services/data/v20.0/query/01gD0000002HU6KIAW-2000",
+        "records" : 
+        [ 
+            {  
+                "attributes" : 
+                {    
+                    "type" : "Account",    
+                    "url" : "/services/data/v20.0/sobjects/Account/001D000000IRFmaIAH"  
+                },  
+                "Name" : "Test 1"
+            }, 
+            {  
+                "attributes" : 
+                {    
+                    "type" : "Account",    
+                    "url" : "/services/data/v20.0/sobjects/Account/001D000000IomazIAB"  
+                },  
+                "Name" : "Test 2"
+            }, 
+
+            ...
+
+        ]
     }
     ```
 
 ??? note "queryMore"
-    The `salesforce.queryMore` operation retrieves the next batch of records using the locator ID returned from a prior `salesforce.query` or `salesforce.queryAll` operation. To include deleted records in the Recycle Bin, use `salesforce.queryAllMore` in place of `salesforce.queryMore`. See the [related API documentation for queryMore](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm) and [queryAllMore](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm) for more information.
+    If the results from the query or queryAll operations are too large, the first batch of results is returned along with an ID that you can use with salesforcerest.queryMore to get additional results. If you want your results to include deleted records in the Recycle Bin, use salesforcerest.queryAllMore in place of salesforcerest.queryMore. See the [related API documentation for queryMore](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm) and [queryAllMore](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -404,31 +1692,473 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     queryMore:
 
     ```xml
-    <salesforce.queryMore>
-        <nextRecordsUrl>{${payload.nextRecordsUrl}}</nextRecordsUrl>
-    </salesforce.queryMore>
+    <salesforcerest.queryMore>
+        <nextRecordsUrl>{$ctx:nextRecordsUrl}</nextRecordsUrl>
+    </salesforcerest.queryMore>
     ```
 
     queryAllMore:
 
     ```xml
-    <salesforce.queryAllMore>
-        <nextRecordsUrl>{${payload.nextRecordsUrl}}</nextRecordsUrl>
-    </salesforce.queryAllMore>
+    <salesforcerest.queryAllMore>
+        <nextRecordsUrl>{$ctx:nextRecordsUrl}</nextRecordsUrl>
+    </salesforcerest.queryAllMore>
     ```
     
     **Sample request**
 
+    The following is a sample request that can be handled by the queryMore operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "nextRecordsUrl": "QWE45HUJ39D9UISD00",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the queryMore operation.
+
+    ```json
+    {
+        "done" : true,
+        "totalSize" : 3214,
+        "records" : [...]
+    }
+    ```
+
+??? note "queryPerformanceFeedback"
+    To get feedback on how Salesforce will execute your query, use the salesforcerest.queryPerformanceFeedback operation. It uses the Query resource along with the explain parameter to get feedback. Salesforce analyzes each query to find the optimal approach to obtain the query results. Depending on the query and query filters, an index or internal optimization might be used. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query_explain.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>queryString</td>
+            <td>The SQL query to use to get feedback for a query.</td>
+            <td>Yes</td>
+            <td>select id, name from Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.queryPerformanceFeedback>
+        <queryString>{$ctx:queryString}</queryString>
+    </salesforcerest.queryPerformanceFeedback>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the queryPerformanceFeedback operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "queryString": "select id, name from Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the queryPerformanceFeedback operation.
+
+    ```json
+    {
+        "plans":[
+        {
+            "leadingOperationType":"TableScan",
+            "relativeCost":2.8324836601307193,
+            "sobjectCardinality":2549,
+            "fields":[
+
+            ],
+            "cardinality":2549,
+            "sobjectType":"Account"
+        }
+        ]
+    }
+    ```
+
+??? note "listviewQueryPerformanceFeedback"
+    For retrieving query performance feedback on a report or list view, use salesforcerest.listviewQueryPerformanceFeedback and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query_explain.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>listViewID</td>
+            <td>The ID of the report or list view to get feedback for a query.</td>
+            <td>Yes</td>
+            <td>00B28000002yqeVEAQ</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listviewQueryPerformanceFeedback>
+        <listViewID>{$ctx:listViewID}</listViewID>
+    </salesforcerest.listviewQueryPerformanceFeedback>
+    ```
+    
+    **Sample request**
+
+    The following is a sample request that can be handled by the listviewQueryPerformanceFeedback operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "listViewID":"00B28000002yqeVEAQ",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listviewQueryPerformanceFeedback operation.
+
+    ```json
+    {
+        "plans":[
+        {
+            "leadingOperationType":"Index",
+            "relativeCost":0,
+            "sobjectCardinality":2549,
+            "fields":[
+                "CreatedDate"
+            ],
+            "cardinality":0,
+            "sobjectType":"Account"
+        },
+        .
+        .
+        ]
+    }
+    ```
+
+### Quick Actions
+
+??? note "quickActions"
+    To retrieve a list of global actions, use salesforcerest.quickActions. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_quickactions.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>queryString</td>
+            <td>The SQL query to use to search for records.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.quickActions/>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the quickActions operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the quickActions operation.
+
+    ```json
+    {
+        "output":"[
+        {\"label\":\"Log a Call\",
+        \"name\":\"LogACall\",
+        \"type\":\"LogACall\",
+        \"urls\":{\"defaultValues\":\"/services/data/v32.0/quickActions/LogACall/defaultValues\",\"quickAction\":\"/services/data/v32.0/quickActions/LogACall\",\"describe\":\"/services/data/v32.0/quickActions/LogACall/describe\",\"defaultValuesTemplate\":\"/services/data/v32.0/quickActions/LogACall/defaultValues/{ID}\"}},
+        .
+        .
+        ]"
+    }
+    ```
+
+??? note "sObjectAction"
+    To retrieve a list of object-specific actions, use salesforcerest.sObjectAction and specify the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_quickactions.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The type of object for which you want to retrieve a list of quick actions.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectAction>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.sObjectAction>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectAction operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectAction operation.
+
+    ```json
+    {
+        "output":"[
+        {\"label\":\"Log a Call\",
+        \"name\":\"LogACall\",\"type\":\"LogACall\",
+        \"urls\":{\"defaultValues\":\"/services/data/v32.0/quickActions/LogACall/defaultValues\",
+        \"quickAction\":\"/services/data/v32.0/quickActions/LogACall\",
+        \"describe\":\"/services/data/v32.0/quickActions/LogACall/describe\",
+        \"defaultValuesTemplate\":\"/services/data/v32.0/quickActions/LogACall/defaultValues/{ID}\"}},
+        .
+        .
+        ]"
+    }
+    ```
+
+??? note "getSpecificAction"
+    To retrieve a specific action, use salesforcerest.getSpecificAction and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_quickactions.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>actionName</td>
+            <td>The name of action to return.</td>
+            <td>Yes</td>
+            <td>hariprasath__LogACall</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getSpecificAction>
+        <actionName>{$ctx:actionName}</actionName>
+    </salesforcerest.getSpecificAction>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getSpecificAction operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "actionName":"hariprasath__LogACall",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the getSpecificAction operation.
+
+    ```json
+    {
+        "iconName":null,
+        "targetRecordTypeId":null,
+        "targetSobjectType":"Task",
+        "canvasApplicationName":null,
+        "label":"Log a Call",
+        "accessLevelRequired":null,
+        "icons":[
+            {
+                "width":0,
+                "theme":"theme4",
+                "contentType":"image/svg+xml",
+                "url":"https://kesavan-dev-ed.my.salesforce.com/img/icon/t4v32/action/log_a_call.svg",
+                "height":0
+            },
+        .
+        . 
+        ],
+        "targetParentField":null,
+        "iconUrl":"https://kesavan-dev-ed.my.salesforce.com/img/icon/log_a_call_32.png",
+        "height":null
+    }
+    ```
+
+??? note "getDescribeSpecificAction"
+    To retrieve the description of a specific action, use salesforcerest.getDescribeSpecificAction and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_quickactions.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>actionName</td>
+            <td>The action whose description you want to return.</td>
+            <td>Yes</td>
+            <td>hariprasath__LogACall</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getDescribeSpecificAction>
+        <actionName>{$ctx:actionName}</actionName>
+    </salesforcerest.getDescribeSpecificAction>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getDescribeSpecificAction operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the getDescribeSpecificAction operation.
+
+    ```json
+    {
+        "iconName":null,
+        "targetRecordTypeId":null,
+        "targetSobjectType":"Task",
+        "canvasApplicationName":null,
+        "label":"Log a Call",
+        "accessLevelRequired":null,
+        "icons":[
+            {
+                "width":0,
+                "theme":"theme4",
+                "contentType":"image/svg+xml",
+                "url":"https://kesavan-dev-ed.my.salesforce.com/img/icon/t4v32/action/log_a_call.svg",
+                "height":0
+            }
+        ],
+        .
+        .
+        "targetParentField":null,
+        "iconUrl":"https://kesavan-dev-ed.my.salesforce.com/img/icon/log_a_call_32.png",
+        "height":null
+    }
+    ```
+
+??? note "getDefaultValueOfAction"
+    To return a specific action’s default values, including default field values, use salesforcerest.getDefaultValueOfAction and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_quickactions.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>actionName</td>
+            <td>The specific action.</td>
+            <td>Yes</td>
+            <td>hariprasath__LogACall</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getDefaultValueOfAction>
+        <actionName>{$ctx:actionName}</actionName>
+    </salesforcerest.getDefaultValueOfAction>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getDefaultValueOfAction operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "actionName":"hariprasath__LogACall",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the getDefaultValueOfAction operation.
+
+    ```json
+    {
+        "WhoId":null,
+        "Description":null,
+        "WhatId":null,
+        "attributes":{
+            "type":"Task"
+        },
+        "Subject":"Call"
     }
     ```
 
 ### Records
 
 ??? note "create"
-    The `salesforce.create` operation creates a new record by specifying the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_sobject_create.htm) for more information.
+    To create a record, use salesforcerest.create and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_sobject_create.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -453,13 +2183,21 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
         </tr>
     </table>
 
+    > **Note**: For example, if you are creating a record for the Account sObject, "name" is a mandatory parameter, and you might want to include the optional description, so the fieldAndValue property would look like this:
+    > ```json
+    > {
+    >   "name":"wso2",
+    >   "description":"This account belongs to WSO2"
+    > }
+    > ```
+
     **Sample configuration**
 
     ```xml
-    <salesforce.create>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.create>
+    <salesforcerest.create>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    </salesforcerest.create>
     ```
 
     **Sample request**
@@ -468,6 +2206,10 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
 
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",,
         "fieldAndValue": {
             "name": "wso2",
@@ -476,8 +2218,22 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     }
     ```
 
-??? note "createBulk"
-    The `salesforce.createBulk` operation creates multiple records of the same sObject type by specifying the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_composite_sobject_tree_flat.htm#topic-title) for more information.
+    **Sample Response**
+
+    Given below is a sample response for the create operation.
+
+    ```json
+    {
+        "success":true,
+        "id":"0010K00001uiAn8QAE",
+        "errors":[
+
+        ]
+    }
+    ```
+
+??? note "createMultipleRecords"
+    To create multiple records of the same sObject type, use salesforcerest.createMultipleRecords and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_composite_sobject_tree_flat.htm#topic-title) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -496,20 +2252,20 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             <td>The .json format property, which specifies each record as an entry within the records array. Include all mandatory fields according to the requirements for the specified sObject.</td>
             <td>Yes</td>
             <td><pre>{
-            "records": [
-            {
-            "attributes": {"type": "Account", "referenceId": "ref1"},
-            "name": "wso2",
-            "phone": "1111111",
-            "website": "www.salesforce1.com"
-            },
-            {
-            "attributes": {"type": "Account", "referenceId": "ref2"},
-            "name": "slwso2",
-            "phone": "22222222",
-            "website": "www.salesforce2.com"
-            }]
-            }
+                    "records": [
+                        {
+                        "attributes": {"type": "Account", "referenceId": "ref1"},
+                        "name": "wso2",
+                        "phone": "1111111",
+                        "website": "www.salesforce1.com"
+                        },
+                        {
+                        "attributes": {"type": "Account", "referenceId": "ref2"},
+                        "name": "slwso2",
+                        "phone": "22222222",
+                        "website": "www.salesforce2.com"
+                        }]
+                    }
             </pre></td>
         </tr>
     </table>
@@ -536,37 +2292,66 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.createBulk>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.createBulk>
+    <salesforcerest.createMultipleRecords>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    </salesforcerest.createMultipleRecords>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the createMultipleRecords operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",,
         "fieldAndValue": {
-            "records": [
-                {
-                "attributes": {"type": "Account", "referenceId": "ref1"},
-                "name": "wso2",
-                "phone": "1111111",
-                "website": "www.salesforce1.com"
-                },
-                {
-                "attributes": {"type": "Account", "referenceId": "ref2"},
-                "name": "slwso2",
-                "phone": "22222222",
-                "website": "www.salesforce2.com"
-                }]
-            }
+        "records": [
+            {
+            "attributes": {"type": "Account", "referenceId": "ref1"},
+            "name": "wso2",
+            "phone": "1111111",
+            "website": "www.salesforce1.com"
+            },
+            {
+            "attributes": {"type": "Account", "referenceId": "ref2"},
+            "name": "slwso2",
+            "phone": "22222222",
+            "website": "www.salesforce2.com"
+            }]
+        }
     }
     ```
 
-??? note "createTree"
-    To create nested records for a specific sObject, use salesforce.createTree and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_composite_sobject_tree_create.htm) for more information.
+    **Sample Response**
+
+    Given below is a sample response for the createMultipleRecords operation.
+
+    ```json
+    {
+        "hasErrors" : false,
+        "results" : [{
+        "referenceId" : "ref1",
+        "id" : "001D000000K1YFjIAN"
+        },{
+        "referenceId" : "ref2",
+        "id" : "001D000000K1YFkIAN"
+        },{
+        "referenceId" : "ref3",
+        "id" : "001D000000K1YFlIAN"
+        },{
+        "referenceId" : "ref4",
+        "id" : "001D000000K1YFmIAN"     
+        }]
+    }
+    ```
+
+??? note "createNestedRecords"
+    To create nested records for a specific sObject, use salesforcerest.createNestedRecords and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_composite_sobject_tree_create.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -585,37 +2370,37 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             <td>The .json format property, which specifies each record as an entry within the records array. Include all mandatory fields according to the requirements for the specified sobject.</td>
             <td>Yes</td>
             <td><pre>{
-            "records" :[{
-            "attributes" : {"type" : "Account", "referenceId" : "ref1"},
-            "name" : "SampleAccount1",
-            "phone" : "1234567890",
-            "website" : "www.salesforce.com",
-            "numberOfEmployees" : "100",
-            "type" : "Analyst",
-            "industry" : "Banking",
-            "Contacts" : {
-            "records" : [{
+    "records" :[{
+        "attributes" : {"type" : "Account", "referenceId" : "ref1"},
+        "name" : "SampleAccount1",
+        "phone" : "1234567890",
+        "website" : "www.salesforce.com",
+        "numberOfEmployees" : "100",
+        "type" : "Analyst",
+        "industry" : "Banking",
+        "Contacts" : {
+          "records" : [{
             "attributes" : {"type" : "Contact", "referenceId" : "ref2"},
             "lastname" : "Smith",
             "Title" : "President",
             "email" : "sample@salesforce.com"
-            },{
+          },{
             "attributes" : {"type" : "Account", "referenceId" : "ref3"},
             "lastname" : "Evans",
             "title" : "Vice President",
             "email" : "sample@salesforce.com"
-            }]
-            }
-            },{
-            "attributes" : {"type" : "Account", "referenceId" : "ref4"},
-            "name" : "SampleAccount2",
-            "phone" : "1234567890",
-            "website" : "www.salesforce.com",
-            "numberOfEmployees" : "52000",
-            "type" : "Analyst",
-            "industry" : "Banking",
-            "childAccounts" : {
-            "records" : [{
+        }]
+        }
+    },{
+        "attributes" : {"type" : "Account", "referenceId" : "ref4"},
+        "name" : "SampleAccount2",
+        "phone" : "1234567890",
+        "website" : "www.salesforce.com",
+        "numberOfEmployees" : "52000",
+        "type" : "Analyst",
+        "industry" : "Banking",
+        "childAccounts" : {
+        "records" : [{
             "attributes" : {"type" : "Account", "referenceId" : "ref5"},
             "name" : "SampleChildAccount1",
             "phone" : "1234567890",
@@ -623,23 +2408,23 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             "numberOfEmployees" : "100",
             "type" : "Analyst",
             "industry" : "Banking"
-            }]
-            },
-            "Contacts" : {
-            "records" : [{
+        }]
+        },
+        "Contacts" : {
+        "records" : [{
             "attributes" : {"type" : "Contact", "referenceId" : "ref6"},
             "lastname" : "Jones",
             "title" : "President",
             "email" : "sample@salesforce.com"
-            }]
-            }
-            }]
-            }
+        }]
+        }
+    }]
+    }
             </pre></td>
         </tr>
     </table>
 
-    > **Note**: If you are creating records for the Account sObject, "name" is a mandatory parameter, and you might want to include additional optional values for each record, so the fieldAndValue property might look like this:
+    > **Note**: For example, if you are creating records for the Account sObject, "name" is a mandatory parameter, and you might want to include additional optional values for each record, so the fieldAndValue property might look like this:
     > ```json
     > {
     >   "records" :[{
@@ -697,101 +2482,109 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.createTree>
-        <sObjectName>{${payload.sObjectName}}</sobject>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.createTree>
+    <salesforcerest.createNestedRecords>
+        <sObjectName>{$ctx:sObjectName}</sobject>
+        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    </salesforcerest.createNestedRecords>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the createNestedRecords operation.
+
     ```json
     {
-        "sObjectName": "Account",
-        "fieldAndValue": {
-            "records": [
-                {
-                    "attributes": {
-                        "type": "Account",
-                        "referenceId": "ref1"
-                    },
-                    "name": "SampleAccount1",
-                    "phone": "1234567890",
-                    "website": "www.salesforce.com",
-                    "numberOfEmployees": "100",
-                    "type": "Analyst",
-                    "industry": "Banking",
-                    "Contacts": {
-                        "records": [
-                            {
-                                "attributes": {
-                                    "type": "Contact",
-                                    "referenceId": "ref2"
-                                },
-                                "LastName": "Smith",
-                                "Title": "President",
-                                "Email": "sample@salesforce.com"
-                            },
-                            {
-                                "attributes": {
-                                    "type": "Contact",
-                                    "referenceId": "ref3"
-                                }, // fixed
-                                "LastName": "Evans", // fixed
-                                "Title": "Vice President", // fixed
-                                "Email": "sample@salesforce.com" // fixed
-                            }
-                        ]
-                    }
-                },
-                {
-                    "attributes": {
-                        "type": "Account",
-                        "referenceId": "ref4"
-                    },
-                    "name": "SampleAccount2",
-                    "phone": "1234567890",
-                    "website": "www.salesforce.com",
-                    "numberOfEmployees": "52000",
-                    "type": "Analyst",
-                    "industry": "Banking",
-                    "childAccounts": {
-                        "records": [
-                            {
-                                "attributes": {
-                                    "type": "Account",
-                                    "referenceId": "ref5"
-                                },
-                                "name": "SampleChildAccount1",
-                                "phone": "1234567890",
-                                "website": "www.salesforce.com",
-                                "numberOfEmployees": "100",
-                                "type": "Analyst",
-                                "industry": "Banking"
-                            }
-                        ]
-                    },
-                    "Contacts": {
-                        "records": [
-                            {
-                                "attributes": {
-                                    "type": "Contact",
-                                    "referenceId": "ref6"
-                                },
-                                "LastName": "Jones",
-                                "Title": "President",
-                                "Email": "sample@salesforce.com"
-                            }
-                        ]
-                    }
-                }
-            ]
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",,
+        "fieldAndValue":
+        {
+        "records" :[{
+            "attributes" : {"type" : "Account", "referenceId" : "ref1"},
+            "name" : "SampleAccount1",
+            "phone" : "1234567890",
+            "website" : "www.salesforce.com",
+            "numberOfEmployees" : "100",
+            "type" : "Analyst",
+            "industry" : "Banking",
+            "Contacts" : {
+              "records" : [{
+                "attributes" : {"type" : "Contact", "referenceId" : "ref2"},
+                "lastname" : "Smith",
+                "Title" : "President",
+                "email" : "sample@salesforce.com"
+              },{
+                "attributes" : {"type" : "Account", "referenceId" : "ref3"},
+                "lastname" : "Evans",
+                "title" : "Vice President",
+                "email" : "sample@salesforce.com"
+            }]
+            }
+        },{
+            "attributes" : {"type" : "Account", "referenceId" : "ref4"},
+            "name" : "SampleAccount2",
+            "phone" : "1234567890",
+            "website" : "www.salesforce.com",
+            "numberOfEmployees" : "52000",
+            "type" : "Analyst",
+            "industry" : "Banking",
+            "childAccounts" : {
+            "records" : [{
+                "attributes" : {"type" : "Account", "referenceId" : "ref5"},
+                "name" : "SampleChildAccount1",
+                "phone" : "1234567890",
+                "website" : "www.salesforce.com",
+                "numberOfEmployees" : "100",
+                "type" : "Analyst",
+                "industry" : "Banking"
+            }]
+            },
+            "Contacts" : {
+            "records" : [{
+                "attributes" : {"type" : "Contact", "referenceId" : "ref6"},
+                "lastname" : "Jones",
+                "title" : "President",
+                "email" : "sample@salesforce.com"
+            }]
+            }
+        }]
         }
     }
     ```
 
+    **Sample Response**
+
+    Given below is a sample response for the createNestedRecords operation.
+
+    ```json
+    {
+        "hasErrors" : false,
+        "results" : [{
+        "referenceId" : "ref1",
+        "id" : "001D000000K0fXOIAZ"
+        },{
+        "referenceId" : "ref4",
+        "id" : "001D000000K0fXPIAZ"
+        },{
+        "referenceId" : "ref2",
+        "id" : "003D000000QV9n2IAD"
+        },{
+        "referenceId" : "ref3",
+        "id" : "003D000000QV9n3IAD"
+        },{
+        "referenceId" : "ref5",
+        "id" : "001D000000K0fXQIAZ"
+        },{
+        "referenceId" : "ref6",
+        "id" : "003D000000QV9n4IAD"
+        }]
+    }
+    ```
+
 ??? note "update"
-    The `salesforce.update` operation updates an existing record by specifying the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_update_fields.htm) for more information.
+    To update a record, use salesforcerest.update and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_update_fields.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -810,9 +2603,9 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             <td>The json format property with the new definition for the record.</td>
             <td>Yes</td>
             <td><pre>{
-            "name": "wso2",
-            "description":"This Account belongs to WSO2"
-            }
+        "name": "wso2",
+        "description":"This Account belongs to WSO2"
+    }
             </pre></td>
         </tr>
         <tr>
@@ -826,17 +2619,23 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.update>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-        <Id>{${payload.Id}}</Id>
-    </salesforce.update>
+    <salesforcerest.update>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+        <Id>{$ctx:Id}</Id>
+    </salesforcerest.update>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the update operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",
         "Id":"00128000002OOhD",,
         "fieldAndValue": {
@@ -847,7 +2646,7 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     ```
 
 ??? note "delete"
-    The `salesforce.delete` operation deletes a record and requires the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_delete_record.htm) for more information.
+    To delete a record, use salesforcerest.delete and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_delete_record.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -872,76 +2671,216 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.update>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
+    <salesforcerest.update>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
         <Id>{$ctx:Id}</Id>
-    </salesforce.update>
+    </salesforcerest.update>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the delete operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",
         "idToDelete":"00128000002OOhD",
     }
     ```
 
-
-??? note "upsert"
-    The `salesforce.upsert` operation creates or updates a record using an external ID by specifying the following properties. This method is used to create records or update existing records based on the value of a specified external ID field. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_upsert.htm) for more information.
+??? note "recentlyViewedItem"
+    To retrieve the recently viewed items, use salesforcerest.recentlyViewedItem and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_recent_items.htm) for more information.
     <table>
-    <tr>
-        <th>Parameter Name</th>
-        <th>Description</th>
-        <th>Required</th>
-        <th>Sample Value</th>
-    </tr>
-    <tr>
-        <td>sObjectName</td>
-        <td>The object type whose value you want to upsert.</td>
-        <td>Yes</td>
-        <td>Account</td>
-    </tr>
-    <tr>
-        <td>externalIDField</td>
-        <td>The external Id Field of the subject.</td>
-        <td>Yes</td>
-        <td>sample__c</td>
-    </tr>
-    <tr>
-        <td>Id</td>
-        <td>The value of the customExtIdField.</td>
-        <td>Yes</td>
-        <td>15222</td>
-    </tr>
-    <tr>
-        <td>fieldAndValue</td>
-        <td>The json format property/payload used to create the record.</td>
-        <td>Yes</td>
-        <td>{
-        "Name":"john"
-        }
-        </td>
-    </tr>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>The maximum number of records to be returned.</td>
+            <td>Yes</td>
+            <td>5</td>
+        </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.upsert>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <externalIDField>{${payload.externalIDField}}</externalIDField>
-        <Id>{${payload.Id}}</Id>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.upsert>
+    <salesforcerest.recentlyViewedItem>
+        <limit>{$ctx:limit}</limit>
+    </salesforcerest.recentlyViewedItem>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the recentlyViewedItem operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "limit":"5",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the recentlyViewedItem operation.
+
+    ```json
+    {
+        "output":"[{\"attributes\":
+        {\"type\":\"User\",
+        \"url\":\"/services/data/v32.0/sobjects/User/00528000000ToIrAAK\"},
+        \"Id\":\"00528000000ToIrAAK\",
+        \"Name\":\"kesan yoga\"},
+        .
+        .
+        ]"
+    }
+    ```
+
+??? note "retrieveFieldValues"
+    To retrieve specific field values for a specific sObject, use salesforcerest.retrieveFieldValues and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_get_field_values.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object type whose metadata you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>rowId</td>
+            <td>The ID of the record whose values you want to retrieve.</td>
+            <td>Yes</td>
+            <td>00128000005YjDnAAK</td>
+        </tr>
+        <tr>
+            <td>fields</td>
+            <td>A comma-separated list of fields whose values you want to retrieve.</td>
+            <td>Yes</td>
+            <td>AccountNumber,BillingPostalCode</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.retrieveFieldValues>
+        <sObjectName>{ctx:sObjectName}</sObjectName>
+        <rowId>{ctx:rowId}</rowId>
+        <fields>{ctx:fields}</fields>
+    </salesforcerest.retrieveFieldValues>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the retrieveFieldValues operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+        "rowId":"00128000005YjDnAAK",
+        "fields":"AccountNumber,BillingPostalCode",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the retrieveFieldValues operation.
+
+    ```json
+    {
+        "AccountNumber" : "CD656092",
+        "BillingPostalCode" : "27215",
+    }
+    ```
+
+??? note "upsert"
+    To create or update (upsert) a record using an external ID, use salesforcerest.upsert and specify the following properties. This method is used to create records or update existing records based on the value of a specified external ID field. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_upsert.htm) for more information.
+    ```
+    * If the specified value does not exist, a new record is created.
+    * If a record does exist with that value, the field values specified in the request body are updated.
+    ```
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object type whose value you want to upsert.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>externalIDField</td>
+            <td>The external Id Field of the subject.</td>
+            <td>Yes</td>
+            <td>sample__c</td>
+        </tr>
+        <tr>
+            <td>Id</td>
+            <td>The value of the customExtIdField.</td>
+            <td>Yes</td>
+            <td>15222</td>
+        </tr>
+        <tr>
+            <td>fieldAndValue</td>
+            <td>The json format property/payload used to create the record.</td>
+            <td>Yes</td>
+            <td>{
+                "Name":"john"
+            }
+            </td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.upsert>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <externalIDField>{$ctx:externalIDField}</externalIDField>
+        <Id>{$ctx:Id}</Id>
+        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    </salesforcerest.upsert>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the upsert operation.
+
+    ```json
+    {
+        "accessToken":"00D280000017q6q!AQoAQMMZWoN9MQZcXLW475YYoIdJFUICTjbGh67jEfAeV7Q57Ac2Ov.0ZuM_2Zx6SnrOmwpml8Qf.XclstTQiXtCYSGRBcEv",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "clientId": "3MVG9ZL0ppGP5UrBrnsanGUZRgHqc8gTV4t_6tfuef8Zz4LhFPipmlooU6GBszpplbTzVXXWjqkGHubhRip1s",
+        "refreshToken": "5Aep861TSESvWeug_ztpnAk6BGQxRdovMLhHso81iyYKO6hTm68KfebpK7UYtEzF0ku8JCz7CNto8b3YMRmZrhy",
+        "clientSecret": "9104967092887676680",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",,
         "intervalTime" : "2400000",
         "externalIDField":"sample__c",
@@ -953,8 +2892,24 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     }
     ```
 
+    **Sample Response**
+
+    Given below is a sample response for the upsert operation.
+
+    ```json
+    {
+        "id" : "00190000001pPvHAAU",
+        "errors" : [ ],
+        "success" : true
+    }
+    ```
+    
 ??? note "getDeleted"
-    The `salesforce.getDeleted` operation retrieves a list of records deleted within a specified timespan for the given object. Provide the start and end date-time values in ISO 8601 format: `YYYY-MM-DDThh:mm:ss+hh:mm`. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_getdeleted.htm) for more information.
+    To retrieve a list of individual records that have been deleted within the given timespan for the specified object, 
+    use salesforcerest.getDeleted. The date and time should be provided in ISO 8601 format:YYYY-MM-DDThh:mm:ss+hh:mm. 
+    See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_getdeleted.htm) 
+    for more information.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -985,25 +2940,49 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.getDeleted>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <startTime>{${payload.startTime}}</startTime>
-        <endTime>{${payload.endTime}}</endTime>
-    </salesforce.getDeleted>
+    <salesforcerest.getDeleted>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <startTime>{$ctx:startTime}</startTime>
+        <endTime>{$ctx:endTime}</endTime>
+    </salesforcerest.getDeleted>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the getDeleted operation.
+
     ```json
     {
+      "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+      "apiUrl":"https://(your_instance).salesforce.com",
+      "hostName": "https://login.salesforce.com",
+      "apiVersion": "v32.0",
       "sObjectName":"Account",
       "startTime":"2015-10-05T12:30:30+05:30",
       "endTime":"2015-10-10T20:30:30+05:30"
     }
     ```
 
+    **Sample Response**
+
+    Given below is a sample response for the getDeleted operation.
+
+    ```json
+    {
+       "earliestDateAvailable":"2018-09-20T07:52:00.000+0000",
+       "deletedRecords":[
+    
+       ],
+       "latestDateCovered":"2018-10-27T15:00:00.000+0000"
+    }
+    ```
+
 ??? note "getUpdated"
-    The `salesforce.getUpdated` operation retrieves a list of records updated within a specified timespan for the given object. Provide the start and end date-time values in ISO 8601 format: `YYYY-MM-DDThh:mm:ss+hh:mm`. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_getupdated.htm) for more information.
+    To retrieve a list of individual records that have been updated within the given timespan for the specified object, 
+    use salesforcerest.getUpdated. The date and time should be provided in ISO 8601 format:YYYY-MM-DDThh:mm:ss+hh:mm.
+    See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_getupdated.htm) 
+    for more information.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1034,43 +3013,110 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.getUpdated>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <startTime>{${payload.startTime}}</startTime>
-        <endTime>{${payload.endTime}}</endTime>
-    </salesforce.getUpdated>
+    <salesforcerest.getUpdated>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <startTime>{$ctx:startTime}</startTime>
+        <endTime>{$ctx:endTime}</endTime>
+    </salesforcerest.getUpdated>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the getUpdated operation.
+
     ```json
     {
-        "sObjectName":"Account",
-        "startTime":"2015-10-05T12:30:30+05:30",
-        "endTime":"2015-10-10T20:30:30+05:30"
+      "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+      "apiUrl":"https://(your_instance).salesforce.com",
+      "hostName": "https://login.salesforce.com",
+      "apiVersion": "v32.0",
+      "sObjectName":"Account",
+      "startTime":"2015-10-05T12:30:30+05:30",
+      "endTime":"2015-10-10T20:30:30+05:30"
     }
     ```
 
+    **Sample Response**
+
+    Given below is a sample response for the getDeleted operation.
+
+    ```json
+    {
+       "ids":[
+    
+       ],
+       "latestDateCovered":"2018-10-27T15:00:00.000+0000"
+    }
+    ```
 
 ### sObjects
 
 ??? note "describeGlobal"
-    The `salesforce.describeGlobal` operation retrieves a list of all objects available in the system. You can then obtain metadata for one or more objects as described in the following sections. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_describeGlobal.htm) for more information.
+    To retrieve a list of the objects that are available in the system, use salesforcerest.describeGlobal. You can then get metadata for an object or objects as described in the next sections. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_describeGlobal.htm) for more information.
 
     **Sample configuration**
 
     ```xml
-    <salesforce.describeGlobal/>
+    <salesforcerest.describeGlobal/>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the describeGlobal operation.
+
     ```json
-    {}
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the describeGlobal operation.
+
+    ```json
+    {
+        "maxBatchSize":200,
+        "sobjects":[
+            {
+                "updateable":false,
+                "activateable":false,
+                "deprecatedAndHidden":false,
+                "layoutable":false,
+                "custom":false,
+                "deletable":false,
+                "replicateable":false,
+                "undeletable":false,
+                "label":"Accepted Event Relation",
+                "keyPrefix":null,
+                "searchable":false,
+                "queryable":true,
+                "mergeable":false,
+                "urls":{
+                    "rowTemplate":"/services/data/v32.0/sobjects/AcceptedEventRelation/{ID}",
+                    "describe":"/services/data/v32.0/sobjects/AcceptedEventRelation/describe",
+                    "sobject":"/services/data/v32.0/sobjects/AcceptedEventRelation"
+                },
+                "createable":false,
+                "feedEnabled":false,
+                "retrieveable":true,
+                "name":"AcceptedEventRelation",
+                "customSetting":false,
+                "labelPlural":"Accepted Event Relations",
+                "triggerable":false
+            },
+            .
+            .
+        ],
+        "encoding":"UTF-8"
+    }
     ```
 
 ??? note "describeSObject"
-    The `salesforce.describeSObject` operation retrieves metadata (such as name, label, and fields—including field properties) for a specific object type by specifying the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm) for more information.
+    To get metadata (such as name, label, and fields, including the field properties) for a specific object type, use salesforcerest.describeSObject and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1089,111 +3135,537 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     **Sample configuration**
 
     ```xml
-    <salesforce.describeSObject>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-    </salesforce.describeSObject>
+    <salesforcerest.describeSObject>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.describeSObject>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the describeSObject operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",
     }
     ```
 
-??? note "retrieveSObject"
-    The `salesforce.retrieveSObject` operation retrieves details of a specific record. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_retrieve.htm) for more information.
+    **Sample Response**
+
+    Given below is a sample response for the describeSObject operation.
+
+    ```json
+    {
+        "updateable":true,
+        "activateable":false,
+        "childRelationships":[
+            {
+                "relationshipName":"ChildAccounts",
+                "field":"ParentId",
+                "deprecatedAndHidden":false,
+                "childSObject":"Account",
+                "cascadeDelete":false,
+                "restrictedDelete":false
+            },
+            {
+                "relationshipName":"AccountCleanInfos",
+                "field":"AccountId",
+                "deprecatedAndHidden":false,
+                "childSObject":"AccountCleanInfo",
+                "cascadeDelete":true,
+                "restrictedDelete":false
+            },
+            .
+        ]
+    }
+    ```
+
+??? note "listAvailableApiVersion"
+    To retrieve a list of summary information about each REST API version that is currently available, use salesforcerest.listAvailableApiVersion. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_versions.htm) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listAvailableApiVersion/>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the listAvailableApiVersion operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listAvailableApiVersion operation.
+
+    ```json
+    {
+        "output":"[
+        {\"label\":\"Winter '11\",\"url\":\"/services/data/v20.0\",\"version\":\"20.0\"},
+        .
+        .
+        ]"
+    }
+    ```
+
+??? note "listOrganizationLimits"
+    To retrieve the limit information for your organization, use salesforcerest.listOrganizationLimits. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_limits.htm) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listOrganizationLimits/>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the listOrganizationLimits operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listOrganizationLimits operation.
+
+    ```json
+    {
+        "DailyApiRequests":{
+            "Dataloader Bulk":{
+                "Max":0,
+                "Remaining":0
+            },
+            "test":{
+                "Max":0,
+                "Remaining":0
+            },
+            "Max":5000,
+            "Salesforce Mobile Dashboards":{
+                "Max":0,
+                "Remaining":0
+            },
+        .
+        .
+    }
+    ```
+
+??? note "listResourcesByApiVersion"
+    To retrieve the resources that are available in the specified API version, use salesforcerest.listResourcesByApiVersion. You can then get the details of those resources. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_discoveryresource.htm) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.listResourcesByApiVersion/>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the listResourcesByApiVersion operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the listResourcesByApiVersion operation.
+
+    ```json
+    {
+        "tooling":"/services/data/v32.0/tooling",
+        "folders":"/services/data/v32.0/folders",
+        "eclair":"/services/data/v32.0/eclair",
+        "prechatForms":"/services/data/v32.0/prechatForms",
+        "chatter":"/services/data/v32.0/chatter",
+        "tabs":"/services/data/v32.0/tabs",
+        "appMenu":"/services/data/v32.0/appMenu",
+        "quickActions":"/services/data/v32.0/quickActions",
+        "queryAll":"/services/data/v32.0/queryAll",
+        "commerce":"/services/data/v32.0/commerce",
+        .
+    }
+    ```
+
+??? note "sObjectBasicInfo"
+    To retrieve the individual metadata for the specified object, use salesforcerest.sObjectBasicInfo. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_basic_info.htm) for more information.
     <table>
-    <tr>
-        <th>Parameter Name</th>
-        <th>Description</th>
-        <th>Required</th>
-        <th>Sample Value</th>
-    </tr>
-    <tr>
-        <td>sObjectName</td>
-        <td>The object type of the record.</td>
-        <td>Yes</td>
-        <td>Account</td>
-    </tr>
-    <tr>
-        <td>rowId</td>
-        <td>The ID of the record whose details you want to retrieve.</td>
-        <td>Yes</td>
-        <td>00128000005YjDnAAK</td>
-    </tr>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object type whose metadata you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.retrieveSObject>
-        <sObjectName>{${payload.sObjectName}}</sObjectName>
-        <rowId>{${payload.rowId}}</rowId>
-    </salesforce.retrieveSObject>
+    <salesforcerest.sObjectBasicInfo>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.sObjectBasicInfo>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the sObjectBasicInfo operation.
+
     ```json
     {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectBasicInfo operation.
+
+    ```json
+    {
+        "objectDescribe":{
+            "updateable":true,
+            "activateable":false,
+            "deprecatedAndHidden":false,
+            "layoutable":true,
+            "custom":false,
+            "deletable":true,
+            "replicateable":true,
+            "undeletable":true,
+            "label":"Account",
+            "keyPrefix":"001",
+            "searchable":true,
+            "queryable":true,
+            "mergeable":true,
+            "urls":{
+                "compactLayouts":"/services/data/v32.0/sobjects/Account/describe/compactLayouts",
+                "rowTemplate":"/services/data/v32.0/sobjects/Account/{ID}"
+            },
+            "createable":true,
+            "feedEnabled":true,
+            "retrieveable":true,
+            "name":"Account",
+            "customSetting":false,
+            "labelPlural":"Accounts",
+            "triggerable":true
+        },
+        .
+    }
+    ```
+
+??? note "sObjectGetDeleted"
+    To retrieve a list of individual records that have been deleted within the given timespan for the specified object, use salesforcerest.sObjectGetDeleted. The date and time should be provided in ISO 8601 format:YYYY-MM-DDThh:mm:ss+hh:mm. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_basic_info.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object type whose metadata you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>startTime</td>
+            <td>Starting date/time (Coordinated Universal Time (UTC)—not local—timezone) of the timespan for which to retrieve the data.</td>
+            <td>Yes</td>
+            <td>2015-10-05T12:30:30+05:30</td>
+        </tr>
+        <tr>
+            <td>endTime</td>
+            <td>Ending date/time (Coordinated Universal Time (UTC)—not local—timezone) of the timespan for which to retrieve the data.</td>
+            <td>Yes</td>
+            <td>2015-10-10T20:30:30+05:30</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectGetDeleted>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <startTime>{$ctx:startTime}</startTime>
+        <endTime>{$ctx:endTime}</endTime>
+    </salesforcerest.sObjectGetDeleted>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectGetDeleted operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+        "startTime":"2015-10-05T12:30:30+05:30",
+        "endTime":"2015-10-10T20:30:30+05:30",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectGetDeleted operation.
+
+    ```json
+    {
+        "objectDescribe":{
+            "updateable":true,
+            "activateable":false,
+            "deprecatedAndHidden":false,
+            "layoutable":true,
+            "custom":false,
+            "deletable":true,
+            "replicateable":true,
+            "undeletable":true,
+            "label":"Account",
+            "keyPrefix":"001",
+            "searchable":true,
+            "queryable":true,
+            "mergeable":true,
+            "urls":{
+                "compactLayouts":"/services/data/v32.0/sobjects/Account/describe/compactLayouts",
+                "rowTemplate":"/services/data/v32.0/sobjects/Account/{ID}"
+            },
+            "createable":true,
+            "feedEnabled":true,
+            "retrieveable":true,
+            "name":"Account",
+            "customSetting":false,
+            "labelPlural":"Accounts",
+            "triggerable":true
+        },
+        .
+    }
+    ```
+
+??? note "sObjectGetUpdated"
+    To retrieve a list of individual records that have been updated within the given timespan for the specified object, use salesforcerest.sObjectGetUpdated. The date and time should be provided in ISO 8601 format:YYYY-MM-DDThh:mm:ss+hh:mm. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_getupdated.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object type whose metadata you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>startTime</td>
+            <td>Starting date/time (Coordinated Universal Time (UTC)—not local—timezone) of the timespan for which to retrieve the data.</td>
+            <td>Yes</td>
+            <td>2015-10-05T12:30:30+05:30</td>
+        </tr>
+        <tr>
+            <td>endTime</td>
+            <td>Ending date/time (Coordinated Universal Time (UTC)—not local—timezone) of the timespan for which to retrieve the data.</td>
+            <td>Yes</td>
+            <td>2015-10-10T20:30:30+05:30</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectGetUpdated>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <startTime>{$ctx:startTime}</startTime>
+        <endTime>{$ctx:endTime}</endTime>
+    </salesforcerest.sObjectGetUpdated>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectGetUpdated operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName":"Account",
+        "startTime":"2015-10-05T12:30:30+05:30",
+        "endTime":"2015-10-10T20:30:30+05:30",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectGetUpdated operation.
+
+    ```json
+    {
+        "ids":[
+
+        ],
+        "latestDateCovered":"2018-10-27T15:00:00.000+0000"
+    }
+    ```
+
+??? note "sObjectPlatformAction"
+    To retrieve the description of the PlatformAction, use salesforcerest.sObjectPlatformAction. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_sobject_platformaction.htm?search_text=PlatformAction) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectPlatformAction/>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectPlatformAction operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the sObjectPlatformAction operation.
+
+    ```json
+    {
+        "objectDescribe":{
+        "updateable":false,
+        "activateable":false,
+        "deprecatedAndHidden":false,
+        "layoutable":false,
+        "custom":false,
+        "deletable":false,
+        "replicateable":false,
+        "undeletable":false,
+        "label":"Platform Action",
+        "keyPrefix":"0JV",
+        "searchable":false,
+        "queryable":true,
+        "mergeable":false,
+        "urls":{
+            "rowTemplate":"/services/data/v32.0/sobjects/PlatformAction/{ID}",
+            "describe":"/services/data/v32.0/sobjects/PlatformAction/describe",
+            "sobject":"/services/data/v32.0/sobjects/PlatformAction"
+        },
+        "createable":false,
+        "feedEnabled":false,
+        "retrieveable":false,
+        "name":"PlatformAction",
+        "customSetting":false,
+        "labelPlural":"Platform Actions",
+        "triggerable":false
+    },
+    "recentItems":[
+
+    ]
+    }
+    ```
+
+??? note "sObjectRows"
+    To retrieve details of a specific record, use salesforcerest.sObjectRows. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_retrieve.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The object type of the record.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+        <tr>
+            <td>rowId</td>
+            <td>The ID of the record whose details you want to retrieve.</td>
+            <td>Yes</td>
+            <td>00128000005YjDnAAK</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.sObjectRows>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <rowId>{$ctx:rowId}</rowId>
+    </salesforcerest.sObjectRows>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the sObjectRows operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
         "sObjectName":"Account",
         "rowId":"00128000005YjDnAAK",
     }
     ```
 
-### Composite
+    **Sample Response**
 
-??? note "compositeBatch"
-    The `salesforce.compositeBatch` operation executes up to 25 sub-requests in a single call to Salesforce’s Composite Batch REST resource. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_batch.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Field and Value</td>
-            <td>JSON string that defines the array of sub-requests (each sub-request includes <code>method</code>, <code>url</code>, optional <code>body</code>, and a <code>referenceId</code>).</td>
-            <td>Yes</td>
-            <td>[{"method":"GET","url":"/services/data/v60.0/sobjects/Account/001..."}]</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.compositeBatch>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.compositeBatch>
-    ```
-
-    **Sample request**
+    Given below is a sample response for the sObjectRows operation.
 
     ```json
     {
-        "fieldAndValue": {
-            "batchRequests": [
-                {
-                    "method": "PATCH",
-                    "url": "v64.0/sobjects/account/001D000000K0fXOIAZ",
-                    "richInput": {
-                        "Name": "NewName"
-                    }
-                },
-                {
-                    "method": "GET",
-                    "url": "v64.0/sobjects/account/001D000000K0fXOIAZ?fields=Name,BillingPostalCode"
-                }
-            ]
-        }
+        "AccountNumber" : "CD656092",
+        "BillingPostalCode" : "27215"
     }
     ```
 
-??? note "compositeGraph"
-    The `salesforce.compositeGraph` operation submits one or more composite graph operations to Salesforce’s Composite Graph REST resource. Each graph can contain multiple sub-requests that are executed in the order you define. See the [Composite Graph API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_graph.htm) for full details.
+### Search
+
+??? note "search"
+    To search for records, use salesforcerest.search and specify the search string. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_search.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1202,1965 +3674,389 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
             <th>Sample Value</th>
         </tr>
         <tr>
-            <td>Field and Value</td>
-            <td>
-                A JSON object that defines one or more graphs.<br/>
-                Each graph contains a <code>graphId</code> and a <code>compositeRequest</code> array.<br/>
-                Every sub-request in <code>compositeRequest</code> specifies <code>method</code>, <code>url</code>, an optional <code>body</code>, and a <code>referenceId</code>.
-            </td>
+            <td>searchString</td>
+            <td>The SQL query to use to search for records.</td>
             <td>Yes</td>
-            <td>{ "graphs": [ { "graphId": "Graph1", "compositeRequest": [ … ] } ] }</td>
+            <td>sample string</td>
         </tr>
     </table>
 
     **Sample configuration**
 
     ```xml
-    <salesforce.compositeGraph>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.compositeGraph>
+    <salesforcerest.search>
+        <searchString>{$ctx:searchString}</searchString>
+    </salesforcerest.search>
     ```
 
     **Sample request**
 
+    The following is a sample request that can be handled by the search operation.
+
     ```json
     {
-        "fieldAndValue": {
-            "graphs": [
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "searchString": "FIND {map*} IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the search operation.
+
+    ```json
+    {
+        {"output":"[{\"attributes\":{\"type\":\"Account\",\"url\":\"/services/data/v32.0/sobjects/Account/00128000005dMcSAAU\"},\"Id\":\"00128000005dMcSAAU\",\"Name\":\"GenePoint\"}]"}
+    }
+    ```
+
+??? note "searchScopeAndOrder"
+    To retrieve the search scope and order for the currently logged-in user, use salesforcerest.searchScopeAndOrder. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_search_scope_order.htm) for more information.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.searchScopeAndOrder/>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the searchScopeAndOrder operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the searchScopeAndOrder operation.
+
+    ```json
+    {
+        {"output":"[]"}
+    }
+    ```
+
+??? note "searchResultLayout"
+    To retrieve the search result layouts for one or more sObjects, use salesforcerest.searchResultLayout and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_retrieve_search_layouts.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>sObjectNameList</td>
+            <td>A comma-delimited list of the objects whose search result layouts you want to retrieve.</td>
+            <td>Yes</td>
+            <td>Account,User</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.searchResultLayout>
+        <sObjectNameList>{$ctx:sObjectNameList}</sObjectNameList>
+    </salesforcerest.searchResultLayout>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the searchResultLayout operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectNameList": "Account,User",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the searchResultLayout operation.
+
+    ```json
+    {
+        {"output":"[{\"errorMsg\":null,\"label\":\"Search Results\",\"limitRows\":25,\"objectType\":\"Account\",\"searchColumns\":[{\"field\":\"Account.Name\",\"format\":null,\"label\":\"Account Name\",\"name\":\"Name\"},{\"field\":\"Account.Site\",\"format\":null,\"label\":\"Account Site\",\"name\":\"Site\"},.]"}
+    }
+    ```
+
+??? note "searchSuggestedRecords"
+    To return a list of suggested records whose names match the user’s search string, use salesforcerest.searchSuggestedRecords and specify the following properties. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/resources_search_suggest_records.htm?search_text=search%20Suggested%20records) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>stringForSearch</td>
+            <td>The object type that the search is scoped to.</td>
+            <td>Yes</td>
+            <td>hari</td>
+        </tr>
+        <tr>
+            <td>sObjectName</td>
+            <td>The SOQL query to execute the search.</td>
+            <td>Yes</td>
+            <td>Account</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.searchSuggestedRecords>
+        <stringForSearch>{$ctx:stringForSearch}</stringForSearch>
+        <sObjectName>{$ctx:sObjectName}</sObjectName>
+    </salesforcerest.searchSuggestedRecords>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the searchSuggestedRecords operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "sObjectName": "Account",
+        "stringForSearch": "hari",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the searchSuggestedRecords operation.
+
+    ```json
+    {
+        {"autoSuggestResults":[],"hasMoreResults":false}
+    }
+    ```
+
+### Users
+
+??? note "getUserInformation"
+    To retrieve information about a specific user, use salesforcerest.getUserInformation and specify the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.198.0.api_rest.meta/api_rest/dome_process_rules.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>userId</td>
+            <td>The ID of the user whose information you want to retrieve.</td>
+            <td>Yes</td>
+            <td>00528000000yl7j</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getUserInformation>
+        <userId>{$ctx:userId}</userId>
+    </salesforcerest.getUserInformation>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getUserInformation operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "userId": "00528000000yl7j",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the getUserInformation operation.
+
+    ```json
+    {
+        "ProfileId":"00e28000000xIEQAA2",
+        "LastModifiedDate":"2016-11-29T05:40:45.000+0000",
+        "Address":{
+            "country":"LK",
+            "city":null,
+            "street":null,
+            "latitude":null,
+            "postalCode":null,
+            "geocodeAccuracy":null,
+            "state":null,
+            "longitude":null
+        },
+        "LanguageLocaleKey":"en_US",
+        "EmailPreferencesAutoBccStayInTouch":false
+        .
+        .
+    }
+    ```
+
+??? note "resetPassword"
+    To reset the password of a specific user, use salesforcerest.resetPassword and specify the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_user_password.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>userId</td>
+            <td>The ID of the user whose information you want to retrieve.</td>
+            <td>Yes</td>
+            <td>00528000000yl7j</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getUserInformation>
+        <userId>{$ctx:userId}</userId>
+    </salesforcerest.getUserInformation>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getUserInformation operation.
+
+    ```json
+    {
+        "accessToken":"XXXXXXXXXXXX (Replace with your access token)",
+        "apiUrl":"https://(your_instance).salesforce.com",
+        "hostName": "https://login.salesforce.com",
+        "apiVersion": "v32.0",
+        "userId": "00528000000yl7j",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response for the getUserInformation operation.
+
+    ```json
+    {
+       "NewPassword" : "myNewPassword1234"
+    }
+    ```
+
+### Reports
+
+??? note "getReport"
+    To retrieve information about a report, use salesforcerest.getReport and specify the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.234.0.api_analytics.meta/api_analytics/sforce_analytics_rest_api_getreportrundata.htm) for more information.
+
+    > **Note**: This operation is available only with Salesforce REST Connector v1.1.2 and above.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>reportId</td>
+            <td>The ID of the report that you want to retrieve.</td>
+            <td>Yes</td>
+            <td>00O8d000004MWaGEAW</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getReport>
+        <reportId>{$ctx:reportId}</reportId>
+    </salesforcerest.getReport>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getReport operation.
+
+    ```json
+    {
+        "reportId": "00O8d000004MWaGEAW",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response from the getReport operation.
+
+    ```json
+    {
+    "attributes": {
+        "describeUrl": "/services/data/v55.0/analytics/reports/00O8d000004MWaGEAW/describe",
+        "instancesUrl": "/services/data/v55.0/analytics/reports/00O8d000004MWaGEAW/instances",
+        "reportId": "00O8d000004MWaGEAW",
+        "reportName": "SampleReport",
+        "type": "Report"
+    },
+    "allData": true,
+    "factMap": {
+        "T!T": {
+            "aggregates": [
                 {
-                    "graphId": "Graph1",
-                    "compositeRequest": [
+                    "label": "13",
+                    "value": 13
+                }
+            ],
+            "rows": [
+                {
+                    "dataCells": [
                         {
-                            "method": "GET",
-                            "url": "/services/data/v60.0/sobjects/Account/0018g00000XXXXXAAA",
-                            "referenceId": "RefAccount"
+                            "label": "Customer - Direct",
+                            "recordId": "0018d00000FgQblAAF",
+                            "value": "Customer - Direct"
                         },
                         {
-                            "method": "PATCH",
-                            "url": "/services/data/v60.0/sobjects/Account/@{RefAccount.Id}",
-                            "body": {
-                                "Industry": "Manufacturing"
-                            },
-                            "referenceId": "UpdateAccount"
-                        }
+                            "label": "Warm",
+                            "recordId": "0018d00000FgQblAAF",
+                            "value": "Warm"
+                        },
+                        {
+                            "label": "-",
+                            "recordId": "0018d00000FgQblAAF",
+                            "value": null
+                        },
+                        {
+                            "label": "16/08/2022",
+                            "value": "2022-08-15"
+                        },
+                        .
+                        .
+                        .
                     ]
                 }
             ]
+            }
         }
     }
-    ```
-
-??? note "compositeRequest"
-    The `salesforce.compositeRequest` operation executes a series of REST API sub-requests in a single call to Salesforce’s Composite REST resource, preserving the order and allowing inter-request references. See the [Composite API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite.htm) for full details.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Field And Value</td>
-            <td>
-                A JSON object that defines the composite request.<br/>
-                Must include an <code>allOrNone</code> flag and a <code>compositeRequest</code> array.<br/>
-                Each item in <code>compositeRequest</code> specifies <code>method</code>, <code>url</code>, an optional <code>body</code>, and a <code>referenceId</code>.
-            </td>
-            <td>Yes</td>
-            <td>{ "allOrNone": true, "compositeRequest": [ … ] }</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.compositeRequest>
-        <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-    </salesforce.compositeRequest>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "fieldAndValue": {
-            "allOrNone": true,
-            "compositeRequest": [
-                {
-                    "method": "GET",
-                    "url": "/services/data/v60.0/sobjects/Account/0018g00000XXXXXAAA",
-                    "referenceId": "RefAccount"
-                },
-                {
-                    "method": "PATCH",
-                    "url": "/services/data/v60.0/sobjects/Account/@{RefAccount.id}",
-                    "body": {
-                        "Industry": "Manufacturing"
-                    },
-                    "referenceId": "UpdateAccount"
-                },
-                {
-                    "method": "POST",
-                    "url": "/services/data/v60.0/sobjects/Contact",
-                    "body": {
-                        "LastName": "Smith",
-                        "AccountId": "@{RefAccount.id}"
-                    },
-                    "referenceId": "CreateContact"
-                }
-            ]
-        }
-    }
-    ```
-
-### Bulk V2
-
-??? note "abortJob"
-    The `salesforce.abortJob` operation aborts a bulk ingest job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/close_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.abortJob>
-        <jobId>{${payload.jobId}}</jobId>
-    </salesforce.abortJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI"
-    }
-    ```
-
-??? note "createJob"
-    The `salesforce.createJob` operation creates a bulk ingest job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/create_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Operation</td>
-            <td>The bulk operation to perform on the data (for example, <code>insert</code>, <code>update</code>, <code>upsert</code>, or <code>delete</code>).</td>
-            <td>Yes</td>
-            <td>insert</td>
-        </tr>
-        <tr>
-            <td>Object</td>
-            <td>The object type for the data being processed. Use only a single object type per job.</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-        <tr>
-            <td>Column Delimeter</td>
-            <td>The column delimiter used for CSV job data. Default is <code>COMMA</code>. Valid values: <code>BACKQUOTE</code>, <code>CARET</code>, <code>COMMA</code>, <code>PIPE</code>, <code>SEMICOLON</code>, <code>TAB</code>.</td>
-            <td>Yes</td>
-            <td>COMMA</td>
-        </tr>
-        <tr>
-            <td>Line Ending</td>
-            <td>The line ending used for CSV job data, marking the end of a data row. Valid values: <code>LF</code>, <code>CRLF</code>. Default is <code>LF</code>.</td>
-            <td>Yes</td>
-            <td>LF</td>
-        </tr>
-        <tr>
-            <td>Assignment Rule ID</td>
-            <td>The ID of an assignment rule to run for a Case or a Lead. The rule can be active or inactive.</td>
-            <td>No</td>
-            <td>01Q3j000000XXXXAAA</td>
-        </tr>
-        <tr>
-            <td>External ID Field Name</td>
-            <td>The external-ID field in the object being updated. Required only for <code>upsert</code> operations.</td>
-            <td>No</td>
-            <td>External_Id__c</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.createJob>
-        <operation>{${payload.operation}}</operation>
-        <object>{${payload.object}}</object>
-        <columnDelimiter>{${payload.columnDelimiter}}</columnDelimiter>
-        <lineEnding>{${payload.lineEnding}}</lineEnding>
-        <assignmentRuleId>{${payload.assignmentRuleId}}</assignmentRuleId>
-        <externalIdFieldName>{${payload.externalIdFieldName}}</externalIdFieldName>
-    </salesforce.createJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "operation": "insert",
-        "object": "Account",
-        "columnDelimiter": "COMMA",
-        "lineEnding": "LF",
-        "assignmentRuleId": "01Q3j000000XXXXAAA",
-        "externalIdFieldName": "External_Id__c"
-    }
-    ```
-
-??? note "closeJob"
-    The `salesforce.closeJob` operation closes a bulk ingest job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/close_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.closeJob>
-        <jobId>{${payload.jobId}}</jobId>
-    </salesforce.closeJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI"
-    }
-    ```
-
-??? note "deleteJob"
-    The `salesforce.deleteJob` operation deletes a bulk ingest job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/delete_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.deleteJob>
-        <jobId>{${payload.jobId}}</jobId>
-    </salesforce.deleteJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI"
-    }
-    ```
-
-??? note "getAllJobInfo"
-    The `salesforce.getJobInfo` operation retrieve all the bulk ingest job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_all_jobs.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>IsPKChunkingEnabled</td>
-            <td>If set to <code>true</code>, returns information only about jobs where PK Chunking is enabled (Bulk API 1.0 only).</td>
-            <td>No</td>
-            <td>true</td>
-        </tr>
-        <tr>
-            <td>Job Type</td>
-            <td>Returns jobs that match the specified type.<br/>
-                Valid values: <code>Classic</code>, <code>BigObjectIngest</code>, <code>V2Ingest</code>, <code>All</code>.</td>
-            <td>No</td>
-            <td>V2Ingest</td>
-        </tr>
-        <tr>
-            <td>Query Locator</td>
-            <td>Returns jobs starting at the specified locator value.</td>
-            <td>No</td>
-            <td>0Sf3i0000004oBAEAY</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getAllJobInfo>
-        <isPKChunkingEnabled>{${payload.isPKChunkingEnabled}}</isPKChunkingEnabled>
-        <jobType>{${payload.jobType}}</jobType>
-        <queryLocator>{${payload.queryLocator}}</queryLocator>
-    </salesforce.getAllJobInfo>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "isPKChunkingEnabled": true,
-        "jobType": "V2Ingest",
-        "queryLocator": "0Sf3i0000004oBAEAY"
-    }
-    ```
-
-??? note "getFailedResults"
-    The `salesforce.getFailedResults` operation retrieves failed records of a specific bulk job from Salesforce using the Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_job_failed_results.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-        <tr>
-            <td>Output Type</td>
-            <td>The response content type.</td>
-            <td>Yes</td>
-            <td>CSV</td>
-        </tr>
-        <tr>
-            <td>Add Results To</td>
-            <td>Where to store the results (<code>FILE</code> or <code>BODY</code>).</td>
-            <td>Yes</td>
-            <td>FILE</td>
-        </tr>
-        <tr>
-            <td>File Path</td>
-            <td>The file path to store results (required only when <code>Add Results To</code> is <code>FILE</code>).</td>
-            <td>If <code>FILE</code> selected</td>
-            <td>/tmp/failed_results.csv</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getFailedResults>
-        <jobId>{${payload.jobId}}</jobId>
-        <outputType>{${payload.outputType}}</outputType>
-        <addResultsTo>{${payload.addResultsTo}}</addResultsTo>
-        <filePath>{${payload.filePath}}</filePath>
-    </salesforce.getFailedResults>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI",
-        "outputType": "CSV",
-        "addResultsTo": "FILE",
-        "filePath": "/tmp/failed_results.csv"
-    }
-    ```
-
-??? note "getJobInfo"
-    The `salesforce.getJobInfo` operation retrieve bulk ingest job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_job_info.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getJobInfo>
-        <jobId>{${payload.jobId}}</jobId>
-    </salesforce.getJobInfo>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI"
-    }
-    ```
-
-??? note "getSuccessfulResults"
-    The `salesforce.getSuccessfulResults` operation retrieves successful records of a specific bulk job from Salesforce using the Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_job_successful_results.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-        <tr>
-            <td>Output Type</td>
-            <td>The response content type.</td>
-            <td>Yes</td>
-            <td>CSV</td>
-        </tr>
-        <tr>
-            <td>Add Results To</td>
-            <td>Where to store the results (<code>FILE</code> or <code>BODY</code>).</td>
-            <td>Yes</td>
-            <td>FILE</td>
-        </tr>
-        <tr>
-            <td>File Path</td>
-            <td>The file path to store results (required only when <code>Add Results To</code> is <code>FILE</code>).</td>
-            <td>If <code>FILE</code> selected</td>
-            <td>/tmp/success_results.csv</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getSuccessfulResults>
-        <jobId>{${payload.jobId}}</jobId>
-        <outputType>{${payload.outputType}}</outputType>
-        <addResultsTo>{${payload.addResultsTo}}</addResultsTo>
-        <filePath>{${payload.filePath}}</filePath>
-    </salesforce.getSuccessfulResults>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI",
-        "outputType": "CSV",
-        "addResultsTo": "FILE",
-        "filePath": "/tmp/success_results.csv"
-    }
-    ```
-
-??? note "getUnprocessedResults"
-    The `salesforce.getUnprocessedResults` operation retrieves unprocessed records of a specific bulk job from Salesforce using the Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_job_unprocessed_results.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-        <tr>
-            <td>Output Type</td>
-            <td>The response content type.</td>
-            <td>Yes</td>
-            <td>CSV</td>
-        </tr>
-        <tr>
-            <td>Add Results To</td>
-            <td>Where to store the results (<code>FILE</code> or <code>BODY</code>).</td>
-            <td>Yes</td>
-            <td>FILE</td>
-        </tr>
-        <tr>
-            <td>File Path</td>
-            <td>The file path to store results (required only when <code>Add Results To</code> is <code>FILE</code>).</td>
-            <td>If <code>FILE</code> selected</td>
-            <td>/tmp/unprocessed_results.csv</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getUnprocessedResults>
-        <jobId>{${payload.jobId}}</jobId>
-        <outputType>{${payload.outputType}}</outputType>
-        <addResultsTo>{${payload.addResultsTo}}</addResultsTo>
-        <filePath>{${payload.filePath}}</filePath>
-    </salesforce.getUnprocessedResults>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI",
-        "outputType": "CSV",
-        "addResultsTo": "FILE",
-        "filePath": "/tmp/unprocessed_results.csv"
-    }
-    ```
-
-??? note "uploadJobData"
-    The `salesforce.uploadJobData` operation upload the csv records to a bulk job in Salesforce using the Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/upload_job_data.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk job ID.</td>
-            <td>Yes</td>
-            <td>7503i000000XXXXXAAI</td>
-        </tr>
-        <tr>
-            <td>Input Data</td>
-            <td>The CSV content to upload.</td>
-            <td>Yes</td>
-            <td><code>Name,Industry&#10;Acme,Manufacturing</code></td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.uploadJobData>
-        <jobId>{${payload.jobId}}</jobId>
-        <inputData>{${payload.inputData}}</inputData>
-    </salesforce.uploadJobData>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7503i000000XXXXXAAI",
-        "inputData": "Name,Industry\nAcme,Manufacturing"
-    }
-    ```
-
-??? note "createQueryJob"
-    The `salesforce.createQueryJob` operation creates a bulk query job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_create_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Operation</td>
-            <td>The type of query.<br/>Valid values: <code>QUERY</code>, <code>QUERY_ALL</code>.</td>
-            <td>Yes</td>
-            <td>QUERY</td>
-        </tr>
-        <tr>
-            <td>Column Delimiter</td>
-            <td>The column delimiter used for CSV job data.<br/>Default is <code>COMMA</code>.<br/>Valid values: <code>BACKQUOTE</code>, <code>CARET</code>, <code>COMMA</code>, <code>PIPE</code>, <code>SEMICOLON</code>, <code>TAB</code>.</td>
-            <td>Yes</td>
-            <td>COMMA</td>
-        </tr>
-        <tr>
-            <td>Line Ending</td>
-            <td>The line ending used for CSV job data, marking the end of a data row.<br/>Valid values: <code>LF</code>, <code>CRLF</code>.<br/>Default is <code>LF</code>.</td>
-            <td>Yes</td>
-            <td>LF</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.createQueryJob>
-        <operation>{${payload.operation}}</operation>
-        <columnDelimiter>{${payload.columnDelimiter}}</columnDelimiter>
-        <lineEnding>{${payload.lineEnding}}</lineEnding>
-    </salesforce.createQueryJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "operation": "QUERY",
-        "columnDelimiter": "COMMA",
-        "lineEnding": "LF"
-    }
-    ```
-
-??? note "abortQueryJob"
-    The `salesforce.abortQueryJob` operation aborts a bulk query job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_abort_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Query Job ID</td>
-            <td>The bulk query job ID.</td>
-            <td>Yes</td>
-            <td>7508i000000YYYYAAA</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.abortQueryJob>
-        <queryJobId>{${payload.queryJobId}}</queryJobId>
-    </salesforce.abortQueryJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "queryJobId": "7508i000000YYYYAAA"
-    }
-    ```
-
-??? note "deleteQueryJob"
-    The `salesforce.deleteQueryJob` operation deletes a bulk query job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_delete_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Query Job ID</td>
-            <td>The bulk query job ID.</td>
-            <td>Yes</td>
-            <td>7508i000000YYYYAAA</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.deleteQueryJob>
-        <queryJobId>{${payload.queryJobId}}</queryJobId>
-    </salesforce.deleteQueryJob>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "queryJobId": "7508i000000YYYYAAA"
-    }
-    ```
-
-??? note "getQueryJobInfo"
-    The `salesforce.getQueryJobInfo` operation retrieve bulk query job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_one_job.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The bulk query job ID.</td>
-            <td>Yes</td>
-            <td>7508i000000YYYYAAA</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getQueryJobInfo>
-        <jobId>{${payload.jobId}}</jobId>
-    </salesforce.getQueryJobInfo>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7508i000000YYYYAAA"
-    }
-    ```
-
-??? note "getAllQueryJobInfo"
-    The `salesforce.getAllQueryJobInfo` operation retrieve all the bulk query job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_all_jobs.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>IsPKChunkingEnabled</td>
-            <td>If set to <code>true</code>, returns information only about jobs where PK Chunking is enabled (Bulk API 1.0 only).</td>
-            <td>No</td>
-            <td>true</td>
-        </tr>
-        <tr>
-            <td>Job Type</td>
-            <td>Returns jobs that match the specified type.<br/>
-                Valid values: <code>Classic</code>, <code>V2Query</code>, <code>V2Ingest</code>, <code>All</code>.</td>
-            <td>No</td>
-            <td>V2Query</td>
-        </tr>
-        <tr>
-            <td>Query Locator</td>
-            <td>Returns jobs starting at the specified locator value.</td>
-            <td>No</td>
-            <td>0Sf3i0000004oBAEAY</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getAllQueryJobInfo>
-        <isPKChunkingEnabled>{${payload.isPKChunkingEnabled}}</isPKChunkingEnabled>
-        <jobType>{${payload.jobType}}</jobType>
-        <queryLocator>{${payload.queryLocator}}</queryLocator>
-    </salesforce.getAllQueryJobInfo>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "isPKChunkingEnabled": true,
-        "jobType": "V2Query",
-        "queryLocator": "0Sf3i0000004oBAEAY"
-    }
-    ```
-
-??? note "getQueryJobResults"
-    The `salesforce.getQueryJobResults` operation retrieves the results of a specified bulk query job from Salesforce using the Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_job_results.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Salesforce configuration</td>
-            <td>The Salesforce configuration that stores OAuth-related data.</td>
-            <td>Yes</td>
-            <td>salesforceConfig</td>
-        </tr>
-        <tr>
-            <td>Job ID</td>
-            <td>The ID of the bulk query job.</td>
-            <td>Yes</td>
-            <td>7508i000000YYYYAAA</td>
-        </tr>
-        <tr>
-            <td>Locator</td>
-            <td>A string that identifies a specific set of query results. Providing a value returns only that set of results.</td>
-            <td>No</td>
-            <td>02X8i000004abcdEAA</td>
-        </tr>
-        <tr>
-            <td>Max Records</td>
-            <td>The maximum number of records to retrieve per result set.</td>
-            <td>No</td>
-            <td>500</td>
-        </tr>
-        <tr>
-            <td>Output Type</td>
-            <td>The response content type.</td>
-            <td>Yes</td>
-            <td>CSV</td>
-        </tr>
-        <tr>
-            <td>Add Results To</td>
-            <td>Where to store the results (<code>FILE</code> or <code>BODY</code>).</td>
-            <td>Yes</td>
-            <td>FILE</td>
-        </tr>
-        <tr>
-            <td>File Path</td>
-            <td>The file path to store results (required only when <code>Add Results To</code> is <code>FILE</code>).</td>
-            <td>If <code>FILE</code> selected</td>
-            <td>/tmp/query_results.csv</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.getQueryJobResults>
-        <jobId>{${payload.jobId}}</jobId>
-        <locator>{${payload.locator}}</locator>
-        <maxRecords>{${payload.maxRecords}}</maxRecords>
-        <outputType>{${payload.outputType}}</outputType>
-        <addResultsTo>{${payload.addResultsTo}}</addResultsTo>
-        <filePath>{${payload.filePath}}</filePath>
-    </salesforce.getQueryJobResults>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "jobId": "7508i000000YYYYAAA",
-        "locator": "02X8i000004abcdEAA",
-        "maxRecords": 500,
-        "outputType": "CSV",
-        "addResultsTo": "FILE",
-        "filePath": "/tmp/query_results.csv"
-    }
-    ```
-
-### SOAP
-
-??? note "soapConvertLead"  
-    The `salesforce.soapConvertLead` operation converts one or more Lead records into Account, Contact, and (optionally) Opportunity records. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_convertlead.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Lead Convert Requests</td>
-            <td>The convert lead requests</td>
-            <td>Yes</td>
-            <td>[{...}]</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapConvertLead>
-        <leadconvertrequests>{${payload.leadconvertrequests}}</leadconvertrequests>
-    </salesforce.soapConvertLead>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "leadconvertrequests": "[{...}]"
-    }
-    ```
-
-??? note "soapCreate"  
-    The `salesforce.soapCreate` operation adds one or more new records to Salesforce. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_create.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>All or None</td>
-            <td>Whether to rollback changes if an object fails(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Allow Field Truncate</td>
-            <td>Whether to truncates strings that exceed the field length(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapCreate>
-        <allOrNone>{${payload.allOrNone}}</allOrNone>
-        <allowFieldTruncate>{${payload.allowFieldTruncate}}</allowFieldTruncate>
-        <sobjects>{${payload.sobjects}}</sobjects>
-    </salesforce.soapCreate>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "allOrNone": "1",
-      "allowFieldTruncate": "1",
-      "sobjects": "Account"
-    }
-    ```
-
-??? note "soapDelete"  
-    The `salesforce.soapDelete` operation deletes one or more records from Salesforce. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_delete.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>All or None</td>
-            <td>Whether to rollback changes if an object fails(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapDelete>
-        <allOrNone>{${payload.allOrNone}}</allOrNone>
-        <sobjects>{${payload.sobjects}}</sobjects>
-    </salesforce.soapDelete>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "allOrNone": "1",
-      "sobjects": "Account"
-    }
-    ```
-
-
-??? note "soapDescribeGlobal"  
-    The `salesforce.soapDescribeGlobal` operation retrieves a list of all objects available in your organization's data. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describeglobal.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr><td colspan="4">No parameters</td></tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapDescribeGlobal>
-    </salesforce.soapDescribeGlobal>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {}
-    ```
-
-??? note "soapDescribeSObject"  
-    The `salesforce.soapDescribeSObject` operation describes metadata (fields and properties) for the specified object. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describesobject.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>sObject</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapDescribeSObject>
-        <sobject>{${payload.sobject}}</sobject>
-    </salesforce.soapDescribeSObject>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "sobject": "Account"
-    }
-    ```
-
-??? note "soapDescribeSObjects"  
-    The `salesforce.soapDescribeSObjects` operation describes metadata (fields and properties) for one or more specified objects. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describesobjects.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject types</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapDescribeSObjects>
-        <sobjects>{${payload.sobjects}}</sobjects>
-    </salesforce.soapDescribeSObjects>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "sobjects": "Account"
-    }
-    ```
-
-??? note "soapEmptyRecycleBin"  
-    The `salesforce.soapEmptyRecycleBin` operation permanently deletes records from the Recycle Bin. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_emptyrecyclebin.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>All or None</td>
-            <td>Whether to rollback changes if an object fails(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapEmptyRecycleBin>
-        <allOrNone>{${payload.allOrNone}}</allOrNone>
-        <sobjects>{${payload.sobjects}}</sobjects>
-    </salesforce.soapEmptyRecycleBin>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "allOrNone": "1",
-      "sobjects": "Account"
-    }
-    ```
-
-??? note "soapFindDuplicates"  
-    The `salesforce.soapFindDuplicates` operation searches for duplicate records based on defined matching rules. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapFindDuplicates>
-        <sobjects>{${payload.sobjects}}</sobjects>
-    </salesforce.soapFindDuplicates>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "sobjects": "Account"
-    }
-    ```
-
-??? note "soapFindDuplicatesByIds"  
-    The `salesforce.soapFindDuplicatesByIds` operation searches for duplicate records for the provided record IDs. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm) for more information. The input is an array of IDs.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>IDs</td>
-            <td>Record ids</td>
-            <td>Yes</td>
-            <td>["0018g00000XXXXXAAA"]</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapFindDuplicatesByIds>
-        <ids>{${payload.ids}}</ids>
-    </salesforce.soapFindDuplicatesByIds>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "ids": "[\"0018g00000XXXXXAAA\"]"
-    }
-    ```
-
-??? note "soapGetDeleted"  
-    The `salesforce.soapGetDeleted` operation retrieves IDs of records deleted during a specified time window. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getdeleted.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>sObject Type</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-        <tr>
-            <td>Start Date</td>
-            <td>The start date for deleted records lookup</td>
-            <td>Yes</td>
-            <td>2025-06-01T00:00:00Z</td>
-        </tr>
-        <tr>
-            <td>End Date</td>
-            <td>The end date for deleted records lookup</td>
-            <td>Yes</td>
-            <td>2025-06-16T00:00:00Z</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapGetDeleted>
-        <sObjectType>{${payload.sObjectType}}</sObjectType>
-        <startDate>{${payload.startDate}}</startDate>
-        <endDate>{${payload.endDate}}</endDate>
-    </salesforce.soapGetDeleted>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "sObjectType": "Account",
-      "startDate": "2025-06-01T00:00:00Z",
-      "endDate": "2025-06-16T00:00:00Z"
-    }
-    ```
-
-
-
-??? note "soapGetServerTimestamp"  
-    The `salesforce.soapGetServerTimestamp` operation retrieves the current server timestamp (UTC). See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getservertimestamp.htm) for more information..
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr><td colspan="4">No parameters</td></tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapGetServerTimestamp>
-    </salesforce.soapGetServerTimestamp>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {}
-    ```
-
-??? note "soapGetUpdated"  
-    The `salesforce.soapGetUpdated` operation retrieves IDs of records updated during a specified time window. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>sObject Type</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-        <tr>
-            <td>Start Date</td>
-            <td>The start date for deleted records lookup</td>
-            <td>Yes</td>
-            <td>2024-01-01T00:00:00Z</td>
-        </tr>
-        <tr>
-            <td>End Date</td>
-            <td>The end date for deleted records lookup</td>
-            <td>Yes</td>
-            <td>2024-01-02T00:00:00Z</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapGetUpdated>
-        <sObjectType>{${payload.sObjectType}}</sObjectType>
-        <startDate>{${payload.startDate}}</startDate>
-        <endDate>{${payload.endDate}}</endDate>
-    </salesforce.soapGetUpdated>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "sObjectType": "Account",
-      "startDate": "2024-01-01T00:00:00Z",
-      "endDate": "2024-01-02T00:00:00Z"
-    }
-    ```
-
-??? note "soapGetUserInfo"  
-    The `salesforce.soapGetUserInfo` operation retrieves personal information for the user of the current session. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr><td colspan="4">No parameters</td></tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapGetUserInfo>
-    </salesforce.soapGetUserInfo>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {}
-    ```
-
-??? note "soapLogout"  
-    The `salesforce.soapLogout` operation terminates the current session. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_logout.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr><td colspan="4">No parameters</td></tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapLogout>
-    </salesforce.soapLogout>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {}
-    ```
-
-??? note "soapMerge"  
-    The `salesforce.soapMerge` operation merges up to three records of the same object type into a single record. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Merge Requests</td>
-            <td>WThe merge requests.</td>
-            <td>Yes</td>
-            <td>[&lt;MergeRequest/&gt;]</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapMerge>
-        <mergerequests>{${payload.mergerequests}}</mergerequests>
-    </salesforce.soapMerge>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "mergerequests": "[<MergeRequest/>]"
-    }
-    ```
-
-??? note "soapQuery"  
-    The `salesforce.soapQuery` operation runs a SOQL query and returns matching records. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_query.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Batch Size</td>
-            <td>The number of records to return.</td>
-            <td>Yes</td>
-            <td>200</td>
-        </tr>
-        <tr>
-            <td>Query String</td>
-            <td>The queryString to get the results from API.</td>
-            <td>Yes</td>
-            <td>SELECT Id, Name FROM Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapQuery>
-        <batchSize>{${payload.batchSize}}</batchSize>
-        <queryString>{${payload.queryString}}</queryString>
-    </salesforce.soapQuery>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "batchSize": 200,
-      "queryString": "SELECT Id, Name FROM Account"
-    }
-    ```
-
-??? note "soapQueryAll"  
-    The `salesforce.soapQueryAll` operation runs a SOQL query that returns both active and archived/deleted records. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_queryall.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Batch Size</td>
-            <td>The number of records to return.</td>
-            <td>Yes</td>
-            <td>200</td>
-        </tr>
-        <tr>
-            <td>Query String</td>
-            <td>The queryString to get the results from API.</td>
-            <td>Yes</td>
-            <td>SELECT Id, Name FROM Account</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapQueryAll>
-        <batchSize>{${payload.batchSize}}</batchSize>
-        <queryString>{${payload.queryString}}</queryString>
-    </salesforce.soapQueryAll>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "batchSize": 200,
-      "queryString": "SELECT Id, Name FROM Account"
-    }
-    ```
-
-??? note "soapQueryMore"  
-    The `salesforce.soapQueryMore` operation retrieves the next batch of query results. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_querymore.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Batch Size</td>
-            <td>The number of records to return.</td>
-            <td>Yes</td>
-            <td>200</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapQueryMore>
-        <batchSize>{${payload.batchSize}}</batchSize>
-    </salesforce.soapQueryMore>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "batchSize": 200
-    }
-    ```
-
-??? note "soapResetPassword"  
-    The `salesforce.soapResetPassword` operation resets a user's password and emails them the new password. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_resetpassword.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>User ID</td>
-            <td>The user&#x27;s Salesforce ID.</td>
-            <td>Yes</td>
-            <td>0058g00000XXXXXAAA</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapResetPassword>
-        <userId>{${payload.userId}}</userId>
-    </salesforce.soapResetPassword>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "userId": "0058g00000XXXXXAAA"
-    }
-    ```
-
-??? note "soapRetrieve"  
-    The `salesforce.soapRetrieve` operation retrieves field values for one or more records of a specified object. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_retrieve.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Object Type</td>
-            <td>The object type of the records.</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-        <tr>
-            <td>Object IDs</td>
-            <td>XML representation of the records to retrieve, as shown in the following example.</td>
-            <td>Yes</td>
-            <td>&lt;ids&gt;001...&lt;/ids&gt;</td>
-        </tr>
-        <tr>
-            <td>Field List</td>
-            <td>A comma-separated list of the fields you want to retrieve from the records.</td>
-            <td>Yes</td>
-            <td>SampleValue</td>
-        </tr>
-    </table>
-    
-    **Sample configuration**
-    
-    ```xml
-    <salesforce.soapRetrieve>
-        <objectType>{${payload.objectType}}</objectType>
-        <objectIDS>{${payload.objectIDS}}</objectIDS>
-        <fieldList>{${payload.fieldList}}</fieldList>
-    </salesforce.soapRetrieve>
-    ```
-    
-    **Sample request**
-    
-    ```json
-    {
-      "objectType": "Account",
-      "objectIDS": "<ids>001...</ids>",
-      "fieldList": "SampleValue"
-    }
-    ```
-
-??? note "soapSearch"  
-    The `salesforce.soapSearch` operation executes a SOSL text search against your organization's data. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_search.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>search String</td>
-            <td>The searchString to get the Result.</td>
-            <td>Yes</td>
-            <td>*John*</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <salesforce.soapSearch>
-        <searchString>{${payload.searchString}}</searchString>
-    </salesforce.soapSearch>
-    ```
-
-    **Sample request**
-
-    ```json
-    {
-        "searchString": "*John*"
-    }
-    ```
-
-??? note "soapSendEmail"
-    The `salesforce.soapSendEmail` operation sends a single or mass email immediately. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_sendemail.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Send Email</td>
-            <td>XML representation of the email, as shown in the example.</td>
-            <td>Yes</td>
-            <td>{}</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-        <salesforce.soapSendEmail>
-            <sendEmail>{${payload.sendEmail}}</sendEmail>
-        </salesforce.soapSendEmail>
-    ```
-    
-    **Sample request**
-    
-    ```json
-        {
-          "sendEmail": "<SingleEmailMessage>...</SingleEmailMessage>"
-        }
-    ```
-
-??? note "soapSendEmailMessage"
-    The `salesforce.soapSendEmailMessage` operation sends up to 10 draft EmailMessage records. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_sendemailmessage.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>Send Email Message</td>
-            <td>XML representation of the email IDs to send, as shown in the example.</td>
-            <td>Yes</td>
-            <td>{}</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-        <salesforce.soapSendEmailMessage>
-            <sendEmailMessage>{${payload.sendEmailMessage}}</sendEmailMessage>
-        </salesforce.soapSendEmailMessage>
-    ```
-
-    **Sample request**
-
-    ```json
-        {
-          "sendEmailMessage": "<EmailMessage>...</EmailMessage>"
-        }
-    ```
-
-??? note "soapSetPassword"
-    The `salesforce.soapSetPassword` operation sets a user's password to a specified value. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_setpassword.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>User ID</td>
-            <td>The user&#x27;s Salesforce ID.</td>
-            <td>Yes</td>
-            <td>0058g00000XXXXXAAA</td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td>If using setPassword, the new password to assign to the user.</td>
-            <td>Yes</td>
-            <td>P@ssw0rd123</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-        <salesforce.soapSetPassword>
-            <userId>{${payload.userId}}</userId>
-            <password>{${payload.password}}</password>
-        </salesforce.soapSetPassword>
-    ```
-
-    **Sample request**
-
-    ```json
-        {
-          "userId": "0058g00000XXXXXAAA",
-          "password": "P@ssw0rd123"
-        }
-    ```
-
-??? note "soapUndelete"
-    The `salesforce.soapUndelete` operation restores deleted records from the Recycle Bin. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm) for more information.
-    <table>
-    <tr>
-        <th>Parameter Name</th>
-        <th>Description</th>
-        <th>Required</th>
-        <th>Sample Value</th>
-    </tr>
-    <tr>
-        <td>All or None</td>
-        <td>Whether to rollback changes if an object fails(Default value is 0).</td>
-        <td>Yes</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>sObjects</td>
-        <td>The sobject type</td>
-        <td>Yes</td>
-        <td>Account</td>
-    </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-        <salesforce.soapUndelete>
-            <allOrNone>{${payload.allOrNone}}</allOrNone>
-            <sobjects>{${payload.sobjects}}</sobjects>
-        </salesforce.soapUndelete>
-    ```
-
-    **Sample request**
-
-    ```json
-        {
-          "allOrNone": "1",
-          "sobjects": "Account"
-        }
-    ```
-
-??? note "soapUpdate"
-    The `salesforce.soapUpdate` operation updates one or more existing records. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_update.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>All or None</td>
-            <td>Whether to rollback changes if an object fails(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Allow Field Truncate</td>
-            <td>Whether to truncates strings that exceed the field length(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-        <salesforce.soapUpdate>
-            <allOrNone>{${payload.allOrNone}}</allOrNone>
-            <allowFieldTruncate>{${payload.allowFieldTruncate}}</allowFieldTruncate>
-            <sobjects>{${payload.sobjects}}</sobjects>
-        </salesforce.soapUpdate>
-    ```
-
-    **Sample request**
-
-    ```json
-        {
-          "allOrNone": "1",
-          "allowFieldTruncate": "1",
-          "sobjects": "Account"
-        }
-    ```
-
-??? note "soapUpsert"
-    The `salesforce.soapUpsert` operation creates new records or updates existing records based on an external ID field. See the [SOAP API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_upsert.htm) for more information.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-            <th>Sample Value</th>
-        </tr>
-        <tr>
-            <td>All or None</td>
-            <td>Whether to rollback changes if an object fails(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Allow Field Truncate</td>
-            <td>Whether to truncates strings that exceed the field length(Default value is 0).</td>
-            <td>Yes</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>sObjects</td>
-            <td>The sobject type</td>
-            <td>Yes</td>
-            <td>Account</td>
-        </tr>
-        <tr>
-            <td>External ID</td>
-            <td>The field containing the record ID</td>
-            <td>Yes</td>
-            <td>External_Id__c</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-        <salesforce.soapUpsert>
-            <allOrNone>{${payload.allOrNone}}</allOrNone>
-            <allowFieldTruncate>{${payload.allowFieldTruncate}}</allowFieldTruncate>
-            <sobjects>{${payload.sobjects}}</sobjects>
-            <externalId>{${payload.externalId}}</externalId>
-        </salesforce.soapUpsert>
-    ```
-
-    **Sample request**
-
-    ```json
-        {
-          "allOrNone": "1",
-          "allowFieldTruncate": "1",
-          "sobjects": "Account",
-          "externalId": "External_Id__c"
-        }
     ```
