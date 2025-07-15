@@ -65,7 +65,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
          ```
    <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png" alt="generated connector" width="30%" height="40%" ></a>
 
-**Step 06:** Similarly, you can use the `GetOrder` operation to retrieve order details by supplying the `order_id`. Again, make sure the response overwrites the payload. <image4>
+**Step 06:** Similarly, you can use the `GetOrder` operation to retrieve order details by supplying the `order_id`. Again, make sure the response overwrites the payload.
 
    ```json
       {
