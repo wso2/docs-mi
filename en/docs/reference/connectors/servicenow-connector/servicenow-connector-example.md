@@ -22,221 +22,69 @@ Please follow the steps mentioned in the [Setting up ServiceNow Instance]({{base
 
 ## Set up the integration project
 
-Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) to set up the Integration Project.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up WSO2 MI and create a new integration project. Use a suitable Project Name for your integration.
 
-## Create the mediation logic
+## Create a connection
 
-1. First, create the `PostRecord` and `ReadRecord` sequences. Select Micro Integrator and click `+` on **Sequences** to create the sequence.
+1. In the Design View, click the **+** button and select **Connection**.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png"><img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
+2. In the search bar, type `servicenow` and select the `Servicenow Connector` from the list.
 
-2. Provide the Sequence name as `PostRecord` and click on **Create**. It will open a graphical view of the sequence where you can add the mediators and connectors.  
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-to-sequence.png" title="Adding artifacts to Sequence" width="800" alt="Adding artifacts to Sequence"/>  
-
-3. In the graphical view click on `+` and go to the **Connectors** tab. Click on the `servicenow` connector and select the `init` operation.  
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-servicenow-init.png" title="Adding init operation" width="800" alt="Adding init operation"/>
-
-4. Click on `+ Add Parameter` and provide the following key-value pairs. You need to use the **ServiceNow instance URL**, **username**, and **password** that you obtained when setting up the ServiceNow instance.
-
-    | Key                       | Value                              |
-    |---------------------------|------------------------------------|
-    | **serviceNowInstanceURL** | `https://dev55707.service-now.com` |
-    | **username**              | `admin`                            |
-    | **password**              | `Diazo123@`                        |
-   
-    Click on **Submit** to save the configuration.  
-
-5. Now add the `postRecord` operation to the sequence. Click on `+` and go to the **Connectors** tab. Click on the `servicenow` connector and select `postRecord` operation. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-servicenow-postRecord.png" title="Adding postRecord operation" width="800" alt="Adding postRecord operation"/>  
-
-6. Click on `+ Add Parameter` and provide the following key-value pairs.  
-
-    | Key                          | Value                             |
-    |------------------------------|-----------------------------------|
-    | **tableName**                | `incident`                        |
-    | **sysparmDisplayValue**      | `true`                            |
-    | **sysparmFields**            | `short_description,number,sys_id` |
-    | **sysparmView**              | `short_description,number,sys_id` |
-    | **sysparmInputDisplayValue** | `true`                            |
-    | **number**                   | `34`                              |
-    | **shortDescription**         | `{$ctx:shortDescription}`         |
-    | **active**                   | `true`                            |
-    | **approval**                 | `owner`                           |
-    | **category**                 | `inquiry`                         |
-    | **contactType**              | `{$ctx:contactType}`              |
-
-    Click on **Submit** to save the configuration.
-
-7. Add a **[Property]({{base_path}}/reference/mediators/property-mediator/)** mediator to the sequence to save the `sys_id` of the created incident. Click on `+` and go to the **Mediators** tab. Click on the **Property** mediator and provide the following details.  
-
-    | Property               | Value                        |
-    |------------------------|------------------------------|
-    | **Property Name**      | `sysId`                      |
-    | **Property Scope**     | `default`                    |
-    | **Property Data Type** | `STRING`                     |
-    | **Property Action**    | `Set`                        |
-    | **Property Value**     | `json-eval($.result.sys_id)` |
-
-    When entering the **Property Value**, make sure to select the **EX** button to specify the value type as an expression. 
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-postrec-seq-property.png" title="Adding property mediator" width="800" alt="Adding property mediator"/>
-
-    Click on **Submit** to complete the property mediator creation. Now the `postRecord` sequence is created, and you can view the mediation logic in the graphical view and source view as shown below.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/postRecord-sequence.png" title="postRecord sequence" width="800" alt="postRecord sequence"/>
-
-    ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <sequence name="PostRecord" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-      <servicenow.init>
-          <serviceNowInstanceURL>https://dev55707.service-now.com</serviceNowInstanceURL>
-          <username>admin</username>
-          <password>Diazo123@</password>
-      </servicenow.init>
-      <servicenow.postRecord>
-          <tableName>incident</tableName>
-          <sysparmDisplayValue>true</sysparmDisplayValue>
-          <sysparmFields>short_description,number,sys_id</sysparmFields>
-          <sysparmView>short_description,number,sys_id</sysparmView>
-          <sysparmInputDisplayValue>true</sysparmInputDisplayValue>
-          <number>34</number>
-          <shortDescription>{$ctx:shortDescription}</shortDescription>
-          <active>true</active>
-          <approval>owner</approval>
-          <category>inquiry</category>
-          <contactType>{$ctx:contactType}</contactType>
-      </servicenow.postRecord>
-      <property name="sysId" scope="default" type="STRING" expression="json-eval($.result.sys_id)"/>
-      </sequence>
-    ```  
-   
-8. Similarly, create the `ReadRecord` sequence by click `+` on **Sequences**. Provide the Sequence name as `ReadRecord` and click on **Create**. Follow the steps 3 and 4 to add the `init` operation of the ServiceNow connector to the sequence.
-
-9. Then add the `getRecordById` operation to the sequence. Click on `+` and go to the **Connectors** tab. Click on the `servicenow` connector and select `getRecordById` operation.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-servicenow-getRecordById.png" title="Adding getRecordById operation" width="800" alt="Adding getRecordById operation"/>
-
-10. Click on `+ Add Parameter` and provide the following key-value pairs.
-
-    | Key           | Value          |
-    |---------------|----------------|
-    | **sysId**     | `{$ctx:sysId}` |
-    | **tableName** | `incident`     |
-
-    Click on **Submit** to save the configuration.
-
-    The `ReadRecord` sequence is created, and you can view the mediation logic in the graphical view and source view as shown below.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/readRecord-sequence.png" title="readRecord sequence" width="800" alt="readRecord sequence"/>
-
-    ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <sequence name="ReadRecord" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-      <servicenow.init>
-          <serviceNowInstanceURL>https://dev55707.service-now.com</serviceNowInstanceURL>
-          <username>admin</username>
-          <password>Diazo123@</password>
-      </servicenow.init>
-      <servicenow.getRecordById>
-          <sysId>{$ctx:sysId}</sysId>
-          <tableName>incident</tableName>
-      </servicenow.getRecordById>
-      </sequence>
-    ```
+3. In the connection configuration pane, set the **Connection Name** to `ServiceNowConnection` and fill in the required details:
+    - **Username**: The username of the ServiceNow account.
+    - **Password**: The password of the ServiceNow account.
+    - **API URL**: Base URL of your ServiceNow instance (e.g., `https://<site-url>`).
     
-11. Now let's create the REST API to expose the above sequences. Click on `+` in **APIs** and select **New REST API**. Provide the API name as `ServiceNowAPI` and the context as `/servicenow` and click on **Create**.
+    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-service-now-connection.png" title="Adding new connectio" height="100" width="500" alt="Adding new connectio"/>  
+      
+## Create an API
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-servicenow-api.png" title="Adding Rest API" width="800" alt="Adding Rest API"/>
+1. In the Design View, click the **+** button and select **API** in create an integration project pane.
 
-12. Click on the **Service Designer** and edit the added resource method and enter the following details as shown in the images below. 
+2. Enter the API Name as `serviceNow` and the Context as `/servicenow`, then click **Create**.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/edit-rest-api.png" title="Edit resource" width="800" alt="Edit resource"/>
+3. To add the ServiceNow connector:
+    - In the **Design View**, click the **+** button. 
+    - In the **Mediator** section, search for `servicenow`. 
+    - Select the **servicenow** connector and click **Download**.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-postRecord-resource.png" title="Adding postRecord resource" width="800" alt="Adding postRecord resource"/>
+## Implement the API
 
-13. Add another API resource by clicking on `+ Resource` from the **Service Designer** and enter the following details.
+1. Go to the **Source View** of the API by clicking on the **<>** icon in the top right corner of the **Design View**.
+2. Copy and paste the following code in the **Source View** of the API.
 
-    | Property         | Value          |
-    |------------------|----------------|
-    | **URL Style**    | `URI_TEMPLATE` |
-    | **URI Template** | `/readRecord`  |
-    | **HTTP Method**  | `POST`         |
-    | **Protocol**     | `HTTP, HTTPS`  |
-
-14. Let's update the `/postRecord` resource with the required mediation logic. Click on the `/postRecord` to open the graphical view and a property mediator with the following details.
-
-    | Property               | Value                           |
-    |------------------------|---------------------------------|
-    | **Property Name**      | `shortDescription`              |
-    | **Property Scope**     | `default`                       |
-    | **Property Data Type** | `STRING`                        |
-    | **Property Action**    | `Set`                           |
-    | **Property Value**     | `json-eval($.shortDescription)` |
-
-    Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
-
-15. Add another property mediator with the following details.
-
-    | Property               | Value                      |
-    |------------------------|----------------------------|
-    | **Property Name**      | `contactType`              |
-    | **Property Scope**     | `default`                  |
-    | **Property Data Type** | `STRING`                   |
-    | **Property Action**    | `Set`                      |
-    | **Property Value**     | `json-eval($.contactType)` |
-
-    Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
-
-16. Add a **[Call Sequence]({{base_path}}/reference/mediators/sequence-mediator/)** mediator and select the `PostRecord` sequence as the **Referring sequence**. 
-
-17. Add the **[Respond]({{base_path}}/reference/mediators/respond-mediator/)** mediator to respond to the request. 
-
-    The final mediation logic of the `/postRecord` resource is shown below.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/postRecord-resource-diagram.png" title="postRecord resource" width="800" alt="postRecord resource"/>
-
-18. similarly, update the `/readRecord` resource with the required mediation logic. Click on the `/readRecord` to open the graphical view and add a property mediator with the following details.
-
-    | Property               | Value                |
-    |------------------------|----------------------|
-    | **Property Name**      | `sysId`              |
-    | **Property Scope**     | `default`            |
-    | **Property Data Type** | `STRING`             |
-    | **Property Action**    | `Set`                |
-    | **Property Value**     | `json-eval($.sysId)` |
-
-    Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
-
-19. Add a **Call Sequence** mediator and select the `ReadRecord` sequence as the **Referring sequence**.
-
-20. Add the **Respond** mediator to respond to the request. 
-
-    The final mediation logic of the `/readRecord` resource appears as shown below.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/servicenow/readRecord-resource-diagram.png" title="readRecord resource" width="800" alt="readRecord resource"/>
-
-21. Now you have created the REST API with the required resources and mediation logic. You can view the source view of the API configuration as shown below.
-
+??? note "Source view of the implemented resource"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <api context="/servicenow" name="ServiceNowAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <api context="/servicenow" name="serviceNow" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST" uri-template="/postRecord">
             <inSequence>
-                <property name="shortDescription" scope="default" type="STRING" expression="json-eval($.shortDescription)"/>
-                <property name="contactType" scope="default" type="STRING" expression="json-eval($.contactType)"/>
-                <sequence key="PostRecord"/>
-                <respond/>
-            </inSequence>
-            <faultSequence>
-            </faultSequence>
-        </resource>
-        <resource methods="POST" uri-template="/readRecord">
-            <inSequence>
-                <property name="sysId" scope="default" type="STRING" expression="json-eval($.sysId)"/>
-                <sequence key="ReadRecord"/>
+                <servicenow.postRecord configKey="ServiceNowConnection">
+                    <tableName>incident</tableName>
+                    <sysparmDisplayValue>true</sysparmDisplayValue>
+                    <sysparmFields>short_description,number,sys_id</sysparmFields>
+                    <sysparmView>short_description,number,sys_id</sysparmView>
+                    <sysparmExcludeReferenceLink>false</sysparmExcludeReferenceLink>
+                    <sysparmInputDisplayValue>true</sysparmInputDisplayValue>
+                    <number>34</number>
+                    <shortDescription>Incident type: L2</shortDescription>
+                    <active>true</active>
+                    <approval>owner</approval>
+                    <category>inquiry</category>
+                    <contactType>email</contactType>
+                    <apiColumns></apiColumns>
+                </servicenow.postRecord>
+                <log category="INFO" logMessageID="false" logFullPayload="true">
+                    <message></message>
+                </log>
+                <servicenow.getRecordById configKey="ServiceNowConnection">
+                    <sysId>{${payload.result.sys_id}}</sysId>
+                    <tableName>incident</tableName>
+                    <sysparmDisplayValue></sysparmDisplayValue>
+                    <sysparmFields></sysparmFields>
+                    <sysparmView></sysparmView>
+                    <sysparmExcludeReferenceLink></sysparmExcludeReferenceLink>
+                </servicenow.getRecordById>
                 <respond/>
             </inSequence>
             <faultSequence>
@@ -244,15 +92,12 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
         </resource>
     </api>
     ```
-
-## Export integration logic as a CApp
-In order to export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
-
+   
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/servicenow.zip">
+<a href="{{base_path}}/assets/attachments/connectors/serviceNowConnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -261,150 +106,36 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
-
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 ## Test
 
+Invoke the API as shown below using the MI VSCode Extension.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/common/runtime-services.png" title="Runtime services" width="600" alt="Runtime services"/>
+
 ### Post record operation
 
-1. Create a file called data.json with the following payload. You can further refer to the parameters from [here](https://docs.servicenow.com/bundle/orlando-application-development/page/integrate/inbound-rest/concept/c_TableAPI.html#c_TableAPI).
-    ```
-    {
-        "shortDescription":"Incident type: L2",
-        "contacttype":"email"
-    }
-    ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
-    ```
-    curl -H "Content-Type: application/json" --request POST --data @data.json http://localhost:8290/servicenow/postRecord
-    ```
-**Expected response**: 
-You should get the following response with the 'sys_id' and keep it saved. 
-```
+**Sample request**:
+
+- Content-Type: `application/json`
+- Request body:
+  ```json
   {
-    "result": {
-        "short_description": "Incident type: L2",
-        "number": "34",
-        "sys_id": "fd7e0271073f801036baf03c7c1ed0ff"
-    }
+    "payload": {}
+  }
+  ```
+
+**Expected Response** : You should get a response as given below.
+```json
+{
+   "result": {
+      "short_description": "Incident type: L2",
+      "number": "34",
+      "sys_id": "52fc51d9c3aa261043761c84e40131c2"
+   }
 }
 ```
-
-### Read record operation
-
-1. Create a file called data.json with the following payload. Make sure you paste above saved sys_id as the sysId below. 
-    ```
-    {
-        "sysId":"fd7e0271073f801036baf03c7c1ed0ff"
-    }
-    ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
-    ```
-    curl -H "Content-Type: application/json" --request POST --data @data.json http://localhost:8290/fileconnector/readrecord
-    ```
-
-**Expected response**: 
-You should get the following text returned. 
-
-  ```
-  {
-      "result":{
-          "parent":"",
-          "made_sla":"true",
-          "caused_by":"",
-          "watch_list":"",
-          "upon_reject":"cancel",
-          "sys_updated_on":"2020-03-27 17:45:43",
-          "child_incidents":"0",
-          "hold_reason":"",
-          "approval_history":"",
-          "number":"34",
-          "resolved_by":"",
-          "sys_updated_by":"admin",
-          "opened_by":{
-            "link":"https://dev55707.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441",
-            "value":"6816f79cc0a8016401c5a33be04be441"
-          },
-          "user_input":"",
-          "sys_created_on":"2020-03-27 17:45:43",
-          "sys_domain":{
-            "link":"https://dev55707.service-now.com/api/now/table/sys_user_group/global",
-            "value":"global"
-          },
-          "state":"1",
-          "sys_created_by":"admin",
-          "knowledge":"false",
-          "order":"",
-          "calendar_stc":"",
-          "closed_at":"",
-          "cmdb_ci":"",
-          "delivery_plan":"",
-          "contract":"",
-          "impact":"3",
-          "active":"true",
-          "work_notes_list":"",
-          "business_service":"",
-          "priority":"5",
-          "sys_domain_path":"/",
-          "rfc":"",
-          "time_worked":"",
-          "expected_start":"",
-          "opened_at":"2020-03-27 17:45:43",
-          "business_duration":"",
-          "group_list":"",
-          "work_end":"",
-          "caller_id":"",
-          "reopened_time":"",
-          "resolved_at":"",
-          "approval_set":"",
-          "subcategory":"",
-          "work_notes":"",
-          "short_description":"Incident type: L2",
-          "close_code":"",
-          "correlation_display":"",
-          "delivery_task":"",
-          "work_start":"",
-          "assignment_group":"",
-          "additional_assignee_list":"",
-          "business_stc":"",
-          "description":"",
-          "calendar_duration":"",
-          "close_notes":"",
-          "notify":"1",
-          "service_offering":"",
-          "sys_class_name":"incident",
-          "closed_by":"",
-          "follow_up":"",
-          "parent_incident":"",
-          "sys_id":"fd7e0271073f801036baf03c7c1ed0ff",
-          "contact_type":"",
-          "reopened_by":"",
-          "incident_state":"1",
-          "urgency":"3",
-          "problem_id":"",
-          "company":"",
-          "reassignment_count":"0",
-          "activity_due":"",
-          "assigned_to":"",
-          "severity":"3",
-          "comments":"",
-          "approval":"not requested",
-          "sla_due":"",
-          "comments_and_work_notes":"",
-          "due_date":"",
-          "sys_mod_count":"0",
-          "reopen_count":"0",
-          "sys_tags":"",
-          "escalation":"0",
-          "upon_approval":"proceed",
-          "correlation_id":"",
-          "location":"",
-          "category":"inquiry"
-      }
-  }     
-  ```
 
 ## What's next
 
