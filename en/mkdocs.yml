@@ -146,6 +146,7 @@ nav:
                   - Connect to HornetQ: install-and-setup/setup/brokers/configure-with-hornetq.md
                   - Connect to IBM Websphere App Server: install-and-setup/setup/brokers/configure-with-ibm-websphere-app-server.md
                   - Connect to IBM WebSphere MQ: install-and-setup/setup/brokers/configure-with-ibm-webspheremq.md
+                  - Connect to IBM MQ Docker image: install-and-setup/setup/brokers/configure-with-ibm-webspheremq-container.md
                   - Connect to JBoss MQ: install-and-setup/setup/brokers/configure-with-jbossmq.md
                   - Connect to MSMQ: install-and-setup/setup/brokers/configure-with-msmq.md
                   - Connect to Swift MQ: install-and-setup/setup/brokers/configure-with-swiftmq.md
