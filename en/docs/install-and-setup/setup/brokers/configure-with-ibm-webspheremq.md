@@ -4,135 +4,65 @@ The WSO2 JMS transport can be configured with IBM® WebSphere® MQ. The
 following topics cover the configuration steps.
 
 !!! Info 
-    The configuration steps below are for a Windows environment.
+    The configuration steps below are for IBM MQ container images. We have tested these steps on IBM WebSphere MQ version 9.4
 
 ## Prerequisites
 
--   Download and install WSO2 Micro Integrator. 
--   WebSphere MQ is installed and the latest fix pack applied (see the [IBM documentation](https://www.ibm.com/docs/en). The fix pack can be obtained from <http://www-01.ibm.com/software/integration/wmq>). These instructions are tested on [IBM WebSphere MQ version 8.0.0.4](http://www-01.ibm.com/support/docview.wss?uid=swg24040022).
+-   Pull the matching IBM MQ container image for your OS and run it.
 
-### Creating queue manager, queue and channel in IBM WebSphere MQ
+    Example
+    ```bash
+    docker run -d --name ibm-mq -p 1414:1414 -p 9443:9443 -e LICENSE=accept -e MQ_QMGR_NAME=QM1 -e MQ_APP_PASSWORD=admin_password ibmcom/mq:latest
+    ```
+    
+-   If you need a arm64 compatible image, you have to build the image using following steps since IBM MQ does not provide a arm64 compatible image.
+    1.  Clone the IBM MQ container repository.
+        ```bash
+        git clone https://github.com/ibm-messaging/mq-container.git
+        ```
+    2.  Change the directory to the cloned repository.
+        ```bash  
+        cd mq-container
+        ```
+    3.  Checkout the latest tag.
+        ```bash
+        git checkout v9.4.3.0-r1
+        ``` 
+    4.  Build the docker image
+        ```bash
+        make build-devserver COMMAND=docker
+        ```
+    5. Run the dockerimage.
+        ```bash
+        docker run  --env LICENSE=accept  --env MQ_QMGR_NAME=QM1 --env  MQ_ADMIN_PASSWORD=passw0rd  --publish 1414:1414  --publish 9443:9443  ibm-mqadvanced-server-dev:9.4.3.0-r1-arm64
+        ```
 
-1.  Start IBM WebSphere MQ Explorer as an administrator. If you are not running on an administrator account, right-click the IBM WebSphere MQ icon/menu item and then click **Run as Administrator**.
-2.  Right-click on **Queue Managers**, move the cursor to **New**, and then click **Queue Manager** to open the **Create Queue Manager** wizard. Enter ESBQManager as the queue manager name. Make sure you select **make this the default queue manager** check box. Leave the default values unchanged in the other fields. Click **Next** to move to the next page.
-3.  Click **Next** in the page for entering data and log values without changing any default values.
-4.  In the page for entering configuration options, select the following. Then click **Next**.
+### Creating queue in IBM WebSphere MQ
 
-    | Field Name                                                  | Value                                                                  |
-    |-------------------------------------------------------------|------------------------------------------------------------------------|
-    | **Start queue manager after it has been created** check box | If this is selected, the queue manager will start running immediately after it is created.  |
-    | **Automatic** field                                         | If this is selected, the queue manager is automatically started when the machine starts up. |
-
-5.  Configure the following in the page for entering listener options.
-
-    | Field Name                                          | Value                                                                   |
-    |-----------------------------------------------------|-------------------------------------------------------------------------|
-    | **Create listener configured for TCP/IP** check box | Select this check box to create the listener.                           |
-    | **Listen on port number** field | Enter the number of the port where you want to set the listener. In this example, the port number will be 1414.|
-
-6.  Click **Next** and then click **Finish** to save the configuration. The queue manager will be created as shown below.  
-    ![Created Queue Manager]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130334.jpg)
-7.  Expand the navigation tree of the ESBQManager queue manager in the navigation tree. Right-click **Queues**, move the cursor to **New**, and then click **Local Queue** to open the **Create a Local Queue** wizard. Enter the local queue name as `LocalQueue1` and complete running the wizard. Leave the default values of all other fields unchanged, and click **Finish** to save the local queue.  
-8.  Right-click **Channels** , move the cursor to **New** , and then click **Server-connection Channel** to open the **Create a Server-connection Channel** wizard. Enter **myChannel** as the channel name and click **Next**. Make sure that the value for the **Transmission Protocol** is **TCP** . Leave the default values unchanged for the rest of the fields, and click **Finish** to save the channel.
+1.  Access the IBM WebSphere MQ console by navigating to the URL `http://localhost:9443/ibmmq/console` in your web browser. Log in using the credentials you set when running the container.
+2.  Navigate to the **Manage** view of the queue manager and select the **Queues** tab.
+3.  Click on the **Create +** button to create a new queue.
+    ![Create Queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/create-queue.jpg)
+4.  Select **Local** queue type, provide `queue1` as the name and click on the **Create** button.
 
 ### Generating the .bindings file
 
-1.  Create a directory in which the `.bindings` file
-    can be saved in any location of your computer. In this example, a
-    directory named `jndidirectory` will be created
-    in the `G` folder.
-2.  Go to IBM WebSphere MQ, and right-click on **JMS Administered
-    Objects** , and then click **Add Initial Context** .  
-    ![JMS Administered Objects]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130339.jpg)
-3.  Select the **File system** option in the **Connection Details**
-    wizard. Enter `file:G/jndidirectory` in the
-    **Context nickname** field. Leave the default values unchanged for
-    other fields and complete running the wizard. The new file initial
-    context will be displayed in the left navigator under **JMS
-    Administered Objects** as shown below.  
-    ![New File Initial Context]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130338.jpg)
-4.  Click the file initial context (named
-    `file:G/jndidirectory` in this example) in the
-    navigator to expand it. Right-click on **Connection Factories**,
-    move the cursor to **New**, and then click **Connection Factory**.
-    Enter the name of the connection factory as
-    `MyQueueConnectionFactory`. Select
-    `Queue Connection Factory` as the connection
-    factory type. Select `MQClient` as the transport.
-    Leave the default values unchanged for other fields and complete
-    running the wizard.
-5.  Right-click on the newly connected connection factory in the left
-    navigator, and the click **Properties** . Click **Connection** .
-    Then browse and select `          ESBQManager         ` for the
-    **Base queue manager** field. You can change the host and port name
-    for the connection factory if required. No changes will be made in
-    this example since default values are used. Leave the default values
-    unchanged for other fields and click **OK** .
-6.  Right-click **Destination** under **JMS Administered Objects** in
-    the left navigator. Move the cursor to **New** and then click
-    **Destination** to open the **New Destination** wizard. In order to
-    map the destination to the local queue you created in step 7 of the
-    [Creating queue manager, queue and channel in IBM WebSphere
-    MQ](#ConfigurewithIBMWebSphereMQ-Qmanager) section, enter the same
-    queue name ( `          LocalQueue1         ` in this example) in
-    the **Name** field. Select `          Queue         ` for the
-    **Type** field. Select `          ESBQManager         ` as the queue
-    manager and `          LocalQueue1         ` as the queue in the
-    wizard. Leave the default values unchanged for other fields and
-    complete running the wizard.  
+1. Download the <a href="{{base_path}}/assets/attachments/install-and-setup/mq-bindings-generator.zip">MQ bindings generator project</a> and extract the contents.
+2. Open the Java project in your favorite IDE and change the required detials in the code. ex: host, port, queue, channel, queue manager name, etc.
 
-The .bindings file will be created in the location you specified (
-`         file:G/jndidirectory        ` in this example) after you carry
-out the above steps.
+    !!! Note
+        We can use the default `DEV.ADMIN.SVRCONN` channel for testing purposes.
 
-In order to connect to the queue, you need to configure channel
-authentication. Run the following two commands to disable channel
-authentication for the ease of use. Alternatively, you can configure the
-authentication for the MQ server.
-
-!!! Info
-    Note that you have to run the command prompt as a admin user and run these commands.
-
-```java
-runmqsc ESBQManager
-```
-
-```java
-ALTER QMGR CHLAUTH(DISABLED)
-```
-
-```java
-REFRESH SECURITY TYPE(CONNAUTH)
-```
-  
-The following will be displayed in the command prompt.
-
-![Command Prompt]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130336.jpg)
+3. Follow the instructions in the `README.md` file to generate the `.bindings` file.
 
 ### Configuring the Micro Integrator
 
 !!! Info
-    -   If you use the default configuration of the IBM MQ queue manager,
-        you need to provide username and password client authentication. The
-        username and password that you need to provide here is the username
-        and password that you provide to log on to your operating system.
     -   If you need to enable MQCSP authentication mode to connect to IBM MQ (without using admin user name and password), 
         start the server (runtime) with the following system property:
         ``bash
         -Dcom.ibm.mq.cfg.jmqi.useMQCSPauthentication=Y
         ``
-    -   The `          vender.class.loader.enabled         ` parameter in
-        the above configuration should be added only when you use IBM
-        Websphere MQ as the JMS broker.
-    -   WSO2 uses some external class loader mechanisms for some external
-        products such as QPID and AMQP due to the limitation of serializing
-        the JMSObject message. However, it is not required to use this
-        mechanism for IBM Websphere MQ. By adding the
-        `          vender.class.loader.enabled         ` parameter, you can
-        skip the external class loader for IBM Websphere MQ.
-    -   This property can also be included in a proxy service, REST API,
-        message store, JMS receiver or the Synapse configuration depending
-        on the use case.
     -   **If you are using Windows Operating Systems (e.g., Windows 10)** ,
         mention the `.bindings` file location starting with `file:///         ` format, in the deployment.toml file. 
 
@@ -145,19 +75,19 @@ The following will be displayed in the command prompt.
     name = "myQueueConnectionFactory1"
     parameter.initial_naming_factory = "com.sun.jndi.fscontext.RefFSContextFactory"
     parameter.provider_url = "file:/G:/jndidirectory"
-    parameter.connection_factory_name = "MyQueueConnectionFactory"
+    parameter.connection_factory_name = "myQueueConnectionFactory"
     parameter.connection_factory_type = "queue"
-    parameter.username = "username"
-    parameter.password = "password"
+    parameter.username = "admin"
+    parameter.password = "passw0rd"
 
     [[transport.jms.listener]]
     name = "default"
     parameter.initial_naming_factory = "com.sun.jndi.fscontext.RefFSContextFactory"
     parameter.provider_url = "file:/G:/jndidirectory"
-    parameter.connection_factory_name = "MyQueueConnectionFactory"
+    parameter.connection_factory_name = "myQueueConnectionFactory"
     parameter.connection_factory_type = "queue"
-    parameter.username = "username"
-    parameter.password = "password"
+    parameter.username = "admin"
+    parameter.password = "passw0rd"
     ```
 
 2.  Add the following configurations to enable the two JMS senders.
@@ -167,19 +97,19 @@ The following will be displayed in the command prompt.
     name = "myQueueConnectionFactory1"
     parameter.initial_naming_factory = "com.sun.jndi.fscontext.RefFSContextFactory"
     parameter.provider_url = "file:/G:/jndidirectory"
-    parameter.connection_factory_name = "MyQueueConnectionFactory"
+    parameter.connection_factory_name = "myQueueConnectionFactory"
     parameter.connection_factory_type = "queue"
-    parameter.username = "username"
-    parameter.password = "password"
+    parameter.username = "admin"
+    parameter.password = "passw0rd"
 
     [[transport.jms.sender]]
     name = "default"
     parameter.initial_naming_factory = "com.sun.jndi.fscontext.RefFSContextFactory"
     parameter.provider_url = "file:/G:/jndidirectory"
-    parameter.connection_factory_name = "MyQueueConnectionFactory"
+    parameter.connection_factory_name = "myQueueConnectionFactory"
     parameter.connection_factory_type = "queue"
-    parameter.username = "username"
-    parameter.password = "password"
+    parameter.username = "admin"
+    parameter.password = "passw0rd"
     ```
 
 ### Copying IBM WebSphere MQ libraries
@@ -187,20 +117,17 @@ The following will be displayed in the command prompt.
 Follow the instructions below to build and install IBM WebSphere MQ client JAR files to WSO2 Micro Integrator.
 
 !!! Info
-    These instructions are tested on IBM WebSphere MQ version 8.0.0.4. However, you can follow them for other versions appropriately.
+    These instructions are tested on IBM WebSphere MQ version 9.4 However, you can follow them for other versions appropriately.
 
-1.  Create a new directory named `wmq-client` , and
-    then create another new directory named `lib`
-    inside it.
+1.  Create a new directory named `wmq-client` , and then create another new directory named `lib` inside it.
 
-2.  Copy the following JAR files from the
-    `<IBM_MQ_HOME>/java/lib/` directory (where
-    `<IBM_MQ_HOME>` refers to the IBM WebSphere MQ
-    installation directory) to the
-    `wmq-client/lib/` directory.
+2.  Copy the following JAR files resides in `/opt/mqm/java/lib` location of the IBM MQ docker container to the `lib` directory you created in the previous step.
     
-    !!! Info
-        If you are using IBM MQ docker container, you can find these libraries in inside the `/opt/mqm/java/lib` directory. You can use `docker cp` command to copy jar files from the docker container.
+    !!! Info      
+        You can use the docker cp command to copy the files from the container to your local machine. For example:
+        ```bash
+        docker cp <container_id>:/opt/mqm/java/lib/com.ibm.mq.allclient.jar <local_path>/wmq-client/lib
+        ```
    
     !!! Note
         If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip]({{base_path}}/assets/attachments/install-and-setup/wmq-client-8.0.0.zip)
@@ -211,15 +138,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
     -   `             jms.jar            `
     -   `             providerutil.jar            `
 
-3.  Create a `           POM.xml          ` file inside the wmq
-    `           -client/          ` directory and add all the required
-    dependencies as shown in the example below.
-
-    !!! Tip
-        You need to change the values of the
-        `           <version>          ` and
-        `           <systemPath>          ` properties accordingly.
-    
+3.  Create a `pom.xml` file inside the `wmq-client` directory and add all the required dependencies as shown in the example below. 
 
     ```xml
     <?xml version="1.0"?>
@@ -227,27 +146,27 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
     <modelVersion>4.0.0</modelVersion>
     <groupId>wmq-client</groupId>
     <artifactId>wmq-client</artifactId>
-    <version>8.0.0.4</version>
+    <version>9.4</version>
     <packaging>bundle</packaging>
     <dependencies>
         <dependency>
             <groupId>com.ibm</groupId>
             <artifactId>fscontext</artifactId>
-            <version>8.0.0.4</version>
+            <version>9.4</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/fscontext.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.ibm</groupId>
             <artifactId>providerutil</artifactId>
-            <version>8.0.0.4</version>
+            <version>9.4</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/providerutil.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.ibm</groupId>
             <artifactId>allclient</artifactId>
-            <version>8.0.0.4</version>
+            <version>9.4</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/com.ibm.mq.allclient.jar</systemPath>
         </dependency>
@@ -264,7 +183,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.3.4</version>
+                <version>6.0.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -283,43 +202,58 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
     </project>
     ```
 
-4.  Navigate to the wmq `-client` directory using your Command Line Interface (CLI), and execute the following
+4.  Navigate to the `wmq-client` directory using your Command Line Interface (CLI), and execute the following
     command, to build the project: `mvn clean install`
+
+    !!! Note
+        This build requires Java 17 or later.
+
 5.  Stop the WSO2 Micro Integrator, if it is already running.
 6.  Remove any existing IBM MQ client JAR files from the `MI_HOME/dropins` directory and the `MI_HOME/lib` directory.
-7.  Copy the `<wmq-client>/target/wmq-client-8.0.0.4.jar`
+7.  Copy the `<wmq-client>/target/wmq-client-9.4.jar`
     file to the `MI_HOME/dropins` directory.
 8.  Download the [`jta.jar` file from the maven repository](https://repo1.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.jar), and copy it to the `MI_HOME/lib` directory.
-9. [Regenerate the `.bindings` file](#ConfigurewithIBMWebSphereMQ-generate) with the `Provider Version : 8` property (if 
-you already generated one before), and replace the existing `.bindings` file (if you have one) with the new `
-.bindings` file you generated.
-
-10. Start the WSO2 Micro Integrator server.
+9. Start the WSO2 Micro Integrator server.
 
 ### Deploying JMS listener proxy service
 
-In this section, the following simple proxy service is deployed to listen to the `LocalQueue1` queue. When a message is published in this queue, the proxy service would pull the message out of the queue and log it.
+In this section, the following simple proxy service is deployed to listen to the `queue1` queue. When a message is published in this queue, the proxy service would pull the message out of the queue and log it.
 
 ```xml
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-       name="MyJMSProxy"
-       transports="jms"
-       startOnLoad="true"
-       trace="disable">
-   <description/>
-   <target>
-      <inSequence>
-         <log level="full"/>
-         <drop/>
-      </inSequence>
-   </target>
-   <parameter name="transport.jms.Destination">LocalQueue1</parameter>
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="MyJMSProxy" startOnLoad="true" transports="jms" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <log>
+        <message>Received message on MyJMSProxy : ${payload}</message>
+      </log>
+      <drop/>
+    </inSequence>
+  </target>
+  <parameter name="transport.jms.ContentType">
+    <rules>
+      <jmsProperty>contentType</jmsProperty>
+      <default>application/json</default>
+    </rules>
+  </parameter>
+  <parameter name="transport.jms.Destination">queue1</parameter>
+  <parameter name="transport.jms.ConnectionFactory">myQueueConnectionFactory1</parameter>
+  <parameter name="transport.jms.DestinationType">queue</parameter>
 </proxy>
 ```
 
 ### Testing the proxy service
 
-Open IBM WebSphere MQ and publish a message to `LocalQueue1`.
+Open IBM MQ console and select the queue `queue1` that you created earlier.
 
-![Publish Message to Queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130337.jpg)
+![Select the queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/select-queue.jpg)
 
+Click on the **Create +** button to publish a message to the queue.
+
+![Publish Message to Queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/publish-message.jpg)
+
+Then you will get the following log in the WSO2 Micro Integrator.
+
+```
+[2025-07-18 13:34:34,358]  INFO {LogMediator} - {proxy:MyJMSProxy} Received message on MyJMSProxy : {"Hello":"world"}
+```
