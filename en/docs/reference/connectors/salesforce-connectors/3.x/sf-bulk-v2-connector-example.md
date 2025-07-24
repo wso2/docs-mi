@@ -7,19 +7,19 @@ The **Salesforce Connector** provides seamless integration with the [Salesforce 
 The following example demonstrates how to use the Salesforce Bulk v2.0 Connector for performing various operations on your Salesforce data:
 
 1. Insert account records from a file to the salesforce.
-2. Get the created bulk job information. 
+2. Get the created bulk job information.
 3. Get the successfully processed records.
 
 You can use the following resources to achieve your requirements.
 
-1. `/createJobAndUploadFile` : 
+1. `/createJobAndUploadFile` :
     - Create a new bulk ingest job for insert operation.
     - Read a CSV file using [File Connector]({{base_path}}/reference/connectors/file-connector/file-connector-overview/).
     - Upload the CSV content read from the file.
     - Close the job to denote that the upload is completed.
-2. `/getJobInfo` : 
+2. `/getJobInfo` :
     - Get the bulkJob info identified by the jobId passed through the request body.
-3. `/getSuccessfulResults` : 
+3. `/getSuccessfulResults` :
     - Retrieve the successful results of the bulk job identified by the `jobId`.
 
 ## Set up the environment
@@ -71,59 +71,59 @@ Let's add the operations to the resources in the `Salesforce` API
 
 #### - /createJobAndUploadFile
 
-  Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize a `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
-  
-  1. Select the `createJob` operation from **Salesforce_Connector**.
+Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize a `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
+
+1. Select the `createJob` operation from **Salesforce_Connector**.
+   1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+   2. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
+   3. Input `Account` in the `Object` text box
+   4. Select `COMMA` in the `Column Delimiter` dropbox
+   5. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
+
+2. Select the `read` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)**.
+    1. Prior to this step, you must configure the **File Connector**. For setup instructions, please refer to the [File Connector Documentation]({{base_path}}/reference/connectors/file-connector/file-connector-overview/).
+    2. Create a File Connection and select it.
+    3. In the `Basic` section, enter the file path.
+
+3. Select the `uploadJobData` operation from **Salesforce_Connector**.
     1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-    2. In the properties section, under `Basic`, select `INSERT` in the Operation dropdown.
-    3. Input `Account` in the `Object` text box
-    4. Select `COMMA` in the `Column Delimiter` dropbox
-    5. Select `LF` or `CRLF` in the `Line Ending` dropbox based on your operating system. IF Windows : `CRLF`, for Unix-based systems : `LF`
+    2. For `Job ID` text box select the expression of the variable value for `id` returned from `createJob` operation.
+    3. For `Input Data` text box select the expression of the variable value for `payload` returned from file `read` operation.
 
-  2. Select the `read` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)**.
-        1. Prior to this step, you must configure the **File Connector**. For setup instructions, please refer to the [File Connector Documentation]({{base_path}}/reference/connectors/file-connector/file-connector-overview/).
-        2. Create a File Connection and select it.
-        3. In the `Basic` section, enter the file path.
+4. Select the `closeJob` operation from **Salesforce_Connector**.
+    1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+    2. In the 'Job ID' text box select the expression of the variable value for `id` returned from `createJob` operation.
 
-  3. Select the `uploadJobData` operation from **Salesforce_Connector**.
-       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-       2. For `Job ID` text box select the expression of the variable value for `id` returned from `createJob` operation.
-       3. For `Input Data` text box select the expression of the variable value for `payload` returned from file `read` operation.
-
-  4. Select the `closeJob` operation from **Salesforce_Connector**.
-      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box select the expression of the variable value for `id` returned from `createJob` operation.
-
-  5. Select the 'Respond' mediator.
+5. Select the 'Respond' mediator.
 
 <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" width="800" /></a>
 
 #### - /getJobInfo
-  
-  Using this resource, users can get the job information.
 
-   1. Select the `getJobInfo` operation from **Salesforce_Connector**.
-      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `${payload.jobId}`.
-  3. Select the 'Respond' mediator.
+Using this resource, users can get the job information.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
+1. Select the `getJobInfo` operation from **Salesforce_Connector**.
+    1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+    2. In the 'Job ID' text box, enter the expression `${payload.jobId}`.
+3. Select the 'Respond' mediator.
+
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
 
 #### - /getSuccessfulResults
-  
-  Using this resource, users can retrieve the successfully processed records of a particular bulk job.
 
-   1. Select the `getSuccessfulResults` operation from **Salesforce_Connector**.
-      1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `${payload.jobId}`.
-      3. In the 'Output type' dropdown, select `JSON` or `CSV`.
-  3. Select the 'Respond' mediator.
+Using this resource, users can retrieve the successfully processed records of a particular bulk job.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
+1. Select the `getSuccessfulResults` operation from **Salesforce_Connector**.
+    1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
+    2. In the 'Job ID' text box, enter the expression `${payload.jobId}`.
+    3. In the 'Output type' dropdown, select `JSON` or `CSV`.
+3. Select the 'Respond' mediator.
+
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
 
 ### Test the resources
 
-Let's test the API. Start the MI and deploy the API. 
+Let's test the API. Start the MI and deploy the API.
 
 1. Let's create a bulk ingest job using our `/createJobAndUploadFile` resource. To invoke the resource,  use the following curl command:
     ```bash
@@ -131,40 +131,40 @@ Let's test the API. Start the MI and deploy the API.
     --header 'Content-Type: text/plain' \
     --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1'
     ```
-  You will receive a response similar to the following:
-    ```json
-    {
-      "id": "7508d00000Ahhl5AAB",
-      "operation": "insert",
-      "object": "Account",
-      "createdById": "0058d000006mtd1AAA",
-      "createdDate": "2023-03-16T06:43:09.000+0000",
-      "systemModstamp": "2023-03-16T06:43:09.000+0000",
-      "state": "UploadComplete",
-      "concurrencyMode": "Parallel",
-      "contentType": "CSV",
-      "apiVersion": 57.0
-    }
-    ```
-  Note down the `id` from the response.
+You will receive a response similar to the following:
+```json
+{
+    "id": "XXXXXXXXXXXXXXXXX",
+    "operation": "insert",
+    "object": "Account",
+    "createdById": "XXXXXXXXXXXXXXXXX",
+    "createdDate": "2023-03-16T06:43:09.000+0000",
+    "systemModstamp": "2023-03-16T06:43:09.000+0000",
+    "state": "UploadComplete",
+    "concurrencyMode": "Parallel",
+    "contentType": "CSV",
+    "apiVersion": 57.0
+}
+```
+Note down the `id` from the response.
 
-3. Let's get the job information of the bulk job using our `/getJobInfo` resource. To invoke the resource, please use the following curl command: 
+3. Let's get the job information of the bulk job using our `/getJobInfo` resource. To invoke the resource, please use the following curl command:
   ```bash
   curl --location 'http://localhost:8290/salesforce/getJobInfo' \
   --header 'Content-Type: application/json' \
   --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
-  --data '{
-      "id" : "7508d00000Ihhl5AAB"
-  }'
+  --data '{{
+      "id" : "XXXXXXXXXXXXXXXXX"
+  }}'
   ```
-  Make sure you replace the `id` value. You will receive a response similar to the following:
+Make sure you replace the `id` value. You will receive a response similar to the following:
 
     ```json
-    {
-      "id": "7508d00000Ihhl5AAB",
+    {{
+      "id": "XXXXXXXXXXXXXXXXX",
       "operation": "insert",
       "object": "Account",
-      "createdById": "0058d000006mtd1AAA",
+      "createdById": "XXXXXXXXXXXXXXXXX",
       "createdDate": "2023-03-16T06:43:09.000+0000",
       "systemModstamp": "2023-03-16T06:43:13.000+0000",
       "state": "JobComplete",
@@ -180,24 +180,24 @@ Let's test the API. Start the MI and deploy the API.
       "totalProcessingTime": 139,
       "apiActiveProcessingTime": 81,
       "apexProcessingTime": 0
-    }
+    }}
     ```
 
-4. Let's get the successfully processed records using our `/getSuccessfulResults` resource. To invoke the resource, please use the following curl command: 
+4. Let's get the successfully processed records using our `/getSuccessfulResults` resource. To invoke the resource, please use the following curl command:
     ```bash
     curl --location 'http://localhost:8290/salesforce/getSuccessfulResults' \
     --header 'Content-Type: application/json' \
     --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
-    --data '{
-        "id" : "7508d00000Ihhl5AAB"
-    }'
+    --data '{{
+        "id" : "XXXXXXXXXXXXXXXXX"
+    }}'
     ```
-  Make sure you replace the `id` value. You will receive a response similar to the following:
+Make sure you replace the `id` value. You will receive a response similar to the following:
 
     ```json
     [
-      {
-        "sf__Id": "0018d00000UVCjuAAH",
+      {{
+        "sf__Id": "XXXXXXXXXXXXXXXXX",
         "sf__Created": "true",
         "Name": "Lorem Ipsum",
         "ShippingCity": "Milano",
@@ -205,23 +205,23 @@ Let's test the API. Start the MI and deploy the API.
         "AnnualRevenue": "9.12260031E8",
         "Website": "https://ft.com/lacus/at.jsp",
         "Description": "Lorem ipsum dolor sit amet"
-      }
+      }}
     ]
     ```
 
-5. Let's get the successfully processed records using our `/getUnprocessedResults` resource. To invoke the resource, please use the following curl command: 
+5. Let's get the successfully processed records using our `/getUnprocessedResults` resource. To invoke the resource, please use the following curl command:
     ```bash
     curl --location 'http://localhost:8290/salesforce/getUnprocessedResults' \
     --header 'Content-Type: application/json' \
     --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
-    --data '{
-        "id" : "7508d00000Ihhl5AAB"
-    }'
+    --data '{{
+        "id" : "XXXXXXXXXXXXXXXXX"
+    }}'
     ```
-  Make sure you replace the `id` value. Upon successful execution, you will receive a `200 OK` response, and the output will be written to the designated file.
+Make sure you replace the `id` value. Upon successful execution, you will receive a `200 OK` response, and the output will be written to the designated file.
   ```json
     {
-      "result": "success",
+      "result": "success"
     }
   ```
 

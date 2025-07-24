@@ -784,19 +784,27 @@ nav:
               - 1.0.1:
                   - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
           - Salesforce Connectors:
-              - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
-              - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
-              - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
-              - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
-              - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
               - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
               - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
               - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
-              - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example.md
-              - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/salesforcebulk-v2-reference.md
-              - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
-              - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
-              - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
+              - 2.x:
+                  - Salesforce Overview: reference/connectors/salesforce-connectors/2.x/sf-overview.md
+                  - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/2.x/sf-access-token-generation.md
+                  - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors//2.x/sf-inbound-endpoint-configuration.md
+                  - Salesforce REST API Example: reference/connectors/salesforce-connectors/2.x/sf-rest-connector-example.md
+                  - Salesforce REST API Reference: reference/connectors/salesforce-connectors/2.x/sf-rest-connector-config.md
+                  - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/2.x/salesforcebulk-v2-connector-example.md
+                  - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/2.x/salesforcebulk-v2-reference.md
+                  - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/2.x/sf-soap-connector-config.md
+                  - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/2.x/sf-soap-connector-example.md
+                  - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/2.x/salesforce-soap-reference.md
+              - 3.x:
+                  - Salesforce Overview: reference/connectors/salesforce-connectors/3.x/sf-overview.md
+                  - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/3.x/sf-access-token-generation.md
+                  - Salesforce API Reference: reference/connectors/salesforce-connectors/3.x/sf-rest-connector-config.md
+                  - Salesforce REST API Example: reference/connectors/salesforce-connectors/3.x/sf-rest-connector-example.md
+                  - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/3.x/salesforcebulk-v2-connector-example.md
+                  - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/3.x/sf-soap-connector-example.md
           - Salesforce Pub/Sub Connector:
               - Salesforce Pub/Sub Overview: reference/connectors/salesforce-pubsub-connector/sf-pubsub-overview.md
               - Set up the Salesforce Pub/Sub Connector: reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration.md
