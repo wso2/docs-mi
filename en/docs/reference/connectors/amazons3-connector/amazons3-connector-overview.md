@@ -14,16 +14,17 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 | Connector Version | Supported product versions | Supported API |
 | ------------- |-------------|-------------|
-| 2.0.2    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0 | AWS SDK |
-| 1.0.10    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 | REST |
+| 3.x (Latest)      | MI 4.4.0 |
+| 2.0.2    | MI 4.x, EI 7.1.0, EI 7.0.x, EI 6.6.0 | AWS SDK |
+| 1.0.10    | MI 4.x, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 | REST |
 
 For older versions, see the details in the connector store.
 
 ## Amazon S3 Connector documentation (latest - 2.x version)
 
-* **[Amazon S3 Connector Example]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-example/)**: This example demonstrates how to use the Amazon S3 Connector to create an S3 bucket, upload a text message into the bucket, retrieve it, and convert it into a message in the integration runtime. 
+* **[Amazon S3 Connector Example]({{base_path}}/reference/connectors/amazons3-connector/3.x/amazons3-connector-example/)**: This example demonstrates how to use the Amazon S3 Connector to create an S3 bucket, upload a text message into the bucket, retrieve it, and convert it into a message in the integration runtime. 
 
-* **[Amazon S3 Connector Reference]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference/)**: This documentation provides a reference guide for the Amazon S3 Connector.
+* **[Amazon S3 Connector Reference]({{base_path}}/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference/)**: This documentation provides a reference guide for the Amazon S3 Connector.
 
 ## How to contribute
 
