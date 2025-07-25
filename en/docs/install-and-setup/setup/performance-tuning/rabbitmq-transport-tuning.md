@@ -47,16 +47,12 @@ Fine-tuning the connection pool parameters can help optimize resource usage and 
 
 ```toml
 [[transport.rabbitmq.sender]]
-parameter.'rabbitmq.min.evictable.idle.time' = 30000
-parameter.'rabbitmq.time.between.eviction.runs' = 10000
 parameter.'rabbitmq.max.wait.millis' = 10000
 parameter.'rabbitmq.max.idle.per.key' = 20
 ```
 
 **Parameter descriptions:**
 
-- `parameter.'rabbitmq.min.evictable.idle.time'`: This parameter sets the minimum amount of time (in milliseconds) that an object may remain idle in the pool before it becomes eligible for eviction. Here, objects idle for 30,000 milliseconds (30 seconds) or more can be evicted.
-- `parameter.'rabbitmq.time.between.eviction.runs'`: This parameter specifies the time interval (in milliseconds) between each run of the eviction process. In this case, the eviction process will run every 10,000 milliseconds (10 seconds), checking for and potentially evicting idle objects.
 - `parameter.'rabbitmq.max.wait.millis'`: This parameter determines the maximum amount of time (in milliseconds) that the borrowObject method will block when waiting for an object to become available, should the pool be exhausted. Here, it's set to 10,000 milliseconds (10 seconds).
 - `parameter.'rabbitmq.max.idle.per.key'`: This parameter sets the maximum number of idle objects allowed in the pool per key. If the number of idle objects for a key exceeds this limit (20 in this case), the excess objects are subject to eviction. 
 
