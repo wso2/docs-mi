@@ -744,6 +744,11 @@ nav:
               - 3.x:
                     - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-example.md
                     - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-config.md
+          - Intelligent Document Processing (IDP) Connector:
+              - Intelligent Document Processing (IDP) Overview: reference/connectors/idp-connector/idp-connector-overview.md
+              - Intelligent Document Processing (IDP) Example: reference/connectors/idp-connector/idp-connector-example.md
+              - Intelligent Document Processing (IDP) Reference: reference/connectors/idp-connector/idp-connector-reference.md
+              - Intelligent Document Processing (IDP) Schema Generation: reference/connectors/idp-connector/idp-connector-schema-generation.md
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
@@ -1179,6 +1184,6 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.4.0
-  #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.4.0
+  base_path: http://localhost:8000/en/latest
+  #base_path: https://mi.docs.wso2.com/en/4.4.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
