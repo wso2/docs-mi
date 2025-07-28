@@ -1,20 +1,20 @@
 # Google Pub/Sub Inbound Endpoint Example
 
 ## Introduction
-Google Cloud Pub/Sub is a globally distributed, asynchronous messaging service designed to decouple services that produce events from services that process events.
+[Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview) is a globally distributed, asynchronous messaging service designed to decouple services that produce events from services that process events.
 
 The Google Pub/Sub Inbound Endpoint provides a robust and production-grade implementation of a Google Cloud Pub/Sub subscriber using the Streaming Pull API, built on top of Google's high-level Java client library. The Streaming Pull API is ideal for low-latency, high-throughput message consumption, as it maintains a persistent connection to efficiently stream messages from the server to the client.
 
 !!! Note
-    The WSO2 MI Google Pub/Sub Inbound Endpoint also supports subscription creation. To create or update a subscription, the service account must have the **roles/pubsub.editor** role. However, if you only intend to consume messages from an existing subscription, the **roles/pubsub.subscriber** role is sufficient.
+    The WSO2 MI Google Pub/Sub Inbound Endpoint also supports subscription creation. To create or update a subscription, the service account must have the `roles/pubsub.editor` role. However, if you only intend to consume messages from an existing subscription, the `roles/pubsub.subscriber` role is sufficient.
 
 ## What you’ll build
 
 By following this tutorial, you will gain hands-on experience in:
 
-1. Setting up Google Cloud Pub/Sub resources
-2. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension
-3. Run and test the integration to receive real-time messages
+1. Setting up Google Cloud Pub/Sub resources.
+2. Configuring the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+3. Running and testing the integration to receive real-time messages.
 
 #### **Step 01: Setting up Google Cloud Pub/Sub resources**
 ##### Prerequisites
@@ -23,30 +23,23 @@ By following this tutorial, you will gain hands-on experience in:
 * Create/Select a [Google Cloud Project](https://console.cloud.google.com/projectselector2/home/dashboard).
 * Enable the [Pub/Sub API](https://console.cloud.google.com/flows/enableapi?apiid=pubsub.googleapis.com)
 
-##### Creating required resources
+##### Create required resources
 * [Create a Topic](https://cloud.google.com/pubsub/docs/publish-receive-messages-console#create_a_topic)
 * [Create a Subscription](https://cloud.google.com/pubsub/docs/publish-receive-messages-console#add_a_second_subscription)
 * [Set Up Authentication](https://cloud.google.com/docs/authentication/set-up-adc-attached-service-account)
 
-#### **Step 02: Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension**
-In MI, create a new project and add the Google Pub/Sub connector to the project.
+#### **Step 02: Configuring the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension**
+Follow these steps to configure the inbound endpoint in WSO2 Micro Integrator using the Visual Studio Code extension:
 
-1. [Create a new project]({{base_path}}/develop/create-integration-project/) in WSO2 Micro Integrator (MI).
+1. [Create a new project]({{base_path}}/develop/create-integration-project/) using the WSO2 Micro Integrator VS Code extension.
 2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Micro Integrator.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/sf-pubsub-inb-2.png" title="Google Pub/Sub Inbound Endpoint Example" width="80%" alt="Event Integration"/>
 
-3. Select Google Pub/Sub Inbound Endpoint
-4. Fill the form with the values for creating the inbound endpoint
+3. Select Google Pub/Sub Inbound Endpoint.
+4. Fill the form with the values for creating the inbound endpoint.
 
-    4.1. Google PubSub Basic Configuration consists of the basic configuration for the Google Inbound Endpoint
-         <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-inbound/createEventIntegration.png" title="Google Pub/Sub Inbound Example" alt="Event Integration" width="80%" height="30%"/>
-
-    4.2. Advance Configuration consists of required configuration for Subscription Create/Update, Flow Control configuration and other Subscriber related configurations
-         <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-inbound/advancedConfig.png" title="Google Pub/Sub Inbound Advanced Config" alt="Order Notification" width="80%" height="30%"/>
-
-    4.3. Subscription Create/Update configuration and Flow Control configuration
-         <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-inbound/createSubs.png" title="Google Pub/Sub Inbound Create Subs" alt="Order Notification" width="80%" height="30%"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-inbound/createEventIntegration.png" title="Google Pub/Sub Inbound Example" alt="Event Integration" width="80%" height="30%"/>
 
 5. Add [a Log Mediator]({{base_path}}/reference/mediators/log-mediator/) to the sequence to log the incoming messages. 
    
@@ -63,9 +56,9 @@ In MI, create a new project and add the Google Pub/Sub connector to the project.
     <property name="MessageAttribute1" expression="${properties.synapse.attributeName}"/>
     ```
 
-#### **Step 03: Run and test the integration to receive real-time messages**
+#### **Step 03: Running and testing the integration to receive real-time messages**
 
-1. To generate an access token for Publisher, refer to [Setting up the Google PubSub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/)
+1. To generate an access token for Publisher, refer to [Setting up the Google PubSub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/).
 
 2. Publish a message to the Google Pub/Sub topic. You can use the below direct Rest API or [WSO2 Google Pub/Sub Connector]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md).
 
@@ -83,12 +76,8 @@ curl --location 'https://pubsub.googleapis.com/v1/projects/<project-id>/topics/<
 "attributeName": "user123"}}
 ]}
 ```
-In order to deploy and run the project, refer the [build and run](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/) guide or simply use the Run button in the Visual Studio Code extension to run the integration.
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts) guide or simply click the **Run** button in the Visual Studio Code extension.
 Once you have published the message to your Google Pub/Sub Topic, you can check the logs in the WSO2 Micro Integrator server to see the incoming messages.
 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-inbound/events-recieved.png" title="Google Pub/Sub Inbound User Scenario" alt="Order Notification" width="90%" height="50%"/>
-
-
-
-
