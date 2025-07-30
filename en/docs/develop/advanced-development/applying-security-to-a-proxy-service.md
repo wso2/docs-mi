@@ -18,12 +18,12 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
 4. Select **Registry** under the **Other Artifacts** section.  
     [![Select Registry]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)  
 5. Add the following details in the **Create New Registry Resource** window that opens and click on **Create**.  
-    **Create Options**: Select `From existing template`.   
-    **Template Type**: Select `WS-Policy`.  
-    **Resource Name**: Enter a name for the resource.
-    **Artifact Name**: Enter a name for the artifact.
-    **Select registry type**: Select the registry type where the resource should be saved. Select `Governance registry (gov)` for this example.
-    **Registry Path**: Provide the registry path where the resource should be saved.  
+    - **Create Options**: Select `From existing template`.   
+    - **Template Type**: Select `WS-Policy`.  
+    - **Resource Name**: Enter a name for the resource.
+    - **Artifact Name**: Enter a name for the artifact.
+    - **Select registry type**: Select the registry type where the resource should be saved. Select `Governance registry (gov)` for this example.
+    - **Registry Path**: Provide the registry path where the resource should be saved.  
     [![Create New Registry Resource]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)  
 6. The created policy file will be listed in the project explorer.  
     [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)  
@@ -33,124 +33,125 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
     !!! Note
         Currently, the **Design View** of the policy editor is not available in WSO2 MI for VSCode. You can edit the properties via the **Source View**.  
 
-7. Edit the policy file in the **Source View** to enable the required security scenario.  
-    For example, to enable the **Sign and Encrypt** security scenario, add the following encryption/signature properties to the policy file.  
-    **Alias**: `wso2carbon`
-    **Privatestore**: `wso2carbon.jks`
-    **Tenant id**: `-1234`
-    **Truststores**: `wso2carbon.jks`
-    **User**: `wso2carbon`
+   7. Edit the policy file in the **Source View** to enable the required security scenario.  
+      For example, to enable the **Sign and Encrypt** security scenario, add the following encryption/signature properties to the policy file.  
+      - **Alias**: `wso2carbon`
+      - **Privatestore**: `wso2carbon.jks`
+      - **Tenant id**: `-1234`
+      - **Truststores**: `wso2carbon.jks`
+      - **User**: `wso2carbon`
+      
+      The following advanced rampart properties have been added to your policy file by default.  
+      
+      - **User**: `wso2carbon`
+      - **encryptionUser**: `useReqSigCert`
+      - **timestampPrecisionInMilliseconds**: `true`
+      - **timestampTTL**: `300`
+      - **timestampMaxSkew**: `300`
+      - **timestampStrict**: `false`
+      - **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`
+      - **nonceLifeTime**: `300`
 
-    The following advanced rampart properties have been added to your policy file by default.  
-    **User**: `wso2carbon`
-    **encryptionUser**: `useReqSigCert`
-    **timestampPrecisionInMilliseconds**: `true`
-    **timestampTTL**: `300`
-    **timestampMaxSkew**: `300`
-    **timestampStrict**: `false`
-    **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`
-    **nonceLifeTime**: `300`
-
-    The complete policy file with enabled **Sign and Encrypt - X509 Authentication** security scenario will look as follows.
-    ```xml
-    <wsp:Policy wsu:Id="SigEncr" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-        <wsp:ExactlyOne>
-            <wsp:All>
-                <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                    <wsp:Policy>
-                        <sp:InitiatorToken>
-                            <wsp:Policy>
-                                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
-                                    <wsp:Policy>
-                                        <sp:RequireThumbprintReference/>
-                                        <sp:WssX509V3Token10/>
-                                    </wsp:Policy>
-                                </sp:X509Token>
-                            </wsp:Policy>
-                        </sp:InitiatorToken>
-                        <sp:RecipientToken>
-                            <wsp:Policy>
-                                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
-                                    <wsp:Policy>
-                                        <sp:RequireThumbprintReference/>
-                                        <sp:WssX509V3Token10/>
-                                    </wsp:Policy>
-                                </sp:X509Token>
-                            </wsp:Policy>
-                        </sp:RecipientToken>
-                        <sp:AlgorithmSuite>
-                            <wsp:Policy>
-                                <sp:Basic256/>
-                            </wsp:Policy>
-                        </sp:AlgorithmSuite>
-                        <sp:Layout>
-                            <wsp:Policy>
-                                <sp:Strict/>
-                            </wsp:Policy>
-                        </sp:Layout>
-                        <sp:IncludeTimestamp/>
-                        <sp:OnlySignEntireHeadersAndBody/>
-                    </wsp:Policy>
-                </sp:AsymmetricBinding>
-                <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                    <wsp:Policy>
-                        <sp:MustSupportRefKeyIdentifier/>
-                        <sp:MustSupportRefIssuerSerial/>
-                        <sp:MustSupportRefThumbprint/>
-                        <sp:MustSupportRefEncryptedKey/>
-                        <sp:RequireSignatureConfirmation/>
-                    </wsp:Policy>
-                </sp:Wss11>
-                <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                    <wsp:Policy>
-                        <sp:MustSupportRefKeyIdentifier/>
-                        <sp:MustSupportRefIssuerSerial/>
-                    </wsp:Policy>
-                </sp:Wss10>
-                <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                    <sp:Body/>
-                </sp:SignedParts>
-                <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                    <sp:Body/>
-                </sp:EncryptedParts>
-            </wsp:All>
-        </wsp:ExactlyOne>
-        <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
-            <rampart:user>wso2carbon</rampart:user>
-            <rampart:encryptionUser>useReqSigCert</rampart:encryptionUser>
-            <rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
-            <rampart:timestampTTL>300</rampart:timestampTTL>
-            <rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
-            <rampart:timestampStrict>false</rampart:timestampStrict>
-            <rampart:tokenStoreClass>org.wso2.carbon.security.util.SecurityTokenStore
-            </rampart:tokenStoreClass>
-            <rampart:nonceLifeTime>300</rampart:nonceLifeTime>
-            <rampart:encryptionCrypto>
-                <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.carbon.security.util.ServerCrypto">
-                    <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
-                    <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
-                    <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
-                    <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
-                    <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
-                </rampart:crypto>
-            </rampart:encryptionCrypto>
-            <rampart:signatureCrypto>
-                <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.carbon.security.util.ServerCrypto">
-                    <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
-                    <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
-                    <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
-                    <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
-                    <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
-                </rampart:crypto>
-            </rampart:signatureCrypto>
-        </rampart:RampartConfig>
-    </wsp:Policy>
-    ```
+   The complete policy file with enabled **Sign and Encrypt - X509 Authentication** security scenario will look as follows.
+   ```xml
+   <wsp:Policy wsu:Id="SigEncr" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+     <wsp:ExactlyOne>
+         <wsp:All>
+             <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                 <wsp:Policy>
+                     <sp:InitiatorToken>
+                         <wsp:Policy>
+                             <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                 <wsp:Policy>
+                                     <sp:RequireThumbprintReference/>
+                                     <sp:WssX509V3Token10/>
+                                 </wsp:Policy>
+                             </sp:X509Token>
+                         </wsp:Policy>
+                     </sp:InitiatorToken>
+                     <sp:RecipientToken>
+                         <wsp:Policy>
+                             <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                                 <wsp:Policy>
+                                     <sp:RequireThumbprintReference/>
+                                     <sp:WssX509V3Token10/>
+                                 </wsp:Policy>
+                             </sp:X509Token>
+                         </wsp:Policy>
+                     </sp:RecipientToken>
+                     <sp:AlgorithmSuite>
+                         <wsp:Policy>
+                             <sp:Basic256/>
+                         </wsp:Policy>
+                     </sp:AlgorithmSuite>
+                     <sp:Layout>
+                         <wsp:Policy>
+                             <sp:Strict/>
+                         </wsp:Policy>
+                     </sp:Layout>
+                     <sp:IncludeTimestamp/>
+                     <sp:OnlySignEntireHeadersAndBody/>
+                 </wsp:Policy>
+             </sp:AsymmetricBinding>
+             <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                 <wsp:Policy>
+                     <sp:MustSupportRefKeyIdentifier/>
+                     <sp:MustSupportRefIssuerSerial/>
+                     <sp:MustSupportRefThumbprint/>
+                     <sp:MustSupportRefEncryptedKey/>
+                     <sp:RequireSignatureConfirmation/>
+                 </wsp:Policy>
+             </sp:Wss11>
+             <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                 <wsp:Policy>
+                     <sp:MustSupportRefKeyIdentifier/>
+                     <sp:MustSupportRefIssuerSerial/>
+                 </wsp:Policy>
+             </sp:Wss10>
+             <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                 <sp:Body/>
+             </sp:SignedParts>
+             <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                 <sp:Body/>
+             </sp:EncryptedParts>
+         </wsp:All>
+     </wsp:ExactlyOne>
+     <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
+         <rampart:user>wso2carbon</rampart:user>
+         <rampart:encryptionUser>useReqSigCert</rampart:encryptionUser>
+         <rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
+         <rampart:timestampTTL>300</rampart:timestampTTL>
+         <rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
+         <rampart:timestampStrict>false</rampart:timestampStrict>
+         <rampart:tokenStoreClass>org.wso2.carbon.security.util.SecurityTokenStore
+         </rampart:tokenStoreClass>
+         <rampart:nonceLifeTime>300</rampart:nonceLifeTime>
+         <rampart:encryptionCrypto>
+             <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.carbon.security.util.ServerCrypto">
+                 <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
+                 <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
+                 <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
+                 <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
+                 <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
+             </rampart:crypto>
+         </rampart:encryptionCrypto>
+         <rampart:signatureCrypto>
+             <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.carbon.security.util.ServerCrypto">
+                 <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
+                 <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
+                 <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
+                 <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
+                 <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
+             </rampart:crypto>
+         </rampart:signatureCrypto>
+     </rampart:RampartConfig>
+   </wsp:Policy>
+   ```
     
-    !!! Info 
-        - Change the tokenStoreClass in the policy file to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`
+!!! Info 
+    - Change the tokenStoreClass in the policy file to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`
         
-        - Replace ServerCrypto class with `org.wso2.micro.integrator.security.util.ServerCrypto` if present.
+    - Replace ServerCrypto class with `org.wso2.micro.integrator.security.util.ServerCrypto` if present.
         
 <!--
 #### Specifying role-based access?
@@ -250,14 +251,23 @@ Create a Soap UI project with the relevant security settings and then send the r
    
 7.  Invoke the Proxy Service.
 
-!!! Info
+    !!! Info
 
-    When defining the Outgoing WS-Security Configuration, you need to pick the WS entries based on your WS policy.
+        When defining the Outgoing WS-Security Configuration, you need to pick the WS entries based on your WS policy.
     
-    Eg:
+        Eg:
     
-    - A Non Repudiation policy needs only Timestamp and Signature. 
-    - A Confidentiality policy needs all three: Timestamp, Signature and Encryption.
-    - You do not need to provide an Outgoing WS-Security Configuration for a Username Token policy. Providing the basic auth configuration is enough.
+        - A Non Repudiation policy needs only Timestamp and Signature. 
+        - A Confidentiality policy needs all three: Timestamp, Signature and Encryption.
+        - You do not need to provide an Outgoing WS-Security Configuration for a Username Token policy. Providing the basic auth configuration is enough.
     
         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"></a>
+
+8.  To decrypt the response, add the Incoming WSS configuration similar to the Outgoing WSS configuration.
+
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" width="60%" alt="Incoming WSS Configuration"></a>
+
+9.  Invoke the Proxy Service with Incoming & Outgoing WSS Configuration.
+
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" width="60%" alt="Incoming WSS Configuration"></a>
+
