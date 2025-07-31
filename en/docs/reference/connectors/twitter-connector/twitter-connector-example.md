@@ -8,7 +8,13 @@ In this guide, you will build a project to perform the following operation.
 
 * Create a Tweet.
 
-     The user sends the request payload that includes the necessary parameters for a Tweet, to create a new Tweet in Twitter. This request is sent to the integration runtime by invoking the Twitter connector API. 
+     The user sends the request payload that includes the necessary parameters for a Tweet, to create a new Tweet in Twitter. This request is sent to the integration runtime by invoking the Twitter connector API.
+
+The Twitter connector 4.0.0+ provides comprehensive support for Twitter API v2 operations across four main categories:
+- **Tweet Operations**: Create, delete, retrieve, like, retweet, and search tweets
+- **User Operations**: Manage followers, blocking, muting, and user profiles  
+- **List Operations**: Create and manage Twitter lists and memberships
+- **Direct Message Operations**: Send and retrieve direct messages 
 
 <center><img src="{{base_path}}/assets/img/integrate/connectors/twitter-connector-store.png" title="Using Twitter Rest Connector" width="200" alt="Using Twitter Rest Connector"/></center>
 
@@ -31,13 +37,15 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 <api context="/createtweet" name="createTweet" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/">
         <inSequence>
-            <property expression="json-eval($.clientId)" name="clientId"/>
-            <property expression="json-eval($.accessToken)" name="accessToken"/>
-            <property expression="json-eval($.id)" name="id"/>
-            <property expression="json-eval($.text)" name="text"/>
-            <property expression="json-eval($.for_super_followers_only)" name="for_super_followers_only"/>
-            <property expression="json-eval($.poll)" name="place_fields"/>
+            <property expression="{$payload.clientId}" name="clientId"/>
+            <property expression="{$payload.accessToken}" name="accessToken"/>
+            <property expression="{$payload.id}" name="id"/>
+            <property expression="{$payload.text}" name="text"/>
+            <property expression="{$payload.for_super_followers_only}" name="for_super_followers_only"/>
+            <property expression="{$payload.poll}" name="place_fields"/>
             <twitter.init>
+                <apiUrl>https://api.twitter.com</apiUrl>
+                <timeout>5000</timeout>
                 <accessToken>{$ctx:accessToken}</accessToken>
                 <clientId>{$ctx:clientId}</clientId>
             </twitter.init>
