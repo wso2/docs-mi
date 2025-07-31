@@ -40,3 +40,23 @@ In the publisher URL, set the connection factory name instead of the connection 
 ``` xml
 <address uri="rabbitmq://?rabbitmq.connection.factory=RabbitMQConnectionFactory&amp;rabbitmq.queue.name=queue1&amp;rabbitmq.queue.routing.key=queue1&amp;rabbitmq.replyto.name=replyqueue&amp;rabbitmq.exchange.name=ex1&amp;rabbitmq.queue.autodeclare=false&amp;rabbitmq.exchange.autodeclare=false&amp;rabbitmq.replyto.name=response_queue"/>
 ```
+
+## Tune RabbitMQ Connection Pool Parameters
+
+Fine-tuning the connection pool parameters can help optimize resource usage and improve throughput for RabbitMQ transport. You can configure these parameters in the `deployment.toml` file under the sender configuration:
+
+```toml
+[[transport.rabbitmq.sender]]
+parameter.'rabbitmq.max.wait.millis' = 10000
+parameter.'rabbitmq.max.idle.per.key' = 20
+```
+
+**Parameter descriptions:**
+
+- `parameter.'rabbitmq.max.wait.millis'`: This parameter determines the maximum amount of time (in milliseconds) that the borrowObject method will block when waiting for an object to become available, should the pool be exhausted. Here, it's set to 10,000 milliseconds (10 seconds).
+- `parameter.'rabbitmq.max.idle.per.key'`: This parameter sets the maximum number of idle objects allowed in the pool per key. If the number of idle objects for a key exceeds this limit (20 in this case), the excess objects are subject to eviction. 
+
+!!! Note 
+    `max.connections.per.key`: This parameter will be set to the same value as `max.idle.per.key`. Since keeping all allocated connections idle and reusable ensures that consumers and publishers can immediately reuse existing connections with minimal delay.
+
+Adjust these parameters according to your deployment requirements to balance performance and resource consumption.
