@@ -12,11 +12,11 @@ The Google Pub/Sub Inbound Endpoint provides a robust and production-grade imple
 
 By following this tutorial, you will gain hands-on experience in:
 
-1. Setting up Google Cloud Pub/Sub resources.
-2. Configuring the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
-3. Running and testing the integration to receive real-time messages.
+1. Set up Google Cloud Pub/Sub resources.
+2. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+3. Run and test the integration to receive real-time messages.
 
-#### **Step 01: Setting up Google Cloud Pub/Sub resources**
+## Step 01: Set up Google Cloud Pub/Sub resources
 ##### Prerequisites
 
 * Create a [Google Cloud Account](https://console.cloud.google.com/freetrial?facet_utm_source=google&facet_utm_campaign=%28organic%29&facet_utm_medium=organic&facet_url=https%3A%2F%2Fcloud.google.com%2Fpubsub%2Fdocs%2Fpublish-receive-messages-console&facet_id_list=%5B39300012%2C+39300020%2C+39300118%2C+39300196%2C+39300241%2C+39300319%2C+39300320%2C+39300326%2C+39300345%2C+39300354%2C+39300363%2C+39300374%2C+39300412%2C+39300421%2C+39300436%2C+39300472%2C+39300488%2C+39300496%2C+39300498%2C+39300569%5D) if you already don't have one.
@@ -28,7 +28,7 @@ By following this tutorial, you will gain hands-on experience in:
 * [Create a Subscription](https://cloud.google.com/pubsub/docs/publish-receive-messages-console#add_a_second_subscription)
 * [Set Up Authentication](https://cloud.google.com/docs/authentication/set-up-adc-attached-service-account)
 
-#### **Step 02: Configuring the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension**
+## Step 02: Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension
 Follow these steps to configure the inbound endpoint in WSO2 Micro Integrator using the Visual Studio Code extension:
 
 1. [Create a new project]({{base_path}}/develop/create-integration-project/) using the WSO2 Micro Integrator VS Code extension.
@@ -56,7 +56,7 @@ Follow these steps to configure the inbound endpoint in WSO2 Micro Integrator us
     <property name="MessageAttribute1" expression="${properties.synapse.attributeName}"/>
     ```
 
-#### **Step 03: Running and testing the integration to receive real-time messages**
+## Step 03: Run and test the integration to receive real-time messages
 
 1. To generate an access token for Publisher, refer to [Setting up the Google PubSub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/).
 
