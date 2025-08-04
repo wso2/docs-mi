@@ -209,6 +209,7 @@ nav:
       - Integration Projects:
           - Create a Project: develop/create-integration-project.md
           - Open a Project: develop/opening-projects.md
+          - Manage Dependent Projects: develop/integration-project-dependencies.md
       - Integration Artifacts:
           - Integration Artifacts Overview: develop/creating-artifacts/creating-artifacts-overview.md
           - Create Artifacts:
