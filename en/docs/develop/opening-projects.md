@@ -22,7 +22,9 @@ Follow the steps below to open your existing integration project:
     !!! warning "If you have an integration project created by WSO2 Integration Studio..."
     
         MI for VS Code offers limited support for projects created by the WSO2 Integration Studio. To ensure compatibility, you need to migrate your project or workspace to a supported project structure.
-       
+
+        <u>Migrating a Project</u>
+
         If you open an integration project created using WSO2 Integration Studio, you will be prompted with the following interface.
     
         Click **Migrate Project** to automatically migrate your project using the migration tool provided in the MI for VS Code extension. 
@@ -34,6 +36,8 @@ Follow the steps below to open your existing integration project:
         Within the `.backup` folder, a file named `skipped-files-during-migration.txt` is generated, which contains the file paths of artifacts that were available to be selected in a composite exporter but were not selected in any composite exporter. 
         
         <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png" alt="Migrate project"></a>
+
+        <u>Migrating a Workspace</u>
 
         If you open a workspace created using WSO2 Integration Studio, you will be prompted with the following interface:
         
