@@ -2,6 +2,8 @@
 
 The following operations allow you to work with the Twitter Connector. Click an operation name to see parameter details and samples on how to use it.
 
+The Twitter Connector 4.0.0+ provides comprehensive Twitter API v2 integration with enhanced OAuth 2.0 handling, automatic token refresh, and centralized URL building for improved performance and reliability.
+
 ---
 
 ## Initialize the connector
@@ -53,22 +55,22 @@ To use the Twitter connector, add the `<twitter.init>` element in your configura
 
     ```xml
     <twitter.init>
-        <clientId>{$ctx:clientId}</clientId>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <timeout>{$ctx:timeout}</timeout>
+        <clientId>{$payload.clientId}</clientId>
+        <accessToken>{$payload.accessToken}</accessToken>
+        <refreshToken>{$payload.refreshToken}</refreshToken>
+        <apiUrl>{$payload.apiUrl}</apiUrl>
+        <timeout>{$payload.timeout}</timeout>
     </twitter.init>
     ```
 
     **Sample request**
 
-    ```xml
-    <twitter.init>
-        <clientId>"rG9n6402A3dbUJKzXTNX4oWHJ"</clientId>
-        <accessToken>"MFpJRmFlbGJTZHVDdkNIbDN4WURTYTFiUmZtRV9HckdsUmlmd1ZxVjRvWHVUOjE2ODY1NDIwMjM5MTk6MTowOmF0OjE"</accessToken>
-        <refreshToken>"bWRWa3gzdnk3WHRGU1o0bmRRcTJ5VUxWX1lZTDdJSUtmaWcxbTVxdEFXcW5tOjE2MjIxNDc3NDM5MTQ6MToxOnJ0OjE"</refreshToken>
-    </twitter.init>
+    ```json
+    {
+        "clientId": "rG9n6402A3dbUJKzXTNX4oWHJ",
+        "accessToken": "MFpJRmFlbGJTZHVDdkNIbDN4WURTYTFiUmZtRV9HckdsUmlmd1ZxVjRvWHVUOjE2ODY1NDIwMjM5MTk6MTowOmF0OjE",
+        "refreshToken": "bWRWa3gzdnk3WHRGU1o0bmRRcTJ5VUxWX1lZTDdJSUtmaWcxbTVxdEFXcW5tOjE2MjIxNDc3NDM5MTQ6MToxOnJ0OjE"
+    }
     ```
 ---
 
@@ -145,15 +147,15 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.createTweet>
-        <text>{$ctx:text}</text>
-        <direct_message_deep_link>{$ctx:direct_message_deep_link}</direct_message_deep_link>
-        <for_super_followers_only>{$ctx:for_super_followers_only}</for_super_followers_only>
-        <geo>{$ctx:geo}</geo>
-        <media>{$ctx:media}</media>
-        <poll>{$ctx:poll}</poll>
-        <quote_tweet_id>{$ctx:quote_tweet_id}</quote_tweet_id>
-        <reply>{$ctx:reply}</reply>
-        <reply_settings>{$ctx:reply_settings}</reply_settings>
+        <text>{$payload.text}</text>
+        <direct_message_deep_link>{$payload.direct_message_deep_link}</direct_message_deep_link>
+        <for_super_followers_only>{$payload.for_super_followers_only}</for_super_followers_only>
+        <geo>{$payload.geo}</geo>
+        <media>{$payload.media}</media>
+        <poll>{$payload.poll}</poll>
+        <quote_tweet_id>{$payload.quote_tweet_id}</quote_tweet_id>
+        <reply>{$payload.reply}</reply>
+        <reply_settings>{$payload.reply_settings}</reply_settings>
     </twitter.createTweet>
     ```
 
@@ -161,14 +163,14 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the createTweet operation.
     
-    ```xml
-    <twitter.createTweet>
-        <text>"Hello World!"</text>
-        <for_super_followers_only>true</for_super_followers_only>
-        <poll>{"options": ["yes", "maybe", "no"], "duration_minutes": 120}</poll>
-        <reply>{"in_reply_to_tweet_id": "1455953449422516226", "exclude_reply_user_ids": ["6253282"]}</reply>
-        <reply_settings>"mentionedUsers"</reply_settings>
-    </twitter.createTweet>
+    ```json
+    {
+        "text": "Hello World!",
+        "for_super_followers_only": true,
+        "poll": {"options": ["yes", "maybe", "no"], "duration_minutes": 120},
+        "reply": {"in_reply_to_tweet_id": "1455953449422516226", "exclude_reply_user_ids": ["6253282"]},
+        "reply_settings": "mentionedUsers"
+    }
     ```
     **Sample response**
         
@@ -207,7 +209,7 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.deleteTweet>
-        <id>{$ctx:id}</id>
+        <id>{$payload.id}</id>
     </twitter.deleteTweet>
 
     ```
@@ -216,10 +218,10 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the deleteTweet operation.
         
-    ```xml
-    <twitter.deleteTweet>
-        <id>"1667035675894640640"</id>
-    </twitter.deleteTweet>
+    ```json
+    {
+        "id": "1667035675894640640"
+    }
     ```    
       
     **Sample response**
@@ -291,13 +293,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getTweetById>
-        <id>{$ctx:id}</id>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getTweetById>
     ```
 
@@ -305,13 +307,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the getTweetById operation.
         
-    ```xml
-    <twitter.getTweetById>
-        <id>"1460323737035677698"</id>
-        <expansions>"attachments.media_keys,author_id"</expansions>
-        <media_fields>"duration_ms,media_key"</media_fields>
-        <tweet_fields>"lang"</tweet_fields>
-    </twitter.getTweetById>
+    ```json
+    {
+        "id": "1460323737035677698",
+        "expansions": "attachments.media_keys,author_id",
+        "media_fields": "duration_ms,media_key",
+        "tweet_fields": "lang"
+    }
     ```    
       
     **Sample response**
@@ -395,13 +397,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getTweetsLookup>
-        <ids>{$ctx:ids}</ids>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <ids>{$payload.ids}</ids>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getTweetsLookup>
 
     ```
@@ -410,12 +412,12 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the getTweetsLookup operation.
         
-    ```xml
-    <twitter.getTweetsLookup>
-        <ids>"1460323737035677698,1519781379172495360,1519781381693353984"</ids>
-        <expansions>"attachments.poll_ids,author_id"</expansions>
-        <poll_fields>"duration_minutes"</poll_fields>
-    </twitter.getTweetsLookup>
+    ```json
+    {
+        "ids": "1460323737035677698,1519781379172495360,1519781381693353984",
+        "expansions": "attachments.poll_ids,author_id",
+        "poll_fields": "duration_minutes"
+    }
 
     ```    
       
@@ -550,20 +552,20 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.searchTweets>
-        <query>{$ctx:query}</query>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <next_token>{$ctx:next_token}</next_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <query>{$payload.query}</query>
+        <start_time>{$payload.start_time}</start_time>
+        <end_time>{$payload.end_time}</end_time>
+        <since_id>{$payload.since_id}</since_id>
+        <until_id>{$payload.until_id}</until_id>
+        <sort_order>{$payload.sort_order}</sort_order>
+        <max_results>{$payload.max_results}</max_results>
+        <next_token>{$payload.next_token}</next_token>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.searchTweets>
     ```
 
@@ -571,14 +573,14 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the searchTweets operation.
         
-    ```xml
-    <twitter.searchTweets>
-        <query>"(from:TwitterDev) new -is:retweet"</query>
-        <start_time>"2020-01-01T00:00:00Z"</start_time>
-        <sort_order>"recency"</sort_order>
-        <max_results>10</max_results>
-        <tweet_fields>"created_at,lang,conversation_id"</tweet_fields>
-    </twitter.searchTweets>
+    ```json
+    {
+        "query": "(from:TwitterDev) new -is:retweet",
+        "start_time": "2020-01-01T00:00:00Z",
+        "sort_order": "recency",
+        "max_results": 10,
+        "tweet_fields": "created_at,lang,conversation_id"
+    }
     ```    
       
     **Sample response**
@@ -630,8 +632,8 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.likeTweet>
-        <user_id>{$ctx:user_id}</user_id>
-        <tweet_id>{$ctx:tweet_id}</tweet_id>
+        <user_id>{$payload.user_id}</user_id>
+        <tweet_id>{$payload.tweet_id}</tweet_id>
     </twitter.likeTweet>
 
     ```
@@ -640,11 +642,11 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the likeTweet operation.
         
-    ```xml
-    <twitter.likeTweet>
-        <user_id>"1655515285577936899"</user_id>
-        <tweet_id>"1521887626935947265"</tweet_id>
-    </twitter.likeTweet>
+    ```json
+    {
+        "user_id": "1655515285577936899",
+        "tweet_id": "1521887626935947265"
+    }
     ```    
       
     **Sample response**
@@ -687,8 +689,8 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.unlikeTweet>
-        <user_id>{$ctx:user_id}</user_id>
-        <tweet_id>{$ctx:tweet_id}</tweet_id>
+        <user_id>{$payload.user_id}</user_id>
+        <tweet_id>{$payload.tweet_id}</tweet_id>
     </twitter.unlikeTweet>
     ```
 
@@ -696,11 +698,11 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the unlikeTweet operation.
         
-    ```xml
-    <twitter.unlikeTweet>
-        <user_id>"1655515285577936899"</user_id>
-        <tweet_id>"1521887626935947265"</tweet_id>
-    </twitter.unlikeTweet>
+    ```json
+    {
+        "user_id": "1655515285577936899",
+        "tweet_id": "1521887626935947265"
+    }
     ```    
       
     **Sample response**
@@ -785,15 +787,15 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getLikedTweetsList>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getLikedTweetsList>
     ```
 
@@ -801,11 +803,11 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the getLikedTweetsList operation.
         
-    ```xml
-    <twitter.getLikedTweetsList>
-        <id>"1655515285577936899"</id>
-        <max_results>10</max_results>
-    </twitter.getLikedTweetsList>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "max_results": 10
+    }
     ```    
       
     **Sample response**
@@ -871,8 +873,8 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.createRetweet>
-        <user_id>{$ctx:user_id}</user_id>
-        <tweet_id>{$ctx:tweet_id}</tweet_id>
+        <user_id>{$payload.user_id}</user_id>
+        <tweet_id>{$payload.tweet_id}</tweet_id>
     </twitter.createRetweet>
     ```
 
@@ -880,11 +882,11 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the createRetweet operation.
         
-    ```xml
-    <twitter.createRetweet>
-        <user_id>"1655515285577936899"</user_id>
-        <tweet_id>"1519781381693353984"</tweet_id>
-    </twitter.createRetweet>
+    ```json
+    {
+        "user_id": "1655515285577936899",
+        "tweet_id": "1519781381693353984"
+    }
     ```    
       
     **Sample response**
@@ -1004,21 +1006,21 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getUserHomeTimeline>
-        <id>{$ctx:id}</id>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <exclude>{$ctx:exclude}</exclude>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <start_time>{$payload.start_time}</start_time>
+        <end_time>{$payload.end_time}</end_time>
+        <since_id>{$payload.since_id}</since_id>
+        <until_id>{$payload.until_id}</until_id>
+        <sort_order>{$payload.sort_order}</sort_order>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <exclude>{$payload.exclude}</exclude>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getUserHomeTimeline>
     ```
 
@@ -1026,13 +1028,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the getUserHomeTimeline operation.
         
-    ```xml
-    <twitter.getUserHomeTimeline>
-        <id>"1655515285577936899"</id>
-        <start_time>"2020-01-01T00:00:00Z"</start_time>
-        <max_results>10</max_results>
-        <tweet_fields>"created_at,lang,conversation_id"</tweet_fields>
-    </twitter.getUserHomeTimeline>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "start_time": "2020-01-01T00:00:00Z",
+        "max_results": 10,
+        "tweet_fields": "created_at,lang,conversation_id"
+    }
     ```    
       
     **Sample response**
@@ -1206,20 +1208,20 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getUserMentionsTimeline>
-        <id>{$ctx:id}</id>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <start_time>{$payload.start_time}</start_time>
+        <end_time>{$payload.end_time}</end_time>
+        <since_id>{$payload.since_id}</since_id>
+        <until_id>{$payload.until_id}</until_id>
+        <sort_order>{$payload.sort_order}</sort_order>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getUserMentionsTimeline>
     ```
 
@@ -1227,13 +1229,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the getUserMentionsTimeline operation.
         
-    ```xml
-    <twitter.getUserMentionsTimeline>
-        <id>"1655515285577936899"</id>
-        <start_time>"2020-01-01T00:00:00Z"</start_time>
-        <max_results>10</max_results>
-        <tweet_fields>"created_at,lang,conversation_id"</tweet_fields>
-    </twitter.getUserMentionsTimeline>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "start_time": "2020-01-01T00:00:00Z",
+        "max_results": 10,
+        "tweet_fields": "created_at,lang,conversation_id"
+    }
     ```    
       
     **Sample response**
@@ -1426,20 +1428,20 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getUserTweetsTimeline>
-        <id>{$ctx:id}</id>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <start_time>{$payload.start_time}</start_time>
+        <end_time>{$payload.end_time}</end_time>
+        <since_id>{$payload.since_id}</since_id>
+        <until_id>{$payload.until_id}</until_id>
+        <sort_order>{$payload.sort_order}</sort_order>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <place_fields>{$payload.place_fields}</place_fields>
+        <poll_fields>{$payload.poll_fields}</poll_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getUserTweetsTimeline>
     ```
 
@@ -1447,13 +1449,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     Given below is a sample request that can be handled by the getUserTweetsTimeline operation.
         
-    ```xml
-    <twitter.getUserTweetsTimeline>
-        <id>"1655515285577936899"</id>
-        <start_time>"2020-01-01T00:00:00Z"</start_time>
-        <max_results>10</max_results>
-        <tweet_fields>"created_at,lang,conversation_id"</tweet_fields>
-    </twitter.getUserTweetsTimeline>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "start_time": "2020-01-01T00:00:00Z",
+        "max_results": 10,
+        "tweet_fields": "created_at,lang,conversation_id"
+    }
     ```    
       
     **Sample response**
@@ -1545,9 +1547,9 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getMe>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getMe>
     ```
 
@@ -1555,11 +1557,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getMe operation.
         
-    ```xml
-    <twitter.getMe>
-        <expansions>"pinned_tweet_id"</expansions>
-        <user_fields>"created_at,username,id,name"</user_fields>
-    </twitter.getMe>
+    ```json
+    {
+        "expansions": "pinned_tweet_id",
+        "user_fields": "created_at,username,id,name"
+    }
     ```    
       
     **Sample response**
@@ -1636,10 +1638,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getUserById>
-        <id>{$ctx:id}</id>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getUserById>
     ```
 
@@ -1647,11 +1649,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getUserById operation.
         
-    ```xml
-    <twitter.getUserById>
-        <id>"1655515285577936899"</id>
-        <user_fields>"created_at,username,id,name"</user_fields>
-    </twitter.getUserById>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "user_fields": "created_at,username,id,name"
+    }
     ```    
       
     **Sample response**
@@ -1728,10 +1730,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getUserByUsername>
-        <username>{$ctx:username}</username>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <username>{$payload.username}</username>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getUserByUsername>
     ```
 
@@ -1739,11 +1741,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getUserByUsername operation.
         
-    ```xml
-    <twitter.getUserByUsername>
-        <username>"GrawKraken"</username>
-        <tweet_fields>"public_metrics"</tweet_fields>
-    </twitter.getUserByUsername>
+    ```json
+    {
+        "username": "GrawKraken",
+        "tweet_fields": "public_metrics"
+    }
     ```    
       
     **Sample response**
@@ -1820,10 +1822,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getUsersLookup>
-        <ids>{$ctx:ids}</ids>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <ids>{$payload.ids}</ids>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getUsersLookup>
     ```
 
@@ -1831,12 +1833,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getUsersLookup operation.
         
-    ```xml
-    <twitter.getUsersLookup>
-        <ids>"1655515285577936899,15594932"</ids>
-        <expansions>"pinned_tweet_id"</expansions>
-        <tweet_fields>"created_at"</tweet_fields>
-    </twitter.getUsersLookup>
+    ```json
+    {
+        "ids": "1655515285577936899,15594932",
+        "expansions": "pinned_tweet_id",
+        "tweet_fields": "created_at"
+    }
     ```    
       
     **Sample response**
@@ -1900,8 +1902,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.followUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{$payload.id}</id>
+        <target_user_id>{$payload.target_user_id}</target_user_id>
     </twitter.followUser>
     ```
 
@@ -1909,11 +1911,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the followUser operation.
         
-    ```xml
-    <twitter.followUser>
-        <id>"1655515285577936899"</id>
-        <target_user_id>"15594932"</target_user_id>
-    </twitter.followUser>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "target_user_id": "15594932"
+    }
     ```    
       
     **Sample response**
@@ -1980,12 +1982,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getFollowingUsers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getFollowingUsers>
     ```
 
@@ -1993,10 +1995,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getFollowingUsers operation.
         
-    ```xml
-    <twitter.getFollowingUsers>
-        <id>"1655515285577936899"</id>
-    </twitter.getFollowingUsers>
+    ```json
+    {
+        "id": "1655515285577936899"
+    }
     ```    
       
     **Sample response**
@@ -2117,12 +2119,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getFollowers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getFollowers>
     ```
 
@@ -2130,10 +2132,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getFollowers operation.
         
-    ```xml
-    <twitter.getFollowers>
-        <id>"1655515285577936899"</id>
-    </twitter.getFollowers>
+    ```json
+    {
+        "id": "1655515285577936899"
+    }
     ```    
       
     **Sample response**
@@ -2230,8 +2232,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.unfollowUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{$payload.id}</id>
+        <target_user_id>{$payload.target_user_id}</target_user_id>
     </twitter.unfollowUser>
     ```
 
@@ -2239,11 +2241,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the unfollowUser operation.
         
-    ```xml
-    <twitter.unfollowUser>
-        <id>"1655515285577936899"</id>
-        <target_user_id>"15594932"</target_user_id>
-    </twitter.unfollowUser>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "target_user_id": "15594932"
+    }
     ```    
       
     **Sample response**
@@ -2285,8 +2287,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.blockUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{$payload.id}</id>
+        <target_user_id>{$payload.target_user_id}</target_user_id>
     </twitter.blockUser>
     ```
 
@@ -2294,11 +2296,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the blockUser operation.
         
-    ```xml
-    <twitter.blockUser>
-        <id>"1655515285577936899"</id>
-        <target_user_id>"15594932"</target_user_id>
-    </twitter.blockUser>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "target_user_id": "15594932"
+    }
     ```    
       
     **Sample response**
@@ -2364,12 +2366,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getBlockedUsers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getBlockedUsers>
     ```
 
@@ -2377,10 +2379,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getBlockedUsers operation.
         
-    ```xml
-    <twitter.getBlockedUsers>
-        <id>"1655515285577936899"</id>
-    </twitter.getBlockedUsers>
+    ```json
+    {
+        "id": "1655515285577936899"
+    }
     ```    
       
     **Sample response**
@@ -2477,8 +2479,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.unblockUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{$payload.id}</id>
+        <target_user_id>{$payload.target_user_id}</target_user_id>
     </twitter.unblockUser>
     ```
 
@@ -2486,11 +2488,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the unblockUser operation.
         
-    ```xml
-    <twitter.unblockUser>
-        <id>"1655515285577936899"</id>
-        <target_user_id>"15594932"</target_user_id>
-    </twitter.unblockUser>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "target_user_id": "15594932"
+    }
     ```    
       
     **Sample response**
@@ -2532,8 +2534,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.muteUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{$payload.id}</id>
+        <target_user_id>{$payload.target_user_id}</target_user_id>
     </twitter.muteUser>
     ```
 
@@ -2541,11 +2543,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the muteUser operation.
         
-    ```xml
-    <twitter.muteUser>
-        <id>"1655515285577936899"</id>
-        <target_user_id>"15594932"</target_user_id>
-    </twitter.muteUser>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "target_user_id": "15594932"
+    }
     ```    
       
     **Sample response**
@@ -2611,12 +2613,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getMutedUsers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getMutedUsers>
     ```
 
@@ -2624,10 +2626,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getMutedUsers operation.
         
-    ```xml
-    <twitter.getMutedUsers>
-        <id>"1655515285577936899"</id>
-    </twitter.getMutedUsers>
+    ```json
+    {
+        "id": "1655515285577936899"
+    }
     ```    
       
     **Sample response**
@@ -2724,8 +2726,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.unmuteUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{$payload.id}</id>
+        <target_user_id>{$payload.target_user_id}</target_user_id>
     </twitter.unmuteUser>
     ```
 
@@ -2733,11 +2735,11 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the unmuteUser operation.
         
-    ```xml
-    <twitter.unmuteUser>
-        <id>"1655515285577936899"</id>
-        <target_user_id>"15594932"</target_user_id>
-    </twitter.unmuteUser>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "target_user_id": "15594932"
+    }
     ```    
       
     **Sample response**
@@ -2790,9 +2792,9 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.createList>
-        <name>{$ctx:name}</name>
-        <description>{$ctx:description}</description>
-        <private>{$ctx:private}</private>
+        <name>{$payload.name}</name>
+        <description>{$payload.description}</description>
+        <private>{$payload.private}</private>
     </twitter.createList>
     ```
 
@@ -2800,12 +2802,12 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the createList operation.
         
-    ```xml
-    <twitter.createList>
-        <name>"test list"</name>
-        <description>"list for testing"</description>
-        <private>true</private>
-    </twitter.createList>
+    ```json
+    {
+        "name": "test list",
+        "description": "list for testing",
+        "private": true
+    }
     ```    
       
     **Sample response**
@@ -2860,10 +2862,10 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.updateList>
-        <id>{$ctx:id}</id>
-        <name>{$ctx:name}</name>
-        <description>{$ctx:description}</description>
-        <private>{$ctx:private}</private>
+        <id>{$payload.id}</id>
+        <name>{$payload.name}</name>
+        <description>{$payload.description}</description>
+        <private>{$payload.private}</private>
     </twitter.updateList>
     ```
 
@@ -2871,12 +2873,12 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the updateList operation.
         
-    ```xml
-    <twitter.updateList>
-        <id>"1669209684962865153"</id>
-        <description>"list for testing"</description>
-        <private>true</private>
-    </twitter.updateList>
+    ```json
+    {
+        "id": "1669209684962865153",
+        "description": "list for testing",
+        "private": true
+    }
     ```    
       
     **Sample response**
@@ -2912,7 +2914,7 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.deleteList>
-        <id>{$ctx:id}</id>
+        <id>{$payload.id}</id>
     </twitter.deleteList>
     ```
 
@@ -2920,10 +2922,10 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the deleteList operation.
         
-    ```xml
-    <twitter.deleteList>
-        <id>"1669209684962865153"</id>
-    </twitter.deleteList>
+    ```json
+    {
+        "id": "1669209684962865153"
+    }
     ```    
       
     **Sample response**
@@ -2977,10 +2979,10 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.getListById>
-        <id>{$ctx:id}</id>
-        <expansions>{$ctx:expansions}</expansions>
-        <list_fields>{$ctx:list_fields}</list_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <expansions>{$payload.expansions}</expansions>
+        <list_fields>{$payload.list_fields}</list_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getListById>
     ```
 
@@ -2988,11 +2990,11 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getListById operation.
         
-    ```xml
-    <twitter.getListById>
-        <id>"1667124005638397955"</id>
-        <user_fields>"created_at,username,id,name"</user_fields>
-    </twitter.getListById>
+    ```json
+    {
+        "id": "1667124005638397955",
+        "user_fields": "created_at,username,id,name"
+    }
     ```    
       
     **Sample response**
@@ -3068,12 +3070,12 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.getFollowingLists>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <list_fields>{$ctx:list_fields}</list_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <list_fields>{$payload.list_fields}</list_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getFollowingLists>
     ```
 
@@ -3081,11 +3083,11 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getFollowingLists operation.
         
-    ```xml
-    <twitter.getFollowingLists>
-        <id>"1655515285577936899"</id>
-        <user_fields>"created_at,username,id,name"</user_fields>
-    </twitter.getFollowingLists>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "user_fields": "created_at,username,id,name"
+    }
     ```    
       
     **Sample response**
@@ -3169,12 +3171,12 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.getListsMemberships>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <list_fields>{$ctx:list_fields}</list_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{$payload.id}</id>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <list_fields>{$payload.list_fields}</list_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getListsMemberships>
     ```
 
@@ -3182,11 +3184,11 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     Given below is a sample request that can be handled by the getListsMemberships operation.
         
-    ```xml
-    <twitter.getListsMemberships>
-        <id>"1655515285577936899"</id>
-        <user_fields>"created_at,username,id,name"</user_fields>
-    </twitter.getListsMemberships>
+    ```json
+    {
+        "id": "1655515285577936899",
+        "user_fields": "created_at,username,id,name"
+    }
     ```    
       
     **Sample response**
@@ -3257,9 +3259,9 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     ```xml
     <twitter.sendNewDirectMessage>
-        <participant_id>{$ctx:participant_id}</participant_id>
-        <attachments>{$ctx:attachments}</attachments>
-        <text>{$ctx:text}</text>
+        <participant_id>{$payload.participant_id}</participant_id>
+        <attachments>{$payload.attachments}</attachments>
+        <text>{$payload.text}</text>
     </twitter.sendNewDirectMessage>
     ```
 
@@ -3267,11 +3269,11 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     Given below is a sample request that can be handled by the sendNewDirectMessage operation.
         
-    ```xml
-    <twitter.sendNewDirectMessage>
-        <participant_id>"1668111685234708487"</participant_id>
-        <text>"Test message!"</text>
-    </twitter.sendNewDirectMessage>
+    ```json
+    {
+        "participant_id": "1668111685234708487",
+        "text": "Test message!"
+    }
     ```    
       
     **Sample response**
@@ -3320,9 +3322,9 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     ```xml
     <twitter.addDirectMessage>
-        <dm_conversation_id>{$ctx:dm_conversation_id}</dm_conversation_id>
-        <attachments>{$ctx:attachments}</attachments>
-        <text>{$ctx:text}</text>
+        <dm_conversation_id>{$payload.dm_conversation_id}</dm_conversation_id>
+        <attachments>{$payload.attachments}</attachments>
+        <text>{$payload.text}</text>
     </twitter.addDirectMessage>
     ```
 
@@ -3330,11 +3332,11 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     Given below is a sample request that can be handled by the addDirectMessage operation.
         
-    ```xml
-    <twitter.addDirectMessage>
-        <dm_conversation_id>"1655515285577936899-1668111685234708487"</dm_conversation_id>
-        <text>"Second Test message!"</text>
-    </twitter.addDirectMessage>
+    ```json
+    {
+        "dm_conversation_id": "1655515285577936899-1668111685234708487",
+        "text": "Second Test message!"
+    }
     ```    
       
     **Sample response**
@@ -3413,14 +3415,14 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     ```xml
     <twitter.getDirectMessages>
-        <event_types>{$ctx:event_types}</event_types>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <dm_event_fields>{$ctx:dm_event_fields}</dm_event_fields>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <event_types>{$payload.event_types}</event_types>
+        <max_results>{$payload.max_results}</max_results>
+        <pagination_token>{$payload.pagination_token}</pagination_token>
+        <expansions>{$payload.expansions}</expansions>
+        <dm_event_fields>{$payload.dm_event_fields}</dm_event_fields>
+        <media_fields>{$payload.media_fields}</media_fields>
+        <tweet_fields>{$payload.tweet_fields}</tweet_fields>
+        <user_fields>{$payload.user_fields}</user_fields>
     </twitter.getDirectMessages>
     ```
 
@@ -3428,11 +3430,11 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     Given below is a sample request that can be handled by the getDirectMessages operation.
         
-    ```xml
-    <twitter.getDirectMessages>
-        <dm_event_fields>"event_type,sender_id"</dm_event_fields>
-        <user_fields>"created_at,username,id,name"</user_fields>
-    </twitter.getDirectMessages>
+    ```json
+    {
+        "dm_event_fields": "event_type,sender_id",
+        "user_fields": "created_at,username,id,name"
+    }
     ```    
       
     **Sample response**
