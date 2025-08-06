@@ -31,7 +31,7 @@ Follow the steps below to open your existing integration project:
 
         For a maven multi module project, **each composite exporter** will have its own project created, and **only the files selected within the composite exporter** will be added to the respective project. If multiple projects are created during migration, they will be opened in a workspace. 
     
-        A `.backup` folder is created to preserve the original Integration Studio project before migration.        
+        The `.backup` folder is created to preserve a copy of the original Integration Studio project prior to migration.        
 
         Within the `.backup` folder, a file named `skipped-files-during-migration.txt` is generated, which contains the file paths of artifacts that were available to be selected in a composite exporter but were not selected in any composite exporter. 
         
