@@ -1,104 +1,111 @@
 # Intelligent Document Processing (IDP) Connector Example
 
-Given below is a sample scenario that demonstrates how to work with the WSO2 Intelligent Document Processing (IDP) Connector to extract structured data from a document.
+The IDP Connector enables the extraction of structured data from documents using frontier models such as OpenAI, or cost-free local models powered by Olloma.
 
 ## What you'll build
 
-This example demonstrates how to use the Intelligent Document Processing (IDP) connector to:
+This example explains how to use the IDP Connector to process an invoice image and extract key information such as purchase order number, shipping details, order information (price, quantity, size, total), and client details into a predefined, type-safe JSON schema.
 
-1.  **Process a document to extract structured data.**
+You will build a REST API with a single resource `/` that accepts an invoice image and returns the extracted data.
 
-    **Example**:
-    Submit an invoice PDF file (`invoice_2025_07.pdf`) to extract key information such as the invoice number, vendor name, line items, and total amount into a pre-defined JSON format.
-
-For more information about these operations, please refer to the [Intelligent Document Processing (IDP) Connector reference guide]({{base_path}}/reference/connectors/idp-connector/idp-connector-reference/).
-
-> **Note**: Before invoking the API, you need to have credentials for the backend document processing service you intend to use (e.g., an OpenAI API key). See the [IDP Configuration]({{base_path}}/reference/connectors/idp-connector/idp-connector-configuration/) documentation for more information.
+If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it. **Remember to replace the API key with your own before running the project.**
 
 ---
 
 ## Set up the integration project
 
-Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the Integration Project.
+Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the **Integration Project**.
 
 ---
 
-## Create the integration logic
+## Create the integration logic to extract data from an invoice image
 
-1.  Click `+` on the Extension panel APIs to create the REST API. Specify the API name as `IDPProcessAPI` and the API context as `/processDocuments`.
+1. Under the **Create an integration** section, select **API** to create a new REST API.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/create_api.png" title="Creating the API" width="800" alt="Creating the API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/create-api.png" title="Adding a Rest API" width="900" alt="Adding a Rest API"/>
 
-2.  Click on the `+ Resource` and fill in the details. Use a URL template called `/processDocuments` and the **POST** HTTP method.
+    Provide the API name as `idpConnector` and the API context as `/idpconnector` and click on `Create`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/add_api_resource.png" title="Adding the API resource" width="800" alt="Adding the API resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/create-api-idpconnector.png" title="Adding the API resource step 1." width="900" alt="Adding the API resource step 1."/>
+    <br/>
+    Select the newly created `idpConnector` API and click the `Edit` icon to change the API method.
 
-3.  Click the created resource. Next, click the `+` arrow below the Start node to open the side panel. Select **Connections** and click **Add new Connection**. Search for `idp` and click.
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/edit-resource-method.png" title="Editing the API resource." width="900" alt="Editing the API resource."/>
+    <br/>
+    Update the value of `method` to `Post`.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/create_new_connection.png" title="Creating a new connection" width="800" alt="Creating a new connection"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/update-to-post-method.png" title="Editing the API resource." width="900" alt="Editing the API resource."/>
+    <br/>
 
-4.  Create a connection as shown below. For this example, we will use an OpenAI connection.
+2. We need to add the Intelligent Document Processing Connector to the integration project. Click on the **Add Module** icon and search for the **Intelligent Document Processing** connector. Select the connector and click on the **Download** button.
 
-    !!! note
-        For more information on configuring connections, please refer to the [Initialize the connector guide]({{base_path}}/reference/connectors/idp-connector/idp-connector-reference/#initialize-the-connector).
+    To add the **Process Documents** operation under the API, select the **Intelligent Document Processing** connector, and choose the **Process Documents** operation.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/configure_new_connection.png" title="Configuring a new connection" width="800" alt="Configuring a new connection"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/add-idp-connector.png" title="Adding the Process Documents operation." width="700" alt="Adding the Process Documents operation."/>
 
-5.  After the connection is successfully created, select the created connection in **Connections**. In the drop-down menu, click **ProcessDocuments**.
+3. Click on **Add new connection** to create a new OpenAI connection.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/add_process_documents_operation.png" title="Adding Process Documents operation" width="800" alt="Adding Process Documents operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/add-new-connection.png" title="Create OpenAI Connection" width="700" alt="Create OpenAI Connection"/>
 
-6.  Next, configure the following parameters in the properties window.
-    * Under **Scanner Output Schema**, click **Add new output schema** and provide an appropriate name. For this example, we have named it `schema_1`.
-    * Fill in the rest of the parameters, then click the submit button.
+    Select **OpenAI** as the connection type and provide the connection name as `open_ai_connection`.
 
-    - **Max Tokens** - `4096`
-    - **File Content** - `payload.mediate.file.$`
-    - **Scanner Output Schema** - `schema_1`
-    - **Response Variable** - `idp_processDocuments_1`
-    - **Overwrite Message Body** - `true`
-    - **Content Format** - `Base64`
-    - **Mime Type** - `application/pdf`
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/idp-openai-connection.png" title="OpenAI Connection Options" width="700" alt="OpenAI Connection Options"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/configure_process_documents_operation.png" title="Configuring Process Documents operation" width="800" alt="Configuring Process Documents operation"/>
+4. After creating the OpenAI connection, update the values for the Process Documents operation as follows:
 
-    > **Note**: Tick **Overwrite Message Body** if you want to replace the Message Body in the Message Context with the response of the operation.
+    - **Connection**: `open_ai_connection`
+    - **Content Format**: `Base64`
+    - **MIME Type**: `image/jpeg`
+    - **Content**: `payload.image`
+    - **Overwrite Message Body**: `true`
 
-    After you save the form, a panel for schema generation will automatically pop up. Alternatively, you can find your created schema under **Resources -> idp-schemas** in the Micro Integrator project explorer.
+    Click **Add new schema** and create a schema named `schema_1`. Then click **Add**.
 
-7.  Click `+` below the `ProcessDocuments` node to add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response.
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/operation-parameters.png" title="Configure Process Documents" width="700" alt="Configure Process Documents"/>
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/idp-connector/adding_respond_mediator.png" title="Adding a respond mediator" width="800" alt="Adding a respond mediator"/>
+5. Once you submit the document, the **IDP Connector Schema Generator** form will automatically pop up.  
+   Alternatively, you can access it later from **Micro Integrator Project Explorer** under `resources/idp_schemas/schema_1`.
 
----
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/schema-generator-view.png" title="Schema Generator Form" width="700" alt="Schema Generator Form"/>
 
-## Define JSON schema
+6. Download the following ZIP file and extract the JPEG file named `purchase_order.jpeg` to use as your     sample image:  
+   [Download sample image ZIP]({{base_path}}/assets/attachments/connectors/IDPConnectorExample.zip)  
+   Upload it in the schema generator form as shown below and click **Extract Schema**.
 
-1.  Download the following sample PDF file. In the schema generation UI, upload this file and then press **Extract Schema** to get an initial schema based on the document's content.
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/extract-schema-example.png" title="Upload Image" width="700" alt="Upload Image"/>
 
-    <a href="{{base_path}}/assets/attachments/connectors/sample-invoice.pdf" download>
-    <img src="{{base_path}}/assets/img/integrate/connectors/pdf-download-icon.png" width="100" alt="Download Sample PDF">
-    </a>
+    The extracted JSON schema is shown below.
 
-2.  Select the **Source** view to see the JSON schema you created. You can edit the raw code directly in this view, and the changes will be reflected in the visual UI editor.
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/generated-schema.png" title="Generated Schema" width="700" alt="Generated Schema"/>
 
-3.  Use the visual UI to change the schema as you wish. You can rename fields, change data types, or restructure the JSON. For example, you can create a new table for line items or add a nested object like `additional_info` with a `note` field inside it.
+    The schema will be extracted based on the image. You can edit the extracted schema as needed and verify your schema against any image or PDF.
+    Refer to the [Schema Generation Reference]({{base_path}}/reference/connectors/idp-connector/idp-connector-schema-generation/) for more details on editing and validating schemas.
 
-4.  Go to the **Try It** tab and upload the same PDF file again. Select your configured connection and press the **Try It** button.
+    
 
-5.  You can now see the extracted data in the defined JSON structure. If you are not satisfied with the results, press **Back to editor** to return to the schema view and refine the structure as needed. Repeat this process until the extracted data perfectly matches your requirements.
+7. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond with the extracted data as shown below.
 
----
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/respond-mediator.png" title="Adding the respond mediator." width="700" alt="Adding the respond mediator."/>
 
-## Build and run the artifacts
-
-Now that you have developed an integration using the Micro Integrator for the Visual studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
-
-Click the **Build and Run** icon located in the top right corner of VS Code.
-
-Refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
-
-<img src="{{base_path}}/assets/img/integrate/connectors/run-button.png" title="Build and Run" width="800" alt="Build and Run"/>
+??? note "Source view of the implemented resource"
+    ```xml
+    <resource methods="POST" uri-template="/">
+        <inSequence>
+            <idp.processDocuments configKey="open_ai_connection">
+                <maxTokens>4096</maxTokens>
+                <fileContent>{${payload.image}}</fileContent>
+                <idpSchema>schema_1</idpSchema>
+                <responseVariable>idp_processDocuments_1</responseVariable>
+                <overwriteBody>true</overwriteBody>
+                <contentFormat>Base64</contentFormat>
+                <mimeType>image/jpeg</mimeType>
+            </idp.processDocuments>
+            <respond/>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+    ```
 
 ---
 
@@ -106,9 +113,62 @@ Refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-r
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/idp-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/IDPConnectorExample.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
-!!! tip
-    You may need to update the connection credentials and make other such changes before deploying and running this project.
+---
+
+## Deployment
+
+To deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-apictl).
+
+---
+
+## Test
+
+1. Once the **Runtime Services** interface is open, you can see MI is running as below.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/tryout-view.png" title="MI Runtime" width="900" alt="MI Runtime"/>
+
+2. Download the Postman extension for VS Code or download the Postman desktop app.  
+   Once downloaded, select method as **POST**, URL as `http://localhost:8290/idpconnector`, and put the following JSON under **Body > raw > JSON**:  
+   Download the following ZIP file and extract the sample request JSON file. Use the extracted JSON as the body of your Postman request:  
+   [Download sample request ZIP]({{base_path}}/assets/attachments/connectors/IDPConnectorExample.zip)
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/postman-request.png" title="Postman Request" width="900" alt="Postman Request"/>
+
+3. Check the success response received from the server, and verify the extracted data in the response.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/postman-response.png" title="Postman Response" width="900" alt="Postman Response"/>
+
+---
+
+### Sending multipart request
+
+Inside MI server, multipart form data is available as Base64.  
+So, change the **Process Documents** operation content to `payload.mediate.file.$`.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/idp/multipart-operation-parameters.png" title="Multipart Config" width="900" alt="Multipart Config"/>
+
+To send a multipart form request:
+
+1. Select method as **POST**, URL as `http://localhost:8290/idpconnector`, and under **Body > form-data** set the key as `image` and select the location where you downloaded `purchase_order.jpeg`.
+    <img src="{{base_path}}/assets/img/integrate/connectors/idp/multipart-postman-request.png" title="Postman Multipart Response" width="900" alt="Postman Multipart Response"/>
+
+3. Click **Send**. 
+    
+
+You can also try with curl:
+
+```sh
+curl -X POST -F "image=@/mnt/c/garbages/Test_IDP_Connector/screenshots/example/purchase_order.jpg" http://localhost:8290/idpconnector
+```
+*(Change the path to your actual `purchase_order.jpg` location.)*
+
+## What's next
+
+* To customize this example for your own scenario, see [IDP Connector Reference Guide]({{base_path}}/reference/connectors/idp-connector/idp-connector-reference) documentation for all operation details of the connector.
+
