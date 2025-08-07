@@ -32,7 +32,7 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
    [![Registry Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)
 
     !!! Note
-        Currently, the **Design View** of the policy editor is not available in WSO2 MI for VSCode. You can edit the properties via the **Source View**.  
+        If you want to change any other properties, you can edit via the **Source View**.  
 
 7. Edit the policy file in the **Source View** to enable the required security scenario.  
    For example, to enable the **Sign and Encrypt** security scenario, add the following encryption/signature properties to the policy file.
@@ -52,6 +52,24 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
     - **timestampStrict**: `false`
     - **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`
     - **nonceLifeTime**: `300`
+
+!!! Note
+    Properties in RampartConfig can be externalized using the `$SYSTEM:PROPERTY_NAME` syntax. The `$SYSTEM:` prefix allows you to retrieve values from environment variables. 
+    
+    For example, you can use `$SYSTEM:encryptionUser` to retrieve the value of the `encryptionUser` property from the environment.
+    ```xml
+    <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
+		<rampart:encryptionUser>$SYSTEM:encryptionUser</rampart:encryptionUser>
+		<rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
+		<rampart:timestampTTL>300</rampart:timestampTTL>
+		<rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
+		<rampart:timestampStrict>false</rampart:timestampStrict>
+		<rampart:tokenStoreClass>org.wso2.micro.integrator.security.extensions.SecurityTokenStore</rampart:tokenStoreClass>
+		<rampart:nonceLifeTime>300</rampart:nonceLifeTime>
+	</rampart:RampartConfig>
+    ``` 
+    
+    This approach is useful when you want to externalize configurations and avoid hardcoding values in the policy file.   
 
  The complete policy file with enabled **Sign and Encrypt - X509 Authentication** security scenario will look as follows.
  ```xml
