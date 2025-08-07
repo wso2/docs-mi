@@ -6,7 +6,7 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
 ## Initialize the connector
 
-To use the ServiceNow connector, add the <servicenow.init> element in your configuration before carrying out any other ServiceNow operations.
+To use the ServiceNow connector, add the `<servicenow.init>` element in your configuration before carrying out any other ServiceNow operations.
 
 The ServiceNow API requires all requests to be authenticated as a user. User has to create a own instance with his user credentials. When u create a account in ServiceNow Developer page then you are enable to create your own instance. For more information, see [the ServiceNow Developer page](https://developer.servicenow.com/app.do#!/home).
 
