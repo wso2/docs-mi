@@ -8,7 +8,7 @@ The IDP Schema Generation tool enables you to create, edit, and test JSON schema
 
 ### 1. Schema Editor
 
-The Schema Editor lets you visually design the output schema for your document extraction. You can add fields, nested fields, arrays, and object tables.
+The Schema Editor lets you visually design the output schema for your document extraction. You can add fields, nested fields, tables (arrays), and object tables.
 
 #### Supported Field Parameters
 

@@ -9,8 +9,8 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 ## Compatibility
 
 | Connector version | Supported product versions |
-| ------------- |------------- |
-| 1.0.0         | MI 4.4.0      |
+| ----------------- | ------------------------ |
+| 1.0.0             | MI 4.4.0                 |
 
 ## Intelligent Document Processing Connector documentation
 
@@ -28,4 +28,5 @@ To contribute to the code for this connector, create a pull request in the follo
 
 * [Connector GitHub repository](https://github.com/wso2-extensions/mi-connector-idp/)
 
-Check the issue tracker for open issues that interest you. We look forward to receiving your contributions. 
+Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
+

@@ -202,7 +202,7 @@ Regardless of the endpoint, all endpoints use the same set of common configurati
     ```xml
     <idp.processDocuments configKey="ollama_connection_1">
         <maxTokens>4096</maxTokens>
-        <fileContent >{${payload.file}}</fileContent>
+        <fileContent>{${payload.file}}</fileContent>
         <idpSchema>schema_2</idpSchema>
         <responseVariable>idp_processDocuments_1</responseVariable>
         <overwriteBody>true</overwriteBody>

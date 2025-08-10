@@ -37,9 +37,9 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/update-to-post-method.png" title="Editing the API resource." width="900" alt="Editing the API resource."/>
     <br/>
 
-2. We need to add the Intelligent Document Processing Connector to the integration project. Click on the **Add Module** icon and search for the **Intelligent Document Processing** connector. Select the connector and click on the **Download** button.
+2. Add the Intelligent Document Processing Connector to the integration project. Click on the **Add Module** icon and search for the **Intelligent Document Processing** connector. Select the connector and click on the **Download** button.
 
-    To add the **Process Documents** operation under the API, select the **Intelligent Document Processing** connector, and choose the **Process Documents** operation.
+    To add the **Process Documents** operation under the API, select the **Intelligent Document Processing** connector and choose the **Process Documents** operation.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/add-idp-connector.png" title="Adding the Process Documents operation." width="700" alt="Adding the Process Documents operation."/>
 
@@ -52,7 +52,6 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/idp-openai-connection.png" title="OpenAI Connection Options" width="700" alt="OpenAI Connection Options"/>
 
 4. After creating the OpenAI connection, update the values for the Process Documents operation as follows:
-
     - **Connection**: `open_ai_connection`
     - **Content Format**: `Base64`
     - **MIME Type**: `image/jpeg`
@@ -64,12 +63,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/operation-parameters.png" title="Configure Process Documents" width="700" alt="Configure Process Documents"/>
 
 5. Once you submit the document, the **IDP Connector Schema Generator** form will automatically pop up.  
-   Alternatively, you can access it later from **Micro Integrator Project Explorer** under `resources/idp_schemas/schema_1`.
+   You can also access it later from **Micro Integrator Project Explorer** under `resources/idp_schemas/schema_1`.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/schema-generator-view.png" title="Schema Generator Form" width="700" alt="Schema Generator Form"/>
 
-6. Download the following ZIP file and extract the JPEG file named `purchase_order.jpeg` to use as your     sample image:  
-   [Download sample image ZIP]({{base_path}}/assets/attachments/connectors/IDPConnectorExample.zip)  
+6. [Download sample image ZIP]({{base_path}}/assets/attachments/connectors/idp/purchase_order.zip) and extract the JPG file named `purchase_order.jpg` to use as your sample image.  
    Upload it in the schema generator form as shown below and click **Extract Schema**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/extract-schema-example.png" title="Upload Image" width="700" alt="Upload Image"/>
@@ -80,8 +78,6 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
     The schema will be extracted based on the image. You can edit the extracted schema as needed and verify your schema against any image or PDF.
     Refer to the [Schema Generation Reference]({{base_path}}/reference/connectors/idp-connector/idp-connector-schema-generation/) for more details on editing and validating schemas.
-
-    
 
 7. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond with the extracted data as shown below.
 
@@ -113,7 +109,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/IDPConnectorExample.zip">
+<a href="{{base_path}}/assets/attachments/connectors/idp/IDP_Connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -134,9 +130,11 @@ You can further refer to the application deployed through the CLI tool. See the 
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/tryout-view.png" title="MI Runtime" width="900" alt="MI Runtime"/>
 
 2. Download the Postman extension for VS Code or download the Postman desktop app.  
-   Once downloaded, select method as **POST**, URL as `http://localhost:8290/idpconnector`, and put the following JSON under **Body > raw > JSON**:  
-   Download the following ZIP file and extract the sample request JSON file. Use the extracted JSON as the body of your Postman request:  
-   [Download sample request ZIP]({{base_path}}/assets/attachments/connectors/IDPConnectorExample.zip)
+   Once downloaded, follow these steps:
+   - Set the request method to **POST**.
+   - Set the URL to `http://localhost:8290/idpconnector`.
+   - [Download sample request ZIP]({{base_path}}/assets/attachments/connectors/idp/request_body.zip) and extract the sample request JSON file (this contains base64 encoding of purchase_order.jpg).
+   - In Postman, go to **Body > raw > JSON** and paste the extracted JSON content as the request body and Click **Send**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/postman-request.png" title="Postman Request" width="900" alt="Postman Request"/>
 
@@ -149,17 +147,16 @@ You can further refer to the application deployed through the CLI tool. See the 
 ### Sending multipart request
 
 Inside MI server, multipart form data is available as Base64.  
-So, change the **Process Documents** operation content to `payload.mediate.file.$`.
+So, change the **Process Documents** operation content to `payload.mediate.image.$`. After this, restart the server.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/idp/multipart-operation-parameters.png" title="Multipart Config" width="900" alt="Multipart Config"/>
 
 To send a multipart form request:
 
-1. Select method as **POST**, URL as `http://localhost:8290/idpconnector`, and under **Body > form-data** set the key as `image` and select the location where you downloaded `purchase_order.jpeg`.
+1. Select method as **POST**, URL as `http://localhost:8290/idpconnector`, and under **Body > form-data** set the key as `image` and select the location where you downloaded `purchase_order.jpg`.
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/multipart-postman-request.png" title="Postman Multipart Response" width="900" alt="Postman Multipart Response"/>
 
-3. Click **Send**. 
-    
+2. Click **Send**.
 
 You can also try with curl:
 
@@ -167,6 +164,10 @@ You can also try with curl:
 curl -X POST -F "image=@/mnt/c/garbages/Test_IDP_Connector/screenshots/example/purchase_order.jpg" http://localhost:8290/idpconnector
 ```
 *(Change the path to your actual `purchase_order.jpg` location.)*
+
+## What's next
+
+* To customize this example for your own scenario, see [IDP Connector Reference Guide]({{base_path}}/reference/connectors/idp-connector/idp-connector-reference) documentation for all operation details of the connector.
 
 ## What's next
 
