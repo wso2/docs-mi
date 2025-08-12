@@ -139,7 +139,19 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>reply_settings</td>
             <td>String</td>
             <td>No</td>
-            <td>Settings to indicate who can reply to the Tweet. Valid values are: `mentionedUsers, following`. If the field isn’t specified, it will default to everyone.</td>
+            <td>Settings to indicate who can reply to the Tweet. Valid values are: `mentionedUsers, following`. If the field isn't specified, it will default to everyone.</td>
+        </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
         </tr>
     </table>
 
@@ -156,6 +168,8 @@ The following operations allow you to work with tweets. To be authorized for the
         <quote_tweet_id>{$payload.quote_tweet_id}</quote_tweet_id>
         <reply>{$payload.reply}</reply>
         <reply_settings>{$payload.reply_settings}</reply_settings>
+        <responseVariable>tweetResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.createTweet>
     ```
 
@@ -203,6 +217,18 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>Yes</td>
             <td>The Tweet ID you are deleting.</td>
         </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -210,6 +236,8 @@ The following operations allow you to work with tweets. To be authorized for the
     ```xml
     <twitter.deleteTweet>
         <id>{$payload.id}</id>
+        <responseVariable>deleteResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.deleteTweet>
 
     ```
@@ -287,6 +315,21 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>No</td>
             <td>This fields parameter enables you to select which specific user fields will deliver in each returned Tweet. Specify the desired fields in a comma-separated list without spaces between commas and fields. While the user ID will be located in the original Tweet object, you will find this ID and all additional user fields in the includes data object. Valid values for this parameter are: `created_at, description, entities, id, location, name, pinned_tweet_id, profile_image_url, protected, public_metrics, url, username, verified, verified_type, withheld`.</td>
         </tr>
+        <tr>
+            <td colspan="4"><strong>Output</strong></td>
+        </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -300,6 +343,8 @@ The following operations allow you to work with tweets. To be authorized for the
         <poll_fields>{$payload.poll_fields}</poll_fields>
         <tweet_fields>{$payload.tweet_fields}</tweet_fields>
         <user_fields>{$payload.user_fields}</user_fields>
+        <responseVariable>tweetResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.getTweetById>
     ```
 
@@ -391,6 +436,18 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>No</td>
             <td>This fields parameter enables you to select which specific user fields will deliver in each returned Tweet. Specify the desired fields in a comma-separated list without spaces between commas and fields. While the user ID will be located in the original Tweet object, you will find this ID and all additional user fields in the includes data object. Valid values for this parameter are: `created_at, description, entities, id, location, name, pinned_tweet_id, profile_image_url, protected, public_metrics, url, username, verified, verified_type, withheld`.</td>
         </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -404,6 +461,8 @@ The following operations allow you to work with tweets. To be authorized for the
         <poll_fields>{$payload.poll_fields}</poll_fields>
         <tweet_fields>{$payload.tweet_fields}</tweet_fields>
         <user_fields>{$payload.user_fields}</user_fields>
+        <responseVariable>tweetsResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.getTweetsLookup>
 
     ```
@@ -546,6 +605,18 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>No</td>
             <td>This fields parameter enables you to select which specific user fields will deliver in each returned Tweet. Specify the desired fields in a comma-separated list without spaces between commas and fields. While the user ID will be located in the original Tweet object, you will find this ID and all additional user fields in the includes data object. Valid values for this parameter are: `created_at, description, entities, id, location, name, pinned_tweet_id, profile_image_url, protected, public_metrics, url, username, verified, verified_type, withheld`.</td>
         </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -566,6 +637,8 @@ The following operations allow you to work with tweets. To be authorized for the
         <poll_fields>{$payload.poll_fields}</poll_fields>
         <tweet_fields>{$payload.tweet_fields}</tweet_fields>
         <user_fields>{$payload.user_fields}</user_fields>
+        <responseVariable>searchResults</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.searchTweets>
     ```
 
@@ -626,6 +699,18 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>Yes</td>
             <td>The ID of the Tweet that you would give a Like.</td>
         </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -634,6 +719,8 @@ The following operations allow you to work with tweets. To be authorized for the
     <twitter.likeTweet>
         <user_id>{$payload.user_id}</user_id>
         <tweet_id>{$payload.tweet_id}</tweet_id>
+        <responseVariable>likeResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.likeTweet>
 
     ```
@@ -683,6 +770,18 @@ The following operations allow you to work with tweets. To be authorized for the
             <td>Yes</td>
             <td>The ID of the Tweet that you would unlike.</td>
         </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -691,6 +790,8 @@ The following operations allow you to work with tweets. To be authorized for the
     <twitter.unlikeTweet>
         <user_id>{$payload.user_id}</user_id>
         <tweet_id>{$payload.tweet_id}</tweet_id>
+        <responseVariable>unlikeResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.unlikeTweet>
     ```
 
@@ -1896,6 +1997,18 @@ The following operations allow you to work with users in Twitter. To be authoriz
             <td>Yes</td>
             <td>The user ID of the user that you would like to follow.</td>
         </tr>
+        <tr>
+            <td>responseVariable</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Variable name to store the response payload.</td>
+        </tr>
+        <tr>
+            <td>overwriteBody</td>
+            <td>Boolean</td>
+            <td>No (Default: false)</td>
+            <td>Replace the current message payload with the operation response.</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -1904,6 +2017,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     <twitter.followUser>
         <id>{$payload.id}</id>
         <target_user_id>{$payload.target_user_id}</target_user_id>
+        <responseVariable>followResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </twitter.followUser>
     ```
 
