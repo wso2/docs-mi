@@ -14,6 +14,11 @@ Please refer [RabbitMQ Deployment]({{base_path}}/install-and-setup/setup/brokers
 Uncomment the following parameters in the `deployment.toml` file to configure the RabbitMQ listener.
 
 ```toml
+[transport.rabbitmq]
+listener_enable = true
+```
+
+```toml
 [[transport.rabbitmq.listener]]
 name = "AMQPConnectionFactory"
 parameter.hostname = "localhost"
@@ -29,6 +34,15 @@ Uncomment the following parameters in the `deployment.toml` file to enable the R
 ```toml
 [transport.rabbitmq]
 sender_enable = true
+```
+
+```toml
+[[transport.rabbitmq.sender]]
+name = "AMQPConnectionFactory"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
 ```
 
 ## Enabling SSL

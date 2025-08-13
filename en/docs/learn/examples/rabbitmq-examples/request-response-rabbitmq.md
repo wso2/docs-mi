@@ -113,3 +113,6 @@ We can use the below synapse configurations to act as the mock backend called by
 	"orderDate": "2020/07/22"
 	}
 	```
+
+!!! Note
+    Since RabbitMQ dual channel is a synchronous request-reply scenario, there can be instances where the connection pool can be exhausted. Please refer the [RabbitMQ transport tuning]({{base_path}}/install-and-setup/setup/performance-tuning/rabbitmq-transport-tuning/#tune-rabbitmq-connection-pool-parameters) documentation for more information on how to tune the RabbitMQ transport.
