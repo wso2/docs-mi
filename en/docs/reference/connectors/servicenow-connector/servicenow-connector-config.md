@@ -1,17 +1,12 @@
 # ServiceNow Connector Reference
 
-The following operations allow you to work with the ServiceNow Connector. Click an operation name to see parameter details and samples on how to use it.
+## Connection configuration
 
----
+The connection is used to establish a connection to the ServiceNow instance. The ServiceNow API requires all requests to be authenticated as a user. 
 
-## Initialize the connector
+User has to create a own instance with his user credentials. When you create an account in ServiceNow Developer page then you are enable to create your own instance. For more information, see [the ServiceNow Developer page](https://developer.servicenow.com/app.do#!/home).
 
-To use the ServiceNow connector, add the <servicenow.init> element in your configuration before carrying out any other ServiceNow operations.
-
-The ServiceNow API requires all requests to be authenticated as a user. User has to create a own instance with his user credentials. When u create a account in ServiceNow Developer page then you are enable to create your own instance. For more information, see [the ServiceNow Developer page](https://developer.servicenow.com/app.do#!/home).
-
-??? note "servicenow.init"
-    The servicenow.init operation initializes the connector to interact with the ServiceNow API. For more information, see [the API documentation](http://wiki.servicenow.com/index.php?title=REST_API#gsc.tab=0).
+??? note "SERVICENOW Connection"
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -55,9 +50,9 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
     }
     ```
 
----
+The following operations allow you to work with the ServiceNow Connector. Click an operation name to see parameter details and samples on how to use it.
 
-### Aggregate API
+## Aggregate Management
 
 ??? note "servicenow.getAggregateRecord"
     The getAggregateRecord operation allows you to compute aggregate statistics about existing table and column data.
@@ -70,33 +65,32 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
         <tr>
             <td>tableName</td>
             <td>Name of the table you want to retrieve a record.</td>
-            <td>Yes.</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>sysparmAvgFields</td>
             <td>A comma-separated list of fields for which to calculate the average value.</td>
-            <td>Yes.</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>sysparmMinFields</td>
             <td>A comma-separated list of fields for which to calculate the minimum value.</td>
-            <td>Yes.</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>sysparmMaxFields</td>
             <td>A comma-separated list of fields for which to calculate the maximum value.</td>
-            <td>Yes.</td>
-        </tr>
-        <tr>
-            <td>sysparmCount</td>
-            <td>You can set this parameter to true for the number of records returned by the query.</td>
-            <td>Yes.</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>sysparmSumFields</td>
             <td>A comma-separated list of fields for which to calculate the sum of the values.</td>
-            <td>Yes.</td>
+            <td>No</td>
         </tr>
+        <tr>
+            <td>sysparmCount</td>
+            <td>You can set this parameter to true for the number of records returned by the query.</td>
+            <td>No</td>
     </table>
 
     **Sample configurations**
@@ -105,10 +99,7 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
     <servicenow.getAggregateRecord>
         <tableName>{$ctx:tableName}</tableName>
         <sysparmAvgFields>{$ctx:sysparmAvgFields}</sysparmAvgFields>
-        <sysparmMinFields>{$ctx:sysparmMinFields}</sysparmMinFields>
-        <sysparmMaxFields>{$ctx:sysparmMaxFields}</sysparmMaxFields>
         <sysparmCount>{$ctx:sysparmCount}</sysparmCount>
-        <sysparmSumFields>{$ctx:sysparmSumFields}</sysparmSumFields>
     </servicenow.getAggregateRecord>
     ```
 
@@ -116,21 +107,13 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```json
     {
-        "serviceNowInstanceURL":"https://dev17686.service-now.com", 
-        "username":"admin",
-        "password":"12345",
         "tableName":"incident",
         "sysparmAvgFields":"category,active",
-        "sysparmMinFields":"number",
-        "sysparmMaxFields":"number",
         "sysparmCount":"true",
-        "sysparmSumFields":"priority"
     }
     ```
 
----
-
-### Import Set API
+## Import Set Management
 
 ??? note "servicenow.getRecordStagingTable"
     The getRecordStagingTable operation retrieves the associated record and resulting transformation result.
@@ -165,9 +148,6 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```json
     {
-        "serviceNowInstanceURL":"https://dev17686.service-now.com", 
-        "username":"admin",
-        "password":"12345",
         "tableName":"incident",
         "sysparmAvgFields":"category,active",
         "sysparmMinFields":"number",
@@ -252,9 +232,6 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```json
     {
-        "serviceNowInstanceURL":"https://dev17686.service-now.com",
-        "username":"admin",
-        "password":"12345",
         "tableNameStaging":"imp_computer",
         "serialNumber":"282",
         "cpuCount":"234",
@@ -264,5 +241,467 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
         "diskSpace":"400Gb",
         "ram":"ram 1500",
         "apiColumns": {"sys_mod_count":"2","sys_import_state_comment":"wwww"}
+    }
+    ```
+
+## Table Management
+
+??? note "servicenow.postRecord"
+    The postRecord operation inserts a new record into a specified table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to insert a record.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysparmDisplayValue</td>
+            <td>Data retrieval operation for reference and choice fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmFields</td>
+            <td>Comma-separated field names to return in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmView</td>
+            <td>UI view to determine fields returned in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmExcludeReferenceLink</td>
+            <td>Additional information provided for reference fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmInputDisplayValue</td>
+            <td>Data insert or update operations.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>number</td>
+            <td>The row value for number.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>shortDescription</td>
+            <td>The row value for short_description.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>active</td>
+            <td>The row value for active.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>approval</td>
+            <td>The row value for approval.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>category</td>
+            <td>The row value for category.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>contactType</td>
+            <td>The row value for contact.</td>
+            <td>No</td> 
+        </tr>
+        <tr>
+            <td>apiColumns</td>
+            <td>The attribute values of your table in your instance.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.postRecord>
+        <tableName>{$ctx:tableName}</tableName>
+    </servicenow.postRecord>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "tableName":"incident"
+    }
+    ```
+??? note "servicenow.getRecords"
+    The getRecords operation retrieves a records from a specified table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to retrieve a record.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysparmQuery</td>
+            <td>An encoded query. The encoded query provides support for order by and filter out records.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmDisplayValue</td>
+            <td>Data retrieval operation for reference and choice fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmFields</td>
+            <td>Comma-separated field names to return in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmView</td>
+            <td>UI view to determine fields returned in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmLimit</td>
+            <td>Limit to be applied on pagination. The default is 10000.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmOffset</td>
+            <td>A number of records to skip before returning records.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmExcludeReferenceLink</td>
+            <td>Additional information provided for reference fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmReadReplicaCategory</td>
+            <td>The category value to read data from read replicas.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmReadReplicaCategory</td>
+            <td>The category value to read data from read replicas.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>keyValuePairs</td>
+            <td>Alternative query syntax: field1=value1,field2=value2.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.getRecords>
+        <tableName>{$ctx:tableName}</tableName>
+    </servicenow.getRecords>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "tableName":"incident"
+    }
+    ```
+??? note "servicenow.getRecordById"
+    The getRecordById operation retrieves record according to the system ID from table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to retrieve a record.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysId</td>
+            <td>System Id of the record to retrieve.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmDisplayValue</td>
+            <td>Data retrieval operation for reference and choice fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmFields</td>
+            <td>Comma-separated field names to return in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmView</td>
+            <td>UI view to determine fields returned in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmExcludeReferenceLink</td>
+            <td>Additional information provided for reference fields.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.getRecordById>
+        <tableName>{$ctx:tableName}</tableName>
+    </servicenow.getRecordById>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "tableName":"incident"
+    }
+    ```
+
+??? note "servicenow.putRecordById"
+    The putRecordById operation updates an existing record in a specified table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to update a record.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysId</td>
+            <td>System Id of the record to update.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysparmDisplayValue</td>
+            <td>Data retrieval operation for reference and choice fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmFields</td>
+            <td>Comma-separated field names to return in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmView</td>
+            <td>UI view to determine fields returned in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmExcludeReferenceLink</td>
+            <td>Additional information provided for reference fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmInputDisplayValue</td>
+            <td>Data insert or update operations.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>number</td>
+            <td>The row value for number.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>shortDescription</td>
+            <td>The row value for short_description.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>active</td>
+            <td>The row value for active.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>approval</td>
+            <td>The row value for approval.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>category</td>
+            <td>The row value for category.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>contactType</td>
+            <td>The row value for contact.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>apiColumns</td>
+            <td>The attribute values of your table in your instance.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.putRecordById>
+        <tableName>{$ctx:tableName}</tableName>
+        <sysId>{$ctx:sysId}</sysId>
+    </servicenow.putRecordById>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "tableName":"incident",
+        "sysId":"f0c1b2c3d4e5f6g7h8i9j0k1l2m3n4o5"
+    }
+    ```
+
+??? note "servicenow.patchRecordById"
+    The patchRecordById operation updates an existing record in a specified table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to update a record.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysId</td>
+            <td>System Id of the record to update.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysparmDisplayValue</td>
+            <td>Data retrieval operation for reference and choice fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmFields</td>
+            <td>Comma-separated field names to return in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmView</td>
+            <td>UI view to determine fields returned in the response.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmExcludeReferenceLink</td>
+            <td>Additional information provided for reference fields.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>sysparmInputDisplayValue</td>
+            <td>Data insert or update operations.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>number</td>
+            <td>The row value for number.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>shortDescription</td>
+            <td>The row value for short_description.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>active</td>
+            <td>The row value for active.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>approval</td>
+            <td>The row value for approval.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>category</td>
+            <td>The row value for category.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>contactType</td>
+            <td>The row value for contact.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>apiColumns</td>
+            <td>The attribute values of your table in your instance.</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.patchRecordById>
+        <tableName>{$ctx:tableName}</tableName>
+        <sysId>{$ctx:sysId}</sysId>
+    </servicenow.patchRecordById>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "tableName":"incident",
+        "sysId":"f0c1b2c3d4e5f6g7h8i9j0k1l2m3n4o5"
+    }
+    ```
+
+??? note "servicenow.deleteRecordById"
+    The deleteRecordById operation deletes a record from a specified table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to delete a record.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sysId</td>
+            <td>System Id of the record to delete.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.deleteRecordById>
+        <tableName>{$ctx:tableName}</tableName>
+        <sysId>{$ctx:sysId}</sysId>
+    </servicenow.deleteRecordById>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "tableName":"incident",
+        "sysId":"f0c1b2c3d4e5f6g7h8i9j0k1l2m3n4o5"
     }
     ```
