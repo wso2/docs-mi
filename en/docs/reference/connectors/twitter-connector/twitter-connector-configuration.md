@@ -1,6 +1,6 @@
 # Setting up the Twitter Connector in Integration Runtime
 
-Before you start configuring the Twitter connector, you need to configure the integration runtime. 
+Before you start configuring the Twitter connector, you need to configure the integration runtime.
 
 ## Adding message builders
 
@@ -22,3 +22,16 @@ If you are using **EI 6.x** version, you can enable this property by doing the f
 <messageBuilder contentType="application/problem+json"
                 class="org.wso2.carbon.integrator.core.json.JsonStreamBuilder"/>
 ```
+
+## Enhanced Features in Version 4.0.0+
+
+### Automatic Token Management
+The connector now automatically handles OAuth 2.0 token refresh without manual intervention. When an access token expires, the connector uses the refresh token to obtain a new access token seamlessly.
+
+### Improved Error Handling
+Enhanced error handling with specific error codes for different failure scenarios, including rate limiting, authentication issues, and API errors.
+
+### Performance Optimizations
+- Reduced JavaScript overhead through Java-based URL building
+- Centralized HTTP handling with built-in retry logic
+- Automatic cleanup of Twitter-specific response headers
