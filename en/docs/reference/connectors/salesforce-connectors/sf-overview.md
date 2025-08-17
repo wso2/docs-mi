@@ -14,8 +14,8 @@ The Salesforce connector allows you to work with records in Salesforce. You can 
   
 The following table lists compatibility information for Salesforce Connector.
 
-| Connector version                                                                    |  Supported WSO2 product versions |
-|--------------------------------------------------------------------------------------|---------------------------------|
+| Connector Version                                                                    | Supported WSO2 Product Versions |
+| ------------------------------------------------------------------------------------ | ------------------------------- |
 | [3.0.0](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/v3.0.0) | MI 4.4.0                        |
 
 ## How to contribute
@@ -27,3 +27,5 @@ To contribute to the code for this connector, create a pull request in the follo
 * [Salesforce Connector GitHub repository](https://github.com/wso2-extensions/esb-connector-salesforcerest) 
 
 Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
+
+> Note: For older versions, see the [2.x documentation]({{base_path}}/reference/connectors/salesforce-connectors/2.x/sf-connector-config/).

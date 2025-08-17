@@ -15,8 +15,8 @@ The WSO2 Micro Integrator Salesforce connector offers **two connection types**, 
 > **Note:** BasicAuth is **only** for SOAP operations. REST and Bulk calls **must** use OAuth 2.0. For more information on how authentication is done in Salesforce, see
 [Understanding Authentication](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_authentication.htm).
 
-??? note "salesforce.init"
-    The `salesforce.init` operation initializes the connector to interact with the Salesforce REST & Bulk APIs. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) for more information.
+??? note "OAuth 2.0"
+    This connection initializes the connector to interact with the Salesforce REST & Bulk APIs. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -114,7 +114,8 @@ The WSO2 Micro Integrator Salesforce connector offers **two connection types**, 
     }
     ```
 
-The `salesforce.init` operation also initializes the connector to interact with Salesforce via Basic Authentication using the SOAP login API. See the [SOAP API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/intro_soap_api.htm) for more information.
+??? note "BasicAuth"
+This connection also initializes the connector to interact with Salesforce via Basic Authentication using the SOAP login API. See the [SOAP API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/intro_soap_api.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -238,6 +239,7 @@ The `salesforce.init` operation also initializes the connector to interact with 
             <td>Yes</td>
             <td>00528000000yl7j</td>
         </tr>
+
     </table>
 
     **Sample configuration**
