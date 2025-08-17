@@ -2,10 +2,8 @@
 
 The **WSO2 Micro Integrator** provides a comprehensive integration solution that streamlines your digital transformation
 journey. It offers a powerful configuration-driven approach, allowing developers to build integration solutions 
-graphically, with a user-friendly low-code graphical designing experience. 
-This hybrid platform supports a variety of integration architecture styles, including microservices, cloud-native, 
-and centralized ESB architecture, providing deployment options for both microservices and ESB styles to enhance 
-flexibility in connecting applications, services, data, and the cloud.
+using a user-friendly low-code graphical designing experience. 
+This hybrid platform supports multiple integration styles, including microservices, cloud-native, and centralized ESB. It works in both centralized and decentralized integration approaches.
 
 
 ## Address every integration challenge with ease
@@ -26,14 +24,12 @@ This empowers you to encapsulate your services, allowing you to parameterize and
 This API-centric approach enhances the flexibility and reusability of your integration solutions.
 
 ### Enable enterprise modernization
-This open-source integration platform offers a seamless means to connect systems in accordance with established 
-open standards, interface with legacy or proprietary services and systems, 
-and assure reliable access to all of your data. 
+This open-source platform connects system using open standars, integrates legacy services, and ensures reliable data access.
 This solution is designed to facilitate the modernization of your enterprise, fostering greater efficiency 
 and connectivity in your operations.
 
 
-## Low code integration
+## Low-Code Integration
 
 The Micro Integrator for Visual Studio Code (MI for VS Code) extension empowers developers to leverage the widely adopted 
 Visual Studio Code editor for integration development, elevating the integration experience to new heights. This AI-assisted 
@@ -52,7 +48,7 @@ integration approaches, encompassing traditional, cloud-native, and other contem
 Deploy the WSO2 integration runtime to host composite microservices that can harness the power of 
 a low-code integration approach while reaping the benefits of MSA.
 
-<img src="../../assets/img/get-started/mi-microservices-architecture.png" alt="decentralized micro services" name="decentralized microservices" width="700">
+<img src="../../assets/img/get-started/mi-microservices-architecture.png" alt="decentralized microservices" name="decentralized microservices" width="700">
 
 As shown above, if your organization is running on a decentralized cloud-native, integration architecture 
 where microservices are used for integrating the various APIs, events, and systems,
