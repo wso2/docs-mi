@@ -10,15 +10,16 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector version | Supported product versions |
-| ------------- |------------- |
-|  1.0.2        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| Connector version | Supported product versions                         |
+|-------------------|----------------------------------------------------|
+| 2.0.0(latest)            | MI 4.4.0                                           |
+| 1.0.2             | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
 ## ServiceNow Connector documentation
 
-* **[Setting up the ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/servicenow-connector-config/)**: This involves creating and setting up a developer account and instance.
+* **[Setting up the ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/settingup-servicenow-instance/)**: This involves creating and setting up a developer account and instance.
 
 * **[ServiceNow Connector Example]({{base_path}}/reference/connectors/servicenow-connector/servicenow-connector-example/)**: This example explains how to use ServiceNow Connector to create records in a table and retrieve its information. 
 
