@@ -6,7 +6,7 @@ In this example, the proxy service expects to receive a signed and encrypted mes
 
 ## Prerequisites
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
+[configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
 
 ## Synapse configuration
 Following is a sample proxy service configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
@@ -64,15 +64,13 @@ This sample security policy file validates username token and admin role is allo
 	</rampart:RampartConfig>
     ```
 
-    This approach is useful when you want to externalize configurations and avoid hardcoding values in the policy file.
-
-Create the artifacts:
+### Create the artifacts
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations provided above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-Set up the back-end service:
+### Set up the back-end service
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
@@ -88,7 +86,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Set up the SOAP client:
+### Set up the SOAP client
 
 1. Download and install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
 
