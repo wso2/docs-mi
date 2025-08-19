@@ -64,13 +64,13 @@ This sample security policy file validates username token and admin role is allo
 	</rampart:RampartConfig>
     ``` 
 
-Create the artifacts:
+### Create the artifacts
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations provided above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-Set up the back-end service:
+### Set up the back-end service
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
@@ -86,7 +86,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Set up the SOAP client:
+### Set up the SOAP client
 
 1. Download and install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
 
