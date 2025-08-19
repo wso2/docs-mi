@@ -4,7 +4,7 @@ Follow the instructions below to apply security to a proxy service via WSO2 Inte
 
 ## Prerequisites
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
+[configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
 
 ## Step 1 - Create the security policy file
 
@@ -68,109 +68,6 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
 		<rampart:nonceLifeTime>300</rampart:nonceLifeTime>
 	</rampart:RampartConfig>
     ``` 
-    
-    This approach is useful when you want to externalize configurations and avoid hardcoding values in the policy file.   
-
- The complete policy file with enabled **Sign and Encrypt - X509 Authentication** security scenario will look as follows.
- ```xml
-   <wsp:Policy wsu:Id="SigEncr" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-       <wsp:ExactlyOne>
-           <wsp:All>
-               <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                   <wsp:Policy>
-                       <sp:InitiatorToken>
-                           <wsp:Policy>
-                               <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
-                                   <wsp:Policy>
-                                       <sp:RequireThumbprintReference/>
-                                       <sp:WssX509V3Token10/>
-                                   </wsp:Policy>
-                               </sp:X509Token>
-                           </wsp:Policy>
-                       </sp:InitiatorToken>
-                       <sp:RecipientToken>
-                           <wsp:Policy>
-                               <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
-                                   <wsp:Policy>
-                                       <sp:RequireThumbprintReference/>
-                                       <sp:WssX509V3Token10/>
-                                   </wsp:Policy>
-                               </sp:X509Token>
-                           </wsp:Policy>
-                       </sp:RecipientToken>
-                       <sp:AlgorithmSuite>
-                           <wsp:Policy>
-                               <sp:Basic256/>
-                           </wsp:Policy>
-                       </sp:AlgorithmSuite>
-                       <sp:Layout>
-                           <wsp:Policy>
-                               <sp:Strict/>
-                           </wsp:Policy>
-                       </sp:Layout>
-                       <sp:IncludeTimestamp/>
-                       <sp:OnlySignEntireHeadersAndBody/>
-                   </wsp:Policy>
-               </sp:AsymmetricBinding>
-               <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                   <wsp:Policy>
-                       <sp:MustSupportRefKeyIdentifier/>
-                       <sp:MustSupportRefIssuerSerial/>
-                       <sp:MustSupportRefThumbprint/>
-                       <sp:MustSupportRefEncryptedKey/>
-                       <sp:RequireSignatureConfirmation/>
-                   </wsp:Policy>
-               </sp:Wss11>
-               <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                   <wsp:Policy>
-                       <sp:MustSupportRefKeyIdentifier/>
-                       <sp:MustSupportRefIssuerSerial/>
-                   </wsp:Policy>
-               </sp:Wss10>
-               <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                   <sp:Body/>
-               </sp:SignedParts>
-               <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-                   <sp:Body/>
-               </sp:EncryptedParts>
-           </wsp:All>
-       </wsp:ExactlyOne>
-       <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
-           <rampart:user>wso2carbon</rampart:user>
-           <rampart:encryptionUser>useReqSigCert</rampart:encryptionUser>
-           <rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
-           <rampart:timestampTTL>300</rampart:timestampTTL>
-           <rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
-           <rampart:timestampStrict>false</rampart:timestampStrict>
-           <rampart:tokenStoreClass>org.wso2.micro.integrator.security.extensions.SecurityTokenStore</rampart:tokenStoreClass>
-           <rampart:nonceLifeTime>300</rampart:nonceLifeTime>
-           <rampart:encryptionCrypto>
-               <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.micro.integrator.security.util.ServerCrypto">
-                   <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
-                   <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
-                   <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
-                   <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
-                   <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
-               </rampart:crypto>
-           </rampart:encryptionCrypto>
-           <rampart:signatureCrypto>
-               <rampart:crypto cryptoKey="org.wso2.carbon.security.crypto.privatestore" provider="org.wso2.micro.integrator.security.util.ServerCrypto">
-                   <rampart:property name="org.wso2.carbon.security.crypto.alias">wso2carbon</rampart:property>
-                   <rampart:property name="org.wso2.carbon.security.crypto.privatestore">wso2carbon.jks</rampart:property>
-                   <rampart:property name="org.wso2.stratos.tenant.id">-1234</rampart:property>
-                   <rampart:property name="org.wso2.carbon.security.crypto.truststores">wso2carbon.jks</rampart:property>
-                   <rampart:property name="rampart.config.user">wso2carbon</rampart:property>
-               </rampart:crypto>
-           </rampart:signatureCrypto>
-       </rampart:RampartConfig>
-   </wsp:Policy>
- ```
-
-!!! Info
-
-    - Change the tokenStoreClass in the policy file to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`
-
-    - Replace ServerCrypto class with `org.wso2.micro.integrator.security.util.ServerCrypto` if present.
 
 <!--
 #### Specifying role-based access?
@@ -284,8 +181,8 @@ Create a Soap UI project with the relevant security settings and then send the r
 
 8.  To decrypt the response, add the Incoming WSS configuration similar to the Outgoing WSS configuration.
 
-    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" width="60%" alt="Incoming WSS Configuration"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" width="60%" alt="Adding Decryption"></a>
 
 9.  Invoke the Proxy Service with Incoming & Outgoing WSS Configuration.
 
-    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" width="60%" alt="Incoming WSS Configuration"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" width="60%" alt="In and Out Policy"></a>
