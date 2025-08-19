@@ -4,6 +4,10 @@ This sample demonstrates how to use WS-Security signing and encryption with prox
 
 In this example, the proxy service expects to receive a signed and encrypted message as specified by the security policy. To understand the format of the policy file, have a look at the Apache Rampart and Axis2 documentation. The `enableSec` element specifies that Apache Rampart should be engaged on this proxy service. Hence, if Rampart rejects any request message that does not conform to the specified policy, that message will never reach the `inSequence` for processing. Since the proxy service is forwarding the received request to the simple stock quote service that does not use WS-Security, you are instructing the Micro Integrator to remove the `wsse:Security` header from the outgoing message.
 
+## Prerequisites
+
+[configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
+
 ## Synapse configuration
 Following is a sample proxy service configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
@@ -44,13 +48,29 @@ The security policy file `policy1.xml` can be downloaded from  [policy1.xml](htt
 The security policy file URI needs to be updated with the path to the policy1.xml file.
 This sample security policy file validates username token and admin role is allowed to invoke the service. 
 
-Create the artifacts:
+!!! Note
+    Properties in RampartConfig can be externalized using the `$SYSTEM:PROPERTY_NAME` syntax. The `$SYSTEM:` prefix allows you to retrieve values from environment variables.
+
+    For example, you can use `$SYSTEM:encryptionUser` to retrieve the value of the `encryptionUser` property from the environment.
+    ```xml
+    <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
+		<rampart:encryptionUser>$SYSTEM:encryptionUser</rampart:encryptionUser>
+		<rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
+		<rampart:timestampTTL>300</rampart:timestampTTL>
+		<rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
+		<rampart:timestampStrict>false</rampart:timestampStrict>
+		<rampart:tokenStoreClass>org.wso2.micro.integrator.security.extensions.SecurityTokenStore</rampart:tokenStoreClass>
+		<rampart:nonceLifeTime>300</rampart:nonceLifeTime>
+	</rampart:RampartConfig>
+    ```
+
+### Create the artifacts
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations provided above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
 
-Set up the back-end service:
+### Set up the back-end service
 
 1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
 2. Extract the downloaded zip file.
@@ -66,9 +86,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
-
-Set up the SOAP client:
+### Set up the SOAP client
 
 1. Download and install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
 
