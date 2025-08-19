@@ -5,7 +5,6 @@
 The connection is used to establish a connection to the LDAP instance. The LDAP API requires all requests to be authenticated as a user.
 
 ??? note "LDAP Connection"
-    The ldap.init operation initializes the connector to interact with an LDAP.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -29,27 +28,27 @@ The connection is used to establish a connection to the LDAP instance. The LDAP 
         </tr>
         <tr>
             <td>secureConnection</td>
-            <td>The boolean value for the secure connection.</td>
+            <td>Specifies whether to enable a secure connection. By default, this is set to `false`.</td>
             <td>No</td>
         </tr>
         <tr>
             <td>disableSSLCertificateChecking</td>
-            <td>The boolean value to check whether the certificate is enabled or not.</td>
+            <td>Indicates whether the certificate is enabled (true) or disabled (false).By default, this is set to `false`.</td>
             <td>No</td>
         </tr>
         <tr>
             <td>timeout</td>
-            <td>Timeout duration of the LDAP request.</td>
+            <td>Specifies the timeout duration for the LDAP request. The default value is `30000ms`.</td>
             <td>No</td>
         </tr>
         <tr>
             <td>connectionPoolingEnabled</td>
-            <td>Property to enable/disable connection pooling.</td>
+            <td>Specifies whether connection pooling is enabled (true) or disabled (false). The default value is `false`.</td>
             <td>No</td>
         </tr>
         <tr>
             <td>connectionPoolingProtocol</td>
-            <td>A list of space-separated protocol types of connections that may be pooled. Valid types are 'plain' and 'ssl'</td>
+            <td>Specifies a space-separated list of protocol types for connections that can be pooled. Valid values are `plain` and `ssl`</td>
             <td>No</td>
         </tr>
         <tr>
