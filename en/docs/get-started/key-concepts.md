@@ -10,31 +10,31 @@ Listed below are the key concepts of the WSO2 Micro Integrator runtime.
 
 ![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts.png)
 
-### Message entry points
+### Message Entry Points
 
 Message entry points are the entities that a message can enter into the Micro Integrator mediation flow.
 
 #### APIs
 
-An API in WSO2 Micro Integrator is a key component for exposing integration services. Each API is anchored at a user-defined URL context and will only process requests that fall under the given URL context. An API is made of one or more resources, which are logical components of an API that can be accessed by making a particular type of HTTP call.
+An API in WSO2 Micro Integrator exposes integration services at a specific URL context—it only processes requests matching that context. An API is made of one or more resources, which are logical components of an API that can be accessed by making a particular type of HTTP call.
 
 See the [REST APIs]({{base_path}}/reference/synapse-properties/rest-api-properties) documentation for more information.
 
 #### Proxy Services
 
-A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This approach allows you to perform the necessary message transformations and introduce additional functionality to your services without changing your actual services. Unlike in [APIs](#apis), here, the protocol does not always need to be HTTP/S. Proxy Services support other well-known protocols such as JMS, FTP, FIX, and HL7.
+A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This allows message transformations and extra functionality without modifying the original services. Unlike in [APIs](#apis), here, the protocol does not always need to be HTTP/S. Proxy Services support other well-known protocols such as JMS, FTP, FIX, and HL7.
 
 See the [Proxy Services]({{base_path}}/reference/synapse-properties/proxy-service-properties) documentation for more information.
 
 #### Inbound Endpoints
 
-In [APIs](#apis) and [proxy services](#proxy-services) some parts of the configuration are global to a particular instance. For example, the HTTP port needs to be common for all the APIs. The Inbound Endpoints do not contain such global configurations. That gives extra flexibility in configuring the Inbound Endpoints compared to the other two message entry points.
+In [APIs](#apis) and [proxy services](#proxy-services) some configurations, such as HTTP port, are shared across API instances. In contrast, inbound endpoints support unique configurations per endpoint. That gives extra flexibility in configuring the Inbound Endpoints compared to the other two message entry points.
 
 See the [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) documentation for more information.
 
 ---
 
-### Message processing units
+### Message Processing Units
 
 #### Mediators
 
@@ -67,7 +67,7 @@ See the [Templates]({{base_path}}/reference/synapse-properties/template-properti
 
 ---
 
-### Message exit points
+### Message Exit Points
 
 #### Endpoints
 
@@ -85,7 +85,7 @@ See the [Connectors]({{base_path}}/reference/connectors/connectors-overview) doc
 
 ---
 
-### Other concepts
+### Other Concepts
 
 #### Data Services
 
