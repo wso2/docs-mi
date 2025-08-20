@@ -1,10 +1,9 @@
 # LDAP Connector Reference
 
-## Connection configuration
+To use the LDAP connector, add the `<ldap.init>` element in your configuration before carrying out any other LDAP operations. 
 
-The connection is used to establish a connection to the LDAP instance. The LDAP API requires all requests to be authenticated as a user.
-
-??? note "LDAP Connection"
+??? note "ldap.init"
+    The ldap.init operation initializes the connector to interact with an LDAP.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -28,38 +27,13 @@ The connection is used to establish a connection to the LDAP instance. The LDAP 
         </tr>
         <tr>
             <td>secureConnection</td>
-            <td>Specifies whether to enable a secure connection. By default, this is set to `false`.</td>
-            <td>No</td>
+            <td>The boolean value for the secure connection.</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>disableSSLCertificateChecking</td>
-            <td>Indicates whether the certificate is enabled (true) or disabled (false).By default, this is set to `false`.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>timeout</td>
-            <td>Specifies the timeout duration for the LDAP request. The default value is `30000ms`.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>connectionPoolingEnabled</td>
-            <td>Specifies whether connection pooling is enabled (true) or disabled (false). The default value is `false`.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>connectionPoolingProtocol</td>
-            <td>Specifies a space-separated list of protocol types for connections that can be pooled. Valid values are `plain` and `ssl`</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>connectionPoolingInitSize</td>
-            <td>The number of connections per connection identity to create when initially creating a connection for the identity.</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td>connectionPoolingMaxSize</td>
-            <td>The maximum number of connections per connection identity that can be maintained concurrently.</td>
-            <td>No</td>
+            <td>The boolean value to check whether the certificate is enabled or not.</td>
+            <td>Yes</td>
         </tr>
     </table>
 
@@ -69,17 +43,11 @@ The connection is used to establish a connection to the LDAP instance. The LDAP 
         <providerUrl>{$ctx:providerUrl}</providerUrl>
         <securityPrincipal>{$ctx:securityPrincipal}</securityPrincipal>
         <securityCredentials>{$ctx:securityCredentials}</securityCredentials>
+        <secureConnection>{$ctx:secureConnection}</secureConnection>
+        <disableSSLCertificateChecking>{$ctx:disableSSLCertificateChecking}</disableSSLCertificateChecking>
     </ldap.init>
     ```
 
-    **Sample request**
-    ```json
-    {
-        "providerUrl":"ldap://localhost:389/", 
-        "securityPrincipal":"uid=admin,ou=system",
-        "securityCredentials":"adminpassword"
-    }
-    ```
 
 You can follow the steps below to import your LDAP certificate into the Micro Integrator client’s keystore as follows:
 
@@ -96,11 +64,19 @@ Secure Vault is supported for encrypting passwords. See,
 [Working with Secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text) on integrating 
 and using Secure Vault.
 
+**Re-using LDAP configurations**
+
+You can save the LDAP configuration as a [local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above **<ldap.init>** entry as a local entry named MyLDAPConfig, you could reference it from an operation like addEntry as follows:
+
+```xml
+<ldap.addEntry configKey="MyLDAPConfig"/>
+```
+
 ---
 
 ### User authentication
 
-??? note "ldap.authenticate"
+??? note "authenticate"
     LDAP authentication is a major requirement in most LDAP based applications. The  authenticate operation simplifies the LDAP authentication mechanism. This operation authenticates the provided Distinguished Name(DN) and password against the LDAP server, and returns either a success or failure response depending on whether the authentication was successful or not.
     <table>
         <tr>
@@ -133,15 +109,68 @@ and using Secure Vault.
 
     ```json
     {
-        "dn":"uid=testDim20,ou=staff,dc=wso2,dc=com",
-        "password":"12345"
+        "providerUrl":"ldap://localhost:10389/",
+        "securityPrincipal":"cn=admin,dc=wso2,dc=com",
+        "securityCredentials":"comadmin",
+        "secureConnection":"false",
+        "disableSSLCertificateChecking":"false",
+        "application": "ldap",
+        "operation":"authenticate",
+        "content":{
+            "dn":"uid=testDim20,ou=staff,dc=wso2,dc=com",
+            "password":"12345"
+        }
     }
     ```
 
-## Entry Management
+    **Authentication success response**
 
-??? note "add"
-    The add operation creates a new LDAP entry in the LDAP server.
+    ```xml
+    <Response xmlns="http://localhost/services/ldap">
+        <result>
+            <message>Success</message>
+        </result>
+    </Response>
+    ```
+
+    **Authentication failure response**
+
+    ```xml
+    <Response xmlns="http://localhost/services/ldap">
+        <result>
+            <message>Fail</message>
+        </result>
+    </Response>
+    ```
+
+    **Error codes**
+    
+    This section describes the connector error codes and their meanings.
+
+    | Error Code  | Description |
+    | ------------- | ------------- |
+    | 7000001 | An error occurred while searching a LDAP entry.    |
+    | 7000002 | LDAP root user's credentials are invalid.    |
+    | 7000003 | An error occurred while adding a new LDAP entry.    |
+    | 7000004 | An error occurred while updating an existing LDAP entry.    |
+    | 7000005 | An error occurred while deleting a LDAP entry.    |
+    | 7000006 | The LDAP entry that is required to perform the operation does not exist.    |
+
+    **Sample error response**
+
+    ```xml
+    <Fault xmlns="http://localhost/services/ldap">
+        <error>
+            <errorCode>700000X</errorCode>
+            <errorMessage>Error Message</errorMessage>
+        </error>
+    </Fault>
+    ```
+
+### CRUD operations
+
+??? note "addEntry"
+    The addEntry operation creates a new LDAP entry in the LDAP server.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -179,20 +208,29 @@ and using Secure Vault.
 
     ```json
     {
-        "objectClass":"inetOrgPerson",
-        "dn":"uid=testDim20,ou=staff,dc=wso2,dc=com",
-        "attributes":'{ 
-            "mail":"testDim1s22c@wso2.com",
-            "userPassword":"12345",
-            "sn":"dim",
-            "cn":"dim",
-            "manager":"cn=dimuthuu,ou=Groups,dc=example,dc=com"
+        "providerUrl":"ldap://localhost:10389/",
+        "securityPrincipal":"cn=admin,dc=wso2,dc=com",
+        "securityCredentials":"comadmin",
+        "secureConnection":"false",
+        "disableSSLCertificateChecking":"false",
+        "application":"ldap",
+        "operation":"createEntity",
+        "content":{ 
+            "objectClass":"inetOrgPerson",
+            "dn":"uid=testDim20,ou=staff,dc=wso2,dc=com",
+            "attributes":{ 
+                "mail":"testDim1s22c@wso2.com",
+                "userPassword":"12345",
+                "sn":"dim",
+                "cn":"dim",
+                "manager":"cn=dimuthuu,ou=Groups,dc=example,dc=com"
+            }
         }
     }
     ```
 
-??? note "search"
-    The search operation performs a search for one or more LDAP entities based on the specified search keys.
+??? note "searchEntry"
+    The searchEntry operation performs a search for one or more LDAP entities based on the specified search keys.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -200,34 +238,36 @@ and using Secure Vault.
             <th>Required</th>
         </tr>
         <tr>
+            <td>objectClass</td>
+            <td>The object class of the new entry.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>filters</td>
+            <td>The keywords to use in the search. The parameters should be in JSON format as follow:
+            "filters":{ "uid":"john", "mail":"testDim2@gmail.com"}
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
             <td>dn</td>
             <td>The distinguished name of the entry you need to search.</td>
             <td>Yes</td>
         </tr>
         <tr>
-            <td>filters</td>
-            <td>The keywords to use in the search. The parameters should be in JSON format as follow: { "uid":"john", "mail":"testDim2@gmail.com"}</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>objectClass</td>
-            <td>The object class of the new entry.</td>
-            <td>No</td>
-        </tr>
-        <tr>
             <td>attributes</td>
             <td>The attributes of the LDAP entry that should be included in the search result.</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>onlyOneReference</td>
             <td>Boolean value whether to guarantee or not only one reference.</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>limit</td>
             <td>This allows you to set a limit on the number of search results. If this property is not defined the maximum no of search results will be returned.</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>allowEmptySearchResult</td>
@@ -244,6 +284,8 @@ and using Secure Vault.
         <dn>{$ctx:dn}</dn>
         <filters>{$ctx:filters}</filters>
         <attributes>{$ctx:attributes}</attributes>
+        <onlyOneReference>{$ctx:onlyOneReference}</onlyOneReference>
+        <limit>1000</limit>
     </ldap.searchEntry>
     ```
     
@@ -251,27 +293,31 @@ and using Secure Vault.
 
     ```json
     {
-        "dn":"ou=sales,dc=example,dc=com",
-        "objectClass":"inetOrgPerson",
-        "attributes":"mail,uid,givenName,manager,objectGUID",
-        "filters":{
-            "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz","createTimestamp >":"20210412000000.0Z"},
-        "onlyOneReference":"false"
+        "providerUrl":"ldap://server.example.com",
+        "securityPrincipal":"cn=admin,dc=example,dc=com",
+        "securityCredentials":"admin",
+        "secureConnection":"false",
+        "disableSSLCertificateChecking":"false",
+        "application":"ldap",
+        "operation":"searchEntity",
+        "content":{
+            "dn":"ou=sales,dc=example,dc=com",
+            "objectClass":"inetOrgPerson",
+            "attributes":"mail,uid,givenName,manager,objectGUID",
+            "filters":{
+                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz","createTimestamp >":"20210412000000.0Z"},
+            "onlyOneReference":"false"
+        }
     }
     ```
 
-??? note "update"
-    The update operation updates an existing LDAP entry in the LDAP server based on the specified changes.
+??? note "updateEntry"
+    The updateEntry operation updates an existing LDAP entry in the LDAP server based on the specified changes.
     <table>
         <tr>
             <th>Parameter Name</th>
             <th>Description</th>
             <th>Required</th>
-        </tr>
-        <tr>
-            <td>dn</td>
-            <td>The distinguished name of the entry.</td>
-            <td>Yes</td>
         </tr>
         <tr>
             <td>mode</td>
@@ -285,6 +331,11 @@ and using Secure Vault.
             <td>Yes</td>
         </tr>
         <tr>
+            <td>dn</td>
+            <td>The distinguished name of the entry.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
             <td>attributes</td>
             <td>Attributes of the entry to be updated. The attributes to be updated should be specified as comma separated key-value pairs.</td>
             <td>Yes</td>
@@ -295,9 +346,12 @@ and using Secure Vault.
 
     ```xml
     <ldap.searchEntry>
+        <objectClass>{$ctx:objectClass}</objectClass>
         <dn>{$ctx:dn}</dn>
-        <mode>{$ctx:mode}</mode>
+        <filters>{$ctx:filters}</filters>
         <attributes>{$ctx:attributes}</attributes>
+        <onlyOneReference>{$ctx:onlyOneReference}</onlyOneReference>
+        <limit>1000</limit>
     </ldap.searchEntry>
     ```
     
@@ -305,14 +359,26 @@ and using Secure Vault.
 
     ```json
     {
-        "dn":"ou=sales,dc=example,dc=com",
-        "mode":"replace",
-        "attributes":"mail,uid,givenName,manager,objectGUID"
+        "providerUrl":"ldap://server.example.com",
+        "securityPrincipal":"cn=admin,dc=example,dc=com",
+        "securityCredentials":"admin",
+        "secureConnection":"false",
+        "disableSSLCertificateChecking":"false",
+        "application":"ldap",
+        "operation":"searchEntity",
+        "content":{
+            "dn":"ou=sales,dc=example,dc=com",
+            "objectClass":"inetOrgPerson",
+            "attributes":"mail,uid,givenName,manager,objectGUID",
+            "filters":{
+                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz"},
+            "onlyOneReference":"false"
+        }
     }
     ```
 
-??? note "delete"
-    The delete operation deletes an existing LDAP entry from the LDAP server.
+??? note "deleteEntry"
+    The deleteEntry operation deletes an existing LDAP entry from the LDAP server.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -329,68 +395,34 @@ and using Secure Vault.
     **Sample configuration**
 
     ```xml
-    <ldap.deleteEntry>
+    <ldap.searchEntry>
+        <objectClass>{$ctx:objectClass}</objectClass>
         <dn>{$ctx:dn}</dn>
-    </ldap.deleteEntry>
+        <filters>{$ctx:filters}</filters>
+        <attributes>{$ctx:attributes}</attributes>
+        <onlyOneReference>{$ctx:onlyOneReference}</onlyOneReference>
+        <limit>1000</limit>
+    </ldap.searchEntry>
     ```
     
     **Sample request**
 
     ```json
     {
-        "dn":"ou=sales,dc=example,dc=com",
+        "providerUrl":"ldap://server.example.com",
+        "securityPrincipal":"cn=admin,dc=example,dc=com",
+        "securityCredentials":"admin",
+        "secureConnection":"false",
+        "disableSSLCertificateChecking":"false",
+        "application":"ldap",
+        "operation":"searchEntity",
+        "content":{
+            "dn":"ou=sales,dc=example,dc=com",
+            "objectClass":"inetOrgPerson",
+            "attributes":"mail,uid,givenName,manager,objectGUID",
+            "filters":{
+                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz"},
+            "onlyOneReference":"false"
+        }
     }
     ```
-
-??? note "updateName"
-    The updateName operation renames an entry in the LDAP directory by changing its distinguished name (DN) on the LDAP server.
-    <table>
-        <tr>
-            <th>Parameter Name</th>
-            <th>Description</th>
-            <th>Required</th>
-        </tr>
-        <tr>
-            <td>oldName</td>
-            <td>The distinguished name of the entry to be deleted.</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>newName</td>
-            <td>The distinguished name of the entry to be deleted.</td>
-            <td>Yes</td>
-        </tr>
-    </table>
-
-    **Sample configuration**
-
-    ```xml
-    <ldap.updateName>
-        <oldName>{$ctx:oldName}</oldName>
-        <newName>{$ctx:newName}</newName>
-    </ldap.updateName>
-    ```
-    
-    **Sample request**
-
-    ```json
-    {
-        "oldName":"ou=sales,dc=example,dc=com",
-        "newName":"ou=marketing,dc=example,dc=com"
-    }
-    ```
-
-## Handle errors
-
-The connector may encounter errors during operation execution. When an error occurs, the `ERROR_DETAIL` property will contain detailed information about the error. You can handle these errors using a `Fault Sequence` in your integration. For more information, refer to [Using Fault Sequences]({{base_path}}/learn/examples/sequence-examples/using-fault-sequences/).
-
-??? note "Error Details"
-
-    | Error Code  | Description |
-    | ------------- | ------------- |
-    | 7000001 | An error occurred while searching a LDAP entry.    |
-    | 7000002 | LDAP root user's credentials are invalid.    |
-    | 7000003 | An error occurred while adding a new LDAP entry.    |
-    | 7000004 | An error occurred while updating an existing LDAP entry.    |
-    | 7000005 | An error occurred while deleting a LDAP entry.    |
-    | 7000006 | The LDAP entry that is required to perform the operation does not exist.

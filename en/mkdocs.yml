@@ -765,9 +765,12 @@ nav:
                   - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
           - LDAP Connector:
               - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
-              - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
-              - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
-              - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+              - 2.x:
+                - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+                - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
+              - 1.x:
+                - LDAP Example: reference/connectors/ldap-connector/1.x/ldap-connector-1.x-example.md
+                - LDAP Reference: reference/connectors/ldap-connector/1.x/ldap-connector-1.x-configuration.md
           - Microsoft Azure Data Lake  Connector:
              - Microsoft Azure Data Lake Storage Connector Overview: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-overview.md
              - Set up Microsoft Azure Data Lake Storage: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration.md
