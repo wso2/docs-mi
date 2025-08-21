@@ -556,3 +556,14 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 | **Scope**            | axis2                                                                                             |
 | **Description**      | This property enables the check whether the original request to the endpoint was a REST request, which needs converting the response's `text/xml` content type into `application/xml` if the request was not a SOAP request.|
 | **Example**          | `<property name="enableREST" scope="axis2" type="BOOLEAN" value="true"/>` |
+
+## DISABLE_COOKIE
+
+|     Parameter       | Value                                                                                                                             |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **Name**             | DISABLE_COOKIE                                                                                                                    |
+| **Possible Values**  | true/false                                                                                                                        |
+| **Default Behavior** | false                                                                                                                             |
+| **Scope**            | axis2                                                                                                                             |
+| **Description**      | Remove cookie header from blocking request calls that passes through the HTTPS Servlet transport (for GET and POST HTTP methods). |
+| **Example**          | `<property name="DISABLE_COOKIE" value="true" scope="axis2" type="BOOLEAN"/>`                                                         |
