@@ -325,6 +325,9 @@ If you want to receive the response message headers, when you use the Call media
 !!! Info
     Set the value of the `BLOCKING_SENDER_PRESERVE_REQ_HEADERS` property to `false` to receive the response message headers. If you set it to `true`, you cannot get the response headers, but the request headers will be preserved.
 
+!!! Info
+    Set the `DISABLE_COOKIE` property To `true` to remove cookie header from blocking request calls
+
 === "Proxy Service"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -335,6 +338,7 @@ If you want to receive the response message headers, when you use the Call media
                 <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
                 <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
                 <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
+                <property name="DISABLE_COOKIE" value="true" scope="axis2" type="BOOLEAN"/>
                 <call blocking="true">
                     <endpoint key="sampleBE_Endpoint"/>
                 </call>
