@@ -63,7 +63,7 @@
             WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.
         </div>
         <div>
-            <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>
+            <a href="https://wso2.com/micro-integrator/" class="banner-link" />
         </div>
     </div>
     <div class="section02">
@@ -164,10 +164,11 @@ header.md-header .md-header__button:not([hidden]) {
 }
 .tiles-container {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center; 
 }
 .tile {
-    display: inline-block;
     vertical-align: top;
     background-color: rgba(255, 255, 255, 0.03);
     padding: 20px;
@@ -219,7 +220,7 @@ header.md-header .md-header__button:not([hidden]) {
 }
 .view-all-button {
     display: inline-block;
-    background-color: none;
+    background-color: transparent;
     color: var(--text-color) !important;
     text-decoration: none;
     border-radius: 5px;
