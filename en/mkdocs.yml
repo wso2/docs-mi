@@ -175,6 +175,7 @@ nav:
               - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
               - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deploy on OpenShift: install-and-setup/setup/deployment/openshift-deployment.md
+          - Deploy on Devant: install-and-setup/setup/deployment/devant-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
