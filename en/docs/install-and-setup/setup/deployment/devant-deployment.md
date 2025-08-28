@@ -7,7 +7,7 @@ This guide walks you through deploying WSO2 Integrator: MI on Devant. For this g
 - Ensure you are logged in to Devant with an [organization created](https://wso2.com/devant/docs/references/create-an-organization/).
 - [Install WSO2 Integrator: MI]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) extension on VS Code.
 
-## Deployment Steps
+## Deployment steps
 
 1. Create an MI Project and create the integration. For this tutorial, the first step of [Build your first Integration]({{base_path}}/get-started/build-first-integration/first-integration-api-service/) is followed.
 2. Once you have created the integration, commit and push the changes, then navigate to the **Project Home**.
