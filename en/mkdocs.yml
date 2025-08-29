@@ -744,6 +744,11 @@ nav:
               - 3.x:
                     - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-example.md
                     - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-config.md
+          - Intelligent Document Processing (IDP) Connector:
+              - Intelligent Document Processing (IDP) Overview: reference/connectors/idp-connector/idp-connector-overview.md
+              - Intelligent Document Processing (IDP) Example: reference/connectors/idp-connector/idp-connector-example.md
+              - Intelligent Document Processing (IDP) Reference: reference/connectors/idp-connector/idp-connector-reference.md
+              - Intelligent Document Processing (IDP) Schema Generation: reference/connectors/idp-connector/idp-connector-schema-generation.md
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
