@@ -860,8 +860,12 @@ nav:
               - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
               - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
               - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
-              - Twitter Example: reference/connectors/twitter-connector/twitter-connector-example.md
-              - Twitter Reference: reference/connectors/twitter-connector/twitter-connector-reference.md
+              - 3.x:
+                - Twitter Example: reference/connectors/twitter-connector/3.x/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/3.x/twitter-connector-reference.md
+              - 2.x:
+                - Twitter Example: reference/connectors/twitter-connector/2.x/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/2.x/twitter-connector-reference.md
           - Snowflake Connector:
               - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
               - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md
