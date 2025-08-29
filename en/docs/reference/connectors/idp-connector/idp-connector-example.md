@@ -1,6 +1,6 @@
 # Intelligent Document Processing (IDP) Connector Example
 
-The IDP Connector enables the extraction of structured data from documents using frontier models such as OpenAI, or cost-free local models powered by Olloma.
+The IDP Connector enables the extraction of structured data from documents using frontier models such as OpenAI, or cost-free local models powered by Ollama.
 
 ## What you'll build
 
@@ -164,10 +164,6 @@ You can also try with curl:
 curl -X POST -F "image=@/mnt/c/garbages/Test_IDP_Connector/screenshots/example/purchase_order.jpg" http://localhost:8290/idpconnector
 ```
 *(Change the path to your actual `purchase_order.jpg` location.)*
-
-## What's next
-
-* To customize this example for your own scenario, see [IDP Connector Reference Guide]({{base_path}}/reference/connectors/idp-connector/idp-connector-reference) documentation for all operation details of the connector.
 
 ## What's next
 
