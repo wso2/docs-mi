@@ -882,6 +882,9 @@ nav:
           - Salesforce Pub/Sub Inbound Endpoint:
                 - Salesforce Pub/Sub Inbound Endpoint Example: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-example.md
                 - Salesforce Pub/Sub Inbound Endpoint Reference: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-reference.md
+          - Google Pub/Sub Inbound Endpoint:
+                - Google Pub/Sub Inbound Endpoint Example: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-example.md
+                - Google Pub/Sub Inbound Endpoint Reference: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
