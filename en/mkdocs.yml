@@ -775,7 +775,7 @@ nav:
                 - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
               - 1.x:
                 - LDAP Example: reference/connectors/ldap-connector/1.x/ldap-connector-1.x-example.md
-                - LDAP Reference: reference/connectors/ldap-connector/1.x/ldap-connector-1.x-configuration.md
+                - LDAP Reference: reference/connectors/ldap-connector/1.x/ldap-server-1.x-configuration.md
           - Microsoft Azure Data Lake  Connector:
              - Microsoft Azure Data Lake Storage Connector Overview: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-overview.md
              - Set up Microsoft Azure Data Lake Storage: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration.md
@@ -818,11 +818,10 @@ nav:
               - 3.x:
                   - Salesforce Reference: reference/connectors/salesforce-connectors/3.x/sf-rest-connector-config.md
                   - Salesforce REST API Example: reference/connectors/salesforce-connectors/3.x/sf-rest-connector-example.md
-                  - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/3.x/salesforcebulk-v2-connector-example.md
+                  - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/3.x/sf-bulk-v2-connector-example.md
                   - Salesforce SOAP API Example: reference/connectors/salesforce-connectors/3.x/sf-soap-connector-example.md
               - 2.x:
                   - Salesforce Overview: reference/connectors/salesforce-connectors/2.x/sf-overview.md
-                  - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/2.x/sf-inbound-endpoint-configuration.md
                   - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
                   - Salesforce Bulk API V1 Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
                   - Salesforce Bulk API V1 Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
@@ -832,7 +831,7 @@ nav:
                   - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/2.x/salesforcebulk-v2-reference.md
                   - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/2.x/sf-soap-connector-config.md
                   - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/2.x/sf-soap-connector-example.md
-                  - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/2.x/salesforce-soap-reference.md
+                  - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
           - Salesforce Pub/Sub Connector:
               - Salesforce Pub/Sub Overview: reference/connectors/salesforce-pubsub-connector/sf-pubsub-overview.md
               - Set up the Salesforce Pub/Sub Connector: reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration.md
@@ -860,12 +859,12 @@ nav:
               - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
               - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
               - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
+              - 4.x:
+                - Twitter Example: reference/connectors/twitter-connector/4.x/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/4.x/twitter-connector-reference.md
               - 3.x:
                 - Twitter Example: reference/connectors/twitter-connector/3.x/twitter-connector-example.md
                 - Twitter Reference: reference/connectors/twitter-connector/3.x/twitter-connector-reference.md
-              - 2.x:
-                - Twitter Example: reference/connectors/twitter-connector/2.x/twitter-connector-example.md
-                - Twitter Reference: reference/connectors/twitter-connector/2.x/twitter-connector-reference.md
           - Snowflake Connector:
               - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
               - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md

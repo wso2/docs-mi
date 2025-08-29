@@ -153,14 +153,14 @@ Note down the `id` from the response.
   curl --location 'http://localhost:8290/salesforce/getJobInfo' \
   --header 'Content-Type: application/json' \
   --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
-  --data '{{
+  --data '{
       "id" : "XXXXXXXXXXXXXXXXX"
-  }}'
+  }'
   ```
 Make sure you replace the `id` value. You will receive a response similar to the following:
 
     ```json
-    {{
+    {
       "id": "XXXXXXXXXXXXXXXXX",
       "operation": "insert",
       "object": "Account",
@@ -180,7 +180,7 @@ Make sure you replace the `id` value. You will receive a response similar to the
       "totalProcessingTime": 139,
       "apiActiveProcessingTime": 81,
       "apexProcessingTime": 0
-    }}
+    }
     ```
 
 4. Let's get the successfully processed records using our `/getSuccessfulResults` resource. To invoke the resource, please use the following curl command:
@@ -188,15 +188,15 @@ Make sure you replace the `id` value. You will receive a response similar to the
     curl --location 'http://localhost:8290/salesforce/getSuccessfulResults' \
     --header 'Content-Type: application/json' \
     --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
-    --data '{{
+    --data '{
         "id" : "XXXXXXXXXXXXXXXXX"
-    }}'
+    }'
     ```
 Make sure you replace the `id` value. You will receive a response similar to the following:
 
     ```json
     [
-      {{
+      {
         "sf__Id": "XXXXXXXXXXXXXXXXX",
         "sf__Created": "true",
         "Name": "Lorem Ipsum",
@@ -205,7 +205,7 @@ Make sure you replace the `id` value. You will receive a response similar to the
         "AnnualRevenue": "9.12260031E8",
         "Website": "https://ft.com/lacus/at.jsp",
         "Description": "Lorem ipsum dolor sit amet"
-      }}
+      }
     ]
     ```
 
@@ -214,9 +214,9 @@ Make sure you replace the `id` value. You will receive a response similar to the
     curl --location 'http://localhost:8290/salesforce/getUnprocessedResults' \
     --header 'Content-Type: application/json' \
     --header 'Cookie: CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
-    --data '{{
+    --data '{
         "id" : "XXXXXXXXXXXXXXXXX"
-    }}'
+    }'
     ```
 Make sure you replace the `id` value. Upon successful execution, you will receive a `200 OK` response, and the output will be written to the designated file.
   ```json
