@@ -11,7 +11,7 @@ The **Clone Mediator** can be used to clone a message into several messages. It 
 ## Syntax
 
 ``` java
-<clone [continueParent=(true | false)]>
+<clone [continueParent=(true | false)] [sequential=(true | false)] [iterations="number"] >
    <target [to="uri"] [soapAction="qname"] [sequence="sequence_ref"] [endpoint="endpoint_ref"]>
      <sequence>
        (mediator)+
