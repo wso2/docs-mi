@@ -39,6 +39,12 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 For older versions, see the details in the connector store.
 
+## Prerequisites
+
+### File Connector 4.x
+
+For File Connector v4.0.41 and above, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
+
 ## File Connector documentation (latest - 4.x version)
 
 * **[File Connector Example]({{base_path}}/reference/connectors/file-connector/file-connector-example/)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
