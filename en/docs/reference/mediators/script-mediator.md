@@ -45,9 +45,6 @@ when using JavaScript `         getPayloadXML        ` and
 `         setPayloadXML        ` , `         E4X        ` XML objects
 and when using Ruby, REXML documents.
 
-!!! Important "Limitations and Alternatives to Script Mediator"
-    While the Script mediator offers enhanced extensibility in the Synapse configuration, it is important to consider its potential limitations. We highly recommend utilizing the Script mediator only when absolutely necessary. In cases where extension requirements can be fulfilled using alternatives such as the Class mediator, we advise opting for the latter due to several reasons. Notably, the use of a Script mediator in moderately complex to sophisticated mediation flows may introduce significant performance overhead compared to a Java-based Class mediator. Therefore, we suggest prioritizing Class mediators as extensions to the mediation flow over Script mediators. However, for simpler tasks, the Script mediator can still serve as a versatile option.
-
 !!! Note
     The Micro Integrator uses GraalVM JS by default. If you have specified the language as `rhinoJs`, Rhino engine will be used to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65,536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
 
