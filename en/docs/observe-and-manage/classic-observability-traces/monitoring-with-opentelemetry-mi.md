@@ -29,6 +29,29 @@ Then, add the configurations for the specific type of tracing in order to enable
 !!! note
     OpenTracing will no longer support WSO2 MI as it is deprecated and OpenTelemetry will be supported to enable distributed tracing. The `[opentracing]` section that was present in the `deployment.toml` file of WSO2 MI 4.1.0 - which denoted OpenTracing related configurations has been replaced by the `[opentelemetry]` section.  
 
+!!! note
+	[``OTEL_RESOURCE_ATTRIBUTES``](https://opentelemetry.io/docs/specs/otel/resource/sdk/#specifying-resource-information-via-an-environment-variable) can be used to set resource attributes such as `deployment.environment` and `service.name`. This can be done in one of the following ways:
+
+	- Via `deployment.toml`.
+
+		```toml
+		[[opentelemetry.resource_attributes]]
+		name = "service.name"
+		value = "MyService"
+
+		[[opentelemetry.resource_attributes]]
+		name = "deployment.environment"
+		value = "Production"
+		```
+
+	- Via the `OTEL_RESOURCE_ATTRIBUTES` environment variable (as per the OpenTelemetry spec).
+
+	    ```
+		export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=Production,service.name=MyService
+	    ```
+
+	When a resource attribute is given via both the `deployment.toml` and the `OTEL_RESOURCE_ATTRIBUTES` environment variable, the value of the attribute given via the environment variable will replace the value given via `deployment.toml`.
+
 ## Enabling Jaeger Tracing
 
 1. Copy the following configuration into the `deployment.toml` file.
