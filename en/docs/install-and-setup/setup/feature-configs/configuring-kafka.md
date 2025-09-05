@@ -59,8 +59,8 @@ Consumer Example
 
 # Best Practices
 
-Partitions: Use multiple partitions to improve throughput and parallelism.
-Compression: Enable message compression (compression.type="gzip") to reduce network usage.
-Consumer Groups: Use multiple consumers in a group to scale message consumption.
-Monitoring: Use Kafka metrics and logs to monitor producer/consumer health.
-Error Handling: Implement retries and dead-letter queues to handle failed messages gracefully.
+- Partitions: Use multiple partitions to improve throughput and parallelism.
+- Compression: Enable message compression (compression.type="gzip") to reduce network usage.
+- Consumer Groups: Use multiple consumers in a group to scale message consumption.
+- Monitoring: Use Kafka metrics and logs to monitor producer/consumer health.
+- Error Handling: Implement retries and dead-letter queues to handle failed messages gracefully.
