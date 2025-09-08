@@ -49,13 +49,7 @@ For older versions, see the details in the connector store.
 
 ## Prerequisites
 
-### File Connector 5.x
-
-For File Connector v5.0.3 and above, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
-
-### File Connector 4.x
-
-For File Connector v4.0.41 and above, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
+For File Connector v4.0.41 or later and v5.0.3 or later, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
 
 ## File Connector documentation (latest - 5.x version)
 
