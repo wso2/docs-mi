@@ -177,7 +177,7 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
 
       ```yml
       base_path: http://localhost:8000/en/latest
-      #base_path: https://mi.docs.wso2.com/en/4.4.0
+      #base_path: https://mi.docs.wso2.com/en/4.5.0
       ```
 
   3. Revert this change before submitting your PR

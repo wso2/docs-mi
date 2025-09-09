@@ -3,7 +3,7 @@ The WSO2 Micro Integrator module for Ballerina enables integration developers to
 ## Prerequisites
 
 - WSO2 Micro Integrator 4.2.0 or later
-- Java Development Kit (Version 17 for MI 4.2.0/4.3.0, Version 21 for MI 4.4.0)
+- Java Development Kit (Version 17 for MI 4.2.0/4.3.0, Version 21 for MI 4.4.0 or later)
 - VS Code with WSO2 Micro Integrator extension installed
 - Ballerina 2201.12.0 or later
 - Ballerina VS Code extensions installed
