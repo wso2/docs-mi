@@ -41,7 +41,7 @@ Follow the below steps to create an integration project using the WSO2 Micro Int
 
 4. In the **Project Creation Form**, enter a suitable name for the integration project under **Project Name**.
 
-5. Ensure `4.4.0` is selected as the **Micro Integrator runtime version**.
+5. Ensure `4.5.0` is selected as the **Micro Integrator runtime version**.
 
 5. Provide a location for the integration project under **Project Directory**.
 
@@ -57,7 +57,7 @@ Follow the below steps to create an integration project using the WSO2 Micro Int
     You need the following to work with the MI for VS Code extension.
 
     - Java Development Kit (JDK) version 21
-    - WSO2 Micro Integrator (MI) 4.4.0 runtime
+    - WSO2 Micro Integrator (MI) 4.5.0 runtime
 
     If you don't have them installed in your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
 
