@@ -12,7 +12,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 | Connector version | Supported product versions |
 |-------------------|----------------------------|
-| 2.0.0(latest)     | MI 4.4.0                   |
+| 2.0.0(latest)     | MI 4.4.0+                  |
 | 1.1.0             | MI 4.3.0                   |
 
 ## Google Ads Connector documentation

@@ -91,7 +91,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 4. In the **Project Creation Form**, enter `EventIntegration` as the **Project Name**.
 
-5. Ensure `4.4.0` is selected as the **Micro Integrator runtime version**.
+5. Ensure `4.5.0` is selected as the **Micro Integrator runtime version**.
 
 6. Provide a location for the integration project under **Project Directory**.
 
