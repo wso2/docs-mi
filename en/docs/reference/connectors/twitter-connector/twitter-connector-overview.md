@@ -11,9 +11,9 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector Version | Supported product versions |
-| ------------- |-------------|
-| 4.0.0    | MI 4.4.0+ |
+| Connector Version | Supported product versions   |
+| ------------- |------------------------------|
+| 4.0.0    | MI 4.4.0+                    |
 | 3.0.0    | MI 4.2.x, EI 6.6.0, EI 6.4.0 |
 
 For older versions, see the details in the connector store.

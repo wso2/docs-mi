@@ -24,7 +24,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 			5.x
 		</td>
 		<td>
-			MI 4.4.0
+			MI 4.4.0+
 		</td>
 	</tr>
 	<tr>

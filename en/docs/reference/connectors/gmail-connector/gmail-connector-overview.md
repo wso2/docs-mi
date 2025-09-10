@@ -22,7 +22,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 			4.x (latest)
 		</td>
 		<td>
-			MI 4.4.0
+			MI 4.4.0+
 		</td>
 	</tr>
 	<tr>
@@ -30,7 +30,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 			3.x
 		</td>
 		<td>
-			APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 EI 6.5.0 
+			MI 4.x.x, APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 EI 6.5.0 
 		</td>
 	</tr>
 </table>

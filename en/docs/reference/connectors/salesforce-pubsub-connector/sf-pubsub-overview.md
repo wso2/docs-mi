@@ -21,7 +21,7 @@ The **Salesforce Pub/Sub Connector** lets WSO2 Micro Integrator talk directly to
 
 | Connector Version | Supported MI Version |
 |-------------------|----------------------|
-| **0.1.0**         | **MI 4.4.0**         |
+| **0.1.0**         | **MI 4.4.0+**        |
 
 ---
 
