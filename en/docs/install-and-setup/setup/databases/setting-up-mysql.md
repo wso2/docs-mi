@@ -1,9 +1,9 @@
 # Setting up a MySQL Database
 
-Follow the steps given below to set up the required MySQL databases for your Micro Integrator.
+Follow the steps given below to set up the required MySQL databases for your WSO2 Integrator: MI.
 
 !!! Tip
-	WSO2 Micro Integrator requires databases for the following scenarios: 
+	WSO2 Integrator: MI requires databases for the following scenarios: 
 
 	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi#cluster-coordination'>cluster coordination</a>
     -	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
@@ -23,7 +23,7 @@ To set up MySQL:
 
 ## Creating the databases
 
-The following MySQL scripts are stored in the `<MI_HOME>/dbscripts/mysql` directory of your Micro Integrator. First, select the scripts that are required for your deployment.
+The following MySQL scripts are stored in the `<MI_HOME>/dbscripts/mysql` directory of your WSO2 Integrator: MI. First, select the scripts that are required for your deployment.
 
 You can run the scripts on one database instance or set up separate instances for each requirement. For convenience, it is recommended to set up separate databases for each use case.
 
@@ -67,11 +67,11 @@ Create the databases and then create the DB tables by pointing to the relevant M
 ## Setting up the JDBC driver
 
 1. Download the [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/).
-2. Unzip the downloaded MySQL driver and copy the JAR (mysql-connector-java-x.x.xx-bin.jar) to the `<MI_HOME>/lib/` directory of your Micro Integrator.
+2. Unzip the downloaded MySQL driver and copy the JAR (mysql-connector-java-x.x.xx-bin.jar) to the `<MI_HOME>/lib/` directory of your WSO2 Integrator: MI.
 
 ## Connecting the database to the server
 
-Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
+Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the WSO2 Integrator: MI and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
 
 === "Cluster Coordination Connection"
     ```toml 

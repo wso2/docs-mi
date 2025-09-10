@@ -1,6 +1,6 @@
 # How to Consume and Produce JMS Messages
 
-This section describes how to configure WSO2 Micro Integrator to work as a JMS-to-JMS proxy service. In this example, the Micro Integrator listens to a JMS queue, consumes messages, and then sends those messages to another JMS queue.
+This section describes how to configure WSO2 Integrator: MI to work as a JMS-to-JMS proxy service. In this example, the WSO2 Integrator: MI listens to a JMS queue, consumes messages, and then sends those messages to another JMS queue.
 
 ## Synapse configuration
 
@@ -85,7 +85,7 @@ The Synapse artifacts used are explained below.
     parameter.connection_factory_name = "QueueConnectionFactory"
     parameter.connection_factory_type = "queue"
     ```
-    To refer details on JMS transport parameters, you can follow [JMS transport parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) used in the Micro Integrator.
+    To refer details on JMS transport parameters, you can follow [JMS transport parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) used in the WSO2 Integrator: MI.
 
 !!! Note
     Be sure to replace the ' `& ` ' character in the endpoint URL with '`&amp;`' to avoid the following exception:
@@ -99,13 +99,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use Active MQ for this example.
 2.  Start the broker.
-3.  Start the Micro Integrator (after starting the broker).
+3.  Start the WSO2 Integrator: MI (after starting the broker).
 
-You now have a running WSO2 Micro Integrator instance, ActiveMQ instance, and a sample back-end service to simulate the sample scenario.
+You now have a running WSO2 Integrator: MI instance, ActiveMQ instance, and a sample back-end service to simulate the sample scenario.
 Add a message to the `StockQuoteProxy` queue using the [ActiveMQ Web Console](https://activemq.apache.org/web-console.html). You will see the same message published to the `SimpleStockQuoteService`.

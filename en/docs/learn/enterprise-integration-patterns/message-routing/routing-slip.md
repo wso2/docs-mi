@@ -1,6 +1,6 @@
 # Routing Slip
 
-This page explains how you can implement a sample scenario of Routing Slip using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Routing Slip using WSO2 Integrator: MI.
 
 ## Introduction to Routing Slip
 
@@ -15,9 +15,9 @@ The sequence in which a message should be processed usually varies based on the 
 
 ## Sample scenario
 
-In the sample scenario, when the Micro Integrator receives a message, it will attach a property to the message using the Header mediator to indicate the set of processors that it should follow. It defines each process as a separate sequence. This example consists of three independent sequences. The attached properties are processed using the Iterate mediator, and the process is analyzed using the Switch mediator in each iteration cycle. Once the process is analyzed, the message will be sent to the respective process (sequence).
+In the sample scenario, when the WSO2 Integrator: MI receives a message, it will attach a property to the message using the Header mediator to indicate the set of processors that it should follow. It defines each process as a separate sequence. This example consists of three independent sequences. The attached properties are processed using the Iterate mediator, and the process is analyzed using the Switch mediator in each iteration cycle. Once the process is analyzed, the message will be sent to the respective process (sequence).
 
-The diagram below depicts how to simulate the sample scenario using WSO2 Micro Integrator.
+The diagram below depicts how to simulate the sample scenario using WSO2 Integrator: MI.
 
 ![Routing slip]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-routing/routing-slip.png)
 
@@ -198,7 +198,7 @@ You can also allow the message to flow through Process B by indicating a header 
 
 If you add the above header at the beginning, you will notice the message going through Process B as well.
 
-The Micro Integrator returns the following response to the client.
+The WSO2 Integrator: MI returns the following response to the client.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

@@ -1,9 +1,9 @@
 # Setting up an IBM DB2
 
-Follow the steps given below to set up the required IBM databases for your Micro Integrator.
+Follow the steps given below to set up the required IBM databases for your WSO2 Integrator: MI.
 
 !!! Tip
-	WSO2 Micro Integrator requires databases for the following scenarios: 
+	WSO2 Integrator: MI requires databases for the following scenarios: 
 
 	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#cluster-coordination'>cluster coordination</a>
 	-	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
@@ -16,7 +16,7 @@ For instructions on installing DB2 Express-C, see this [ebook](https://www.ibm.c
 
 ## Setting up the database and users
 
-The following IBM DB scripts are stored in the `<MI_HOME>/dbscripts/db2` directory of your Micro Integrator. First, select the scripts that are required for your deployment.
+The following IBM DB scripts are stored in the `<MI_HOME>/dbscripts/db2` directory of your WSO2 Integrator: MI. First, select the scripts that are required for your deployment.
 
 You can run the scripts on one database instance or set up separate instances for each requirement. For convenience, it is recommended to set up separate databases for each use case.
 
@@ -78,7 +78,7 @@ Copy the DB2 JDBC drivers (`db2jcc.jar` and `db2jcc_license_c0u.jar`) from the `
 
 ## Connecting the database to the server
 
-Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
+Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the WSO2 Integrator: MI and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
 
 === "Cluster DB Connection"
     ```toml 

@@ -1,6 +1,6 @@
 # Recipient List
 
-This page explains how you can implement a sample scenario of Recipient List EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Recipient List EIP using WSO2 Integrator: MI.
 
 ## Introduction to Recipient List
 

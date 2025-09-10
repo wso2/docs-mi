@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-Message transformation is necessary when the message format sent by the client differs from the format expected by the back-end service. The **Message Translator** architectural pattern in WSO2 Micro Integrator describes how to translate from one data format to another.
+Message transformation is necessary when the message format sent by the client differs from the format expected by the back-end service. The **Message Translator** architectural pattern in WSO2 Integrator: MI describes how to translate from one data format to another.
 
 In this tutorial, you will send a request message to a back-end service where the format of the payload differs from what the back-end service expects. The <a target="_blank" href="{{base_path}}/reference/mediators/data-mapper-mediator/">Data Mapper mediator</a> is used to transform the request payload into the format expected by the back-end service.
 
@@ -208,7 +208,7 @@ Copy the following sample request message expected by the back-end service, past
 9. Now, you can create the mappings by connecting the values in the **Input** box to the corresponding values in the **Output** box.
 
     !!! Tip
-        The Micro Integrator Data Mapper includes AI capabilities to automatically generate mappings. With a simple button click, your mappings can be completed in seconds. For more information, see [Data Mapping using AI]({{base_path}}/get-started/how-to-guides/ai-data-mapping/).
+        The WSO2 Integrator: MI Data Mapper includes AI capabilities to automatically generate mappings. With a simple button click, your mappings can be completed in seconds. For more information, see [Data Mapping using AI]({{base_path}}/get-started/how-to-guides/ai-data-mapping/).
 
     The completed mapping will appear as follows:
 
@@ -250,7 +250,7 @@ You have successfully created all the artifacts required for this use case.
 
 ### Step 3: Build and run the artifacts
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -383,4 +383,4 @@ You will see the following response received to your <b>HTTP Client</b>.
 }
 ```
 
-You have now explored how the Micro Integrator can receive a message in one format and transform it into the format expected by the back-end service using the <a target="_blank" href="{{base_path}}/reference/mediators/data-mapper-mediator/">Data Mapper mediator</a>.
+You have now explored how the WSO2 Integrator: MI can receive a message in one format and transform it into the format expected by the back-end service using the <a target="_blank" href="{{base_path}}/reference/mediators/data-mapper-mediator/">Data Mapper mediator</a>.

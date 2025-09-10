@@ -3,7 +3,7 @@
 When you implement an integration use case that requires an MQTT connection, you can use the following MQTT parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can communicate through MQTT only if the MQTT transport listener and sender are enabled and configured at the server level. Read about the [MQTT transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport).
+    The WSO2 Integrator: MI can communicate through MQTT only if the MQTT transport listener and sender are enabled and configured at the server level. Read about the [MQTT transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
@@ -70,7 +70,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       </tr>
       <tr>
          <td>mqtt.temporary.store.directory</td>
-         <td>The path of the directory to be used as the persistent data store for quality of service purposes. The default value is the Micro Integrator temp path.</td>
+         <td>The path of the directory to be used as the persistent data store for quality of service purposes. The default value is the WSO2 Integrator: MI temp path.</td>
       </tr>
       <tr>
          <td>mqtt.blocking.sender</td>

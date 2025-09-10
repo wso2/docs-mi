@@ -3,7 +3,7 @@
 !!! Info
 	The following are Axis2 properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator).
 
-Axis2 properties allow you to configure the web services engine in WSO2 Micro Integrator, such as specifying how to cache JMS objects, setting the minimum and maximum threads for consuming messages, and forcing outgoing HTTP/S messages to use HTTP 1.0. You can access some of these properties by using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) with the scope set to `axis2` or `axis2-client` as shown below.
+Axis2 properties allow you to configure the web services engine in WSO2 Integrator: MI, such as specifying how to cache JMS objects, setting the minimum and maximum threads for consuming messages, and forcing outgoing HTTP/S messages to use HTTP 1.0. You can access some of these properties by using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) with the scope set to `axis2` or `axis2-client` as shown below.
 
 ## CacheLevel
 
@@ -223,7 +223,7 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 |---------------------|-------------------------------------------------------------------------------|
 | **Name**             | setCharacterEncoding                                                                                                                                        |
 | **Possible Values**  | false                                                                                                                                                       |
-| **Default Behavior** | By default character encoding is enabled in the Micro Integrator.                                                                                                |
+| **Default Behavior** | By default character encoding is enabled in the WSO2 Integrator: MI.                                                                                                |
 | **Scope**            | axis2                                                                                                                                                       |
 | **Description**      | This property can be used to remove character encode. Note that if this property is set to 'false', the 'CHARACTER_SET_ENCODING' property cannot be used. |
 | **Example**          | `             <property name="             setCharacterEncoding             " value="false" scope="axis2" type="STRING"/>            `                      |
@@ -291,7 +291,7 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 			Description
 		</td>
 		<td>
-			Use this property to disable auto acknowledgement of HL7 messages that are received by the Micro Integrator. By default, auto acknowledgement is enabled in the Micro Integrator. You can disable this by setting this property to 'false'.
+			Use this property to disable auto acknowledgement of HL7 messages that are received by the WSO2 Integrator: MI. By default, auto acknowledgement is enabled in the WSO2 Integrator: MI. You can disable this by setting this property to 'false'.
 		</td>
 	</tr>
 	<tr>
@@ -468,7 +468,7 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 			Description
 		</td>
 		<td>
-			Use this property to specify whether the Micro Integrator should wait for the backend to process the message before sending an acknowledgement (ACK or NACK message) back to the messaging client.
+			Use this property to specify whether the WSO2 Integrator: MI should wait for the backend to process the message before sending an acknowledgement (ACK or NACK message) back to the messaging client.
 		</td>
 	</tr>
 	<tr>

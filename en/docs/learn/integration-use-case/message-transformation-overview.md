@@ -1,6 +1,6 @@
 # Message Transformation
 
-The integration of systems that communicate in various message formats is a common business case in enterprise integration. WSO2 Micro Integrator facilitates this use case as the intermediary system bridging the communication gap among the systems.
+The integration of systems that communicate in various message formats is a common business case in enterprise integration. WSO2 Integrator: MI facilitates this use case as the intermediary system bridging the communication gap among the systems.
 
 For example, consider a service that returns data in XML format and a mobile client that accepts messages only in JSON format. To allow these two systems to communicate, the intermediary system needs to convert message formats during the communication. This allows the systems to communicate with each other without depending on the message formats supported by each system.
 

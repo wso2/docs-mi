@@ -1,12 +1,12 @@
 # How to Acknowledge HL7 Messages
 
-Automatic message acknowledgement for HL7 messages is enabled in the Micro Integrator by default. With this setting, an ACK is immediately returned to the client when a message is received. 
+Automatic message acknowledgement for HL7 messages is enabled in the WSO2 Integrator: MI by default. With this setting, an ACK is immediately returned to the client when a message is received. 
 
 If required, you can disable automatic acknowledgement. This allows you to control how and when ACK/NACK messages should be returned to the client. That is, you can define the integration logic to generate an ack/nack message after message validations or related tasks.
 
 ## Configure message acknowledgement for HL7
 
-When auto acknowledgement for HL7 messages is disabled in the Micro Integrator, you can manually configure ACK/NACK messages in the mediation logic by using the Property mediator. 
+When auto acknowledgement for HL7 messages is disabled in the WSO2 Integrator: MI, you can manually configure ACK/NACK messages in the mediation logic by using the Property mediator. 
 
 !!! Info
     Add the following parameter to the proxy service to disable auto acknowledgement and validation:
@@ -93,13 +93,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your WSO2 Integrator: MI.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 To test this scenario, you need the following:
 
 - An HL7 client that sends messages to the port specified by the `transport.hl7.Port` parameter.
-- An HL7 back-end application that receives messages from the Micro Integrator.
+- An HL7 back-end application that receives messages from the WSO2 Integrator: MI.
 
 You can simulate the HL7 client and back-end application using a tool such as <b>HAPI</b>.
 
@@ -138,12 +138,12 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your WSO2 Integrator: MI.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 To test this scenario, you need the following:
 
 - An HL7 client that sends messages to the port specified by the `transport.hl7.Port` parameter.
-- An HL7 back-end application that receives messages from the Micro Integrator.
+- An HL7 back-end application that receives messages from the WSO2 Integrator: MI.
 
 You can simulate the HL7 client and back-end application using a tool such as <b>HAPI</b>.

@@ -1,10 +1,10 @@
-# Running the Micro Integrator Runtime
+# Running the WSO2 Integrator: MI Runtime
 
-Follow the steps given below to run the WSO2 Micro Integrator (MI) runtime.
+Follow the steps given below to run the WSO2 Integrator:  MI runtime.
 
 ## Before you begin
 
-[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
+[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI.
 
 ## Starting the MI server
 
@@ -50,8 +50,8 @@ Follow the steps given below to start the server.
 
 ## Stopping the MI server
 
-- To stop the Micro Integrator standalone application, go to the terminal and press <i>Ctrl+C</i>.
-- To stop the Micro Integrator in background mode:
+- To stop the WSO2 Integrator: MI standalone application, go to the terminal and press <i>Ctrl+C</i>.
+- To stop the WSO2 Integrator: MI in background mode:
       
     === "On macOS/Linux"
         ```bash  

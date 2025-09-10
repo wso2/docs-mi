@@ -1,6 +1,6 @@
 # Return Address
 
-This page explains how you can implement a sample scenario of Return Address EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Return Address EIP using WSO2 Integrator: MI.
 
 ## Introduction to Return Address
 

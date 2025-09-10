@@ -8,7 +8,7 @@
 
 ## Generate the Docker image
 
-We can use the Micro Integrator VS Code Extension to build a Docker image of our integration solution.
+We can use the WSO2 Integrator: MI VS Code Extension to build a Docker image of our integration solution.
 
 1. [Create a project]({{base_path}}/develop/create-integration-project) and develop the integration solution by creating the required artifacts.
    

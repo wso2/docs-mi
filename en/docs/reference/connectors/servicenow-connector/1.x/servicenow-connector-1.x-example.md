@@ -26,7 +26,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 ## Create the mediation logic
 
-1. First, create the `PostRecord` and `ReadRecord` sequences. Select Micro Integrator and click `+` on **Sequences** to create the sequence.
+1. First, create the `PostRecord` and `ReadRecord` sequences. Select WSO2 Integrator: MI and click `+` on **Sequences** to create the sequence.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png"><img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
 

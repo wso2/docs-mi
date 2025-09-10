@@ -1,6 +1,6 @@
 # Use Wire Logs
 
-When debugging a Synapse flow, you can view the actual HTTP messages at the [entry]({{base_path}}/get-started/key-concepts/#message-entry-points) and the [exit]({{base_path}}/get-started/key-concepts/#message-exit-points) points of the Micro Integrator via wire logs. For example, you can view wire logs of the incoming flow and the final response of an [API]({{base_path}}/reference/synapse-properties/rest-api-properties) or a [proxy service]({{base_path}}/reference/synapse-properties/proxy-service-properties). 
+When debugging a Synapse flow, you can view the actual HTTP messages at the [entry]({{base_path}}/get-started/key-concepts/#message-entry-points) and the [exit]({{base_path}}/get-started/key-concepts/#message-exit-points) points of the WSO2 Integrator: MI via wire logs. For example, you can view wire logs of the incoming flow and the final response of an [API]({{base_path}}/reference/synapse-properties/rest-api-properties) or a [proxy service]({{base_path}}/reference/synapse-properties/proxy-service-properties). 
 Similarly, you can see the outgoing and incoming wire logs at an [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties). Wire logs are useful to troubleshoot unexpected issues that occur when integrating miscellaneous systems. For example, you can use wire logs to verify whether the message payload is properly going out from the server is correct, and whether the HTTP headers such as the content type is properly set in the outgoing message.
   
 !!! Note
@@ -63,5 +63,5 @@ Following is a sample wirelog.
 
 There are two incoming messages and two outgoing messages in the above log. First part of the wire logs of a message contains the HTTP headers and it is followed by the message payload. You need to identify the message direction as shown below to read wire logs.
 
--   `DEBUG - wire >>`: This represents a message, which is coming into WSO2 Micro Integrator from the wire.
--   `DEBUG - wire <<`: This represents a message, which goes to the wire from the Micro Integrator.
+-   `DEBUG - wire >>`: This represents a message, which is coming into WSO2 Integrator: MI from the wire.
+-   `DEBUG - wire <<`: This represents a message, which goes to the wire from the WSO2 Integrator: MI.

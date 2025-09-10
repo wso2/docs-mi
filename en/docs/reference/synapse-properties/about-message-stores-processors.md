@@ -76,7 +76,7 @@ Multiple message processors can use the same message store. For example, in a cl
       WSO2 MB Message Store
     </td>
     <td>
-      WSO2 Message Broker is used as the <b>message store</b> for the Micro Integrator.
+      WSO2 Message Broker is used as the <b>message store</b> for the WSO2 Integrator: MI.
     </td>
   </tr>
   <tr>

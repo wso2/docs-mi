@@ -34,13 +34,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your Micro Integrator.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Configure the HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport) in your WSO2 Integrator: MI.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 To test this scenario, you need the following:
 
 - An HL7 client that sends messages to the port specified by the `transport.hl7.Port` parameter.
-- An HL7 back-end application that receives messages from the Micro Integrator.
+- An HL7 back-end application that receives messages from the WSO2 Integrator: MI.
 
 You can simulate the HL7 client and back-end application using a tool such as <b>HAPI</b>.
 

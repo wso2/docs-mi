@@ -1,6 +1,6 @@
 # Create a Proxy Service
 
-Follow these instructions to create a [Proxy Service]({{base_path}}/reference/synapse-properties/proxy-service-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow these instructions to create a [Proxy Service]({{base_path}}/reference/synapse-properties/proxy-service-properties) artifact in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ## Create a new proxy service artifact
 
@@ -8,7 +8,7 @@ Follow these instructions to create a [Proxy Service]({{base_path}}/reference/sy
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new proxy service, navigate to **Micro Integrator Project Explorer**.
+3. To add a new proxy service, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

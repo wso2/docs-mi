@@ -627,7 +627,7 @@ The connection configuration parameters are used to establish a connection with 
     
     ```json
     {
-    "content": "WSO2 Micro Integrator is a comprehensive integration solution designed to simplify digital transformation. It facilitates connectivity among applications, services, data, and the cloud through a user-friendly, low-code graphical design experience. The Micro Integrator offers deployment options in both microservices and ESB styles, providing greater flexibility.",
+    "content": "WSO2 Integrator: MI is a comprehensive integration solution designed to simplify digital transformation. It facilitates connectivity among applications, services, data, and the cloud through a user-friendly, low-code graphical design experience. The WSO2 Integrator: MI offers deployment options in both microservices and ESB styles, providing greater flexibility.",
     "tokenUsage": {
         "inputTokensDetails": {
         "cachedTokens": 0
@@ -823,7 +823,7 @@ The connection configuration parameters are used to establish a connection with 
     
     ```json
     {
-    "content": "WSO2 Micro Integrator is a comprehensive integration solution designed to simplify digital transformation. It facilitates connectivity among applications, services, data, and the cloud through a user-friendly, low-code graphical design experience. The Micro Integrator offers deployment options in both microservices and ESB styles, providing greater flexibility.",
+    "content": "WSO2 Integrator: MI is a comprehensive integration solution designed to simplify digital transformation. It facilitates connectivity among applications, services, data, and the cloud through a user-friendly, low-code graphical design experience. The WSO2 Integrator: MI offers deployment options in both microservices and ESB styles, providing greater flexibility.",
     "tokenUsage": {
         "inputTokensDetails": {
         "cachedTokens": 0
@@ -838,7 +838,7 @@ The connection configuration parameters are used to establish a connection with 
     "sources": [
         {
         "textSegment": {
-            "text": "WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.",
+            "text": "WSO2 Integrator: MI is a comprehensive integration solution that simplifies your digital transformation journey. The WSO2 Integrator: MI streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.",
             "metadata": {
             "index": "0"
             }
@@ -1289,7 +1289,7 @@ The connection configuration parameters are used to establish a connection with 
             ...
         ],
         "embedded": {
-        "text": "WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.",
+        "text": "WSO2 Integrator: MI is a comprehensive integration solution that simplifies your digital transformation journey. The WSO2 Integrator: MI streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.",
         "metadata": {
             "index": "0"
         }
@@ -1298,7 +1298,7 @@ The connection configuration parameters are used to establish a connection with 
     ]
     ```  
 
-Click on the **Go to Tutorial** button below to learn how to build your first AI integration using the above operations. The tutorial will guide you through the process of creating a simple integration that utilizes the AI capabilities of WSO2 Micro Integrator.
+Click on the **Go to Tutorial** button below to learn how to build your first AI integration using the above operations. The tutorial will guide you through the process of creating a simple integration that utilizes the AI capabilities of WSO2 Integrator: MI.
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
   <a href="{{base_path}}/get-started/build-first-ai-integration/" class="md-button md-button--primary">Go to Tutorial →</a>

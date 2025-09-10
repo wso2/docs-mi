@@ -1,6 +1,6 @@
 ## Generate a gRPC connector from a Proto definition
 
-This section explains how to generate a gRPC connector from a `.proto` file using the WSO2 Micro Integrator (MI) Connector Generator tool. The gRPC connector enables seamless communication between services, facilitating integration with systems that expose gRPC APIs. By utilizing a `.proto` file, which defines the service and message structure, the connector is automatically generated, allowing you to implement a fully functional gRPC client in your integration.
+This section explains how to generate a gRPC connector from a `.proto` file using the WSO2 Integrator:  MI Connector Generator tool. The gRPC connector enables seamless communication between services, facilitating integration with systems that expose gRPC APIs. By utilizing a `.proto` file, which defines the service and message structure, the connector is automatically generated, allowing you to implement a fully functional gRPC client in your integration.
 
 ## Prerequisites
 
@@ -23,11 +23,11 @@ Follow the steps below to generate the gRPC connector:
 1. **Launch Visual Studio Code** with the MI for VS Code extension installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 2. **Create a new integration project**.
 
-    Click **Create New Project** on **Micro Integrator Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+    Click **Create New Project** on **WSO2 Integrator: MI Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 3. **Navigate to the Project Overview page**.
 
@@ -100,7 +100,7 @@ Follow the steps below to generate the gRPC connector:
 
         * `<proto-file>` with the path to your `.proto` file.
         * `<output-directory>` with the path where you want the connector to be generated.
-        * `[miVersion]` with your specific WSO2 Micro Integrator version.
+        * `[miVersion]` with your specific WSO2 Integrator: MI version.
 
 ##### Example command
 
@@ -116,7 +116,7 @@ For Windows:
 generator.bat C:\path\to\order-service.proto C:\path\to\output-directory 4.5.0
 ```
 
-By following these steps, you can generate a fully functional gRPC connector from a `.proto` file, enabling seamless integration with gRPC-based services in WSO2 Micro Integrator.
+By following these steps, you can generate a fully functional gRPC connector from a `.proto` file, enabling seamless integration with gRPC-based services in WSO2 Integrator: MI.
 
 ##### Steps to import generated connector
 

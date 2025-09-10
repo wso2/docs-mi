@@ -1,8 +1,8 @@
 # Basic Health Checks
 
-## Micro Integrator health checks
+##WSO2 Integrator: MI health checks
 
-WSO2 Micro Integrator provides a dedicated API for checking the health of the server. This can be used by a load 
+WSO2 Integrator: MI provides a dedicated API for checking the health of the server. This can be used by a load 
 balancer prior to routing traffic to a particular server node.
 
 ### Health Check API
@@ -72,7 +72,7 @@ readinessProbe:
 
 The Liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
 example, if the server stops serving requests on the HTTP port, even though the server is alive, the container needs to 
-be restarted so that the Micro Integrator instances serve the requests flawlessly. The default HTTP socket of WSO2 Micro 
+be restarted so that the WSO2 Integrator: MI instances serve the requests flawlessly. The default HTTP socket of WSO2 Micro 
 Integrator can be used to health check for Liveness.
 
 Add the following configurations to your `deployment.yaml` file in order to configure the Liveness probe for

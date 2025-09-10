@@ -4,7 +4,7 @@ In the previous tutorial, you learned how to develop, deploy, and test your firs
 
 ## What you'll build
 
-Let's consider a scenario where a client sends a deposit request to the `Bank` API deployed in WSO2 Micro Integrator. The API calls a currency converter service to convert the amount to USD, and then responds to the client with the converted deposit value and status.
+Let's consider a scenario where a client sends a deposit request to the `Bank` API deployed in WSO2 Integrator: MI. The API calls a currency converter service to convert the amount to USD, and then responds to the client with the converted deposit value and status.
 
 <a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_route.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_route.png" alt="Create New Project" width="60%"></a>
 
@@ -17,10 +17,10 @@ Let's consider a scenario where a client sends a deposit request to the `Bank` A
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 2. You must have completed the **Develop an Integration API** tutorial under **Build your first Integration** before proceeding. Start the [Develop an Integration API]({{base_path}}/get-started/build-first-integration/first-integration-api-service/)  tutorial if you haven’t completed it yet.
 
@@ -30,7 +30,7 @@ Follow the instructions below to modify the API to call an HTTP endpoint and dyn
 
 To develop the above scenario, let's get started with creating a new API resource in the `Bank` API.
 
-1. Click on the Service Designer (<img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon.png" alt="inline expression editor" class="inline-icon">) icon of the `Bank` API in the **Micro Integrator Project Explorer** to open the Service Designer.
+1. Click on the Service Designer (<img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon.png" alt="inline expression editor" class="inline-icon">) icon of the `Bank` API in the **WSO2 Integrator: MI Project Explorer** to open the Service Designer.
 
     !!! Note
         The **Service Designer** icon will appear when you hover over the API name in the Project Explorer.
@@ -129,7 +129,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 9. In the **Request Body** box, enter the following sample JSON object. In the next step, you will use an inline expression to extract the currency from the incoming payload and insert it into this JSON object.
 
     !!! Tip "What is an expression?"
-        Expressions in WSO2 Micro Integrator (MI) allow you to dynamically access, evaluate, and manipulate message content during processing. To explore expressions in detail, see the [Expressions documentation]({{base_path}}/reference/synapse-properties/synapse-expressions/).
+        Expressions in WSO2 Integrator:  MI allow you to dynamically access, evaluate, and manipulate message content during processing. To explore expressions in detail, see the [Expressions documentation]({{base_path}}/reference/synapse-properties/synapse-expressions/).
 
     ```json
     {
@@ -345,7 +345,7 @@ You may refer to the following API and HTTP connection for reference,
 
 ## Step 3 - Run the integration
 
-Now that you have updated the integration, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have updated the integration, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 

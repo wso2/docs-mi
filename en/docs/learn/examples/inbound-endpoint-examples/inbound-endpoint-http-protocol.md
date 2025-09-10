@@ -42,7 +42,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -88,4 +88,4 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
 The inbound endpoint will capture any request coming through the `8085` port and divert it to the `TestIn` sequence. 
 
-For further details, analyze the output debug messages for the actions in the dumb client mode. You will see that the Micro Integrator receives a message when the Micro Integrator Inbound is set as the ultimate receiver. You will also see the response from the backend in the client.
+For further details, analyze the output debug messages for the actions in the dumb client mode. You will see that the WSO2 Integrator: MI receives a message when the WSO2 Integrator: MI Inbound is set as the ultimate receiver. You will also see the response from the backend in the client.

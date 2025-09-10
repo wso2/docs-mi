@@ -1,6 +1,6 @@
 # Using Single Key Encryption
 
-WSO2 Micro Integrator uses [asymmetric encryption]({{base_path}}/install-and-setup/setup/security/configuring-keystores) by default, which means that a **key pair** (public key and private key) for encrypting/decrypting information. If required, you can switch to **single key encryption** (symmetric encryption), which means that a single key will be shared for encryption and decryption of information.
+WSO2 Integrator: MI uses [asymmetric encryption]({{base_path}}/install-and-setup/setup/security/configuring-keystores) by default, which means that a **key pair** (public key and private key) for encrypting/decrypting information. If required, you can switch to **single key encryption** (symmetric encryption), which means that a single key will be shared for encryption and decryption of information.
 
 ## Enable single key encryption
 

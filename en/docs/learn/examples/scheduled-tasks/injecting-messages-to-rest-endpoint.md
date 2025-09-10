@@ -56,9 +56,9 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
-The XML message you injected (i.e., This is a scheduled task of the default implementation.) will be printed in the logs of the Micro Integrator twice, 5 seconds apart.
+The XML message you injected (i.e., This is a scheduled task of the default implementation.) will be printed in the logs of the WSO2 Integrator: MI twice, 5 seconds apart.
 
 ```bash
 INFO {org.apache.synapse.mediators.builtin.LogMediator} - Which city? = London, Which country? = UK

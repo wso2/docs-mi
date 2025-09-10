@@ -42,11 +42,11 @@ Now let's start designing the integration by adding the necessary artifacts.
     <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/automation-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/automation-artifact.png" alt="create automation artifact" width="80%"></a>
 
     !!! Note
-        WSO2 Micro Integrator supports automation flows that can be triggered either on a schedule or at server startup. It provides two types of automations:
+        WSO2 Integrator: MI supports automation flows that can be triggered either on a schedule or at server startup. It provides two types of automations:
 
         - **Scheduled Triggers (Task)** – Executes a task repeatedly based on a defined interval or cron expression. (You will explore this in this tutorial.)
 
-        - **Startup Triggers** – Executes a task once when the Micro Integrator starts, runs the integration, and then shuts down. To learn more, refer to [Running the Micro Integrator in Automation Mode]({{base_path}}/install-and-setup/install/running-the-mi-in-automation-mode/).
+        - **Startup Triggers** – Executes a task once when the WSO2 Integrator: MI starts, runs the integration, and then shuts down. To learn more, refer to [Running the WSO2 Integrator: MI in Automation Mode]({{base_path}}/install-and-setup/install/running-the-mi-in-automation-mode/).
 
 2. Enter the details given below to create a new REST API.
 
@@ -147,7 +147,7 @@ You have successfully completed the integration flow with the scheduled trigger 
 
 ### Step 3: Build and run the artifacts
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -155,6 +155,6 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 ### Step 4: Test the use case
 
-When you run the integration artifact as described in [Step 3](#step-3-build-and-run-the-artifacts), you will see the injected XML message being printed in the Micro Integrator logs every 5 seconds, in the **Output** tab of VS Code.
+When you run the integration artifact as described in [Step 3](#step-3-build-and-run-the-artifacts), you will see the injected XML message being printed in the WSO2 Integrator: MI logs every 5 seconds, in the **Output** tab of VS Code.
 
 <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/output_log.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/output_log.png" alt="MI output logs" width="80%"></a>

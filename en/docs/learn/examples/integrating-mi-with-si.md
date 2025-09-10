@@ -1,4 +1,4 @@
-# How to Integrate Micro Integrator with WSO2 Streaming Integrator
+# How to Integrate WSO2 Integrator: MI with WSO2 Streaming Integrator
 
 You can publish events from the integration flow to WSO2 Streaming Integrator using an http or http-service source configured in a Siddhi application deployed in Streaming Integrator server. The http or http-service source receive POST requests via HTTP and HTTPS protocols in a format such as text, XML, or JSON. In the case of http-service source, it will send responses via its corresponding http-service-response sink correlated through a unique `source.id`.
 
@@ -90,18 +90,18 @@ Following is the sample rest API configuration that we can use to implement this
 
 Create the artifacts:
 
-1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+1. Launch Visual Studio Code with the WSO2 Integrator: MI for VS Code extension (MI for VS Code) installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide. 
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide. 
 
 2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke the sample API:
 
-- Open a terminal and execute the following CURL command. This sends a simple POST request to the Micro Integrator.
+- Open a terminal and execute the following CURL command. This sends a simple POST request to the WSO2 Integrator: MI.
 
     ```bash
     curl -X POST -d "{\"event\":{\"name\":\"snacks\",\"price\":10.0}}" http://localhost:8290/addToCart --header "Content-Type:application/json"

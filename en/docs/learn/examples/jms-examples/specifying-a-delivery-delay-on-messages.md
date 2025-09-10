@@ -5,7 +5,7 @@ In a normal message flow, JMS messages that are sent by the JMS producer to the 
 With the delivery delay messaging feature introduced with JMS 2.0, you can specify a delivery delay time value in each JMS message so that the JMS broker will not deliver the message until after the specified delivery delay has elapsed. Specifying a delivery delay is useful if there is a scenario where you do not want a message consumer to receive a message that is sent until a specified time duration has elapsed. To implement this, you need to add a delivery delay to the JMS producer so
 that the publisher does not deliver a message until the specified delivery delay time interval has elapsed.
 
-The following diagram illustrates how you can use the WSO2 Micro Integrator as a JMS producer and specify a delivery delay on messages when you do not want the message consumer to receive a message until a specified time duration has elapsed.
+The following diagram illustrates how you can use the WSO2 Integrator: MI as a JMS producer and specify a delivery delay on messages when you do not want the message consumer to receive a message until a specified time duration has elapsed.
 
 
 ## Synapse configuration
@@ -136,17 +136,17 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use HornetQ for this example.
     
     -   On **Windows**: HORNETQ_HOME\bin\run.bat --run
     -   On **MacOS/Linux/Solaris**: sh HORNETQ_HOME/bin/run.sh
 
 2.  Start the broker.
-3.  Start the Micro Integrator.
+3.  Start the WSO2 Integrator: MI.
 
 Follow the steps given below to run the example:
 

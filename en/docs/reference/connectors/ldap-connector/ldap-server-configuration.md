@@ -81,7 +81,7 @@ The connection is used to establish a connection to the LDAP instance. The LDAP 
     }
     ```
 
-You can follow the steps below to import your LDAP certificate into the Micro Integrator client’s keystore as follows:
+You can follow the steps below to import your LDAP certificate into the WSO2 Integrator: MI client’s keystore as follows:
 
 1. To encrypt the connections, you need to configure a certificate authority and use it to sign the keys for the LDAP server. See the [How To Encrypt OpenLDAP Connections Using STARTTLS](https://www.digitalocean.com/community/tutorials/how-to-encrypt-openldap-connections-using-starttls) documentation for more info.
 2. Use the following command to import the certificate into the integration server's client keystore. 

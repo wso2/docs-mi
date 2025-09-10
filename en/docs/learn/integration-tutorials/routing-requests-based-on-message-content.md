@@ -4,7 +4,7 @@
 
 In this tutorial, we are creating the mediation artifacts that can route a message to the relevant backend depending on the content of the message payload.
 
-When the client sends the appointment reservation request to the Micro Integrator, the message payload of the request contains the name of the hospital where the appointment needs to be confirmed. The HTTP request method that is used for this is POST. Based on the hospital name sent in the request message, the Micro Integrator should route the appointment reservation to the relevant hospital's back-end service.
+When the client sends the appointment reservation request to the WSO2 Integrator: MI, the message payload of the request contains the name of the hospital where the appointment needs to be confirmed. The HTTP request method that is used for this is POST. Based on the hospital name sent in the request message, the WSO2 Integrator: MI should route the appointment reservation to the relevant hospital's back-end service.
 
 ### Concepts and artifacts used
 
@@ -300,7 +300,7 @@ You can now start configuring the API resource.
 
 ### Step 3: Build and run the artifacts
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -439,4 +439,4 @@ Now, check the **Output** tab in VS Code. You should see a message similar to th
 
 This message is printed by the <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator">Log mediator</a> when the client request is routed to the appropriate backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>.
 
-You have successfully completed this tutorial and learned how requests received by the Micro Integrator can be routed to the relevant backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>
+You have successfully completed this tutorial and learned how requests received by the WSO2 Integrator: MI can be routed to the relevant backend using the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a>

@@ -4,7 +4,7 @@ See the topics in the following sections for details and instructions.
 
 ### Integration Use Cases
 
-Learn about the main integration capabilities of the Micro Integrator.
+Learn about the main integration capabilities of the WSO2 Integrator: MI.
 
 <table>
     <tr>
@@ -93,7 +93,7 @@ Learn about the main integration capabilities of the Micro Integrator.
 
 ### Integration Tutorials
 
-Learn how to implement various integration use cases, deploy them in the Micro Integrator, and test them locally.
+Learn how to implement various integration use cases, deploy them in the WSO2 Integrator: MI, and test them locally.
 
 -->
 

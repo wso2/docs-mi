@@ -74,9 +74,9 @@ Create the artifacts:
 4. See the instructions on [creating an inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) to define the inbound endpoint given above.
 
     !!! Tip
-        Be sure to add an empty namespace for the keystore and truststore elements (`xmlns=""`) in the inbound endpoint as shown above. This is necessary when you run this example in the embedded Micro Integrator of WSO2 Integration Studio.
+        Be sure to add an empty namespace for the keystore and truststore elements (`xmlns=""`) in the inbound endpoint as shown above. This is necessary when you run this example in the embedded WSO2 Integrator: MI of WSO2 Integration Studio.
         
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke the inbound endpoint with the below request. 
 
@@ -108,5 +108,5 @@ Authorization: Basic YWRtaW46YWRtaW4=
 </soapenv:Envelope>
 ```
 
-Analyze the output debug messages for the actions in the dumb client mode. You will see that the Micro Integrator receives a message when the Micro Integrator Inbound is set as the ultimate receiver. You will also see the response from the back
+Analyze the output debug messages for the actions in the dumb client mode. You will see that the WSO2 Integrator: MI receives a message when the WSO2 Integrator: MI Inbound is set as the ultimate receiver. You will also see the response from the back
 end in the client.

@@ -1,6 +1,6 @@
 # Aggregator
 
-This page explains how you can implement a sample scenario of Aggregator using WSO2 Micro Integrator. 
+This page explains how you can implement a sample scenario of Aggregator using WSO2 Integrator: MI. 
 
 ## Introduction to Aggregator
 
@@ -120,7 +120,7 @@ Let's investigate the elements of the synapse configuration in detail.
 
 ## Execute the sample
 
-Send the following request to the Micro Integrator.
+Send the following request to the WSO2 Integrator: MI.
 
    ```
    GET /getPhysicians HTTP/1.1

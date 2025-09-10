@@ -56,7 +56,7 @@ Following are the integration artifacts you can use to implement this scenario.
 <!--
 Set up the back-end service.
 
-Invoke the Micro Integrator:
+Invoke the WSO2 Integrator: MI:
 
 ```bash
 ant stockquote -Dmode=placeorder -Dtrpurl=http://localhost:8280/

@@ -46,7 +46,7 @@ when using JavaScript `         getPayloadXML        ` and
 and when using Ruby, REXML documents.
 
 !!! Note
-    The Micro Integrator uses GraalVM JS by default. If you have specified the language as `rhinoJs`, Rhino engine will be used to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65,536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
+    The WSO2 Integrator: MI uses GraalVM JS by default. If you have specified the language as `rhinoJs`, Rhino engine will be used to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65,536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
 
     -   Achieve the same functionality via a [Class mediator]({{base_path}}/reference/mediators/class-mediator).
     -   If the original message consists of repetitive sections, you can use the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator/) to generate a relatively
@@ -77,7 +77,7 @@ JavaScript, Groovy, or Ruby.
     </tr>
     <tr class="odd">
     <td>JavaScript</td>
-    <td>The JavaScript based on GraalVM JS is enabled by default in the Micro Integrator and ready for use.</td>
+    <td>The JavaScript based on GraalVM JS is enabled by default in the WSO2 Integrator: MI and ready for use.</td>
     </tr>
     </tbody>
     </table>

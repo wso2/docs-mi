@@ -4,7 +4,7 @@ Follow the instructions below to apply security to a proxy service via WSO2 Inte
 
 ## Prerequisites
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the WSO2 Integrator: MI and add the required users and roles.
 
 ## Step 1 - Create the security policy file
 

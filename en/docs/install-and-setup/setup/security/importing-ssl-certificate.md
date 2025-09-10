@@ -51,7 +51,7 @@ Now you have a Java keystore, which includes a CA-signed public key certificate 
 
 ## Importing SSL certificates to a truststore
 
-Follow the steps given below to import the CA-signed public key certificate into the Micro Integrator's trust store.
+Follow the steps given below to import the CA-signed public key certificate into the WSO2 Integrator: MI's trust store.
 
 !!! Note
     Be sure to update the trust store name and passwords before executing the given commands.

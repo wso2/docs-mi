@@ -12,10 +12,10 @@ In the previous tutorial, you learned how to route and transform messages, conne
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 2. You must have completed the **Connect to SaaS or B2B Systems** tutorial under **Build your first Integration** before proceeding. Start the [Connect to SaaS or B2B Systems]({{base_path}}/get-started/build-first-integration/first-integration-connect-saas/) tutorial if you haven’t completed it yet.
 
@@ -24,7 +24,7 @@ In the previous tutorial, you learned how to route and transform messages, conne
     !!! Info
         See the [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane/) documentation for installation instructions.
 
-Follow the instructions below to monitor the `Bank` integration deployed in WSO2 Micro Integrator (MI) using the Integration Control Plane (ICP).
+Follow the instructions below to monitor the `Bank` integration deployed in WSO2 Integrator:  MI using the Integration Control Plane (ICP).
 
 ## What you'll learn
 
@@ -87,7 +87,7 @@ Now, it's time to configure the MI runtime to connect to the Integration Control
 3. Click the **Build and Run** icon in the top-right corner of VS Code to start the MI server and deploy the integrations.
 
     !!! Tip
-        If the **Build and Run** icon is not visible after opening the `deployment.toml` file, click the **Micro Integrator** icon on the Activity Bar in the VS Code editor to return to the main view.
+        If the **Build and Run** icon is not visible after opening the `deployment.toml` file, click the **WSO2 Integrator: MI** icon on the Activity Bar in the VS Code editor to return to the main view.
 
         <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_mi_build_and_run.gif"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_mi_build_and_run.gif" alt="Create New Project" width="70%"></a>
 
@@ -128,7 +128,7 @@ Now that the Integration Control Plane (ICP) is running, log in to the web porta
 4. Click **Carbon Applications** to view the deployed integration applications. You should see `BankIntegration` listed. Click on a node to view the integration details, including the packaged artifacts.
 
     !!! Info "What is a Carbon Application?"
-        A Carbon Application in WSO2 Micro Integrator (MI) is a deployable archive that packages and distributes integration artifacts in a structured manner. To learn more, see the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts/) documentation.
+        A Carbon Application in WSO2 Integrator:  MI is a deployable archive that packages and distributes integration artifacts in a structured manner. To learn more, see the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts/) documentation.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png" alt="Create New Project"></a>
 
@@ -147,7 +147,7 @@ Congratulations! You have now learned how to monitor and manage integrations usi
 
 You have now completed this tutorial series, where you learned how to build a complete integration flow step by step. Throughout this journey, you have explored how to create Integration APIs, route and transform messages, connect to external SaaS and B2B systems, and monitor integrations using the Integration Control Plane (ICP).
 
-Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Micro Integrator.
+Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Integrator: MI.
 
 {% raw %}
 <style>

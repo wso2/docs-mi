@@ -1,6 +1,6 @@
-# Micro Integrator Config Catalog Generator Tool
+#WSO2 Integrator: MI Config Catalog Generator Tool
 
-This is a tool to generate the markdown file of the Micro Integrator server's configuration catalog by using a JSON file as the source.
+This is a tool to generate the markdown file of the WSO2 Integrator: MI server's configuration catalog by using a JSON file as the source.
 
 ## Instructions
 

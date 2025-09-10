@@ -1,6 +1,6 @@
 # Configuring the File-Based Registry
 
-WSO2 Micro Integrator is shipped with a file-system-based registry. By default, the `MI_HOME/registry/` folder acts as the registry that stores registry artifacts. This root registry folder consists of the following sub-registry folders:
+WSO2 Integrator: MI is shipped with a file-system-based registry. By default, the `MI_HOME/registry/` folder acts as the registry that stores registry artifacts. This root registry folder consists of the following sub-registry folders:
 
 * **Local**
 * **Config**

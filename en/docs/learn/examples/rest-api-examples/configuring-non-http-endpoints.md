@@ -1,5 +1,5 @@
 # How to Expose a Non-HTTP Services as a RESTful API
-This example demonstrates how the WSO2 Micro Integrator forwards messages to non-HTTP endpoints.
+This example demonstrates how the WSO2 Integrator: MI forwards messages to non-HTTP endpoints.
 
 ## Synapse configuration
 
@@ -34,9 +34,9 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) using the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
-[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) with your Micro Integrator.
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) with your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

@@ -1,10 +1,10 @@
-The WSO2 Micro Integrator module for Ballerina enables integration developers to leverage Ballerina's powerful transformation capabilities within WSO2 MI. Ballerina, being a cloud-native programming language with built-in support for JSON and XML, simplifies data transformations compared to traditional Class Mediators. The module also provides access to Ballerina's extensive ecosystem of language modules and connectors, enhancing connectivity with external systems.
+The WSO2 Integrator: MI module for Ballerina enables integration developers to leverage Ballerina's powerful transformation capabilities within WSO2 MI. Ballerina, being a cloud-native programming language with built-in support for JSON and XML, simplifies data transformations compared to traditional Class Mediators. The module also provides access to Ballerina's extensive ecosystem of language modules and connectors, enhancing connectivity with external systems.
 
 ## Prerequisites
 
-- WSO2 Micro Integrator 4.2.0 or later
+- WSO2 Integrator: MI 4.2.0 or later
 - Java Development Kit (Version 17 for MI 4.2.0/4.3.0, Version 21 for MI 4.4.0 or later)
-- VS Code with WSO2 Micro Integrator extension installed
+- VS Code with WSO2 Integrator: MI extension installed
 - Ballerina 2201.12.0 or later
 - Ballerina VS Code extensions installed
 - Ballerina Integrator VS Code extensions installed
@@ -18,7 +18,7 @@ There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 ### Method 1: Use WSO2 MI VS Code Extension
 
-1. Install the [WSO2 Micro Integrator VSCode Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/).
+1. Install the [WSO2 Integrator: MI VSCode Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/).
 2. [Create](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) a new integration project or open an existing project.
 3. Expand the artifact types in the **Add artifact** view and select **Ballerina Module**.
    
@@ -83,7 +83,7 @@ Ballerina function that contains `@mi:Operation` annotation maps with an operati
 
 #### Generate the module
 
-1. Use the `bal mi-module-gen` command to generate the WSO2 Micro Integrator module from Ballerina project.
+1. Use the `bal mi-module-gen` command to generate the WSO2 Integrator: MI module from Ballerina project.
 
       ```bash
    bal mi-module-gen -i <path_to_ballerina_project>
@@ -103,6 +103,6 @@ Ballerina function that contains `@mi:Operation` annotation maps with an operati
 
       <img src="{{base_path}}/assets/img/develop/ballerina-module/importzip.png" title="Upload Connector Zip File" width="500" alt="Upload Connector Zip File"/>
 
-      That's it! Now you can use the Ballerina module in your WSO2 Micro Integrator project.
+      That's it! Now you can use the Ballerina module in your WSO2 Integrator: MI project.
 
       <img src="{{base_path}}/assets/img/develop/ballerina-module/connector.png" title="Added Connector" width="800" alt="Added Connector"/>

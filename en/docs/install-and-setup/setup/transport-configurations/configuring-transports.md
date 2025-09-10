@@ -1,10 +1,10 @@
 # Configuring Transports
 
-A transport protocol is responsible for carrying messages that are in a specific format. WSO2 Micro Integrator supports all the widely used transports including HTTP/S, JMS, VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages, and a sender implementation for sending messages.
+A transport protocol is responsible for carrying messages that are in a specific format. WSO2 Integrator: MI supports all the widely used transports including HTTP/S, JMS, VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages, and a sender implementation for sending messages.
 
 ## Configuring the HTTP/HTTPS transport
 
-The HTTP and HTTPS Pass-Through transports are enabled by default in the Micro Integrator.
+The HTTP and HTTPS Pass-Through transports are enabled by default in the WSO2 Integrator: MI.
 
 See the following sections for a complete list of HTTP/HTTPS parameter.
 
@@ -13,7 +13,7 @@ See the following sections for a complete list of HTTP/HTTPS parameter.
 
 ### Number of HTTP Listeners
 
-The default HTTP transport (PassThrough transport) of WSO2 Micro Integrator has 4 HTTP/HTTPS listeners configured. This includes 2 `PassThroughHttpListener` threads and 2 `PassThroughHttpSSLListener` threads.
+The default HTTP transport (PassThrough transport) of WSO2 Integrator: MI has 4 HTTP/HTTPS listeners configured. This includes 2 `PassThroughHttpListener` threads and 2 `PassThroughHttpSSLListener` threads.
 
 You can configure the number of listeners for the HTTP transport in the deployment.toml file:
 
@@ -49,14 +49,14 @@ The default HTTPS transport listener (Secured Pass-Through) and transport sender
 
 When this feature is enabled, the transport listener verifies client
 certificates when a client tries to make an HTTPS connection with the
-Micro Integrator. Therefore the client needs to send it's public certificate along with the requests to the Micro Integrator. The transport sender verifies server
-certificates when the Micro Integrator tries to make an HTTPS
+WSO2 Integrator: MI. Therefore the client needs to send it's public certificate along with the requests to the WSO2 Integrator: MI. The transport sender verifies server
+certificates when the WSO2 Integrator: MI tries to make an HTTPS
 connection with a backend server. 
 
-When this feature is enabled, the Micro Integrator attempts to
+When this feature is enabled, the WSO2 Integrator: MI attempts to
 use the Online Certificate Status Protocol (OCSP) to verify with the
 certificate authority at the handshake phase of the SSL protocol. If the
-OCSP is not supported by the certificate authority, the Micro Integrator uses Certified Revocation Lists (CRL) instead. The verification
+OCSP is not supported by the certificate authority, the WSO2 Integrator: MI uses Certified Revocation Lists (CRL) instead. The verification
 process checks all the certificates in a certificate chain.
 
 To enable this feature for the HTTP Pass-Through, add the following parameters for the HTTP transport receiver and sender in the deployment.toml file:
@@ -80,7 +80,7 @@ To enable this feature for the HTTP Pass-Through, add the following parameters f
 
 ### Configuring Transport Level Security  
 
-Micro Integrator supports both SSL and TLS protocols. But since the SSL protocol is vulnerable to Poodle attacks, it is necessary to make sure that only TLS protocol versions are enabled.
+WSO2 Integrator: MI supports both SSL and TLS protocols. But since the SSL protocol is vulnerable to Poodle attacks, it is necessary to make sure that only TLS protocol versions are enabled.
 
 !!! Note
     It is necessary to disable SSL in Carbon servers because of a bug (Poodle Attack) in the SSL protocol that could expose critical data encrypted between clients and servers. The Poodle Attack makes the system vulnerable by telling the client that the server does not support the more secure TLS (Transport Layer Security) protocol, and thereby forces it to connect via SSL. The effect of this bug can be mitigated by disabling the SSL protocol for your server.
@@ -115,7 +115,7 @@ This transport is used to process files in a specified source directory. After p
 !!! Note
     When you transfer a file to a remote FTP location via VFS, the integrator tries to detect the FTP location by navigating from the root folder first. If the integrator does not have <b>at least list permission</b> to the root (/), the file transfer fails.
 
-The VFS transport is enabled in the Micro Integrator server by default. Also, the VFS transport does not have any global parameters that can apply to all VFS use cases. Rather, it has a set of service-level parameters that must be specified when you create a proxy service or REST API artifact. The VFS transport supports the **SFTP protocol** with **Secure Sockets Layer (SSL)**. The configuration is identical to other protocols with the only difference being the URL prefixes and parameters.
+The VFS transport is enabled in the WSO2 Integrator: MI server by default. Also, the VFS transport does not have any global parameters that can apply to all VFS use cases. Rather, it has a set of service-level parameters that must be specified when you create a proxy service or REST API artifact. The VFS transport supports the **SFTP protocol** with **Secure Sockets Layer (SSL)**. The configuration is identical to other protocols with the only difference being the URL prefixes and parameters.
 
 For more information, see [service-level VFS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters).
 
@@ -338,7 +338,7 @@ sender.enable =false
 ```
 
 ## Configuring custom transports
-Other than the transports defined above, you can use a custom transport that enables you to add a new transport to the Micro Integrator. Custom transport configurations contain senders and listeners that you can define. A custom transport configuration is as follows.
+Other than the transports defined above, you can use a custom transport that enables you to add a new transport to the WSO2 Integrator: MI. Custom transport configurations contain senders and listeners that you can define. A custom transport configuration is as follows.
 
 === "Custom Listener"
     ```toml 
@@ -392,7 +392,7 @@ To control the encoding type of incoming HL7 messages, set the following JAVA sy
 
 ## Configuring the MailTo transport
 
-When you use the Micro Integrator to mediate messages, the mediation sequence can be configured to send emails (over SMTP) or receive emails (Over POP3 or IMAP) by using the MailTo transport protocol.
+When you use the WSO2 Integrator: MI to mediate messages, the mediation sequence can be configured to send emails (over SMTP) or receive emails (Over POP3 or IMAP) by using the MailTo transport protocol.
 
 The MailTo transport listener implementation can be configured by setting the parameters as described in the JavaMail API documentation. For IMAP related properties, see [IMAP Package Summary](https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html). For POP3 properties, see [POP3 Package Summary](https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html). The MailTo transport listener also supports the following transport parameters in addition to the parameters described in the JavaMail API documentation.
 
@@ -434,7 +434,7 @@ The MailTo transport listener implementation can be configured by setting the pa
 
 ## Configuring the JMS transport
 
-The Java Message Service (JMS) transport in WSO2 Micro Integrator allows you to easily send and receive messages to queues and topics of any JMS service that implements the JMS specification.
+The Java Message Service (JMS) transport in WSO2 Integrator: MI allows you to easily send and receive messages to queues and topics of any JMS service that implements the JMS specification.
 
 Java Message Service (JMS) is a widely used API in Java-based Message Oriented Middleware(MOM) applications. It facilitates loosely coupled, reliable, and asynchronous communication between different components of a distributed application. It supports two asynchronous communication models for messaging as follows:
 
@@ -447,18 +447,18 @@ JMS supports two models for messaging as follows:
    <li><b>Queues</b>: point-to-point.</li>
    <li><b>Topics</b>: publish and subscribe.</li>
 </ul>
-The Micro Integrator supports the following messaging features introduced with JMS 2.0:
+The WSO2 Integrator: MI supports the following messaging features introduced with JMS 2.0:
 <ul>
    <li>Shared Topic Subscription</li>
    <li>JMSX Delivery Count</li>
    <li>JMS Message Delivery Delay</li>
 </ul>
 
-The JMS transport implementation comes from the WS-Commons Transports project, and it makes use of JNDI to connect to various JMS brokers. As a result, WSO2 Micro Integrator can work with any JMS broker that offers JNDI support.
+The JMS transport implementation comes from the WS-Commons Transports project, and it makes use of JNDI to connect to various JMS brokers. As a result, WSO2 Integrator: MI can work with any JMS broker that offers JNDI support.
 
-To enable the JMS transport sender and listener in the Micro Integrator, you need to update the deployment.toml file (stored in the `MI_HOME/conf` directory) with the connection parameters for your JMS broker you are using. **Be sure** to add the required libraries to the `MI_HOME/lib` directory.
+To enable the JMS transport sender and listener in the WSO2 Integrator: MI, you need to update the deployment.toml file (stored in the `MI_HOME/conf` directory) with the connection parameters for your JMS broker you are using. **Be sure** to add the required libraries to the `MI_HOME/lib` directory.
 
-See the following topics for instructions on how to configure the Micro Integrator with different types of brokers:
+See the following topics for instructions on how to configure the WSO2 Integrator: MI with different types of brokers:
 
 -	[Connecting to ActiveMQ]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq)
 -	[Connecting to Apache Artemis]({{base_path}}/install-and-setup/setup/brokers/configure-with-apache-artemis)
@@ -477,4 +477,4 @@ See the following topics for instructions on how to configure the Micro Integrat
 
 ## Configuring the Multi-HTTPS transport
 
-This transport is similar to the HTTPS Pass-Through transport, but it allows you to have different SSL profiles with separate truststores and keystores for different hosts using the same WSO2 Micro Integrator. It can listen to different host IPs and ports for incoming HTTPS connections, and each IP/Port will have a separate SSL profile configured.
+This transport is similar to the HTTPS Pass-Through transport, but it allows you to have different SSL profiles with separate truststores and keystores for different hosts using the same WSO2 Integrator: MI. It can listen to different host IPs and ports for incoming HTTPS connections, and each IP/Port will have a separate SSL profile configured.

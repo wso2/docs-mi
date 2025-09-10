@@ -1,6 +1,6 @@
 # File Processing
 
-In many business domains, there are different use cases related to managing files. Also, there are file-based legacy systems that are tightly coupled with other systems. These files contain vast amounts of data, which require significant effort for manual processing. This approach is not scalable as system load increases. This leads us to the requirement of automating the processing of files. The WSO2 Micro Integrator enables the following file processing capabilities:
+In many business domains, there are different use cases related to managing files. Also, there are file-based legacy systems that are tightly coupled with other systems. These files contain vast amounts of data, which require significant effort for manual processing. This approach is not scalable as system load increases. This leads us to the requirement of automating the processing of files. The WSO2 Integrator: MI enables the following file processing capabilities:
 
 - Reading, Writing, and Updating files:
 

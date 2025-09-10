@@ -1,6 +1,6 @@
 # Dead Letter Channel
 
-This page explains how you can implement a sample scenario of Dead Letter Channel EIP using the WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Dead Letter Channel EIP using the WSO2 Integrator: MI.
 
 ## Introduction to Dead Letter Channel
 
