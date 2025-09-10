@@ -12,7 +12,7 @@ for not frequently re-used custom developments and very user-specific
 scenarios, for which, there is no built-in mediator that already
 provides the required functionality.
 
-Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) for debugging Class mediators.
+Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Integrator: MI Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) for debugging Class mediators.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Your class mediator might not be picked up and updated if you use an existing 
 
 ## Example
 
-In this configuration, the Micro Integrator sends the requested message to the endpoint specified via the [Send mediator]({{base_path}}/reference/mediators/send-mediator). This endpoint is the Axis2server running on port 9000. The response message is passed through a Class mediator before it is sent back to the client. Two parameters named `         variable1        ` and `         variable2        ` are passed to the instance mediator implementation class ( `SimpleClassMediator`).
+In this configuration, the WSO2 Integrator: MI sends the requested message to the endpoint specified via the [Send mediator]({{base_path}}/reference/mediators/send-mediator). This endpoint is the Axis2server running on port 9000. The response message is passed through a Class mediator before it is sent back to the client. Two parameters named `         variable1        ` and `         variable2        ` are passed to the instance mediator implementation class ( `SimpleClassMediator`).
 
 === "Proxy Service"
     ```xml

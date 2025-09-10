@@ -2,7 +2,7 @@
 
 **Session Affinity Load Balancing between Three Endpoints**
 
-This sample demonstrates how the Micro Integrator can handle load balancing with
+This sample demonstrates how the WSO2 Integrator: MI can handle load balancing with
 session affinity using simple client sessions. Here the
 session type is specified as `         simpleClientSession        ` .
 This is a client initiated session, which means that the client
@@ -75,7 +75,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the Proxy]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and the Sequence with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

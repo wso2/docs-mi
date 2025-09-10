@@ -12,7 +12,7 @@ curl -v -X GET "http://localhost:8290/stockquote/view/IBM?param1=value1&param2=v
 
 Following is a sample REST API configuration that can be used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-There are two query parameters (customer name and ID) that must be set in the outgoing message from the Micro Integrator. We can configure the API to set those parameters as shown below. The path and query parameter values can be accessed through expressions.
+There are two query parameters (customer name and ID) that must be set in the outgoing message from the WSO2 Integrator: MI. We can configure the API to set those parameters as shown below. The path and query parameter values can be accessed through expressions.
 
 === "REST API"
     ```xml
@@ -78,7 +78,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

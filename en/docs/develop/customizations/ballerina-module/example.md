@@ -1,6 +1,6 @@
 ## Introduction
 
-The **Ballerina Module** feature in WSO2 Micro Integrator allows developers to integrate custom data transformation logic into integration flows using the [Ballerina](https://ballerina.io/) programming language. By leveraging this capability, you can encapsulate complex business logic, data mappings, and type-specific operations as reusable modules and invoke them directly within your integration sequences.
+The **Ballerina Module** feature in WSO2 Integrator: MI allows developers to integrate custom data transformation logic into integration flows using the [Ballerina](https://ballerina.io/) programming language. By leveraging this capability, you can encapsulate complex business logic, data mappings, and type-specific operations as reusable modules and invoke them directly within your integration sequences.
 
 This document demonstrates how to use Ballerina code inside MI projects using the **WSO2 MI's Ballerina Module**, with practical examples that showcase JSON-to-JSON mapping, XML total calculation, and dynamic type-based transformations.
 
@@ -24,8 +24,8 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setup the Integration Project
 
-1. **Install the WSO2 Micro Integrator VS Code Extension**
-   To begin, install the [WSO2 Micro Integrator VS Code extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/) from the Visual Studio Code marketplace. This extension enables you to create, manage, and deploy integration projects with ease.
+1. **Install the WSO2 Integrator: MI VS Code Extension**
+   To begin, install the [WSO2 Integrator: MI VS Code extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/) from the Visual Studio Code marketplace. This extension enables you to create, manage, and deploy integration projects with ease.
 
 2. **Create or Open an Integration Project**
    Use the extension to [Create a new integration project](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) given the name `ballerina-module-example` or open an existing integration project. This project will serve as the workspace for your Ballerina module development.

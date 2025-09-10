@@ -1,5 +1,5 @@
 # How to Schedule Tasks Using a Simple Trigger
-This example demonstrates the concept of tasks and how a simple trigger works. Here the `MessageInjector` class is used, which injects a specified message to the Micro Integrator environment. You can write your own task class implementing the `org.apache.synapse.startup.Task` interface and implement the `execute` method to run the task.
+This example demonstrates the concept of tasks and how a simple trigger works. Here the `MessageInjector` class is used, which injects a specified message to the WSO2 Integrator: MI environment. You can write your own task class implementing the `org.apache.synapse.startup.Task` interface and implement the `execute` method to run the task.
 
 ## Synapse configurations
 
@@ -57,7 +57,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -75,4 +75,4 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-When the Micro Integrator is invoked, you will see that the back-end service generates a quote every 5 seconds and that the Micro Integrator receives the stock quote response.
+When the WSO2 Integrator: MI is invoked, you will see that the back-end service generates a quote every 5 seconds and that the WSO2 Integrator: MI receives the stock quote response.

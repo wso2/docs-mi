@@ -1,8 +1,8 @@
 # Changing the Hostname
 
-By default, WSO2 products identify the hostname of the current machine through the Java API. However, it is recommended to configure the hostname by setting the hostname parameter in the `deployment.toml` file of the Micro Integrator runtime.
+By default, WSO2 products identify the hostname of the current machine through the Java API. However, it is recommended to configure the hostname by setting the hostname parameter in the `deployment.toml` file of the WSO2 Integrator: MI runtime.
 
-## Changing the Micro Integrator hostname
+## Changing the WSO2 Integrator: MI hostname
 
 Follow the steps given below.
 

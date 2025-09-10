@@ -57,7 +57,7 @@ Set up the MQTT server:
     </dependency>
     ```
 
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Open a new terminal and enter the below command to send an MQTT message using mosquitto-pub. Be sure to enter the MQTT Topic Name you entered when creating the inbound endpoint as shown below.
 
@@ -65,4 +65,4 @@ Open a new terminal and enter the below command to send an MQTT message using mo
 mosquitto_pub -t <MQTT Topic Name>  -m "<msg><a>Testing123</a></msg>"
 ```
 
-You will see that the Micro Integrator receives a message when the Micro Integrator Inbound is set as the ultimate receiver.
+You will see that the WSO2 Integrator: MI receives a message when the WSO2 Integrator: MI Inbound is set as the ultimate receiver.

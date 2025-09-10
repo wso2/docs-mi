@@ -15,10 +15,10 @@ Now, it's time to design the RAG flow. Follow the steps below to create the RAG 
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 2. You must have completed the **Build a Knowledge Base** tutorial under **Build your first AI Integration** before proceeding. Start the [Build a Knowledge Base]({{base_path}}/get-started/build-first-ai-integration/first-integration-knowledge-base/) tutorial if you haven’t completed it yet.
 
@@ -28,7 +28,7 @@ Follow the instructions below to modify the existing project to add the RAG func
 
 To develop the above scenario, let's get started with creating a new API in the existing `BankIntegration` project.
 
-1. Click on the add new API (`+`) icon in the `APIs` in the **Micro Integrator Project Explorer** to create a new API.
+1. Click on the add new API (`+`) icon in the `APIs` in the **WSO2 Integrator: MI Project Explorer** to create a new API.
 
     <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/rag/create_new_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
 
@@ -139,7 +139,7 @@ For reference, you can review the configured API.
 
 ## Step 3 - Run the integration
 
-Now that you have updated the integration, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have updated the integration, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 

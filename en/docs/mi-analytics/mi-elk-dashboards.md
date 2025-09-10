@@ -1,4 +1,4 @@
-# ELK Dashboards for Micro Integrator
+# ELK Dashboards for WSO2 Integrator: MI
 
 ## Dashboards
 
@@ -10,7 +10,7 @@ Gives you an idea about overall analytics.
 
 <a href="{{base_path}}/assets/attachments/mi-elk/mi-overall-2.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-overall-2.png" width="70%" alt="Mi Overall 02"></a>
 
-|Total Requests|Total number of requests handled by the Micro Integrator|
+|Total Requests|Total number of requests handled by the WSO2 Integrator: MI|
 |:----|:----|
 |Fault Response Rate|Fault response percentage|
 |Failure Rate|Number of failure requests|
@@ -127,7 +127,7 @@ Gives you an idea about Proxy Services analytics.
 
 This section will help you to setup advanced dashboards using custom metadata. Use [this documentation](https://www.elastic.co/kibana/kibana-dashboard) by Elastic to explore what kind of dashboard widgets you can create.
   
-Assume you have a user registration AP deployed through a WSO2 Micro Integrator, which accepts JSON POST requests, and within that request, the body contains user age and country. You can publish the age and country with API analytics and create a visualization in the Kibana dashboard.
+Assume you have a user registration AP deployed through a WSO2 Integrator: MI, which accepts JSON POST requests, and within that request, the body contains user age and country. You can publish the age and country with API analytics and create a visualization in the Kibana dashboard.
 
 Example API:
 ```xml

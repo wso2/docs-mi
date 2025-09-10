@@ -1,12 +1,12 @@
 # Setting up Grafana based Observability on a VM
 
-Follow the instructions given below to set up a Grafana based observability solution for your Micro Integrator (MI) deployment in a VM environment.
+Follow the instructions given below to set up a Grafana based observability solution for your WSO2 Integrator: MI deployment in a VM environment.
 
 You need to start with the [minimum deployment](#step-1-set-up-the-minimum-deployment), which enables metric monitoring. Once you have set up the minimum deployment, you can add [log processing](#step-2-optionally-integrate-the-log-processing-add-on) and [message tracing](#step-3-optionally-integrate-the-message-tracing-add-on) capabilities to your solution.
 
 ## Step 1 - Set up the minimum deployment
 
-The minimum Grafana based observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
+The minimum Grafana based observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The WSO2 Integrator: MI uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
 
 ### Step 1.1 - Set up Prometheus
 
@@ -41,7 +41,7 @@ Follow the instructions below to set up the Prometheus server:
    
     !!! note
         - Do not add or remove spaces when you copy the above configuration to the `prometheus.ymal` file.
-        - In the `targets` section, you need to add your IP address and the port in which you are running the Micro Integrator server.
+        - In the `targets` section, you need to add your IP address and the port in which you are running the WSO2 Integrator: MI server.
         
 4. To start the Prometheus server, open a terminal, navigate to `<PROMETHEUS_HOME>`, and execute the following command:
 
@@ -70,14 +70,14 @@ Follow the instructions below to set up the Grafana server:
 
 ### Step 1.3 - Import dashboards to Grafana
 
-The Micro Integrator provides pre-configured Grafana dashboards in which you can visualize MI statistics.
+The WSO2 Integrator: MI provides pre-configured Grafana dashboards in which you can visualize MI statistics.
 
 You can directly import the required dashboards to Grafana using the <b>dashboard ID</b>:
 
 1.  Go to [Grafana labs](https://grafana.com/orgs/wso2/dashboards).
 2.  Select the required dashboard and copy the dashboard ID.
 3.  Provide this ID to Grafana and import the dashboard.
-4.  Repeat the above steps to import all other Micro Integrator dashboards.
+4.  Repeat the above steps to import all other WSO2 Integrator: MI dashboards.
 
 These dashboards are provided as JSON files that can be manually imported to Grafana. To import the dashboards as JSON files:
 
@@ -101,19 +101,19 @@ In a [clustered deployment]({{base_path}}/install-and-setup/setup/deployment/dep
 
 ### Scaling Grafana
 
-In a clustered deployment, you can view the list of Micro Integrator instances in your Micro Integrator cluster under **MI Nodes** in the **WSO2 Node Metrics** dashboard.
+In a clustered deployment, you can view the list of WSO2 Integrator: MI instances in your WSO2 Integrator: MI cluster under **MI Nodes** in the **WSO2 Node Metrics** dashboard.
 -->
 
-### Step 1.4 - Set up the Micro Integrator
+### Step 1.4 - Set up the WSO2 Integrator: MI
 
-To enable observability for the Micro Integrator servers, add the following Synapse handler to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder).
+To enable observability for the WSO2 Integrator: MI servers, add the following Synapse handler to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder).
 
 ```toml
 [[synapse_handlers]]
 name="CustomObservabilityHandler"
 class="org.wso2.micro.integrator.observability.metric.handler.MetricHandler"
 ```
-After applying the above change, you can start the Micro Integrator with the following JVM property: 
+After applying the above change, you can start the WSO2 Integrator: MI with the following JVM property: 
 ```
 -DenablePrometheusApi=true
 ```
@@ -332,9 +332,9 @@ Download and install [Jaeger](https://www.jaegertracing.io/download/).
     - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.
     - In general, before including tracing in production deployments, it is essential to look into performance tests and scaling requirements. For details on how to achieve better performance, see the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/). 
 
-### Step 3.2 - Set up the Micro Integrator
+### Step 3.2 - Set up the WSO2 Integrator: MI
 
-Follow the instructions below to configure the Micro Integrator to publish tracing information:
+Follow the instructions below to configure the WSO2 Integrator: MI to publish tracing information:
 
 1. Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf/`).
 

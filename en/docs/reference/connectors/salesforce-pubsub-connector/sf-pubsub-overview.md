@@ -1,7 +1,7 @@
-# Salesforce Pub/Sub Connector for WSO2 Micro Integrator
+# Salesforce Pub/Sub Connector for WSO2 Integrator: MI
 
 
-The **Salesforce Pub/Sub Connector** lets WSO2 Micro Integrator talk directly to Salesforce’s grpc-based Pub/Sub API without you having to deal with low‑level details. With this connector, you can **publish** Platform‑Event records to any topic, look up a topic’s metadata with **getTopic**, and pull the corresponding JSON schema with **getSchema** so your flows can validate or transform events confidently. By handling authentication and protocol work under the hood, the connector drops into your integration projects like any other MI connector, making real‑time event streaming to and from Salesforce straightforward.
+The **Salesforce Pub/Sub Connector** lets WSO2 Integrator: MI talk directly to Salesforce’s grpc-based Pub/Sub API without you having to deal with low‑level details. With this connector, you can **publish** Platform‑Event records to any topic, look up a topic’s metadata with **getTopic**, and pull the corresponding JSON schema with **getSchema** so your flows can validate or transform events confidently. By handling authentication and protocol work under the hood, the connector drops into your integration projects like any other MI connector, making real‑time event streaming to and from Salesforce straightforward.
 
 * [Salesforce Connection Setting Up]({{base_path}}/reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration/): This section includes how to obtain the salesforce pub/sub connection from the connector.
 * [Salesforce Pub/Sub API Connector Example]({{base_path}}/reference/connectors/salesforce-pubsub-connector/sf-pubsub-example/): This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the publish and retrieve events.

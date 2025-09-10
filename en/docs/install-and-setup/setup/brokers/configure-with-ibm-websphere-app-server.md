@@ -1,9 +1,9 @@
 # Connecting to IBM WebSphere App Server
 
-This page describes how to configure the WSO2 Micro Integrator with IBM WebSphere Application Server.
+This page describes how to configure the WSO2 Integrator: MI with IBM WebSphere Application Server.
 
 1. Set up IBM WebSphere Application Server according to the instructions provided by IBM.
-2. Download and install WSO2 Micro Integrator.
+2. Download and install WSO2 Integrator: MI.
 3. Create a JMS queue (e.g., **samplequeue**) and a JMS connection factory (e.g., **QueueConnectionFactory**) as described in the topics under [Setting Up JMS in IBM WebSphere Application Server](https://www.ibm.com/docs/en/iis/9.1?topic=jms-setting-up-in-websphere-application-server) in the IBM documentation.
 4. Copy the following libraries from `WEBSHPERE_HOME>/java/lib` directory to `MI_HOME/lib` directory.
 
@@ -19,7 +19,7 @@ This page describes how to configure the WSO2 Micro Integrator with IBM WebSpher
     javax.jms,\
     javax.rmi.CORBA,\
     ```
-6. If you want the Micro Integrator to receive messages from an IBM WebSphere app server, or to send messages to an IBM WebSphere app server, you need to update the deployment.toml file with the relevant connection parameters.
+6. If you want the WSO2 Integrator: MI to receive messages from an IBM WebSphere app server, or to send messages to an IBM WebSphere app server, you need to update the deployment.toml file with the relevant connection parameters.
 
    Add the following configurations to enable the JMS sender and listener with ActiveMQ connection parameters.
     ```toml
@@ -45,4 +45,4 @@ This page describes how to configure the WSO2 Micro Integrator with IBM WebSpher
   
 7. Start IBM WebSphere Application Server.
 
-You have now configured instances of IBM WebSphere Application Server and WSO2 Micro Integrator.
+You have now configured instances of IBM WebSphere Application Server and WSO2 Integrator: MI.

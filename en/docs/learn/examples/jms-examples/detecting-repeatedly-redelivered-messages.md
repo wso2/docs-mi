@@ -4,9 +4,9 @@ In JMS 2.0, it is mandatory for JMS providers to set the `JMSXDeliveryCount` pro
 
 If a message is being redelivered, it means that a previous attempt to deliver the message failed due to some reason. If a message is being redelivered multiple times, it can be because the message is *bad* in some way. When such a message is being redelivered over and over again, it wastes resources and prevents subsequent *good* messages from being processed.
 
-When you work with WSO2 Micro Integrator, you can detect such repeatedly redelivered messages using the `JMSXDeliveryCount` property that is set in messages. The ability to detect repeatedly redelivered messages is particularly useful because you can take the necessary steps to handle such messages properly. For example, you can consume such a message and send it to a separate queue.
+When you work with WSO2 Integrator: MI, you can detect such repeatedly redelivered messages using the `JMSXDeliveryCount` property that is set in messages. The ability to detect repeatedly redelivered messages is particularly useful because you can take the necessary steps to handle such messages properly. For example, you can consume such a message and send it to a separate queue.
 
-To demonstrate this scenario, let's configure the JMS inbound endpoint in the WSO2 Micro Integrator using HornetQ as the message broker.
+To demonstrate this scenario, let's configure the JMS inbound endpoint in the WSO2 Integrator: MI using HornetQ as the message broker.
 
 
 ## Synapse configuration
@@ -107,16 +107,16 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use HornetQ for this example.
 2.  Start HornetQ with the following command:             
     -   On **Windows**: HORNETQ_HOME\bin\run.bat --run
     -   On **MacOS/Linux/Solaris**: sh HORNETQ_HOME/bin/run.sh
 
-3.  Start the Micro Integrator (after starting the broker). 
+3.  Start the WSO2 Integrator: MI (after starting the broker). 
 
 Run the following java file (**SOAPPublisher.java**) to publish a message to the JMS queue:
     

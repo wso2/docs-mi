@@ -3,7 +3,7 @@
 !!! Info
 	The following are generic properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator).
 
-Generic properties allow you to configure messages as they're processed by the Micro Integrator, such as marking a message as out-only (no response message will be expected), adding a custom error message or code to the message, and disabling WS-Addressing headers.
+Generic properties allow you to configure messages as they're processed by the WSO2 Integrator: MI, such as marking a message as out-only (no response message will be expected), adding a custom error message or code to the message, and disabling WS-Addressing headers.
 
 ## PRESERVE_WS_ADDRESSING
 
@@ -31,7 +31,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>By default, the Micro Integrator adds a new set of WS-Addressing headers to the messages forwarded from the Micro Integrator. If this property is set to " <code>              true             </code> " on a message, the Micro Integrator will forward it without altering its existing WS-Addressing headers.</p></td>
+<td><p>By default, the WSO2 Integrator: MI adds a new set of WS-Addressing headers to the messages forwarded from the WSO2 Integrator: MI. If this property is set to " <code>              true             </code> " on a message, the WSO2 Integrator: MI will forward it without altering its existing WS-Addressing headers.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -72,7 +72,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>Once this property is set to 'true' on a message, the Micro Integrator will start treating it as a response message. It is generally used to route a request message back to its source as the response.</p></td>
+<td><p>Once this property is set to 'true' on a message, the WSO2 Integrator: MI will start treating it as a response message. It is generally used to route a request message back to its source as the response.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -113,13 +113,13 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>Set this property to "true" on a message to indicate that no response message is expected for it once it is forwarded from the Micro Integrator. In other words, the Micro Integrator will do an out-only invocation with such messages. It is very important to set this property on messages that are involved in out-only invocations to prevent the Micro Integrator from registering unnecessary callbacks for response handling and eventually running out of memory.</p></td>
+<td><p>Set this property to "true" on a message to indicate that no response message is expected for it once it is forwarded from the WSO2 Integrator: MI. In other words, the WSO2 Integrator: MI will do an out-only invocation with such messages. It is very important to set this property on messages that are involved in out-only invocations to prevent the WSO2 Integrator: MI from registering unnecessary callbacks for response handling and eventually running out of memory.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Description for value="true"<br />
 </strong></p></td>
 <td><div class="content-wrapper">
-<p>Set this property to "true" on a message to indicate that no response message is expected for it once it is forwarded from the Micro Integrator. In other words, the Micro Integrator will do an out-only invocation with such messages. It is very important to set this property on messages that are involved in out-only invocations to prevent the Micro Integrator from registering unnecessary callbacks for response handling and eventually running out of memory.</p>
+<p>Set this property to "true" on a message to indicate that no response message is expected for it once it is forwarded from the WSO2 Integrator: MI. In other words, the WSO2 Integrator: MI will do an out-only invocation with such messages. It is very important to set this property on messages that are involved in out-only invocations to prevent the WSO2 Integrator: MI from registering unnecessary callbacks for response handling and eventually running out of memory.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;property name=<span class="st">&quot;OUT_ONLY&quot;</span> value=<span class="st">&quot;true&quot;</span>/&gt;</span></code></pre></div>
@@ -131,7 +131,7 @@ Generic properties allow you to configure messages as they're processed by the 
 <td><p><strong>Description for value="false"<br />
 </strong></p></td>
 <td><div class="content-wrapper">
-<p>Set this property to "false" to call the endpoint and get a response once it is forwarded from the Micro Integrator.</p>
+<p>Set this property to "false" to call the endpoint and get a response once it is forwarded from the WSO2 Integrator: MI.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1"></a>&lt;property name=<span class="st">&quot;OUT_ONLY&quot;</span> value=<span class="st">&quot;false&quot;</span>/&gt;</span></code></pre></div>
@@ -256,7 +256,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>Use this property to set the exception stacktrace in case of an error. If the Micro Integrator encounters an error during mediation or routing, this property will be automatically populated.</p></td>
+<td><p>Use this property to set the exception stacktrace in case of an error. If the WSO2 Integrator: MI encounters an error during mediation or routing, this property will be automatically populated.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -436,7 +436,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>Set this property to "true" if you do not want the Micro Integrator to add WS-Addressing headers to outgoing messages. This property can affect messages sent to backend services as well as the responses routed back to clients.</p></td>
+<td><p>Set this property to "true" if you do not want the WSO2 Integrator: MI to add WS-Addressing headers to outgoing messages. This property can affect messages sent to backend services as well as the responses routed back to clients.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -669,7 +669,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="even">
 <td><p><strong><strong>Possible Values</strong></strong></p></td>
-<td><p>IP address or hostname of the Micro Integrator host</p></td>
+<td><p>IP address or hostname of the WSO2 Integrator: MI host</p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>Default Behavior<br />
@@ -819,7 +819,7 @@ The following generic properties can be used in the [Property mediator]({{base_p
 			Description
 		</td>
 		<td>
-			When a message is read from a RabbitMQ message queue, it will be sent to a service running in the backend. If a failure occurs, the Micro Integrator will do a <b>basicReject</b> with the <b>requeue</b> flag set to 'false'. In that case, the user must <a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">configure a Dead Letter Exchange</a> to avoid losing messages. The same concept could be used to <a href="{{base_path}}/learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq">control the number of retries and to delay messages</a>.</br></br>
+			When a message is read from a RabbitMQ message queue, it will be sent to a service running in the backend. If a failure occurs, the WSO2 Integrator: MI will do a <b>basicReject</b> with the <b>requeue</b> flag set to 'false'. In that case, the user must <a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">configure a Dead Letter Exchange</a> to avoid losing messages. The same concept could be used to <a href="{{base_path}}/learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq">control the number of retries and to delay messages</a>.</br></br>
 			Note that you need to set the SET_ROLLBACK_ONLY property in the fault handler (e.g., the fault sequence). 
 		</td>
 	</tr>
@@ -879,7 +879,7 @@ The following generic properties can be used in the [Property mediator]({{base_p
 			Description
 		</td>
 		<td>
-			If this property is set to true in the fault sequence, when a message is read from a RabbitMQ message queue, the Micro Integrator will do a <b>basicReject</b> with the <b>requeue</b> flag set to 'true'. This allows RabbitMQ to immediately redeliver the rejected messages to the consumer.</br></br>
+			If this property is set to true in the fault sequence, when a message is read from a RabbitMQ message queue, the WSO2 Integrator: MI will do a <b>basicReject</b> with the <b>requeue</b> flag set to 'true'. This allows RabbitMQ to immediately redeliver the rejected messages to the consumer.</br></br>
 			Note that you need to set the SET_REQUEUE_ON_ROLLBACK property in the fault handler (e.g., the fault sequence). 
 		</td>
 	</tr>

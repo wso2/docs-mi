@@ -1,6 +1,6 @@
 # Normalizer
 
-This page explains how you can implement a sample scenario of Normalizer using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Normalizer using WSO2 Integrator: MI.
 
 ## Introduction to Normalizer
 
@@ -209,7 +209,7 @@ You can test this configuration for JSON, SOAP, and POX messages using the follo
 
 ## Analyze the output
 
-For the different types of payloads, Micro Integrator will return the following responses to the client.
+For the different types of payloads,WSO2 Integrator: MI will return the following responses to the client.
 
 - XML
    ```xml

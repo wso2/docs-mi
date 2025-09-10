@@ -25,7 +25,7 @@
 
 !!!Note
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
-    - `<MI_HOME>` refers to the extracted folder of the WSO2 Micro Integrator zip.
+    - `<MI_HOME>` refers to the extracted folder of the WSO2 Integrator: MI zip.
 
 
 ## Setup PostgreSQL
@@ -49,7 +49,7 @@
 
 !!!Note
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
-    - `<MI_HOME>` refers to the extracted folder of the WSO2 Micro Integrator zip.
+    - `<MI_HOME>` refers to the extracted folder of the WSO2 Integrator: MI zip.
 
 ## Setup MS SQL Server
 
@@ -71,4 +71,4 @@
 
 !!!Note
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
-    - `<MI_HOME>` refers to the extracted folder of the WSO2 Micro Integrator zip.
+    - `<MI_HOME>` refers to the extracted folder of the WSO2 Integrator: MI zip.

@@ -1,8 +1,8 @@
 # How to Implement Point to Point Messaging Using RabbitMQ
 
-This example demonstrates how WSO2 Micro Integrator can be used to implement an asynchronous point-to-point messaging scenario using queues in a RabbitMQ broker instance.
+This example demonstrates how WSO2 Integrator: MI can be used to implement an asynchronous point-to-point messaging scenario using queues in a RabbitMQ broker instance.
 
-As shown below, a proxy service configured in the Micro Integrator sends messages to the RabbitMQ queue, which are then consumed by another proxy service in the Micro Integrator.
+As shown below, a proxy service configured in the WSO2 Integrator: MI sends messages to the RabbitMQ queue, which are then consumed by another proxy service in the WSO2 Integrator: MI.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-point-to-point.png">
 
@@ -57,7 +57,7 @@ Create the artifacts:
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 6. Make sure you have a RabbitMQ broker instance running.
 7. Configure a queue named `queue1` with required exchanges and routing keys.
 8. Send the following payload to the RabbitMQ publisher proxy (QueueProducer).

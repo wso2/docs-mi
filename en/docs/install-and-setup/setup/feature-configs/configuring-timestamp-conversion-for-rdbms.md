@@ -1,7 +1,7 @@
 # Configuring Timestamp Conversion for RDBMS
 
 !!! Note
-	Note that the following functionality is only applicable to **data integration** use cases in WSO2 Micro Integrator.
+	Note that the following functionality is only applicable to **data integration** use cases in WSO2 Integrator: MI.
 
 By default, a timestamp is always converted to the UTC time zone before
 inserting the timestamp data to the database. When retrieving the data,

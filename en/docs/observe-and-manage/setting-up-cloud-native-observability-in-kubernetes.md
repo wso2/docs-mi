@@ -1,13 +1,13 @@
-# Set up Grafana based Observability for a Micro Integrator Deployment in Kubernetes
+# Set up Grafana based Observability for a WSO2 Integrator: MI Deployment in Kubernetes
 
-This guide walks you through setting up a Grafana based observability solution for a WSO2 Micro Integrator (MI) deployment running in a Kubernetes environment.
+This guide walks you through setting up a Grafana based observability solution for a WSO2 Integrator:  MI deployment running in a Kubernetes environment.
 
 You need to start with the [Grafana based metrics](#step-1-set-up-grafana-based-metrics) to enable basic metric monitoring for your MI instances. Once the metrics setup is complete, you can enhance your observability stack by adding support for [log processing](#step-2-optionally-integrate-the-log-processing-add-on) and [message tracing](#step-3-optionally-integrate-the-message-tracing-add-on).
 
 These capabilities provide comprehensive visibility into the performance and behavior of your integration runtime.
 
 !!! Warning "Disclaimer"
-    The configuration provided in this guide is intended for quick evaluation and testing of Grafana based observability with a WSO2 Micro Integrator deployment on Kubernetes.
+    The configuration provided in this guide is intended for quick evaluation and testing of Grafana based observability with a WSO2 Integrator: MI deployment on Kubernetes.
 
     It is not recommended for production use. For production grade deployments, refer to the official best practices and security guidelines from <a target="_blank" href="https://grafana.com/docs/">Grafana</a>, <a target="_blank" href="https://prometheus.io/docs/">Prometheus</a>, <a target="_blank" href="https://docs.fluentbit.io/">Fluent Bit</a>, <a target="_blank" href="https://grafana.com/docs/loki/">Loki</a>, and <a target="_blank" href="https://www.jaegertracing.io/docs/1.69/">Jaeger</a>.
 
@@ -18,11 +18,11 @@ These capabilities provide comprehensive visibility into the performance and beh
 
 ## Step 1 - Set up Grafana based metrics
 
-To enable Grafana based monitoring for WSO2 Micro Integrator, you need to set up **Prometheus** and **Grafana**.
+To enable Grafana based monitoring for WSO2 Integrator: MI, you need to set up **Prometheus** and **Grafana**.
 
 In this setup:
 
-- A lightweight <a target="_blank" href="https://prometheus.io/blog/2021/11/16/agent/">Prometheus Agent</a> is deployed within the Micro Integrator's Kubernetes cluster.
+- A lightweight <a target="_blank" href="https://prometheus.io/blog/2021/11/16/agent/">Prometheus Agent</a> is deployed within the WSO2 Integrator: MI's Kubernetes cluster.
 - The agent scrapes metrics from MI instances and forwards them to a centralized remote Prometheus server.
 - The remote Prometheus server exposes them to Grafana, which is used for visualizing system statistics.
 
@@ -31,7 +31,7 @@ In this setup:
 
 ### Set up Prometheus server
 
-This is the centralized remote Prometheus server where all Prometheus Agents will forward the metrics collected from Micro Integrator instances. Follow the steps below to set it up:
+This is the centralized remote Prometheus server where all Prometheus Agents will forward the metrics collected from WSO2 Integrator: MI instances. Follow the steps below to set it up:
 
 1. Download Prometheus from the <a target="_blank" href="https://prometheus.io/download/">Prometheus site</a>.
 
@@ -63,7 +63,7 @@ Follow the steps below to set up the Grafana server:
 1. Download and install <a target="_blank" href="https://grafana.com/grafana/download/7.1.1">Grafana</a>.
 
     !!! Tip
-        - WSO2 Micro Integrator is tested with Grafana **7.1.1**, which is used in this guide.
+        - WSO2 Integrator: MI is tested with Grafana **7.1.1**, which is used in this guide.
         - Follow the Grafana installation instructions specific to your operating system.
 
 2. Start your Grafana server.
@@ -97,14 +97,14 @@ Follow the steps below to set up the Grafana server:
 
 #### Import dashboards to Grafana
 
-The Micro Integrator provides pre-configured Grafana dashboards in which you can visualize MI statistics.
+The WSO2 Integrator: MI provides pre-configured Grafana dashboards in which you can visualize MI statistics.
 
 You can directly import the required dashboards to Grafana using the <b>dashboard ID</b>:
 
 1.  Go to <a target="_blank" href="https://grafana.com/orgs/wso2/dashboards">WSO2 Dashboards in Grafana labs</a>.
 2.  Select the required dashboard and copy the dashboard ID.
 3.  Provide this ID to Grafana and import the dashboard.
-4.  Repeat the above steps to import all other Micro Integrator dashboards.
+4.  Repeat the above steps to import all other WSO2 Integrator: MI dashboards.
 
 These dashboards are provided as JSON files that can be manually imported to Grafana. To import the dashboards as JSON files:
 
@@ -119,9 +119,9 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
 4. Repeat the above two steps to import all the required dashboards that you downloaded and saved.
 
-### Configure the Micro Integrator to enable statistics publishing
+### Configure the WSO2 Integrator: MI to enable statistics publishing
 
-To expose metrics for Prometheus scraping, update your Micro Integrator Helm chart configuration (`values.yaml`) with the following changes:
+To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm chart configuration (`values.yaml`) with the following changes:
 
 - **Enable the Statistics Publishing Handler**
 
@@ -135,7 +135,7 @@ To expose metrics for Prometheus scraping, update your Micro Integrator Helm cha
               class: org.wso2.micro.integrator.observability.metric.handler.MetricHandler
     ``` 
 
-    For details, refer to the [Configure Helm charts for Micro Integrator]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
+    For details, refer to the [Configure Helm charts for WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
 
 - **Enable the Prometheus Metrics Endpoint**
 
@@ -148,7 +148,7 @@ To expose metrics for Prometheus scraping, update your Micro Integrator Helm cha
                 JAVA_OPTS: "-DenablePrometheusApi=true"
     ```
 
-    This enables the `/metric-service/metrics` endpoint exposed by Micro Integrator for Prometheus scraping.
+    This enables the `/metric-service/metrics` endpoint exposed by WSO2 Integrator: MI for Prometheus scraping.
 
 - **Add Prometheus Discovery Annotations**
 
@@ -167,7 +167,7 @@ To expose metrics for Prometheus scraping, update your Micro Integrator Helm cha
 
 Prometheus Agents are lightweight Prometheus instances designed for metric collection and remote forwarding. When deployed in each Kubernetes cluster, these agents perform the following tasks:
 
-- Scrape metrics from WSO2 Micro Integrator (MI) instances within the same cluster.
+- Scrape metrics from WSO2 Integrator:  MI instances within the same cluster.
 - Forward the scraped metrics to a centralized Prometheus server using remote write.
 
 To deploy the Prometheus Agent in your Kubernetes cluster, you need to create a `Deployment` and the necessary access control resources. Follow the steps below:
@@ -225,8 +225,8 @@ To deploy the Prometheus Agent in your Kubernetes cluster, you need to create a 
 
     !!! Note
         - Update the value of `remote_write.url` (line 12) to point to the Prometheus Server you configured in the [previous step](#set-up-prometheus-server).
-        - The annotation labels used for `relabel_configs` (lines 22, 26, and 33) must match the ones configured in your Micro Integrator Helm chart. If you changed these labels in the [Configure the Micro Integrator to enable statistics publishing](#configure-the-micro-integrator-to-enable-statistics-publishing) step, make sure to update them here accordingly.
-        - Each Micro Integrator instance will be labeled with its pod name. Therefore, in the Grafana UI, MI instances will be identified by their respective pod names.
+        - The annotation labels used for `relabel_configs` (lines 22, 26, and 33) must match the ones configured in your WSO2 Integrator: MI Helm chart. If you changed these labels in the [Configure the WSO2 Integrator: MI to enable statistics publishing](#configure-the-micro-integrator-to-enable-statistics-publishing) step, make sure to update them here accordingly.
+        - Each WSO2 Integrator: MI instance will be labeled with its pod name. Therefore, in the Grafana UI, MI instances will be identified by their respective pod names.
 
     ```yaml linenums="1"
     apiVersion: v1
@@ -329,7 +329,7 @@ A Loki-based logging stack consists of the following components:
 - **Grafana**: A visualization tool that queries Loki and displays the logs.
 
 !!! note
-    While the Fluent Bit runs inside the Micro Integrator Kubernetes cluster, the Loki server can be hosted externally or deployed in a separate observability cluster, similar to how you set up Prometheus and Grafana.
+    While the Fluent Bit runs inside the WSO2 Integrator: MI Kubernetes cluster, the Loki server can be hosted externally or deployed in a separate observability cluster, similar to how you set up Prometheus and Grafana.
 
 Follow the steps below to set up **Grafana Loki** and **Fluent Bit** for log processing:
 
@@ -340,7 +340,7 @@ Grafana Loki aggregates and processes logs received from Fluent Bit.
 1. Download Loki from the <a target="_blank" href="https://github.com/grafana/loki/releases/tag/v2.9.4">Loki GitHub Releases</a>.
 
     !!! note
-        - WSO2 Micro Integrator is tested with **Loki 2.9.4**, which is used in this guide.
+        - WSO2 Integrator: MI is tested with **Loki 2.9.4**, which is used in this guide.
         - You can install Loki in a separate observability cluster or an external host, similar to how you set up Prometheus and Grafana.
         - This guide uses the precompiled binary, but you may choose from other <a target="_blank" href="https://grafana.com/docs/loki/latest/setup/install/">installation options</a> depending on your requirements.
         - Make sure to download the appropriate binary for your operating system and architecture.
@@ -423,11 +423,11 @@ Grafana Loki aggregates and processes logs received from Fluent Bit.
 
     This indicates that the server is running and ready to receive logs from Fluent Bit.
 
-### Configure the Micro Integrator for Fluent Bit log collection
+### Configure the WSO2 Integrator: MI for Fluent Bit log collection
 
-To allow Fluent Bit to scrape logs from Micro Integrator pods, you must annotate the pods accordingly. Fluent Bit looks for the annotation `mi.fluentbit/include: true` on target pods.
+To allow Fluent Bit to scrape logs from WSO2 Integrator: MI pods, you must annotate the pods accordingly. Fluent Bit looks for the annotation `mi.fluentbit/include: true` on target pods.
 
-Update the `values.yaml` file of the Micro Integrator Helm chart to include the following under `wso2.deployment.annotations`:
+Update the `values.yaml` file of the WSO2 Integrator: MI Helm chart to include the following under `wso2.deployment.annotations`:
 
 ```yaml
 wso2:
@@ -438,13 +438,13 @@ wso2:
 
 ### Set up Fluent Bit
 
-Follow the instructions below to deploy Fluent Bit in the Kubernetes cluster where your Micro Integrator pods are running, using the official Helm chart.
+Follow the instructions below to deploy Fluent Bit in the Kubernetes cluster where your WSO2 Integrator: MI pods are running, using the official Helm chart.
 
 You will use the Fluent Bit Helm chart with a customized `fluent-bit-values.yaml` file as shown below.
 
 !!! Note
     - Update the values of `[OUTPUT] Host` and `[OUTPUT] Port` (lines 42–43) to point to the Loki Server you configured in the [previous step](#set-up-the-loki-server).
-    - The annotation label used in the `[FILTER] Regex` (line 36) must match the one configured in your Micro Integrator Helm chart. If you changed the label in the [Configure the Micro Integrator for Fluent Bit log collection](#configure-the-micro-integrator-for-fluent-bit-log-collection) step, make sure to reflect those changes here as well.
+    - The annotation label used in the `[FILTER] Regex` (line 36) must match the one configured in your WSO2 Integrator: MI Helm chart. If you changed the label in the [Configure the WSO2 Integrator: MI for Fluent Bit log collection](#configure-the-micro-integrator-for-fluent-bit-log-collection) step, make sure to reflect those changes here as well.
     - The `[PARSER] Regex` (line 10) is based on the default `log4j2` pattern used in the MI Helm chart. If you’ve customized the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/confs/log4j2.properties">log4j2.properties</a>, update the regex pattern accordingly.
 
 ```yaml linenums="1"
@@ -560,14 +560,14 @@ Download and install <a target="_blank" href="https://www.jaegertracing.io/downl
 
 !!! Note
 
-    - WSO2 Micro Integrator is tested with Jaeger **1.69.0**, which is used in this guide.
+    - WSO2 Integrator: MI is tested with Jaeger **1.69.0**, which is used in this guide.
     - You can install Jaeger in a separate observability cluster or an external host, similar to how you set up Prometheus, Loki and Grafana.
     - Sampler types play a key role in how traces are collected. Choose a <a target="_blank" href="https://www.jaegertracing.io/docs/1.69/sampling/">sampler type</a> based on your throughput and observability requirements.
     - Before enabling tracing in production, it’s recommended to conduct performance testing and fine-tune resource usage. Refer to the <a target="_blank" href="https://www.jaegertracing.io/docs/1.69/performance-tuning/">Jaeger performance tuning guide</a> for best practices.
 
-### Configure the Micro Integrator to publish tracing information
+### Configure the WSO2 Integrator: MI to publish tracing information
 
-Follow the steps below to configure WSO2 Micro Integrator to publish tracing data to Jaeger.
+Follow the steps below to configure WSO2 Integrator: MI to publish tracing data to Jaeger.
 
 Update the `values.yaml` file of the MI Helm chart by adding the following configuration under the `wso2.config` section. Ensure that the `host` and `port` fields are updated to match the Jaeger instance configured in the [previous step](#set-up-jaeger).
 

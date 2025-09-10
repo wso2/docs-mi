@@ -7,9 +7,9 @@ JMS supports two models for messaging as follows:
 
 Many business use cases can be implemented using the publisher-subscriber (pub-sub) pattern. For example, consider a blog with subscribed readers. The blog author posts a blog entry, which the subscribers of the blog can view. In other words, the blog author publishes a message (the blog post content) and the subscribers (the blog readers) receive that message. Popular publisher-subscriber patterns like these can be implemented using JMS topics.
 
-In this sample scenario, two proxy services in the Micro Integrator act as the publisher and subscriber to a topic defined in the message broker. 
+In this sample scenario, two proxy services in the WSO2 Integrator: MI act as the publisher and subscriber to a topic defined in the message broker. 
 
-When we invoke the back-end service, the publisher is invoked and sends the message to the JMS topic. The topic delivers the message to all the subscribers of that topic. In this case, the subscribers are Micro Integrator proxy services.
+When we invoke the back-end service, the publisher is invoked and sends the message to the JMS topic. The topic delivers the message to all the subscribers of that topic. In this case, the subscribers are WSO2 Integrator: MI proxy services.
 
 ## Synapse configurations
 
@@ -131,17 +131,17 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use Active MQ for this example.
 2.  Start the broker.
-3.  Start the Micro Integrator (after starting the broker).
+3.  Start the WSO2 Integrator: MI (after starting the broker).
 
 Publishing to the topic:
 
-1. Start the Micro Integrator. A log message similar to the following will appear:
+1. Start the WSO2 Integrator: MI. A log message similar to the following will appear:
     ```bash
     INFO {org.apache.axis2.transport.jms.JMSListener} - Started to listen on destination : SimpleStockQuoteService of type topic for service SimpleStockQuoteService2
     INFO {org.apache.axis2.transport.jms.JMSListener} - Started to listen on destination : SimpleStockQuoteService of type topic for service SimpleStockQuoteService1
@@ -161,7 +161,7 @@ Publishing to the topic:
     </soapenv:Envelope>
     ```
 
-    When the stockquote client sends the message to the `StockQuoteProxy` service, the publisher is invoked and sends the message to the JMS topic. The topic delivers the message to all the subscribers of that topic. In this case, the subscribers are proxy services deployed in the Micro Integrator.
+    When the stockquote client sends the message to the `StockQuoteProxy` service, the publisher is invoked and sends the message to the JMS topic. The topic delivers the message to all the subscribers of that topic. In this case, the subscribers are proxy services deployed in the WSO2 Integrator: MI.
 
     !!! Note
         There can be many types of publishers and subscribers for a given JMS topic. The following [article in the WSO2 library](https://wso2.com/library/articles/2011/12/wso2-esb-example-pubsub-soa/) provides more information on different types of publishers and subscribers.

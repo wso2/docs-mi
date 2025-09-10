@@ -125,7 +125,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!}
 3. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [endpoint template]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ### Invoke the API
 1. Using REST client:

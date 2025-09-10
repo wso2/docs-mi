@@ -171,9 +171,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported Carbon Application (CApp) in the integration runtime. For more info on deploying artifacts, refer to the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts).
 
-**Deploying on Micro Integrator**
+**Deploying on WSO2 Integrator: MI**
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.WSO2 Integrator: MI will be started and the composite application will be deployed.
 
 You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 

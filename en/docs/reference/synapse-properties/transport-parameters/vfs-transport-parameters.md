@@ -3,7 +3,7 @@
 When you implement an integration use case that requires file processing, you can use the following VFS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The VFS transport is enabled and configured for the Micro Integrator by default, which allows you to run VFS use cases without any server configurations. Read about the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport).
+    The VFS transport is enabled and configured for the WSO2 Integrator: MI by default, which allows you to run VFS use cases without any server configurations. Read about the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
@@ -32,7 +32,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
          </td>
          <td>
             <div class="content-wrapper">
-               The URI of the location of your files. This should be the source location of the files (if you are configuring the Micro Integrator to read files) or the destination of the files (if you are configuring the Micro Integrator to send files). You can specify connection-level parameters on the URL (see <a href="#vfs-url-parameters">VFS URL parameters</a> below).</p>
+               The URI of the location of your files. This should be the source location of the files (if you are configuring the WSO2 Integrator: MI to read files) or the destination of the files (if you are configuring the WSO2 Integrator: MI to send files). You can specify connection-level parameters on the URL (see <a href="#vfs-url-parameters">VFS URL parameters</a> below).</p>
                When you need to access the absolute path of the URL, you can define the URL with <code>sftpPathFromRoot</code> as shown below. Also, note that <a href="#vfs-transport-avoid_permissions">transport.vfs.AvoidPermissionCheck</a> is a mandatory parameter for this URL when SFTP is used.
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">

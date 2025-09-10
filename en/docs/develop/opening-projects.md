@@ -4,12 +4,12 @@ If you have an already created Integration project, you can open it using the Vi
 
 Follow the steps below to open your existing integration project:
 
-1. Launch Visual Studio Code with the Micro Integrator extension installed.
+1. Launch Visual Studio Code with the WSO2 Integrator: MI extension installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
-2. Navigate to **Micro Integrator Project Explorer**.
+2. Navigate to **WSO2 Integrator: MI Project Explorer**.
 
 3. Select **Open MI Project**.  
 
@@ -47,4 +47,4 @@ Follow the steps below to open your existing integration project:
     
         <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png" alt="Migrate workspace"></a>         
 
-You will see that the integration artifacts are imported into **Micro Integrator Project Explorer**, and the project files are imported into **Explorer**.
+You will see that the integration artifacts are imported into **WSO2 Integrator: MI Project Explorer**, and the project files are imported into **Explorer**.

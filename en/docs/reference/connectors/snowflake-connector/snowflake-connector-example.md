@@ -265,7 +265,7 @@ You can further refer to the application deployed through the CLI tool. See the 
 
 ### Test the resources
 
-Let's test the API. Deploy the carbon application and start the Micro Integrator.
+Let's test the API. Deploy the carbon application and start the WSO2 Integrator: MI.
 
 1. Insert Reservation Resource
     1. Create a file called `payload.json` with the following payload.

@@ -1,6 +1,6 @@
 # Periodical Scheduled Tasks Sample
 
-This sample demonstrates the task scheduling capabilities of the Micro Integrator.
+This sample demonstrates the task scheduling capabilities of the WSO2 Integrator: MI.
 
 The scenario is about fetching information related to personal records from a service periodically.
 
@@ -12,7 +12,7 @@ The scheduled task is configured to run five times in 30 seconds time intervals.
 
 1.  Open the sample by clicking on the **Periodical Scheduled Tasks** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

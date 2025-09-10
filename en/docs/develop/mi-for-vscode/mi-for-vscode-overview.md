@@ -4,22 +4,22 @@ tags:
   - extension
 ---
 
-# Micro Integrator for VS Code Overview
+#WSO2 Integrator: MI for VS Code Overview
 
-WSO2 Micro Integrator (MI) offers an extension for Visual Studio Code (VS Code) that simplifies the development of integration solutions.
+WSO2 Integrator: MI offers an extension for Visual Studio Code (VS Code) that simplifies the development of integration solutions.
 
 This page provides a quick overview of the interface of the MI for VS Code extension.
 
 !!! info
-    See [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) for a complete installation guide of the MI for VS Code extension.
+    See [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) for a complete installation guide of the MI for VS Code extension.
 
-When the extension is installed properly, you can see the WSO2 Micro Integrator icon in the Activity Bar of the VS Code editor.
+When the extension is installed properly, you can see the WSO2 Integrator: MI icon in the Activity Bar of the VS Code editor.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a> 
 
 Click the MI icon to open the extension and get started.
 
-When you open the extension for the first time, you'll see the **Design View** on the right side and the **Micro Integrator: Project Explorer** on the left.
+When you open the extension for the first time, you'll see the **Design View** on the right side and the **WSO2 Integrator: MI: Project Explorer** on the left.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/getting-started.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/getting-started.png" alt="Getting Started" width="80%"></a>
 
@@ -31,7 +31,7 @@ To create a new project you can use the links on the **MI Project Explorer** or 
 
 ## MI Project Explorer
 
-The **Micro Integrator Project Explorer** provides a view of all the project directories created for your integration solution. Shown below is the **MI Project Explorer** of a sample project.
+The **WSO2 Integrator: MI Project Explorer** provides a view of all the project directories created for your integration solution. Shown below is the **MI Project Explorer** of a sample project.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/project-explorer.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/project-explorer.png" alt="Project Explorer" width="80%"></a>
 
@@ -62,7 +62,7 @@ Shown below is the **Project Overview** of a sample integration project.
 
 ## WSO2 MI Copilot
 
-WSO2 Micro Integrator (MI) Copilot is an AI-powered tool that simplifies the creation of integration scenarios. By describing your requirements in natural language or uploading relevant files, MI Copilot generates the necessary integration artifacts for seamless project integration.
+WSO2 Integrator:  MI Copilot is an AI-powered tool that simplifies the creation of integration scenarios. By describing your requirements in natural language or uploading relevant files, MI Copilot generates the necessary integration artifacts for seamless project integration.
 
 Clicking on the **Open AI Panel** icon located in the top right corner of VS Code will open the WSO2 MI Copilot interface.
 
@@ -76,7 +76,7 @@ For more information on WSO2 MI Copilot and its capabilities, see [MI Copilot]({
 
 ## Samples
 
-The **Design View** lists a set of [sample projects]({{base_path}}/learn/samples/samples-overview) that represent common integration scenarios. You can use these to explore WSO2 Micro Integrator and to try out common integration use cases.
+The **Design View** lists a set of [sample projects]({{base_path}}/learn/samples/samples-overview) that represent common integration scenarios. You can use these to explore WSO2 Integrator: MI and to try out common integration use cases.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/samples.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/samples.png" alt="Samples" width="80%"></a>
 

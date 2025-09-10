@@ -45,7 +45,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -63,7 +63,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Send the following request to the Micro Integrator:
+Send the following request to the WSO2 Integrator: MI:
     
 ```bash
 curl -v http://127.0.0.1:8290/stockquote/view/IBM

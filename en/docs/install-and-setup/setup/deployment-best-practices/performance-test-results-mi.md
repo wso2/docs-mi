@@ -1,6 +1,6 @@
 # Performance Test Results
 
-The performance of WSO2 Micro Integrator Manager was measured using the following scenarios.
+The performance of WSO2 Integrator: MI Manager was measured using the following scenarios.
 
 - Direct Proxy: This is a PassThrough Proxy Service, which directly invokes the back-end service.
 - Direct API: This is a PassThrough API Service, which directly invokes the back-end service.
@@ -19,17 +19,17 @@ sending requests at the same time. Different Message Sizes (Payloads) were used 
 
 Two key performance metrics were used to measure the performance of each test. 
 
-- Throughput: The number of requests that the WSO2 Micro Integrator processes during a specific time interval (e.g. per second).. 
-- Response Time: The end-to-end latency for an operation of invoking a service in WSO2 Micro Integrator. The complete distribution of response times was recorded.
+- Throughput: The number of requests that the WSO2 Integrator: MI processes during a specific time interval (e.g. per second).. 
+- Response Time: The end-to-end latency for an operation of invoking a service in WSO2 Integrator: MI. The complete distribution of response times was recorded.
 
 !!! Note
     
-    All the performance results were done on the default Micro Integrator distribution. The
+    All the performance results were done on the default WSO2 Integrator: MI distribution. The
     following performance results may become invalid if configurations are changed. For
     example, the default passthru io_buffer_size is 16KB. Hence the throughput significantly
     decreases for payload sizes above 16KB. If the buffer size is increased, the throughput
     might differ. Similarly, when worker pool thread counts are changed, the performance of the
-    Micro Integrator changes significantly. Therefore, to get accurate results, it is necessary to be specific about the exact configurations and scenarios used for the performance tests.
+   WSO2 Integrator: MI changes significantly. Therefore, to get accurate results, it is necessary to be specific about the exact configurations and scenarios used for the performance tests.
 
 !!! Note
     To get consistent results, the following measures were taken.
@@ -108,7 +108,7 @@ The following results compare the throughput against the number of concurrent us
 ![Throughput]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-throughput-2G-0ms.png)
 
 #### Average response time (ms) vs. concurrent users
-The following results compare the average response time of the Micro Integrator server against the number of users for different message sizes.
+The following results compare the average response time of the WSO2 Integrator: MI server against the number of users for different message sizes.
 
 ![Response Time]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-average-response-time-2G-0ms.png)
 

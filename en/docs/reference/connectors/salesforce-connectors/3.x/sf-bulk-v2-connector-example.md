@@ -24,11 +24,11 @@ You can use the following resources to achieve your requirements.
 
 ## Set up the environment
 
-By default, the `text/csv` message formatter and message builder are not configured in the Micro Integrator settings. To enable this connector to function correctly with `text/csv` data, you will need to follow these steps to add the necessary message formatter and message builder configurations.
+By default, the `text/csv` message formatter and message builder are not configured in the WSO2 Integrator: MI settings. To enable this connector to function correctly with `text/csv` data, you will need to follow these steps to add the necessary message formatter and message builder configurations.
 
-Consider the root of the Micro Integrator/ Enterprise Integrator as `<PRODUCT_HOME>`.
+Consider the root of the WSO2 Integrator: MI/ Enterprise Integrator as `<PRODUCT_HOME>`.
 
-If you are using the **Micro Integrator 4.4.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
+If you are using the **WSO2 Integrator: MI 4.4.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
 
 ```toml
 [[custom_message_formatters]]
@@ -40,7 +40,7 @@ class="org.apache.axis2.format.PlainTextBuilder"
 content_type = "text/csv"
 ```
 
-Save the files and restart the Micro Integrator.
+Save the files and restart the WSO2 Integrator: MI.
 
 ## Set up the integration project
 

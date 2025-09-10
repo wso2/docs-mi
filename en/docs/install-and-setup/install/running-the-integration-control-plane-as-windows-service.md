@@ -4,7 +4,7 @@ Follow the instructions given below to run the Integration Control Plane as a Wi
 
 ## Prerequisites
 
-- Setup Micro Integrator runtime and ICP server according to the instructions given [here]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#before-you-begin).
+- Setup WSO2 Integrator: MI runtime and ICP server according to the instructions given [here]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#before-you-begin).
 
 - Point the `wso2_integration_control_plane_home` environment variable to the `ICP_HOME` directory.
 

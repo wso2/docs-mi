@@ -272,7 +272,7 @@ For example, pass the following payload to the `XSLTProxy` proxy service of the 
     </soapenv:Envelope>
 ```
 
-You view the output with the CDATA displayed as follows in the Console logs of the Micro Integrator.
+You view the output with the CDATA displayed as follows in the Console logs of the WSO2 Integrator: MI.
 
 ```text
 INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction: urn:mediate, SOAPAction: urn:mediate, MessageID: urn:uuid:266d380f-800f-479b-bee9-c30897efe562, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?>
@@ -308,4 +308,4 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
     
     Then the XSLT transformation happens in memory without writing data to disk. Therefore, performance is increased.
 
-    If the input or transformed message size exceeds the value of `<synapse.temp_data_chunk_size>`, the XSLT Mediator creates temporary files at `<MI_HOME>/tmp`. These files are not explicitly deleted by the Micro Integrator. The lifecycle of these files is managed by Java's Garbage Collector (GC). When no references to the temporary files remain, they will be expected to be deleted as part of the `java.lang.Object.finalize()` method.
+    If the input or transformed message size exceeds the value of `<synapse.temp_data_chunk_size>`, the XSLT Mediator creates temporary files at `<MI_HOME>/tmp`. These files are not explicitly deleted by the WSO2 Integrator: MI. The lifecycle of these files is managed by Java's Garbage Collector (GC). When no references to the temporary files remain, they will be expected to be deleted as part of the `java.lang.Object.finalize()` method.

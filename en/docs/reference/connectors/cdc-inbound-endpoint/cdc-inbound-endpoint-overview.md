@@ -1,6 +1,6 @@
 # CDC Inbound Endpoint Overview
 
-The CDC inbound protocol is used to perform Change Data Capture in MI. The changes happening to any external database can be listened to using the CDC inbound endpoint. The CDC protocol uses Debezium to connect with the databases and capture the events. The protocol itself outputs the event via a sequence through the Inbound Endpoint. Currently, CDC Inbound Endpoint supports MySQL, SQL Server, PostgreSQL, Oracle, and DB2 databases. You need to place the client JARs required for your CDC inside the Micro Integrator to use this inbound endpoint.
+The CDC inbound protocol is used to perform Change Data Capture in MI. The changes happening to any external database can be listened to using the CDC inbound endpoint. The CDC protocol uses Debezium to connect with the databases and capture the events. The protocol itself outputs the event via a sequence through the Inbound Endpoint. Currently, CDC Inbound Endpoint supports MySQL, SQL Server, PostgreSQL, Oracle, and DB2 databases. You need to place the client JARs required for your CDC inside the WSO2 Integrator: MI to use this inbound endpoint.
 
 Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-inbound-cdc">WSO2 Connector Store</a> to download the CDC Inbound Endpoint.
 

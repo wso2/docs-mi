@@ -1,22 +1,22 @@
 # Key Concepts
 
-WSO2 Micro Integrator is a comprehensive integration solution that streamlines the process of digital transformation. It provides a robust, configuration-based approach, enabling developers to create integration solutions visually through a user-friendly, low-code graphical design interface. The following diagram illustrates key components of WSO2 micro integrator.
+WSO2 Integrator: MI is a comprehensive integration solution that streamlines the process of digital transformation. It provides a robust, configuration-based approach, enabling developers to create integration solutions visually through a user-friendly, low-code graphical design interface. The following diagram illustrates key components of WSO2 Integrator: MI.
 
 ![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts-overall.png)
 
-## Micro Integrator Runtime
+##WSO2 Integrator: MI Runtime
 
-Listed below are the key concepts of the WSO2 Micro Integrator runtime.
+Listed below are the key concepts of the WSO2 Integrator: MI runtime.
 
 ![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts.png)
 
 ### Message entry points
 
-Message entry points are the entities that a message can enter into the Micro Integrator mediation flow.
+Message entry points are the entities that a message can enter into the WSO2 Integrator: MI mediation flow.
 
 #### APIs
 
-An API in WSO2 Micro Integrator is a key component for exposing integration services. Each API is anchored at a user-defined URL context and will only process requests that fall under the given URL context. An API is made of one or more resources, which are logical components of an API that can be accessed by making a particular type of HTTP call.
+An API in WSO2 Integrator: MI is a key component for exposing integration services. Each API is anchored at a user-defined URL context and will only process requests that fall under the given URL context. An API is made of one or more resources, which are logical components of an API that can be accessed by making a particular type of HTTP call.
 
 See the [REST APIs]({{base_path}}/reference/synapse-properties/rest-api-properties) documentation for more information.
 
@@ -38,7 +38,7 @@ See the [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-e
 
 #### Mediators
 
-Mediators are individual processing units that perform a specific function on messages that pass through the Micro Integrator. The mediator takes the message received by the [message entry points](#message-entry-points), carries out some predefined actions on it (such as transforming, enriching, filtering), and modifies the message.
+Mediators are individual processing units that perform a specific function on messages that pass through the WSO2 Integrator: MI. The mediator takes the message received by the [message entry points](#message-entry-points), carries out some predefined actions on it (such as transforming, enriching, filtering), and modifies the message.
 
 See the [Mediators]({{base_path}}/reference/mediators/about-mediators) documentation for more information.
 
@@ -95,26 +95,26 @@ See the [Data Services]({{base_path}}/reference/synapse-properties/data-services
 
 #### Scheduled Tasks
 
-Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day. In the Micro Integrator, the execution of a message mediation process can be automated to run periodically by using a scheduled task. Furthermore, you can use cron expressions for more advanced scheduling configurations.
+Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day. In the WSO2 Integrator: MI, the execution of a message mediation process can be automated to run periodically by using a scheduled task. Furthermore, you can use cron expressions for more advanced scheduling configurations.
 
 See the [Scheduled Tasks]({{base_path}}/reference/synapse-properties/scheduled-task-properties) documentation for more information.
 
 #### Transports
 
-A transport protocol is responsible for carrying messages that are in a specific protocol. WSO2 Micro Integrator supports all the widely used transports including, HTTP/S, JMS, and VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
+A transport protocol is responsible for carrying messages that are in a specific protocol. WSO2 Integrator: MI supports all the widely used transports including, HTTP/S, JMS, and VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
 
 See the [Transports]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports) documentation for more information.
 
 #### Registry
 
-WSO2 Micro Integrator uses a Registry to store various configurations and resources, such as [endpoints](#endpoints). A registry is simply a content store and a metadata repository. Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts.
+WSO2 Integrator: MI uses a Registry to store various configurations and resources, such as [endpoints](#endpoints). A registry is simply a content store and a metadata repository. Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred to by a key, which is a path similar to a UNIX file path. The WSO2 Integrator: MI uses a [file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) that is configured by default. You can also define and use a [local registry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) when you develop your integration artifacts.
 
 #### Message Builders and Formatters
 
-When a message comes into WSO2 Micro Integrator, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the raw payload data of the message and converts it to a
-common format, which the mediation engine of WSO2 Micro Integrator can then read and understand. WSO2 Micro Integrator includes message builders for text-based and binary content.
+When a message comes into WSO2 Integrator: MI, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the raw payload data of the message and converts it to a
+common format, which the mediation engine of WSO2 Integrator: MI can then read and understand. WSO2 Integrator: MI includes message builders for text-based and binary content.
 
-Conversely, before a transport sends a message out from WSO2 Micro Integrator, a message formatter is used to build the outgoing stream from the message back into its original format. As with message builders, the message formatter is selected based on the message's content type.
+Conversely, before a transport sends a message out from WSO2 Integrator: MI, a message formatter is used to build the outgoing stream from the message back into its original format. As with message builders, the message formatter is selected based on the message's content type.
 
 See the [Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) documentation for more information.
 
@@ -122,26 +122,26 @@ See the [Message Builders and Formatters]({{base_path}}/install-and-setup/setup/
 
 ## Development Tool
 
-### Micro Integrator for VS Code
+###WSO2 Integrator: MI for VS Code
 
-WSO2 Micro Integrator Visual Studio Code extension (MI for VS Code) is a comprehensive integration solution that simplifies your digital transformation journey. It streamlines your integration development workflow using a user-friendly low-code graphical designing experience. This leverages AI to assist developers throughout the integration development process which elevates the integration experience to new heights.
+WSO2 Integrator: MI Visual Studio Code extension (MI for VS Code) is a comprehensive integration solution that simplifies your digital transformation journey. It streamlines your integration development workflow using a user-friendly low-code graphical designing experience. This leverages AI to assist developers throughout the integration development process which elevates the integration experience to new heights.
 
-See the [Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview) documentation for more information.
+See the [WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview) documentation for more information.
 
 ---
 
 ## Monitoring Tools
 
-Listed below are the key concepts of the WSO2 Micro Integrator monitoring tools.
+Listed below are the key concepts of the WSO2 Integrator: MI monitoring tools.
 
 ### Integration Control Plane
 
-The WSO2 Integration Control Plane (ICP) can be used to monitor the Micro Integrator instances in a deployment. It provides a graphical view of the integration artifacts that are deployed in the Micro Integrator instances. You can also perform various management and administration tasks using the ICP server.
+The WSO2 Integration Control Plane (ICP) can be used to monitor the WSO2 Integrator: MI instances in a deployment. It provides a graphical view of the integration artifacts that are deployed in the WSO2 Integrator: MI instances. You can also perform various management and administration tasks using the ICP server.
 
 See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) documentation for more information.
 
-### Micro Integrator CLI
+###WSO2 Integrator: MI CLI
 
-The Micro Integrator CLI allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
+The WSO2 Integrator: MI CLI allows you to monitor the Synapse artifacts (deployed in a specified WSO2 Integrator: MI server) and perform various management and administration tasks from the command line.
 
-See the [Micro Integrator CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli) documentation for more information.
+See the [WSO2 Integrator: MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli) documentation for more information.

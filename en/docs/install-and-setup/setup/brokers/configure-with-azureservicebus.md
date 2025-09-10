@@ -1,14 +1,14 @@
 # Connecting to Azure Service Bus
 
-This section describes how to configure WSO2 Micro Integrator to connect with [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/). Azure Service Bus is a messaging service that exists on Azure Cloud. It only needs to be configured in order to work.
+This section describes how to configure WSO2 Integrator: MI to connect with [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/). Azure Service Bus is a messaging service that exists on Azure Cloud. It only needs to be configured in order to work.
 
-The Azure Service Bus [complies with both AMQP 1.0 and JMS 2.0](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview#compliance-with-standards-and-protocols). The Micro Integrator uses its inbuilt JMS transport to send and receive messages from the Azure Service Bus. The configurations are similar to connecting with other JMS brokers.
+The Azure Service Bus [complies with both AMQP 1.0 and JMS 2.0](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview#compliance-with-standards-and-protocols). The WSO2 Integrator: MI uses its inbuilt JMS transport to send and receive messages from the Azure Service Bus. The configurations are similar to connecting with other JMS brokers.
 
-## Setting up the Micro Integrator with Azure Service Bus
+## Setting up the WSO2 Integrator: MI with Azure Service Bus
 
-Follow the instructions below to set up and configure Micro Integrator to work with Azure Service Bus.
+Follow the instructions below to set up and configure WSO2 Integrator: MI to work with Azure Service Bus.
 
-* To get started, download and install WSO2 Micro Integrator.
+* To get started, download and install WSO2 Integrator: MI.
 
 
 ### Setting up Azure Service Bus
@@ -34,7 +34,7 @@ Following the above Azure Service Bus documentation to do the following.
 
 Now the WSO2 enterprise integrator should be configured to work with Azure Service Bus.
 
-### Setting up the Micro Integrator to work with Azure Service Bus
+### Setting up the WSO2 Integrator: MI to work with Azure Service Bus
 
 The messaging flow is as shown below.
 
@@ -158,7 +158,7 @@ Do the following to set this up.
     - [proton-j-0.27.1.jar](https://mvnrepository.com/artifact/org.apache.qpid/proton-j/0.27.1)
     - [Qpid-jms-client-0.32.0.jar](https://mvnrepository.com/artifact/org.apache.qpid/qpid-jms-client/0.32.0)
 
-2. If you want the Micro Integrator to receive messages from an Azure Service Bus instance, or to send messages to an Azure Service Bus instance, you need to update the deployment.toml file with the relevant connection parameters.
+2. If you want the WSO2 Integrator: MI to receive messages from an Azure Service Bus instance, or to send messages to an Azure Service Bus instance, you need to update the deployment.toml file with the relevant connection parameters.
 
      - Add the following configurations to enable the JMS listener with Azure Service Bus connection parameters.
      
@@ -181,7 +181,7 @@ Do the following to set this up.
         parameter.connection_factory_name = "SBCF"
         parameter.connection_factory_type = "queue"
         ```
-3.  Start the Micro Integrator.
+3.  Start the WSO2 Integrator: MI.
 
-Now you have configured instances of Azure Service Bus and WSO2 Micro Integrator.
+Now you have configured instances of Azure Service Bus and WSO2 Integrator: MI.
 

@@ -1,17 +1,17 @@
 # Connecting to HornetQ
 
-This section describes how to configure WSO2 WSO2 Micro Integrator to connect with
+This section describes how to configure WSO2 Integrator: MI to connect with
 HornetQ, which is an open source project to build a multi-protocol, asynchronous messaging system.
 
 You can either use a standalone HornetQ server or the HornetQ embedded in a JBoss Enterprise Application Platform (JBoss EAP) server.
 
 ## Configure with a standalone HornetQ server
 
-Follow the instructions below to configure WSO2 Micro Integrator JMS transport with a
+Follow the instructions below to configure WSO2 Integrator: MI JMS transport with a
 a standalone HornetQ server.
 
 1.  Download HornetQ from the [HornetQ Downloads](http://hornetq.jboss.org/downloads.html) site.  
-2.  Download and install WSO2 Micro Integrator.
+2.  Download and install WSO2 Integrator: MI.
 3.  Create a sample queue by editing the `HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml` file as follows:
     ```xml
     <queue name="wso2">
@@ -19,7 +19,7 @@ a standalone HornetQ server.
     </queue>
     ```
 
-4.  Add the following two connection entries to the same file. These entries are required to enable WSO2 Micro Integrator to act as a JMS consumer.
+4.  Add the following two connection entries to the same file. These entries are required to enable WSO2 Integrator: MI to act as a JMS consumer.
     ```xml
     <connection-factory name="QueueConnectionFactory">
           <xa>false</xa>
@@ -41,13 +41,13 @@ a standalone HornetQ server.
     </connection-factory>
     ```
 
-5.  If you have not already done so, download and install WSO2 Micro Integrator.
+5.  If you have not already done so, download and install WSO2 Integrator: MI.
 6.  Download the [hornet-all-new.jar](https://github.com/wso2-docs/WSO2_EI/raw/master/Broker-Setup-Artifacts/HornetQ/hornetq-all-new.jar) file and copy it into the `MI_HOME/lib/` directory.
 
     !!! Info
         If you are packing the JARs yourself, make sure you remove the javax.jms package from the assembled JAR to avoid the carbon runtime from picking this implementation of JMS over the bundled-in distribution.
 
-7.  If you want the Micro Integrator to receive messages from a HornetQ instance, or to send messages to a HornetQ instance, you need to update the deployment.toml file with the relevant connection parameters.
+7.  If you want the WSO2 Integrator: MI to receive messages from a HornetQ instance, or to send messages to a HornetQ instance, you need to update the deployment.toml file with the relevant connection parameters.
 
     Add the following configurations to `MI_HOME/conf/deployment.toml` file to enable the JMS sender and listener with HornetQ connection parameters.
     ```toml
@@ -87,11 +87,11 @@ a standalone HornetQ server.
     -   On Linux/Solaris:
         `sh HORNETQ_HOME/bin/run.sh`
 
-Now you have configured WSO2 Micro Integrator with a standalone HornetQ server. 
+Now you have configured WSO2 Integrator: MI with a standalone HornetQ server. 
 
 ### Testing the configuration
 
-To test the configuration, create a proxy service named `JMSPublisher` that will publish messages from the Micro Integrator to a sample queue in HornetQ, and create the `JMSListener` queue to read messages from the HornetQ sample queue.
+To test the configuration, create a proxy service named `JMSPublisher` that will publish messages from the WSO2 Integrator: MI to a sample queue in HornetQ, and create the `JMSListener` queue to read messages from the HornetQ sample queue.
 
 1.  Create the `JMSPublisher` proxy service with the following configuration:
 
@@ -124,7 +124,7 @@ To test the configuration, create a proxy service named `JMSPublisher` that will
     ```
 
     !!! Info  
-        -   The `OUT_ONLY` parameter is set to `true` since this proxy service is created only for the purpose of publishing the messages from WSO2 Micro Integrator to the `mySampleQueue` queue specified in the address URI.
+        -   The `OUT_ONLY` parameter is set to `true` since this proxy service is created only for the purpose of publishing the messages from WSO2 Integrator: MI to the `mySampleQueue` queue specified in the address URI.
         -   You may have to change the host name, port etc. of the JMS string based on your environment.
 
 2.  Create the `JMSListener` proxy service with the following configuration:
@@ -177,7 +177,7 @@ To test the configuration, create a proxy service named `JMSPublisher` that will
     </soapenv:Envelope>
     ```
 
-5.  Check the log on your WSO2 Micro Integrator terminal. You will see the following log, which indicates that the request published in the queue is picked up by the `JMSListener` proxy.
+5.  Check the log on your WSO2 Integrator: MI terminal. You will see the following log, which indicates that the request published in the queue is picked up by the `JMSListener` proxy.
 
     ```xml
     [<TIME Stamp>]  INFO - LogMediator JMS LISTENER PROXY = LOCATED
@@ -201,7 +201,7 @@ To test the configuration, create a proxy service named `JMSPublisher` that will
 
 ## Configure with HornetQ embedded in a JBoss EAP server
 
-Follow the instructions below to configure WSO2 Micro Integrator JMS transport with HornetQ embedded in a JBoss EAP server.
+Follow the instructions below to configure WSO2 Integrator: MI JMS transport with HornetQ embedded in a JBoss EAP server.
 
 **Setting up JBoss EAP**
 
@@ -233,12 +233,12 @@ Install JBoss EAP server and create a message queue within the server.
 
     [![sample queue]({{base_path}}/assets/img/integrate/broker-configs/hornetq/sample-queue.jpg)]({{base_path}}/assets/img/integrate/broker-configs/hornetq/sample-queue.jpg)
 
-Now you have configured the JBoss EAP Server. The next section describes how to configure the Micro Integrator to listen and fetch messages from the queue that you created above.
+Now you have configured the JBoss EAP Server. The next section describes how to configure the WSO2 Integrator: MI to listen and fetch messages from the queue that you created above.
 
-**Configuring WSO2 Micro Integrator**
+**Configuring WSO2 Integrator: MI**
 
-1.  Download and install WSO2 Micro Integrator.
-2.  If you want the Micro Integrator to receive messages from an HornetQ instance, or to send messages to an HornetQ instance, you need to update the deployment.toml file with the relevant connection parameters.
+1.  Download and install WSO2 Integrator: MI.
+2.  If you want the WSO2 Integrator: MI to receive messages from an HornetQ instance, or to send messages to an HornetQ instance, you need to update the deployment.toml file with the relevant connection parameters.
 
     Add the following configurations to enable the JMS listener with ActiveMQ connection parameters.
     ```toml
@@ -263,11 +263,11 @@ Now you have configured the JBoss EAP Server. The next section describes how to 
 
         [![delete package]({{base_path}}/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)]({{base_path}}/assets/img/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)
 
-Now you have configured WSO2 Micro Integrator with HornetQ embedded in a JBoss EAP server.
+Now you have configured WSO2 Integrator: MI with HornetQ embedded in a JBoss EAP server.
 
 ### Testing the configuration
 
-To test the configuration, create a proxy service named `JMSPublisher` that publishes messages from the Micro Integrator to the HornetQ sample queue, and create the `JMSListener` queue to read messages from the HornetQ sample queue.
+To test the configuration, create a proxy service named `JMSPublisher` that publishes messages from the WSO2 Integrator: MI to the HornetQ sample queue, and create the `JMSListener` queue to read messages from the HornetQ sample queue.
 
 1.  Create the `JMSPublisher` proxy service with the following configuration:
     ```xml
@@ -331,7 +331,7 @@ To test the configuration, create a proxy service named `JMSPublisher` that publ
     </proxy>
     ```
 
-3.  Send the following request to the Micro Integrator.
+3.  Send the following request to the WSO2 Integrator: MI.
 
     ```xml
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
@@ -352,7 +352,7 @@ To test the configuration, create a proxy service named `JMSPublisher` that publ
     </soapenv:Envelope>
     ```
 
-4.  Check the log on your WSO2 Micro Integrator terminal. You will see the following log, which indicates that the request published in the queue is picked up by the `JMSListener` proxy.
+4.  Check the log on your WSO2 Integrator: MI terminal. You will see the following log, which indicates that the request published in the queue is picked up by the `JMSListener` proxy.
 
     ```xml
     [<TIME Stamp>]  INFO - LogMediator JMS LISTENER PROXY = LOCATED

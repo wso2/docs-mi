@@ -15,8 +15,8 @@
 # under the License.
 
 # Project information
-site_name: WSO2 Micro Integrator Documentation 4.5.0
-site_description: Documentation for WSO2 Micro Integrator
+site_name: "WSO2 Integrator: MI Documentation 4.5.0"
+site_description: "Documentation for WSO2 Integrator: MI"
 site_author: WSO2
 site_url: https://mi.docs.wso2.com/en/latest/
 
@@ -27,7 +27,7 @@ edit_uri: https://github.com/wso2/docs-mi/edit/main/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
-copyright: WSO2 Micro Integrator - Documentation
+copyright: "WSO2 Integrator: MI - Documentation"
 
 # Configuration
 theme:
@@ -95,12 +95,12 @@ nav:
       - Install:
           - MI Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
           - ICP Installation Prerequisites: install-and-setup/install/icp-installation-prerequisites.md
-          - Install the Micro Integrator (MI):
+          - "Install the WSO2 Integrator: MI" :
               - Install MI: install-and-setup/install/installing-mi.md
               - Run the MI Runtime: install-and-setup/install/running-the-mi.md
               - Run the MI as a Windows Service: install-and-setup/install/installing-mi-as-a-windows-service.md
               - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
-              - Install Micro Integrator for VSCode: develop/mi-for-vscode/install-wso2-mi-for-vscode.md
+              - "Install WSO2 Integrator: MI for VSCode": develop/mi-for-vscode/install-wso2-mi-for-vscode.md
           - Install the Integration Control Plane:
               - Install the Integration Control Plane: install-and-setup/install/installing-integration-control-plane.md
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
@@ -108,7 +108,7 @@ nav:
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
-          - Update WSO2 Micro Integrator: install-and-setup/setup/updating-mi.md
+          - "Update WSO2 Integrator: MI": install-and-setup/setup/updating-mi.md
           - User Stores:
               - User Stores in MI:
                   - Configure a User Store in MI: install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi.md
@@ -129,7 +129,7 @@ nav:
                   - Renew a CA-signed Certificate: install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore.md
                   - Configure Keystores: install-and-setup/setup/security/configuring-keystores.md
               - Comply with GDPR:
-                  - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/security/gdpr-ei.md
+                  - "GDPR for the WSO2 Integrator: MI": install-and-setup/setup/security/gdpr-ei.md
                   - About the Identity Anonymization Tool: install-and-setup/setup/security/about-forgetme-tool.md
               - Use Secrets:
                   - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/security/encrypting-plain-text.md
@@ -167,11 +167,11 @@ nav:
               - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/enabling-ssl-tunneling-thru-proxy-server.md
           - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
       - Deploy:
-          - Deploy the Micro Integrator:
-              - Configure a Micro Integrator Cluster: install-and-setup/setup/deployment/deploying-wso2-mi.md
+          - "Deploy the WSO2 Integrator: MI":
+              - "Configure a WSO2 Integrator: MI Cluster": install-and-setup/setup/deployment/deploying-wso2-mi.md
               - Deployment Synchronization: install-and-setup/setup/deployment/deployment-synchronization.md
           - Deploy on Kubernetes:
-              - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
+              - "WSO2 Integrator: MI Deployment Patterns on K8s": install-and-setup/setup/deployment/kubernetes-deployment-patterns.md
               - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
               - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deploy on OpenShift: install-and-setup/setup/deployment/openshift-deployment.md
@@ -205,7 +205,7 @@ nav:
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
       - WSO2 MI for VSCode:
-          - Micro Integrator for VSCode Overview:  develop/mi-for-vscode/mi-for-vscode-overview.md
+          - "WSO2 Integrator: MI for VSCode Overview":  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
           - MI Copilot: develop/mi-for-vscode/mi-copilot.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
@@ -249,7 +249,7 @@ nav:
               - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
-          - Use a Remote Micro Integrator: develop/using-remote-micro-integrator.md
+          - "Use a Remote WSO2 Integrator: MI": develop/using-remote-micro-integrator.md
           # - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
           - Generate Docker Images: develop/generate-docker-image.md
@@ -272,7 +272,7 @@ nav:
           - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
           - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
           - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
-          - Use the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
+          - "Use the Embedded WSO2 Integrator: MI": develop/using-embedded-micro-integrator.md
   - Learn:
       - Overview: learn/learn-overview.md
       - How to Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
@@ -1016,7 +1016,7 @@ nav:
           - Use Keystores: reference/mi-security-reference/using-keystores.md
           - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
       - Troubleshooting:
-          - Error Handling in Micro Integrator: reference/troubleshooting/error-handling-mi.md
+          - "Error Handling in WSO2 Integrator: MI": reference/troubleshooting/error-handling-mi.md
           - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
           - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
           - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
@@ -1057,7 +1057,7 @@ nav:
           - Administer Overview: administer/admin-overview.md
           - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
           - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
-          - Manage Micro Integrator:
+          - "Manage WSO2 Integrator: MI":
               - Runtime:
                   - Integration Control Plane: observe-and-manage/working-with-integration-control-plane.md
                   - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md

@@ -4,7 +4,7 @@
 
 When information from several services is required to construct a response to a client request, service chaining needs to be implemented. This means integrating several services based on some business logic and exposing them as a single, aggregated service.
 
-In this tutorial, when a client sends a request for a medical appointment, the Micro Integrator performs several service calls to multiple back-end services to construct a response that includes all the necessary details. The <a target="_blank" href="{{base_path}}/reference/connectors/http-connector/http-connector-overview/">HTTP connector</a> will be used to invoke services sequentially within a single integration flow.
+In this tutorial, when a client sends a request for a medical appointment, the WSO2 Integrator: MI performs several service calls to multiple back-end services to construct a response that includes all the necessary details. The <a target="_blank" href="{{base_path}}/reference/connectors/http-connector/http-connector-overview/">HTTP connector</a> will be used to invoke services sequentially within a single integration flow.
 
 You will also use the <a target="_blank" href="{{base_path}}/reference/mediators/payloadfactory-mediator/">Payload mediator</a> to transform the response from one back-end service into the format required by another service.
 
@@ -540,7 +540,7 @@ You can now start updating the API resource with the mediation flow.
 
 ### Step 3: Build and run the artifacts
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -670,7 +670,7 @@ You will see the following response received to your <b>HTTP Client</b>:
 }
 ```
 
-You have now learned how the Micro Integrator can perform service chaining using the <a target="_blank" href="{{base_path}}/reference/connectors/http-connector/http-connector-overview/">HTTP connector</a> and transform message payloads between different formats using the <a target="_blank" href="{{base_path}}/reference/mediators/payloadfactory-mediator/">Payload mediator</a>.
+You have now learned how the WSO2 Integrator: MI can perform service chaining using the <a target="_blank" href="{{base_path}}/reference/connectors/http-connector/http-connector-overview/">HTTP connector</a> and transform message payloads between different formats using the <a target="_blank" href="{{base_path}}/reference/mediators/payloadfactory-mediator/">Payload mediator</a>.
 
 {% raw %}
 <style>

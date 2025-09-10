@@ -1,8 +1,8 @@
 # How to Switch from TCP to HTTP/S
 
-This example demonstrates how WSO2 Micro Integrator receives SOAP messages over TCP and forwards them over HTTP.
+This example demonstrates how WSO2 Integrator: MI receives SOAP messages over TCP and forwards them over HTTP.
 
-TCP is not an application layer protocol. Hence there are no application-level headers available in the requests. The Micro Integrator has to simply read the XML content coming through the socket and dispatch it to the right proxy service based on the information available in the message payload. The TCP transport is capable of dispatching requests based on addressing headers or the first element in the SOAP body. In this sample, we will get the sample client to send WS-Addressing headers in the request. Therefore, the dispatching will take place based on the addressing header values.
+TCP is not an application layer protocol. Hence there are no application-level headers available in the requests. The WSO2 Integrator: MI has to simply read the XML content coming through the socket and dispatch it to the right proxy service based on the information available in the message payload. The TCP transport is capable of dispatching requests based on addressing headers or the first element in the SOAP body. In this sample, we will get the sample client to send WS-Addressing headers in the request. Therefore, the dispatching will take place based on the addressing header values.
 
 ## Synapse configuration
 
@@ -46,7 +46,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service.
 

@@ -1,10 +1,10 @@
 # How to Transform a JSON Message to SOAP
 
-Let's consider a scenario where you have a SOAP-based backend and a JSON client. The SOAP backend is exposed as a REST API in the Micro Integrator. 
+Let's consider a scenario where you have a SOAP-based backend and a JSON client. The SOAP backend is exposed as a REST API in the WSO2 Integrator: MI. 
 
-When the JSON client sends a message to the SOAP backend, the REST API in the Micro Integrator should convert the JSON message to SOAP. The backend will process the SOAP request and generate a response for the JSON client. The Micro Integrator should then convert the SOAP response back to JSON and return it to the client.
+When the JSON client sends a message to the SOAP backend, the REST API in the WSO2 Integrator: MI should convert the JSON message to SOAP. The backend will process the SOAP request and generate a response for the JSON client. The WSO2 Integrator: MI should then convert the SOAP response back to JSON and return it to the client.
 
-The following examples explain different methods of converting JSON messages to SOAP using the Micro Integrator.
+The following examples explain different methods of converting JSON messages to SOAP using the WSO2 Integrator: MI.
 
 ## Using the Payload mediator
 
@@ -74,7 +74,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the backend service:
 
@@ -188,7 +188,7 @@ Create the artifacts:
 {!includes/build-and-run.md!}
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Create a local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) named **in_transform** with the above XSLT configuration.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the backend service:
 

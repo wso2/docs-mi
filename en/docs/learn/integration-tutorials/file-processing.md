@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-This sample demonstrates how to pick a file from a folder and process it within the Micro Integrator. In this sample scenario, you pick a file from the local directory, insert the records in the file to a database, send an email with the file content, trace and write the log, and finally move the file to another directory.
+This sample demonstrates how to pick a file from a folder and process it within the WSO2 Integrator: MI. In this sample scenario, you pick a file from the local directory, insert the records in the file to a database, send an email with the file content, trace and write the log, and finally move the file to another directory.
 
 <!--
 The result of the query should be as follows when you query to view the records in the `test.info` table. You will see that there is no data in the table.
@@ -12,7 +12,7 @@ The result of the query should be as follows when you query to view the records
 
 ### Step 1: Set up the workspace
 
-Install the [Micro Integrator VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator) extension.
+Install the [WSO2 Integrator: MI VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator) extension.
 
 Let's setup a MySQL database:
 
@@ -218,11 +218,11 @@ See the instructions on [creating a local registry configuration]({{base_path}}/
 <localEntry key="smooks" src="file:resources/smooks-config.xml"/>
 ```
 
-### Step 4: Configure the Micro Integrator server
+### Step 4: Configure the WSO2 Integrator: MI server
 
 1. Add the following server configurations to the `deployment.toml` file in the <MI_HOME>/conf directory.
 
-    -   The **VFS** transport is enabled in the Micro Integrator by default. Enable the [MailTo transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for sending the email message as shown below and update the values:
+    -   The **VFS** transport is enabled in the WSO2 Integrator: MI by default. Enable the [MailTo transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport) for sending the email message as shown below and update the values:
 
         ```toml
         [[transport.mail.sender]]
@@ -265,9 +265,9 @@ Save the file in the `.txt` format to the `in` directory that you specified.
 
 #### Analyze the result
 
-The Micro Integrator listens on a local file system directory. When a file is dropped into the `in` directory, the Micro Integrator picks this file.
+The WSO2 Integrator: MI listens on a local file system directory. When a file is dropped into the `in` directory, the WSO2 Integrator: MI picks this file.
 
 1.  Make sure the file appears in the `out` directory.
-2.  The Micro Integrator inserts the records from the text file to the database. Make sure the data is in the info table. The following screenshot displays the content of the `test.info` table with the data from the file.  
+2.  The WSO2 Integrator: MI inserts the records from the text file to the database. Make sure the data is in the info table. The following screenshot displays the content of the `test.info` table with the data from the file.  
 3.  Make sure the original file is moved to the `/home/<username>/test/original` directory.
 4.  Make sure the e-mail notification is sent to the email address that is specified. The message should contain the file data. The following screenshot displays a notification received. If you see the error message `Username and Password not accepted` in the logs, you might need to turn on `Allow less secure apps` in your Google account from [here](https://myaccount.google.com/lesssecureapps).

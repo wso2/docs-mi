@@ -4,7 +4,7 @@ If your system uses more than one broker, you need to add multiple broker config
 
 ## Configuring multiple broker types
 
-The following example illustrates how to configure WSO2 Micro Integrator to listen to
+The following example illustrates how to configure WSO2 Integrator: MI to listen to
 both ActiveMQ and WSO2 MB messages.
 
 1.  Download ActiveMQ (version 5.8.0 or later) from the [Apache ActiveMQ](http://activemq.apache.org/) site. 
@@ -46,7 +46,7 @@ both ActiveMQ and WSO2 MB messages.
         Note that the transport receiver name is different in each configuration.
 
 7.  Start both ActiveMQ and WSO2 MB.
-8.  Start WSO2 Micro Integrator.
+8.  Start WSO2 Integrator: MI.
 
 Now ActiveMQ proxy service can be configured as follows to read messages from ActiveMQ server.
 
@@ -106,7 +106,7 @@ WSO2 MB proxy service can be configured as follows to read messages from WSO2 MB
 
 ## Connecting multiple ActiveMQ brokers
 
-WSO2 Micro Integrator can be configured as described below to work with two ActiveMQ brokers. In this example, port 61616 is used for one
+WSO2 Integrator: MI can be configured as described below to work with two ActiveMQ brokers. In this example, port 61616 is used for one
 ActiveMQ instance and port 61617 is used for another ActiveMQ instance.
  
 === "ActiveMQ Broker 1"
