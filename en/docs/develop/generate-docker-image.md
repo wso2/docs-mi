@@ -15,7 +15,7 @@ We can use the WSO2 Integrator: MI VS Code Extension to build a Docker image of 
     !!! Note
          Make sure that the `DOCKER_HOST` environment variable is set on your machine before following the next step.
 
-2. Click on the **Build** button on the top right corner of the **Project Overview** page and select the Docker option to build the Docker image.
+2. Open the **Overview** page and select the **Build Docker Image** option from the **Deployment Options** section and then click on **Create Docker Image**.
 
     <img src="{{base_path}}/assets/img/develop/build-docker-image.png" alt="build docker image" width="700">
 
@@ -36,3 +36,5 @@ We can use the WSO2 Integrator: MI VS Code Extension to build a Docker image of 
     <name>helloworld:${project.version}</name>
     ```
     Then build the Docker image again.
+
+Follow the [Generate Kubernetes Configuration]({{base_path}}/develop/configure-kubernetes/) guide to deploy the generated Docker image via Kubernetes.
