@@ -4,7 +4,7 @@ Follow the instructions below to apply security to a proxy service via WSO2 Inte
 
 ## Prerequisites
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the WSO2 Integrator: MI and add the required users and roles.
+[configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
 
 ## Step 1 - Create the security policy file
 
@@ -18,17 +18,56 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
 4. Select **Resource** under the **Other Artifacts** section.  
     [![Select Resource]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/resource-card.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/select-registry-resource.png)  
 5. Add the following details in the **Create New Resource** window that opens and click on **Create**.  
-       **Create Options**: Select `From existing template`.       
-       **Resource Name**: Enter a name for the resource.    
-       **Template Type**: Select `WS-Policy`.    
-       **WS-Policy Type**: Select the WS Policy type. In this case select `Username Token`. Based on the policy type fill the popping up fields if required.  
-       **Resource Path**: Provide the resource path where the resource should be saved.  
-       [![Create New Resource]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/create-new-registry-resource.png)  
+    - **Create Options**: Select `From existing template`.
+    - **Resource Name**: Enter a name for the resource.
+    - **Template Type**: Select `WS-Policy`.
+    - **WS-Policy Type**: Select `Sign and Encrypt - X509 Authentication`.
+    - **Resource Path**: Provide the resource path where the resource should be saved. 
+    
+    <a href="{{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png"><img src="{{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png" width="60%" alt="Create Resource"></a>
+
 6. The created policy file will be listed in the project explorer.  
-    [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/resource-view.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)
+   [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)  
+   You can also find this security policy file under the **Registry Explorer** section in the sidebar. Double-click on the file to open it.  
+   [![Registry Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/registry-explorer.png)
+
+    !!! Note
+        If you want to change any other properties, you can edit via the **Source View**.  
+
+7. Edit the policy file in the **Source View** to enable the required security scenario.  
+   For example, to enable the **Sign and Encrypt** security scenario, add the following encryption/signature properties to the policy file.
+    - **Alias**: `wso2carbon`
+    - **Privatestore**: `wso2carbon.jks`
+    - **Tenant id**: `-1234`
+    - **Truststores**: `wso2carbon.jks`
+    - **User**: `wso2carbon`
+
+    The following advanced rampart properties have been added to your policy file by default.
+
+    - **User**: `wso2carbon`
+    - **encryptionUser**: `useReqSigCert`
+    - **timestampPrecisionInMilliseconds**: `true`
+    - **timestampTTL**: `300`
+    - **timestampMaxSkew**: `300`
+    - **timestampStrict**: `false`
+    - **tokenStoreClass**: `org.wso2.carbon.security.util.SecurityTokenStore`
+    - **nonceLifeTime**: `300`
 
 !!! Note
-    If you want to change any other properties, you can edit via the **Source View**.
+    Properties in RampartConfig can be externalized using the `$SYSTEM:PROPERTY_NAME` syntax. The `$SYSTEM:` prefix allows you to retrieve values from environment variables. 
+    
+    For example, you can use `$SYSTEM:encryptionUser` to retrieve the value of the `encryptionUser` property from the environment.
+    ```xml
+    <rampart:RampartConfig xmlns:rampart="http://ws.apache.org/rampart/policy">
+		<rampart:encryptionUser>$SYSTEM:encryptionUser</rampart:encryptionUser>
+		<rampart:timestampPrecisionInMilliseconds>true</rampart:timestampPrecisionInMilliseconds>
+		<rampart:timestampTTL>300</rampart:timestampTTL>
+		<rampart:timestampMaxSkew>300</rampart:timestampMaxSkew>
+		<rampart:timestampStrict>false</rampart:timestampStrict>
+		<rampart:tokenStoreClass>org.wso2.micro.integrator.security.extensions.SecurityTokenStore</rampart:tokenStoreClass>
+		<rampart:nonceLifeTime>300</rampart:nonceLifeTime>
+	</rampart:RampartConfig>
+    ``` 
 
 <!--
 #### Specifying role-based access?
@@ -71,9 +110,9 @@ Either define the user roles inline or retrieve the user roles from the server.
 
 4. Select the **Security Enabled** checkbox and click on the **+ Add Policy** to select the security policy file you created in the previous step.
 
-    [![Security Policy]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/security-section.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)  
+5. Select the security policy file from the drop-down list and click **Save**.
 
-    Select the security policy file from the drop-down list and click **Save**.
+    [![Security Policy]({{base_path}}/assets/img/integrate/apply-security/add-ws-policy/security-section.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/enable-security.png)
 
 ## Step 3 - Build and run the artifacts
 
@@ -87,7 +126,7 @@ Create a Soap UI project with the relevant security settings and then send the r
 
 1.  Create a "SOAP Project" in SOAP UI using the WSDL URL of the proxy service.
 
-     Example: `http://localhost:8280/services/SampleProxy?wsdl`
+    Example: `https://localhost:8253/services/SampleProxy?wsdl`
 
     <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.png" width="600">
 
@@ -128,14 +167,22 @@ Create a Soap UI project with the relevant security settings and then send the r
    
 7.  Invoke the Proxy Service.
 
-!!! Info
+    !!! Info
 
-    When defining the Outgoing WS-Security Configuration, you need to pick the WS entries based on your WS policy.
-    
-    Eg:
-    
-    - A Non Repudiation policy needs only Timestamp and Signature. 
-    - A Confidentiality policy needs all three: Timestamp, Signature and Encryption.
-    - You do not need to provide an Outgoing WS-Security Configuration for a Username Token policy. Providing the basic auth configuration is enough.
+        When defining the Outgoing WS-Security Configuration, you need to pick the WS entries based on your WS policy.
+
+        Eg:
+
+        - A Non Repudiation policy needs only Timestamp and Signature. 
+        - A Confidentiality policy needs all three: Timestamp, Signature and Encryption.
+        - You do not need to provide an Outgoing WS-Security Configuration for a Username Token policy. Providing the basic auth configuration is enough.
     
         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"></a>
+
+8.  To decrypt the response, add the Incoming WSS configuration similar to the Outgoing WSS configuration.
+
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" width="60%" alt="Adding Decryption"></a>
+
+9.  Invoke the Proxy Service with Incoming & Outgoing WSS Configuration.
+
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" width="60%" alt="In and Out Policy"></a>
