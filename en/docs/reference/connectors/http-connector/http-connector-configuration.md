@@ -350,13 +350,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -430,13 +430,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -534,13 +534,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -640,13 +640,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -746,13 +746,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -852,13 +852,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
@@ -958,13 +958,13 @@ The following operations allow you to work with the HTTP. Click an operation nam
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>
             <td><code>forceScAccepted</code></td>
             <td>Force immediate 202 response</td>
-            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</td>
+            <td>When set to true, this property forces a 202 HTTP response to the client immediately after the WSO2 Integrator: MI receives the message so that the client stops waiting for a response.</td>
             <td>No</td>
         </tr>
         <tr>

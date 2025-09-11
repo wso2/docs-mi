@@ -1,6 +1,6 @@
-# Upgrade WSO2 Micro Integrator
+# Upgrade WSO2 Integrator: MI
 
-This document walks you through the process of upgrading WSO2 Micro Integrator.
+This document walks you through the process of upgrading WSO2 Integrator: MI.
 
 ## Why upgrade?
 
@@ -12,13 +12,13 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 
 ## What has changed
 
-Over the course of its lifetime, WSO2 Micro Integrator has changed significantly and some of the features you were using in an older version may not work the same way.
+Over the course of its lifetime, WSO2 Integrator: MI has changed significantly and some of the features you were using in an older version may not work the same way.
 
-To learn what’s new in the WSO2 Micro Integrator 4.4.0 release, see the [About this Release]({{base_path}}/get-started/about-this-release/) page.
+To learn what’s new in the WSO2 Integrator: MI 4.5.0 release, see the [About this Release]({{base_path}}/get-started/about-this-release/) page.
 
 ## Get started
 
-To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 Micro Integrator with minimal difficulty.
+To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 Integrator: MI with minimal difficulty.
 
 If you are ready to start the migration process, follow the instructions given below.
 

@@ -4,7 +4,7 @@ Follow these steps to create a new resource artifact in MI for VS Code.
 
 {!includes/creating-project.md!}
 
-3. To add a new Resource, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Resource, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

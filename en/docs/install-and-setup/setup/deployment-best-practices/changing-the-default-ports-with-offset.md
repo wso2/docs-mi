@@ -8,13 +8,13 @@ There are two ways to set an offset to a port: Update the server configurations,
 
 ## Before you begin
 
-See the complete list of [default ports]({{base_path}}/install-and-setup/setup/reference/default-product-ports) in Micro Integrator.
+See the complete list of [default ports]({{base_path}}/install-and-setup/setup/reference/default-product-ports) in WSO2 Integrator: MI.
 
 Note that most of the **runtime ports** change automatically based on the offset you specify here.
 
 ## Changing the default MI ports
 
-The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of the following two methods to apply an offset to the Micro Integrator runtime.
+The default port offset in the WSO2 Integrator: MI runtime is `10`. Use one of the following two methods to apply an offset to the WSO2 Integrator: MI runtime.
 
 !!! Tip
 	-	The internal offset of 10 is overriden by this manual offset. That is, if the manual offset is 3, the default ports will change as follows:

@@ -13,7 +13,7 @@ The Google Pub/Sub Inbound Endpoint provides a robust and production-grade imple
 By following this tutorial, you will gain hands-on experience in:
 
 1. Set up Google Cloud Pub/Sub resources.
-2. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+2. Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 3. Run and test the integration to receive real-time messages.
 
 ## Step 01: Set up Google Cloud Pub/Sub resources
@@ -28,11 +28,11 @@ By following this tutorial, you will gain hands-on experience in:
 * [Create a Subscription](https://cloud.google.com/pubsub/docs/publish-receive-messages-console#add_a_second_subscription)
 * [Set Up Authentication](https://cloud.google.com/docs/authentication/set-up-adc-attached-service-account)
 
-## Step 02: Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension
-Follow these steps to configure the inbound endpoint in WSO2 Micro Integrator using the Visual Studio Code extension:
+## Step 02: Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension
+Follow these steps to configure the inbound endpoint in WSO2 Integrator: MI using the Visual Studio Code extension:
 
-1. [Create a new project]({{base_path}}/develop/create-integration-project/) using the WSO2 Micro Integrator VS Code extension.
-2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Micro Integrator.
+1. [Create a new project]({{base_path}}/develop/create-integration-project/) using the WSO2 Integrator: MI VS Code extension.
+2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Integrator: MI.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/sf-pubsub-inb-2.png" title="Google Pub/Sub Inbound Endpoint Example" width="80%" alt="Event Integration"/>
 
@@ -77,7 +77,7 @@ curl --location 'https://pubsub.googleapis.com/v1/projects/<project-id>/topics/<
 ]}
 ```
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts) guide or simply click the **Run** button in the Visual Studio Code extension.
-Once you have published the message to your Google Pub/Sub Topic, you can check the logs in the WSO2 Micro Integrator server to see the incoming messages.
+Once you have published the message to your Google Pub/Sub Topic, you can check the logs in the WSO2 Integrator: MI server to see the incoming messages.
 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-inbound/events-recieved.png" title="Google Pub/Sub Inbound User Scenario" alt="Order Notification" width="90%" height="50%"/>

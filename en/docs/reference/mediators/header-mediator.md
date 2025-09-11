@@ -87,7 +87,7 @@ This section covers the following scenarios in which the Header mediator can be 
 
 ### Using SOAP headers
 
-In the following example, the value for `P1 code`should be included in the SOAP header of the message sent from the client to the Micro Integrator. 
+In the following example, the value for `P1 code`should be included in the SOAP header of the message sent from the client to the WSO2 Integrator: MI. 
 To do this, the header mediator is added to the in sequence of the proxy configuration as shown below. Another header mediator is added to the inSequence to respond with `Hello World` in the SOAP header.
 
 === "REST API"

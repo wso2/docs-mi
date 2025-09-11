@@ -224,7 +224,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) guide to build and export it into a CAR file (`.car` file) using the Micro Integrator for Visual Studio Code extension.
+Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) guide to build and export it into a CAR file (`.car` file) using the WSO2 Integrator: MI for Visual Studio Code extension.
 
 ## Test
 

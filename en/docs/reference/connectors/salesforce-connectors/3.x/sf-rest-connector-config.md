@@ -5,7 +5,7 @@ The following operations allow you to work with the Salesforce Connector. Click 
 ---
 ## Initialize the connector
 
-The WSO2 Micro Integrator Salesforce connector offers **two connection types**, each suited to a different API family:
+The WSO2 Integrator: MI Salesforce connector offers **two connection types**, each suited to a different API family:
 
 | Connection type            | Typical use-case                                                 | Provide                                                                                                                                     | What the connector does                                                                                                                                                                 |
 | -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

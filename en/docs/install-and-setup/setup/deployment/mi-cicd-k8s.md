@@ -1,6 +1,6 @@
 # Build a CI/CD Pipeline for Integrations (K8s deployment)
 
-This document explains the Continuous Integration and Continuous Deployment (CI/CD) process for the WSO2 Micro Integrator (MI) integration project using Jenkins. The pipeline is designed to support both regular development builds and Maven release builds, along with Docker image tagging and Helm-based Kubernetes deployments.
+This document explains the Continuous Integration and Continuous Deployment (CI/CD) process for the WSO2 Integrator:  MI integration project using Jenkins. The pipeline is designed to support both regular development builds and Maven release builds, along with Docker image tagging and Helm-based Kubernetes deployments.
 
 !!! Note
     This pipeline setup is provided for demonstration purposes using Jenkins. In production environments, you may implement similar flows using other CI/CD platforms such as GitHub Actions, GitLab CI, Azure DevOps etc.
@@ -57,11 +57,11 @@ The deployment pipeline contains the following four three stages:
 
 ### Prerequisites
 
-To configure the CI/CD pipeline for deploying WSO2 Micro Integrator integrations using Jenkins and Helm, ensure the following prerequisites are met
+To configure the CI/CD pipeline for deploying WSO2 Integrator: MI integrations using Jenkins and Helm, ensure the following prerequisites are met
 
 #### Integration project
 
-You should have an integration project created using the [Micro Integrator Extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/).
+You should have an integration project created using the [WSO2 Integrator: MI Extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/).
 
 **Update the `pom.xml` with SCM information**
 
@@ -88,7 +88,7 @@ Maintain a separate GitHub repository to store deployment configurations. This r
 
 1. A clone of the <a target="_blank" href="https://github.com/wso2/helm-mi/tree/4.4.x">MI Helm Chart</a>.
 
-2. An updated `mi-values.yaml` file to suit your environment. For configuration details, refer to the [Configure Helm charts for Micro Integrator]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
+2. An updated `mi-values.yaml` file to suit your environment. For configuration details, refer to the [Configure Helm charts for WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
 
 3. A `mi-config.json` file inside the `mi/` directory with the following initial content:
 

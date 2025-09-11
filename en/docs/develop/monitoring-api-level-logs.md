@@ -1,6 +1,6 @@
 # Monitoring API-Level Logs
 
-The advantage of having per-API log files is that it is very easy to analyze/monitor what went wrong in a particular REST API defined in WSO2 Micro Integrator by looking at the log files. The API log is an additional log file, which will contain a copy of the logs to a particular REST API.
+The advantage of having per-API log files is that it is very easy to analyze/monitor what went wrong in a particular REST API defined in WSO2 Integrator: MI by looking at the log files. The API log is an additional log file, which will contain a copy of the logs to a particular REST API.
 
 Below are the configuration details to configure the logs of a REST API called `TestAPI` using `log4j`
 properties.

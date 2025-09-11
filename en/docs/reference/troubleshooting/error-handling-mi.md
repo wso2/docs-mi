@@ -1,4 +1,4 @@
-# Error codes in Micro Integrator
+# Error codes in WSO2 Integrator: MI
 
 This section describes error codes and their meanings.
 

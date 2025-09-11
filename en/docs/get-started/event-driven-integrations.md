@@ -7,19 +7,19 @@ tags:
 
 ## Introduction
 
-In addition to traditional API-based integrations, modern systems often need to respond to **asynchronous events** from external systems such as message brokers and event buses. WSO2 Micro Integrator (MI) allows you to build **event-driven integrations** that react to incoming events, transform data, and publish messages in real time.
+In addition to traditional API-based integrations, modern systems often need to respond to **asynchronous events** from external systems such as message brokers and event buses. WSO2 Integrator:  MI allows you to build **event-driven integrations** that react to incoming events, transform data, and publish messages in real time.
 
 In this tutorial, you'll learn how to use <a target="_blank" href="https://kafka.apache.org/">Kafka</a> with MI to build a message-driven integration that listens to a Kafka topic, transforms the received data, and optionally publishes the result to another topic.
 
-!!! tip "New to WSO2 Micro Integrator?"
+!!! tip "New to WSO2 Integrator: MI?"
     If you're just getting started, we recommend completing the [Build your first Integration]({{base_path}}/get-started/build-first-integration/) tutorial first. It will help you understand key integration concepts and get familiar with the developer tool features before diving into event-driven flows.
 
 ## Prerequisites
 
-You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
+You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Integrator: MI.
 
 !!! Info
-    See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+    See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 ## What you’ll learn
 
@@ -32,7 +32,7 @@ By following this tutorial, you will gain hands-on experience in:
 
 ## What you'll build
 
-Let’s try a simple scenario where WSO2 Micro Integrator listens to a Kafka topic named `bank-transactions`, transforms each incoming bank transaction event, and publishes the normalized message to another topic called `bank-audit`. This demonstrates how you can build real-time, event-driven integrations without using any APIs.
+Let’s try a simple scenario where WSO2 Integrator: MI listens to a Kafka topic named `bank-transactions`, transforms each incoming bank transaction event, and publishes the normalized message to another topic called `bank-audit`. This demonstrates how you can build real-time, event-driven integrations without using any APIs.
 
 ## Step 1 - Setup Kafka
 
@@ -59,7 +59,7 @@ You should see a message like `Kafka Server started` indicating that the broker 
 
 ### Create the Topics
 
-Kafka uses **topics** to organize and group related messages. In this tutorial, we’ll create a topic named `bank-transactions`, which the Kafka listener in WSO2 Micro Integrator will subscribe to, and a topic named `bank-audit`, to which the Micro Integrator will publish the transformed messages.
+Kafka uses **topics** to organize and group related messages. In this tutorial, we’ll create a topic named `bank-transactions`, which the Kafka listener in WSO2 Integrator: MI will subscribe to, and a topic named `bank-audit`, to which the WSO2 Integrator: MI will publish the transformed messages.
 
 1. Open a new command line prompt on your machine and run the following command to create the `bank-transactions` topic.
 
@@ -77,11 +77,11 @@ Kafka uses **topics** to organize and group related messages. In this tutorial, 
 
 ## Step 2 - Create a new integration project
 
-To develop the above scenario, let's get started with creating an integration project in the Micro Integrator extension installed VS Code.
+To develop the above scenario, let's get started with creating an integration project in the WSO2 Integrator: MI extension installed VS Code.
 
-1. Launch VS Code with the Micro Integrator extension installed.
+1. Launch VS Code with the WSO2 Integrator: MI extension installed.
 
-2. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
+2. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
@@ -91,7 +91,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 4. In the **Project Creation Form**, enter `EventIntegration` as the **Project Name**.
 
-5. Ensure `4.4.0` is selected as the **Micro Integrator runtime version**.
+5. Ensure `4.5.0` is selected as the **WSO2 Integrator: MI runtime version**.
 
 6. Provide a location for the integration project under **Project Directory**.
 
@@ -105,7 +105,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 Now that the integration project is ready, let's create a Kafka event listener.
 
-1. In the **Add Artifact** interface, under **Create an Integration**, click **Event Integration**. This will open the list of event integrations available in WSO2 Micro Integrator.
+1. In the **Add Artifact** interface, under **Create an Integration**, click **Event Integration**. This will open the list of event integrations available in WSO2 Integrator: MI.
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" alt="Create New Project" width="80%"></a>
 
@@ -151,7 +151,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
     <a href="{{base_path}}/assets/img/get-started/event-integration/add_first_mediator.png"><img src="{{base_path}}/assets/img/get-started/event-integration/add_first_mediator.png" alt="Create New Project" width="80%"></a>
 
-    Since this is an event-driven integration, we’ll log the incoming message to ensure that events are being received by the Micro Integrator.
+    Since this is an event-driven integration, we’ll log the incoming message to ensure that events are being received by the WSO2 Integrator: MI.
 
 4. Under **Mediators**, select the **Log** mediator.
 
@@ -354,7 +354,7 @@ You have successfully completed the integration flow to listen to Kafka events a
 
 ## Step 5 - Run the integration
 
-Now that you have completed the integration, it's time to deploy it to the Micro Integrator server runtime.
+Now that you have completed the integration, it's time to deploy it to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -362,9 +362,9 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 ## Step 6 - Test the integration
 
-Once the Micro Integrator runtime is up and running, follow the steps below to publish a message and verify the integration.
+Once the WSO2 Integrator: MI runtime is up and running, follow the steps below to publish a message and verify the integration.
 
-1. Open a new command line prompt on your machine and run the following command to tail the logs for the `bank-audit` topic. The Micro Integrator will publish the transformed messages to this topic.
+1. Open a new command line prompt on your machine and run the following command to tail the logs for the `bank-audit` topic. The WSO2 Integrator: MI will publish the transformed messages to this topic.
 
     ```bash
     docker exec -it kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bank-audit --from-beginning
@@ -386,7 +386,7 @@ Once the Micro Integrator runtime is up and running, follow the steps below to p
 
     You won’t see any confirmation, but the message is now sent to the `bank-transactions` topic.
 
-4. Check the logs of the Micro Integrator runtime in **VS Code**. You should see a log entry similar to the following.
+4. Check the logs of the WSO2 Integrator: MI runtime in **VS Code**. You should see a log entry similar to the following.
 
     ```bash
     [2025-04-03 09:49:23,029]  INFO {LogMediator} - Kafka event received, data = {"id":"TXN011","type":"withdraw","accountId":"ACC456","amount":1500}
@@ -407,7 +407,7 @@ Once the Micro Integrator runtime is up and running, follow the steps below to p
     }
     ```
 
-Congratulations! You’ve now learned how to create an event-driven integration using Kafka and apply message transformation using WSO2 Micro Integrator. This is a powerful pattern for building scalable, real-time systems.
+Congratulations! You’ve now learned how to create an event-driven integration using Kafka and apply message transformation using WSO2 Integrator: MI. This is a powerful pattern for building scalable, real-time systems.
 
 ## What's Next?
 

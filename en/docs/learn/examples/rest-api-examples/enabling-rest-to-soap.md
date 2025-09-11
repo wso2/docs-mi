@@ -1,6 +1,6 @@
 # How to Expose a SOAP Endpoint as a RESTful API
     
-This example demonstrates how you can expose a SOAP service over REST using an API in WSO2 Micro Integrator.
+This example demonstrates how you can expose a SOAP service over REST using an API in WSO2 Integrator: MI.
     
 ## Synapse configuration
     
@@ -67,7 +67,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -117,7 +117,7 @@ Sending a **POST request**:
     curl -v -d @placeorder.xml -H "Content-type: application/xml" http://127.0.0.1:8290/stockquote/order/
     ```
  
-This SOAP service invocation is an `OUT_ONLY` invocation, so the Micro Integrator is not expecting any response back from the SOAP service. Since we have set the `FORCE_SC_ACCEPTED` property value to true, the Micro Integrator returns a 202 response back to the client as shown below.
+This SOAP service invocation is an `OUT_ONLY` invocation, so the WSO2 Integrator: MI is not expecting any response back from the SOAP service. Since we have set the `FORCE_SC_ACCEPTED` property value to true, the WSO2 Integrator: MI returns a 202 response back to the client as shown below.
     
 ```bash
 < HTTP/1.1 202 Accepted

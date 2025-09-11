@@ -8,7 +8,7 @@ service.
 
 ## Prerequisites
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the WSO2 Integrator: MI and add the required users and roles.
 
 ## Step 1: Create a registry resource module and a security policy as a registry resource
 
@@ -55,7 +55,7 @@ module:
 Once you have configured the policy file, you can add the security
 policy to the data service as explained below.
 
-1.  If you have already created a data service, Open the file using WSO2 Micro Integrator Visual Studio Code extension.
+1.  If you have already created a data service, Open the file using WSO2 Integrator: MI Visual Studio Code extension.
 
     !!! Tip
         Be sure to update your database credentials in the dataservice file.

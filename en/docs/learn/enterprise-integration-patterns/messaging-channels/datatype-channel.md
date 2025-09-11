@@ -1,6 +1,6 @@
 # Datatype Channel
 
-This page explains how you can implement a sample scenario of Datatype Channel EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Datatype Channel EIP using WSO2 Integrator: MI.
 
 ## Introduction to Datatype Channel
 

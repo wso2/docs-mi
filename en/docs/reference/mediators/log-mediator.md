@@ -28,7 +28,7 @@ follows.
 <tbody>
 <tr class="odd">
 <td><strong>Log Category</strong></td>
-<td><p>This parameter is used to specify the log category. The following log levels correspond to the Micro Integrator service level logs.</p>
+<td><p>This parameter is used to specify the log category. The following log levels correspond to the WSO2 Integrator: MI service level logs.</p>
 <ul>
 <li><strong>INFO</strong> - provides informational messages that highlight the progress of the application at a coarse-grained level.</li>
 <li><strong>TRACE</strong> - provides fine-grained informational events than the DEBUG level.</li>

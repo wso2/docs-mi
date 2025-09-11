@@ -1,10 +1,10 @@
 # Resource Allocation and Performance
 
-This document summarizes the performance test results and capacity planning insights for WSO2 Micro Integrator deployed in the [Choreo Private Data Plane](https://wso2.com/choreo/docs/choreo-concepts/data-planes/#private-data-planes) environment. It provides guidance on how different resource allocations (CPU and memory) affect throughput (requests/sec) and response times for varying message sizes and concurrent user loads.
+This document summarizes the performance test results and capacity planning insights for WSO2 Integrator: MI deployed in the [Choreo Private Data Plane](https://wso2.com/choreo/docs/choreo-concepts/data-planes/#private-data-planes) environment. It provides guidance on how different resource allocations (CPU and memory) affect throughput (requests/sec) and response times for varying message sizes and concurrent user loads.
 
 ## Test setup
 
-Performance testing was conducted within the WSO2 Choreo Private Data Plane (PDP). All components JMeter (load generator), Micro Integrator, and the Netty echo service (backend) were deployed in the same PDP network to minimize external latency and isolate the performance characteristics of MI.
+Performance testing was conducted within the WSO2 Choreo Private Data Plane (PDP). All components JMeter (load generator),WSO2 Integrator: MI, and the Netty echo service (backend) were deployed in the same PDP network to minimize external latency and isolate the performance characteristics of MI.
 
 ### Key environment details
 
@@ -17,14 +17,14 @@ Performance testing was conducted within the WSO2 Choreo Private Data Plane (PDP
 
 ### Limitations
 
-- All tests were conducted using the default Micro Integrator distribution, except for the 500 KB and 1 MB payload tests. The results may vary or become invalid if configurations such as buffer sizes or thread pool sizes are modified. 
+- All tests were conducted using the default WSO2 Integrator: MI distribution, except for the 500 KB and 1 MB payload tests. The results may vary or become invalid if configurations such as buffer sizes or thread pool sizes are modified. 
 - The tests were based on HTTP passthrough scenarios; results may differ for other mediation or integration patterns.
 - Network latency was negligible as all the components were within the same PDP.
 - Results are indicative of throughput and latency within Choreo PDP and may differ in multi-region or hybrid deployments.
 
 ## Server startup times
 
-The startup time of WSO2 Micro Integrator containers was measured across different CPU and memory configurations. This metric helps determine cold start behavior, specially relevant for scaling scenarios where containers are frequently started and stopped.
+The startup time of WSO2 Integrator: MI containers was measured across different CPU and memory configurations. This metric helps determine cold start behavior, specially relevant for scaling scenarios where containers are frequently started and stopped.
 
 | CPU   | Memory | Startup time (seconds) |
 |-------|--------|-------------------------|

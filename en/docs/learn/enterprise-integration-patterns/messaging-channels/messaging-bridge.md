@@ -1,6 +1,6 @@
 # Messaging Bridge
 
-This page explains how you can implement a sample scenario of Message Bridge using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Message Bridge using WSO2 Integrator: MI.
 
 ## Introduction to Messaging Bridge
 
@@ -130,7 +130,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Analyze the output
 
-The Micro Integrator returns the following response to the client.
+The WSO2 Integrator: MI returns the following response to the client.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

@@ -43,7 +43,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create two sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) (Main and Fault) and an [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 To execute the sample, use the **HAPI HL7 TestPanel**:
 
@@ -52,6 +52,6 @@ To execute the sample, use the **HAPI HL7 TestPanel**:
     the HAPI HL7 TestPanel.
 -   Generate and send an HL7 message using the messages dialog frame.
 
-You will see that the Micro Integrator receives the HL7 message and logs a
+You will see that the WSO2 Integrator: MI receives the HL7 message and logs a
 serialization of this message in a SOAP envelope. You will also see that
 the HAPI HL7 TestPanel receives an acknowledgement.

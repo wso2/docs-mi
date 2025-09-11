@@ -1,6 +1,6 @@
 # Create a Unit Test Suite
 
-Once you have developed an integration solution, WSO2 Micro Integrator VS Code Extension allows you to build unit tests for the following:
+Once you have developed an integration solution, WSO2 Integrator: MI VS Code Extension allows you to build unit tests for the following:
 
 - Test [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [REST apis]({{base_path}}/develop/creating-artifacts/creating-an-api) with multiple test cases.
 - Test the artifacts with [registry resources]({{base_path}}/develop/creating-artifacts/creating-registry-resources).
@@ -11,8 +11,8 @@ Once you have developed an integration solution, WSO2 Micro Integrator VS Code E
 
 ## Create Unit Test Suite
 
-1. [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator server and on your computer.
-2. Launch Visual Studio Code with the [Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI server and on your computer.
+2. Launch Visual Studio Code with the [WSO2 Integrator: MI Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 3. Select the **Testing** extension from the left side panel to view the **Test Explorer**.
 4. Click on **Add New Test Suite** in the **Test Explorer**.
    
@@ -159,7 +159,7 @@ Once you have developed an integration solution, WSO2 Micro Integrator VS Code E
 !!! Note
     Additionally, the tests automatically run when executing `mvn clean install`. If you want to run unit tests with your configured server, follow the steps:
 
-    1. Run a separate Micro Integrator Instance in unit testing mode. To start the server in unit testing mode, you can pass the argument `-DsynapseTest` as below. If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` argument. Default port is `9008`. It is recommended running on a new MI server without any previously deployed integrations to avoid conflicts.
+    1. Run a separate WSO2 Integrator: MI Instance in unit testing mode. To start the server in unit testing mode, you can pass the argument `-DsynapseTest` as below. If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` argument. Default port is `9008`. It is recommended running on a new MI server without any previously deployed integrations to avoid conflicts.
     
         `sh micro-integrator.sh -DsynapseTest`
 

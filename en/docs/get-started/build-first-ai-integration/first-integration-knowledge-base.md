@@ -4,7 +4,7 @@ In this tutorial, you'll learn how to create an Integration API to add and retri
 
 ## What you'll build
 
-PineValley Bank needs to create a knowledge base to store its product-related documents and enable efficient search capabilities. To achieve this, the bank has decided to use a vector database as the solution. In this tutorial, we will build a vector database and access it using WSO2 Micro Integrator (MI) with the help of the AI Module. This integration will allow the bank to provide accurate and efficient responses to customer inquiries by leveraging advanced search and retrieval mechanisms.
+PineValley Bank needs to create a knowledge base to store its product-related documents and enable efficient search capabilities. To achieve this, the bank has decided to use a vector database as the solution. In this tutorial, we will build a vector database and access it using WSO2 Integrator:  MI with the help of the AI Module. This integration will allow the bank to provide accurate and efficient responses to customer inquiries by leveraging advanced search and retrieval mechanisms.
 
 In this tutorial, you will build two API resources to interact with the vector database:
 
@@ -23,12 +23,12 @@ These resources will form the foundation of your knowledge base API, enabling se
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Integrator: MI.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
-2. In the earlier tutorial, we created a new project in the Micro Integrator extension for VS Code. You can continue using that same project here. If you haven’t created a project yet, follow the steps in the [Create a new project]({{base_path}}/develop/create-integration-project/) documentation to set one up.
+2. In the earlier tutorial, we created a new project in the WSO2 Integrator: MI extension for VS Code. You can continue using that same project here. If you haven’t created a project yet, follow the steps in the [Create a new project]({{base_path}}/develop/create-integration-project/) documentation to set one up.
 
 Follow the steps below to create the Knowledge Base API.
 
@@ -236,7 +236,7 @@ You may refer to the following API configuration for reference,
 
 ## Step 4 - Run the Integration API
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 

@@ -1,6 +1,6 @@
 # Data Mapping using AI
 
-Did you know that the WSO2 Micro Integrator component of WSO2 Integrator comes with built-in data mapping capabilities to streamline your integration workflows?
+Did you know that the WSO2 Integrator: MI component of WSO2 Integrator comes with built-in data mapping capabilities to streamline your integration workflows?
 This data mapping solution brings you a powerful graphical interface, combined with AI-driven assistance, to perform all sorts of data mappings in mere seconds.
 
 In this guide, we are generating an API that processes weather data retrieved from the OpenWeather API for a mobile app. The app only requires a selected set of data from the API response and needs to modify some of the retrieved data to meet its requirements.
@@ -11,10 +11,10 @@ Check out this <a target="_blank" href="https://www.youtube.com/watch?v=O3qiFdjf
 
 ### Prerequisites
 
-You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
 !!! Info
-    See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation to learn how to install Micro Integrator for VS Code.
+    See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 ### Step 1: Create an integration project
 
@@ -266,7 +266,7 @@ You can now start configuring the API resource.
         ```
 
     !!! Tip
-        Micro Integrator allows you to do data mappings between different data types like XML and CSV. Check out more on this in our [documentation]({{base_path}}/reference/mediators/data-mapper-mediator/#input-and-output-files).
+       WSO2 Integrator: MI allows you to do data mappings between different data types like XML and CSV. Check out more on this in our [documentation]({{base_path}}/reference/mediators/data-mapper-mediator/#input-and-output-files).
 
     Now that all our schemas are in place, how does the actual mapping happen?
 
@@ -276,7 +276,7 @@ You can now start configuring the API resource.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map-btn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map-btn.png" alt="map schemas" width="80%"></a>
 
-    The Micro Integrator Data Mapper leverages AI to generate various types of mappings. With a simple button click, you'll find that all of your mappings have been automatically completed.
+    The WSO2 Integrator: MI Data Mapper leverages AI to generate various types of mappings. With a simple button click, you'll find that all of your mappings have been automatically completed.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map.png" alt="mapped schemas" width="80%"></a>
 

@@ -7,7 +7,7 @@ See the following topics to tune the RabbitMQ transport:
 You can increase the connection pool size to improve the performance of the RabbitMQ sender. The default connection pool size is 100. To change this, specify a required value for the `connection_pool_size` parameter in the RabbitMQ transport sender configurations in the deployment.toml file (stored in the `MI_HOME/conf` directory).
 
 !!! Note
-    The default connection pool size is increased to 200 from WSO2 Micro Integrator 4.4.0.22 onwards.
+    The default connection pool size is increased to 200 from WSO2 Integrator: MI 4.4.0.22 onwards.
 
 ```toml 
 [[transport.rabbitmq.sender]]

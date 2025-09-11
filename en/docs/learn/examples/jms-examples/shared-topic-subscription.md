@@ -4,9 +4,9 @@ With JMS 1.1, a subscription on a topic is not permitted to have more than one c
 
 With the shared subscription feature in JMS 2.0, you can overcome this restriction. When shared subscription is used, a message that comes to a topic is forwarded to only one of the consumers. That is, if multiple JMS consumers subscribe to a JMS topic, consumers can share the messages that come to the topic. The advantage of shared topic subscription is that it allows to share the workload between consumers.
 
-The Micro Integrator can be configured as a shared topic listener that can connect to a shared topic subscription as a message consumer (subscriber) to share workload between other consumers of the subscription.
+The WSO2 Integrator: MI can be configured as a shared topic listener that can connect to a shared topic subscription as a message consumer (subscriber) to share workload between other consumers of the subscription.
 
-To demonstrate the sample scenario, let's configure the JMS inbound endpoint in WSO2 Micro Integrator as a shared topic listener using HornetQ as the message broker.
+To demonstrate the sample scenario, let's configure the JMS inbound endpoint in WSO2 Integrator: MI as a shared topic listener using HornetQ as the message broker.
 
 ## Synapse configurations
 
@@ -98,11 +98,11 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use HornetQ for this example.
     
     -   Be sure to create a sample topic by editing the `HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml` file as follows:
         ```xml  
@@ -115,7 +115,7 @@ Set up the broker:
     -   On **Windows**: HORNETQ_HOME\bin\run.bat --run
     -   On **MacOS/Linux/Solaris**: sh HORNETQ_HOME/bin/run.sh
 
-3.  Start the Micro Integrator (after starting the broker).   
+3.  Start the WSO2 Integrator: MI (after starting the broker).   
 
 Follow the steps given below to create the topic consumer and publisher to run this example. 
 

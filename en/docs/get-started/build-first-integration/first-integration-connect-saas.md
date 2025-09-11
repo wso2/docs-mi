@@ -1,10 +1,10 @@
 # Connect to SaaS or B2B Systems
 
-In the previous tutorial, you learned how to route and transform messages, deploy, and test integrations in WSO2 Micro Integrator (MI). In this tutorial, you’ll learn how to create a loan review email notification flow that sends an email based on the client's loan status.
+In the previous tutorial, you learned how to route and transform messages, deploy, and test integrations in WSO2 Integrator:  MI. In this tutorial, you’ll learn how to create a loan review email notification flow that sends an email based on the client's loan status.
 
 ## What you'll build
 
-Let's consider a scenario where a client sends a loan request to the `Bank` API deployed in WSO2 Micro Integrator. Upon receiving the request, the API sends an email notification to the client indicating that the loan request has been received and is under review. This is done using a SaaS-based email service.
+Let's consider a scenario where a client sends a loan request to the `Bank` API deployed in WSO2 Integrator: MI. Upon receiving the request, the API sends an email notification to the client indicating that the loan request has been received and is under review. This is done using a SaaS-based email service.
 
 In this example, you will use <a target="_blank" href="https://developers.google.com/gmail/imap/imap-smtp">Gmail's SMTP service</a> as the email provider.
 
@@ -16,10 +16,10 @@ In this example, you will use <a target="_blank" href="https://developers.google
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 2. You must have completed the **Route and Transform messages** tutorial under **Build your first Integration** before proceeding. Start the [Route and Transform messages]({{base_path}}/get-started/build-first-integration/first-integration-route-and-transform/) tutorial if you haven’t completed it yet.
 
@@ -29,7 +29,7 @@ Now, it's time to design the email notification flow. Follow the steps below to 
 
 To develop the above scenario, let's get started with creating a new API resource in the `Bank` API.
 
-1. Click on the Service Designer (<img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon.png" alt="inline expression editor" class="inline-icon">) icon of the `Bank` API in the **Micro Integrator Project Explorer** to open the Service Designer.
+1. Click on the Service Designer (<img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon.png" alt="inline expression editor" class="inline-icon">) icon of the `Bank` API in the **WSO2 Integrator: MI Project Explorer** to open the Service Designer.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png" alt="Create New Project" width="80%"></a>
 
@@ -76,7 +76,7 @@ To develop the above scenario, let's get started with creating a new API resourc
 5. Search for `email` in the **Mediator Palette**, then click the download (<img src="{{base_path}}/assets/img/get-started/build-first-integration/connector_download_icon.png" alt="inline expression editor" class="inline-icon">) icon to add the [Email connector]({{base_path}}/reference/connectors/email-connector/email-connector-overview/) to the project. In the confirmation pane, select **Yes** to add the required dependencies.
 
     !!! Tip "What is a connector?"
-        - Connectors in WSO2 Micro Integrator (MI) enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
+        - Connectors in WSO2 Integrator:  MI enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
         - In VS Code, you can view all available connectors by clicking **Add Module** under the **Mediators** tab in the **Mediator Palette**.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png" alt="Create New Project" width="80%"></a>
@@ -291,7 +291,7 @@ You have successfully updated the integration flow to send an email with the loa
 
 ## Step 3 - Run the integration
 
-Now that you have updated the integration, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have updated the integration, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -329,7 +329,7 @@ You have now learned how to integrate with an email SaaS provider using connecto
 
 You have now completed this tutorial series, where you learned how to build a complete integration flow step by step. Throughout this journey, you have explored how to create Integration APIs, route and transform messages, connect to external SaaS and B2B systems.
 
-Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Micro Integrator.
+Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Integrator: MI.
 
 Try more [tutorials and examples]({{base_path}}/learn/learn-overview/).
 

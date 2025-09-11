@@ -2,13 +2,13 @@
 
 A user store is a repository that stores user credentials (user names and passwords).
 
-## Users in the Micro Integrator
+## Users in the WSO2 Integrator: MI
 
-Find out about [user credentials in the Micro Integrator]({{base_path}}/install-and-setup/setup/user-stores/managing-users/#users-credentials-in-the-mi).
+Find out about [user credentials in the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/user-stores/managing-users/#users-credentials-in-the-mi).
 
 ## File-based user store (Default)
 
-The default user store of the Micro Integrator is file-based. You can open the `deployment.toml` file and add new users to the file-based user store as shown below. You can [encrypt the plain text]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text) using **secure vault**.
+The default user store of the WSO2 Integrator: MI is file-based. You can open the `deployment.toml` file and add new users to the file-based user store as shown below. You can [encrypt the plain text]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text) using **secure vault**.
 
 !!! Tip
     Set `user.is_admin` to `true` to grant admin privileges to a user in the file-based user store.
@@ -41,7 +41,7 @@ enable = false
 	-	See the documentation of your LDAP provider for instructions on setting up the LDAP.
 	-	[Disable the file-based user store](#disabling-the-file-based-user-store).
 
-Follow the steps given below to connect the Micro Integrator to your LDAP user store.
+Follow the steps given below to connect the WSO2 Integrator: MI to your LDAP user store.
 
 1.	Open the `deployment.toml` file stored in the `<MI_HOME>/conf/` directory.
 2.	Add the following configurations and update the required values.
@@ -130,7 +130,7 @@ pool_options.testOnBorrow = true
 !!! note "Before you begin"
 	[Disable the file-based user store](#disabling-the-file-based-user-store).
 
-If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2docs.atlassian.net/wiki/spaces/EI660/overview)), you can connect the same database to the Micro Integrator. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
+If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2docs.atlassian.net/wiki/spaces/EI660/overview)), you can connect the same database to the WSO2 Integrator: MI. Alternatively, you can create a new RDBMS user store and connect it to the WSO2 Integrator: MI.
 
 1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions. 
 
@@ -144,7 +144,7 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 	- [Setting up an IBM database]({{base_path}}/install-and-setup/setup/databases/setting-up-ibm-db2)
 
 2.	Be sure to add the JDBC driver to the `<MI_HOME>/lib` folder.
-3.	To connect the Micro Integrator to your RDBMS user store: 
+3.	To connect the WSO2 Integrator: MI to your RDBMS user store: 
 
 	1.	Open the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
 	2.	Add the relevant configurations for your RDBMS type.
@@ -284,7 +284,7 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 		read_only = true
 		```
 		
-		The datasource configured under the `[[datasource]]` toml heading will now be the effective user store for the Micro Integrator. 
+		The datasource configured under the `[[datasource]]` toml heading will now be the effective user store for the WSO2 Integrator: MI. 
 
 ## What's next?
 

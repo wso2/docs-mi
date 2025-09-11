@@ -1,6 +1,6 @@
 # Composed Message Processor
 
-This page explains how you can implement a sample scenario of Composed Message Processor using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Composed Message Processor using WSO2 Integrator: MI.
 
 ## Introduction to Composed Message Processor
 
@@ -175,7 +175,7 @@ Note that the three responses are merged together.
 
 ## Analyze the output
 
-The Micro Integrator returns the following response to the client.
+The WSO2 Integrator: MI returns the following response to the client.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

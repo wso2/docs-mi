@@ -8,7 +8,7 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 {!includes/creating-project.md!}
 
-3. To add a new Sequence, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Sequence, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

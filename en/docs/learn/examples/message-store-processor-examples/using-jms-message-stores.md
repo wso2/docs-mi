@@ -67,7 +67,7 @@ See the descriptions of the above configurations:
   <tr>
     <td>Proxy Service</td>
     <td>
-      Create a proxy service which stores messages to the created Message Store. Note that you can use the FORCE_SC_ACCEPTED property in the message flow to send an Http 202 status to the client after the Micro Integrator accepts a message. If this property is not specified, the client that sends the request to the proxy service will timeout since it isbnot getting any response back from the proxy.
+      Create a proxy service which stores messages to the created Message Store. Note that you can use the FORCE_SC_ACCEPTED property in the message flow to send an Http 202 status to the client after the WSO2 Integrator: MI accepts a message. If this property is not specified, the client that sends the request to the proxy service will timeout since it isbnot getting any response back from the proxy.
     </td>
   </tr>
   <tr>
@@ -86,7 +86,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!} 
 2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -235,7 +235,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!}
 2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store) and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

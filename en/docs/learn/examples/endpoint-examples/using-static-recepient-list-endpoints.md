@@ -1,5 +1,5 @@
 # How to Route Messages to a Static List of Recipients
-This example demonstrates how messages can be routed to a list of static endpoints. This configuration routes a cloned copy of a message to each recipient defined within the static recipient list. The Micro Integrator will create cloned copies of the message and route to the endpoints mentioned in the configuration.
+This example demonstrates how messages can be routed to a list of static endpoints. This configuration routes a cloned copy of a message to each recipient defined within the static recipient list. The WSO2 Integrator: MI will create cloned copies of the message and route to the endpoints mentioned in the configuration.
 
 ## Synapse configuration
 Following are the synapse configurations that we can use to implement this scenario. 

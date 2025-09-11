@@ -1,13 +1,13 @@
 # How to Retry Failed Messages with a Delay
 
-This sample demonstrates how the WSO2 Micro Integrator can guarantee message delivery to an endpoint by controlling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
+This sample demonstrates how the WSO2 Integrator: MI can guarantee message delivery to an endpoint by controlling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-retry-delay-messages.png">
 
-1.  The Micro Integrator first consumes a message from RabbitMQ and attempts to deliver it to the endpoint. 
-2.  When there is an error in delivery, the `SET_ROLLBACK_ONLY` property in the Micro Integrator moves the message to the dead letter exchange (DLX) configured in RabbitMQ.
+1.  The WSO2 Integrator: MI first consumes a message from RabbitMQ and attempts to deliver it to the endpoint. 
+2.  When there is an error in delivery, the `SET_ROLLBACK_ONLY` property in the WSO2 Integrator: MI moves the message to the dead letter exchange (DLX) configured in RabbitMQ.
 3.  The message will then be re-queued by RabbitMQ subject to a specified **delay**. Note that you have to configure this delay in the RabbitMQ broker itself (using the `x-message-ttl` property). 
-4.  If the message delivery to the endpoint continuous to fail, the Micro Integrator will **retry** for the number times specified by the `rabbitmq.message.max.dead.lettered.count` parameter in the proxy. 
+4.  If the message delivery to the endpoint continuous to fail, the WSO2 Integrator: MI will **retry** for the number times specified by the `rabbitmq.message.max.dead.lettered.count` parameter in the proxy. 
 5.  When the maximum retry count is exceeded, the message will be either discarded or moved to a different 
 queue in RabbitMQ (specified by the `rabbitmq.message.error.exchange.name` and `rabbitmq.message.error.queue.routing.key` parameters in the proxy.
 
@@ -102,7 +102,7 @@ Make sure you have a RabbitMQ broker instance running.
 8. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 9. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
-10. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+10. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 11. Make the `http://localhost:8290/enrollment` endpoint unavailable temporarily. 
 12. Publish a message to the enrollment queue.
 13. You will see that the failed message will be retried 3 times for delivery by the EnrollmentService proxy and then be discarded.

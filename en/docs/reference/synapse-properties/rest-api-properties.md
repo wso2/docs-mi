@@ -1,7 +1,7 @@
 # REST APIs
 ## Introduction
 
-A REST API in WSO2 Micro Integrator is a key component for exposing integration services. Each API is anchored at a user-defined URL context and will only process requests that fall under the given URL context.
+A REST API in WSO2 Integrator: MI is a key component for exposing integration services. Each API is anchored at a user-defined URL context and will only process requests that fall under the given URL context.
 
 An API should consist of one or more [resources](#rest-api-resource-properties), which represent the logical components of an API that can be accessed via specific HTTP methods, such as `GET`, `POST`, `PUT`, `DELETE` `PATCH`, `HEAD`, or `OPTIONS`. The REST API resource uses [sequences]({{base_path}}/reference/mediation-sequences) and [mediators]({{base_path}}/reference/mediators/about-mediators) to define the mediation logic. The [inSequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) handles incoming requests and flows through the mediators. You can define a [faultSequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) to handle any errors that may occur while mediating a message in a resource.
 

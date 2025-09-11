@@ -14,7 +14,7 @@ Also, it contains another REST API called `MockAPI` to mimic the backend.
 2. Give a folder location to save the sample.
 3. Open the `UserRegistrationMS` Message Store artifact and edit its `RabbitMQ credentials` accordingly.
 4. Start the RabbitMQ broker.
-5. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+5. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

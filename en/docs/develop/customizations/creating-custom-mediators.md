@@ -1,6 +1,6 @@
 # Create a Custom Mediator
 
-A custom mediator is a Class mediator that you can create to implement custom mediation logic. It is a Java class that extends the `org.apache.synapse.mediators.AbstractMediator` class. You can add a custom mediator to your integration project using the WSO2 Micro Integrator Visual Studio Code extension.
+A custom mediator is a Class mediator that you can create to implement custom mediation logic. It is a Java class that extends the `org.apache.synapse.mediators.AbstractMediator` class. You can add a custom mediator to your integration project using the WSO2 Integrator: MI Visual Studio Code extension.
 
 ## Instructions  
 

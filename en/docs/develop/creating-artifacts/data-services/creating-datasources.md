@@ -1,10 +1,10 @@
 # Creating a Data Source
 
-Follow the instructions given below to create a data source artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions given below to create a data source artifact in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 {!includes/creating-project.md!}
 
-3. To add a new Sequence Template, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Sequence Template, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

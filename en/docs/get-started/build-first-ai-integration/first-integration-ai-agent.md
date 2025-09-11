@@ -3,7 +3,7 @@
 In the previous tutorial, you learned how to build a RAG application. In this tutorial, you’ll learn how to create an AI agent.
 
 ## What you'll build
-PineValley Bank is introducing an AI-powered agent designed to assist users in making informed investment decisions and creating investment accounts tailored to their specific needs. This AI agent utilizes a knowledge base and a Large Language Model (LLM) to analyze user queries, provide personalized investment recommendations, and guide users through the account creation process. By integrating this AI agent into the `CustomerService` API deployed in WSO2 Micro Integrator, PineValley Bank aims to deliver seamless and efficient customer service, enhancing user satisfaction and experience.
+PineValley Bank is introducing an AI-powered agent designed to assist users in making informed investment decisions and creating investment accounts tailored to their specific needs. This AI agent utilizes a knowledge base and a Large Language Model (LLM) to analyze user queries, provide personalized investment recommendations, and guide users through the account creation process. By integrating this AI agent into the `CustomerService` API deployed in WSO2 Integrator: MI, PineValley Bank aims to deliver seamless and efficient customer service, enhancing user satisfaction and experience.
 
 ### Tools Used by the AI Agent
 1. **GetBankDocumentsTool**: Accesses PineValley Bank's documents from the knowledge base.
@@ -16,14 +16,14 @@ Now, it's time to design the AI agent flow. Follow the steps below to create the
 
 ## What you'll learn
 
-- How to build an AI agent using WSO2 Micro Integrator.
+- How to build an AI agent using WSO2 Integrator: MI.
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 2. You must have completed the **Build a Knowledge Base** tutorial under **Build your first AI Integration** before proceeding. Start the [Build a Knowledge Base]({{base_path}}/get-started/build-first-ai-integration/first-integration-knowledge-base/) tutorial if you haven’t completed it yet.
 
@@ -33,7 +33,7 @@ Follow the instructions below to modify the existing project to add the RAG func
 
 To develop the above scenario, let's get started with creating a new API in the existing `BankIntegration` project.
 
-1. Click on the add new API (`+`) icon in the `APIs` in the **Micro Integrator Project Explorer** to create a new API.
+1. Click on the add new API (`+`) icon in the `APIs` in the **WSO2 Integrator: MI Project Explorer** to create a new API.
 
     <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/rag/create_new_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
 
@@ -325,7 +325,7 @@ For reference, you can review the configured API.
 
 ## Step 3 - Run the integration
 
-Now that you have updated the integration, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have updated the integration, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -433,7 +433,7 @@ You have now learned how to create an AI agent to enhance your integration flow 
 
 You have now completed this tutorial series, where you learned how to build a complete integration flow step by step. Throughout this journey, you have explored how to create AI chatbot, build a knowledge base, build RAG application, and develop an AI agent to enhance your integration flow.
 
-Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Micro Integrator.
+Now, you can explore advanced integration scenarios, applying what you’ve learned to real-world use cases and expanding your expertise in WSO2 Integrator: MI.
 
 Try more [tutorials and examples]({{base_path}}/learn/learn-overview/).
 

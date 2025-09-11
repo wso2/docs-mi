@@ -1,7 +1,7 @@
 # Applying Security to an API
 
 ## Using a Basic Auth handler
-A Basic Authentication handler is enabled in the Micro Integrator by default. See the example on [securing an API with basic auth]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis).
+A Basic Authentication handler is enabled in the WSO2 Integrator: MI by default. See the example on [securing an API with basic auth]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis).
 
 ## Using a custom basic auth handler
 
@@ -9,7 +9,7 @@ If required, you can implement a custom basic auth handler (instead of the defau
 
 ### Prerequisites
 
-**Before you begin**, be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the Micro Integrator and add the required users and roles.
+**Before you begin**, be sure to [configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) for the WSO2 Integrator: MI and add the required users and roles.
 
 ### Creating the custom handler
 
@@ -124,7 +124,7 @@ You can build the project (`mvn clean install`) for this handler by accessing it
     ```
 
 Alternatively, you can download the JAR file from [this location](https://github.com/wso2/product-esb/blob/v5.0.0/modules/samples/integration-scenarios/starbucks_sample/bin/WSO2-REST-BasicAuth-Handler-1.0-SNAPSHOT.jar), copy it to the `MI_HOME/lib` directory,
-and restart the Micro Integrator.
+and restart the WSO2 Integrator: MI.
 
 ### Creating the REST API
 

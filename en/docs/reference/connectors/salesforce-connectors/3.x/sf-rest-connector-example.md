@@ -35,7 +35,7 @@ If you do not want to configure this yourself, you can simply [get the project](
         - **Instance URL** - Value of the instance URL.
 
 ### Add integration logic
-Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforcerest` and the API context as `/salesforcerest`.
+Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. Specify the API name as `salesforcerest` and the API context as `/salesforcerest`.
    
    <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 

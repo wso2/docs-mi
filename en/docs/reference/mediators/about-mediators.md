@@ -1,6 +1,6 @@
 # About Mediators
 
-Mediators are individual processing units that perform a specific actions on messages that pass through the Micro Integrator. The mediator takes the message received by the REST API or proxy service, carries out predefined actions on it (such as transforming, enriching, filtering), and outputs the modified message. 
+Mediators are individual processing units that perform a specific actions on messages that pass through the WSO2 Integrator: MI. The mediator takes the message received by the REST API or proxy service, carries out predefined actions on it (such as transforming, enriching, filtering), and outputs the modified message. 
 
 For example, the [Scatter Gather]({{base_path}}/reference/mediators/scatter-gather-mediator) mediator splits a message into several clones and aggregates the results, the [Call]({{base_path}}/reference/mediators/call-mediator) mediator calls a backend endpoint with the message and the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator sends the message back to the client.
 
@@ -39,7 +39,7 @@ Mediators are classified as follows based on whether they access the message's c
 
 ## List of mediators
 
-WSO2 Micro Integrator includes a comprehensive catalog of mediators that provide functionality for implementing widely used [Enterprise Integration Patterns (EIPs)]({{base_path}}/learn/enterprise-integration-patterns/eip-overview/). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java and scripting.
+WSO2 Integrator: MI includes a comprehensive catalog of mediators that provide functionality for implementing widely used [Enterprise Integration Patterns (EIPs)]({{base_path}}/learn/enterprise-integration-patterns/eip-overview/). You can also easily write a custom mediator to provide additional functionality using various technologies such as Java and scripting.
 
 <table>
   <tr>

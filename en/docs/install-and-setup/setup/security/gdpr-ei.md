@@ -1,8 +1,8 @@
-# GDPR Compliance in the WSO2 Micro Integrator
+# GDPR Compliance in the WSO2 Integrator: MI
 
-WSO2 Micro Integrator can persist
+WSO2 Integrator: MI can persist
 a user's personally identifiable information (PII) in various sources,
-namely log files and RDBMSs. However, organizations that use the Micro Integrator
+namely log files and RDBMSs. However, organizations that use the WSO2 Integrator: MI
 have a legal obligation to remove all instances of a user's PII from the
 system if the relevant user requests. For example, consider a situation
 where an employee resigns from the organization and, thereby, requests
@@ -12,7 +12,7 @@ the user's PII in the system, or (in some cases) by completely removing
 such PII from the system.
 
 See the topics given below for instructions on how to remove PII from
-the WSO2 Micro Integrator.
+the WSO2 Integrator: MI.
 
 ## What is GDPR?
 
@@ -46,11 +46,11 @@ homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/) . You
 can also find the original GDPR legal text
 [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679).
 
-## How the WSO2 Micro Integrator persists PII
+## How the WSO2 Integrator: MI persists PII
 
-The Micro Integrator can persist PII in various log files (carbon logs, audit logs, API logs, and service-specific logs) depending on the mediation logic defined. The Micro Integrator does not persist a user's PII in any RDBMS by default.
+The WSO2 Integrator: MI can persist PII in various log files (carbon logs, audit logs, API logs, and service-specific logs) depending on the mediation logic defined. The WSO2 Integrator: MI does not persist a user's PII in any RDBMS by default.
 
-## Tools for removing PII in WSO2 Micro Integrator
+## Tools for removing PII in WSO2 Integrator: MI
 
 - The **Forget-Me Tool** , which can anonymize
     a user's PII in log files and RDBMSs by replacing all occurrences of
@@ -67,27 +67,27 @@ The Micro Integrator can persist PII in various log files (carbon logs, audit lo
 
 ## Prerequisites for removing PII
 
-As explained in [How the WSO2 Micro Integrator persists a user's PII](#how-the-wso2-micro-integrator-persists-pii)
-, the Micro Integrator will store user information in log
+As explained in [How the WSO2 Integrator: MI persists a user's PII](#how-the-wso2-micro-integrator-persists-pii)
+, the WSO2 Integrator: MI will store user information in log
 files. Note that we can only remove a deleted user's PII from archived
 log files, and not the live log files that are connected to the system.
 
-Therefore, **before you start removing PII** stored by the Micro Integrator, be sure that the relevant user has been inactive
+Therefore, **before you start removing PII** stored by the WSO2 Integrator: MI, be sure that the relevant user has been inactive
 in the system for a sufficient amount of time. This will ensure that all
 of the user's PII contained in log files are successfully archived. You
 can then follow the instructions given below to remove the user's PII
 references from the archived log files.
 
-## Removing PII from the Micro Integrator
+## Removing PII from the WSO2 Integrator: MI
 
 **Before you begin**:
 
--   Find out about [how the Micro Integrator stores a user's
+-   Find out about [how the WSO2 Integrator: MI stores a user's
     PII](#how-the-wso2-micro-integrator-persists-pii).
 -   See the [prerequisites for removing PII from the
     MI](#prerequisites-for-removing-pii).
 -   In the instructions given below, we will use a proxy service that
-    logs PII to demonstrate how PII can be removed from the Micro Integrator.
+    logs PII to demonstrate how PII can be removed from the WSO2 Integrator: MI.
     However, please note that it is **not recommended** to log PII from
     a proxy service.
 
@@ -96,7 +96,7 @@ references from the archived log files.
 You can use the [Forget-Me
 Tool](#tools-for-removing-pii-in-wso2-micro-integrator) to remove
 references to personally identifiable information (PII) from logs in the
-Micro Integrator. For example, consider a proxy service that logs the
+WSO2 Integrator: MI. For example, consider a proxy service that logs the
 username that is sent through a payload. A Log mediator can be used for
 this as shown below.
 
@@ -155,11 +155,11 @@ Let's look at how to anonymize the username value in log files.
 
     -   **"processors"** : The processors listed for this element
         specifies whether the tool will on log files, RDBMSs, or
-        analytics streams. In the case of the Micro Integrator, we only need
+        analytics streams. In the case of the WSO2 Integrator: MI, we only need
         to remove PII from log files, and therefore, the processor is
         set to "log-file".
     -   **"directories"** : This element lists the directories that
-        correspond to the processors. In the case of the Micro Integrator, we
+        correspond to the processors. In the case of the WSO2 Integrator: MI, we
         need to specify the directories that store log files.
     -   **"log-file-path"** : This specifies the directory path to the
         log files. Note that all the relevant log files are stored in

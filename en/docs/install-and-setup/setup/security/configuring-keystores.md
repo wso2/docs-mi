@@ -1,9 +1,9 @@
-# Configuring Keystores for the Micro Integrator
+# Configuring Keystores for the WSO2 Integrator: MI
 
-Follow the instructions given below to configure [keystores for the Micro Integrator]({{base_path}}/reference/mi-security-reference/using-keystores).
+Follow the instructions given below to configure [keystores for the WSO2 Integrator: MI]({{base_path}}/reference/mi-security-reference/using-keystores).
 
 ## The default keystore configuration
-WSO2 Micro Integrator is shipped with a default keystore (wso2carbon.jks) and default trust store client-truststore.jks, which are stored in the `MI_HOME/repository/resources/security/` directory.
+WSO2 Integrator: MI is shipped with a default keystore (wso2carbon.jks) and default trust store client-truststore.jks, which are stored in the `MI_HOME/repository/resources/security/` directory.
 
 The **default keystore** is used for the following requirements:
 
@@ -14,7 +14,7 @@ The **default keystore** is used for the following requirements:
 
 * **Signing messages** when the WSO2 product communicates with external parties.
 
-The **default trust store** contains the certificates of reputed CAs that can validate the identity of third party systems that communicate with the Micro Integrator. This trust store also contains the self-signed certificate of the default `wso2carbon.jks` keystore.
+The **default trust store** contains the certificates of reputed CAs that can validate the identity of third party systems that communicate with the WSO2 Integrator: MI. This trust store also contains the self-signed certificate of the default `wso2carbon.jks` keystore.
 
 
 ## Changing the default primary keystore

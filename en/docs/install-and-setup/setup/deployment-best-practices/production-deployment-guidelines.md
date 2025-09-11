@@ -1,6 +1,6 @@
 # Production Deployment Checklist
 
-Given below is a checklist that will guide you to set up your production environment for WSO2 Micro Integrator.
+Given below is a checklist that will guide you to set up your production environment for WSO2 Integrator: MI.
 
 <table>
    <thead>
@@ -60,10 +60,10 @@ Given below is a checklist that will guide you to set up your production environ
          <td>Registry and governance</td>
          <td>
             <div class="content-wrapper">
-               <p>The Micro Integrator runtime uses a file-based registry instead of a database.</p>
+               <p>The WSO2 Integrator: MI runtime uses a file-based registry instead of a database.</p>
                <ul>
                   <li>
-                     <a href="{{base_path}}/install-and-setup/setup/deployment/file-based-registry">File-based registry</a> for the Micro Integrator runtime.
+                     <a href="{{base_path}}/install-and-setup/setup/deployment/file-based-registry">File-based registry</a> for the WSO2 Integrator: MI runtime.
                   </li>
                </ul>
             </div>
@@ -76,7 +76,7 @@ Given below is a checklist that will guide you to set up your production environ
                <p>Most of the performance tuning recommendations are common to all WSO2 products. However, each WSO2 product may have additional guidelines for optimizing the performance of product-specific features.</p>
                <ul>
                   <li>
-                     Performance tuning - WSO2 Micro Integrator
+                     Performance tuning - WSO2 Integrator: MI
                   </li>
                </ul>
             </div>
@@ -88,9 +88,9 @@ Given below is a checklist that will guide you to set up your production environ
             <div class="content-wrapper">
                <p>The following ports must be accessed when operating within a firewall:</p>
                <ul>
-                  <li>8290 - Default HTTP port used by the Micro Integrator for proxy services and APIs.</li>
-                  <li>8253 - Default HTTPS port used by the Micro Integrator for proxy services and APIs.</li>
-                  <li>9164 - Default HTTPS port used by the Micro Integrator Management APIs.</li>
+                  <li>8290 - Default HTTP port used by the WSO2 Integrator: MI for proxy services and APIs.</li>
+                  <li>8253 - Default HTTPS port used by the WSO2 Integrator: MI for proxy services and APIs.</li>
+                  <li>9164 - Default HTTPS port used by the WSO2 Integrator: MI Management APIs.</li>
                </ul>
             </div>
          </td>
@@ -100,14 +100,14 @@ Given below is a checklist that will guide you to set up your production environ
          <td>
             If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topics for instructions:
             <ul>
-               <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/configuring-proxy-servers">proxy server for the Micro Integrator runtime</a>.</li>
+               <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/configuring-proxy-servers">proxy server for the WSO2 Integrator: MI runtime</a>.</li>
             </ul>
          </td>
       </tr>
       <tr class="odd">
          <td>High availability</td>
          <td>
-            <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/basic-health-checks">readiness and liveness probes</a> available in Micro Integrator.</p>
+            <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/basic-health-checks">readiness and liveness probes</a> available in WSO2 Integrator: MI.</p>
             <p>In a VM deployment, we can use a load balancer with multiple nodes as described <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">here</a> to achieve high availability.</p>
          </td>
       </tr>

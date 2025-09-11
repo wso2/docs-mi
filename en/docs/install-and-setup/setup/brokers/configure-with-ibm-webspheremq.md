@@ -8,7 +8,7 @@ following topics cover the configuration steps.
 
 ## Prerequisites
 
--   Download and install WSO2 Micro Integrator. 
+-   Download and install WSO2 Integrator: MI. 
 -   WebSphere MQ is installed and the latest fix pack applied (see the [IBM documentation](https://www.ibm.com/docs/en). The fix pack can be obtained from <http://www-01.ibm.com/software/integration/wmq>). These instructions are tested on [IBM WebSphere MQ version 8.0.0.4](http://www-01.ibm.com/support/docview.wss?uid=swg24040022).
 
 ### Creating queue manager, queue and channel in IBM WebSphere MQ
@@ -109,7 +109,7 @@ The following will be displayed in the command prompt.
 
 ![Command Prompt]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130336.jpg)
 
-### Configuring the Micro Integrator
+### Configuring the WSO2 Integrator: MI
 
 !!! Info
     -   If you use the default configuration of the IBM MQ queue manager,
@@ -184,7 +184,7 @@ The following will be displayed in the command prompt.
 
 ### Copying IBM WebSphere MQ libraries
 
-Follow the instructions below to build and install IBM WebSphere MQ client JAR files to WSO2 Micro Integrator.
+Follow the instructions below to build and install IBM WebSphere MQ client JAR files to WSO2 Integrator: MI.
 
 !!! Info
     These instructions are tested on IBM WebSphere MQ version 8.0.0.4. However, you can follow them for other versions appropriately.
@@ -285,7 +285,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
 
 4.  Navigate to the wmq `-client` directory using your Command Line Interface (CLI), and execute the following
     command, to build the project: `mvn clean install`
-5.  Stop the WSO2 Micro Integrator, if it is already running.
+5.  Stop the WSO2 Integrator: MI, if it is already running.
 6.  Remove any existing IBM MQ client JAR files from the `MI_HOME/dropins` directory and the `MI_HOME/lib` directory.
 7.  Copy the `<wmq-client>/target/wmq-client-8.0.0.4.jar`
     file to the `MI_HOME/dropins` directory.
@@ -294,7 +294,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
 you already generated one before), and replace the existing `.bindings` file (if you have one) with the new `
 .bindings` file you generated.
 
-10. Start the WSO2 Micro Integrator server.
+10. Start the WSO2 Integrator: MI server.
 
 ### Deploying JMS listener proxy service
 

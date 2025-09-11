@@ -1,9 +1,9 @@
 # Connecting to Tibco EMS
 
-This section describes how to configure WSO2 Micro Integrator to connect with Tibco EMS.
+This section describes how to configure WSO2 Integrator: MI to connect with Tibco EMS.
 
 1. Download and set up Tibco EMS in your environment.
-2. Download and install WSO2 Micro Integrator.
+2. Download and install WSO2 Integrator: MI.
 3. Copy the Tibco EMS client JAR files that are shipped with the distribution to the `MI_HOME/lib` directory.
 
     -   tibcrypt.jar or jms-2.0.jar (If Tibco EMS 8.4 version is used,
@@ -13,7 +13,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Ti
     -   tibjmsapps.jar
     -   tibrvjms.jar
     
-3. If you want the Micro Integrator to receive messages from an instance of Tibco EMS, or to send messages to an instance of Tibco EMS, you need to update the deployment.toml file with the relevant connection parameters.
+3. If you want the WSO2 Integrator: MI to receive messages from an instance of Tibco EMS, or to send messages to an instance of Tibco EMS, you need to update the deployment.toml file with the relevant connection parameters.
 
     - Add the following configurations to enable the JMS listener with Tibco connection parameters.
         ```toml

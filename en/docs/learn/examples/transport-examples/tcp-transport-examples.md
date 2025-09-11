@@ -2,7 +2,7 @@
 
 **Sending multiple messages via the same TCP channel**
 
-Generally, you can send only one message via one generic TCP channel. Nevertheless, the Micro Integrator also supports sending multiple messages via the same TCP channel by splitting them in different ways.  Hence, the TCP transport needs to determine the end of the message that is mediated through the Micro Integrator to split it by a character, a sequence of characters, message length, or special characters in hex form. The client can select which input type to use to send the request to the TCP proxy out of the available options (i.e., binary and String). Splitting the message by a single character is the most efficient method.
+Generally, you can send only one message via one generic TCP channel. Nevertheless, the WSO2 Integrator: MI also supports sending multiple messages via the same TCP channel by splitting them in different ways.  Hence, the TCP transport needs to determine the end of the message that is mediated through the WSO2 Integrator: MI to split it by a character, a sequence of characters, message length, or special characters in hex form. The client can select which input type to use to send the request to the TCP proxy out of the available options (i.e., binary and String). Splitting the message by a single character is the most efficient method.
 
 You can split the following sample request input message in different ways as explained below.
 
@@ -102,7 +102,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3.  Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service.
 
@@ -197,7 +197,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service.
 
@@ -292,7 +292,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service.
 

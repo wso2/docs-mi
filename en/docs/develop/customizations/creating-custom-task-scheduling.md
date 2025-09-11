@@ -235,7 +235,7 @@ This is a bean implementing three properties: StockFile, InjectTo and Sequence.�
 
 **Implementing `ManagedLifecycle` for Initialization and Clean-up**
 
-Since a task implements `ManagedLifecyle` interface, the Micro Integrator will call the `init()` method at the initialization of a `Task` object and `destroy()` method when a `Task` object is destroyed:
+Since a task implements `ManagedLifecyle` interface, the WSO2 Integrator: MI will call the `init()` method at the initialization of a `Task` object and `destroy()` method when a `Task` object is destroyed:
 
 ```java
 public interface ManagedLifecycle {
@@ -279,7 +279,7 @@ For example, the following properties in the `Task` class are initialized with
 <syn:property xmlns="http://ws.apache.org/ns/synapse" name="stockFile" value="/path/to/stock.txt"/>
 ```
 
-For those properties given as XML elements, properties need to be defined within the `Task` class using the format given below. OMElement comes from [Apache AXIOM](http://ws.apache.org/commons/axiom/), which is used by the Micro Integrator. AXIOM is an object model similar to DOM. To learn more about AXIOM, see the tutorial in the [AXIOM user guide](http://ws.apache.org/axiom/userguide/userguide.html).
+For those properties given as XML elements, properties need to be defined within the `Task` class using the format given below. OMElement comes from [Apache AXIOM](http://ws.apache.org/commons/axiom/), which is used by the WSO2 Integrator: MI. AXIOM is an object model similar to DOM. To learn more about AXIOM, see the tutorial in the [AXIOM user guide](http://ws.apache.org/axiom/userguide/userguide.html).
 
 ```java
 public void setMessage(OMElement elem) {

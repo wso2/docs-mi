@@ -19,9 +19,9 @@ Follow the instructions given in this section to create and configure the requir
 
 1. Download the required project from [here]({{base_path}}/assets/attachments/learn/tutorials/sending-simple-message-tutorial.zip) and extract.
 
-2. Launch VS Code with the Micro Integrator extension installed.
+2. Launch VS Code with the WSO2 Integrator: MI extension installed.
 
-3. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
+3. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
@@ -31,7 +31,7 @@ Follow the instructions given in this section to create and configure the requir
 
 #### Develop the inbound endpoint
 
-1. Once you have opened the integration project described above, the **Micro Integrator Project Explorer** will appear with the previously created artifacts. Note that the `HealthcareAPI` is already included.
+1. Once you have opened the integration project described above, the **WSO2 Integrator: MI Project Explorer** will appear with the previously created artifacts. Note that the `HealthcareAPI` is already included.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" alt="Inbound project explorer" width="40%"></a>
 

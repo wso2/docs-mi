@@ -42,7 +42,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 ### Add integration logic
 
-Select the Micro Integrator extension and click on the `+` on APIs to create a REST API. Specify the API name as `amazonDynamoDBAPI` and the API context as `/resources`.
+Select the WSO2 Integrator: MI extension and click on the `+` on APIs to create a REST API. Specify the API name as `amazonDynamoDBAPI` and the API context as `/resources`.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 

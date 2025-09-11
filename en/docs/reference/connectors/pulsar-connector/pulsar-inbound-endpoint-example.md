@@ -6,7 +6,7 @@ The Apache Pulsar Inbound Endpoint allows you to connect to Apache Pulsar server
 
 By following this tutorial, you will gain hands-on experience in:
 
-- Configuring the Apache Pulsar Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+- Configuring the Apache Pulsar Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 - Consuming and processing messages from a Pulsar topic.
 - Run and test the integration to receive real-time notifications.
 
@@ -16,7 +16,7 @@ The inbound endpoint acts as a message receiver and injects those messages into 
 
 ### Setup Apache Pulsar
 
-To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Inbound Endpoint, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
+To connect with Apache Pulsar using the WSO2 Integrator: MI Apache Pulsar Inbound Endpoint, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
 
 ## Configure Inbound Endpoint
 
@@ -148,7 +148,7 @@ Alternatively, you can use the [Apache Pulsar Connector example]({{base_path}}/r
 
 #### Expected Output
 
-After inserting a record, you should see a log entry in the WSO2 Micro Integrator console similar to the following:
+After inserting a record, you should see a log entry in the WSO2 Integrator: MI console similar to the following:
 
    ```
    TopicNames = persistent://public/default/baa, MessageID = 212:12:-1, Key = sample-key, RedeliveryCount = 0, MessageProperties = [{"event-date":"2025-05-20"},{"message-type":"json"}], Payload = {"Hello":"Pulsar"}

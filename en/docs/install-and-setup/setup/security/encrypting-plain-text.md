@@ -1,10 +1,10 @@
 # Encrypting Secrets using WSO2 Secure Vault
 
-WSO2 Micro Integrator can use secrets with static origins as well as dynamic origins in configurations. This applies to secrets in server-level configurations as well as configurations within integration solutions (synapse configurations).
+WSO2 Integrator: MI can use secrets with static origins as well as dynamic origins in configurations. This applies to secrets in server-level configurations as well as configurations within integration solutions (synapse configurations).
 
-It is not recommended to use plain-text values for your sensitive data in your configurations. Therefore, you can encrypt the plain-text secrets using the secure vault implementation that is built in to the Micro Integrator. 
+It is not recommended to use plain-text values for your sensitive data in your configurations. Therefore, you can encrypt the plain-text secrets using the secure vault implementation that is built in to the WSO2 Integrator: MI. 
 
-The Micro Integrator is shipped with the **Cipher Tool**, which uses the secure vault implementation and encrypts the secrets you specify. Running the **Cipher Tool** also ensures that the secrets are enabled in the Micro Integrator environment. You can then refer the encrypted secrets from anywhere in your server configurations or synapse configurations.
+The WSO2 Integrator: MI is shipped with the **Cipher Tool**, which uses the secure vault implementation and encrypts the secrets you specify. Running the **Cipher Tool** also ensures that the secrets are enabled in the WSO2 Integrator: MI environment. You can then refer the encrypted secrets from anywhere in your server configurations or synapse configurations.
 
 Note that you can customize the default secure vault configurations in the product by implementing a new secret repository, call back handler, etc.
 
@@ -26,7 +26,7 @@ synapse_secret = "[secret_2]"
 
 ### Dynamic secrets
 
-Dynamic secrets are specified in configurations as environment variables, system properties, Docker secrets, or Kubernetes secrets. The actual secrets is then encrypted using the WSO2 Micro Integrator CLI, **micli** and injected to the environment.
+Dynamic secrets are specified in configurations as environment variables, system properties, Docker secrets, or Kubernetes secrets. The actual secrets is then encrypted using the WSO2 Integrator: MI CLI, **micli** and injected to the environment.
 
 1.  First, list the dynamic secrets in the `deployment.toml` file under the `[secrets]` section. However, unlike for static secrets, specify the secret value as an environment variable or system property.
 
@@ -142,7 +142,7 @@ If you are in a Docker/Kubernetes environment, you should have generated a .yaml
 
 ### Start server as a background job
 
-If you start the Micro Integrator as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in "daemon" mode as explained below.
+If you start the WSO2 Integrator: MI as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in "daemon" mode as explained below.
 
 1. Create a new file in the MI_HOME directory. The file should be named according to your OS as explained below.
 

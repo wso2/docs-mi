@@ -1,6 +1,6 @@
 # Message Sequence
 
-This page explains how you can implement a sample scenario of Message Sequence using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Message Sequence using WSO2 Integrator: MI.
 
 ## Introduction to Message Sequence
 
@@ -12,6 +12,6 @@ When transmitting a large set of data, you might want to break it into smaller c
 
 ![Message sequence size]({{base_path}}/assets/img/learn/enterprise-integration-patterns/message-construction/message-sequence-size.gif)
 
-## How WSO2 Micro Integrator implements the EIP
+## How WSO2 Integrator: MI implements the EIP
 
-When a large request is sent, the Micro Integrator, by default breaks it into smaller chunks. To maintain the consistency of the message, each chunk is then mapped with a sequence identifier number to preserve its sequential order.
+When a large request is sent, the WSO2 Integrator: MI, by default breaks it into smaller chunks. To maintain the consistency of the message, each chunk is then mapped with a sequence identifier number to preserve its sequential order.

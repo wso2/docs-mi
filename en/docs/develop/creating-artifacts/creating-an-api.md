@@ -1,6 +1,6 @@
 # Create an API
 
-Follow these instructions to create an [API]({{base_path}}/reference/synapse-properties/rest-api-properties) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow these instructions to create an [API]({{base_path}}/reference/synapse-properties/rest-api-properties) artifact in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ## Create an API artifact
 
@@ -8,7 +8,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new API, navigate to **Micro Integrator Project Explorer**.
+3. To add a new API, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
@@ -216,7 +216,7 @@ The service's metadata is used by the API management runtime to generate the API
             serviceUrl
         </td>
         <td>
-            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
+            This is the URL of the API when it gets deployed in the WSO2 Integrator: MI. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
             You can configure the serviceUrl in the following ways:
             <ul>
                 <li>

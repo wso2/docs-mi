@@ -2,17 +2,17 @@
 
 ## Overview
 
-When a message comes in to WSO2 Micro Integrator, the receiving transport selects a **message builder** based
+When a message comes in to WSO2 Integrator: MI, the receiving transport selects a **message builder** based
 on the message's content type. It uses that builder to process the
 message's raw payload data and convert it into SOAP. Conversely, when
-sending a message out from Micro Integrator, a **message formatter** is used to build
+sending a message out from WSO2 Integrator: MI, a **message formatter** is used to build
 the outgoing stream from the message. As with message builders, the
 message formatter is selected based on the message's content type. Given below is the typical workflow:
 
 <a href=""><img src="{{base_path}}/assets/img/integrate/message-builders-formatters.png"></a>
 
 You can use the messageType property to change the message's content
-type as it flows through the Micro Integrator. For example, if the incoming message is in
+type as it flows through the WSO2 Integrator: MI. For example, if the incoming message is in
 JSON format and you want to transform it to XML, you could add the
 messageType property before your mediators in the configuration:
 
@@ -22,7 +22,7 @@ messageType property before your mediators in the configuration:
 
 ## Default message builders and formatters
 
-Listed below are the default message builders and formatters that are enabled for WSO2 Micro Integrator by default:
+Listed below are the default message builders and formatters that are enabled for WSO2 Integrator: MI by default:
 
 === "Default Message Builders"
     ```toml  
@@ -55,7 +55,7 @@ Listed below are the default message builders and formatters that are enabled fo
 
 ### Handling message relay
 
-If you want to enable message relay, so that messages of a specific content type are not built or formatted but simply pass through the Micro Integrator, you can specify the message relay builder (for the required content types) in the deployment.toml file (stored in the `MI_HOME/conf` directory) as shown below.
+If you want to enable message relay, so that messages of a specific content type are not built or formatted but simply pass through the WSO2 Integrator: MI, you can specify the message relay builder (for the required content types) in the deployment.toml file (stored in the `MI_HOME/conf` directory) as shown below.
 
 ```toml
 [[custom_message_formatters]]
@@ -89,7 +89,7 @@ value = "empty/content"
 
 ### Handling text/csv messages
 
-There is no default builder or formatter for messages with the text/csv content type. If you just want to pass these messages through the Micro Integrator,
+There is no default builder or formatter for messages with the text/csv content type. If you just want to pass these messages through the WSO2 Integrator: MI,
 you can configure the message [relay builder and formatter](#handling-message-relay). 
 
 The following default message builder configurations allow you to access the content inside the request/response payload when the content type is CSV.
@@ -102,7 +102,7 @@ text_plain = "org.apache.axis2.format.PlainTextBuilder"
 text_plain = "org.apache.axis2.format.PlainTextFormatter"
 ```
 
-When a text/csv message comes into the Micro Integrator, the log will include an
+When a text/csv message comes into the WSO2 Integrator: MI, the log will include an
 entry similar to the following, and you can observe that the CSV data is
 placed inside the payload:
 
@@ -113,7 +113,7 @@ placed inside the payload:
 ### Handling illegal XML characters in plain text payloads
 
 Plain text payloads that contain illegal XML characters (such as
-unicodes) will not be successfully processed by the Micro Integrator. Therefore, you
+unicodes) will not be successfully processed by the WSO2 Integrator: MI. Therefore, you
 must configure the system to replace the illegal characters in the
 payload with an actual character. To enable this configuration, add the
 parameter shown below (with a suitable unicode value) to the
@@ -133,7 +133,7 @@ com.ctc.wstx.outputInvalidCharHandler.char=\u0020
 
 ### Validating JSON messages
 
-If you want the JSON builder to validate JSON messages that are received by the Micro Integrator, the following property should be added to the deployment.toml file. This validation ensures that erroneous JSON messages are rejected by the Micro Integrator.
+If you want the JSON builder to validate JSON messages that are received by the WSO2 Integrator: MI, the following property should be added to the deployment.toml file. This validation ensures that erroneous JSON messages are rejected by the WSO2 Integrator: MI.
 
 ```toml
 [[transport.http]]
@@ -142,7 +142,7 @@ force_json_validation=false
 
 ## Writing a custom Message Builder and Formatter
 
-In addition to using the default message builders and formatters in WSO2 Micro Integrator, you can create your own custom message builders and formatters.
+In addition to using the default message builders and formatters in WSO2 Integrator: MI, you can create your own custom message builders and formatters.
 
 ### Custom message builder
 
@@ -150,7 +150,7 @@ Let's look at how to create a custom message builder using a sample
 scenario where you need to Base64 encode an XML entry field. In this
 sample, you retrieve the text content from the payload and then Base64
 encode the text. This is then converted to SOAP, and the content is then
-processed in the WSO2 Micro Integrator mediation flow.
+processed in the WSO2 Integrator: MI mediation flow.
 
 1.  You will first need to write a class implementing the `org.apache.axis2.builder.Builder` interface in the Axis2 Kernel module and then override the
     `processDocument` method. Within the `processDocument` method, you can define your specific logic to process the payload content as required and then convert it to SOAP format.
@@ -229,7 +229,7 @@ processed in the WSO2 Micro Integrator mediation flow.
 ### Custom message formatter
 
 Similarly, you can write your own message formatter to manipulate the
-outgoing payload from the WSO2 Micro Integrator.
+outgoing payload from the WSO2 Integrator: MI.
 
 When creating a custom message formatter, you will need to create a class implementing the `org.apache.axis2.transport.MessageFormatter` interface and then override the `writeTo` method. You can implement your logic within the `writeTo` method. Let's use the `org.apache.axis2.transport.http.HTMLMessageFormatter` class to implement the `org.apache.axis2.transport.MessageFormatter` interface. 
 
