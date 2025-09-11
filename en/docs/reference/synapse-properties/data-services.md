@@ -1,8 +1,8 @@
 # Data Services 
 
-The data in your organization can be a complex pool of information that is stored in heterogeneous systems (such as an RDBMS). Data services are created for the purpose of decoupling the data from its infrastructure. In other words, when you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) can be exposed in the form of a service. This allows users (that may be any application or system) to access the data without interacting with the original source of the data. Data services are, thereby, a convenient interface for interacting with the database layer in your organization.
+The data in your organization can be a complex pool of information that is stored in heterogeneous systems (such as an RDBMS). Data services are created for the purpose of decoupling the data from its infrastructure. In other words, when you create a data service in WSO2 Integrator: MI, the data that is stored in a storage system (such as the RDBMS) can be exposed in the form of a service. This allows users (that may be any application or system) to access the data without interacting with the original source of the data. Data services are, thereby, a convenient interface for interacting with the database layer in your organization.
 
-A data service in WSO2 Micro Integrator is a SOAP-based web service by default. However, you also have the option of creating REST resources, which allows applications and systems consuming the data service to have both SOAP-based and RESTful access to your data.
+A data service in WSO2 Integrator: MI is a SOAP-based web service by default. However, you also have the option of creating REST resources, which allows applications and systems consuming the data service to have both SOAP-based and RESTful access to your data.
 
 ### Datasources
 
@@ -10,11 +10,11 @@ Your organization's data can be stored in various data storage systems, which ar
 
 ### RESTful data services
 
-You can enable RESTful access to your data by defining RESTful resources for the relevant data in your data service. REST resources in the Micro Integrator support both JSON and XML media types out of the box. Therefore, a resource can receive requests and send responses in either medium. You can secure your resources with HTTP(S) Basic Auth via [WSO2 Identity Server](https://wso2.com/identity-server/).
+You can enable RESTful access to your data by defining RESTful resources for the relevant data in your data service. REST resources in the WSO2 Integrator: MI support both JSON and XML media types out of the box. Therefore, a resource can receive requests and send responses in either medium. You can secure your resources with HTTP(S) Basic Auth via [WSO2 Identity Server](https://wso2.com/identity-server/).
 
 ### OData Services
 
-RESTful data services in WSO2 Micro Integrator supports OData ([OData](http://www.odata.org/) protocol version 4 - OASIS standards),
+RESTful data services in WSO2 Integrator: MI supports OData ([OData](http://www.odata.org/) protocol version 4 - OASIS standards),
 which makes RESTful data access easier. In a normal data service, you
 will write SQL queries for CRUD operations that will be performed on the
 data. In other words, to be able to GET, UPDATE, POST, or DELETE data in
@@ -38,7 +38,7 @@ A data service has the ability to aggregate the data that is stored in various, 
 
 A distributed transaction is a set of operations that should be performed on two or more distributed RDBMS data stores. If the operation on one data store (node) fails, the entire set of operations will fail in all the data stores. In other words, a distributed transaction is an example of a batch process, where multiple requests are grouped into one server call and processed as one unit by the data service.
 
-Data services in WSO2 Micro Integrator supports distributed transactions, which allows
+Data services in WSO2 Integrator: MI supports distributed transactions, which allows
 data consumers to perform such transactions easily by using one data
 service as the interface. Note that distributed transactions can only be
 performed for IN-ONLY operations that will insert, update, or delete
@@ -60,7 +60,7 @@ batch and process it as a single request. Batch processing can only be
 used for IN-ONLY operations that will insert, update, or delete data in
 the data stores, and not for operations that retrieve data.
 
-Data services in WSO2 Micro Integrator support two scenarios of batch requesting: Client-side batch requests and server-side batch requests.
+Data services in WSO2 Integrator: MI support two scenarios of batch requesting: Client-side batch requests and server-side batch requests.
 
 For example, consider the task of entering details of new employees into
 a database table. Typically, the client consuming the data can do this

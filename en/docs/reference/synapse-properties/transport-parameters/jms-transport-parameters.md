@@ -3,7 +3,7 @@
 When you implement an integration use case that requires a JMS connection, you can use the following JMS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can listen to a JMS instance or send messages to a JMS instance only if the JMS transport listener and sender are enabled and configured at the server level. Read about the [JMS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport).
+    The WSO2 Integrator: MI can listen to a JMS instance or send messages to a JMS instance only if the JMS transport listener and sender are enabled and configured at the server level. Read about the [JMS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
@@ -48,7 +48,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
          <td>Specifies the action to be taken when there are JMS Message property names that contain hyphens. The possible values are as follows:
             <ul>
                <li><b>none</b>: No action will be taken. This is the default value.</li>
-               <li><b>replace</b>: Transport headers with hyphens will be replaced before adding them as JMS message properties, and if the Micro Integrator is the consumer, hyphens will be reintroduced on message retrieval.</li>
+               <li><b>replace</b>: Transport headers with hyphens will be replaced before adding them as JMS message properties, and if the WSO2 Integrator: MI is the consumer, hyphens will be reintroduced on message retrieval.</li>
                <li>
                   <b>delete</b>: Transport headers with hyphens will be deleted.
                </li>
@@ -131,7 +131,7 @@ The JMS connection factory parameters can be specified at the server level or th
          </td>
          <td>
             Preferred mode of transactionality.</br>
-            <b>Note</b>: In the Micro Integrator, JMS transactions only work with either the Callout mediator or the Call mediator in blocking mode. The possible values are as follows:
+            <b>Note</b>: In the WSO2 Integrator: MI, JMS transactions only work with either the Callout mediator or the Call mediator in blocking mode. The possible values are as follows:
             <ul>
                <li><b>none</b>: Disables transactions in the JMS transport.</li>
                <li><b>local</b>: Enables local JMS session transactions.</li>
@@ -353,7 +353,7 @@ The JMS connection factory parameters can be specified at the server level or th
           </td>
          <td>parameter.cache_level</td>
          <td>
-            The cache level with which JMS objects should be cached at start up. You can configure this in the ei.toml file if Micro Integrator acts as a JMS producer. Example:
+            The cache level with which JMS objects should be cached at start up. You can configure this in the ei.toml file if WSO2 Integrator: MI acts as a JMS producer. Example:
             <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -363,7 +363,7 @@ The JMS connection factory parameters can be specified at the server level or th
                      </div>
                   </div>
             </div>
-            If the Micro Integrator is a JMS consumer, you can configure a proxy service. Following are the possible values for this parameter:
+            If the WSO2 Integrator: MI is a JMS consumer, you can configure a proxy service. Following are the possible values for this parameter:
             <ul>
                <li><strong>none</strong>: None of the JMS objects will be cached.</li>
                <li><strong>connection</strong>: JMS connection objects will be cached.</li>

@@ -60,7 +60,7 @@ This server is loaded with a standard set of test data sets and also this server
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API. 
+1. Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. 
 
 2. Specify the API name as `SampleApi` and API context as `/resources`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 
@@ -251,7 +251,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-**Deploy on Micro Integrator**
+**Deploy on WSO2 Integrator: MI**
 
 In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 

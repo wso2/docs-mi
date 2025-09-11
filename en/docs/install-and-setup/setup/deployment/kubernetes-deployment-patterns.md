@@ -1,6 +1,6 @@
-# Micro Integrator Deployment Patterns on Kubernetes
+#WSO2 Integrator: MI Deployment Patterns on Kubernetes
 
-These are the deployment patterns you can use when deploying your WSO2 Micro Integrator-based integration solutions in a Kubernetes environment.
+These are the deployment patterns you can use when deploying your WSO2 Integrator: MI-based integration solutions in a Kubernetes environment.
 
 When you deploy your integrations, the main concern is to ensure high availability and scalability of your system. Therefore, you need to decide upon the number of **worker nodes** and the number of **replicas** that are required for the purposes of scaling the deployment and ensuring high availability.
 
@@ -18,7 +18,7 @@ The single replica deployment is not recommended if you expect a high amount of 
 
 ### High availability
 
-The failure of this single worker node will take down the entire Micro Integrator deployment (because we don't have an additional node to take over the workload). Also, if there is a failure in the single pod, there will be a downtime before a new pod is spawned again. This downtime can vary depending on the server_startup_time + artifact_deployment_time, which could lead to a significant downtime in your cluster. If this downtime is acceptable and does not negatively impact your requirements, this approach may be the easiest way for you to get started. Otherwise, to achieve high availability, you require more than one worker node (which avoids single point of failure) and multiple replicas of the pod (which avoids pod downtime).
+The failure of this single worker node will take down the entire WSO2 Integrator: MI deployment (because we don't have an additional node to take over the workload). Also, if there is a failure in the single pod, there will be a downtime before a new pod is spawned again. This downtime can vary depending on the server_startup_time + artifact_deployment_time, which could lead to a significant downtime in your cluster. If this downtime is acceptable and does not negatively impact your requirements, this approach may be the easiest way for you to get started. Otherwise, to achieve high availability, you require more than one worker node (which avoids single point of failure) and multiple replicas of the pod (which avoids pod downtime).
 
 ## Multiple Replicas
 
@@ -45,9 +45,9 @@ Because there are multiple replicas (i.e., multiple instances of the same deploy
 
 ## Multiple Replicas (with Coordination)
 
-Most of the integration solutions that you develop can be deployed using a single Micro Integrator container. That is, as explained in the previous deployment pattern, you can have multiple replicas of a single pod. Because most of these integration flows are stateless (does not need to persist status) the multiple instances (replicas) are not required to coordinate with one other.
+Most of the integration solutions that you develop can be deployed using a single WSO2 Integrator: MI container. That is, as explained in the previous deployment pattern, you can have multiple replicas of a single pod. Because most of these integration flows are stateless (does not need to persist status) the multiple instances (replicas) are not required to coordinate with one other.
 
-However, the following integration artifacts are **stateful** and require coordination when deployed across multiple Micro Integrator instances.
+However, the following integration artifacts are **stateful** and require coordination when deployed across multiple WSO2 Integrator: MI instances.
 
 -   Scheduled Tasks
 -   Message Processors
@@ -59,11 +59,11 @@ However, the following integration artifacts are **stateful** and require coordi
     -   MQTT Inbound Endpoint
     -   RabbitMQ Inbound Endpoint
 
-You can still deploy these stateful artifacts in multiple replicas as long as coordination is properly configured. WSO2 Micro Integrator supports clustering via a coordination database, which ensures that only one instance actively executes a given task. This prevents duplicate executions and maintains consistency across the cluster.
+You can still deploy these stateful artifacts in multiple replicas as long as coordination is properly configured. WSO2 Integrator: MI supports clustering via a coordination database, which ensures that only one instance actively executes a given task. This prevents duplicate executions and maintains consistency across the cluster.
 
 !!! Tip
-    - See [Coordination configurations]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/#coordination-configurations) for instructions on configuring coordination across multiple Micro Integrator instances using the Helm charts.
-    - If you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API or Integration Control Plane, you must share the registry across Micro Integrator instances to persist the state when new nodes join the cluster. Refer to [Registry synchronization]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#registry-synchronization-sharing) for more information. Registry synchronization is an optional setup and is not required for basic coordination.
+    - See [Coordination configurations]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/#coordination-configurations) for instructions on configuring coordination across multiple WSO2 Integrator: MI instances using the Helm charts.
+    - If you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API or Integration Control Plane, you must share the registry across WSO2 Integrator: MI instances to persist the state when new nodes join the cluster. Refer to [Registry synchronization]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#registry-synchronization-sharing) for more information. Registry synchronization is an optional setup and is not required for basic coordination.
 
 <img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s_coordination.png">
 
@@ -74,6 +74,6 @@ You can still deploy these stateful artifacts in multiple replicas as long as co
 
 ### High availability
 
-When stateful artifacts are deployed with coordination enabled across multiple Micro Integrator (MI) replicas, each artifact such as scheduled tasks or message processors is executed by only one MI instance at a time. By default, these artifacts are automatically assigned to available nodes in the cluster, ensuring consistent and conflict free execution.
+When stateful artifacts are deployed with coordination enabled across multiple WSO2 Integrator: MI replicas, each artifact such as scheduled tasks or message processors is executed by only one MI instance at a time. By default, these artifacts are automatically assigned to available nodes in the cluster, ensuring consistent and conflict free execution.
 
 If the MI instance currently executing a particular artifact becomes unavailable, another node will seamlessly take over its execution. This ensures high availability and avoids service interruptions by enabling automatic failover of stateful tasks.

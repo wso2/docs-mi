@@ -3,7 +3,7 @@
 When you implement an integration use case that requires a RabbitMQ connection, you can use the following RabbitMQ parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-      The Micro Integrator can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq).
+      The WSO2 Integrator: MI can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq).
 
 ## Service-Level parameters (receiving messages)
 
@@ -79,14 +79,14 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       <tr>
          <td>rabbitmq.queue.autodeclare</td>
          <td>
-           Whether or not to declare the queue. If set to <code>true</code>, the Micro Integrator creates queues if they are not already
-present. If set to <code>false</code>, the Micro Integrator will assume that a queue is already available. However, you should set this parameter to true only if queues are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
+           Whether or not to declare the queue. If set to <code>true</code>, the WSO2 Integrator: MI creates queues if they are not already
+present. If set to <code>false</code>, the WSO2 Integrator: MI will assume that a queue is already available. However, you should set this parameter to true only if queues are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
          </td>
       </tr>
       <tr>
          <td>rabbitmq.exchange.autodeclare</td>
          <td>
-            Whether or not to declare the exchange. If set to <code>true</code>, the Micro Integrator creates exchanges. If set to <code>false</code>, the Micro Integrator will assume that an exchange is already available. However, you should set this parameter to true only if exchanges are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
+            Whether or not to declare the exchange. If set to <code>true</code>, the WSO2 Integrator: MI creates exchanges. If set to <code>false</code>, the WSO2 Integrator: MI will assume that an exchange is already available. However, you should set this parameter to true only if exchanges are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
           </td>
       </tr>
       <tr>
@@ -143,9 +143,9 @@ To enable SSL support in RabbitMQ, you need to configure the following paramet
 </table>
 
 !!! Tip
-    Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator (using the `rabbitmq.connection.ssl.enabled` parameter).
+    Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the WSO2 Integrator: MI (using the `rabbitmq.connection.ssl.enabled` parameter).
 
-    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the Micro Integrator.
+    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the WSO2 Integrator: MI.
 
     Shown below is an example of the config file where `fail_if_no_peer_cert` is set to `false`:
     ```

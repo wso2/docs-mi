@@ -3,11 +3,11 @@
 The WSO2 Integration Control Plane (ICP) monitors the MI instances in a deployment. This can be a single MI instance or multiple MI instances in a group (cluster). It provides a graphical view of the integration artifacts that are deployed in the MI instances. You can also perform various management 
 and administration tasks using the ICP server. 
 
-The ICP server communicates with the management APIs of each Micro Integrator instance in the group (cluster) to get and manipulate data.
+The ICP server communicates with the management APIs of each WSO2 Integrator: MI instance in the group (cluster) to get and manipulate data.
 
 ## Capabilities of the ICP server
 
-You can use the ICP server to perform the following administration tasks related to your Micro Integrator deployment:
+You can use the ICP server to perform the following administration tasks related to your WSO2 Integrator: MI deployment:
 
 !!! tip
     You can search for certain artifacts using the specific name of the artifact if there are many such items in the list.
@@ -20,7 +20,7 @@ You can use the ICP server to perform the following administration tasks related
 
 -   <b>View integration artifacts deployed in a group</b>
 
-    View details of the artifacts deployed in a cluster or group of Micro Integrator instances.
+    View details of the artifacts deployed in a cluster or group of WSO2 Integrator: MI instances.
 
 -   <b>Identify the MI servers where a specified artifact is deployed</b>
 
@@ -41,7 +41,7 @@ You can use the ICP server to perform the following administration tasks related
 
 -   <b>View logs</b>
 
-    You can view the log files generated for each Micro Integrator instance of the cluster/group.
+    You can view the log files generated for each WSO2 Integrator: MI instance of the cluster/group.
 
 -   <b>View, update, and add loggers</b>
 
@@ -57,9 +57,9 @@ Follow the steps given below to get started with the WSO2 Integration Control Pl
 
 ### Step 1 - Download the Integration Control Plane
 
-Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the ICP server.
+Download the binary distribution of the product, and then follow the instructions to start the WSO2 Integrator: MI and the ICP server.
 
--   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
+-   [Install the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi).
 -   [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane).
 
 ### Step 2 - Configure the MI servers
@@ -84,7 +84,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
      node_id = "dev_node_2"
     ```
     
-    If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
+    If the WSO2 Integrator: MI server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
 
     **Limitation**: When there are replicas in the deployment, the write operations will not work properly.
 
@@ -115,7 +115,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 heartbeat_interval
             </th>
             <td>
-                <b>Optional</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the ICP server. By default, the heartbeat_interval is set to `5`. 
+                <b>Optional</b>. The time interval (in seconds) between two heartbeats sent from the WSO2 Integrator: MI to the ICP server. By default, the heartbeat_interval is set to `5`. 
             </td>
         </tr>
         <tr>
@@ -123,7 +123,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 group_id
             </th>
             <td>
-                <b>Optional</b>. In a clustered deployment, the group ID should be the same in all Micro Integrator Instances. 
+                <b>Optional</b>. In a clustered deployment, the group ID should be the same in all WSO2 Integrator: MI Instances. 
                 The ICP server displays information from one group at a time. By default, the group_id is set to `default`. 
             </td>
         </tr>
@@ -140,7 +140,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 management_hostname
             </th>
             <td>
-                <b>Required if MI server is deployed in a Kubernetes environment</b>. Hostname for the Micro Integrator management endpoint.
+                <b>Required if MI server is deployed in a Kubernetes environment</b>. Hostname for the WSO2 Integrator: MI management endpoint.
             </td>
         </tr>
         <tr>
@@ -148,18 +148,18 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 management_port
             </th>
             <td>
-                <b>Optional</b>. Port of the Micro Integrator management endpoint.
+                <b>Optional</b>. Port of the WSO2 Integrator: MI management endpoint.
             </td>
         </tr>
     </table> 
 
-2.  **Optionally**, configure the [Micro Integrator user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
+2.  **Optionally**, configure the [WSO2 Integrator: MI user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 
     !!! Tip
         Note the following about your user store configurations.
 
         -   The user credentials for signing in to the ICP server should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
-        -   [User management]({{base_path}}/install-and-setup/setup/user-stores/managing-users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
+        -   [User management]({{base_path}}/install-and-setup/setup/user-stores/managing-users) is possible only if you have an RDBMS or LDAP user store for your WSO2 Integrator: MI.
         -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. You will not be able to sign in without the driver.
 
 3.  Regardless of the user who logs in, the ICP server uses the user configured in its `deployment.toml` to fetch the data to the ICP server. Then the ICP server renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<ICP_HOME>/conf/` folder).
@@ -207,7 +207,7 @@ Follow the steps given below.
 Once you have [set up and started the ICP server](#using-the-integration-control-plane), you can access the ICP server URL.
 
 !!! Note "Before you begin"
-    Be sure to have at least one Micro Integrator server connected to the ICP server before attempting to sign in to it. This can be verified by checking the presence of the following log.
+    Be sure to have at least one WSO2 Integrator: MI server connected to the ICP server before attempting to sign in to it. This can be verified by checking the presence of the following log.
     ```
     New node <node_id> in group : <group_id> is registered. Inserting heartbeat information
     ```
@@ -229,7 +229,7 @@ Once you have [set up and started the ICP server](#using-the-integration-control
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
+                <b>Note</b>: This should be a valid username that is saved in the WSO2 Integrator: MI server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
                 See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">configuring user stores</a> for information.
             </td>
         </tr>
@@ -294,7 +294,7 @@ You can view details, and update the <b>status</b> and enable <b>tracing</b>/<b>
 
 ### Endpoints
 
-Select this option to manage endpoint artifacts deployed in the Micro Integrator instance.
+Select this option to manage endpoint artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-endpoint-1.png">
 
@@ -304,7 +304,7 @@ You can view details, update the <b>status</b>, and enable <b>tracing</b>/<b>sta
 
 ### Inbound Endpoints
 
-Select this option to manage inbound endpoint artifacts deployed in the Micro Integrator instance.
+Select this option to manage inbound endpoint artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-inbound-endpoint-1.png">
 
@@ -314,7 +314,7 @@ You can view details of each inbound endpoint as shown below.
 
 ### Message Processors
 
-Select this option to manage message processor artifacts deployed in the Micro Integrator instance.
+Select this option to manage message processor artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-message-processor-1.png">
 
@@ -324,7 +324,7 @@ You can view details, update the <b>status</b>, and enable <b>tracing</b>/<b>sta
 
 ### Message Stores
 
-Select this option to manage message store artifacts deployed in the Micro Integrator instance.
+Select this option to manage message store artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-message-store-1.png">
 
@@ -334,7 +334,7 @@ You can view details of each message store as shown below.
 
 ### API
 
-Select this option to manage REST API artifacts deployed in the Micro Integrator instance.
+Select this option to manage REST API artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-api-1.png">
 
@@ -344,7 +344,7 @@ You can view details and update <b>tracing</b> for each API as shown below.
 
 ### Templates
 
-Select this option to manage template artifacts deployed in the Micro Integrator instance.
+Select this option to manage template artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-template-1.png">
 
@@ -354,7 +354,7 @@ You can view details for each template as shown below.
 
 ### Sequences
 
-Select this option to manage sequence artifacts deployed in the Micro Integrator instance.
+Select this option to manage sequence artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-sequence-1.png">
 
@@ -364,7 +364,7 @@ You can view details and update <b>tracing</b> for each sequence as shown below.
 
 ### Tasks
 
-Select this option to manage scheduled tasks deployed in the Micro Integrator instance.
+Select this option to manage scheduled tasks deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-task-1.png">
 
@@ -374,7 +374,7 @@ You can view details for each task as shown below.
 
 ### Local Entries
 
-Select this option to manage local entries deployed in the Micro Integrator instance.
+Select this option to manage local entries deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-localentry-1.png">
 
@@ -384,7 +384,7 @@ You can view details for each local entry as shown below.
 
 ### Data Services
 
-Select this option to manage data services deployed in the Micro Integrator instance.
+Select this option to manage data services deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-dataservice-1.png">
 
@@ -394,7 +394,7 @@ You can view details for each data service as shown below.
 
 ### Connectors
 
-Select this option to manage connector artifacts deployed in the Micro Integrator instance.
+Select this option to manage connector artifacts deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-connector-1.png">
 
@@ -404,19 +404,19 @@ You can view details for each connector as shown below.
 
 ### Carbon Applications
 
-Select this option to see the list of composite applications deployed in the Micro Integrator instance.
+Select this option to see the list of composite applications deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-capp.png">
 
 ### Log Files
 
-Select this option to view and download log files of the Micro Integrator instance.
+Select this option to view and download log files of the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-view-logs.png">
 
 ### Log Configs
 
-Select this option to manage the log4j loggers of the Micro Integrator instance.
+Select this option to manage the log4j loggers of the WSO2 Integrator: MI instance.
 
 To view log configs and update log levels:
 
@@ -428,7 +428,7 @@ To add new loggers:
 
 ### Users
 
-Select this option to manage the users of the Micro Integrator instance. These users are stored in the external user store connected to the Micro Integrator.
+Select this option to manage the users of the WSO2 Integrator: MI instance. These users are stored in the external user store connected to the WSO2 Integrator: MI.
 
 To view and remove users:
 

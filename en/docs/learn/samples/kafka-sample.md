@@ -1,6 +1,6 @@
 # Kafka Consumer and Producer Sample
 
-This sample demonstrates the Kafka integration capabilities of Micro Integrator.
+This sample demonstrates the Kafka integration capabilities of WSO2 Integrator: MI.
 
 This sample contains a REST API called `WeatherDataPublishAPI`, a Kafka inbound endpoint called `WeatherDataTransmitInboundEP` and two Sequences called `WeatherDataProcessSeq` and  `WeatherDataErrorSeq`.
 
@@ -26,7 +26,7 @@ Kafka inbound endpoint periodically polls JSON messages in the WeatherDataTopic.
     bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic weatherdatatopic
     ```
     
-5. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+5. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

@@ -35,7 +35,7 @@ Listed below are the main properties that are required when [creating a proxy se
     <td>
       The proxy service uses an <b>Endpoint</b> artifact inline to define the location to which messages should be routed. You can choose one of the following options to specify the endpoint.
       <ul>
-        <li>If you have a <a href="{{base_path}}/develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Micro Integrator (WSO2 MI), provide the name of the artifact.</li>
+        <li>If you have a <a href="{{base_path}}/develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Integrator: MI (WSO2 MI), provide the name of the artifact.</li>
         <li>If you have a predefined <b>Endpoint</b> artifact that is saved in the <a href="{{base_path}}/get-started/key-concepts/#registry">registry</a>, provide the link to the artifact.</li>
       </ul>
       See <a href="{{base_path}}/reference/synapse-properties/endpoint-properties">Endpoint Properties</a> for the complete list of properties you can define for the Endpoint artifact.

@@ -39,7 +39,7 @@ that executes the request in flow, request out flow, response in flow and respon
     public boolean handleResponseOutFlow(MessageContext synCtx);
     ```
 
-The diagram below illustrates the basic component structure of WSO2 Micro Integrator and how the flows mentioned above execute in the request path and the response path.
+The diagram below illustrates the basic component structure of WSO2 Integrator: MI and how the flows mentioned above execute in the request path and the response path.
 
 ![Request-Response Flow]({{base_path}}/assets/img/integrate/synapse_handlers/esb-with-request-response-flow.png)
 
@@ -84,7 +84,7 @@ public class TestHandler extends AbstractSynapseHandler {
 
 ## Step 2: Deploying the Synapse handler
 
-To deploy your custom synapse handler in WSO2 Micro Integrator, bundle the artifact as a JAR file (with either the .jar or .xar format), and add it to the `MI_HOME/lib/` directory. Be sure to restart the server after adding the files.
+To deploy your custom synapse handler in WSO2 Integrator: MI, bundle the artifact as a JAR file (with either the .jar or .xar format), and add it to the `MI_HOME/lib/` directory. Be sure to restart the server after adding the files.
 
 ## Step 3: Engaging the Synapse handler
 

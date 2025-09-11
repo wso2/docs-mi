@@ -371,7 +371,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 {!includes/build-and-run-artifacts.md!}
 
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
+The artifacts will be deployed in the embedded WSO2 Integrator: MI and the server will start.
 
 - See the startup log in the **Console** tab.
 - See the URLs of the deployed services and APIs in the **Runtime Services** tab.

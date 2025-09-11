@@ -3,7 +3,7 @@
 Validators are added to individual input mappings in a query. Input
 validation allows data services to validate the input parameters in a
 request and stop the execution of the request if the input doesn’t meet
-the required criteria. WSO2 Micro Integrator provides a set of
+the required criteria. WSO2 Integrator: MI provides a set of
 built-in validators for some of the most common use cases. It also
 provides an extension mechanism to write custom validators.
 

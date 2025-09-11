@@ -4,7 +4,7 @@ In this tutorial, you will learn how to create an AI chatbot using WSO2 MI, enab
 
 ## What you will build
 
-In this tutorial, you will implement a chatbot, which will serve customer requests. The chatbot will be deployed as the `Chat` API in the WSO2 Micro Integrator, enabling seamless integration and hassle-free deployment.
+In this tutorial, you will implement a chatbot, which will serve customer requests. The chatbot will be deployed as the `Chat` API in the WSO2 Integrator: MI, enabling seamless integration and hassle-free deployment.
 
 <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
@@ -15,10 +15,10 @@ In this tutorial, you will implement a chatbot, which will serve customer reques
 
 ## Prerequisites
 
-1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
+1. You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Integrator: MI.
 
     !!! Info
-        See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+        See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 2. You need an OpenAI API key to proceed. Visit the [OpenAI API Documentation](https://platform.openai.com/docs/api-reference) for more details on obtaining and managing your API key.
 
@@ -26,11 +26,11 @@ Follow the instructions below to create your first Integration API.
 
 ## Step 1 - Create a new integration project
 
-To develop the above scenario, let us get started with creating an integration project in the Micro Integrator extension installed VS Code.
+To develop the above scenario, let us get started with creating an integration project in the WSO2 Integrator: MI extension installed VS Code.
 
-1. Launch VS Code with the Micro Integrator extension installed.
+1. Launch VS Code with the WSO2 Integrator: MI extension installed.
 
-2. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
+2. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
@@ -40,7 +40,7 @@ To develop the above scenario, let us get started with creating an integration p
 
 4. In the **Project Creation Form**, enter `BankIntegration` as the **Project Name**.
 
-5. Ensure `4.4.0` is selected as the **Micro Integrator runtime version**.
+5. Ensure `4.5.0` is selected as the **WSO2 Integrator: MI runtime version**.
 
 6. Provide a location for the integration project under **Project Directory**.
 
@@ -54,9 +54,9 @@ To develop the above scenario, let us get started with creating an integration p
     You need the following to work with the MI for VS Code extension.
 
     - Java Development Kit (JDK) version 21
-    - WSO2 Micro Integrator (MI) 4.4.0 runtime
+    - WSO2 Integrator:  MI 4.5.0 runtime
 
-    If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
+    If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the WSO2 Integrator: MI for VS Code extension during the project creation step:
 
     1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
@@ -97,7 +97,7 @@ Once you create the API, a default resource will be automatically generated. You
 Now it is time to design your API. This is the underlying logic that's executed behind the scenes when an API request is made. In this scenario, you need to send the user request to the LLM and send back the response from LLM to user. For that, you have to add a [Chat operation of AI Module]({{base_path}}/reference/connectors/ai-module/ai-module-reference/#operations). Follow the below steps to add a Chat operation.  
 
 !!! Tip "What is a connector?"
-    - Connectors in WSO2 Micro Integrator (MI) enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
+    - Connectors in WSO2 Integrator:  MI enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
     - In VS Code, you can view all available connectors by clicking **Add Module** under the **Mediators** tab in the **Mediator Palette**.
 
 1. Change the method of the default resource to `POST` by clicking the three dots icon in the resource.
@@ -232,7 +232,7 @@ You may refer to the following API configuration for reference,
 
 ## Step 4 - Run the Integration API
 
-After developing the integration using the Micro Integrator extension for Visual Studio Code, deploy it to the Micro Integrator server runtime.
+After developing the integration using the WSO2 Integrator: MI extension for Visual Studio Code, deploy it to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 

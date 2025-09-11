@@ -4,7 +4,7 @@ In this tutorial, you'll learn the basics of setting up and using WSO2 MI to cre
 
 ## What you'll build
 
-Let’s try a simple scenario where the client sends a request to the `Bank` API deployed in the WSO2 Micro Integrator and receives a `Welcome to O2 Bank !!` greeting response.
+Let’s try a simple scenario where the client sends a request to the `Bank` API deployed in the WSO2 Integrator: MI and receives a `Welcome to O2 Bank !!` greeting response.
 
 <a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_greeting.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_greeting.png" alt="Create New Project" width="40%"></a>
 
@@ -16,20 +16,20 @@ Let’s try a simple scenario where the client sends a request to the `Bank` API
 
 ## Prerequisites
 
-You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Micro Integrator.
+You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed. The MI for VS Code extension is the official developer tool for designing, developing, and testing integration solutions with WSO2 Integrator: MI.
 
 !!! Info
-    See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install Micro Integrator for VS Code.
+    See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 Follow the instructions below to create your first Integration API.
 
 ## Step 1 - Create a new integration project
 
-To develop the above scenario, let's get started with creating an integration project in the Micro Integrator extension installed VS Code.
+To develop the above scenario, let's get started with creating an integration project in the WSO2 Integrator: MI extension installed VS Code.
 
-1. Launch VS Code with the Micro Integrator extension installed.
+1. Launch VS Code with the WSO2 Integrator: MI extension installed.
 
-2. Click on the Micro Integrator icon on the Activity Bar of the VS Code editor.
+2. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
@@ -39,7 +39,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 4. In the **Project Creation Form**, enter `BankIntegration` as the **Project Name**.
 
-5. Ensure `4.4.0` is selected as the **Micro Integrator runtime version**.
+5. Ensure `4.5.0` is selected as the **WSO2 Integrator: MI runtime version**.
 
 6. Provide a location for the integration project under **Project Directory**.
 
@@ -53,9 +53,9 @@ To develop the above scenario, let's get started with creating an integration pr
     You need the following to work with the MI for VS Code extension.
 
     - Java Development Kit (JDK) version 21
-    - WSO2 Micro Integrator (MI) 4.4.0 runtime
+    - WSO2 Integrator:  MI 4.5.0 runtime
 
-    If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the Micro Integrator for VS Code extension during the project creation step:
+    If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the WSO2 Integrator: MI for VS Code extension during the project creation step:
 
     1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
@@ -96,7 +96,7 @@ Once you create the API, a default resource will be automatically generated. You
 Now it's time to design your API. This is the underlying logic that's executed behind the scenes when an API request is made. In this scenario, you need to send back a greeting message to the client. For that, you have to add a [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/). Follow the below steps to add a Payload mediator.
 
 !!! Tip "What is a mediator?"
-    Mediators are the core building blocks of message processing in WSO2 Micro Integrator (MI). They define how messages are transformed and routed as they pass through an integration flow. To explore mediators in detail and understand how they work, see the [Mediator documentation]({{base_path}}/reference/mediators/about-mediators/).
+    Mediators are the core building blocks of message processing in WSO2 Integrator:  MI. They define how messages are transformed and routed as they pass through an integration flow. To explore mediators in detail and understand how they work, see the [Mediator documentation]({{base_path}}/reference/mediators/about-mediators/).
 
 1. Open the **Resource View** of the API resource by clicking the `GET` resource under **Available resources** on **Service Designer**.
 
@@ -162,7 +162,7 @@ You may refer to the following API configuration for reference,
 
 ## Step 4 - Run the Integration API
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 

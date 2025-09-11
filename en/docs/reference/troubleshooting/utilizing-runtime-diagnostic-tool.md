@@ -34,7 +34,7 @@ The table given below describes the server configurations.
 | `server_name` | Name of the WSO2 server.                            |
 | `server_version` | Version of the WSO2 server.                         |
 
-Given below is a sample configuration for the WSO2 Micro Integrator.
+Given below is a sample configuration for the WSO2 Integrator: MI.
 
 ```toml
 [server_configuration]
@@ -45,7 +45,7 @@ updates_config_path = "../updates/config.json"
 diagnostic_log_file_path = "logs/diagnostics.log"
 carbon_log_file_path = "../repository/logs/wso2error.log"
 process_id_path = "../wso2carbon.pid"
-server_name = "WSO2 Micro Integrator"
+server_name = "WSO2 Integrator: MI"
 server_version = "#.#.#"
 ```
 

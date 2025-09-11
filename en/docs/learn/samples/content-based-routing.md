@@ -1,6 +1,6 @@
 # Content Based Routing Sample
 
-This sample demonstrates the routing capability of WSO2 Micro Integrator (WSO2 MI). In this scenario, routing occurs based on the content of the message payload.
+This sample demonstrates the routing capability of WSO2 Integrator: MI (WSO2 MI). In this scenario, routing occurs based on the content of the message payload.
 
 The use case involves an arithmetic operations service. Depending on the operation type, the message needs to be routed to the relevant service. Specifically, the routing decision is based on the value of the `Operation` attribute in the request payload.
 
@@ -10,7 +10,7 @@ The Switch mediator handles the routing by extracting the attribute value using 
 
 1.  Open the sample by clicking on the **Content Based Routing** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

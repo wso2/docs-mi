@@ -52,4 +52,4 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. See the instructions on [creating an inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) to define the inbound endpoint given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.

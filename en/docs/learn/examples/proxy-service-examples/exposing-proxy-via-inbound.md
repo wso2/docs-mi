@@ -45,7 +45,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}   
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -63,7 +63,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Send the following request to the Micro Integrator.
+Send the following request to the WSO2 Integrator: MI.
 
 ```xml
 POST http://localhost:9090/services/InboundProxy HTTP/1.1

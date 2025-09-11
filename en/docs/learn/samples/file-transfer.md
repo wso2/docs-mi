@@ -1,6 +1,6 @@
 # File Transfer Sample
 
-This sample demonstrates some file handling capabilities of the Micro Integrator.
+This sample demonstrates some file handling capabilities of the WSO2 Integrator: MI.
 
 This sample contains an Inbound Endpoint called `StudentDataFileProcessInboundEP` which polls a particular location for available files. Also, it contains two sequences called `StudentDataFileProcessSeq` and `StudentDataFileErrorSeq`.
 
@@ -16,7 +16,7 @@ Once file reading is successful, the file will be moved to a location defined in
     - File URI
     - Move After Process
     - Move After Failure
-4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

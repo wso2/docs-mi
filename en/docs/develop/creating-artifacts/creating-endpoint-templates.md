@@ -1,6 +1,6 @@
 # Create an Endpoint Template
 
-Follow the instructions below to create a new Endpoint Template in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions below to create a new Endpoint Template in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 

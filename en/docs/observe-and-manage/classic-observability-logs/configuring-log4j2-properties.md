@@ -2,7 +2,7 @@
 
 ## Introduction
 
-All WSO2 products are shipped with Log4j2 logging capabilities, which generate server-side logs. The `<MI_HOME>/conf/log4j2.properties` file governs how logging is performed by the Micro Integrator.
+All WSO2 products are shipped with Log4j2 logging capabilities, which generate server-side logs. The `<MI_HOME>/conf/log4j2.properties` file governs how logging is performed by the WSO2 Integrator: MI.
 
 ??? note "Java logging and Log4j2 integration"
     In addition to the logs from libraries that use Log4j2, all logs from libraries that use the Java logging framework are also visible in the same log files. That is, when Java logging is enabled in Carbon, only the Log4j2 appenders will write to the log files. If the Java Logging Handlers have logs, these logs will be delegated to the log events of the corresponding Log4j2 appenders. A Pub/Sub registry pattern implementation has been used in the latter mentioned scenario to plug the handlers and appenders. The following default log4j2 appenders in the `log4j2.properties` file are used for this implementation:<br/><ul>
@@ -67,7 +67,7 @@ loggers = <LOGGER_NAME>, <LOGGER_NAME_1>, <LOGGER_NAME_2>,
 Log4j2 allows logging requests to print to multiple destinations. These output destinations are called 'Appenders'. All the defined appenders should be listed as shown below in the `log4j2.properties` file.
 
 !!! Note
-    - By default, the Micro Integrator uses console and rolling file appenders. Depending on your use case, you can refer to the <a target="_blank" href="https://logging.apache.org/log4j/2.x/manual/appenders.html">Log4j2 documentation</a> and customize the `log4j2.properties` file accordingly.
+    - By default, the WSO2 Integrator: MI uses console and rolling file appenders. Depending on your use case, you can refer to the <a target="_blank" href="https://logging.apache.org/log4j/2.x/manual/appenders.html">Log4j2 documentation</a> and customize the `log4j2.properties` file accordingly.
     - If the output destination is in another environment (such as a cloud storage), you need to [use custom log appenders](#using-custom-log-appenders).
 
 ```xml
@@ -78,7 +78,7 @@ Once the appenders are defined, a logger can refer the appender by using the `ap
 
 ## Configure Log4j2 Logs
 
-The list below shows some of the main loggers (excluding the [root logger](#root-logs)) that are configured by default in the Micro Integrator. Open the `log4j2.properties` file to see the complete list.
+The list below shows some of the main loggers (excluding the [root logger](#root-logs)) that are configured by default in the WSO2 Integrator: MI. Open the `log4j2.properties` file to see the complete list.
 
 ```xml
 loggers = SERVICE_LOGGER, API_LOGGER, AUDIT_LOG, correlation, trace-messages, org.apache.synapse.transport.http.headers, org.apache.synapse.transport.http.wire, httpclient.wire.header, httpclient.wire.content,
@@ -88,7 +88,7 @@ The above logger configurations are explained below.
 
 ### Root Logs
 
-Given below is the <b>root logger</b> that is configured by default for the Micro Integrator. All loggers that do not have specific appenders defined will refer the appenders from the root logger.
+Given below is the <b>root logger</b> that is configured by default for the WSO2 Integrator: MI. All loggers that do not have specific appenders defined will refer the appenders from the root logger.
 
 This logger generates INFO-level logs and prints them to three destinations as per the <b>appenders</b> linked to the logger. The `appenderRef.<APPENDER_NAME>.ref` attribute is used for referring the appenders.
 
@@ -162,7 +162,7 @@ Listed below are the default log destinations (appenders) used by the root logge
 
 ### Service Logs
 
-This logger generates logs for services deployed in the Micro Integrator. It refers to the details in the `SERVICE_LOGFILE` appender and prints logs to the `<MI_HOME>/repository/logs/wso2-mi-service.log` file.
+This logger generates logs for services deployed in the WSO2 Integrator: MI. It refers to the details in the `SERVICE_LOGFILE` appender and prints logs to the `<MI_HOME>/repository/logs/wso2-mi-service.log` file.
 
 !!! Note
     If you want to have separate log files for individual services, you need to add loggers for each service and then specify appenders for the loggers. Note that the service name has to be suffixed to `SERVICE_LOGGER` as follows:
@@ -198,7 +198,7 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
 
 ### API Logs
 
-This logger generates logs for APIs deployed in the Micro Integrator. It refers to the details in the `API_LOGFILE` appender and prints logs to the `<MI_HOME>/repository/logs/wso2-mi-api.log` file.
+This logger generates logs for APIs deployed in the WSO2 Integrator: MI. It refers to the details in the `API_LOGFILE` appender and prints logs to the `<MI_HOME>/repository/logs/wso2-mi-api.log` file.
 
 !!! Note
     If you want to have separate log files for individual APIs, you need to add loggers for each API and then specify appenders for the loggers. Note that the service name has to be suffixed to `SERVICE_LOGGER` as follows:
@@ -266,7 +266,7 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
 
 ### Correlations Logs
 
-This logger generates correlation logs for monitoring individual HTTP requests from the point that a message is received by the Micro Integrator until the corresponding response message is sent back to the original message sender. It refers to the details in the `CORRELATION` appender and prints logs to the `<MI_HOME>/repository/logs/correlation.log` file.
+This logger generates correlation logs for monitoring individual HTTP requests from the point that a message is received by the WSO2 Integrator: MI until the corresponding response message is sent back to the original message sender. It refers to the details in the `CORRELATION` appender and prints logs to the `<MI_HOME>/repository/logs/correlation.log` file.
 
 !!! Note
     - The maximum file size of the correlation log is set to
@@ -351,7 +351,7 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
 -   The following loggers configure wire logs for the PassThrough HTTP transport:
 
     !!! Tip
-        The Passthrough HTTP transport is the main transport that handles HTTP/HTTPS messages in the Micro Integrator.
+        The Passthrough HTTP transport is the main transport that handles HTTP/HTTPS messages in the WSO2 Integrator: MI.
 
     === "Synapse HTTP Headers"
         ```xml 
@@ -382,7 +382,7 @@ See the instructions on [Use Wire Logs]({{base_path}}/develop/using-wire-logs) t
 
 ### HTTP Access Logs
 
-Access logs related to service/API invocations are enabled by default in the Micro Integrator. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
+Access logs related to service/API invocations are enabled by default in the WSO2 Integrator: MI. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
 
 By default, access logs are printed to the `http_access.log` file (stored in the `<MI_HOME>/repository/logs` folder). If required, you can use the log4j2 configurations to print the access logs to other destinations.
 
@@ -463,7 +463,7 @@ You can customize the format of this access log by changing the following proper
                      </div>
                   </li>
                </ul>
-               <p>By default, the Micro Integrator uses a modified version of the <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log format</a>, as shown below. In this format, the <code>X-Forwarded-For</code> header is prepended to the standard combined log entry. This helps accurately identify the original client that sent the request specially in scenarios where the request passes through a proxy or load balancer. <strong>Note</strong>: The <code>X-Forwarded-For</code> header must be present in the incoming request for this information to be logged.</p>
+               <p>By default, the WSO2 Integrator: MI uses a modified version of the <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log format</a>, as shown below. In this format, the <code>X-Forwarded-For</code> header is prepended to the standard combined log entry. This helps accurately identify the original client that sent the request specially in scenarios where the request passes through a proxy or load balancer. <strong>Note</strong>: The <code>X-Forwarded-For</code> header must be present in the incoming request for this information to be logged.</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -478,7 +478,7 @@ You can customize the format of this access log by changing the following proper
     </table>
 
 3.  Restart the server.
-4.  Invoke a proxy service or REST API that is deployed in the Micro Integrator. The access log file for the service/API will be created in the `<MI_HOME>/repository/logs` directory. The default name of the log file is `http_access.log`.
+4.  Invoke a proxy service or REST API that is deployed in the WSO2 Integrator: MI. The access log file for the service/API will be created in the `<MI_HOME>/repository/logs` directory. The default name of the log file is `http_access.log`.
 
 #### Supported log pattern formats
 
@@ -595,7 +595,7 @@ You can customize the format of this access log by changing the following proper
 
 ## Add a new logger
 
-You can enable logs for a specific component in the Micro Integrator using one of the methods described below. By default, all loggers output logs to the destinations configured for the [root logger]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#root-logs).
+You can enable logs for a specific component in the WSO2 Integrator: MI using one of the methods described below. By default, all loggers output logs to the destinations configured for the [root logger]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#root-logs).
 
 If you want to send logs to additional or custom destinations, you can define new [appenders]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#log4j2-appenders).
 
@@ -604,7 +604,7 @@ If you want to send logs to additional or custom destinations, you can define ne
 Update the [log configurations]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#log4j2-loggers) in the `log4j2.properties` file located in the `<MI_HOME>/conf` directory.
 
 !!! Note
-    You must restart the Micro Integrator for changes made directly to the `log4j2.properties` file to take effect. However, changes made via the **Integration Control Plane (ICP)** or **MI CLI** are applied dynamically and do not require a restart.
+    You must restart the WSO2 Integrator: MI for changes made directly to the `log4j2.properties` file to take effect. However, changes made via the **Integration Control Plane (ICP)** or **MI CLI** are applied dynamically and do not require a restart.
 
 ### Use the Integration Control Plane
 
@@ -645,11 +645,11 @@ Update the [log configurations]({{base_path}}/observe-and-manage/classic-observa
 
 1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
 
-2.  Use the commands under [Add a new logger]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#add-a-new-logger) to configure a new logger in the Micro Integrator.
+2.  Use the commands under [Add a new logger]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#add-a-new-logger) to configure a new logger in the WSO2 Integrator: MI.
 
 ## Update the Log4j2 Log level
 
-You can <b>dynamically</b> update the log level for a specific logger by using the [Integration Control Plane](#view-logs-via-the-integration-control-plane) or [CLI](#view-logs-via-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the ICP or CLI), the Micro Integrator needs to be restarted for the changes to become effective.
+You can <b>dynamically</b> update the log level for a specific logger by using the [Integration Control Plane](#view-logs-via-the-integration-control-plane) or [CLI](#view-logs-via-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the ICP or CLI), the WSO2 Integrator: MI needs to be restarted for the changes to become effective.
 
 ??? Info "Log Levels"
     The following table explains the log4j2 log levels you can use. Refer <a target="_blank" href="https://logging.apache.org/log4j/2.x/manual/customloglevels.html">Log4j2 documentation</a> for more information.
@@ -677,7 +677,7 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
 
 1.  Download and set up the [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli).
 
-2. Use the appropriate commands to manage the loggers in Micro Integrator. For more details, see [Managing Integrations with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+2. Use the appropriate commands to manage the loggers in WSO2 Integrator: MI. For more details, see [Managing Integrations with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 
 ## Update the threshold level
@@ -718,7 +718,7 @@ Here,
 
 ## Hide current parameters in the printed log
 
-By default, when an error occurs while invoking a data service, the Micro Integrator logs a set of details including the parameters used in the request in the error message.
+By default, when an error occurs while invoking a data service, the WSO2 Integrator: MI logs a set of details including the parameters used in the request in the error message.
 
 For example:
 
@@ -733,7 +733,7 @@ Current Request Name: _addEmployee
 Current Params: {% raw %}{firstName=Will, lastName=Smith, salary=1200, email=will@abc.com}{% endraw %}
 ```
 
-To prevent the `Current Params` from being printed in the logs, add the following system property to the Micro Integrator startup script.
+To prevent the `Current Params` from being printed in the logs, add the following system property to the WSO2 Integrator: MI startup script.
 
 ```xml
 -Ddss.disable.current.params=true
@@ -743,7 +743,7 @@ To prevent the `Current Params` from being printed in the logs, add the followin
 
 Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storages.
 
-However, since WSO2 Micro Integrator works in an OSGi environment, such Log4j2 extensions cannot be used as they are. Therefore, you need to modify those extensions to be compatible with WSO2 Micro Integrator. Follow the steps given below to modify an existing Log4j2 extension:
+However, since WSO2 Integrator: MI works in an OSGi environment, such Log4j2 extensions cannot be used as they are. Therefore, you need to modify those extensions to be compatible with WSO2 Integrator: MI. Follow the steps given below to modify an existing Log4j2 extension:
 
 1. In the custom log appender, open the `pom.xml` file of the module that contains the `Log4j2Appender` class.
 

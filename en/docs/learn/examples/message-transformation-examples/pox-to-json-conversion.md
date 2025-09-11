@@ -1,6 +1,6 @@
 # How to Transform a POX Message to JSON
 
-The following examples explain different methods of converting POX messages to JSON using the Micro Integrator.
+The following examples explain different methods of converting POX messages to JSON using the WSO2 Integrator: MI.
 
 ## Using the messageType property
 
@@ -37,7 +37,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke the proxy service:
 
@@ -153,7 +153,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke the proxy service:
 

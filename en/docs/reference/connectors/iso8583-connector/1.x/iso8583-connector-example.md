@@ -18,7 +18,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow the steps in [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project. 
 
-1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
+1. Select the WSO2 Integrator: MI Extension and click on `+` in APIs to create a REST API.
 
 2. Specify the API name as `SendisoTestAPI` and API context as `/sendiso`. You can go to the source view of the XML configuration file of the API and copy the following configuration (source view).
 

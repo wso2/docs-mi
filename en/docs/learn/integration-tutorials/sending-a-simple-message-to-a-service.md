@@ -5,8 +5,8 @@
 Let’s try a simple scenario where a patient makes an inquiry specifying the doctor's specialization (category) to retrieve 
 a list of doctors that match the specialization. The required information is available in a back-end microservice. 
 
-To implement this use case, you will create a REST API resource and other artifacts using Micro Integrator Extension for Visual Studio Code
-(MI for VS Code), and then deploy them in the embedded WSO2 Micro Integrator instance. The default API resource will be 
+To implement this use case, you will create a REST API resource and other artifacts using WSO2 Integrator: MI Extension for Visual Studio Code
+(MI for VS Code), and then deploy them in the embedded WSO2 Integrator: MI instance. The default API resource will be 
 configured to receive the client request in place of the back-end service, thereby decoupling the client and the back-end service. 
 The response message with the requested doctor details will be routed back to the client through the same API resource.
 
@@ -33,7 +33,7 @@ Follow the instructions given in this section to create and configure the requir
 
 4. In the **Project Creation Form**, enter `SimpleMessageTutorial` as the **Project Name**.
 
-5. Select the **Micro Integrator runtime version** and provide a location under **Select Project Directory**.
+5. Select the **WSO2 Integrator: MI runtime version** and provide a location under **Select Project Directory**.
 
     <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
 
@@ -264,7 +264,7 @@ You can now configure the mediation logic to handle requests.
 
 10. Click **Submit**.
 
-You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service.
+You have successfully created all the artifacts that are required for sending a request through the WSO2 Integrator: MI to the back-end service.
 
 <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" alt="integration sequence" width="80%"></a>
 
@@ -353,4 +353,4 @@ Now, check the **Output** tab of VS Code and you will see a message similar to t
 [2024-07-29 15:51:36,956]  INFO {LogMediator} - {api:HealthcareAPI} Log Property message = "Welcome to HealthcareService"
 ```
 
-You have now created and deployed an API resource in the Micro Integrator, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.
+You have now created and deployed an API resource in the WSO2 Integrator: MI, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.

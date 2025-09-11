@@ -1,6 +1,6 @@
-# WSO2 Micro Integrator Installation Prerequisites
+# WSO2 Integrator: MI Installation Prerequisites
 
-Prior to installing WSO2 Micro Integrator, make sure that the appropriate prerequisites are fulfilled.
+Prior to installing WSO2 Integrator: MI, make sure that the appropriate prerequisites are fulfilled.
 
 ## System requirements
 
@@ -30,36 +30,39 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
     <td>
       <ul>
       <li>
-          Minimum 0.5 core (compute units) per Micro Integrator instance.
+          Minimum 0.5 core (compute units) per WSO2 Integrator: MI instance.
           <div class="admonition note">
           <p class="admonition-title">Note</p>
-          <p>Micro Integrator can run on a minimum of 0.5 cores per instance, suitable for lightweight integrations. For more complex integrations, it is recommended to allocate a minimum of 2 cores per instance.</p>
+          <p>WSO2 Integrator: MI can run on a minimum of 0.5 cores per instance, suitable for lightweight integrations. For more complex integrations, it is recommended to allocate a minimum of 2 cores per instance.</p>
           </div>  
         </li>
         <li>
           1 GB memory for the container/pod.
         </li>
         <li>
-          <code>~512</code> MB heap size for one Micro Integrator instance. This is generally sufficient for processing smaller messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
+          <code>~512</code> MB heap size for one WSO2 Integrator: MI instance. This is generally sufficient for processing smaller messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
         </li>
       </ul>
     </td>
   </tr>
 </table>
 
+!!! Tip
+    See [Resource Allocation and Performance]({{base_path}}/install-and-setup/setup/deployment-best-practices/resource-allocation-and-performance/) for guidance on allocating resources for your integrations to achieve the desired throughput (requests per second) and average response times.
+
 ## Environment compatibility
 
 - Install a JDK version that is [compatible with this product version]({{base_path}}/install-and-setup/setup/reference/product-compatibility/).
 - It is not recommended to use Apache DS in a production environment due to scalability issues. Instead, use an LDAP like OpenLDAP as your user store.
-- If you have difficulty in setting up the Micro Integrator in a specific platform or database, [contact us](https://wso2.com/contact/).
+- If you have difficulty in setting up the WSO2 Integrator: MI in a specific platform or database, [contact us](https://wso2.com/contact/).
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Micro Integrator (MI) 4.4.0 runtimes are given below.
+The details of the tested environments for the WSO2 Integrator: MI 4.5.0 runtimes are given below.
 
 ### Tested operating systems
 
-The Micro Integrator runtime is tested with the following operating systems:
+The WSO2 Integrator: MI runtime is tested with the following operating systems:
 
 | Operating System         | Versions   |
 |--------------------------|------------|
@@ -72,7 +75,7 @@ The Micro Integrator runtime is tested with the following operating systems:
 
 ### Tested JDKs
 
-The Micro Integrator runtime is tested with the following JDKs:
+The WSO2 Integrator: MI runtime is tested with the following JDKs:
 
 | JDK         |Versions|
 |-------------|--------|
@@ -83,7 +86,7 @@ The Micro Integrator runtime is tested with the following JDKs:
 
 ### Tested DBMSs
 
-The Micro Integrator runtime is tested with the following databases:
+The WSO2 Integrator: MI runtime is tested with the following databases:
 
 | DBMS                 | Versions           |
 |----------------------|--------------------|
@@ -96,4 +99,4 @@ The Micro Integrator runtime is tested with the following databases:
 
 ### ARM compatibility
 
-WSO2 Micro Integrator is compatible with ARM processors. It can run on ARM-based systems, such as those with Apple Silicon or ARM-based Linux distributions.
+WSO2 Integrator: MI is compatible with ARM processors. It can run on ARM-based systems, such as those with Apple Silicon or ARM-based Linux distributions.

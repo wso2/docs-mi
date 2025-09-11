@@ -12,11 +12,11 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the integration project
 
-Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
+Follow these steps to set up the Integration Project using the WSO2 Integrator: MI Visual Studio Code extension.
 
 ### Create a new project
 
-1. Go to **WSO2 Micro Integrator** in the VS Code.
+1. Go to **WSO2 Integrator: MI** in the VS Code.
 
 2. Click on **Create New Project** to create the new integration project.
 
@@ -139,7 +139,7 @@ You can download the ZIP file and extract the contents to get the project code.
 ## Deployment
 
 Once you have [built your artifacts]({{base_path}}/develop/packaging-artifacts) into a composite application, you can
-export it into a CAR file (.car file) using the WSO2 Micro Integrator Visual Studio Code extension:
+export it into a CAR file (.car file) using the WSO2 Integrator: MI Visual Studio Code extension:
 
 1.  Open the project overview and click on **Export**.
 

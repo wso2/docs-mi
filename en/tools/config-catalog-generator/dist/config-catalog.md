@@ -10432,7 +10432,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10453,7 +10453,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10474,7 +10474,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10495,7 +10495,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10516,7 +10516,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10537,7 +10537,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10558,7 +10558,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10579,7 +10579,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10600,7 +10600,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10621,7 +10621,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10642,7 +10642,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div>
@@ -11095,7 +11095,7 @@ inbound.max_threads = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If this parameter is set to true, the Micro Integrator can switch to XPATH 2.0. This parameter can be set to false if XPATH 2.0 evaluations cause performance degradation. The Micro Integrator uses the Saxon Home Edition when implementing XPATH 2.0 functionalities, and thus supports all the functions that are shipped with it. For more information on the supported functions, see the Saxon Documentation.</p>
+                                        <p>If this parameter is set to true, the WSO2 Integrator: MI can switch to XPATH 2.0. This parameter can be set to false if XPATH 2.0 evaluations cause performance degradation. The WSO2 Integrator: MI uses the Saxon Home Edition when implementing XPATH 2.0 functionalities, and thus supports all the functions that are shipped with it. For more information on the supported functions, see the Saxon Documentation.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11116,7 +11116,7 @@ inbound.max_threads = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message size that can be processed by the Micro Integrator.</p>
+                                        <p>The message size that can be processed by the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

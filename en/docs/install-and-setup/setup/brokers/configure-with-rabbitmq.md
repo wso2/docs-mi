@@ -1,6 +1,6 @@
 # Connecting to RabbitMQ
 
-This section describes how to configure WSO2 Micro Integrator to connect with RabbitMQ.
+This section describes how to configure WSO2 Integrator: MI to connect with RabbitMQ.
 
 !!! Tip
 	- See the complete list of server-level configurations for the [RabbitMQ Listener]({{base_path}}/reference/config-catalog-mi/#rabbitmq-listener) and [RabbitMQ Sender]({{base_path}}/reference/config-catalog-mi/#rabbitmq-sender) in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
@@ -13,6 +13,11 @@ Please refer [RabbitMQ Deployment]({{base_path}}/install-and-setup/setup/brokers
 ## Enabling the RabbitMQ Listener
 
 Uncomment the following parameters in the `deployment.toml` file to configure the RabbitMQ listener.
+
+```toml
+[transport.rabbitmq]
+listener_enable = true
+```
 
 ```toml
 [[transport.rabbitmq.listener]]
@@ -32,6 +37,15 @@ Uncomment the following parameters in the `deployment.toml` file to enable the R
 sender_enable = true
 ```
 
+```toml
+[[transport.rabbitmq.sender]]
+name = "AMQPConnectionFactory"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+```
+
 ## Enabling SSL
 
 Add the following parameters to enable SSL for the RabbitMQ listener.
@@ -43,7 +57,7 @@ parameter.ssl_version = "SSL"
 ```
 
 !!! Tip
-	  Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to `false` in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator (using the `parameter.ssl_enable` parameter shown above). You can check the <code>fail_if_no_peer_cert</code> parameter in the <code>rabbitmq.conf</code> file in its <a target="_blank" href="https://www.rabbitmq.com/docs/configure#config-location">OS-specific location</a>.
+	  Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to `false` in the RabbitMQ broker. You only need to enable SSL in the WSO2 Integrator: MI (using the `parameter.ssl_enable` parameter shown above). You can check the <code>fail_if_no_peer_cert</code> parameter in the <code>rabbitmq.conf</code> file in its <a target="_blank" href="https://www.rabbitmq.com/docs/configure#config-location">OS-specific location</a>.
     
     Shown below is an example of the configuration file where `fail_if_no_peer_cert` is set to `false`:
     ```
@@ -54,7 +68,7 @@ parameter.ssl_version = "SSL"
     ssl_options.fail_if_no_peer_cert = false
     ```
 
-    However, if the <code>fail_if_no_peer_cert</code> parameter is set to `true` in RabbitMQ, the keystore configurations (given below) are also required for the Micro Integrator.
+    However, if the <code>fail_if_no_peer_cert</code> parameter is set to `true` in RabbitMQ, the keystore configurations (given below) are also required for the WSO2 Integrator: MI.
 
     ```
     parameter.keystore_location ="repository/resources/security/wso2carbon.jks"
@@ -75,9 +89,9 @@ parameter.retry_interval = "10"
 parameter.retry_count = 5  
 ```
 
-In case of a network failure or broker shutdown, WSO2 Micro Integrator will try to recreate the connection. The following parameters need to be configured in the transport listener to enable connection recovery in RabbitMQ.
+In case of a network failure or broker shutdown, WSO2 Integrator: MI will try to recreate the connection. The following parameters need to be configured in the transport listener to enable connection recovery in RabbitMQ.
 
-If the parameters specified above are set, the Micro Integrator will retry 5 times with 10000 ms time intervals to reconnect when the connection is lost. If reconnecting also fails, the Micro Integrator will terminate the connection. If you do not specify values for the above parameters, the Micro Integrator uses 30000ms as the default retry interval and 3 as the default retry count.
+If the parameters specified above are set, the WSO2 Integrator: MI will retry 5 times with 10000 ms time intervals to reconnect when the connection is lost. If reconnecting also fails, the WSO2 Integrator: MI will terminate the connection. If you do not specify values for the above parameters, the WSO2 Integrator: MI uses 30000ms as the default retry interval and 3 as the default retry count.
 
 ## Configuring high throughput of message delivery
 

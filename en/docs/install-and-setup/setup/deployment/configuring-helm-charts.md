@@ -1,16 +1,16 @@
-# Configure Helm charts for Micro Integrator
+# Configure Helm charts for WSO2 Integrator: MI
 
-This guide explains how to configure Helm charts for deploying WSO2 Micro Integrator (MI) in Kubernetes environments. Depending on your use case, you can choose which of the following configuration options are required.
+This guide explains how to configure Helm charts for deploying WSO2 Integrator:  MI in Kubernetes environments. Depending on your use case, you can choose which of the following configuration options are required.
 
 ## Helm Charts Repository
 
-WSO2 provides Helm charts to simplify the deployment of Micro Integrator and its associated components, including the Integration Control Plane (ICP).
+WSO2 provides Helm charts to simplify the deployment of WSO2 Integrator: MI and its associated components, including the Integration Control Plane (ICP).
 
-You can find the official Micro Integrator Helm charts repository at: <a target="_blank" href="https://github.com/wso2/helm-mi">https://github.com/wso2/helm-mi</a>
+You can find the official WSO2 Integrator: MI Helm charts repository at: <a target="_blank" href="https://github.com/wso2/helm-mi">https://github.com/wso2/helm-mi</a>
 
 This repository contains two main Helm charts:
 
- - Micro Integrator Chart (mi) – Deploys the core MI runtime.
+ -WSO2 Integrator: MI Chart (mi) – Deploys the core MI runtime.
 
  - Integration Control Plane Chart (icp) – Deploys the Integration Control Plane used for monitoring and managing deployed integrations.
 
@@ -18,7 +18,7 @@ To get started:
 
 1. Open a terminal and navigate to the location where you want to save the local copy.
 
-2. Clone the Micro Integrator Git repository with Helm resources.
+2. Clone the WSO2 Integrator: MI Git repository with Helm resources.
 
 ```bash
 git clone https://github.com/wso2-enterprise/helm-mi.git
@@ -28,9 +28,9 @@ git checkout 4.4.x
 
 Let's refer to the root folder of the local copy as `<HELM_HOME>`.
 
-## Customize the Base Micro Integrator Docker Image
+## Customize the Base WSO2 Integrator: MI Docker Image
 
-There may be scenarios where you need to customize the base Micro Integrator (MI) Docker image. For example, to include third-party dependencies or libraries in the `<MI_HOME>/lib` directory.
+There may be scenarios where you need to customize the base WSO2 Integrator: MI Docker image. For example, to include third-party dependencies or libraries in the `<MI_HOME>/lib` directory.
 
 Depending on the scope of the customization, you can choose one of the following approaches:
 
@@ -48,7 +48,7 @@ You can edit this file to apply any required customizations, such as copying add
 
 ### Manually using a Dockerfile
 
-There may be scenarios where you need to create a customized base Micro Integrator (MI) Docker image. For example, to include third-party dependencies such as JDBC drivers or keystores. In such cases, you can extend the official MI Docker image by creating a custom image using a Dockerfile
+There may be scenarios where you need to create a customized base WSO2 Integrator: MI Docker image. For example, to include third-party dependencies such as JDBC drivers or keystores. In such cases, you can extend the official MI Docker image by creating a custom image using a Dockerfile
 
 The example below shows how to copy custom JARs into the MI runtime's `lib` directory:
 
@@ -68,7 +68,7 @@ COPY --chown=wso2carbon:wso2 lib/*.jar ${WSO2_SERVER_HOME}/lib/
 ```
 
 !!! Example "Explanation"
-    The following command in the Dockerfile copies all `.jar` files from your local `lib/` folder into the `lib/` directory of the Micro Integrator server image:
+    The following command in the Dockerfile copies all `.jar` files from your local `lib/` folder into the `lib/` directory of the WSO2 Integrator: MI server image:
 
     ```docker
     COPY --chown=wso2carbon:wso2 lib/*.jar ${WSO2_SERVER_HOME}/lib/
@@ -90,7 +90,7 @@ docker build . -t <CONTAINER_REGISTRY>/<IMAGE_REPO>:<IMAGE_TAG>
 
 ## Mount Keystore and Truststore via Kubernetes Secrets
 
-WSO2 Micro Integrator includes self-signed certificates by default. However, when deploying to a production environment, it is strongly recommended to generate and use your own keystores.
+WSO2 Integrator: MI includes self-signed certificates by default. However, when deploying to a production environment, it is strongly recommended to generate and use your own keystores.
 
 If the keystores are not baked into the Docker image, you can mount them as a Kubernetes Secret.
 
@@ -126,7 +126,7 @@ wso2:
     JKSSecretName: jks-secret
 ```
 
-Then, specify the actual filenames of the keystore, truststore, and internal keystore as they were added to the Kubernetes secret. This ensures the Micro Integrator loads the correct files at runtime.
+Then, specify the actual filenames of the keystore, truststore, and internal keystore as they were added to the Kubernetes secret. This ensures the WSO2 Integrator: MI loads the correct files at runtime.
 
 ```yaml
 wso2:
@@ -160,7 +160,7 @@ When deploying your integration to a Kubernetes cluster using the Helm chart, re
 
 **Set a configurable value as an environment variable**
 
-The Helm chart for WSO2 Micro Integrator supports setting environment variables directly through the `values.yaml` file. Use this method to inject values for your configurables at deployment time.
+The Helm chart for WSO2 Integrator: MI supports setting environment variables directly through the `values.yaml` file. Use this method to inject values for your configurables at deployment time.
 
 In your `values.yaml` file, add the following under `wso2.deployment.env`:
 
@@ -176,9 +176,9 @@ The above environment variables will be accessible to your integration through `
 
 ## Secure Synapse configurations
 
-WSO2 Micro Integrator includes Secure Vault functionality by default. However, for Kubernetes deployments, it is recommended to use **HashiCorp Vault** to securely store and manage secrets used in integration artifacts.
+WSO2 Integrator: MI includes Secure Vault functionality by default. However, for Kubernetes deployments, it is recommended to use **HashiCorp Vault** to securely store and manage secrets used in integration artifacts.
 
-To configure Micro Integrator to connect with HashiCorp Vault, update the following values in your `values.yaml` file:
+To configure WSO2 Integrator: MI to connect with HashiCorp Vault, update the following values in your `values.yaml` file:
 
 ```yaml
 config:
@@ -210,7 +210,7 @@ For more details on how to use HashiCorp Vault with integration artifacts, refer
 
 ## Secure TOML configurations
 
-To secure the passwords and other sensitive values used in the `deployment.toml` file of the Micro Integrator, you need to use the **Secure vault** functionality.  
+To secure the passwords and other sensitive values used in the `deployment.toml` file of the WSO2 Integrator: MI, you need to use the **Secure vault** functionality.  
 The **Internal Keystore** will be used for encryption and decryption during this process.
 
 Follow the steps below to secure the TOML configurations:
@@ -241,11 +241,11 @@ Follow the steps below to secure the TOML configurations:
 3. Store Internal keystore password securely.
 
     You must add the internal keystore password (in **plain text**) to the respective **cloud provider’s secret or key management service**.  
-    This value is required by the Micro Integrator at startup to decrypt the Secure vault secrets.
+    This value is required by the WSO2 Integrator: MI at startup to decrypt the Secure vault secrets.
 
 4. Reference cloud provider secrets in `values.yaml`.
     
-    After creating the required secret in your cloud provider, reference it in the `values.yaml` file under the appropriate provider-specific configuration block. These references will be used by the Helm chart to pass the credentials securely to the Micro Integrator during deployment.
+    After creating the required secret in your cloud provider, reference it in the `values.yaml` file under the appropriate provider-specific configuration block. These references will be used by the Helm chart to pass the credentials securely to the WSO2 Integrator: MI during deployment.
     
     Refer to the following guides based on your cloud environment for detailed instructions:
 
@@ -282,8 +282,8 @@ wso2:
 ```
 
 !!! Note
-    1. It is recommended to **include the JDBC driver in your Docker image**, ensuring the Micro Integrator can connect to databases without additional configuration. If you choose not to bundle the driver in the image, you must update the Helm chart to mount the driver JAR into the deployment.
-    2. Ensure that the **database schema is initialized** before deploying the Micro Integrator. Refer to [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/#configuring-an-rdbms-user-store/) for guidance on setting up the database.
+    1. It is recommended to **include the JDBC driver in your Docker image**, ensuring the WSO2 Integrator: MI can connect to databases without additional configuration. If you choose not to bundle the driver in the image, you must update the Helm chart to mount the driver JAR into the deployment.
+    2. Ensure that the **database schema is initialized** before deploying the WSO2 Integrator: MI. Refer to [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/#configuring-an-rdbms-user-store/) for guidance on setting up the database.
 
 ## Coordination configurations
 
@@ -310,14 +310,14 @@ wso2:
 ```
 
 !!! Note
-    1. It is recommended to **include the JDBC driver in your Docker image**, ensuring the Micro Integrator can connect to databases without additional configuration. If you choose not to bundle the driver in the image, you must update the Helm chart to mount the driver JAR into the deployment.
-    2. Ensure that the **database schema is initialized** before deploying the Micro Integrator. Refer to [Configuring Coordination database]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#database) for guidance on setting up the database.
+    1. It is recommended to **include the JDBC driver in your Docker image**, ensuring the WSO2 Integrator: MI can connect to databases without additional configuration. If you choose not to bundle the driver in the image, you must update the Helm chart to mount the driver JAR into the deployment.
+    2. Ensure that the **database schema is initialized** before deploying the WSO2 Integrator: MI. Refer to [Configuring Coordination database]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#database) for guidance on setting up the database.
 
 ## Analytics configuration
 
-WSO2 Micro Integrator supports ELK-based analytics. It publishes analytics events as logs via log4j2 appenders. For cloud deployments, it is recommended to publish logs to stdout and use log collection agents such as Fluent Bit, CloudWatch Agent, or similar to stream logs to your preferred analytics backend.
+WSO2 Integrator: MI supports ELK-based analytics. It publishes analytics events as logs via log4j2 appenders. For cloud deployments, it is recommended to publish logs to stdout and use log collection agents such as Fluent Bit, CloudWatch Agent, or similar to stream logs to your preferred analytics backend.
 
-For more details, see the [Elastic Stack-Based Operational Analytics for Micro Integrator]({{base_path}}/mi-analytics/mi-elk-installation-guide/) documentation.
+For more details, see the [Elastic Stack-Based Operational Analytics for WSO2 Integrator: MI]({{base_path}}/mi-analytics/mi-elk-installation-guide/) documentation.
 
 This section shows how to configure the Helm chart and update the `log4j2.properties` file to publish analytics events to the container output. Depending on your platform, you can modify these settings accordingly.
 
@@ -400,7 +400,7 @@ Open the `<HELM_HOME>/mi/confs` directory and edit the `log4j2.properties` file 
 
 ## Tracing configuration
 
-WSO2 Micro Integrator supports OpenTelemetry for tracing. You can use it to export tracing data to various backends such as Jaeger, Zipkin.
+WSO2 Integrator: MI supports OpenTelemetry for tracing. You can use it to export tracing data to various backends such as Jaeger, Zipkin.
 
 Refer to the [Monitoring with OpenTelemetry]({{base_path}}/observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi/) guide for supported providers and configuration details.
 
@@ -467,6 +467,6 @@ This ensures that all generated resources follow the naming convention for easie
 
 ## What's next?
 
-- To explore advanced configurations and vendor–specific cluster settings, refer to the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/EXAMPLES.md">Examples documentation</a> and the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/CONFIG.md">Config documentation</a> in the WSO2 Micro Integrator Helm Chart repository.
+- To explore advanced configurations and vendor–specific cluster settings, refer to the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/EXAMPLES.md">Examples documentation</a> and the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/CONFIG.md">Config documentation</a> in the WSO2 Integrator: MI Helm Chart repository.
 
-- For a hands-on experience deploying WSO2 Micro Integrator and the Integration Control Plane (ICP) in a local Kubernetes cluster using commonly used configurations, see the [Sample Deployment]({{base_path}}/install-and-setup/setup/deployment/sample-k8s-deployment/) guide.
+- For a hands-on experience deploying WSO2 Integrator: MI and the Integration Control Plane (ICP) in a local Kubernetes cluster using commonly used configurations, see the [Sample Deployment]({{base_path}}/install-and-setup/setup/deployment/sample-k8s-deployment/) guide.

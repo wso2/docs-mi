@@ -1,6 +1,6 @@
 # Using the Management API
 
-The Management API of the Micro Integrator is an internal REST API, which was introduced to substitute
+The Management API of the WSO2 Integrator: MI is an internal REST API, which was introduced to substitute
 the **admin services** that were available in WSO2 EI 6.x.x.
 
 The [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) communicates with this service to
@@ -1463,7 +1463,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Retrieves information related to the micro integrator server instance.
+	**Description**: Retrieves information related to the WSO2 Integrator: MI server instance.
 
 	**Example**:
     
@@ -1482,7 +1482,7 @@ The management API has multiple resources to provide information regarding the d
 	        "carbonHome": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT",
 	        "javaVendor": "Oracle Corporation",
 	        "osName": "Mac OS X",
-	        "productName": "WSO2 Micro Integrator",
+	        "productName": "WSO2 Integrator: MI",
 	        "javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre"
 	    }
 	    ```
@@ -1491,7 +1491,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Shutdown the micro integrator server instance forcefully.
+	**Description**: Shutdown the WSO2 Integrator: MI server instance forcefully.
 
 	**Example**:
     
@@ -1516,7 +1516,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Shutdown the micro integrator server instance gracefully.
+	**Description**: Shutdown the WSO2 Integrator: MI server instance gracefully.
 
 	**Example**:
 
@@ -1541,7 +1541,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Restart the micro integrator server instance forcefully.
+	**Description**: Restart the WSO2 Integrator: MI server instance forcefully.
 
 	**Example**:
  
@@ -1566,7 +1566,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Restart the micro integrator server instance gracefully.
+	**Description**: Restart the WSO2 Integrator: MI server instance gracefully.
 
 	**Example**:
      

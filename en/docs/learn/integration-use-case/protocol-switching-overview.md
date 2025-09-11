@@ -1,6 +1,6 @@
 # Protocol Switching
 
-The Micro Integrator offers a wide range of integration capabilities from simple message routing to complicated systems that use integrated solutions. Different applications typically use different protocols for communication. Therefore, for two systems to successfully communicate, it is necessary to switch the protocol (that passes from one system) to the protocol compatible with the receiving application.
+The WSO2 Integrator: MI offers a wide range of integration capabilities from simple message routing to complicated systems that use integrated solutions. Different applications typically use different protocols for communication. Therefore, for two systems to successfully communicate, it is necessary to switch the protocol (that passes from one system) to the protocol compatible with the receiving application.
 <!--
 ![protocol switching]({{base_path}}/assets/img/integrate/use-cases-overview/protocol-switching-new.png)
 -->

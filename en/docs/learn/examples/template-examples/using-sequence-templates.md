@@ -139,7 +139,7 @@ populate the template with actual hello messages and execute the
 sequence of actions defined within the template like with any other
 sequence.
 
--   The Call Template mediator points to the same template "Hello_Logger" and passes different arguments to it. In this way, sequence templates make it easy to stereotype different workflows inside the Micro Integrator.
+-   The Call Template mediator points to the same template "Hello_Logger" and passes different arguments to it. In this way, sequence templates make it easy to stereotype different workflows inside the WSO2 Integrator: MI.
 
 -   The `target` attribute is used to specify the sequence template you want to use. The `<with-param>` element is used to parse parameter values to the target sequence template. The parameter names should be the same as the names specified in target template. The parameter value can contain a string, an XPath expression (passed in with curly braces { }), or a dynamic XPath expression (passed in with double curly braces) of which the values are compiled dynamically.
 
@@ -149,7 +149,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!}
 2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 You can test this out with the following payload sent to the proxy via `http://localhost:8290/services/HelloProxy`:
 
@@ -201,7 +201,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!}
 2. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke this REST API via `http://localhost:8290/test`. See that the default greeting message (`Welcome`) is logged on the console.
 
@@ -281,7 +281,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!}
 2. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api), [sequence template]({{base_path}}/develop/creating-artifacts/creating-sequence-templates), [sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences/), [message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store/), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor/) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Use the following request and payload to invoke the service.
 

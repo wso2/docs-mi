@@ -1,6 +1,6 @@
 # Database Polling Sample
 
-This sample demonstrates database polling capability in the Micro Integrator.
+This sample demonstrates database polling capability in the WSO2 Integrator: MI.
 
 Four modules get created with this sample which are; a scheduled task called `DoctorsRecordsSyncTask`, a sequence called `DoctorsRecordsSyncSeq`, an endpoint called `DoctorsDataServiceEP` and a data service called `DoctorsDataService`.
 
@@ -58,7 +58,7 @@ The scheduled task runs periodically and injects a dummy payload to the sequence
 1. Open the sample by clicking on the **Database Polling** card.
 2. Give a folder location to save the sample.
 3. Open the `DoctorsDataService` data service artifact and update the RDBMS datasource in it by replacing the `URL`, `Username` and `Password` values with your database credentials.
-4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

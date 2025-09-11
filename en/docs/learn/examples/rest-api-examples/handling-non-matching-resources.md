@@ -1,6 +1,6 @@
 # How to Handle Non-matching Resources
     
-This example demonstrates how you can define a sequence to be invoked if the Micro Integrator is unable to find a matching resource definition for a specific API invocation. This sequence generates a response indicating an error when no matching resource definition is found.
+This example demonstrates how you can define a sequence to be invoked if the WSO2 Integrator: MI is unable to find a matching resource definition for a specific API invocation. This sequence generates a response indicating an error when no matching resource definition is found.
     
 ## Synapse configurations
 
@@ -55,7 +55,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}.
 3. Create the [rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) and [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

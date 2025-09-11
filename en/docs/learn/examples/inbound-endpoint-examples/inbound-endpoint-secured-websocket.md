@@ -1,8 +1,8 @@
 # How to Use a Secured WebSocket Inbound Endpoint
 
-If you need to read and transform the content of WebSocket frames, the information in incoming WebSocket frames may not be sufficient because the WebSocket protocol does not specify any information about the content type of frames that flow through WebSocket channels. Hence, the Micro Integrator supports a WebSocket subprotocol extension to determine the content type of WebSocket frames.
+If you need to read and transform the content of WebSocket frames, the information in incoming WebSocket frames may not be sufficient because the WebSocket protocol does not specify any information about the content type of frames that flow through WebSocket channels. Hence, the WSO2 Integrator: MI supports a WebSocket subprotocol extension to determine the content type of WebSocket frames.
 
-The **WebSocket inbound endpoint** of the Micro Integrator supports the following Synapse subprotocols by default:
+The **WebSocket inbound endpoint** of the WSO2 Integrator: MI supports the following Synapse subprotocols by default:
 
 -   `synapse(contentType='application/json')`
 -   `synapse(contentType='application/xml')`
@@ -12,18 +12,18 @@ Now let's look at a sample scenario that demonstrates WebSocket to WebSocket in
 
 ## Example use case
 
-Let's say you need to send messages between two WebSocket-based systems using the Micro Integrator as a WebSocket gateway that facilitates the messaging. Let's also assume that you need to read and transform the content of WebSocket frames that are sent and received.
+Let's say you need to send messages between two WebSocket-based systems using the WSO2 Integrator: MI as a WebSocket gateway that facilitates the messaging. Let's also assume that you need to read and transform the content of WebSocket frames that are sent and received.
 
 The following should take place in this scenario:
 
--   The WebSocket Client sends WebSocket frames to the Micro Integrator.
--   When the initial handshake happens between the WebSocket client and the WebSocket inbound endpoint of the Micro Integrator, the WebSocket client sends a `Sec-WebSockets-Protocol` header that specifies the content type of the WebSocket frame. In this sample, it is `synapse(contentType='application/json')`.
--   The WebSocket inbound endpoint of the Micro Integrator determines the content type of the incoming WebSocket frame using the subprotocol.
+-   The WebSocket Client sends WebSocket frames to the WSO2 Integrator: MI.
+-   When the initial handshake happens between the WebSocket client and the WebSocket inbound endpoint of the WSO2 Integrator: MI, the WebSocket client sends a `Sec-WebSockets-Protocol` header that specifies the content type of the WebSocket frame. In this sample, it is `synapse(contentType='application/json')`.
+-   The WebSocket inbound endpoint of the WSO2 Integrator: MI determines the content type of the incoming WebSocket frame using the subprotocol.
 -   Once the handshake is complete, the WebSocket inbound endpoint builds all the subsequent WebSocket frames based on the content type specified during the initial handshake.
--   The Micro Integrator sends the transformed message in the form of WebSocket frames.
+-   The WSO2 Integrator: MI sends the transformed message in the form of WebSocket frames.
 
 !!! Tip
-    If necessary, you can use the [data mapper]({{base_path}}/reference/mediators/data-mapper-mediator) to perform data transformation inside the Micro Integrator message flow. For example, you can perform JSON to JSON transformation. To do this, you have to explicitly apply the required data mapping logic for all WebSocket frames.
+    If necessary, you can use the [data mapper]({{base_path}}/reference/mediators/data-mapper-mediator) to perform data transformation inside the WSO2 Integrator: MI message flow. For example, you can perform JSON to JSON transformation. To do this, you have to explicitly apply the required data mapping logic for all WebSocket frames.
 
 ## Synapse configuration
 
@@ -86,7 +86,7 @@ Create the artifacts:
 {!includes/build-and-run.md!}
 
     !!! Note
-        The Websocket sender functionality of the Micro Integrator is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_HOME/conf` directory and add the following: 
+        The Websocket sender functionality of the WSO2 Integrator: MI is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_HOME/conf` directory and add the following: 
 
         ```toml
         [transport.ws]
@@ -94,7 +94,7 @@ Create the artifacts:
         ```
 
 3. Create the [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Starting the WebSocket client:
 
@@ -120,7 +120,7 @@ Starting the WebSocket client:
     ```json
     {"sample message":"test"}
     ```
-When you send a sample JSON payload from the client, you will see that a connection from the WebSocket client to the Micro Integrator is established and that the Micro Integrator receives the message.
+When you send a sample JSON payload from the client, you will see that a connection from the WebSocket client to the WSO2 Integrator: MI is established and that the WSO2 Integrator: MI receives the message.
 
 This shows that the sequences are executed by the WebSocket inbound endpoint.
 

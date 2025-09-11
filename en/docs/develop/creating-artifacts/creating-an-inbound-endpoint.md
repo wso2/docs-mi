@@ -1,6 +1,6 @@
 # Create an Inbound Endpoint
 
-Follow these instructions to create an [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow these instructions to create an [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) artifact in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ### Create an inbound endpoint artifact
 
@@ -8,7 +8,7 @@ Follow these instructions to create an [Inbound Endpoint]({{base_path}}/referenc
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new Inbound Endpoint, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Inbound Endpoint, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

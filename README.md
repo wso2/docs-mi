@@ -1,9 +1,9 @@
-# WSO2 Micro Integrator Documentation
+# WSO2 Integrator: MI Documentation
 
 [![Documentation Site](https://img.shields.io/badge/Visit%20Docs-mi.docs.wso2.com-blue)](https://mi.docs.wso2.com/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 
-This repository contains the source code for WSO2 Micro Integrator documentation. We welcome your contributions!
+This repository contains the source code for WSO2 Integrator: MI documentation. We welcome your contributions!
 
 ## 📚 Table of Contents
 
@@ -25,7 +25,7 @@ This repository contains the source code for WSO2 Micro Integrator documentation
 
 ## Getting Started
 
-The WSO2 Micro Integrator documentation provides comprehensive guides, tutorials, and reference materials for working with the **WSO2 Micro Integrator** platform.
+The WSO2 Integrator: MI documentation provides comprehensive guides, tutorials, and reference materials for working with the **WSO2 Integrator: MI** platform.
 
 - **Documentation Website**: [https://mi.docs.wso2.com/](https://mi.docs.wso2.com/)
 - **Repository Structure**:
@@ -177,7 +177,7 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
 
       ```yml
       base_path: http://localhost:8000/en/latest
-      #base_path: https://mi.docs.wso2.com/en/4.4.0
+      #base_path: https://mi.docs.wso2.com/en/4.5.0
       ```
 
   3. Revert this change before submitting your PR

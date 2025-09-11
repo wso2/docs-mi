@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-In this tutorial, you'll define an integration service using Micro Integrator Extension for Visual Studio Code (MI for VS Code) and expose it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
+In this tutorial, you'll define an integration service using WSO2 Integrator: MI Extension for Visual Studio Code (MI for VS Code) and expose it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
 
@@ -10,7 +10,7 @@ This demonstrates how the integration components and API management components o
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api"></a>
 
-1. An **Integration Developer** creates the service using Micro Integrator Extension for Visual Studio Code (MI for VS Code) and deploys it in the Micro Integrator runtime.
+1. An **Integration Developer** creates the service using WSO2 Integrator: MI Extension for Visual Studio Code (MI for VS Code) and deploys it in the WSO2 Integrator: MI runtime.
 
     !!! Note
         The integration service is designed to communicate with a back-end service (representing a Hospital) and get details of available doctors for various specializations.
@@ -58,7 +58,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 #### Create HTTP Connection 
 
-1. Navigate to **Micro Integrator Project Explorer**.
+1. Navigate to **WSO2 Integrator: MI Project Explorer**.
 
 2. Click on the **+** symbol to open the **Add Artifact** pane.
 
@@ -245,22 +245,22 @@ From the palette, select **Mediators** > **HTTP** > **GET** operation.
 
 10. Click **Submit**.
 
-You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service.
+You have successfully created all the artifacts that are required for sending a request through the WSO2 Integrator: MI to the back-end service.
 
 <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png" alt="integration sequence with http connector" width="80%"></a>
 
-### Step 3: Configure the Micro Integrator
+### Step 3: Configure the WSO2 Integrator: MI
 
 !!! info "Prerequisites"
-    Before you begin, install Micro Integrator on your machine:
+    Before you begin, install WSO2 Integrator: MI on your machine:
 
-    1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, provide the necessary details, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+    1. Go to the [WSO2 Integrator: MI web page](https://wso2.com/integration/micro-integrator/#), click **Download**, provide the necessary details, and then click **Zip Archive** to download the WSO2 Integrator: MI distribution as a ZIP file.
     
     2. Extract the ZIP file. The extracted folder will be referred to as the `<MI_HOME>` folder.
 
-The Micro Integrator can automatically publish artifacts to the **Service Catalog** in the **API Publisher** portal.
+The WSO2 Integrator: MI can automatically publish artifacts to the **Service Catalog** in the **API Publisher** portal.
 
-Let's enable this feature in the Micro Integrator.
+Let's enable this feature in the WSO2 Integrator: MI.
 
 1. Uncomment the `[[service_catalog]]` section as shown below and change the APIM server configurations accordingly in the `<MI_HOME>/conf/deployment.toml` file.        
      
@@ -276,11 +276,11 @@ Let's enable this feature in the Micro Integrator.
     ```
 
 !!! Note
-    Since the integration developer may not know the API URL when it gets deployed in the Micro Integrator, the URL of the API will be parameterized as `https://{MI_HOST}:{MI_PORT}/healthcare` which will be resolved later using environment variables `MI_HOST` and `MI_PORT` respectively. By default, `localhost` will be used as the `MI_HOST` and `8253` as the `MI_PORT`. Depending on your deployment, you may need to update these environment variables.
+    Since the integration developer may not know the API URL when it gets deployed in the WSO2 Integrator: MI, the URL of the API will be parameterized as `https://{MI_HOST}:{MI_PORT}/healthcare` which will be resolved later using environment variables `MI_HOST` and `MI_PORT` respectively. By default, `localhost` will be used as the `MI_HOST` and `8253` as the `MI_PORT`. Depending on your deployment, you may need to update these environment variables.
 
 ### Step 4: Start the API Manager runtime
 
-Let's start the API Manager runtime before starting the Micro Integrator.
+Let's start the API Manager runtime before starting the WSO2 Integrator: MI.
 
 1.  Download and set up [WSO2 API Manager](https://wso2.com/api-management/).
 2.  Start the [API-M server](https://apim.docs.wso2.com/en/latest/install-and-setup/install/installing-the-product/running-the-api-m/).
@@ -305,7 +305,7 @@ Let's start the API Manager runtime before starting the Micro Integrator.
 
     <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
-When the Micro Integrator starts, the integration service will be deployed to the **Service Catalog** during server startup. You will see the following in the server start-up log.
+When the WSO2 Integrator: MI starts, the integration service will be deployed to the **Service Catalog** during server startup. You will see the following in the server start-up log.
 
 ```bash
 Successfully updated the service catalog
@@ -345,7 +345,7 @@ You can now see the new API's overview page.
 
 !!! Note
     -   You can use the left-hand navigation to explore the new API.
-    -   Click **Endpoints** in the left-hand navigator. You will see that the new API uses the integration service deployed in the Micro Integrator as the endpoint (backend).
+    -   Click **Endpoints** in the left-hand navigator. You will see that the new API uses the integration service deployed in the WSO2 Integrator: MI as the endpoint (backend).
 
         <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" alt="endpoint view"></a>
 

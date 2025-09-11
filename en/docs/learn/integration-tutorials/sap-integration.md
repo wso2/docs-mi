@@ -2,15 +2,15 @@
 
 **Systems**, **Applications**, and **Products** **(SAP)** for data processing is an industry leading enterprise software solution that is widely used in product and process oriented enterprises for finance, operations, HR, and many other aspects of a business. 
 
-WSO2 Micro Integrator leverages the best of both worlds by providing the integration layer that can be used to integrate an existing SAP R/3-based solution of an enterprise with other data/business oriented systems so that you can mix-and-match requirements with minimal effort. As a result, enterprises can keep parts of their systems independent of SAP and extensible for many other systems, solutions, and middleware.
+WSO2 Integrator: MI leverages the best of both worlds by providing the integration layer that can be used to integrate an existing SAP R/3-based solution of an enterprise with other data/business oriented systems so that you can mix-and-match requirements with minimal effort. As a result, enterprises can keep parts of their systems independent of SAP and extensible for many other systems, solutions, and middleware.
 
-The WSO2 SAP adapter is shipped with the Micro Integrator and is implemented as a transport. The WSO2 SAP adapter supports both IDoc and BAPI protocols. It uses the SAP JCO library as the underlying framework to communicate with SAP. This section describes how to set up the Micro Integrator in a SAP environment and install the following: SAP JCo middleware library, SAP Intermediate Document (IDoc), and Business Application Programming Interface (BAPI) adapters.
+The WSO2 SAP adapter is shipped with the WSO2 Integrator: MI and is implemented as a transport. The WSO2 SAP adapter supports both IDoc and BAPI protocols. It uses the SAP JCO library as the underlying framework to communicate with SAP. This section describes how to set up the WSO2 Integrator: MI in a SAP environment and install the following: SAP JCo middleware library, SAP Intermediate Document (IDoc), and Business Application Programming Interface (BAPI) adapters.
 
 ### Installing the SAP Adapter
 
 Follow the instructions below to install and set up the SAP adapter.
 
-1.  Download [WSO2 Micro Integrator](https://wso2.com/integration/micro-integrator/).
+1.  Download [WSO2 Integrator: MI](https://wso2.com/integration/micro-integrator/).
 2.  Download the `           sapidoc3.jar          ` and
     `           sapjco3.jar          ` middleware libraries from the SAP
     support portal and copy those libraries to the
@@ -41,18 +41,18 @@ Follow the instructions below to install and set up the SAP adapter.
     IDoc or BAPI.
 
     -   `                         *.dest                       ` : This
-        is where we store SAP endpoint parameters when the Micro Integrator is configured as a client to an external SAP
+        is where we store SAP endpoint parameters when the WSO2 Integrator: MI is configured as a client to an external SAP
         endpoint.
     -   `                         *.server                       ` :
-        This is where we store SAP endpoint parameters when the Micro Integrator is configured as a server to an external SAP
+        This is where we store SAP endpoint parameters when the WSO2 Integrator: MI is configured as a server to an external SAP
         endpoint.
 
     For details on creating the properties files and defining the relevant properties, see [Setting up the Client Configuration File](#setting-up-the-client-configuration-file) and [Setting up the Server Configuration File](#setting-up-the-server-configuration-file).
 
-7.  Start the Micro Integrator using the
+7.  Start the WSO2 Integrator: MI using the
     `           -Djava.library.path          ` switch to specify the
     location of your SAP jco library.  
-    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
+    For example, you can execute the following command to start the WSO2 Integrator: MI from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -60,7 +60,7 @@ Follow the instructions below to install and set up the SAP adapter.
 
 ### Setting up the Client Configuration file
 
-To setup the Micro Integrator as a client to a SAP system you need to create
+To setup the WSO2 Integrator: MI as a client to a SAP system you need to create
 the `         *.dest        ` properties file and define the relevant
 properties. The following table lists the properties and the description
 of each property that should be specified in the
@@ -138,7 +138,7 @@ jco.client.r3name=CPT
 
 ### Setting up the Server Configuration File
 
-To setup the Micro Integrator as an IDoc server, you need to
+To setup the WSO2 Integrator: MI as an IDoc server, you need to
 create the `         *.server        ` properties file and define the
 relevant properties. The following table lists the properties and the
 description of each property that should be specified in the
@@ -158,7 +158,7 @@ description of each property that should be specified in the
 | **`               jco.server.profile_name              `**                    | Name of the profile file used during start-up                                                                                                                                                                |
 | **`               jco.server.unicode              `**                         | Determines whether or not you connect in unicodemode (1=true, 0=false)                                                                                                                                       |
 | **`               jco.server.max_startup_delay              `**               | Maximum server start-up delay time in seconds                                                                                                                                                                |
-| **`              jco.server.connection_count             `**                  | Number of SAP to Micro Integrator connections                                                                                                                                                                         |
+| **`              jco.server.connection_count             `**                  | Number of SAP to WSO2 Integrator: MI connections                                                                                                                                                                         |
 | **`               jco.server.name                           `** | Name of the server configuration. This needs to be the same name provided in the SAP configuration.                                                                                                          |
 
 !!! Info
@@ -185,12 +185,12 @@ jco.server.unicode=1
 Go to the required tab for detailed steps based on how you need to configure WSO2 SAP Adapter.
 
 WSO2 SAP adapter can be used with IDoc, which is a synchronous interface
-used when exchanging data with the SAP system. WSO2 Micro Integrator can be configured
+used when exchanging data with the SAP system. WSO2 Integrator: MI can be configured
 for [Sending IDocs](#sending-idocs) or [Receiving IDocs](#receiving-idocs) when using the SAP adapter.
 
 #### Sending IDocs
 
-Follow the instructions below to configure the Micro Integrator as an IDoc
+Follow the instructions below to configure the WSO2 Integrator: MI as an IDoc
 client using the SAP adapter.
 
 1.  Add the following configuration in
@@ -245,10 +245,10 @@ client using the SAP adapter.
             `SAPSYS.dest` should be in
             `<MI_HOME>/conf/sap` folder .
             
-3.  Start the Micro Integrator using the
+3.  Start the WSO2 Integrator: MI using the
      `              -Djava.library.path             ` switch to specify
      the location of your SAP jco library.  
-     For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
+     For example, you can execute the following command to start the WSO2 Integrator: MI from the `<MI_HOME>/bin` directory:
  
      ```bash
      ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -257,7 +257,7 @@ client using the SAP adapter.
 
 #### Receiving IDocs
 
-Follow the instructions below to configure the Micro Integrator as an IDoc server using the SAP adapter.
+Follow the instructions below to configure the WSO2 Integrator: MI as an IDoc server using the SAP adapter.
 
 1.  Add the following configuration in the
     `<MI_HOME>/conf/deployment.toml` file to
@@ -300,10 +300,10 @@ Follow the instructions below to configure the Micro Integrator as an IDoc serve
             `<MI_HOME>/conf/sap` folder.
         -   Additional proxy level listener parameters that can be defined in the proxy configuration are listed in [Proxy Service Listener Parameters](#proxy-service-listener-parameters).
         
-4.  Start the Micro Integrator using the
+4.  Start the WSO2 Integrator: MI using the
     `              -Djava.library.path             ` switch to specify
     the location of your SAP jco library.  
-    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
+    For example, you can execute the following command to start the WSO2 Integrator: MI from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -313,12 +313,12 @@ Follow the instructions below to configure the Micro Integrator as an IDoc serve
 
 WSO2 SAP adapter can be used with BAPI, which is a
 synchronous interface used when exchanging data with the SAP system. The
-Micro Integrator can be configured for [Sending BAPIs](#sending-bapis) or 
+WSO2 Integrator: MI can be configured for [Sending BAPIs](#sending-bapis) or 
 [Receiving BAPIs](#receiving-bapis) when using the SAP adapter.
 
 #### Sending BAPIs
 
-Follow the instructions below to configure the Micro Integrator as a BAPI
+Follow the instructions below to configure the WSO2 Integrator: MI as a BAPI
 client using the SAP adapter.
 
 1.  Add the following configuration in the
@@ -368,11 +368,11 @@ client using the SAP adapter.
         
         -   The SAP endpoint client properties file `SAPSYS.dest` should be in the `<MI_HOME>/conf/sap` folder .
         
-3.  Start the Micro Integrator using the
+3.  Start the WSO2 Integrator: MI using the
     `-Djava.library.path` switch to specify
     the location of your SAP jco library.  
 
-    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
+    For example, you can execute the following command to start the WSO2 Integrator: MI from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -380,7 +380,7 @@ client using the SAP adapter.
         
 #### Receiving BAPIs
 
-Follow the instructions below to configure the Micro Integrator as a BAPI server using the SAP adapter.
+Follow the instructions below to configure the WSO2 Integrator: MI as a BAPI server using the SAP adapter.
 
 1.  Add the following configuration in the
     `<MI_HOME>/conf/deployment.toml` file to
@@ -421,10 +421,10 @@ Follow the instructions below to configure the Micro Integrator as a BAPI server
         -   Additional proxy level listener parameters that can be defined
             in the proxy configuration are listed in [Proxy Service Listener Parameters](#proxy-service-listener-parameters).
             
-3.  Start the Micro Integrator using the
+3.  Start the WSO2 Integrator: MI using the
     `               -Djava.library.path              ` switch to specify
     the location of your SAP jco library.  
-    For example, you can execute the following command to start the Micro Integrator from the `<MI_HOME>/bin` directory:
+    For example, you can execute the following command to start the WSO2 Integrator: MI from the `<MI_HOME>/bin` directory:
 
     ```bash
     ./micro-integrator.sh -Djava.library.path=/usr/lib/jvm/jre1.7.0/lib/i386/server/
@@ -438,7 +438,7 @@ configuring WSO2 SAP adapter.
 #### Proxy service listener parameters
 
 Following are descriptions of the proxy level listener parameters that
-can be defined in a proxy configuration when using the Micro Integrator as a SAP server:
+can be defined in a proxy configuration when using the WSO2 Integrator: MI as a SAP server:
 
 | Parameter                                                                                            | Description                                                                                                                                                                                                                                                                       |
 |------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

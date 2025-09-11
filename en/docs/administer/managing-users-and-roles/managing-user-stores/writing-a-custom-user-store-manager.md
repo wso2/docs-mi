@@ -1,14 +1,14 @@
 # Writing a Custom User Store Manager
 
 This page demonstrates the process of writing a simple custom user store
-manager for WSO2 Micro Integrator.
+manager for WSO2 Integrator: MI.
 
 In enterprise systems, some key components are centralized for painless
 management. User management is one such component that is centralized
 and carefully monitored. There may be user management systems that use a
-database or LDAP as the data sources. WSO Micro Integrator can be configured to use these existing centralized user
+database or LDAP as the data sources. WSO2 Integrator: MI can be configured to use these existing centralized user
 management systems as the user store. This topic demonstrates how to
-integrate an existing JDBC user store with a WSO2 Micro Integrator.
+integrate an existing JDBC user store with a WSO2 Integrator: MI.
 
 The following sections provide information that you need to be aware of
 when writing a custom user store manager.
@@ -187,7 +187,7 @@ options.
 
 ### Implementations
 
-In WSO2 Micro Integrator, there are four user store manager classes
+In WSO2 Integrator: MI, there are four user store manager classes
 that implement the `           AbstractUserStoreManager          `
 class. You can select one of those classes according to the user store
 that you have in your environment.
@@ -238,7 +238,7 @@ to implement the custom user store manager.
 To set up this implementation, do the following.
 
 1.  Create a new Apache Maven project with the help of the IDE that you are using. The project should be a simple Apache Maven project and you can use any desired artifact and group ID.
-2.  Add the WSO2 Micro Integrator user store management .jar file as a dependency of our project. Since this .jar file is stored in WSO2's Maven repository, you must add the WSO2 repository to your POM file. Please see the below sample POM file.
+2.  Add the WSO2 Integrator: MI user store management .jar file as a dependency of our project. Since this .jar file is stored in WSO2's Maven repository, you must add the WSO2 repository to your POM file. Please see the below sample POM file.
 
     ``` xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -451,7 +451,7 @@ Do the following steps to write the custom user store manager.
 ### Deploying and configuring the custom user store manager
 
 Do the following to deploy and configure the custom user store manager
-in your WSO2 Micro Integrator.
+in your WSO2 Integrator: MI.
 
 1.  Copy the artifact of your project (CustomUserStore-1.0.jar, in this case) to the `<MI_HOME>/dropins` directory. Also copy all OSGI bundles to this location. If you have
     any dependency .jar files, copy them to the `<MI_HOME>/lib` directory.
@@ -474,7 +474,7 @@ in your WSO2 Micro Integrator.
     JDBCUserStoreManager class, so the configurations will remain the
     same.
 
-You have now implemented a custom user store manager for a WSO2 Micro Integrator.
+You have now implemented a custom user store manager for a WSO2 Integrator: MI.
 Once you have done this, start the product and see the log messages that
 you have placed inside overridden methods when you create a new user or
 login. This ensures that all your configurations work as intended.

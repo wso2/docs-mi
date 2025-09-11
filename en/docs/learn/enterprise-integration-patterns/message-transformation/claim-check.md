@@ -1,6 +1,6 @@
 # Claim Check
 
-This page explains how you can implement a sample scenario of Claim Check using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Claim Check using WSO2 Integrator: MI.
 
 ## Introduction to Claim Check
 
@@ -177,7 +177,7 @@ Content-Type: text/xml
 
 ## Analyze the output
 
-The Micro Integrator returns the following response to the client.
+The WSO2 Integrator: MI returns the following response to the client.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

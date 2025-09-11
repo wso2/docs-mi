@@ -2,7 +2,7 @@
 
 This sample demonstrates how to use WS-Security signing and encryption with proxy services through a WS policy.
 
-In this example, the proxy service expects to receive a signed and encrypted message as specified by the security policy. To understand the format of the policy file, have a look at the Apache Rampart and Axis2 documentation. The `enableSec` element specifies that Apache Rampart should be engaged on this proxy service. Hence, if Rampart rejects any request message that does not conform to the specified policy, that message will never reach the `inSequence` for processing. Since the proxy service is forwarding the received request to the simple stock quote service that does not use WS-Security, you are instructing the Micro Integrator to remove the `wsse:Security` header from the outgoing message.
+In this example, the proxy service expects to receive a signed and encrypted message as specified by the security policy. To understand the format of the policy file, have a look at the Apache Rampart and Axis2 documentation. The `enableSec` element specifies that Apache Rampart should be engaged on this proxy service. Hence, if Rampart rejects any request message that does not conform to the specified policy, that message will never reach the `inSequence` for processing. Since the proxy service is forwarding the received request to the simple stock quote service that does not use WS-Security, you are instructing the WSO2 Integrator: MI to remove the `wsse:Security` header from the outgoing message.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ This sample security policy file validates username token and admin role is allo
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [security policy]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), and [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints) with the configurations provided above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ### Set up the back-end service
 
@@ -86,7 +86,7 @@ This sample security policy file validates username token and admin role is allo
           axis2server.bat
           ```
 
-### Set up the SOAP client
+Set up the SOAP client:
 
 1. Download and install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
 

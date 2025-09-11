@@ -35,7 +35,7 @@ The sample includes the following components:
     parameter.connection_factory_type = "queue"
     ```
 
-4.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

@@ -3,7 +3,7 @@
 WSO2 Integration Studio is your development environment for designing, developing, debugging, and testing integration solutions. As an integration developer, you can execute all the phases of the development lifecycle using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline.
 
 !!! warning
-    WSO2 Integration Studio is deprecated. It is recommended to use the [Micro Integrator extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
+    WSO2 Integration Studio is deprecated. It is recommended to use the [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
 
 !!! Tip
     The base of the WSO2 Integration Studio is Eclipse IDE. You can install any supported Eclipse plugin for Integration
@@ -37,7 +37,7 @@ To get started, you need to first create the required project directories. Alter
         </th>
         <td>
             <p>
-                The <b>Getting Started</b> view lists a set of sample projects and integration artifacts that represent common integration scenarios. You can use these to explore WSO2 Micro Integrator and to try out common integration use cases. The <a href="#sample-guide">sample guide</a> will provide instructions on how to run the samples.
+                The <b>Getting Started</b> view lists a set of sample projects and integration artifacts that represent common integration scenarios. You can use these to explore WSO2 Integrator: MI and to try out common integration use cases. The <a href="#sample-guide">sample guide</a> will provide instructions on how to run the samples.
             </p>
             <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.jpg" width="800">
         </td>
@@ -101,17 +101,17 @@ The Console view displays a variety of console types depending on the type of de
 
 <img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.jpg" width="800">
 
-## Embedded Micro Integrator
+## Embedded WSO2 Integrator: MI
 
-WSO2 Integration Studio is shipped with an embedded Micro Integrator server, which allows developers to deploy and run integration artifacts during the development phase. To deploy the artifacts and to run the embedded Micro Integrator, right-click the composite application project (which includes your artifacts) and click **Export Project Artifacts and Run**.
+WSO2 Integration Studio is shipped with an embedded WSO2 Integrator: MI server, which allows developers to deploy and run integration artifacts during the development phase. To deploy the artifacts and to run the embedded WSO2 Integrator: MI, right-click the composite application project (which includes your artifacts) and click **Export Project Artifacts and Run**.
 
-Find out more about [using the embedded Micro Integrator]({{base_path}}/develop/using-embedded-micro-integrator).
+Find out more about [using the embedded WSO2 Integrator: MI]({{base_path}}/develop/using-embedded-micro-integrator).
 
 <img src="{{base_path}}/assets/img/integrate/create_project/testing_export_run.png" width="500">
 
 ## Inbuilt Debugging Capabilities
 
-WSO2 Integration Studio is shipped with mediation debugging capabilities, which allows developers to debug an integration project using the tool. The embedded Micro Integrator server and debugging capabilities enable developers to comprehensively test, debug, and improve integration solutions before the artifacts are released to a production environment.
+WSO2 Integration Studio is shipped with mediation debugging capabilities, which allows developers to debug an integration project using the tool. The embedded WSO2 Integrator: MI server and debugging capabilities enable developers to comprehensively test, debug, and improve integration solutions before the artifacts are released to a production environment.
 
 You need to select your integration project in the project explorer and go to **Run -> Debug** as shown below. Find out more about [mediation debugging]({{base_path}}/develop/debugging-mediation).
 

@@ -1,6 +1,6 @@
 # Message Endpoint
 
-This page explains how you can implement a sample scenario of Message Endpoint EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Message Endpoint EIP using WSO2 Integrator: MI.
 
 ## Introduction to Message Endpoint EIP
 

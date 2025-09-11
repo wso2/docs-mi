@@ -2,14 +2,14 @@
 
 Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.
 
-By default, the Micro Integrator is configured to generate the basic log files that are required for monitoring the server. These log files are stored in the `<MI_HOME>/repository/logs` directory by default. 
+By default, the WSO2 Integrator: MI is configured to generate the basic log files that are required for monitoring the server. These log files are stored in the `<MI_HOME>/repository/logs` directory by default. 
 
 ## Before you begin
 
-The following topics explain how you can use the default logs that are configured in the Micro Integrator. If you have additional logs configured,
+The following topics explain how you can use the default logs that are configured in the WSO2 Integrator: MI. If you have additional logs configured,
 you will be able to access those logs as well.
 
-See [Configure Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties) for details on how to configure logging in Micro Integrator.
+See [Configure Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties) for details on how to configure logging in WSO2 Integrator: MI.
 
 ## Download Log files
 
@@ -27,13 +27,13 @@ You can download log files directly from the [Integration Control Plane]({{base_
 3. Use the **Search** option to locate a specific log file.  
 4. Click the log file to download it.
 
-The default log files used in the Micro Integrator are explained below.
+The default log files used in the WSO2 Integrator: MI are explained below.
 
 ## Monitor Carbon logs
 
-The Carbon log file (`wso2carbon.log`) captures all management related logs for the Micro Integrator. These logs are also printed to the console, as configured in the `log4j2.properties` file.
+The Carbon log file (`wso2carbon.log`) captures all management related logs for the WSO2 Integrator: MI. These logs are also printed to the console, as configured in the `log4j2.properties` file.
 
-Below is a sample log entry printed when starting the Micro Integrator with some deployed integration artifacts.
+Below is a sample log entry printed when starting the WSO2 Integrator: MI with some deployed integration artifacts.
 
 ```bash
 TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Initializing configurations with deployment configurations {org.wso2.config.mapper.ConfigParser}
@@ -43,7 +43,7 @@ TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Ini
 [2020-09-24 23:00:12,076]  INFO {org.wso2.micro.integrator.initializer.deployment.application.deployer.CappDeployer} - Successfully Deployed Carbon Application : helloworldCompositeExporter_1.0.0{super-tenant}
 [2020-09-24 23:00:12,110]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through HTTP Listener started on 0.0.0.0:8290
 [2020-09-24 23:00:12,113]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through HTTPS Listener started on 0.0.0.0:8253
-[2020-09-24 23:00:12,114]  INFO {org.wso2.micro.integrator.initializer.StartupFinalizer} - WSO2 Micro Integrator started in 7.49 seconds
+[2020-09-24 23:00:12,114]  INFO {org.wso2.micro.integrator.initializer.StartupFinalizer} - WSO2 Integrator: MI started in 7.49 seconds
 [2020-09-24 23:00:12,229]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through EI_INTERNAL_HTTP_INBOUND_ENDPOINT Listener started on 0.0.0.0:9201
 [2020-09-24 23:00:12,240]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through EI_INTERNAL_HTTPS_INBOUND_ENDPOINT Listener started on 0.0.0.0:9164
 [2020-09-24 23:00:14,616]  INFO {org.wso2.micro.integrator.management.apis.security.handler.AuthenticationHandlerAdapter} - User admin logged in successfully
@@ -51,7 +51,7 @@ TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Ini
 
 ## Monitor API Logs
 
-The API log file (`wso2-mi-api.log`) captures logs related to all APIs deployed in the Micro Integrator. By default, all API related logs are written to this common file.
+The API log file (`wso2-mi-api.log`) captures logs related to all APIs deployed in the WSO2 Integrator: MI. By default, all API related logs are written to this common file.
 
 Below are sample logs generated when the **Healthcare API** and the **UserInfoRESTAPI** are invoked.
 
@@ -70,7 +70,7 @@ If you have configured [individual log files]({{base_path}}/develop/monitoring-a
 
 ## Monitor Service Logs
 
-The service log file (`wso2-mi-service.log`) captures logs related to all proxy services deployed in the Micro Integrator. By default, all service related logs are written to this common log file.
+The service log file (`wso2-mi-service.log`) captures logs related to all proxy services deployed in the WSO2 Integrator: MI. By default, all service related logs are written to this common log file.
 
 Below are sample log entries generated when the **hl7testproxy** and **HL7Proxy1** services are invoked.
 
@@ -88,7 +88,7 @@ If you have configured [individual log files]({{base_path}}/develop/monitoring-s
 
 ## Monitor Error Logs
 
-The error log file (`wso2error.log`) captures all error-level logs generated while the Micro Integrator is running. These error logs are also printed to the server console by default.
+The error log file (`wso2error.log`) captures all error-level logs generated while the WSO2 Integrator: MI is running. These error logs are also printed to the server console by default.
 
 Below is an example of a server error entry recorded in the error log file.
 
@@ -127,7 +127,7 @@ See [Monitor MI Audit Logs]({{base_path}}/observe-and-manage/classic-observabili
 
 ## Monitor Service/Event Tracing Logs 
 
-The Micro Integrator provides a dedicated log file `wso2carbon-trace-messages.log` for tracing service and event flows. These logs help track how messages are processed through the system, which is useful for debugging and auditing purposes.
+The WSO2 Integrator: MI provides a dedicated log file `wso2carbon-trace-messages.log` for tracing service and event flows. These logs help track how messages are processed through the system, which is useful for debugging and auditing purposes.
 
 Below is an example of a trace entry recorded in the trace log file.
 
@@ -150,7 +150,7 @@ Below is an example of a trace entry recorded in the trace log file.
 
 HTTP access logs capture request and response details, helping you monitor client activity, request volumes, error patterns, and more which are useful for troubleshooting and analytics.
 
-In the Micro Integrator, access logs are generated for the **PassThrough transport**, which handles API and service invocations over ports `8290` (HTTP) and `8253` (HTTPS). By default, all access logs from the PassThrough transport are written to the common access log file: `http_access.log`.
+In the WSO2 Integrator: MI, access logs are generated for the **PassThrough transport**, which handles API and service invocations over ports `8290` (HTTP) and `8253` (HTTPS). By default, all access logs from the PassThrough transport are written to the common access log file: `http_access.log`.
 
 !!! note
     See [HTTP Access Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#http-access-logs) for instructions on how to configure access logging.
@@ -177,12 +177,12 @@ The Patch log file contains details related to patches applied to the product. P
 
 ## Monitor Correlation Logs
 
-Correlation logs help trace the complete round trip of a message processed by the Micro Integrator. This is particularly useful when diagnosing end-to-end message flow across multiple services.
+Correlation logs help trace the complete round trip of a message processed by the WSO2 Integrator: MI. This is particularly useful when diagnosing end-to-end message flow across multiple services.
 
 See [Monitor Correlation Logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-correlation-logs) for more information.
 
 ## Monitor Console Logs
 
-When you run the Micro Integrator, the console outputs logs from the [Carbon log file](#monitor-carbon-logs) and the [Error log file](#monitor-error-logs) by default.
+When you run the WSO2 Integrator: MI, the console outputs logs from the [Carbon log file](#monitor-carbon-logs) and the [Error log file](#monitor-error-logs) by default.
 
 If you have enabled **wire logs**, these will also be printed to the console. See [Enable and Use Wire Logs]({{base_path}}/develop/using-wire-logs/) for more details.
