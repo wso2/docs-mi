@@ -6,7 +6,7 @@ When building integration solutions, you may need to reuse common artifacts or s
 
 This guide explains how to configure and use integration project dependencies in WSO2 Integrator: MI for Visual Studio Code (VS Code).
 
-## Create a Utility Project
+## Create a utility project
 
 First, create a utility project that contains reusable artifacts.
 
@@ -42,7 +42,7 @@ Before using this project as a dependency, it needs to be **built by creating a 
 
    <img src="{{base_path}}/assets/img/develop/integration-project-dependencies/build-capp-deployment-option.png" alt="Build CAPP Deployment Option" width="1000"/>
 
-## Add Utility Project as Integration Project Dependency
+## Add utility project as integration project dependency
 
 Next, create a new project that depends on the utility project.
 
@@ -80,14 +80,14 @@ When building a project with dependencies, you can choose whether to bundle all 
 
     <img src="{{base_path}}/assets/img/develop/integration-project-dependencies/enable-fat-car-setting.png" alt="Enable Fat CAR Setting" width="1000"/>
 
-## Build and Run the Project
+## Build and run the project
 
-### FAT CAR Enabled 
+### FAT CAR enabled 
 
 * All dependent projects’ artifacts are packaged into a single CApp file.
 * You only need to deploy this single CApp file to the MI server.
 
-### FAT CAR Disabled (Recommended)
+### FAT CAR disabled (recommended)
 
 * Only the current project’s CApp file is built.
 * All dependent CApp files must also be present in the `MI_HOME/deployment/server/carbonapps` directory.
