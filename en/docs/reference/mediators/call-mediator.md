@@ -135,7 +135,7 @@ The following properties are available when you want to configure the source of 
           <b>Custom</b>: Provide a valid XPATH/json-eval expression as the source element. The result that is derived from this expression will be the payload.
         </li>
         <li>
-          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encording and escaping.
+          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encoding and escaping.
         </li>
         <li>
           <b>Property</b>: Provide a property as the payload source. You can only refer properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
@@ -148,7 +148,7 @@ The following properties are available when you want to configure the source of 
       contentType
     </td>
     <td>
-      Use this paramter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
+      Use this parameter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
     </td>
   </tr>
 </table>
@@ -159,7 +159,7 @@ The following properties are available when you want to configure a target prope
 
 <table>
   <tr>
-    <th>Paramete Name</th>
+    <th>Parameter Name</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -183,7 +183,7 @@ The [Filter Mediator]({{base_path}}/reference/mediators/filter-Mediator) added a
 carries out a filter to determine whether the first call has been
 successful. If it is successful, second backend service is invoked. The
 payload of the request to the second backend is the response of the
-first service invocation .
+first service invocation.
 
 After a successful second backend service invocation, response of the
 first service is retrieved by the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)
@@ -257,7 +257,7 @@ back with the relevant error code.
 In this example, the message will be cloned by the [Clone Mediator]({{base_path}}/reference/mediators/clone-Mediator) and sent via the Call mediator. The Drop mediator drops the response so that no further mediation is carried out for the cloned message. However, since the `         continueParent        ` attribute of the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator) is set to `         true        ` , the original message is mediated in parallel. Therefore, the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) at the end of the configuration will log the `         After call mediator        ` log message without waiting for
 the Call mediator response.
 
-``` xml
+```xml
 ...
 <log level="full"/>
 <clone continueParent="true">
@@ -282,7 +282,7 @@ the Call mediator response.
 
 In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
-```
+```xml
 <target>
    <inSequence>
       <header name="Action" value="urn:getQuote" />
@@ -313,7 +313,7 @@ If you want to receive the response message headers, when you use the Call media
 !!! Info
     Set the value of the `BLOCKING_SENDER_PRESERVE_REQ_HEADERS` property to `false` to receive the response message headers. If you set it to `true`, you cannot get the response headers, but the request headers will be preserved.
 
-```
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="sample"
        transports="https"
@@ -329,6 +329,7 @@ If you want to receive the response message headers, when you use the Call media
          <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
          <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
          <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
+         <property name="DISABLE_COOKIE" value="true" scope="axis2" type="BOOLEAN"/>
          <call blocking="true">
             <endpoint>
                <address uri="https://localhost:8243/services/sampleBE"
@@ -344,7 +345,7 @@ If you want to receive the response message headers, when you use the Call media
 </proxy>
 ```
 
-## Examples - Using Source and Target configurations
+## Examples - Using source and target configurations
 
 Consider the following payload that is sent to the example sequences listed below. 
 The content type used for this request is `application/json`.
