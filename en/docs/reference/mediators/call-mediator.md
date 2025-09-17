@@ -326,7 +326,7 @@ If you want to receive the response message headers, when you use the Call media
     Set the value of the `BLOCKING_SENDER_PRESERVE_REQ_HEADERS` property to `false` to receive the response message headers. If you set it to `true`, you cannot get the response headers, but the request headers will be preserved.
 
 !!! Info
-    Set the `DISABLE_COOKIE` property To `true` to remove cookie header from blocking request calls
+    Set the `DISABLE_COOKIE` property To `true` to remove cookie header from blocking request calls.
 
 === "Proxy Service"
     ```xml
