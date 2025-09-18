@@ -22,12 +22,20 @@ We will use the [maven archetype](https://github.com/wso2-extensions/archetypes/
 1.  Open a terminal, navigate to the directory on your machine where you want the new connector to be created, and run the following command:
 
     ```xml
-    mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=org.wso2.carbon.extension.archetype -DarchetypeArtifactId=org.wso2.carbon.extension.esb.connector-archetype -DarchetypeVersion=2.0.4 -DgroupId=org.wso2.carbon.esb.connector -DartifactId=org.wso2.carbon.esb.connector.googlebooks -Dversion=1.0.0 -DarchetypeRepository=http://maven.wso2.org/nexus/content/repositories/wso2-public/
+    mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
+        -DarchetypeGroupId=org.wso2.carbon.extension.archetype \
+        -DarchetypeArtifactId=org.wso2.carbon.extension.esb.connector-archetype \
+        -DarchetypeVersion=2.0.20 \
+        -DgroupId=org.wso2.carbon.connector \
+        -DartifactId=org.wso2.carbon.connector.googlebooks \
+        -Dversion=1.0.0 \
+        -DarchetypeRepository=https://maven.wso2.org/nexus/content/repositories/wso2-public/
     ```
+
 2.  When prompted, enter a name for the connector. For example, `googleBooks`.  
 3.  When prompted for confirmation, enter `y`. 
     
-The `org.wso2.carbon.esb.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src` tree, and `repository` tree.
+The `org.wso2.carbon.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src` tree, and `repository` tree.
 
 ### Step 2: Add the new connector resources
 
