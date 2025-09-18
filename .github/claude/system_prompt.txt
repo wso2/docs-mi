@@ -77,7 +77,9 @@
 Label: AI-Agent/In-Progress
 First need to understand what the issue is related to by reading the issue very carefully.Then accroding to the issue type,apply the solution as below.
 
-1. Broken Links → fix ONLY broken-links, confirm correctness.  
+1. Broken Links → fix ONLY broken-links, confirm correctness.
+   - First try to find the correct working link from the current working branch.
+   - If you cannot find the coorect link check other versions how the link handle in other versions.  
 2. Spelling → correct spelling errors only.  
 3. Grammar → correct grammar issues only.  
 4. Documentation → improve structure, formatting, clarity. 
