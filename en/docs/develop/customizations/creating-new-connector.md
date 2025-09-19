@@ -26,8 +26,8 @@ We will use the [maven archetype](https://github.com/wso2-extensions/archetypes/
         -DarchetypeGroupId=org.wso2.carbon.extension.archetype \
         -DarchetypeArtifactId=org.wso2.carbon.extension.esb.connector-archetype \
         -DarchetypeVersion=2.0.20 \
-        -DgroupId=org.wso2.carbon.connector \
-        -DartifactId=org.wso2.carbon.connector.googlebooks \
+        -DgroupId=org.wso2.integration.connector \
+        -DartifactId=org.wso2.integration.connector.googlebooks \
         -Dversion=1.0.0 \
         -DarchetypeRepository=https://maven.wso2.org/nexus/content/repositories/wso2-public/
     ```
@@ -35,11 +35,11 @@ We will use the [maven archetype](https://github.com/wso2-extensions/archetypes/
 2.  When prompted, enter a name for the connector. For example, `googleBooks`.  
 3.  When prompted for confirmation, enter `y`. 
     
-The `org.wso2.carbon.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src` tree, and `repository` tree.
+The `org.wso2.integration.connector.googlebooks` directory is now created with a directory structure consisting of a `pom.xml` file, `src` tree, and `repository` tree.
 
 ### Step 2: Add the new connector resources
 
-Now, let's configure files in the `org.wso2.carbon.esb.connector.googlebooks/src/main/resources` directory:
+Now, let's configure files in the `org.wso2.integration.connector.googlebooks/src/main/resources` directory:
 
 1.  Create a directory named `googlebooks_volume` in the `/src/main/resources` directory.
 2.  Create a file named `listVolume.xml` with the following content in the `googlebooks_volume` directory:
@@ -74,7 +74,7 @@ Now, let's configure files in the `org.wso2.carbon.esb.connector.googlebooks/src
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <connector>
-        <component name="googleBooks" package="org.wso2.carbon.connector" >
+        <component name="googleBooks" package="org.wso2.integration.connector" >
           <dependency component="googlebooks_volume"/>
             <description>wso2 sample connector library</description>
         </component>
@@ -90,7 +90,7 @@ You are now ready to build the connector.
 
 ### Step 3: Build the connector
 
-Open a terminal, navigate to the `org.wso2.carbon.esb.connector.googlebooks` directory and execute the following maven command:
+Open a terminal, navigate to the `org.wso2.integration.connector.googlebooks` directory and execute the following maven command:
 
 ```bash
 mvn clean install
@@ -108,7 +108,7 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 2. [Create an integration project]({{base_path}}/develop/create-integration-project) and add the connector ZIP file to the directory `/src/main/wso2mi/resources/connectors/` of your project.
 
     !!! Tip
-        Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
+        Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.integration.connector.googlebooks/target` directory.
 
 3. [Create an API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `googlebooks_listVolume`. 
 
