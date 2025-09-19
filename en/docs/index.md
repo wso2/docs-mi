@@ -60,10 +60,12 @@
 <div class="homePage">
     <div class="description-section">
         <div>
-            WSO2 Integrator: MI is a comprehensive integration solution that simplifies your digital transformation journey. The WSO2 Integrator: MI streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.
+            WSO2 Micro Integrator (MI) is a comprehensive integration solution designed to simplify your digital transformation journey.
+It streamlines connectivity across applications, services, data, and cloud environments through a user-friendly, low-code graphical design experience.
+MI supports both microservices and ESB-style deployments, offering maximum flexibility.
         </div>
         <div>
-            <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>
+            <a href="https://wso2.com/micro-integrator/" class="banner-link" aria-label="Learn more about WSO2 Micro Integrator"></a>
         </div>
     </div>
     <div class="section02">
@@ -80,7 +82,7 @@
                         {% for link in tile.links %}
                         <li>
                             {% if tile.title == "Community & Support" %}
-                                <a href="{{ link.url }}" target="_blank" class="link">{{ link.name }}</a>
+                                <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="link">{{ link.name }}</a>
                             {% else %}
                                 <a href="{{ base_path }}/{{ link.url }}" class="link">{{ link.name }}</a>
                             {% endif %}
@@ -219,7 +221,7 @@ header.md-header .md-header__button:not([hidden]) {
 }
 .view-all-button {
     display: inline-block;
-    background-color: none;
+    background-color: transparent;
     color: var(--text-color) !important;
     text-decoration: none;
     border-radius: 5px;
