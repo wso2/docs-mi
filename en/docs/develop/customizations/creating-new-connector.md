@@ -296,7 +296,7 @@ Post a request to the proxy service using Curl as shown below.
 
 ```bash
 curl -X 'POST' \
-  'http://localhost:8290/googlebooks' \
+  'http://localhost:8290/googlebooksapi' \
   -H 'Content-Type: application/json' \
   -d '{"searchQuery":"rabbit"}'
 ```
