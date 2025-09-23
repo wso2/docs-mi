@@ -85,7 +85,7 @@ First create an API, which will be where we configure the integration logic. Spe
     4. Add the property mediator to capture the `topicName` value. The topicName contains the name that you want to give to the topic that you are creating.
 
         - **name** : `topicName`
-        - **expression** : `json-eval($.topicName)`
+        - **expression** : `${payload.topicName}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property1-value1.png" title="Add property mediators topicName" width="800" alt="Add property mediators topicName"/>
 
@@ -102,14 +102,14 @@ First create an API, which will be where we configure the integration logic. Spe
     2. Add the property mediator to capture the `subscriptionName` values. This contains the name of the subscription.
 
         - **name** : `subscriptionName`
-        - **expression** : `json-eval($.subscriptionName)`
+        - **expression** : `${payload.subscriptionName}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-property2-value2.png" title="Add values to capture subscriptionName" width="800" alt="Add values to capture subscriptionName"/>  
 
     3. Add the property mediator to store the name of the created topic value from the response of the createTopic operation. 
 
         - **name** : `nameforsubscription`
-        - **expression** : `json-eval($.name)`
+        - **expression** : `${payload.name}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-nameforsubscription.png" title="Add values to capture nameforsubscription" width="800" alt="Add values to capture nameforsubscription"/>
 
@@ -149,14 +149,14 @@ First create an API, which will be where we configure the integration logic. Spe
    3. Add the property mediator to capture the `topicName` values.
 
        - **name** : `topicName`
-       - **expression** : `json-eval($.topicName)`
+       - **expression** : `${payload.topicName}`
 
        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-topicname1.png" title="Add values to the topicName operation" width="800" alt="Add values to the topicName operation"/>
        
    4. Add the property mediator to capture the `data` values.    
 
        - **name** : `data`
-       - **expression** : `json-eval($.data)`
+       - **expression** : `${payload.data}`
 
        <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-data.png" title="Add values to the data operation" width="800" alt="Add values to the data operation"/>
 

@@ -73,12 +73,12 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
                <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
                <log level="custom">
-                   <property expression="get-property('transport','Content-Type')" name="base"/>
+                   <property expression="${transport.headers.Content-Type}" name="base"/>
                </log>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.create>
@@ -108,7 +108,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.readResource>
@@ -140,7 +140,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.readSpecificResourceById>
@@ -175,7 +175,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.update>
@@ -208,7 +208,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.delete>

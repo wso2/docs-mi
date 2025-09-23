@@ -76,7 +76,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
 8. Next, configure the following parameters:
 
-    - Bucket Name - json-eval($.bucketName) - Click on the `EX` button to provide the name as an expression.
+    - Bucket Name - ${payload.bucketName} - Click on the `EX` button to provide the name as an expression.
     - Bucket Region - Select a region from the drop-down menu. Here we are using us-east-2.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-createBucket-operation.png" title="Configuring create bucket operation" width="800" alt="Configuring create bucket operation"/>
@@ -100,9 +100,9 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
     In the **Add putObject** form, select the already created connection as **Amazon S3 Connection** from the dropdown menu and provide the following expressions to the below properties. Make sure to click on the `EX` button to provide the values as expressions.
     
-    - Bucket Name - json-eval($.bucketName)
-    - Object Key - json-eval($.objectKey)
-    - File Content - json-eval($.message)
+    - Bucket Name - ${payload.bucketName}
+    - Object Key - ${payload.objectKey}
+    - File Content - ${payload.message}
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-putObject-operation.png" title="Configuring put object operation" width="800" alt="Configuring put object operation"/>
 
@@ -124,8 +124,8 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
 15. In the **Add getObject** form, select the already created connection as **Amazon S3 Connection** from the dropdown menu and provide the following expressions to the below properties. Make sure to click on the `EX` button to provide the values as expressions.
 
-    - Bucket Name - json-eval($.bucketName)
-    - Object Key - json-eval($.objectKey)
+    - Bucket Name - ${payload.bucketName}
+    - Object Key - ${payload.objectKey}
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-getObject-operation.png" title="Configuring get object operation" width="800" alt="Configuring get object operation"/>
 
@@ -141,7 +141,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     <resource methods="PUT" uri-template="/createbucket">
         <inSequence>
             <amazons3.createBucket configKey="AMAZON_S3_CONNECTION_1">
-                <bucketName>{json-eval($.bucketName)}</bucketName>
+                <bucketName>{${payload.bucketName}}</bucketName>
                 <bucketRegion>us-east-2</bucketRegion>
             </amazons3.createBucket>
             <respond/>
@@ -151,9 +151,9 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     <resource methods="POST" uri-template="/addobject">
         <inSequence>
             <amazons3.putObject configKey="AMAZON_S3_CONNECTION_1">
-                <bucketName>{json-eval($.bucketName)}</bucketName>
-                <objectKey>{json-eval($.objectKey)}</objectKey>
-                <fileContent>{json-eval($.message)}</fileContent>
+                <bucketName>{${payload.bucketName}}</bucketName>
+                <objectKey>{${payload.objectKey}}</objectKey>
+                <fileContent>{${payload.message}}</fileContent>
             </amazons3.putObject>
             <respond/>
         </inSequence>
@@ -162,8 +162,8 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
     <resource methods="POST" uri-template="/info">
         <inSequence>
             <amazons3.getObject configKey="AMAZON_S3_CONNECTION_1">
-                <bucketName>{json-eval($.bucketName)}</bucketName>
-                <objectKey>{json-eval($.objectKey)}</objectKey>
+                <bucketName>{${payload.bucketName}}</bucketName>
+                <objectKey>{${payload.objectKey}}</objectKey>
             </amazons3.getObject>
             <respond/>
         </inSequence>

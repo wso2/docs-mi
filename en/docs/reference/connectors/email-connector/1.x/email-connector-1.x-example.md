@@ -80,11 +80,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-select-conn.png" title="Selecting the connection." width="400" alt="Selecting the connection."/>
 
 8. Next, provide the expressions below to the following properties in the properties window to obtain respective values from the JSON request payload.
-    - **to** - `json-eval($.to)`
-    - **from** - `json-eval($.from)`
-    - **subject** - `json-eval($.subject)`
-    - **content** - `json-eval($.content)`
-    - **contentType** - `json-eval($.contentType)`
+    - **to** - `${payload.to}`
+    - **from** - `${payload.from}`
+    - **subject** - `${payload.subject}`
+    - **content** - `${payload.content}`
+    - **contentType** - `${payload.contentType}`
  
 9. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response from sending the email as shown below.
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-respond.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
@@ -109,7 +109,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     
     Therefore, provide the expressions below to the following properties in the `list` operation window to obtain respective values from the JSON request payload similar to step 8.<br/>
     
-    - **Subject Regex** : `json-eval($.subjectRegex)`
+    - **Subject Regex** : `${payload.subjectRegex}`
     
 14. We will next iterate the response received and obtain the email content of each email using the `getEmailBody` operation. To do this, add the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) as shown below entering `//emails/email` as the Foreach Expression.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-foreach-mediator.png" title="Adding foreach mediator." width="800" alt="Adding foreach mediator."/>
@@ -151,12 +151,12 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/send">
         <inSequence>
             <email.send configKey="smtpsconnection">
-                <from>{json-eval($.from)}</from>
-                <to>{json-eval($.to)}</to>
-                <subject>{json-eval($.subject)}</subject>
+                <from>{${payload.from}}</from>
+                <to>{${payload.to}}</to>
+                <subject>{${payload.subject}}</subject>
                 <inlineImages>[]</inlineImages>
-                <content>{json-eval($.content)}</content>
-                <contentType>{json-eval($.contentType)}</contentType>
+                <content>{${payload.content}}</content>
+                <contentType>{${payload.contentType}}</contentType>
                 <encoding>UTF-8</encoding>
                 <contentTransferEncoding>Base64
                 </contentTransferEncoding>
@@ -173,7 +173,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                 <deleteAfterRetrieve>false</deleteAfterRetrieve>
                 <offset>0</offset>
                 <limit>10</limit>
-                <subjectRegex>{json-eval($.subjectRegex)}</subjectRegex>
+                <subjectRegex>{${payload.subjectRegex}}</subjectRegex>
             </email.list>
             <foreach expression="//emails/email" id="">
                 <sequence>

@@ -46,7 +46,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 6. Add another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
     - **Property name** : InputContent
     - **Value Type** : EXPRESSION
-    - **Value Expression** : json-eval($.inputContent)
+    - **Value Expression** : ${payload.inputContent}
 
 7. Drag and drop the create operation of the File Connector to the Design View as shown below. Set the parameter values as below. We use the property values that we added in step 4 and 5 in this step as `${properties.filePath}` and `${properties.inputContent}`.
 

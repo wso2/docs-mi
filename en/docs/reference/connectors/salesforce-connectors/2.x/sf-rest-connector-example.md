@@ -72,7 +72,7 @@ Now follow the steps below to add configurations to the sequence.
     5. One property mediator to capture the `sObjectName` value. The sObjectName type can be used to retrieve the metadata for the Account object using the GET method or create a new Account object using the POST method. In this example, we are going to create a new Account object using the POST method.
    
         - **Property Name**: `sObjectName`
-        - **Property Value**: expression `json-eval($.sObject)`
+        - **Property Value**: expression `${payload.sObject}`
         - **Property Data Type**: `STRING`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-property-1-config.png" title="Configure first property mediator" width="800" alt="Configure first property mediator"/>
@@ -80,7 +80,7 @@ Now follow the steps below to add configurations to the sequence.
     6. Other property mediator to capture the `fieldAndValue` values. The fieldAndValue contains object fields and values that the user needs to store.
    
         - **Property Name** : `fieldAndValue`
-        - **Property Value** : expression `json-eval($.fieldAndValue)`
+        - **Property Value** : expression `${payload.fieldAndValue}`
         - **Property Data Type** : `STRING`
      
         <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-property-2-config.png" title="Configure second property mediator" width="800" alt="Configure second property mediator"/>  

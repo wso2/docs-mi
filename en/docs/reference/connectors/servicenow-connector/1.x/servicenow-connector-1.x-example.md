@@ -78,7 +78,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`                    |
     | **Property Data Type** | `STRING`                     |
     | **Property Action**    | `Set`                        |
-    | **Property Value**     | `json-eval($.result.sys_id)` |
+    | **Property Value**     | `${payload.result.sys_id}` |
 
     When entering the **Property Value**, make sure to select the **EX** button to specify the value type as an expression. 
 
@@ -174,7 +174,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`                       |
     | **Property Data Type** | `STRING`                        |
     | **Property Action**    | `Set`                           |
-    | **Property Value**     | `json-eval($.shortDescription)` |
+    | **Property Value**     | `${payload.shortDescription}` |
 
     Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
@@ -186,7 +186,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`                  |
     | **Property Data Type** | `STRING`                   |
     | **Property Action**    | `Set`                      |
-    | **Property Value**     | `json-eval($.contactType)` |
+    | **Property Value**     | `${payload.contactType}` |
 
     Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
@@ -206,7 +206,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`            |
     | **Property Data Type** | `STRING`             |
     | **Property Action**    | `Set`                |
-    | **Property Value**     | `json-eval($.sysId)` |
+    | **Property Value**     | `${payload.sysId}` |
 
     Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 

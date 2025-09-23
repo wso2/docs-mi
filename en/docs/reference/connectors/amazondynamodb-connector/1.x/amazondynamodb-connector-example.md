@@ -96,35 +96,35 @@ Now follow the steps below to add resources to the API.
     4. Add the property mediator to capture the `attributeDefinitions` value.
 
         - **name** : `attributeDefinitions`
-        - **expression** : `json-eval($.attributeDefinitions)`
+        - **expression** : `${payload.attributeDefinitions}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property1-value1.png" title="Add property mediators attributeDefinitions" width="800" alt="Add property mediators attributeDefinitions"/>
 
     5. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property2-value2.png" title="Add values to capture tableName" width="800" alt="Add values to capture tableName"/>  
       
     6. Add the property mediator to capture the `keySchema` value.
 
         - **name** : `keySchema`
-        - **expression** : `json-eval($.keySchema)`
+        - **expression** : `${payload.keySchema}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property3-value3.png" title="Add values to capture keySchema" width="800" alt="Add values to capture keySchema"/>  
 
     7. Add the property mediator to capture the `localSecondaryIndexes` value.
 
         - **name** : `localSecondaryIndexes`
-        - **expression** : `json-eval($.localSecondaryIndexes)`
+        - **expression** : `${payload.localSecondaryIndexes}`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property4-value4.png" title="Add values to capture localSecondaryIndexes" width="800" alt="Add values to capture localSecondaryIndexes"/>  
 
     8. Add the property mediator to capture the `provisionedThroughput` value.
 
         - **name** : `provisionedThroughput`
-        - **expression** : `json-eval($.provisionedThroughput)`
+        - **expression** : `${payload.provisionedThroughput}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property5-value5.png" title="Add values to capture provisionedThroughput" width="800" alt="Add values to capture provisionedThroughput"/>  
     
@@ -152,14 +152,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `item` value.  
 
         - **name** : `item`
-        - **expression** : `json-eval($.item)`
+        - **expression** : `${payload.item}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-put-items-table-property1-value1.png" title="Add property mediators to capture item" width="800" alt="Add property mediators to capture item"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
      
 #### Configure a resource for the updatetable operation
 
@@ -185,14 +185,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediators as mentioned in the `addtable` operation. Add the property mediator to capture the `provisionedThroughput` value.  
 
         - **name** : `provisionedThroughput`
-        - **expression** : `json-eval($.provisionedThroughput)`
+        - **expression** : `${payload.provisionedThroughput}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-update-table-property1-value1.png" title="Add property mediators to capture provisionedThroughput" width="800" alt="Add property mediators to capture provisionedThroughput"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
 
 #### Configure a resource for the listdetails operation
 
@@ -218,14 +218,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `key` value.
 
         - **name** : `key`
-        - **expression** : `json-eval($.key)`
+        - **expression** : `${payload.key}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-get-item-property1-value1.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture key"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
 
 #### Configure a resource for the deletedetails operation
 
@@ -253,12 +253,12 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in the `addtable` operation. Add the property mediator to capture the `key` value.
 
         - **name** : `key`
-        - **expression** : `json-eval($.key)`
+        - **expression** : `${payload.key}`
        
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
         
 #### Configure a resource for the listtable operation
 
@@ -284,14 +284,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `exclusiveStartTableName` value.
 
         - **name** : `exclusiveStartTableName`
-        - **expression** : `json-eval($.exclusiveStartTableName)`
+        - **expression** : `${payload.exclusiveStartTableName}`
         
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-list-table-property1-value1.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture exclusiveStartTableName"/>
        
     4. Add the property mediator to capture the `limit` value.
 
         - **name** : `limit`
-        - **expression** : `json-eval($.limit)`
+        - **expression** : `${payload.limit}`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-list-table-property2-value2.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture limit"/>
         
@@ -319,7 +319,7 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
     
 #### Get a response.   
  

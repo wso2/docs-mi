@@ -122,7 +122,7 @@ In this sample, we used the `transport.mail.ContentType` property to make sure t
     <proxy name="StockQuoteProxy" startOnLoad="true" transports="malito" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <property name="senderAddress" expression="get-property('transport', 'From')"/>
+                <property name="senderAddress" expression="${transport.headers.From}"/>
                 <log level="full">
                     <property name="Sender Address" expression="${properties.senderAddress}"/>
                 </log>

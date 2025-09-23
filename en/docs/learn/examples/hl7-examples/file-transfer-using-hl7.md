@@ -21,7 +21,7 @@ Given below is a proxy service that is configured to detect HL7 files (`.hl7`) i
       <target>
          <inSequence>
             <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
-            <property name="transport.vfs.ReplyFileName" expression="get-property('transport','FILE_NAME')" scope="transport" type="STRING"/>
+            <property name="transport.vfs.ReplyFileName" expression="${transport.headers.FILE_NAME}" scope="transport" type="STRING"/>
             <log level="full"/>
             <call>
                <endpoint key="FileEndpoint" />

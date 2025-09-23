@@ -70,7 +70,7 @@ In the following API, we have two resources to check the eligibility of the cust
             <property name="customerId" type="STRING" value="CUST123"/>
             <property name="billCount" type="STRING" expression="${properties.query.param.promoBillCount}"/>
             <property name="billAmount" type="INTEGER" expression="${properties.query.param.minimumBillAmount}"/>
-            <property name="filterResult" type="JSON" expression="json-eval($.orders[?(@.customerID=='{${properties.customerId}}' &amp;&amp; @.total &gt; {${properties.billAmount}})])"/>
+            <property name="filterResult" type="JSON" expression="${payload.orders[?(@.customerID=='{${properties.customerId}}' &amp;&amp; @.total &gt; {${properties.billAmount}}}])"/>
             <property name="filterLength" type="STRING" expression="json-eval(${properties.filterResult.length}())"/>
             <filter source="${properties.filterLength} > ${properties.billCount}" regex="true">
                 <then>

@@ -100,9 +100,9 @@ Keeping local entry names unchanged, you can create configurations specific to d
 
 The following are some other ways to externalize connection initialization parameters. This is specific to connector `init` operation parameters (for previous connector versions) or for connection parameters when creating new connector connections (newer connector versions).
 
-* Specify an expression to read them as system variables (i.e., `get-property('System','email.hostName')`). Then you can pass the values for system variables in the `<PRODUCT_HOME>/bin/integrator.sh` script. You can do this specific to the environment. 
+* Specify an expression to read them as system variables (i.e., `${system.properties.email.hostName}`). Then you can pass the values for system variables in the `<PRODUCT_HOME>/bin/integrator.sh` script. You can do this specific to the environment. 
 
-* Specify an expression to read them as registry variables (i.e., `get-property(get-property('registry','conf:<path to resource from config>'))`). Then you can provide values in the registry specific to the environment at the registry path specified. Make sure you share the registry between the nodes if setting up a server cluster. 
+* Specify an expression to read them as registry variables (i.e., `get-property(${registry['conf:<path to resource from config>']})`). Then you can provide values in the registry specific to the environment at the registry path specified. Make sure you share the registry between the nodes if setting up a server cluster. 
 
 ## Deployment 
 

@@ -96,7 +96,7 @@ Similarly, you can use `$trp` prefix with [HTTP Transport Properties]({{base_pat
     In this example, the property definition, `<property name="stockprop"
     expression="$trp:Content-Type"/>` is equivalent to `<property
     name="stockprop"
-    expression="get-property('transport','Content-Type')"/>`.
+    expression="${transport.headers.Content-Type}"/>`.
 
 ### $body
 

@@ -34,7 +34,7 @@ You can use the Validate mediator to validate XML and JSON messages against a sp
     <p>If this is not specified, 
     <ul>
         <li>For XML: the validation is performed against the first child of the SOAP body of the current message.</li>
-        <li>For JSON: the validation is performed against the whole body of the current message. For example: <code>json-eval($.msg)</code></li>
+        <li>For JSON: the validation is performed against the whole body of the current message. For example: <code>${payload.msg}</code></li>
     </ul></p>
  </div>
 </div></td>
@@ -251,7 +251,7 @@ When you send an invalid JSON payload against the given schema, the following re
 In this example, it extracts the message element from the JSON request body and validates only that part of the message against the given schema.
 
 ``` xml
-<validate cache-schema="true" source="json-eval($.msg)">
+<validate cache-schema="true" source="${payload.msg}">
     <schema key="conf:/schema/StockQuoteSchema.json"/>
     <on-fail>
         <payloadFactory media-type="json">

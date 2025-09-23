@@ -58,7 +58,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 6. Next, configure the following parameters in the properties window,
 
-    - **Container Name** - json-eval($.containerName)
+    - **Container Name** - ${payload.containerName}
 
     <img src="{{base_path}}/assets/img/integrate/connectors/msazure-connector-2x/configure_create_container_operation.png" title="Configuring create container operation" width="800" alt="Microsoft Azure Storage use case"/>
 
@@ -70,11 +70,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 8. Follow the same steps to create the next API resource, `/addblob`. This API resource will retrieve information about the blob from the incoming HTTP POST request, such as the container name, blob name, and the file content, and upload it to Microsoft Azure Storage.
 
 9. Next, add the `uploadBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
-    - **Container Name** - json-eval($.containerName)
-    - **Blob name** - json-eval($.fileName)
-    - **Content Type** - json-eval($.contentType)
-    - **Text Content** - json-eval($.textContent)
-    - **Metadata** - json-eval($.metadata)
+    - **Container Name** - ${payload.containerName}
+    - **Blob name** - ${payload.fileName}
+    - **Content Type** - ${payload.contentType}
+    - **Text Content** - ${payload.textContent}
+    - **Metadata** - ${payload.metadata}
 
 10. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from uploading the blob.
 
@@ -84,8 +84,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 12. Next, add the `downloadBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - **Container Name** - json-eval($.containerName)
-    - **Blob name** - json-eval($.fileName)
+    - **Container Name** - ${payload.containerName}
+    - **Blob name** - ${payload.fileName}
 
 13. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `downloadBlob` operation.
 
@@ -95,8 +95,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 15. Next, add the `deleteBlob` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - **Container Name** - json-eval($.containerName)
-    - **Blob name** - json-eval($.fileName)
+    - **Container Name** - ${payload.containerName}
+    - **Blob name** - ${payload.fileName}
 
 16. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `deleteBlob` operation.
 
@@ -106,8 +106,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 18. Next, add the `listMetadata` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - **Container Name** - json-eval($.containerName)
-    - **Blob name** - json-eval($.fileName)
+    - **Container Name** - ${payload.containerName}
+    - **Blob name** - ${payload.fileName}
 
 19. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `listMetadata` operation.
 
@@ -117,7 +117,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 21. Next, add the `deleteContainer` operation from the **Externals** tab using the created connection. In the properties view, provide the following expressions for the below properties:
 
-    - **Container Name** - json-eval($.containerName)
+    - **Container Name** - ${payload.containerName}
 
 22. Finally, add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response from the `deleteContainer` operation.
 
@@ -131,7 +131,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/createcontainer">
         <inSequence>
             <msazurestorage.createContainer configKey="AZURE_CONNECTION">
-                <containerName>{json-eval($.containerName)}</containerName>
+                <containerName>{${payload.containerName}}</containerName>
             </msazurestorage.createContainer>
             <respond/>
         </inSequence>
@@ -140,11 +140,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/addblob">
         <inSequence>
             <msazurestorage.uploadBlob configKey="AZURE_CONNECTION">
-                <containerName>{json-eval($.containerName)}</containerName>
-                <textContent>{json-eval($.textContent)}</textContent>
-                <fileName>{json-eval($.fileName)}</fileName>
-                <blobContentType>{json-eval($.contentType)}</blobContentType>
-                <metadata>{json-eval($.metadata)}</metadata>
+                <containerName>{${payload.containerName}}</containerName>
+                <textContent>{${payload.textContent}}</textContent>
+                <fileName>{${payload.fileName}}</fileName>
+                <blobContentType>{${payload.contentType}}</blobContentType>
+                <metadata>{${payload.metadata}}</metadata>
             </msazurestorage.uploadBlob>
             <respond/>
         </inSequence>
@@ -153,8 +153,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/downloadblob">
         <inSequence>
             <msazurestorage.downloadBlob configKey="AZURE_CONNECTION">
-                <containerName>{json-eval($.containerName)}</containerName>
-                <fileName>{json-eval($.fileName)}</fileName>
+                <containerName>{${payload.containerName}}</containerName>
+                <fileName>{${payload.fileName}}</fileName>
             </msazurestorage.downloadBlob>
             <respond/>
         </inSequence>
@@ -163,8 +163,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/deleteblob">
         <inSequence>
             <msazurestorage.deleteBlob configKey="AZURE_CONNECTION">
-                <containerName>{json-eval($.containerName)}</containerName>
-                <fileName>{json-eval($.fileName)}</fileName>
+                <containerName>{${payload.containerName}}</containerName>
+                <fileName>{${payload.fileName}}</fileName>
             </msazurestorage.deleteBlob>
             <respond/>
         </inSequence>
@@ -173,8 +173,8 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/listmetadata">
         <inSequence>
             <msazurestorage.listMetadata configKey="AZURE_CONNECTION">
-                <containerName>{json-eval($.containerName)}</containerName>
-                <fileName>{json-eval($.fileName)}</fileName>
+                <containerName>{${payload.containerName}}</containerName>
+                <fileName>{${payload.fileName}}</fileName>
             </msazurestorage.listMetadata>
             <respond/>
         </inSequence>
@@ -183,7 +183,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <resource methods="POST" uri-template="/deletecontainer">
         <inSequence>
             <msazurestorage.deleteContainer configKey="AZURE_CONNECTION">
-                <containerName>{json-eval($.containerName)}</containerName>
+                <containerName>{${payload.containerName}}</containerName>
             </msazurestorage.deleteContainer>
             <respond/>
         </inSequence>

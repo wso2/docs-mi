@@ -210,14 +210,14 @@ The following operations allow you to work with the Email Connector. Click an op
     
     ```xml
     <email.list configKey="imapconnection">
-        <subjectRegex>{json-eval($.subjectRegex)}</subjectRegex>
-        <seen>{json-eval($.seen)}</seen>
-        <answered>{json-eval($.answered)}</answered>
-        <deleted>{json-eval($.deleted)}</deleted>
-        <recent>{json-eval($.recent)}</recent>
-        <offset>{json-eval($.offset)}</offset>
-        <limit>{json-eval($.limit)}</limit>
-        <folder>{json-eval($.folder)}</folder>
+        <subjectRegex>{${payload.subjectRegex}}</subjectRegex>
+        <seen>{${payload.seen}}</seen>
+        <answered>{${payload.answered}}</answered>
+        <deleted>{${payload.deleted}}</deleted>
+        <recent>{${payload.recent}}</recent>
+        <offset>{${payload.offset}}</offset>
+        <limit>{${payload.limit}}</limit>
+        <folder>{${payload.folder}}</folder>
     </email.list>
     ```
     
@@ -482,11 +482,11 @@ The following operations allow you to work with the Email Connector. Click an op
 
     ```xml
     <email.send configKey="smtpconnection">
-        <from>{json-eval($.from)}</from>
-        <to>{json-eval($.to)}</to>
-        <subject>{json-eval($.subject)}</subject>
-        <content>{json-eval($.content)}</content>
-        <attachments>{json-eval($.attachments)}</attachments>
+        <from>{${payload.from}}</from>
+        <to>{${payload.to}}</to>
+        <subject>{${payload.subject}}</subject>
+        <content>{${payload.content}}</content>
+        <attachments>{${payload.attachments}}</attachments>
     </email.send>
     ```
     
@@ -533,8 +533,8 @@ The following operations allow you to work with the Email Connector. Click an op
 
     ```xml
     <email.delete configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
-        <emailID>{json-eval($.emailID)}</emailID>
+        <folder>{${payload.folder}}</folder>
+        <emailID>{${payload.emailID}}</emailID>
     </email.delete>
     ```
     
@@ -572,8 +572,8 @@ The following operations allow you to work with the Email Connector. Click an op
     
     ```xml
     <email.markAsRead configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
-        <emailID>{json-eval($.emailID)}</emailID>
+        <folder>{${payload.folder}}</folder>
+        <emailID>{${payload.emailID}}</emailID>
     </email.markAsRead>
     ```
     
@@ -611,8 +611,8 @@ The following operations allow you to work with the Email Connector. Click an op
     
     ```xml
     <email.markAsRead configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
-        <emailID>{json-eval($.emailID)}</emailID>
+        <folder>{${payload.folder}}</folder>
+        <emailID>{${payload.emailID}}</emailID>
     </email.markAsRead>
     ```
 
@@ -645,7 +645,7 @@ The following operations allow you to work with the Email Connector. Click an op
     
     ```xml
     <email.expungeFolder configKey="imapconnection">
-        <folder>{json-eval($.folder)}</folder>
+        <folder>{${payload.folder}}</folder>
     </email.expungeFolder>
     ```
     
@@ -672,10 +672,10 @@ The following is a sample proxy service that illustrates how to connect to the E
    <target>
       <inSequence>
          <email.send configKey="smtpsconnection">
-             <from>{json-eval($.from)}</from>
-             <to>{json-eval($.to)}</to>
-             <subject>{json-eval($.subject)}</subject>
-             <content>{json-eval($.content)}</content>
+             <from>{${payload.from}}</from>
+             <to>{${payload.to}}</to>
+             <subject>{${payload.subject}}</subject>
+             <content>{${payload.content}}</content>
          </email.send>
          <respond/>
       </inSequence>

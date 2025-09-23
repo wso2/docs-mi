@@ -73,21 +73,21 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
     4. Add the property mediator to capture the `sourceAddress` value. The `sourceAddress` contains the source address of the SMS message. 
    
         - **Property Name**: `sourceAddress`
-        - **Property Value**: expression `json-eval($.sourceAddress)`
+        - **Property Value**: expression `${payload.sourceAddress}`
    
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-source-address-property.png" title="Add property mediators sourceAddress" width="800" alt="Add property mediators sourceAddress"/>
     
     5. Add the property mediator to capture the `message` values. The message contains the content of the SMS message.                  
    
         - **Property Name**: `message`
-        - **Property Value**: expression `json-eval($.message)`
+        - **Property Value**: expression `${payload.message}`
      
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-message-property.png" title="Add values to capture message" width="800" alt="Add values to capture message"/>  
       
     6. Add the property mediator to capture the `destinationAddress` values. The message contains the content of the SMS message.                  
        
         - **Property Name**: `destinationAddress`
-        - **Property Value**: expression `json-eval($.destinationAddress)`
+        - **Property Value**: expression `${payload.destinationAddress}`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-destination-address-property.png" title="Add values to capture destinationAddress" width="800" alt="Add values to capture destinationAddress"/>  
     

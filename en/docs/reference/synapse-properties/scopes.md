@@ -97,8 +97,8 @@ You can retrieve properties within the registry using the following syntax.
 
 Examples:
 ``` xml
-<property name="regProperty" expression="get-property('registry', 'gov:/data/xml/collectionx')"/>
-<property name="regResourceProperty" expression="get-property('registry', 'gov:/data/xml/collectionx@abc')"/>
+<property name="regProperty" expression="${registry['gov:/data/xml/collectionx']}"/>
+<property name="regResourceProperty" expression="${registry['gov:/data/xml/collectionx@abc']}"/>
 ```
 
 ## `system` scope

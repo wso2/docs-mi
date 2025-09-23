@@ -95,11 +95,11 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.createFolder configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.site_id)}</siteId>
-        <parentItemId>{json-eval($.parent_id)}</parentItemId>
-        <name>{json-eval($.folder_name)}</name>
+        <siteId>{${payload.site_id}}</siteId>
+        <parentItemId>{${payload.parent_id}}</parentItemId>
+        <name>{${payload.folder_name}}</name>
         <folder>{}</folder>
-        <MicrosoftGraphConflictBehavior>{json-eval($.conflict_behavior)}</MicrosoftGraphConflictBehavior>
+        <MicrosoftGraphConflictBehavior>{${payload.conflict_behavior}}</MicrosoftGraphConflictBehavior>
     </sharepoint.createFolder>
     ```
  
@@ -143,9 +143,9 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.uploadFile configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <parentItemId>{json-eval($.parentItemId)}</parentItemId>
-        <fileName>{json-eval($.fileName)}</fileName>
+        <siteId>{${payload.siteId}}</siteId>
+        <parentItemId>{${payload.parentItemId}}</parentItemId>
+        <fileName>{${payload.fileName}}</fileName>
     </sharepoint.uploadFile>
     ```
  
@@ -208,13 +208,13 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.createGroup configKey="SHAREPOINT_CONN">
-        <description>{json-eval($.description)}</description>
-        <displayName>{json-eval($.displayName)}</displayName>
-        <groupTypes>{json-eval($.groupTypes)}</groupTypes>
-        <mailEnabled>{json-eval($.mailEnabled)}</mailEnabled>
-        <mailNickname>{json-eval($.mailNickname)}</mailNickname>
-        <securityEnabled>{json-eval($.securityEnabled)}</securityEnabled>
-        <visibility>{json-eval($.visibility)}</visibility>
+        <description>{${payload.description}}</description>
+        <displayName>{${payload.displayName}}</displayName>
+        <groupTypes>{${payload.groupTypes}}</groupTypes>
+        <mailEnabled>{${payload.mailEnabled}}</mailEnabled>
+        <mailNickname>{${payload.mailNickname}}</mailNickname>
+        <securityEnabled>{${payload.securityEnabled}}</securityEnabled>
+        <visibility>{${payload.visibility}}</visibility>
     </sharepoint.createGroup>
     ```
  
@@ -256,8 +256,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.createList configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <properties>{json-eval($.listProperties)}</properties>
+        <siteId>{${payload.siteId}}</siteId>
+        <properties>{${payload.listProperties}}</properties>
     </sharepoint.createList>
     ```
  
@@ -314,9 +314,9 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.createListItem configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
-        <fields>{json-eval($.fields)}</fields>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
+        <fields>{${payload.fields}}</fields>
     </sharepoint.createListItem>
     ```
  
@@ -357,8 +357,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.deleteDriveItem configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <itemId>{json-eval($.itemId)}</itemId>
+        <siteId>{${payload.siteId}}</siteId>
+        <itemId>{${payload.itemId}}</itemId>
     </sharepoint.deleteDriveItem>
     ```
  
@@ -395,8 +395,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.deleteList configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
     </sharepoint.deleteList>
     ```
  
@@ -438,9 +438,9 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.deleteListItem configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
-        <itemId>{json-eval($.itemId)}</itemId>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
+        <itemId>{${payload.itemId}}</itemId>
     </sharepoint.deleteListItem>
     ```
  
@@ -478,8 +478,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getDriveItemById configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <itemId>{json-eval($.itemId)}</itemId>
+        <siteId>{${payload.siteId}}</siteId>
+        <itemId>{${payload.itemId}}</itemId>
     </sharepoint.getDriveItemById>
     ```
  
@@ -516,8 +516,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getFolderChildren configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <itemId>{json-eval($.itemId)}</itemId>
+        <siteId>{${payload.siteId}}</siteId>
+        <itemId>{${payload.itemId}}</itemId>
     </sharepoint.getFolderChildren>
     ```
  
@@ -549,7 +549,7 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getGroupSite configKey="SHAREPOINT_CONN">
-        <groupId>{json-eval($.groupId)}</groupId>
+        <groupId>{${payload.groupId}}</groupId>
     </sharepoint.getGroupSite>
     ```
  
@@ -585,8 +585,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getListById configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
     </sharepoint.getListById>
     ```
  
@@ -628,9 +628,9 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getListItemById configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
-        <itemId>{json-eval($.itemId)}</itemId>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
+        <itemId>{${payload.itemId}}</itemId>
     </sharepoint.getListItemById>
     ```
  
@@ -668,8 +668,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getListItems configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
     </sharepoint.getListItems>
     ```
  
@@ -701,7 +701,7 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getLists configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
+        <siteId>{${payload.siteId}}</siteId>
     </sharepoint.getLists>
     ```
  
@@ -732,7 +732,7 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.getRootChildren configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
+        <siteId>{${payload.siteId}}</siteId>
     </sharepoint.getRootChildren>
     ```
  
@@ -768,8 +768,8 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.updateFileContent configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <itemId>{json-eval($.itemId)}</itemId>
+        <siteId>{${payload.siteId}}</siteId>
+        <itemId>{${payload.itemId}}</itemId>
     </sharepoint.updateFileContent>
     ```
  
@@ -811,9 +811,9 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.updateFolder configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <itemId>{json-eval($.itemId)}</itemId>
-        <name>{json-eval($.name)}</name>
+        <siteId>{${payload.siteId}}</siteId>
+        <itemId>{${payload.itemId}}</itemId>
+        <name>{${payload.name}}</name>
     </sharepoint.updateFolder>
     ```
  
@@ -861,10 +861,10 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.updateList configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
-        <displayName>{json-eval($.displayName)}</displayName>
-        <description>{json-eval($.description)}</description>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
+        <displayName>{${payload.displayName}}</displayName>
+        <description>{${payload.description}}</description>
     </sharepoint.updateList>
     ```
  
@@ -913,10 +913,10 @@ To use the Sharepoint connector, first create the connection with your configura
 
     ```xml
     <sharepoint.updateListItemFields configKey="SHAREPOINT_CONN">
-        <siteId>{json-eval($.siteId)}</siteId>
-        <listId>{json-eval($.listId)}</listId>
-        <itemId>{json-eval($.itemId)}</itemId>
-        <properties>{json-eval($.properties)}</properties>
+        <siteId>{${payload.siteId}}</siteId>
+        <listId>{${payload.listId}}</listId>
+        <itemId>{${payload.itemId}}</itemId>
+        <properties>{${payload.properties}}</properties>
     </sharepoint.updateListItemFields>
     ```
  

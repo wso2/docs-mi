@@ -254,7 +254,7 @@ In this example, you'll extract the content in the `data` object and set it as t
 
 ```xml
 <enrich>
-    <source clone="false" type="custom" xpath="json-eval($.data)"/>
+    <source clone="false" type="custom" xpath="${payload.data}"/>
     <target action="replace" type="body"/>
 </enrich>
 ```
@@ -288,7 +288,7 @@ In this example, you'll enroll the first student in the payload for a new module
 <property name="NewModule" scope="default" type="STRING" value="CS004"/>
 <enrich>
     <source clone="true" property="NewModule" type="property"/>
-    <target action="child" xpath="json-eval($.data.students[0].modules)"/>
+    <target action="child" xpath="${payload.data.students[0].modules}"/>
 </enrich>
 ```
 
@@ -329,7 +329,7 @@ In this example, you'll define a new student inline and add it to the `students`
         "modules": ["CS001", "CS002", "CS004"]
         }
     </source>
-    <target action="child" xpath="json-eval($.data.students)"/>
+    <target action="child" xpath="${payload.data.students}"/>
 </enrich>
 ```
 
@@ -368,7 +368,7 @@ In this example, you'll assign the first student's name to a property called `Na
 
 ```xml
 <enrich>
-    <source clone="true" type="custom" xpath="json-eval($.data.students[0].name)"/>
+    <source clone="true" type="custom" xpath="${payload.data.students[0].name}"/>
     <target action="replace" type="property" property="Name"/>
 </enrich>
 <log category="INFO" level="custom">
@@ -392,7 +392,7 @@ In this example, you'll remove the `modules` from every student and also remove 
 
 ```xml
 <enrich>
-    <source clone="true" type="custom" xpath="json-eval($.data.students[*].modules,$.data.students[0])"/>
+    <source clone="true" type="custom" xpath="${payload.data.students[*].modules,$.data.students[0]}"/>
     <target action="remove" type="body"/>
 </enrich>
 ```
@@ -423,7 +423,7 @@ As you removed selected parts from a payload, you can also remove selected parts
     <target action="replace" type="property" property="students"/>
 </enrich>
 <enrich>
-    <source clone="true" type="custom" xpath="json-eval($.data.students[*].modules,$.data.students[0])"/>
+    <source clone="true" type="custom" xpath="${payload.data.students[*].modules,$.data.students[0]}"/>
     <target action="remove" type="property" property="students"/>
 </enrich>
 <log category="INFO" level="simple">
@@ -449,7 +449,7 @@ In this example, you'll replace the `modules` array of every student with `[]`.
     <source clone="true" type="inline">
         []
     </source>
-    <target action="replace" xpath="json-eval($.data.students[*].modules)"/>
+    <target action="replace" xpath="${payload.data.students[*].modules}"/>
 </enrich>
 ```
 
@@ -488,7 +488,7 @@ In this example, you'll replace the key name `name` of every student with `first
     <source clone="true" type="inline">
         firstName
     </source>
-    <target action="replace" type="key" xpath="json-eval($.data.students[*].name)"/>
+    <target action="replace" type="key" xpath="${payload.data.students[*].name}"/>
 </enrich>
 ```
 

@@ -159,7 +159,7 @@ In these examples, the Iterate mediator splits the messages into parts and proce
 === "Using a JSONpath expression"    
     ```xml 
         <iterate id="jsonIterator" preservePayload="true" 
-                 attachPath="json-eval($.placeHolder)" 
+                 attachPath="${payload.placeHolder}" 
                  expression="${payload.students.studentlist}">
            <target>
               <sequence>

@@ -118,8 +118,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.createCustomerClient configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.account_id)}</customerId>
-        <customerClient>{json-eval($.client_data)}</customerClient>
+        <customerId>{${payload.account_id}}</customerId>
+        <customerClient>{${payload.client_data}}</customerClient>
     </googleAds.createCustomerClient>
     ```
  
@@ -171,10 +171,10 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.customersMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operation>{json-eval($.operation)}</operation>
-        <validateOnly>{json-eval($.validate_only)}</validateOnly>
-        <responseContentType>{json-eval($.response_type)}</responseContentType>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operation>{${payload.operation}}</operation>
+        <validateOnly>{${payload.validate_only}}</validateOnly>
+        <responseContentType>{${payload.response_type}}</responseContentType>
     </googleAds.customersMutate>
     ```
  
@@ -235,8 +235,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.campaignBudgets configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operations>{json-eval($.operations)}</operations>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operations>{${payload.operations}}</operations>
     </googleAds.campaignBudgets>
     ```
  
@@ -328,9 +328,9 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.campaignsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operations>{json-eval($.operations)}</operations>
-        <validateOnly>{json-eval($.validateOnly)}</validateOnly>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operations>{${payload.operations}}</operations>
+        <validateOnly>{${payload.validateOnly}}</validateOnly>
     </googleAds.campaignsMutate>
     ```
  
@@ -426,8 +426,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.adGroupsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operations>{json-eval($.operations)}</operations>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operations>{${payload.operations}}</operations>
     </googleAds.adGroupsMutate>
     ```
  
@@ -516,8 +516,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.adGroupAdsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operations>{json-eval($.operations)}</operations>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operations>{${payload.operations}}</operations>
     </googleAds.adGroupAdsMutate>
     ```
  
@@ -632,8 +632,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.adsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operations>{json-eval($.operations)}</operations>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operations>{${payload.operations}}</operations>
     </googleAds.adsMutate>
     ```
  
@@ -705,8 +705,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.search configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <query>{json-eval($.query)}</query>
+        <customerId>{${payload.customer_id}}</customerId>
+        <query>{${payload.query}}</query>
     </googleAds.search>
     ```
  
@@ -758,8 +758,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.campaignCriteriaMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <query>{json-eval($.operations)}</query>
+        <customerId>{${payload.customer_id}}</customerId>
+        <query>{${payload.operations}}</query>
     </googleAds.campaignCriteriaMutate>
     ```
  
@@ -810,8 +810,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.customAudiencesMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <query>{json-eval($.operations)}</query>
+        <customerId>{${payload.customer_id}}</customerId>
+        <query>{${payload.operations}}</query>
     </googleAds.customAudiencesMutate>
     ```
  
@@ -886,8 +886,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.audiencesMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <query>{json-eval($.operations)}</query>
+        <customerId>{${payload.customer_id}}</customerId>
+        <query>{${payload.operations}}</query>
     </googleAds.audiencesMutate>
     ```
  
@@ -957,8 +957,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.userListsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <query>{json-eval($.operations)}</query>
+        <customerId>{${payload.customer_id}}</customerId>
+        <query>{${payload.operations}}</query>
     </googleAds.userListsMutate>
     ```
  
@@ -1052,9 +1052,9 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.userListsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <operations>{json-eval($.operations)}</operations>
-        <userListId>{json-eval($.userListId)}</userListId>
+        <customerId>{${payload.customer_id}}</customerId>
+        <operations>{${payload.operations}}</operations>
+        <userListId>{${payload.userListId}}</userListId>
     </googleAds.userListsMutate>
     ```
 
@@ -1085,12 +1085,12 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.userListsMutate configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
+        <customerId>{${payload.customer_id}}</customerId>
         <inputStructure>JSON_ARRAY</inputStructure>
-        <jsonArrayContent>{json-eval($.jsonArrayContent)}</jsonArrayContent>
+        <jsonArrayContent>{${payload.jsonArrayContent}}</jsonArrayContent>
         <operationType>create</operationType>
         <userIdentifierSource>UNSPECIFIED</userIdentifierSource>
-        <userListId>{json-eval($.userListId)}</userListId>
+        <userListId>{${payload.userListId}}</userListId>
     </googleAds.userListsMutate>
     ```
 
@@ -1225,7 +1225,7 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.getCustomers configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
+        <customerId>{${payload.customer_id}}</customerId>
     </googleAds.search>
     ```
  
@@ -1281,7 +1281,7 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.getCampaigns configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
+        <customerId>{${payload.customer_id}}</customerId>
     </googleAds.search>
     ```
  
@@ -1342,8 +1342,8 @@ The following operations allow you to work with the Google Ads API. Click an ope
 
     ```xml
     <googleAds.search configKey="GOOGLE_ADS_CONN">
-        <customerId>{json-eval($.customer_id)}</customerId>
-        <userListName>{json-eval($.user_list_name)}</userListName>
+        <customerId>{${payload.customer_id}}</customerId>
+        <userListName>{${payload.user_list_name}}</userListName>
     </googleAds.search>
     ```
  

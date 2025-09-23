@@ -62,13 +62,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Property name            | Property value (as expression)      |
     |--------------------------|-------------------------------------|
-    | **username**             | `json-eval($.username)`             |
-    | **password**             | `json-eval($.password)`             |
-    | **clientNamespace**      | `json-eval($.clientNamespace)`      |
-    | **apiVersion**           | `json-eval($.apiVersion)`           |
-    | **contextDateRangeFrom** | `json-eval($.contextDateRangeFrom)` |
-    | **contextDateRangeTo**   | `json-eval($.contextDateRangeTo)`   |
-    | **xRefCode**             | `json-eval($.xRefCode)`             |
+    | **username**             | `${payload.username}`             |
+    | **password**             | `${payload.password}`             |
+    | **clientNamespace**      | `${payload.clientNamespace}`      |
+    | **apiVersion**           | `${payload.apiVersion}`           |
+    | **contextDateRangeFrom** | `${payload.contextDateRangeFrom}` |
+    | **contextDateRangeTo**   | `${payload.contextDateRangeTo}`   |
+    | **xRefCode**             | `${payload.xRefCode}`             |
 
     You can add these properties by clicking on the **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the **EX** button to specify the value types as expressions.
 
@@ -135,13 +135,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Property name       | Property value (as expression)      |
     |---------------------|-------------------------------------|
-    | **username**        | `json-eval($.username)`             |
-    | **password**        | `json-eval($.password)`             |
-    | **clientNamespace** | `json-eval($.clientNamespace)`      |
-    | **apiVersion**      | `json-eval($.apiVersion)`           |
-    | **isValidateOnly**  | `json-eval($.isValidateOnly)`       |
-    | **fieldAndValue**   | `json-eval($.fieldAndValue)`        |
-    | **xRefCode**        | `json-eval($.xRefCode)`             |
+    | **username**        | `${payload.username}`             |
+    | **password**        | `${payload.password}`             |
+    | **clientNamespace** | `${payload.clientNamespace}`      |
+    | **apiVersion**      | `${payload.apiVersion}`           |
+    | **isValidateOnly**  | `${payload.isValidateOnly}`       |
+    | **fieldAndValue**   | `${payload.fieldAndValue}`        |
+    | **xRefCode**        | `${payload.xRefCode}`             |
 
     You can add these properties by clicking on **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the **EX** button to specify the value types as expressions.
 
