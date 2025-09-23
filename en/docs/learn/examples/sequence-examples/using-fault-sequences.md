@@ -34,7 +34,7 @@ Following are the integration artifacts that we can used to implement this scena
             <faultSequence>
                 <log level="custom">
                     <property name="text" value="An unexpected error occured"/>
-                    <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+                    <property name="message" expression="${properties.ERROR_MESSAGE}"/>
                 </log>
                 <drop/>
             </faultSequence>
@@ -55,7 +55,7 @@ Following are the integration artifacts that we can used to implement this scena
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
             <log level="custom">
                 <property name="text" value="An unexpected error occured for stock SUN"/>
-                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+                <property name="message" expression="${properties.ERROR_MESSAGE}"/>
             </log>
             <drop/>
         </sequence>
@@ -75,7 +75,7 @@ the `get-property` XPath function. The following log mediator logs the actual er
 ```xml
 <log level="custom">  
     <property name="text" value="An unexpected error occured"/>
-    <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+    <property name="message" expression="${properties.ERROR_MESSAGE}"/>
 </log>
 ``` 
 

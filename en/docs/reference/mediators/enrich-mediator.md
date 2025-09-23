@@ -170,7 +170,7 @@ In this example, you'll add a child property named `Lamborghini` to a property n
 				<target action="child" type="property" property="Cars"/>
 			</enrich>
 			<log category="INFO" level="custom">
-				<property name="PekeCarListBeforeEnrich" expression="get-property('Cars')"/>
+				<property name="PekeCarListBeforeEnrich" expression="${properties.Cars}"/>
 			</log>
 			<enrich>
 				<source clone="true" type="inline">
@@ -179,7 +179,7 @@ In this example, you'll add a child property named `Lamborghini` to a property n
 				<target action="child" xpath="$ctx:Cars"/>
 			</enrich>
 			<log category="INFO" level="custom">
-				<property name="PekeCarListAfterEnrich" expression="get-property('Cars')"/>
+				<property name="PekeCarListAfterEnrich" expression="${properties.Cars}"/>
 			</log>
 		</inSequence>
         <faultSequence/>
@@ -372,7 +372,7 @@ In this example, you'll assign the first student's name to a property called `Na
     <target action="replace" type="property" property="Name"/>
 </enrich>
 <log category="INFO" level="custom">
-    <property name="Student name is : " expression="get-property('Name')"/>
+    <property name="Student name is : " expression="${properties.Name}"/>
 </log>
 ```
 

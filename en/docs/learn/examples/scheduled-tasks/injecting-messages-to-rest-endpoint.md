@@ -30,8 +30,8 @@ Following are the integration artifacts that we can used to implement this scena
                 <property expression="//request/location/city" name="uri.var.city" scope="default" type="STRING"/>
                 <property expression="//request/location/country" name="uri.var.cc" scope="default" type="STRING"/>
                 <log>
-                    <property expression="get-property('uri.var.city')" name="Which city?"/>
-                    <property expression="get-property('uri.var.cc')" name="Which country?"/>
+                    <property expression="${properties.uri.var.city}" name="Which city?"/>
+                    <property expression="${properties.uri.var.cc}" name="Which country?"/>
                 </log>
                 <call>
                     <endpoint key="EP" />

@@ -23,7 +23,7 @@ This sample scenario demonstrates how application logic is layered, and how each
     <proxy name="MessageBusProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <filter regex=".*/StockQuote.*" source="get-property('To')">
+                <filter regex=".*/StockQuote.*" source="${properties.To}">
                     <then>
                         <call>
                             <endpoint key="SimpleStockQuoteServiceEp"/>

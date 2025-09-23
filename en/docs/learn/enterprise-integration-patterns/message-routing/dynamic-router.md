@@ -34,9 +34,9 @@ Before digging into implementation details, let's take a look at the relationshi
         <target>
             <inSequence>
                 <log category="INFO" level="full"/>
-                <switch source="get-property('To')">
+                <switch source="${properties.To}">
                     <case regex="http://localhost:9000.*">
-                        <filter xmlns:m0="http://services.samples" xpath="get-property('ConfigA') = //m0:getQuote/m0:request/m0:symbol/text()">
+                        <filter xmlns:m0="http://services.samples" xpath="${properties.ConfigA} = //m0:getQuote/m0:request/m0:symbol/text()">
                             <then>
                                 <call>
                                     <endpoint key="StockQuoteServiceEP1"/>
@@ -50,7 +50,7 @@ Before digging into implementation details, let's take a look at the relationshi
                         </filter>
                     </case>
                     <case regex="http://localhost:9001.*">
-                        <filter xmlns:m0="http://services.samples" xpath="get-property('ConfigB') = //m0:getQuote/m0:request/m0:symbol/text()">
+                        <filter xmlns:m0="http://services.samples" xpath="${properties.ConfigB} = //m0:getQuote/m0:request/m0:symbol/text()">
                             <then>
                                 <call>
                                     <endpoint key="StockQuoteServiceEP2"/>
@@ -64,7 +64,7 @@ Before digging into implementation details, let's take a look at the relationshi
                         </filter>
                     </case>
                     <case regex="http://localhost:9002.*">
-                        <filter xmlns:m0="http://services.samples" xpath="get-property('ConfigC') = //m0:getQuote/m0:request/m0:symbol/text()">
+                        <filter xmlns:m0="http://services.samples" xpath="${properties.ConfigC} = //m0:getQuote/m0:request/m0:symbol/text()">
                             <then>
                                 <call>
                                     <endpoint key="StockQuoteServiceEP3"/>

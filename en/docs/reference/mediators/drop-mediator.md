@@ -18,7 +18,7 @@ You can use the drop mediator for messages that do not meet the filter criteria 
         <target>
             <inSequence>
                 <!-- filtering of messages with XPath and regex matches -->
-                <filter regex="/StockQuote.*" source="get-property('To')">
+                <filter regex="/StockQuote.*" source="${properties.To}">
                     <then>
                         <call>
                             <endpoint key="SimpleStockEp"/>

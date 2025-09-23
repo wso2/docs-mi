@@ -24,22 +24,22 @@ The following diagram shows the overall solution we are going to build. The SMSC
          <log level="custom">
             <property xmlns:ns="http://org.apache.synapse/xsd"
                       name="MessageId"
-                      expression="get-property('SMPP_MessageId')"/>
+                      expression="${properties.SMPP_MessageId}"/>
             <property xmlns:ns="http://org.apache.synapse/xsd"
                       name="SourceAddress"
-                      expression="get-property('SMPP_SourceAddress')"/>
+                      expression="${properties.SMPP_SourceAddress}"/>
             <property xmlns:ns="http://org.apache.synapse/xsd"
                       name="DataCoding"
-                      expression="get-property('SMPP_DataCoding')"/>
+                      expression="${properties.SMPP_DataCoding}"/>
             <property xmlns:ns="http://org.apache.synapse/xsd"
                       name="ScheduleDeliveryTime"
-                      expression="get-property('SMPP_ScheduleDeliveryTime')"/>
+                      expression="${properties.SMPP_ScheduleDeliveryTime}"/>
             <property xmlns:ns="http://org.apache.synapse/xsd"
                       name="SequenceNumber"
-                      expression="get-property('SMPP_SequenceNumber')"/>
+                      expression="${properties.SMPP_SequenceNumber}"/>
             <property xmlns:ns="http://org.apache.synapse/xsd"
                       name="ServiceType"
-                      expression="get-property('SMPP_ServiceType')"/>
+                      expression="${properties.SMPP_ServiceType}"/>
          </log>
          <log level="full"/>
       </sequence>

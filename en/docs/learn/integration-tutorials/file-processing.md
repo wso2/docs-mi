@@ -150,7 +150,7 @@ Follow the instructions below to create a sequence that can be used to connect t
             <property name="sequence" value="fileWriteSequence" />
         </log>
         <property xmlns:ns2="http://org.apache.synapse/xsd" name="transport.vfs.ReplyFileName"
-            expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.txt')"
+            expression="fn:concat(fn:substring-after(${properties.MessageID}, 'urn:uuid:'), '.txt')"
             scope="transport" />
         <property name="OUT_ONLY" value="true"/>
         <call>

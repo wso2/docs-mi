@@ -15,7 +15,7 @@ Following are the integration artifacts (proxy service) that we can use to imple
                     <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                 </endpoint>
             </call>
-            <property name="transport.vfs.ReplyFileName" expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')" scope="transport"/>
+            <property name="transport.vfs.ReplyFileName" expression="fn:concat(fn:substring-after(${properties.MessageID}, 'urn:uuid:'), '.xml')" scope="transport"/>
             <property action="set" name="OUT_ONLY" value="true"/>
             <call>
                 <endpoint>
@@ -113,7 +113,7 @@ You can use the proxy given below to test the SMB2 functionality.
    <target>
       <inSequence>
          <property name="transport.vfs.ReplyFileName"
-                   expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')"
+                   expression="fn:concat(fn:substring-after(${properties.MessageID}, 'urn:uuid:'), '.xml')"
                    scope="transport"/>
          <property name="OUT_ONLY" value="true"/>
          <send>

@@ -75,7 +75,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
            <log level="full"/>
             <!-- ensure that the default configuration only sends if it is one of samples -->
             <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
-            <filter regex="http://localhost:9000.*" source="get-property('To')">
+            <filter regex="http://localhost:9000.*" source="${properties.To}">
             <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
             <send/>
             </filter>
@@ -92,8 +92,8 @@ See the instructions on how to [build and run](#build-and-run) this example.
         <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
         <log level="full">
             <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+            <property expression="${properties.ERROR_CODE}" name="ERROR_CODE"/>
+            <property expression="${properties.ERROR_MESSAGE}" name="ERROR_MESSAGE"/>
          </log>
          <!-- Drops the messages by default if there is a fault -->
         <drop/>

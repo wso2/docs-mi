@@ -49,7 +49,7 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
             </log>
             <propertyGroup description="message inputs">
                 <property expression="//bucketName" name="bucketName" scope="default" type="STRING"/>
-                <property expression="fn:concat('http://s3.us-east-2.amazonaws.com/',get-property('bucketName'))" name="bucketUrl" scope="default" type="STRING"/>
+                <property expression="fn:concat('http://s3.us-east-2.amazonaws.com/',${properties.bucketName})" name="bucketUrl" scope="default" type="STRING"/>
                 <property expression="//bucketRegion" name="bucketRegion" scope="default" type="STRING"/>
             </propertyGroup> 
             <amazons3.init>
@@ -86,8 +86,8 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
             <propertyGroup description="init properties">
                 <property name="accessKeyId" scope="default" type="STRING" value="AKIAJA3J6GE646JSVA7A"/>
                 <property name="secretAccessKey" scope="default" type="STRING" value="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"/>
-                <property expression="fn:concat(get-property('targetBucketName'),'.','s3.us-east-2.amazonaws.com')" name="host" scope="default" type="STRING"/>
-                <property expression="fn:concat('http://',get-property('targetBucketName'),'.s3.us-east-2.amazonaws.com')" name="bucketUrl" scope="default" type="STRING"/>
+                <property expression="fn:concat(${properties.targetBucketName},'.','s3.us-east-2.amazonaws.com')" name="host" scope="default" type="STRING"/>
+                <property expression="fn:concat('http://',${properties.targetBucketName},'.s3.us-east-2.amazonaws.com')" name="bucketUrl" scope="default" type="STRING"/>
                 <property name="region" scope="default" type="STRING" value="us-east-2"/>
                 <property name="ContentType" scope="axis2" type="STRING" value="application/xml"/>
                 <property name="addCharset" scope="default" type="STRING" value="false"/>
@@ -192,8 +192,8 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
             <property name="contentType" scope="default" type="STRING" expression="$axis2:ContentType"/>
             <property expression="//bucketName/text()" name="targetBucketName" scope="default" type="STRING"/>
             <property expression="//objectName/text()" name="objectName" scope="default" type="STRING"/>
-            <property expression="fn:concat('http://',get-property('targetBucketName'),'.s3-us-east-2.amazonaws.com')" name="bucketUrl" scope="default" type="STRING"/>
-            <property expression="fn:concat(get-property('targetBucketName'),'.s3-us-east-2.amazonaws.com')" name="host" scope="default" type="STRING"/>
+            <property expression="fn:concat('http://',${properties.targetBucketName},'.s3-us-east-2.amazonaws.com')" name="bucketUrl" scope="default" type="STRING"/>
+            <property expression="fn:concat(${properties.targetBucketName},'.s3-us-east-2.amazonaws.com')" name="host" scope="default" type="STRING"/>
             <amazons3.init>
                 <accessKeyId>AKIAJA3J6GE646JSVA7A</accessKeyId>
                 <secretAccessKey>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</secretAccessKey>

@@ -136,18 +136,18 @@ Following is a sample proxy service configuration:
    <target>
       <inSequence>
          <property name="transactionID"
-                   expression="get-property('MessageID')"
+                   expression="${properties.MessageID}"
                    scope="default"/>
          <property name="sourceMessageID"
-                   expression="get-property('MessageID')"
+                   expression="${properties.MessageID}"
                    scope="default"/>
          <property name="proxyMessageID"
-                   expression="get-property('MessageID')"
+                   expression="${properties.MessageID}"
                    scope="default"/>
          <log level="full">
-            <property name="transactionID" expression="get-property('transactionID')"/>
-            <property name="sourceMessageID" expression="get-property('sourceMessageID')"/>
-            <property name="MessageID" expression="get-property('proxyMessageID')"/>
+            <property name="transactionID" expression="${properties.transactionID}"/>
+            <property name="sourceMessageID" expression="${properties.sourceMessageID}"/>
+            <property name="MessageID" expression="${properties.proxyMessageID}"/>
          </log>
          <property name="SET_ROLLBACK_ONLY" value="true" scope="axis2"/>
          <drop/>               

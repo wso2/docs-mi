@@ -24,7 +24,7 @@ Following are the integration artifacts that we can use to implement this scenar
         <!-- log the message using the custom log level. illustrates custom properties for log -->
         <log level="custom">
             <property name="Text" value="Sending quote request"/>
-            <property expression="get-property('direction')" name="direction"/>
+            <property expression="${properties.direction}" name="direction"/>
         </log>
         <!-- Call the real endpoint referenced by key "simple" endpoint definition -->
         <call>

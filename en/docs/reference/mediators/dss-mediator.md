@@ -91,7 +91,7 @@ The <strong>Target Configuration</strong> properties of the Data Service Call me
 You can define dynamic property names when the target type is defined as a property:
 
 ```java
-<property name="{get-property('propertyName')}" />
+<property name="{${properties.propertyName}}" />
 <property name="{$ctx:propertyName}" />
 <property name="{json-eval(propertyName)}" />
 ```

@@ -110,7 +110,7 @@ Following is a sample REST API configuration that we can used to implement this 
               <endpoint>
                   <address uri="http://localhost:123/myendpoint" statistics="enable" trace="disable">
                       <timeout>
-                          <duration>{get-property('timeout')}</duration>
+                          <duration>{${properties.timeout}}</duration>
                           <responseAction>discard</responseAction>
                       </timeout>
                   </address>

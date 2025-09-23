@@ -293,13 +293,13 @@ entire transaction should be rolled back.
               <inSequence>
                  <property name="OUT_ONLY" value="true"/>
                  <log level="custom">
-                    <property name="MESSAGE_ID_A" expression="get-property('MessageID')"/>
+                    <property name="MESSAGE_ID_A" expression="${properties.MessageID}"/>
                  </log>
                  <log level="custom">
                     <property name="BEFORE" expression="$body"/>
                  </log>
                  <property name="MESSAGE_ID_B"
-                           expression="get-property('MessageID')"
+                           expression="${properties.MessageID}"
                            scope="operation"
                            type="STRING"/>
                  <property name="failureResultProperty"

@@ -144,7 +144,7 @@ Add the handler to the REST API:
                         </m0:getQuote>
                     </format>
                     <args>
-                        <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
+                        <arg evaluator="xml" expression="${properties.uri.var.symbol}"/>
                     </args>
                 </payloadFactory>
                 <header name="Action" scope="default" value="urn:getQuote"/>

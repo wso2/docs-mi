@@ -173,7 +173,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
 
 1. In the API insequence add the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) to construct the delete query. Let's store the query in a property named `deleteQuery`.
     ```xml
-      <property expression="fn:concat('DELETE FROM HOTEL_DB.PUBLIC.RESERVATIONS WHERE NICNUMBER=',get-property('uri.var.NICNUMBER'))" name="deleteQuery" scope="default" type="STRING"/>
+      <property expression="fn:concat('DELETE FROM HOTEL_DB.PUBLIC.RESERVATIONS WHERE NICNUMBER=',${properties.uri.var.NICNUMBER})" name="deleteQuery" scope="default" type="STRING"/>
     ```
 2. Add the `execute` operation from the **SnowflakeConnector** section.
       1. Select the Snowflake connection configuration you created.
@@ -230,7 +230,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
          </resource>
          <resource methods="DELETE" uri-template="/deleteReservation/{NICNUMBER}">
             <inSequence>
-               <property expression="fn:concat('DELETE FROM HOTEL_DB.PUBLIC.RESERVATIONS WHERE NICNUMBER=',get-property('uri.var.NICNUMBER'))" name="deleteQuery" scope="default" type="STRING"/>
+               <property expression="fn:concat('DELETE FROM HOTEL_DB.PUBLIC.RESERVATIONS WHERE NICNUMBER=',${properties.uri.var.NICNUMBER})" name="deleteQuery" scope="default" type="STRING"/>
                <snowflake.execute configKey="SNOWFLAKE_CONNECTION_1">
                   <executeQuery>{$ctx:deleteQuery}</executeQuery>
                </snowflake.execute>

@@ -39,7 +39,7 @@ The resolving endpoint refers to an actual endpoint using a dynamic key (which i
 
 ```xml
 <send>
-  <endpoint key-expression="get-property('Mail')"/>
+  <endpoint key-expression="${properties.Mail}"/>
 </send>
 ```
 ### List of Endpoints

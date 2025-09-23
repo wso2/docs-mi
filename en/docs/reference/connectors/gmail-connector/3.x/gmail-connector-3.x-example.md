@@ -113,7 +113,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
         </gmail.readMail>
         <property expression="json-eval($.payload.headers[6].value)" name="response" scope="default" type="STRING"/>
         <log level="custom">
-            <property expression="get-property('response')" name="response1"/>
+            <property expression="${properties.response}" name="response1"/>
         </log>
         <gmail.getAccessTokenFromRefreshToken/>
         <gmail.sendMail>

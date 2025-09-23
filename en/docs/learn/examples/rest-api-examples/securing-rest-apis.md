@@ -32,7 +32,7 @@ See the REST API given below for an example of how the default basic auth handle
                       </m0:getQuote>
                    </format>
                    <args>
-                      <arg evaluator="xml" expression="get-property('uri.var.symbol')" />
+                      <arg evaluator="xml" expression="${properties.uri.var.symbol}" />
                    </args>
                 </payloadFactory>
                 <header name="Action" scope="default" value="urn:getQuote" />

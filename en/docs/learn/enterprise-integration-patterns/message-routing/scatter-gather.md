@@ -81,7 +81,7 @@ Given below is the synapse configuration of this sample.
                                 <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">$1</soapenv:Body>
                             </format>
                             <args>
-                                <arg expression="get-property('enrichedres')" evaluator="xml"/>
+                                <arg expression="${properties.enrichedres}" evaluator="xml"/>
                             </args>
                         </payloadFactory>
                         <respond/>

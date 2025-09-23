@@ -58,7 +58,7 @@ Following is a sample configuration that uses the VFS transport to handle large 
         <target>
              <inSequence>
                 <property name="transport.vfs.ReplyFileName"
-                          expression="fn:concat(fn:substring-after(get-property('MessageID'), 'urn:uuid:'), '.xml')" scope="transport"/>
+                          expression="fn:concat(fn:substring-after(${properties.MessageID}, 'urn:uuid:'), '.xml')" scope="transport"/>
                 <property action="set" name="OUT_ONLY" value="true"/>
                 <property name="ClientApiNonBlocking" value="true" scope="axis2" action="remove"/>
                 <send>

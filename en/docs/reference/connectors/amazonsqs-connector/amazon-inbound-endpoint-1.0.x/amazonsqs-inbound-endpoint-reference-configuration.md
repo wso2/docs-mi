@@ -90,9 +90,9 @@ In a failure scenario, the Amazon SQS message will roll back if the following pr
             </log>
             <log level="full">
                 <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-                <property expression="get-property('ERROR_CODE')"
+                <property expression="${properties.ERROR_CODE}"
                     name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
-                <property expression="get-property('ERROR_MESSAGE')"
+                <property expression="${properties.ERROR_MESSAGE}"
                     name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
             </log>
             <drop/>

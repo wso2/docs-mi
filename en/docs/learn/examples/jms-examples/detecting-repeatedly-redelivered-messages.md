@@ -75,8 +75,8 @@ See the instructions on how to [build and run](#build-and-run) this example.
     <sequence name="fault">
         <log level="full">
             <property name="MESSAGE" value="Executing default &quot;fault&quot; sequence"/>
-            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+            <property expression="${properties.ERROR_CODE}" name="ERROR_CODE"/>
+            <property expression="${properties.ERROR_MESSAGE}" name="ERROR_MESSAGE"/>
         </log>
         <drop/>
     </sequence>

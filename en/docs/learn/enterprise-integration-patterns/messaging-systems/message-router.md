@@ -47,7 +47,7 @@ When you unzip the ZIP file you download below in Step 4 when simulating the sam
      <?xml version="1.0" encoding="UTF-8"?>
      <sequence name="MessageRoute" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
          <property name="Hospital" scope="default" type="STRING" expression="json-eval($.hospital)" />
-         <switch source="get-property('Hospital')">
+         <switch source="${properties.Hospital}">
              <case regex="grand oak community hospital">
                  <call>
                      <endpoint key="GrandOaksEP" />
@@ -66,7 +66,7 @@ When you unzip the ZIP file you download below in Step 4 when simulating the sam
              <default>
                  <log category="INFO" level="custom">
                      <property name="fault value"
-                         expression="fn:concat('Invalid hospital - ', get-property('Hospital'))" />
+                         expression="fn:concat('Invalid hospital - ', ${properties.Hospital})" />
                  </log>
              </default>
          </switch>

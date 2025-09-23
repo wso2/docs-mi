@@ -37,9 +37,9 @@ Start the ESB server and log into its management console UI (`https://localhost:
                 scope="default"
                 type="STRING"/>
       <log level="custom">
-         <property name="mainSeq" expression="get-property('mainSeq')"/>
-         <property name="seq1" expression="get-property('seq1')"/>
-         <property name="sendSeq" expression="get-property('seq1')"/>
+         <property name="mainSeq" expression="${properties.mainSeq}"/>
+         <property name="seq1" expression="${properties.seq1}"/>
+         <property name="sendSeq" expression="${properties.seq1}"/>
       </log>
       <send>
          <endpoint>
@@ -59,8 +59,8 @@ Start the ESB server and log into its management console UI (`https://localhost:
    <sequence name="fault">
       <log level="full">
          <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-         <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-         <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+         <property name="ERROR_CODE" expression="${properties.ERROR_CODE}"/>
+         <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}"/>
       </log>
       <drop/>
    </sequence>
@@ -68,7 +68,7 @@ Start the ESB server and log into its management console UI (`https://localhost:
    <sequence name="main">
       <in>
          <filter xmlns:ns="http://org.apache.synapse/xsd"
-                 source="get-property('To')"
+                 source="${properties.To}"
                  regex="http://localhost:9000.*">
             <then>
                <property name="mainSeq" value="** At Main Sequence**"/>

@@ -100,9 +100,9 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 </fileconnector.isFileExist>
                 <property expression="json-eval($.fileExist)" name="response" scope="default" type="STRING"/>
                 <log level="custom">
-                    <property expression="get-property('response')" name="responselog"/>
+                    <property expression="${properties.response}" name="responselog"/>
                 </log>
-                <switch source="get-property('response')">
+                <switch source="${properties.response}">
                     <case regex="true">
                         <fileconnector.read>
                             <source>{$ctx:source}</source>

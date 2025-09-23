@@ -43,7 +43,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
             <faultSequence>
                 <log>
                     <property name="stockprop" expression="$ctx:ERROR_MESSAGE"/>
-                    <property name="Cause" expression="get-property('ERROR_MESSAGE')"/>
+                    <property name="Cause" expression="${properties.ERROR_MESSAGE}"/>
                 </log>
             </faultSequence>
         </resource>
@@ -58,7 +58,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
     In this example, the property definition, `<property
     name="stockprop" expression="$ctx:ERROR_MESSAGE"/>` is equivalent
     to `<property name="stockprop"
-    expression="get-property('ERROR_MESSAGE')"/>`.
+    expression="${properties.ERROR_MESSAGE}"/>`.
 
 ### $trp
 

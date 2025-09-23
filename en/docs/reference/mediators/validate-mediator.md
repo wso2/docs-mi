@@ -130,7 +130,7 @@ In this example, the schema for validating messages is given as a registry key, 
                     <reason value="Invalid Request!!!"/>
                 </makefault>
                 <property name="RESPONSE" value="true"/>
-                <header name="To" expression="get-property('ReplyTo')"/>
+                <header name="To" expression="${properties.ReplyTo}"/>
          </on-fail>
 </validate>
 ```

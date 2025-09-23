@@ -12,7 +12,7 @@ Following is a sample REST API configuration that we can used to implement this 
      <target>
          <inSequence>
              <!-- filtering of messages with XPath and regex matches -->
-             <filter regex=".*StockQuote.*" source="get-property('To')">
+             <filter regex=".*StockQuote.*" source="${properties.To}">
                  <then>
                      <header name="Action" scope="default" value="urn:getQuote"/>
                      <call>

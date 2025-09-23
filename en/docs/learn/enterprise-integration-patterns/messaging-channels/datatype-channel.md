@@ -38,7 +38,7 @@ Before digging into implementation details, let's take a look at the relationshi
     <proxy name="datatype-channel-proxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <switch source="get-property('Action')">
+                <switch source="${properties.Action}">
                     <case regex="/*urn:getQuote/*">
                         <sequence key="StockQuote"/>
                     </case>
@@ -106,7 +106,7 @@ Let's investigate the elements of the configuration in detail.
 
 - **Endpoint**: Defines an endpoint referenced by a name that contains an `<address>` element with the endpoint address of a particular service.
 - **Sequence**: The Sequence Mediator defines a sequence block, callable by its key (defined in the name attribute). Each sequence block has its own `<in>` and `<out>` blocks.
-- **Switch**: A Switch mediator that uses the `get-property` XPath expression to find the Action field from the SOAP header. The regular expression defined in the `Regex` attribute tries to match the value in the Action field. If successfully matched, it calls the relevant sequence by its key. If `get-property('Action')` returns `urn:getQuote`, the StockQuote sequence is called. 
+- **Switch**: A Switch mediator that uses the `get-property` XPath expression to find the Action field from the SOAP header. The regular expression defined in the `Regex` attribute tries to match the value in the Action field. If successfully matched, it calls the relevant sequence by its key. If `${properties.Action}` returns `urn:getQuote`, the StockQuote sequence is called. 
 
 ## Set up the sample scenario
 

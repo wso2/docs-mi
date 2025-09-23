@@ -66,7 +66,7 @@ The **EJB mediator** calls an external Enterprise JavaBean(EJB) and stores the r
 ``` java
 <ejb beanstalk="jack" class="org.ejb.wso2.test.StoreRegister" method="getStoreById" target="store" jndiName="ejb:/EJBDemo/StoreRegsiterBean!org.ejb.wso2.test.StoreRegister">
    <args>
-     <arg xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns3="http://org.apache.synapse/xsd" value="{get-property('loc_id')}"/>
+     <arg xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns3="http://org.apache.synapse/xsd" value="{${properties.loc_id}}"/>
    </args>
 </ejb>
 ```

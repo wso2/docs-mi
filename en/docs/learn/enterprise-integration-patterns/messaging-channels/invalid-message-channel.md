@@ -46,8 +46,8 @@ In the proxy service defined below a fault sequence is defined to execute in the
             <faultSequence>
                 <log level="full">
                     <property name="MESSAGE" value="Failure Message..." />
-                    <property name="ERROR_CODE" expression="get-property('ERROR_CODE')" />
-                    <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')" />
+                    <property name="ERROR_CODE" expression="${properties.ERROR_CODE}" />
+                    <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}" />
                 </log>
                 <property name="HTTP_SC" value="500" scope="axis2" />
                 <property name="NO_ENTITY_BODY" value="true" scope="axis2" type="BOOLEAN"/>

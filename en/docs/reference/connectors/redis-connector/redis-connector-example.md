@@ -185,7 +185,7 @@ Configure a resource that sets up a Redis hash map and sets a specific field in 
     <table>
       <tr>
          <td>Argument value (Expression)</td>
-         <td><code>get-property('uri.var.symbol')</code></td>
+         <td><code>${properties.uri.var.symbol}</code></td>
       </tr>
       <tr>
          <td>Evaluator</td>
@@ -393,7 +393,7 @@ Now you can switch to the Source view and check the XML configuration files of t
 					</m0:getQuote>
 				</format>
                 <args>
-					<arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
+					<arg evaluator="xml" expression="${properties.uri.var.symbol}"/>
 				</args>
 			</payloadFactory>
 			<header name="Action" action="set" scope="default" value="urn:getQuote"/>

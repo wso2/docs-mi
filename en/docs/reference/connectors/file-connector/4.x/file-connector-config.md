@@ -77,7 +77,7 @@ There are different connection configurations that can be used for the above pro
             <readMode>Specific Line</readMode>
             <startLineNum>0</startLineNum>
             <endLineNum>0</endLineNum>
-            <lineNum>{get-property('currentMin')}</lineNum>
+            <lineNum>{${properties.currentMin}}</lineNum>
             <contentType>text/csv</contentType>
             <includeResultTo>Message Property</includeResultTo>
             <resultPropertyName>slotNumber</resultPropertyName>
@@ -85,7 +85,7 @@ There are different connection configurations that can be used for the above pro
             <enableLock>false</enableLock>
         </file.read>
         <log level="custom">
-            <property name="slott" expression="get-property('slotNumber')"/>
+            <property name="slott" expression="${properties.slotNumber}"/>
         </log>
     </sequence>
 

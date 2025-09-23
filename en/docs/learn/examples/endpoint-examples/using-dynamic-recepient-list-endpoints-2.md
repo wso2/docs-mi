@@ -30,8 +30,8 @@ Following are the integration artifacts you can use to implement this scenario.
     <sequence name="fault">
       <log level="full">
          <property name="MESSAGE" value="Executing default &quot;fault&quot; sequence" />
-         <property name="ERROR_CODE" expression="get-property('ERROR_CODE')" />
-         <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')" />
+         <property name="ERROR_CODE" expression="${properties.ERROR_CODE}" />
+         <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}" />
       </log>
       <drop />
     </sequence>
@@ -46,7 +46,7 @@ Following are the integration artifacts you can use to implement this scenario.
                  <send>
                     <endpoint>
                        <recipientlist>
-                          <endpoints value="{get-property('EP_LIST')}" max-cache="20" />
+                          <endpoints value="{${properties.EP_LIST}}" max-cache="20" />
                        </recipientlist>
                     </endpoint>
                  </send>

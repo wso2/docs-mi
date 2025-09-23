@@ -33,7 +33,7 @@ The parameters available to configure the property mediator are as follows:
 <p>Note that the <a href="{{base_path}}/reference/synapse-properties/expressions">expression</a> should be contained within curly brackets (<code>{}</code>) as well as double quotations (<code>""</code>). See the examples given below.</p>
   <ul>
     <li>
-      <code>property name="{get-property('propertyName')}"</code>
+      <code>property name="{${properties.propertyName}}"</code>
     </li>
     <li>
       <code>property name="{$ctx:propertyName}"</code>

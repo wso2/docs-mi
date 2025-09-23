@@ -20,7 +20,7 @@ Following is a sample REST API configuration that we can used to implement this 
                   </m0:getQuote>
                </format>
                <args>
-                  <arg expression="get-property('uri.var.symbol')"/>
+                  <arg expression="${properties.uri.var.symbol}"/>
                </args>
             </payloadFactory>
             <header name="Action" value="urn:getQuote"/>
@@ -53,7 +53,7 @@ In this API configuration we have defined two resources. One is for the HTTP met
     
 The context of this REST API is `stockquote`. The SOAP payload required for the SOAP back-end service is constructed using the Payload mediator defined in the `inSequence`. The value for the `<m0:symbol\>` element is extracted using the following expression:
     
-`get-property('uri.var.symbol')`
+`${properties.uri.var.symbol}`
     
 Here, ‘symbol’ refers to the variable we defined in the uri-template `(/view/{symbol})`. Therefore, for the above invocation, the `'uri.var.symbol'` property will resolve to the value `‘IBM’`.
     
