@@ -42,7 +42,7 @@ See the descriptions of the [service catalog parameters]({{base_path}}/reference
 
 Most of the integration artifacts in your deployment are stateless and don't actually require coordination when there is more than a single instance of the server running. However, the following set of artifacts require coordination among themselves when deployed in more than a single instance of the server.
 
--   Scheduled Tasks
+-   Scheduled triggers
 -   Message Processors
 -   Polling Inbound Endpoints
 -   Event-Based Inbound Endpoints
@@ -299,7 +299,7 @@ You could observe the following member removal log in other servers when one nod
 
 ##  Testing task coordination
 
-Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

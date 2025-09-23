@@ -7,7 +7,7 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
 - Test the artifacts with [Connectors]({{base_path}}/develop/creating-artifacts/adding-connectors).
 
     !!! Note
-         [Scheduled Tasks]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) are not supported by the Unit Testing framework.
+         [Scheduled triggers]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) are not supported by the Unit Testing framework.
 
 ## Create Unit Test Suite
 

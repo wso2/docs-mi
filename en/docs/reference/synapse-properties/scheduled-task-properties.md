@@ -1,4 +1,4 @@
-# Scheduled Tasks
+# Scheduled triggers
 ## Introduction
 
 WSO2 Integrator: MI can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Integrator: MI, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.
@@ -17,11 +17,11 @@ You can schedule a task to run after a time interval of 't' for an 'n' number of
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when you [create a Scheduled Task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+See the topics given below for the list of properties that can be configured when you [create a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ### Required Properties
 
-The following properties are required when [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+The following properties are required when [creating a scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 <table>
    <thead>
@@ -125,7 +125,7 @@ The following properties are required when [creating a scheduled task]({{base_pa
 
 ### Task Implementation Properties
 
-Listed below are the optional task implementation properties you can use when [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+Listed below are the optional task implementation properties you can use when [creating a scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 <table>
    <thead>

@@ -49,7 +49,7 @@ Most of the integration solutions that you develop can be deployed using a singl
 
 However, the following integration artifacts are **stateful** and require coordination when deployed across multiple WSO2 Integrator: MI instances.
 
--   Scheduled Tasks
+-   Scheduled triggers
 -   Message Processors
 -   Polling Inbound Endpoints
     -   File Inbound Endpoint

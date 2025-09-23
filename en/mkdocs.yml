@@ -218,7 +218,7 @@ nav:
               - Create a REST API: develop/creating-artifacts/creating-an-api.md
               - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
               - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
-              - Create Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
+              - Create Scheduled triggers: develop/creating-artifacts/creating-scheduled-task.md
               - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
               - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
               - Create an Endpoint: develop/creating-artifacts/creating-endpoints.md
@@ -443,7 +443,7 @@ nav:
          # - JSON to XML Mapping: learn/samples/
           - Kafka Consumer and Producer: learn/samples/kafka-sample.md
           - Message Filtering: learn/samples/message-filtering.md
-          - Periodical Scheduled Tasks: learn/samples/periodical-scheduled-tasks.md
+          - Periodical Scheduled triggers: learn/samples/periodical-scheduled-tasks.md
           - Protocol Switching: learn/samples/protocol-switching.md
           - Proxying a REST Service: learn/samples/proxying-rest-service.md
           - Proxying a SOAP Service: learn/samples/proxying-soap-service.md
@@ -983,7 +983,7 @@ nav:
       - Scopes: reference/synapse-properties/scopes.md
       - Templates: reference/synapse-properties/template-properties.md
       - Mediation Sequences: reference/mediation-sequences.md
-      - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
+      - Scheduled trigger Properties: reference/synapse-properties/scheduled-task-properties.md
       - Message Stores and Processors:
           - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
           - Message Stores:

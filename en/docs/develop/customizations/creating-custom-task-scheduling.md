@@ -317,7 +317,7 @@ Follow the steps below to create the task and schedule it.
 
     The below is the complete source configuration of the Sequence (i.e., the `PrintStockQuoteSequence.xml` file):
  
-6. [Create a Scheduled Task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) using the following information:
+6. [Create a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) using the following information:
     <table>
         <tr>
             <th>Task Property</th>

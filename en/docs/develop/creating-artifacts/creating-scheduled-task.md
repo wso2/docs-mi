@@ -1,6 +1,6 @@
-# Create a Scheduled Task
+# Create a Scheduled trigger
 
-Follow the instructions below to create a Scheduled Task in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension.
+Follow the instructions below to create a Scheduled trigger in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension.
 
 ## Create a scheduled task artifact
 
@@ -8,7 +8,7 @@ Follow the instructions below to create a Scheduled Task in the WSO2 Integrator:
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new Scheduled Task, navigate to **WSO2 Integrator: MI Project Explorer**.
+3. To add a new Scheduled trigger, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
@@ -46,7 +46,7 @@ You can later update the task configurations to specify the incoming message tha
 6. Click **Update**.
 
 !!! info
-    See the [Scheduled Tasks Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available configurations for tasks.
+    See the [Scheduled triggers Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available configurations for tasks.
 
 ## Tutorials
 
