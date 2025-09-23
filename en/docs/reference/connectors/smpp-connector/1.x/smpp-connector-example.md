@@ -117,9 +117,9 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         <api context="/smpptest" name="SmppTestApi" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="POST" uri-template="/send">
                 <inSequence>
-                    <property name="sourceAddress" scope="default" type="STRING" expression="json-eval($.sourceAddress)"/>
-                    <property name="message" scope="default" type="STRING" expression="json-eval($.message)"/>
-                    <property name="destinationAddress" scope="default" type="STRING" expression="json-eval($.destinationAddress)"/>
+                    <property name="sourceAddress" scope="default" type="STRING" expression="${payload.sourceAddress}"/>
+                    <property name="message" scope="default" type="STRING" expression="${payload.message}"/>
+                    <property name="destinationAddress" scope="default" type="STRING" expression="${payload.destinationAddress}"/>
                     <SMPP.sendSMS configKey="SMSC_CONFIG_1">
                         <sourceAddress>{${properties.sourceAddress}}</sourceAddress>
                         <destinationAddress>{${properties.destinationAddress}}</destinationAddress>

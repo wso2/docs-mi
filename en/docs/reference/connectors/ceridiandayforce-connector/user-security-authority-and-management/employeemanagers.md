@@ -85,12 +85,12 @@ Following example illustrates how to connect to Dayforce with the init operation
    <target>
       <inSequence>
          <log level="full" separator=","/>
-         <property expression="json-eval($.username)" name="username"/>
-         <property expression="json-eval($.password)" name="password"/>
-         <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
-         <property expression="json-eval($.apiVersion)" name="apiVersion"/>
-         <property expression="json-eval($.xRefCode)" name="xRefCode"/>
-         <property expression="json-eval($.contextDateRangeFrom)" name="contextDateRangeFrom"/>
+         <property expression="${payload.username}" name="username"/>
+         <property expression="${payload.password}" name="password"/>
+         <property expression="${payload.clientNamespace}" name="clientNamespace"/>
+         <property expression="${payload.apiVersion}" name="apiVersion"/>
+         <property expression="${payload.xRefCode}" name="xRefCode"/>
+         <property expression="${payload.contextDateRangeFrom}" name="contextDateRangeFrom"/>
          <ceridiandayforce.init>
             <username>{${properties.username}}</username>
             <password>{${properties.password}}</password>

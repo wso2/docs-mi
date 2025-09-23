@@ -82,8 +82,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     <api context="/fileconnector" name="FileConnector" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST" uri-template="/create">
             <inSequence>
-                <property expression="json-eval($.filePath)" name="source" scope="default" type="STRING"/>
-                <property expression="json-eval($.inputContent)" name="inputContent" scope="default" type="STRING"/>
+                <property expression="${payload.filePath}" name="source" scope="default" type="STRING"/>
+                <property expression="${payload.inputContent}" name="inputContent" scope="default" type="STRING"/>
                 <fileconnector.create>
                     <filePath>{${properties.filePath}}</filePath>
                     <inputContent>{${properties.inputContent}}</inputContent>
@@ -94,11 +94,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
         </resource>
         <resource methods="POST" uri-template="/read">
             <inSequence>
-                <property expression="json-eval($.source)" name="source" scope="default" type="STRING"/>
+                <property expression="${payload.source}" name="source" scope="default" type="STRING"/>
                 <fileconnector.isFileExist>
                     <source>{${properties.source}}</source>
                 </fileconnector.isFileExist>
-                <property expression="json-eval($.fileExist)" name="response" scope="default" type="STRING"/>
+                <property expression="${payload.fileExist}" name="response" scope="default" type="STRING"/>
                 <log level="custom">
                     <property expression="${properties.response}" name="responselog"/>
                 </log>

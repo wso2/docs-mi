@@ -37,7 +37,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 <api context="/jira" name="jiraAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/createIssue">
         <inSequence>
-            <property expression="json-eval($.issueFields)" name="issueFields" scope="default" type="JSON"/>
+            <property expression="${payload.issueFields}" name="issueFields" scope="default" type="JSON"/>
             <jira.init>
                     <username>****</username>
                     <password>****</password>
@@ -52,7 +52,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     </resource>
     <resource methods="POST" uri-template="/getIssue">
         <inSequence>
-        <property expression="json-eval($.id)" name="id" scope="default" type="JSON"/>
+        <property expression="${payload.id}" name="id" scope="default" type="JSON"/>
             <jira.init>
                     <username>****</username>
                     <password>****</password>

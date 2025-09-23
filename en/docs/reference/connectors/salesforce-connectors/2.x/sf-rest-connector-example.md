@@ -138,8 +138,8 @@ Now follow the steps below to add configurations to the sequence.
         ```
         <?xml version="1.0" encoding="UTF-8"?>
         <sequence name="create"  trace="disable"  xmlns="http://ws.apache.org/ns/synapse">
-            <property name="sObjectName" scope="default" type="STRING" expression="json-eval($.sObject)"/>
-            <property name="fieldAndValue" scope="default" type="STRING" expression="json-eval($.fieldAndValue)"/>
+            <property name="sObjectName" scope="default" type="STRING" expression="${payload.sObject}"/>
+            <property name="fieldAndValue" scope="default" type="STRING" expression="${payload.fieldAndValue}"/>
             <salesforcerest.create configKey="SalesforceRestConnection">
                 <sObjectName>{${properties.sObject}}</sObjectName>
                 <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>

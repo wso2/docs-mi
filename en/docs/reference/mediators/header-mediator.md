@@ -194,5 +194,5 @@ Therefore, in this scenario, selecting the Default Endpoint results in the messa
 ### Setting the header with a value in the JSON body	
 
 ```	xml
-<header name="header-symbol" expression="json-eval($.symbol)"/>	
+<header name="header-symbol" expression="${payload.symbol}"/>	
 ```

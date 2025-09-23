@@ -69,9 +69,9 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    <api context="/resources" name="SampleApi" xmlns="http://ws.apache.org/ns/synapse">
        <resource methods="POST" url-mapping="/create">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
                <log level="custom">
                    <property expression="get-property('transport','Content-Type')" name="base"/>
                </log>
@@ -102,9 +102,9 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/read">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
@@ -132,11 +132,11 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/readSpecificResourceById">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
-               <property expression="json-eval($.id)" name="id" scope="default" type="STRING"/>
-               <property expression="json-eval($.summary)" name="summary" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.id}" name="id" scope="default" type="STRING"/>
+               <property expression="${payload.summary}" name="summary" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
@@ -168,10 +168,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/update">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
-               <property expression="json-eval($.idToUpdate)" name="idToDelete" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.idToUpdate}" name="idToDelete" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
@@ -201,10 +201,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/delete">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
-               <property expression="json-eval($.idToDelete)" name="idToDelete" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.idToDelete}" name="idToDelete" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>

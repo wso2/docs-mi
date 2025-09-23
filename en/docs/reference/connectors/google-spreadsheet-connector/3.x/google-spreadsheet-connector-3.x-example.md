@@ -94,7 +94,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="addData" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.spreadsheetId)" name="spreadsheetId" scope="default" type="STRING"/>
+        <property expression="${payload.spreadsheetId}" name="spreadsheetId" scope="default" type="STRING"/>
         <googlespreadsheet.init>
             <accessToken></accessToken>
             <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
@@ -126,8 +126,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="readData" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.spreadsheetId)" name="spreadsheetId" scope="default" type="STRING"/>
-        <property expression="json-eval($.range)" name="range" scope="default" type="STRING"/>
+        <property expression="${payload.spreadsheetId}" name="spreadsheetId" scope="default" type="STRING"/>
+        <property expression="${payload.range}" name="range" scope="default" type="STRING"/>
         <googlespreadsheet.init>
             <accessToken></accessToken>
             <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
@@ -156,8 +156,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <sequence name="editSpreadsheet" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-      <property expression="json-eval($.spreadsheetId)" name="spreadsheetId" scope="default" type="STRING"/>
-      <property expression="json-eval($.data)" name="data" scope="default" type="STRING"/>
+      <property expression="${payload.spreadsheetId}" name="spreadsheetId" scope="default" type="STRING"/>
+      <property expression="${payload.data}" name="data" scope="default" type="STRING"/>
       <googlespreadsheet.init>
           <accessToken></accessToken>
           <apiUrl>https://sheets.googleapis.com/v4/spreadsheets</apiUrl>
@@ -183,10 +183,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
         <resource methods="POST" uri-template="/insert">
             <inSequence>
                 <propertyGroup description="It contains the set of properties related to spreadsheet creation and addData operations. ">
-                    <property expression="json-eval($.properties)" name="properties" scope="default" type="STRING"/>
-                    <property expression="json-eval($.sheets)" name="sheets" scope="default" type="STRING"/>
-                    <property expression="json-eval($.range)" name="range" scope="default" type="STRING"/>
-                    <property expression="json-eval($.values)" name="values" scope="default" type="STRING"/>
+                    <property expression="${payload.properties}" name="properties" scope="default" type="STRING"/>
+                    <property expression="${payload.sheets}" name="sheets" scope="default" type="STRING"/>
+                    <property expression="${payload.range}" name="range" scope="default" type="STRING"/>
+                    <property expression="${payload.values}" name="values" scope="default" type="STRING"/>
                 </propertyGroup>
                 <sequence description="This sequence will create a spreadsheet and outputs the spreadsheet url. " key="createSpreadsheet"/>
                 <sequence description="This sequence will insert the data to the created spreadsheet. " key="addData"/>

@@ -1566,15 +1566,15 @@ The following is a sample proxy service that illustrates how to connect to the F
        startOnLoad="true">
    <target>
       <inSequence>
-         <property name="source" expression="json-eval($.source)"/>
-         <property name="inputContent" expression="json-eval($.inputContent)"/>
-         <property name="encoding" expression="json-eval($.encoding)"/>
-         <property name="setTimeout" expression="json-eval($.setTimeout)"/>
-         <property name="setPassiveMode" expression="json-eval($.setPassiveMode)"/>
-         <property name="setSoTimeout" expression="json-eval($.setSoTimeout)"/>
+         <property name="source" expression="${payload.source}"/>
+         <property name="inputContent" expression="${payload.inputContent}"/>
+         <property name="encoding" expression="${payload.encoding}"/>
+         <property name="setTimeout" expression="${payload.setTimeout}"/>
+         <property name="setPassiveMode" expression="${payload.setPassiveMode}"/>
+         <property name="setSoTimeout" expression="${payload.setSoTimeout}"/>
          <property name="setStrictHostKeyChecking"
-                   expression="json-eval($.setStrictHostKeyChecking)"/>
-         <property name="setUserDirIsRoot" expression="json-eval($.setUserDirIsRoot)"/>
+                   expression="${payload.setStrictHostKeyChecking}"/>
+         <property name="setUserDirIsRoot" expression="${payload.setUserDirIsRoot}"/>
          <fileconnector.create>
             <source>{${properties.source}}</source>
             <inputContent>{${properties.inputContent}}</inputContent>

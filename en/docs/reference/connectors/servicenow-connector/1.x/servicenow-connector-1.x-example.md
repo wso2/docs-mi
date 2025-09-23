@@ -109,7 +109,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
           <category>inquiry</category>
           <contactType>{${properties.contactType}}</contactType>
       </servicenow.postRecord>
-      <property name="sysId" scope="default" type="STRING" expression="json-eval($.result.sys_id)"/>
+      <property name="sysId" scope="default" type="STRING" expression="${payload.result.sys_id}"/>
       </sequence>
     ```  
    
@@ -225,8 +225,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     <api context="/servicenow" name="ServiceNowAPI" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST" uri-template="/postRecord">
             <inSequence>
-                <property name="shortDescription" scope="default" type="STRING" expression="json-eval($.shortDescription)"/>
-                <property name="contactType" scope="default" type="STRING" expression="json-eval($.contactType)"/>
+                <property name="shortDescription" scope="default" type="STRING" expression="${payload.shortDescription}"/>
+                <property name="contactType" scope="default" type="STRING" expression="${payload.contactType}"/>
                 <sequence key="PostRecord"/>
                 <respond/>
             </inSequence>
@@ -235,7 +235,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
         </resource>
         <resource methods="POST" uri-template="/readRecord">
             <inSequence>
-                <property name="sysId" scope="default" type="STRING" expression="json-eval($.sysId)"/>
+                <property name="sysId" scope="default" type="STRING" expression="${payload.sysId}"/>
                 <sequence key="ReadRecord"/>
                 <respond/>
             </inSequence>

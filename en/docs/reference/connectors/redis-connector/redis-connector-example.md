@@ -432,7 +432,7 @@ Now you can switch to the Source view and check the XML configuration files of t
         </resource>
         <resource methods="POST" uri-template="/deletestockvolumedetails">
             <inSequence>
-                <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
+                <property expression="${payload.redisFields}" name="redisFields" scope="default" type="STRING"/>
             <redis.hDel configKey="REDIS_CONNECTION_1">
                 <redisKey>StockVolume</redisKey>
                 <redisFields>{${properties.redisFields}}</redisFields>

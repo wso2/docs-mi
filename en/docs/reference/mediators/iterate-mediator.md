@@ -160,7 +160,7 @@ In these examples, the Iterate mediator splits the messages into parts and proce
     ```xml 
         <iterate id="jsonIterator" preservePayload="true" 
                  attachPath="json-eval($.placeHolder)" 
-                 expression="json-eval($.students.studentlist)">
+                 expression="${payload.students.studentlist}">
            <target>
               <sequence>
                  <call>

@@ -108,8 +108,8 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 <api context="/mongodbconnector" name="MongoConnector" xmlns="http://ws.apache.org/ns/synapse">
 	<resource methods="POST" uri-template="/insertmany">
 		<inSequence>
-			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
-			<property expression="json-eval($.documents)" name="documents" scope="default" type="JSON"/>
+			<property expression="${payload.collection}" name="collection" scope="default" type="JSON"/>
+			<property expression="${payload.documents}" name="documents" scope="default" type="JSON"/>
 			<mongodb.insertMany configKey="connectionURI">
 				<collection>{${properties.collection}}</collection>
 				<documents>{${properties.documents}}</documents>
@@ -122,8 +122,8 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 	</resource>
 	<resource methods="POST" uri-template="/find">
 		<inSequence>
-			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
-			<property expression="json-eval($.query)" name="query" scope="default" type="JSON"/>
+			<property expression="${payload.collection}" name="collection" scope="default" type="JSON"/>
+			<property expression="${payload.query}" name="query" scope="default" type="JSON"/>
 			<mongodb.find configKey="connectionURI">
 				<collection>{${properties.collection}}</collection>
 				<query>{${properties.query}}</query>

@@ -337,11 +337,11 @@ Now you can switch into the Source view and check the XML configuration files of
        <api xmlns="http://ws.apache.org/ns/synapse" context="/resources" name="amazonDynamoDBAPI">
           <resource methods="POST" url-mapping="/addtable">
              <inSequence>
-                <property expression="json-eval($.attributeDefinitions)" name="attributeDefinitions" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
-                <property expression="json-eval($.keySchema)" name="keySchema" scope="default" type="STRING" />
-                <property expression="json-eval($.localSecondaryIndexes)" name="localSecondaryIndexes" scope="default" type="STRING" />
-                <property expression="json-eval($.provisionedThroughput)" name="provisionedThroughput" scope="default" type="STRING" />
+                <property expression="${payload.attributeDefinitions}" name="attributeDefinitions" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.keySchema}" name="keySchema" scope="default" type="STRING" />
+                <property expression="${payload.localSecondaryIndexes}" name="localSecondaryIndexes" scope="default" type="STRING" />
+                <property expression="${payload.provisionedThroughput}" name="provisionedThroughput" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -361,8 +361,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/insertdetails">
              <inSequence>
-                <property expression="json-eval($.item)" name="item" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.item}" name="item" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -379,8 +379,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/deletedetails">
              <inSequence>
-                <property expression="json-eval($.key)" name="key" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.key}" name="key" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -399,8 +399,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/listdetails">
              <inSequence>
-                <property expression="json-eval($.key)" name="key" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.key}" name="key" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -417,8 +417,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/listtable">
              <inSequence>
-                <property expression="json-eval($.exclusiveStartTableName)" name="exclusiveStartTableName" scope="default" type="STRING" />
-                <property expression="json-eval($.limit)" name="limit" scope="default" type="STRING" />
+                <property expression="${payload.exclusiveStartTableName}" name="exclusiveStartTableName" scope="default" type="STRING" />
+                <property expression="${payload.limit}" name="limit" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -435,8 +435,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/updatetable">
              <inSequence>
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
-                <property expression="json-eval($.provisionedThroughput)" name="provisionedThroughput" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.provisionedThroughput}" name="provisionedThroughput" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -453,7 +453,7 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/deletetable">
              <inSequence>
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>

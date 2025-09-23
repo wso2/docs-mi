@@ -108,7 +108,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    ```xml
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="buildMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-          <property expression="json-eval($.companyName)" name="companyName" scope="default" type="STRING"/>
+          <property expression="${payload.companyName}" name="companyName" scope="default" type="STRING"/>
           <payloadFactory media-type="xml">
               <format>
                   <m0:getQuote xmlns:m0="http://services.samples">
@@ -142,7 +142,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        <log level="custom">
              <property expression="json-eval($)" name="queueURL"/>
        </log>
-       <property expression="json-eval($.CreateQueueResponse.CreateQueueResult.QueueUrl)" name="queueURL" scope="default" type="STRING"/>
+       <property expression="${payload.CreateQueueResponse.CreateQueueResult.QueueUrl}" name="queueURL" scope="default" type="STRING"/>
        <log level="custom">
              <property expression="${properties.queueURL}" name="queueURL"/>
        </log>
@@ -197,7 +197,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    <api context="/sqs" name="SQSAPI" xmlns="http://ws.apache.org/ns/synapse">
        <resource methods="POST" uri-template="/sendToQueue">
            <inSequence>
-               <property expression="json-eval($.queueName)" name="queueName" scope="default" type="STRING" />
+               <property expression="${payload.queueName}" name="queueName" scope="default" type="STRING" />
                <sequence key="buildMessage" />
                <sequence key="createQueue" />
                <sequence key="sendMessage" />

@@ -61,7 +61,7 @@ Before digging into implementation details, let's take a look at the relationshi
                <completeCondition>
                   <messageCount max="-1" min="-1" />
                </completeCondition>
-               <onComplete aggregateElementType="root" expression="json-eval($.doctors.doctor)">
+               <onComplete aggregateElementType="root" expression="${payload.doctors.doctor}">
                   <respond />
                </onComplete>
             </aggregate>

@@ -136,7 +136,7 @@ Let's add the operations to the resources in the `Salesforce` API
   3. Select the property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
 
       ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
       ```
 
   4. Select the `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector**.
@@ -172,7 +172,7 @@ Let's add the operations to the resources in the `Salesforce` API
   2. Select the property mediator. Using this mediator we will extract the `jobId` from the response and will use it in other operations in this sequence.
     
       ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
       ```
 
   3. Select the `read` operation from **[File_Connector]({{base_path}}/reference/connectors/file-connector/file-connector-config/#operations)**.
@@ -208,7 +208,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
         ```
   2. Select the `getJobInfo` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -231,7 +231,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
         ```
   2. Select the `getSuccessfulResults` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -257,7 +257,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
         ```
   2. Drag ann drop `getUnprocessedResults` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -288,7 +288,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
         ```
   2. Select the `deleteJob` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -336,7 +336,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   1. Select the 'Property' mediator. This mediator will extract the jobId from the request payload and enable its use in other operations within this sequence.
         ```xml
-        <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
         ```
   2. Select the `getQueryJobInfo` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -359,7 +359,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   1. Select the 'Property' mediator. This mediator will extract the queryJobId from the request payload and enable its use in other operations within this sequence.
         ```xml
-        <property expression="json-eval($.id)" name="queryJobId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="queryJobId" scope="default" type="STRING"/>
         ```
   2. Select the `getQueryJobResults` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
@@ -396,7 +396,7 @@ Let's add the operations to the resources in the `Salesforce` API
                     <columnDelimiter>COMMA</columnDelimiter>
                     <lineEnding>LF</lineEnding>
                 </salesforce_bulkapi_v2.createJob>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
                     <jobId>{${properties.jobId}}</jobId>
                     <inputData>{${properties.csvContent}}</inputData>
@@ -416,7 +416,7 @@ Let's add the operations to the resources in the `Salesforce` API
                     <columnDelimiter>COMMA</columnDelimiter>
                     <lineEnding>LF</lineEnding>
                 </salesforce_bulkapi_v2.createJob>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <file.read configKey="MY_CONN">
                     <path>data.csv</path>
                     <readMode>Complete File</readMode>
@@ -440,7 +440,7 @@ Let's add the operations to the resources in the `Salesforce` API
         </resource>
         <resource methods="POST" uri-template="/getJobInfo">
             <inSequence>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getJobInfo configKey="SF_CONNECTION_CONFIG_NAME_1">
                     <jobId>{${properties.jobId}}</jobId>
                 </salesforce_bulkapi_v2.getJobInfo>
@@ -450,7 +450,7 @@ Let's add the operations to the resources in the `Salesforce` API
         </resource>
         <resource methods="POST" uri-template="/getSuccessfulResults">
             <inSequence>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getSuccessfulResults configKey="SF_CONNECTION_CONFIG_NAME_1">
                     <jobId>{${properties.jobId}}</jobId>
                     <outputType>JSON</outputType>
@@ -462,7 +462,7 @@ Let's add the operations to the resources in the `Salesforce` API
         </resource>
         <resource methods="POST" uri-template="/getUnprocessedResults">
             <inSequence>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getUnprocessedResults configKey="SF_CONNECTION_CONFIG_NAME_1">
                     <jobId>{${properties.jobId}}</jobId>
                     <outputType>CSV</outputType>
@@ -484,7 +484,7 @@ Let's add the operations to the resources in the `Salesforce` API
         </resource>
         <resource methods="POST" uri-template="/deleteJob">
             <inSequence>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.deleteJob configKey="SF_CONNECTION_CONFIG_NAME_1">
                     <jobId>{${properties.jobId}}</jobId>
                 </salesforce_bulkapi_v2.deleteJob>
@@ -506,7 +506,7 @@ Let's add the operations to the resources in the `Salesforce` API
         </resource>
         <resource methods="POST" uri-template="/getQueryJobInfo">
             <inSequence>
-                <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getQueryJobInfo configKey="SF_CONFIG_1">
                     <queryJobId>{${properties.jobId}}</queryJobId>
                 </salesforce_bulkapi_v2.getQueryJobInfo>
@@ -517,7 +517,7 @@ Let's add the operations to the resources in the `Salesforce` API
         </resource>
         <resource methods="POST" uri-template="/getSuccessfulQueryResults">
             <inSequence>
-                <property expression="json-eval($.id)" name="queryJobId" scope="default" type="STRING"/>
+                <property expression="${payload.id}" name="queryJobId" scope="default" type="STRING"/>
                 <log level="custom">
                     <property expression="${properties.queryJobId}" name="testprop1"/>
                 </log>

@@ -54,7 +54,7 @@
                 <completeCondition>
                     <messageCount max="-1" min="-1"/>
                 </completeCondition>
-                <onComplete expression="json-eval($.doctors.doctor)">
+                <onComplete expression="${payload.doctors.doctor}">
                     <respond/>
                 </onComplete>
             </aggregate>

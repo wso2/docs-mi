@@ -4293,10 +4293,10 @@ The following is a sample proxy service that illustrates how to connect to the J
    <description/>
    <target>
       <inSequence>
-         <property name="username" expression="json-eval($.username)"/>
-         <property name="password" expression="json-eval($.password)"/>
-         <property name="uri" expression="json-eval($.uri)"/>
-         <property name="id" expression="json-eval($.id)"/>
+         <property name="username" expression="${payload.username}"/>
+         <property name="password" expression="${payload.password}"/>
+         <property name="uri" expression="${payload.uri}"/>
+         <property name="id" expression="${payload.id}"/>
          <jira.init>
             <username>{${properties.username}}</username>
             <password>{${properties.password}}</password>

@@ -1297,15 +1297,15 @@ The following is a sample proxy service that illustrates how to connect to Gmail
     <target>
         <target>
         <inSequence>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="maxResults" expression="${payload.maxResults}"/>
+            <property name="pageToken" expression="${payload.pageToken}"/>
+            <property name="userId" expression="${payload.userId}"/>
+            <property name="refreshToken" expression="${payload.refreshToken}"/>
+            <property name="clientId" expression="${payload.clientId}"/>
+            <property name="clientSecret" expression="${payload.clientSecret}"/>
+            <property name="accessToken" expression="${payload.accessToken}"/>
+            <property name="registryPath" expression="${payload.registryPath}"/>
+            <property name="apiUrl" expression="${payload.apiUrl}"/>
             <gmail.init>
                 <userId>{${properties.userId}}</userId>
                 <refreshToken>{${properties.refreshToken}}</refreshToken>
@@ -1338,16 +1338,16 @@ The following is a sample proxy service that illustrates how to connect to Gmail
        startOnLoad="true">
         <target>
         <inSequence>
-            <property name="id" expression="json-eval($.id)"/>
-            <property name="format" expression="json-eval($.format)"/>
-            <property name="metadataHeaders" expression="json-eval($.metadataHeaders)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="id" expression="${payload.id}"/>
+            <property name="format" expression="${payload.format}"/>
+            <property name="metadataHeaders" expression="${payload.metadataHeaders}"/>
+            <property name="userId" expression="${payload.userId}"/>
+            <property name="refreshToken" expression="${payload.refreshToken}"/>
+            <property name="clientId" expression="${payload.clientId}"/>
+            <property name="clientSecret" expression="${payload.clientSecret}"/>
+            <property name="accessToken" expression="${payload.accessToken}"/>
+            <property name="registryPath" expression="${payload.registryPath}"/>
+            <property name="apiUrl" expression="${payload.apiUrl}"/>
             <gmail.init>
                 <userId>{${properties.userId}}</userId>
                 <refreshToken>{${properties.refreshToken}}</refreshToken>
@@ -1379,18 +1379,18 @@ The following is a sample proxy service that illustrates how to connect to Gmail
        startOnLoad="true">
     <target>
         <inSequence>
-            <property name="includeSpamTrash" expression="json-eval($.includeSpamTrash)"/>
-            <property name="labelIds" expression="json-eval($.labelIds)"/>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="q" expression="json-eval($.q)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="includeSpamTrash" expression="${payload.includeSpamTrash}"/>
+            <property name="labelIds" expression="${payload.labelIds}"/>
+            <property name="maxResults" expression="${payload.maxResults}"/>
+            <property name="pageToken" expression="${payload.pageToken}"/>
+            <property name="q" expression="${payload.q}"/>
+            <property name="userId" expression="${payload.userId}"/>
+            <property name="refreshToken" expression="${payload.refreshToken}"/>
+            <property name="clientId" expression="${payload.clientId}"/>
+            <property name="clientSecret" expression="${payload.clientSecret}"/>
+            <property name="accessToken" expression="${payload.accessToken}"/>
+            <property name="registryPath" expression="${payload.registryPath}"/>
+            <property name="apiUrl" expression="${payload.apiUrl}"/>
             <gmail.init>
                 <userId>{${properties.userId}}</userId>
                 <refreshToken>{${properties.refreshToken}}</refreshToken>
@@ -1426,18 +1426,18 @@ The following is a sample proxy service that illustrates how to connect to Gmail
        startOnLoad="true">
     <target>
         <inSequence>
-            <property name="includeSpamTrash" expression="json-eval($.includeSpamTrash)"/>
-            <property name="labelIds" expression="json-eval($.labelIds)"/>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="q" expression="json-eval($.q)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="includeSpamTrash" expression="${payload.includeSpamTrash}"/>
+            <property name="labelIds" expression="${payload.labelIds}"/>
+            <property name="maxResults" expression="${payload.maxResults}"/>
+            <property name="pageToken" expression="${payload.pageToken}"/>
+            <property name="q" expression="${payload.q}"/>
+            <property name="userId" expression="${payload.userId}"/>
+            <property name="refreshToken" expression="${payload.refreshToken}"/>
+            <property name="clientId" expression="${payload.clientId}"/>
+            <property name="clientSecret" expression="${payload.clientSecret}"/>
+            <property name="accessToken" expression="${payload.accessToken}"/>
+            <property name="registryPath" expression="${payload.registryPath}"/>
+            <property name="apiUrl" expression="${payload.apiUrl}"/>
             <gmail.init>
                 <userId>{${properties.userId}}</userId>
                 <refreshToken>{${properties.refreshToken}}</refreshToken>
@@ -1473,17 +1473,17 @@ The following is a sample proxy service that illustrates how to connect to Gmail
        startOnLoad="true">
     <target>
         <inSequence>
-            <property name="startHistoryId" expression="json-eval($.startHistoryId)"/>
-            <property name="labelId" expression="json-eval($.labelId)"/>
-            <property name="maxResults" expression="json-eval($.maxResults)"/>
-            <property name="pageToken" expression="json-eval($.pageToken)"/>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="startHistoryId" expression="${payload.startHistoryId}"/>
+            <property name="labelId" expression="${payload.labelId}"/>
+            <property name="maxResults" expression="${payload.maxResults}"/>
+            <property name="pageToken" expression="${payload.pageToken}"/>
+            <property name="userId" expression="${payload.userId}"/>
+            <property name="refreshToken" expression="${payload.refreshToken}"/>
+            <property name="clientId" expression="${payload.clientId}"/>
+            <property name="clientSecret" expression="${payload.clientSecret}"/>
+            <property name="accessToken" expression="${payload.accessToken}"/>
+            <property name="registryPath" expression="${payload.registryPath}"/>
+            <property name="apiUrl" expression="${payload.apiUrl}"/>
             <gmail.init>
                 <userId>{${properties.userId}}</userId>
                 <refreshToken>{${properties.refreshToken}}</refreshToken>
@@ -1518,13 +1518,13 @@ The following is a sample proxy service that illustrates how to connect to Gmail
        startOnLoad="true">
     <target>
         <inSequence>
-            <property name="userId" expression="json-eval($.userId)"/>
-            <property name="refreshToken" expression="json-eval($.refreshToken)"/>
-            <property name="clientId" expression="json-eval($.clientId)"/>
-            <property name="clientSecret" expression="json-eval($.clientSecret)"/>
-            <property name="accessToken" expression="json-eval($.accessToken)"/>
-            <property name="registryPath" expression="json-eval($.registryPath)"/>
-            <property name="apiUrl" expression="json-eval($.apiUrl)"/>
+            <property name="userId" expression="${payload.userId}"/>
+            <property name="refreshToken" expression="${payload.refreshToken}"/>
+            <property name="clientId" expression="${payload.clientId}"/>
+            <property name="clientSecret" expression="${payload.clientSecret}"/>
+            <property name="accessToken" expression="${payload.accessToken}"/>
+            <property name="registryPath" expression="${payload.registryPath}"/>
+            <property name="apiUrl" expression="${payload.apiUrl}"/>
                 <gmail.init>
                     <userId>{${properties.userId}}</userId>
                     <refreshToken>{${properties.refreshToken}}</refreshToken>

@@ -77,11 +77,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="init_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.secureConnection)" name="secureConnection" scope="default" type="STRING"/>
-        <property expression="json-eval($.disableSSLCertificateChecking)" name="disableSSLCertificateChecking" scope="default" type="STRING"/>
-        <property expression="json-eval($.providerUrl)" name="providerUrl" scope="default" type="STRING"/>
-        <property expression="json-eval($.securityPrincipal)" name="securityPrincipal" scope="default" type="STRING"/>
-        <property expression="json-eval($.securityCredentials)" name="securityCredentials" scope="default" type="STRING"/>
+        <property expression="${payload.secureConnection}" name="secureConnection" scope="default" type="STRING"/>
+        <property expression="${payload.disableSSLCertificateChecking}" name="disableSSLCertificateChecking" scope="default" type="STRING"/>
+        <property expression="${payload.providerUrl}" name="providerUrl" scope="default" type="STRING"/>
+        <property expression="${payload.securityPrincipal}" name="securityPrincipal" scope="default" type="STRING"/>
+        <property expression="${payload.securityCredentials}" name="securityCredentials" scope="default" type="STRING"/>
         <ldap.init>
             <providerUrl>{${properties.providerUrl}}</providerUrl>
             <securityPrincipal>{${properties.securityPrincipal}}</securityPrincipal>
@@ -99,9 +99,9 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="add_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.content.objectClass)" name="objectClass" scope="default" type="STRING"/>
-        <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
-        <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
+        <property expression="${payload.content.objectClass}" name="objectClass" scope="default" type="STRING"/>
+        <property expression="${payload.content.attributes}" name="attributes" scope="default" type="STRING"/>
+        <property expression="${payload.content.dn}" name="dn" scope="default" type="STRING"/>
         <ldap.addEntry>
             <objectClass>{${properties.objectClass}}</objectClass>
             <attributes>{${properties.attributes}}</attributes>
@@ -118,10 +118,10 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="search_student_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.content.objectClass)" name="objectClass" scope="default" type="STRING"/>
-        <property expression="json-eval($.content.filters)" name="filters" scope="default" type="STRING"/>
-        <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
-        <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
+        <property expression="${payload.content.objectClass}" name="objectClass" scope="default" type="STRING"/>
+        <property expression="${payload.content.filters}" name="filters" scope="default" type="STRING"/>
+        <property expression="${payload.content.attributes}" name="attributes" scope="default" type="STRING"/>
+        <property expression="${payload.content.dn}" name="dn" scope="default" type="STRING"/>
         <ldap.searchEntry>
             <objectClass>{${properties.objectClass}}</objectClass>
             <limit>1000</limit>

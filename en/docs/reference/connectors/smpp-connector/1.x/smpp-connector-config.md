@@ -609,26 +609,26 @@ The following is a sample proxy service that illustrates how to connect to the S
    <target>
        <inSequence>
            <property name="OUT_ONLY" value="true"/>
-           <property name="serviceType" expression="json-eval($.serviceType)"/>
-           <property name="sourceAddressTon" expression="json-eval($.sourceAddressTon)"/>
-           <property name="sourceAddressNpi" expression="json-eval($.sourceAddressNpi)"/>
-           <property name="sourceAddress" expression="json-eval($.sourceAddress)"/>
-           <property name="destinationAddressTon" expression="json-eval($.destinationAddressTon)"/>
-           <property name="destinationAddressNpi" expression="json-eval($.destinationAddressNpi)"/>
-           <property name="destinationAddress" expression="json-eval($.destinationAddress)"/>
-           <property name="alphabet" expression="json-eval($.alphabet)"/>
-           <property name="message" expression="json-eval($.message)"/>
-           <property name="smscDeliveryReceipt" expression="json-eval($.smscDeliveryReceipt)"/>
-           <property name="messageClass" expression="json-eval($.messageClass)"/>
-           <property name="isCompressed" expression="json-eval($.isCompressed)"/>
-           <property name="esmclass" expression="json-eval($.esmclass)"/>
-           <property name="protocolid" expression="json-eval($.protocolid)"/>
-           <property name="priorityflag" expression="json-eval($.priorityflag)"/>
-           <property name="replaceIfPresentFlag" expression="json-eval($.replaceIfPresentFlag)"/>
-           <property name="submitDefaultMsgId" expression="json-eval($.submitDefaultMsgId)"/>
-           <property name="validityPeriod" expression="json-eval($.validityPeriod)"/>
-           <property name="enquireLinkTimer" expression="json-eval($.enquireLinkTimer)"/>
-           <property name="transactionTimer" expression="json-eval($.transactionTimer)"/>
+           <property name="serviceType" expression="${payload.serviceType}"/>
+           <property name="sourceAddressTon" expression="${payload.sourceAddressTon}"/>
+           <property name="sourceAddressNpi" expression="${payload.sourceAddressNpi}"/>
+           <property name="sourceAddress" expression="${payload.sourceAddress}"/>
+           <property name="destinationAddressTon" expression="${payload.destinationAddressTon}"/>
+           <property name="destinationAddressNpi" expression="${payload.destinationAddressNpi}"/>
+           <property name="destinationAddress" expression="${payload.destinationAddress}"/>
+           <property name="alphabet" expression="${payload.alphabet}"/>
+           <property name="message" expression="${payload.message}"/>
+           <property name="smscDeliveryReceipt" expression="${payload.smscDeliveryReceipt}"/>
+           <property name="messageClass" expression="${payload.messageClass}"/>
+           <property name="isCompressed" expression="${payload.isCompressed}"/>
+           <property name="esmclass" expression="${payload.esmclass}"/>
+           <property name="protocolid" expression="${payload.protocolid}"/>
+           <property name="priorityflag" expression="${payload.priorityflag}"/>
+           <property name="replaceIfPresentFlag" expression="${payload.replaceIfPresentFlag}"/>
+           <property name="submitDefaultMsgId" expression="${payload.submitDefaultMsgId}"/>
+           <property name="validityPeriod" expression="${payload.validityPeriod}"/>
+           <property name="enquireLinkTimer" expression="${payload.enquireLinkTimer}"/>
+           <property name="transactionTimer" expression="${payload.transactionTimer}"/>
            <SMPP.sendSMS configKey="SMSC_CONFIG_1">
                <serviceType>{${properties.serviceType}}</serviceType>
                <sourceAddressTon>{${properties.sourceAddressTon}}</sourceAddressTon>

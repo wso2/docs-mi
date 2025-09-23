@@ -79,7 +79,7 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
                         <maxResults>20</maxResults>
                         <q>is:unread category:updates </q>
                     </gmail.listAllMails>
-                    <iterate expression="json-eval($.messages)" id="iterator">
+                    <iterate expression="${payload.messages}" id="iterator">
                         <target>
                         <sequence>
                             <sequence key="reply"/>
@@ -106,12 +106,12 @@ First, follow the [configure the Gmail API]({{base_path}}/reference/connectors/g
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="reply" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <property expression="json-eval($.id)" name="msgId" scope="default" type="STRING"/>
+        <property expression="${payload.id}" name="msgId" scope="default" type="STRING"/>
         <gmail.getAccessTokenFromRefreshToken/>
         <gmail.readMail>
            <id>{${properties.id}}</id>
         </gmail.readMail>
-        <property expression="json-eval($.payload.headers[6].value)" name="response" scope="default" type="STRING"/>
+        <property expression="${payload.payload.headers[6].value}" name="response" scope="default" type="STRING"/>
         <log level="custom">
             <property expression="${properties.response}" name="response1"/>
         </log>

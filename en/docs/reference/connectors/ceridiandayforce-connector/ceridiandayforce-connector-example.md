@@ -185,13 +185,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
             <inSequence>
                 <log category="INFO" level="full" separator=","/>
 			    <propertyGroup>
-				    <property name="username" scope="default" type="STRING" expression="json-eval($.username)"/>
-				    <property name="password" scope="default" type="STRING" expression="json-eval($.password)"/>
-				    <property name="clientNamespace" scope="default" type="STRING" expression="json-eval($.clientNamespace)"/>
-				    <property name="apiVersion" scope="default" type="STRING" expression="json-eval($.apiVersion)"/>
-				    <property name="contextDateRangeFrom" scope="default" type="STRING" expression="json-eval($.contextDateRangeFrom)"/>
-				    <property name="contextDateRangeTo" scope="default" type="STRING" expression="json-eval($.contextDateRangeTo)"/>
-				    <property name="xRefCode" scope="default" type="STRING" expression="json-eval($.xRefCode)"/>
+				    <property name="username" scope="default" type="STRING" expression="${payload.username}"/>
+				    <property name="password" scope="default" type="STRING" expression="${payload.password}"/>
+				    <property name="clientNamespace" scope="default" type="STRING" expression="${payload.clientNamespace}"/>
+				    <property name="apiVersion" scope="default" type="STRING" expression="${payload.apiVersion}"/>
+				    <property name="contextDateRangeFrom" scope="default" type="STRING" expression="${payload.contextDateRangeFrom}"/>
+				    <property name="contextDateRangeTo" scope="default" type="STRING" expression="${payload.contextDateRangeTo}"/>
+				    <property name="xRefCode" scope="default" type="STRING" expression="${payload.xRefCode}"/>
 			    </propertyGroup>
 			    <ceridiandayforce.init>
 				    <username>{${properties.username}}</username>
@@ -214,13 +214,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 		    <inSequence>
 			    <log category="INFO" level="full" separator=","/>
 			    <propertyGroup>
-				    <property name="username" scope="default" type="STRING" expression="json-eval($.username)"/>
-				    <property name="password" scope="default" type="STRING" expression="json-eval($.password)"/>
-				    <property name="clientNamespace" scope="default" type="STRING" expression="json-eval($.clientNamespace)"/>
-				    <property name="apiVersion" scope="default" type="STRING" expression="json-eval($.apiVersion)"/>
-				    <property name="isValidateOnly" scope="default" type="STRING" expression="json-eval($.isValidateOnly)"/>
-				    <property name="fieldAndValue" scope="default" type="STRING" expression="json-eval($.fieldAndValue)"/>
-				    <property name="xRefCode" scope="default" type="STRING" expression="json-eval($.xRefCode)"/>
+				    <property name="username" scope="default" type="STRING" expression="${payload.username}"/>
+				    <property name="password" scope="default" type="STRING" expression="${payload.password}"/>
+				    <property name="clientNamespace" scope="default" type="STRING" expression="${payload.clientNamespace}"/>
+				    <property name="apiVersion" scope="default" type="STRING" expression="${payload.apiVersion}"/>
+				    <property name="isValidateOnly" scope="default" type="STRING" expression="${payload.isValidateOnly}"/>
+				    <property name="fieldAndValue" scope="default" type="STRING" expression="${payload.fieldAndValue}"/>
+				    <property name="xRefCode" scope="default" type="STRING" expression="${payload.xRefCode}"/>
 			    </propertyGroup>
 			    <ceridiandayforce.init>
 				    <username>{${properties.username}}</username>

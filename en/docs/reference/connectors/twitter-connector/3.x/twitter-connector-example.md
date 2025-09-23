@@ -31,12 +31,12 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 <api context="/createtweet" name="createTweet" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/">
         <inSequence>
-            <property expression="json-eval($.clientId)" name="clientId"/>
-            <property expression="json-eval($.accessToken)" name="accessToken"/>
-            <property expression="json-eval($.id)" name="id"/>
-            <property expression="json-eval($.text)" name="text"/>
-            <property expression="json-eval($.for_super_followers_only)" name="for_super_followers_only"/>
-            <property expression="json-eval($.poll)" name="place_fields"/>
+            <property expression="${payload.clientId}" name="clientId"/>
+            <property expression="${payload.accessToken}" name="accessToken"/>
+            <property expression="${payload.id}" name="id"/>
+            <property expression="${payload.text}" name="text"/>
+            <property expression="${payload.for_super_followers_only}" name="for_super_followers_only"/>
+            <property expression="${payload.poll}" name="place_fields"/>
             <twitter.init>
                 <accessToken>{${properties.accessToken}}</accessToken>
                 <clientId>{${properties.clientId}}</clientId>

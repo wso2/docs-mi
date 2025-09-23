@@ -101,7 +101,7 @@ Follow these steps to set up the Integration Project using the WSO2 Integrator: 
     ```
         <resource methods="POST" uri-template="/read">
             <inSequence>
-                <property name="path" expression="json-eval($.filePath)"/>
+                <property name="path" expression="${payload.filePath}"/>
                 <file.checkExist configKey="local_file_connection">
                     <path>{${properties.path}}</path>
                     <includeResultTo>Message Body</includeResultTo>

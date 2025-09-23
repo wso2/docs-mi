@@ -49,9 +49,9 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
       <api context="/resources" name="MSAzureStorage" xmlns="http://ws.apache.org/ns/synapse">
           <resource methods="POST" url-mapping="/createcontainer">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.containerName}" name="containerName" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
@@ -69,8 +69,8 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
           </resource>
           <resource methods="POST" url-mapping="/listcontainer">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
@@ -86,11 +86,11 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
           </resource>
           <resource methods="POST" url-mapping="/adddetails">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.filePath)" name="filePath" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.containerName}" name="containerName" scope="default" type="STRING"/>
+                  <property expression="${payload.fileName}" name="fileName" scope="default" type="STRING"/>
+                  <property expression="${payload.filePath}" name="filePath" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
@@ -110,9 +110,9 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
           </resource>
           <resource methods="POST" url-mapping="/listdetails">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.containerName}" name="containerName" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
@@ -130,10 +130,10 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
           </resource>
           <resource methods="POST" url-mapping="/deletedetails">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.containerName}" name="containerName" scope="default" type="STRING"/>
+                  <property expression="${payload.fileName}" name="fileName" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
@@ -152,9 +152,9 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
           </resource>
           <resource methods="POST" url-mapping="/deletecontainer">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.containerName}" name="containerName" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
@@ -172,10 +172,10 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
           </resource>
           <resource methods="POST" url-mapping="/listmetadata">
               <inSequence>
-                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-                  <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountName}" name="accountName" scope="default" type="STRING"/>
+                  <property expression="${payload.accountKey}" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="${payload.containerName}" name="containerName" scope="default" type="STRING"/>
+                  <property expression="${payload.fileName}" name="fileName" scope="default" type="STRING"/>
                   <msazurestorage.init>
                       <accountName>eiconnectortest</accountName>
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
