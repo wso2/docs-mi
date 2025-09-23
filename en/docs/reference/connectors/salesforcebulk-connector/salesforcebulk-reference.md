@@ -71,10 +71,10 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.init>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <tokenEndpointHostname>{$ctx:tokenEndpointHostname}</tokenEndpointHostname>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <tokenEndpointHostname>{${properties.tokenEndpointHostname}}</tokenEndpointHostname>
     </salesforcebulk.init>
     ```
 
@@ -85,7 +85,7 @@ any other Salesforce Bulk operations.
         <apiVersion>34.0</apiVersion>
         <accessToken>XXXXXXXXXXXX (Replace with your access token)</accessToken>
         <apiUrl>https://ap17.salesforce.com</apiUrl>
-        <tokenEndpointHostname>{$ctx:tokenEndpointHostname}</tokenEndpointHostname>
+        <tokenEndpointHostname>{${properties.tokenEndpointHostname}}</tokenEndpointHostname>
     </salesforcebulk.init>
     ```
     
@@ -95,12 +95,12 @@ any other Salesforce Bulk operations.
     
     ```xml
     <salesforcebulk.init>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <tokenEndpointHostname>{$ctx:tokenEndpointHostname}</tokenEndpointHostname>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <tokenEndpointHostname>{${properties.tokenEndpointHostname}}</tokenEndpointHostname>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
     </salesforcebulk.init>
     ```
 
@@ -110,7 +110,7 @@ any other Salesforce Bulk operations.
     <salesforcebulk.init>
         <apiVersion>34.0</apiVersion>
         <apiUrl>https://ap17.salesforce.com</apiUrl>
-        <tokenEndpointHostname>{$ctx:tokenEndpointHostname}</tokenEndpointHostname>
+        <tokenEndpointHostname>{${properties.tokenEndpointHostname}}</tokenEndpointHostname>
         <refreshToken>XXXXXXXXXXXX (Replace with your refresh token)</refreshToken>
         <clientId>XXXXXXXXXXXX (Replace with your client ID)</clientId>
         <clientSecret>XXXXXXXXXXXX (Replace with your client secret)</clientSecret>
@@ -156,10 +156,10 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.createJob>
-        <operation>{$ctx:operation}</operation>
-        <contentType>{$ctx:contentType}</contentType>
-        <object>{$ctx:object}</object>
-        <externalIdFieldName>{$ctx:externalIdFieldName}</externalIdFieldName>
+        <operation>{${properties.operation}}</operation>
+        <contentType>{${properties.contentType}}</contentType>
+        <object>{${properties.object}}</object>
+        <externalIdFieldName>{${properties.externalIdFieldName}}</externalIdFieldName>
     </salesforcebulk.createJob>
     ```
 
@@ -203,8 +203,8 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.updateJob>
-        <jobId>{$ctx:jobId}</jobId>
-        <state>{$ctx:state}</state>
+        <jobId>{${properties.jobId}}</jobId>
+        <state>{${properties.state}}</state>
     </salesforcebulk.updateJob>
     ```
 
@@ -241,7 +241,7 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.getJob>
-        <jobId>{$ctx:jobId}</jobId>
+        <jobId>{${properties.jobId}}</jobId>
     </salesforcebulk.getJob>
     ```
 
@@ -292,10 +292,10 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.addBatch>
-        <jobId>{$ctx:jobId}</jobId>
-        <objects>{$ctx:objects}</objects>
-        <contentType>{$ctx:contentType}</contentType>
-        <isQuery>{$ctx:isQuery}</isQuery>
+        <jobId>{${properties.jobId}}</jobId>
+        <objects>{${properties.objects}}</objects>
+        <contentType>{${properties.contentType}}</contentType>
+        <isQuery>{${properties.isQuery}}</isQuery>
     </salesforcebulk.addBatch>
     ```
 
@@ -384,8 +384,8 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.getBatchStatus>
-        <jobId>{$ctx:jobId}</jobId>
-        <batchId>{$ctx:batchId}</batchId>   
+        <jobId>{${properties.jobId}}</jobId>
+        <batchId>{${properties.batchId}}</batchId>   
     </salesforcebulk.getBatchStatus>
     ```
 
@@ -427,8 +427,8 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.getBatchRequest>
-        <jobId>{$ctx:jobId}</jobId>
-        <batchId>{$ctx:batchId}</batchId>
+        <jobId>{${properties.jobId}}</jobId>
+        <batchId>{${properties.batchId}}</batchId>
     </salesforcebulk.getBatchRequest>
     ```
 
@@ -470,8 +470,8 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.getBatchRequest>
-        <jobId>{$ctx:jobId}</jobId>
-        <batchId>{$ctx:batchId}</batchId>
+        <jobId>{${properties.jobId}}</jobId>
+        <batchId>{${properties.batchId}}</batchId>
     </salesforcebulk.getBatchRequest>
     ```
 
@@ -508,7 +508,7 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.listBatches>
-        <jobId>{$ctx:jobId}</jobId>
+        <jobId>{${properties.jobId}}</jobId>
     </salesforcebulk.listBatches>
     ```
 
@@ -554,9 +554,9 @@ any other Salesforce Bulk operations.
 
     ```xml
     <salesforcebulk.getBulkQueryResults>
-        <jobId>{$ctx:jobId}</jobId>
-        <batchId>{$ctx:batchId}</batchId>
-        <resultId>{$ctx:resultId}</resultId>
+        <jobId>{${properties.jobId}}</jobId>
+        <batchId>{${properties.batchId}}</batchId>
+        <resultId>{${properties.resultId}}</resultId>
     </salesforcebulk.getBulkQueryResults>
     ```
 

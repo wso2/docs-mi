@@ -59,10 +59,10 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
     ```
 
@@ -145,15 +145,15 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.createBucket>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <bucketRegion>{$ctx:bucketRegion}</bucketRegion>
-        <acl>{$ctx:acl}</acl>
-        <grantFullControl>{$ctx:grantFullControl}</grantFullControl>
-        <grantRead>{$ctx:grantRead}</grantRead>
-        <grantReadACP>{$ctx:grantReadACP}</grantReadACP>
-        <grantWrite>{$ctx:grantWrite}</grantWrite>
-        <grantWriteACP>{$ctx:grantWriteACP}</grantWriteACP>
-        <objectLockEnabledForBucket>{$ctx:objectLockEnabledForBucket}</objectLockEnabledForBucket>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <bucketRegion>{${properties.bucketRegion}}</bucketRegion>
+        <acl>{${properties.acl}}</acl>
+        <grantFullControl>{${properties.grantFullControl}}</grantFullControl>
+        <grantRead>{${properties.grantRead}}</grantRead>
+        <grantReadACP>{${properties.grantReadACP}}</grantReadACP>
+        <grantWrite>{${properties.grantWrite}}</grantWrite>
+        <grantWriteACP>{${properties.grantWriteACP}}</grantWriteACP>
+        <objectLockEnabledForBucket>{${properties.objectLockEnabledForBucket}}</objectLockEnabledForBucket>
     </amazons3.createBucket>
     ```
 
@@ -192,8 +192,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketWebsite>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <websiteConfig>{$ctx:websiteConfig}</websiteConfig>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <websiteConfig>{${properties.websiteConfig}}</websiteConfig>
     </amazons3.putBucketWebsite>
     ```
 
@@ -264,9 +264,9 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketPolicy>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <bucketPolicy>{$ctx:bucketPolicy}</bucketPolicy>
-        <confirmRemoveSelfBucketAccess>{$ctx:confirmRemoveSelfBucketAccess}</confirmRemoveSelfBucketAccess>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <bucketPolicy>{${properties.bucketPolicy}}</bucketPolicy>
+        <confirmRemoveSelfBucketAccess>{${properties.confirmRemoveSelfBucketAccess}}</confirmRemoveSelfBucketAccess>
     </amazons3.putBucketPolicy>
     ```
 
@@ -333,8 +333,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketACL>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <accessControlList>{$ctx:accessControlList}</accessControlList>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <accessControlList>{${properties.accessControlList}}</accessControlList>
     </amazons3.putBucketACL>
     ```
 
@@ -408,8 +408,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketLifecycleConfiguration>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <lifecycleConfiguration>{$ctx:lifecycleConfiguration}</lifecycleConfiguration>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <lifecycleConfiguration>{${properties.lifecycleConfiguration}}</lifecycleConfiguration>
     </amazons3.putBucketLifecycleConfiguration>
     ```
 
@@ -481,8 +481,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```xml
     <amazons3.putBucketReplication>
         <bucketName>signv4test</bucketName>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <replicationConfiguration>{$ctx:replicationConfiguration}</replicationConfiguration>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <replicationConfiguration>{${properties.replicationConfiguration}}</replicationConfiguration>
     </amazons3.putBucketReplication>
     ```
 
@@ -537,8 +537,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketTagging>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <tagSet>{$ctx:tagSet}</tagSet>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <tagSet>{${properties.tagSet}}</tagSet>
     </amazons3.putBucketTagging>
     ```
 
@@ -584,8 +584,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketRequestPayment>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <payer>{$ctx:payer}</payer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <payer>{${properties.payer}}</payer>
     </amazons3.putBucketRequestPayment>
     ```
 
@@ -632,9 +632,9 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketVersioning>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <status>{$ctx:status}</status>
-        <mfaDelete>{$ctx:mfaDelete}</mfaDelete>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <status>{${properties.status}}</status>
+        <mfaDelete>{${properties.mfaDelete}}</mfaDelete>
     </amazons3.putBucketVersioning>
     ```
 
@@ -666,7 +666,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucket>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucket>
     ```
 
@@ -697,7 +697,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucketPolicy>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucketPolicy>
     ```
 
@@ -728,7 +728,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucketCORS>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucketCORS>
     ```
 
@@ -759,7 +759,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucketLifecycle>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucketLifecycle>
     ```
 
@@ -790,7 +790,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucketReplication>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucketReplication>
     ```
 
@@ -821,7 +821,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucketTagging>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucketTagging>
     ```
 
@@ -852,7 +852,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.deleteBucketWebsiteConfiguration>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.deleteBucketWebsiteConfiguration>
     ```
 
@@ -913,13 +913,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.listObjects>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <delimiter>{$ctx:delimiter}</delimiter>
-        <encodingType>{$ctx:encodingType}</encodingType>
-        <marker>{$ctx:marker}</marker>
-        <maxKeys>{$ctx:maxKeys}</maxKeys>
-        <prefix>{$ctx:prefix}</prefix>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <delimiter>{${properties.delimiter}}</delimiter>
+        <encodingType>{${properties.encodingType}}</encodingType>
+        <marker>{${properties.marker}}</marker>
+        <maxKeys>{${properties.maxKeys}}</maxKeys>
+        <prefix>{${properties.prefix}}</prefix>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.listObjects>
     ```
 
@@ -953,7 +953,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketLifecycleConfiguration>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketLifecycleConfiguration>
     ```
 
@@ -989,8 +989,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putBucketCORS>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <corsConfiguration>{$ctx:corsConfiguration}</corsConfiguration>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <corsConfiguration>{${properties.corsConfiguration}}</corsConfiguration>
     </amazons3.putBucketCORS>
     ```
 
@@ -1029,7 +1029,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketCORS>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketCORS>
     ```
 
@@ -1060,7 +1060,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketLocation>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketLocation>
     ```
 
@@ -1091,7 +1091,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketLogging>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketLogging>
     ```
 
@@ -1122,7 +1122,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketNotificationConfiguration>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketNotificationConfiguration>
     ```
 
@@ -1153,7 +1153,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketTagging>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketTagging>
     ```
 
@@ -1184,7 +1184,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketReplication>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketReplication>
     ```
 
@@ -1215,7 +1215,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketPolicy>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketPolicy>
     ```
 
@@ -1276,13 +1276,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.listObjectVersions>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <delimiter>{$ctx:delimiter}</delimiter>
-        <encodingType>{$ctx:encodingType}</encodingType>
-        <keyMarker>{$ctx:keyMarker}</keyMarker>
-        <maxKeys>{$ctx:maxKeys}</maxKeys>
-        <prefix>{$ctx:prefix}</prefix>
-        <versionIdMarker>{$ctx:versionIdMarker}</versionIdMarker>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <delimiter>{${properties.delimiter}}</delimiter>
+        <encodingType>{${properties.encodingType}}</encodingType>
+        <keyMarker>{${properties.keyMarker}}</keyMarker>
+        <maxKeys>{${properties.maxKeys}}</maxKeys>
+        <prefix>{${properties.prefix}}</prefix>
+        <versionIdMarker>{${properties.versionIdMarker}}</versionIdMarker>
     </amazons3.listObjectVersions>
     ```
 
@@ -1316,7 +1316,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketRequestPayment>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketRequestPayment>
     ```
 
@@ -1347,7 +1347,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketVersioning>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketVersioning>
     ```
 
@@ -1378,7 +1378,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketWebsite>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketWebsite>
     ```
 
@@ -1409,7 +1409,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getBucketACL>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.getBucketACL>
     ```
 
@@ -1439,7 +1439,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.headBucket>
-        <bucketName>{$ctx:bucketName}</bucketName>
+        <bucketName>{${properties.bucketName}}</bucketName>
     </amazons3.headBucket>
     ```
 
@@ -1504,13 +1504,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.listMultipartUploads>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <delimiter>{$ctx:delimiter}</delimiter>
-        <encodingType>{$ctx:encodingType}</encodingType>
-        <maxUploads>{$ctx:maxUploads}</maxUploads>
-        <keyMarker>{$ctx:keyMarker}</keyMarker>
-        <prefix>{$ctx:prefix}</prefix>
-        <uploadIdMarker>{$ctx:uploadIdMarker}</uploadIdMarker>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <delimiter>{${properties.delimiter}}</delimiter>
+        <encodingType>{${properties.encodingType}}</encodingType>
+        <maxUploads>{${properties.maxUploads}}</maxUploads>
+        <keyMarker>{${properties.keyMarker}}</keyMarker>
+        <prefix>{${properties.prefix}}</prefix>
+        <uploadIdMarker>{${properties.uploadIdMarker}}</uploadIdMarker>
     </amazons3.listMultipartUploads>
     ```
 
@@ -1577,18 +1577,18 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.deleteObject>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <versionId>{$ctx:versionId}</versionId>
-        <bypassGovernanceRetention>{$ctx:bypassGovernanceRetention}</bypassGovernanceRetention>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <versionId>{${properties.versionId}}</versionId>
+        <bypassGovernanceRetention>{${properties.bypassGovernanceRetention}}</bypassGovernanceRetention>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.deleteObject>
     ```
 
@@ -1661,18 +1661,18 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.deleteObjects>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <bypassGovernanceRetention>{$ctx:bypassGovernanceRetention}</bypassGovernanceRetention>
-        <deleteConfig>{$ctx:deleteConfig}</deleteConfig>
-        <mfa>{$ctx:mfa}</mfa>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <bypassGovernanceRetention>{${properties.bypassGovernanceRetention}}</bypassGovernanceRetention>
+        <deleteConfig>{${properties.deleteConfig}}</deleteConfig>
+        <mfa>{${properties.mfa}}</mfa>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.deleteObjects>
     ```
 
@@ -1825,25 +1825,25 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getObject>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <responseContentType>{$ctx:responseContentType}</responseContentType>
-        <responseContentLanguage>{$ctx:responseContentLanguage}</responseContentLanguage>
-        <responseExpires>{$ctx:responseExpires}</responseExpires>
-        <responseCacheControl>{$ctx:responseCacheControl}</responseCacheControl>
-        <responseContentDisposition>{$ctx:responseContentDisposition}</responseContentDisposition>
-        <responseContentEncoding>{$ctx:responseContentEncoding}</responseContentEncoding>
-        <range>{$ctx:range}</range>
-        <ifModifiedSince>{$ctx:ifModifiedSince}</ifModifiedSince>
-        <ifUnmodifiedSince>{$ctx:ifUnmodifiedSince}</ifUnmodifiedSince>
-        <ifMatch>{$ctx:ifMatch}</ifMatch>
-        <ifNoneMatch>{$ctx:ifNoneMatch}</ifNoneMatch>
-        <versionId>{$ctx:versionId}</versionId>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <partNumber>{$ctx:partNumber}</partNumber>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <responseContentType>{${properties.responseContentType}}</responseContentType>
+        <responseContentLanguage>{${properties.responseContentLanguage}}</responseContentLanguage>
+        <responseExpires>{${properties.responseExpires}}</responseExpires>
+        <responseCacheControl>{${properties.responseCacheControl}}</responseCacheControl>
+        <responseContentDisposition>{${properties.responseContentDisposition}}</responseContentDisposition>
+        <responseContentEncoding>{${properties.responseContentEncoding}}</responseContentEncoding>
+        <range>{${properties.range}}</range>
+        <ifModifiedSince>{${properties.ifModifiedSince}}</ifModifiedSince>
+        <ifUnmodifiedSince>{${properties.ifUnmodifiedSince}}</ifUnmodifiedSince>
+        <ifMatch>{${properties.ifMatch}}</ifMatch>
+        <ifNoneMatch>{${properties.ifNoneMatch}}</ifNoneMatch>
+        <versionId>{${properties.versionId}}</versionId>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <partNumber>{${properties.partNumber}}</partNumber>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.getObject>
     ```
 
@@ -2040,31 +2040,31 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         <bucketName>{$url:bucketName}</bucketName>
         <objectKey>{$url:objectKey}</objectKey>
         <filePath>{$url:filePath}</filePath>
-        <acl>{$ctx:acl}</acl>
-        <cacheControl>{$ctx:cacheControl}</cacheControl>
-        <contentDisposition>{$ctx:contentDisposition}</contentDisposition>
-        <contentEncoding>{$ctx:contentEncoding}</contentEncoding>
-        <contentLanguage>{$ctx:contentLanguage}</contentLanguage>
-        <contentType>{$ctx:contentType}</contentType>
-        <expires>{$ctx:expires}</expires>
-        <grantRead>{$ctx:grantRead}</grantRead>
-        <grantReadACP>{$ctx:grantReadACP}</grantReadACP>
-        <grantWriteACP>{$ctx:grantWriteACP}</grantWriteACP>
-        <grantFullControl>{$ctx:grantFullControl}</grantFullControl>
-        <metadata>{$ctx:metadata}</metadata>
-        <serverSideEncryption>{$ctx:serverSideEncryption}</serverSideEncryption>
-        <storageClass>{$ctx:storageClass}</storageClass>
-        <websiteRedirectLocation>{$ctx:websiteRedirectLocation}</websiteRedirectLocation>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <ssekmsKeyId>{$ctx:ssekmsKeyId}</ssekmsKeyId>
-        <ssekmsEncryptionContext>{$ctx:ssekmsEncryptionContext}</ssekmsEncryptionContext>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
-        <tagging>{$ctx:tagging}</tagging>
-        <objectLockMode>{$ctx:objectLockMode}</objectLockMode>
-        <objectLockRetainUntilDate>{$ctx:objectLockRetainUntilDate}</objectLockRetainUntilDate>
-        <objectLockLegalHoldStatus>{$ctx:objectLockLegalHoldStatus}</objectLockLegalHoldStatus>
+        <acl>{${properties.acl}}</acl>
+        <cacheControl>{${properties.cacheControl}}</cacheControl>
+        <contentDisposition>{${properties.contentDisposition}}</contentDisposition>
+        <contentEncoding>{${properties.contentEncoding}}</contentEncoding>
+        <contentLanguage>{${properties.contentLanguage}}</contentLanguage>
+        <contentType>{${properties.contentType}}</contentType>
+        <expires>{${properties.expires}}</expires>
+        <grantRead>{${properties.grantRead}}</grantRead>
+        <grantReadACP>{${properties.grantReadACP}}</grantReadACP>
+        <grantWriteACP>{${properties.grantWriteACP}}</grantWriteACP>
+        <grantFullControl>{${properties.grantFullControl}}</grantFullControl>
+        <metadata>{${properties.metadata}}</metadata>
+        <serverSideEncryption>{${properties.serverSideEncryption}}</serverSideEncryption>
+        <storageClass>{${properties.storageClass}}</storageClass>
+        <websiteRedirectLocation>{${properties.websiteRedirectLocation}}</websiteRedirectLocation>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <ssekmsKeyId>{${properties.ssekmsKeyId}}</ssekmsKeyId>
+        <ssekmsEncryptionContext>{${properties.ssekmsEncryptionContext}}</ssekmsEncryptionContext>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
+        <tagging>{${properties.tagging}}</tagging>
+        <objectLockMode>{${properties.objectLockMode}}</objectLockMode>
+        <objectLockRetainUntilDate>{${properties.objectLockRetainUntilDate}}</objectLockRetainUntilDate>
+        <objectLockLegalHoldStatus>{${properties.objectLockLegalHoldStatus}}</objectLockLegalHoldStatus>
     </amazons3.putObject>
     ```
 
@@ -2163,17 +2163,17 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.putObjectAcl>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <accessControlList>{$ctx:accessControlList}</accessControlList>
-        <versionId>{$ctx:versionId}</versionId>
-        <acl>{$ctx:acl}</acl>
-        <grantRead>{$ctx:grantRead}</grantRead>
-        <grantReadACP>{$ctx:grantReadACP}</grantReadACP>
-        <grantWrite>{$ctx:grantWrite}</grantWrite>
-        <grantWriteACP>{$ctx:grantWriteACP}</grantWriteACP>
-        <grantFullControl>{$ctx:grantFullControl}</grantFullControl>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <accessControlList>{${properties.accessControlList}}</accessControlList>
+        <versionId>{${properties.versionId}}</versionId>
+        <acl>{${properties.acl}}</acl>
+        <grantRead>{${properties.grantRead}}</grantRead>
+        <grantReadACP>{${properties.grantReadACP}}</grantReadACP>
+        <grantWrite>{${properties.grantWrite}}</grantWrite>
+        <grantWriteACP>{${properties.grantWriteACP}}</grantWriteACP>
+        <grantFullControl>{${properties.grantFullControl}}</grantFullControl>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.putObjectAcl>
     ```
 
@@ -2416,50 +2416,50 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.copyBucketObject>
-        <copySource>{$ctx:copySource}</copySource>
-        <acl>{$ctx:acl}</acl>
-        <cacheControl>{$ctx:cacheControl}</cacheControl>
-        <contentDisposition>{$ctx:contentDisposition}</contentDisposition>
-        <contentEncoding>{$ctx:contentEncoding}</contentEncoding>
-        <contentLanguage>{$ctx:contentLanguage}</contentLanguage>
-        <contentType>{$ctx:contentType}</contentType>
-        <copySourceIfMatch>{$ctx:copySourceIfMatch}</copySourceIfMatch>
-        <copySourceIfModifiedSince>{$ctx:copySourceIfModifiedSince}</copySourceIfModifiedSince>
-        <copySourceIfNoneMatch>{$ctx:copySourceIfNoneMatch}</copySourceIfNoneMatch>
-        <copySourceIfUnmodifiedSince>{$ctx:copySourceIfUnmodifiedSince}</copySourceIfUnmodifiedSince>
-        <expires>{$ctx:expires}</expires>
-        <grantRead>{$ctx:grantRead}</grantRead>
-        <grantReadACP>{$ctx:grantReadACP}</grantReadACP>
-        <grantWriteACP>{$ctx:grantWriteACP}</grantWriteACP>
-        <grantFullControl>{$ctx:grantFullControl}</grantFullControl>
-        <metadataDirective>{$ctx:metadataDirective}</metadataDirective>
-        <metadata>{$ctx:metadata}</metadata>
-        <taggingDirective>{$ctx:taggingDirective}</taggingDirective>
-        <tagging>{$ctx:tagging}</tagging>
-        <serverSideEncryption>{$ctx:serverSideEncryption}</serverSideEncryption>
-        <storageClass>{$ctx:storageClass}</storageClass>
-        <websiteRedirectLocation>{$ctx:websiteRedirectLocation}</websiteRedirectLocation>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <ssekmsKeyId>{$ctx:ssekmsKeyId}</ssekmsKeyId>
-        <ssekmsEncryptionContext>{$ctx:ssekmsEncryptionContext}</ssekmsEncryptionContext>
-        <copySourceSSECustomerAlgorithm>{$ctx:copySourceSSECustomerAlgorithm}</copySourceSSECustomerAlgorithm>
-        <copySourceSSECustomerKey>{$ctx:copySourceSSECustomerKey}</copySourceSSECustomerKey>
-        <copySourceSSECustomerKeyMD5>{$ctx:copySourceSSECustomerKeyMD5}</copySourceSSECustomerKeyMD5>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
-        <objectLockMode>{$ctx:objectLockMode}</objectLockMode>
-        <objectLockRetainUntilDate>{$ctx:objectLockRetainUntilDate}</objectLockRetainUntilDate>
-        <objectLockLegalHoldStatus>{$ctx:objectLockLegalHoldStatus}</objectLockLegalHoldStatus>
-        <destinationBucket>{$ctx:destinationBucket}</destinationBucket>
-        <destinationKey>{$ctx:destinationKey}</destinationKey>
+        <copySource>{${properties.copySource}}</copySource>
+        <acl>{${properties.acl}}</acl>
+        <cacheControl>{${properties.cacheControl}}</cacheControl>
+        <contentDisposition>{${properties.contentDisposition}}</contentDisposition>
+        <contentEncoding>{${properties.contentEncoding}}</contentEncoding>
+        <contentLanguage>{${properties.contentLanguage}}</contentLanguage>
+        <contentType>{${properties.contentType}}</contentType>
+        <copySourceIfMatch>{${properties.copySourceIfMatch}}</copySourceIfMatch>
+        <copySourceIfModifiedSince>{${properties.copySourceIfModifiedSince}}</copySourceIfModifiedSince>
+        <copySourceIfNoneMatch>{${properties.copySourceIfNoneMatch}}</copySourceIfNoneMatch>
+        <copySourceIfUnmodifiedSince>{${properties.copySourceIfUnmodifiedSince}}</copySourceIfUnmodifiedSince>
+        <expires>{${properties.expires}}</expires>
+        <grantRead>{${properties.grantRead}}</grantRead>
+        <grantReadACP>{${properties.grantReadACP}}</grantReadACP>
+        <grantWriteACP>{${properties.grantWriteACP}}</grantWriteACP>
+        <grantFullControl>{${properties.grantFullControl}}</grantFullControl>
+        <metadataDirective>{${properties.metadataDirective}}</metadataDirective>
+        <metadata>{${properties.metadata}}</metadata>
+        <taggingDirective>{${properties.taggingDirective}}</taggingDirective>
+        <tagging>{${properties.tagging}}</tagging>
+        <serverSideEncryption>{${properties.serverSideEncryption}}</serverSideEncryption>
+        <storageClass>{${properties.storageClass}}</storageClass>
+        <websiteRedirectLocation>{${properties.websiteRedirectLocation}}</websiteRedirectLocation>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <ssekmsKeyId>{${properties.ssekmsKeyId}}</ssekmsKeyId>
+        <ssekmsEncryptionContext>{${properties.ssekmsEncryptionContext}}</ssekmsEncryptionContext>
+        <copySourceSSECustomerAlgorithm>{${properties.copySourceSSECustomerAlgorithm}}</copySourceSSECustomerAlgorithm>
+        <copySourceSSECustomerKey>{${properties.copySourceSSECustomerKey}}</copySourceSSECustomerKey>
+        <copySourceSSECustomerKeyMD5>{${properties.copySourceSSECustomerKeyMD5}}</copySourceSSECustomerKeyMD5>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
+        <objectLockMode>{${properties.objectLockMode}}</objectLockMode>
+        <objectLockRetainUntilDate>{${properties.objectLockRetainUntilDate}}</objectLockRetainUntilDate>
+        <objectLockLegalHoldStatus>{${properties.objectLockLegalHoldStatus}}</objectLockLegalHoldStatus>
+        <destinationBucket>{${properties.destinationBucket}}</destinationBucket>
+        <destinationKey>{${properties.destinationKey}}</destinationKey>
     </amazons3.copyBucketObject>
     ```
 
@@ -2553,15 +2553,15 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.uploadPart>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <uploadId>{$ctx:uploadId}</uploadId>
-        <partNumber>{$ctx:partNumber}</partNumber>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <uploadId>{${properties.uploadId}}</uploadId>
+        <partNumber>{${properties.partNumber}}</partNumber>
         <filePath>{$url:filePath}</filePath>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.uploadPart>
     ```
 
@@ -2628,11 +2628,11 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.completeMultipartUpload>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <uploadId>{$ctx:uploadId}</uploadId>
-        <completedPartDetails>{$ctx:completedPartDetails}</completedPartDetails>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <uploadId>{${properties.uploadId}}</uploadId>
+        <completedPartDetails>{${properties.completedPartDetails}}</completedPartDetails>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.completeMultipartUpload>
     ```
 
@@ -2690,17 +2690,17 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.abortMultipartUpload>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <uploadId>{$ctx:uploadId}</uploadId>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <uploadId>{${properties.uploadId}}</uploadId>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.abortMultipartUpload>
     ```
 
@@ -2764,19 +2764,19 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.listParts>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <uploadId>{$ctx:uploadId}</uploadId>
-        <maxParts>{$ctx:maxParts}</maxParts>
-        <partNumberMarker>{$ctx:partNumberMarker}</partNumberMarker>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <uploadId>{${properties.uploadId}}</uploadId>
+        <maxParts>{${properties.maxParts}}</maxParts>
+        <partNumberMarker>{${properties.partNumberMarker}}</partNumberMarker>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.listParts>
     ```
 
@@ -2947,40 +2947,40 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.createMultipartUpload>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <acl>{$ctx:acl}</acl>
-        <cacheControl>{$ctx:cacheControl}</cacheControl>
-        <contentDisposition>{$ctx:contentDisposition}</contentDisposition>
-        <contentEncoding>{$ctx:contentEncoding}</contentEncoding>
-        <contentLanguage>{$ctx:contentLanguage}</contentLanguage>
-        <contentType>{$ctx:contentType}</contentType>
-        <expires>{$ctx:expires}</expires>
-        <grantRead>{$ctx:grantRead}</grantRead>
-        <grantReadACP>{$ctx:grantReadACP}</grantReadACP>
-        <grantWriteACP>{$ctx:grantWriteACP}</grantWriteACP>
-        <grantFullControl>{$ctx:grantFullControl}</grantFullControl>
-        <metadata>{$ctx:metadata}</metadata>
-        <serverSideEncryption>{$ctx:serverSideEncryption}</serverSideEncryption>
-        <storageClass>{$ctx:storageClass}</storageClass>
-        <websiteRedirectLocation>{$ctx:websiteRedirectLocation}</websiteRedirectLocation>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <ssekmsKeyId>{$ctx:ssekmsKeyId}</ssekmsKeyId>
-        <ssekmsEncryptionContext>{$ctx:ssekmsEncryptionContext}</ssekmsEncryptionContext>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
-        <tagging>{$ctx:tagging}</tagging>
-        <objectLockMode>{$ctx:objectLockMode}</objectLockMode>
-        <objectLockRetainUntilDate>{$ctx:objectLockRetainUntilDate}</objectLockRetainUntilDate>
-        <objectLockLegalHoldStatus>{$ctx:objectLockLegalHoldStatus}</objectLockLegalHoldStatus>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <acl>{${properties.acl}}</acl>
+        <cacheControl>{${properties.cacheControl}}</cacheControl>
+        <contentDisposition>{${properties.contentDisposition}}</contentDisposition>
+        <contentEncoding>{${properties.contentEncoding}}</contentEncoding>
+        <contentLanguage>{${properties.contentLanguage}}</contentLanguage>
+        <contentType>{${properties.contentType}}</contentType>
+        <expires>{${properties.expires}}</expires>
+        <grantRead>{${properties.grantRead}}</grantRead>
+        <grantReadACP>{${properties.grantReadACP}}</grantReadACP>
+        <grantWriteACP>{${properties.grantWriteACP}}</grantWriteACP>
+        <grantFullControl>{${properties.grantFullControl}}</grantFullControl>
+        <metadata>{${properties.metadata}}</metadata>
+        <serverSideEncryption>{${properties.serverSideEncryption}}</serverSideEncryption>
+        <storageClass>{${properties.storageClass}}</storageClass>
+        <websiteRedirectLocation>{${properties.websiteRedirectLocation}}</websiteRedirectLocation>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <ssekmsKeyId>{${properties.ssekmsKeyId}}</ssekmsKeyId>
+        <ssekmsEncryptionContext>{${properties.ssekmsEncryptionContext}}</ssekmsEncryptionContext>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
+        <tagging>{${properties.tagging}}</tagging>
+        <objectLockMode>{${properties.objectLockMode}}</objectLockMode>
+        <objectLockRetainUntilDate>{${properties.objectLockRetainUntilDate}}</objectLockRetainUntilDate>
+        <objectLockLegalHoldStatus>{${properties.objectLockLegalHoldStatus}}</objectLockLegalHoldStatus>
     </amazons3.createMultipartUpload>
     ```
 
@@ -3052,18 +3052,18 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-        <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-        <name>{$ctx:connectionName}</name>
-        <region>{$ctx:region}</region>
+        <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+        <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+        <name>{${properties.connectionName}}</name>
+        <region>{${properties.region}}</region>
     </amazons3.init>
 
     <amazons3.multipartUpload>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <partDetails>{$ctx:partDetails}</partDetails>
-        <filePath>{$ctx:filePath}</filePath>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <partDetails>{${properties.partDetails}}</partDetails>
+        <filePath>{${properties.filePath}}</filePath>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.multipartUpload>
     ```
 
@@ -3123,10 +3123,10 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getObjectACL>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <versionId>{$ctx:versionId}</versionId>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <versionId>{${properties.versionId}}</versionId>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.getObjectACL>
     ```
 
@@ -3176,9 +3176,9 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getObjectTagging>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <versionId>{$ctx:versionId}</versionId>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <versionId>{${properties.versionId}}</versionId>
     </amazons3.getObjectTagging>
     ```
 
@@ -3233,10 +3233,10 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.getObjectTorrent>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <torrentFilePath>{$ctx:torrentFilePath}</torrentFilePath>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <torrentFilePath>{${properties.torrentFilePath}}</torrentFilePath>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.getObjectTorrent>
     ```
 
@@ -3295,11 +3295,11 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.restoreObject>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <versionId>{$ctx:versionId}</versionId>
-        <restoreRequest>{$ctx:restoreRequest}</restoreRequest>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <versionId>{${properties.versionId}}</versionId>
+        <restoreRequest>{${properties.restoreRequest}}</restoreRequest>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.restoreObject>
     ```
 
@@ -3419,23 +3419,23 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.uploadPartCopy>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <uploadId>{$ctx:uploadId}</uploadId>
-        <partNumber>{$ctx:partNumber}</partNumber>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <uploadId>{${properties.uploadId}}</uploadId>
+        <partNumber>{${properties.partNumber}}</partNumber>
         <copySource>/imagesBucket5/testObject37</copySource>
-        <copySourceRange>{$ctx:copySourceRange}</copySourceRange>
-        <ifModifiedSince>{$ctx:ifModifiedSince}</ifModifiedSince>
-        <ifUnmodifiedSince>{$ctx:ifUnmodifiedSince}</ifUnmodifiedSince>
-        <ifMatch>{$ctx:ifMatch}</ifMatch>
-        <ifNoneMatch>{$ctx:ifNoneMatch}</ifNoneMatch>
-        <copySourceSSECustomerAlgorithm>{$ctx:copySourceSSECustomerAlgorithm}</copySourceSSECustomerAlgorithm>
-        <copySourceSSECustomerKey>{$ctx:copySourceSSECustomerKey}</copySourceSSECustomerKey>
-        <copySourceSSECustomerKeyMD5>{$ctx:copySourceSSECustomerKeyMD5}</copySourceSSECustomerKeyMD5>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <copySourceRange>{${properties.copySourceRange}}</copySourceRange>
+        <ifModifiedSince>{${properties.ifModifiedSince}}</ifModifiedSince>
+        <ifUnmodifiedSince>{${properties.ifUnmodifiedSince}}</ifUnmodifiedSince>
+        <ifMatch>{${properties.ifMatch}}</ifMatch>
+        <ifNoneMatch>{${properties.ifNoneMatch}}</ifNoneMatch>
+        <copySourceSSECustomerAlgorithm>{${properties.copySourceSSECustomerAlgorithm}}</copySourceSSECustomerAlgorithm>
+        <copySourceSSECustomerKey>{${properties.copySourceSSECustomerKey}}</copySourceSSECustomerKey>
+        <copySourceSSECustomerKeyMD5>{${properties.copySourceSSECustomerKeyMD5}}</copySourceSSECustomerKeyMD5>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.uploadPartCopy>
     ```
 
@@ -3533,19 +3533,19 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.headObject>
-        <bucketName>{$ctx:bucketName}</bucketName>
-        <objectKey>{$ctx:objectKey}</objectKey>
-        <range>{$ctx:range}</range>
-        <ifModifiedSince>{$ctx:ifModifiedSince}</ifModifiedSince>
-        <ifUnmodifiedSince>{$ctx:ifUnmodifiedSince}</ifUnmodifiedSince>
-        <ifMatch>{$ctx:ifMatch}</ifMatch>
-        <ifNoneMatch>{$ctx:ifNoneMatch}</ifNoneMatch>
-        <versionId>{$ctx:versionId}</versionId>
-        <sseCustomerAlgorithm>{$ctx:sseCustomerAlgorithm}</sseCustomerAlgorithm>
-        <sseCustomerKey>{$ctx:sseCustomerKey}</sseCustomerKey>
-        <sseCustomerKeyMD5>{$ctx:sseCustomerKeyMD5}</sseCustomerKeyMD5>
-        <partNumber>{$ctx:partNumber}</partNumber>
-        <requestPayer>{$ctx:requestPayer}</requestPayer>
+        <bucketName>{${properties.bucketName}}</bucketName>
+        <objectKey>{${properties.objectKey}}</objectKey>
+        <range>{${properties.range}}</range>
+        <ifModifiedSince>{${properties.ifModifiedSince}}</ifModifiedSince>
+        <ifUnmodifiedSince>{${properties.ifUnmodifiedSince}}</ifUnmodifiedSince>
+        <ifMatch>{${properties.ifMatch}}</ifMatch>
+        <ifNoneMatch>{${properties.ifNoneMatch}}</ifNoneMatch>
+        <versionId>{${properties.versionId}}</versionId>
+        <sseCustomerAlgorithm>{${properties.sseCustomerAlgorithm}}</sseCustomerAlgorithm>
+        <sseCustomerKey>{${properties.sseCustomerKey}}</sseCustomerKey>
+        <sseCustomerKeyMD5>{${properties.sseCustomerKeyMD5}}</sseCustomerKeyMD5>
+        <partNumber>{${properties.partNumber}}</partNumber>
+        <requestPayer>{${properties.requestPayer}}</requestPayer>
     </amazons3.headObject>
     ```
 

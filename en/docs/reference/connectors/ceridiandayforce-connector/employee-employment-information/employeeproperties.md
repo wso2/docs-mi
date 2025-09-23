@@ -20,10 +20,10 @@ We can use GET Employee Properties operation with required parameters to search 
 **GET Employee Properties**
 ```xml
 <ceridiandayforce.getEmployeeProperties>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeProperties>
 ```
 
@@ -114,9 +114,9 @@ We can use POST Employee Properties operation with required parameters to create
 **POST Employee Properties**
 ```xml
 <ceridiandayforce.postEmployeeProperties>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postEmployeeProperties>
 ```
 
@@ -167,9 +167,9 @@ We can use PATCH Employee Properties operation with required parameters to updat
 **PATCH Employee Properties**
 ```xml
 <ceridiandayforce.patchEmployeeProperties>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.patchEmployeeProperties>
 ```
 
@@ -238,15 +238,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.isValidateOnly)" name="isValidateOnly"/>
          <property expression="json-eval($.fieldAndValue)" name="fieldAndValue"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.postEmployeeProperties>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-            <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+            <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
          </ceridiandayforce.postEmployeeProperties>
          <send/>
       </inSequence>

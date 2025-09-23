@@ -114,7 +114,7 @@ If you do not want to configure this yourself, you can simply [get the project](
                   </m0:getQuote>
               </format>
               <args>
-                  <arg evaluator="xml" expression="$ctx:companyName"/>
+                  <arg evaluator="xml" expression="${properties.companyName}"/>
               </args>
           </payloadFactory>
           <header name="Action" scope="default" value="urn:getQuote"/>
@@ -129,15 +129,15 @@ If you do not want to configure this yourself, you can simply [get the project](
   <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="createQueue" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <amazonsqs.createQueue configKey="AMAZON_SQS_CONNECTION">
-            <queueName>{$ctx:queueName}</queueName>
+            <queueName>{${properties.queueName}}</queueName>
         </amazonsqs.createQueue>
         <property expression="json-eval($.CreateQueueResponse.CreateQueueResult.QueueUrl)" name="queueURL" scope="default" type="STRING"/>
         <log level="custom">
-            <property expression="$ctx:queueURL" name="queueURL"/>
+            <property expression="${properties.queueURL}" name="queueURL"/>
         </log>
-        <property expression="fn:substring($ctx:queueURL,41,12)" name="queueId" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
+        <property expression="fn:substring(${properties.queueURL},41,12)" name="queueId" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
         <log level="custom">
-            <property expression="$ctx:queueId" name="queueId"/>
+            <property expression="${properties.queueId}" name="queueId"/>
         </log>
     </sequence>
   ```
@@ -147,9 +147,9 @@ If you do not want to configure this yourself, you can simply [get the project](
   <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="sendMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <amazonsqs.sendMessage configKey="AMAZON_SQS_CONNECTION">
-            <queueId>{$ctx:queueId}</queueId>
-            <queueName>{$ctx:queueName}</queueName>
-            <messageBody>{$ctx:target_property}</messageBody>
+            <queueId>{${properties.queueId}}</queueId>
+            <queueName>{${properties.queueName}}</queueName>
+            <messageBody>{${properties.target_property}}</messageBody>
         </amazonsqs.sendMessage>
     </sequence>
   ```
@@ -160,8 +160,8 @@ If you do not want to configure this yourself, you can simply [get the project](
       <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
           <amazonsqs.receiveMessage configKey="AMAZON_SQS_CONNECTION">
               <maxNumberOfMessages>5</maxNumberOfMessages>
-              <queueId>{$ctx:queueId}</queueId>
-              <queueName>{$ctx:queueName}</queueName>
+              <queueId>{${properties.queueId}}</queueId>
+              <queueName>{${properties.queueName}}</queueName>
           </amazonsqs.receiveMessage>
           <property xmlns:m0="http://services.samples" name="messageBody" expression="$body//m0:getQuote"/>
           <payloadFactory media-type="xml">
@@ -171,7 +171,7 @@ If you do not want to configure this yourself, you can simply [get the project](
                   </soapenv:Envelope>
               </format>
               <args>
-                  <arg evaluator="xml" expression="$ctx:messageBody"/>
+                  <arg evaluator="xml" expression="${properties.messageBody}"/>
               </args>
           </payloadFactory>
           <header name="Action" scope="default" value="urn:getQuote"/>

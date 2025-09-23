@@ -116,7 +116,7 @@ First create an API, which will be where we configure the integration logic. Spe
     4. Add the property mediator to capture the topic name from the response using the splitting separators in the results.  
 
          - **name** : `test`
-         - **expression** : `fn:tokenize($ctx:nameforsubscription,'/')[last()]`
+         - **expression** : `fn:tokenize(${properties.nameforsubscription},'/')[last()]`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/gpubsub/pubsub-api-property-mediator-splitting.png" title="Add values to capture splitting value" width="800" alt="Add values to capture splitting value"/>
 
@@ -193,10 +193,10 @@ Now you can switch into the Source view and check the XML configuration files of
                 </googlepubsub.init>
                 <googlepubsub.createTopic>
                     <projectId>ei-connector-improvement</projectId>
-                    <topicName>{$ctx:topicName}</topicName>
+                    <topicName>{${properties.topicName}}</topicName>
                 </googlepubsub.createTopic>
                 <property expression="json-eval($.name)" name="nameforsubscription" scope="default" type="STRING"/>
-                <property expression="fn:tokenize($ctx:nameforsubscription,'/')[last()]" name="test" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
+                <property expression="fn:tokenize(${properties.nameforsubscription},'/')[last()]" name="test" scope="default" type="STRING" xmlns:fn="http://www.w3.org/2005/xpath-functions"/>
                 <googlepubsub.init>
                     <accessToken>ya29.a0AfH6SMA0MU0Frk_7gNnA79QUWQGnalPXvmkoA4MYS8p8Mt9OSC5SUqqcqIjcrP-_ollVB9gpeg3SufbCpASMCWyHcVCN6ZMCbqz4IdQqRVi8Kt22tI6gR5zvgtWn1qFWnYnGQ6Ehqi_mS9k0PL_R-kQcl-AkqveA8ZY</accessToken>
                     <apiUrl>https://pubsub.googleapis.com</apiUrl>
@@ -204,8 +204,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 </googlepubsub.init>
                 <googlepubsub.createTopicSubscription>
                     <projectId>ei-connector-improvement</projectId>
-                    <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-                    <topicName>{$ctx:test}</topicName>
+                    <subscriptionName>{${properties.subscriptionName}}</subscriptionName>
+                    <topicName>{${properties.test}}</topicName>
                     <ackDeadlineSeconds>30</ackDeadlineSeconds>
                 </googlepubsub.createTopicSubscription>
                 <respond/>
@@ -223,8 +223,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 </googlepubsub.init>
                 <googlepubsub.publishMessage>
                     <projectId>ei-connector-improvement</projectId>
-                    <topicName>{$ctx:topicName}</topicName>
-                    <data>{$ctx:data}</data>
+                    <topicName>{${properties.topicName}}</topicName>
+                    <data>{${properties.data}}</data>
                 </googlepubsub.publishMessage>
                 <respond/>
             </inSequence>
@@ -240,7 +240,7 @@ Now you can switch into the Source view and check the XML configuration files of
                 </googlepubsub.init>
                 <googlepubsub.pullMessage>
                     <projectId>ei-connector-improvement</projectId>
-                    <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
+                    <subscriptionName>{${properties.subscriptionName}}</subscriptionName>
                     <maxMessages>2</maxMessages>
                     <returnImmediately>false</returnImmediately>
                 </googlepubsub.pullMessage>

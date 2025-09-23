@@ -99,7 +99,7 @@ To do this, the header mediator is added to the in sequence of the proxy configu
                 <property name="REQUEST_HEADER" scope="default" type="OM">
                     <p1:Code xmlns:p1="http://www.XYZ.com/XSD">XYZ</p1:Code>
                 </property>
-                <header name="p1:Code" scope="default" expression="$ctx:REQUEST_HEADER" xmlns:p1="http://www.XYZ.com/XSD"/>
+                <header name="p1:Code" scope="default" expression="${properties.REQUEST_HEADER}" xmlns:p1="http://www.XYZ.com/XSD"/>
                 <call>
                     <endpoint key="SimpleStockQuoteServiceEP"/>
                 </call>
@@ -109,7 +109,7 @@ To do this, the header mediator is added to the in sequence of the proxy configu
                         <p2:Hello>World</p2:Hello>
                     </p2:Header>
                 </property>
-                <header name="p2:Header" xmlns:p2="http://www.ABC.com/XSD" action="set" scope="default" expression="$ctx:RESPONSE_HEADER"/>
+                <header name="p2:Header" xmlns:p2="http://www.ABC.com/XSD" action="set" scope="default" expression="${properties.RESPONSE_HEADER}"/>
                 <respond/>
             </inSequence>
         </resource>

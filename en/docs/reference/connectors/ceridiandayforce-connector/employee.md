@@ -23,16 +23,16 @@ We can use GET Employees operation with required parameters to search and find t
 **GET Employees**
 ```xml
 <ceridiandayforce.getEmployees>
-    <employeeNumber>{$ctx:employeeNumber}</employeeNumber>
-    <employmentStatusXRefCode>{$ctx:employmentStatusXRefCode}</employmentStatusXRefCode>
-    <orgUnitXRefCode>{$ctx:orgUnitXRefCode}</orgUnitXRefCode>
-    <filterHireStartDate>{$ctx:filterHireStartDate}</filterHireStartDate>
-    <filterHireEndDate>{$ctx:filterHireEndDate}</filterHireEndDate>
-    <filterTerminationStartDate>{$ctx:filterTerminationStartDate}</filterTerminationStartDate>
-    <filterTerminationEndDate>{$ctx:filterTerminationEndDate}</filterTerminationEndDate>
-    <filterUpdatedStartDate>{$ctx:filterUpdatedStartDate}</filterUpdatedStartDate>
-    <filterUpdatedEndDate>{$ctx:filterUpdatedEndDate}</filterUpdatedEndDate>
-    <contextDate>{$ctx:contextDate}</contextDate>
+    <employeeNumber>{${properties.employeeNumber}}</employeeNumber>
+    <employmentStatusXRefCode>{${properties.employmentStatusXRefCode}}</employmentStatusXRefCode>
+    <orgUnitXRefCode>{${properties.orgUnitXRefCode}}</orgUnitXRefCode>
+    <filterHireStartDate>{${properties.filterHireStartDate}}</filterHireStartDate>
+    <filterHireEndDate>{${properties.filterHireEndDate}}</filterHireEndDate>
+    <filterTerminationStartDate>{${properties.filterTerminationStartDate}}</filterTerminationStartDate>
+    <filterTerminationEndDate>{${properties.filterTerminationEndDate}}</filterTerminationEndDate>
+    <filterUpdatedStartDate>{${properties.filterUpdatedStartDate}}</filterUpdatedStartDate>
+    <filterUpdatedEndDate>{${properties.filterUpdatedEndDate}}</filterUpdatedEndDate>
+    <contextDate>{${properties.contextDate}}</contextDate>
 </ceridiandayforce.getEmployees>
 ```
 
@@ -83,11 +83,11 @@ We can use GET Employee Details operation with required parameters to retrieve i
 **GET Employee Details**
 ```xml
 <ceridiandayforce.getEmployeeDetails>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <expand>{$ctx:expand}</expand>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <expand>{${properties.expand}}</expand>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeDetails>
 ```
 
@@ -184,8 +184,8 @@ We can use POST Employee operation with required parameters to create a new empl
 **POST Employee**
 ```xml
 <ceridiandayforce.postEmployees>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
 </ceridiandayforce.postEmployees>
 ```
 
@@ -354,9 +354,9 @@ We can use PATCH employee operation to update an existing employee details.
 **PATCH Employee**
 ```xml
 <ceridiandayforce.patchEmployee>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
 </ceridiandayforce.patchEmployee>
 ```
 
@@ -541,13 +541,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployees>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
          </ceridiandayforce.getEmployees>
          <send/>
       </inSequence>

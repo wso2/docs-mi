@@ -176,7 +176,7 @@ In this example, you'll add a child property named `Lamborghini` to a property n
 				<source clone="true" type="inline">
 					<Car>Lamborghini</Car>
 				</source>
-				<target action="child" xpath="$ctx:Cars"/>
+				<target action="child" xpath="${properties.Cars}"/>
 			</enrich>
 			<log category="INFO" level="custom">
 				<property name="PekeCarListAfterEnrich" expression="${properties.Cars}"/>
@@ -427,7 +427,7 @@ As you removed selected parts from a payload, you can also remove selected parts
     <target action="remove" type="property" property="students"/>
 </enrich>
 <log category="INFO" level="simple">
-    <property name="result" expression="$ctx:students"/>
+    <property name="result" expression="${properties.students}"/>
 </log>
 ```
 

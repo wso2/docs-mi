@@ -36,10 +36,10 @@ The parameters available to configure the property mediator are as follows:
       <code>property name="{${properties.propertyName}}"</code>
     </li>
     <li>
-      <code>property name="{$ctx:propertyName}"</code>
+      <code>property name="{${properties.propertyName}}"</code>
     </li>
     <li>
-      <code>property name="{json-eval({$ctx:propertyName})}"</code>
+      <code>property name="{json-eval({${properties.propertyName}})}"</code>
     </li>
   </ul>
 <p>For names of the generic properties that come by default, see <a href="{{base_path}}/reference/mediators/property-reference/generic-properties">Generic Properties</a>.</p>
@@ -132,7 +132,7 @@ The parameters available to configure the property mediator are as follows:
 ### Send a fault message based on the Accept http header
 
 In this configuration, a response is sent to the client based on the `Accept` header. The [Payload mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
-based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
+based on the `Accept` header using the `${properties.accept}` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
 
 ``` xml
 <payloadFactory media-type="xml">
@@ -144,7 +144,7 @@ based on the `Accept` header using the `$ctx:accept` expression. The message is 
         </m:getQuote>
     </format>
 </payloadFactory>
-<property name="messageType" expression="$ctx:accept" scope="axis2"/>
+<property name="messageType" expression="${properties.accept}" scope="axis2"/>
 <respond/>
 ```
 

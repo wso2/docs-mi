@@ -103,13 +103,13 @@ Follow these steps to set up the Integration Project using the WSO2 Integrator: 
             <inSequence>
                 <property name="path" expression="json-eval($.filePath)"/>
                 <file.checkExist configKey="local_file_connection">
-                    <path>{$ctx:path}</path>
+                    <path>{${properties.path}}</path>
                     <includeResultTo>Message Body</includeResultTo>
                 </file.checkExist>
                 <switch source="json-eval($.checkExistResult.fileExists)">
                     <case regex="true">
                         <file.read configKey="local_file_connection">
-                        <path>{$ctx:path}</path>
+                        <path>{${properties.path}}</path>
                         <readMode>Complete File</readMode>
                         <startLineNum>0</startLineNum>
                         <endLineNum>0</endLineNum>

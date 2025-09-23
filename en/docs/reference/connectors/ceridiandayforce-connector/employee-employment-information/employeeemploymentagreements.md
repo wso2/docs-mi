@@ -20,10 +20,10 @@ We can use GET Employee Contacts operation with required parameters to retrieve 
 **GET Employee Employee Employment Agreements**
 ```xml
 <ceridiandayforce.getEmployeeEmploymentAgreements>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeEmploymentAgreements>
 ```
 
@@ -105,9 +105,9 @@ We can use POST Employee Employment Agreements operation with required parameter
 **POST Employee Employment Agreements**
 ```xml
 <ceridiandayforce.postEmployeeEmploymentAgreements>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postEmployeeEmploymentAgreements>
 ```
 
@@ -181,9 +181,9 @@ We can use PATCH Employee Employment Agreements operation with required paramete
 **PATCH Employee Employment Agreements**
 ```xml
 <ceridiandayforce.patchEmployeeEmploymentAgreements>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.patchEmployeeEmploymentAgreements>
 ```
 
@@ -276,15 +276,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.fieldAndValue)" name="fieldAndValue"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.patchEmployeeEmploymentAgreements>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-            <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+            <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
          </ceridiandayforce.patchEmployeeEmploymentAgreements>
          <send/>
       </inSequence>

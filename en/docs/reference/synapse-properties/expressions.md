@@ -18,7 +18,7 @@ There is a set of predefined variables that you can use to extract data from the
 
 ### $ctx
 
-The prefix used to get properties set at the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). For example, to get the value of property with name `ERROR_MESSAGE`, use the expression `$ctx:ERROR_MESSAGE`.
+The prefix used to get properties set at the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). For example, to get the value of property with name `ERROR_MESSAGE`, use the expression `${properties.ERROR_MESSAGE}`.
 
 Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties).
 
@@ -29,7 +29,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
 
     Deploy the following API. For instructions, see [Creating a REST API]({{base_path}}/develop/creating-artifacts/creating-an-api/).
     
-    The `<property name="stockprop" expression="$ctx:ERROR_MESSAGE"/>` property in the fault sequence configuration is used to log the error message that occurs due to a mediation fault.
+    The `<property name="stockprop" expression="${properties.ERROR_MESSAGE}"/>` property in the fault sequence configuration is used to log the error message that occurs due to a mediation fault.
     
     ``` xml
     <api context="/stockQuote" name="stockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
@@ -42,7 +42,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
             </inSequence>
             <faultSequence>
                 <log>
-                    <property name="stockprop" expression="$ctx:ERROR_MESSAGE"/>
+                    <property name="stockprop" expression="${properties.ERROR_MESSAGE}"/>
                     <property name="Cause" expression="${properties.ERROR_MESSAGE}"/>
                 </log>
             </faultSequence>
@@ -56,7 +56,7 @@ Similarly, you can use the `$ctx` prefix with [Generic Properties]({{base_path}}
     INFO {LogMediator} - {api:stockQuoteAPI} To: /stockQuote/, MessageID: urn:uuid:f1c35024-4d19-4042-abed-8880a4d98c3d, correlation_id: f1c35024-4d19-4042-abed-8880a4d98c3d, Direction: request, stockprop = Couldn't find the endpoint with the key : ep2, Cause = Couldn't find the endpoint with the key : ep2
     ```
     In this example, the property definition, `<property
-    name="stockprop" expression="$ctx:ERROR_MESSAGE"/>` is equivalent
+    name="stockprop" expression="${properties.ERROR_MESSAGE}"/>` is equivalent
     to `<property name="stockprop"
     expression="${properties.ERROR_MESSAGE}"/>`.
 

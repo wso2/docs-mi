@@ -18,15 +18,15 @@ We can use GET Job Postings operation with required parameters to search for job
 **GET Job Postings**
 ```xml
 <ceridiandayforce.getJobPostings>
-    <companyName>{$ctx:companyName}</companyName>
-    <parentCompanyName>{$ctx:parentCompanyName}</parentCompanyName>
-    <internalJobBoardCode>{$ctx:internalJobBoardCode}</internalJobBoardCode>
-    <includeActivePostingOnly>{$ctx:includeActivePostingOnly}</includeActivePostingOnly>
-    <lastUpdateTimeFrom>{$ctx:lastUpdateTimeFrom}</lastUpdateTimeFrom>
-    <lastUpdateTimeTo>{$ctx:lastUpdateTimeTo}</lastUpdateTimeTo>
-    <datePostedFrom>{$ctx:datePostedFrom}</datePostedFrom>
-    <datePostedTo>{$ctx:datePostedTo}</datePostedTo>
-    <htmlDescription>{$ctx:htmlDescription}</htmlDescription>
+    <companyName>{${properties.companyName}}</companyName>
+    <parentCompanyName>{${properties.parentCompanyName}}</parentCompanyName>
+    <internalJobBoardCode>{${properties.internalJobBoardCode}}</internalJobBoardCode>
+    <includeActivePostingOnly>{${properties.includeActivePostingOnly}}</includeActivePostingOnly>
+    <lastUpdateTimeFrom>{${properties.lastUpdateTimeFrom}}</lastUpdateTimeFrom>
+    <lastUpdateTimeTo>{${properties.lastUpdateTimeTo}}</lastUpdateTimeTo>
+    <datePostedFrom>{${properties.datePostedFrom}}</datePostedFrom>
+    <datePostedTo>{${properties.datePostedTo}}</datePostedTo>
+    <htmlDescription>{${properties.htmlDescription}}</htmlDescription>
 </ceridiandayforce.getJobPostings>
 ```
 
@@ -302,10 +302,10 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getJobPostings/>
          <send/>

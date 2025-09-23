@@ -19,13 +19,13 @@ We can use GET Employee Raw Punches operation with required parameters to retrie
 **GET Employee Raw Punches**
 ```xml
 <ceridiandayforce.getEmployeeRawPunches>
-    <filterTransactionStartTimeUTC>{$ctx:filterTransactionStartTimeUTC}</filterTransactionStartTimeUTC>
-    <filterTransactionEndTimeUTC>{$ctx:filterTransactionEndTimeUTC}</filterTransactionEndTimeUTC>
-    <employeeXRefCode>{$ctx:employeeXRefCode}</employeeXRefCode>
-    <employeeBadge>{$ctx:employeeBadge}</employeeBadge>
-    <punchState>{$ctx:punchState}</punchState>
-    <punchTypes>{$ctx:punchTypes}</punchTypes>
-    <pageSize>{$ctx:pageSize}</pageSize>
+    <filterTransactionStartTimeUTC>{${properties.filterTransactionStartTimeUTC}}</filterTransactionStartTimeUTC>
+    <filterTransactionEndTimeUTC>{${properties.filterTransactionEndTimeUTC}}</filterTransactionEndTimeUTC>
+    <employeeXRefCode>{${properties.employeeXRefCode}}</employeeXRefCode>
+    <employeeBadge>{${properties.employeeBadge}}</employeeBadge>
+    <punchState>{${properties.punchState}}</punchState>
+    <punchTypes>{${properties.punchTypes}}</punchTypes>
+    <pageSize>{${properties.pageSize}}</pageSize>
 </ceridiandayforce.getEmployeeRawPunches>
 ```
 
@@ -145,8 +145,8 @@ We can use POST Employee Raw Punches operation with required parameters to creat
 **POST Employee Raw Punches**
 ```xml
 <ceridiandayforce.postEmployeeRawPunches>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postEmployeeRawPunches>
 ```
 
@@ -206,14 +206,14 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.filterTransactionStartTimeUTC)" name="filterTransactionStartTimeUTC"/>
          <property expression="json-eval($.filterTransactionEndTimeUTC)" name="filterTransactionEndTimeUTC"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeeRawPunches>
-            <filterTransactionStartTimeUTC>{$ctx:filterTransactionStartTimeUTC}</filterTransactionStartTimeUTC>
-            <filterTransactionEndTimeUTC>{$ctx:filterTransactionEndTimeUTC}</filterTransactionEndTimeUTC>
+            <filterTransactionStartTimeUTC>{${properties.filterTransactionStartTimeUTC}}</filterTransactionStartTimeUTC>
+            <filterTransactionEndTimeUTC>{${properties.filterTransactionEndTimeUTC}}</filterTransactionEndTimeUTC>
          </ceridiandayforce.getEmployeeRawPunches>
          <send/>
       </inSequence>

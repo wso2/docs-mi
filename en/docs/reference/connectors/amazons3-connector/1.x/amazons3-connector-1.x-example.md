@@ -56,17 +56,17 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
                 <accessKeyId>AKICJA4J6GE6D6JSVB7B</accessKeyId>
                 <secretAccessKey>H/P/H6Tey2fQODHAU1JBbl/NhL/WpSaEkebvLlp4</secretAccessKey>
                 <region>us-east-2</region>
-                <methodType>{$ctx:REST_METHOD}</methodType>
+                <methodType>{${properties.REST_METHOD}}</methodType>
                 <addCharset>false</addCharset>
                 <host>s3.us-east-2.amazonaws.com</host>
                 <isXAmzDate>true</isXAmzDate>
-                <bucketName>{$ctx:bucketName}</bucketName>
+                <bucketName>{${properties.bucketName}}</bucketName>
                 <expect>100-continue</expect>
                 <xAmzAcl>public-read</xAmzAcl>
             </amazons3.init>
             <amazons3.createBucket>
-                <bucketUrl>{$ctx:bucketUrl}</bucketUrl>
-                <bucketRegion>{$ctx:bucketRegion}</bucketRegion>
+                <bucketUrl>{${properties.bucketUrl}}</bucketUrl>
+                <bucketRegion>{${properties.bucketRegion}}</bucketRegion>
             </amazons3.createBucket>
             <respond/>
         </inSequence>
@@ -96,19 +96,19 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
             <!-- initialize multiPart upload -->
             <property name="methodType" scope="default" type="STRING" value="POST"/>
             <amazons3.init>
-                <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-                <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-                <region>{$ctx:region}</region>
-                <methodType>{$ctx:methodType}</methodType>
-                <contentType>{$ctx:ContentType}</contentType>
-                <addCharset>{$ctx:addCharset}</addCharset>
-                <host>{$ctx:host}</host>
-                <isXAmzDate>{$ctx:isXAmzDate}</isXAmzDate>
+                <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+                <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+                <region>{${properties.region}}</region>
+                <methodType>{${properties.methodType}}</methodType>
+                <contentType>{${properties.ContentType}}</contentType>
+                <addCharset>{${properties.addCharset}}</addCharset>
+                <host>{${properties.host}}</host>
+                <isXAmzDate>{${properties.isXAmzDate}}</isXAmzDate>
                 <expect>100-continue</expect>
             </amazons3.init>
             <amazons3.initMultipartUpload>
-                <bucketUrl>{$ctx:bucketUrl}</bucketUrl>
-                <objectName>{$ctx:objectName}</objectName>
+                <bucketUrl>{${properties.bucketUrl}}</bucketUrl>
+                <objectName>{${properties.objectName}}</objectName>
             </amazons3.initMultipartUpload>
             <!-- We need to interpret the response as application/xml-->
             <property name="ContentType" scope="axis2" type="STRING" value="application/xml"/>
@@ -116,34 +116,34 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
             <!-- Extract generated uploadId -->
             <property expression="$body//m0:UploadId" name="uploadId" scope="default" type="STRING" xmlns:m0="http://s3.amazonaws.com/doc/2006-03-01/"/>
             <log level="custom">
-                <property expression="$ctx:uploadId" name="uploadId"/>
+                <property expression="${properties.uploadId}" name="uploadId"/>
             </log>
             <!-- execute multiPart upload -->
             <property name="methodType" scope="default" type="STRING" value="PUT"/>
             <amazons3.init>
-                <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-                <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-                <region>{$ctx:region}</region>
-                <methodType>{$ctx:methodType}</methodType>
-                <contentType>{$ctx:ContentType}</contentType>
-                <addCharset>{$ctx:addCharset}</addCharset>
-                <host>{$ctx:host}</host>
-                <isXAmzDate>{$ctx:isXAmzDate}</isXAmzDate>
+                <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+                <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+                <region>{${properties.region}}</region>
+                <methodType>{${properties.methodType}}</methodType>
+                <contentType>{${properties.ContentType}}</contentType>
+                <addCharset>{${properties.addCharset}}</addCharset>
+                <host>{${properties.host}}</host>
+                <isXAmzDate>{${properties.isXAmzDate}}</isXAmzDate>
                 <expect>100-continue</expect>
             </amazons3.init>
             <!--Create body of the message to upload-->
             <payloadFactory media-type="text">
                 <format>$1</format>
                 <args>
-                    <arg evaluator="xml" expression="$ctx:msgContent"/>
+                    <arg evaluator="xml" expression="${properties.msgContent}"/>
                 </args>
             </payloadFactory>
             <property name="partNumber" scope="default" type="STRING" value="1"/>
             <amazons3.uploadPart>
-                <bucketUrl>{$ctx:bucketUrl}</bucketUrl>
-                <objectName>{$ctx:objectName}</objectName>
-                <uploadId>{$ctx:uploadId}</uploadId>
-                <partNumber>{$ctx:partNumber}</partNumber>
+                <bucketUrl>{${properties.bucketUrl}}</bucketUrl>
+                <objectName>{${properties.objectName}}</objectName>
+                <uploadId>{${properties.uploadId}}</uploadId>
+                <partNumber>{${properties.partNumber}}</partNumber>
             </amazons3.uploadPart>
             <property expression="$trp:ETag" name="eTag" scope="default" type="STRING"/>
             <log level="custom">
@@ -159,24 +159,24 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
                     </partDetails>
                 </format>
                 <args>
-                    <arg evaluator="xml" expression="$ctx:eTag"/>
+                    <arg evaluator="xml" expression="${properties.eTag}"/>
                 </args>
             </payloadFactory>
             <!--complete multiPart upload-->
             <property name="methodType" scope="default" type="STRING" value="POST"/>
             <amazons3.init>
-                <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-                <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-                <methodType>{$ctx:methodType}</methodType>
-                <contentType>{$ctx:contentType}</contentType>
-                <addCharset>{$ctx:addCharset}</addCharset>
-                <isXAmzDate>{$ctx:isXAmzDate}</isXAmzDate>
-                <bucketName>{$ctx:bucketName}</bucketName>
+                <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+                <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+                <methodType>{${properties.methodType}}</methodType>
+                <contentType>{${properties.contentType}}</contentType>
+                <addCharset>{${properties.addCharset}}</addCharset>
+                <isXAmzDate>{${properties.isXAmzDate}}</isXAmzDate>
+                <bucketName>{${properties.bucketName}}</bucketName>
             </amazons3.init>
             <amazons3.completeMultipartUpload>
-                <bucketUrl>{$ctx:bucketUrl}</bucketUrl>
-                <objectName>{$ctx:objectName}</objectName>
-                <uploadId>{$ctx:uploadId}</uploadId>
+                <bucketUrl>{${properties.bucketUrl}}</bucketUrl>
+                <objectName>{${properties.objectName}}</objectName>
+                <uploadId>{${properties.uploadId}}</uploadId>
                 <partDetails>{//partDetails/*}</partDetails>
             </amazons3.completeMultipartUpload>
             <respond/>
@@ -199,14 +199,14 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
                 <secretAccessKey>H/P/G3Tey1fQOKPAU1GBbl/NhL/WpSaEvxbvUlp4</secretAccessKey>
                 <region>us-east-2</region>
                 <methodType>GET</methodType>
-                <contentType>{$ctx:contentType}</contentType>
+                <contentType>{${properties.contentType}}</contentType>
                 <addCharset>false</addCharset>
-                <host>{$ctx:host}</host>
+                <host>{${properties.host}}</host>
                 <isXAmzDate>true</isXAmzDate>
             </amazons3.init>
             <amazons3.getObject>
-                <bucketUrl>{$ctx:bucketUrl}</bucketUrl>
-                <objectName>{$ctx:objectName}</objectName>
+                <bucketUrl>{${properties.bucketUrl}}</bucketUrl>
+                <objectName>{${properties.objectName}}</objectName>
             </amazons3.getObject>
             <respond/>
         </inSequence>

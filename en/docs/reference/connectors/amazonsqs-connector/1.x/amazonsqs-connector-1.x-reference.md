@@ -72,13 +72,13 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.init>
-        <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-        <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-        <version>{$ctx:version}</version>
-        <region>{$ctx:region}</region>
-        <enableSSL>{$ctx:enableSSL}</enableSSL>
-        <contentType>{$ctx:contentType}</contentType>
-        <blocking>{$ctx:blocking}</blocking>
+        <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+        <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+        <version>{${properties.version}}</version>
+        <region>{${properties.region}}</region>
+        <enableSSL>{${properties.enableSSL}}</enableSSL>
+        <contentType>{${properties.contentType}}</contentType>
+        <blocking>{${properties.blocking}}</blocking>
     </amazonsqs.init>
     ```
 
@@ -86,12 +86,12 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.init>
-        <iamRole>{$ctx:iamRole}</iamRole>
-        <version>{$ctx:version}</version>
-        <region>{$ctx:region}</region>
-        <enableSSL>{$ctx:enableSSL}</enableSSL>
-        <contentType>{$ctx:contentType}</contentType>
-        <blocking>{$ctx:blocking}</blocking>
+        <iamRole>{${properties.iamRole}}</iamRole>
+        <version>{${properties.version}}</version>
+        <region>{${properties.region}}</region>
+        <enableSSL>{${properties.enableSSL}}</enableSSL>
+        <contentType>{${properties.contentType}}</contentType>
+        <blocking>{${properties.blocking}}</blocking>
     </amazonsqs.init>
     ```
     
@@ -148,13 +148,13 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.receiveMessage>
-        <maxNumberOfMessages>{$ctx:maxNumberOfMessages}</maxNumberOfMessages>
-        <waitTimeSeconds>{$ctx:waitTimeSeconds}</waitTimeSeconds>
-        <messageAttributeNames>{$ctx:messageAttributeNames}</messageAttributeNames>
-        <visibilityTimeout>{$ctx:visibilityTimeout}</visibilityTimeout>
-        <attributes>{$ctx:attributes}</attributes>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <maxNumberOfMessages>{${properties.maxNumberOfMessages}}</maxNumberOfMessages>
+        <waitTimeSeconds>{${properties.waitTimeSeconds}}</waitTimeSeconds>
+        <messageAttributeNames>{${properties.messageAttributeNames}}</messageAttributeNames>
+        <visibilityTimeout>{${properties.visibilityTimeout}}</visibilityTimeout>
+        <attributes>{${properties.attributes}}</attributes>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.receiveMessage>
     ```
     
@@ -221,13 +221,13 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.sendMessage>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <delaySeconds>{$ctx:delaySeconds}</delaySeconds>
-        <messageAttributes>{$ctx:messageAttributes}</messageAttributes>
-        <messageDeduplicationId>{$ctx:messageDeduplicationId}</messageDeduplicationId>
-        <messageGroupId>{$ctx:messageGroupId}</messageGroupId>  
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <messageBody>{${properties.messageBody}}</messageBody>
+        <delaySeconds>{${properties.delaySeconds}}</delaySeconds>
+        <messageAttributes>{${properties.messageAttributes}}</messageAttributes>
+        <messageDeduplicationId>{${properties.messageDeduplicationId}}</messageDeduplicationId>
+        <messageGroupId>{${properties.messageGroupId}}</messageGroupId>  
     </amazonsqs.sendMessage> 
     ```
     
@@ -293,10 +293,10 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.sendMessageBatch>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <delaySeconds>{$ctx:delaySeconds}</delaySeconds>
-        <messageRequestEntry>{$ctx:messageRequestEntry}</messageRequestEntry>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <delaySeconds>{${properties.delaySeconds}}</delaySeconds>
+        <messageRequestEntry>{${properties.messageRequestEntry}}</messageRequestEntry>
     </amazonsqs.sendMessageBatch> 
     ```
     
@@ -339,9 +339,9 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.deleteMessage>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <receiptHandle>{$ctx:receiptHandle}</receiptHandle>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <receiptHandle>{${properties.receiptHandle}}</receiptHandle>
     </amazonsqs.deleteMessage> 
     ```
     
@@ -384,9 +384,9 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.deleteMessageBatch>
-        <messageRequestEntry>{$ctx:messageRequestEntry}</messageRequestEntry>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <messageRequestEntry>{${properties.messageRequestEntry}}</messageRequestEntry>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.deleteMessageBatch> 
     ```
     
@@ -435,10 +435,10 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.changeMessageVisibility>       
-        <receiptHandle>{$ctx:receiptHandle}</receiptHandle>       
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <visibilityTimeout>{$ctx:visibilityTimeout}</visibilityTimeout>
+        <receiptHandle>{${properties.receiptHandle}}</receiptHandle>       
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <visibilityTimeout>{${properties.visibilityTimeout}}</visibilityTimeout>
     </amazonsqs.changeMessageVisibility> 
     ```
     
@@ -482,9 +482,9 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.changeMessageVisibilityBatch>
-        <messageRequestEntry>{$ctx:messageRequestEntry}</messageRequestEntry>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <messageRequestEntry>{${properties.messageRequestEntry}}</messageRequestEntry>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.changeMessageVisibilityBatch> 
     ```
     
@@ -541,11 +541,11 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.addPermission>
-        <awsAccountNumbers>{$ctx:awsAccountNumbers}</awsAccountNumbers>
-        <actionNames>{$ctx:actionNames}</actionNames>
-        <label>{$ctx:label}</label>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <awsAccountNumbers>{${properties.awsAccountNumbers}}</awsAccountNumbers>
+        <actionNames>{${properties.actionNames}}</actionNames>
+        <label>{${properties.label}}</label>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.addPermission>
     ```
     
@@ -591,9 +591,9 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.removePermission>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <label>{$ctx:label}</label>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <label>{${properties.label}}</label>
     </amazonsqs.removePermission>
     ```
     
@@ -634,8 +634,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.createQueue>
-        <queueName>{$ctx:queueName}</queueName>
-        <attributeEntries>{$ctx:attributeEntries}</attributeEntries>
+        <queueName>{${properties.queueName}}</queueName>
+        <attributeEntries>{${properties.attributeEntries}}</attributeEntries>
     </amazonsqs.createQueue>
     ```
     
@@ -673,8 +673,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.deleteQueue>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.deleteQueue>
     ```
     
@@ -717,9 +717,9 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.setQueueAttributes>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <attributeEntries>{$ctx:attributeEntries}</attributeEntries>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <attributeEntries>{${properties.attributeEntries}}</attributeEntries>
     </amazonsqs.setQueueAttributes>
     ```
     
@@ -763,9 +763,9 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.getQueueAttributes>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
-        <attributes>{$ctx:attributes}</attributes>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
+        <attributes>{${properties.attributes}}</attributes>
     </amazonsqs.getQueueAttributes>
     ```
     
@@ -803,8 +803,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.getQueueUrl>
-        <queueName>{$ctx:queueName}</queueName>
-        <accountId>{$ctx:accountId}</accountId>
+        <queueName>{${properties.queueName}}</queueName>
+        <accountId>{${properties.accountId}}</accountId>
     </amazonsqs.getQueueUrl>
     ```
     
@@ -842,8 +842,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.listDeadLetterSourceQueues>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.listDeadLetterSourceQueues>
     ```
     
@@ -876,7 +876,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.listQueues>
-        <queueNamePrefix>{$ctx:queueNamePrefix}</queueNamePrefix>
+        <queueNamePrefix>{${properties.queueNamePrefix}}</queueNamePrefix>
     </amazonsqs.listQueues>
     ```
     
@@ -911,8 +911,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.purgeQueue>
-        <queueId>{$ctx:queueId}</queueId>
-        <queueName>{$ctx:queueName}</queueName>
+        <queueId>{${properties.queueId}}</queueId>
+        <queueName>{${properties.queueName}}</queueName>
     </amazonsqs.purgeQueue>
     ```
     

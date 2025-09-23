@@ -111,8 +111,8 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
 			<property expression="json-eval($.documents)" name="documents" scope="default" type="JSON"/>
 			<mongodb.insertMany configKey="connectionURI">
-				<collection>{$ctx:collection}</collection>
-				<documents>{$ctx:documents}</documents>
+				<collection>{${properties.collection}}</collection>
+				<documents>{${properties.documents}}</documents>
 				<ordered>True</ordered>
 			</mongodb.insertMany>
 			<respond/>
@@ -125,8 +125,8 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
 			<property expression="json-eval($.query)" name="query" scope="default" type="JSON"/>
 			<mongodb.find configKey="connectionURI">
-				<collection>{$ctx:collection}</collection>
-				<query>{$ctx:query}</query>
+				<collection>{${properties.collection}}</collection>
+				<query>{${properties.query}}</query>
 			</mongodb.find>
 			<respond/>
 		</inSequence>

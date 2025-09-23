@@ -98,10 +98,10 @@ To use the Amazon SQS connector, first create the connection with your configura
     **Sample configuration**
     ```xml
         <amazonsqs.init>
-            <awsAccessKeyId>{$ctx:awsAccessKeyId}</awsAccessKeyId>
-            <awsSecretAccessKey>{$ctx:awsSecretAccessKey}</awsSecretAccessKey>
-            <name>{$ctx:connectionName}</name>
-            <region>{$ctx:region}</region>
+            <awsAccessKeyId>{${properties.awsAccessKeyId}}</awsAccessKeyId>
+            <awsSecretAccessKey>{${properties.awsSecretAccessKey}}</awsSecretAccessKey>
+            <name>{${properties.connectionName}}</name>
+            <region>{${properties.region}}</region>
         </amazonsqs.init>
     ```
     
@@ -172,15 +172,15 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.receiveMessage configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <maxNumberOfMessages>{$ctx:maxNumberOfMessages}</maxNumberOfMessages>
-        <waitTimeSeconds>{$ctx:waitTimeSeconds}</waitTimeSeconds>
-        <messageAttributeNames>{$ctx:messageAttributeNames}</messageAttributeNames>
-        <messageSystemAttributeNames>{$ctx:messageSystemAttributeNames}</messageSystemAttributeNames>
-        <visibilityTimeout>{$ctx:visibilityTimeout}</visibilityTimeout>
-        <attributes>{$ctx:attributes}</attributes>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <maxNumberOfMessages>{${properties.maxNumberOfMessages}}</maxNumberOfMessages>
+        <waitTimeSeconds>{${properties.waitTimeSeconds}}</waitTimeSeconds>
+        <messageAttributeNames>{${properties.messageAttributeNames}}</messageAttributeNames>
+        <messageSystemAttributeNames>{${properties.messageSystemAttributeNames}}</messageSystemAttributeNames>
+        <visibilityTimeout>{${properties.visibilityTimeout}}</visibilityTimeout>
+        <attributes>{${properties.attributes}}</attributes>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.receiveMessage>
     ```
     
@@ -256,15 +256,15 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.sendMessage configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <delaySeconds>{$ctx:delaySeconds}</delaySeconds>
-        <messageAttributes>{$ctx:messageAttributes}</messageAttributes>
-        <messageSystemAttributes>{$ctx:messageSystemAttributes}</messageSystemAttributes>
-        <messageDeduplicationId>{$ctx:messageDeduplicationId}</messageDeduplicationId>
-        <messageGroupId>{$ctx:messageGroupId}</messageGroupId>  
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <messageBody>{${properties.messageBody}}</messageBody>
+        <delaySeconds>{${properties.delaySeconds}}</delaySeconds>
+        <messageAttributes>{${properties.messageAttributes}}</messageAttributes>
+        <messageSystemAttributes>{${properties.messageSystemAttributes}}</messageSystemAttributes>
+        <messageDeduplicationId>{${properties.messageDeduplicationId}}</messageDeduplicationId>
+        <messageGroupId>{${properties.messageGroupId}}</messageGroupId>  
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.sendMessage> 
     ```
     
@@ -310,10 +310,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.sendMessageBatch configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <messageRequestEntries>{$ctx:messageRequestEntries}</messageRequestEntries>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <messageRequestEntries>{${properties.messageRequestEntries}}</messageRequestEntries>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.sendMessageBatch> 
     ```
     
@@ -361,10 +361,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.deleteMessage configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <receiptHandle>{$ctx:receiptHandle}</receiptHandle>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <receiptHandle>{${properties.receiptHandle}}</receiptHandle>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.deleteMessage> 
     ```
     
@@ -411,10 +411,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.deleteMessageBatch configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <messageRequestEntries>{$ctx:messageRequestEntries}</messageRequestEntries>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <messageRequestEntries>{${properties.messageRequestEntries}}</messageRequestEntries>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.deleteMessageBatch> 
     ```
     
@@ -423,7 +423,7 @@ To use the Amazon SQS connector, first create the connection with your configura
     ```xml
     <amazonsqs.deleteMessageBatch configKey="AMAZON_SQS_CONNECTION">
         <queueUrl>https://sqs.us-west-2.amazonaws.com/882234390511/Queue</queueUrl>
-        <messageRequestEntries>{$ctx:messageRequestEntries}</messageRequestEntries>
+        <messageRequestEntries>{${properties.messageRequestEntries}}</messageRequestEntries>
     </amazonsqs.deleteMessageBatch>   
     ```
 ---
@@ -467,11 +467,11 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.changeMessageVisibility configKey="CONNECTION_NAME">  
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <receiptHandle>{$ctx:receiptHandle}</receiptHandle>
-        <visibilityTimeout>{$ctx:visibilityTimeout}</visibilityTimeout>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <receiptHandle>{${properties.receiptHandle}}</receiptHandle>
+        <visibilityTimeout>{${properties.visibilityTimeout}}</visibilityTimeout>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.changeMessageVisibility> 
     ```
     
@@ -520,10 +520,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.changeMessageVisibilityBatch configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <messageRequestEntries>{$ctx:messageRequestEntries}</messageRequestEntries>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <messageRequestEntries>{${properties.messageRequestEntries}}</messageRequestEntries>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.changeMessageVisibilityBatch> 
     ```
     
@@ -583,12 +583,12 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.addPermission configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <awsAccountNumbers>{$ctx:awsAccountNumbers}</awsAccountNumbers>
-        <actionNames>{$ctx:actionNames}</actionNames>
-        <label>{$ctx:label}</label>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <awsAccountNumbers>{${properties.awsAccountNumbers}}</awsAccountNumbers>
+        <actionNames>{${properties.actionNames}}</actionNames>
+        <label>{${properties.label}}</label>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.addPermission>
     ```
     
@@ -638,10 +638,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.removePermission configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <label>{$ctx:label}</label>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <label>{${properties.label}}</label>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.removePermission>
     ```
     
@@ -696,11 +696,11 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.createQueue configKey="CONNECTION_NAME">
-        <queueName>{$ctx:queueName}</queueName>
-        <attributeEntries>{$ctx:attributeEntries}</attributeEntries>
-        <tags>{$ctx:tags}</tags>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueName>{${properties.queueName}}</queueName>
+        <attributeEntries>{${properties.attributeEntries}}</attributeEntries>
+        <tags>{${properties.tags}}</tags>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.createQueue>
     ```
     
@@ -744,9 +744,9 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.deleteQueue configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.deleteQueue>
     ```
     
@@ -793,10 +793,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.setQueueAttributes configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <attributeEntries>{$ctx:queueUrl}</attributeEntries>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <attributeEntries>{${properties.queueUrl}}</attributeEntries>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.setQueueAttributes>
     ```
     
@@ -844,10 +844,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.getQueueAttributes configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <attributes>{$ctx:attributes}</attributes>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <attributes>{${properties.attributes}}</attributes>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.getQueueAttributes>
     ```
     
@@ -894,10 +894,10 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.getQueueUrl configKey="CONNECTION_NAME">
-        <queueName>{$ctx:queueName}</queueName>
-        <accountId>{$ctx:accountId}</accountId>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueName>{${properties.queueName}}</queueName>
+        <accountId>{${properties.accountId}}</accountId>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.getQueueUrl>
     ```
     
@@ -950,11 +950,11 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.listDeadLetterSourceQueues configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <nextToken>{$ctx:nextToken}</nextToken>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <nextToken>{${properties.nextToken}}</nextToken>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.listDeadLetterSourceQueues>
     ```
     
@@ -1006,11 +1006,11 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.listQueues configKey="CONNECTION_NAME">
-        <queueNamePrefix>{$ctx:queueNamePrefix}</queueNamePrefix>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <nextToken>{$ctx:nextToken}</nextToken>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueNamePrefix>{${properties.queueNamePrefix}}</queueNamePrefix>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <nextToken>{${properties.nextToken}}</nextToken>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.listQueues>
     ```
     
@@ -1050,9 +1050,9 @@ To use the Amazon SQS connector, first create the connection with your configura
 
     ```xml
     <amazonsqs.purgeQueue configKey="CONNECTION_NAME">
-        <queueUrl>{$ctx:queueUrl}</queueUrl>
-        <apiCallTimeout>{$ctx:apiCallTimeout}</apiCallTimeout>
-        <apiCallAttemptTimeout>{$ctx:apiCallAttemptTimeout}</apiCallAttemptTimeout>
+        <queueUrl>{${properties.queueUrl}}</queueUrl>
+        <apiCallTimeout>{${properties.apiCallTimeout}}</apiCallTimeout>
+        <apiCallAttemptTimeout>{${properties.apiCallAttemptTimeout}}</apiCallAttemptTimeout>
     </amazonsqs.purgeQueue>
     ```
     

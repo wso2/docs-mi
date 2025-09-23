@@ -18,9 +18,9 @@ We can use PATCH I-9 Order operation with required parameters to search and find
 **PATCH I-9 Order**
 ```xml
 <ceridiandayforce.patchI9Order>
-    <i9OrderId>{$ctx:i9OrderId}</i9OrderId>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <i9OrderId>{${properties.i9OrderId}}</i9OrderId>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.patchI9Order>
 ```
 
@@ -82,15 +82,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.fieldAndValue)" name="fieldAndValue"/>
          <property expression="json-eval($.i9OrderId)" name="i9OrderId"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.patchI9Order>
-            <i9OrderId>{$ctx:i9OrderId}</i9OrderId>
-            <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-            <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+            <i9OrderId>{${properties.i9OrderId}}</i9OrderId>
+            <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+            <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
          </ceridiandayforce.patchI9Order>
          <send/>
       </inSequence>

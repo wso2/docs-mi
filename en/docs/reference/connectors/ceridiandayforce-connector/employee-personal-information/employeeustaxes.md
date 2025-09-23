@@ -20,10 +20,10 @@ We can use GET Employee US Federal Taxes operation with required parameters to r
 **GET Employee US Federal Taxes**
 ```xml
 <ceridiandayforce.getEmployeeUSFederalTaxes>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeUSFederalTaxes>
 ```
 
@@ -84,10 +84,10 @@ We can use GET Employee US State Taxes operation with required parameters to ret
 **GET Employee US State Taxes**
 ```xml
 <ceridiandayforce.getEmployeeUSStateTaxes>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeUSStateTaxes>
 ```
 
@@ -152,10 +152,10 @@ We can use GET Employee US Employee Tax Statuses operation with required paramet
 **GET Employee Addresses**
 ```xml
 <ceridiandayforce.getEmployeeUSTaxStatuses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeUSTaxStatuses>
 ```
 
@@ -241,13 +241,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeeUSTaxStatuses>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
          </ceridiandayforce.getEmployeeUSTaxStatuses>
          <send/>
       </inSequence>

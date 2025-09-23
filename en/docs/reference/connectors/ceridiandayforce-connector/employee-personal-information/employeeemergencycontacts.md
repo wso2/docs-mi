@@ -20,10 +20,10 @@ We can use GET Employee Emergency Contacts operation with required parameters to
 **GET Employee Emergency Addresses**
 ```xml
 <ceridiandayforce.getEmployeeEmergencyContacts>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeEmergencyContacts>
 ```
 
@@ -114,9 +114,9 @@ We can use POST Employee Emergency Contacts operation with required parameters t
 **POST Employee Emergency Contacts**
 ```xml
 <ceridiandayforce.postEmployeeEmergencyContacts>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postEmployeeEmergencyContacts>
 ```
 
@@ -199,9 +199,9 @@ We can use PATCH Employee Emergency Contacts operation with required parameters 
 **PATCH Employee Emergency Contacts**
 ```xml
 <ceridiandayforce.patchEmployeeEmergencyContacts>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.patchEmployeeEmergencyContacts>
 ```
 
@@ -302,15 +302,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.fieldAndValue)" name="fieldAndValue"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.patchEmployeeEmergencyContacts>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-            <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+            <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
          </ceridiandayforce.patchEmployeeEmergencyContacts>
          <send/>
       </inSequence>

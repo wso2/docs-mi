@@ -62,14 +62,14 @@ Google Pub/Sub uses the OAuth 2.0 protocol for authentication and authorization.
 
     ```xml
     <googlepubsub.init>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <blocking>{$ctx:blocking}</blocking>
-        <tokenEndpoint>{$ctx:tokenEndpoint}</tokenEndpoint>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <blocking>{${properties.blocking}}</blocking>
+        <tokenEndpoint>{${properties.tokenEndpoint}}</tokenEndpoint>
     </googlepubsub.init>
     ```
 
@@ -101,8 +101,8 @@ Google Pub/Sub uses the OAuth 2.0 protocol for authentication and authorization.
 
     ```xml
     <googlepubsub.createTopic>
-        <topicName>{$ctx:topicName}</topicName>
-        <projectId>{$ctx:projectId}</projectId>
+        <topicName>{${properties.topicName}}</topicName>
+        <projectId>{${properties.projectId}}</projectId>
     </googlepubsub.createTopic>
     ```
     
@@ -152,10 +152,10 @@ Google Pub/Sub uses the OAuth 2.0 protocol for authentication and authorization.
 
     ```xml
     <googlepubsub.publishMessage>
-        <topicName>{$ctx:topicName}</topicName>
-        <projectId>{$ctx:projectId}</projectId>
-        <data>{$ctx:data}</data>
-        <attributes>{$ctx:attributes}</attributes>
+        <topicName>{${properties.topicName}}</topicName>
+        <projectId>{${properties.projectId}}</projectId>
+        <data>{${properties.data}}</data>
+        <attributes>{${properties.attributes}}</attributes>
     </googlepubsub.publishMessage>
     ```
     
@@ -217,12 +217,12 @@ Google Pub/Sub uses the OAuth 2.0 protocol for authentication and authorization.
 
     ```xml
     <googlepubsub.createTopicSubscription>
-        <topicName>{$ctx:topicName}</topicName>
-        <projectId>{$ctx:projectId}</projectId>
-        <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-        <ackDeadlineSeconds>{$ctx:ackDeadlineSeconds}</ackDeadlineSeconds>
-        <pushEndpoint>{$ctx:pushEndpoint}</pushEndpoint>
-        <attributes>{$ctx:attributes}</attributes>
+        <topicName>{${properties.topicName}}</topicName>
+        <projectId>{${properties.projectId}}</projectId>
+        <subscriptionName>{${properties.subscriptionName}}</subscriptionName>
+        <ackDeadlineSeconds>{${properties.ackDeadlineSeconds}}</ackDeadlineSeconds>
+        <pushEndpoint>{${properties.pushEndpoint}}</pushEndpoint>
+        <attributes>{${properties.attributes}}</attributes>
     </googlepubsub.createTopicSubscription>
     ```
     
@@ -281,11 +281,11 @@ Google Pub/Sub uses the OAuth 2.0 protocol for authentication and authorization.
 
     ```xml
     <googlepubsub.pullMessage>
-        <topicName>{$ctx:topicName}</topicName>
-        <projectId>{$ctx:projectId}</projectId>
-        <subscriptionName>{$ctx:subscriptionName}</subscriptionName>
-        <maxMessages>{$ctx:maxMessages}</maxMessages>
-        <returnImmediately>{$ctx:returnImmediately}</returnImmediately>
+        <topicName>{${properties.topicName}}</topicName>
+        <projectId>{${properties.projectId}}</projectId>
+        <subscriptionName>{${properties.subscriptionName}}</subscriptionName>
+        <maxMessages>{${properties.maxMessages}}</maxMessages>
+        <returnImmediately>{${properties.returnImmediately}}</returnImmediately>
     </googlepubsub.pullMessage>
     ```
     

@@ -18,7 +18,7 @@ We can use GET Document Details operation with required parameters to retrieve d
 **GET Document Details**
 ```xml
 <ceridiandayforce.getDocumentDetails>
-    <documentGuid>{$ctx:documentGuid}</documentGuid>
+    <documentGuid>{${properties.documentGuid}}</documentGuid>
 </ceridiandayforce.getDocumentDetails>
 ```
 
@@ -87,13 +87,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.documentGuid)" name="documentGuid"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getDocumentDetails>
-            <documentGuid>{$ctx:documentGuid}</documentGuid>
+            <documentGuid>{${properties.documentGuid}}</documentGuid>
          </ceridiandayforce.getDocumentDetails>
          <send/>
       </inSequence>

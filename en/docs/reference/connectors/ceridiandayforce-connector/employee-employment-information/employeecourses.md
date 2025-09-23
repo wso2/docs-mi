@@ -18,7 +18,7 @@ We can use GET Employee Courses operation with required parameters to search and
 **GET Employee Addresses**
 ```xml
 <ceridiandayforce.getEmployeeCourses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
 </ceridiandayforce.getEmployeeCourses>
 ```
 
@@ -95,13 +95,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeeCourses>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
          </ceridiandayforce.getEmployeeCourses>
          <send/>
       </inSequence>

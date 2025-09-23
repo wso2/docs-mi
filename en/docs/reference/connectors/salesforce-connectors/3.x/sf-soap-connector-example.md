@@ -151,7 +151,7 @@ Now follow the steps below to add configurations to the resource.
                         <format>
                             <sfdc:sObjects type="Account" xmlns:sfdc="sfdc">
                                 <sfdc:sObject>
-                                    <sfdc:Name>{$ctx:Name}</sfdc:Name>
+                                    <sfdc:Name>{${properties.Name}}</sfdc:Name>
                                 </sfdc:sObject>
                             </sfdc:sObjects>
                         </format>

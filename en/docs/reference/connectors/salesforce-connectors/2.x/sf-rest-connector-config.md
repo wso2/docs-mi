@@ -87,11 +87,11 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.init>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <hostName>{$ctx:hostName}</hostName>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
-        <blocking>{$ctx:blocking}</blocking>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <hostName>{${properties.hostName}}</hostName>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
+        <blocking>{${properties.blocking}}</blocking>
     </salesforcerest.init>
     ```
 
@@ -113,14 +113,14 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
     
     ```xml
     <salesforcerest.init>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <hostName>{$ctx:hostName}</hostName>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <blocking>{$ctx:blocking}</blocking>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <hostName>{${properties.hostName}}</hostName>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <blocking>{${properties.blocking}}</blocking>
     </salesforcerest.init>
     ```
 
@@ -202,14 +202,14 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.init>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <hostName>{$ctx:hostName}</hostName>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
-        <username>{$ctx:username}</username>
-        <password>{$ctx:password}</password>
-        <blocking>{$ctx:blocking}</blocking>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <hostName>{${properties.hostName}}</hostName>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
+        <username>{${properties.username}}</username>
+        <password>{${properties.password}}</password>
+        <blocking>{${properties.blocking}}</blocking>
     </salesforcerest.init>
     ```
 
@@ -253,7 +253,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.listItemsInMenu>
-        <menuType>{$ctx:menuType}</menuType>
+        <menuType>{${properties.menuType}}</menuType>
     </salesforcerest.listItemsInMenu>
     ```
     
@@ -465,7 +465,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.queryEventMonitoringData>
-        <queryStringForEventMonitoringData>{$ctx:queryStringForEventMonitoringData}</queryStringForEventMonitoringData>
+        <queryStringForEventMonitoringData>{${properties.queryStringForEventMonitoringData}}</queryStringForEventMonitoringData>
     </salesforcerest.queryEventMonitoringData>
     ```
     
@@ -579,7 +579,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getSpecificListOfAction>
-        <actionType>{$ctx:actionType}</actionType>
+        <actionType>{${properties.actionType}}</actionType>
     </salesforcerest.getSpecificListOfAction>
     ```
     
@@ -635,8 +635,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getAttributeOfSpecificAction>
-        <actionType>{$ctx:actionType}</actionType>
-        <attribute>{$ctx:attribute}</attribute>
+        <actionType>{${properties.actionType}}</actionType>
+        <attribute>{${properties.attribute}}</attribute>
     </salesforcerest.getAttributeOfSpecificAction>
     ```
     
@@ -700,7 +700,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectLayouts>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.sObjectLayouts>
     ```
     
@@ -916,7 +916,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectApprovalLayouts>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.sObjectApprovalLayouts>
     ```
     
@@ -963,7 +963,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectCompactLayouts>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.sObjectCompactLayouts>
     ```
     
@@ -1041,8 +1041,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectNamedLayouts>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <layoutName>{$ctx:layoutName}</layoutName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <layoutName>{${properties.layoutName}}</layoutName>
     </salesforcerest.sObjectNamedLayouts>
     ```
     
@@ -1136,7 +1136,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.listViews>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.listViews>
     ```
     
@@ -1207,8 +1207,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.listViewById>
-        <listViewID>{$ctx:listViewID}</listViewID>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <listViewID>{${properties.listViewID}}</listViewID>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.listViewById>
     ```
     
@@ -1264,7 +1264,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.recentListViews>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.recentListViews>
     ```
     
@@ -1335,8 +1335,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.describeListViewById>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <listViewID>{$ctx:listViewID}</listViewID>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <listViewID>{${properties.listViewID}}</listViewID>
     </salesforcerest.describeListViewById>
     ```
     
@@ -1430,8 +1430,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.listViewResults>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <listViewID>{$ctx:listViewID}</listViewID>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <listViewID>{${properties.listViewID}}</listViewID>
     </salesforcerest.listViewResults>
     ```
     
@@ -1546,8 +1546,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getSpecificProcessRule>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <workflowRuleId>{$ctx:workflowRuleId}</workflowRuleId>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <workflowRuleId>{${properties.workflowRuleId}}</workflowRuleId>
     </salesforcerest.getSpecificProcessRule>
     ```
     
@@ -1610,7 +1610,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.query>
-        <queryString>{$ctx:queryString}</queryString>
+        <queryString>{${properties.queryString}}</queryString>
     </salesforcerest.query>
     ```
 
@@ -1618,7 +1618,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.queryAll>
-        <queryString>{$ctx:queryString}</queryString>
+        <queryString>{${properties.queryString}}</queryString>
     </salesforcerest.queryAll>
     ```
     
@@ -1693,7 +1693,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.queryMore>
-        <nextRecordsUrl>{$ctx:nextRecordsUrl}</nextRecordsUrl>
+        <nextRecordsUrl>{${properties.nextRecordsUrl}}</nextRecordsUrl>
     </salesforcerest.queryMore>
     ```
 
@@ -1701,7 +1701,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.queryAllMore>
-        <nextRecordsUrl>{$ctx:nextRecordsUrl}</nextRecordsUrl>
+        <nextRecordsUrl>{${properties.nextRecordsUrl}}</nextRecordsUrl>
     </salesforcerest.queryAllMore>
     ```
     
@@ -1752,7 +1752,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.queryPerformanceFeedback>
-        <queryString>{$ctx:queryString}</queryString>
+        <queryString>{${properties.queryString}}</queryString>
     </salesforcerest.queryPerformanceFeedback>
     ```
     
@@ -1812,7 +1812,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.listviewQueryPerformanceFeedback>
-        <listViewID>{$ctx:listViewID}</listViewID>
+        <listViewID>{${properties.listViewID}}</listViewID>
     </salesforcerest.listviewQueryPerformanceFeedback>
     ```
     
@@ -1927,7 +1927,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectAction>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.sObjectAction>
     ```
 
@@ -1985,7 +1985,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getSpecificAction>
-        <actionName>{$ctx:actionName}</actionName>
+        <actionName>{${properties.actionName}}</actionName>
     </salesforcerest.getSpecificAction>
     ```
 
@@ -2053,7 +2053,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getDescribeSpecificAction>
-        <actionName>{$ctx:actionName}</actionName>
+        <actionName>{${properties.actionName}}</actionName>
     </salesforcerest.getDescribeSpecificAction>
     ```
 
@@ -2121,7 +2121,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getDefaultValueOfAction>
-        <actionName>{$ctx:actionName}</actionName>
+        <actionName>{${properties.actionName}}</actionName>
     </salesforcerest.getDefaultValueOfAction>
     ```
 
@@ -2195,8 +2195,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.create>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
     </salesforcerest.create>
     ```
 
@@ -2293,8 +2293,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.createMultipleRecords>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
     </salesforcerest.createMultipleRecords>
     ```
 
@@ -2483,8 +2483,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.createNestedRecords>
-        <sObjectName>{$ctx:sObjectName}</sobject>
-        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+        <sObjectName>{${properties.sObjectName}}</sobject>
+        <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
     </salesforcerest.createNestedRecords>
     ```
 
@@ -2620,9 +2620,9 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.update>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-        <Id>{$ctx:Id}</Id>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+        <Id>{${properties.Id}}</Id>
     </salesforcerest.update>
     ```
 
@@ -2672,9 +2672,9 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.update>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-        <Id>{$ctx:Id}</Id>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+        <Id>{${properties.Id}}</Id>
     </salesforcerest.update>
     ```
 
@@ -2714,7 +2714,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.recentlyViewedItem>
-        <limit>{$ctx:limit}</limit>
+        <limit>{${properties.limit}}</limit>
     </salesforcerest.recentlyViewedItem>
     ```
 
@@ -2861,10 +2861,10 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.upsert>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <externalIDField>{$ctx:externalIDField}</externalIDField>
-        <Id>{$ctx:Id}</Id>
-        <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <externalIDField>{${properties.externalIDField}}</externalIDField>
+        <Id>{${properties.Id}}</Id>
+        <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
     </salesforcerest.upsert>
     ```
 
@@ -2941,9 +2941,9 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getDeleted>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <startTime>{$ctx:startTime}</startTime>
-        <endTime>{$ctx:endTime}</endTime>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <startTime>{${properties.startTime}}</startTime>
+        <endTime>{${properties.endTime}}</endTime>
     </salesforcerest.getDeleted>
     ```
 
@@ -3014,9 +3014,9 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getUpdated>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <startTime>{$ctx:startTime}</startTime>
-        <endTime>{$ctx:endTime}</endTime>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <startTime>{${properties.startTime}}</startTime>
+        <endTime>{${properties.endTime}}</endTime>
     </salesforcerest.getUpdated>
     ```
 
@@ -3136,7 +3136,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.describeSObject>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.describeSObject>
     ```
 
@@ -3330,7 +3330,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectBasicInfo>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.sObjectBasicInfo>
     ```
 
@@ -3417,9 +3417,9 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectGetDeleted>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <startTime>{$ctx:startTime}</startTime>
-        <endTime>{$ctx:endTime}</endTime>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <startTime>{${properties.startTime}}</startTime>
+        <endTime>{${properties.endTime}}</endTime>
     </salesforcerest.sObjectGetDeleted>
     ```
 
@@ -3508,9 +3508,9 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectGetUpdated>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <startTime>{$ctx:startTime}</startTime>
-        <endTime>{$ctx:endTime}</endTime>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <startTime>{${properties.startTime}}</startTime>
+        <endTime>{${properties.endTime}}</endTime>
     </salesforcerest.sObjectGetUpdated>
     ```
 
@@ -3631,8 +3631,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.sObjectRows>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
-        <rowId>{$ctx:rowId}</rowId>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
+        <rowId>{${properties.rowId}}</rowId>
     </salesforcerest.sObjectRows>
     ```
 
@@ -3685,7 +3685,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.search>
-        <searchString>{$ctx:searchString}</searchString>
+        <searchString>{${properties.searchString}}</searchString>
     </salesforcerest.search>
     ```
 
@@ -3766,7 +3766,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.searchResultLayout>
-        <sObjectNameList>{$ctx:sObjectNameList}</sObjectNameList>
+        <sObjectNameList>{${properties.sObjectNameList}}</sObjectNameList>
     </salesforcerest.searchResultLayout>
     ```
 
@@ -3821,8 +3821,8 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.searchSuggestedRecords>
-        <stringForSearch>{$ctx:stringForSearch}</stringForSearch>
-        <sObjectName>{$ctx:sObjectName}</sObjectName>
+        <stringForSearch>{${properties.stringForSearch}}</stringForSearch>
+        <sObjectName>{${properties.sObjectName}}</sObjectName>
     </salesforcerest.searchSuggestedRecords>
     ```
 
@@ -3874,7 +3874,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getUserInformation>
-        <userId>{$ctx:userId}</userId>
+        <userId>{${properties.userId}}</userId>
     </salesforcerest.getUserInformation>
     ```
 
@@ -3938,7 +3938,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getUserInformation>
-        <userId>{$ctx:userId}</userId>
+        <userId>{${properties.userId}}</userId>
     </salesforcerest.getUserInformation>
     ```
 
@@ -3992,7 +3992,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforcerest.getReport>
-        <reportId>{$ctx:reportId}</reportId>
+        <reportId>{${properties.reportId}}</reportId>
     </salesforcerest.getReport>
     ```
 

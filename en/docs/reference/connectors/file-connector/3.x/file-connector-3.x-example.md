@@ -48,7 +48,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - **Value Type** : EXPRESSION
     - **Value Expression** : json-eval($.inputContent)
 
-7. Drag and drop the create operation of the File Connector to the Design View as shown below. Set the parameter values as below. We use the property values that we added in step 4 and 5 in this step as `$ctx:filePath` and `$ctx:inputContent`.
+7. Drag and drop the create operation of the File Connector to the Design View as shown below. Set the parameter values as below. We use the property values that we added in step 4 and 5 in this step as `${properties.filePath}` and `${properties.inputContent}`.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/file-con2.png" title="Adding createFile operation" width="800" alt="Adding createFile operation"/>
 
@@ -85,8 +85,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 <property expression="json-eval($.filePath)" name="source" scope="default" type="STRING"/>
                 <property expression="json-eval($.inputContent)" name="inputContent" scope="default" type="STRING"/>
                 <fileconnector.create>
-                    <filePath>{$ctx:filePath}</filePath>
-                    <inputContent>{$ctx:inputContent}</inputContent>
+                    <filePath>{${properties.filePath}}</filePath>
+                    <inputContent>{${properties.inputContent}}</inputContent>
             </fileconnector.create>
                 <respond/>
             </inSequence>
@@ -96,7 +96,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <inSequence>
                 <property expression="json-eval($.source)" name="source" scope="default" type="STRING"/>
                 <fileconnector.isFileExist>
-                    <source>{$ctx:source}</source>
+                    <source>{${properties.source}}</source>
                 </fileconnector.isFileExist>
                 <property expression="json-eval($.fileExist)" name="response" scope="default" type="STRING"/>
                 <log level="custom">
@@ -105,7 +105,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
                 <switch source="${properties.response}">
                     <case regex="true">
                         <fileconnector.read>
-                            <source>{$ctx:source}</source>
+                            <source>{${properties.source}}</source>
                         </fileconnector.read>
                         <respond/>
                     </case>

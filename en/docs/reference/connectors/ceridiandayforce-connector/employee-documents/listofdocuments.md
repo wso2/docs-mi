@@ -18,7 +18,7 @@ We can use GET a List of Documents operation with required parameters to get the
 **GET a List of Documents**
 ```xml
 <ceridiandayforce.getAListOfDocuments>
-    <employeeXRefCode>{$ctx:xRefCode}</employeeXRefCode>
+    <employeeXRefCode>{${properties.xRefCode}}</employeeXRefCode>
 </ceridiandayforce.getAListOfDocuments>
 ```
 
@@ -101,13 +101,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.patchEmployeeRoles>
-            <employeeXRefCode>{$ctx:xRefCode}</employeeXRefCode>
+            <employeeXRefCode>{${properties.xRefCode}}</employeeXRefCode>
          </ceridiandayforce.patchEmployeeRoles>
          <send/>
       </inSequence>

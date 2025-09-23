@@ -55,13 +55,13 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.init>
-        <userId>{$ctx:userId}</userId>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <clientId>{$ctx:clientId}</clientId>
-        <registryPath>{$ctx:registryPath}</registryPath>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <userId>{${properties.userId}}</userId>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <clientId>{${properties.clientId}}</clientId>
+        <registryPath>{${properties.registryPath}}</registryPath>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
     </gmail.init>
     ```
 
@@ -93,8 +93,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.passwordLogin>
-        <username>{$ctx:username}</username>
-        <password>{$ctx:password}</password>
+        <username>{${properties.username}}</username>
+        <password>{${properties.password}}</password>
     </gmail.passwordLogin>
     ```
     
@@ -174,8 +174,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.listDrafts>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
     </gmail.listDrafts>
     ```
     
@@ -212,8 +212,8 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.readDraft>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
+        <id>{${properties.id}}</id>
+        <format>{${properties.format}}</format>
     </gmail.readDraft>
     ```
     
@@ -245,7 +245,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.deleteDraft>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.deleteDraft>
     ```
     
@@ -316,15 +316,15 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.createDraft>
-        <to>{$ctx:to}</to>
-        <subject>{$ctx:subject}</subject>
-        <from>{$ctx:from}</from>
-        <cc>{$ctx:cc}</cc>
-        <bcc>{$ctx:bcc}</bcc>
-        <id>{$ctx:id}</id>
-        <threadId>{$ctx:threadId}</threadId>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <contentType>{$ctx:contentType}</contentType>
+        <to>{${properties.to}}</to>
+        <subject>{${properties.subject}}</subject>
+        <from>{${properties.from}}</from>
+        <cc>{${properties.cc}}</cc>
+        <bcc>{${properties.bcc}}</bcc>
+        <id>{${properties.id}}</id>
+        <threadId>{${properties.threadId}}</threadId>
+        <messageBody>{${properties.messageBody}}</messageBody>
+        <contentType>{${properties.contentType}}</contentType>
     </gmail.createDraft>
     ```
     
@@ -375,7 +375,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.readLabel>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.readLabel>
     ```
     
@@ -406,7 +406,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.deleteLabel>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.deleteLabel>
     ```
     
@@ -472,14 +472,14 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.createLabels>
-        <name>{$ctx:name}</name>
-        <messageListVisibility>{$ctx:messageListVisibility}</messageListVisibility>
-        <labelListVisibility>{$ctx:labelListVisibility}</labelListVisibility>
-        <type>{$ctx:type}</type>
-        <messagesTotal>{$ctx:messagesTotal}</messagesTotal>
-        <messagesUnread>{$ctx:messagesUnread}</messagesUnread>
-        <threadsTotal>{$ctx:threadsTotal}</threadsTotal>
-        <threadsUnread>{$ctx:threadsUnread}</threadsUnread>
+        <name>{${properties.name}}</name>
+        <messageListVisibility>{${properties.messageListVisibility}}</messageListVisibility>
+        <labelListVisibility>{${properties.labelListVisibility}}</labelListVisibility>
+        <type>{${properties.type}}</type>
+        <messagesTotal>{${properties.messagesTotal}}</messagesTotal>
+        <messagesUnread>{${properties.messagesUnread}}</messagesUnread>
+        <threadsTotal>{${properties.threadsTotal}}</threadsTotal>
+        <threadsUnread>{${properties.threadsUnread}}</threadsUnread>
     </gmail.createLabels>
     ```
     
@@ -557,15 +557,15 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.updateLabels>
-        <name>{$ctx:name}</name>
-        <messageListVisibility>{$ctx:messageListVisibility}</messageListVisibility>
-        <labelListVisibility>{$ctx:labelListVisibility}</labelListVisibility>
-        <type>{$ctx:type}</type>
-        <messagesTotal>{$ctx:messagesTotal}</messagesTotal>
-        <messagesUnread>{$ctx:messagesUnread}</messagesUnread>
-        <threadsTotal>{$ctx:threadsTotal}</threadsTotal>
-        <threadsUnread>{$ctx:threadsUnread}</threadsUnread>
-        <id>{$ctx:id}</id>
+        <name>{${properties.name}}</name>
+        <messageListVisibility>{${properties.messageListVisibility}}</messageListVisibility>
+        <labelListVisibility>{${properties.labelListVisibility}}</labelListVisibility>
+        <type>{${properties.type}}</type>
+        <messagesTotal>{${properties.messagesTotal}}</messagesTotal>
+        <messagesUnread>{${properties.messagesUnread}}</messagesUnread>
+        <threadsTotal>{${properties.threadsTotal}}</threadsTotal>
+        <threadsUnread>{${properties.threadsUnread}}</threadsUnread>
+        <id>{${properties.id}}</id>
     </gmail.updateLabels>
     ```
     
@@ -626,11 +626,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.listAllMails>
-        <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-        <labelIds>{$ctx:labelIds}</labelIds>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <q>{$ctx:q}</q>
+        <includeSpamTrash>{${properties.includeSpamTrash}}</includeSpamTrash>
+        <labelIds>{${properties.labelIds}}</labelIds>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
+        <q>{${properties.q}}</q>
     </gmail.listAllMails>
     ```
     
@@ -675,9 +675,9 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.readMail>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
-        <metadataHeaders>{$ctx:metadataHeaders}</metadataHeaders>
+        <id>{${properties.id}}</id>
+        <format>{${properties.format}}</format>
+        <metadataHeaders>{${properties.metadataHeaders}}</metadataHeaders>
     </gmail.readMail>
     ```
     
@@ -739,13 +739,13 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.sendMail>
-        <to>{$ctx:to}</to>
-        <subject>{$ctx:subject}</subject>
-        <from>{$ctx:from}</from>
-        <cc>{$ctx:cc}</cc>
-        <bcc>{$ctx:bcc}</bcc>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <contentType>{$ctx:contentType}</contentType>
+        <to>{${properties.to}}</to>
+        <subject>{${properties.subject}}</subject>
+        <from>{${properties.from}}</from>
+        <cc>{${properties.cc}}</cc>
+        <bcc>{${properties.bcc}}</bcc>
+        <messageBody>{${properties.messageBody}}</messageBody>
+        <contentType>{${properties.contentType}}</contentType>
     </gmail.sendMail>
     ```
     
@@ -791,9 +791,9 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.modifyExistingThreads>
-        <id>{$ctx:id}</id>
-        <addLabelIds>{$ctx:addLabelIds}</addLabelIds>
-        <removeLabelIds>{$ctx:removeLabelIds}</removeLabelIds>
+        <id>{${properties.id}}</id>
+        <addLabelIds>{${properties.addLabelIds}}</addLabelIds>
+        <removeLabelIds>{${properties.removeLabelIds}}</removeLabelIds>
     </gmail.modifyExistingThreads>
     ```
     
@@ -830,7 +830,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.trashMessages>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.trashMessages>
     ```
     
@@ -861,7 +861,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.unTrashMessages>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.unTrashMessages>
     ```
     
@@ -892,7 +892,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.deleteMessages>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.deleteMessages>
     ```
     
@@ -953,13 +953,13 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.sendMailWithAttachment>
-        <subject>{$ctx:subject}</subject>
-        <to>{$ctx:to}</to>
-        <cc>{$ctx:cc}</cc>
-        <bcc>{$ctx:bcc}</bcc>
-        <messageBody>{$ctx:messageBody}</messageBody>
-        <fileName>{$ctx:fileName}</fileName>
-        <filePath>{$ctx:filePath}</filePath>
+        <subject>{${properties.subject}}</subject>
+        <to>{${properties.to}}</to>
+        <cc>{${properties.cc}}</cc>
+        <bcc>{${properties.bcc}}</bcc>
+        <messageBody>{${properties.messageBody}}</messageBody>
+        <fileName>{${properties.fileName}}</fileName>
+        <filePath>{${properties.filePath}}</filePath>
     </gmail.sendMailWithAttachment>
     ```
     
@@ -1018,11 +1018,11 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.listAllThreads>
-        <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-        <labelIds>{$ctx:labelIds}</labelIds>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <q>{$ctx:q}</q>
+        <includeSpamTrash>{${properties.includeSpamTrash}}</includeSpamTrash>
+        <labelIds>{${properties.labelIds}}</labelIds>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
+        <q>{${properties.q}}</q>
     </gmail.listAllThreads>
     ```
     
@@ -1067,9 +1067,9 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.readThread>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
-        <metadataHeaders>{$ctx:metadataHeaders}</metadataHeaders>
+        <id>{${properties.id}}</id>
+        <format>{${properties.format}}</format>
+        <metadataHeaders>{${properties.metadataHeaders}}</metadataHeaders>
     </gmail.readThread>
     ```
     
@@ -1101,7 +1101,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.trashThreads>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.trashThreads>
     ```
     
@@ -1132,7 +1132,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.unTrashThreads>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.unTrashThreads>
     ```
     
@@ -1173,9 +1173,9 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.modifyExistingThreads>
-        <id>{$ctx:id}</id>
-        <addLabelIds>{$ctx:addLabelIds}</addLabelIds>
-        <removeLabelIds>{$ctx:removeLabelIds}</removeLabelIds>
+        <id>{${properties.id}}</id>
+        <addLabelIds>{${properties.addLabelIds}}</addLabelIds>
+        <removeLabelIds>{${properties.removeLabelIds}}</removeLabelIds>
     </gmail.modifyExistingThreads>
     ```
     
@@ -1212,7 +1212,7 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.deleteThreads>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </gmail.deleteThreads>
     ```
     
@@ -1255,10 +1255,10 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
 
     ```xml
     <gmail.listTheHistory>
-        <startHistoryId>{$ctx:startHistoryId}</startHistoryId>
-        <labelId>{$ctx:labelId}</labelId>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
+        <startHistoryId>{${properties.startHistoryId}}</startHistoryId>
+        <labelId>{${properties.labelId}}</labelId>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
     </gmail.listTheHistory>
     ```
     
@@ -1307,17 +1307,17 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             <property name="registryPath" expression="json-eval($.registryPath)"/>
             <property name="apiUrl" expression="json-eval($.apiUrl)"/>
             <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
+                <userId>{${properties.userId}}</userId>
+                <refreshToken>{${properties.refreshToken}}</refreshToken>
+                <clientSecret>{${properties.clientSecret}}</clientSecret>
+                <clientId>{${properties.clientId}}</clientId>
+                <registryPath>{${properties.registryPath}}</registryPath>
+                <accessToken>{${properties.accessToken}}</accessToken>
+                <apiUrl>{${properties.apiUrl}}</apiUrl>
             </gmail.init>
             <gmail.listDrafts>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
+                <maxResults>{${properties.maxResults}}</maxResults>
+                <pageToken>{${properties.pageToken}}</pageToken>
             </gmail.listDrafts>
             <respond/>
         </inSequence>
@@ -1349,16 +1349,16 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             <property name="registryPath" expression="json-eval($.registryPath)"/>
             <property name="apiUrl" expression="json-eval($.apiUrl)"/>
             <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
+                <userId>{${properties.userId}}</userId>
+                <refreshToken>{${properties.refreshToken}}</refreshToken>
+                <clientSecret>{${properties.clientSecret}}</clientSecret>
+                <clientId>{${properties.clientId}}</clientId>
+                <registryPath>{${properties.registryPath}}</registryPath>
+                <accessToken>{${properties.accessToken}}</accessToken>
+                <apiUrl>{${properties.apiUrl}}</apiUrl>
             </gmail.init>
             <gmail.readLabel>
-              <id>{$ctx:id}</id>
+              <id>{${properties.id}}</id>
             </gmail.readLabel>
             <respond/>
         </inSequence>
@@ -1392,20 +1392,20 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             <property name="registryPath" expression="json-eval($.registryPath)"/>
             <property name="apiUrl" expression="json-eval($.apiUrl)"/>
             <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
+                <userId>{${properties.userId}}</userId>
+                <refreshToken>{${properties.refreshToken}}</refreshToken>
+                <clientSecret>{${properties.clientSecret}}</clientSecret>
+                <clientId>{${properties.clientId}}</clientId>
+                <registryPath>{${properties.registryPath}}</registryPath>
+                <accessToken>{${properties.accessToken}}</accessToken>
+                <apiUrl>{${properties.apiUrl}}</apiUrl>
             </gmail.init>
             <gmail.listAllMails>
-                <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-                <labelIds>{$ctx:labelIds}</labelIds>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
-                <q>{$ctx:q}</q>
+                <includeSpamTrash>{${properties.includeSpamTrash}}</includeSpamTrash>
+                <labelIds>{${properties.labelIds}}</labelIds>
+                <maxResults>{${properties.maxResults}}</maxResults>
+                <pageToken>{${properties.pageToken}}</pageToken>
+                <q>{${properties.q}}</q>
             </gmail.listAllMails>
             <respond/>
         </inSequence>
@@ -1439,20 +1439,20 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             <property name="registryPath" expression="json-eval($.registryPath)"/>
             <property name="apiUrl" expression="json-eval($.apiUrl)"/>
             <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
+                <userId>{${properties.userId}}</userId>
+                <refreshToken>{${properties.refreshToken}}</refreshToken>
+                <clientSecret>{${properties.clientSecret}}</clientSecret>
+                <clientId>{${properties.clientId}}</clientId>
+                <registryPath>{${properties.registryPath}}</registryPath>
+                <accessToken>{${properties.accessToken}}</accessToken>
+                <apiUrl>{${properties.apiUrl}}</apiUrl>
             </gmail.init>
             <gmail.listAllThreads>
-                <includeSpamTrash>{$ctx:includeSpamTrash}</includeSpamTrash>
-                <labelIds>{$ctx:labelIds}</labelIds>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
-                <q>{$ctx:q}</q>
+                <includeSpamTrash>{${properties.includeSpamTrash}}</includeSpamTrash>
+                <labelIds>{${properties.labelIds}}</labelIds>
+                <maxResults>{${properties.maxResults}}</maxResults>
+                <pageToken>{${properties.pageToken}}</pageToken>
+                <q>{${properties.q}}</q>
             </gmail.listAllThreads>
             <respond/>
         </inSequence>
@@ -1485,19 +1485,19 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             <property name="registryPath" expression="json-eval($.registryPath)"/>
             <property name="apiUrl" expression="json-eval($.apiUrl)"/>
             <gmail.init>
-                <userId>{$ctx:userId}</userId>
-                <refreshToken>{$ctx:refreshToken}</refreshToken>
-                <clientSecret>{$ctx:clientSecret}</clientSecret>
-                <clientId>{$ctx:clientId}</clientId>
-                <registryPath>{$ctx:registryPath}</registryPath>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <apiUrl>{$ctx:apiUrl}</apiUrl>
+                <userId>{${properties.userId}}</userId>
+                <refreshToken>{${properties.refreshToken}}</refreshToken>
+                <clientSecret>{${properties.clientSecret}}</clientSecret>
+                <clientId>{${properties.clientId}}</clientId>
+                <registryPath>{${properties.registryPath}}</registryPath>
+                <accessToken>{${properties.accessToken}}</accessToken>
+                <apiUrl>{${properties.apiUrl}}</apiUrl>
             </gmail.init>
             <gmail.listTheHistory>
-                <startHistoryId>{$ctx:startHistoryId}</startHistoryId>
-                <labelId>{$ctx:labelId}</labelId>
-                <maxResults>{$ctx:maxResults}</maxResults>
-                <pageToken>{$ctx:pageToken}</pageToken>
+                <startHistoryId>{${properties.startHistoryId}}</startHistoryId>
+                <labelId>{${properties.labelId}}</labelId>
+                <maxResults>{${properties.maxResults}}</maxResults>
+                <pageToken>{${properties.pageToken}}</pageToken>
             </gmail.listTheHistory>
             <respond/>
         </inSequence>
@@ -1526,13 +1526,13 @@ The following is a sample proxy service that illustrates how to connect to Gmail
             <property name="registryPath" expression="json-eval($.registryPath)"/>
             <property name="apiUrl" expression="json-eval($.apiUrl)"/>
                 <gmail.init>
-                    <userId>{$ctx:userId}</userId>
-                    <refreshToken>{$ctx:refreshToken}</refreshToken>
-                    <clientSecret>{$ctx:clientSecret}</clientSecret>
-                    <clientId>{$ctx:clientId}</clientId>
-                    <registryPath>{$ctx:registryPath}</registryPath>
-                    <accessToken>{$ctx:accessToken}</accessToken>
-                    <apiUrl>{$ctx:apiUrl}</apiUrl>
+                    <userId>{${properties.userId}}</userId>
+                    <refreshToken>{${properties.refreshToken}}</refreshToken>
+                    <clientSecret>{${properties.clientSecret}}</clientSecret>
+                    <clientId>{${properties.clientId}}</clientId>
+                    <registryPath>{${properties.registryPath}}</registryPath>
+                    <accessToken>{${properties.accessToken}}</accessToken>
+                    <apiUrl>{${properties.apiUrl}}</apiUrl>
                  </gmail.init>
                  <gmail.getUserProfile/>
              <respond/>

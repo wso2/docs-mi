@@ -308,7 +308,7 @@ entire transaction should be rolled back.
                     <result xmlns="">failure</result>
                  </property>
                  <enrich>
-                    <source clone="true" xpath="$ctx:failureResultProperty"/>
+                    <source clone="true" xpath="${properties.failureResultProperty}"/>
                     <target type="body"/>
                  </enrich>
                  <log level="custom">
@@ -461,7 +461,7 @@ depicted as follows.
                            </serviceResponse>
                         </format>
                         <args>
-                           <arg evaluator="xml" expression="$ctx:routingKey"/>
+                           <arg evaluator="xml" expression="${properties.routingKey}"/>
                         </args>
                      </payloadFactory>
                      <property name="HTTP_SC" value="200" scope="axis2" type="STRING"/>
@@ -481,7 +481,7 @@ depicted as follows.
                            </serviceResponse>
                         </format>
                         <args>
-                           <arg evaluator="xml" expression="$ctx:routingKey"/>
+                           <arg evaluator="xml" expression="${properties.routingKey}"/>
                         </args>
                      </payloadFactory>
                      <property name="HTTP_SC" value="500" scope="axis2" type="STRING"/>

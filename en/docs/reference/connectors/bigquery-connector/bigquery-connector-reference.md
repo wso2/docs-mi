@@ -17,16 +17,16 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.init>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <client>{$ctx:clientId}</clientId>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <registryPath>{$ctx:registryPath}</registryPath>
-        <fields>{$ctx:fields}</fields>
-        <prettyPrint>{$ctx:prettyPrint}</prettyPrint>
-        <quotaUser>{$ctx:quotaUser}</quotaUser>
-        <userIp>{$ctx:userIp}</userIp>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <client>{${properties.clientId}}</clientId>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <registryPath>{${properties.registryPath}}</registryPath>
+        <fields>{${properties.fields}}</fields>
+        <prettyPrint>{${properties.prettyPrint}}</prettyPrint>
+        <quotaUser>{${properties.quotaUser}}</quotaUser>
+        <userIp>{${properties.userIp}}</userIp>
     </bigquery.init>
     ```
 
@@ -112,11 +112,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.getAccessTokenFromServiceAccount>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <keyStoreLocation>{$ctx:keyStoreLocation}</keyStoreLocation>
-        <serviceAccount>{$ctx:serviceAccount}</serviceAccount>
-        <scope>{$ctx:scope}</scope>
-        <accessTokenRegistryPath>{$ctx:accessTokenRegistryPath}</accessTokenRegistryPath>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <keyStoreLocation>{${properties.keyStoreLocation}}</keyStoreLocation>
+        <serviceAccount>{${properties.serviceAccount}}</serviceAccount>
+        <scope>{${properties.scope}}</scope>
+        <accessTokenRegistryPath>{${properties.accessTokenRegistryPath}}</accessTokenRegistryPath>
     </bigquery.getAccessTokenFromServiceAccount>
     ```
 
@@ -157,12 +157,12 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.getAccessTokenFromAuthorizationCode>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <authorizationCode>{$ctx:authorizationCode}</authorizationCode>           
-        <redirectUrl>{$ctx:redirectUrl}</redirectUrl>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <clientId>{$ctx:clientId}</clientId>
-        <registryPath>{$ctx:registryPath}</registryPath>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <authorizationCode>{${properties.authorizationCode}}</authorizationCode>           
+        <redirectUrl>{${properties.redirectUrl}}</redirectUrl>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <clientId>{${properties.clientId}}</clientId>
+        <registryPath>{${properties.registryPath}}</registryPath>
     </bigquery.getAccessTokenFromAuthorizationCode>
     ```
 
@@ -208,10 +208,10 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.getAccessTokenFromRefreshToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <clientId>{$ctx:clientId}</clientId>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <clientId>{${properties.clientId}}</clientId>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
     </bigquery.getAccessTokenFromRefreshToken>
     ```
 
@@ -283,8 +283,8 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.getDataset>
-        <projectId>{$ctx:projectId}</projectId>
-        <datasetId>{$ctx:datasetId}</datasetId>
+        <projectId>{${properties.projectId}}</projectId>
+        <datasetId>{${properties.datasetId}}</datasetId>
     </bigquery.getDataset>
     ```
 
@@ -383,10 +383,10 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.listDatasets>
-        <projectId>{$ctx:projectId}</projectId>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <isAll>{$ctx:isAll}</isAll>
+        <projectId>{${properties.projectId}}</projectId>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
+        <isAll>{${properties.isAll}}</isAll>
     </bigquery.listDatasets>
     ```
 
@@ -501,16 +501,16 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.runQuery>
-        <useQueryCache>{$ctx:useQueryCache}</useQueryCache>
-        <timeoutMs>{$ctx:timeoutMs}</timeoutMs>
-        <query>{$ctx:query}</query>
-        <dryRun>{$ctx:dryRun}</dryRun>
-        <defaultProjectId>{$ctx:defaultProjectId}</defaultProjectId>
-        <defaultDatasetId>{$ctx:defaultDatasetId}</defaultDatasetId>
-        <projectId>{$ctx:projectId}</projectId>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <kind>{$ctx:kind}</kind>
-        <useLegacySql>{$ctx:useLegacySql}</useLegacySql>
+        <useQueryCache>{${properties.useQueryCache}}</useQueryCache>
+        <timeoutMs>{${properties.timeoutMs}}</timeoutMs>
+        <query>{${properties.query}}</query>
+        <dryRun>{${properties.dryRun}}</dryRun>
+        <defaultProjectId>{${properties.defaultProjectId}}</defaultProjectId>
+        <defaultDatasetId>{${properties.defaultDatasetId}}</defaultDatasetId>
+        <projectId>{${properties.projectId}}</projectId>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <kind>{${properties.kind}}</kind>
+        <useLegacySql>{${properties.useLegacySql}}</useLegacySql>
     </bigquery.runQuery>
     ```
 
@@ -622,8 +622,8 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.listProjects>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
     </bigquery.listProjects>
     ```
 
@@ -726,12 +726,12 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.listTabledata>
-        <datasetId>{$ctx:datasetId}</datasetId>
-        <projectId>{$ctx:projectId}</projectId>
-        <tableId>{$ctx:tableId}</tableId>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <startIndex>{$ctx:startIndex}</startIndex>
+        <datasetId>{${properties.datasetId}}</datasetId>
+        <projectId>{${properties.projectId}}</projectId>
+        <tableId>{${properties.tableId}}</tableId>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <pageToken>{${properties.pageToken}}</pageToken>
+        <startIndex>{${properties.startIndex}}</startIndex>
     </bigquery.listTabledata>
     ```
 
@@ -843,13 +843,13 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.insertAllTableData>
-        <datasetId>{$ctx:datasetId}</datasetId>
-        <projectId>{$ctx:projectId}</projectId>
-        <tableId>{$ctx:tableId}</tableId>
-        <skipInvalidRows>{$ctx:skipInvalidRows}</skipInvalidRows>
-        <ignoreUnknownValues>{$ctx:ignoreUnknownValues}</ignoreUnknownValues>
-        <templateSuffix>{$ctx:templateSuffix}</templateSuffix>
-        <jsonPay>{$ctx:jsonPay}</jsonPay>
+        <datasetId>{${properties.datasetId}}</datasetId>
+        <projectId>{${properties.projectId}}</projectId>
+        <tableId>{${properties.tableId}}</tableId>
+        <skipInvalidRows>{${properties.skipInvalidRows}}</skipInvalidRows>
+        <ignoreUnknownValues>{${properties.ignoreUnknownValues}}</ignoreUnknownValues>
+        <templateSuffix>{${properties.templateSuffix}}</templateSuffix>
+        <jsonPay>{${properties.jsonPay}}</jsonPay>
     </bigquery.insertAllTableData>
     ```
 
@@ -957,9 +957,9 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.getTable>
-        <tableId>{$ctx:tableId}</tableId>
-        <datasetId>{$ctx:datasetId}</datasetId>
-        <projectId>{$ctx:projectId}</projectId>
+        <tableId>{${properties.tableId}}</tableId>
+        <datasetId>{${properties.datasetId}}</datasetId>
+        <projectId>{${properties.projectId}}</projectId>
     </bigquery.getTable>
     ```
 
@@ -1060,10 +1060,10 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     ```xml
     <bigquery.listTables>
-        <datasetId>{$ctx:datasetId}</datasetId>
-        <pageToken>{$ctx:pageToken}</pageToken>
-        <projectId>{$ctx:projectId}</projectId>
-        <maxResults>{$ctx:maxResults}</maxResults>
+        <datasetId>{${properties.datasetId}}</datasetId>
+        <pageToken>{${properties.pageToken}}</pageToken>
+        <projectId>{${properties.projectId}}</projectId>
+        <maxResults>{${properties.maxResults}}</maxResults>
     </bigquery.listTables>
     ```
 

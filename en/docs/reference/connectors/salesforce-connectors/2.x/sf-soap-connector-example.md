@@ -151,7 +151,7 @@ Now follow the steps below to add configurations to the resource.
                         <format>
                             <sfdc:sObjects type="Account" xmlns:sfdc="sfdc">
                                 <sfdc:sObject>
-                                    <sfdc:Name>{$ctx:Name}</sfdc:Name>
+                                    <sfdc:Name>{${properties.Name}}</sfdc:Name>
                                 </sfdc:sObject>
                             </sfdc:sObjects>
                         </format>
@@ -177,7 +177,7 @@ Now follow the steps below to add configurations to the resource.
                     </salesforce.init>
                     <salesforce.query>
                         <batchSize>200</batchSize>
-                        <queryString>{$ctx:queryString}</queryString>
+                        <queryString>{${properties.queryString}}</queryString>
                     </salesforce.query>
                     <respond/>
                 </inSequence>

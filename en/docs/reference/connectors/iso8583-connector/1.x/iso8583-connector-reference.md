@@ -32,13 +32,13 @@ To use the ISO8583 connector, add the <iso8583.init> element in your configurati
 
     ```xml
     <amazonsqs.init>
-       <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-        <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-        <version>{$ctx:version}</version>
-        <region>{$ctx:region}</region>
-        <enableSSL>{$ctx:enableSSL}</enableSSL>
-        <contentType>{$ctx:contentType}</contentType>
-        <blocking>{$ctx:blocking}</blocking>
+       <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+        <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+        <version>{${properties.version}}</version>
+        <region>{${properties.region}}</region>
+        <enableSSL>{${properties.enableSSL}}</enableSSL>
+        <contentType>{${properties.contentType}}</contentType>
+        <blocking>{${properties.blocking}}</blocking>
     </amazonsqs.init>
     ```
     

@@ -18,9 +18,9 @@ We can use GET Reports operation with required parameters to find reports
 **GET Reports**
 ```xml
 <ceridiandayforce.getReports>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <pageSize>{$ctx:pageSize}</pageSize>
-    <reportParameters>{$ctx:reportParameters}</reportParameters>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <pageSize>{${properties.pageSize}}</pageSize>
+    <reportParameters>{${properties.reportParameters}}</reportParameters>
 </ceridiandayforce.getReports>
 ```
 
@@ -103,14 +103,14 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <property expression="json-eval($.pageSize)" name="pageSize"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getReports>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <pageSize>{$ctx:pageSize}</pageSize>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <pageSize>{${properties.pageSize}}</pageSize>
          </ceridiandayforce.getReports>
          <send/>
       </inSequence>

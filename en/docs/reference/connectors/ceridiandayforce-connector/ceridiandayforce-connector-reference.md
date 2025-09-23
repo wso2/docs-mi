@@ -12,10 +12,10 @@ Add the following <ceridiandayforce.init>
 #### init
 ```xml
 <ceridiandayforce.init>
-        <username>{$ctx:username}</username>
-        <password>{$ctx:ceredianPwd}</password>
-        <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-        <apiVersion>{$ctx:apiVersion}</apiVersion>
+        <username>{${properties.username}}</username>
+        <password>{${properties.ceredianPwd}}</password>
+        <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+        <apiVersion>{${properties.apiVersion}}</apiVersion>
 </ceridiandayforce.init>
 ```
 

@@ -62,11 +62,11 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **sysparmView**              | `short_description,number,sys_id` |
     | **sysparmInputDisplayValue** | `true`                            |
     | **number**                   | `34`                              |
-    | **shortDescription**         | `{$ctx:shortDescription}`         |
+    | **shortDescription**         | `{${properties.shortDescription}}`         |
     | **active**                   | `true`                            |
     | **approval**                 | `owner`                           |
     | **category**                 | `inquiry`                         |
-    | **contactType**              | `{$ctx:contactType}`              |
+    | **contactType**              | `{${properties.contactType}}`              |
 
     Click on **Submit** to save the configuration.
 
@@ -103,11 +103,11 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
           <sysparmView>short_description,number,sys_id</sysparmView>
           <sysparmInputDisplayValue>true</sysparmInputDisplayValue>
           <number>34</number>
-          <shortDescription>{$ctx:shortDescription}</shortDescription>
+          <shortDescription>{${properties.shortDescription}}</shortDescription>
           <active>true</active>
           <approval>owner</approval>
           <category>inquiry</category>
-          <contactType>{$ctx:contactType}</contactType>
+          <contactType>{${properties.contactType}}</contactType>
       </servicenow.postRecord>
       <property name="sysId" scope="default" type="STRING" expression="json-eval($.result.sys_id)"/>
       </sequence>
@@ -123,7 +123,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Key           | Value          |
     |---------------|----------------|
-    | **sysId**     | `{$ctx:sysId}` |
+    | **sysId**     | `{${properties.sysId}}` |
     | **tableName** | `incident`     |
 
     Click on **Submit** to save the configuration.
@@ -141,7 +141,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
           <password>Diazo123@</password>
       </servicenow.init>
       <servicenow.getRecordById>
-          <sysId>{$ctx:sysId}</sysId>
+          <sysId>{${properties.sysId}}</sysId>
           <tableName>incident</tableName>
       </servicenow.getRecordById>
       </sequence>

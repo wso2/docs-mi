@@ -20,10 +20,10 @@ We can use GET Employee Work Assignment Managers operation with required paramet
 **GET Employee Work Assignment Managers**
 ```xml
 <ceridiandayforce.getEmployeeWorkAssignmentManagers>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeWorkAssignmentManagers>
 ```
 
@@ -83,9 +83,9 @@ We can use POST Employee Work Assignment Managers operation with required parame
 **POST Employee Work Assignment Managers**
 ```xml
 <ceridiandayforce.postEmployeeWorkAssignmentManagers>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postEmployeeWorkAssignmentManagers>
 ```
 
@@ -137,9 +137,9 @@ We can use PATCH Employee Work Assignment Managers operation with required param
 **PATCH Employee Work Assignment Managers**
 ```xml
 <ceridiandayforce.patchEmployeeWorkAssignmentManagers>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.patchEmployeeWorkAssignmentManagers>
 ```
 
@@ -207,13 +207,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeeWorkAssignmentManagers>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
          </ceridiandayforce.getEmployeeWorkAssignmentManagers>
          <send/>
       </inSequence>

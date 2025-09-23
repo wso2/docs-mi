@@ -34,9 +34,9 @@ User has to create a own instance with his user credentials. When you create an 
 
     ```xml
     <servicenow.init>
-         <serviceNowInstanceURL>{$ctx:serviceNowInstanceURL}</serviceNowInstanceURL>
-         <username>{$ctx:username}</username>
-         <password>{$ctx:password}</password>
+         <serviceNowInstanceURL>{${properties.serviceNowInstanceURL}}</serviceNowInstanceURL>
+         <username>{${properties.username}}</username>
+         <password>{${properties.password}}</password>
     </servicenow.init>
     ```
 
@@ -97,9 +97,9 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.getAggregateRecord>
-        <tableName>{$ctx:tableName}</tableName>
-        <sysparmAvgFields>{$ctx:sysparmAvgFields}</sysparmAvgFields>
-        <sysparmCount>{$ctx:sysparmCount}</sysparmCount>
+        <tableName>{${properties.tableName}}</tableName>
+        <sysparmAvgFields>{${properties.sysparmAvgFields}}</sysparmAvgFields>
+        <sysparmCount>{${properties.sysparmCount}}</sysparmCount>
     </servicenow.getAggregateRecord>
     ```
 
@@ -139,8 +139,8 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.getRecordsStagingTable>
-        <tableNameStaging>{$ctx:tableNameStaging}</tableNameStaging>
-        <sysIdStaging>{$ctx:sysIdStaging}</sysIdStaging>
+        <tableNameStaging>{${properties.tableNameStaging}}</tableNameStaging>
+        <sysIdStaging>{${properties.sysIdStaging}}</sysIdStaging>
     </servicenow.getRecordsStagingTable>
     ```
 
@@ -216,15 +216,15 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.postRecordStagingTable>
-        <tableNameStaging>{$ctx:tableNameStaging}</tableNameStaging>
-        <serialNumber>{$ctx:serialNumber}</serialNumber>
-        <cpuCount>{$ctx:cpuCount}</cpuCount>
-        <manufacturer>{$ctx:manufacturer}</manufacturer>
-        <name>{$ctx:name}</name>
-        <operatingSystem>{$ctx:operatingSystem}</operatingSystem>
-        <diskSpace>{$ctx:diskSpace}</diskSpace>
-        <ram>{$ctx:ram}</ram>
-        <apiColumns>{$ctx:apiColumns}</apiColumns>
+        <tableNameStaging>{${properties.tableNameStaging}}</tableNameStaging>
+        <serialNumber>{${properties.serialNumber}}</serialNumber>
+        <cpuCount>{${properties.cpuCount}}</cpuCount>
+        <manufacturer>{${properties.manufacturer}}</manufacturer>
+        <name>{${properties.name}}</name>
+        <operatingSystem>{${properties.operatingSystem}}</operatingSystem>
+        <diskSpace>{${properties.diskSpace}}</diskSpace>
+        <ram>{${properties.ram}}</ram>
+        <apiColumns>{${properties.apiColumns}}</apiColumns>
     </servicenow.postRecordStagingTable>
     ```
 
@@ -325,7 +325,7 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.postRecord>
-        <tableName>{$ctx:tableName}</tableName>
+        <tableName>{${properties.tableName}}</tableName>
     </servicenow.postRecord>
     ```
 
@@ -405,7 +405,7 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.getRecords>
-        <tableName>{$ctx:tableName}</tableName>
+        <tableName>{${properties.tableName}}</tableName>
     </servicenow.getRecords>
     ```
 
@@ -460,7 +460,7 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.getRecordById>
-        <tableName>{$ctx:tableName}</tableName>
+        <tableName>{${properties.tableName}}</tableName>
     </servicenow.getRecordById>
     ```
 
@@ -556,8 +556,8 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.putRecordById>
-        <tableName>{$ctx:tableName}</tableName>
-        <sysId>{$ctx:sysId}</sysId>
+        <tableName>{${properties.tableName}}</tableName>
+        <sysId>{${properties.sysId}}</sysId>
     </servicenow.putRecordById>
     ```
 
@@ -654,8 +654,8 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.patchRecordById>
-        <tableName>{$ctx:tableName}</tableName>
-        <sysId>{$ctx:sysId}</sysId>
+        <tableName>{${properties.tableName}}</tableName>
+        <sysId>{${properties.sysId}}</sysId>
     </servicenow.patchRecordById>
     ```
 
@@ -692,8 +692,8 @@ The following operations allow you to work with the ServiceNow Connector. Click 
 
     ```xml
     <servicenow.deleteRecordById>
-        <tableName>{$ctx:tableName}</tableName>
-        <sysId>{$ctx:sysId}</sysId>
+        <tableName>{${properties.tableName}}</tableName>
+        <sysId>{${properties.sysId}}</sysId>
     </servicenow.deleteRecordById>
     ```
 

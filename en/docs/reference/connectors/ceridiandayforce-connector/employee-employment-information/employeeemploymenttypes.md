@@ -18,10 +18,10 @@ We can use GET Employee Employment Types operation with required parameters to g
 **GET Employee Employment Types**
 ```xml
 <ceridiandayforce.getEmployeeEmploymentTypes>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeEmploymentTypes>
 ```
 
@@ -93,14 +93,14 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <property expression="json-eval($.contextDateRangeFrom)" name="contextDateRangeFrom"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeeEmploymentTypes>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
          </ceridiandayforce.getEmployeeEmploymentTypes>
          <send/>
       </inSequence>

@@ -57,7 +57,7 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.createContainer>
-                      <containerName>{$ctx:containerName}</containerName>
+                      <containerName>{${properties.containerName}}</containerName>
                   </msazurestorage.createContainer>
                   <log level="full">
                       <property name="Container created" value="Container created"/>
@@ -96,9 +96,9 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.uploadBlob>
-                      <containerName>{$ctx:containerName}</containerName>
-                      <filePath>{$ctx:filePath}</filePath>
-                      <fileName>{$ctx:fileName}</fileName>
+                      <containerName>{${properties.containerName}}</containerName>
+                      <filePath>{${properties.filePath}}</filePath>
+                      <fileName>{${properties.fileName}}</fileName>
                   </msazurestorage.uploadBlob>
                   <log level="full">
                       <property name="Uploaded emplyee details" value="Uploaded emplyee details"/>
@@ -118,7 +118,7 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.listBlobs>
-                      <containerName>{$ctx:containerName}</containerName>
+                      <containerName>{${properties.containerName}}</containerName>
                   </msazurestorage.listBlobs>
                   <log level="full">
                       <property name="List uploaded emplyee details" value="List uploaded emplyee details"/>
@@ -139,8 +139,8 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.deleteBlob>
-                      <containerName>{$ctx:containerName}</containerName>
-                      <fileName>{$ctx:fileName}</fileName>
+                      <containerName>{${properties.containerName}}</containerName>
+                      <fileName>{${properties.fileName}}</fileName>
                   </msazurestorage.deleteBlob>
                   <log level="full">
                       <property name="Delete selected employee details" value="Delete selected employee details"/>
@@ -160,7 +160,7 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.deleteContainer>
-                      <containerName>{$ctx:containerName}</containerName>
+                      <containerName>{${properties.containerName}}</containerName>
                   </msazurestorage.deleteContainer>
                   <log level="full">
                       <property name="Delete selected container" value="Delete selected container"/>
@@ -181,8 +181,8 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                       <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.listMetadata>
-                      <containerName>{$ctx:containerName}</containerName>
-                      <fileName>{$ctx:fileName}</fileName>
+                      <containerName>{${properties.containerName}}</containerName>
+                      <fileName>{${properties.fileName}}</fileName>
                   </msazurestorage.listMetadata>
                   <log level="full">
                       <property name="list  Metadata" value="list Metadata"/>

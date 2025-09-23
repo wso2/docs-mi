@@ -141,19 +141,19 @@ Let's add the operations to the resources in the `Salesforce` API
 
   4. Select the `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector**.
        1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-       2. For `Job ID` text box enter `$ctx:jobId` as expression.
-       3. For `Input Data` enter `$ctx:csvContent` as the expression
+       2. For `Job ID` text box enter `${properties.jobId}` as expression.
+       3. For `Input Data` enter `${properties.csvContent}` as the expression
 
       ```xml
       <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
-        <jobId>{$ctx:jobId}</jobId>
-        <inputData>{$ctx:csvContent}</inputData>
+        <jobId>{${properties.jobId}}</jobId>
+        <inputData>{${properties.csvContent}}</inputData>
       </salesforce_bulkapi_v2.uploadJobData>
       ```
 
   5. Select the `closeJob` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
 
   6. Select the 'Respond' mediator.
   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png" width="800"/></a>
@@ -184,19 +184,19 @@ Let's add the operations to the resources in the `Salesforce` API
 
   4. Select the `uploadJobData` operation from **Salesforce_bulkapi_v2_Connector**.
        1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-       2. For `Job ID` text box enter `$ctx:jobId` as expression.
-       3. For `Input Data` enter `$ctx:csvContent` as the expression
+       2. For `Job ID` text box enter `${properties.jobId}` as expression.
+       3. For `Input Data` enter `${properties.csvContent}` as the expression
 
       ```xml
       <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
-        <jobId>{$ctx:jobId}</jobId>
-        <inputData>{$ctx:csvContent}</inputData>
+        <jobId>{${properties.jobId}}</jobId>
+        <inputData>{${properties.csvContent}}</inputData>
       </salesforce_bulkapi_v2.uploadJobData>
       ```
 
   5. Select the `closeJob` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
 
   6. Select the 'Respond' mediator.
 
@@ -212,12 +212,12 @@ Let's add the operations to the resources in the `Salesforce` API
         ```
   2. Select the `getJobInfo` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
 
 
         ```xml
         <salesforce_bulkapi_v2.getJobInfo configKey="SF_CONNECTION_CONFIG_NAME_1">
-          <jobId>{$ctx:jobId}</jobId>
+          <jobId>{${properties.jobId}}</jobId>
         </salesforce_bulkapi_v2.getJobInfo>
         ``` 
 
@@ -235,13 +235,13 @@ Let's add the operations to the resources in the `Salesforce` API
         ```
   2. Select the `getSuccessfulResults` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
       3. In the 'Output type' drop down, select `JSON` or `CSV`.
 
 
         ```xml
         <salesforce_bulkapi_v2.getSuccessfulResults configKey="SF_CONNECTION_CONFIG_NAME_1">
-          <jobId>{$ctx:jobId}</jobId>
+          <jobId>{${properties.jobId}}</jobId>
           <outputType>JSON</outputType>
           <includeResultTo>BODY</includeResultTo>
         </salesforce_bulkapi_v2.getSuccessfulResults>
@@ -261,13 +261,13 @@ Let's add the operations to the resources in the `Salesforce` API
         ```
   2. Drag ann drop `getUnprocessedResults` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
       3. In the 'Output type' drop, select `CSV`.
 
 
         ```xml
         <salesforce_bulkapi_v2.getUnprocessedResults configKey="SF_CONNECTION_CONFIG_NAME_1">
-          <jobId>{$ctx:jobId}</jobId>
+          <jobId>{${properties.jobId}}</jobId>
           <outputType>CSV</outputType>
           <includeResultTo>BODY</includeResultTo>
         </salesforce_bulkapi_v2.getUnprocessedResults>
@@ -292,12 +292,12 @@ Let's add the operations to the resources in the `Salesforce` API
         ```
   2. Select the `deleteJob` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
 
 
         ```xml
         <salesforce_bulkapi_v2.deleteJob configKey="SF_CONNECTION_CONFIG_NAME_1">
-          <jobId>{$ctx:jobId}</jobId>
+          <jobId>{${properties.jobId}}</jobId>
         </salesforce_bulkapi_v2.deleteJob>
         ``` 
 
@@ -340,12 +340,12 @@ Let's add the operations to the resources in the `Salesforce` API
         ```
   2. Select the `getQueryJobInfo` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
 
 
         ```xml
         <salesforce_bulkapi_v2.getQueryJobInfo configKey="SF_CONNECTION_CONFIG_NAME_1">
-          <jobId>{$ctx:jobId}</jobId>
+          <jobId>{${properties.jobId}}</jobId>
         </salesforce_bulkapi_v2.getQueryJobInfo>
         ``` 
 
@@ -363,10 +363,10 @@ Let's add the operations to the resources in the `Salesforce` API
         ```
   2. Select the `getQueryJobResults` operation from **Salesforce_bulkapi_v2_Connector**.
       1. In the 'Salesforce Configuration' section of the properties, select the Salesforce connection configuration you created.
-      2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
+      2. In the 'Job ID' text box, enter the expression `${properties.jobId}`.
         ```xml
         <salesforce_bulkapi_v2.getQueryJobResults configKey="SF_CONNECTION_CONFIG_NAME_1">
-                <queryJobId>{$ctx:queryJobId}</queryJobId>
+                <queryJobId>{${properties.queryJobId}}</queryJobId>
                 <outputType>JSON</outputType>
                 <includeResultTo>FILE</includeResultTo>
                 <filePath>/path/to/file/out.json</filePath>
@@ -398,11 +398,11 @@ Let's add the operations to the resources in the `Salesforce` API
                 </salesforce_bulkapi_v2.createJob>
                 <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
-                    <inputData>{$ctx:csvContent}</inputData>
+                    <jobId>{${properties.jobId}}</jobId>
+                    <inputData>{${properties.csvContent}}</inputData>
                 </salesforce_bulkapi_v2.uploadJobData>
                 <salesforce_bulkapi_v2.closeJob configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                 </salesforce_bulkapi_v2.closeJob>
                 <respond/>
             </inSequence>
@@ -428,11 +428,11 @@ Let's add the operations to the resources in the `Salesforce` API
                     <enableLock>false</enableLock>
                 </file.read>
                 <salesforce_bulkapi_v2.uploadJobData configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
-                    <inputData>{$ctx:csvContent}</inputData>
+                    <jobId>{${properties.jobId}}</jobId>
+                    <inputData>{${properties.csvContent}}</inputData>
                 </salesforce_bulkapi_v2.uploadJobData>
                 <salesforce_bulkapi_v2.closeJob configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                 </salesforce_bulkapi_v2.closeJob>
                 <respond/>
             </inSequence>
@@ -442,7 +442,7 @@ Let's add the operations to the resources in the `Salesforce` API
             <inSequence>
                 <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getJobInfo configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                 </salesforce_bulkapi_v2.getJobInfo>
                 <respond/>
             </inSequence>
@@ -452,7 +452,7 @@ Let's add the operations to the resources in the `Salesforce` API
             <inSequence>
                 <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getSuccessfulResults configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                     <outputType>JSON</outputType>
                     <includeResultTo>BODY</includeResultTo>
                 </salesforce_bulkapi_v2.getSuccessfulResults>
@@ -464,7 +464,7 @@ Let's add the operations to the resources in the `Salesforce` API
             <inSequence>
                 <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getUnprocessedResults configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                     <outputType>CSV</outputType>
                     <includeResultTo>BODY</includeResultTo>
                 </salesforce_bulkapi_v2.getUnprocessedResults>
@@ -486,7 +486,7 @@ Let's add the operations to the resources in the `Salesforce` API
             <inSequence>
                 <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.deleteJob configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                 </salesforce_bulkapi_v2.deleteJob>
                 <respond/>
             </inSequence>
@@ -508,7 +508,7 @@ Let's add the operations to the resources in the `Salesforce` API
             <inSequence>
                 <property expression="json-eval($.id)" name="jobId" scope="default" type="STRING"/>
                 <salesforce_bulkapi_v2.getQueryJobInfo configKey="SF_CONFIG_1">
-                    <queryJobId>{$ctx:jobId}</queryJobId>
+                    <queryJobId>{${properties.jobId}}</queryJobId>
                 </salesforce_bulkapi_v2.getQueryJobInfo>
                 <log level="full"/>
                 <respond/>
@@ -519,10 +519,10 @@ Let's add the operations to the resources in the `Salesforce` API
             <inSequence>
                 <property expression="json-eval($.id)" name="queryJobId" scope="default" type="STRING"/>
                 <log level="custom">
-                    <property expression="$ctx:queryJobId" name="testprop1"/>
+                    <property expression="${properties.queryJobId}" name="testprop1"/>
                 </log>
                 <salesforce_bulkapi_v2.getQueryJobResults configKey="SF_CONNECTION_CONFIG_NAME_1">
-                    <queryJobId>{$ctx:queryJobId}</queryJobId>
+                    <queryJobId>{${properties.queryJobId}}</queryJobId>
                     <outputType>JSON</outputType>
                     <includeResultTo>FILE</includeResultTo>
                     <filePath>path/to/file/out.json</filePath>

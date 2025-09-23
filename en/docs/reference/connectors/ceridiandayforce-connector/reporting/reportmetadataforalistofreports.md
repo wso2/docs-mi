@@ -83,10 +83,10 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getReportMetadata/>
          <send/>

@@ -1099,7 +1099,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.createDirectory configKey="CONNECTION_NAME">
-        <directoryPath>{$ctx:directoryPath}</directoryPath>
+        <directoryPath>{${properties.directoryPath}}</directoryPath>
     </file.createDirectory>
     ```
 
@@ -1200,7 +1200,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.checkExist configKey="CONNECTION_NAME">
-        <path>{$ctx:path}</path>
+        <path>{${properties.path}}</path>
     </file.checkExist>
     ```
 
@@ -1319,9 +1319,9 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.compress configKey="CONNECTION_NAME">
-        <sourceDirectoryPath>{$ctx:sourceDirectoryPath}</sourceDirectoryPath>
-        <targetFilePath>{$ctx:targetFilePath}</targetFilePath>
-        <includeSubDirectories>{$ctx:includeSubDirectories}</includeSubDirectories>
+        <sourceDirectoryPath>{${properties.sourceDirectoryPath}}</sourceDirectoryPath>
+        <targetFilePath>{${properties.targetFilePath}}</targetFilePath>
+        <includeSubDirectories>{${properties.includeSubDirectories}}</includeSubDirectories>
     </file.compress>
     ```
     
@@ -1576,14 +1576,14 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.copy configKey="CONNECTION_NAME">
-        <sourcePath>{$ctx:sourcePath}</sourcePath>
-        <targetPath>{$ctx:targetPath}</targetPath>
-        <sourceFilePattern>{$ctx:sourceFilePattern}</sourceFilePattern>
-        <includeParent>{$ctx:includeParent}</includeParent>
-        <overwrite>{$ctx:overwrite}</overwrite>
-        <renameTo>{$ctx:renameTo}</renameTo>
-        <maxRetries>{$ctx:maxRetries}</maxRetries>
-        <retryDelay>{$ctx:retryDelay}</retryDelay>
+        <sourcePath>{${properties.sourcePath}}</sourcePath>
+        <targetPath>{${properties.targetPath}}</targetPath>
+        <sourceFilePattern>{${properties.sourceFilePattern}}</sourceFilePattern>
+        <includeParent>{${properties.includeParent}}</includeParent>
+        <overwrite>{${properties.overwrite}}</overwrite>
+        <renameTo>{${properties.renameTo}}</renameTo>
+        <maxRetries>{${properties.maxRetries}}</maxRetries>
+        <retryDelay>{${properties.retryDelay}}</retryDelay>
     </file.copy>
     ```
     
@@ -1860,15 +1860,15 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.move configKey="CONNECTION_NAME">
-        <sourcePath>{$ctx:sourcePath}</sourcePath>
-        <targetPath>{$ctx:targetPath}</targetPath>
-        <createParentDirectories>{$ctx:createParentDirectories}</createParentDirectories>
-        <includeParent>{$ctx:includeParent}</includeParent>
-        <overwrite>{$ctx:overwrite}</overwrite>
-        <renameTo>{$ctx:renameTo}</renameTo>
-        <filePattern>{$ctx:filePattern}</filePattern>
-        <isSourceMounted>{$ctx:isSourceMounted}</isSourceMounted>
-        <isTargetMounted>{$ctx:isTargetMounted}</isTargetMounted>
+        <sourcePath>{${properties.sourcePath}}</sourcePath>
+        <targetPath>{${properties.targetPath}}</targetPath>
+        <createParentDirectories>{${properties.createParentDirectories}}</createParentDirectories>
+        <includeParent>{${properties.includeParent}}</includeParent>
+        <overwrite>{${properties.overwrite}}</overwrite>
+        <renameTo>{${properties.renameTo}}</renameTo>
+        <filePattern>{${properties.filePattern}}</filePattern>
+        <isSourceMounted>{${properties.isSourceMounted}}</isSourceMounted>
+        <isTargetMounted>{${properties.isTargetMounted}}</isTargetMounted>
     </file.move>
     ```
     
@@ -2387,20 +2387,20 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.read configKey="CONNECTION_NAME">
-        <path>{$ctx:path}</path>
-        <filePattern>{$ctx:filePattern}</filePattern>
-        <includeResultTo>{$ctx:includeResultTo}</includeResultTo>
-        <resultPropertyName>{$ctx:resultPropertyName}</resultPropertyName>
-        <readMode>{$ctx:readMode}</readMode>
-        <startLineNum>{$ctx:startLineNum}</startLineNum>
-        <endLineNum>{$ctx:endLineNum}</endLineNum>
-        <lineNum>{$ctx:lineNum}</lineNum>
-        <contentType>{$ctx:contentType}</contentType>
-        <encoding>{$ctx:encoding}</encoding>
-        <enableStreaming>{$ctx:enableStreaming}</enableStreaming>
-        <enableLock>{$ctx:enableLock}</enableLock>
-        <maxRetries>{$ctx:maxRetries}</maxRetries>
-        <retryDelay>{$ctx:retryDelay}</retryDelay>
+        <path>{${properties.path}}</path>
+        <filePattern>{${properties.filePattern}}</filePattern>
+        <includeResultTo>{${properties.includeResultTo}}</includeResultTo>
+        <resultPropertyName>{${properties.resultPropertyName}}</resultPropertyName>
+        <readMode>{${properties.readMode}}</readMode>
+        <startLineNum>{${properties.startLineNum}}</startLineNum>
+        <endLineNum>{${properties.endLineNum}}</endLineNum>
+        <lineNum>{${properties.lineNum}}</lineNum>
+        <contentType>{${properties.contentType}}</contentType>
+        <encoding>{${properties.encoding}}</encoding>
+        <enableStreaming>{${properties.enableStreaming}}</enableStreaming>
+        <enableLock>{${properties.enableLock}}</enableLock>
+        <maxRetries>{${properties.maxRetries}}</maxRetries>
+        <retryDelay>{${properties.retryDelay}}</retryDelay>
     </file.read>
     ```
     
@@ -2566,9 +2566,9 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.rename configKey="CONNECTION_NAME">
-        <path>{$ctx:path}</path>
-        <renameTo>{$ctx:renameTo}</renameTo>
-        <overwrite>{$ctx:overwrite}</overwrite>
+        <path>{${properties.path}}</path>
+        <renameTo>{${properties.renameTo}}</renameTo>
+        <overwrite>{${properties.overwrite}}</overwrite>
     </file.rename>
     ```
     
@@ -2741,10 +2741,10 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.delete configKey="CONNECTION_NAME">
-        <path>{$ctx:path}</path>
-        <matchingPattern>{$ctx:matchingPattern}</matchingPattern>
-        <maxRetries>{$ctx:maxRetries}</maxRetries>
-        <retryDelay>{$ctx:retryDelay}</retryDelay>
+        <path>{${properties.path}}</path>
+        <matchingPattern>{${properties.matchingPattern}}</matchingPattern>
+        <maxRetries>{${properties.maxRetries}}</maxRetries>
+        <retryDelay>{${properties.retryDelay}}</retryDelay>
     </file.delete>
     ```
     
@@ -2875,8 +2875,8 @@ The following operations allow you to work with the File Connector version 4. Cl
      **Sample configuration**
     ```xml
     <file.unzip configKey="CONNECTION_NAME">
-        <sourceFilePath>{$ctx:sourceFilePath}</sourceFilePath>
-        <targetDirectory>{$ctx:targetDirectory}</targetDirectory>
+        <sourceFilePath>{${properties.sourceFilePath}}</sourceFilePath>
+        <targetDirectory>{${properties.targetDirectory}}</targetDirectory>
     </file.unzip>
     ```
     
@@ -3119,10 +3119,10 @@ The following operations allow you to work with the File Connector version 4. Cl
      **Sample configuration**
     ```xml
     <file.splitFile configKey="CONNECTION_NAME">
-        <sourceFilePath>{$ctx:sourceFilePath}</sourceFilePath>
-        <targetDirectory>{$ctx:targetDirectory}</targetDirectory>
-        <splitMode>{$ctx:splitMode}</splitMode>
-        <xpathExpression>{$ctx:xpathExpression}</xpathExpression>
+        <sourceFilePath>{${properties.sourceFilePath}}</sourceFilePath>
+        <targetDirectory>{${properties.targetDirectory}}</targetDirectory>
+        <splitMode>{${properties.splitMode}}</splitMode>
+        <xpathExpression>{${properties.xpathExpression}}</xpathExpression>
     </file.splitFile>
     ```
     
@@ -3380,14 +3380,14 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.listFiles configKey="CONNECTION_NAME">
-        <directoryPath>{$ctx:directoryPath}</directoryPath>
-        <matchingPattern>{$ctx:matchingPattern}</matchingPattern>
-        <recursive>{$ctx:recursive}</recursive>
-        <sortingAttribute>{$ctx:sortingAttribute}</sortingAttribute>
-        <sortingOrder>{$ctx:sortingOrder}</sortingOrder>
-        <responseFormat>{$ctx:responseFormat}</responseFormat>
-        <maxRetries>{$ctx:maxRetries}</maxRetries>
-        <retryDelay>{$ctx:retryDelay}</retryDelay>
+        <directoryPath>{${properties.directoryPath}}</directoryPath>
+        <matchingPattern>{${properties.matchingPattern}}</matchingPattern>
+        <recursive>{${properties.recursive}}</recursive>
+        <sortingAttribute>{${properties.sortingAttribute}}</sortingAttribute>
+        <sortingOrder>{${properties.sortingOrder}}</sortingOrder>
+        <responseFormat>{${properties.responseFormat}}</responseFormat>
+        <maxRetries>{${properties.maxRetries}}</maxRetries>
+        <retryDelay>{${properties.retryDelay}}</retryDelay>
     </file.listFiles>
     ```
     
@@ -3476,7 +3476,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.exploreZipFile configKey="CONNECTION_NAME">
-        <zipFilePath>{$ctx:directoryPath}</zipFilePath>
+        <zipFilePath>{${properties.directoryPath}}</zipFilePath>
     </file.exploreZipFile>
     ```
     
@@ -3660,10 +3660,10 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.mergeFiles configKey="CONNECTION_NAME">
-        <sourceDirectoryPath>{$ctx:sourceDirectoryPath}</sourceDirectoryPath>
-        <targetFilePath>{$ctx:targetFilePath}</targetFilePath>
-        <filePattern>{$ctx:filePattern}</filePattern>
-        <writeMode>{$ctx:writeMode}</writeMode>
+        <sourceDirectoryPath>{${properties.sourceDirectoryPath}}</sourceDirectoryPath>
+        <targetFilePath>{${properties.targetFilePath}}</targetFilePath>
+        <filePattern>{${properties.filePattern}}</filePattern>
+        <writeMode>{${properties.writeMode}}</writeMode>
     </file.mergeFiles>
     ```
     
@@ -4055,20 +4055,20 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.write configKey="CONNECTION_NAME">
-        <filePath>{$ctx:filePath}</filePath>
-        <contentOrExpression>{$ctx:contentOrExpression}</contentOrExpression>
-        <mimeType>{$ctx:mimeType}</mimeType>
-        <writeMode>{$ctx:writeMode}</writeMode>
-        <appendNewLine>{$ctx:appendNewLine}</appendNewLine>
-        <encoding>{$ctx:encoding}</encoding>
-        <compress>{$ctx:compress}</compress>
-        <enableStreaming>{$ctx:enableStreaming}</enableStreaming>
-        <enableLock>{$ctx:enableLock}</enableLock>
-        <includeResultTo>{$ctx:includeResultTo}</includeResultTo>
-        <resultPropertyName>{$ctx:resultPropertyName}</resultPropertyName>
-        <updateLastModified>{$ctx:updateLastModified}</updateLastModified>
-        <maxRetries>{$ctx:maxRetries}</maxRetries>
-        <retryDelay>{$ctx:retryDelay}</retryDelay>
+        <filePath>{${properties.filePath}}</filePath>
+        <contentOrExpression>{${properties.contentOrExpression}}</contentOrExpression>
+        <mimeType>{${properties.mimeType}}</mimeType>
+        <writeMode>{${properties.writeMode}}</writeMode>
+        <appendNewLine>{${properties.appendNewLine}}</appendNewLine>
+        <encoding>{${properties.encoding}}</encoding>
+        <compress>{${properties.compress}}</compress>
+        <enableStreaming>{${properties.enableStreaming}}</enableStreaming>
+        <enableLock>{${properties.enableLock}}</enableLock>
+        <includeResultTo>{${properties.includeResultTo}}</includeResultTo>
+        <resultPropertyName>{${properties.resultPropertyName}}</resultPropertyName>
+        <updateLastModified>{${properties.updateLastModified}}</updateLastModified>
+        <maxRetries>{${properties.maxRetries}}</maxRetries>
+        <retryDelay>{${properties.retryDelay}}</retryDelay>
     </file.write>
     ```
     
@@ -4257,12 +4257,12 @@ The following operations allow you to work with the File Connector version 4. Cl
     **Sample configuration**
     ```xml
     <file.fetchDirectoryContent configKey="CONNECTION_NAME">
-        <directoryPath>{$ctx:directoryPath}</directoryPath>
-        <matchingPattern>{$ctx:matchingPattern}</matchingPattern>
-        <recursive>{$ctx:recursive}</recursive>
-        <sortingAttribute>{$ctx:sortingAttribute}</sortingAttribute>
-        <sortingOrder>{$ctx:sortingOrder}</sortingOrder>
-        <resultPropertyName>{$ctx:resultPropertyName}</resultPropertyName>
+        <directoryPath>{${properties.directoryPath}}</directoryPath>
+        <matchingPattern>{${properties.matchingPattern}}</matchingPattern>
+        <recursive>{${properties.recursive}}</recursive>
+        <sortingAttribute>{${properties.sortingAttribute}}</sortingAttribute>
+        <sortingOrder>{${properties.sortingOrder}}</sortingOrder>
+        <resultPropertyName>{${properties.resultPropertyName}}</resultPropertyName>
     </file.fetchDirectoryContent>
     ```
     

@@ -18,21 +18,21 @@ We can use GET Employee Punches operation with required parameters to get work s
 **GET Employee Punches**
 ```xml
 <ceridiandayforce.getEmployeePunches>
-    <filterTransactionStartTimeUTC>{$ctx:filterTransactionStartTimeUTC}</filterTransactionStartTimeUTC>
-    <filterTransactionEndTimeUTC>{$ctx:filterTransactionEndTimeUTC}</filterTransactionEndTimeUTC>
-    <employeeXRefCode>{$ctx:employeeXRefCode}</employeeXRefCode>
-    <locationXRefCode>{$ctx:locationXRefCode}</locationXRefCode>
-    <positionXRefCode>{$ctx:positionXRefCode}</positionXRefCode>
-    <departmentXRefCode>{$ctx:departmentXRefCode}</departmentXRefCode>
-    <jobXRefCode>{$ctx:jobXRefCode}</jobXRefCode>
-    <docketXRefCode>{$ctx:docketXRefCode}</docketXRefCode>
-    <projectXRefCode>{$ctx:projectXRefCode}</projectXRefCode>
-    <payAdjustmentXRefCode>{$ctx:payAdjustmentXRefCode}</payAdjustmentXRefCode>
-    <shiftStatus>{$ctx:shiftStatus}</shiftStatus>
-    <filterShiftTimeStart>{$ctx:filterShiftTimeStart}</filterShiftTimeStart>
-    <filterShiftTimeEnd>{$ctx:filterShiftTimeEnd}</filterShiftTimeEnd>
-    <businessDate>{$ctx:businessDate}</businessDate>
-    <pageSize>{$ctx:pageSize}</pageSize>
+    <filterTransactionStartTimeUTC>{${properties.filterTransactionStartTimeUTC}}</filterTransactionStartTimeUTC>
+    <filterTransactionEndTimeUTC>{${properties.filterTransactionEndTimeUTC}}</filterTransactionEndTimeUTC>
+    <employeeXRefCode>{${properties.employeeXRefCode}}</employeeXRefCode>
+    <locationXRefCode>{${properties.locationXRefCode}}</locationXRefCode>
+    <positionXRefCode>{${properties.positionXRefCode}}</positionXRefCode>
+    <departmentXRefCode>{${properties.departmentXRefCode}}</departmentXRefCode>
+    <jobXRefCode>{${properties.jobXRefCode}}</jobXRefCode>
+    <docketXRefCode>{${properties.docketXRefCode}}</docketXRefCode>
+    <projectXRefCode>{${properties.projectXRefCode}}</projectXRefCode>
+    <payAdjustmentXRefCode>{${properties.payAdjustmentXRefCode}}</payAdjustmentXRefCode>
+    <shiftStatus>{${properties.shiftStatus}}</shiftStatus>
+    <filterShiftTimeStart>{${properties.filterShiftTimeStart}}</filterShiftTimeStart>
+    <filterShiftTimeEnd>{${properties.filterShiftTimeEnd}}</filterShiftTimeEnd>
+    <businessDate>{${properties.businessDate}}</businessDate>
+    <pageSize>{${properties.pageSize}}</pageSize>
 </ceridiandayforce.getEmployeePunches>
 ```
 
@@ -251,14 +251,14 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.filterTransactionStartTimeUTC)" name="filterTransactionStartTimeUTC"/>
          <property expression="json-eval($.filterTransactionEndTimeUTC)" name="filterTransactionEndTimeUTC"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeePunches>
-            <filterTransactionStartTimeUTC>{$ctx:filterTransactionStartTimeUTC}</filterTransactionStartTimeUTC>
-            <filterTransactionEndTimeUTC>{$ctx:filterTransactionEndTimeUTC}</filterTransactionEndTimeUTC>
+            <filterTransactionStartTimeUTC>{${properties.filterTransactionStartTimeUTC}}</filterTransactionStartTimeUTC>
+            <filterTransactionEndTimeUTC>{${properties.filterTransactionEndTimeUTC}}</filterTransactionEndTimeUTC>
          </ceridiandayforce.getEmployeePunches>
          <send/>
       </inSequence>

@@ -141,8 +141,8 @@ Now follow the steps below to add configurations to the sequence.
             <property name="sObjectName" scope="default" type="STRING" expression="json-eval($.sObject)"/>
             <property name="fieldAndValue" scope="default" type="STRING" expression="json-eval($.fieldAndValue)"/>
             <salesforcerest.create configKey="SalesforceRestConnection">
-                <sObjectName>{$ctx:sObject}</sObjectName>
-                <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+                <sObjectName>{${properties.sObject}}</sObjectName>
+                <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
             </salesforcerest.create>
         </sequence>
         ```

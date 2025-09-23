@@ -83,11 +83,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
         <property expression="json-eval($.securityPrincipal)" name="securityPrincipal" scope="default" type="STRING"/>
         <property expression="json-eval($.securityCredentials)" name="securityCredentials" scope="default" type="STRING"/>
         <ldap.init>
-            <providerUrl>{$ctx:providerUrl}</providerUrl>
-            <securityPrincipal>{$ctx:securityPrincipal}</securityPrincipal>
-            <securityCredentials>{$ctx:securityCredentials}</securityCredentials>
-            <secureConnection>{$ctx:secureConnection}</secureConnection>
-            <disableSSLCertificateChecking>{$ctx:disableSSLCertificateChecking}</disableSSLCertificateChecking>
+            <providerUrl>{${properties.providerUrl}}</providerUrl>
+            <securityPrincipal>{${properties.securityPrincipal}}</securityPrincipal>
+            <securityCredentials>{${properties.securityCredentials}}</securityCredentials>
+            <secureConnection>{${properties.secureConnection}}</secureConnection>
+            <disableSSLCertificateChecking>{${properties.disableSSLCertificateChecking}}</disableSSLCertificateChecking>
         </ldap.init>
     </sequence>
     ```
@@ -103,9 +103,9 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
         <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
         <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
         <ldap.addEntry>
-            <objectClass>{$ctx:objectClass}</objectClass>
-            <attributes>{$ctx:attributes}</attributes>
-            <dn>{$ctx:dn}</dn>
+            <objectClass>{${properties.objectClass}}</objectClass>
+            <attributes>{${properties.attributes}}</attributes>
+            <dn>{${properties.dn}}</dn>
         </ldap.addEntry>
         <respond/>
     </sequence>
@@ -123,11 +123,11 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
         <property expression="json-eval($.content.attributes)" name="attributes" scope="default" type="STRING"/>
         <property expression="json-eval($.content.dn)" name="dn" scope="default" type="STRING"/>
         <ldap.searchEntry>
-            <objectClass>{$ctx:objectClass}</objectClass>
+            <objectClass>{${properties.objectClass}}</objectClass>
             <limit>1000</limit>
-            <filters>{$ctx:filters}</filters>
-            <dn>{$ctx:dn}</dn>
-            <attributes>{$ctx:attributes}</attributes>
+            <filters>{${properties.filters}}</filters>
+            <dn>{${properties.dn}}</dn>
+            <attributes>{${properties.attributes}}</attributes>
         </ldap.searchEntry>
         <respond/>
     </sequence>

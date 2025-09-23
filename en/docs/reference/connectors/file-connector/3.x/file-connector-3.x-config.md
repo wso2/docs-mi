@@ -71,17 +71,17 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.append>
-        <destination>{$ctx:destination}</destination>
-        <inputContent>{$ctx:inputContent}</inputContent>
-        <position>{$ctx:position}</position>
-        <encoding>{$ctx:encoding}</encoding>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <sftpIdentities>{$ctx:sftpIdentities}</sftpIdentities>
-        <sftpIdentityPassphrase>{$ctx:sftpIdentityPassphrase}</sftpIdentityPassphrase>
+        <destination>{${properties.destination}}</destination>
+        <inputContent>{${properties.inputContent}}</inputContent>
+        <position>{${properties.position}}</position>
+        <encoding>{${properties.encoding}}</encoding>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <sftpIdentities>{${properties.sftpIdentities}}</sftpIdentities>
+        <sftpIdentityPassphrase>{${properties.sftpIdentityPassphrase}}</sftpIdentityPassphrase>
     </fileconnector.append>
     ```
     
@@ -177,18 +177,18 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.archives>
-        <source>{$ctx:source}</source>
-        <destination>{$ctx:destination}</destination>
-        <inputContent>{$ctx:inputContent}</inputContent>
-        <fileName>{$ctx:fileName}</fileName>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <includeSubDirectories>{$ctx:includeSubDirectories}</includeSubDirectories>
-        <sftpIdentities>{$ctx:sftpIdentities}</sftpIdentities>
-        <sftpIdentityPassphrase>{$ctx:sftpIdentityPassphrase}</sftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <destination>{${properties.destination}}</destination>
+        <inputContent>{${properties.inputContent}}</inputContent>
+        <fileName>{${properties.fileName}}</fileName>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <includeSubDirectories>{${properties.includeSubDirectories}}</includeSubDirectories>
+        <sftpIdentities>{${properties.sftpIdentities}}</sftpIdentities>
+        <sftpIdentityPassphrase>{${properties.sftpIdentityPassphrase}}</sftpIdentityPassphrase>
     </fileconnector.archives>
     ```
 
@@ -293,20 +293,20 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.copy>
-        <source>{$ctx:source}</source>
-        <destination>{$ctx:destination}</destination>
-	    <filePattern>{$ctx:filePattern}</filePattern>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-	    <includeParentDirectory>{$ctx:includeParentDirectory}</includeParentDirectory>
-	    <sourceSftpIdentities>{$ctx:sftpIdentities}</sourceSftpIdentities>
-        <sourceSftpIdentityPassphrase>{$ctx:sourceSftpIdentityPassphrase}</sourceSftpIdentityPassphrase>
-        <targetSftpIdentities>{$ctx:targetSftpIdentities}</targetSftpIdentities>
-        <targetSftpIdentityPassphrase>{$ctx:targetSftpIdentityPassphrase}</targetSftpIdentityPassphrase>
-        <includeSubDirectories>{$ctx:includeSubDirectories}</includeSubDirectories>
+        <source>{${properties.source}}</source>
+        <destination>{${properties.destination}}</destination>
+	    <filePattern>{${properties.filePattern}}</filePattern>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+	    <includeParentDirectory>{${properties.includeParentDirectory}}</includeParentDirectory>
+	    <sourceSftpIdentities>{${properties.sftpIdentities}}</sourceSftpIdentities>
+        <sourceSftpIdentityPassphrase>{${properties.sourceSftpIdentityPassphrase}}</sourceSftpIdentityPassphrase>
+        <targetSftpIdentities>{${properties.targetSftpIdentities}}</targetSftpIdentities>
+        <targetSftpIdentityPassphrase>{${properties.targetSftpIdentityPassphrase}}</targetSftpIdentityPassphrase>
+        <includeSubDirectories>{${properties.includeSubDirectories}}</includeSubDirectories>
     </fileconnector.copy>
     ```
 
@@ -397,17 +397,17 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.create>
-        <filePath>{$ctx:filePath}</filePath>
-        <inputContent>{$ctx:inputContent}</inputContent>
-	    <encoding>{$ctx:encoding}</encoding>
-	    <isBinaryContent>{$ctx:isBinaryContent}</isBinaryContent>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <sftpIdentities>{$ctx:sftpIdentities}</sftpIdentities>
-        <sftpIdentityPassphrase>{$ctx:sftpIdentityPassphrase}</sftpIdentityPassphrase>
+        <filePath>{${properties.filePath}}</filePath>
+        <inputContent>{${properties.inputContent}}</inputContent>
+	    <encoding>{${properties.encoding}}</encoding>
+	    <isBinaryContent>{${properties.isBinaryContent}}</isBinaryContent>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <sftpIdentities>{${properties.sftpIdentities}}</sftpIdentities>
+        <sftpIdentityPassphrase>{${properties.sftpIdentityPassphrase}}</sftpIdentityPassphrase>
     </fileconnector.create>
     ```
 
@@ -496,17 +496,17 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.delete>
-        <source>{$ctx:source}</source>
-        <filePattern>{$ctx:filePattern}</filePattern>
-	    <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <includeSubDirectories>{$ctx:includeSubDirectories}</includeSubDirectories>
-        <deleteContainerFolders>{$ctx:deleteContainerFolders}</deleteContainerFolders>
-        <sftpIdentities>{$ctx:sftpIdentities}</sftpIdentities>
-        <sftpIdentityPassphrase>{$ctx:sftpIdentityPassphrase}</sftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <filePattern>{${properties.filePattern}}</filePattern>
+	    <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <includeSubDirectories>{${properties.includeSubDirectories}}</includeSubDirectories>
+        <deleteContainerFolders>{${properties.deleteContainerFolders}}</deleteContainerFolders>
+        <sftpIdentities>{${properties.sftpIdentities}}</sftpIdentities>
+        <sftpIdentityPassphrase>{${properties.sftpIdentityPassphrase}}</sftpIdentityPassphrase>
     </fileconnector.delete>
     ```
 
@@ -580,14 +580,14 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.isFileExist>
-        <source>{$ctx:source}</source>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <sftpIdentities>{$ctx:sftpIdentities}</sftpIdentities>
-        <sftpIdentityPassphrase>{$ctx:sftpIdentityPassphrase}</sftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <sftpIdentities>{${properties.sftpIdentities}}</sftpIdentities>
+        <sftpIdentityPassphrase>{${properties.sftpIdentityPassphrase}}</sftpIdentityPassphrase>
     </fileconnector.isFileExist>
     ```
 
@@ -649,12 +649,12 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.listFileZip>
-        <source>{$ctx:source}</source>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
+        <source>{${properties.source}}</source>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
     </fileconnector.listFileZip>
     ```
 
@@ -758,21 +758,21 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.move>
-        <source>{$ctx:source}</source>
-        <destination>{$ctx:destination}</destination>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <filePattern>{$ctx:filePattern}</filePattern>
-	    <includeParentDirectory>{$ctx:includeParentDirectory}</includeParentDirectory>
-        <includeSubDirectories>{$ctx:includeSubDirectories}</includeSubDirectories>
-        <setAvoidPermission>{$ctx:setAvoidPermission}</setAvoidPermission>
-	    <sourceSftpIdentities>{$ctx:sftpIdentities}</sourceSftpIdentities>
-        <sourceSftpIdentityPassphrase>{$ctx:sourceSftpIdentityPassphrase}</sourceSftpIdentityPassphrase>
-        <targetSftpIdentities>{$ctx:targetSftpIdentities}</targetSftpIdentities>
-        <targetSftpIdentityPassphrase>{$ctx:targetSftpIdentityPassphrase}</targetSftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <destination>{${properties.destination}}</destination>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <filePattern>{${properties.filePattern}}</filePattern>
+	    <includeParentDirectory>{${properties.includeParentDirectory}}</includeParentDirectory>
+        <includeSubDirectories>{${properties.includeSubDirectories}}</includeSubDirectories>
+        <setAvoidPermission>{${properties.setAvoidPermission}}</setAvoidPermission>
+	    <sourceSftpIdentities>{${properties.sftpIdentities}}</sourceSftpIdentities>
+        <sourceSftpIdentityPassphrase>{${properties.sourceSftpIdentityPassphrase}}</sourceSftpIdentityPassphrase>
+        <targetSftpIdentities>{${properties.targetSftpIdentities}}</targetSftpIdentities>
+        <targetSftpIdentityPassphrase>{${properties.targetSftpIdentityPassphrase}}</targetSftpIdentityPassphrase>
     </fileconnector.move>
     ```
 
@@ -872,16 +872,16 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.read>
-        <source>{$ctx:source}</source>
-        <filePattern>{$ctx:filePattern}</filePattern>
-        <contentType>{$ctx:contentType}</contentType>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-        <sftpIdentities>{$ctx:sftpIdentities}</sftpIdentities>
-        <sftpIdentityPassphrase>{$ctx:sftpIdentityPassphrase}</sftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <filePattern>{${properties.filePattern}}</filePattern>
+        <contentType>{${properties.contentType}}</contentType>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+        <sftpIdentities>{${properties.sftpIdentities}}</sftpIdentities>
+        <sftpIdentityPassphrase>{${properties.sftpIdentityPassphrase}}</sftpIdentityPassphrase>
     </fileconnector.read>
     ```
     
@@ -961,14 +961,14 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.search>
-        <source>{$ctx:source}</source>
-        <filePattern>{$ctx:filePattern}</filePattern>
-	    <recursiveSearch>{$ctx:recursiveSearch}</recursiveSearch>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
+        <source>{${properties.source}}</source>
+        <filePattern>{${properties.filePattern}}</filePattern>
+	    <recursiveSearch>{${properties.recursiveSearch}}</recursiveSearch>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
     </fileconnector.search>
     ```
     
@@ -1056,17 +1056,17 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.unzip>
-        <source>{$ctx:source}</source>
-        <destination>{$ctx:destination}</destination>
-        <setTimeout>{$ctx:setTimeout}</setTimeout>
-        <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-        <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-        <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-        <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
-	    <sourceSftpIdentities>{$ctx:sftpIdentities}</sourceSftpIdentities>
-        <sourceSftpIdentityPassphrase>{$ctx:sourceSftpIdentityPassphrase}</sourceSftpIdentityPassphrase>
-        <targetSftpIdentities>{$ctx:targetSftpIdentities}</targetSftpIdentities>
-        <targetSftpIdentityPassphrase>{$ctx:targetSftpIdentityPassphrase}</targetSftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <destination>{${properties.destination}}</destination>
+        <setTimeout>{${properties.setTimeout}}</setTimeout>
+        <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+        <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+        <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+        <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
+	    <sourceSftpIdentities>{${properties.sftpIdentities}}</sourceSftpIdentities>
+        <sourceSftpIdentityPassphrase>{${properties.sourceSftpIdentityPassphrase}}</sourceSftpIdentityPassphrase>
+        <targetSftpIdentities>{${properties.targetSftpIdentities}}</targetSftpIdentities>
+        <targetSftpIdentityPassphrase>{${properties.targetSftpIdentityPassphrase}}</targetSftpIdentityPassphrase>
     </fileconnector.unzip>
     ```
     
@@ -1164,20 +1164,20 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.ftpOverProxy>
-        <proxyHost>{$ctx:proxyHost}</proxyHost>
-        <proxyPort>{$ctx:proxyPort}</proxyPort>
-        <proxyUsername>{$ctx:proxyUsername}</proxyUsername>
-        <proxyPassword>{$ctx:proxyPassword}</proxyPassword>
-        <ftpUsername>{$ctx:ftpUsername}</ftpUsername>
-        <ftpPassword>{$ctx:ftpPassword}</ftpPassword>
-        <ftpServer>{$ctx:ftpServer}</ftpServer>
-        <ftpPort>{$ctx:ftpPort}</ftpPort>
-        <targetPath>{$ctx:targetPath}</targetPath>
-        <targetFile>{$ctx:targetFile}</targetFile>
-        <keepAliveTimeout>{$ctx:keepAliveTimeout}</keepAliveTimeout>
-        <controlKeepAliveReplyTimeout>{$ctx:controlKeepAliveReplyTimeout}</controlKeepAliveReplyTimeout>
-        <binaryTransfer>{$ctx:binaryTransfer}</binaryTransfer>
-        <localActive>{$ctx:localActive}</localActive>
+        <proxyHost>{${properties.proxyHost}}</proxyHost>
+        <proxyPort>{${properties.proxyPort}}</proxyPort>
+        <proxyUsername>{${properties.proxyUsername}}</proxyUsername>
+        <proxyPassword>{${properties.proxyPassword}}</proxyPassword>
+        <ftpUsername>{${properties.ftpUsername}}</ftpUsername>
+        <ftpPassword>{${properties.ftpPassword}}</ftpPassword>
+        <ftpServer>{${properties.ftpServer}}</ftpServer>
+        <ftpPort>{${properties.ftpPort}}</ftpPort>
+        <targetPath>{${properties.targetPath}}</targetPath>
+        <targetFile>{${properties.targetFile}}</targetFile>
+        <keepAliveTimeout>{${properties.keepAliveTimeout}}</keepAliveTimeout>
+        <controlKeepAliveReplyTimeout>{${properties.controlKeepAliveReplyTimeout}}</controlKeepAliveReplyTimeout>
+        <binaryTransfer>{${properties.binaryTransfer}}</binaryTransfer>
+        <localActive>{${properties.localActive}}</localActive>
     </fileconnector.ftpOverProxy>
     ```
 
@@ -1228,8 +1228,8 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.send>
-        <address>{$ctx:address}</address>
-	    <append>{$ctx:append}</append>
+        <address>{${properties.address}}</address>
+	    <append>{${properties.append}}</append>
     </fileconnector.send>
     ```
 
@@ -1262,7 +1262,7 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.getSize>
-        <source>{$ctx:source}</source>
+        <source>{${properties.source}}</source>
     </fileconnector.getSize>
     ```
 
@@ -1294,7 +1294,7 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.getLastModifiedTime>
-        <source>{$ctx:source}</source>
+        <source>{${properties.source}}</source>
     </fileconnector.getLastModifiedTime>
     ```
 
@@ -1366,15 +1366,15 @@ The following operations allow you to work with the File Connector version 3. Cl
     
     ```xml
     <fileconnector.splitFile>
-        <source>{$ctx:source}</source>
-        <destination>{$ctx:destination}</destination>
-        <chunkSize>{$ctx:chunkSize}</chunkSize>
-	    <numberOfLines>{$ctx:numberOfLines}</numberOfLines>
-	    <xpathExpression>{$ctx:xpathExpression}</xpathExpression>
-	    <sourceSftpIdentities>{$ctx:sftpIdentities}</sourceSftpIdentities>
-        <sourceSftpIdentityPassphrase>{$ctx:sourceSftpIdentityPassphrase}</sourceSftpIdentityPassphrase>
-        <targetSftpIdentities>{$ctx:targetSftpIdentities}</targetSftpIdentities>
-        <targetSftpIdentityPassphrase>{$ctx:targetSftpIdentityPassphrase}</targetSftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <destination>{${properties.destination}}</destination>
+        <chunkSize>{${properties.chunkSize}}</chunkSize>
+	    <numberOfLines>{${properties.numberOfLines}}</numberOfLines>
+	    <xpathExpression>{${properties.xpathExpression}}</xpathExpression>
+	    <sourceSftpIdentities>{${properties.sftpIdentities}}</sourceSftpIdentities>
+        <sourceSftpIdentityPassphrase>{${properties.sourceSftpIdentityPassphrase}}</sourceSftpIdentityPassphrase>
+        <targetSftpIdentities>{${properties.targetSftpIdentities}}</targetSftpIdentities>
+        <targetSftpIdentityPassphrase>{${properties.targetSftpIdentityPassphrase}}</targetSftpIdentityPassphrase>
     </fileconnector.splitFile>
     ```
     
@@ -1439,13 +1439,13 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.mergeFiles>
-        <source>{$ctx:source}</source>
-        <destination>{$ctx:destination}</destination>
-        <filePattern>{$ctx:filePattern}</filePattern>
-	    <sourceSftpIdentities>{$ctx:sftpIdentities}</sourceSftpIdentities>
-        <sourceSftpIdentityPassphrase>{$ctx:sourceSftpIdentityPassphrase}</sourceSftpIdentityPassphrase>
-        <targetSftpIdentities>{$ctx:targetSftpIdentities}</targetSftpIdentities>
-        <targetSftpIdentityPassphrase>{$ctx:targetSftpIdentityPassphrase}</targetSftpIdentityPassphrase>
+        <source>{${properties.source}}</source>
+        <destination>{${properties.destination}}</destination>
+        <filePattern>{${properties.filePattern}}</filePattern>
+	    <sourceSftpIdentities>{${properties.sftpIdentities}}</sourceSftpIdentities>
+        <sourceSftpIdentityPassphrase>{${properties.sourceSftpIdentityPassphrase}}</sourceSftpIdentityPassphrase>
+        <targetSftpIdentities>{${properties.targetSftpIdentities}}</targetSftpIdentities>
+        <targetSftpIdentityPassphrase>{${properties.targetSftpIdentityPassphrase}}</targetSftpIdentityPassphrase>
     </fileconnector.mergeFiles>
     ```
     
@@ -1494,10 +1494,10 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.readSpecifiedLines>
-        <source>{$ctx:source}</source>
-        <contentType>{$ctx:contentType}</contentType>
-        <start>{$ctx:start}</start>
-        <end>{$ctx:end}</end>
+        <source>{${properties.source}}</source>
+        <contentType>{${properties.contentType}}</contentType>
+        <start>{${properties.start}}</start>
+        <end>{${properties.end}}</end>
     </fileconnector.readSpecifiedLines>
     ```
 
@@ -1536,8 +1536,8 @@ The following operations allow you to work with the File Connector version 3. Cl
 
     ```xml
     <fileconnector.readALine>
-        <source>{$ctx:source}</source>
-        <lineNumber>{$ctx:lineNumber}</lineNumber>
+        <source>{${properties.source}}</source>
+        <lineNumber>{${properties.lineNumber}}</lineNumber>
     </fileconnector.readALine>
     ```
     
@@ -1576,14 +1576,14 @@ The following is a sample proxy service that illustrates how to connect to the F
                    expression="json-eval($.setStrictHostKeyChecking)"/>
          <property name="setUserDirIsRoot" expression="json-eval($.setUserDirIsRoot)"/>
          <fileconnector.create>
-            <source>{$ctx:source}</source>
-            <inputContent>{$ctx:inputContent}</inputContent>
-            <encoding>{$ctx:encoding}</encoding>
-            <setTimeout>{$ctx:setTimeout}</setTimeout>
-            <setPassiveMode>{$ctx:setPassiveMode}</setPassiveMode>
-            <setSoTimeout>{$ctx:setSoTimeout}</setSoTimeout>
-            <setUserDirIsRoot>{$ctx:setUserDirIsRoot}</setUserDirIsRoot>
-            <setStrictHostKeyChecking>{$ctx:setStrictHostKeyChecking}</setStrictHostKeyChecking>
+            <source>{${properties.source}}</source>
+            <inputContent>{${properties.inputContent}}</inputContent>
+            <encoding>{${properties.encoding}}</encoding>
+            <setTimeout>{${properties.setTimeout}}</setTimeout>
+            <setPassiveMode>{${properties.setPassiveMode}}</setPassiveMode>
+            <setSoTimeout>{${properties.setSoTimeout}}</setSoTimeout>
+            <setUserDirIsRoot>{${properties.setUserDirIsRoot}}</setUserDirIsRoot>
+            <setStrictHostKeyChecking>{${properties.setStrictHostKeyChecking}}</setStrictHostKeyChecking>
          </fileconnector.create>
          <respond/>
       </inSequence>

@@ -154,7 +154,7 @@ The Validate mediator can be configured as follows.
     <on-fail>
         <log level="custom">
             <property name="validation failed" value="Validation failed ###"/>
-            <property name="error_msg" expression="$ctx:ERROR_MESSAGE"/>
+            <property name="error_msg" expression="${properties.ERROR_MESSAGE}"/>
         </log>
     </on-fail>
 </validate>
@@ -215,8 +215,8 @@ validation fails is defined within the on-fail element. In this example, the [Pa
             <format>{"Error":"$1",
             "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
-                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
+                <arg evaluator="xml" expression="${properties.ERROR_MESSAGE}" />
+                <arg evaluator="xml" expression="${properties.ERROR_DETAIL}" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>
@@ -258,8 +258,8 @@ In this example, it extracts the message element from the JSON request body and 
             <format>{"Error":"$1",
             "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
-                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
+                <arg evaluator="xml" expression="${properties.ERROR_MESSAGE}" />
+                <arg evaluator="xml" expression="${properties.ERROR_DETAIL}" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>

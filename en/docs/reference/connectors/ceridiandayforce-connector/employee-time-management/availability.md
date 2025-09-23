@@ -18,9 +18,9 @@ We can use GET Availability operation with required parameters to search and fin
 **GET Availability**
 ```xml
 <ceridiandayforce.getAvailability>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <filterAvailabilityStartDate>{$ctx:filterAvailabilityStartDate}</filterAvailabilityStartDate>
-    <filterAvailabilityEndDate>{$ctx:filterAvailabilityEndDate}</filterAvailabilityEndDate>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <filterAvailabilityStartDate>{${properties.filterAvailabilityStartDate}}</filterAvailabilityStartDate>
+    <filterAvailabilityEndDate>{${properties.filterAvailabilityEndDate}}</filterAvailabilityEndDate>
 </ceridiandayforce.getAvailability>
 ```
 
@@ -176,15 +176,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.filterAvailabilityStartDate)" name="filterAvailabilityStartDate"/>
          <property expression="json-eval($.filterAvailabilityEndDate)" name="filterAvailabilityEndDate"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getAvailability>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <filterAvailabilityStartDate>{$ctx:filterAvailabilityStartDate}</filterAvailabilityStartDate>
-            <filterAvailabilityEndDate>{$ctx:filterAvailabilityEndDate}</filterAvailabilityEndDate>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <filterAvailabilityStartDate>{${properties.filterAvailabilityStartDate}}</filterAvailabilityStartDate>
+            <filterAvailabilityEndDate>{${properties.filterAvailabilityEndDate}}</filterAvailabilityEndDate>
          </ceridiandayforce.getAvailability>
          <send/>
       </inSequence>

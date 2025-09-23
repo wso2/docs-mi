@@ -82,10 +82,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name      | Parameter value (as expression)   |
     |---------------------|-----------------------------------|
-    | **username**        | `$ctx:username`                   |
-    | **password**        | `$ctx:password`                   |
-    | **clientNamespace** | `$ctx:clientNamespace`            |
-    | **apiVersion**      | `$ctx:apiVersion`                 |
+    | **username**        | `${properties.username}`                   |
+    | **password**        | `${properties.password}`                   |
+    | **clientNamespace** | `${properties.clientNamespace}`            |
+    | **apiVersion**      | `${properties.apiVersion}`                 |
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-dayforce-init-param.png" title="Add Parameters to Dayforce Init" width="800" alt="Add Parameters to Dayforce Init"/>
 
@@ -99,10 +99,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name           | Parameter value (as expression)   |
     |--------------------------|-----------------------------------|
-    | **xRefCode**             | `$ctx:xRefCode`                   |
-    | **contextDate**          | `$ctx:contextDate`                |
-    | **contextDateRangeFrom** | `$ctx:contextDateRangeFrom`       |
-    | **contextDateRangeTo**   | `$ctx:contextDateRangeTo`         |
+    | **xRefCode**             | `${properties.xRefCode}`                   |
+    | **contextDate**          | `${properties.contextDate}`                |
+    | **contextDateRangeFrom** | `${properties.contextDateRangeFrom}`       |
+    | **contextDateRangeTo**   | `${properties.contextDateRangeTo}`         |
 
     Click on **Submit** to save the configurations.
 
@@ -153,10 +153,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name      | Parameter value (as expression)   |
     |---------------------|-----------------------------------|
-    | **username**        | `$ctx:username`                   |
-    | **password**        | `$ctx:password`                   |
-    | **clientNamespace** | `$ctx:clientNamespace`            |
-    | **apiVersion**      | `$ctx:apiVersion`                 |
+    | **username**        | `${properties.username}`                   |
+    | **password**        | `${properties.password}`                   |
+    | **clientNamespace** | `${properties.clientNamespace}`            |
+    | **apiVersion**      | `${properties.apiVersion}`                 |
 
     Click on **Submit** to save the configurations.
 
@@ -168,9 +168,9 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name     | Parameter value (as expression)   |
     |--------------------|-----------------------------------|
-    | **xRefCode**       | `$ctx:xRefCode`                   |
-    | **isValidateOnly** | `$ctx:isValidateOnly`             |
-    | **fieldAndValue**  | `$ctx:fieldAndValue`              |
+    | **xRefCode**       | `${properties.xRefCode}`                   |
+    | **isValidateOnly** | `${properties.isValidateOnly}`             |
+    | **fieldAndValue**  | `${properties.fieldAndValue}`              |
 
     Click on **Submit** to save the configurations.
 
@@ -194,16 +194,16 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 				    <property name="xRefCode" scope="default" type="STRING" expression="json-eval($.xRefCode)"/>
 			    </propertyGroup>
 			    <ceridiandayforce.init>
-				    <username>{$ctx:username}</username>
-				    <password>{$ctx:password}</password>
-				    <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-				    <apiVersion>{$ctx:apiVersion}</apiVersion>
+				    <username>{${properties.username}}</username>
+				    <password>{${properties.password}}</password>
+				    <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+				    <apiVersion>{${properties.apiVersion}}</apiVersion>
 			    </ceridiandayforce.init>
 			    <ceridiandayforce.getEmployeeAddresses>
-				    <xRefCode>{$ctx:xRefCode}</xRefCode>
-				    <contextDate>{$ctx:contextDate}</contextDate>
-				    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-				    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+				    <xRefCode>{${properties.xRefCode}}</xRefCode>
+				    <contextDate>{${properties.contextDate}}</contextDate>
+				    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+				    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 			    </ceridiandayforce.getEmployeeAddresses>
 			    <respond/>
 		    </inSequence>
@@ -223,15 +223,15 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 				    <property name="xRefCode" scope="default" type="STRING" expression="json-eval($.xRefCode)"/>
 			    </propertyGroup>
 			    <ceridiandayforce.init>
-				    <username>{$ctx:username}</username>
-				    <password>{$ctx:password}</password>
-				    <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-				    <apiVersion>{$ctx:apiVersion}</apiVersion>
+				    <username>{${properties.username}}</username>
+				    <password>{${properties.password}}</password>
+				    <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+				    <apiVersion>{${properties.apiVersion}}</apiVersion>
 			    </ceridiandayforce.init>
 			    <ceridiandayforce.postEmployeeContacts>
-				    <xRefCode>{$ctx:xRefCode}</xRefCode>
-				    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-				    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+				    <xRefCode>{${properties.xRefCode}}</xRefCode>
+				    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+				    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 			    </ceridiandayforce.postEmployeeContacts>
 			    <respond/>
 		    </inSequence>

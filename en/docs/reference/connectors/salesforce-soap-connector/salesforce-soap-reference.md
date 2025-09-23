@@ -42,10 +42,10 @@ To use the Salesforce SOAP connector, add the `<salesforcerest.init>` element in
 
     ```xml
     <salesforce.init>
-        <loginUrl>{$ctx:loginUrl}</loginUrl>
-        <username>{$ctx:username}</username>
-        <password>{$ctx:password}</password>
-        <blocking>{$ctx:blocking}</blocking>
+        <loginUrl>{${properties.loginUrl}}</loginUrl>
+        <username>{${properties.username}}</username>
+        <password>{${properties.password}}</password>
+        <blocking>{${properties.blocking}}</blocking>
      </salesforce.init>
     ```
 
@@ -637,9 +637,9 @@ To use the Salesforce SOAP connector, add the `<salesforcerest.init>` element in
     
     ```xml
     <salesforce.getDeleted configKey="MySFConfig">
-        <sObjectType>{$ctx:sObjectType}</sObjectType>
-        <startDate>{$ctx:startDate}</startDate>
-        <endDate>{$ctx:endDate}</endDate>
+        <sObjectType>{${properties.sObjectType}}</sObjectType>
+        <startDate>{${properties.startDate}}</startDate>
+        <endDate>{${properties.endDate}}</endDate>
     </salesforce.getDeleted>
     ```
 
@@ -692,9 +692,9 @@ To use the Salesforce SOAP connector, add the `<salesforcerest.init>` element in
     
     ```xml
     <salesforce.getUpdated configKey="MySFConfig">
-        <sObjectType>{$ctx:sObjectType}</sObjectType>
-        <startDate>{$ctx:startDate}</startDate>
-        <endDate>{$ctx:endDate}</endDate>
+        <sObjectType>{${properties.sObjectType}}</sObjectType>
+        <startDate>{${properties.startDate}}</startDate>
+        <endDate>{${properties.endDate}}</endDate>
     </salesforce.getUpdated>
     ```
 

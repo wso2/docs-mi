@@ -20,10 +20,10 @@ We can use GET Employee addresses operation with required parameters to search a
 **GET Employee Addresses**
 ```xml
 <ceridiandayforce.getEmployeeAddresses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeAddresses>
 ```
 
@@ -99,9 +99,9 @@ We can use POST Employee Addresses operation with required parameters to create 
 **POST Employee* Addresses*
 ```xml
 <ceridiandayforce.postEmployeeAddresses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
 </ceridiandayforce.postEmployeeAddresses>
 ```
 
@@ -170,9 +170,9 @@ We can use PATCH employee addresses operation to update the address of an existi
 **PATCH Employee Addresses**
 ```xml
 <ceridiandayforce.patchEmployeeAddresses>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
 </ceridiandayforce.patchEmployeeAddresses>
 ```
 
@@ -257,15 +257,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.fieldAndValue)" name="fieldAndValue"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.patchEmployeeAddresses>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-            <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
+            <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
          </ceridiandayforce.patchEmployeeAddresses>
          <send/>
       </inSequence>

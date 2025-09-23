@@ -309,11 +309,11 @@ Configure a resource that sets up a Redis hash map and sets a specific field in 
          </tr>
          <tr>
            <td>redisField</td>
-           <td><code>$ctx:symbol</code></td>
+           <td><code>${properties.symbol}</code></td>
          </tr>
          <tr>
            <td>redisValue</td>
-           <td><code>$ctx:volume</code></td>
+           <td><code>${properties.volume}</code></td>
          </tr>
        </table> 
     
@@ -366,7 +366,7 @@ Configure a resource that sets up a Redis hash map and sets a specific field in 
       </tr>
       <tr>
          <td>redisFields</td>
-         <td><code>$ctx:redisFields</code></td>
+         <td><code>${properties.redisFields}</code></td>
       </tr>
     </table>
 
@@ -408,8 +408,8 @@ Now you can switch to the Source view and check the XML configuration files of t
 			<property name="volume" scope="default" type="STRING" expression="$body/soapenv:Envelope/soapenv:Body/ns:getQuoteResponse/ax21:volume" xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"/>
             <redis.hSet configKey="REDIS_CONNECTION_1">
                 <redisKey>StockVolume</redisKey>
-                <redisField>{$ctx:symbol}</redisField>
-                <redisValue>{$ctx:volume}</redisValue>
+                <redisField>{${properties.symbol}}</redisField>
+                <redisValue>{${properties.volume}}</redisValue>
 			</redis.hSet>
             <enrich description="">
 				<source clone="true" property="ORIGINAL_PAYLOAD" type="property"/>
@@ -435,7 +435,7 @@ Now you can switch to the Source view and check the XML configuration files of t
                 <property expression="json-eval($.redisFields)" name="redisFields" scope="default" type="STRING"/>
             <redis.hDel configKey="REDIS_CONNECTION_1">
                 <redisKey>StockVolume</redisKey>
-                <redisFields>{$ctx:redisFields}</redisFields>
+                <redisFields>{${properties.redisFields}}</redisFields>
             </redis.hDel>
                 <respond/>
             </inSequence>

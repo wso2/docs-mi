@@ -39,9 +39,9 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```xml
     <servicenow.init>
-         <serviceNowInstanceURL>{$ctx:serviceNowInstanceURL}</serviceNowInstanceURL>
-         <username>{$ctx:username}</username>
-         <password>{$ctx:password}</password>
+         <serviceNowInstanceURL>{${properties.serviceNowInstanceURL}}</serviceNowInstanceURL>
+         <username>{${properties.username}}</username>
+         <password>{${properties.password}}</password>
     </servicenow.init>
     ```
 
@@ -103,12 +103,12 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```xml
     <servicenow.getAggregateRecord>
-        <tableName>{$ctx:tableName}</tableName>
-        <sysparmAvgFields>{$ctx:sysparmAvgFields}</sysparmAvgFields>
-        <sysparmMinFields>{$ctx:sysparmMinFields}</sysparmMinFields>
-        <sysparmMaxFields>{$ctx:sysparmMaxFields}</sysparmMaxFields>
-        <sysparmCount>{$ctx:sysparmCount}</sysparmCount>
-        <sysparmSumFields>{$ctx:sysparmSumFields}</sysparmSumFields>
+        <tableName>{${properties.tableName}}</tableName>
+        <sysparmAvgFields>{${properties.sysparmAvgFields}}</sysparmAvgFields>
+        <sysparmMinFields>{${properties.sysparmMinFields}}</sysparmMinFields>
+        <sysparmMaxFields>{${properties.sysparmMaxFields}}</sysparmMaxFields>
+        <sysparmCount>{${properties.sysparmCount}}</sysparmCount>
+        <sysparmSumFields>{${properties.sysparmSumFields}}</sysparmSumFields>
     </servicenow.getAggregateRecord>
     ```
 
@@ -156,8 +156,8 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```xml
     <servicenow.getRecordsStagingTable>
-        <tableNameStaging>{$ctx:tableNameStaging}</tableNameStaging>
-        <sysIdStaging>{$ctx:sysIdStaging}</sysIdStaging>
+        <tableNameStaging>{${properties.tableNameStaging}}</tableNameStaging>
+        <sysIdStaging>{${properties.sysIdStaging}}</sysIdStaging>
     </servicenow.getRecordsStagingTable>
     ```
 
@@ -236,15 +236,15 @@ The ServiceNow API requires all requests to be authenticated as a user. User has
 
     ```xml
     <servicenow.postRecordStagingTable>
-        <tableNameStaging>{$ctx:tableNameStaging}</tableNameStaging>
-        <serialNumber>{$ctx:serialNumber}</serialNumber>
-        <cpuCount>{$ctx:cpuCount}</cpuCount>
-        <manufacturer>{$ctx:manufacturer}</manufacturer>
-        <name>{$ctx:name}</name>
-        <operatingSystem>{$ctx:operatingSystem}</operatingSystem>
-        <diskSpace>{$ctx:diskSpace}</diskSpace>
-        <ram>{$ctx:ram}</ram>
-        <apiColumns>{$ctx:apiColumns}</apiColumns>
+        <tableNameStaging>{${properties.tableNameStaging}}</tableNameStaging>
+        <serialNumber>{${properties.serialNumber}}</serialNumber>
+        <cpuCount>{${properties.cpuCount}}</cpuCount>
+        <manufacturer>{${properties.manufacturer}}</manufacturer>
+        <name>{${properties.name}}</name>
+        <operatingSystem>{${properties.operatingSystem}}</operatingSystem>
+        <diskSpace>{${properties.diskSpace}}</diskSpace>
+        <ram>{${properties.ram}}</ram>
+        <apiColumns>{${properties.apiColumns}}</apiColumns>
     </servicenow.postRecordStagingTable>
     ```
 

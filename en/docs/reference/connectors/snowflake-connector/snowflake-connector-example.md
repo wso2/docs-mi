@@ -95,14 +95,14 @@ Users can utilize this resource to insert a single record into the Snowflake dat
          ```sql
          INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
          ```
-      4. For the `Payload` text box, enter `$ctx:payload` as an expression.
+      4. For the `Payload` text box, enter `${properties.payload}` as an expression.
          
          <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-conn-execute-config.png" title="Execute Config" width="400" alt="Snowflake Execute Config"/>
 
          ```xml
          <snowflake.execute configKey="SNOWFLAKE_CONNECTION">
             <executeQuery>INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</executeQuery>
-            <payload>{$ctx:payload}</payload>
+            <payload>{${properties.payload}}</payload>
          </snowflake.execute>
          ```
 
@@ -154,14 +154,14 @@ Using this resource users can insert multiple records into the table `Reservatio
          ```sql
          INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
          ```
-      3. For the `Payload` text box, enter `$ctx:payload` as an expression.
+      3. For the `Payload` text box, enter `${properties.payload}` as an expression.
 
          <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-conn-batch-execute-config.png" title="Snowflake batch execute operation config" width="400" alt="Snowflake batch execute operation config"/>
 
          ```xml
          <snowflake.batchExecute configKey="SNOWFLAKE_CONNECTION">
             <executeQuery>INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</executeQuery>
-            <payload>{$ctx:payload}</payload>
+            <payload>{${properties.payload}}</payload>
          </snowflake.batchExecute>
          ```
 
@@ -177,10 +177,10 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
     ```
 2. Add the `execute` operation from the **SnowflakeConnector** section.
       1. Select the Snowflake connection configuration you created.
-      3. In the `Execute Query` text box, enter `$ctx:deleteQuery` as an expression.
+      3. In the `Execute Query` text box, enter `${properties.deleteQuery}` as an expression.
          ```xml
          <snowflake.execute configKey="SNOWFLAKE_CONNECTION">
-            <executeQuery>{$ctx:deleteQuery}</executeQuery>
+            <executeQuery>{${properties.deleteQuery}}</executeQuery>
          </snowflake.execute>
          ```
 3. Add the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) and set the Property name as `messageType` and the value as `application/json`. This is added so that the response will be in JSON.
@@ -198,7 +198,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
                <property name="payload" scope="default" type="STRING" expression="json-eval($)"/>
                <snowflake.execute configKey="SNOWFLAKE_CONNECTION_1">
                   <executeQuery>INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</executeQuery>
-                  <payload>{$ctx:payload}</payload>
+                  <payload>{${properties.payload}}</payload>
                </snowflake.execute>
                <respond/>
             </inSequence>
@@ -221,7 +221,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
                <property expression="json-eval($)" name="payload" scope="default" type="STRING"/>
                <snowflake.batchExecute configKey="SNOWFLAKE_CONNECTION_1">
                   <executeQuery>INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</executeQuery>
-                  <payload>{$ctx:payload}</payload>
+                  <payload>{${properties.payload}}</payload>
                </snowflake.batchExecute>
                <respond/>
             </inSequence>
@@ -232,7 +232,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
             <inSequence>
                <property expression="fn:concat('DELETE FROM HOTEL_DB.PUBLIC.RESERVATIONS WHERE NICNUMBER=',${properties.uri.var.NICNUMBER})" name="deleteQuery" scope="default" type="STRING"/>
                <snowflake.execute configKey="SNOWFLAKE_CONNECTION_1">
-                  <executeQuery>{$ctx:deleteQuery}</executeQuery>
+                  <executeQuery>{${properties.deleteQuery}}</executeQuery>
                </snowflake.execute>
                <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
                <respond/>

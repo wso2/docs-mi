@@ -81,8 +81,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
             <refreshToken></refreshToken>
         </googlespreadsheet.init>
         <googlespreadsheet.createSpreadsheet>
-            <properties>{$ctx:properties}</properties>
-            <sheets>{$ctx:sheets}</sheets>
+            <properties>{${properties.properties}}</properties>
+            <sheets>{${properties.sheets}}</sheets>
         </googlespreadsheet.createSpreadsheet>
     </sequence>
 ```
@@ -103,12 +103,12 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
             <refreshToken></refreshToken>
         </googlespreadsheet.init>
         <googlespreadsheet.addRowsColumnsData>
-            <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-            <range>{$ctx:range}</range>
+            <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+            <range>{${properties.range}}</range>
             <insertDataOption>INSERT_ROWS</insertDataOption>
             <valueInputOption>RAW</valueInputOption>
             <majorDimension>ROWS</majorDimension>
-            <values>{$ctx:values}</values>
+            <values>{${properties.values}}</values>
         </googlespreadsheet.addRowsColumnsData>
     </sequence>
 
@@ -136,8 +136,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
             <refreshToken></refreshToken>
         </googlespreadsheet.init>
         <googlespreadsheet.getCellData>
-            <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-            <range>{$ctx:range}</range>
+            <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+            <range>{${properties.range}}</range>
             <dateTimeRenderOption>SERIAL_NUMBER</dateTimeRenderOption>
             <majorDimension>ROWS</majorDimension>
             <valueRenderOption>UNFORMATTED_VALUE</valueRenderOption>
@@ -166,9 +166,9 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
           <refreshToken></refreshToken>
       </googlespreadsheet.init>
       <googlespreadsheet.editMultipleCell>
-          <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
+          <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
           <valueInputOption>RAW</valueInputOption>
-          <data>{$ctx:data}</data>
+          <data>{${properties.data}}</data>
       </googlespreadsheet.editMultipleCell>
   </sequence>
 

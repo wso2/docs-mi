@@ -195,7 +195,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                             <arg expression="//email/to" evaluator="xml"/>
                             <arg expression="//email/from" evaluator="xml"/>
                             <arg expression="//email/subject" evaluator="xml"/>
-                            <arg expression="$ctx:TEXT_CONTENT" evaluator="xml"/>
+                            <arg expression="${properties.TEXT_CONTENT}" evaluator="xml"/>
                         </args>
                     </payloadFactory>
                     <property name="messageType" scope="axis2" type="STRING" value="application/json"/>

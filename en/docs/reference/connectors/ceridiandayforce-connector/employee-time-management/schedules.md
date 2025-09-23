@@ -18,11 +18,11 @@ We can use GET Schedules operation with required parameters to find the schedule
 **GET Schedules**
 ```xml
 <ceridiandayforce.getSchedules>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <filterScheduleStartDate>{$ctx:filterScheduleStartDate}</filterScheduleStartDate>
-    <filterScheduleEndDate>{$ctx:filterScheduleEndDate}</filterScheduleEndDate>
-    <isPosted>{$ctx:isPosted}</isPosted>
-    <expand>{$ctx:expand}</expand>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <filterScheduleStartDate>{${properties.filterScheduleStartDate}}</filterScheduleStartDate>
+    <filterScheduleEndDate>{${properties.filterScheduleEndDate}}</filterScheduleEndDate>
+    <isPosted>{${properties.isPosted}}</isPosted>
+    <expand>{${properties.expand}}</expand>
 </ceridiandayforce.getSchedules>
 ```
 
@@ -89,15 +89,15 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.filterScheduleStartDate)" name="filterScheduleStartDate"/>
          <property expression="json-eval($.filterScheduleEndDate)" name="filterScheduleEndDate"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getSchedules>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <filterScheduleStartDate>{$ctx:filterScheduleStartDate}</filterScheduleStartDate>
-            <filterScheduleEndDate>{$ctx:filterScheduleEndDate}</filterScheduleEndDate>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <filterScheduleStartDate>{${properties.filterScheduleStartDate}}</filterScheduleStartDate>
+            <filterScheduleEndDate>{${properties.filterScheduleEndDate}}</filterScheduleEndDate>
          </ceridiandayforce.getSchedules>
          <send/>
       </inSequence>

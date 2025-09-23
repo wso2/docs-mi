@@ -44,7 +44,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                     <uri>https://<site-url></uri>
             </jira.init>
             <jira.createIssue>
-                <issueFields>{$ctx:issueFields}</issueFields>
+                <issueFields>{${properties.issueFields}}</issueFields>
             </jira.createIssue>
             <respond/>
         </inSequence>
@@ -59,7 +59,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
                     <uri>https://<site-url></uri>
             </jira.init>
             <jira.getIssue>
-                <issueIdOrKey>{$ctx:id}</issueIdOrKey>
+                <issueIdOrKey>{${properties.id}}</issueIdOrKey>
             </jira.getIssue>
             <respond/>
         </inSequence>

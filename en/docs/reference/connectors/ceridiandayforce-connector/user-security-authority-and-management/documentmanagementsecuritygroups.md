@@ -18,7 +18,7 @@ We can use GET Document Management Security Groups operation with required param
 **GET Document Management Security Groups**
 ```xml
 <ceridiandayforce.getDocumentManagementSecurityGroups>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
 </ceridiandayforce.getDocumentManagementSecurityGroups>
 ```
 
@@ -84,13 +84,13 @@ Following example illustrates how to connect to Dayforce with the init operation
          <property expression="json-eval($.apiVersion)" name="apiVersion"/>
          <property expression="json-eval($.xRefCode)" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getDocumentManagementSecurityGroups>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
          </ceridiandayforce.getDocumentManagementSecurityGroups>
          <send/>
       </inSequence>

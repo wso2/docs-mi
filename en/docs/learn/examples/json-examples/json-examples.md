@@ -1040,7 +1040,7 @@ In this example, the required schema for validating messages going through the V
             <payloadFactory media-type="json">
                 <format>{"Error":"$1"}</format>
                 <args>
-                    <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                    <arg evaluator="xml" expression="${properties.ERROR_MESSAGE}"/>
                 </args>
             </payloadFactory>
             <property name="HTTP_SC" value="500" scope="axis2"/>

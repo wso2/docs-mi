@@ -30,7 +30,7 @@
                                     }
                             </format>
                             <args>
-                                <arg evaluator="xml" expression="$ctx:uri.var.doctorType"/>
+                                <arg evaluator="xml" expression="${properties.uri.var.doctorType}"/>
                             </args>
                         </payloadFactory>
                         <!--  Invoke the Pine Valley service with a POST request -->

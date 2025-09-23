@@ -18,10 +18,10 @@ We can use GET Employee Time Away from Work operation with required parameters t
 **GET Employee Time Away from Work**
 ```xml
 <ceridiandayforce.getTimeAwayFromWork>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <filterTAFWStartDate>{$ctx:filterTAFWStartDate}</filterTAFWStartDate>
-    <filterTAFWEndDate>{$ctx:filterTAFWEndDate}</filterTAFWEndDate>
-    <status>{$ctx:status}</status>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <filterTAFWStartDate>{${properties.filterTAFWStartDate}}</filterTAFWStartDate>
+    <filterTAFWEndDate>{${properties.filterTAFWEndDate}}</filterTAFWEndDate>
+    <status>{${properties.status}}</status>
 </ceridiandayforce.getTimeAwayFromWork>
 ```
 
@@ -106,16 +106,16 @@ Following example illustrates how to connect to Dayforce with the init operation
                    name="filterTAFWStartDate"/>
          <property expression="json-eval($.filterTAFWEndDate)" name="filterTAFWEndDate"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getTimeAwayFromWork>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <filterTAFWStartDate>{$ctx:filterTAFWStartDate}</filterTAFWStartDate>
-            <filterTAFWEndDate>{$ctx:filterTAFWEndDate}</filterTAFWEndDate>
-            <status>{$ctx:status}</status>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <filterTAFWStartDate>{${properties.filterTAFWStartDate}}</filterTAFWStartDate>
+            <filterTAFWEndDate>{${properties.filterTAFWEndDate}}</filterTAFWEndDate>
+            <status>{${properties.status}}</status>
          </ceridiandayforce.getTimeAwayFromWork>
          <send/>
       </inSequence>

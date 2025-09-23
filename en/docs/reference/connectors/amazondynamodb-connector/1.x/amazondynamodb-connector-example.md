@@ -349,11 +349,11 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.createTable>
-                   <attributeDefinitions>{$ctx:attributeDefinitions}</attributeDefinitions>
-                   <tableName>{$ctx:tableName}</tableName>
-                   <keySchema>{$ctx:keySchema}</keySchema>
-                   <localSecondaryIndexes>{$ctx:localSecondaryIndexes}</localSecondaryIndexes>
-                   <provisionedThroughput>{$ctx:provisionedThroughput}</provisionedThroughput>
+                   <attributeDefinitions>{${properties.attributeDefinitions}}</attributeDefinitions>
+                   <tableName>{${properties.tableName}}</tableName>
+                   <keySchema>{${properties.keySchema}}</keySchema>
+                   <localSecondaryIndexes>{${properties.localSecondaryIndexes}}</localSecondaryIndexes>
+                   <provisionedThroughput>{${properties.provisionedThroughput}}</provisionedThroughput>
                 </amazondynamodb.createTable>
                 <respond />
              </inSequence>
@@ -370,8 +370,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.putItem>
-                   <item>{$ctx:item}</item>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <item>{${properties.item}}</item>
+                   <tableName>{${properties.tableName}}</tableName>
                 </amazondynamodb.putItem>
                 <respond />
              </inSequence>
@@ -388,8 +388,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.deleteItem>
-                   <key>{$ctx:key}</key>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <key>{${properties.key}}</key>
+                   <tableName>{${properties.tableName}}</tableName>
                    <returnConsumedCapacity>TOTAL</returnConsumedCapacity>
                    <returnValues>ALL_OLD</returnValues>
                 </amazondynamodb.deleteItem>
@@ -408,8 +408,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.getItem>
-                   <key>{$ctx:key}</key>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <key>{${properties.key}}</key>
+                   <tableName>{${properties.tableName}}</tableName>
                 </amazondynamodb.getItem>
                 <respond />
              </inSequence>
@@ -426,8 +426,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.listTables>
-                   <exclusiveStartTableName>{$ctx:exclusiveStartTableName}</exclusiveStartTableName>
-                   <limit>{$ctx:limit}</limit>
+                   <exclusiveStartTableName>{${properties.exclusiveStartTableName}}</exclusiveStartTableName>
+                   <limit>{${properties.limit}}</limit>
                 </amazondynamodb.listTables>
                 <respond />
              </inSequence>
@@ -444,8 +444,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.updateTable>
-                   <tableName>{$ctx:tableName}</tableName>
-                   <provisionedThroughput>{$ctx:provisionedThroughput}</provisionedThroughput>
+                   <tableName>{${properties.tableName}}</tableName>
+                   <provisionedThroughput>{${properties.provisionedThroughput}}</provisionedThroughput>
                 </amazondynamodb.updateTable>
                 <respond />
              </inSequence>
@@ -461,7 +461,7 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.deleteTable>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <tableName>{${properties.tableName}}</tableName>
                 </amazondynamodb.deleteTable>
                 <respond />
              </inSequence>
