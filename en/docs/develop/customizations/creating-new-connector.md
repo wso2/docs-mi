@@ -88,7 +88,7 @@ Rename `functions/sample_operation.xml` to `functions/listVolume.xml` and update
 </template>
 ```
 
-3. Update the output schema located in the `outputSchema` directory. Rename `outputSchema/sample_operation.json` to `outputSchema/listVolume.json` and update its content as follows.
+3. Update the output schema located in the `outputSchema` directory. Rename `outputSchema/sample_operation.json` to `outputSchema/listVolume.json` and update its content as follows. If you know the structure of the response payload, you can define the properties of the payload object accordingly. Defining the full response structure is optional, but it can be useful for providing suggestions when accessing response properties.
 
 ```json
 {
@@ -99,9 +99,41 @@ Rename `functions/sample_operation.xml` to `functions/listVolume.xml` and update
   "properties": {
     "payload": {
       "type": "object",
-      "description": "The main response payload from the compress operation."
+      "description": "The main response payload from the list volume operation.", 
+      "properties": {
+        "kind": {
+          "description": "The type of resource returned."
+        },
+        "totalItems": {
+          "description": "The total number of volumes found."
+        },
+        "items": {
+          "type": "array",
+          "description": "A list of volumes.", 
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "description": "The type of resource for the item."
+              },
+              "id": {
+                "description": "The unique identifier for the volume."
+              },
+              "etag": {
+                "description": "The ETag of the volume."
+              },
+              "selfLink": {
+                "description": "A link to the volume resource."
+              },
+              "volumeInfo": {
+                "description": "Information about the volume." 
+              }
+            }
+          }
+        }
       }
-    },
+    }
+  },
   "required": [
     "payload"
   ],
@@ -127,8 +159,7 @@ Rename `functions/sample_operation.xml` to `functions/listVolume.xml` and update
                 "inputType": "string",
                 "defaultValue": "",
                 "required": "true",
-                "helpTip": "The name for the googleBooks connection.",
-                "validation": "nameWithoutSpecialCharacters"
+                "helpTip": "The base URL for the Google Books API."
             }
         }
     ]
