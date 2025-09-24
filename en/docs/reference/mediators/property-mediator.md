@@ -85,7 +85,7 @@ The parameters available to configure the property mediator are as follows:
 
   Example 2 : Creating a property with a JSON object via expression evaluation.</br>
 
-  <code>&lt;property name="studentObject" expression="json-eval($.student)" type="JSON"/&gt;</code>
+  <code>&lt;property name="studentObject" expression="$.student" type="JSON"/&gt;</code>
 
 </p>
 </div>
