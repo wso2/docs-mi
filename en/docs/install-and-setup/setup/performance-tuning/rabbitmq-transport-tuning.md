@@ -98,3 +98,25 @@ The following table summarizes how the default RabbitMQ connection pool paramete
     ```
 
 Adjust these parameters according to your deployment requirements to balance performance and resource consumption.
+
+## Performance test results
+
+All the testing was conducted in a c5.xlarge local environment with a 500 byte message using the default Micro Integrator distribution.
+
+### Fire and forget (out-only)
+
+| Concurrent users            | Throughput (req/s)  |
+|-----------------------------|---------------------|
+| 10                          | 4401.8               |
+| 50                          | 5328.9               |
+| 100                         | 3360.2               |
+| 200                         | 2840.1               |
+
+### Dual channel scenario
+
+| Concurrent users            | Throughput (req/s)  |
+|-----------------------------|---------------------|
+| 10                          | 603.4               |
+| 50                          | 843.2               |
+| 100                         | 885.3               |
+| 200                         | 700.2               |

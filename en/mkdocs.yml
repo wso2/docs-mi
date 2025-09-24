@@ -592,6 +592,9 @@ nav:
               - Set up Apache Pulsar Connector: reference/connectors/pulsar-connector/pulsar-connector-setup.md
               - Apache Pulsar Connector Example: reference/connectors/pulsar-connector/pulsar-connector-example.md
               - Apache Pulsar Connector Reference: reference/connectors/pulsar-connector/pulsar-connector-reference.md
+          - AS400 PCML Connector:
+              - Set up AS400 PCML Connector: reference/connectors/as400-pcml-connector/as400-pcml-connector-configuration.md
+              - AS400 PCML Connector Reference: reference/connectors/as400-pcml-connector/as400-pcml-connector-reference.md
           - BigQuery Connector:
               - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
               - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
