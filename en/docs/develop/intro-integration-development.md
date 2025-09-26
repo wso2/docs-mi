@@ -72,7 +72,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint/">Inbound Endpoint</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/creating-artifacts/creating-scheduled-task/">Scheduled Task</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-scheduled-task/">Scheduled trigger</a>
                     </li>
                 </ul>
             </td>
@@ -135,7 +135,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/develop/customizations/creating-new-connector/">Custom Connector</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/customizations/creating-custom-task-scheduling/">Custom Scheduled Task</a>
+                        <a href="{{base_path}}/develop/customizations/creating-custom-task-scheduling/">Custom Scheduled trigger</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/develop/customizations/creating-synapse-handlers/">Synapse Handler</a>
