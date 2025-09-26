@@ -161,6 +161,7 @@ nav:
           - Message Builders and Formatters: install-and-setup/setup/message-builders-formatters/message-builders-and-formatters.md
           - Message Relay: install-and-setup/setup/message-builders-formatters/message-relay.md
           - Manage Configurations across Environments: install-and-setup/setup/dynamic-server-configurations.md
+          - Configure Crypto Providers: install-and-setup/setup/crypto-provider-configurations/configuring-the-crypto-provider.md
           - Load Balancer and Proxy Server:
               - Load Balancing: install-and-setup/setup/deployment/setting-up-lb.md
               - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
