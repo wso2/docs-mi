@@ -109,3 +109,5 @@ and expeditiously convert and transfer data between various systems.
 This comprehensive solution includes an intuitive visual data mapper designed to facilitate data transformation 
 from diverse formats, such as JSON, XML, and CSV. The drag-and-drop graphical interface empowers users to effortlessly 
 create data transformation workflows without the necessity for manual coding.
+
+## Note: This documentation is contributed by the community.
