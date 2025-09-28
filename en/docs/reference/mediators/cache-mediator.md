@@ -104,7 +104,7 @@ If the finder is selected as the cache type following parameters can be configur
 <tr class="even">
 <td><strong>Hash Generator</strong></td>
 <td><div class="content-wrapper">
-<p>This parameter is used to define the logic used by the Cache mediator to evaluate the hash values of incoming messages. The value specified here should be a class that implements the <code>org.separated.carbon.mediator.cache.digest.DigestGenerator</code> class interface. The default hash generator is <code>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</code>. If the generated hash value is found in the cache, then the Cache mediator executes the <code>onCacheHit</code> sequence, which can be specified inline or referenced.</p>
+<p>This parameter is used to define the logic used by the Cache mediator to evaluate the hash values of incoming messages. The value specified here should be a class that implements the <code>org.wso2.carbon.mediator.cache.digest.DigestGenerator</code> class interface. The default hash generator is <code>org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator</code>. If the generated hash value is found in the cache, then the Cache mediator executes the <code>onCacheHit</code> sequence, which can be specified inline or referenced.</p>
 <div class="admonition note">
     <p class="admonition-title">Note</p>
     <p>The default hash generator is specific to the HTTP protocol.</p>
