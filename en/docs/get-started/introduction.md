@@ -7,6 +7,12 @@ This hybrid platform supports a variety of integration architecture styles, incl
 and centralized ESB architecture, providing deployment options for both microservices and ESB styles to enhance 
 flexibility in connecting applications, services, data, and the cloud.
 
+### Overview
+WSO2 Integrator: MI enables seamless integration between systems, applications, and data sources. 
+It provides tools for designing, implementing, and managing integration workflows efficiently.
+
+
+
 
 ## Address every integration challenge with ease
 
@@ -109,5 +115,12 @@ and expeditiously convert and transfer data between various systems.
 This comprehensive solution includes an intuitive visual data mapper designed to facilitate data transformation 
 from diverse formats, such as JSON, XML, and CSV. The drag-and-drop graphical interface empowers users to effortlessly 
 create data transformation workflows without the necessity for manual coding.
+
+### Key Benefits
+- Easy data transformation between JSON, XML, CSV, and other formats
+- Drag-and-drop interface for creating workflows
+- Supports real-time and batch data integration
+- Extensible and configurable for enterprise use
+
 
 ## Note: This documentation is contributed by the community.
