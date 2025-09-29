@@ -55,8 +55,8 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 <td><strong>Cache Type</strong></td>
 <td><p>This parameter specifies whether the Cache mediator should be in the incoming path (to check the request) or in the outgoing path (to cache the response). Possible values are as follows.</p>
 <ul>
-<li><strong>Finder</strong> : If this is selected, the Cache mediator is used to search for the request hash of incoming messages.</li>
-<li><strong>Collector</strong> : If this is selected, the Cache mediator is used to collect response messages in the cache.</li>
+<li><strong>Finder</strong> : If this is selected, the Cache mediator is used to search for the request hash of incoming messages. In the XML configuration, this corresponds to <code>collector="false"</code>.</li>
+<li><strong>Collector</strong> : If this is selected, the Cache mediator is used to collect response messages in the cache. In the XML configuration, this corresponds to <code>collector="true"</code>.</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -140,8 +140,8 @@ The parameters available to configure the Cache mediator as a **Collector** are 
 <td><strong>Cache Type</strong></td>
 <td><p>This parameter specifies whether the mediator should be in the incoming path (to check the request) or in the outgoing path (to cache the response). Possible values are as follows.</p>
 <ul>
-<li><strong>Finder</strong> : If this is selected, the mediator is used to search for the request hash of incoming messages.</li>
-<li><strong>Collector</strong> : If this is selected, the mediator is used to collect response messages in the cache.</li>
+<li><strong>Finder</strong> : If this is selected, the mediator is used to search for the request hash of incoming messages. In the XML configuration, this corresponds to <code>collector="false"</code>.</li>
+<li><strong>Collector</strong> : If this is selected, the mediator is used to collect response messages in the cache. In the XML configuration, this corresponds to <code>collector="true"</code>.</li>
 </ul></td>
 </tr>
 </tbody>
