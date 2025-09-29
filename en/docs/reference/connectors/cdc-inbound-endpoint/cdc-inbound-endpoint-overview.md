@@ -14,6 +14,8 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-inbound-c
 
 ## CDC inbound endpoint
 
-* **[CDC Inbound Endpoint Example]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-example)**: In this example, you will learn how to configure **CDC Inbound Endpoint** so that it can listen to data changes done to a **MySQL** table. 
+* **[CDC Inbound Endpoint Configuration]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-configuration)**: This documentation provides guidance on setting up the CDC Inbound Endpoint environment with the necessary JAR files and database configurations.
+
+* **[CDC Inbound Endpoint Example]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-example)**: In this example, you will learn how to configure **CDC Inbound Endpoint** so that it can listen to data changes done to a **MySQL** table.
 
 * **[CDC Inbound Endpoint Reference]({{base_path}}/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-config)**: This documentation provides a reference guide for the CDC Inbound Endpoint.
