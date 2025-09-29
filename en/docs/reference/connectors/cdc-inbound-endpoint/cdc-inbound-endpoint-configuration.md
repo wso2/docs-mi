@@ -22,6 +22,11 @@
     - `debezium-connector-mysql-2.7.4.Final.jar`
     - `debezium-core-2.7.4.Final.jar`
 
+9. For MI versions 4.2.0 and 4.3.0 only, download `mi-inbound-cdc-1.2.2.jar` from the [WSO2 Connector Store](https://store.wso2.com/connector/mi-inbound-cdc) and copy it to `<MI_HOME>/lib`:
+    - `mi-inbound-cdc-1.2.2.jar`
+
+!!!Note
+    - The `mi-inbound-cdc-1.2.2.jar` is required for MI versions 4.2.0 and 4.3.0 to resolve ClassNotFoundException for CDCPollingConsumer. This JAR is not needed for MI 4.4.0 and later versions.
 
 !!!Note
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
@@ -46,6 +51,11 @@
     - `debezium-connector-postgres-2.7.4.Final.jar`
     - `debezium-core-2.7.4.Final.jar`
 
+7. For MI versions 4.2.0 and 4.3.0 only, download `mi-inbound-cdc-1.2.2.jar` from the [WSO2 Connector Store](https://store.wso2.com/connector/mi-inbound-cdc) and copy it to `<MI_HOME>/lib`:
+    - `mi-inbound-cdc-1.2.2.jar`
+
+!!!Note
+    - The `mi-inbound-cdc-1.2.2.jar` is required for MI versions 4.2.0 and 4.3.0 to resolve ClassNotFoundException for CDCPollingConsumer. This JAR is not needed for MI 4.4.0 and later versions.
 
 !!!Note
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
@@ -68,6 +78,11 @@
     - `debezium-connector-sqlserver-2.7.4.Final.jar`
     - `debezium-core-2.7.4.Final.jar`
 
+7. For MI versions 4.2.0 and 4.3.0 only, download `mi-inbound-cdc-1.2.2.jar` from the [WSO2 Connector Store](https://store.wso2.com/connector/mi-inbound-cdc) and copy it to `<MI_HOME>/lib`:
+    - `mi-inbound-cdc-1.2.2.jar`
+
+!!!Note
+    - The `mi-inbound-cdc-1.2.2.jar` is required for MI versions 4.2.0 and 4.3.0 to resolve ClassNotFoundException for CDCPollingConsumer. This JAR is not needed for MI 4.4.0 and later versions.
 
 !!!Note
     - `<PROJECT_HOME>` refers to the directory where your integration project is located.
