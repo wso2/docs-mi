@@ -1297,9 +1297,9 @@ Follow the instructions below to display a list of artifacts or get information 
         Mediators - LogMediator, STRING
         ```
 
-### Scheduled Tasks
+### Scheduled triggers
 
-1.  List scheduled tasks in an environment.
+1.  List Scheduled triggers in an environment.
 
     -   **Command**
         ``` bash
@@ -1327,7 +1327,7 @@ Follow the instructions below to display a list of artifacts or get information 
         CheckPriceTask
         ```
 
-2.  Get information on a specific scheduled task in an environment.
+2.  Get information on a specific Scheduled trigger in an environment.
 
     -   **Command**
         ``` bash

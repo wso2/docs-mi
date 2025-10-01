@@ -222,9 +222,9 @@ Listed below are the data service parameters that can be dynamically injected.
 </data>
 ```
 
-##### Scheduled task parameters
+##### Scheduled trigger parameters
 
-The <b>pinned servers</b> parameter can be dynamically injected to a scheduled task or proxy service. See the example given below.
+The <b>pinned servers</b> parameter can be dynamically injected to a Scheduled trigger or proxy service. See the example given below.
 
 ###### Example
 
