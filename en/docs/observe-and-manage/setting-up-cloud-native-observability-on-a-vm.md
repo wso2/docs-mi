@@ -134,6 +134,9 @@ Follow the steps below to set up Fluent Bit and Grafana Loki:
 
 Follow the instructions below to set up Fluent Bit:
 
+!!! note
+    Recent versions of Fluent Bit (v1.5.0 and later) include the Loki output plugin by default. You can use the official Fluent Bit binaries without building from source.
+
 1. Download [Fluent Bit](https://fluentbit.io/download/).
 
 2. Extract the downloaded file. 
@@ -197,25 +200,10 @@ Follow the instructions below to set up Fluent Bit:
             LineFormat json
             LabelMapPath <Location/labelmap.json>
         ```
-      
-4. Follow the instructions below to build the Fluent Bit output plugin before starting Fluent Bit:
+4. Open a new terminal and navigate to the `<FluentBit_Home>` directory.
+5. Execute the following command:
 
-    1. Clone the [grafana/loki git repository](https://github.com/grafana/loki).
-    2. To build the Fluent Bit plugin, execute the following command.
-    
-        `make fluent-bit-plugin`
-        
-        For more details, see [Fluent Bit Output Plugin readme file](https://github.com/grafana/loki/blob/main/clients/cmd/fluent-bit/README.md#fluent-bit-output-plugin).
-        
-    3. Copy and save the path of the `out_loki.so` file. 
-   
-5. Open a new terminal and navigate to the `<FluentBit_Home>` directory. 
-6. Execute the following command:
-
-    !!! tip
-        Replace `<location of out_loki.so file>` with the path that you copied and saved in the previous step.
-
-     `fluent-bit -e <location of out_loki.so file> -c <fluentbit.conf file path>`
+     `fluent-bit -c <fluentbit.conf file path>`
      
      When Fluent Bit is successfully installed, you will see a log message.
     
