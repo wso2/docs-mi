@@ -10,7 +10,7 @@ In this example, a relational database table is used to store product informatio
 
 ## Set up the environment 
 
-1. First, install [MySQL database](https://www.mysql.com/) locally. If you have a remote server, please obtain the credentials required to connect.  
+1. First, install [MySQL database v8.2](https://www.mysql.com/) locally. If you have a remote server, please obtain the credentials required to connect.  
 
 2. Connect to MySQL server.
 
@@ -24,7 +24,7 @@ In this example, a relational database table is used to store product informatio
     USE inventory;
     ```
 
-4. Then, create a table called `products` under that database using the following SQL script. 
+5. Then, create a table called `products` under that database using the following SQL script. 
     ```sql
     CREATE TABLE products (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,11 +33,11 @@ In this example, a relational database table is used to store product informatio
     );
     ```
 
-5. Create a user. For detailed instructions, refer to the [MySQL Creating User](https://debezium.io/documentation/reference/stable/connectors/mysql.html#mysql-creating-user) documentation. 
+6. Create a user. For detailed instructions, refer to the [MySQL Creating User](https://debezium.io/documentation/reference/stable/connectors/mysql.html#mysql-creating-user) documentation. 
 
-6. Enable binlog. For detailed instructions, refer to the [Enable MySQL Binlog](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-binlog) documentation. 
+7. Enable binlog. For detailed instructions, refer to the [Enable MySQL Binlog](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-binlog) documentation. 
 
-7. Enable GTIDs. For detailed instructions, refer to the [Enable MySQL GTIDs](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-gtids) documentation. 
+8. Enable GTIDs. For detailed instructions, refer to the [Enable MySQL GTIDs](https://debezium.io/documentation/reference/stable/connectors/mysql.html#enable-mysql-gtids) documentation. 
 
 ## Configure inbound endpoint using Micro Integrator
 
@@ -86,9 +86,11 @@ In this example, a relational database table is used to store product informatio
     </inboundEndpoint>
     ```
 
-8. Download the latest Debezium Orbit JAR from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs` directory. Here, `<PROJECT_HOME>` refers to the directory path where your integration project is located.
+8. Download the latest Debezium Orbit JAR version `2.1.4.Final.wso2v2` from [nexus](https://maven.wso2.org/nexus/content/repositories/public/org/wso2/orbit/debezium/debezium/) and place it in `<PROJECT_HOME>/deployment/libs` directory. Here, `<PROJECT_HOME>` refers to the directory path where your integration project is located.
 
-9. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<PROJECT_HOME>/deployment/libs` directory.
+9. Download the JDBC driver version `8.0.x` from the [MySQL website](https://dev.mysql.com/downloads/connector/j/), and copy it into the `<PROJECT_HOME>/deployment/libs` directory.
+    
+10. Download CDC inbound endpoint version 1.2.x from [WSO2 Connector Store](https://store.wso2.com/connector/mi-inbound-cdc) and place the JAR file in the `<PROJECT_HOME>/deployment/libs` directory.
 
 !!! info 
     If you're using a different database, you'll need to download the appropriate JDBC driver and place it in the `<PROJECT_HOME>/deployment/libs` directory.
