@@ -8,11 +8,11 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 - Always use the latest version of the WSO2 Micro Integrator extension for VS Code. It is recommended to update the extension frequently to get the latest features and bug fixes.
 
-- Use the UI provided by the WSO2 Micro Integrator extension for VS Code to create and manage your integration projects. This ensures that your projects are set up correctly and follow best practices. Use manual editing only for advanced configurations not supported by the UI.
+- Use the UI provided by the WSO2 Micro Integrator extension for VS Code to create and manage your integration projects. This ensures that your projects are set up correctly and follow best practices. You can use manual editing only for advanced configurations not supported by the UI.
 
 ### Creating Projects
 
-- Create a separate project for each microservice or integration flow. This approach improves organization, simplifies artifact management, and makes it easier to maintain and update individual integrations.
+- Create a separate project for each microservice or integration flow. This approach enhances organization, streamlines artifact management, and facilitates easier maintenance and updates of individual integrations.
 
 - Create a multi-module project for managing multiple related services that need to be deployed together. This allows you to manage dependencies and shared resources effectively.
 
@@ -22,8 +22,8 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Naming Conventions
 
-- Use meaningful names for your projects to easily identify their purpose.
-   - Use a meaningful group ID that reflects your organization or team or logically groups related projects together. For example, use `com.companyname` or `org.departmentname`. Be sure to give same group ID to related projects.
+- Use meaningful names for your projects to identify their purpose easily.
+   - Use a meaningful group ID that reflects your organization or team, or logically groups related projects together. For example, use `com.companyname` or `org.departmentname`. Be sure to give the same group ID to related projects.
     - Use a meaningful artifact ID that reflects the specific project or module. For example, use `order-service` or `payment-gateway`.
 
 - Follow a consistent naming convention for your artifacts to easily identify their purpose and functionality. For example, use `OrderAPI`, `PaymentSequence`, or `InventoryEndpoint`.
@@ -84,15 +84,15 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### General Mediator Usage
 
-- Add proper description to each mediator to clarify its purpose and usage within the integration flow.
+- Add a proper description to each mediator to clarify its purpose and usage within the integration flow.
 - Prefer the `Variable Mediator` over the `Property Mediator` for storing intermediate values during message processing. The `Variable Mediator` is optimized for temporary data storage and reuse within the integration flow, reducing redundant computations and improving performance.
 - Reserve the `Property Mediator` for controlling message flow, such as setting properties that influence routing, error handling, or other flow-specific logic.
-- Use clear, descriptive variable names to enhance readability and maintainability of your integration logic.
+- Use clear, descriptive variable names to enhance the readability and maintainability of your integration logic.
 - If you want to repeatedly use the same mediation sequence, define it as a `Sequence`. You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the  `Call Sequence` mediator to call the saved sequence, or select it as the `InSequence` or `FaultSequence` when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
 
 ### General Connector Usage
 
-- Reuse shared connections across multiple integrations whenever possible to optimize resource usage and enhance performance. Connection pooling is managed per connection, so minimizing the number of distinct connections helps reduce overhead and improves scalability.
+- Reuse shared connections across multiple integrations whenever possible to optimize resource usage and enhance performance. Connection pooling is managed per connection, so minimizing the number of distinct connections helps reduce overhead and improve scalability.
 - Create separate connections only when required, such as for high-throughput integrations. Dedicated connections provide isolated connection pools, which can be beneficial for integrations that demand high availability.
 
 ### Log Mediator
@@ -229,6 +229,6 @@ If you are migrating from an older version of WSO2 Micro Integrator (&lt;4.4.0),
 - `Loopback Mediator` is no longer recommended.
 - The use of `Call Mediator` and `Endpoint` for invoking external HTTP services is no longer recommended. Instead, adopt the `HTTP Connector`, which offers enhanced configuration options, better performance, and improved maintainability. Reserve the use of endpoints for non-HTTP protocols or legacy scenarios where connectors are not applicable.
 - The `Iterate Mediator` is deprecated. Use the enhanced `ForEach Mediator` (version 2) for all scenarios previously handled by the Iterate or ForEach (version 1) mediators. The updated ForEach mediator provides improved performance, supports parallel processing, enables external service calls, and offers more flexible configuration options. It is the recommended approach for iterating over message elements in integration flows.
-- The `Clone Mediator` and `Aggregate Mediator` is no longer recommended. Instead of that use `Scatter Gather Mediator`.
+- The `Clone Mediator` and `Aggregate Mediator` are no longer recommended. Instead of that, use `Scatter Gather Mediator`.
 - The `PayloadFactory Mediator` has been enhanced with new features and improved performance. Migrate any existing `PayloadFactory` configurations to take advantage of these enhancements.
 
