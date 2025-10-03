@@ -310,6 +310,26 @@ You can interact with the API using the **Swagger View**.
 !!! Note
     If you have created the API by adding a custom Swagger definition, this view displays the API's default Swagger definition, not the custom one you have added.
 
+## Enable CORS
+
+To enable CORS for your API, follow these steps:
+
+1. Go to **Project Overview**.
+
+2. Under **APIs**, select the API you want to edit. This will open the **Service Designer**.
+
+3. On the **Service Designer**, click the **Edit** icon to edit the API.
+
+4. In the **Edit API** pane, navigate to the **CORS** section.
+
+5. Enable CORS by toggling the checkbox.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/cors-enabled.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/cors-enabled.png" alt="CORS enabled" width="80%"></a>
+
+6. Configure the allowed origins, methods, and headers as per your requirements.
+
+7. Click **Save Changes**.
+
 ## Examples
 
 Follow our examples on APIs: 
