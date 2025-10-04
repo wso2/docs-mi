@@ -208,6 +208,7 @@ nav:
           - "WSO2 Integrator: MI for VSCode Overview":  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
           - MI Copilot: develop/mi-for-vscode/mi-copilot.md
+          - Best Practices Guide: develop/mi-for-vscode/best-practices.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Integration Projects:
           - Create a Project: develop/create-integration-project.md
