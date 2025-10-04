@@ -35,7 +35,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
     ```xml
     <sequence name="request" onError="fault">
         <log level="full"/>
-        <filter regex="1" source="get-property('default','jms.message.delivery.count')" xmlns:ns="http://org.apache.synapse/xsd">
+        <filter regex="1" source="${properties.jms.message.delivery.count}" xmlns:ns="http://org.apache.synapse/xsd">
             <then>
                 <log>
                      <property name="DeliveryCounter" value="1"/>
@@ -75,8 +75,8 @@ See the instructions on how to [build and run](#build-and-run) this example.
     <sequence name="fault">
         <log level="full">
             <property name="MESSAGE" value="Executing default &quot;fault&quot; sequence"/>
-            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+            <property expression="${properties.ERROR_CODE}" name="ERROR_CODE"/>
+            <property expression="${properties.ERROR_MESSAGE}" name="ERROR_MESSAGE"/>
         </log>
         <drop/>
     </sequence>

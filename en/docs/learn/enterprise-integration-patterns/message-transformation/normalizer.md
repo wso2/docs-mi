@@ -46,7 +46,7 @@ Before digging into implementation details, let's take a look at the relationshi
                    <sequence key="jsonInTransformSeq" />
                 </else>
              </filter>
-             <filter regex="JSONtoSOAP" source="get-property('TRANSFORMATION')">
+             <filter regex="JSONtoSOAP" source="${properties.TRANSFORMATION}">
                 <then>
                    <property name="messageType" value="application/json" scope="axis2"
                       type="STRING" />

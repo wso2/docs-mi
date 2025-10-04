@@ -81,9 +81,9 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
             <resource methods="POST" uri-template="/send">
                 <inSequence>
                     <SMPP.sendSMS configKey="SMSC_CONFIG_1">
-                        <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
-                        <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
-                        <message>{$ctx:message}</message>
+                        <sourceAddress>{${properties.sourceAddress}}</sourceAddress>
+                        <destinationAddress>{${properties.destinationAddress}}</destinationAddress>
+                        <message>{${properties.message}}</message>
                         <responseVariable>SMPP_sendSMS_1</responseVariable>
                         <overwriteBody>true</overwriteBody>
                     </SMPP.sendSMS>

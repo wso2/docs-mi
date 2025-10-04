@@ -18,7 +18,7 @@ We can use GET Document Details operation with required parameters to retrieve d
 **GET Document Details**
 ```xml
 <ceridiandayforce.getDocumentDetails>
-    <documentGuid>{$ctx:documentGuid}</documentGuid>
+    <documentGuid>{${properties.documentGuid}}</documentGuid>
 </ceridiandayforce.getDocumentDetails>
 ```
 
@@ -81,19 +81,19 @@ Following example illustrates how to connect to Dayforce with the init operation
    <target>
       <inSequence>
          <log level="full" separator=","/>
-         <property expression="json-eval($.username)" name="username"/>
-         <property expression="json-eval($.password)" name="password"/>
-         <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
-         <property expression="json-eval($.apiVersion)" name="apiVersion"/>
-         <property expression="json-eval($.documentGuid)" name="documentGuid"/>
+         <property expression="${payload.username}" name="username"/>
+         <property expression="${payload.password}" name="password"/>
+         <property expression="${payload.clientNamespace}" name="clientNamespace"/>
+         <property expression="${payload.apiVersion}" name="apiVersion"/>
+         <property expression="${payload.documentGuid}" name="documentGuid"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getDocumentDetails>
-            <documentGuid>{$ctx:documentGuid}</documentGuid>
+            <documentGuid>{${properties.documentGuid}}</documentGuid>
          </ceridiandayforce.getDocumentDetails>
          <send/>
       </inSequence>

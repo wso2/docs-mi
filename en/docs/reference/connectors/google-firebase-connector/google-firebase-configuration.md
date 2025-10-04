@@ -8,16 +8,16 @@
 
 ```
 <googlefirebase.init>
-    <accountType>{$ctx:accountType}</accountType>
-    <projectId>{$ctx:projectId}</projectId>
-    <privateKeyId>{$ctx:privateKeyId}</privateKeyId>
-    <privateKey>{$ctx:privateKey}</privateKey>
-    <clientEmail>{$ctx:clientEmail}</clientEmail>
-    <clientId>{$ctx:clientId}</clientId>
-    <authUri>{$ctx:authUri}</authUri>
-    <tokenUri>{$ctx:tokenUri}</tokenUri>
-    <authProviderCertUrl>{$ctx:authProviderCertUrl}</authProviderCertUrl>
-    <clientCertUrl>{$ctx:clientCertUrl}</clientCertUrl>
+    <accountType>{${properties.accountType}}</accountType>
+    <projectId>{${properties.projectId}}</projectId>
+    <privateKeyId>{${properties.privateKeyId}}</privateKeyId>
+    <privateKey>{${properties.privateKey}}</privateKey>
+    <clientEmail>{${properties.clientEmail}}</clientEmail>
+    <clientId>{${properties.clientId}}</clientId>
+    <authUri>{${properties.authUri}}</authUri>
+    <tokenUri>{${properties.tokenUri}}</tokenUri>
+    <authProviderCertUrl>{${properties.authProviderCertUrl}}</authProviderCertUrl>
+    <clientCertUrl>{${properties.clientCertUrl}}</clientCertUrl>
 </googlefirebase.init>
 ```
 
@@ -53,54 +53,54 @@ For more info, see [https://firebase.google.com/docs/cloud-messaging/concept-opt
 
 ```
 <googlefirebase.sendMessage>
-    <messagingType>{$ctx:messagingType}</messagingType>
-    <dryRunMode>{$ctx:dryRunMode}</dryRunMode>
-    <registrationToken>{$ctx:registrationToken}</registrationToken>
-    <topicName>{$ctx:topicName}</topicName>
-    <condition>{$ctx:condition}</condition>
-    <dataFieldsOfMessage>{$ctx:dataFieldsOfMessage}</dataFieldsOfMessage>
-    <notificationTitle>{$ctx:notificationTitle}</notificationTitle>
-    <notificationBody>{$ctx:notificationBody}</notificationBody>
-    <androidPriority>{$ctx:androidPriority}</androidPriority>
-    <timeToLiveDuration>{$ctx:timeToLiveDuration}</timeToLiveDuration>
-    <restrictedPackageName>{$ctx:restrictedPackageName}</restrictedPackageName>
-    <collapseKey>{$ctx:collapseKey}</collapseKey>
-    <dataFieldsOfAndroidConfig>{$ctx:dataFieldsOfAndroidConfig}</dataFieldsOfAndroidConfig>
-    <androidNotificationTitle>{$ctx:androidNotificationTitle}</androidNotificationTitle>
-    <androidNotificationBody>{$ctx:androidNotificationBody}</androidNotificationBody>
-    <androidClickAction>{$ctx:androidClickAction}</androidClickAction>
-    <androidIcon>{$ctx:androidIcon}</androidIcon>
-    <androidColor>{$ctx:androidColor}</androidColor>
-    <androidTag>{$ctx:androidTag}</androidTag>
-    <androidSound>{$ctx:androidSound}</androidSound>
-    <androidTitleLocalizationKey>{$ctx:androidTitleLocalizationKey}</androidTitleLocalizationKey>
-    <androidBodyLocalizationKey>{$ctx:androidBodyLocalizationKey}</androidBodyLocalizationKey>
-    <androidTitleLocalizationArgs>{$ctx:androidTitleLocalizationArgs}</androidTitleLocalizationArgs>
-    <androidBodyLocalizationArgs>{$ctx:androidBodyLocalizationArgs}</androidBodyLocalizationArgs>
-    <apnsHeaders>{$ctx:apnsHeaders}</apnsHeaders>
-    <apnsCustomData>{$ctx:apnsCustomData}</apnsCustomData>
-    <apnsBadge>{$ctx:apnsBadge}</apnsBadge>
-    <apnsSound>{$ctx:apnsSound}</apnsSound>
-    <apnsContentAvailable>{$ctx:apnsContentAvailable}</apnsContentAvailable>
-    <apnsCategory>{$ctx:apnsCategory}</apnsCategory>
-    <apnsThreadId>{$ctx:apnsThreadId}</apnsThreadId>
-    <apnsAlertTitle>{$ctx:apnsAlertTitle}</apnsAlertTitle>
-    <apnsAlertBody>{$ctx:apnsAlertBody}</apnsAlertBody>
-    <webPushHeaders>{$ctx:webPushHeaders}</webPushHeaders>
-    <webPushData>{$ctx:webPushData}</webPushData>
-    <webPushNotificationTitle>{$ctx:webPushNotificationTitle}</webPushNotificationTitle>
-    <webPushNotificationBody>{$ctx:webPushNotificationBody}</webPushNotificationBody>
-    <webPushNotificationIcon>{$ctx:webPushNotificationIcon}</webPushNotificationIcon>
-    <webPushNotificationBadge>{$ctx:webPushNotificationBadge}</webPushNotificationBadge>
-    <webPushNotificationImage>{$ctx:webPushNotificationImage}</webPushNotificationImage>
-    <webPushNotificationLanguage>{$ctx:webPushNotificationLanguage}</webPushNotificationLanguage>
-    <webPushNotificationTag>{$ctx:webPushNotificationTag}</webPushNotificationTag>
-    <webPushNotificationDirection>{$ctx:webPushNotificationDirection}</webPushNotificationDirection>
-    <webPushNotificationRenotify>{$ctx:webPushNotificationRenotify}</webPushNotificationRenotify>
-    <webPushNotificationInteraction>{$ctx:webPushNotificationInteraction}</webPushNotificationInteraction>
-    <webPushNotificationSilent>{$ctx:webPushNotificationSilent}</webPushNotificationSilent>
-    <webPushNotificationTimestamp>{$ctx:webPushNotificationTimestamp}</webPushNotificationTimestamp>
-    <webPushNotificationVibrate>{$ctx:webPushNotificationVibrate}</webPushNotificationVibrate>
+    <messagingType>{${properties.messagingType}}</messagingType>
+    <dryRunMode>{${properties.dryRunMode}}</dryRunMode>
+    <registrationToken>{${properties.registrationToken}}</registrationToken>
+    <topicName>{${properties.topicName}}</topicName>
+    <condition>{${properties.condition}}</condition>
+    <dataFieldsOfMessage>{${properties.dataFieldsOfMessage}}</dataFieldsOfMessage>
+    <notificationTitle>{${properties.notificationTitle}}</notificationTitle>
+    <notificationBody>{${properties.notificationBody}}</notificationBody>
+    <androidPriority>{${properties.androidPriority}}</androidPriority>
+    <timeToLiveDuration>{${properties.timeToLiveDuration}}</timeToLiveDuration>
+    <restrictedPackageName>{${properties.restrictedPackageName}}</restrictedPackageName>
+    <collapseKey>{${properties.collapseKey}}</collapseKey>
+    <dataFieldsOfAndroidConfig>{${properties.dataFieldsOfAndroidConfig}}</dataFieldsOfAndroidConfig>
+    <androidNotificationTitle>{${properties.androidNotificationTitle}}</androidNotificationTitle>
+    <androidNotificationBody>{${properties.androidNotificationBody}}</androidNotificationBody>
+    <androidClickAction>{${properties.androidClickAction}}</androidClickAction>
+    <androidIcon>{${properties.androidIcon}}</androidIcon>
+    <androidColor>{${properties.androidColor}}</androidColor>
+    <androidTag>{${properties.androidTag}}</androidTag>
+    <androidSound>{${properties.androidSound}}</androidSound>
+    <androidTitleLocalizationKey>{${properties.androidTitleLocalizationKey}}</androidTitleLocalizationKey>
+    <androidBodyLocalizationKey>{${properties.androidBodyLocalizationKey}}</androidBodyLocalizationKey>
+    <androidTitleLocalizationArgs>{${properties.androidTitleLocalizationArgs}}</androidTitleLocalizationArgs>
+    <androidBodyLocalizationArgs>{${properties.androidBodyLocalizationArgs}}</androidBodyLocalizationArgs>
+    <apnsHeaders>{${properties.apnsHeaders}}</apnsHeaders>
+    <apnsCustomData>{${properties.apnsCustomData}}</apnsCustomData>
+    <apnsBadge>{${properties.apnsBadge}}</apnsBadge>
+    <apnsSound>{${properties.apnsSound}}</apnsSound>
+    <apnsContentAvailable>{${properties.apnsContentAvailable}}</apnsContentAvailable>
+    <apnsCategory>{${properties.apnsCategory}}</apnsCategory>
+    <apnsThreadId>{${properties.apnsThreadId}}</apnsThreadId>
+    <apnsAlertTitle>{${properties.apnsAlertTitle}}</apnsAlertTitle>
+    <apnsAlertBody>{${properties.apnsAlertBody}}</apnsAlertBody>
+    <webPushHeaders>{${properties.webPushHeaders}}</webPushHeaders>
+    <webPushData>{${properties.webPushData}}</webPushData>
+    <webPushNotificationTitle>{${properties.webPushNotificationTitle}}</webPushNotificationTitle>
+    <webPushNotificationBody>{${properties.webPushNotificationBody}}</webPushNotificationBody>
+    <webPushNotificationIcon>{${properties.webPushNotificationIcon}}</webPushNotificationIcon>
+    <webPushNotificationBadge>{${properties.webPushNotificationBadge}}</webPushNotificationBadge>
+    <webPushNotificationImage>{${properties.webPushNotificationImage}}</webPushNotificationImage>
+    <webPushNotificationLanguage>{${properties.webPushNotificationLanguage}}</webPushNotificationLanguage>
+    <webPushNotificationTag>{${properties.webPushNotificationTag}}</webPushNotificationTag>
+    <webPushNotificationDirection>{${properties.webPushNotificationDirection}}</webPushNotificationDirection>
+    <webPushNotificationRenotify>{${properties.webPushNotificationRenotify}}</webPushNotificationRenotify>
+    <webPushNotificationInteraction>{${properties.webPushNotificationInteraction}}</webPushNotificationInteraction>
+    <webPushNotificationSilent>{${properties.webPushNotificationSilent}}</webPushNotificationSilent>
+    <webPushNotificationTimestamp>{${properties.webPushNotificationTimestamp}}</webPushNotificationTimestamp>
+    <webPushNotificationVibrate>{${properties.webPushNotificationVibrate}}</webPushNotificationVibrate>
 </googlefirebase.sendMessage>
 ```
 
@@ -231,8 +231,8 @@ apnsContentAvailable - Include this key with a value of 1 to configure a backgro
 
 ```
 <googlefirebase.subscribeToTopic>
-    <topicName>{$ctx:topicName}</topicName>
-    <tokenList>{$ctx:tokenList}</tokenList>
+    <topicName>{${properties.topicName}}</topicName>
+    <tokenList>{${properties.tokenList}}</tokenList>
 </googlefirebase.subscribeToTopic>
 ```
 
@@ -283,8 +283,8 @@ This operation allows you to unsubscribe devices from a topic by passing list of
 
 ```
 <googlefirebase.unsubscribeFromTopic>
-    <topicName>{$ctx:topicName}</topicName>
-    <tokenList>{$ctx:tokenList}</tokenList>
+    <topicName>{${properties.topicName}}</topicName>
+    <tokenList>{${properties.tokenList}}</tokenList>
 </googlefirebase.unsubscribeFromTopic>
 ```
 

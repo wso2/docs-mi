@@ -22,7 +22,7 @@ When the scope of a property is `default`, its value is available throughout the
 Examples:
 ``` xml
 <property name="PROPERTY_1" value="VALUE_1" scope="default" type="STRING"/>
-<property name="PROPERTY_2" expression="get-property('PROPERTY_1')"/>
+<property name="PROPERTY_2" expression="${properties.PROPERTY_1}"/>
 ```
 
 !!! Note
@@ -97,8 +97,8 @@ You can retrieve properties within the registry using the following syntax.
 
 Examples:
 ``` xml
-<property name="regProperty" expression="get-property('registry', 'gov:/data/xml/collectionx')"/>
-<property name="regResourceProperty" expression="get-property('registry', 'gov:/data/xml/collectionx@abc')"/>
+<property name="regProperty" expression="${registry['gov:/data/xml/collectionx']}"/>
+<property name="regResourceProperty" expression="${registry['gov:/data/xml/collectionx@abc']}"/>
 ```
 
 ## `system` scope

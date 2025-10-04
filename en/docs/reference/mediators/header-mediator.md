@@ -99,7 +99,7 @@ To do this, the header mediator is added to the in sequence of the proxy configu
                 <property name="REQUEST_HEADER" scope="default" type="OM">
                     <p1:Code xmlns:p1="http://www.XYZ.com/XSD">XYZ</p1:Code>
                 </property>
-                <header name="p1:Code" scope="default" expression="$ctx:REQUEST_HEADER" xmlns:p1="http://www.XYZ.com/XSD"/>
+                <header name="p1:Code" scope="default" expression="${properties.REQUEST_HEADER}" xmlns:p1="http://www.XYZ.com/XSD"/>
                 <call>
                     <endpoint key="SimpleStockQuoteServiceEP"/>
                 </call>
@@ -109,7 +109,7 @@ To do this, the header mediator is added to the in sequence of the proxy configu
                         <p2:Hello>World</p2:Hello>
                     </p2:Header>
                 </property>
-                <header name="p2:Header" xmlns:p2="http://www.ABC.com/XSD" action="set" scope="default" expression="$ctx:RESPONSE_HEADER"/>
+                <header name="p2:Header" xmlns:p2="http://www.ABC.com/XSD" action="set" scope="default" expression="${properties.RESPONSE_HEADER}"/>
                 <respond/>
             </inSequence>
         </resource>
@@ -180,10 +180,10 @@ The following configuration takes the value of an element named `symbol` in the 
 ### Setting the endpoint URL dynamically
 
 In this example, the Header mediator allows the endpoint URL to which the message is sent to be set dynamically. It specifies the default address to which the message is sent dynamically by deriving the **To** header of the message via an XPath expression. Then the [Call mediator]({{base_path}}/reference/mediators/call-mediator/) sends the message to a **Default Endpoint**. A Default Endpoint sends the message to the default address of the message (i.e. address specified in the To header). 
-Therefore, in this scenario, selecting the Default Endpoint results in the message being sent to relevant URL calculated via the `fn:concat('http://localhost:9764/services/Axis2SampleService_',get-property('epr'))` expression.
+Therefore, in this scenario, selecting the Default Endpoint results in the message being sent to relevant URL calculated via the `fn:concat('http://localhost:9764/services/Axis2SampleService_',${properties.epr})` expression.
 
 ```xml
-<header name="To" expression="fn:concat('http://localhost:9764/services/Axis2SampleService_',get-property('epr'))"/>
+<header name="To" expression="fn:concat('http://localhost:9764/services/Axis2SampleService_',${properties.epr})"/>
 <call>
     <endpoint>
         <default/>
@@ -194,5 +194,5 @@ Therefore, in this scenario, selecting the Default Endpoint results in the messa
 ### Setting the header with a value in the JSON body	
 
 ```	xml
-<header name="header-symbol" expression="json-eval($.symbol)"/>	
+<header name="header-symbol" expression="${payload.symbol}"/>	
 ```

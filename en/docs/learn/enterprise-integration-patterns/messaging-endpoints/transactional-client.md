@@ -48,9 +48,9 @@ Given below is the synapse configuration of this sample.
             <property name="OUT_ONLY" scope="axis2" type="BOOLEAN" value="true"/>
             <class name="org.wso2.esb.client.MessageCounterMediator"/>
             <log category="INFO" level="full">
-                <property name="MESSAGE*ID" expression="get-property('MESSAGE_COUNT')"/>
+                <property name="MESSAGE*ID" expression="${properties.MESSAGE_COUNT}"/>
             </log>
-            <switch source="get-property('MESSAGE_COUNT')">
+            <switch source="${properties.MESSAGE_COUNT}">
                 <case regex="1">
                     <property name="SET_ROLLBACK_ONLY" scope="axis2" type="BOOLEAN" value="true"/>
                     <log category="INFO" level="custom">

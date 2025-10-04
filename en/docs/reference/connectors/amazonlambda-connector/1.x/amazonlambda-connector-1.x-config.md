@@ -23,7 +23,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.getAccountSettings>
-        <apiVersionGetAccountSettings>{$ctx:apiVersionGetAccountSettings}</apiVersionGetAccountSettings>
+        <apiVersionGetAccountSettings>{${properties.apiVersionGetAccountSettings}}</apiVersionGetAccountSettings>
     </amazonlambda.getAccountSettings>
     ```
     
@@ -107,12 +107,12 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.createAlias>
-        <functionName>{$ctx:functionName}</functionName>
-        <createAliasDescription>{$ctx:createAliasDescription}</createAliasDescription>
-        <functionVersion>{$ctx:functionVersion}</functionVersion>
-        <aliasName>{$ctx:aliasName}</aliasName>
-        <aliasAdditionalVersionWeights>{$ctx:aliasAdditionalVersionWeights}</aliasAdditionalVersionWeights>
-        <apiVersionCreateAlias>{$ctx:apiVersionCreateAlias}</apiVersionCreateAlias>
+        <functionName>{${properties.functionName}}</functionName>
+        <createAliasDescription>{${properties.createAliasDescription}}</createAliasDescription>
+        <functionVersion>{${properties.functionVersion}}</functionVersion>
+        <aliasName>{${properties.aliasName}}</aliasName>
+        <aliasAdditionalVersionWeights>{${properties.aliasAdditionalVersionWeights}}</aliasAdditionalVersionWeights>
+        <apiVersionCreateAlias>{${properties.apiVersionCreateAlias}}</apiVersionCreateAlias>
     </amazonlambda.createAlias>
     ```
     
@@ -173,9 +173,9 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.deleteAlias>
-        <functionName>{$ctx:functionName}</functionName>
-        <aliasName>{$ctx:aliasName}</aliasName>
-        <apiVersionDeleteAlias>{$ctx:apiVersionDeleteAlias}</apiVersionDeleteAlias>
+        <functionName>{${properties.functionName}}</functionName>
+        <aliasName>{${properties.aliasName}}</aliasName>
+        <apiVersionDeleteAlias>{${properties.apiVersionDeleteAlias}}</apiVersionDeleteAlias>
     </amazonlambda.deleteAlias>
     ```
     
@@ -228,9 +228,9 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.getAlias>
-        <functionName>{$ctx:functionName}</functionName>
-        <aliasName>{$ctx:aliasName}</aliasName>
-        <apiVersionGetAlias>{$ctx:apiVersionGetAlias}</apiVersionGetAlias>    
+        <functionName>{${properties.functionName}}</functionName>
+        <aliasName>{${properties.aliasName}}</aliasName>
+        <apiVersionGetAlias>{${properties.apiVersionGetAlias}}</apiVersionGetAlias>    
     </amazonlambda.getAlias>
     ```
     
@@ -309,12 +309,12 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.updateAlias>
-        <functionName>{$ctx:functionName}</functionName>
-        <updatedAliasDescription>{$ctx:updatedAliasDescription}</updatedAliasDescription>
-        <functionVersion>{$ctx:functionVersion}</functionVersion>
-        <aliasName>{$ctx:aliasName}</aliasName>
-        <updatedAliasAdditionalVersionWeight>{$ctx:updatedAliasAdditionalVersionWeight}</updatedAliasAdditionalVersionWeight>
-        <apiVersionUpdateAlias>{$ctx:apiVersionUpdateAlias}</apiVersionUpdateAlias>
+        <functionName>{${properties.functionName}}</functionName>
+        <updatedAliasDescription>{${properties.updatedAliasDescription}}</updatedAliasDescription>
+        <functionVersion>{${properties.functionVersion}}</functionVersion>
+        <aliasName>{${properties.aliasName}}</aliasName>
+        <updatedAliasAdditionalVersionWeight>{${properties.updatedAliasAdditionalVersionWeight}}</updatedAliasAdditionalVersionWeight>
+        <apiVersionUpdateAlias>{${properties.apiVersionUpdateAlias}}</apiVersionUpdateAlias>
     </amazonlambda.updateAlias>
     ```
     
@@ -395,12 +395,12 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.addPermission>
-        <functionName>{$ctx:functionName}</functionName>
-        <permissionAction>{$ctx:permissionAction}</permissionAction>
-        <permissionStatementId>{$ctx:permissionStatementId}</permissionStatementId>
-        <permissionPrincipal>{$ctx:permissionPrincipal}</permissionPrincipal>
-        <permissionQualifier>{$ctx:permissionQualifier}</permissionQualifier>
-        <apiVersionAddPermission>{$ctx:apiVersionAddPermission}</apiVersionAddPermission>    
+        <functionName>{${properties.functionName}}</functionName>
+        <permissionAction>{${properties.permissionAction}}</permissionAction>
+        <permissionStatementId>{${properties.permissionStatementId}}</permissionStatementId>
+        <permissionPrincipal>{${properties.permissionPrincipal}}</permissionPrincipal>
+        <permissionQualifier>{${properties.permissionQualifier}}</permissionQualifier>
+        <apiVersionAddPermission>{${properties.apiVersionAddPermission}}</apiVersionAddPermission>    
     </amazonlambda.addPermission>
     ```
     
@@ -545,12 +545,12 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.addPermission>
-        <functionName>{$ctx:functionName}</functionName>
-        <permissionAction>{$ctx:permissionAction}</permissionAction>
-        <permissionStatementId>{$ctx:permissionStatementId}</permissionStatementId>
-        <permissionPrincipal>{$ctx:permissionPrincipal}</permissionPrincipal>
-        <permissionQualifier>{$ctx:permissionQualifier}</permissionQualifier>
-        <apiVersionAddPermission>{$ctx:apiVersionAddPermission}</apiVersionAddPermission>    
+        <functionName>{${properties.functionName}}</functionName>
+        <permissionAction>{${properties.permissionAction}}</permissionAction>
+        <permissionStatementId>{${properties.permissionStatementId}}</permissionStatementId>
+        <permissionPrincipal>{${properties.permissionPrincipal}}</permissionPrincipal>
+        <permissionQualifier>{${properties.permissionQualifier}}</permissionQualifier>
+        <apiVersionAddPermission>{${properties.apiVersionAddPermission}}</apiVersionAddPermission>    
     </amazonlambda.addPermission>
     ```
     
@@ -630,9 +630,9 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.deleteFunction>
-        <functionName>{$ctx:functionName}</functionName>
-        <deleteFunctionQualifier>{$ctx:deleteFunctionQualifier}</deleteFunctionQualifier>
-        <apiVersionDeleteFunction>{$ctx:apiVersionDeleteFunction}</apiVersionDeleteFunction>
+        <functionName>{${properties.functionName}}</functionName>
+        <deleteFunctionQualifier>{${properties.deleteFunctionQualifier}}</deleteFunctionQualifier>
+        <apiVersionDeleteFunction>{${properties.apiVersionDeleteFunction}}</apiVersionDeleteFunction>
     </amazonlambda.deleteFunction>
     ```
     
@@ -683,9 +683,9 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.getFunction>
-        <functionName>{$ctx:functionName}</functionName>
-        <qualifier>{$ctx:qualifier}</qualifier>
-        <apiVersionGetFunction>{$ctx:apiVersionGetFunction}</apiVersionGetFunction>
+        <functionName>{${properties.functionName}}</functionName>
+        <qualifier>{${properties.qualifier}}</qualifier>
+        <apiVersionGetFunction>{${properties.apiVersionGetFunction}}</apiVersionGetFunction>
     </amazonlambda.getFunction>
     ```
     
@@ -780,9 +780,9 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.getFunctionConfiguration>
-        <functionName>{$ctx:functionName}</functionName>
-        <qualifier>{$ctx:qualifier}</qualifier>
-        <apiVersionGetFunctionConfiguration>{$ctx:apiVersionGetFunctionConfiguration}</apiVersionGetFunctionConfiguration>
+        <functionName>{${properties.functionName}}</functionName>
+        <qualifier>{${properties.qualifier}}</qualifier>
+        <apiVersionGetFunctionConfiguration>{${properties.apiVersionGetFunctionConfiguration}}</apiVersionGetFunctionConfiguration>
     </amazonlambda.getFunctionConfiguration>
     ```
     
@@ -899,13 +899,13 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.invoke>
-        <functionName>{$ctx:functionName}</functionName>
-        <apiVersionInvoke>{$ctx:apiVersionInvoke}</apiVersionInvoke>
-        <qualifier>{$ctx:qualifier}</qualifier>
-        <x-amz-invocation-type>{$ctx:x-amz-invocation-type}</x-amz-invocation-type>
-        <x-amz-log-type>{$ctx:x-amz-log-type}</x-amz-log-type>
-        <x-amz-client-context>{$ctx:x-amz-client-context}</x-amz-client-context>
-        <payload>{$ctx:payload}</payload>
+        <functionName>{${properties.functionName}}</functionName>
+        <apiVersionInvoke>{${properties.apiVersionInvoke}}</apiVersionInvoke>
+        <qualifier>{${properties.qualifier}}</qualifier>
+        <x-amz-invocation-type>{${properties.x}-amz-invocation-type}</x-amz-invocation-type>
+        <x-amz-log-type>{${properties.x}-amz-log-type}</x-amz-log-type>
+        <x-amz-client-context>{${properties.x}-amz-client-context}</x-amz-client-context>
+        <payload>{${properties.payload}}</payload>
     </amazonlambda.invoke>
     ```
     
@@ -973,11 +973,11 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.listFunctions>
-        <functionVersion>{$ctx:functionVersion}</functionVersion>
-        <apiVersionListFunctions>{$ctx:apiVersionListFunctions}</apiVersionListFunctions>
-        <marker>{$ctx:marker}</marker>
-        <masterRegion>{$ctx:masterRegion}</masterRegion>
-        <maxItems>{$ctx:maxItems}</maxItems>
+        <functionVersion>{${properties.functionVersion}}</functionVersion>
+        <apiVersionListFunctions>{${properties.apiVersionListFunctions}}</apiVersionListFunctions>
+        <marker>{${properties.marker}}</marker>
+        <masterRegion>{${properties.masterRegion}}</masterRegion>
+        <maxItems>{${properties.maxItems}}</maxItems>
     </amazonlambda.listFunctions>
     ```    
     **Sample request**
@@ -1035,11 +1035,11 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.removePermission>
-        <functionName>{$ctx:functionName}</functionName>
-        <apiVersionRemovePermission>{$ctx:apiVersionRemovePermission}</apiVersionRemovePermission>
-        <permissionStatementId>{$ctx:permissionStatementId}</permissionStatementId>
-        <permissionQualifier>{$ctx:permissionQualifier}</permissionQualifier>
-        <permissionRevisionId>{$ctx:permissionRevisionId}</permissionRevisionId>
+        <functionName>{${properties.functionName}}</functionName>
+        <apiVersionRemovePermission>{${properties.apiVersionRemovePermission}}</apiVersionRemovePermission>
+        <permissionStatementId>{${properties.permissionStatementId}}</permissionStatementId>
+        <permissionQualifier>{${properties.permissionQualifier}}</permissionQualifier>
+        <permissionRevisionId>{${properties.permissionRevisionId}}</permissionRevisionId>
     </amazonlambda.removePermission>
     ```
     
@@ -1117,14 +1117,14 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.addLayerVersionPermission>
-        <layerName>{$ctx:layerName}</layerName>
-        <layerVersionNumber>{$ctx:layerVersionNumber}</layerVersionNumber>
-        <layerRevisionId>{$ctx:layerRevisionId}</layerRevisionId>
-        <layerAction>{$ctx:layerAction}</layerAction>
-        <layerOrganizationId>{$ctx:layerOrganizationId}</layerOrganizationId>
-        <layerPrincipal>{$ctx:layerPrincipal}</layerPrincipal>
-        <layerStatementId>{$ctx:layerStatementId}</layerStatementId>
-        <apiVersionAddLayerVersionPermission>{$ctx:apiVersionAddLayerVersionPermission}</apiVersionAddLayerVersionPermission>
+        <layerName>{${properties.layerName}}</layerName>
+        <layerVersionNumber>{${properties.layerVersionNumber}}</layerVersionNumber>
+        <layerRevisionId>{${properties.layerRevisionId}}</layerRevisionId>
+        <layerAction>{${properties.layerAction}}</layerAction>
+        <layerOrganizationId>{${properties.layerOrganizationId}}</layerOrganizationId>
+        <layerPrincipal>{${properties.layerPrincipal}}</layerPrincipal>
+        <layerStatementId>{${properties.layerStatementId}}</layerStatementId>
+        <apiVersionAddLayerVersionPermission>{${properties.apiVersionAddLayerVersionPermission}}</apiVersionAddLayerVersionPermission>
     </amazonlambda.addLayerVersionPermission>
     ```
     
@@ -1192,11 +1192,11 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 
     ```xml
     <amazonlambda.removeLayerVersionPermission>
-        <layerName>{$ctx:layerName}</layerName>
-        <layerVersionNumber>{$ctx:layerVersionNumber}</layerVersionNumber>
-        <layerStatementId>{$ctx:layerStatementId}</layerStatementId>
-        <layerRevisionId>{$ctx:layerRevisionId}</layerRevisionId>
-        <apiVersionRemoveLayerVersionPermission>{$ctx:apiVersionRemoveLayerVersionPermission}</apiVersionRemoveLayerVersionPermission>
+        <layerName>{${properties.layerName}}</layerName>
+        <layerVersionNumber>{${properties.layerVersionNumber}}</layerVersionNumber>
+        <layerStatementId>{${properties.layerStatementId}}</layerStatementId>
+        <layerRevisionId>{${properties.layerRevisionId}}</layerRevisionId>
+        <apiVersionRemoveLayerVersionPermission>{${properties.apiVersionRemoveLayerVersionPermission}}</apiVersionRemoveLayerVersionPermission>
     </amazonlambda.removeLayerVersionPermission>
     ```
     

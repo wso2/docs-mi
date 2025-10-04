@@ -39,8 +39,8 @@ The following API configuration demonstrates how to use the ThrowError mediator 
         </inSequence>
         <faultSequence>
             <log level="custom">
-                <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-                <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+                <property name="ERROR_CODE" expression="${properties.ERROR_CODE}"/>
+                <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}"/>
             </log>
             <drop/>
         </faultSequence>

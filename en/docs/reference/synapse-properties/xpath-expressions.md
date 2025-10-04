@@ -107,8 +107,8 @@ Go to [XPath syntax](https://www.w3schools.com/xml/xpath_syntax.asp) for more ex
     <property name="CHILD_PAYLOAD" expression="$body/child::node()" scope="default"/>
     <log level="custom">
     <property name="WHERE" value="after doing stuff"/>
-    <property name="ORIGINAL_PAYLOAD" expression="get-property('ORIGINAL_PAYLOAD')"/>
-    <property name="CHILD_PAYLOAD" expression="get-property('CHILD_PAYLOAD')"/>
+    <property name="ORIGINAL_PAYLOAD" expression="${properties.ORIGINAL_PAYLOAD}"/>
+    <property name="CHILD_PAYLOAD" expression="${properties.CHILD_PAYLOAD}"/>
     </log>
     <enrich>
     <source type="property" clone="true" property="ORIGINAL_PAYLOAD"/>

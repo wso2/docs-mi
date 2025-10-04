@@ -115,7 +115,7 @@ Following is the configuration of these sequences.
 ```xml
 <sequence name="personInfoSeq">
     <xslt key="xslt">
-        <property name="amount" expression="get-property('ORG_AMOUNT')"/>
+        <property name="amount" expression="${properties.ORG_AMOUNT}"/>
     </xslt>
     <send receive="creditSeq">
         <endpoint key="CreditEpr"/>

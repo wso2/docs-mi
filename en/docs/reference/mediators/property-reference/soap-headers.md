@@ -17,7 +17,7 @@ or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 | **Header Name**     | To                            |
 | **Possible Values** | Any URI                       |
 | **Description**     | The To header of the message. |
-| **Example**         | get-property("To")            |
+| **Example**         | ${properties.To}            |
 
 ## From
 
@@ -26,7 +26,7 @@ or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 | **Header Name**     | From                            |
 | **Possible Values** | Any URI                         |
 | **Description**     | The From header of the message. |
-| **Example**         | get-property("From")            |
+| **Example**         | ${properties.From}            |
 
 ## Action
 
@@ -35,7 +35,7 @@ or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 | **Header Name**     | Action                                |
 | **Possible Values** | Any URI                               |
 | **Description**     | The SOAPAction header of the message. |
-| **Example**         | get-property("Action")                |
+| **Example**         | ${properties.Action}                |
 
 ## ReplyTo
 
@@ -53,7 +53,7 @@ or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 | **Header Name**     | MessageID                                                                                                      |
 | **Possible Values** | UUID                                                                                                           |
 | **Description**     | The unique message ID of the message. It is not recommended to make alterations to this property of a message. |
-| **Example**         | get-property("MessageID")                                                                                      |
+| **Example**         | ${properties.MessageID}                                                                                      |
 
 ## RelatesTo
 
@@ -62,7 +62,7 @@ or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 | **Header Name**     | RelatesTo                                                                                                    |
 | **Possible Values** | UUID                                                                                                         |
 | **Description**     | The unique ID of the request to which the current message is related. It is not recommended to make changes. |
-| **Example**         | get-property("RelatesTo")                                                                                    |
+| **Example**         | ${properties.RelatesTo}                                                                                    |
 
 ## FaultTo
 

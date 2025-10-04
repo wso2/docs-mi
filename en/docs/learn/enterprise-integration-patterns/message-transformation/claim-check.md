@@ -47,7 +47,7 @@ Before digging into implementation details, let's take a look at the relationshi
                     <target action="replace" type="property" property="CLAIM_STORE" />
                 </enrich>
                 <log level="custom" xmlns="http://ws.apache.org/ns/synapse">
-                    <property name="text" expression="get-property('CLAIM_STORE')" />
+                    <property name="text" expression="${properties.CLAIM_STORE}" />
                 </log>
                 <payloadFactory media-type="xml" template-type="default">
                     <format><m:RequiredInformation xmlns:m="http://services.samples">
@@ -67,7 +67,7 @@ Before digging into implementation details, let's take a look at the relationshi
                         <drop />
                     </else>
                 </filter>
-                <filter regex="1" source="get-property('Validity')">
+                <filter regex="1" source="${properties.Validity}">
                     <then>
                         <enrich description="">
                             <source clone="true" property="CLAIM_STORE" type="property" />

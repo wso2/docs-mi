@@ -377,7 +377,7 @@ In all of the following example sequences, the `contentType` property of the Cal
 <inSequence>
   <property name= "SOURCE" expression="$body//INCOMING" type="OM"/>
   <log level="custom">
-     <property name="log" expression="$ctx:SOURCE"/>
+     <property name="log" expression="${properties.SOURCE}"/>
   </log>
   <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
   <call>
@@ -388,7 +388,7 @@ In all of the following example sequences, the `contentType` property of the Cal
      <target type="property">TARGET</target>
   </call>
   <log level="custom">
-     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+     <property name="TARGET PAYLOAD" expression="${properties.TARGET}"/>
   </log>
   <respond/>
 </inSequence>
@@ -407,7 +407,7 @@ In all of the following example sequences, the `contentType` property of the Cal
      <target type="property">TARGET</target>
   </call>
   <log level="custom">
-     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+     <property name="TARGET PAYLOAD" expression="${properties.TARGET}"/>
   </log>
   <respond/>
 </inSequence>
@@ -426,7 +426,7 @@ In all of the following example sequences, the `contentType` property of the Cal
      <target type="property">TARGET</target>
   </call>
   <log level="custom">
-     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+     <property name="TARGET PAYLOAD" expression="${properties.TARGET}"/>
   </log>
   <respond/>
 </inSequence>

@@ -122,6 +122,6 @@ The Sequence mediator configuration can be as follows to invoke the `StoreSend` 
         </args>
     </payloadFactory>
     <property name="seqName" value="StoreSend"/>
-	<sequence key="{$ctx:seqName}"/>
+	<sequence key="{${properties.seqName}}"/>
 </inSequence>
 ```

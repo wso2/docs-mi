@@ -122,18 +122,18 @@ In this sample, we used the `transport.mail.ContentType` property to make sure t
     <proxy name="StockQuoteProxy" startOnLoad="true" transports="malito" xmlns="http://ws.apache.org/ns/synapse">
         <target>
             <inSequence>
-                <property name="senderAddress" expression="get-property('transport', 'From')"/>
+                <property name="senderAddress" expression="${transport.headers.From}"/>
                 <log level="full">
-                    <property name="Sender Address" expression="get-property('senderAddress')"/>
+                    <property name="Sender Address" expression="${properties.senderAddress}"/>
                 </log>
                 <call>
                     <endpoint key="SimpleStockQuoteService"/>
                 </call>
                 <property name="Subject" value="Custom Subject for Response" scope="transport" />
-                <header name="To" expression="fn:concat('mailto:', get-property('senderAddress'))"/>
+                <header name="To" expression="fn:concat('mailto:', ${properties.senderAddress})"/>
                 <log level="full">
                     <property name="message" value="Response message"/>
-                    <property name="Sender Address" expression="get-property('senderAddress')"/>
+                    <property name="Sender Address" expression="${properties.senderAddress}"/>
                 </log>
                 <respond/>
             </inSequence>

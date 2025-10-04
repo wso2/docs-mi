@@ -90,7 +90,7 @@ Goto **MI Project Explorer** > **APIs**. Hover over the **APIs**, and click on t
         The following values can be used to configure the **createJob** operation:
 
         - **Connection**: Select `SalesforceBulkConnection`
-        - **Object**: expression `$ctx:objectName`
+        - **Object**: expression `${properties.objectName}`
         - **Operation**: `insert`
         - **Content Type**: `XML`
 
@@ -120,7 +120,7 @@ Goto **MI Project Explorer** > **APIs**. Hover over the **APIs**, and click on t
 
         Use the following values to configure the **read** operation.
 
-        - **File/Directory Path** - expression `$ctx:source`
+        - **File/Directory Path** - expression `${properties.source}`
         - **Read Mode** - `Complete File`
         - **MIME Type** - `text/csv` 
         - **Encoding** - `UTF-8`
@@ -261,8 +261,8 @@ Goto **MI Project Explorer** > **APIs**. Hover over the **APIs**, and click on t
         While invoking the API, the above `jobId` and `batchId` parameter values come as a user input. The following values can be used to configure the **addBatch** operation:
 
         - **Connection**: Select `SalesforceBulkConnection`
-        - **jobId**: expression `$ctx:jobId`
-        - **batchId**: expression `$ctx:batchId`
+        - **jobId**: expression `${properties.jobId}`
+        - **batchId**: expression `${properties.batchId}`
                 
         
     <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk/salesforcebulk-conn-add-getbatchstatus-operation.png" title="Add query operation to getBatchStatus" width="90%" alt="Add query operation to getBatchStatus"/> 
@@ -284,13 +284,13 @@ Now you can switch to the Source view and check the XML configuration files of t
                 <property name="objectName" scope="default" type="STRING" expression="//object/text()"/>
                 <property name="source" scope="default" type="STRING" expression="//source/text()"/>
                 <salesforcebulk.createJob configKey="SalesforceBulkConnection">
-                    <object>{$ctx:objectName}</object>
+                    <object>{${properties.objectName}}</object>
                     <operation>insert</operation>
                     <contentType>XML</contentType>
                 </salesforcebulk.createJob>
                 <property name="jobId" scope="default" type="STRING" expression="//n0:jobInfo/n0:id" xmlns:n0="http://www.force.com/2009/06/asyncapi/dataload"/>
                 <file.read configKey="FileConnection">
-                    <path>{$ctx:source}</path>
+                    <path>{${properties.source}}</path>
                     <readMode>Complete File</readMode>
                     <startLineNum>0</startLineNum>
                     <endLineNum>0</endLineNum>
@@ -303,7 +303,7 @@ Now you can switch to the Source view and check the XML configuration files of t
                 </file.read>
                 <datamapper config="gov:/datamapper/CsvToXml/CsvToXml.dmc" inputSchema="gov:/datamapper/CsvToXml/CsvToXml_inputSchema.json" inputType="CSV" outputSchema="gov:/datamapper/CsvToXml/CsvToXml_outputSchema.json" outputType="XML"/><salesforcebulk.addBatch configKey="SalesforceBulkConnection">
                     <objects>{//values}</objects>
-                    <jobId>{$ctx:jobId}</jobId>
+                    <jobId>{${properties.jobId}}</jobId>
                     <isQuery>false</isQuery>
                     <contentType>application/xml</contentType>
                 </salesforcebulk.addBatch>
@@ -317,8 +317,8 @@ Now you can switch to the Source view and check the XML configuration files of t
                 <property name="jobId" scope="default" type="STRING" expression="//jobId/text()"/>
                 <property name="batchId" scope="default" type="STRING" expression="//batchId/text()"/>
                 <salesforcebulk.getBatchStatus configKey="SalesforceBulkConnection">
-                    <batchId>{$ctx:batchId}</batchId>
-                    <jobId>{$ctx:jobId}</jobId>
+                    <batchId>{${properties.batchId}}</batchId>
+                    <jobId>{${properties.jobId}}</jobId>
                 </salesforcebulk.getBatchStatus>
                 <respond/>
             </inSequence>

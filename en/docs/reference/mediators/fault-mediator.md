@@ -180,10 +180,10 @@ The following sample proxy validates the content type using the If Else Mediator
 <proxy name="CheckContentType" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
 	<target>
 		<inSequence>
-			<filter regex="application/json" source="get-property('transport','Content-Type')">
+			<filter regex="application/json" source="${transport.headers.Content-Type}">
 				<then>
 					<log category="INFO" level="simple">
-						<property name="CONTENT-TYPE" expression="get-property('transport','Content-Type')"/>
+						<property name="CONTENT-TYPE" expression="${transport.headers.Content-Type}"/>
 						<property name="DECISION" value="Exception, due to unexpected Content-Type."/>
 					</log>
 					<makefault description="" version="soap11">
@@ -194,7 +194,7 @@ The following sample proxy validates the content type using the If Else Mediator
 				</then>
 				<else>
 					<log category="INFO" level="simple">
-						<property name="CONTENT-TYPE" expression="get-property('transport','Content-Type')"/>
+						<property name="CONTENT-TYPE" expression="${transport.headers.Content-Type}"/>
 						<property name="DECISION" value="Continue the mediation flow..."/>
 					</log>
 				</else>

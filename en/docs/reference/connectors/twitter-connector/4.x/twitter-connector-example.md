@@ -46,13 +46,13 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
             <twitter.init>
                 <apiUrl>https://api.twitter.com</apiUrl>
                 <timeout>5000</timeout>
-                <accessToken>{$ctx:accessToken}</accessToken>
-                <clientId>{$ctx:clientId}</clientId>
+                <accessToken>{${properties.accessToken}}</accessToken>
+                <clientId>{${properties.clientId}}</clientId>
             </twitter.init>
             <twitter.createTweet>
-                <for_super_followers_only>{$ctx:for_super_followers_only}</for_super_followers_only>
-                <poll>{$ctx:poll}</poll>
-                <text>{$ctx:text}</text>
+                <for_super_followers_only>{${properties.for_super_followers_only}}</for_super_followers_only>
+                <poll>{${properties.poll}}</poll>
+                <text>{${properties.text}}</text>
             </twitter.createTweet>
             <respond/>
         </inSequence>

@@ -925,8 +925,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
     
     ```xml
     <mongodb.insertOne configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <document>{json-eval($.document)}</document>
+        <collection>{${payload.collection}}</collection>
+        <document>{${payload.document}}</document>
     </mongodb.insertOne>
     
     ```
@@ -1042,8 +1042,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.insertMany configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <documents>{json-eval($.documents)}</documents>
+        <collection>{${payload.collection}}</collection>
+        <documents>{${payload.documents}}</documents>
         <ordered>True</ordered>
     </mongodb.insertMany>
     ```
@@ -1185,8 +1185,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.findOne configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <query>{json-eval($.query)}</query>
+        <collection>{${payload.collection}}</collection>
+        <query>{${payload.query}}</query>
         <responseVariable>mongodb_findOne_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </mongodb.findOne>
@@ -1334,8 +1334,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.find configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <query>{json-eval($.query)}</query>
+        <collection>{${payload.collection}}</collection>
+        <query>{${payload.query}}</query>
         <responseVariable>mongodb_find_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </mongodb.find>
@@ -1524,9 +1524,9 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.updateOne configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <query>{json-eval($.query)}</query>
-        <update>{json-eval($.update)}</update>
+        <collection>{${payload.collection}}</collection>
+        <query>{${payload.query}}</query>
+        <update>{${payload.update}}</update>
         <upsert>False</upsert>
         <responseVariable>mongodb_updateOne_1</responseVariable>
         <overwriteBody>false</overwriteBody>
@@ -1721,9 +1721,9 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.updateMany configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <query>{json-eval($.query)}</query>
-        <update>{json-eval($.update)}</update>
+        <collection>{${payload.collection}}</collection>
+        <query>{${payload.query}}</query>
+        <update>{${payload.update}}</update>
         <upsert>False</upsert>
         <responseVariable>mongodb_updateMany_1</responseVariable>
         <overwriteBody>false</overwriteBody>
@@ -1845,8 +1845,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.deleteOne configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <query>{json-eval($.query)}</query>
+        <collection>{${payload.collection}}</collection>
+        <query>{${payload.query}}</query>
         <responseVariable>mongodb_deleteOne_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </mongodb.deleteOne>
@@ -1962,8 +1962,8 @@ The following operations allow you to work with the MongoDB connector. Click an 
 
     ```xml
     <mongodb.deleteMany configKey="connectionURI">
-        <collection>{json-eval($.collection)}</collection>
-        <query>{json-eval($.query)}</query>
+        <collection>{${payload.collection}}</collection>
+        <query>{${payload.query}}</query>
         <responseVariable>mongodb_deleteMany_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </mongodb.deleteMany>

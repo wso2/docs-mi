@@ -33,10 +33,10 @@ If you do not want to configure this yourself, you can simply [get the project](
    Configure the below values.
 
        - Connection Name - `AMAZON_LAMBDA_CONNECTION`
-       - Access Key ID - `$ctx:accessKeyId`
-       - Secret Access Key - `$ctx:secretAccessKey`
-       - Region - `$ctx:region`
-       - Blocking - `$ctx:blocking`
+       - Access Key ID - `${properties.accessKeyId}`
+       - Secret Access Key - `${properties.secretAccessKey}`
+       - Region - `${properties.region}`
+       - Blocking - `${properties.blocking}`
 
     The created connection is saved as a **Local Entry** as below.
     ```xml
@@ -44,10 +44,10 @@ If you do not want to configure this yourself, you can simply [get the project](
     <localEntry key="AMAZON_LAMBDA_CONNECTION" xmlns="http://ws.apache.org/ns/synapse">
         <amazonlambda.init>
             <name>AMAZON_LAMBDA_CONNECTION</name>
-            <region>{$ctx:region}</region>
-            <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-            <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-            <blocking>{$ctx:blocking}</blocking>
+            <region>{${properties.region}}</region>
+            <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+            <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+            <blocking>{${properties.blocking}}</blocking>
         </amazonlambda.init>
     </localEntry>
     ```
@@ -61,53 +61,53 @@ If you do not want to configure this yourself, you can simply [get the project](
     <api context="/createFunction" name="createFunction" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST">
             <inSequence>
-                <property expression="json-eval($.secretAccessKey)" name="secretAccessKey" scope="default" type="STRING"/>
-                <property expression="json-eval($.accessKeyId)" name="accessKeyId" scope="default" type="STRING"/>
-                <property expression="json-eval($.region)" name="region" scope="default" type="STRING"/>
-                <property expression="json-eval($.blocking)" name="blocking" scope="default" type="STRING"/>
-                <property expression="json-eval($.functionName)" name="functionName" scope="default" type="STRING"/>
-                <property expression="json-eval($.functionDescription)" name="functionDescription" scope="default" type="STRING"/>
-                <property expression="json-eval($.apiVersionCreateFunction)" name="apiVersionCreateFunction" scope="default" type="STRING"/>
-                <property expression="json-eval($.s3Bucket)" name="s3Bucket" scope="default" type="STRING"/>
-                <property expression="json-eval($.s3Key)" name="s3Key" scope="default" type="STRING"/>
-                <property expression="json-eval($.s3ObjectVersion)" name="s3ObjectVersion" scope="default" type="STRING"/>
-                <property expression="json-eval($.zipFile)" name="zipFile" scope="default" type="STRING"/>
-                <property expression="json-eval($.targetArn)" name="targetArn" scope="default" type="STRING"/>
-                <property expression="json-eval($.environmentVariables)" name="environmentVariables" scope="default" type="STRING"/>
-                <property expression="json-eval($.handler)" name="handler" scope="default" type="STRING"/>
-                <property expression="json-eval($.kmsKeyArn)" name="kmsKeyArn" scope="default" type="STRING"/>
-                <property expression="json-eval($.layers)" name="layers" scope="default" type="STRING"/>
-                <property expression="json-eval($.memorySize)" name="memorySize" scope="default" type="STRING"/>
-                <property expression="json-eval($.publish)" name="publish" scope="default" type="STRING"/>
-                <property expression="json-eval($.role)" name="role" scope="default" type="STRING"/>
-                <property expression="json-eval($.runtime)" name="runtime" scope="default" type="STRING"/>
-                <property expression="json-eval($.tags)" name="tags" scope="default" type="STRING"/>
-                <property expression="json-eval($.timeout)" name="timeout" scope="default" type="STRING"/>
-                <property expression="json-eval($.mode)" name="mode" scope="default" type="STRING"/>
-                <property expression="json-eval($.securityGroupIds)" name="securityGroupIds" scope="default" type="STRING"/>
-                <property expression="json-eval($.subnetIds)" name="subnetIds" scope="default" type="STRING"/>
+                <property expression="${payload.secretAccessKey}" name="secretAccessKey" scope="default" type="STRING"/>
+                <property expression="${payload.accessKeyId}" name="accessKeyId" scope="default" type="STRING"/>
+                <property expression="${payload.region}" name="region" scope="default" type="STRING"/>
+                <property expression="${payload.blocking}" name="blocking" scope="default" type="STRING"/>
+                <property expression="${payload.functionName}" name="functionName" scope="default" type="STRING"/>
+                <property expression="${payload.functionDescription}" name="functionDescription" scope="default" type="STRING"/>
+                <property expression="${payload.apiVersionCreateFunction}" name="apiVersionCreateFunction" scope="default" type="STRING"/>
+                <property expression="${payload.s3Bucket}" name="s3Bucket" scope="default" type="STRING"/>
+                <property expression="${payload.s3Key}" name="s3Key" scope="default" type="STRING"/>
+                <property expression="${payload.s3ObjectVersion}" name="s3ObjectVersion" scope="default" type="STRING"/>
+                <property expression="${payload.zipFile}" name="zipFile" scope="default" type="STRING"/>
+                <property expression="${payload.targetArn}" name="targetArn" scope="default" type="STRING"/>
+                <property expression="${payload.environmentVariables}" name="environmentVariables" scope="default" type="STRING"/>
+                <property expression="${payload.handler}" name="handler" scope="default" type="STRING"/>
+                <property expression="${payload.kmsKeyArn}" name="kmsKeyArn" scope="default" type="STRING"/>
+                <property expression="${payload.layers}" name="layers" scope="default" type="STRING"/>
+                <property expression="${payload.memorySize}" name="memorySize" scope="default" type="STRING"/>
+                <property expression="${payload.publish}" name="publish" scope="default" type="STRING"/>
+                <property expression="${payload.role}" name="role" scope="default" type="STRING"/>
+                <property expression="${payload.runtime}" name="runtime" scope="default" type="STRING"/>
+                <property expression="${payload.tags}" name="tags" scope="default" type="STRING"/>
+                <property expression="${payload.timeout}" name="timeout" scope="default" type="STRING"/>
+                <property expression="${payload.mode}" name="mode" scope="default" type="STRING"/>
+                <property expression="${payload.securityGroupIds}" name="securityGroupIds" scope="default" type="STRING"/>
+                <property expression="${payload.subnetIds}" name="subnetIds" scope="default" type="STRING"/>
                 <amazonlambda.createFunction configKey="AMAZON_LAMBDA_CONNECTION">
-                    <functionName>{$ctx:functionName}</functionName>
-                    <functionDescription>{$ctx:functionDescription}</functionDescription>
-                    <apiVersionCreateFunction>{$ctx:apiVersionCreateFunction}</apiVersionCreateFunction>
-                    <s3Bucket>{$ctx:s3Bucket}</s3Bucket>
-                    <s3Key>{$ctx:s3Key}</s3Key>
-                    <s3ObjectVersion>{$ctx:s3ObjectVersion}</s3ObjectVersion>
-                    <zipFile>{$ctx:zipFile}</zipFile>
-                    <targetArn>{$ctx:targetArn}</targetArn>
-                    <environmentVariables>{$ctx:environmentVariables}</environmentVariables>
-                    <handler>{$ctx:handler}</handler>
-                    <kmsKeyArn>{$ctx:kmsKeyArn}</kmsKeyArn>
-                    <layers>{$ctx:layers}</layers>
-                    <memorySize>{$ctx:memorySize}</memorySize>
-                    <publish>{$ctx:publish}</publish>
-                    <role>{$ctx:role}</role>
-                    <runtime>{$ctx:runtime}</runtime>
-                    <tags>{$ctx:tags}</tags>
-                    <timeout>{$ctx:timeout}</timeout>
-                    <mode>{$ctx:mode}</mode>
-                    <securityGroupIds>{$ctx:securityGroupIds}</securityGroupIds>
-                    <subnetIds>{$ctx:subnetIds}</subnetIds>
+                    <functionName>{${properties.functionName}}</functionName>
+                    <functionDescription>{${properties.functionDescription}}</functionDescription>
+                    <apiVersionCreateFunction>{${properties.apiVersionCreateFunction}}</apiVersionCreateFunction>
+                    <s3Bucket>{${properties.s3Bucket}}</s3Bucket>
+                    <s3Key>{${properties.s3Key}}</s3Key>
+                    <s3ObjectVersion>{${properties.s3ObjectVersion}}</s3ObjectVersion>
+                    <zipFile>{${properties.zipFile}}</zipFile>
+                    <targetArn>{${properties.targetArn}}</targetArn>
+                    <environmentVariables>{${properties.environmentVariables}}</environmentVariables>
+                    <handler>{${properties.handler}}</handler>
+                    <kmsKeyArn>{${properties.kmsKeyArn}}</kmsKeyArn>
+                    <layers>{${properties.layers}}</layers>
+                    <memorySize>{${properties.memorySize}}</memorySize>
+                    <publish>{${properties.publish}}</publish>
+                    <role>{${properties.role}}</role>
+                    <runtime>{${properties.runtime}}</runtime>
+                    <tags>{${properties.tags}}</tags>
+                    <timeout>{${properties.timeout}}</timeout>
+                    <mode>{${properties.mode}}</mode>
+                    <securityGroupIds>{${properties.securityGroupIds}}</securityGroupIds>
+                    <subnetIds>{${properties.subnetIds}}</subnetIds>
                 </amazonlambda.createFunction>
                 <respond/>
             </inSequence>

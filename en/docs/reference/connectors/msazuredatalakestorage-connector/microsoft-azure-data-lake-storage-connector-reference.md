@@ -709,9 +709,9 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazuredatalakestorage.uploadFile configKey="con1">
-        <fileSystemName>{$ctx:fileSystemName}</fileSystemName>
-        <filePathToUpload>{$ctx:filePathToUpload}</filePathToUpload>
-        <textContent>{$ctx:textContent}</textContent>
+        <fileSystemName>{${properties.fileSystemName}}</fileSystemName>
+        <filePathToUpload>{${properties.filePathToUpload}}</filePathToUpload>
+        <textContent>{${properties.textContent}}</textContent>
         <metadata>[]</metadata>
         <timeout></timeout>
         <responseVariable>msazuredatalakestorage_uploadFile_1</responseVariable>
