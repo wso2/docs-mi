@@ -12,7 +12,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Creating Projects
 
-- Create a separate project for each microservice or integration flow. This approach enhances organization, streamlines artifact management, and facilitates easier maintenance and updates of individual integrations.
+- Create a separate project for each microservice or integration usecase. This approach enhances organization, streamlines artifact management, and facilitates easier maintenance and updates of individual integrations.
 
 - Create a multi-module project for managing multiple related services that need to be deployed together. This allows you to manage dependencies and shared resources effectively.
 
@@ -223,7 +223,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ## Migration Best Practices
 
-If you are migrating from an older version of WSO2 Micro Integrator (&lt;4.4.0), consider the following best practices:
+If you are migrating from an older version of WSO2 Micro Integrator (&lt;4.4.0), note that your existing configurations will continue to work. However, it is recommended to migrate to the newer configurations for improved maintainability, performance, and alignment with current best practices.
 
 - The `Out Sequence` in APIs and Proxies is deprecated from version 4.4.0 onwards. Migrate any existing `Out Sequence` logic to the `In Sequence`.  
 - `Loopback Mediator` is no longer recommended.
