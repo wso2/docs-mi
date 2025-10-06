@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Email Connector Example
 
 Email Connector can be used to perform operations using protocols SMTP, IMAP, and POP3. 

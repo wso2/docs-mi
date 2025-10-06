@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Google PubSub Connector Overview
 
 The Google Pub/Sub connector allows you to access the [Google Cloud Pub/Sub API Version v1](https://cloud.google.com/pubsub/docs/reference/rest/) from an integration sequence. Google Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.

@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # ServiceNow Connector Example
 
 The WSO2 ServiceNow connector allows you to access the ServiceNow REST API from an integration sequence. Using ServiceNow connector you can work with Aggregate API, Import Set API, and Table API in ServiceNow. You can read more about ServiceNow REST APIs from [here](https://developer.servicenow.com/dev.do#!/reference/api/orlando/rest/c_TableAPI).

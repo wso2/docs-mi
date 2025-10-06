@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Salesforce Connectors Overview
 
 Salesforce is a Customer Relationship Management (CRM) solution that helps bridge the gap between customers and enterprises. This enables you to integrate with Salesforce and perform various actions with ease. This is done using connectors that interact with available Salesforce APIs. 

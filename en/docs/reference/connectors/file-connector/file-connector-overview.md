@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # File Connector Overview
 
 The File Connector allows you to connect to different file systems and perform various operations. The File Connector uses the [Apache Commons VFS](https://commons.apache.org/proper/commons-vfs/) I/O functionalities to execute operations.

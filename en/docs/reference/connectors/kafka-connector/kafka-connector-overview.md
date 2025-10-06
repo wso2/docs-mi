@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Kafka Connector Overview
 
 Kafka is a distributed publish-subscribe messaging system that maintains feeds of messages in topics. Producers write data to topics and consumers read from topics. For more information on Apache Kafka, see [Apache Kafka documentation](http://kafka.apache.org/documentation.html).

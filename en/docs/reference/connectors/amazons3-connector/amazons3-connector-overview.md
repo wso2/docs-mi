@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Amazon S3 Connector Overview
 
 Amazon S3 is a web-based storage service that can be used to store and retrieve data at anytime from anywhere on the web. Amazon uses the same service to run its own network that proves its scalability, reliability, and security.

@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Gmail Connector Reference
 
 The following operations allow you to work with the Gmail Connector. Click an operation name to see parameter details and samples on how to use it.

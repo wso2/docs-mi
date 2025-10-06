@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Jira Connector Overview
 
 The JIRA Connector allows you to connect to JIRA, which is an online issue-tracking database. The connector uses the JIRA REST API to connect to JIRA, view and update issues, work with filters, and more.

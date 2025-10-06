@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # File Connector Reference
 
 The following configurations allow you to work with the File Connector version 5.

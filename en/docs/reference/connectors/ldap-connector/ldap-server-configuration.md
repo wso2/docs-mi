@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # LDAP Connector Reference
 
 ## Connection configuration

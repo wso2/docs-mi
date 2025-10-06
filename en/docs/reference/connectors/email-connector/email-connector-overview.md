@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Email Connector Overview
 
 The Email Connector allows you to list, send emails and perform other actions such as mark email as read, mark email as deleted, delete email and expunge folder on different mailboxes using protocols IMAP, POP3 and SMTP.

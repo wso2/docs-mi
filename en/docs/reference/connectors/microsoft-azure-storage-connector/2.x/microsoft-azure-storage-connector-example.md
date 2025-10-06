@@ -1,3 +1,7 @@
+﻿---
+search:
+  boost: 2
+---
 # Microsoft Azure storage connector example
 
 Given below is a sample scenario that demonstrates how to work with container and blob operations using the WSO2 Microsoft Azure Storage Connector.
