@@ -90,7 +90,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 - Use clear, descriptive variable names to enhance the readability and maintainability of your integration logic.
 - If you want to repeatedly use the same mediation sequence, define it as a `Sequence`. You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the  `Call Sequence` mediator to call the saved sequence, or select it as the `InSequence` or `FaultSequence` when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
 
-### General Connector Usage
+### General connector usage
 
 - Reuse shared connections across multiple integrations whenever possible to optimize resource usage and enhance performance. Connection pooling is managed per connection, so minimizing the number of distinct connections helps reduce overhead and improve scalability.
 - Create separate connections only when required, such as for high-throughput integrations. Dedicated connections provide isolated connection pools, which can be beneficial for integrations that demand high availability.
