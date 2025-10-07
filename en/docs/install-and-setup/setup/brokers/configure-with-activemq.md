@@ -10,6 +10,17 @@ Follow the instructions below to set up and configure.
 2.  Download and install WSO2 Integrator: MI.
 3.  Copy the following client libraries from the `ACTIVEMQ_HOME/lib` directory to the `MI_HOME/lib` directory.
 
+    **ActiveMQ 6.1.x**
+
+    -   activemq-broker-6.1.6.jar
+    -   activemq-client-6.1.6.jar
+    -   activemq-kahadb-store-6.1.6.jar
+    -   hawtbuf-1.11.jar
+    -   slf4j-api-2.0.16.jar
+
+    !!! Note
+        When using activeMQ 6.1.x the supported JMS spec version has to be set to `3.1`. Set the `transport.jms.JMSSpecVersion` parameter to `3.1`.
+
     **ActiveMQ 5.18.x**
 
     -   activemq-broker-5.18.0.jar
