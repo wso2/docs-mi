@@ -86,6 +86,7 @@ When building a project with dependencies, you can choose whether to bundle all 
 
 * All dependent projects’ artifacts are packaged into a single CApp file.
 * You only need to deploy this single CApp file to the MI server.
+* If multiple projects share the same dependent project and need to be deployed on the same server, FAT CAR packaging should be disabled to prevent dependency conflicts.
 
 ### FAT CAR disabled (recommended)
 
