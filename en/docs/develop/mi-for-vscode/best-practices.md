@@ -82,7 +82,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ## Mediators & Connectors Best Practices
 
-### General Mediator Usage
+### General mediator usage
 
 - Add a proper description to each mediator to clarify its purpose and usage within the integration flow.
 - Prefer the `Variable Mediator` over the `Property Mediator` for storing intermediate values during message processing. The `Variable Mediator` is optimized for temporary data storage and reuse within the integration flow, reducing redundant computations and improving performance.
