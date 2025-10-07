@@ -101,7 +101,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 - In production, restrict Log mediators to Fault sequences to avoid excessive logging and performance overhead. Always log key error details such as `ERROR_CODE` and use correlation IDs to link related log entries. Place Log mediators within Fault sequences to ensure error information is captured in `wso2carbon.log`. Set the global log level to `INFO` to enable essential troubleshooting without exposing sensitive or verbose information.
 - Avoid logging sensitive information, such as user credentials or personal data, to protect privacy and comply with data protection regulations. Use descriptive messages and implement structured logging to capture key attributes and context information in a consistent format. Regularly review and adjust log levels to balance visibility and performance.
 
-### Custom Mediator / Ballerina Module
+### Custom mediator / Ballerina module
 
 - Avoid writing a Class mediator or custom Ballerina module if the required functionality can be achieved using the built-in mediators and connectors of WSO2 Micro Integrator. This reduces maintenance overhead and leverages native features.
     - Review the [Mediator Catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/) and [Connectors](https://mi.docs.wso2.com/en/latest/reference/connectors/connectors-overview/) to understand the capabilities of built-in mediators and connectors. This helps ensure you leverage existing features and avoid unnecessary custom development.
