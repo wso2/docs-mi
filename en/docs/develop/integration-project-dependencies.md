@@ -42,7 +42,7 @@ Before using this project as a dependency, it needs to be **built by creating a 
 
    <img src="{{base_path}}/assets/img/develop/integration-project-dependencies/build-capp-deployment-option.png" alt="Build CAPP Deployment Option" width="1000"/>
 
-## Add utility project as integration project dependency
+## Add utility project as an integration project dependency
 
 Next, create a new project that depends on the utility project.
 
