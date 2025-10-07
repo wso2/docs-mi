@@ -20,7 +20,7 @@ This guide provides best practices for designing, developing, deploying, and mai
     - Sample versioning scheme: `1.0.1`, `1.1.0`, `2.0.0`
     - Include a changelog (a record of changes) in your project to document updates, improvements, and fixes for each version.
 
-### Naming Conventions
+### Naming conventions
 
 - Use meaningful names for your projects to identify their purpose easily.
    - Use a meaningful group ID that reflects your organization or team, or logically groups related projects together. For example, use `com.companyname` or `org.departmentname`. Be sure to give the same group ID to related projects.
