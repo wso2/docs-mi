@@ -10,7 +10,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 - Use the UI provided by the WSO2 Micro Integrator extension for VS Code to create and manage your integration projects. This ensures that your projects are set up correctly and follow best practices. You can use manual editing only for advanced configurations not supported by the UI.
 
-### Creating Projects
+### Create projects
 
 - Create a separate project for each microservice or integration usecase. This approach enhances organization, streamlines artifact management, and facilitates easier maintenance and updates of individual integrations.
 
