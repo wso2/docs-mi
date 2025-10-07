@@ -9,7 +9,7 @@
 
 ## Configure Kubernetes Deployment
 
-We can use the Micro Integrator VS Code Extension to generate the basic Kubernetes deployment configuration for an integration solution.
+We can use the WSO2 Integrator: MI VS Code Extension to generate the basic Kubernetes deployment configuration for an integration solution.
 
 1. Make sure a Kubernetes host is configured in your machine.
 2. Open the Overview page and select the **Configure Kubernetes Deployment** option from the **Deployment Options** section and then click on **Configure**.
