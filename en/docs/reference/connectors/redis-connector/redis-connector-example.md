@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Redis Connector Example
 
 The Redis connector allows you to access the Redis commands from an integration sequence. 

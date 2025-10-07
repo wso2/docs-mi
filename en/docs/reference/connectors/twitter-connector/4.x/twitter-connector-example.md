@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Twitter API Connector Example
 
 This example explains how to use the Twitter client to connect with the Twitter platform and perform operations. The connector uses the [Twitter API](https://developer.twitter.com/en/docs/twitter-api) to interact with Twitter.

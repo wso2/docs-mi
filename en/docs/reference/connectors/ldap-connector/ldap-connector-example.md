@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # LDAP Connector Example
 
 Given below is a sample scenario that demonstrates how to perform CRUD operations on LDAP entries using LDAP Connector.

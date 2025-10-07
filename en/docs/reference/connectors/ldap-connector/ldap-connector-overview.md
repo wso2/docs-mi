@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # LDAP Connector Overview
 
 The LDAP connector allows you to connect to any LDAP server through a simple web services interface and perform CRUD 
