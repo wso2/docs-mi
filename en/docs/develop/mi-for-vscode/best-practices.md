@@ -95,7 +95,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 - Reuse shared connections across multiple integrations whenever possible to optimize resource usage and enhance performance. Connection pooling is managed per connection, so minimizing the number of distinct connections helps reduce overhead and improve scalability.
 - Create separate connections only when required, such as for high-throughput integrations. Dedicated connections provide isolated connection pools, which can be beneficial for integrations that demand high availability.
 
-### Log Mediator
+### Log mediator
 
 - Use Log mediators as checkpoints in message flows to track and debug integration logic. In development, set the log category to `DEBUG` and configure the global log level for `org.apache.synapse.mediators.builtin.LogMediator` accordingly. Include relevant payload information, request metadata (e.g., user ID, timestamp), and unique identifiers (e.g., correlation IDs) to aid in troubleshooting and tracing requests across services.
 - In production, restrict Log mediators to Fault sequences to avoid excessive logging and performance overhead. Always log key error details such as `ERROR_CODE` and use correlation IDs to link related log entries. Place Log mediators within Fault sequences to ensure error information is captured in `wso2carbon.log`. Set the global log level to `INFO` to enable essential troubleshooting without exposing sensitive or verbose information.
