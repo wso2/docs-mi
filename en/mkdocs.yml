@@ -253,6 +253,7 @@ nav:
           # - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
           - Generate Docker Images: develop/generate-docker-image.md
+          - Configure Kubernetes Deployment: develop/configure-kubernetes.md
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
           - Mediator Tryout: develop/mediator-tryout.md
