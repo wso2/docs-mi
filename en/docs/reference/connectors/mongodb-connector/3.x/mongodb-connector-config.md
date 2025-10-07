@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # MongoDB Connector Reference
 
 This documentation provides a reference guide for the MongoDB Connector.

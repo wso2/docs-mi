@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # Google Spreadsheet Connector Example
 
 The Google Sheets API lets users to read and modify any aspect of a spreadsheet. The WSO2 Google Spreadsheet Connector allows you to access the Google Spreadsheet [API Version v4](https://developers.google.com/sheets/api/guides/concepts) from an integration sequence. It allows users to read/write any aspect of the spreadsheet via the spreadsheets collection. It has the ability to do spreadsheet operations and spreadsheet data operations. 

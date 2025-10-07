@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # Google Spreadsheet Connector
 
 The Google Spreadsheet Connector allows you to access the [Google Sheets API](https://developers.google.com/sheets/api/reference/rest) from an integration sequence. This connector provides operations for working with spreadsheets, sheets, cells, and formatting.

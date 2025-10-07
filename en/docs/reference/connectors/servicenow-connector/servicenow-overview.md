@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # ServiceNow Connector Overview
 
 ServiceNow is an application platform as a service, which is a cloud-based computing model that provides the infrastructure needed to develop, run, and manage applications. It offers activities of an organization such as data collection, storage, workflow automation, and reporting through a single user interface. This software as a service (SaaS) platform contains a number of modular applications that can vary by instance and user. It focuses on service-orientation toward the tasks, activities, and processes.

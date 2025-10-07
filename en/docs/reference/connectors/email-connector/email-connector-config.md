@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # Email Connector Reference
 
 This documentation provides a reference guide for the Email Connector.

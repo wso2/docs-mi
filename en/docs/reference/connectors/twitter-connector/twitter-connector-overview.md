@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # Twitter Connector Overview
 
 The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts known as Tweets. You can use the Twitter connector to work with Tweets, users, lists, and direct messages. The connector uses the [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api) to interact with Twitter.

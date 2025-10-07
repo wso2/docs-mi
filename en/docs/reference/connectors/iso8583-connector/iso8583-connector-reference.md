@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # ISO8583 Connector Reference
 
 The following operations allow you to work with the ISO8583 Connector. Click an operation name to see parameter details.

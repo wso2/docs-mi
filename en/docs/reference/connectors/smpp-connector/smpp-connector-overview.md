@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # SMPP Connector Overview
 
 SMPP (Short Message Peer-to-Peer Protocol) is an open, industry standard protocol designed to provide a flexible data communications interface for transfer of short message data between SMSCs (Short Message Service Center). There are many SMPP gateways available in the world and now almost all the Message Centers support SMPP. 

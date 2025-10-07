@@ -1,7 +1,8 @@
-﻿---
+---
 search:
   boost: 2
 ---
+
 # SMPP Connector Example
 
 SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS from an integration sequence. It uses the [jsmpp API](https://jsmpp.org/) to communicate with an SMSC (Short Message Service Center), which is used to store, forward, convert, and deliver Short Message Service (SMS) messages. jsmpp is a Java implementation of the SMPP protocol.
