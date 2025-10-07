@@ -1,4 +1,4 @@
-# Search Boost Tools
+# Search Boost Tool
 
 This directory contains tools to add search boost metadata to connector documentation files.
 
@@ -6,13 +6,7 @@ This directory contains tools to add search boost metadata to connector document
 
 Automatically adds search boost frontmatter to the latest connector documentation files to prioritize them in search results.
 
-### Available Versions
-
-- **Python** (`add-search-boost.py`) - Cross-platform
-
 ### Usage
-
-#### Python
 
 ```bash
 # From the en directory
@@ -55,7 +49,7 @@ The script provides colored terminal output:
 
 To add new connector documentation files to the boost list:
 
-1. Edit the script (Python or Bash version)
+1. Edit the script
 2. Add the file path to the `CONNECTORS` list/array
 3. Run the script
 
