@@ -1,14 +1,14 @@
 ## Introduction
 
-This guide provides best practices for designing, developing, deploying, and maintaining integration solutions with WSO2 Micro Integrator (MI). It is intended for integration developers, architects, and DevOps engineers aiming to build scalable, secure, and maintainable solutions.
+This guide provides best practices for designing, developing, deploying, and maintaining integration solutions with WSO2 Integrator: MI. It is intended for integration developers, architects, and DevOps engineers aiming to build scalable, secure, and maintainable solutions.
 
 ## Development Best Practices
 
 ### General development guidelines
 
-- Always use the latest version of the WSO2 Micro Integrator extension for VS Code. It is recommended to update the extension frequently to get the latest features and bug fixes.
+- Always use the latest version of the WSO2 Integrator: MI extension for VS Code. It is recommended to update the extension frequently to get the latest features and bug fixes.
 
-- Use the UI provided by the WSO2 Micro Integrator extension for VS Code to create and manage your integration projects. This ensures that your projects are set up correctly and follow best practices. You can use manual editing only for advanced configurations not supported by the UI.
+- Use the UI provided by the WSO2 Integrator: MI extension for VS Code to create and manage your integration projects. This ensures that your projects are set up correctly and follow best practices. You can use manual editing only for advanced configurations not supported by the UI.
 
 ### Create projects
 
@@ -23,7 +23,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 ### Naming conventions
 
 - Use meaningful names for your projects to identify their purpose easily.
-   - Use a meaningful group ID that reflects your organization or team, or logically groups related projects together. For example, use `com.companyname` or `org.departmentname`. Be sure to give the same group ID to related projects.
+    - Use a meaningful group ID that reflects your organization or team, or logically groups related projects together. For example, use `com.companyname` or `org.departmentname`. Be sure to give the same group ID to related projects.
     - Use a meaningful artifact ID that reflects the specific project or module. For example, use `order-service` or `payment-gateway`.
 
 - Follow a consistent naming convention for your artifacts to easily identify their purpose and functionality. For example, use `OrderAPI`, `PaymentSequence`, or `InventoryEndpoint`.
@@ -74,21 +74,22 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 - Choose clear, descriptive names for APIs that accurately reflect their functionality and business domain. Follow a consistent naming convention, such as `StudentAPI`, `OrderAPI`, or `PaymentAPI`, to improve discoverability and maintainability.
 - Apply versioning to APIs to manage changes, communicate updates, and ensure backward compatibility. Document version changes and deprecations clearly.
-- Design and implement a `Fault Sequence` for each API to handle errors consistently and provide clear feedback to consumers. Ensure error responses include relevant details such as error codes, messages, and correlation IDs for easier troubleshooting.
+- Design and implement a [Fault Sequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) for each API to handle errors consistently and provide clear feedback to consumers. Ensure error responses include relevant details such as error codes, messages, and correlation IDs for easier troubleshooting.
 - Structure APIs to be intuitive and easy to consume. Define resources and operations following RESTful conventions, and use meaningful HTTP methods and status codes.
-- When migrating from older WSO2 MI versions, move logic from the `Out Sequence` to the `In Sequence` to align with current best practices and improve maintainability.
+- When migrating from older WSO2 MI versions, move logic from the [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to align with current best practices and improve maintainability.
 
-> **Note:** Migrating logic from the `Out Sequence` to the `In Sequence` is recommended for consistency and future-proofing your integration flows.
+!!!Note
+    Migrating logic from the [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) is recommended for consistency and future-proofing your integration flows.
 
 ## Mediators & Connectors Best Practices
 
 ### General mediator usage
 
 - Add a proper description to each mediator to clarify its purpose and usage within the integration flow.
-- Prefer the `Variable Mediator` over the `Property Mediator` for storing intermediate values during message processing. The `Variable Mediator` is optimized for temporary data storage and reuse within the integration flow, reducing redundant computations and improving performance.
-- Reserve the `Property Mediator` for controlling message flow, such as setting properties that influence routing, error handling, or other flow-specific logic.
+- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for storing intermediate values during message processing. The [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator/) is optimized for temporary data storage and reuse within the integration flow, reducing redundant computations and improving performance.
+- Reserve the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) for controlling message flow, such as setting properties that influence routing, error handling, or other flow-specific logic.
 - Use clear, descriptive variable names to enhance the readability and maintainability of your integration logic.
-- If you want to repeatedly use the same mediation sequence, define it as a `Sequence`. You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the  `Call Sequence` mediator to call the saved sequence, or select it as the `InSequence` or `FaultSequence` when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
+- If you want to repeatedly use the same mediation sequence, define it as a [Sequence]({{base_path}}/reference/mediation-sequences/#named-sequences). You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the [Call Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator/) to call the saved sequence, or select it as the [InSequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) or [FaultSequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
 
 ### General connector usage
 
@@ -100,11 +101,12 @@ This guide provides best practices for designing, developing, deploying, and mai
 - Use Log mediators as checkpoints in message flows to track and debug integration logic. In development, set the log category to `DEBUG` and configure the global log level for `org.apache.synapse.mediators.builtin.LogMediator` accordingly. Include relevant payload information, request metadata (e.g., user ID, timestamp), and unique identifiers (e.g., correlation IDs) to aid in troubleshooting and tracing requests across services.
 - In production, restrict Log mediators to Fault sequences to avoid excessive logging and performance overhead. Always log key error details such as `ERROR_CODE` and use correlation IDs to link related log entries. Place Log mediators within Fault sequences to ensure error information is captured in `wso2carbon.log`. Set the global log level to `INFO` to enable essential troubleshooting without exposing sensitive or verbose information.
 - Avoid logging sensitive information, such as user credentials or personal data, to protect privacy and comply with data protection regulations. Use descriptive messages and implement structured logging to capture key attributes and context information in a consistent format. Regularly review and adjust log levels to balance visibility and performance.
+- Configure log masking to protect sensitive information in your logs. Follow the [masking sensitive information in logs]({{base_path}}/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/) guide to set up appropriate log masking settings and ensure compliance with security and privacy requirements.
 
 ### Custom mediator / Ballerina module
 
-- Avoid writing a Class mediator or custom Ballerina module if the required functionality can be achieved using the built-in mediators and connectors of WSO2 Micro Integrator. This reduces maintenance overhead and leverages native features.
-    - Review the [Mediator Catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/) and [Connectors](https://mi.docs.wso2.com/en/latest/reference/connectors/connectors-overview/) to understand the capabilities of built-in mediators and connectors. This helps ensure you leverage existing features and avoid unnecessary custom development.
+- Avoid writing a Class mediator or custom Ballerina module if the required functionality can be achieved using the built-in mediators and connectors of WSO2 Integrator: MI. This reduces maintenance overhead and leverages native features.
+    - Review the [Mediator Catalog]({{base_path}}/reference/mediators/about-mediators/) and [Connectors]({{base_path}}/reference/connectors/connectors-overview/) to understand the capabilities of built-in mediators and connectors. This helps ensure you leverage existing features and avoid unnecessary custom development.
 - If you must implement a Class mediator or a custom Ballerina module, ensure you understand its performance implications and monitor for potential memory leaks or resource issues.
 - Use meaningful and properly structured Java package names for Class mediators, and follow Ballerina module naming conventions for custom modules to maintain clarity and organization.
 - Follow standard Java and Ballerina naming conventions and code best practices when developing Class mediators or Ballerina modules to ensure maintainability and readability.
@@ -142,7 +144,8 @@ This guide provides best practices for designing, developing, deploying, and mai
     - Use the JSON Transform mediator when you need to convert XML payloads to JSON or transform JSON structures within your integration flows. This mediator allows you to define transformation properties locally, enabling scenario-specific configurations rather than relying on global settings.
     - Leverage the ability to specify a JSON schema in the mediator to validate and correct payloads during transformation. This helps ensure data consistency and prevents errors caused by schema mismatches.
 
-> **Note:** When using the XSLT mediator, be aware of potential performance impacts due to the use of a third-party transformation engine.
+!!!Note
+    When using the XSLT mediator, be aware of potential performance impacts due to the use of a third-party transformation engine.
 
 
 ### Expression & data handling
@@ -159,6 +162,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 - **Test Strategy & Planning**: Define a comprehensive test strategy for each project, outlining what needs to be tested, including functional, integration, performance, and security aspects.
 - **Test Plan Creation**: Develop detailed test plans covering all functional scenarios, edge cases, and performance requirements. Include both positive and negative test cases.
+- **WSO2 MI: Integrator Unit Testing**: WSO2 Integrator: MI offers built-in support for unit testing mediation sequences. Develop [unit tests for your integrations]({{base_path}}/develop/creating-unit-test-suite/) to validate individual mediation logic, catch errors early, and ensure ongoing quality as your integration evolves.
 - **Automation Tools**: Use JMeter and SoapUI for API and integration testing. Write automation scripts for repetitive test cases and performance tests. For web applications, automate UI testing using Selenium.
 - **Java Integration Tests**: Whenever possible, implement Java-based integration tests to automate end-to-end scenarios and validate interactions between components.
 - **Isolated & Integrated Testing**: Isolate test scenarios for each product or module. Test them as separate units before writing integration tests that cover cross-product or cross-module flows.
@@ -223,12 +227,12 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ## Migration Best Practices
 
-If you are migrating from an older version of WSO2 Micro Integrator (&lt;4.4.0), note that your existing configurations will continue to work. However, it is recommended to migrate to the newer configurations for improved maintainability, performance, and alignment with current best practices.
+If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), note that your existing configurations will continue to work. However, it is recommended to migrate to the newer configurations for improved maintainability, performance, and alignment with current best practices.
 
-- The `Out Sequence` in APIs and Proxies is deprecated from version 4.4.0 onwards. Migrate any existing `Out Sequence` logic to the `In Sequence`.  
-- `Loopback Mediator` is no longer recommended.
-- The use of `Call Mediator` and `Endpoint` for invoking external HTTP services is no longer recommended. Instead, adopt the `HTTP Connector`, which offers enhanced configuration options, better performance, and improved maintainability. Reserve the use of endpoints for non-HTTP protocols or legacy scenarios where connectors are not applicable.
-- The `Iterate Mediator` is deprecated. Use the enhanced `ForEach Mediator` (version 2) for all scenarios previously handled by the Iterate or ForEach (version 1) mediators. The updated ForEach mediator provides improved performance, supports parallel processing, enables external service calls, and offers more flexible configuration options. It is the recommended approach for iterating over message elements in integration flows.
-- The `Clone Mediator` and `Aggregate Mediator` are no longer recommended. Instead of that, use `Scatter Gather Mediator`.
-- The `PayloadFactory Mediator` has been enhanced with new features and improved performance. Migrate any existing `PayloadFactory` configurations to take advantage of these enhancements.
+- The [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) in APIs and Proxies is deprecated from version 4.4.0 onwards. Migrate any existing `Out Sequence` logic to the `In Sequence`.  
+- [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer recommended.
+- The use of [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) and [Endpoint]({{base_path}}/reference/endpoints/) for invoking external HTTP services is no longer recommended. Instead, adopt the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) which offers enhanced configuration options, better performance, and improved maintainability. Reserve the use of endpoints for non-HTTP protocols or legacy scenarios where connectors are not applicable.
+- The [Iterate Mediator]({{base_path}}/reference/mediators/iterate-mediator/) is deprecated. Use the enhanced [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) (version 2) for all scenarios previously handled by the Iterate or ForEach (version 1) mediators. The updated ForEach mediator provides improved performance, supports parallel processing, enables external service calls, and offers more flexible configuration options. It is the recommended approach for iterating over message elements in integration flows.
+- The [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/) are no longer recommended. Instead of that, use [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/).
+- The [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) has been enhanced with new features and improved performance. Migrate any existing `PayloadFactory` configurations to take advantage of these enhancements.
 
