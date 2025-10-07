@@ -4,7 +4,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ## Development Best Practices
 
-### General Development Guidelines
+### General development guidelines
 
 - Always use the latest version of the WSO2 Micro Integrator extension for VS Code. It is recommended to update the extension frequently to get the latest features and bug fixes.
 
