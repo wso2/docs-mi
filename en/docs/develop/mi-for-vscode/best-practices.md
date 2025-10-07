@@ -120,13 +120,13 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 
 
-### Foreach Mediator
+### Foreach mediator
 
 - Whenever possible, enable the `Execute Parallel` property in the ForEach mediator to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
 - Enable the `Continue without aggregation` property in the ForEach mediator to optimize performance. This setting allows the mediator to proceed without waiting for responses from outbound calls made during each iteration, reducing latency and improving throughput in scenarios where response aggregation is not required.
 
 
-### Message Transformation
+### Message transformation
 
 - **PayloadFactory Mediator**: Use when you need to reconstruct the entire message payload into a simple, fixed format. Ideal for scenarios where only a few parameters are extracted from the original message and the output structure is predictable.
 
@@ -145,7 +145,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 > **Note:** When using the XSLT mediator, be aware of potential performance impacts due to the use of a third-party transformation engine.
 
 
-### Expression & Data Handling
+### Expression & data handling
 
 - Prefer the **Synapse Expression Language** for all JSON data manipulation and transformation tasks. It offers improved performance, enhanced flexibility, and broader feature support compared to legacy `XPath` and `JSONPath` expressions.
 - Use legacy expressions only when maintaining existing integrations that depend on them, or if a required feature is unavailable in the Synapse Expression Language.
@@ -155,7 +155,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 <!-- TODO: Add error handling best practices -->
 <!-- ## Error Handling Best Practices -->
 
-## Testing & Quality Best Practices
+## Testing & quality best practices
 
 - **Test Strategy & Planning**: Define a comprehensive test strategy for each project, outlining what needs to be tested, including functional, integration, performance, and security aspects.
 - **Test Plan Creation**: Develop detailed test plans covering all functional scenarios, edge cases, and performance requirements. Include both positive and negative test cases.
