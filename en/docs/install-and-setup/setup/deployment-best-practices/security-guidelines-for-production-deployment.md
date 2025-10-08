@@ -247,13 +247,16 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
          <td>
             <p>
                JS scripts can be used inside script mediators (e.g., in Mock Endpoints) to access Java classes,
-               methods, and native objects. By default, all the classes are visible to these scripts.
-               However, it is recommended to restrict access to these.
+               methods, and native objects. From MI 4.5.0 onward, access to the classes <code>java.lang</code>, <code>java.io</code>, <code>java.nio</code>, and <code>java.net</code> from the script mediator is revoked by default. If existing script mediator use cases rely on these classes, either
+                  <ol>
+                     <li>Modify the existing integration artifacts accordingly or</li>
+                     <li>Tune the access control configuration by changing the <code>conf/deployment.toml</code></li>  
+                  </ol>
             </p>
             <p>
                <b>Limiting Access to Java Classes</b><br />
                Access to Java Classes can be restricted by providing the following configurations
-               in <code>deployment.toml</code>.
+               in <code>conf/deployment.toml</code>.
             </p>
             <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
                data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
@@ -275,7 +278,7 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
             <p>
                <b>Limiting Access to Java Methods/Native Objects</b><br />
                Access to Java Methods/Native Objects can be restricted by providing the following
-               configurations in <code>deployment.toml</code>.
+               configurations in <code>conf/deployment.toml</code>.
             </p>
             <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
                data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
