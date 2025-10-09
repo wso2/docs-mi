@@ -84,7 +84,7 @@ JavaScript, Groovy, or Ruby.
 
     !!! Note
          - The `nashornJs` language is deprecated in JDK 15 and above. If you are using JDK 15 or above, you need to manually copy the [nashorn-core](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.4) and [asm-util](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.5) JAR files to the <code>&lt;MI_HOME&gt;/lib</code> directory since Nashorn was [removed](https://openjdk.org/jeps/372) from the JDK.
-         - From MI 4.5.0 onward, access to the classes <code>java.lang</code>, <code>java.io</code>, <code>java.nio</code>, and <code>java.net</code> from the script mediator is revoked by default. Refer to the [Security Guideline](https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment) for more information.
+         - From MI 4.5.0 onward, access to the classes <code>java.lang</code>, <code>java.io</code>, <code>java.nio</code>, and <code>java.net</code> from the script mediator is revoked by default. For more details, see the [Security Guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment).
 
 ## Syntax
 

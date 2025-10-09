@@ -246,7 +246,7 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
          </td>
          <td>
             <p>
-               JS scripts can be used inside script mediators (e.g., in Mock Endpoints) to access Java classes,
+               JS scripts can be used inside script mediators to access Java classes,
                methods, and native objects. From MI 4.5.0 onward, access to the classes <code>java.lang</code>, <code>java.io</code>, <code>java.nio</code>, and <code>java.net</code> from the script mediator is revoked by default. If existing script mediator use cases rely on these classes, either
                   <ol>
                      <li>Modify the existing integration artifacts accordingly or</li>
