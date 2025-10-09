@@ -248,6 +248,7 @@ nav:
               - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
               - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
               - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
+      - Validate Artifacts: develop/validating-artifacts.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - "Use a Remote WSO2 Integrator: MI": develop/using-remote-micro-integrator.md
