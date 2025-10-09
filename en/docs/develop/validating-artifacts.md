@@ -1,4 +1,4 @@
-# Validating Artifacts
+# Validate Artifacts
 
 Once you have developed an integration project, it is important to validate the artifacts before deployment. The **Synapse Static Code Analysis Plugin** enables you to analyze your Synapse artifacts, identify potential issues, and ensure compliance with best practices. The plugin can be integrated into your Maven build process, scanning your Synapse configuration files and generating reports in multiple formats, including **HTML**, **JSON**, and **SARIF**. You can also configure the plugin to **fail the build** if issues exceed a specified threshold, helping enforce code quality before deployment.
 
