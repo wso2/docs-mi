@@ -20,10 +20,10 @@ We can use GET Employee Marital Statuses operation with required parameters to r
 **GET Employee Marital Statuses**
 ```xml
 <ceridiandayforce.getEmployeeMaritalStatuses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <contextDate>{$ctx:contextDate}</contextDate>
-    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <contextDate>{${properties.contextDate}}</contextDate>
+    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 </ceridiandayforce.getEmployeeMaritalStatuses>
 ```
 
@@ -79,9 +79,9 @@ We can use POST Employee Marital Statuses operation with required parameters to 
 **POST Employee Marital Statuses**
 ```xml
 <ceridiandayforce.postEmployeeMaritalStatuses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postEmployeeMaritalStatuses>
 ```
 
@@ -128,9 +128,9 @@ We can use PATCH Employee Marital Statuses operation with required parameters to
 **PATCH Employee Marital Statuses**
 ```xml
 <ceridiandayforce.patchEmployeeMaritalStatuses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.patchEmployeeMaritalStatuses>
 ```
 
@@ -187,21 +187,21 @@ Following example illustrates how to connect to Dayforce with the init operation
    <target>
       <inSequence>
          <log level="full" separator=","/>
-         <property expression="json-eval($.username)" name="username"/>
-         <property expression="json-eval($.password)" name="password"/>
-         <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
-         <property expression="json-eval($.apiVersion)" name="apiVersion"/>
-         <property expression="json-eval($.xRefCode)" name="xRefCode"/>
-         <property expression="json-eval($.contextDateRangeFrom)" name="contextDateRangeFrom"/>
+         <property expression="${payload.username}" name="username"/>
+         <property expression="${payload.password}" name="password"/>
+         <property expression="${payload.clientNamespace}" name="clientNamespace"/>
+         <property expression="${payload.apiVersion}" name="apiVersion"/>
+         <property expression="${payload.xRefCode}" name="xRefCode"/>
+         <property expression="${payload.contextDateRangeFrom}" name="contextDateRangeFrom"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getEmployeeMaritalStatuses>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
          </ceridiandayforce.getEmployeeMaritalStatuses>
          <send/>
       </inSequence>

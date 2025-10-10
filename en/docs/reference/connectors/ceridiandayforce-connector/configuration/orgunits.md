@@ -636,8 +636,8 @@ We can use POST Org Units operation with required parameters to create a new org
 **GET Org Units**
 ```xml
 <ceridiandayforce.postOrgUnits>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.postOrgUnits>
 ```
 
@@ -692,9 +692,9 @@ We can use PATCH Org Units operation with required parameters to update an exist
 **PATCH Org Units**
 ```xml
 <ceridiandayforce.getEmployeeAddresses>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 </ceridiandayforce.getEmployeeAddresses>
 ```
 

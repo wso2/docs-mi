@@ -108,7 +108,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    ```xml
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="buildMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-          <property expression="json-eval($.companyName)" name="companyName" scope="default" type="STRING"/>
+          <property expression="${payload.companyName}" name="companyName" scope="default" type="STRING"/>
           <payloadFactory media-type="xml">
               <format>
                   <m0:getQuote xmlns:m0="http://services.samples">
@@ -118,7 +118,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                  </m0:getQuote>
               </format>
               <args>
-                  <arg evaluator="xml" expression="$ctx:companyName"/>
+                  <arg evaluator="xml" expression="${properties.companyName}"/>
               </args>
           </payloadFactory>
           <header name="Action" scope="default" value="urn:getQuote"/>
@@ -134,17 +134,17 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="createQueue" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <log category="INFO" level="custom">
-           <property name="queueName" expression="$ctx:queueName" />
+           <property name="queueName" expression="${properties.queueName}" />
        </log>
        <amazonsqs.createQueue configKey="AMAZON_SQS_CONNECTION">
-             <queueName>{$ctx:queueName}</queueName>
+             <queueName>{${properties.queueName}}</queueName>
        </amazonsqs.createQueue>
        <log level="custom">
              <property expression="json-eval($)" name="queueURL"/>
        </log>
-       <property expression="json-eval($.CreateQueueResponse.CreateQueueResult.QueueUrl)" name="queueURL" scope="default" type="STRING"/>
+       <property expression="${payload.CreateQueueResponse.CreateQueueResult.QueueUrl}" name="queueURL" scope="default" type="STRING"/>
        <log level="custom">
-             <property expression="$ctx:queueURL" name="queueURL"/>
+             <property expression="${properties.queueURL}" name="queueURL"/>
        </log>
     </sequence>
   ```
@@ -154,8 +154,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
   <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="sendMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <amazonsqs.sendMessage configKey="AMAZON_SQS_CONNECTION">
-            <queueUrl>{$ctx:queueURL}</queueUrl>
-            <messageBody>{$ctx:target_property}</messageBody>
+            <queueUrl>{${properties.queueURL}}</queueUrl>
+            <messageBody>{${properties.target_property}}</messageBody>
         </amazonsqs.sendMessage>
     </sequence>
   ```
@@ -166,11 +166,11 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
        <amazonsqs.receiveMessage configKey="AMAZON_SQS_CONNECTION">
              <maxNumberOfMessages>5</maxNumberOfMessages>
-             <queueUrl>{$ctx:queueURL}</queueUrl>
+             <queueUrl>{${properties.queueURL}}</queueUrl>
        </amazonsqs.receiveMessage>
        <property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>
        <log level="custom">
-             <property expression="$ctx:stockprop" name="stockprop"/>
+             <property expression="${properties.stockprop}" name="stockprop"/>
        </log>
        <payloadFactory media-type="xml">
            <format>
@@ -179,7 +179,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                </soapenv:Envelope>
            </format>
            <args>
-               <arg evaluator="xml" expression="$ctx:stockprop" />
+               <arg evaluator="xml" expression="${properties.stockprop}" />
            </args>
        </payloadFactory>
        <header name="Action" scope="default" value="urn:getQuote"/>
@@ -197,7 +197,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    <api context="/sqs" name="SQSAPI" xmlns="http://ws.apache.org/ns/synapse">
        <resource methods="POST" uri-template="/sendToQueue">
            <inSequence>
-               <property expression="json-eval($.queueName)" name="queueName" scope="default" type="STRING" />
+               <property expression="${payload.queueName}" name="queueName" scope="default" type="STRING" />
                <sequence key="buildMessage" />
                <sequence key="createQueue" />
                <sequence key="sendMessage" />

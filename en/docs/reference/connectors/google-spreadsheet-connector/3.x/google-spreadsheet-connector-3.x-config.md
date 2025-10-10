@@ -49,11 +49,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.init>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
     </googlespreadsheet.init>
     ```
 
@@ -63,9 +63,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.getAccessTokenFromRefreshToken>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
     </googlespreadsheet.getAccessTokenFromRefreshToken>
     ```
 
@@ -112,11 +112,11 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.createSpreadsheet>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <properties>{$ctx:properties}</properties>
-        <sheets>{$ctx:sheets}</sheets>
-        <namedRanges>{$ctx:namedRanges}</namedRanges>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <properties>{${properties.properties}}</properties>
+        <sheets>{${properties.sheets}}</sheets>
+        <namedRanges>{${properties.namedRanges}}</namedRanges>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.createSpreadsheet>
     ```
 
@@ -187,9 +187,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.addSheetBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.addSheetBatchRequest>
     ```
 
@@ -301,9 +301,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.deleteSheetBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.deleteSheetBatchRequest>
     ```
 
@@ -370,10 +370,10 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.getSheetMetaData>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <includeGridData>{$ctx:includeGridData}</includeGridData>
-        <ranges>{$ctx:ranges}</ranges>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <includeGridData>{${properties.includeGridData}}</includeGridData>
+        <ranges>{${properties.ranges}}</ranges>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.getSheetMetaData>
     ```
 
@@ -473,9 +473,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.updateSheetPropertiesBatchRequest>
-          <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-          <requests>{$ctx:requests}</requests>
-          <fields>{$ctx:fields}</fields>
+          <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+          <requests>{${properties.requests}}</requests>
+          <fields>{${properties.fields}}</fields>
     </googlespreadsheet.updateSheetPropertiesBatchRequest>
     ```
 
@@ -549,10 +549,10 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.copyTo>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <sheetId>{$ctx:sheetId}</sheetId>
-         <destinationSpreadsheetId>{$ctx:destinationSpreadsheetId}</destinationSpreadsheetId>
-         <fields>{$ctx:fields}</fields>
+         <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+         <sheetId>{${properties.sheetId}}</sheetId>
+         <destinationSpreadsheetId>{${properties.destinationSpreadsheetId}}</destinationSpreadsheetId>
+         <fields>{${properties.fields}}</fields>
     </googlespreadsheet.copyTo>
     ```
 
@@ -638,9 +638,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.deleteDimensionBatchRequest>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <requests>{$ctx:requests}</requests>
-         <fields>{$ctx:fields}</fields>
+         <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+         <requests>{${properties.requests}}</requests>
+         <fields>{${properties.fields}}</fields>
     </googlespreadsheet.deleteDimensionBatchRequest>
     ```
 
@@ -718,9 +718,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.deleteDimensionBatchRequest>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <requests>{$ctx:requests}</requests>
-         <fields>{$ctx:fields}</fields>
+         <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+         <requests>{${properties.requests}}</requests>
+         <fields>{${properties.fields}}</fields>
     </googlespreadsheet.deleteDimensionBatchRequest>
     ```
 
@@ -803,12 +803,12 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.getCellData>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <range>{$ctx:range}</range>
-        <dateTimeRenderOption>{$ctx:dateTimeRenderOption}</dateTimeRenderOption>
-        <majorDimension>{$ctx:majorDimension}</majorDimension>
-        <valueRenderOption>{$ctx:valueRenderOption}</valueRenderOption>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <range>{${properties.range}}</range>
+        <dateTimeRenderOption>{${properties.dateTimeRenderOption}}</dateTimeRenderOption>
+        <majorDimension>{${properties.majorDimension}}</majorDimension>
+        <valueRenderOption>{${properties.valueRenderOption}}</valueRenderOption>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.getCellData>
     ```
 
@@ -895,12 +895,12 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.getMultipleCellData>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <ranges>{$ctx:ranges}</ranges>
-        <dateTimeRenderOption>{$ctx:dateTimeRenderOption}</dateTimeRenderOption>
-        <majorDimension>{$ctx:majorDimension}</majorDimension>
-        <valueRenderOption>{$ctx:valueRenderOption}</valueRenderOption>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <ranges>{${properties.ranges}}</ranges>
+        <dateTimeRenderOption>{${properties.dateTimeRenderOption}}</dateTimeRenderOption>
+        <majorDimension>{${properties.majorDimension}}</majorDimension>
+        <valueRenderOption>{${properties.valueRenderOption}}</valueRenderOption>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.getMultipleCellData>
     ```
 
@@ -1000,12 +1000,12 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.editCell>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <range>{$ctx:range}</range>
-        <valueInputOption>{$ctx:valueInputOption}</valueInputOption>
-        <fields>{$ctx:fields}</fields>
-        <majorDimension>{$ctx:majorDimension}</majorDimension>
-        <values>{$ctx:values}</values>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <range>{${properties.range}}</range>
+        <valueInputOption>{${properties.valueInputOption}}</valueInputOption>
+        <fields>{${properties.fields}}</fields>
+        <majorDimension>{${properties.majorDimension}}</majorDimension>
+        <values>{${properties.values}}</values>
     </googlespreadsheet.editCell>
     ```
 
@@ -1084,10 +1084,10 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.editMultipleCell>
-         <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-         <data>{$ctx:data}</data>
-         <valueInputOption>{$ctx:valueInputOption}</valueInputOption>
-         <fields>{$ctx:fields}</fields>
+         <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+         <data>{${properties.data}}</data>
+         <valueInputOption>{${properties.valueInputOption}}</valueInputOption>
+         <fields>{${properties.fields}}</fields>
     </googlespreadsheet.editMultipleCell>
     ```
 
@@ -1164,9 +1164,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.updateCellsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.updateCellsBatchRequest>
     ```
 
@@ -1240,9 +1240,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.appendDimensionBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.appendDimensionBatchRequest>
     ```
 
@@ -1307,9 +1307,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.updateBordersBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.updateBordersBatchRequest>
     ```
 
@@ -1395,9 +1395,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.updateBordersBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.updateBordersBatchRequest>
     ```
 
@@ -1483,9 +1483,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.repeatCellsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.repeatCellsBatchRequest>
     ```
 
@@ -1562,9 +1562,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.mergeCellsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.mergeCellsBatchRequest>
     ```
 
@@ -1632,9 +1632,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.setDataValidationBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.setDataValidationBatchRequest>
     ```
 
@@ -1702,9 +1702,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.copyPasteBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.copyPasteBatchRequest>
     ```
 
@@ -1782,9 +1782,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.cutPasteBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.cutPasteBatchRequest>
     ```
 
@@ -1859,9 +1859,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.updateConditionalFormatRuleBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.updateConditionalFormatRuleBatchRequest>
     ```
 
@@ -1951,9 +1951,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.addConditionalFormatRuleBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.addConditionalFormatRuleBatchRequest>
     ```
 
@@ -2040,9 +2040,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.deleteConditionalFormatRuleBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.deleteConditionalFormatRuleBatchRequest>
     ```
 
@@ -2106,9 +2106,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.updateDimensionPropertiesBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.updateDimensionPropertiesBatchRequest>
     ```
 
@@ -2180,9 +2180,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.autoResizeDimensionsBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.autoResizeDimensionsBatchRequest>
     ```
 
@@ -2250,9 +2250,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.insertDimensionBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.insertDimensionBatchRequest>
     ```
 
@@ -2323,9 +2323,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.insertDimensionBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.insertDimensionBatchRequest>
     ```
 
@@ -2396,9 +2396,9 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
 
     ```xml
     <googlespreadsheet.sortRangeBatchRequest>
-        <spreadsheetId>{$ctx:spreadsheetId}</spreadsheetId>
-        <requests>{$ctx:requests}</requests>
-        <fields>{$ctx:fields}</fields>
+        <spreadsheetId>{${properties.spreadsheetId}}</spreadsheetId>
+        <requests>{${properties.requests}}</requests>
+        <fields>{${properties.fields}}</fields>
     </googlespreadsheet.sortRangeBatchRequest>
     ```
 

@@ -88,7 +88,7 @@ json-eval(<scope_of_the_property>:<property_name>.<JSONPath_expression>)
 Example 1: When the property is in the default scope you can use [$ctx]({{base_path}}/reference/synapse-properties/expressions/#ctx).
 
 ```json
-json-eval($ctx:propertyName.student.name)
+json-eval(${properties.propertyName.student.name})
 ```
 
 Example 2: When the property is in the Axis2 scope you can use [$axis2]({{base_path}}/reference/synapse-properties/expressions/#axis2).

@@ -62,11 +62,11 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **sysparmView**              | `short_description,number,sys_id` |
     | **sysparmInputDisplayValue** | `true`                            |
     | **number**                   | `34`                              |
-    | **shortDescription**         | `{$ctx:shortDescription}`         |
+    | **shortDescription**         | `{${properties.shortDescription}}`         |
     | **active**                   | `true`                            |
     | **approval**                 | `owner`                           |
     | **category**                 | `inquiry`                         |
-    | **contactType**              | `{$ctx:contactType}`              |
+    | **contactType**              | `{${properties.contactType}}`              |
 
     Click on **Submit** to save the configuration.
 
@@ -78,7 +78,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`                    |
     | **Property Data Type** | `STRING`                     |
     | **Property Action**    | `Set`                        |
-    | **Property Value**     | `json-eval($.result.sys_id)` |
+    | **Property Value**     | `${payload.result.sys_id}` |
 
     When entering the **Property Value**, make sure to select the **EX** button to specify the value type as an expression. 
 
@@ -103,13 +103,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
           <sysparmView>short_description,number,sys_id</sysparmView>
           <sysparmInputDisplayValue>true</sysparmInputDisplayValue>
           <number>34</number>
-          <shortDescription>{$ctx:shortDescription}</shortDescription>
+          <shortDescription>{${properties.shortDescription}}</shortDescription>
           <active>true</active>
           <approval>owner</approval>
           <category>inquiry</category>
-          <contactType>{$ctx:contactType}</contactType>
+          <contactType>{${properties.contactType}}</contactType>
       </servicenow.postRecord>
-      <property name="sysId" scope="default" type="STRING" expression="json-eval($.result.sys_id)"/>
+      <property name="sysId" scope="default" type="STRING" expression="${payload.result.sys_id}"/>
       </sequence>
     ```  
    
@@ -123,7 +123,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Key           | Value          |
     |---------------|----------------|
-    | **sysId**     | `{$ctx:sysId}` |
+    | **sysId**     | `{${properties.sysId}}` |
     | **tableName** | `incident`     |
 
     Click on **Submit** to save the configuration.
@@ -141,7 +141,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
           <password>Diazo123@</password>
       </servicenow.init>
       <servicenow.getRecordById>
-          <sysId>{$ctx:sysId}</sysId>
+          <sysId>{${properties.sysId}}</sysId>
           <tableName>incident</tableName>
       </servicenow.getRecordById>
       </sequence>
@@ -174,7 +174,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`                       |
     | **Property Data Type** | `STRING`                        |
     | **Property Action**    | `Set`                           |
-    | **Property Value**     | `json-eval($.shortDescription)` |
+    | **Property Value**     | `${payload.shortDescription}` |
 
     Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
@@ -186,7 +186,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`                  |
     | **Property Data Type** | `STRING`                   |
     | **Property Action**    | `Set`                      |
-    | **Property Value**     | `json-eval($.contactType)` |
+    | **Property Value**     | `${payload.contactType}` |
 
     Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
@@ -206,7 +206,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     | **Property Scope**     | `default`            |
     | **Property Data Type** | `STRING`             |
     | **Property Action**    | `Set`                |
-    | **Property Value**     | `json-eval($.sysId)` |
+    | **Property Value**     | `${payload.sysId}` |
 
     Make sure to select the **EX** button in the **Property Value** and Click on **Submit**.
 
@@ -225,8 +225,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     <api context="/servicenow" name="ServiceNowAPI" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST" uri-template="/postRecord">
             <inSequence>
-                <property name="shortDescription" scope="default" type="STRING" expression="json-eval($.shortDescription)"/>
-                <property name="contactType" scope="default" type="STRING" expression="json-eval($.contactType)"/>
+                <property name="shortDescription" scope="default" type="STRING" expression="${payload.shortDescription}"/>
+                <property name="contactType" scope="default" type="STRING" expression="${payload.contactType}"/>
                 <sequence key="PostRecord"/>
                 <respond/>
             </inSequence>
@@ -235,7 +235,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
         </resource>
         <resource methods="POST" uri-template="/readRecord">
             <inSequence>
-                <property name="sysId" scope="default" type="STRING" expression="json-eval($.sysId)"/>
+                <property name="sysId" scope="default" type="STRING" expression="${payload.sysId}"/>
                 <sequence key="ReadRecord"/>
                 <respond/>
             </inSequence>

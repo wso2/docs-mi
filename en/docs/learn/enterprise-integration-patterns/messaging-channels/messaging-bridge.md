@@ -46,7 +46,7 @@ Given below is the Synapse configuration of this sample.
                    </m0:getQuote>
                 </format>
                 <args>
-                   <arg expression="get-property('uri.var.symbol')" evaluator="xml"/>
+                   <arg expression="${properties.uri.var.symbol}" evaluator="xml"/>
                 </args>
              </payloadFactory>
              <property name="SOAPAction" scope="transport" type="STRING" value="getQuote"/>

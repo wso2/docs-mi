@@ -48,9 +48,9 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.init>
-        <accountName>{$ctx:accountName}</accountName>
-        <accountKey>{$ctx:accountKey}</accountKey>
-        <defaultEndpointsProtocol>{$ctx:defaultEndpointsProtocol}</defaultEndpointsProtocol>
+        <accountName>{${properties.accountName}}</accountName>
+        <accountKey>{${properties.accountKey}}</accountKey>
+        <defaultEndpointsProtocol>{${properties.defaultEndpointsProtocol}}</defaultEndpointsProtocol>
     </msazurestorage.init>
     ```
     
@@ -92,10 +92,10 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.init>
-        <accountName>{$ctx:accountName}</accountName>
-        <clientId>{$ctx:clientId}</clientId>
-        <clientSecret>{$ctx:clientSecret}</clientSecret>
-        <tenantId>{$ctx:tenantId}</tenantId>
+        <accountName>{${properties.accountName}}</accountName>
+        <clientId>{${properties.clientId}}</clientId>
+        <clientSecret>{${properties.clientSecret}}</clientSecret>
+        <tenantId>{${properties.tenantId}}</tenantId>
     </msazurestorage.init>
     ```
     
@@ -149,11 +149,11 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.uploadBlob>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
-        <filePath>{$ctx:filePath}</filePath>
-        <blobContentType>{$ctx:fileContentType}</blobContentType>
-        <metadata>{$ctx:metadata}</metadata>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
+        <filePath>{${properties.filePath}}</filePath>
+        <blobContentType>{${properties.fileContentType}}</blobContentType>
+        <metadata>{${properties.metadata}}</metadata>
     </msazurestorage.uploadBlob>
     ```
     
@@ -202,8 +202,8 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.downloadBlob>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
     </msazurestorage.downloadBlob>
     ```
     
@@ -240,8 +240,8 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.deleteBlob>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
     </msazurestorage.deleteBlob>
     ```
     
@@ -273,7 +273,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.listBlobs>
-        <containerName>{$ctx:containerName}</containerName>
+        <containerName>{${properties.containerName}}</containerName>
     </msazurestorage.listBlobs>
     ```
     
@@ -308,7 +308,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.createContainer>
-        <containerName>{$ctx:containerName}</containerName>
+        <containerName>{${properties.containerName}}</containerName>
     </msazurestorage.createContainer>
     ```
     
@@ -339,7 +339,7 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.deleteContainer>
-        <containerName>{$ctx:containerName}</containerName>
+        <containerName>{${properties.containerName}}</containerName>
     </msazurestorage.deleteContainer>
     ```
     
@@ -386,8 +386,8 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.listMetadata>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
     </msazurestorage.listMetadata>
     ```
     
@@ -429,9 +429,9 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
 
     ```xml
     <msazurestorage.uploadMetadata>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
-        <metadata>{$ctx:metadata}</metadata>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
+        <metadata>{${properties.metadata}}</metadata>
     </msazurestorage.uploadMetadata>
     ```
     

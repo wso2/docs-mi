@@ -50,10 +50,10 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     **Sample configuration**
     ```xml
     <redis.init>
-        <redisHost>{$ctx:redisHost}</redisHost>
-        <redisPort>{$ctx:redisPort}</redisPort>
-        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
-        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <redisHost>{${properties.redisHost}}</redisHost>
+        <redisPort>{${properties.redisPort}}</redisPort>
+        <redisTimeout>{${properties.redisTimeout}}</redisTimeout>
+        <redisConnectionTimeout>{${properties.redisConnectionTimeout}}</redisConnectionTimeout>
     </redis.init>
     ```
 
@@ -80,12 +80,12 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     **Sample configuration**
     ```xml
     <redis.init>
-        <redisHost>{$ctx:redisHost}</redisHost>
-        <redisPort>{$ctx:redisPort}</redisPort>
-        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
-        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
-        <cacheKey>{$ctx:cacheKey}</cacheKey>
-        <useSsl>{$ctx:useSsl}</useSsl>
+        <redisHost>{${properties.redisHost}}</redisHost>
+        <redisPort>{${properties.redisPort}}</redisPort>
+        <redisTimeout>{${properties.redisTimeout}}</redisTimeout>
+        <redisConnectionTimeout>{${properties.redisConnectionTimeout}}</redisConnectionTimeout>
+        <cacheKey>{${properties.cacheKey}}</cacheKey>
+        <useSsl>{${properties.useSsl}}</useSsl>
     </redis.init>
     ```
 
@@ -117,9 +117,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     **Sample configuration**
     ```xml
     <redis.init>
-        <redisConnectionURI>{$ctx:redisConnectionURI}</redisConnectionURI>
-        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
-        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <redisConnectionURI>{${properties.redisConnectionURI}}</redisConnectionURI>
+        <redisTimeout>{${properties.redisTimeout}}</redisTimeout>
+        <redisConnectionTimeout>{${properties.redisConnectionTimeout}}</redisConnectionTimeout>
     </redis.init>
     ```
 
@@ -181,10 +181,10 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     **Sample configuration**
     ```xml
     <redis.init>
-        <redisHost>{$ctx:redisHost}</redisHost>
-        <redisPort>{$ctx:redisPort}</redisPort>
-        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
-        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <redisHost>{${properties.redisHost}}</redisHost>
+        <redisPort>{${properties.redisPort}}</redisPort>
+        <redisTimeout>{${properties.redisTimeout}}</redisTimeout>
+        <redisConnectionTimeout>{${properties.redisConnectionTimeout}}</redisConnectionTimeout>
         <maxAttempts>5</maxAttempts>   
         <clientName>WSO2EI</clientName>
     </redis.init>
@@ -195,14 +195,14 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     **Sample configuration**
     ```xml
     <redis.init>
-        <redisHost>{$ctx:redisHost}</redisHost>
-        <redisPort>{$ctx:redisPort}</redisPort>
-        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
-        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <redisHost>{${properties.redisHost}}</redisHost>
+        <redisPort>{${properties.redisPort}}</redisPort>
+        <redisTimeout>{${properties.redisTimeout}}</redisTimeout>
+        <redisConnectionTimeout>{${properties.redisConnectionTimeout}}</redisConnectionTimeout>
         <maxAttempts>5</maxAttempts>   
         <clientName>WSO2EI</clientName>
-        <cacheKey>{$ctx:cacheKey}</cacheKey>
-        <useSsl>{$ctx:useSsl}</useSsl>
+        <cacheKey>{${properties.cacheKey}}</cacheKey>
+        <useSsl>{${properties.useSsl}}</useSsl>
     </redis.init>
     ```
 
@@ -245,17 +245,17 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     **Sample configuration**
     ```xml
     <redis.init>
-        <sentinelUser>{$ctx:sentinelUser}</sentinelUser>
-        <sentinelPassword>{$ctx:sentinelPassword}</sentinelPassword>
-        <masterName>{$ctx:masterName}</masterName>
-        <masterUser>{$ctx:masterName}</masterUser>
-        <masterPassword>{$ctx:masterPassword}</masterPassword>
+        <sentinelUser>{${properties.sentinelUser}}</sentinelUser>
+        <sentinelPassword>{${properties.sentinelPassword}}</sentinelPassword>
+        <masterName>{${properties.masterName}}</masterName>
+        <masterUser>{${properties.masterName}}</masterUser>
+        <masterPassword>{${properties.masterPassword}}</masterPassword>
         <sentinelEnabled>true</sentinelEnabled>
         <dbNumber>0</dbNumber>
         <sentinels>172.18.0.4:26379,172.18.0.5:26379,172.18.0.6:26379</sentinels>
-        <sentinelClientName>{$ctx:sentinelClientName}</sentinelClientName>
-        <sentinelConnectionTimeout>{$ctx:sentinelConnectionTimeout}</sentinelConnectionTimeout>
-        <sentinelSoTimeout>{$ctx:sentinelSoTimeout}</sentinelSoTimeout>
+        <sentinelClientName>{${properties.sentinelClientName}}</sentinelClientName>
+        <sentinelConnectionTimeout>{${properties.sentinelConnectionTimeout}}</sentinelConnectionTimeout>
+        <sentinelSoTimeout>{${properties.sentinelSoTimeout}}</sentinelSoTimeout>
     </redis.init>
     ```
 ---
@@ -281,7 +281,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.echo>
-        <redisMessage>{$ctx:redisMessage}</redisMessage>
+        <redisMessage>{${properties.redisMessage}}</redisMessage>
     </redis.echo>
     ```
     
@@ -345,8 +345,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hDel>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisFields>{$ctx:redisFields}</redisFields>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisFields>{${properties.redisFields}}</redisFields>
     </redis.hDel>
     ```
     
@@ -383,8 +383,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hExists>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisFields>{$ctx:redisFields}</redisFields>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisFields>{${properties.redisFields}}</redisFields>
     </redis.hExists>
     ```
     
@@ -421,8 +421,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hGet>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisFields>{$ctx:redisFields}</redisFields>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisFields>{${properties.redisFields}}</redisFields>
     </redis.hGet>
     ```
     
@@ -454,7 +454,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hGetAll>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.hGetAll>
     ```
     
@@ -495,9 +495,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hIncrBy>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisField>{$ctx:redisField}</redisField>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisField>{${properties.redisField}}</redisField>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.hIncrBy>
     ```
     
@@ -530,7 +530,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hKeys>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.hKeys>
     ```
     
@@ -561,7 +561,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hKeys>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.hKeys>
     ```
     
@@ -597,8 +597,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hMGet>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisFields>{$ctx:redisFields}</redisFields>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisFields>{${properties.redisFields}}</redisFields>
     </redis.hMGet>
     ```
     
@@ -635,8 +635,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hMSet>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisFieldsValues>{$ctx:redisFieldsValues}</redisFieldsValues>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisFieldsValues>{${properties.redisFieldsValues}}</redisFieldsValues>
     </redis.hMSet>
     ```
     
@@ -678,9 +678,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hSet>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisField>{$ctx:redisField}</redisField>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisField>{${properties.redisField}}</redisField>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.hSet>
     ```
     
@@ -723,9 +723,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hSetnX>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisField>{$ctx:redisField}</redisField>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisField>{${properties.redisField}}</redisField>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.hSetnX>
     ```
     
@@ -758,7 +758,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.hVals>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.hVals>
     ```
     
@@ -791,7 +791,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.del>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.del>
     ```
     
@@ -822,7 +822,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.exists>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.exists>
     ```
     
@@ -858,8 +858,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.expire>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisSeconds>{$ctx:redisSeconds}</redisSeconds>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisSeconds>{${properties.redisSeconds}}</redisSeconds>
     </redis.expire>
     ```
     
@@ -896,8 +896,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.expire>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisUnixTime>{$ctx:redisUnixTime}</redisUnixTime>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisUnixTime>{${properties.redisUnixTime}}</redisUnixTime>
     </redis.expire>
     ```
     
@@ -929,7 +929,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.keys>
-        <redisPattern>{$ctx:redisPattern}</redisPattern>
+        <redisPattern>{${properties.redisPattern}}</redisPattern>
     </redis.keys>
     ```
     
@@ -982,8 +982,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.rename>
-        <redisOldKey>{$ctx:redisOldKey}</redisOldKey>
-        <redisNewKey>{$ctx:redisNewKey}</redisNewKey>
+        <redisOldKey>{${properties.redisOldKey}}</redisOldKey>
+        <redisNewKey>{${properties.redisNewKey}}</redisNewKey>
     </redis.rename>
     ```
     
@@ -1020,8 +1020,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.renamenX>
-        <redisOldKey>{$ctx:redisOldKey}</redisOldKey>
-        <redisNewKey>{$ctx:redisNewKey}</redisNewKey>
+        <redisOldKey>{${properties.redisOldKey}}</redisOldKey>
+        <redisNewKey>{${properties.redisNewKey}}</redisNewKey>
     </redis.renamenX>
     ```
     
@@ -1053,7 +1053,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.ttl>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.ttl>
     ```
     
@@ -1084,7 +1084,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.type>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.type>
     ```
     
@@ -1122,8 +1122,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.brPop>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisBrPopTimeout>{$ctx:redisBrPopTimeout}</redisBrPopTimeout>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisBrPopTimeout>{${properties.redisBrPopTimeout}}</redisBrPopTimeout>
     </redis.brPop>
     ```
     
@@ -1160,8 +1160,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.blPop>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisBlPopTimeout>{$ctx:redisBlPopTimeout}</redisBlPopTimeout>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisBlPopTimeout>{${properties.redisBlPopTimeout}}</redisBlPopTimeout>
     </redis.blPop>
     ```
     
@@ -1208,10 +1208,10 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lInsert>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisWhere>{$ctx:redisWhere}</redisWhere>
-        <redisPivot>{$ctx:redisPivot}</redisPivot>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisWhere>{${properties.redisWhere}}</redisWhere>
+        <redisPivot>{${properties.redisPivot}}</redisPivot>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.lInsert>
     ```
     
@@ -1245,7 +1245,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lLen>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.lLen>
     ```
     
@@ -1276,7 +1276,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lLen>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.lLen>
     ```
     
@@ -1312,8 +1312,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lPush>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisStrings>{$ctx:redisStrings}</redisStrings>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisStrings>{${properties.redisStrings}}</redisStrings>
     </redis.lPush>
     ```
     
@@ -1350,8 +1350,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lPushX>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisStrings>{$ctx:redisStrings}</redisStrings>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisStrings>{${properties.redisStrings}}</redisStrings>
     </redis.lPushX>
     ```
     
@@ -1393,9 +1393,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lRange>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisStart>{$ctx:redisStart}</redisStart>
-        <redisEnd>{$ctx:redisEnd}</redisEnd>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisStart>{${properties.redisStart}}</redisStart>
+        <redisEnd>{${properties.redisEnd}}</redisEnd>
     </redis.lRange>
     ```
     
@@ -1438,9 +1438,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lRem>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisCount>{$ctx:redisCount}</redisCount>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisCount>{${properties.redisCount}}</redisCount>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.lRem>
     ```
     
@@ -1483,9 +1483,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lSet>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisIndex>{$ctx:redisIndex}</redisIndex>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisIndex>{${properties.redisIndex}}</redisIndex>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.lSet>
     ```
     
@@ -1528,9 +1528,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.lTrim>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisStart>{$ctx:redisStart}</redisStart>
-        <redisEnd>{$ctx:redisEnd}</redisEnd>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisStart>{${properties.redisStart}}</redisStart>
+        <redisEnd>{${properties.redisEnd}}</redisEnd>
     </redis.lTrim>
     ```
     
@@ -1568,8 +1568,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.rPopLPush>
-        <redisSrckey>{$ctx:redisSrckey}</redisSrckey>
-        <redisDstkey>{$ctx:redisDstkey}</redisDstkey>
+        <redisSrckey>{${properties.redisSrckey}}</redisSrckey>
+        <redisDstkey>{${properties.redisDstkey}}</redisDstkey>
     </redis.rPopLPush>
     ```
     
@@ -1606,8 +1606,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.rPush>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisStrings>{$ctx:redisStrings}</redisStrings>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisStrings>{${properties.redisStrings}}</redisStrings>
     </redis.rPush>
     ```
     
@@ -1644,8 +1644,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.rPushX>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisValue>{$ctx:redisValue}</redisValue>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisValue>{${properties.redisValue}}</redisValue>
     </redis.rPushX>
     ```
     
@@ -1712,8 +1712,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sadd>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisMembers>{$ctx:redisMembers}</redisMembers>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisMembers>{${properties.redisMembers}}</redisMembers>
     </redis.sadd>
     ```
     
@@ -1750,8 +1750,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sDiffStore>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisDstkey>{$ctx:redisDstkey}</redisDstkey>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisDstkey>{${properties.redisDstkey}}</redisDstkey>
     </redis.sDiffStore>
     ```
     
@@ -1783,7 +1783,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sInter>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.sInter>
     ```
     
@@ -1819,8 +1819,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sDiffStore>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisDstkey>{$ctx:redisDstkey}</redisDstkey>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisDstkey>{${properties.redisDstkey}}</redisDstkey>
     </redis.sDiffStore>
     ```
     
@@ -1857,8 +1857,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sIsMember>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisMembers>{$ctx:redisMembers}</redisMembers>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisMembers>{${properties.redisMembers}}</redisMembers>
     </redis.sIsMember>
     ```
     
@@ -1890,7 +1890,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sMembers>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.sMembers>
     ```
     
@@ -1931,9 +1931,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sMove>
-        <redisSrckey>{$ctx:redisSrckey}</redisSrckey>
-        <redisDstkey>{$ctx:redisDstkey}</redisDstkey>
-        <redisMember>{$ctx:redisMember}</redisMember>
+        <redisSrckey>{${properties.redisSrckey}}</redisSrckey>
+        <redisDstkey>{${properties.redisDstkey}}</redisDstkey>
+        <redisMember>{${properties.redisMember}}</redisMember>
     </redis.sMove>
     ```
     
@@ -1966,7 +1966,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sPop>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.sPop>
     ```
     
@@ -1997,7 +1997,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sRandMember>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.sRandMember>
     ```
     
@@ -2033,8 +2033,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sRem>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisMembers>{$ctx:redisMembers}</redisMembers>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisMembers>{${properties.redisMembers}}</redisMembers>
     </redis.sRem>
     ```
     
@@ -2066,7 +2066,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sUnion>
-        <redisKey>{$ctx:redisKey}</redisKey>
+        <redisKey>{${properties.redisKey}}</redisKey>
     </redis.sUnion>
     ```
     
@@ -2102,8 +2102,8 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.sUnionStore>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisDstkey>{$ctx:redisDstkey}</redisDstkey>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisDstkey>{${properties.redisDstkey}}</redisDstkey>
     </redis.sUnionStore>
     ```
     
@@ -2147,9 +2147,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.zadd>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisScore>{$ctx:redisScore}</redisScore>
-        <redisMember>{$ctx:redisMember}</redisMember>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisScore>{${properties.redisScore}}</redisScore>
+        <redisMember>{${properties.redisMember}}</redisMember>
     </redis.zadd>
     ```
     
@@ -2192,9 +2192,9 @@ To use the Redis connector, add the <redis.init> element in your configuration b
 
     ```xml
     <redis.zCount>
-        <redisKey>{$ctx:redisKey}</redisKey>
-        <redisMin>{$ctx:redisMin}</redisMin>
-        <redisMax>{$ctx:redisMax}</redisMax>
+        <redisKey>{${properties.redisKey}}</redisKey>
+        <redisMin>{${properties.redisMin}}</redisMin>
+        <redisMax>{${properties.redisMax}}</redisMax>
     </redis.zCount>
     ```
     

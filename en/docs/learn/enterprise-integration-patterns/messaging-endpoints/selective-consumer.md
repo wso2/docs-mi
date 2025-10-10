@@ -44,7 +44,7 @@ Before digging into implementation details, let's take a look at the relationshi
                         <reason value="Invalid custom quote request"/>
                      </makefault>
                      <property name="RESPONSE" value="true"/>
-                     <header name="To" expression="get-property('ReplyTo')"/>
+                     <header name="To" expression="${properties.ReplyTo}"/>
                      <respond/>
                   </on-fail>
                </validate>
@@ -56,8 +56,8 @@ Before digging into implementation details, let's take a look at the relationshi
             <faultSequence>
                   <log level="full">
                      <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
-                     <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-                     <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+                     <property name="ERROR_CODE" expression="${properties.ERROR_CODE}"/>
+                     <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}"/>
                </log>
                   <drop/>
             </faultSequence>

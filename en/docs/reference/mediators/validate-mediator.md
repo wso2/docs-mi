@@ -34,7 +34,7 @@ You can use the Validate mediator to validate XML and JSON messages against a sp
     <p>If this is not specified, 
     <ul>
         <li>For XML: the validation is performed against the first child of the SOAP body of the current message.</li>
-        <li>For JSON: the validation is performed against the whole body of the current message. For example: <code>json-eval($.msg)</code></li>
+        <li>For JSON: the validation is performed against the whole body of the current message. For example: <code>${payload.msg}</code></li>
     </ul></p>
  </div>
 </div></td>
@@ -130,7 +130,7 @@ In this example, the schema for validating messages is given as a registry key, 
                     <reason value="Invalid Request!!!"/>
                 </makefault>
                 <property name="RESPONSE" value="true"/>
-                <header name="To" expression="get-property('ReplyTo')"/>
+                <header name="To" expression="${properties.ReplyTo}"/>
          </on-fail>
 </validate>
 ```
@@ -154,7 +154,7 @@ The Validate mediator can be configured as follows.
     <on-fail>
         <log level="custom">
             <property name="validation failed" value="Validation failed ###"/>
-            <property name="error_msg" expression="$ctx:ERROR_MESSAGE"/>
+            <property name="error_msg" expression="${properties.ERROR_MESSAGE}"/>
         </log>
     </on-fail>
 </validate>
@@ -215,8 +215,8 @@ validation fails is defined within the on-fail element. In this example, the [Pa
             <format>{"Error":"$1",
             "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
-                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
+                <arg evaluator="xml" expression="${properties.ERROR_MESSAGE}" />
+                <arg evaluator="xml" expression="${properties.ERROR_DETAIL}" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>
@@ -251,15 +251,15 @@ When you send an invalid JSON payload against the given schema, the following re
 In this example, it extracts the message element from the JSON request body and validates only that part of the message against the given schema.
 
 ``` xml
-<validate cache-schema="true" source="json-eval($.msg)">
+<validate cache-schema="true" source="${payload.msg}">
     <schema key="conf:/schema/StockQuoteSchema.json"/>
     <on-fail>
         <payloadFactory media-type="json">
             <format>{"Error":"$1",
             "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
-                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
+                <arg evaluator="xml" expression="${properties.ERROR_MESSAGE}" />
+                <arg evaluator="xml" expression="${properties.ERROR_DETAIL}" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>

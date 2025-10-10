@@ -162,9 +162,9 @@ Create a resource that to invoke an API to get created table details from the Bi
                     <apiKey>AAqQ</apiKey>
                 </bigquery.init>
                 <bigquery.getTable>
-                    <datasetId>{json-eval($.datasetId)}</datasetId>
-                    <projectId>{json-eval($.projectId)}</projectId>
-                    <tableId>{json-eval($.tableId)}</tableId>
+                    <datasetId>{${payload.datasetId}}</datasetId>
+                    <projectId>{${payload.projectId}}</projectId>
+                    <tableId>{${payload.tableId}}</tableId>
                 </bigquery.getTable>
                 <respond/>
             </inSequence>
@@ -182,12 +182,12 @@ Create a resource that to invoke an API to get created table details from the Bi
                     <apiKey>AAqQ</apiKey>
                 </bigquery.init>
                 <bigquery.insertAllTableData>
-                    <datasetId>{json-eval($.datasetId)}</datasetId>
-                    <projectId>{json-eval($.projectId)}</projectId>
-                    <tableId>{json-eval($.tableId)}</tableId>
+                    <datasetId>{${payload.datasetId}}</datasetId>
+                    <projectId>{${payload.projectId}}</projectId>
+                    <tableId>{${payload.tableId}}</tableId>
                     <skipInvalidRows>true</skipInvalidRows>
                     <ignoreUnknownValues>true</ignoreUnknownValues>
-                    <jsonPay>{json-eval($.jsonPay)}</jsonPay>
+                    <jsonPay>{${payload.jsonPay}}</jsonPay>
                 </bigquery.insertAllTableData>
                 <respond/>
             </inSequence>
@@ -205,9 +205,9 @@ Create a resource that to invoke an API to get created table details from the Bi
                     <apiKey>AAqQ</apiKey>
                 </bigquery.init>
                 <bigquery.listTabledata>
-                    <datasetId>{json-eval($.datasetId)}</datasetId>
-                    <projectId>{json-eval($.projectId)}</projectId>
-                    <tableId>{json-eval($.tableId)}</tableId>
+                    <datasetId>{${payload.datasetId}}</datasetId>
+                    <projectId>{${payload.projectId}}</projectId>
+                    <tableId>{${payload.tableId}}</tableId>
                 </bigquery.listTabledata>
             <respond/>
             </inSequence>
@@ -225,9 +225,9 @@ Create a resource that to invoke an API to get created table details from the Bi
                 <apiKey>AAqQ</apiKey>
             </bigquery.init>
             <bigquery.runQuery>
-                <projectId>{json-eval($.projectId)}</projectId>
-                <defaultProjectId>{json-eval($.projectId)}</defaultProjectId>
-                <defaultDatasetId>{json-eval($.datasetId)}</defaultDatasetId>
+                <projectId>{${payload.projectId}}</projectId>
+                <defaultProjectId>{${payload.projectId}}</defaultProjectId>
+                <defaultDatasetId>{${payload.datasetId}}</defaultDatasetId>
                 <kind>bigquery#tableDataInsertAllResponse</kind>
                 <query>SELECT Name FROM Tes</query>
                 <maxResults>10000</maxResults>

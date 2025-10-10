@@ -31,7 +31,7 @@ Following are the integration artifacts that we can used to implement this scena
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="SampleSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <filter regex="urn:uploadFileUsingMTOM" source="get-property('Action')">
+        <filter regex="urn:uploadFileUsingMTOM" source="${properties.Action}">
             <then>
                 <property name="example" scope="default" type="STRING" value="mtom"/>
                 <call>
@@ -39,7 +39,7 @@ Following are the integration artifacts that we can used to implement this scena
                 </call>
             </then>
             <else>
-                <filter regex="urn:uploadFileUsingSwA" source="get-property('Action')">
+                <filter regex="urn:uploadFileUsingSwA" source="${properties.Action}">
                     <then>
                         <property name="example" scope="default" type="STRING" value="swa"/>
                         <call>
@@ -50,12 +50,12 @@ Following are the integration artifacts that we can used to implement this scena
                 </filter>
             </else>
         </filter>
-        <filter regex="mtom" source="get-property('example')">
+        <filter regex="mtom" source="${properties.example}">
             <then>
                 <property name="enableMTOM" scope="axis2" type="STRING" value="true"/>
             </then>
             <else>
-                <filter regex="swa" source="get-property('example')">
+                <filter regex="swa" source="${properties.example}">
                     <then>
                         <property name="enableSwA" scope="axis2" type="STRING" value="true"/>
                     </then>

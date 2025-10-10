@@ -67,15 +67,15 @@ To use the SMPP connector, need to have a SMSC connection. To create a SMSC conn
       <?xml version="1.0" encoding="UTF-8"?>
       <localEntry key="SMSC_CONFIG_1" xmlns="http://ws.apache.org/ns/synapse">
          <SMPP.init>
-            <host>{$ctx:host}</host>
-            <port>{$ctx:port}</port>
-            <systemId>{$ctx:systemId}</systemId>
-            <password>{$ctx:password}</password>
-            <enquireLinkTimer>{$ctx:enquireLinkTimer}</enquireLinkTimer>
-            <transactionTimer>{$ctx:transactionTimer}</transactionTimer>
-            <systemType>{$ctx:systemType}</systemType>
-            <addressTon>{$ctx:addressTon}</addressTon>
-            <addressNpi>{$ctx:addressNpi}</addressNpi>
+            <host>{${properties.host}}</host>
+            <port>{${properties.port}}</port>
+            <systemId>{${properties.systemId}}</systemId>
+            <password>{${properties.password}}</password>
+            <enquireLinkTimer>{${properties.enquireLinkTimer}}</enquireLinkTimer>
+            <transactionTimer>{${properties.transactionTimer}}</transactionTimer>
+            <systemType>{${properties.systemType}}</systemType>
+            <addressTon>{${properties.addressTon}}</addressTon>
+            <addressNpi>{${properties.addressNpi}}</addressNpi>
             <connectionType>init</connectionType>
             <name>SMSC_CONFIG_1</name>
          </SMPP.init>
@@ -543,25 +543,25 @@ To use the SMPP connector, need to have a SMSC connection. To create a SMSC conn
 
     ```xml
     <SMPP.sendSMS configKey="SMSC_CONFIG_1">
-      <serviceType>{$ctx:serviceType}</serviceType>
-      <sourceAddressTon>{$ctx:sourceAddressTon}</sourceAddressTon>
-      <sourceAddressNpi>{$ctx:sourceAddressNpi}</sourceAddressNpi>
-      <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
-      <destinationAddressTon>{$ctx:destinationAddressTon}</destinationAddressTon>
-      <destinationAddressNpi>{$ctx:destinationAddressNpi}</destinationAddressNpi>
-      <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
-      <alphabet>{$ctx:alphabet}</alphabet>
-      <charset>{$ctx:charset}</charset>
-      <message>{$ctx:message}</message>
-      <smscDeliveryReceipt>{$ctx:smscDeliveryReceipt}</smscDeliveryReceipt>
-      <messageClass>{$ctx:messageClass}</messageClass>
-      <isCompressed>{$ctx:isCompressed}</isCompressed>
-      <esmclass>{$ctx:esmclass}</esmclass>
-      <protocolid>{$ctx:protocolid}</protocolid>
-      <priorityflag>{$ctx:priorityflag}</priorityflag>
-      <replaceIfPresentFlag>{$ctx:replaceIfPresentFlag}</replaceIfPresentFlag>
-      <submitDefaultMsgId>{$ctx:submitDefaultMsgId}</submitDefaultMsgId>
-      <validityPeriod>{$ctx:validityPeriod}</validityPeriod>
+      <serviceType>{${properties.serviceType}}</serviceType>
+      <sourceAddressTon>{${properties.sourceAddressTon}}</sourceAddressTon>
+      <sourceAddressNpi>{${properties.sourceAddressNpi}}</sourceAddressNpi>
+      <sourceAddress>{${properties.sourceAddress}}</sourceAddress>
+      <destinationAddressTon>{${properties.destinationAddressTon}}</destinationAddressTon>
+      <destinationAddressNpi>{${properties.destinationAddressNpi}}</destinationAddressNpi>
+      <destinationAddress>{${properties.destinationAddress}}</destinationAddress>
+      <alphabet>{${properties.alphabet}}</alphabet>
+      <charset>{${properties.charset}}</charset>
+      <message>{${properties.message}}</message>
+      <smscDeliveryReceipt>{${properties.smscDeliveryReceipt}}</smscDeliveryReceipt>
+      <messageClass>{${properties.messageClass}}</messageClass>
+      <isCompressed>{${properties.isCompressed}}</isCompressed>
+      <esmclass>{${properties.esmclass}}</esmclass>
+      <protocolid>{${properties.protocolid}}</protocolid>
+      <priorityflag>{${properties.priorityflag}}</priorityflag>
+      <replaceIfPresentFlag>{${properties.replaceIfPresentFlag}}</replaceIfPresentFlag>
+      <submitDefaultMsgId>{${properties.submitDefaultMsgId}}</submitDefaultMsgId>
+      <validityPeriod>{${properties.validityPeriod}}</validityPeriod>
     </SMPP.sendSMS>
     ```
     
@@ -609,46 +609,46 @@ The following is a sample proxy service that illustrates how to connect to the S
    <target>
        <inSequence>
            <property name="OUT_ONLY" value="true"/>
-           <property name="serviceType" expression="json-eval($.serviceType)"/>
-           <property name="sourceAddressTon" expression="json-eval($.sourceAddressTon)"/>
-           <property name="sourceAddressNpi" expression="json-eval($.sourceAddressNpi)"/>
-           <property name="sourceAddress" expression="json-eval($.sourceAddress)"/>
-           <property name="destinationAddressTon" expression="json-eval($.destinationAddressTon)"/>
-           <property name="destinationAddressNpi" expression="json-eval($.destinationAddressNpi)"/>
-           <property name="destinationAddress" expression="json-eval($.destinationAddress)"/>
-           <property name="alphabet" expression="json-eval($.alphabet)"/>
-           <property name="message" expression="json-eval($.message)"/>
-           <property name="smscDeliveryReceipt" expression="json-eval($.smscDeliveryReceipt)"/>
-           <property name="messageClass" expression="json-eval($.messageClass)"/>
-           <property name="isCompressed" expression="json-eval($.isCompressed)"/>
-           <property name="esmclass" expression="json-eval($.esmclass)"/>
-           <property name="protocolid" expression="json-eval($.protocolid)"/>
-           <property name="priorityflag" expression="json-eval($.priorityflag)"/>
-           <property name="replaceIfPresentFlag" expression="json-eval($.replaceIfPresentFlag)"/>
-           <property name="submitDefaultMsgId" expression="json-eval($.submitDefaultMsgId)"/>
-           <property name="validityPeriod" expression="json-eval($.validityPeriod)"/>
-           <property name="enquireLinkTimer" expression="json-eval($.enquireLinkTimer)"/>
-           <property name="transactionTimer" expression="json-eval($.transactionTimer)"/>
+           <property name="serviceType" expression="${payload.serviceType}"/>
+           <property name="sourceAddressTon" expression="${payload.sourceAddressTon}"/>
+           <property name="sourceAddressNpi" expression="${payload.sourceAddressNpi}"/>
+           <property name="sourceAddress" expression="${payload.sourceAddress}"/>
+           <property name="destinationAddressTon" expression="${payload.destinationAddressTon}"/>
+           <property name="destinationAddressNpi" expression="${payload.destinationAddressNpi}"/>
+           <property name="destinationAddress" expression="${payload.destinationAddress}"/>
+           <property name="alphabet" expression="${payload.alphabet}"/>
+           <property name="message" expression="${payload.message}"/>
+           <property name="smscDeliveryReceipt" expression="${payload.smscDeliveryReceipt}"/>
+           <property name="messageClass" expression="${payload.messageClass}"/>
+           <property name="isCompressed" expression="${payload.isCompressed}"/>
+           <property name="esmclass" expression="${payload.esmclass}"/>
+           <property name="protocolid" expression="${payload.protocolid}"/>
+           <property name="priorityflag" expression="${payload.priorityflag}"/>
+           <property name="replaceIfPresentFlag" expression="${payload.replaceIfPresentFlag}"/>
+           <property name="submitDefaultMsgId" expression="${payload.submitDefaultMsgId}"/>
+           <property name="validityPeriod" expression="${payload.validityPeriod}"/>
+           <property name="enquireLinkTimer" expression="${payload.enquireLinkTimer}"/>
+           <property name="transactionTimer" expression="${payload.transactionTimer}"/>
            <SMPP.sendSMS configKey="SMSC_CONFIG_1">
-               <serviceType>{$ctx:serviceType}</serviceType>
-               <sourceAddressTon>{$ctx:sourceAddressTon}</sourceAddressTon>
-               <sourceAddressNpi>{$ctx:sourceAddressNpi}</sourceAddressNpi>
-               <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
-               <destinationAddressTon>{$ctx:destinationAddressTon}</destinationAddressTon>
-               <destinationAddressNpi>{$ctx:destinationAddressNpi}</destinationAddressNpi>
-               <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
-               <alphabet>{$ctx:alphabet}</alphabet>
-               <charset>{$ctx:charset}</charset>
-               <message>{$ctx:message}</message>
-               <smscDeliveryReceipt>{$ctx:smscDeliveryReceipt}</smscDeliveryReceipt>
-               <messageClass>{$ctx:messageClass}</messageClass>
-               <isCompressed>{$ctx:isCompressed}</isCompressed>
-               <esmclass>{$ctx:esmclass}</esmclass>
-               <protocolid>{$ctx:protocolid}</protocolid>
-               <priorityflag>{$ctx:priorityflag}</priorityflag>
-               <replaceIfPresentFlag>{$ctx:replaceIfPresentFlag}</replaceIfPresentFlag>
-               <submitDefaultMsgId>{$ctx:submitDefaultMsgId}</submitDefaultMsgId>
-               <validityPeriod>{$ctx:validityPeriod}</validityPeriod>
+               <serviceType>{${properties.serviceType}}</serviceType>
+               <sourceAddressTon>{${properties.sourceAddressTon}}</sourceAddressTon>
+               <sourceAddressNpi>{${properties.sourceAddressNpi}}</sourceAddressNpi>
+               <sourceAddress>{${properties.sourceAddress}}</sourceAddress>
+               <destinationAddressTon>{${properties.destinationAddressTon}}</destinationAddressTon>
+               <destinationAddressNpi>{${properties.destinationAddressNpi}}</destinationAddressNpi>
+               <destinationAddress>{${properties.destinationAddress}}</destinationAddress>
+               <alphabet>{${properties.alphabet}}</alphabet>
+               <charset>{${properties.charset}}</charset>
+               <message>{${properties.message}}</message>
+               <smscDeliveryReceipt>{${properties.smscDeliveryReceipt}}</smscDeliveryReceipt>
+               <messageClass>{${properties.messageClass}}</messageClass>
+               <isCompressed>{${properties.isCompressed}}</isCompressed>
+               <esmclass>{${properties.esmclass}}</esmclass>
+               <protocolid>{${properties.protocolid}}</protocolid>
+               <priorityflag>{${properties.priorityflag}}</priorityflag>
+               <replaceIfPresentFlag>{${properties.replaceIfPresentFlag}}</replaceIfPresentFlag>
+               <submitDefaultMsgId>{${properties.submitDefaultMsgId}}</submitDefaultMsgId>
+               <validityPeriod>{${properties.validityPeriod}}</validityPeriod>
            </SMPP.sendSMS>
            <respond/>
        </inSequence>
@@ -1006,23 +1006,23 @@ The following is a sample proxy service that illustrates how to connect to the S
 
     ```xml
     <SMPP.sendBulkSMS configKey="SMSC_CONFIG_1">
-      <serviceType>{$ctx:serviceType}</serviceType>
-      <sourceAddressTon>{$ctx:sourceAddressTon}</sourceAddressTon>
-      <sourceAddressNpi>{$ctx:sourceAddressNpi}</sourceAddressNpi>
-      <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
-      <destinationAddress>{$ctx:destinationAddresses}</destinationAddress>
-      <alphabet>{$ctx:alphabet}</alphabet>
-      <charset>{$ctx:charset}</charset>
-      <message>{$ctx:message}</message>
-      <smscDeliveryReceipt>{$ctx:smscDeliveryReceipt}</smscDeliveryReceipt>
-      <messageClass>{$ctx:messageClass}</messageClass>
-      <isCompressed>{$ctx:isCompressed}</isCompressed>
-      <esmclass>{$ctx:esmclass}</esmclass>
-      <protocolid>{$ctx:protocolid}</protocolid>
-      <priorityflag>{$ctx:priorityflag}</priorityflag>
-      <replaceIfPresentFlag>{$ctx:replaceIfPresentFlag}</replaceIfPresentFlag>
-      <submitDefaultMsgId>{$ctx:submitDefaultMsgId}</submitDefaultMsgId>
-      <validityPeriod>{$ctx:validityPeriod}</validityPeriod>
+      <serviceType>{${properties.serviceType}}</serviceType>
+      <sourceAddressTon>{${properties.sourceAddressTon}}</sourceAddressTon>
+      <sourceAddressNpi>{${properties.sourceAddressNpi}}</sourceAddressNpi>
+      <sourceAddress>{${properties.sourceAddress}}</sourceAddress>
+      <destinationAddress>{${properties.destinationAddresses}}</destinationAddress>
+      <alphabet>{${properties.alphabet}}</alphabet>
+      <charset>{${properties.charset}}</charset>
+      <message>{${properties.message}}</message>
+      <smscDeliveryReceipt>{${properties.smscDeliveryReceipt}}</smscDeliveryReceipt>
+      <messageClass>{${properties.messageClass}}</messageClass>
+      <isCompressed>{${properties.isCompressed}}</isCompressed>
+      <esmclass>{${properties.esmclass}}</esmclass>
+      <protocolid>{${properties.protocolid}}</protocolid>
+      <priorityflag>{${properties.priorityflag}}</priorityflag>
+      <replaceIfPresentFlag>{${properties.replaceIfPresentFlag}}</replaceIfPresentFlag>
+      <submitDefaultMsgId>{${properties.submitDefaultMsgId}}</submitDefaultMsgId>
+      <validityPeriod>{${properties.validityPeriod}}</validityPeriod>
     </SMPP.sendBulkSMS>
     ```
     

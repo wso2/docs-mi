@@ -81,8 +81,8 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 
 8.  Next, provide JSON expressions for the following two properties. These expressions will retrieve the respective values from the JSON request payload.
 
-    - Collection - json-eval($.collection)
-    - Documents - json-eval($.documents)
+    - Collection - ${payload.collection}
+    - Documents - ${payload.documents}
 
 9.  Click `+` arrow under `insertMany` node then click [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-mediator/) and submit to add to the canvas. This returns the response message to the client (after inserting documents) as shown below.
 
@@ -96,8 +96,8 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 
 12. Next, provide JSON expressions for the following two properties. These expressions will retrieve the respective values from the JSON request payload.
 
-    - Collection - json-eval($.collection)
-    - Query - json-eval($.query)
+    - Collection - ${payload.collection}
+    - Query - ${payload.query}
 
 14. Add [Respond Mediator](https://mi.docs.wso2.com/en/latest/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
@@ -108,11 +108,11 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 <api context="/mongodbconnector" name="MongoConnector" xmlns="http://ws.apache.org/ns/synapse">
 	<resource methods="POST" uri-template="/insertmany">
 		<inSequence>
-			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
-			<property expression="json-eval($.documents)" name="documents" scope="default" type="JSON"/>
+			<property expression="${payload.collection}" name="collection" scope="default" type="JSON"/>
+			<property expression="${payload.documents}" name="documents" scope="default" type="JSON"/>
 			<mongodb.insertMany configKey="connectionURI">
-				<collection>{$ctx:collection}</collection>
-				<documents>{$ctx:documents}</documents>
+				<collection>{${properties.collection}}</collection>
+				<documents>{${properties.documents}}</documents>
 				<ordered>True</ordered>
 			</mongodb.insertMany>
 			<respond/>
@@ -122,11 +122,11 @@ Copy the following JAR files to the `<MI_HOME>/dropins` directory.
 	</resource>
 	<resource methods="POST" uri-template="/find">
 		<inSequence>
-			<property expression="json-eval($.collection)" name="collection" scope="default" type="JSON"/>
-			<property expression="json-eval($.query)" name="query" scope="default" type="JSON"/>
+			<property expression="${payload.collection}" name="collection" scope="default" type="JSON"/>
+			<property expression="${payload.query}" name="query" scope="default" type="JSON"/>
 			<mongodb.find configKey="connectionURI">
-				<collection>{$ctx:collection}</collection>
-				<query>{$ctx:query}</query>
+				<collection>{${properties.collection}}</collection>
+				<query>{${properties.query}}</query>
 			</mongodb.find>
 			<respond/>
 		</inSequence>

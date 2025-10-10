@@ -42,10 +42,10 @@ The connection is used to establish a connection to the Jira server. Jira APIs s
     
     ```xml
     <jira.init>
-        <username>{$ctx:username}</username>
-        <password>{$ctx:password}</password>
-        <uri>{$ctx:uri}</uri>
-        <blocking>{$ctx:blocking}</blocking>
+        <username>{${properties.username}}</username>
+        <password>{${properties.password}}</password>
+        <uri>{${properties.uri}}</uri>
+        <blocking>{${properties.blocking}}</blocking>
     </jira.init>
     ```
     
@@ -93,9 +93,9 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getDashboards>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <filter>{$ctx:filter}</filter>
-        <startAt>{$ctx:startAt}</startAt>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <filter>{${properties.filter}}</filter>
+        <startAt>{${properties.startAt}}</startAt>
     </jira.getDashboards>
     ```
     
@@ -150,7 +150,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getDashboardById>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </jira.getDashboardById>
     ```
 
@@ -202,8 +202,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getFilterById>
-        <filterId>{$ctx:filterId}</filterId>
-        <expand>{$ctx:expand}</expand>
+        <filterId>{${properties.filterId}}</filterId>
+        <expand>{${properties.expand}}</expand>
     </jira.getFilterById>
     ```
 
@@ -282,7 +282,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     ```xml
     <jira.getFavouriteFilters>
-        <expand>{$ctx:expand}</expand>
+        <expand>{${properties.expand}}</expand>
     </jira.getFavouriteFilters>
     ```
     
@@ -377,10 +377,10 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     ```xml
     <jira.createFilter>
-        <filterName>{$ctx:filterName}</filterName>
-        <description>{$ctx:description}</description>
-        <jqlType>{$ctx:jqlType}</jqlType>
-        <favourite>{$ctx:favourite}</favourite>
+        <filterName>{${properties.filterName}}</filterName>
+        <description>{${properties.description}}</description>
+        <jqlType>{${properties.jqlType}}</jqlType>
+        <favourite>{${properties.favourite}}</favourite>
     </jira.createFilter>
     ```
     
@@ -487,11 +487,11 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.updateFilterById>
-        <filterId>{$ctx:filterId}</filterId>
-        <filterName>{$ctx:filterName}</filterName>
-        <description>{$ctx:description}</description>
-        <jqlType>{$ctx:jqlType}</jqlType>
-        <favourite>{$ctx:favourite}</favourite>
+        <filterId>{${properties.filterId}}</filterId>
+        <filterName>{${properties.filterName}}</filterName>
+        <description>{${properties.description}}</description>
+        <jqlType>{${properties.jqlType}}</jqlType>
+        <favourite>{${properties.favourite}}</favourite>
     </jira.updateFilterById>
     ```
     
@@ -573,7 +573,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.deleteFilter>
-        <filterId>{$ctx:filterId}</filterId>
+        <filterId>{${properties.filterId}}</filterId>
     </jira.deleteFilter>
     ```
 
@@ -617,8 +617,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getGroup>
-        <groupName>{$ctx:groupName}</groupName>
-        <expand>{$ctx:expand}</expand>
+        <groupName>{${properties.groupName}}</groupName>
+        <expand>{${properties.expand}}</expand>
     </jira.getGroup>
     ```
     
@@ -679,9 +679,9 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.listGroupPicker>
-        <query>{$ctx:query}</query>
-        <exclude>{$ctx:exclude}</exclude>
-        <maxResults>{$ctx:maxResults}</maxResults>
+        <query>{${properties.query}}</query>
+        <exclude>{${properties.exclude}}</exclude>
+        <maxResults>{${properties.maxResults}}</maxResults>
     </jira.listGroupPicker>
     ```
     
@@ -755,9 +755,9 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.listGroupUserPicker>
-        <query>{$ctx:query}</query>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <isShowAvatar>{$ctx:isShowAvatar}</isShowAvatar>
+        <query>{${properties.query}}</query>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <isShowAvatar>{${properties.isShowAvatar}}</isShowAvatar>
     </jira.listGroupUserPicker>
     ```
     
@@ -840,9 +840,9 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getIssue>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <fields>{$ctx:fields}</fields>
-        <expand>{$ctx:expand}</expand>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <fields>{${properties.fields}}</fields>
+        <expand>{${properties.expand}}</expand>
     </jira.getIssue>
     ```
     
@@ -943,7 +943,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.createIssue>
-        <issueFields>{$ctx:issueFields}</issueFields>
+        <issueFields>{${properties.issueFields}}</issueFields>
     </jira.createIssue>
     ```
     
@@ -1002,8 +1002,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.updateIssue>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <issueFields>{$ctx:issueFields}</issueFields>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <issueFields>{${properties.issueFields}}</issueFields>
     </jira.updateIssue>
     ```
     
@@ -1062,8 +1062,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.updateIssueAssignee>
-        <name>{$ctx:name}</name>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
+        <name>{${properties.name}}</name>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
     </jira.updateIssueAssignee>
     ```
     
@@ -1106,8 +1106,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getTransitions>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <expand>{$ctx:expand}</expand>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <expand>{${properties.expand}}</expand>
     </jira.getTransitions>
     ```
     
@@ -1193,8 +1193,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.doTransition>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <issueFields>{$ctx:issueFields}</issueFields>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <issueFields>{${properties.issueFields}}</issueFields>
     </jira.doTransition>
     ```
     
@@ -1250,8 +1250,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getComments>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <expand>{$ctx:expand}</expand>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <expand>{${properties.expand}}</expand>
     </jira.getComments>
     ```
     
@@ -1336,10 +1336,10 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.postComment>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <comment>{$ctx:comment}</comment>
-        <visibleRole>{$ctx:visibleRole}</visibleRole>
-        <expand>{$ctx:expand}</expand>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <comment>{${properties.comment}}</comment>
+        <visibleRole>{${properties.visibleRole}}</visibleRole>
+        <expand>{${properties.expand}}</expand>
     </jira.postComment>
     ```
     
@@ -1424,10 +1424,10 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.updateComment>
-        <commentId>{$ctx:commentId}</commentId>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <comment>{$ctx:comment}</comment>
-        <visibleRole>{$ctx:visibleRole}</visibleRole>
+        <commentId>{${properties.commentId}}</commentId>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <comment>{${properties.comment}}</comment>
+        <visibleRole>{${properties.visibleRole}}</visibleRole>
     </jira.updateComment>
     ```
     
@@ -1498,8 +1498,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.deleteComment>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <commentId>{$ctx:commentId}</commentId>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <commentId>{${properties.commentId}}</commentId>
     </jira.deleteComment>
     ```
     
@@ -1618,7 +1618,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getIssuePriorityById>
-        <issuePriorityId>{$ctx:issuePriorityId}</issuePriorityId>
+        <issuePriorityId>{${properties.issuePriorityId}}</issuePriorityId>
     </jira.getIssuePriorityById>
     ```
     
@@ -1691,7 +1691,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getIssueTypeById>
-        <issueTypeId>{$ctx:issueTypeId}</issueTypeId>
+        <issueTypeId>{${properties.issueTypeId}}</issueTypeId>
     </jira.getIssueTypeById>
     ```
     
@@ -1739,7 +1739,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getVotesForIssue>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
     </jira.getVotesForIssue>
     ```
     
@@ -1798,7 +1798,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.createBulkIssue>
-        <issueUpdates>{$ctx:issueUpdates}</issueUpdates>
+        <issueUpdates>{${properties.issueUpdates}}</issueUpdates>
     </jira.createBulkIssue>
     ```
     
@@ -1867,8 +1867,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.assignIssueToUser>
-        <name>{$ctx:name}</name>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
+        <name>{${properties.name}}</name>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
     </jira.assignIssueToUser>
     ```
     
@@ -1916,9 +1916,9 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getCommentById>
-        <commentId>{$ctx:commentId}</commentId>
-        <expand>{$ctx:expand}</expand>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
+        <commentId>{${properties.commentId}}</commentId>
+        <expand>{${properties.expand}}</expand>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
     </jira.getCommentById>
     ```
     
@@ -2046,18 +2046,18 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.sendNotification>
-        <subject>{$ctx:subject}</subject>
-        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
-        <textBody>{$ctx:textBody}</textBody>
-        <htmlBody>{$ctx:htmlBody}</htmlBody>
-        <toReporter>{$ctx:toReporter}</toReporter>
-        <toAssignee>{$ctx:toAssignee}</toAssignee>
-        <toWatchers>{$ctx:toWatchers}</toWatchers>
-        <toVoters>{$ctx:toVoters}</toVoters>
-        <toUsers>{$ctx:toUsers}</toUsers>
-        <toGroups>{$ctx:toGroups}</toGroups>
-        <restrictGroups>{$ctx:restrictGroups}</restrictGroups>
-        <restrictPermissions>{$ctx:restrictPermissions}</restrictPermissions>
+        <subject>{${properties.subject}}</subject>
+        <issueIdOrKey>{${properties.issueIdOrKey}}</issueIdOrKey>
+        <textBody>{${properties.textBody}}</textBody>
+        <htmlBody>{${properties.htmlBody}}</htmlBody>
+        <toReporter>{${properties.toReporter}}</toReporter>
+        <toAssignee>{${properties.toAssignee}}</toAssignee>
+        <toWatchers>{${properties.toWatchers}}</toWatchers>
+        <toVoters>{${properties.toVoters}}</toVoters>
+        <toUsers>{${properties.toUsers}}</toUsers>
+        <toGroups>{${properties.toGroups}}</toGroups>
+        <restrictGroups>{${properties.restrictGroups}}</restrictGroups>
+        <restrictPermissions>{${properties.restrictPermissions}}</restrictPermissions>
     </jira.sendNotification>
     ```
     
@@ -2126,7 +2126,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.addVotesForIssue>
-        <issueId>{$ctx:issueId}</issueId>
+        <issueId>{${properties.issueId}}</issueId>
     </jira.addVotesForIssue>
     ```
     
@@ -2166,7 +2166,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getWatchersForIssue>
-        <issueId>{$ctx:issueId}</issueId>
+        <issueId>{${properties.issueId}}</issueId>
     </jira.getWatchersForIssue>
     ```
     
@@ -2232,8 +2232,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.removeUserFromWatcherList>
-        <name>{$ctx:name}</name>
-        <issueId>{$ctx:issueId}</issueId>
+        <name>{${properties.name}}</name>
+        <issueId>{${properties.issueId}}</issueId>
     </jira.removeUserFromWatcherList>
     ```
     
@@ -2298,12 +2298,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.C>
-        <query>{$ctx:query}</query>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <startAt>{$ctx:startAt}</startAt>
-        <fields>{$ctx:fields}</fields>
-        <validateQuery>{$ctx:validateQuery}</validateQuery>
-        <expand>{$ctx:expand}</expand>
+        <query>{${properties.query}}</query>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <startAt>{${properties.startAt}}</startAt>
+        <fields>{${properties.fields}}</fields>
+        <validateQuery>{${properties.validateQuery}}</validateQuery>
+        <expand>{${properties.expand}}</expand>
     </jira.searchJira>
     ```
     
@@ -2365,8 +2365,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
-        <expand>{$ctx:expand}</expand>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
+        <expand>{${properties.expand}}</expand>
     </jira.getProject>
     ```
     
@@ -2474,7 +2474,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getAvatarsForProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
     </jira.getAvatarsForProject>
     ```
     
@@ -2541,8 +2541,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.deleteAvatarForProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
-        <avatarId>{$ctx:avatarId}</avatarId>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
+        <avatarId>{${properties.avatarId}}</avatarId>
     </jira.deleteAvatarForProject>
     ```
     
@@ -2582,7 +2582,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getComponentsOfProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
     </jira.getComponentsOfProject>
     ```
     
@@ -2672,7 +2672,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getStatusesOfProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
     </jira.getStatusesOfProject>
     ```
     
@@ -2738,7 +2738,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getVersionsOfProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
     </jira.getVersionsOfProject>
     ```
     
@@ -2804,7 +2804,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getRolesOfProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
     </jira.getRolesOfProject>
     ```
     
@@ -2856,8 +2856,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getRolesByIdOfProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
-        <roleId>{$ctx:roleId}</roleId>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
+        <roleId>{${properties.roleId}}</roleId>
     </jira.getRolesByIdOfProject>
     ```
     
@@ -2929,10 +2929,10 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getUserAssignableProjects>
-        <projectKeys>{$ctx:projectKeys}</projectKeys>
-        <usernameForSearch>{$ctx:usernameForSearch}</usernameForSearch>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <startAt>{$ctx:startAt}</startAt>
+        <projectKeys>{${properties.projectKeys}}</projectKeys>
+        <usernameForSearch>{${properties.usernameForSearch}}</usernameForSearch>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <startAt>{${properties.startAt}}</startAt>
     </jira.getUserAssignableProjects>
     ```
     
@@ -2999,9 +2999,9 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.setActorsToRoleOfProject>
-        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
-        <roleId>{$ctx:roleId}</roleId>
-        <roles>{$ctx:roles}</roles>
+        <projectIdOrKey>{${properties.projectIdOrKey}}</projectIdOrKey>
+        <roleId>{${properties.roleId}}</roleId>
+        <roles>{${properties.roles}}</roles>
     </jira.setActorsToRoleOfProject>
     ```
     
@@ -3061,8 +3061,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getUser>
-        <usernameFilter>{$ctx:usernameFilter}</usernameFilter>
-        <key>{$ctx:key}</key>
+        <usernameFilter>{${properties.usernameFilter}}</usernameFilter>
+        <key>{${properties.key}}</key>
     </jira.getUser>
     ```
     
@@ -3127,10 +3127,10 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getUserPermissions>
-        <projectKey>{$ctx:projectKey}</projectKey>
-        <projectId>{$ctx:projectId}</projectId>
-        <issueKey>{$ctx:issueKey}</issueKey>
-        <issueId>{$ctx:issueId}</issueId>
+        <projectKey>{${properties.projectKey}}</projectKey>
+        <projectId>{${properties.projectId}}</projectId>
+        <issueKey>{${properties.issueKey}}</issueKey>
+        <issueId>{${properties.issueId}}</issueId>
     </jira.getUserPermissions>
     ```
     
@@ -3203,11 +3203,11 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.searchUser>
-        <usernameForSearch>{$ctx:usernameForSearch}</usernameForSearch>
-        <startAt>{$ctx:startAt}</startAt>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <includeActive>{$ctx:includeActive}</includeActive>
-        <includeInactive>{$ctx:includeInactive}</includeInactive>
+        <usernameForSearch>{${properties.usernameForSearch}}</usernameForSearch>
+        <startAt>{${properties.startAt}}</startAt>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <includeActive>{${properties.includeActive}}</includeActive>
+        <includeInactive>{${properties.includeInactive}}</includeInactive>
     </jira.searchUser>
     ```
     
@@ -3283,11 +3283,11 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.searchIssueViewableUsers>
-        <usernameForSearch>{$ctx:usernameForSearch}</usernameForSearch>
-        <issueKey>{$ctx:issueKey}</issueKey>
-        <projectKey>{$ctx:projectKey}</projectKey>
-        <startAt>{$ctx:startAt}</startAt>
-        <maxResults>{$ctx:maxResults}</maxResults>
+        <usernameForSearch>{${properties.usernameForSearch}}</usernameForSearch>
+        <issueKey>{${properties.issueKey}}</issueKey>
+        <projectKey>{${properties.projectKey}}</projectKey>
+        <startAt>{${properties.startAt}}</startAt>
+        <maxResults>{${properties.maxResults}}</maxResults>
     </jira.searchIssueViewableUsers>
     ```
     
@@ -3374,12 +3374,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.searchAssignableUser>
-        <usernameForSearch>{$ctx:usernameForSearch}</usernameForSearch>
-        <project>{$ctx:project}</project>
-        <issueKey>{$ctx:issueKey}</issueKey>
-        <startAt>{$ctx:startAt}</startAt>
-        <maxResults>{$ctx:maxResults}</maxResults>
-        <actionDescriptorId>{$ctx:actionDescriptorId}</actionDescriptorId>
+        <usernameForSearch>{${properties.usernameForSearch}}</usernameForSearch>
+        <project>{${properties.project}}</project>
+        <issueKey>{${properties.issueKey}}</issueKey>
+        <startAt>{${properties.startAt}}</startAt>
+        <maxResults>{${properties.maxResults}}</maxResults>
+        <actionDescriptorId>{${properties.actionDescriptorId}}</actionDescriptorId>
     </jira.searchAssignableUser>
     ```
     
@@ -3440,7 +3440,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getAttachmentById>
-        <attachmentId>{$ctx:attachmentId}</attachmentId>
+        <attachmentId>{${properties.attachmentId}}</attachmentId>
     </jira.getAttachmentById>
     ```
     
@@ -3510,8 +3510,8 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getAttachmentContent>
-        <attachmentUrl>{$ctx:attachmentUrl}</attachmentUrl>
-        <fileType>{$ctx:fileType}</fileType>
+        <attachmentUrl>{${properties.attachmentUrl}}</attachmentUrl>
+        <fileType>{${properties.fileType}}</fileType>
     </jira.getAttachmentContent>
     ```
     
@@ -3578,12 +3578,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.createComponent>
-        <name>{$ctx:name}</name>
-        <project>{$ctx:project}</project>
-        <description>{$ctx:description}</description>
-        <leadUserName>{$ctx:leadUserName}</leadUserName>
-        <assigneeType>{$ctx:assigneeType}</assigneeType>
-        <isAssigneeTypeValid>{$ctx:isAssigneeTypeValid}</isAssigneeTypeValid>
+        <name>{${properties.name}}</name>
+        <project>{${properties.project}}</project>
+        <description>{${properties.description}}</description>
+        <leadUserName>{${properties.leadUserName}}</leadUserName>
+        <assigneeType>{${properties.assigneeType}}</assigneeType>
+        <isAssigneeTypeValid>{${properties.isAssigneeTypeValid}}</isAssigneeTypeValid>
     </jira.createComponent>
     ```
     
@@ -3669,7 +3669,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getComponent>
-        <componentId>{$ctx:componentId}</componentId>
+        <componentId>{${properties.componentId}}</componentId>
     </jira.getComponent>
     ```
     
@@ -3775,12 +3775,12 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.updateComponent>
-        <componentId>{$ctx:componentId}</componentId>
-        <name>{$ctx:name}</name>
-        <description>{$ctx:description}</description>
-        <leadUserName>{$ctx:leadUserName}</leadUserName>
-        <assigneeType>{$ctx:assigneeType}</assigneeType>
-        <isAssigneeTypeValid>{$ctx:isAssigneeTypeValid}</isAssigneeTypeValid>
+        <componentId>{${properties.componentId}}</componentId>
+        <name>{${properties.name}}</name>
+        <description>{${properties.description}}</description>
+        <leadUserName>{${properties.leadUserName}}</leadUserName>
+        <assigneeType>{${properties.assigneeType}}</assigneeType>
+        <isAssigneeTypeValid>{${properties.isAssigneeTypeValid}}</isAssigneeTypeValid>
     </jira.updateComponent>
     ```
     
@@ -3877,7 +3877,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.countComponentRelatedIssues>
-        <componentId>{$ctx:componentId}</componentId>
+        <componentId>{${properties.componentId}}</componentId>
     </jira.countComponentRelatedIssues>
     ```
     
@@ -3945,11 +3945,11 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.createIssueLink>
-        <typeName>{$ctx:typeName}</typeName>
-        <inwardIssueKey>{$ctx:inwardIssueKey}</inwardIssueKey>
-        <outwardIssueKey>{$ctx:outwardIssueKey}</outwardIssueKey>
-        <commentBody>{$ctx:commentBody}</commentBody>
-        <commentVisibility>{$ctx:commentVisibility}</commentVisibility>
+        <typeName>{${properties.typeName}}</typeName>
+        <inwardIssueKey>{${properties.inwardIssueKey}}</inwardIssueKey>
+        <outwardIssueKey>{${properties.outwardIssueKey}}</outwardIssueKey>
+        <commentBody>{${properties.commentBody}}</commentBody>
+        <commentVisibility>{${properties.commentVisibility}}</commentVisibility>
     </jira.createIssueLink>
     ```
     
@@ -3998,7 +3998,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     
     ```xml
     <jira.getIssueLinkById>
-        <linkId>{$ctx:linkId}</linkId>
+        <linkId>{${properties.linkId}}</linkId>
     </jira.getIssueLinkById>
     ```
     

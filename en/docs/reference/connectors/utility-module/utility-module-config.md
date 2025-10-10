@@ -46,7 +46,7 @@ The following is a sample request, Synapse configuration, and response for the g
 === "Synapse Configuration"    
     ```xml 
     <utility.string.Length>
-        <inpuString>{json-eval($.string)}</inputString>
+        <inpuString>{${payload.string}}</inputString>
         <target>length</target>
     </utility.string.Length>  
     ```
@@ -97,7 +97,7 @@ The following is a sample request, Synapse configuration, and response for the g
 === "Synapse Configuration"      
     ```xml  
     <utility.string.LowerCase>
-      <inputString>json-eval($.string)</inputString>
+      <inputString>${payload.string}</inputString>
       <target>lowercase</target>
     </utility.string.LowerCase>
     ```
@@ -148,7 +148,7 @@ The following is a sample request, Synapse configuration, and response for the g
 === "Synapse Configuration"   
     ```xml  
     <utility.string.UpperCase>
-      <inputString>json-eval($.string)</inputString>
+      <inputString>${payload.string}</inputString>
       <target>uppercase</target>
     </utility.string.UpperCase>
     ```
@@ -206,7 +206,7 @@ The following is a sample request, Synapse configuration, and response for the g
     ```xml 
     <utility.string.RegexMatcher>
       <regex>u.*m.*e</regex>
-      <inputString>json-eval($.string)</inputString>
+      <inputString>${payload.string}</inputString>
       <target>isMatching</target>
     </utility.string.RegexMatcher>
     ```

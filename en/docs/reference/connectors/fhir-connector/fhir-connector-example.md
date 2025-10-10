@@ -69,28 +69,28 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
    <api context="/resources" name="SampleApi" xmlns="http://ws.apache.org/ns/synapse">
        <resource methods="POST" url-mapping="/create">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
                <log level="custom">
-                   <property expression="get-property('transport','Content-Type')" name="base"/>
+                   <property expression="${transport.headers.Content-Type}" name="base"/>
                </log>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.create>
-                           <type>{$ctx:type}</type>
-                           <format>{$ctx:format}</format>
+                           <type>{${properties.type}}</type>
+                           <format>{${properties.format}}</format>
                        </fhir.create>
                    </case>
                    <case regex="application/xml">
                        <property name="format" scope="default" type="STRING" value="xml"/>
                        <fhir.create>
-                           <type>{$ctx:type}</type>
-                           <format>{$ctx:format}</format>
+                           <type>{${properties.type}}</type>
+                           <format>{${properties.format}}</format>
                        </fhir.create>
                    </case>
                    <default></default>
@@ -102,25 +102,25 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/read">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.readResource>
-                           <type>{$ctx:type}</type>
-                           <format>{$ctx:format}</format>
+                           <type>{${properties.type}}</type>
+                           <format>{${properties.format}}</format>
                        </fhir.readResource>
                    </case>
                    <case regex="application/xml">
                        <property name="format" scope="default" type="STRING" value="xml"/>
                        <fhir.readResource>
-                           <type>{$ctx:type}</type>
-                           <format>{$ctx:format}</format>
+                           <type>{${properties.type}}</type>
+                           <format>{${properties.format}}</format>
                        </fhir.readResource>
                    </case>
                    <default></default>
@@ -132,31 +132,31 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/readSpecificResourceById">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
-               <property expression="json-eval($.id)" name="id" scope="default" type="STRING"/>
-               <property expression="json-eval($.summary)" name="summary" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.id}" name="id" scope="default" type="STRING"/>
+               <property expression="${payload.summary}" name="summary" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.readSpecificResourceById>
-                           <type>{$ctx:type}</type>
-                           <id>{$ctx:id}</id>
-                           <format>{$ctx:format}</format>
-                           <summary>{$ctx:summary}</summary>
+                           <type>{${properties.type}}</type>
+                           <id>{${properties.id}}</id>
+                           <format>{${properties.format}}</format>
+                           <summary>{${properties.summary}}</summary>
                        </fhir.readSpecificResourceById>
                    </case>
                    <case regex="application/xml">
                        <property name="format" scope="default" type="STRING" value="xml"/>
                        <fhir.readSpecificResourceById>
-                           <type>{$ctx:type}</type>
-                           <id>{$ctx:id}</id>
-                           <format>{$ctx:format}</format>
-                           <summary>{$ctx:summary}</summary>
+                           <type>{${properties.type}}</type>
+                           <id>{${properties.id}}</id>
+                           <format>{${properties.format}}</format>
+                           <summary>{${properties.summary}}</summary>
                        </fhir.readSpecificResourceById>
                    </case>
                    <default></default>
@@ -168,28 +168,28 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/update">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
-               <property expression="json-eval($.idToUpdate)" name="idToDelete" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.idToUpdate}" name="idToDelete" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.update>
-                           <type>{$ctx:type}</type>
-                           <idToUpdate>{$ctx:idToUpdate}</idToUpdate>
-                           <format>{$ctx:format}</format>
+                           <type>{${properties.type}}</type>
+                           <idToUpdate>{${properties.idToUpdate}}</idToUpdate>
+                           <format>{${properties.format}}</format>
                        </fhir.update>
                    </case>
                    <case regex="application/xml">
                        <property name="format" scope="default" type="STRING" value="xml"/>
                        <fhir.update>
-                           <type>{$ctx:type}</type>
-                           <idToUpdate>{$ctx:idToUpdate}</idToUpdate>
-                           <format>{$ctx:format}</format>
+                           <type>{${properties.type}}</type>
+                           <idToUpdate>{${properties.idToUpdate}}</idToUpdate>
+                           <format>{${properties.format}}</format>
                        </fhir.update>
                    </case>
                    <default></default>
@@ -201,26 +201,26 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
        </resource>
        <resource methods="POST" url-mapping="/delete">
            <inSequence>
-               <property expression="json-eval($.base)" name="base" scope="default" type="STRING"/>
-               <property expression="json-eval($.resourceType)" name="type" scope="default" type="STRING"/>
-               <property expression="json-eval($.format)" name="format" scope="default" type="STRING"/>
-               <property expression="json-eval($.idToDelete)" name="idToDelete" scope="default" type="STRING"/>
+               <property expression="${payload.base}" name="base" scope="default" type="STRING"/>
+               <property expression="${payload.resourceType}" name="type" scope="default" type="STRING"/>
+               <property expression="${payload.format}" name="format" scope="default" type="STRING"/>
+               <property expression="${payload.idToDelete}" name="idToDelete" scope="default" type="STRING"/>
                <fhir.init>
                    <base>http://hapi.fhir.org/baseR4</base>
                </fhir.init>
-               <switch source="get-property('transport','Content-Type')">
+               <switch source="${transport.headers.Content-Type}">
                    <case regex="application/json">
                        <property name="format" scope="default" type="STRING" value="json"/>
                        <fhir.delete>
-                           <type>{$ctx:type}</type>
-                           <idToDelete>{$ctx:idToDelete}</idToDelete>
+                           <type>{${properties.type}}</type>
+                           <idToDelete>{${properties.idToDelete}}</idToDelete>
                        </fhir.delete>
                    </case>
                    <case regex="application/xml">
                        <property name="format" scope="default" type="STRING" value="xml"/>
                        <fhir.delete>
-                           <type>{$ctx:type}</type>
-                           <idToDelete>{$ctx:idToDelete}</idToDelete>
+                           <type>{${properties.type}}</type>
+                           <idToDelete>{${properties.idToDelete}}</idToDelete>
                        </fhir.delete>
                    </case>
                    <default></default>

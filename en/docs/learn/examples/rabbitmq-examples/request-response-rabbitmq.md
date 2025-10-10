@@ -60,7 +60,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 <Error>$1</Error>
               </format>
               <args>
-                <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                <arg evaluator="xml" expression="${properties.ERROR_MESSAGE}"/>
               </args>
           </payloadFactory>
           <respond/>

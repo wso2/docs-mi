@@ -30,7 +30,7 @@
                                     }
                             </format>
                             <args>
-                                <arg evaluator="xml" expression="$ctx:uri.var.doctorType"/>
+                                <arg evaluator="xml" expression="${properties.uri.var.doctorType}"/>
                             </args>
                         </payloadFactory>
                         <!--  Invoke the Pine Valley service with a POST request -->
@@ -54,7 +54,7 @@
                 <completeCondition>
                     <messageCount max="-1" min="-1"/>
                 </completeCondition>
-                <onComplete expression="json-eval($.doctors.doctor)">
+                <onComplete expression="${payload.doctors.doctor}">
                     <respond/>
                 </onComplete>
             </aggregate>

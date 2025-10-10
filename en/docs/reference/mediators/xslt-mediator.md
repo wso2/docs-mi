@@ -93,7 +93,7 @@ A XPath expression is used to assign this property the value of the `ORDER_ID` p
 
 ```xml
     <xslt key="keyToXSLTFile">
-         <property expression="$ctx:ORDER_ID" name="PARAM_NAME">
+         <property expression="${properties.ORDER_ID}" name="PARAM_NAME">
     </property></xslt>
 ```
 

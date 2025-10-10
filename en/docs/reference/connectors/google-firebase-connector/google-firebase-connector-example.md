@@ -54,49 +54,49 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
                     <dryRunMode>false</dryRunMode>
                     <topicName>status</topicName>
                     <condition>'status' in topics</condition>
-                    <dataFieldsOfMessage>{$ctx:dataFieldsOfMessage}</dataFieldsOfMessage>
-                    <notificationTitle>{$ctx:notificationTitle}</notificationTitle>
-                    <notificationBody>{$ctx:notificationBody}</notificationBody>
-                    <androidPriority>{$ctx:androidPriority}</androidPriority>
-                    <timeToLiveDuration>{$ctx:timeToLiveDuration}</timeToLiveDuration>
-                    <restrictedPackageName>{$ctx:restrictedPackageName}</restrictedPackageName>
-                    <collapseKey>{$ctx:collapseKey}</collapseKey>
-                    <dataFieldsOfAndroidConfig>{$ctx:dataFieldsOfAndroidConfig}</dataFieldsOfAndroidConfig>
-                    <androidNotificationTitle>{$ctx:androidNotificationTitle}</androidNotificationTitle>
-                    <androidNotificationBody>{$ctx:androidNotificationBody}</androidNotificationBody>
-                    <androidClickAction>{$ctx:androidClickAction}</androidClickAction>
-                    <androidIcon>{$ctx:androidIcon}</androidIcon>
-                    <androidColor>{$ctx:androidColor}</androidColor>
-                    <androidTag>{$ctx:androidTag}</androidTag>
-                    <androidSound>{$ctx:androidSound}</androidSound>
-                    <androidTitleLocalizationKey>{$ctx:androidTitleLocalizationKey}</androidTitleLocalizationKey>
-                    <androidBodyLocalizationKey>{$ctx:androidBodyLocalizationKey}</androidBodyLocalizationKey>
-                    <androidTitleLocalizationArgs>{$ctx:androidTitleLocalizationArgs}</androidTitleLocalizationArgs>
-                    <androidBodyLocalizationArgs>{$ctx:androidBodyLocalizationArgs}</androidBodyLocalizationArgs>
-                    <apnsHeaders>{$ctx:apnsHeaders}</apnsHeaders>
-                    <apnsCustomData>{$ctx:apnsCustomData}</apnsCustomData>
-                    <apnsBadge>{$ctx:apnsBadge}</apnsBadge>
-                    <apnsSound>{$ctx:apnsSound}</apnsSound>
-                    <apnsContentAvailable>{$ctx:apnsContentAvailable}</apnsContentAvailable>
-                    <apnsCategory>{$ctx:apnsCategory}</apnsCategory>
-                    <apnsThreadId>{$ctx:apnsThreadId}</apnsThreadId>
-                    <apnsAlertTitle>{$ctx:apnsAlertTitle}</apnsAlertTitle>
-                    <apnsAlertBody>{$ctx:apnsAlertBody}</apnsAlertBody>
-                    <webPushHeaders>{$ctx:webPushHeaders}</webPushHeaders>
-                    <webPushData>{$ctx:webPushData}</webPushData>
-                    <webPushNotificationTitle>{$ctx:webPushNotificationTitle}</webPushNotificationTitle>
-                    <webPushNotificationBody>{$ctx:webPushNotificationBody}</webPushNotificationBody>
-                    <webPushNotificationIcon>{$ctx:webPushNotificationIcon}</webPushNotificationIcon>
-                    <webPushNotificationBadge>{$ctx:webPushNotificationBadge}</webPushNotificationBadge>
-                    <webPushNotificationImage>{$ctx:webPushNotificationImage}</webPushNotificationImage>
-                    <webPushNotificationLanguage>{$ctx:webPushNotificationLanguage}</webPushNotificationLanguage>
-                    <webPushNotificationTag>{$ctx:webPushNotificationTag}</webPushNotificationTag>
-                    <webPushNotificationDirection>{$ctx:webPushNotificationDirection}</webPushNotificationDirection>
-                    <webPushNotificationRenotify>{$ctx:webPushNotificationRenotify}</webPushNotificationRenotify>
-                    <webPushNotificationInteraction>{$ctx:webPushNotificationInteraction}</webPushNotificationInteraction>
-                    <webPushNotificationSilent>{$ctx:webPushNotificationSilent}</webPushNotificationSilent>
-                    <webPushNotificationTimestamp>{$ctx:webPushNotificationTimestamp}</webPushNotificationTimestamp>
-                    <webPushNotificationVibrate>{$ctx:webPushNotificationVibrate}</webPushNotificationVibrate>
+                    <dataFieldsOfMessage>{${properties.dataFieldsOfMessage}}</dataFieldsOfMessage>
+                    <notificationTitle>{${properties.notificationTitle}}</notificationTitle>
+                    <notificationBody>{${properties.notificationBody}}</notificationBody>
+                    <androidPriority>{${properties.androidPriority}}</androidPriority>
+                    <timeToLiveDuration>{${properties.timeToLiveDuration}}</timeToLiveDuration>
+                    <restrictedPackageName>{${properties.restrictedPackageName}}</restrictedPackageName>
+                    <collapseKey>{${properties.collapseKey}}</collapseKey>
+                    <dataFieldsOfAndroidConfig>{${properties.dataFieldsOfAndroidConfig}}</dataFieldsOfAndroidConfig>
+                    <androidNotificationTitle>{${properties.androidNotificationTitle}}</androidNotificationTitle>
+                    <androidNotificationBody>{${properties.androidNotificationBody}}</androidNotificationBody>
+                    <androidClickAction>{${properties.androidClickAction}}</androidClickAction>
+                    <androidIcon>{${properties.androidIcon}}</androidIcon>
+                    <androidColor>{${properties.androidColor}}</androidColor>
+                    <androidTag>{${properties.androidTag}}</androidTag>
+                    <androidSound>{${properties.androidSound}}</androidSound>
+                    <androidTitleLocalizationKey>{${properties.androidTitleLocalizationKey}}</androidTitleLocalizationKey>
+                    <androidBodyLocalizationKey>{${properties.androidBodyLocalizationKey}}</androidBodyLocalizationKey>
+                    <androidTitleLocalizationArgs>{${properties.androidTitleLocalizationArgs}}</androidTitleLocalizationArgs>
+                    <androidBodyLocalizationArgs>{${properties.androidBodyLocalizationArgs}}</androidBodyLocalizationArgs>
+                    <apnsHeaders>{${properties.apnsHeaders}}</apnsHeaders>
+                    <apnsCustomData>{${properties.apnsCustomData}}</apnsCustomData>
+                    <apnsBadge>{${properties.apnsBadge}}</apnsBadge>
+                    <apnsSound>{${properties.apnsSound}}</apnsSound>
+                    <apnsContentAvailable>{${properties.apnsContentAvailable}}</apnsContentAvailable>
+                    <apnsCategory>{${properties.apnsCategory}}</apnsCategory>
+                    <apnsThreadId>{${properties.apnsThreadId}}</apnsThreadId>
+                    <apnsAlertTitle>{${properties.apnsAlertTitle}}</apnsAlertTitle>
+                    <apnsAlertBody>{${properties.apnsAlertBody}}</apnsAlertBody>
+                    <webPushHeaders>{${properties.webPushHeaders}}</webPushHeaders>
+                    <webPushData>{${properties.webPushData}}</webPushData>
+                    <webPushNotificationTitle>{${properties.webPushNotificationTitle}}</webPushNotificationTitle>
+                    <webPushNotificationBody>{${properties.webPushNotificationBody}}</webPushNotificationBody>
+                    <webPushNotificationIcon>{${properties.webPushNotificationIcon}}</webPushNotificationIcon>
+                    <webPushNotificationBadge>{${properties.webPushNotificationBadge}}</webPushNotificationBadge>
+                    <webPushNotificationImage>{${properties.webPushNotificationImage}}</webPushNotificationImage>
+                    <webPushNotificationLanguage>{${properties.webPushNotificationLanguage}}</webPushNotificationLanguage>
+                    <webPushNotificationTag>{${properties.webPushNotificationTag}}</webPushNotificationTag>
+                    <webPushNotificationDirection>{${properties.webPushNotificationDirection}}</webPushNotificationDirection>
+                    <webPushNotificationRenotify>{${properties.webPushNotificationRenotify}}</webPushNotificationRenotify>
+                    <webPushNotificationInteraction>{${properties.webPushNotificationInteraction}}</webPushNotificationInteraction>
+                    <webPushNotificationSilent>{${properties.webPushNotificationSilent}}</webPushNotificationSilent>
+                    <webPushNotificationTimestamp>{${properties.webPushNotificationTimestamp}}</webPushNotificationTimestamp>
+                    <webPushNotificationVibrate>{${properties.webPushNotificationVibrate}}</webPushNotificationVibrate>
                 </googlefirebase.sendMessage>
                 <log description="log message">
                     <property name="message" value="Google Firebase sucessuflly sent notification"/>
@@ -112,47 +112,47 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="MessageCreateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <propertyGroup>
-            <property expression="json-eval($.dataFieldsOfMessage)" name="dataFieldsOfMessage" scope="default" type="STRING"/>
-            <property expression="json-eval($.notificationTitle)" name="notificationTitle" scope="default" type="STRING"/>
-            <property expression="json-eval($.notificationBody)" name="notificationBody" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidPriority)" name="androidPriority" scope="default" type="STRING"/>
-            <property expression="json-eval($.timeToLiveDuration)" name="timeToLiveDuration" scope="default" type="STRING"/>
-            <property expression="json-eval($.restrictedPackageName)" name="restrictedPackageName" scope="default" type="STRING"/>
-            <property expression="json-eval($.collapseKey)" name="collapseKey" scope="default" type="STRING"/>
-            <property expression="json-eval($.dataFieldsOfAndroidConfig)" name="dataFieldsOfAndroidConfig" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidNotificationTitle)" name="androidNotificationTitle" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidNotificationBody)" name="androidNotificationBody" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidClickAction)" name="androidClickAction" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidIcon)" name="androidIcon" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidColor)" name="androidColor" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidTag)" name="androidTag" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidSound)" name="androidSound" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidTitleLocalizationKey)" name="androidTitleLocalizationKey" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidBodyLocalizationKey)" name="androidBodyLocalizationKey" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidTitleLocalizationArgs)" name="androidTitleLocalizationArgs" scope="default" type="STRING"/>
-            <property expression="json-eval($.androidBodyLocalizationArgs)" name="androidBodyLocalizationArgs" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsHeaders)" name="apnsHeaders" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsCustomData)" name="apnsCustomData" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsBadge)" name="apnsBadge" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsSound)" name="apnsSound" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsContentAvailable)" name="apnsContentAvailable" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsCategory)" name="apnsCategory" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsThreadId)" name="apnsThreadId" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsAlertTitle)" name="apnsAlertTitle" scope="default" type="STRING"/>
-            <property expression="json-eval($.apnsAlertBody)" name="apnsAlertBody" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushHeaders)" name="webPushHeaders" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushData)" name="webPushData" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationTitle)" name="webPushNotificationTitle" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationBody)" name="webPushNotificationBody" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationIcon)" name="webPushNotificationIcon" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationBadge)" name="webPushNotificationBadge" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationImage)" name="webPushNotificationImage" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationLanguage)" name="webPushNotificationLanguage" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationTag)" name="webPushNotificationTag" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationDirection)" name="webPushNotificationDirection" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationRenotify)" name="webPushNotificationRenotify" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationInteraction)" name="webPushNotificationInteraction" scope="default" type="STRING"/>
-            <property expression="json-eval($.webPushNotificationSilent)" name="webPushNotificationSilent" scope="default" type="STRING"/>
+            <property expression="${payload.dataFieldsOfMessage}" name="dataFieldsOfMessage" scope="default" type="STRING"/>
+            <property expression="${payload.notificationTitle}" name="notificationTitle" scope="default" type="STRING"/>
+            <property expression="${payload.notificationBody}" name="notificationBody" scope="default" type="STRING"/>
+            <property expression="${payload.androidPriority}" name="androidPriority" scope="default" type="STRING"/>
+            <property expression="${payload.timeToLiveDuration}" name="timeToLiveDuration" scope="default" type="STRING"/>
+            <property expression="${payload.restrictedPackageName}" name="restrictedPackageName" scope="default" type="STRING"/>
+            <property expression="${payload.collapseKey}" name="collapseKey" scope="default" type="STRING"/>
+            <property expression="${payload.dataFieldsOfAndroidConfig}" name="dataFieldsOfAndroidConfig" scope="default" type="STRING"/>
+            <property expression="${payload.androidNotificationTitle}" name="androidNotificationTitle" scope="default" type="STRING"/>
+            <property expression="${payload.androidNotificationBody}" name="androidNotificationBody" scope="default" type="STRING"/>
+            <property expression="${payload.androidClickAction}" name="androidClickAction" scope="default" type="STRING"/>
+            <property expression="${payload.androidIcon}" name="androidIcon" scope="default" type="STRING"/>
+            <property expression="${payload.androidColor}" name="androidColor" scope="default" type="STRING"/>
+            <property expression="${payload.androidTag}" name="androidTag" scope="default" type="STRING"/>
+            <property expression="${payload.androidSound}" name="androidSound" scope="default" type="STRING"/>
+            <property expression="${payload.androidTitleLocalizationKey}" name="androidTitleLocalizationKey" scope="default" type="STRING"/>
+            <property expression="${payload.androidBodyLocalizationKey}" name="androidBodyLocalizationKey" scope="default" type="STRING"/>
+            <property expression="${payload.androidTitleLocalizationArgs}" name="androidTitleLocalizationArgs" scope="default" type="STRING"/>
+            <property expression="${payload.androidBodyLocalizationArgs}" name="androidBodyLocalizationArgs" scope="default" type="STRING"/>
+            <property expression="${payload.apnsHeaders}" name="apnsHeaders" scope="default" type="STRING"/>
+            <property expression="${payload.apnsCustomData}" name="apnsCustomData" scope="default" type="STRING"/>
+            <property expression="${payload.apnsBadge}" name="apnsBadge" scope="default" type="STRING"/>
+            <property expression="${payload.apnsSound}" name="apnsSound" scope="default" type="STRING"/>
+            <property expression="${payload.apnsContentAvailable}" name="apnsContentAvailable" scope="default" type="STRING"/>
+            <property expression="${payload.apnsCategory}" name="apnsCategory" scope="default" type="STRING"/>
+            <property expression="${payload.apnsThreadId}" name="apnsThreadId" scope="default" type="STRING"/>
+            <property expression="${payload.apnsAlertTitle}" name="apnsAlertTitle" scope="default" type="STRING"/>
+            <property expression="${payload.apnsAlertBody}" name="apnsAlertBody" scope="default" type="STRING"/>
+            <property expression="${payload.webPushHeaders}" name="webPushHeaders" scope="default" type="STRING"/>
+            <property expression="${payload.webPushData}" name="webPushData" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationTitle}" name="webPushNotificationTitle" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationBody}" name="webPushNotificationBody" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationIcon}" name="webPushNotificationIcon" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationBadge}" name="webPushNotificationBadge" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationImage}" name="webPushNotificationImage" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationLanguage}" name="webPushNotificationLanguage" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationTag}" name="webPushNotificationTag" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationDirection}" name="webPushNotificationDirection" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationRenotify}" name="webPushNotificationRenotify" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationInteraction}" name="webPushNotificationInteraction" scope="default" type="STRING"/>
+            <property expression="${payload.webPushNotificationSilent}" name="webPushNotificationSilent" scope="default" type="STRING"/>
         </propertyGroup>
     </sequence>
    ```

@@ -18,11 +18,11 @@ We can use GET Schedules operation with required parameters to find the schedule
 **GET Schedules**
 ```xml
 <ceridiandayforce.getSchedules>
-    <xRefCode>{$ctx:xRefCode}</xRefCode>
-    <filterScheduleStartDate>{$ctx:filterScheduleStartDate}</filterScheduleStartDate>
-    <filterScheduleEndDate>{$ctx:filterScheduleEndDate}</filterScheduleEndDate>
-    <isPosted>{$ctx:isPosted}</isPosted>
-    <expand>{$ctx:expand}</expand>
+    <xRefCode>{${properties.xRefCode}}</xRefCode>
+    <filterScheduleStartDate>{${properties.filterScheduleStartDate}}</filterScheduleStartDate>
+    <filterScheduleEndDate>{${properties.filterScheduleEndDate}}</filterScheduleEndDate>
+    <isPosted>{${properties.isPosted}}</isPosted>
+    <expand>{${properties.expand}}</expand>
 </ceridiandayforce.getSchedules>
 ```
 
@@ -78,26 +78,26 @@ Following example illustrates how to connect to Dayforce with the init operation
    <target>
       <inSequence>
          <log level="full" separator=","/>
-         <property expression="json-eval($.username)" name="username"/>
-         <property expression="json-eval($.password)" name="password"/>
-         <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
-         <property expression="json-eval($.apiVersion)" name="apiVersion"/>
-         <property expression="json-eval($.xRefCode)" name="xRefCode"/>
-         <property expression="json-eval($.isValidateOnly)" name="isValidateOnly"/>
-         <property expression="json-eval($.fieldAndValue)" name="fieldAndValue"/>
-         <property expression="json-eval($.contextDate)" name="contextDate"/>
-         <property expression="json-eval($.filterScheduleStartDate)" name="filterScheduleStartDate"/>
-         <property expression="json-eval($.filterScheduleEndDate)" name="filterScheduleEndDate"/>
+         <property expression="${payload.username}" name="username"/>
+         <property expression="${payload.password}" name="password"/>
+         <property expression="${payload.clientNamespace}" name="clientNamespace"/>
+         <property expression="${payload.apiVersion}" name="apiVersion"/>
+         <property expression="${payload.xRefCode}" name="xRefCode"/>
+         <property expression="${payload.isValidateOnly}" name="isValidateOnly"/>
+         <property expression="${payload.fieldAndValue}" name="fieldAndValue"/>
+         <property expression="${payload.contextDate}" name="contextDate"/>
+         <property expression="${payload.filterScheduleStartDate}" name="filterScheduleStartDate"/>
+         <property expression="${payload.filterScheduleEndDate}" name="filterScheduleEndDate"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.getSchedules>
-            <xRefCode>{$ctx:xRefCode}</xRefCode>
-            <filterScheduleStartDate>{$ctx:filterScheduleStartDate}</filterScheduleStartDate>
-            <filterScheduleEndDate>{$ctx:filterScheduleEndDate}</filterScheduleEndDate>
+            <xRefCode>{${properties.xRefCode}}</xRefCode>
+            <filterScheduleStartDate>{${properties.filterScheduleStartDate}}</filterScheduleStartDate>
+            <filterScheduleEndDate>{${properties.filterScheduleEndDate}}</filterScheduleEndDate>
          </ceridiandayforce.getSchedules>
          <send/>
       </inSequence>

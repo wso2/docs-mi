@@ -167,9 +167,9 @@ The below example uses a Callout mediator to set a HTTP method when invoking a R
                 <target key="response"/>
             </callout>
             <log category="INFO" level="custom">
-                <property name="MESSAGE" expression="$ctx:response"/>
+                <property name="MESSAGE" expression="${properties.response}"/>
             </log>
-            <property expression="$ctx:response" name="res" type="OM"/>
+            <property expression="${properties.response}" name="res" type="OM"/>
             <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
             <property name="RESPONSE" scope="default" type="STRING" value="true"/>
             <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
@@ -185,7 +185,7 @@ The below example uses a Callout mediator to set a HTTP method when invoking a R
                     </format>
                 </format>
                 <args>
-                    <arg expression="$ctx:res" evaluator="xml"/>
+                    <arg expression="${properties.res}" evaluator="xml"/>
                 </args>
             </payloadFactory>
             <respond/>

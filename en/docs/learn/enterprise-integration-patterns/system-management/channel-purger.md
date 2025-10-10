@@ -41,8 +41,8 @@ Start the sample Axis2 server. For instructions, refer to the section ESB Sample
        <sequence name="fault">
           <log level="full">
              <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
-             <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-             <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+             <property name="ERROR_CODE" expression="${properties.ERROR_CODE}"/>
+             <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}"/>
           </log>
           <drop/>
        </sequence>

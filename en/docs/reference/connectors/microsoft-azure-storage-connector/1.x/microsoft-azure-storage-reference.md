@@ -39,9 +39,9 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 
     ```xml
     <msazurestorage.init>
-        <accountName>{$ctx:accountName}</accountName>
-        <accountKey>{$ctx:accountKey}</accountKey>
-        <defaultEndpointsProtocol>{$ctx:defaultEndpointsProtocol}</defaultEndpointsProtocol>
+        <accountName>{${properties.accountName}}</accountName>
+        <accountKey>{${properties.accountKey}}</accountKey>
+        <defaultEndpointsProtocol>{${properties.defaultEndpointsProtocol}}</defaultEndpointsProtocol>
     </msazurestorage.init>
     ```
     
@@ -83,10 +83,10 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 
     ```xml
     <msazurestorage.uploadBlob>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
-        <filePath>{$ctx:filePath}</filePath>
-        <blobContentType>{$ctx:fileContentType}</blobContentType>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
+        <filePath>{${properties.filePath}}</filePath>
+        <blobContentType>{${properties.fileContentType}}</blobContentType>
     </msazurestorage.uploadBlob>
     ```
     
@@ -126,8 +126,8 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 
     ```xml
     <msazurestorage.deleteBlob>
-        <containerName>{$ctx:containerName}</containerName>
-        <fileName>{$ctx:fileName}</fileName>
+        <containerName>{${properties.containerName}}</containerName>
+        <fileName>{${properties.fileName}}</fileName>
     </msazurestorage.deleteBlob>
     ```
     
@@ -161,7 +161,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 
     ```xml
     <msazurestorage.listBlobs>
-        <containerName>{$ctx:containerName}</containerName>
+        <containerName>{${properties.containerName}}</containerName>
     </msazurestorage.listBlobs>
     ```
     
@@ -198,7 +198,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 
     ```xml
     <msazurestorage.createContainer>
-        <containerName>{$ctx:containerName}</containerName>
+        <containerName>{${properties.containerName}}</containerName>
     </msazurestorage.createContainer>
     ```
     
@@ -231,7 +231,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 
     ```xml
     <msazurestorage.deleteContainer>
-        <containerName>{$ctx:containerName}</containerName>
+        <containerName>{${properties.containerName}}</containerName>
     </msazurestorage.deleteContainer>
     ```
     

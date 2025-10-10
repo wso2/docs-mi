@@ -96,35 +96,35 @@ Now follow the steps below to add resources to the API.
     4. Add the property mediator to capture the `attributeDefinitions` value.
 
         - **name** : `attributeDefinitions`
-        - **expression** : `json-eval($.attributeDefinitions)`
+        - **expression** : `${payload.attributeDefinitions}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property1-value1.png" title="Add property mediators attributeDefinitions" width="800" alt="Add property mediators attributeDefinitions"/>
 
     5. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property2-value2.png" title="Add values to capture tableName" width="800" alt="Add values to capture tableName"/>  
       
     6. Add the property mediator to capture the `keySchema` value.
 
         - **name** : `keySchema`
-        - **expression** : `json-eval($.keySchema)`
+        - **expression** : `${payload.keySchema}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property3-value3.png" title="Add values to capture keySchema" width="800" alt="Add values to capture keySchema"/>  
 
     7. Add the property mediator to capture the `localSecondaryIndexes` value.
 
         - **name** : `localSecondaryIndexes`
-        - **expression** : `json-eval($.localSecondaryIndexes)`
+        - **expression** : `${payload.localSecondaryIndexes}`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property4-value4.png" title="Add values to capture localSecondaryIndexes" width="800" alt="Add values to capture localSecondaryIndexes"/>  
 
     8. Add the property mediator to capture the `provisionedThroughput` value.
 
         - **name** : `provisionedThroughput`
-        - **expression** : `json-eval($.provisionedThroughput)`
+        - **expression** : `${payload.provisionedThroughput}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-property5-value5.png" title="Add values to capture provisionedThroughput" width="800" alt="Add values to capture provisionedThroughput"/>  
     
@@ -152,14 +152,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `item` value.  
 
         - **name** : `item`
-        - **expression** : `json-eval($.item)`
+        - **expression** : `${payload.item}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-put-items-table-property1-value1.png" title="Add property mediators to capture item" width="800" alt="Add property mediators to capture item"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
      
 #### Configure a resource for the updatetable operation
 
@@ -185,14 +185,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediators as mentioned in the `addtable` operation. Add the property mediator to capture the `provisionedThroughput` value.  
 
         - **name** : `provisionedThroughput`
-        - **expression** : `json-eval($.provisionedThroughput)`
+        - **expression** : `${payload.provisionedThroughput}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-update-table-property1-value1.png" title="Add property mediators to capture provisionedThroughput" width="800" alt="Add property mediators to capture provisionedThroughput"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
 
 #### Configure a resource for the listdetails operation
 
@@ -218,14 +218,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `key` value.
 
         - **name** : `key`
-        - **expression** : `json-eval($.key)`
+        - **expression** : `${payload.key}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-get-item-property1-value1.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture key"/>
     
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
 
 #### Configure a resource for the deletedetails operation
 
@@ -253,12 +253,12 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in the `addtable` operation. Add the property mediator to capture the `key` value.
 
         - **name** : `key`
-        - **expression** : `json-eval($.key)`
+        - **expression** : `${payload.key}`
        
     4. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
         
 #### Configure a resource for the listtable operation
 
@@ -284,14 +284,14 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `exclusiveStartTableName` value.
 
         - **name** : `exclusiveStartTableName`
-        - **expression** : `json-eval($.exclusiveStartTableName)`
+        - **expression** : `${payload.exclusiveStartTableName}`
         
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-list-table-property1-value1.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture exclusiveStartTableName"/>
        
     4. Add the property mediator to capture the `limit` value.
 
         - **name** : `limit`
-        - **expression** : `json-eval($.limit)`
+        - **expression** : `${payload.limit}`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb/amazon-dynamodb-property-mediator-list-table-property2-value2.png" title="Add property mediators to capture key" width="800" alt="Add property mediators to capture limit"/>
         
@@ -319,7 +319,7 @@ Now follow the steps below to add resources to the API.
     3. Select the `Property` mediator as mentioned in `addtable` operation. Add the property mediator to capture the `tableName` value.
 
         - **name** : `tableName`
-        - **expression** : `json-eval($.tableName)`
+        - **expression** : `${payload.tableName}`
     
 #### Get a response.   
  
@@ -337,11 +337,11 @@ Now you can switch into the Source view and check the XML configuration files of
        <api xmlns="http://ws.apache.org/ns/synapse" context="/resources" name="amazonDynamoDBAPI">
           <resource methods="POST" url-mapping="/addtable">
              <inSequence>
-                <property expression="json-eval($.attributeDefinitions)" name="attributeDefinitions" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
-                <property expression="json-eval($.keySchema)" name="keySchema" scope="default" type="STRING" />
-                <property expression="json-eval($.localSecondaryIndexes)" name="localSecondaryIndexes" scope="default" type="STRING" />
-                <property expression="json-eval($.provisionedThroughput)" name="provisionedThroughput" scope="default" type="STRING" />
+                <property expression="${payload.attributeDefinitions}" name="attributeDefinitions" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.keySchema}" name="keySchema" scope="default" type="STRING" />
+                <property expression="${payload.localSecondaryIndexes}" name="localSecondaryIndexes" scope="default" type="STRING" />
+                <property expression="${payload.provisionedThroughput}" name="provisionedThroughput" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -349,11 +349,11 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.createTable>
-                   <attributeDefinitions>{$ctx:attributeDefinitions}</attributeDefinitions>
-                   <tableName>{$ctx:tableName}</tableName>
-                   <keySchema>{$ctx:keySchema}</keySchema>
-                   <localSecondaryIndexes>{$ctx:localSecondaryIndexes}</localSecondaryIndexes>
-                   <provisionedThroughput>{$ctx:provisionedThroughput}</provisionedThroughput>
+                   <attributeDefinitions>{${properties.attributeDefinitions}}</attributeDefinitions>
+                   <tableName>{${properties.tableName}}</tableName>
+                   <keySchema>{${properties.keySchema}}</keySchema>
+                   <localSecondaryIndexes>{${properties.localSecondaryIndexes}}</localSecondaryIndexes>
+                   <provisionedThroughput>{${properties.provisionedThroughput}}</provisionedThroughput>
                 </amazondynamodb.createTable>
                 <respond />
              </inSequence>
@@ -361,8 +361,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/insertdetails">
              <inSequence>
-                <property expression="json-eval($.item)" name="item" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.item}" name="item" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -370,8 +370,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.putItem>
-                   <item>{$ctx:item}</item>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <item>{${properties.item}}</item>
+                   <tableName>{${properties.tableName}}</tableName>
                 </amazondynamodb.putItem>
                 <respond />
              </inSequence>
@@ -379,8 +379,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/deletedetails">
              <inSequence>
-                <property expression="json-eval($.key)" name="key" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.key}" name="key" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -388,8 +388,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.deleteItem>
-                   <key>{$ctx:key}</key>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <key>{${properties.key}}</key>
+                   <tableName>{${properties.tableName}}</tableName>
                    <returnConsumedCapacity>TOTAL</returnConsumedCapacity>
                    <returnValues>ALL_OLD</returnValues>
                 </amazondynamodb.deleteItem>
@@ -399,8 +399,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/listdetails">
              <inSequence>
-                <property expression="json-eval($.key)" name="key" scope="default" type="STRING" />
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.key}" name="key" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -408,8 +408,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.getItem>
-                   <key>{$ctx:key}</key>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <key>{${properties.key}}</key>
+                   <tableName>{${properties.tableName}}</tableName>
                 </amazondynamodb.getItem>
                 <respond />
              </inSequence>
@@ -417,8 +417,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/listtable">
              <inSequence>
-                <property expression="json-eval($.exclusiveStartTableName)" name="exclusiveStartTableName" scope="default" type="STRING" />
-                <property expression="json-eval($.limit)" name="limit" scope="default" type="STRING" />
+                <property expression="${payload.exclusiveStartTableName}" name="exclusiveStartTableName" scope="default" type="STRING" />
+                <property expression="${payload.limit}" name="limit" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -426,8 +426,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.listTables>
-                   <exclusiveStartTableName>{$ctx:exclusiveStartTableName}</exclusiveStartTableName>
-                   <limit>{$ctx:limit}</limit>
+                   <exclusiveStartTableName>{${properties.exclusiveStartTableName}}</exclusiveStartTableName>
+                   <limit>{${properties.limit}}</limit>
                 </amazondynamodb.listTables>
                 <respond />
              </inSequence>
@@ -435,8 +435,8 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/updatetable">
              <inSequence>
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
-                <property expression="json-eval($.provisionedThroughput)" name="provisionedThroughput" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.provisionedThroughput}" name="provisionedThroughput" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -444,8 +444,8 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.updateTable>
-                   <tableName>{$ctx:tableName}</tableName>
-                   <provisionedThroughput>{$ctx:provisionedThroughput}</provisionedThroughput>
+                   <tableName>{${properties.tableName}}</tableName>
+                   <provisionedThroughput>{${properties.provisionedThroughput}}</provisionedThroughput>
                 </amazondynamodb.updateTable>
                 <respond />
              </inSequence>
@@ -453,7 +453,7 @@ Now you can switch into the Source view and check the XML configuration files of
           </resource>
           <resource methods="POST" url-mapping="/deletetable">
              <inSequence>
-                <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
+                <property expression="${payload.tableName}" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
                    <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
@@ -461,7 +461,7 @@ Now you can switch into the Source view and check the XML configuration files of
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.deleteTable>
-                   <tableName>{$ctx:tableName}</tableName>
+                   <tableName>{${properties.tableName}}</tableName>
                 </amazondynamodb.deleteTable>
                 <respond />
              </inSequence>
