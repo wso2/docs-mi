@@ -424,7 +424,10 @@ nav:
                 - How to Mediate HL7 Messages: learn/examples/hl7-examples/hl7-proxy-service.md
                 - How to Acknowledge HL7 Messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
-      - How to Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
+      - Service Catalog:
+        - How to Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
+        - How to Expose a Soap Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
+        - How to Expose a Data Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-data-services.md
       - How to work with transactions: learn/examples/working-with-transactions.md
       - How to Work with JSON Message Payloads: learn/examples/json-examples/json-examples.md
       - How to Integrate MI with SI: learn/examples/integrating-mi-with-si.md
