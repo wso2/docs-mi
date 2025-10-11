@@ -93,11 +93,11 @@ A Data service allows users to expose data from various data sources such as dat
 
 See the [Data Services]({{base_path}}/reference/synapse-properties/data-services) documentation for more information.
 
-#### Scheduled Tasks
+#### Scheduled triggers
 
-Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day. In the WSO2 Integrator: MI, the execution of a message mediation process can be automated to run periodically by using a scheduled task. Furthermore, you can use cron expressions for more advanced scheduling configurations.
+Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day. In the WSO2 Integrator: MI, the execution of a message mediation process can be automated to run periodically by using a Scheduled trigger. Furthermore, you can use cron expressions for more advanced scheduling configurations.
 
-See the [Scheduled Tasks]({{base_path}}/reference/synapse-properties/scheduled-task-properties) documentation for more information.
+See the [Scheduled triggers]({{base_path}}/reference/synapse-properties/scheduled-task-properties) documentation for more information.
 
 #### Transports
 

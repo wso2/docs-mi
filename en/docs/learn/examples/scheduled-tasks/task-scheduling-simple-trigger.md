@@ -5,7 +5,7 @@ This example demonstrates the concept of tasks and how a simple trigger works. H
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Scheduled Task"
+=== "Scheduled trigger"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="CheckPrice" xmlns="http://ws.apache.org/ns/synapse">
@@ -56,7 +56,7 @@ Following are the integration artifacts that we can used to implement this scena
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
+3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
