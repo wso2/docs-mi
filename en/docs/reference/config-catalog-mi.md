@@ -11454,6 +11454,60 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
     </section>
 </div>
 
+## Expose versioned services configuration
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="56" type="checkbox" id="_tab_56">
+                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
+                <div class="superfices-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[synapse_properties]
+'expose.versioned.services' = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_properties]</code>
+                            <p>
+                                This configuration header is required for exposing versioned services.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>expose.versioned.services</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables exposing APIs, Proxy Services, and Data Services as versioned services.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 {% raw %}
 <script>
 document.addEventListener("DOMContentLoaded", function () {

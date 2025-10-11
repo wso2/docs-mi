@@ -216,6 +216,7 @@ nav:
           - Manage Dependent Projects: develop/integration-project-dependencies.md
       - Integration Artifacts:
           - Integration Artifacts Overview: develop/creating-artifacts/creating-artifacts-overview.md
+          - Versioned Artifact Deployment: develop/creating-artifacts/versioned-artifact-deployment.md
           - Create Artifacts:
               - Create a REST API: develop/creating-artifacts/creating-an-api.md
               - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
