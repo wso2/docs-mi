@@ -716,6 +716,9 @@ nav:
               - FHIR Reference: reference/connectors/fhir-connector/fhir-connector-config.md
           - File Connector:
               - File Connector Overview: reference/connectors/file-connector/file-connector-overview.md
+              - 6.x:
+                  - File Connector Example: reference/connectors/file-connector/6.x/file-connector-example.md
+                  - File Connector Reference: reference/connectors/file-connector/6.x/file-connector-config.md
               - 5.x:
                   - File Connector Example: reference/connectors/file-connector/5.x/file-connector-example.md
                   - File Connector Reference: reference/connectors/file-connector/5.x/file-connector-config.md
