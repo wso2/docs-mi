@@ -241,7 +241,7 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
       </tr>
       <tr class="even">
          <td>
-            <p>Restrict Access to Java Classes and Java Methods/Native Objects in Scripts</p>
+            <p>Configuring Script Mediator</p>
             <p><br /></p>
          </td>
          <td>
