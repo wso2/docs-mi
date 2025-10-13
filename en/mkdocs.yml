@@ -677,7 +677,10 @@ nav:
                       - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                       - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
           - CSV Module:
-              - CSV Module Reference: reference/connectors/csv-module/csv-module-config.md
+              - 3.x:
+                  - reference/connectors/csv-module/3.x/csv-module-config.md
+              - 2.x:
+                  - reference/connectors/csv-module/2.x/csv-module-config.md
           - Email Connector:
               - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
               - 2.x:
@@ -1181,6 +1184,7 @@ plugins:
               'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config'
               'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example'
               'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference'
+              'reference/connectors/csv-module/csv-module-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/csv-module/2.x/csv-module-config.md'
               'reference/connectors/amazons3-connector/amazons3-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
               'reference/connectors/amazons3-connector/amazons3-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
   # Extra
