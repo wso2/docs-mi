@@ -47,6 +47,9 @@ Prior to installing WSO2 Micro Integrator, make sure that the appropriate prereq
   </tr>
 </table>
 
+!!! Tip
+    See [Resource Allocation and Performance]({{base_path}}/install-and-setup/setup/deployment-best-practices/resource-allocation-and-performance/) for guidance on allocating resources for your integrations to achieve the desired throughput (requests per second) and average response times.
+
 ## Environment compatibility
 
 - Install a JDK version that is [compatible with this product version]({{base_path}}/install-and-setup/setup/reference/product-compatibility/).

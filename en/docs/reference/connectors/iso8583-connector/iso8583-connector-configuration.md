@@ -8,7 +8,7 @@ Typically, whenever we use a credit card, debit card, or ATM card, the data trav
 
 Before you start configuring the ISO8583 connector, you also need WSO2 MI, and we refer to that location as <PRODUCT_HOME>.
 
-To configure the ISO8583 connector, copy the following client libraries from the given locations to the `<PRODUCT_HOME>/repository/components/lib` directory.
+To configure the ISO8583 connector, copy the following client libraries from the given locations to the `<MI_HOME>/lib` directory.
 
 !!! info "Note"
     If you are using MI 4.4.0 or later with the MI VSCode extension, you can skip this step as the required libraries are downloaded and packed automatically.

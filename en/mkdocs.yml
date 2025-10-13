@@ -175,6 +175,7 @@ nav:
               - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
               - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deploy on OpenShift: install-and-setup/setup/deployment/openshift-deployment.md
+          - Deploy on Devant: install-and-setup/setup/deployment/devant-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -199,6 +200,7 @@ nav:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
           - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
+          - Resource Allocation and Performance: install-and-setup/setup/deployment-best-practices/resource-allocation-and-performance.md
           - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
@@ -206,6 +208,7 @@ nav:
           - Micro Integrator for VSCode Overview:  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
           - MI Copilot: develop/mi-for-vscode/mi-copilot.md
+          - Best Practices Guide: develop/mi-for-vscode/best-practices.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Integration Projects:
           - Create a Project: develop/create-integration-project.md
@@ -569,16 +572,21 @@ nav:
                   - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/1.x/amazonlambda-connector-1.x-config.md
           - Amazon S3 Connector:
               - AmazonS3 Overview: reference/connectors/amazons3-connector/amazons3-connector-overview.md
+              - Set up Amazon S3:  reference/connectors/amazons3-connector/amazons3-connector-config.md
+              - 3.x:
+                  - AmazonS3 Example: reference/connectors/amazons3-connector/3.x/amazons3-connector-example.md
+                  - AmazonS3 Reference: reference/connectors/amazons3-connector/3.x/amazons3-connector-reference.md
               - 2.x:
-                  - Set up Amazon S3: reference/connectors/amazons3-connector/amazons3-connector-config.md
-                  - AmazonS3 Example: reference/connectors/amazons3-connector/amazons3-connector-example.md
-                  - AmazonS3 Reference: reference/connectors/amazons3-connector/amazons3-connector-reference.md
+                  - AmazonS3 Example: reference/connectors/amazons3-connector/2.x/amazons3-connector-example.md
+                  - AmazonS3 Reference: reference/connectors/amazons3-connector/2.x/amazons3-connector-reference.md
               - 1.x:
-                  - Set up Amazon S3: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md
                   - AmazonS3 Example: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md
                   - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
           - Amazon SQS Connector:
               - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
+              - 3.x:
+                  - Amazon SQS Example: reference/connectors/amazonsqs-connector/3.x/amazonsqs-connector-3.x-example.md
+                  - Amazon SQS Reference: reference/connectors/amazonsqs-connector/3.x/amazonsqs-connector-3.x-reference.md
               - 2.x:
                   - Amazon SQS Example: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example.md
                   - Amazon SQS Reference: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference.md
@@ -590,6 +598,9 @@ nav:
               - Set up Apache Pulsar Connector: reference/connectors/pulsar-connector/pulsar-connector-setup.md
               - Apache Pulsar Connector Example: reference/connectors/pulsar-connector/pulsar-connector-example.md
               - Apache Pulsar Connector Reference: reference/connectors/pulsar-connector/pulsar-connector-reference.md
+          - AS400 PCML Connector:
+              - Set up AS400 PCML Connector: reference/connectors/as400-pcml-connector/as400-pcml-connector-configuration.md
+              - AS400 PCML Connector Reference: reference/connectors/as400-pcml-connector/as400-pcml-connector-reference.md
           - BigQuery Connector:
               - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
               - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
@@ -696,6 +707,11 @@ nav:
           - Sharepoint Connector:
               - Sharepoint Overview: reference/connectors/sharepoint-connector/sharepoint-overview.md
               - Sharepoint Reference: reference/connectors/sharepoint-connector/sharepoint-configuration.md
+          - Salesforce Marketing Cloud Connector:
+              - Salesforce Marketing Cloud Overview: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-overview.md
+              - Salesforce Marketing Cloud Reference: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-configuration.md
+              - Salesforce Marketing Cloud Token Generation: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-token-generation.md
+              - Salesforce Marketing Cloud Email Prerequisites: reference/connectors/salesforce-marketing-cloud-connector/salesforce-marketing-cloud-email-prerequisites.md
           - FHIR Connector:
               - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
               - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
@@ -746,6 +762,11 @@ nav:
               - 3.x:
                     - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-example.md
                     - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/3.x/google-spreadsheet-connector-3.x-config.md
+          - Intelligent Document Processing (IDP) Connector:
+              - Intelligent Document Processing (IDP) Overview: reference/connectors/idp-connector/idp-connector-overview.md
+              - Intelligent Document Processing (IDP) Example: reference/connectors/idp-connector/idp-connector-example.md
+              - Intelligent Document Processing (IDP) Reference: reference/connectors/idp-connector/idp-connector-reference.md
+              - Intelligent Document Processing (IDP) Schema Generation: reference/connectors/idp-connector/idp-connector-schema-generation.md
           - ISO8583 Connector:
               - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
               - Set up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
@@ -767,9 +788,12 @@ nav:
                   - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
           - LDAP Connector:
               - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
-              - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
-              - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
-              - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+              - 2.x:
+                - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
+                - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
+              - 1.x:
+                - LDAP Example: reference/connectors/ldap-connector/1.x/ldap-connector-1.x-example.md
+                - LDAP Reference: reference/connectors/ldap-connector/1.x/ldap-server-1.x-configuration.md
           - Microsoft Azure Data Lake  Connector:
              - Microsoft Azure Data Lake Storage Connector Overview: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-overview.md
              - Set up Microsoft Azure Data Lake Storage: reference/connectors/msazuredatalakestorage-connector/microsoft-azure-data-lake-storage-connector-configuration.md
@@ -809,27 +833,37 @@ nav:
           - Salesforce Connectors:
               - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
               - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
-              - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
-              - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
-              - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
-              - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
-              - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
-              - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
-              - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example.md
-              - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/salesforcebulk-v2-reference.md
-              - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
-              - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
-              - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
+              - 3.x:
+                  - Salesforce Reference: reference/connectors/salesforce-connectors/3.x/sf-rest-connector-config.md
+                  - Salesforce REST API Example: reference/connectors/salesforce-connectors/3.x/sf-rest-connector-example.md
+                  - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/3.x/sf-bulk-v2-connector-example.md
+                  - Salesforce SOAP API Example: reference/connectors/salesforce-connectors/3.x/sf-soap-connector-example.md
+              - 2.x:
+                  - Salesforce Overview: reference/connectors/salesforce-connectors/2.x/sf-overview.md
+                  - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
+                  - Salesforce Bulk API V1 Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
+                  - Salesforce Bulk API V1 Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
+                  - Salesforce REST API V1 Example: reference/connectors/salesforce-connectors/2.x/sf-rest-connector-example.md
+                  - Salesforce REST API Reference: reference/connectors/salesforce-connectors/2.x/sf-rest-connector-config.md
+                  - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/2.x/salesforcebulk-v2-connector-example.md
+                  - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/2.x/salesforcebulk-v2-reference.md
+                  - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/2.x/sf-soap-connector-config.md
+                  - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/2.x/sf-soap-connector-example.md
+                  - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
           - Salesforce Pub/Sub Connector:
               - Salesforce Pub/Sub Overview: reference/connectors/salesforce-pubsub-connector/sf-pubsub-overview.md
               - Set up the Salesforce Pub/Sub Connector: reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration.md
               - Salesforce Pub/Sub Example: reference/connectors/salesforce-pubsub-connector/sf-pubsub-example.md
               - Salesforce Pub/Sub Reference: reference/connectors/salesforce-pubsub-connector/sf-pubsub-connector-reference.md
           - ServiceNow Connector:
-              - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
+              - ServiceNow Connector Overview: reference/connectors/servicenow-connector/servicenow-overview.md
               - Set up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
-              - ServiceNow Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
-              - ServiceNow Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
+              - 2.x:
+                - ServiceNow Connector Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
+                - ServiceNow Connector Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
+              - 1.x:
+                - ServiceNow Example: reference/connectors/servicenow-connector/1.x/servicenow-connector-1.x-example.md
+                - ServiceNow Reference: reference/connectors/servicenow-connector/1.x/servicenow-connector-1.x-config.md
           - SMPP Connector:
               - SMPP Overview: reference/connectors/smpp-connector/smpp-connector-overview.md
               - Set up the SMPP Connector: reference/connectors/smpp-connector/smpp-connector-configuration.md
@@ -843,8 +877,12 @@ nav:
               - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
               - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
               - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
-              - Twitter Example: reference/connectors/twitter-connector/twitter-connector-example.md
-              - Twitter Reference: reference/connectors/twitter-connector/twitter-connector-reference.md
+              - 4.x:
+                - Twitter Example: reference/connectors/twitter-connector/4.x/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/4.x/twitter-connector-reference.md
+              - 3.x:
+                - Twitter Example: reference/connectors/twitter-connector/3.x/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/3.x/twitter-connector-reference.md
           - Snowflake Connector:
               - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
               - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md
@@ -875,6 +913,9 @@ nav:
           - Salesforce Pub/Sub Inbound Endpoint:
                 - Salesforce Pub/Sub Inbound Endpoint Example: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-example.md
                 - Salesforce Pub/Sub Inbound Endpoint Reference: reference/connectors/sf-pubsub-inbound/sf-pubsub-inbound-endpoint-reference.md
+          - Google Pub/Sub Inbound Endpoint:
+                - Google Pub/Sub Inbound Endpoint Example: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-example.md
+                - Google Pub/Sub Inbound Endpoint Reference: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
@@ -1144,6 +1185,8 @@ plugins:
               'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example'
               'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference'
               'reference/connectors/csv-module/csv-module-config.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/csv-module/2.x/csv-module-config.md'
+              'reference/connectors/amazons3-connector/amazons3-connector-example.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
+              'reference/connectors/amazons3-connector/amazons3-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.4.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply

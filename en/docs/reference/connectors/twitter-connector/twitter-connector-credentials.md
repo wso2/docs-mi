@@ -2,7 +2,7 @@
 
 In this documentation, you will learn how to create the Client ID, Access Token and Refresh Token for the Twitter connector using the Twitter developer portal.
 
-For the Twitter connector 3.0.x version, **OAuth 2.0 Authorization Code Flow with PKCE** is used to authenticate the user. Therefore, obtaining credentials is different from the Twitter connector 2.0.x version as it uses **OAuth 1.0a** authentication mechanism. For more information about the authentication mechanism, see [Twitter OAuth 2 guide](https://developer.twitter.com/en/docs/authentication/oauth-2-0/authorization-code). 
+For the Twitter connector 4.0.0+ version, **OAuth 2.0 Authorization Code Flow with PKCE** is used to authenticate the user. The connector features automatic token refresh, eliminating manual token management. This is different from the Twitter connector 2.0.x version which uses **OAuth 1.0a** authentication mechanism. For more information about the authentication mechanism, see [Twitter OAuth 2 guide](https://developer.twitter.com/en/docs/authentication/oauth-2-0/authorization-code). 
 
 ## Steps to follow
 
@@ -28,7 +28,7 @@ For the Twitter connector 3.0.x version, **OAuth 2.0 Authorization Code Flow wit
 7. To obtain the Access Token and Refresh Token, follow the [Twitter OAuth 2 guide](https://developer.twitter.com/en/docs/authentication/oauth-2-0/user-access-token#:~:text=Steps%20to%20connect%20using%20OAuth%202.0). 
 
 !!! info
-    The Twitter access token is valid for 2 hours. The refresh token is valid until a new access token is created from the refresh token.
+    The Twitter access token is valid for 2 hours. The refresh token is valid until a new access token is created from the refresh token. The Twitter connector 4.0.0+ automatically handles token refresh, so you don't need to manually manage token expiry.
 
 !!! warning
     By default the Twitter App provides an access token for OAuth 1.0a flow which is not used in the Twitter connector. You need to create a new access token for OAuth 2.0 flow.
