@@ -63,6 +63,9 @@ The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/
 
 ## Deploying the client libraries
 
+!!! info "Note"
+    If you are using MI 4.4.0 or later with the MI VSCode extension, you can skip this step as the required libraries are downloaded and packed automatically.
+
 Finally download and place the following client libraries in to the `<PRODUCT_HOME>/lib` directory (From S3 connector 2.0.5 and above).
 
 * [auth-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/auth/2.20.26)
