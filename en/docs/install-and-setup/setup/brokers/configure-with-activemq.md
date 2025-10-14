@@ -6,7 +6,7 @@ This section describes how to configure WSO2 Integrator: MI to connect with Acti
 
 Follow the instructions below to set up and configure.
 
-1.  Download [Apache ActiveMQ](http://activemq.apache.org/). WSO2 Integrator: MI supports ActiveMQ Classic versions up to 6.x.
+1.  Download [Apache ActiveMQ](http://activemq.apache.org/). WSO2 Integrator: MI supports ActiveMQ Classic versions up to 6.1.x.
 2.  Download and install WSO2 Integrator: MI.
 3.  Copy the following client libraries from the `ACTIVEMQ_HOME/lib` directory to the `MI_HOME/lib` directory.
 
