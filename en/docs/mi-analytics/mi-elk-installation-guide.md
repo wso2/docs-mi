@@ -63,7 +63,7 @@ In this stage, we download and install the components required from Elastic stac
 
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/8.3/installing-logstash.html) according to your operating system.
 
-2. Use the following [configuration file]({{base_path}}/assets/attachments/mi-elk/config.conf) when starting Logstash. Update the `logstash_internal_user_password` and `elasticsearch_home` placeholders in the configuration file.
+2. Use the following [configuration file]({{base_path}}/assets/attachments/mi-elk/config.conf) when starting Logstash. Update the placeholders in the configuration file.
 
     ``` conf
         input {
@@ -101,11 +101,16 @@ In this stage, we download and install the components required from Elastic stac
                 index => "wso2-mi-analytics-%{[@metadata][appNameIndex]}"
                 ssl => true
                 ssl_certificate_verification => true
-                cacert => "<elasticsearch_home>/config/certs/http_ca.crt"       
+                cacert => "<elasticsearch_home>/config/certs/http_ca.crt"
             }
         }
 
     ```
+
+    !!! important
+        Replace the following placeholders in the configuration:
+        - `logstash_username` and `<logstash_user_password>`: Use the credentials of the user created in step 4 of the Kibana installation (the user with **cluster privileges: manage_index_templates, monitor** and **index privileges: create_index, create, write** for wso2-mi-analytics-* indices pattern).
+        - `<elasticsearch_home>`: Replace with the actual path to your Elasticsearch installation directory.
 
 ### Installing Filebeat
 
