@@ -7,12 +7,15 @@ By default, you cannot deploy multiple versions of the same Composite Applicatio
 With versioned artifact deployment, artifacts are deployed using fully qualified names that include the project’s `groupId`, `artifactId`, and `version`. This allows you to safely deploy multiple versions of the same CApp at the same time.
 
 !!!Note
-    By default, services such as **APIs**, **Proxy services**, and **Data services** are not exposed as versioned services, even when versioned artifact deployment is enabled at the project level.
+    - By default, services such as **APIs**, **Proxy services**, and **Data services** are not exposed as versioned services, even when versioned artifact deployment is enabled at the project level.
     To expose versioned services, you must configure WSO2 Integrator: MI to allow it. See [Expose versioned services](#expose-versioned-services) for more information.
+    - **Inbound endpoints and versioning**:
+        - **Port bound inbounds** (for example, HTTP/HTTPS) do **not** support versioned exposure. Only one inbound can bind to a given port at a time.
+        - **Non port bound inbounds** (for example, JMS/Kafka/AMQP) are deployed using the fully qualified name. However, if multiple versioned inbounds target the **same** broker destination/consumer group, only one may actively consume messages, depending on the broker configuration.
 
 ## Enable versioned deployment
 
-You can enable versioned deployment at the project level in VS Code.
+You can enable artifact versioning from the project setting in VS Code.
 
 1. Open the **Project Overview** in your integration project.
 2. In the **Build Details** section, enable or disable versioned artifact deployment for the project.
