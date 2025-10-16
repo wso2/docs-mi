@@ -161,7 +161,7 @@ Listed below are the Endpoint parameters that can be dynamically injected.
     </tr>
     <tr>
         <td>HTTP Endpoint</td>
-        <td><code>URI</code></td>
+        <td><code>uri-template</code></td>
     </tr>
     <tr>
         <td>Template Endpoint</td>
