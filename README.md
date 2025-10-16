@@ -32,7 +32,7 @@ The WSO2 Integrator: MI documentation provides comprehensive guides, tutorials, 
 
   - `docs-mi/en/docs/` : Contains all the `.md` files with content.
 
-    > **Tip** :
+    > **Tip**:
     > `docs-mi/en/docs/` directory is referred to by {{base_path}} throughout the documentation.
 
     ```html
