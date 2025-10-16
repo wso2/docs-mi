@@ -20,8 +20,8 @@ This repository contains the source code for WSO2 Integrator: MI documentation. 
   - [Image and Page Updates](#when-adding-new-images-or-pages)
   - [Markdown Formatting](#formatting-help)
 - [Legal](#legal)
-   - [Contributor License Agreement (CLA)](#contributor-license-agreement-cla)
-   - [License](#license)
+  - [Contributor License Agreement (CLA)](#contributor-license-agreement-cla)
+  - [License](#license)
 
 ## Getting Started
 
@@ -29,41 +29,49 @@ The WSO2 Integrator: MI documentation provides comprehensive guides, tutorials, 
 
 - **Documentation Website**: [https://mi.docs.wso2.com/](https://mi.docs.wso2.com/)
 - **Repository Structure**:
-  - `docs-mi/en/docs/` : Contains all the `.md` files with content. 
 
-      > **Tip** :
-      > `docs-mi/en/docs/` directory is reffered by {{base_path}} through out the documentation.
-      ```html 
-      e.g.
-      <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
-      ```
+  - `docs-mi/en/docs/` : Contains all the `.md` files with content.
+
+    > **Tip**:
+    > `docs-mi/en/docs/` directory is referred to by {{base_path}} throughout the documentation.
+
+    ```html
+    e.g.
+    <a
+      href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"
+      ><img
+        src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"
+        alt="Mi VS Code Extension"
+        width="80%"
+    /></a>
+    ```
 
   - `docs-mi/en/docs/assets` : Contains all the resources (images/attachments/videos) used throughout the documentation
 
-  - `docs-mi/en/docs/mkdocs.yaml` : The configuration file used by MkDocs, a static site generator that's geared towards project documentation. It defines the structure, theme, plugins, and other settings for building and deploying the documentation site. 
+  - `docs-mi/en/docs/mkdocs.yaml` : The configuration file used by MkDocs, a static site generator that's geared towards project documentation. It defines the structure, theme, plugins, and other settings for building and deploying the documentation site.
 
-      > **Tip** : You have to update `nav` section in `mkdocs.yaml` for new pages you add.
-      ```yml
-      nav:
-         - Home: index.md
-         - Get Started:
-            - Introduction: get-started/introduction.md
-            - Key Concepts: get-started/key-concepts.md
-            - Quick Start Guide: get-started/quick-start-guide.md
-      ```
+    > **Tip** : You have to update `nav` section in `mkdocs.yaml` for new pages you add.
 
-   - `docs-mi/en/docs/requirements.txt` : This file lists all the Python dependencies required to build and run the documentation site locally. These dependencies include MkDocs and its plugins, which are essential for generating and serving the static site.
+    ```yml
+    nav:
+      - Home: index.md
+      - Get Started:
+          - Introduction: get-started/introduction.md
+          - Key Concepts: get-started/key-concepts.md
+          - Quick Start Guide: get-started/quick-start-guide.md
+    ```
 
+  - `docs-mi/en/docs/requirements.txt` : This file lists all the Python dependencies required to build and run the documentation site locally. These dependencies include MkDocs and its plugins, which are essential for generating and serving the static site.
 
-## How to contribute 
+## How to contribute
 
 ### Quick Edits (Minor Changes)
 
 For small changes like fixing typos, updating links, or adding short sections:
 
 1. Navigate to the page you want to edit on GitHub
-2. Click the edit (pen) icon  in the top right corner
-<br/><image src="en/docs/assets/img/edit-button.png" />
+2. Click the edit (pen) icon in the top right corner
+   <br/><image src="en/docs/assets/img/edit-button.png" />
 3. Make your changes to the `.md` file
 4. Add a descriptive commit message
 5. Click "Commit changes" to open a Pull Request (PR)
@@ -96,6 +104,7 @@ You'll need:
 #### Installing Python
 
 **macOS**:
+
 ```bash
 # Check if Python is installed
 python3 --version
@@ -105,6 +114,7 @@ brew install python3
 ```
 
 **Ubuntu/Debian**:
+
 ```bash
 # Python3 is usually pre-installed
 python3 --version
@@ -114,6 +124,7 @@ sudo apt install -y python3-pip
 ```
 
 **Windows**:
+
 1. Download Python from [python.org](https://www.python.org/downloads/)
 2. During installation, check "Add Python to PATH"
 3. Verify installation: `python --version` or `python3 --version`
@@ -121,10 +132,11 @@ sudo apt install -y python3-pip
 #### Setting Up the Project
 
 1. **Fork the repository**
-   
+
    Go to [https://github.com/wso2/docs-mi](https://github.com/wso2/docs-mi) and click the "Fork" button.
 
 2. **Clone your fork**
+
    ```bash
    git clone https://github.com/YOUR-USERNAME/docs-mi.git
    cd docs-mi
@@ -141,6 +153,7 @@ If you face any installation issues, see [Troubleshooting](#troubleshooting).
 ## Running the Project Locally
 
 1. **Start the local server**
+
    ```bash
    # From the docs-mi/en/ directory
    mkdocs serve
@@ -149,14 +162,15 @@ If you face any installation issues, see [Troubleshooting](#troubleshooting).
    If this command fails, see [MkDocs Command Issues](#mkdocs-command-not-found).
 
 2. **View the site**
-   
+
    Open [http://localhost:8000](http://localhost:8000) in your browser
 
 3. **For faster development** (to see changes immediately):
+
    ```bash
    # Edit mkdocs.yml and set strict: false
    mkdocs serve --dirtyreload
-   
+
    # Remember to set strict: true before submitting PR
    ```
 
@@ -165,13 +179,15 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
 ## 🛠️ Troubleshooting
 
 - <a id="mkdocs-command-not-found"></a>**MkDocs Command Not Found**
-  
+
   If you get an error that MkDocs is not found, try:
+
   ```bash
   python3 -m mkdocs serve
   ```
 
 - <a id="when-adding-new-images-or-pages"></a>**When Adding New Images or Pages**
+
   1. Open `mkdocs.yml`
   2. Update `base_path` to `http://localhost:8000/en/latest`
 
@@ -188,9 +204,9 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
 ## Legal
 
 ### **Contributor License Agreement (CLA)**
-  
-  You'll be prompted to sign the CLA via GitHub when submitting your first PR. For any changes to be accepted, the CLA must be signed.
+
+You'll be prompted to sign the CLA via GitHub when submitting your first PR. For any changes to be accepted, the CLA must be signed.
 
 ### **License**
-  
-  This project is licensed under the [Apache License, Version 2.0](LICENSE).
+
+This project is licensed under the [Apache License, Version 2.0](LICENSE).
