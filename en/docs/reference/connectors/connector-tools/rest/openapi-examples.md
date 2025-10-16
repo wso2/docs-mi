@@ -1,6 +1,6 @@
 ## What you'll build
 
-## Integrate with a Pet Store API using OpenAPI Connector Generator
+##### Integrate with a Pet Store API using OpenAPI Connector Generator
 
 This example demonstrates how you can use the WSO2 Micro Integrator OpenAPI Connector Generator to easily integrate with an external PetStore REST API.
 
@@ -21,7 +21,7 @@ It covers generating the connector from an OpenAPI spec, importing into your int
 
 **Step 01:** Create a new sequence or API artifact within your integration project, see [Create Sequence]({{base_path}}/reference/mediators/sequence-mediator).
 
-<a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/openapi-seq.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/openapi-seq.png" alt="generated connector" width="20%" hight="40%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/openapi-seq.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/openapi-seq.png" alt="generated connector" width="20%" height="40%" ></a>
 
 
 **Step 02:** Using `petstore-service.yaml` file, Generate the REST connector following the steps describe in under [the section Generate OpenAPI Connector]({{base_path}}/reference/connectors/connector-tools/rest/rest-connector-overview)
@@ -40,11 +40,11 @@ It covers generating the connector from an OpenAPI spec, importing into your int
 <a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/petstore-connection-2.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/petstore-connection-2.png" alt="Create Order" width="50%" height="60%" ></a>
 
 **Step 05:** Add the `AddPet` operation to your sequence or API. Provide the necessary input for the form UI for the operation.
-<a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/AddPet.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/addpet-operation.png" alt="generated connector" width="40%" hight="40%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/AddPet.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/addpet-operation.png" alt="generated connector" width="40%" height="40%" ></a>
 
-<a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/AddPet.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/AddPet.png" alt="generated connector" width="40%" hight="30%"></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/openapi-tool/AddPet.png"><img src="{{base_path}}/assets/img/integrate/connectors/openapi-tool/AddPet.png" alt="generated connector" width="40%" height="30%"></a>
 
-**Step 06:** Similarly, you can use the `GetPetById` operation to retrieve order details by supplying the `pet id`. Again, make sure the response overwrites the payload.
+**Step 06:** Similarly, you can use the `GetPetById` operation to retrieve pet details by supplying the `pet id`. Again, make sure the response overwrites the payload.
 
 **Step 07:** Add any response handling logic needed to process the output from the openAPI calls at the end of your sequence or API.
 
