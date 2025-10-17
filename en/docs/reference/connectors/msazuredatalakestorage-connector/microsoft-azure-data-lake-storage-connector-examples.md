@@ -341,7 +341,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 ## Build and run the artifacts
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -555,4 +555,4 @@ For inbuilt try-it functionality, Select `MSAzureDataLakeStorageTestAPI` API and
 
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/develop/deploy-artifacts).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the WSO2 Integrator: MI on Containers]({{base_path}}/develop/deploy-artifacts).

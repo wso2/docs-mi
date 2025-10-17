@@ -220,6 +220,13 @@ By default, truncate operations are skipped.</td>
   <td>No</td>
   <td>-</td>
   </tr>
+  <tr>
+  <td>max.batch.size</td>
+  <td>The maximum number of change records that the connector should return in one batch.
+  </td>
+  <td>No</td>
+  <td>-</td>
+  </tr>
 </table>
 
 For more custom configurations, please refer to the [Debezium](https://debezium.io/documentation/reference/stable/index.html) documentation.

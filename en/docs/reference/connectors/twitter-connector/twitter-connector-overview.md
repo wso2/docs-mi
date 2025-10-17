@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Twitter Connector Overview
 
 The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts known as Tweets. You can use the Twitter connector to work with Tweets, users, lists, and direct messages. The connector uses the [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api) to interact with Twitter.
@@ -11,8 +16,9 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector Version | Supported product versions |
-| ------------- |-------------|
+| Connector Version | Supported product versions   |
+| ------------- |------------------------------|
+| 4.0.0    | MI 4.4.0+                    |
 | 3.0.0    | MI 4.2.x, EI 6.6.0, EI 6.4.0 |
 
 For older versions, see the details in the connector store.

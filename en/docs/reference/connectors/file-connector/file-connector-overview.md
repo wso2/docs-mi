@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # File Connector Overview
 
 The File Connector allows you to connect to different file systems and perform various operations. The File Connector uses the [Apache Commons VFS](https://commons.apache.org/proper/commons-vfs/) I/O functionalities to execute operations.
@@ -24,7 +29,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 			5.x
 		</td>
 		<td>
-			MI 4.4.0
+			MI 4.4.0+
 		</td>
 	</tr>
 	<tr>
@@ -32,7 +37,7 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 			4.x
 		</td>
 		<td>
-			APIM 4.0.0, EI 6.4.0, EI 6.5.0, EI 6.6.0, EI 7.0.x, EI 7.1.0
+			MI 4.x.x, APIM 4.0.0, EI 6.4.0, EI 6.5.0, EI 6.6.0, EI 7.0.x, EI 7.1.0
 		</td>
 	</tr>
 	<tr>
@@ -46,6 +51,10 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 </table>
 
 For older versions, see the details in the connector store.
+
+## Prerequisites
+
+For File Connector v4.0.41 or later and v5.0.3 or later, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
 
 ## File Connector documentation (latest - 5.x version)
 

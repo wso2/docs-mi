@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Redis Connector Reference
 
 To use the Redis connector, add the <redis.init> element in your configuration before carrying out any other Redis operations. 

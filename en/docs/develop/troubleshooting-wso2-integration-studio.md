@@ -3,7 +3,7 @@
 The following are some of the ways to troubleshoot errors that you may encounter when working with WSO2 Integration Studio.
 
 !!! warning
-    WSO2 Integration Studio is deprecated. It is recommended to use the [Micro Integrator extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
+    WSO2 Integration Studio is deprecated. It is recommended to use the [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) instead.
 
 ## Adding an artifact
 

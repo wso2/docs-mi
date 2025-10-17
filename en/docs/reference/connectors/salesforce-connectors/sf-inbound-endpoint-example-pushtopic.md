@@ -2,7 +2,7 @@
 
 ## About PushTopic
 
-A PushTopic lets you define a SOQL query and receive event notifications when changes occur to the data matching that query. It provides a powerful way to monitor Salesforce records in near real-time. When a record is created, updated, deleted, or undeleted, a corresponding notification is published to the defined topic, which the Inbound Endpoint in WSO2 Micro Integrator can consume.
+A PushTopic lets you define a SOQL query and receive event notifications when changes occur to the data matching that query. It provides a powerful way to monitor Salesforce records in near real-time. When a record is created, updated, deleted, or undeleted, a corresponding notification is published to the defined topic, which the Inbound Endpoint in WSO2 Integrator: MI can consume.
 
 ## What you'll build
 
@@ -12,10 +12,10 @@ You will:
 
 1. Create a PushTopic using Salesforce Developer Console.
 2. Reset the security token to authenticate with the Salesforce API.
-3. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+3. Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 4. Run and test the integration to receive real-time notifications.
 
-The inbound endpoint acts as a message receiver and injects events into an integration sequence. In this example, we simply log the message, but you can extend this to perform any complex mediation logic using [WSO2 Micro Integrator mediators]({{base_path}}/reference/mediators/about-mediators/).
+The inbound endpoint acts as a message receiver and injects events into an integration sequence. In this example, we simply log the message, but you can extend this to perform any complex mediation logic using [WSO2 Integrator: MI mediators]({{base_path}}/reference/mediators/about-mediators/).
 
 
 In this example, we will use the **Account** object in Salesforce to demonstrate the PushTopic functionality. When an **Account** record is created, updated, deleted, or undeleted, the WSO2 Inbound Endpoint will receive notifications and process them accordingly. For a visual representation of the integration, refer to the diagram below:
@@ -65,7 +65,7 @@ The [PushTopic](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_stre
     <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/reset.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
 
 
-## Step 3: Configure Inbound Endpoint using WSO2 Micro Integrator VS Code Extension
+## Step 3: Configure Inbound Endpoint using WSO2 Integrator: MI VS Code Extension
 
 1. Follow [Create Integration Project]({{base_path}}/develop/create-integration-project/) steps to set up your project.
 
@@ -147,7 +147,7 @@ You can also use the [Salesforce REST Connector example]({{base_path}}/reference
 
 #### Expected Output
 
-After inserting a record, you should see a log entry in the WSO2 Micro Integrator console similar to the following:
+After inserting a record, you should see a log entry in the WSO2 Integrator: MI console similar to the following:
 
    ```
    To: , MessageID: urn:uuid:2D8F9AFA30E66278831587368713372, Direction: request, Payload: {"event":{"createdDate":"2020-04-20T07:45:12.686Z","replayId":4,"type":"created"},"sobject":{"Id":"0012x0000048j9mAAA","Name":"Manager"}}

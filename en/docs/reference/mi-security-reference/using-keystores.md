@@ -89,7 +89,7 @@ certificates. These certificates can be either of the following:
 
 ## Related topics
 
-* [Configure keystores for the Micro Integrator]({{base_path}}/install-and-setup/setup/security/configuring-keystores)
+* [Configure keystores for the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/security/configuring-keystores)
 * [Create new keystores]({{base_path}}/install-and-setup/setup/security/creating-keystores)
 * [Import new SSL certificates to keystores]({{base_path}}/install-and-setup/setup/security/importing-ssl-certificate)
 * [Renewing existing SSL certificates in keystores]({{base_path}}/install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore)

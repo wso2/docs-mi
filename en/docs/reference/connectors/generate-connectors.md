@@ -2,18 +2,18 @@
 
 ## Generate a connector from an OpenAPI definition
 
-This document explains how to generate a connector from an OpenAPI definition using Micro Integrator for VSCode Extension. By using an OpenAPI definition, users can automatically create a connector that enables seamless integration with RESTful APIs. The connector will be added to your project and you can use it in your integration flows. When you share your Integration Project with others, the connector will be included in the project.
+This document explains how to generate a connector from an OpenAPI definition using WSO2 Integrator: MI for VSCode Extension. By using an OpenAPI definition, users can automatically create a connector that enables seamless integration with RESTful APIs. The connector will be added to your project and you can use it in your integration flows. When you share your Integration Project with others, the connector will be included in the project.
 
-Follow the below steps to generate a connector using the WSO2 Micro Integrator for VS Code extension (MI for VS Code).
+Follow the below steps to generate a connector using the WSO2 Integrator: MI for VS Code extension (MI for VS Code).
 
 1. Launch Visual Studio Code with the MI for VS Code extension installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 2. Create a new integration project.
 
-    Click **Create New Project** on **Micro Integrator Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+    Click **Create New Project** on **WSO2 Integrator: MI Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 3. Navigate to the **Project Overview** page.
 
@@ -49,7 +49,7 @@ Follow the below steps to generate a connector using the WSO2 Micro Integrator f
 
 ## Generate a gRPC connector from a Proto definition
 
-This section explains how to generate a gRPC connector from a `.proto` file using the WSO2 Micro Integrator (MI) Connector Generator tool. The gRPC connector enables seamless communication between services, facilitating integration with systems that expose gRPC APIs. By utilizing a `.proto` file, which defines the service and message structure, the connector is automatically generated, allowing you to implement a fully functional gRPC client in your integration.
+This section explains how to generate a gRPC connector from a `.proto` file using the WSO2 Integrator:  MI Connector Generator tool. The gRPC connector enables seamless communication between services, facilitating integration with systems that expose gRPC APIs. By utilizing a `.proto` file, which defines the service and message structure, the connector is automatically generated, allowing you to implement a fully functional gRPC client in your integration.
 
 ### Prerequisites
 
@@ -72,11 +72,11 @@ Follow the steps below to generate the gRPC connector:
 1. **Launch Visual Studio Code** with the MI for VS Code extension installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 2. **Create a new integration project**.
 
-    Click **Create New Project** on **Micro Integrator Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+    Click **Create New Project** on **WSO2 Integrator: MI Project Explorer**. For more options to create a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 3. **Navigate to the Project Overview page**.
 
@@ -149,23 +149,23 @@ Follow the steps below to generate the gRPC connector:
 
         * `<proto-file>` with the path to your `.proto` file.
         * `<output-directory>` with the path where you want the connector to be generated.
-        * `[miVersion]` with your specific WSO2 Micro Integrator version.
+        * `[miVersion]` with your specific WSO2 Integrator: MI version.
 
 ##### Example command
 
 For macOS/Linux:
 
 ```bash
-./generator /path/to/order-service.proto /path/to/output-directory 4.4.0
+./generator /path/to/order-service.proto /path/to/output-directory 4.5.0
 ```
 
 For Windows:
 
 ```bash
-generator.bat C:\path\to\order-service.proto C:\path\to\output-directory 4.4.0
+generator.bat C:\path\to\order-service.proto C:\path\to\output-directory 4.5.0
 ```
 
-By following these steps, you can generate a fully functional gRPC connector from a `.proto` file, enabling seamless integration with gRPC-based services in WSO2 Micro Integrator.
+By following these steps, you can generate a fully functional gRPC connector from a `.proto` file, enabling seamless integration with gRPC-based services in WSO2 Integrator: MI.
 
 ##### Steps to import generated connector
 
@@ -198,7 +198,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 
 <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png" alt="generated connector" width="80%" ></a>
 
-1. Create a new integration project in WSO2 Micro Integrator for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+1. Create a new integration project in WSO2 Integrator: MI for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 2. Create a new sequence or API artifact within your integration project, see [Create Sequence]({{base_path}}/reference/mediators/sequence-mediator).
          
       <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png" alt="generated connector" width="20%" hight="40%" ></a>
@@ -248,7 +248,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 
 ##### Advanced data mapping example with order management integration
 
-This example shows how to use the generated gRPC connector alongside the `Data Mapper` mediator in WSO2 Micro Integrator to perform advanced data mapping and transformation.
+This example shows how to use the generated gRPC connector alongside the `Data Mapper` mediator in WSO2 Integrator: MI to perform advanced data mapping and transformation.
 
   - Follow steps 1–4 above to set up your integration project and connection.
     - Imagine a scenario where you have a complex JSON object with 30 fields from another data source, and you need to map it to the `CreateOrder` request message defined in the `order-service.proto` file. You can use the `Data Mapper` mediator to transform this complex structure into the expected input for your gRPC call.
@@ -276,7 +276,7 @@ This example shows how to use the generated gRPC connector alongside the `Data M
               }
             
           ```
-      - **Data Mapping**: Use the [`Data Mapper mediator`]({{base_path}}/reference/mediators/data-mapper-mediator) to map the complex JSON structure to the `CreateOrderRequest` message. The mapping can be done visually in the WSO2 Micro Integrator for VS Code.
+      - **Data Mapping**: Use the [`Data Mapper mediator`]({{base_path}}/reference/mediators/data-mapper-mediator) to map the complex JSON structure to the `CreateOrderRequest` message. The mapping can be done visually in the WSO2 Integrator: MI for VS Code.
       
 
         <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png" alt="data mapper mediator" width="30%" height="40%" ></a>

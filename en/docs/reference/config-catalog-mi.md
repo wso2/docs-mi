@@ -1,8 +1,8 @@
 # Integration Server Configurations
 
-All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+All the server-level configurations of your WSO2 Integrator: MI instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
-The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions. You can also see the documentation on product [installation and setup](../install-and-setup/install-and-setup-overview.md) for details on applying product configurations to your Micro Integrator deployment.
+The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions. You can also see the documentation on product [installation and setup](../install-and-setup/install-and-setup-overview.md) for details on applying product configurations to your WSO2 Integrator: MI deployment.
 
 ## Instructions for use
 
@@ -11,7 +11,7 @@ To update the product configurations:
 1. Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 2. Select the required configuration headers and parameters from the list given below and apply them to the `deployment.toml` file.
 
-The **default** `deployment.toml` file of the Micro Integrator is as follows:
+The **default** `deployment.toml` file of the WSO2 Integrator: MI is as follows:
 
 ```toml
 [server]
@@ -58,7 +58,7 @@ enable_swa=false
                             <code>[server]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
+                                This configuration header is required for configuring the deployment parameters that are used for identifying a WSO2 Integrator: MI server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">WSO2 Integrator: MI</a>. The required and optional parameters for this configuration are listed below.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -80,7 +80,7 @@ enable_swa=false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The hostname of the Micro Integrator instance.</p>
+                                        <p>The hostname of the WSO2 Integrator: MI instance.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -139,7 +139,7 @@ enable_swa=false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the Micro Integrator will process the files attached to SOAP messages.</p>
+                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the WSO2 Integrator: MI will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -252,7 +252,7 @@ password = "$secret{password}"</code></pre>
                             <code>[[service_catalog]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This cofiguration header is required if you want the Micro Integrator to publish integation services to the Service Catalog in the API Publisher. This allows you to generate an API proxy for the integrations deployed in the Micro Integrator.
+                                This cofiguration header is required if you want the WSO2 Integrator: MI to publish integation services to the Service Catalog in the API Publisher. This allows you to generate an API proxy for the integrations deployed in the WSO2 Integrator: MI.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -293,7 +293,7 @@ password = "$secret{password}"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The service catalog client in the Micro Integrator is enabled when this parameter is set to &#39;true&#39;.</p>
+                                        <p>The service catalog client in the WSO2 Integrator: MI is enabled when this parameter is set to &#39;true&#39;.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -372,7 +372,7 @@ node_id = "dev_node_2"</code></pre>
                             <code>[dashboard_config]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the Micro Integrator server to connect with the Integration Control Plane.
+                                This configuration header is required for the WSO2 Integrator: MI server to connect with the Integration Control Plane.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -413,7 +413,7 @@ node_id = "dev_node_2"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The time interval (in seconds) between two consecutive heartbeats that are sent from the Micro Integrator to the ICP server.</p>
+                                        <p>The time interval (in seconds) between two consecutive heartbeats that are sent from the WSO2 Integrator: MI to the ICP server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -434,7 +434,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The server group to which the Micro Integrator instance belongs. Specify the same group ID in all the Micro Integrator servers that should belong to a single group. By default, a &#39;group_id&#39; named &#39;default&#39; is assinged to every Micro Integrator server that connects to the ICP server. When you sign in to the ICP server, you can view data per server group.</p>
+                                        <p>The server group to which the WSO2 Integrator: MI instance belongs. Specify the same group ID in all the WSO2 Integrator: MI servers that should belong to a single group. By default, a &#39;group_id&#39; named &#39;default&#39; is assinged to every WSO2 Integrator: MI server that connects to the ICP server. When you sign in to the ICP server, you can view data per server group.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -455,7 +455,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The ICP server identifies the Micro Integrator node by this ID. If you have already specified a node ID when you set up the Micro Integrator cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default.</p>
+                                        <p>The ICP server identifies the WSO2 Integrator: MI node by this ID. If you have already specified a node ID when you set up the WSO2 Integrator: MI cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -493,7 +493,7 @@ key_password = "wso2carbon"</code></pre>
                             <code>[keystore.primary]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#changing-the-default-primary-keystore">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href="#internal-keystore">separate keystore</a> for internal data encryption.
+                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#changing-the-default-primary-keystore">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href="#internal-keystore">separate keystore</a> for internal data encryption.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -574,7 +574,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the Micro Integrator server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file.</p>
+                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the WSO2 Integrator: MI server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -631,7 +631,7 @@ key_password = "wso2carbon"</code></pre>
                             <code>[keystore.internal]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#separating-the-internal-keystore">configuring the internal keystore</a>.
+                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#separating-the-internal-keystore">configuring the internal keystore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -712,7 +712,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the Micro Integrator server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file. By default, the alias of the primary keystore is enabled for this purpose.</p>
+                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the WSO2 Integrator: MI server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file. By default, the alias of the primary keystore is enabled for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -824,7 +824,7 @@ alias="symmetric.key.value"</code></pre>
                             <code>[truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
+                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -949,7 +949,7 @@ user.password = "pwd-2"
                             <code>[internal_apis.file_user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling the default file-based user store of the Micro Integrator's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>configuring user stores</a>.
+                                This configuration header is required for disabling the default file-based user store of the WSO2 Integrator: MI's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1108,7 +1108,7 @@ connection_retry_delay = "120000"
                             <code>[user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for conencting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>external user store</a>.
+                                This configuration header is required for conencting the WSO2 Integrator: MI to an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>external user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1130,7 +1130,7 @@ connection_retry_delay = "120000"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This parameter specifies the type of user store. The following options are available: &lt;ul&gt;&lt;li&gt;read_only_ldap: The Micro Integrator connects to a read-only LDAP. &lt;/li&gt;&lt;li&gt;read_write_ldap: The Micro Integrator connects to an LDAP with write permissions.&lt;/li&gt;&lt;li&gt;database: The Micro Integrator connects to an RDBMS user store.&lt;/li&gt;&lt;/ul&gt; When you set this parameter, all of the remaining parameters (listed below) are inferred with default values. You can override the defaults by giving specific values to these parameters.</p>
+                                        <p>This parameter specifies the type of user store. The following options are available: &lt;ul&gt;&lt;li&gt;read_only_ldap: The WSO2 Integrator: MI connects to a read-only LDAP. &lt;/li&gt;&lt;li&gt;read_write_ldap: The WSO2 Integrator: MI connects to an LDAP with write permissions.&lt;/li&gt;&lt;li&gt;database: The WSO2 Integrator: MI connects to an RDBMS user store.&lt;/li&gt;&lt;/ul&gt; When you set this parameter, all of the remaining parameters (listed below) are inferred with default values. You can override the defaults by giving specific values to these parameters.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1778,7 +1778,7 @@ pool_options.testOnBorrow = true</code></pre>
                             <code>[[datasource]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for connecting to a database from the Micro Integrator. Databases are only required if you are connecting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store'>RDBMS user store</a>.
+                                This configuration header is required for connecting to a database from the WSO2 Integrator: MI. Databases are only required if you are connecting the WSO2 Integrator: MI to an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store'>RDBMS user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2052,7 +2052,7 @@ pool_options.testOnBorrow = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The memory size allocated for WSO2 Micro Integrator.</p>
+                                        <p>The memory size allocated for WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2449,7 +2449,7 @@ token_config.size= "2048"
                             <code>[management_api.jwt_token_security_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for configuring the default JWT token store configurations of the WSO2 Integrator: MI's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2617,7 +2617,7 @@ path = "/apis"
                             <code>[management_api.authorization_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling authorization for the Micro Integrator's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for disabling authorization for the WSO2 Integrator: MI's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2647,7 +2647,7 @@ path = "/apis"
                             <code>[[management_api.authorization_handler.resources]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the Micro Integrator's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the WSO2 Integrator: MI's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2705,7 +2705,7 @@ allowed_headers = "Authorization"</code></pre>
                             <code>[management_api.cors]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring CORs for the Management API of the Micro Integrator. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for configuring CORs for the Management API of the WSO2 Integrator: MI. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2811,7 +2811,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
                             <code>[message_builders]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the Micro Integrator in the default non-blocking mode. If you are using the Micro Integrator in blocking mode, see the <a href='#message-builders-blocking-mode'>message builder configurations for blocking mode</a>.
+                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the WSO2 Integrator: MI in the default non-blocking mode. If you are using the WSO2 Integrator: MI in blocking mode, see the <a href='#message-builders-blocking-mode'>message builder configurations for blocking mode</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3043,7 +3043,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
                             <code>[blocking.message_builders]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the Micro Integrator in <b>blocking</b> mode. You can use the <a href='#message-builders-non-blocking-mode'>same list of parameters</a> that are available for message builders in non-blocking mode.
+                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the WSO2 Integrator: MI in <b>blocking</b> mode. You can use the <a href='#message-builders-non-blocking-mode'>same list of parameters</a> that are available for message builders in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3088,7 +3088,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                             <code>[message_formatters]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message formatting</a> implementation that is used for formatting messages that are sent out of the Micro Integrator in <b>non-blocking</b> mode. If you are using the Micro Integrator in <b>blocking</b> mode, see the <a href='#message-formatter-blocking-mode'>message formatter configurations for blocking mode</a>.
+                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message formatting</a> implementation that is used for formatting messages that are sent out of the WSO2 Integrator: MI in <b>non-blocking</b> mode. If you are using the WSO2 Integrator: MI in <b>blocking</b> mode, see the <a href='#message-formatter-blocking-mode'>message formatter configurations for blocking mode</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3110,7 +3110,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3131,7 +3131,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3152,7 +3152,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3173,7 +3173,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3194,7 +3194,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3215,7 +3215,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3236,7 +3236,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3257,7 +3257,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3278,7 +3278,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3299,7 +3299,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3320,7 +3320,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formating implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the WSO2 Integrator: MI. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3364,7 +3364,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                             <code>[blocking.message_formatters]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message formatter</a> implementations that are used to format messages that are sent out from the Micro Integrator in <b>blocking</b> mode. You can use the <a href='#message-formatters-non-blocking-mode'>same list of parameters</a> that are available for message formatters in non-blocking mode.
+                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message formatter</a> implementations that are used to format messages that are sent out from the WSO2 Integrator: MI in <b>blocking</b> mode. You can use the <a href='#message-formatters-non-blocking-mode'>same list of parameters</a> that are available for message formatters in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3760,7 +3760,7 @@ force_json_validation = false</code></pre>
                             <code>[transport.http]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that are used for <a href='../../install-and-setup/setup/performance-tuning/http-transport-tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.
+                                This configuration header is required for configuring the parameters that are used for <a href='../../install-and-setup/setup/performance-tuning/http-transport-tuning'>tuning the default HTTP/S passthrough transport</a> of the WSO2 Integrator: MI in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3803,7 +3803,7 @@ force_json_validation = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The Micro Integrator uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the integrator increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the integrator are the main factors that helps to determine this parameter.</p>
+                                        <p>The WSO2 Integrator: MI uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the integrator increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the integrator are the main factors that helps to determine this parameter.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4600,7 +4600,7 @@ force_json_validation = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If this property is enabled and the payload exceeds the size specified by the &#39;max_message_size_bytes&#39; property, the Micro Integrator will discontinue reading the input stream. This will prevent out-of-memory issues.</p>
+                                        <p>If this property is enabled and the payload exceeds the size specified by the &#39;max_message_size_bytes&#39; property, the WSO2 Integrator: MI will discontinue reading the input stream. This will prevent out-of-memory issues.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4621,7 +4621,7 @@ force_json_validation = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If the size of the payload exceeds this value, the Micro Integrator will discontinue reading the input stream. Only applicable if the ‘enable_message_size_validation’ property is enabled.</p>
+                                        <p>If the size of the payload exceeds this value, the WSO2 Integrator: MI will discontinue reading the input stream. Only applicable if the ‘enable_message_size_validation’ property is enabled.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4663,7 +4663,7 @@ force_json_validation = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This property validates badly formed XML messages by building the whole XML document. This validation ensures that erroneous XML messages will trigger the fault sequence in the Micro Integrator.</p>
+                                        <p>This property validates badly formed XML messages by building the whole XML document. This validation ensures that erroneous XML messages will trigger the fault sequence in the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4684,7 +4684,7 @@ force_json_validation = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This property validates JSON messages by parsing the input message. This validation ensures that erroneous JSON messages will trigger the fault sequence in the Micro Integrator.</p>
+                                        <p>This property validates JSON messages by parsing the input message. This validation ensures that erroneous JSON messages will trigger the fault sequence in the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5517,7 +5517,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.vfs]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring how the Micro Integrator communicates through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport'>VFS transport</a>.
+                                This configuration header is required for configuring how the WSO2 Integrator: MI communicates through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport'>VFS transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5623,7 +5623,7 @@ sender.parameter.customParameter = ""</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the Micro Integrator server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file. By default, the alias of the primary keystore is enabled for this purpose.</p>
+                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the WSO2 Integrator: MI server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file. By default, the alias of the primary keystore is enabled for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -5710,7 +5710,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[[transport.http.secured_proxy_profile]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#mail-transport-listener-blocking-mode'>blocking transport listener</a>.
+                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#mail-transport-listener-blocking-mode'>blocking transport listener</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5816,7 +5816,7 @@ sender.parameter.customParameter = ""</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the Micro Integrator server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file. By default, the alias of the primary keystore is enabled for this purpose.</p>
+                                        <p>The alias of the public key corresponding to the private key that is included in the keystore. The public key is used for encrypting data in the WSO2 Integrator: MI server, which only the corresponding private key can decrypt. The public key is embedded in a digital certificate, and this certificate can be shared over the internet by storing it in a separate trust store file. By default, the alias of the primary keystore is enabled for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -5894,7 +5894,7 @@ parameter.customParameter = ""</code></pre>
                             <code>[transport.mail.listener]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the MailTo transport listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the blocking transport listener.
+                                This configuration header is required for configuring the MailTo transport listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the blocking transport listener.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5916,7 +5916,7 @@ parameter.customParameter = ""</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The parameter for enabling the MAIL transport listener in the Micro Integrator.</p>
+                                        <p>The parameter for enabling the MAIL transport listener in the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -6015,7 +6015,7 @@ parameter.from = "demo_user@wso2.com"</code></pre>
                             <code>[[transport.mail.sender]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport sender as well as the <a href='#mail-transport-sender-blocking-mode'>blocking transport sender</a>.
+                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport sender as well as the <a href='#mail-transport-sender-blocking-mode'>blocking transport sender</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -6037,7 +6037,7 @@ parameter.from = "demo_user@wso2.com"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The parameter for enabling the MAIL transport sender in the Micro Integrator.</p>
+                                        <p>The parameter for enabling the MAIL transport sender in the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -6058,7 +6058,7 @@ parameter.from = "demo_user@wso2.com"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The mail server that serves outgoing mails from the Micro Integrator.</p>
+                                        <p>The mail server that serves outgoing mails from the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -6274,7 +6274,7 @@ parameter.consume_error_progression = "2.0"</code></pre>
                             <code>[[transport.jms.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener implementation of the Micro Integrator in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#jms-transport-listener-blocking-mode'>blocking transport listener</a>.
+                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#jms-transport-listener-blocking-mode'>blocking transport listener</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -6380,7 +6380,7 @@ parameter.consume_error_progression = "2.0"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The cache level that should apply when JMS objects startup. When the Micro Integrator produces JMS messages, you need to specify this cache level in the deployment.toml file. If the Micro Integrator works as JMS listener, you need to specify the JMS cache level in the proxy service. See the list of service-level JMS parameters.</p>
+                                        <p>The cache level that should apply when JMS objects startup. When the WSO2 Integrator: MI produces JMS messages, you need to specify this cache level in the deployment.toml file. If the WSO2 Integrator: MI works as JMS listener, you need to specify the JMS cache level in the proxy service. See the list of service-level JMS parameters.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7160,7 +7160,7 @@ parameter.vender_class_loader = false</code></pre>
                             <code>[[transport.jms.sender]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender implementation of the Micro Integrator in non-blocking mode.
+                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender implementation of the WSO2 Integrator: MI in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -7287,7 +7287,7 @@ parameter.vender_class_loader = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The cache level that should apply when JMS objects startup. When the Micro Integrator produces JMS messages, you need to specify this cache level in the deployment.toml file. If the Micro Integrator works as JMS listener, you need to specify the JMS cache level in the proxy service. See the list of service-level JMS parameters.</p>
+                                        <p>The cache level that should apply when JMS objects startup. When the WSO2 Integrator: MI produces JMS messages, you need to specify this cache level in the deployment.toml file. If the WSO2 Integrator: MI works as JMS listener, you need to specify the JMS cache level in the proxy service. See the list of service-level JMS parameters.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8291,7 +8291,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ broker. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Integrator: MI to receive messages from a RabbitMQ broker. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8480,7 +8480,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Determines whether message acknowledgments are sent automatically after a message is consumed by the Micro Integrator.</p>
+                                        <p>Determines whether message acknowledgments are sent automatically after a message is consumed by the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8700,7 +8700,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The content type to be used by the consumer. This parameter takes priority over the content type specified in the incoming message. If this parameter is not set, the Micro Integrator will fall back to the content type in the message, and finally to the default content type if neither is available.</p>
+                                        <p>The content type to be used by the consumer. This parameter takes priority over the content type specified in the incoming message. If this parameter is not set, the WSO2 Integrator: MI will fall back to the content type in the message, and finally to the default content type if neither is available.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8720,7 +8720,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the event of a network failure or broker shutdown, the Micro Integrator will attempt to reconnect a number of times (as specified by the <code>parameter.retry_count</code> parameter), waiting for the interval defined by this parameter (in milliseconds) between each retry attempt.</p>
+                                        <p>In the event of a network failure or broker shutdown, the WSO2 Integrator: MI will attempt to reconnect a number of times (as specified by the <code>parameter.retry_count</code> parameter), waiting for the interval defined by this parameter (in milliseconds) between each retry attempt.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8740,7 +8740,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the event of a network failure or broker shutdown, the Micro Integrator will attempt to reconnect as many times as specified by this parameter. If set to <code>-1</code>, the Micro Integrator will retry indefinitely until the connection is restored.</p>
+                                        <p>In the event of a network failure or broker shutdown, the WSO2 Integrator: MI will attempt to reconnect as many times as specified by this parameter. If set to <code>-1</code>, the WSO2 Integrator: MI will retry indefinitely until the connection is restored.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8913,7 +8913,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
 </div>
 
 
-## RabbitMQ Sender
+## RabbitMQ Sender (non-blocking mode)
 
 <div class="mb-config-catalog">
     <section>
@@ -8942,7 +8942,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[transport.rabbitmq]</code>
                             
                             <p>
-                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required for enabling the RabbitMQ listener in the WSO2 Integrator: MI. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8964,7 +8964,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this parameter to <code>true</code> if you want to configure the Micro Integrator to send messages to a RabbitMQ broker.</p>
+                                        <p>Set this parameter to <code>true</code> if you want to configure the WSO2 Integrator: MI to send messages to a RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div>
@@ -9110,6 +9110,74 @@ parameter.connection_pool_size = 10</code></pre>
     </section>
 </div>
 
+## RabbitMQ Sender (blocking mode)
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="42" type="checkbox" id="_tab_42">
+                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[transport.rabbitmq]
+sender_enable = true
+
+[transport.blocking.rabbitmq.sender]
+name = "rabbitMQSender"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+parameter.connection_pool_size = 10</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[transport.rabbitmq]</code>
+
+                            <p>
+                                This configuration header is required for enabling the RabbitMQ listener in the WSO2 Integrator: MI. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Set this parameter to <code>true</code> if you want to configure the WSO2 Integrator: MI to send messages to a RabbitMQ broker.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[[transport.blocking.rabbitmq.sender]]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                This configuration header groups the parameters that are used to configure the RabbitMQ sender in blocking mode. You can use the <a href='#rabbitmq-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking RabbitMQ sender.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 ## FIX Transport
 
@@ -9136,7 +9204,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.fix]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport'>FIX transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport'>FIX transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9235,7 +9303,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.mqtt]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport'>MQTT transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport'>MQTT transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9278,7 +9346,7 @@ sender.parameter.customParameter = ""</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The name of the host. By default, the hostname of the Micro Integrator server is used.</p>
+                                        <p>The name of the host. By default, the hostname of the WSO2 Integrator: MI server is used.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9471,7 +9539,7 @@ sender.bapi.parameter.customParameter = ""</code></pre>
                             <code>[transport.sap]</code>
                             
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to <a href='../../learn/integration-tutorials/sap-integration'>communicate with SAP</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to <a href='../../learn/integration-tutorials/sap-integration'>communicate with SAP</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9680,7 +9748,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.msmq]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-msmq-transport'>MSMQ transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-msmq-transport'>MSMQ transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9787,7 +9855,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.tcp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#tcp-transport-blocking-mode'>blocking transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#tcp-transport-blocking-mode'>blocking transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9996,7 +10064,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.ws]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>Websocket transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>Websocket transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10122,7 +10190,7 @@ sender.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[transport.wss]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>secured Websocket transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>secured Websocket transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10288,7 +10356,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.udp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#udp-transport-blocking-mode'>blocking transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#udp-transport-blocking-mode'>blocking transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10406,7 +10474,7 @@ protocol = "hl7"</code></pre>
                             <code>[[custom_transport.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to receive messages through a <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to receive messages through a <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10484,7 +10552,7 @@ protocol = "hl7"</code></pre>
                             <code>[transport.udp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to send messages through a <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to send messages through a <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10589,7 +10657,7 @@ inbound.max_threads = 100</code></pre>
                             <code>[mediation]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters used for tuning the mediation process (Synapse engine) of the Micro Integrator. These parameters are mainly used when mediators such as Iterate and Clone (which uses the internal thread pools) are used.
+                                This configuration header groups the parameters used for tuning the mediation process (Synapse engine) of the WSO2 Integrator: MI. These parameters are mainly used when mediators such as Iterate and Clone (which uses the internal thread pools) are used.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10695,7 +10763,7 @@ inbound.max_threads = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If this parameter is set to true, the Micro Integrator can switch to XPATH 2.0. This parameter can be set to false if XPATH 2.0 evaluations cause performance degradation. The Micro Integrator uses the Saxon Home Edition when implementing XPATH 2.0 functionalities, and thus supports all the functions that are shipped with it. For more information on the supported functions, see the Saxon Documentation.</p>
+                                        <p>If this parameter is set to true, the WSO2 Integrator: MI can switch to XPATH 2.0. This parameter can be set to false if XPATH 2.0 evaluations cause performance degradation. The WSO2 Integrator: MI uses the Saxon Home Edition when implementing XPATH 2.0 functionalities, and thus supports all the functions that are shipped with it. For more information on the supported functions, see the Saxon Documentation.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10716,7 +10784,7 @@ inbound.max_threads = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message size that can be processed by the Micro Integrator.</p>
+                                        <p>The message size that can be processed by the WSO2 Integrator: MI.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -10864,6 +10932,130 @@ inbound.max_threads = 100</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Set this property to true and enable tracing for the required integration artifact to record the following information:&lt;ul&gt;&lt;li&gt;Message context properties.&lt;/li&gt;&lt;li&gt;Message transport-scope properties.&lt;/li&gt;&lt;/ul&gt;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+## REST API - CORS Configuration
+
+To enable CORS for the [REST APIs]({{base_path}}/develop/creating-artifacts/creating-an-api) globally, you need to configure the API's CORS settings in the `deployment.toml` file:
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="56" type="checkbox" id="_tab_56">
+                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
+                <div class="superfices-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[synapse_properties]
+'synapse.rest.CORSConfig.enabled' = "true"
+'synapse.rest.CORSConfig.Access-Control-Allow-Origin' = "https://test.com"
+'synapse.rest.CORSConfig.Access-Control-Allow-Headers' = "content-type, Accept, Authorization"
+'synapse.rest.CORSConfig.Access-Control-Allow-Methods' = "GET, POST, DELETE, PUT, PATCH, OPTIONS"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_properties]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                This configuration header is required for configuring CORS settings for REST APIs globally.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable CORS for the REST APIs at the server level.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.Access-Control-Allow-Origin</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-optional">Optional</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the allowed origins for CORS requests. Use '*' to allow all origins or specify a specific URL.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.Access-Control-Allow-Headers</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-optional">Optional</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the allowed headers for CORS requests. Provide a comma-separated list of header names.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.Access-Control-Allow-Methods</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-optional">Optional</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the allowed methods for CORS requests. Provide a comma-separated list of HTTP methods (e.g., GET, POST).</p>
                                     </div>
                                 </div>
                             </div>
@@ -11082,7 +11274,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify the root token generated from the HashiCorp server. This is only applicable if static token authentication is used when connecting the Micro Integrator to the HashiCorp server.</p>
+                                        <p>Specify the root token generated from the HashiCorp server. This is only applicable if static token authentication is used when connecting the WSO2 Integrator: MI to the HashiCorp server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11103,7 +11295,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify the role ID generated from HashiCorp. The secret ID and role ID you specify in the deployment.toml file will internally generate a token and authenticate the HashiCorp server connection. The role ID is only applicable if AppRole Pull authentication is used when connecting the Micro Integrator to the HashiCorp server.</p>
+                                        <p>Specify the role ID generated from HashiCorp. The secret ID and role ID you specify in the deployment.toml file will internally generate a token and authenticate the HashiCorp server connection. The role ID is only applicable if AppRole Pull authentication is used when connecting the WSO2 Integrator: MI to the HashiCorp server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11124,7 +11316,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify the secret ID generated from HashiCorp. The secret ID and role ID you sepecify in the deployment.toml file will internally generate a token and authenticate the HashiCorp server connection. The secret ID you generate in HashiCorp may expire. If that happens, you can renew the security token. The secret ID is only applicable if AppRole Pull authentication is used when connecting the Micro Integrator to the HashiCorp server.</p>
+                                        <p>Specify the secret ID generated from HashiCorp. The secret ID and role ID you sepecify in the deployment.toml file will internally generate a token and authenticate the HashiCorp server connection. The secret ID you generate in HashiCorp may expire. If that happens, you can renew the security token. The secret ID is only applicable if AppRole Pull authentication is used when connecting the WSO2 Integrator: MI to the HashiCorp server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11208,7 +11400,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The keystore file (trust store) that is used to store the digital certificates that the Micro Integrator trusts for SSL communication.</p>
+                                        <p>The keystore file (trust store) that is used to store the digital certificates that the WSO2 Integrator: MI trusts for SSL communication.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11229,7 +11421,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This keystore used for SSL handshaking when the Micro Integrator communicates with the HashiCorp server.</p>
+                                        <p>This keystore used for SSL handshaking when the WSO2 Integrator: MI communicates with the HashiCorp server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11250,7 +11442,61 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the keystore file that is used for SSL communication. If you are using the default keystore file in the Micro Integrator, the default password is &#39;wso2carbon&#39;.</p>
+                                        <p>The password of the keystore file that is used for SSL communication. If you are using the default keystore file in the WSO2 Integrator: MI, the default password is &#39;wso2carbon&#39;.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+## Expose versioned services configuration
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="56" type="checkbox" id="_tab_56">
+                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
+                <div class="superfices-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[synapse_properties]
+'expose.versioned.services' = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_properties]</code>
+                            <p>
+                                This configuration header is required for exposing versioned services.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>expose.versioned.services</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables exposing APIs, Proxy Services, and Data Services as versioned services.</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 # How to Handle Endpoint Errors
 
-The last step of message processing inside WSO2 Micro Integrator
+The last step of message processing inside WSO2 Integrator: MI
 is to send the message to a service provider (see also [Working with Mediators]({{base_path}}/reference/mediators/about-mediators))
 by sending the message to a listening service
 [endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties). During this process, transport
@@ -10,7 +10,7 @@ handling is a key part of any successful Micro
 Integrator deployment.
 
 Messages can fail or be lost due to various reasons in a real TCP
-network. When an error occurs, if the Micro Integrator is not
+network. When an error occurs, if the WSO2 Integrator: MI is not
 configured to accept the error, it will mark the endpoint as failed,
 which leads to a message failure. By default, the endpoint is marked as
 failed for quite a long time, and due to this error, subsequent messages
@@ -82,10 +82,10 @@ suspensions.
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the WSO2 Integrator: MI Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. [Create a project]({{base_path}}/develop/create-integration-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke the sample API by executing the following command:
 
@@ -140,10 +140,10 @@ be configured without having to change the endpoint configuration.
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the WSO2 Integrator: MI Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. [Create a project]({{base_path}}/develop/create-integration-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ## Example 3: Dynamic endpoint failover management
 Let's look at a sample configuration where you have a dynamic URL with failover management for
@@ -215,10 +215,10 @@ Follow any of the options given below to re-enable an endpoint that is suspended
 
 Create the artifacts:
 
-1. [Launch Visual Studio Code with the Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
+1. [Launch Visual Studio Code with the WSO2 Integrator: MI Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 2. [Create a project]({{base_path}}/develop/create-integration-project).
 3. [Create the REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -245,7 +245,7 @@ curl -v -X GET "http://localhost:8290/test"
 You will not observe any endpoint suspended logs for the above API call.
 
 ## Example 4: Configuring retry
-You can configure the Micro Integrator to enable or disable retry for an endpoint when a specific error code occurs.
+You can configure the WSO2 Integrator: MI to enable or disable retry for an endpoint when a specific error code occurs.
 
 ### Synapse configuration
 

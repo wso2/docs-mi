@@ -18,7 +18,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 
 ## Steps to follow
 
-**Step 01:** Create a new integration project in WSO2 Micro Integrator for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+**Step 01:** Create a new integration project in WSO2 Integrator: MI for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 **Step 02:** Create a new sequence or API artifact within your integration project, see [Create Sequence]({{base_path}}/reference/mediators/sequence-mediator).
          
@@ -81,7 +81,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 
 ##### Advanced data mapping example with order management integration
 
-This example shows how to use the generated gRPC connector alongside the `Data Mapper` mediator in WSO2 Micro Integrator to perform advanced data mapping and transformation.
+This example shows how to use the generated gRPC connector alongside the `Data Mapper` mediator in WSO2 Integrator: MI to perform advanced data mapping and transformation.
 
   - Follow steps 1–4 above to set up your integration project and connection.
     - Imagine a scenario where you have a complex JSON object with 30 fields from another data source, and you need to map it to the `CreateOrder` request message defined in the `order-service.proto` file. You can use the `Data Mapper` mediator to transform this complex structure into the expected input for your gRPC call.
@@ -109,7 +109,7 @@ This example shows how to use the generated gRPC connector alongside the `Data M
               }
             
           ```
-      - **Data Mapping**: Use the [`Data Mapper mediator`]({{base_path}}/reference/mediators/data-mapper-mediator) to map the complex JSON structure to the `CreateOrderRequest` message. The mapping can be done visually in the WSO2 Micro Integrator for VS Code.
+      - **Data Mapping**: Use the [`Data Mapper mediator`]({{base_path}}/reference/mediators/data-mapper-mediator) to map the complex JSON structure to the `CreateOrderRequest` message. The mapping can be done visually in the WSO2 Integrator: MI for VS Code.
       
 
         <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png" alt="data mapper mediator" width="30%" height="40%" ></a>

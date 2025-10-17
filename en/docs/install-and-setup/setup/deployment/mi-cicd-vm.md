@@ -1,6 +1,6 @@
 There are two kinds of jobs in Jenkins that we need to maintain. One for the Integration project repositories. Another kind is for the Deployment Descriptor repositories. 
 
-[![VM based CI/CD for Micro Integrator]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)
+[![VM based CI/CD for WSO2 Integrator: MI]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)
 
 #### Integration Project Build Job
 - We need to maintain one Jenkins job per Integration Project repository.
@@ -18,7 +18,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 ##### Prerequisites
 
-1. Install [Micro Integrator Extension for VS Code](../../../../develop/mi-for-vscode/install-wso2-mi-for-vscode)
+1. Install [WSO2 Integrator: MI Extension for VS Code](../../../../develop/mi-for-vscode/install-wso2-mi-for-vscode)
 
 2. Two GitHub repositories 
    
@@ -29,9 +29,9 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 4. Nexus server - To store the deployable composite artifacts (CApps). 
 
-5. Micro Integrator instances in 3 environment (Standalone or Clustered)
+5.WSO2 Integrator: MI instances in 3 environment (Standalone or Clustered)
 
-6. Separate Micro Integrator instance as Unit Testing Server (Optional)
+6. Separate WSO2 Integrator: MI instance as Unit Testing Server (Optional)
 
 
 #### Sample User guide
@@ -69,7 +69,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
     ```
 
 13. Commit the above created folder to the dev branch (environment) of the deployment repository. 
-14. Once you commit the changes, you can observe that the descriptor-dev job starts running and it pulls the CApps from the nexus and copies it to the configured Micro Integrator instance in the Dev environment.
+14. Once you commit the changes, you can observe that the descriptor-dev job starts running and it pulls the CApps from the nexus and copies it to the configured WSO2 Integrator: MI instance in the Dev environment.
 15. Verify that the new changes are available in the Dev environment.
 16. You can repeat steps 13, 14 and 15 for the Staging and Prod environment.
 
@@ -105,7 +105,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
     `docker run -d -p 8080:8080 -v ~/.ssh:/root/.ssh <image-name>:<image-tag>`
     
     !!! Info
-        We need to share the host .ssh configurations with the Docker container as in above. The host machine needs to have ssh access to copy the CApps files to the remote instance where the Micro Integrator instances are running.
+        We need to share the host .ssh configurations with the Docker container as in above. The host machine needs to have ssh access to copy the CApps files to the remote instance where the WSO2 Integrator: MI instances are running.
      
 9. After installing Jenkins, the jobs can be accessed via `http://localhost:8080`.
 
@@ -142,7 +142,7 @@ If you have written Synapse unit tests for your Integration project, you can run
 
 To set up the Synapse Unit testing server, please follow the below steps.
 
-1. Run a separate Micro Integrator Instance in Unit testing mode. To start the server in Unit testing mode please pass this argument `-DsynapseTest`.
+1. Run a separate WSO2 Integrator: MI Instance in Unit testing mode. To start the server in Unit testing mode please pass this argument `-DsynapseTest`.
 
     If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` to the above command. Default port is 9008
 

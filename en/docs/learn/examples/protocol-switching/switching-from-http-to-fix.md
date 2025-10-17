@@ -1,6 +1,6 @@
 # How to Switch from HTTP to FIX
 
-This example demonstrates how WSO2 Micro Integrator receives messages in HTTP and forwards them through FIX.
+This example demonstrates how WSO2 Integrator: MI receives messages in HTTP and forwards them through FIX.
 
 Synapse will create a session with the **Executor** and forward the order request. The first response coming from the Executor will be sent back over HTTP. The Executor generally sends two responses for each incoming order request. But since the response has to be forwarded over HTTP, only one can be sent back to the client.
 
@@ -53,7 +53,7 @@ Create the artifacts:
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location. 
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 [Enable the FIX transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
 
@@ -63,7 +63,7 @@ Run the quickfixj **Executor** sample application.
 java -jar quickfixj-examples-executor-2.3.1.jar
 ```
 
-Send the following request to the Micro Integrator.
+Send the following request to the WSO2 Integrator: MI.
 
 ```bash
 curl -X POST \

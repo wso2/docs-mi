@@ -299,7 +299,7 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 		
 		See the complete list of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection) and their descriptions. Also, see the recommendations for [tuning the JDBC connection pool]({{base_path}}/install-and-setup/setup/performance-tuning/jdbc-tuning).
 	
-		The datasource configured under the `[[datasource]]` TOML heading will now be the effective user store for the Micro Integrator. 
+		The datasource configured under the `[[datasource]]` TOML heading will now be the effective user store for the WSO2 Integrator: MI. 
 
 ## What's next?
 

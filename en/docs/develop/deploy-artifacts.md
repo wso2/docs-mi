@@ -1,13 +1,13 @@
 # Deploying Artifacts
 
-Now that you have developed an integration using the Micro Integrator Visual Studio Code plugin, you have several options to deploy that integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI Visual Studio Code plugin, you have several options to deploy that integration to the WSO2 Integrator: MI server runtime.
 
 ## Build and Run
 
-1.	[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator server on your local machine.
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI server on your local machine.
 2.  Follow these steps to add the server to the VS Code extension if it has not been added yet.
     1. Open the command palette by pressing `Ctrl+Shift+P` and select the command `Add MI Server`.
-    2. In the file selector that opens, select the Micro Integrator server directory.<br>
+    2. In the file selector that opens, select the WSO2 Integrator: MI server directory.<br>
        <a href="{{base_path}}/assets/img/develop/add-server.png"><img src="{{base_path}}/assets/img/develop/add-server.png" alt="addServer" width="700"></a>
     
 3.  Open the **Project Overview** page by clicking on the **Project Overview** icon.
@@ -18,7 +18,7 @@ Now that you have developed an integration using the Micro Integrator Visual Stu
 
     <a href="{{base_path}}/assets/img/develop/build-and-run.png"><img src="{{base_path}}/assets/img/develop/build-and-run.png" alt="buildAndRun" width="300"></a>
 
-5.  Then the artifacts will get deployed in the Micro Integrator server and you can see the deployment logs in the **Console**.
+5.  Then the artifacts will get deployed in the WSO2 Integrator: MI server and you can see the deployment logs in the **Console**.
 
     <a href="{{base_path}}/assets/img/develop/run-overview.png"><img src="{{base_path}}/assets/img/develop/run-overview.png" alt="deploymentLogs" width="700"></a>
 
@@ -40,7 +40,7 @@ Once the Carbon Application is exported, we can copy it to the `<MI_HOME>/reposi
 
 ## Build Docker image
 
-We can use the Micro Integrator VS Code extension to build a Docker image of our integration solution.
+We can use the WSO2 Integrator: MI VS Code extension to build a Docker image of our integration solution.
 
 1.  Make sure the Docker is installed on your local machine and the Docker daemon is running.
 2.  Click on the **Build** button on the top right corner of the **Project Overview** page and select the Docker option to build the Docker image.

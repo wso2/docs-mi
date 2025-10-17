@@ -1,6 +1,6 @@
 # Overview
 
-This section explains how to set up the observability solutions and perform management tasks for WSO2 Micro Integrator.
+This section explains how to set up the observability solutions and perform management tasks for WSO2 Integrator: MI.
 
 ## Observability
 
@@ -12,7 +12,7 @@ find the root causes of a system failure.
 
 ### Observability solutions
 
-WSO2 Micro Integrator offers an observability solution based on Prometheus, Loki, Jaeger and Grafana. You can also monitor basic observability data sources such as metrics, logs, and traces.
+WSO2 Integrator: MI offers an observability solution based on Prometheus, Loki, Jaeger and Grafana. You can also monitor basic observability data sources such as metrics, logs, and traces.
 
 [![Observability Solution]({{base_path}}/assets/img/observe/observability.png)]({{base_path}}/assets/img/observe/observability.png)
 
@@ -33,7 +33,7 @@ The Grafana based observability solution and basic observability solution are su
                 <li>Tracing (add-on)</li>
             </ul>
         </td>
-        <td>The default Grafana based observability solution includes metrics monitoring by default. You can optionally extend this setup by adding log processing and distributed tracing at any time. This modular approach is ideal if you're looking for a comprehensive observability solution for Micro Integrator deployments. It also integrates seamlessly with existing setups especially if you already use Prometheus, Grafana, Loki, and Jaeger as your in-house monitoring and observability tools.</td>
+        <td>The default Grafana based observability solution includes metrics monitoring by default. You can optionally extend this setup by adding log processing and distributed tracing at any time. This modular approach is ideal if you're looking for a comprehensive observability solution for WSO2 Integrator: MI deployments. It also integrates seamlessly with existing setups especially if you already use Prometheus, Grafana, Loki, and Jaeger as your in-house monitoring and observability tools.</td>
     </tr>
     <tr>
         <td>Basic Observability</td>
@@ -44,11 +44,11 @@ The Grafana based observability solution and basic observability solution are su
                 <li>Logging</li>
             </ul>
         </td>
-        <td>This solution allows you to monitor the requests and the responses that correspond to a specific API call, monitor your application's usage, enable tracing and monitor WSO2 Micro Integrator via the JConsole tool. This is a more simpler solution.</td>
+        <td>This solution allows you to monitor the requests and the responses that correspond to a specific API call, monitor your application's usage, enable tracing and monitor WSO2 Integrator: MI via the JConsole tool. This is a more simpler solution.</td>
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Set up Grafana based Observability for a Micro Integrator Deployment in VM](setting-up-cloud-native-observability-on-a-vm.md) or [Set up Grafana based Observability for a Micro Integrator Deployment in Kubernetes](setting-up-cloud-native-observability-in-kubernetes.md)
+* For instructions to set up the above observability solutions, see [Set up Grafana based Observability for a WSO2 Integrator: MI Deployment in VM](setting-up-cloud-native-observability-on-a-vm.md) or [Set up Grafana based Observability for a WSO2 Integrator: MI Deployment in Kubernetes](setting-up-cloud-native-observability-in-kubernetes.md)
 
 * For more information on how to use the Grafana based solution, see [View Grafana based Observability Statistics](viewing-cloud-native-observability-statistics.md).
 

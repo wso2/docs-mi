@@ -1,6 +1,6 @@
 # Security Guidelines for Production Deployment
 
-Given below are the common security guidelines for deploying a WSO2 Micro Integrator in a **production environment**.
+Given below are the common security guidelines for deploying a WSO2 Integrator: MI in a **production environment**.
 
 In addition, see the [production deployment checklist]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines) and any other product-specific guidelines in the documentation.
 
@@ -10,11 +10,11 @@ In addition, see the [production deployment checklist]({{base_path}}/install-and
 
 ## Runtime-level security
 
-Given below are the security guidelines for the Micro Integrator runtimes. Note that some of these guidelines are common to both runtimes, whereas some guidelines are runtime-specific.
+Given below are the security guidelines for the WSO2 Integrator: MI runtimes. Note that some of these guidelines are common to both runtimes, whereas some guidelines are runtime-specific.
 
-### Micro Integrator runtime security
+###WSO2 Integrator: MI runtime security
 
-Given below are the security guidelines for the Micro Integrator runtime.
+Given below are the security guidelines for the WSO2 Integrator: MI runtime.
 
 <table>
    <thead>
@@ -74,7 +74,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>For information on all the default ports used by WSO2 Micro Integrator, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</p>
+            <p>For information on all the default ports used by WSO2 Integrator: MI, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</p>
             <p>For information on changing a default port, see <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset">Changing the Default Ports with Offset</a>.</p>
         </td>
       </tr>
@@ -84,7 +84,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
         </td>
         <td>
             <p>If your product runtimes are connecting to an external user store for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
-            <p>See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">Configuring a User Store</a> for the Micro Integrator runtime.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">Configuring a User Store</a> for the WSO2 Integrator: MI runtime.</p>
         </td>
       </tr>
       <tr class="even">
@@ -190,7 +190,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>The user name and password of the super administrator of your Micro Integrator (the first administrator) is created by adding the following configuration to the <code>deployment.toml</code> file. When you go into production, be sure to manually check your user store and ensure that unwanted super admin records are removed.</p>
+            <p>The user name and password of the super administrator of your WSO2 Integrator: MI (the first administrator) is created by adding the following configuration to the <code>deployment.toml</code> file. When you go into production, be sure to manually check your user store and ensure that unwanted super admin records are removed.</p>
             <div class="code panel pdl" style="border-width: 1px;">
              <div class="codeContent panelContent pdl">
                 <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -203,10 +203,10 @@ Given below are the security guidelines for the Micro Integrator runtime.
              </div>
             </div>     
             <p> Note that you can easily use the management API to <b>add, update, and delete</b> admins and regular users in the user store. However, the super admin users created from the <code>deployment.toml</code> file should be managed manually.</p>
-            <p>See the following topics for instructions to correctly create your administrators and other users in the Micro Integrator.</p>       
+            <p>See the following topics for instructions to correctly create your administrators and other users in the WSO2 Integrator: MI.</p>       
             <ul>
-               <li><a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/">Configuring a User Store</a> for the Micro Integrator.</li>
-               <li><a href="{{base_path}}/install-and-setup/setup/user-stores/managing-users/">Managing Users</a> for the Micro Integrator.</li>
+               <li><a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/">Configuring a User Store</a> for the WSO2 Integrator: MI.</li>
+               <li><a href="{{base_path}}/install-and-setup/setup/user-stores/managing-users/">Managing Users</a> for the WSO2 Integrator: MI.</li>
             </ul>                   
          </td>
       </tr>
@@ -216,7 +216,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for WSO2 Integrator: MI can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
             <p>See <a href="{{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs/">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
          </td>
       </tr>
@@ -226,7 +226,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/">configuring logs</a> in the Micro Integrator.</p>
+            <p>Read about <a href="{{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/">configuring logs</a> in the WSO2 Integrator: MI.</p>
          </td>
       </tr>
       <tr class="even">
@@ -237,6 +237,66 @@ Given below are the security guidelines for the Micro Integrator runtime.
          <td>
             <p>The recommended JDK version is JDK 11. See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
             <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Configuring Script Mediator</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>
+               JS scripts can be used inside script mediators to access Java classes,
+               methods, and native objects. From MI 4.5.0 onward, access to the classes <code>java.lang.Runtime</code>, and <code>java.lang.System</code> from the script mediator is revoked by default. If existing script mediator use cases rely on these classes, either
+                  <ol>
+                     <li>Modify the existing integration artifacts accordingly or</li>
+                     <li>Tune the access control configuration by changing the <code>conf/deployment.toml</code></li>  
+                  </ol>
+            </p>
+            <p>
+               <b>Limiting Access to Java Classes</b><br />
+               Access to Java Classes can be restricted by providing the following configurations
+               in <code>conf/deployment.toml</code>.
+            </p>
+            <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+               data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+'limit_java_class_access_in_scripts.enable' = true # or false
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+            <p>
+               Only the Java classes having names starting with any of the values given under
+               <code>limit_java_class_access_in_scripts.class_prefixes</code> will be allowed,
+               when <code>limit_java_class_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>
+               (all other classes will not be allowed).<br />
+               Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>,
+               classes with matching names will be selectively blocked. 
+            </p>
+            <div style="background:#f8f9fa; border-left:4px solid #ccc; padding:8px; margin:8px 0;">
+               <strong>Note:</strong>  
+               Limiting access to Java classes is supported with Rhino JS, Nashorn JS, and GraalJS engines.
+            </div>
+            <p>
+               <b>Limiting Access to Java Methods/Native Objects</b><br />
+               Access to Java Methods/Native Objects can be restricted by providing the following
+               configurations in <code>conf/deployment.toml</code>.
+            </p>
+            <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+               data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+'limit_java_native_object_access_in_scripts.enable' = true # or false
+'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
+'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader"</code></pre>
+            <p>
+               Java methods/native objects having names equal to any of the values given under
+               <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively
+               blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is
+               <code>BLOCK_LIST</code> (all other methods will be allowed).<br />
+               Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
+               is <code>ALLOW_LIST</code>, methods with matching names will be selectively allowed.
+            </p>
+            <div style="background:#f8f9fa; border-left:4px solid #ccc; padding:8px; margin:8px 0;">
+               <strong>Note:</strong>  
+               Limiting access to Java methods is only supported with the Rhino JS engine.
+            </div>
          </td>
       </tr>
    </tbody>

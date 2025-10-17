@@ -12,7 +12,7 @@ for not frequently re-used custom developments and very user-specific
 scenarios, for which, there is no built-in mediator that already
 provides the required functionality.
 
-Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Micro Integrator Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) for debugging Class mediators.
+Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Integrator: MI Visual Studio Code extension]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) for debugging Class mediators.
 
 ## Syntax
 
@@ -22,24 +22,18 @@ Your class mediator might not be picked up and updated if you use an existing 
 </class>
 ```
 
+!!! Warning
+    - Using class variables with expressions can cause performance degradation. Therefore, it is **not recommended** to use dynamic expressions such as `<property name="variable2" expression="get-property('variable1')"/>`. Instead, use setters and getters to dynamically access properties within the Java class's `mediate` method, as shown in [Dynamically access and set properties](#dynamically-access-and-set-properties).
+
+    - For static values, you can pass them directly, for example `<property name="variable1" value="10"/>`.
+
 ## Configuration
 
 **Class Name**: The name of the class. To load a class, enter the qualified name of the relevant class in this parameter and click **Load Class**.
 
 ## Example
 
-In this configuration, the Micro Integrator sends the requested message to the endpoint specified via the [Send mediator]({{base_path}}/reference/mediators/send-mediator). This endpoint is the Axis2server running on port 9000. The response message is passed through a Class mediator before it is sent back to the client. Two parameters named `         variable1        ` and `         variable2        ` are passed to the instance mediator implementation class ( `SimpleClassMediator`).
-
-!!! Info
-    If you want, you can pass the same variables as a value or an expression:
-
-    -   Example for passing the variable as a value: `          <property name="variable1" value="10"/>         `
-
-    -   Example for passing the variable as an expression: `          <property name="variable2" expression="get-property('variable1')"/>         `  
-        For more information on using the get property method, see the [Property Mediator]({{base_path}}/reference/mediators/property-mediator).
-
-!!! Warning
-        Using the class variables with expressions will lead to the values evaluated being mixed up when there are concurrent requests and will lead to erroneous behaviors. 
+In this configuration, the WSO2 Integrator: MI sends the requested message to the endpoint specified via the [Send mediator]({{base_path}}/reference/mediators/send-mediator). This endpoint is the Axis2server running on port 9000. The response message is passed through a Class mediator before it is sent back to the client. Two parameters named `         variable1        ` and `         variable2        ` are passed to the instance mediator implementation class ( `SimpleClassMediator`).
 
 === "Proxy Service"
     ```xml
@@ -149,6 +143,30 @@ package samples.mediators;
 
         public String getVariable2(){
             return variable2;
+        }
+    }
+```
+
+### Dynamically access and set properties
+
+```java
+package samples.mediators;
+
+    import org.apache.synapse.MessageContext;
+    import org.apache.synapse.mediators.AbstractMediator;
+    import org.apache.commons.logging.Log;
+    import org.apache.commons.logging.LogFactory;
+
+    public class SimpleClassMediator extends AbstractMediator {
+
+        private static final Log log = LogFactory.getLog(SimpleClassMediator.class);
+
+        public boolean mediate(MessageContext mc) {
+            // Access a property
+            String prop1 = (String) mc.getProperty("PropertyName");
+            // Set a property
+            mc.setProperty("NewPropertyName", "PropertyValue");
+            return true;
         }
     }
 ```

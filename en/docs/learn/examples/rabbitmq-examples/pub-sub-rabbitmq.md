@@ -1,8 +1,8 @@
 # How to Publish and Subscribe with RabbitMQ
 
-This sample demonstrates how WSO2 Micro Integrator can be used to implement a publisher-subscriber messaging scenario using RabbitMQ topics. That is, a message publisher can broadcast a message to multiple consumers through the RabbitMQ topic.
+This sample demonstrates how WSO2 Integrator: MI can be used to implement a publisher-subscriber messaging scenario using RabbitMQ topics. That is, a message publisher can broadcast a message to multiple consumers through the RabbitMQ topic.
 
-As shown below, the publisher proxy in the Micro Integrator will publish messages to a RabbitMQ topic, which multiple subscriber proxies (defined in the Micro Integrator) will consume.
+As shown below, the publisher proxy in the WSO2 Integrator: MI will publish messages to a RabbitMQ topic, which multiple subscriber proxies (defined in the WSO2 Integrator: MI) will consume.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-pub-sub.png">
 
@@ -86,7 +86,7 @@ Create the artifacts:
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 6. Make sure you have a RabbitMQ broker instance running.
 7. Create queue2 and queue3 and bind them in the `amq.topic` exchange with the routing key `topic1`.
 8. Publish the following payload to the topic using the publisher proxy (TopicPublisher).

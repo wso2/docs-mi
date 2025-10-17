@@ -1,6 +1,6 @@
-# Sample Kubernetes Deployment for WSO2 Micro Integrator and Integration Control Plane (ICP)
+# Sample Kubernetes Deployment for WSO2 Integrator: MI and Integration Control Plane (ICP)
 
-This guide walks you through setting up a basic deployment of WSO2 Micro Integrator (MI) and Integration Control Plane (ICP) on a local Kubernetes cluster. The deployment includes:
+This guide walks you through setting up a basic deployment of WSO2 Integrator:  MI and Integration Control Plane (ICP) on a local Kubernetes cluster. The deployment includes:
 
 - Two MI replicas for high availability.
 - One ICP pod to monitor and manage your integration services.
@@ -13,11 +13,11 @@ While this guide uses a local Kubernetes setup (e.g., Minikube or Kind) for simp
 - Ensure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
 
     !!! Note
-        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of the Docker images, which do not include product updates.
+        You need an active subscription to use the updated Docker images of the WSO2 Integrator: MI with your Helm resources. Otherwise, you can use the community version of the Docker images, which do not include product updates.
     
 - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://www.docker.com), [Helm](https://helm.sh/docs/intro/install/), and the [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
     
-- Set up a Kubernetes cluster. You can also try deploying Micro Integrator locally with a [local Kubernetes cluster](https://kubernetes.io/docs/tasks/tools/).
+- Set up a Kubernetes cluster. You can also try deploying WSO2 Integrator: MI locally with a [local Kubernetes cluster](https://kubernetes.io/docs/tasks/tools/).
     
 - Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
@@ -26,11 +26,11 @@ While this guide uses a local Kubernetes setup (e.g., Minikube or Kind) for simp
 
 ## Step 1 - Get the Helm resources
 
-You can find the official Micro Integrator Helm charts repository at: <a target="_blank" href="https://github.com/wso2/helm-mi">https://github.com/wso2/helm-mi</a>
+You can find the official WSO2 Integrator: MI Helm charts repository at: <a target="_blank" href="https://github.com/wso2/helm-mi">https://github.com/wso2/helm-mi</a>
 
 1. Open a terminal and navigate to the location where you want to save the local copy.
 
-2. Clone the Micro Integrator Git repository that contains the Helm resources:
+2. Clone the WSO2 Integrator: MI Git repository that contains the Helm resources:
 
     ```bash
     git clone https://github.com/wso2-enterprise/helm-mi.git
@@ -39,7 +39,7 @@ You can find the official Micro Integrator Helm charts repository at: <a target=
     ```
 
     !!! note
-        The `4.4.x` branch includes Helm resources that are compatible with WSO2 Micro Integrator version 4.4.0.
+        The `4.4.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.4.0.
 
 Let's refer to the root folder of the cloned repository as `<HELM_HOME>` throughout this guide.
 
@@ -69,9 +69,9 @@ For the ICP deployment, the official WSO2 ICP Docker image will be used.
 
 ## Step 3 - Deploy MI and ICP
 
-In this step, you will deploy both the Micro Integrator (MI) and the Integration Control Plane (ICP) using Helm. The deployment will be configured using two values files:
+In this step, you will deploy both the WSO2 Integrator: MI and the Integration Control Plane (ICP) using Helm. The deployment will be configured using two values files:
 
-- `mi-values.yaml` – Contains the deployment-specific configurations for the Micro Integrator.
+- `mi-values.yaml` – Contains the deployment-specific configurations for the WSO2 Integrator: MI.
 - `icp-values.yaml` – Contains the configurations for the Integration Control Plane.
 
 You may expand each file section below to review the configuration content and understand the purpose of each setting.
@@ -123,9 +123,9 @@ You may expand each file section below to review the configuration content and u
                 # -- Enable/Disable seccomp profile (https://kubernetes.io/docs/tutorials/security/seccomp/)
                 seccompProfile: false
                 runAsUser: "10802"
-            # -- Hostname of the Micro Integrator deployment
+            # -- Hostname of the WSO2 Integrator: MI deployment
             hostname: "mi.wso2.com"
-            # -- Build version of the Micro Integrator
+            # -- Build version of the WSO2 Integrator: MI
             BuildVersion: "4.4.0"
             image:
                 # -- Container image repository name
@@ -134,7 +134,7 @@ You may expand each file section below to review the configuration content and u
                 tag: "1.0.0"
             # -- Number of deployment replicas
             replicas: 2
-            # -- (list) Environment variables for the Micro integrator deployment
+            # -- (list) Environment variables for the WSO2 Integrator: MI deployment
             envs:
                 currency_service_url: "https://dev-tools.wso2.com/gs/helpers/v1.0"
     ```
@@ -172,9 +172,9 @@ You may expand each file section below to review the configuration content and u
             nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     config:
         miUserstore:
-            # -- The user name for signing in to the Micro Integrator runtimes
+            # -- The user name for signing in to the WSO2 Integrator: MI runtimes
             username: "admin"
-            # -- The user password for signing in to the Micro Integrator runtimes.
+            # -- The user password for signing in to the WSO2 Integrator: MI runtimes.
             password: "admin"
         keyStore:
             #  -- The keystore file name
@@ -228,7 +228,7 @@ You may expand each file section below to review the configuration content and u
         helm install apis-intg . -f mi-values.yaml -n dev --create-namespace
         ```
 
-    The above command will create a Kubernetes namespace called `dev` and deploy the Micro Integrator with the release name `apis-intg`. Next, you will deploy the Integration Control Plane (ICP).
+    The above command will create a Kubernetes namespace called `dev` and deploy the WSO2 Integrator: MI with the release name `apis-intg`. Next, you will deploy the Integration Control Plane (ICP).
 
 5. Navigate to the `<HELM_HOME>/icp` directory and execute the following Helm command:
 
@@ -251,7 +251,7 @@ Once the deployment is successful, the following resources will be created in yo
     - It may take around 1 minute for all the pods to be fully up and running.
     - The following commands use the namespace `dev` and reflect the release names and chart configurations used in the previous steps. If you have modified these values, update the commands accordingly.
 
-1. Verify that the Micro Integrator (MI) and Integration Control Plane (ICP) pods are running successfully:
+1. Verify that the WSO2 Integrator: MI and Integration Control Plane (ICP) pods are running successfully:
 
     ```bash
     kubectl get pods -n dev
@@ -330,9 +330,9 @@ Follow these steps from your terminal to invoke the integration and access the I
 
 #### Invoke without Ingress controller
 
-You can access the deployed Micro Integrator and Integration Control Plane (ICP) without using an Ingress controller by forwarding service ports locally. This is useful for testing or when Ingress is not set up.
+You can access the deployed WSO2 Integrator: MI and Integration Control Plane (ICP) without using an Ingress controller by forwarding service ports locally. This is useful for testing or when Ingress is not set up.
 
-1. Port-forward the Micro Integrator service:
+1. Port-forward the WSO2 Integrator: MI service:
 
     ```
     kubectl port-forward service/cloud-apis-intg -n dev 8253:8253

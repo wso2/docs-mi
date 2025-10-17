@@ -1,6 +1,6 @@
-# Micro Integrator Observability Overview
+#WSO2 Integrator: MI Observability Overview
 
-The following diagram depicts the complete **Grafana** based observability solution for your Micro Integrator deployment, which includes **metrics monitoring**, **log monitoring**, and **message tracing** capabilities.
+The following diagram depicts the complete **Grafana** based observability solution for your WSO2 Integrator: MI deployment, which includes **metrics monitoring**, **log monitoring**, and **message tracing** capabilities.
 
 [![Cloud Native Deployment Architecture]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-deployment-architecture.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-deployment-architecture.png)
 
@@ -28,7 +28,7 @@ Once you set up the basic deployment, you can integrate message tracing capabili
 
 ## Observability solutions
 
-There are two Grafana based observability solutions for the Micro Integrator; The Kubernetes based deployment and the VM based deployment.
+There are two Grafana based observability solutions for the WSO2 Integrator: MI; The Kubernetes based deployment and the VM based deployment.
 
 <a href="{{base_path}}/assets/img/integrate/observability/observability-mi.png"><img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="50%" alt="Observability Solution"/></a>
 
@@ -41,7 +41,7 @@ These solutions are suitable for the following combination of operations.
         <th><b>Description</b></th>
     </tr>
     <tr>
-        <td>Grafana based observability for a Micro Integrator Deployment in Kubernetes</td>
+        <td>Grafana based observability for a WSO2 Integrator: MI Deployment in Kubernetes</td>
         <td>
             <ul>
                 <li>Metrics only</li>

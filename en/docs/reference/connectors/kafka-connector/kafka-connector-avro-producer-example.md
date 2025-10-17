@@ -63,7 +63,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-**Deploying on Micro Integrator**
+**Deploying on WSO2 Integrator: MI**
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
     
 ## Test

@@ -1,17 +1,17 @@
-# Configuring a Micro Integrator Cluster
-See the instructions on how to set up a cluster of WSO2 Micro Integrator nodes in an on-premise VM deployment. A third-party load balancer is used for this deployment.
+# Configuring a WSO2 Integrator: MI Cluster
+See the instructions on how to set up a cluster of WSO2 Integrator: MI nodes in an on-premise VM deployment. A third-party load balancer is used for this deployment.
 
 ## The deployment pattern
 
-This deployment scenario is a two-node Micro Integrator deployment. That is, two Micro Integrator nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
+This deployment scenario is a two-node WSO2 Integrator: MI deployment. That is, two WSO2 Integrator: MI nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
 
-<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="micro integrator deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="WSO2 Integrator: MI deployment" width="60%"></a>
 
-## Install the Micro Integrator
+## Install the WSO2 Integrator: MI
 
-[Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
+[Download and install WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi).
 
-Let's set up two instances of the Micro Integrator server.
+Let's set up two instances of the WSO2 Integrator: MI server.
 
 ## Hostnames
 
@@ -26,7 +26,7 @@ Find more [parameters]({{base_path}}/reference/config-catalog-mi/#deployment) fo
 
 ## Service catalog
 
-If you want the integrations deployed in the Micro Integrator to be exposed to the API management layer of API-M, enable the service catalog in both Micro Integrator nodes.
+If you want the integrations deployed in the WSO2 Integrator: MI to be exposed to the API management layer of API-M, enable the service catalog in both WSO2 Integrator: MI nodes.
 
 ```toml
 [[service_catalog]]
@@ -49,7 +49,7 @@ Most of the integration artifacts in your deployment are stateless and don't act
 
 ### Database
 
-When the nodes in the cluster need to communicate with each other, the Micro Integrator uses RDBMS-based coordination among the server nodes. That is, all the nodes communicate via a database. Hence, you need to have a database to enable coordination among the artifacts.
+When the nodes in the cluster need to communicate with each other, the WSO2 Integrator: MI uses RDBMS-based coordination among the server nodes. That is, all the nodes communicate via a database. Hence, you need to have a database to enable coordination among the artifacts.
 
 1.  Create a database named `clusterdb`.
 
@@ -135,7 +135,7 @@ By default, a random UUID value will be used as the node ID. However, you can as
 -   Environment variable (`nodeId`)
 -   TOML configuration
 
-    Open the `deployment.toml` file (stored in the `<EI_HOME>/conf` directory) and add the following section:
+    Open the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory) and add the following section:
 
     ```toml
     [cluster_config]
@@ -251,20 +251,20 @@ See [deployment synchronization]({{base_path}}/install-and-setup/setup/deploymen
 !!! Note
     Registry sharing is only required if you have Message Processors in your deployment.
 
-The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor artifact. This ensures that the same state is maintained for Message Processor in all the Micro Integrator nodes of the cluster.
+The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor artifact. This ensures that the same state is maintained for Message Processor in all the WSO2 Integrator: MI nodes of the cluster.
 
-1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) for a two-node deployment of the Micro Integrator.
+1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) for a two-node deployment of the WSO2 Integrator: MI.
 2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment-synchronization).
 
 ## Load balancing
 
 If you need the HTTP/HTTPS traffic to be distributed among the nodes, you need to front them via a load balancer of your choice and balance the loads among the node URLs.
 
-Follow the instructions on [setting up a load balancer]({{base_path}}/install-and-setup/setup/deployment/setting-up-lb) for a two-node deployment of the Micro Integrator.
+Follow the instructions on [setting up a load balancer]({{base_path}}/install-and-setup/setup/deployment/setting-up-lb) for a two-node deployment of the WSO2 Integrator: MI.
 
 ## Deployment hardening
 
-Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines).
+Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the WSO2 Integrator: MI. For more information, see the [production deployment guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines).
 
 ## Testing the cluster
 
@@ -299,7 +299,7 @@ You could observe the following member removal log in other servers when one nod
 
 ##  Testing task coordination
 
-Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two Micro Integrator servers. See the instructions on [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -331,7 +331,7 @@ The above log describes the failover capability of the tasks when the task serve
 
 1. Follow the instructions in the [Installing the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
 
-2. After installing ICP, configure each Micro Integrator node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
+2. After installing ICP, configure each WSO2 Integrator: MI node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
 
     Node 1:
     
@@ -357,6 +357,6 @@ The above log describes the failover capability of the tasks when the task serve
 
 3. Start the ICP by following the instructions in the [Starting the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#starting-the-integration-control-plane) guide.
 
-4. Next, start all Micro Integrator instances using the steps mentioned in the [Starting MI Server]({{base_path}}/install-and-setup/install/running-the-mi/#starting-the-mi-server) guide.
+4. Next, start all WSO2 Integrator: MI instances using the steps mentioned in the [Starting MI Server]({{base_path}}/install-and-setup/install/running-the-mi/#starting-the-mi-server) guide.
 
-5. Once all components are running, access the ICP dashboard by following the instructions in the [Accessing the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#accessing-the-integration-control-plane) guide. You should see all configured Micro Integrator nodes listed in the ICP dashboard.
+5. Once all components are running, access the ICP dashboard by following the instructions in the [Accessing the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#accessing-the-integration-control-plane) guide. You should see all configured WSO2 Integrator: MI nodes listed in the ICP dashboard.

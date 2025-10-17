@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Jira Connector Overview
 
 The JIRA Connector allows you to connect to JIRA, which is an online issue-tracking database. The connector uses the JIRA REST API to connect to JIRA, view and update issues, work with filters, and more.
@@ -8,10 +13,10 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector version | Supported product versions     |
-|-------------------|--------------------------------|
-| 2.0.0(latest)     | MI 4.4.0                       |
-| 1.0.5             | APIM 4.0.0, EI 7.1.0, EI 6.5.0 |
+| Connector version | Supported product versions               |
+|-------------------|------------------------------------------|
+| 2.0.0(latest)     | MI 4.4.0+                                |
+| 1.0.5             | MI 4.x.x, APIM 4.0.0, EI 7.1.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 

@@ -31,7 +31,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
-2. Select Micro Integrator and click on `+` in APIs to create a REST API. 
+2. Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. 
    <img src="{{base_path}}/assets/img/integrate/connectors/gsheet/gsheet-api-creation.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3. Provide the API name as `SpreadsheetAPI` and the API context as `/spreadsheet`.

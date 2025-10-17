@@ -1,6 +1,6 @@
 # Managing Integrations with MI CLI
 
-The Micro Integrator CLI allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
+The WSO2 Integrator: MI CLI allows you to monitor the Synapse artifacts (deployed in a specified WSO2 Integrator: MI server) and perform various management and administration tasks from the command line.
 
 ## Download and initialize the MI CLI
 
@@ -120,7 +120,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2mi/mai
 mi add env <environment-name> 
 ```
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.     
+1.  Make sure that the WSO2 Integrator: MI (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.     
 For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 2.  Run the following MI CLI command to add an environment.
 
@@ -149,7 +149,7 @@ For more information, see [Download and Initialize the MI CLI](#download-and-ini
 
 ## Delete an environment
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.  
+1.  Make sure that the WSO2 Integrator: MI (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.  
 For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 2.  Run the following MI CLI command to delete an environment.
 
@@ -179,7 +179,7 @@ For more information, see [Download and Initialize the MI CLI](#download-and-ini
 
 ## Get environments
 
-1.  Make sure that the WSO2 Micro Integrator (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.    
+1.  Make sure that the WSO2 Integrator: MI (WSO2 MI) 4.4.0 version is started and that the 4.4.0 version of MI CLI is set up.    
 For more information, see [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 2.  Run the following MI CLI command to list the environments.  
 
@@ -211,17 +211,17 @@ For more information, see [Download and Initialize the MI CLI](#download-and-ini
 !!! info
     **Before you begin** 
 
-    -  Ensure that WSO2 Micro Integrator is started. See the instructions on [installing the Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi).
+    -  Ensure that WSO2 Integrator: MI is started. See the instructions on [installing the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi).
 
     -  Make sure the MI CLI is downloaded and initialized, if not follow the steps in [Download and Initialize the MI CLI](#download-and-initialize-the-mi-cli).
 
-    -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CLI, before you start working with the following CLI commands. For more information, see [Add an environment](#add-an-environment) section.
+    -  Ensure that the WSO2 Integrator: MI management endpoint is added to the environment configurations of CLI, before you start working with the following CLI commands. For more information, see [Add an environment](#add-an-environment) section.
 
-## Login to a Micro Integrator
+## Login to a WSO2 Integrator: MI
 
-After adding an environment, you can login to the Micro Integrator instance of that environment using credentials.
+After adding an environment, you can login to the WSO2 Integrator: MI instance of that environment using credentials.
 
-1.  Run any of the following CLI commands to login to a Micro Integrator.
+1.  Run any of the following CLI commands to login to a WSO2 Integrator: MI.
 
     -   **Command**
 
@@ -278,9 +278,9 @@ After adding an environment, you can login to the Micro Integrator instance of t
         cat ~/.mypassword | ./mi login dev --username admin --password-stdin -k
         ```          
 
-## Logout from a Micro Integrator
+## Logout from a WSO2 Integrator: MI
 
-1.  Run the following command to logout from the current session of the Micro Integrator.
+1.  Run the following command to logout from the current session of the WSO2 Integrator: MI.
 
     -   **Command** 
 
@@ -310,7 +310,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
 ### Get information about users
 
-1.  List users of the Micro Integrator.
+1.  List users of the WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -321,7 +321,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates  
                 `--pattern` or `-p` : Filter users by regex  
@@ -357,7 +357,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--domain` or `-d` : Domain name of the secondary user store to be searched  
                 `--format` : pretty-print using templates
@@ -377,7 +377,7 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
 ### Add a new user
 
-You can use the command below to add a new user to a Micro Integrator.
+You can use the command below to add a new user to a WSO2 Integrator: MI.
 
 -   **Command**
     ``` bash
@@ -388,7 +388,7 @@ You can use the command below to add a new user to a Micro Integrator.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
     !!! example
         ```bash
@@ -406,7 +406,7 @@ You can use the command below to add a new user to a Micro Integrator.
 
 ### Delete a user
 
-You can use the command below to remove a user from the Micro Integrator.
+You can use the command below to remove a user from the WSO2 Integrator: MI.
 
 -   **Command**
     ``` bash
@@ -417,7 +417,7 @@ You can use the command below to remove a user from the Micro Integrator.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI
         -   Optional :  
             `--domain` or `-d` : The domain of the secondary user store from which the user should be deleted 
 
@@ -434,13 +434,13 @@ You can use the command below to remove a user from the Micro Integrator.
     
 ## Manage Roles
 
-The Micro Integrator has limited role support without fine-grained permission tree support as in the Enterprise Integrator.
+The WSO2 Integrator: MI has limited role support without fine-grained permission tree support as in the Enterprise Integrator.
 
-In Micro Integrator, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
+In WSO2 Integrator: MI, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
 
 ### Get information about roles
 
-1. List roles of the Micro Integrator.
+1. List roles of the WSO2 Integrator: MI.
     - **Command**
         ``` bash
         mi get roles -e <environment>
@@ -450,7 +450,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
             **Flags:**
     
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -479,7 +479,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--domain` or `-d` : Domain of the secondary user store to be searched
 
@@ -513,7 +513,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI
 
     !!! example
         ```bash
@@ -547,7 +547,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
         **Flags:**
 
            -   Required :  
-               `--environment` or `-e` : Environment of the Micro Integrator
+               `--environment` or `-e` : Environment of the WSO2 Integrator: MI
            -   Optional :  
                `--domain` or `-d` : The domain of the secondary user store from which the role should be deleted 
 
@@ -579,7 +579,7 @@ In Micro Integrator, we have one admin role and all the other roles from primary
         **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI
 
     !!! example
         ```bash
@@ -612,7 +612,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -640,7 +640,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -684,7 +684,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -712,7 +712,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -748,7 +748,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -777,7 +777,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -804,7 +804,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -840,7 +840,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -868,7 +868,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -900,7 +900,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -927,7 +927,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -969,7 +969,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1000,7 +1000,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1027,7 +1027,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1057,7 +1057,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1084,7 +1084,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1128,7 +1128,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1155,7 +1155,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1190,7 +1190,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1217,7 +1217,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1249,7 +1249,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1278,7 +1278,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1310,7 +1310,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1338,7 +1338,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1368,7 +1368,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1396,7 +1396,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1426,7 +1426,7 @@ Follow the instructions below to display a list of artifacts or get information 
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
             -   Optional :  
                 `--format` : pretty-print using templates
 
@@ -1444,11 +1444,11 @@ Follow the instructions below to display a list of artifacts or get information 
 
 ## Change status of an Artifact
 
-You can use the commands below to activate or deactivate endpoints, message processors or proxy services deployed in a Micro Integrator.
+You can use the commands below to activate or deactivate endpoints, message processors or proxy services deployed in a WSO2 Integrator: MI.
 
 ### Endpoint
 
-1.  Activate an endpoint deployed in a Micro Integrator.
+1.  Activate an endpoint deployed in a WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -1459,7 +1459,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -1472,7 +1472,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
         GrandOakEndpoint is switched On
         ```
 
-2.  Deactivate an endpoint deployed in a Micro Integrator.
+2.  Deactivate an endpoint deployed in a WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -1483,7 +1483,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -1498,7 +1498,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
 ### Message Processor
 
-1.  Activate a message processor deployed in a Micro Integrator.
+1.  Activate a message processor deployed in a WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -1509,7 +1509,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -1522,7 +1522,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
         scheduled-msg-processor : is activated
         ```
 
-2.  Deactivate a message processor deployed in a Micro Integrator.
+2.  Deactivate a message processor deployed in a WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -1533,7 +1533,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -1548,7 +1548,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
 ### Proxy Service
 
-1.  Activate a proxy service deployed in a Micro Integrator.
+1.  Activate a proxy service deployed in a WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -1559,7 +1559,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -1572,7 +1572,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
         Proxy service StockQuoteProxy started successfully
         ```
 
-2.  Deactivate a proxy service deployed in a Micro Integrator.
+2.  Deactivate a proxy service deployed in a WSO2 Integrator: MI.
 
     -   **Command**
         ``` bash
@@ -1583,7 +1583,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
             **Flags:**
 
             -   Required :  
-                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+                `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         !!! example
             ```bash
@@ -1596,7 +1596,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
         Proxy service StockQuoteProxy stopped successfully
         ```
 
-## Manage Loggers used in Micro Integrator
+## Manage Loggers used in WSO2 Integrator: MI
 
 ### Get information on a specific logger
 
@@ -1609,7 +1609,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
         -   Optional :  
             `--format` : pretty-print using templates
 
@@ -1627,7 +1627,7 @@ You can use the commands below to activate or deactivate endpoints, message proc
 
 ### Add a new logger
 
-You can use the command below to add a new logger to a Micro Integrator.
+You can use the command below to add a new logger to a WSO2 Integrator: MI.
 
 -   **Command**
     ``` bash
@@ -1638,7 +1638,7 @@ You can use the command below to add a new logger to a Micro Integrator.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
     !!! example
         ```bash
@@ -1664,7 +1664,7 @@ You can use the command below to update the log level of an existing logger.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
     !!! example
         ```bash
@@ -1690,7 +1690,7 @@ You can use the command below to update the log level of an existing logger.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
         -   Optional :  
             `--format` : pretty-print using templates
 
@@ -1725,7 +1725,7 @@ You can use the command below to update the log level of an existing logger.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI to be searched
 
         -   Optional :  
             `--path` or `-p`        : Path the file should be downloaded (default is current executable directory)
@@ -1752,7 +1752,7 @@ You can use the command below to update the log level of an existing logger.
     Secret encryption supports only JKS Key Stores.
 
 !!! Note    
-    Key Store used in this step needs to be the same Key Store which is used by the WSO2 Micro Integrator (WSO2 MI) to decrypt secrets.
+    Key Store used in this step needs to be the same Key Store which is used by the WSO2 Integrator: MI (WSO2 MI) to decrypt secrets.
 
 Run the following command to initialize the MI CLI with the Key Store used to encrypt the secrets. It will prompt you to input the following,
 
@@ -1868,11 +1868,11 @@ Run the following command to encrypt secrets with the MI CLI,
         
 ## Update HashiCorp AppRole Pull secret ID
 
-You can use the command below to update the HashiCorp AppRole Pull secret ID that is used by the Micro Integrator to connect with HashiCorp.
+You can use the command below to update the HashiCorp AppRole Pull secret ID that is used by the WSO2 Integrator: MI to connect with HashiCorp.
 
 !!! note
-    - The HashiCorp secret ID is only applicable when **AppRole Pull** authentication is used between the Micro Integrator and HashiCorp.
-    - This command only updates the SecretId for the current session of the Micro Integrator. To persist the Secret Id, you need to update the `deployment.toml` file and restart the Micro Integrator.
+    - The HashiCorp secret ID is only applicable when **AppRole Pull** authentication is used between the WSO2 Integrator: MI and HashiCorp.
+    - This command only updates the SecretId for the current session of the WSO2 Integrator: MI. To persist the Secret Id, you need to update the `deployment.toml` file and restart the WSO2 Integrator: MI.
     
     See [Using HashiCorp Secrets]({{base_path}}/install-and-setup/setup/security/using-hashicorp-secrets) for details.
 
@@ -1885,7 +1885,7 @@ You can use the command below to update the HashiCorp AppRole Pull secret ID tha
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator for which the HashiCorp secret ID should be updated.
+            `--environment` or `-e` : Environment of the WSO2 Integrator: MI for which the HashiCorp secret ID should be updated.
 
     !!! example
         ```bash

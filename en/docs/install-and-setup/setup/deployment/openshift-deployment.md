@@ -1,13 +1,13 @@
-# Deploy WSO2 Micro Integrator and Integration Control Plane (ICP) on OpenShift Using Helm
+# Deploy WSO2 Integrator: MI and Integration Control Plane (ICP) on OpenShift Using Helm
 
-This guide walks you through deploying WSO2 Micro Integrator (MI) and the Integration Control Plane (ICP) as containerized applications on an OpenShift cluster using the official WSO2 Helm charts.
+This guide walks you through deploying WSO2 Integrator:  MI and the Integration Control Plane (ICP) as containerized applications on an OpenShift cluster using the official WSO2 Helm charts.
 
 ## Before you begin
 
 - Ensure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
 
     !!! Note
-        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of the Docker images, which do not include product updates.
+        You need an active subscription to use the updated Docker images of the WSO2 Integrator: MI with your Helm resources. Otherwise, you can use the community version of the Docker images, which do not include product updates.
     
 - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://www.docker.com), [Helm](https://helm.sh/docs/intro/install/), and the [OpenShift CLI (oc)](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/cli_tools/openshift-cli-oc).
     
@@ -17,11 +17,11 @@ This guide walks you through deploying WSO2 Micro Integrator (MI) and the Integr
 
 ## Step 1 - Get the Helm resources
 
-You can find the official Micro Integrator Helm charts repository at: <a target="_blank" href="https://github.com/wso2/helm-mi">https://github.com/wso2/helm-mi</a>
+You can find the official WSO2 Integrator: MI Helm charts repository at: <a target="_blank" href="https://github.com/wso2/helm-mi">https://github.com/wso2/helm-mi</a>
 
 1. Open a terminal and navigate to the location where you want to save the local copy.
 
-2. Clone the Micro Integrator Git repository that contains the Helm resources:
+2. Clone the WSO2 Integrator: MI Git repository that contains the Helm resources:
 
     ```bash
     git clone https://github.com/wso2-enterprise/helm-mi.git
@@ -30,26 +30,26 @@ You can find the official Micro Integrator Helm charts repository at: <a target=
     ```
 
     !!! note
-        The `4.4.x` branch includes Helm resources that are compatible with WSO2 Micro Integrator version 4.4.0.
+        The `4.4.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.4.0.
 
 Let's refer to the root folder of the cloned repository as `<HELM_HOME>` throughout this guide.
 
 ## Step 2 - Build an OpenShift-Compatible Docker Image
 
-OpenShift enforces security by disallowing containers from running as the `root` user. Instead, it assigns a random, non-root user that belongs to the root group (GID 0) at runtime. As a result, the default [WSO2 Micro Integrator image](https://hub.docker.com/r/wso2/wso2mi) may not function correctly because the random user may lack the necessary permissions to access critical files and directories.
+OpenShift enforces security by disallowing containers from running as the `root` user. Instead, it assigns a random, non-root user that belongs to the root group (GID 0) at runtime. As a result, the default [WSO2 Integrator: MI image](https://hub.docker.com/r/wso2/wso2mi) may not function correctly because the random user may lack the necessary permissions to access critical files and directories.
 
 To resolve this, you need to build a custom Docker image that ensures:
 
 - File and folder ownership is set to the `root` group.
 - Group permissions are correctly configured to allow access by any user within the `root` group.
 
-This custom image ensures compatibility with OpenShift's security model while maintaining the functionality of WSO2 Micro Integrator.
+This custom image ensures compatibility with OpenShift's security model while maintaining the functionality of WSO2 Integrator: MI.
 
-!!! Note "WSO2 Micro Integrator Image"
+!!! Note "WSO2 Integrator: MI Image"
 
     You can use the [MI for VS Code Extension]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/#use-the-mi-for-vs-code-extension) to update the Dockerfile of your integration project when building the image.
 
-    Below is a sample `Dockerfile` for building an OpenShift-compatible Micro Integrator image:
+    Below is a sample `Dockerfile` for building an OpenShift-compatible WSO2 Integrator: MI image:
 
     ```Docker
     FROM wso2/wso2mi:4.4.0-alpine
@@ -73,7 +73,7 @@ This custom image ensures compatibility with OpenShift's security model while ma
 
 ## Step 3 - Deploy MI and ICP
 
-To deploy WSO2 Micro Integrator (MI) and Integration Control Plane (ICP) on OpenShift, you must override specific Helm chart parameters to align with OpenShift’s security model.
+To deploy WSO2 Integrator:  MI and Integration Control Plane (ICP) on OpenShift, you must override specific Helm chart parameters to align with OpenShift’s security model.
 
 ### Required Helm Parameters
 
@@ -99,7 +99,7 @@ Following are example comamnds to deploy MI and ICP:
     oc get namespace <NAMESPACE> || oc create namespace <NAMESPACE>
     ```
 
-2. Deploy the Micro Integrator (MI)
+2. Deploy the WSO2 Integrator: MI
 
     Navigate to the `<HELM_HOME>/mi` directory and run:
 
@@ -132,7 +132,7 @@ Following are example comamnds to deploy MI and ICP:
         ```
         --set wso2.deployment.image.digest=<digest> 
         ```
-    - The parameters shown above are specific to OpenShift compatibility. For a full list of configurable options, see the [Configure Helm charts for Micro Integrator]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
+    - The parameters shown above are specific to OpenShift compatibility. For a full list of configurable options, see the [Configure Helm charts for WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
 
 ## Step 4 - Verify and test the deployment
 
@@ -141,7 +141,7 @@ Once the deployment is successful, the following resources will be created in yo
 !!! note
     - It may take up to 1 minute for all pods to be fully initialized and reach the `Running` state.
 
-1. Run the following command to check whether the Micro Integrator (MI) and Integration Control Plane (ICP) pods are running:
+1. Run the following command to check whether the WSO2 Integrator: MI and Integration Control Plane (ICP) pods are running:
 
     ```bash
     oc get pods -n <NAMESPACE>

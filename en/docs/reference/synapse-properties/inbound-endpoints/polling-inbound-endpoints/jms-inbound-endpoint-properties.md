@@ -1,7 +1,7 @@
 # JMS Inbound 
 ## Introduction
 
-The JMS inbound protocol is an alternative to the JMS transport. The JMS inbound protocol implementation requires an active JMS server instance to be able to receive messages, and you need to place the client JARs for your JMS server in the Micro Integrator.
+The JMS inbound protocol is an alternative to the JMS transport. The JMS inbound protocol implementation requires an active JMS server instance to be able to receive messages, and you need to place the client JARs for your JMS server in the WSO2 Integrator: MI.
 
 ## Properties
 

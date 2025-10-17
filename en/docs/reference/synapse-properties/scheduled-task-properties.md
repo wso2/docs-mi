@@ -1,7 +1,7 @@
 # Scheduled Tasks
 ## Introduction
 
-WSO2 Micro Integrator can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Micro Integrator, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.
+WSO2 Integrator: MI can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Integrator: MI, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.
 
 You can schedule a task to run after a time interval of 't' for an 'n' number of times, or you can schedule the task to run once when the server starts. Alternatively, you can use CRON expressions to have more control over how the task should be scheduled. For example, you can use a CRON expression to schedule the task to run at 10 pm on the 20th day of every month.
 
@@ -9,7 +9,7 @@ You can schedule a task to run after a time interval of 't' for an 'n' number of
 !!! Info
     In a clustered environment, tasks are distributed among server nodes according to the round-robin method, by default. If required, you can change this default task handling behaviour so that tasks are distributed randomly, or according to a specific rule. 
     
-    -   See the instructions on how to configure task scheduling for the Micro Integrator.
+    -   See the instructions on how to configure task scheduling for the WSO2 Integrator: MI.
     -   You can also configure the task handling behaviour at task-level, by specifying the Pinned Servers for a task. Note that this setting overrides the server-level configuration.
 
     Also, note that a scheduled task will only run on one of the nodes (at a given time) in a clustered environment. The task will fail over to another node only if the first node fails.
@@ -41,7 +41,7 @@ The following properties are required when [creating a scheduled task]({{base_pa
       </tr>
       <tr class="odd">
          <td>Task Implementation</td>
-         <td>The default task implementation class ( <code>                 org.apache.synapse.startup.tasks.MessageInjector                </code> ) of the Micro Integrator will be selected by default. This class simply injects a specified message into the Synapse environment when the server starts.<br />
+         <td>The default task implementation class ( <code>                 org.apache.synapse.startup.tasks.MessageInjector                </code> ) of the WSO2 Integrator: MI will be selected by default. This class simply injects a specified message into the Synapse environment when the server starts.<br />
             If you are want to use a custom task implementation, see the instructions on <a href="{{base_path}}/develop/customizations/creating-custom-task-scheduling">writing tasks</a> .
          </td>
       </tr>
@@ -56,7 +56,7 @@ The following properties are required when [creating a scheduled task]({{base_pa
                      <div class="localtabs-macro">
                         <div class="aui-tabs horizontal-tabs" data-aui-responsive="true" role="application">
                            <div id="4703a6be07a54b79af66ebe01fab2cb9" class="tabs-pane active-pane" name="Only once">
-                              <p>To run only once after the Micro Integrator starts:</p>
+                              <p>To run only once after the WSO2 Integrator: MI starts:</p>
                               <div class="code panel pdl" style="border-width: 1px;">
                                  <div class="codeContent panelContent pdl">
                                     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -114,7 +114,7 @@ The following properties are required when [creating a scheduled task]({{base_pa
          <td>Pinned Servers</td>
          <td>
             <div class="content-wrapper">
-               <p>The list of Micro Integrator server nodes that will run the task. You can specify the IP addresses of the required nodes.</p>
+               <p>The list of WSO2 Integrator: MI server nodes that will run the task. You can specify the IP addresses of the required nodes.</p>
                <b>Note</b>:
                <p>This setting can be used if you want the task to run on a selected set of nodes in a product cluster. Note that the task will only run on one of the nodes at a time. It will fail over to another node, only if the first node fails. Pinned servers will override the default task handling behavior defined at server-level (for this particular task). However, if <strong>rule-based</strong> task handling is specified at server-level, you need to ensure that the same server nodes you specify as pinned servers for the task are also specified for the task handling rule at server-level.</p>
             </div>
@@ -122,6 +122,12 @@ The following properties are required when [creating a scheduled task]({{base_pa
       </tr>
    </tbody>
 </table>
+
+!!! Note
+      - From <strong>MI 4.4.0.24</strong> onwards, the task scheduler supports graceful shutdown. When the shutdown hook is triggered, the scheduler waits for currently running tasks to complete, up to a maximum of 180 seconds.
+      - You can configure the maximum graceful shutdown timeout (in seconds) using the system property `-DgracefulShutdownTimeout=value`
+      - Graceful shutdown currently works only with synchronous flows. If you are injecting the message into a sequence, make sure the `sequential` property is set to `true` as shown in the table below.
+      - Asynchronous mediation flows (for example, non-blocking Call mediator, Clone, or Iterate mediators with sequential mode disabled) can still cause the task scheduler to shut down before mediation completes. Hence, if you require a complete graceful shutdown for the task, ensure the sequence flow is fully synchronous.
 
 ### Task Implementation Properties
 
@@ -214,6 +220,19 @@ Listed below are the optional task implementation properties you can use when [c
                   </div>
                </div>
             </div>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>sequential</td>
+         <td>
+            This property is applicable only when the task injects the message into a sequence 
+            (<strong>injectTo</strong> parameter is set to <strong>sequence</strong>).  
+            When this property is set to <code>true</code>, the sequence will be executed in a 
+            synchronous manner. Otherwise, the task scheduler hands over the sequence execution 
+            to a new thread, resulting in an asynchronous flow.<br>
+            <code>&lt;property xmlns:task=&quot;http://www.wso2.org/products/wso2commons/tasks&quot; name=&quot;sequential&quot; value=&quot;true&quot;/&gt;</code><br>
+            <strong>Note:</strong> This property is available from MI 4.4.0.24 onwards.
+            
          </td>
       </tr>
       <tr class="even">

@@ -16,7 +16,7 @@ See the following topics for information and instructions:
 
 ## Cluster dashboard
 
-Cluster dashboards visualize the overall statistics relating to your Micro Integrator cluster. You can view information related to your MI cluster. 
+Cluster dashboards visualize the overall statistics relating to your WSO2 Integrator: MI cluster. You can view information related to your MI cluster. 
 
 [![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.jpg)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.jpg)
 
@@ -48,13 +48,13 @@ This dashboard serves the following purposes:
 
 - It also provides the basic details of the nodes and services deployed in the cluster. This can indicate how each node/service affects the overall cluster performance. e.g., If the **Error Rate** widget indicates a surge in the error rate at a particular time, you can identify a node/service that started at around the same time (as shown by the **Node List** and **Service List** widgets) as a possible cause of it.
 
-- It provides access to other dashboards that display statistics related to specific nodes and services so that you can carry out further analysis relating to the performance of your Micro Integrator setup.
+- It provides access to other dashboards that display statistics related to specific nodes and services so that you can carry out further analysis relating to the performance of your WSO2 Integrator: MI setup.
 
 ### Recommended action
 
 - Identify the times at which the error rate and/or the response time has been rising. Depending on the time, you can investigate the cause of if (e.g., a node/service that started around the same time). 
 
-- Click on the nodes/services that you have identified as nodes/services to be further analyzed to improve the performance of your Micro Integrator setup, and view the visualizations specific to them.
+- Click on the nodes/services that you have identified as nodes/services to be further analyzed to improve the performance of your WSO2 Integrator: MI setup, and view the visualizations specific to them.
 
 - Based on the request count, make the appropriate decisions with regard to the resource allocation (i.e., whether to add or reduce the number of nodes to leave the present number unchanged).
 
@@ -78,7 +78,7 @@ The following is the list of widgets displayed in this dashboard.
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Up Time**                    | The time duration that has elapsed since the node became active for the current session.|                                                                                                              |
 | **Service Count**              | The number of services (i.e., proxy services and REST API services) that are currently deployed in the node.|
-| **All Time Request Count**     | The total number of requests received by the node after it became a member of the current Micro Integrator setup.|
+| **All Time Request Count**     | The total number of requests received by the node after it became a member of the current WSO2 Integrator: MI setup.|
 | **All Time Error Count**       | The total number of requests handled by the node that have resulted in errors.|
 | **CPU Utilization**            | A visualization of the node's CPU consumption over time.|
 | **JVM Heap Memory**            | A visualization of the amount of JVM heap memory consumed by the node over time.|

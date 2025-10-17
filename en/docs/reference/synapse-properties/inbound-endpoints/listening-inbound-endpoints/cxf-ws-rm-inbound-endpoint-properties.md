@@ -1,7 +1,7 @@
 # CXF WS-RM Inbound Endpoint
 ## Introduction
 
-WS­ReliableMessaging allows SOAP messages to be reliably delivered between distributed applications regardless of software or hardware failures. The CXF WS­-RM inbound endpoint allows a client (RM Source) to communicate with the Micro Integrator with a guarantee that a sent message will be delivered.
+WS­ReliableMessaging allows SOAP messages to be reliably delivered between distributed applications regardless of software or hardware failures. The CXF WS­-RM inbound endpoint allows a client (RM Source) to communicate with the WSO2 Integrator: MI with a guarantee that a sent message will be delivered.
 
 ## Syntax
 

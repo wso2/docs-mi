@@ -2,7 +2,7 @@
 
 The Data Mapper mediator is a data mapping solution that can be integrated
 into a mediation sequence. It converts and transforms one data format to
-another or changes the structure of the data in a message. The WSO2 Micro Integrator for Visual Studio Code (MI for VS Code) extension
+another or changes the structure of the data in a message. The WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension
 provides a graphical mapping configuration and
 generates the files required for executing this graphical mapping
 configuration through the WSO2 Data Mapper engine.

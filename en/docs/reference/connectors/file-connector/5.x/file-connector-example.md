@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # File Connector Example
 
 File Connector can be used to perform operations in the local file system as well as in a remote server such as FTP and SFTP. 

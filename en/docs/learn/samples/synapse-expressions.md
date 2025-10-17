@@ -5,7 +5,7 @@ search:
 
 # Synapse Expressions Sample
 
-This sample contains a REST API that demonstrates the use of **Synapse Expressions** in WSO2 Micro Integrator.
+This sample contains a REST API that demonstrates the use of **Synapse Expressions** in WSO2 Integrator: MI.
 
 The API have the following resources dedicated to explain different usages of Synapse Expressions.
 
@@ -24,7 +24,7 @@ The API have the following resources dedicated to explain different usages of Sy
 
 1.  Open the sample by clicking on the **Synapse Expressions** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Invoking the sample
 

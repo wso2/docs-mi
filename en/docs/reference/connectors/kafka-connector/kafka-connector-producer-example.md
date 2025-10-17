@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Kafka Connector Example
 
 Given below is a sample scenario that demonstrates how to send messages to a Kafka broker via Kafka topics. The publishMessages operation allows you to publish messages to the Kafka brokers via Kafka topics.
@@ -37,7 +42,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 
 ## Create the integration logic
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API. Provide `KafkaTransport` as name and `publishMessages` as context.
+1. Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. Provide `KafkaTransport` as name and `publishMessages` as context.
    <img src="{{base_path}}/assets/img/integrate/connectors/kafka-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Create a resource with the below configuration.<br/>

@@ -1,6 +1,6 @@
 # How to Implement a Guaranteed Delivery with Failover
 
-WSO2 Micro Integrator ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can set up guaranteed message delivery with failover configurations.
+WSO2 Integrator: MI ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can set up guaranteed message delivery with failover configurations.
 
 The following diagram illustrates a scenario where a failover message
 store and a scheduled failover message forwarding processor is used
@@ -132,13 +132,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [message stores]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processors]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use Active MQ for this example.
 2.  Start the broker.
-3.  Start the Micro Integrator (after starting the broker).
+3.  Start the WSO2 Integrator: MI (after starting the broker).
 
 Set up the back-end service:
 

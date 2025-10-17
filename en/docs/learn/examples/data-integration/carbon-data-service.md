@@ -1,7 +1,7 @@
 # How to Expose a Carbon Datasource as a Data Service
 
 A Carbon datasource is an RDBMS or a custom datasource created using the
-Micro Integrator. You can simply use
+WSO2 Integrator: MI. You can simply use
 that as the datasource for a data service. A Carbon datasource is
 persistent, and can be used whenever required.
 
@@ -93,7 +93,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
    
-7. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+7. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI. 
 
 The service can be invoked in REST-style via [curl](http://curl.haxx.se/). Shown below is the curl
 command to invoke the GET resource:

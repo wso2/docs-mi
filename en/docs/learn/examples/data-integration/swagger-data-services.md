@@ -1,6 +1,6 @@
 # How to Use Swagger Documents of RESTful Data Services
 
-When RESTful resources are added to the data service, the Micro Integrator generates a corresponding swagger 3.0 (OpenApi) definition automatically. You can access this Swagger document by suffixing the service URL with `?swagger.json` or `?swagger.yaml` as shown below.
+When RESTful resources are added to the data service, the WSO2 Integrator: MI generates a corresponding swagger 3.0 (OpenApi) definition automatically. You can access this Swagger document by suffixing the service URL with `?swagger.json` or `?swagger.yaml` as shown below.
 
 -   JSON format
 
@@ -21,7 +21,7 @@ This example demonstrates how a custom Swagger definition is published for a RES
 Following is a sample data service configuration with a custom Swagger definition. See the instructions on how to [build and run](#build-and-run) this example.
 
 !!! Note
-    The custom Swagger file (JSON file) is saved to the Micro Integrator's registry. The `publishSwagger` element in the data service configuration specifies the registry path. In this example, we are storing the Swagger definition in the <b>governance</b> registry as shown below.
+    The custom Swagger file (JSON file) is saved to the WSO2 Integrator: MI's registry. The `publishSwagger` element in the data service configuration specifies the registry path. In this example, we are storing the Swagger definition in the <b>governance</b> registry as shown below.
 
 ```xml
 <data enableBatchRequests="true" name="RDBMSDataService" publishSwagger="gov:swagger-file/simple_petstore.yaml" serviceGroup="" serviceNamespace="">
@@ -106,7 +106,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 
 Copy the following URLs to your browser to see the Swagger documents of your RESTful data service:

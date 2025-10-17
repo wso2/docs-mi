@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Jira Connector Reference
 
 ### Connection configuration
@@ -1529,7 +1534,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
     </table>
 
     !!! Info
-        Multipart/form-data cannot be processed inside the server. Therefore, the Micro Integrator/ESB should be in a content-unaware status. To achieve this, configure a pass-through proxy, build the message from the client end, and then send it to the proxy.
+        Multipart/form-data cannot be processed inside the server. Therefore, the WSO2 Integrator: MI/ESB should be in a content-unaware status. To achieve this, configure a pass-through proxy, build the message from the client end, and then send it to the proxy.
 
     **Sample configuration**
     

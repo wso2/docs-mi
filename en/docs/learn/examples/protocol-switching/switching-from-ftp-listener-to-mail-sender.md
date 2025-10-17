@@ -1,6 +1,6 @@
 # How to Switch from FTP Listener to Mail Sender
 
-This example demonstrates how WSO2 Micro Integrator receives messages through the FTP transport listener and forwards the messages through the mail transport sender.
+This example demonstrates how WSO2 Integrator: MI receives messages through the FTP transport listener and forwards the messages through the mail transport sender.
 
 VFS transport listener will pick the file from the directory in the FTP server. The file in the FTP directory will be deleted. The response will be sent to the given e-mail address.
 
@@ -55,7 +55,7 @@ Create the artifacts:
 4. Create the [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints/) with the given deatails for SimpleStockQuoteService Endpoint.
 5. Create the [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints/) with the given deatails for Mail Endpoint.
 6. Configure [MailTo transport sender]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport).
-7. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator and start the Micro Integrator.
+7. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI and start the WSO2 Integrator: MI.
 
 Set up the back-end service.
 

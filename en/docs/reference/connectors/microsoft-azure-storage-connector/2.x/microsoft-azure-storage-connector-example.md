@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Microsoft Azure storage connector example
 
 Given below is a sample scenario that demonstrates how to work with container and blob operations using the WSO2 Microsoft Azure Storage Connector.
@@ -207,7 +212,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-**Deploying on Micro Integrator**
+**Deploying on WSO2 Integrator: MI**
 To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
 
 ## Test
@@ -328,4 +333,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/develop/deploy-artifacts).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the WSO2 Integrator: MI on Containers]({{base_path}}/develop/deploy-artifacts).

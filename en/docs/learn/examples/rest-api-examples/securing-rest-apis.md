@@ -1,8 +1,8 @@
 # How to Secure a REST API
-In most of the real-world use cases of REST, when a consumer attempts to access a privileged resource, access will be denied unless the consumer's credentials are provided in an Authorization header. By default, the Micro Integrator validates the credentials of the consumer (that is provided in the Authorization header) against the credentials of users that are registered in the [user store connected to the server]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/). 
+In most of the real-world use cases of REST, when a consumer attempts to access a privileged resource, access will be denied unless the consumer's credentials are provided in an Authorization header. By default, the WSO2 Integrator: MI validates the credentials of the consumer (that is provided in the Authorization header) against the credentials of users that are registered in the [user store connected to the server]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/). 
 
 !!! Info
-    The Micro Integrator uses a <b>Basic Auth handler</b> for this purpose. If required, you can use a custom basic auth handler or other security implementations. Find out more about [applying security to REST APIs]({{base_path}}/develop/advanced-development/applying-security-to-an-api).
+    The WSO2 Integrator: MI uses a <b>Basic Auth handler</b> for this purpose. If required, you can use a custom basic auth handler or other security implementations. Find out more about [applying security to REST APIs]({{base_path}}/develop/advanced-development/applying-security-to-an-api).
 
 ## Synapse configuration
 
@@ -62,7 +62,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 [Configure an external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore).
 

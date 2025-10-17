@@ -1,14 +1,25 @@
 # Connecting to ActiveMQ
 
-This section describes how to configure WSO2 Micro Integrator to connect with ActiveMQ.
+This section describes how to configure WSO2 Integrator: MI to connect with ActiveMQ.
 
-## Setting up the Micro Integrator with ActiveMQ
+## Setting up the WSO2 Integrator: MI with ActiveMQ
 
 Follow the instructions below to set up and configure.
 
-1.  Download [Apache ActiveMQ](http://activemq.apache.org/). Micro Integrator supports ActiveMQ Classic versions up to 5.18.x.
-2.  Download and install WSO2 Micro Integrator.
+1.  Download [Apache ActiveMQ](http://activemq.apache.org/). WSO2 Integrator: MI supports ActiveMQ Classic versions up to 6.1.x.
+2.  Download and install WSO2 Integrator: MI.
 3.  Copy the following client libraries from the `ACTIVEMQ_HOME/lib` directory to the `MI_HOME/lib` directory.
+
+    **ActiveMQ 6.1.x**
+
+    -   activemq-broker-6.1.6.jar
+    -   activemq-client-6.1.6.jar
+    -   activemq-kahadb-store-6.1.6.jar
+    -   hawtbuf-1.11.jar
+    -   slf4j-api-2.0.16.jar
+
+    !!! Note
+        When using activeMQ 6.1.x the supported JMS spec version has to be set to `3.1`. Set the `transport.jms.JMSSpecVersion` parameter to `3.1`.
 
     **ActiveMQ 5.18.x**
 
@@ -37,7 +48,7 @@ Follow the instructions below to set up and configure.
     -   geronimo-j2ee-management_1.0_spec-1.0.jar
     -   geronimo-jms_1.1_spec-1.1.1.jar
 
-4.  If you want the Micro Integrator to receive messages from an ActiveMQ instance, or to send messages to an ActiveMQ instance, you need to update the deployment.toml file with the relevant connection parameters.
+4.  If you want the WSO2 Integrator: MI to receive messages from an ActiveMQ instance, or to send messages to an ActiveMQ instance, you need to update the deployment.toml file with the relevant connection parameters.
 
     - Add the following configurations to enable the JMS listener with ActiveMQ connection parameters.
         ```toml
@@ -90,14 +101,14 @@ Follow the instructions below to set up and configure.
           parameter.provider_url = "tcp://localhost:61616?jms.redeliveryPolicy.redeliveryDelay=10000&amp;jms.redeliveryPolicy.initialRedeliveryDelay=10000"
           ```
         - The above configurations do not address the problem of transient failures of the ActiveMQ message broker.
-          For example, if the ActiveMQ goes down and becomes active again after a while, the Micro Integrator will not reconnect to ActiveMQ. Instead, an error will be thrown until the Micro Integrator is restarted.</br>
+          For example, if the ActiveMQ goes down and becomes active again after a while, the WSO2 Integrator: MI will not reconnect to ActiveMQ. Instead, an error will be thrown until the WSO2 Integrator: MI is restarted.</br>
           To avoid this problem, you need to add the following value as the `parameter.provider_url`: `failover:tcp://localhost:61616`. This simply makes sure that reconnection takes place. The `failover` prefix is associated with the [Failover transport of ActiveMQ](http://activemq.apache.org/failover-transport-reference.html).
     
 5.  Start ActiveMQ by navigating to the `ACTIVEMQ_HOME/bin` directory and executing `./activemq console` (on Linux/OSX) or `activemq start ` (on Windows).
 
 ## Configuring redelivery in ActiveMQ queues
 
-When the Micro Integrator is configured to consume messages from an ActiveMQ queue, you have the option to configure message re-delivery. This is useful when the Micro Integrator is unable to process messages due to failures. 
+When the WSO2 Integrator: MI is configured to consume messages from an ActiveMQ queue, you have the option to configure message re-delivery. This is useful when the WSO2 Integrator: MI is unable to process messages due to failures. 
 
 - **JMS parameters**
 
@@ -122,7 +133,7 @@ When the Micro Integrator is configured to consume messages from an ActiveMQ que
     Add the following line in your fault sequence: `<property name="SET_ROLLBACK_ONLY" value="true" scope="axis2"/>`
   
     !!! Info
-        When the Micro Integrator is unable to deliver a message to the back-end service due to an error, it will be routed to the fault sequence in the configuration. When the `SET_ROLLBACK_ONLY` property is set in the fault sequence, the Micro Integrator informs ActiveMQ to redeliver the message.
+        When the WSO2 Integrator: MI is unable to deliver a message to the back-end service due to an error, it will be routed to the fault sequence in the configuration. When the `SET_ROLLBACK_ONLY` property is set in the fault sequence, the WSO2 Integrator: MI informs ActiveMQ to redeliver the message.
 
 Following is a sample proxy service configuration:
 
@@ -166,7 +177,7 @@ Following is a sample proxy service configuration:
 
 ## Securing the ActiveMQ server
 
-JMS is an integral part of enterprise integration solutions that are highly-reliable, loosely-coupled, and asynchronous. As a result, implementing proper security to your JMS deployments is vital. The below sections discuss some of the best practices of an effective JMS security implementation when used in combination with WSO2 Micro Integrator.
+JMS is an integral part of enterprise integration solutions that are highly-reliable, loosely-coupled, and asynchronous. As a result, implementing proper security to your JMS deployments is vital. The below sections discuss some of the best practices of an effective JMS security implementation when used in combination with WSO2 Integrator: MI.
 
 Let's see how some of the key concepts of system security such as authentication, authorization, and availability are implemented in different types of brokers. Given below is an overview of how some common security concepts are implemented in Apache ActiveMQ.
 
@@ -174,12 +185,12 @@ Let's see how some of the key concepts of system security such as authentication
 |------------------------------------------------|----------------------------------------------------------------|
 | [Authentication](#authentication) | Simple authentication and JAAS plugins.                                     |
 | [Authorization](#authorization) | Built-in authorization mechanism using XML configuration.                     |
-| [Availability](#availability)  | Primary/secondary configurations using fail-over transport in ActiveMQ (not to be confused with the Micro Integrator's transports). |
+| [Availability](#availability)  | Primary/secondary configurations using fail-over transport in ActiveMQ (not to be confused with the WSO2 Integrator: MI's transports). |
 | [Integrity](#integrity)  | WS-Security                                                                          |
 
 ### Authentication
 
-Simple Authentication: ActiveMQ comes with an authentication plugin, which provides basic authentication between the ActiveMQ JMS and the Micro Integrator. The steps below describe how to configure.
+Simple Authentication: ActiveMQ comes with an authentication plugin, which provides basic authentication between the ActiveMQ JMS and the WSO2 Integrator: MI. The steps below describe how to configure.
 
 1.  Add the following configuration in `ACTIVEMQ_HOME/conf/activemq-security.xml` file.
       ```xml
@@ -197,7 +208,7 @@ Simple Authentication: ActiveMQ comes with an authentication plugin, which provi
     - The **anonymousAccessAllowed** attribute defines whether or not to allow anonymous access. 
     - The groups and users defined in step 1 are used to provide authorization schemes. Refer to section [Authorization](#authorization) for more information.
 
-3.  When you configure the JMS listener in the deployment.toml file of your Micro Integrator, use the ActiveMQ user name and password you configured above.
+3.  When you configure the JMS listener in the deployment.toml file of your WSO2 Integrator: MI, use the ActiveMQ user name and password you configured above.
       ```toml
       [[transport.jms.listener]]
       name = "myTopicListener"
@@ -250,7 +261,7 @@ ActiveMQ supports the use of primary and secondary configurations and the failov
 
 **Primary/secondary configurations using JDBC**
 
-ActiveMQ uses a special URI similar to the following to facilitate fail-over functionality: `failover://(tcp://127.0.0.1:61616,tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)?initialReconnectDelay=100`. Use this URI inside the Micro Integrator for a highly-available JMS solution. See the example proxy service given below.
+ActiveMQ uses a special URI similar to the following to facilitate fail-over functionality: `failover://(tcp://127.0.0.1:61616,tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)?initialReconnectDelay=100`. Use this URI inside the WSO2 Integrator: MI for a highly-available JMS solution. See the example proxy service given below.
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="FailOverJMS"
@@ -278,7 +289,7 @@ Note `java.naming.provider.url=failover:(tcp://localhost:61616,tcp://localhost:6
 
 ### Integrity
 
-Integrity is part of message-level security and can be implemented using a standard like WS-Security. The following sample shows the application of WS-Security for message-level encryption where messages are stored in a message store in WSO2 Micro Integrator.
+Integrity is part of message-level security and can be implemented using a standard like WS-Security. The following sample shows the application of WS-Security for message-level encryption where messages are stored in a message store in WSO2 Integrator: MI.
 
 ```xml
     <localEntry key="sec_policy" src="file:repository/samples/resources/policy/policy_3.xml" xmlns="http://ws.apache.org/ns/synapse"/>

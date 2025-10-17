@@ -1,6 +1,6 @@
 # Creating New keystores
 
-There are two ways to create new [keystores for the Micro Integrator]({{base_path}}/reference/mi-security-reference/using-keystores): 
+There are two ways to create new [keystores for the WSO2 Integrator: MI]({{base_path}}/reference/mi-security-reference/using-keystores): 
 
 * Create  the keystore with a new (self-signed) public key certificate.
 * Generate a keystore using an already existing [CA-signed]({{base_path}}/reference/mi-security-reference/using-keystores) public key certificate.
@@ -49,6 +49,6 @@ You can use an already existing CA-signed certificate to generate your keystore 
     ```
 
 ## What's next?
-- [Configure the Micro Integrator]({{base_path}}/install-and-setup/setup/security/configuring-keystores) to use new keystores.
+- [Configure the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/security/configuring-keystores) to use new keystores.
 - If required, [add SSL certificates]({{base_path}}/install-and-setup/setup/security/importing-ssl-certificate) to your keystore.
 - If required, [renew the CA-signed certificate]({{base_path}}/install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore) in your keystore.

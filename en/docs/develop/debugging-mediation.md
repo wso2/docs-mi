@@ -1,10 +1,10 @@
 # Debugging Mediation
 
-## Debugging with External Micro Integrator
+## Debugging with External WSO2 Integrator: MI
 
-1. [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator server and on your computer.
+1. [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI server and on your computer.
 
-2. Launch Visual Studio Code with the [Micro Integrator Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
+2. Launch Visual Studio Code with the [WSO2 Integrator: MI Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
 
 3. Select the artifact that requires debugging from the **Project Overview** page.
 
@@ -46,7 +46,7 @@ Then the server will start up in debug mode and the server logs can be viewed in
 
 <img src="{{base_path}}/assets/img/develop/debugger/terminal-view.png" alt="terminal view" width="700">
 
-Once the server is up, send a request to the Micro Integrator and start debugging the flow.
+Once the server is up, send a request to the WSO2 Integrator: MI and start debugging the flow.
 
 <img src="{{base_path}}/assets/img/develop/debugger/with-breakpoints.png" alt="breakpoints" width="300">
 

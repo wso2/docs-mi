@@ -62,6 +62,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>A JSON object containing the campaign properties. See the [Campaign parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/campaigns/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -70,6 +80,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.createCampaign configKey="FB_CONN_1">
         <adAccountId>{json-eval($.account_id)}</adAccountId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>campaignResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.createCampaign>
     ```
  
@@ -125,6 +137,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Fields of the campaign that the response should contain. See the [Fields](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -135,6 +157,8 @@ To use the Facebook Ads connector, first create the connection with your configu
         <fields>{json-eval($.fields)}</fields>
         <effectiveStatus>{json-eval($.status)}</effectiveStatus>
         <isCompleted>{json-eval($.is_completed)}</isCompleted>
+        <responseVariable>campaignsResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.getCampaigns>
     ```
  
@@ -169,6 +193,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>A JSON object containing the campaign properties. See the [Campaign parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#parameters-3) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -177,6 +211,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.updateCampaign configKey="FB_CONN_1">
         <campaignId>{json-eval($.campaign_id)}</campaignId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>updateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.updateCampaign>
     ```
  
@@ -220,6 +256,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Object count.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -229,6 +275,8 @@ To use the Facebook Ads connector, first create the connection with your configu
         <adAccountId>{json-eval($.account_id)}</adAccountId>
         <deleteStrategy>{json-eval($.strategy)}</deleteStrategy>
         <objectCount>{json-eval($.count)}</objectCount>
+        <responseVariable>dissociateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.dissociateCampaign>
     ```
  
@@ -255,6 +303,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>ID of the campaign.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -262,6 +320,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```xml
     <facebookAds.deleteCampaign configKey="FB_CONN_1">
         <campaignId>{json-eval($.campaign_id)}</campaignId>
+        <responseVariable>deleteResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.deleteCampaign>
     ```
  
@@ -291,6 +351,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>A JSON object containing the adset properties. See the [Ad set parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -299,6 +369,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.createAdSet configKey="FB_CONN_1">
         <adAccountId>{json-eval($.account_id)}</adAccountId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>adSetResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.createAdSet>
     ```
  
@@ -356,6 +428,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Fields of the ad set that the response should contain. See the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -364,6 +446,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.getAdSets configKey="FB_CONN_1">
         <adAccountId>{json-eval($.account_id)}</adAccountId>
         <fields>{json-eval($.fields)}</fields>
+        <responseVariable>adSetsResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.getAdSets>
     ```
  
@@ -404,6 +488,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Fields of the ad set that the response should contain. See the [Fields](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -412,6 +506,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.getAdSet configKey="FB_CONN_1">
         <adSetId>{json-eval($.ad_set_id)}</adSetId>
         <fields>{json-eval($.fields)}</fields>
+        <responseVariable>adSetResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.getAdSet>
     ```
  
@@ -442,6 +538,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>A JSON object containing the adset properties. See the [Ad set parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -450,6 +556,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.updateAdSet configKey="FB_CONN_1">
         <adSetId>{json-eval($.ad_set_id)}</adSetId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>updateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.updateAdSet>
     ```
  
@@ -479,6 +587,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>ID of the ad set.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -486,6 +604,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```xml
     <facebookAds.deleteAdSet configKey="FB_CONN_1">
         <adSetId>{json-eval($.ad_set_id)}</adSetId>
+        <responseVariable>deleteResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.deleteAdSet>
     ```
  
@@ -515,6 +635,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>A JSON object containing the ad properties. See the [Ad parameters](https://developers.facebook.com/docs/marketing-api/reference/ad-account/ads/#parameters-2) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -523,6 +653,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.createAd configKey="FB_CONN_1">
         <adAccountId>{json-eval($.account_id)}</adAccountId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>adResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.createAd>
     ```
  
@@ -580,6 +712,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Fields of the ad that the response should contain. See the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -590,6 +732,8 @@ To use the Facebook Ads connector, first create the connection with your configu
         <fields>{json-eval($.fields)}</fields>
         <effectiveStatus>{json-eval($.status)}</effectiveStatus>
         <updatedSince>{json-eval($.updated_since)}</updatedSince>
+        <responseVariable>adsResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.getAds>
     ```
  
@@ -634,6 +778,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Fields of the ad that the response should contain. See the [Fields]( https://developers.facebook.com/docs/marketing-api/reference/adgroup#fields) documentation for a list of all available fields.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -642,6 +796,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.getAd configKey="FB_CONN_1">
         <adId>{json-eval($.ad_id)}</adId>
         <fields>{json-eval($.fields)}</fields>
+        <responseVariable>adResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.getAd>
     ```
  
@@ -672,6 +828,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>A JSON object containing the ad properties. See the [Update Limitations](https://developers.facebook.com/docs/marketing-api/reference/adgroup#limitations) documentation for all the available properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -680,6 +846,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.updateAd configKey="FB_CONN_1">
         <adId>{json-eval($.ad_id)}</adId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>updateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.updateAd>
     ```
  
@@ -708,6 +876,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>ID of the ad.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -715,6 +893,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     ```xml
     <facebookAds.deleteAd configKey="FB_CONN_1">
         <adId>{json-eval($.ad_id)}</adId>
+        <responseVariable>deleteResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.deleteAd>
     ```
  
@@ -743,6 +923,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Custom audience properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -751,6 +941,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.createCustomAudience configKey="FB_CONN_1">
         <adId>{json-eval($.ad_id)}</adId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>audienceResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.createCustomAudience>
     ```
  
@@ -786,6 +978,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Ad creative properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -794,6 +996,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.createAdCreative configKey="FB_CONN_1">
         <adId>{json-eval($.ad_id)}</adId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>creativeResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.createAdCreative>
     ```
  
@@ -850,6 +1054,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Custom audience update properties.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -858,6 +1072,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.updateCustomAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>updateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.updateCustomAudience>
     ```
  
@@ -897,6 +1113,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Structure of the user data to be added.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configurations for Facebook API compatible input**
@@ -905,12 +1131,16 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.addUsersToAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>audienceUpdateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.addUsersToAudience>
 
     <facebookAds.addUsersToAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
         <inputStructure>FACEBOOK_API_COMPATIBLE</inputStructure>
+        <responseVariable>audienceUpdateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.addUsersToAudience>
     ```
  
@@ -953,6 +1183,8 @@ To use the Facebook Ads connector, first create the connection with your configu
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
         <inputStructure>JSON_ARRAY</inputStructure>
+        <responseVariable>audienceUpdateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.addUsersToAudience>
     ```
  
@@ -1021,6 +1253,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Structure of the user data to be removed.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configurations for Facebook API compatible input**
@@ -1029,12 +1271,16 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
+        <responseVariable>audienceUpdateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.removeUsersFromAudience>
 
     <facebookAds.removeUsersFromAudience configKey="FB_CONN_1">
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
         <inputStructure>FACEBOOK_API_COMPATIBLE</inputStructure>
+        <responseVariable>audienceUpdateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.removeUsersFromAudience>
     ```
  
@@ -1077,6 +1323,8 @@ To use the Facebook Ads connector, first create the connection with your configu
         <customAudienceId>{json-eval($.audience_id)}</customAudienceId>
         <properties>{json-eval($.properties)}</properties>
         <inputStructure>JSON_ARRAY</inputStructure>
+        <responseVariable>audienceUpdateResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.removeUsersFromAudience>
     ```
  
@@ -1140,6 +1388,16 @@ To use the Facebook Ads connector, first create the connection with your configu
             <td>Provide a name to filter and retrieve specific audiences.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td><code>responseVariable</code></td>
+            <td>Variable name to store the response payload.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code>overwriteBody</code></td>
+            <td>Replace the current message payload with the operation response.</td>
+            <td>No (Default: false)</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -1148,6 +1406,8 @@ To use the Facebook Ads connector, first create the connection with your configu
     <facebookAds.getCustomAudiences configKey="FB_CONN_1">
         <adAccountId>{json-eval($.ad_account_id)}</adAccountId>
         <filterByName>{json-eval($.filter_name)}</filterByName>
+        <responseVariable>audiencesResponse</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </facebookAds.getCustomAudiences>
     ```
  

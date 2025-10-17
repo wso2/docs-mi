@@ -2,13 +2,13 @@
 
 ## Overview
 
-In the dynamic landscape of integration solutions, the ability to secure sensitive data and adapt deployments to specific operational contexts is crucial. WSO2 Micro Integrator excels in this area with its support for externalized configuration, a feature that significantly enhances both the security and flexibility of deployment processes.
+In the dynamic landscape of integration solutions, the ability to secure sensitive data and adapt deployments to specific operational contexts is crucial. WSO2 Integrator: MI excels in this area with its support for externalized configuration, a feature that significantly enhances both the security and flexibility of deployment processes.
 
-Externalized configuration in WSO2 Micro Integrator allows for the dynamic resolution of configuration parameters at runtime. This capability ensures that sensitive information is securely managed and that deployments can be tailored efficiently to different environments without the need to maintain multiple versions of artifacts.
+Externalized configuration in WSO2 Integrator: MI allows for the dynamic resolution of configuration parameters at runtime. This capability ensures that sensitive information is securely managed and that deployments can be tailored efficiently to different environments without the need to maintain multiple versions of artifacts.
 
 ## Configuration sources and priority
 
-Micro Integrator (MI) manages configuration properties from multiple sources by following a specific order of precedence. This hierarchy is essential for understanding which configuration will take precedence when properties are duplicated across various sources.
+WSO2 Integrator: MI  manages configuration properties from multiple sources by following a specific order of precedence. This hierarchy is essential for understanding which configuration will take precedence when properties are duplicated across various sources.
 
 - **Environment Variables:** Granted the highest precedence, these settings are specified externally, typically at the container or OS level, allowing configurations to be adjusted without code changes.
 
@@ -58,7 +58,7 @@ http_connection_cert: cert
 
 !!! info "Adding Environment Variables"
 
-    To efficiently manage environment-specific configurations in WSO2 Micro Integrator, you can utilize an `.env` file located in your `<PROJECT_HOME>`. This approach allows you to maintain a clear separation between your development environment and production settings, facilitating easier adjustments and deployments across different environments.
+    To efficiently manage environment-specific configurations in WSO2 Integrator: MI, you can utilize an `.env` file located in your `<PROJECT_HOME>`. This approach allows you to maintain a clear separation between your development environment and production settings, facilitating easier adjustments and deployments across different environments.
 
     Populate the `.env` file with key-value pairs that represent the configuration settings you want to externalize. Here’s an example of what this file might contain:
     ```env
@@ -66,7 +66,7 @@ http_connection_cert: cert
     http_connection_cert=/Users/wso2/Documents/http.crt
     ```
 
-    When you start the Micro Integrator server, specify the `.env` file using the `--env-file` flag. This flag tells the server to load the environment variables from the `.env` file, integrating them into the server's runtime environment.    
+    When you start the WSO2 Integrator: MI server, specify the `.env` file using the `--env-file` flag. This flag tells the server to load the environment variables from the `.env` file, integrating them into the server's runtime environment.    
 
     ```script
     sh micro-integrator.sh --env-file=/PROJECT_HOME/.env
@@ -161,7 +161,7 @@ Listed below are the Endpoint parameters that can be dynamically injected.
     </tr>
     <tr>
         <td>HTTP Endpoint</td>
-        <td><code>URI</code></td>
+        <td><code>uri-template</code></td>
     </tr>
     <tr>
         <td>Template Endpoint</td>

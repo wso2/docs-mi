@@ -1,6 +1,6 @@
 # Securing the Management API
 
-The Management API of WSO2 Micro Integrator is the internal REST API.
+The Management API of WSO2 Integrator: MI is the internal REST API.
 
 The [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli) and the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) communicates with this service to
 obtain administrative information of the server instance and to perform various administration tasks. If required, you can [directly access the management API]({{base_path}}/observe-and-manage/working-with-management-api) without using the ICP or CLI.
@@ -29,7 +29,7 @@ When you use the [Integration Control Plane]({{base_path}}/observe-and-manage/wo
 
     The [management API]({{base_path}}/observe-and-manage/working-with-management-api) and related tools (the [CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli) and the [ICP]({{base_path}}/observe-and-manage/working-with-integration-control-plane) will not be accessible if authentication is disabled.
 
-If security is **not required**, you can simply disable the handler for the Micro Integrator. Open the `deployment.toml` file (stored in the `MI_HOME/conf/` directory) and add the following configuration:
+If security is **not required**, you can simply disable the handler for the WSO2 Integrator: MI. Open the `deployment.toml` file (stored in the `MI_HOME/conf/` directory) and add the following configuration:
 
 ```toml
 [management_api.jwt_token_security_handler]

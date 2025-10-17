@@ -3,7 +3,7 @@
 When you implement an integration use case that handles HL7 messages, you can use the following HL7 parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can receive HL7 messages or send HL7 messages only if the HL7 transport listener and sender are enabled and configured at the server level. Read about the [HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport).
+    The WSO2 Integrator: MI can receive HL7 messages or send HL7 messages only if the HL7 transport listener and sender are enabled and configured at the server level. Read about the [HL7 transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-hl7-transport).
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
@@ -27,7 +27,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       transport.hl7.Port
     </td>
     <td>
-      Add this parameter to specify the port on which the Micro Integrator listens to incoming HL7 messages.
+      Add this parameter to specify the port on which the WSO2 Integrator: MI listens to incoming HL7 messages.
     </td>
   </tr>
 </table>
@@ -70,7 +70,7 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
     </td>
     <td>
       Add this parameter to the proxy service to disable auto acknowledgement of HL7 messages. You can disable auto acknowledgement by setting this parameter to 'false'.</br></br>
-      By default, auto acknowledgement is enabled in the Micro Integrator, which means that an ACK message is sent to the client as soon as the message is received by the mediation sequence.</br></br>
+      By default, auto acknowledgement is enabled in the WSO2 Integrator: MI, which means that an ACK message is sent to the client as soon as the message is received by the mediation sequence.</br></br>
       <b>Note</b>: When automatic acknowledgment is disabled, you can manually configure ACK/NACK messages for HL7 in the mediation sequence by using the following mediation properties:
       <ul>
       	<li>

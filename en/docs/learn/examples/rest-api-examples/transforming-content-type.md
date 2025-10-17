@@ -64,7 +64,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -103,7 +103,7 @@ Sending an **HTTP POST request**:
     curl -v -H "Content-Type: application/json" -X POST -d @request.json http://localhost:8290/healthcare/appointment/reserve
     ```
 
-    The response from backend to the Micro Integrator will be:
+    The response from backend to the WSO2 Integrator: MI will be:
 
     ```json
     {
@@ -129,7 +129,7 @@ Sending an **HTTP POST request**:
     }
     ```
 
-    The Micro Integrator transform the response to XML and send it back to client as:
+    The WSO2 Integrator: MI transform the response to XML and send it back to client as:
 
     ```xml
     <jsonObject>
@@ -197,13 +197,13 @@ Sending an **HTTP DELETE request**:
     curl -v -X DELETE http://localhost:8290/healthcare/appointments/1
     ```
         
-    This request will be sent to the back end, and the order with the specified ID will be deleted. The response to the Micro Integrator from backend will be as follows:
+    This request will be sent to the back end, and the order with the specified ID will be deleted. The response to the WSO2 Integrator: MI from backend will be as follows:
 
     ```json
     {"status":"Appointment is successfully removed"}
     ```
 
-2.  The Micro Integrator transform the response to XML and sends it back to the client as follows:
+2.  The WSO2 Integrator: MI transform the response to XML and sends it back to the client as follows:
 
     ```xml
     <jsonObject><status>Appointment is successfully removed</status></jsonObject>

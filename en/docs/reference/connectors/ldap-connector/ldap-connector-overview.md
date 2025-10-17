@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # LDAP Connector Overview
 
 The LDAP connector allows you to connect to any LDAP server through a simple web services interface and perform CRUD 
@@ -10,9 +15,10 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector version | Supported product versions |
-| ------------- |------------- |
-|  1.0.11        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0 |
+| Connector version | Supported product versions                                   |
+|-------------------|--------------------------------------------------------------|
+| 2.0.0(latest)     | MI 4.x.x                                                     |
+| 1.0.11            | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0 |
 
 For older versions, see the details in the connector store.
 

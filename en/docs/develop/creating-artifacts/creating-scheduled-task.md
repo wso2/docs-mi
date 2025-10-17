@@ -1,6 +1,6 @@
 # Create a Scheduled Task
 
-Follow the instructions below to create a Scheduled Task in the Micro Integrator for Visual Studio Code (MI for VS Code) extension.
+Follow the instructions below to create a Scheduled Task in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension.
 
 ## Create a scheduled task artifact
 
@@ -8,7 +8,7 @@ Follow the instructions below to create a Scheduled Task in the Micro Integrator
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new Scheduled Task, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Scheduled Task, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

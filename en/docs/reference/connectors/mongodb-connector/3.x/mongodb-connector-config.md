@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # MongoDB Connector Reference
 
 This documentation provides a reference guide for the MongoDB Connector.
@@ -356,7 +361,7 @@ The supported connection URI types and connection options are listed in the [Mon
                 String
             </td>
             <td>
-                When this option used, the Micro Integrator requests an acknowledgement from MongoDB that the write operation has been written to the journal. This applies when the write concern is set to 'j'.
+                When this option used, the WSO2 Integrator: MI requests an acknowledgement from MongoDB that the write operation has been written to the journal. This applies when the write concern is set to 'j'.
             </td>
             <td>
                 -

@@ -1,6 +1,6 @@
 # Scatter Gather Integration Pattern Sample
 
-This sample demonstrates how to implement the Scatter-Gather enterprise integration pattern with Micro Integrator.
+This sample demonstrates how to implement the Scatter-Gather enterprise integration pattern with WSO2 Integrator: MI.
 
 The sample includes a REST API called MissionServiceAPI and three endpoints: MissionEP1, MissionEP2 and MissionEP3.
 
@@ -10,7 +10,7 @@ When a client invokes the API, it clones the request payload and sends it to the
 
 1.  Open the sample by clicking on the **Scatter Gather Integration Pattern** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

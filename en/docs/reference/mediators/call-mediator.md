@@ -3,7 +3,7 @@
 !!! Note  
     Starting from WSO2 MI 4.4.0, a new [**HTTP Connector**]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) is available for invoking HTTP backends. While the **Call Mediator** can still be used, the HTTP connector provides a more flexible and feature-rich approach for handling HTTP requests. It is **recommended** to use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for new implementations.
 
-The **Call mediator** is used to send messages out of the Micro Integrator to an **endpoint**. You can invoke services either in blocking or non-blocking manner.
+The **Call mediator** is used to send messages out of the WSO2 Integrator: MI to an **endpoint**. You can invoke services either in blocking or non-blocking manner.
 
 When you invoke a service in non-blocking mode, the underlying worker
 thread returns without waiting for the response. In blocking mode, the
@@ -295,7 +295,7 @@ the Call mediator response.
 
 ### Example 3 - Call mediator in blocking mode
 
-In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-mediator) is used to add the action, the [Payload Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) is used to store the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator).
+In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-mediator) is used to add the action, the [Payload Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) is used to store the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the WSO2 Integrator: MI and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator).
 
 ```xml
 <target>
@@ -328,6 +328,9 @@ If you want to receive the response message headers, when you use the Call media
 !!! Info
     Set the value of the `BLOCKING_SENDER_PRESERVE_REQ_HEADERS` property to `false` to receive the response message headers. If you set it to `true`, you cannot get the response headers, but the request headers will be preserved.
 
+!!! Info
+    Set the `DISABLE_COOKIE` property To `true` to remove cookie header from blocking request calls
+
 === "Proxy Service"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -338,6 +341,7 @@ If you want to receive the response message headers, when you use the Call media
                 <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
                 <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
                 <property name="BLOCKING_SENDER_PRESERVE_REQ_HEADERS" value="false"/>
+                <property name="DISABLE_COOKIE" value="true" scope="axis2" type="BOOLEAN"/>
                 <call blocking="true">
                     <endpoint key="sampleBE_Endpoint"/>
                 </call>

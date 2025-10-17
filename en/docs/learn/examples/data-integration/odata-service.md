@@ -60,7 +60,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Open a command prompt execute the following CURL commands using CRUD operations:
 

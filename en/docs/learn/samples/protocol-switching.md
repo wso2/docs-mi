@@ -22,7 +22,7 @@ When a request is received by the API, it is published to a JMS queue through an
     parameter.cache_level = "producer"
     ```
     
-4.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

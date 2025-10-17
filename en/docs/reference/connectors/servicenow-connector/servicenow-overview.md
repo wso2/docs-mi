@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # ServiceNow Connector Overview
 
 ServiceNow is an application platform as a service, which is a cloud-based computing model that provides the infrastructure needed to develop, run, and manage applications. It offers activities of an organization such as data collection, storage, workflow automation, and reporting through a single user interface. This software as a service (SaaS) platform contains a number of modular applications that can vary by instance and user. It focuses on service-orientation toward the tasks, activities, and processes.
@@ -10,15 +15,16 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 
 ## Compatibility
 
-| Connector version | Supported product versions |
-| ------------- |------------- |
-|  1.0.2        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| Connector version    | Supported product versions                                   |
+|----------------------|--------------------------------------------------------------|
+| 2.0.0(latest)        | MI 4.4.0+                                                    |
+| 1.0.2                | MI 4.x.x, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
 ## ServiceNow Connector documentation
 
-* **[Setting up the ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/servicenow-connector-config/)**: This involves creating and setting up a developer account and instance.
+* **[Setting up the ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/settingup-servicenow-instance/)**: This involves creating and setting up a developer account and instance.
 
 * **[ServiceNow Connector Example]({{base_path}}/reference/connectors/servicenow-connector/servicenow-connector-example/)**: This example explains how to use ServiceNow Connector to create records in a table and retrieve its information. 
 

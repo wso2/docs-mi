@@ -1,6 +1,6 @@
-# Elastic Stack-Based Operational Analytics for Micro Integrator
+# Elastic Stack-Based Operational Analytics for WSO2 Integrator: MI
 
-WSO2 Micro Integrator now supports publishing operational analytics for Elastic Stack. As a part of the feature, WSO2 will provide some dashboards that include operational data from the following entities.
+WSO2 Integrator: MI now supports publishing operational analytics for Elastic Stack. As a part of the feature, WSO2 will provide some dashboards that include operational data from the following entities.
 
 - APIs
 - Sequences
@@ -10,7 +10,7 @@ WSO2 Micro Integrator now supports publishing operational analytics for Elastic 
 
 ## Required components from Elastic Stack
 
-The following components are required from the Elastic stack to enable operational analytics on WSO2 Micro Integrator.
+The following components are required from the Elastic stack to enable operational analytics on WSO2 Integrator: MI.
 
 - Kibana
 - Elasticsearch
@@ -19,7 +19,7 @@ The following components are required from the Elastic stack to enable operation
 
 ## Analytics dataflow
 
-Micro Integrator will publish the analytics data to a log file (synapse-analytics.log). This log file will be read using Filebeat, and a JSON file will be sent to Elasticsearch through Logstash with the data required for analytics.
+WSO2 Integrator: MI will publish the analytics data to a log file (synapse-analytics.log). This log file will be read using Filebeat, and a JSON file will be sent to Elasticsearch through Logstash with the data required for analytics.
 
 Example Analytic log line:
 
@@ -32,7 +32,7 @@ Example Analytic log line:
 The setup procedure consists of 3 main stages:
 
 - Setup Elastic Stack
-- Configure Micro Integrator
+- Configure WSO2 Integrator: MI
 - Configure Integration Projects to support custom analytics (Optional)
 
 ### Setup Elastic Stack
@@ -63,7 +63,7 @@ In this stage, we download and install the components required from Elastic stac
 
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/8.3/installing-logstash.html) according to your operating system.
 
-2. Use the following [configuration file]({{base_path}}/assets/attachments/mi-elk/config.conf) when starting Logstash. Update the `logstash_internal_user_password` and `elasticsearch_home` placeholders in the configuration file.
+2. Use the following [configuration file]({{base_path}}/assets/attachments/mi-elk/config.conf) when starting Logstash. Update the placeholders in the configuration file.
 
     ``` conf
         input {
@@ -101,17 +101,22 @@ In this stage, we download and install the components required from Elastic stac
                 index => "wso2-mi-analytics-%{[@metadata][appNameIndex]}"
                 ssl => true
                 ssl_certificate_verification => true
-                cacert => "<elasticsearch_home>/config/certs/http_ca.crt"       
+                cacert => "<elasticsearch_home>/config/certs/http_ca.crt"
             }
         }
 
     ```
 
+    !!! important
+        Replace the following placeholders in the configuration:
+        - `logstash_username` and `<logstash_user_password>`: Use the credentials of the user created in step 4 of the Kibana installation (the user with **cluster privileges: manage_index_templates, monitor** and **index privileges: create_index, create, write** for wso2-mi-analytics-* indices pattern).
+        - `<elasticsearch_home>`: Replace with the actual path to your Elasticsearch installation directory.
+
 ### Installing Filebeat
 
 1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/8.3/filebeat-installation-configuration.html) according to your operating system.
 
-2. Download the [sample configuration file]({{base_path}}/assets/attachments/mi-elk/filebeat.yml) and replace <MI_HOME> with the Micro Integrator’s home directory and <LOGSTASH_URL> with Logstash URL.
+2. Download the [sample configuration file]({{base_path}}/assets/attachments/mi-elk/filebeat.yml) and replace <MI_HOME> with the WSO2 Integrator: MI’s home directory and <LOGSTASH_URL> with Logstash URL.
 
     ``` yaml
     filebeat.inputs:
@@ -139,7 +144,7 @@ In this stage, we download and install the components required from Elastic stac
 
 ElasticSearch supports basic authentication via an internal user store. To set up basic authentication in ElasticSearch and Kibana, refer to the [ElasticSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
-## Configure Micro Integrator
+## Configure WSO2 Integrator: MI
 
 To enable operational analytics, you must update the deployment.toml file with the required configurations and add a new log appender so that the analytics data will be stored in a dedicated log file.
 
