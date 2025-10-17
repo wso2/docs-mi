@@ -1,18 +1,27 @@
-# VFS parameters
+# VFS Parameters
 
-When you implement an integration use case that requires file processing, you can use the following VFS parameters in your [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
+When implementing an integration use case that requires file processing, you can use the following **VFS parameters** in your [Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The VFS transport is enabled and configured for the WSO2 Integrator: MI by default, which allows you to run VFS use cases without any server configurations. Read about the [VFS transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport).
+    The VFS transport is enabled and configured for WSO2 Micro Integrator (MI) by default, allowing you to run VFS use cases without additional server configurations.  
+    See [VFS transport setup]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport).
 
-{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+---
 
-See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) for instructions.
+General Notes
+-------------
+If the username or password in your file URI contains special characters, URL-encode them when defining File URIs in the VFS transport.
+
+**Example:**
+```xml
+<parameter name="transport.vfs.FileURI">
+  sftp://[username[:password]@]hostname[:port][absolute-path]?sftpPathFromRoot=true;transport.vfs.AvoidPermissionCheck=true
+</parameter>
 
 ## Service-Level parameters
 
 !!! Note
-    If the username or password contains special characters, you will need to use the URL encoded values when defining the File URIs in VFS transport.
+    If the username or password contains special characters, you will need to use the URL-encoded values when defining the File URIs in VFS transport.
 
 <table>
    <thead>
@@ -105,22 +114,6 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
       </tr>
       <tr>
          <td>
-            transport.vfs.ReplyFileURI
-         </td>
-         <td>
-           The location where reply files should be written by the transport.
-         </td>
-      </tr>
-      <tr>
-         <td>
-            transport.vfs.ReplyFileName
-         </td>
-         <td>
-            The name for reply files written by the transport. The default value is <code>response.xml</code>.
-         </td>
-      </tr>
-      <tr>
-         <td>
            transport.vfs.MoveTimestampFormat
          </td>
          <td>
@@ -149,18 +142,6 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
          </td>
          <td>
             Maximum number of retry attempts to carry out in case of errors. Specify a positive integer. The default value is <code>3</code>.
-         </td>
-      </tr>
-      <tr>
-         <td>
-           transport.vfs.Append
-         </td>
-         <td>
-            When writing the response to a file, whether the response should be appended to the response file instead of overwriting the file. This value should be defined as a query parameter in the out/reply file URI. For example:<br />
-               <code>vfs:file:///home/user/test/out?transport.vfs.Append=true</code><br />
-            or,
-            <code>parameter name="transport.vfs.ReplyFileURI"file:///home/user/test/out?transport.vfs.Append=true/parameter</code>.<br />
-            By default, the parameter is set to <code>false</code> (the response file will be completely overwritten).
          </td>
       </tr>
       <tr>
@@ -223,10 +204,6 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
          <td>The interval in milliseconds between two file processes. Specify a positive integer, such as <code>10</code></td>
       </tr>
       <tr>
-         <td>transport.vfs.ClusterAware</td>
-         <td>Whether VFS coordination support is enabled in a clustered deployment or not. By default, this setting is set to <code>false</code>.</td>
-      </tr>
-      <tr>
          <td>transport.vfs.FileSizeLimit</td>
          <td>Only file sizes that are less than or equal to the defined limit are processed. Specify the file size in bytes. The default value is <code>-1</code>(unlimited file size).</td>
       </tr>
@@ -254,22 +231,6 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             Whether hostnames should be resolved at the time of deployment or whether it is necessary to resolve hostnames dynamically at runtime. By default, hostnames are resolved at the time of deployment. If you want to resolve hostnames at runtime, set this parameter to <code>true</code>.
             <b>Note</b>: Resolving hostnames at runtime is only possible for the Server Message Block (SMB) protocol. </br>
             By default, this setting is <code>false</code>.
-         </td>
-      </tr>
-      <tr>
-         <td>
-            transport.vfs.DistributedLock
-         </td>
-         <td>
-            This applies only in cluster deployments. Set to <code>true</code> if you need to avoid multiple servers trying to process the same file simultaneously.
-         </td>
-      </tr>
-      <tr>
-         <td>
-          transport.vfs.DistributedTimeout
-         </td>
-         <td>
-            The timeout period in seconds for the distributed lock. Specify a positive integer, such as <code>10</code>.
          </td>
       </tr>
       <tr>
@@ -414,12 +375,6 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
          </td>
       </tr>
       <tr>
-         <td>transport.vfs.Append</td>
-         <td>
-            If a file with same name exists, this parameter tells whether to create a new file and write content or append content to existing file. By default, this setting is <code>false</code>.
-         </td>
-      </tr>
-      <tr>
          <td>vfs.protection</td>
          <td>
             Set data channel protection level using FTP PROT command. Possible values are as follows:
@@ -452,10 +407,6 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
       <tr>
          <td>vfs.ssl.tspassword</td>
          <td>Trust store password</td>
-      </tr>
-      <tr>
-         <td>transport.vfs.CreateFolder</td>
-         <td>If the directory does not exists, create and write the file. The default setting is <code>false</code>.</td>
       </tr>
       <tr>
          <td>transport. vfs.SendFileSynchronously</td>
