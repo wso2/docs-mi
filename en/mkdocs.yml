@@ -553,6 +553,7 @@ nav:
               - Generate a New Connector:
                   - REST Connector:
                       - Steps to Generate: reference/connectors/connector-tools/rest/rest-connector-overview.md
+                      - Examples: reference/connectors/connector-tools/rest/openapi-examples.md
                   - gRPC Connector:
                       - Steps to Generate: reference/connectors/connector-tools/grpc/grpc-connector-overview.md
                       - Examples: reference/connectors/connector-tools/grpc/grpc-examples.md
