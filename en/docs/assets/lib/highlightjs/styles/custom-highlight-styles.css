@@ -1,23 +1,29 @@
-
+/* Base styles */
 pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
   border-radius: 6px;
+  background: inherit;
+  word-break: normal;
+  white-space: pre;
 }
+
 code.hljs {
   padding: 3px 5px;
   border-radius: 4px;
+  background: inherit;
 }
 
+/* Light theme - Default */
 [data-md-color-scheme="default"] .hljs {
-  background: #ffffff;
+  background: var(--md-code-bg-color, #f7f7f9);
   color: #000000;
 }
 
 [data-md-color-scheme="default"] .hljs-comment,
 [data-md-color-scheme="default"] .hljs-quote {
-  color: #008000; 
+  color: #008000;
   font-style: italic;
 }
 
@@ -26,7 +32,7 @@ code.hljs {
 [data-md-color-scheme="default"] .hljs-built_in,
 [data-md-color-scheme="default"] .hljs-name,
 [data-md-color-scheme="default"] .hljs-tag {
-  color: #0777d3; 
+  color: #0777d3;
 }
 
 [data-md-color-scheme="default"] .hljs-string,
@@ -37,20 +43,19 @@ code.hljs {
 }
 
 [data-md-color-scheme="default"] .hljs-attr {
-  color: #aa5500; 
+  color: #aa5500;
 }
 
 [data-md-color-scheme="default"] .hljs-number,
 [data-md-color-scheme="default"] .hljs-literal,
 [data-md-color-scheme="default"] .hljs-variable {
-  color: #2b91af; 
+  color: #2b91af;
 }
 
 [data-md-color-scheme="default"] .hljs-function,
 [data-md-color-scheme="default"] .hljs-title.function_ {
-  color: #795e26; 
+  color: #795e26;
 }
-
 
 [data-md-color-scheme="default"] .hljs-bullet,
 [data-md-color-scheme="default"] .hljs-link,
@@ -59,28 +64,25 @@ code.hljs {
   text-decoration: underline;
 }
 
-
 [data-md-color-scheme="default"] .hljs-emphasis {
   font-style: italic;
 }
+
 [data-md-color-scheme="default"] .hljs-strong {
   font-weight: 700;
 }
 
 /* Dark theme - Slate */
-
 [data-md-color-scheme="slate"] .hljs {
   background: #1e1e1e;
   color: #dcdcdc;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-comment,
 [data-md-color-scheme="slate"] .hljs-quote {
   color: #6a9955;
   font-style: italic;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-keyword,
 [data-md-color-scheme="slate"] .hljs-selector-tag,
@@ -90,42 +92,37 @@ code.hljs {
   color: #569cd6;
 }
 
-
 [data-md-color-scheme="slate"] .hljs-string,
 [data-md-color-scheme="slate"] .hljs-template-variable {
-  color: #ce9178; 
+  color: #ce9178;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-attr {
-  color: #d7ba7d; 
+  color: #d7ba7d;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-number,
 [data-md-color-scheme="slate"] .hljs-literal,
 [data-md-color-scheme="slate"] .hljs-variable {
-  color: #b5cea8; 
+  color: #b5cea8;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-function,
 [data-md-color-scheme="slate"] .hljs-title.function_ {
-  color: #dcdcaa; 
+  color: #dcdcaa;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-bullet,
 [data-md-color-scheme="slate"] .hljs-link,
 [data-md-color-scheme="slate"] .hljs-symbol {
-  color: #4fc1ff; 
+  color: #4fc1ff;
   text-decoration: underline;
 }
-
 
 [data-md-color-scheme="slate"] .hljs-emphasis {
   font-style: italic;
 }
+
 [data-md-color-scheme="slate"] .hljs-strong {
   font-weight: bold;
 }
