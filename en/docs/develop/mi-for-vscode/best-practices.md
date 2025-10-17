@@ -229,7 +229,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Migration is optional, only perform it if you want to take advantage of newer features or performance improvements. If your current mediators meet your requirements and you are satisfied with their behavior and performance, you may continue using them without changes.
 
-For future implementations, adopt the newer mediators and connectors (for example, HTTP Connector, ForEach v2, Scatter‑Gather, and the enhanced PayloadFactory) to benefit from improved performance and maintainability.
+For future implementations, adopt the newer mediators and connectors (for example, HTTP Connector, ForEach, Scatter‑Gather, and the enhanced PayloadFactory) to benefit from improved performance and maintainability.
 
 - The [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) in APIs and Proxies are not created by MI VS Code extension by default from version 4.4.0 onwards. Implement the necessary logic in the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to handle outgoing messages.
 - [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer recommended.
