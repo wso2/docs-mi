@@ -60,10 +60,10 @@ Start the ESB server and log into its management console UI (`https://localhost:
          <property name="MESSAGE" value="Executing default 'fault' sequence"/>
          <property xmlns:ns="http://org.apache.synapse/xsd"
                    name="ERROR_CODE"
-                   expression="get-property('ERROR_CODE')"/>
+                   expression="${properties.ERROR_CODE}"/>
          <property xmlns:ns="http://org.apache.synapse/xsd"
                    name="ERROR_MESSAGE"
-                   expression="get-property('ERROR_MESSAGE')"/>
+                   expression="${properties.ERROR_MESSAGE}"/>
       </log>
 
         <!-- Filter the failed Test Messages -->

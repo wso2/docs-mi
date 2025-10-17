@@ -73,28 +73,28 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
     4. Add the property mediator to capture the `sourceAddress` value. The `sourceAddress` contains the source address of the SMS message. 
    
         - **Property Name**: `sourceAddress`
-        - **Property Value**: expression `json-eval($.sourceAddress)`
+        - **Property Value**: expression `${payload.sourceAddress}`
    
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-source-address-property.png" title="Add property mediators sourceAddress" width="800" alt="Add property mediators sourceAddress"/>
     
     5. Add the property mediator to capture the `message` values. The message contains the content of the SMS message.                  
    
         - **Property Name**: `message`
-        - **Property Value**: expression `json-eval($.message)`
+        - **Property Value**: expression `${payload.message}`
      
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-message-property.png" title="Add values to capture message" width="800" alt="Add values to capture message"/>  
       
     6. Add the property mediator to capture the `destinationAddress` values. The message contains the content of the SMS message.                  
        
         - **Property Name**: `destinationAddress`
-        - **Property Value**: expression `json-eval($.destinationAddress)`
+        - **Property Value**: expression `${payload.destinationAddress}`
          
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-destination-address-property.png" title="Add values to capture destinationAddress" width="800" alt="Add values to capture destinationAddress"/>  
     
     7. Add the `sendSMS` operation in the `SMPP` connector. Select the previously created connection. Provide the following expressions for source address, destination address, and message as below. 
-        - **Source Address** - expression `$ctx:sourceAddress`
-        - **Destination Address** - expression `$ctx:destinationAddress` 
-        - **Message** - expression `$ctx:message`
+        - **Source Address** - expression `${properties.sourceAddress}`
+        - **Destination Address** - expression `${properties.destinationAddress}` 
+        - **Message** - expression `${properties.message}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-again-add-send-sms-operation.png" title="Again add send sms operation" width="800" alt="Again add send sms operation"/> 
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-example-select-sms-conn.png" title="Select created SMSC connection" width="400" alt="Select created SMSC connection"/> 
@@ -117,13 +117,13 @@ Follow the [Creating a REST API]({{base_path}}/develop/creating-artifacts/creati
         <api context="/smpptest" name="SmppTestApi" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="POST" uri-template="/send">
                 <inSequence>
-                    <property name="sourceAddress" scope="default" type="STRING" expression="json-eval($.sourceAddress)"/>
-                    <property name="message" scope="default" type="STRING" expression="json-eval($.message)"/>
-                    <property name="destinationAddress" scope="default" type="STRING" expression="json-eval($.destinationAddress)"/>
+                    <property name="sourceAddress" scope="default" type="STRING" expression="${payload.sourceAddress}"/>
+                    <property name="message" scope="default" type="STRING" expression="${payload.message}"/>
+                    <property name="destinationAddress" scope="default" type="STRING" expression="${payload.destinationAddress}"/>
                     <SMPP.sendSMS configKey="SMSC_CONFIG_1">
-                        <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
-                        <destinationAddress>{$ctx:destinationAddress}</destinationAddress>
-                        <message>{$ctx:message}</message>
+                        <sourceAddress>{${properties.sourceAddress}}</sourceAddress>
+                        <destinationAddress>{${properties.destinationAddress}}</destinationAddress>
+                        <message>{${properties.message}}</message>
                     </SMPP.sendSMS>
                     <respond/>
                 </inSequence>

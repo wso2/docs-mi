@@ -837,7 +837,7 @@ The `salesforce.resetPassword` operation resets a specific user’s password by 
     <salesforce.update>
         <sObjectName>{${payload.sObjectName}}</sObjectName>
         <fieldAndValue>{${payload.fieldAndValue}}</fieldAndValue>
-        <Id>{$ctx:Id}</Id>
+        <Id>{${properties.Id}}</Id>
     </salesforce.update>
     ```
 

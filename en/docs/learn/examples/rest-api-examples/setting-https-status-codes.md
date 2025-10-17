@@ -19,7 +19,7 @@ Following is a sample REST API configuration that we can used to implement this 
                          </m0:getQuote>
                      </format>
                      <args>
-                         <arg expression="get-property('uri.var.symbol')"/>
+                         <arg expression="${properties.uri.var.symbol}"/>
                      </args>
                  </payloadFactory>
                  <header name="Action" value="urn:getQuote"/>

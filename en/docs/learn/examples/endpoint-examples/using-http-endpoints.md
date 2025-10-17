@@ -42,7 +42,7 @@ using multiple other parameters, and then pass that to define the HTTP
 endpoint as follows:
 
 ```xml
-<property name="uri.var.httpendpointurl" expression="fn:concat($ctx:prefixuri, $ctx:host, $ctx:port, $ctx:urlparam1, $ctx:urlparam2)" />
+<property name="uri.var.httpendpointurl" expression="fn:concat(${properties.prefixuri}, ${properties.host}, ${properties.port}, ${properties.urlparam1}, ${properties.urlparam2})" />
 <send>
     <endpoint>
         <http uri-template="{uri.var.httpendpointurl}"/>

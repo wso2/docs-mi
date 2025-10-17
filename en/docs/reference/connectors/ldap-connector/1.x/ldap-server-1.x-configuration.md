@@ -40,11 +40,11 @@ To use the LDAP connector, add the `<ldap.init>` element in your configuration b
     **Sample configuration**
     ```xml
     <ldap.init>
-        <providerUrl>{$ctx:providerUrl}</providerUrl>
-        <securityPrincipal>{$ctx:securityPrincipal}</securityPrincipal>
-        <securityCredentials>{$ctx:securityCredentials}</securityCredentials>
-        <secureConnection>{$ctx:secureConnection}</secureConnection>
-        <disableSSLCertificateChecking>{$ctx:disableSSLCertificateChecking}</disableSSLCertificateChecking>
+        <providerUrl>{${properties.providerUrl}}</providerUrl>
+        <securityPrincipal>{${properties.securityPrincipal}}</securityPrincipal>
+        <securityCredentials>{${properties.securityCredentials}}</securityCredentials>
+        <secureConnection>{${properties.secureConnection}}</secureConnection>
+        <disableSSLCertificateChecking>{${properties.disableSSLCertificateChecking}}</disableSSLCertificateChecking>
     </ldap.init>
     ```
 
@@ -100,8 +100,8 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/develop/cre
 
     ```xml
     <ldap.authenticate>
-        <dn>{$ctx:dn}</dn>
-        <password>{$ctx:password}</password>
+        <dn>{${properties.dn}}</dn>
+        <password>{${properties.password}}</password>
     </ldap.authenticate>
     ```
     
@@ -198,9 +198,9 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/develop/cre
 
     ```xml
     <ldap.addEntry>
-        <objectClass>{$ctx:objectClass}</objectClass>
-        <dn>{$ctx:dn}</dn>
-        <attributes>{$ctx:attributes}</attributes>
+        <objectClass>{${properties.objectClass}}</objectClass>
+        <dn>{${properties.dn}}</dn>
+        <attributes>{${properties.attributes}}</attributes>
     </ldap.addEntry>
     ```
     
@@ -280,11 +280,11 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/develop/cre
 
     ```xml
     <ldap.searchEntry>
-        <objectClass>{$ctx:objectClass}</objectClass>
-        <dn>{$ctx:dn}</dn>
-        <filters>{$ctx:filters}</filters>
-        <attributes>{$ctx:attributes}</attributes>
-        <onlyOneReference>{$ctx:onlyOneReference}</onlyOneReference>
+        <objectClass>{${properties.objectClass}}</objectClass>
+        <dn>{${properties.dn}}</dn>
+        <filters>{${properties.filters}}</filters>
+        <attributes>{${properties.attributes}}</attributes>
+        <onlyOneReference>{${properties.onlyOneReference}}</onlyOneReference>
         <limit>1000</limit>
     </ldap.searchEntry>
     ```
@@ -346,11 +346,11 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/develop/cre
 
     ```xml
     <ldap.searchEntry>
-        <objectClass>{$ctx:objectClass}</objectClass>
-        <dn>{$ctx:dn}</dn>
-        <filters>{$ctx:filters}</filters>
-        <attributes>{$ctx:attributes}</attributes>
-        <onlyOneReference>{$ctx:onlyOneReference}</onlyOneReference>
+        <objectClass>{${properties.objectClass}}</objectClass>
+        <dn>{${properties.dn}}</dn>
+        <filters>{${properties.filters}}</filters>
+        <attributes>{${properties.attributes}}</attributes>
+        <onlyOneReference>{${properties.onlyOneReference}}</onlyOneReference>
         <limit>1000</limit>
     </ldap.searchEntry>
     ```
@@ -396,11 +396,11 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/develop/cre
 
     ```xml
     <ldap.searchEntry>
-        <objectClass>{$ctx:objectClass}</objectClass>
-        <dn>{$ctx:dn}</dn>
-        <filters>{$ctx:filters}</filters>
-        <attributes>{$ctx:attributes}</attributes>
-        <onlyOneReference>{$ctx:onlyOneReference}</onlyOneReference>
+        <objectClass>{${properties.objectClass}}</objectClass>
+        <dn>{${properties.dn}}</dn>
+        <filters>{${properties.filters}}</filters>
+        <attributes>{${properties.attributes}}</attributes>
+        <onlyOneReference>{${properties.onlyOneReference}}</onlyOneReference>
         <limit>1000</limit>
     </ldap.searchEntry>
     ```

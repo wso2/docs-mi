@@ -23,7 +23,7 @@ Your class mediator might not be picked up and updated if you use an existing 
 ```
 
 !!! Warning
-    - Using class variables with expressions can cause performance degradation. Therefore, it is **not recommended** to use dynamic expressions such as `<property name="variable2" expression="get-property('variable1')"/>`. Instead, use setters and getters to dynamically access properties within the Java class's `mediate` method, as shown in [Dynamically access and set properties](#dynamically-access-and-set-properties).
+    - Using class variables with expressions can cause performance degradation. Therefore, it is **not recommended** to use dynamic expressions such as `<property name="variable2" expression="${properties.variable1}"/>`. Instead, use setters and getters to dynamically access properties within the Java class's `mediate` method, as shown in [Dynamically access and set properties](#dynamically-access-and-set-properties).
 
     - For static values, you can pass them directly, for example `<property name="variable1" value="10"/>`.
 

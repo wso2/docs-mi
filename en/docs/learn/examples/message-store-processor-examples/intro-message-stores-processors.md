@@ -39,8 +39,8 @@ Following are the artifact configurations that we can use to implement this scen
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="OnError">
         <log level="full">
             <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-            <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-            <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+            <property name="ERROR_CODE" expression="${properties.ERROR_CODE}"/>
+            <property name="ERROR_MESSAGE" expression="${properties.ERROR_MESSAGE}"/>
         </log>
         <drop/>
     </sequence>

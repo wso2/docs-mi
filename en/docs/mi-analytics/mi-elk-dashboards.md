@@ -135,8 +135,8 @@ Example API:
 <api xmlns="http://ws.apache.org/ns/synapse" name="userRegistrationAPI" context="/user">
    <resource methods="POST" uri-template="/signup">
       <inSequence>
-         <property name="newUserAge" expression="json-eval($.age)" scope="analytics" type="INTEGER" />
-         <property name="newUserLocation" expression="json-eval($.country)" scope="analytics"/>
+         <property name="newUserAge" expression="${payload.age}" scope="analytics" type="INTEGER" />
+         <property name="newUserLocation" expression="${payload.country}" scope="analytics"/>
          <respond/>
       </inSequence>
    </resource>

@@ -42,10 +42,10 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.init>
-        <region>{$ctx:region}</region>
-        <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
-        <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
-        <blocking>{$ctx:blocking}</blocking>
+        <region>{${properties.region}}</region>
+        <secretAccessKey>{${properties.secretAccessKey}}</secretAccessKey>
+        <accessKeyId>{${properties.accessKeyId}}</accessKeyId>
+        <blocking>{${properties.blocking}}</blocking>
     </amazondynamodb.init>
     ```
 
@@ -111,8 +111,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.batchGetItem>
-        <requestItems>{$ctx:requestItems}</requestItems>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
+        <requestItems>{${properties.requestItems}}</requestItems>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.batchGetItem>
@@ -231,8 +231,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.batchWriteItem>
-        <requestItems>{$ctx:requestItems}</requestItems>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
+        <requestItems>{${properties.requestItems}}</requestItems>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.batchWriteItem>
@@ -386,16 +386,16 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.deleteItem>
-        <expected>{$ctx:expected}</expected>
-        <tableName>{$ctx:tableName}</tableName>
-        <returnValues>{$ctx:returnValues}</returnValues>
-        <returnItemCollectionMetrics>{$ctx:returnItemCollectionMetrics}</returnItemCollectionMetrics>
-        <conditionalOperator>{$ctx:conditionalOperator}</conditionalOperator>
-        <conditionExpression>{$ctx:conditionExpression}</conditionExpression>
-        <expressionAttributeNames>{$ctx:expressionAttributeNames}</expressionAttributeNames>
-        <expressionAttributeValues>{$ctx:expressionAttributeValues}</expressionAttributeValues>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
-        <key>{$ctx:key}</key>
+        <expected>{${properties.expected}}</expected>
+        <tableName>{${properties.tableName}}</tableName>
+        <returnValues>{${properties.returnValues}}</returnValues>
+        <returnItemCollectionMetrics>{${properties.returnItemCollectionMetrics}}</returnItemCollectionMetrics>
+        <conditionalOperator>{${properties.conditionalOperator}}</conditionalOperator>
+        <conditionExpression>{${properties.conditionExpression}}</conditionExpression>
+        <expressionAttributeNames>{${properties.expressionAttributeNames}}</expressionAttributeNames>
+        <expressionAttributeValues>{${properties.expressionAttributeValues}}</expressionAttributeValues>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
+        <key>{${properties.key}}</key>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.deleteItem>
@@ -517,13 +517,13 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.getItem>
-        <attributesToGet>{$ctx:attributesToGet}</attributesToGet>
-        <tableName>{$ctx:tableName}</tableName>
-        <consistentRead>{$ctx:consistentRead}</consistentRead>
-        <key>{$ctx:key}</key>
-        <expressionAttributeNames>{$ctx:expressionAttributeNames}</expressionAttributeNames>
-        <projectionExpression>{$ctx:projectionExpression}</projectionExpression>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity> 
+        <attributesToGet>{${properties.attributesToGet}}</attributesToGet>
+        <tableName>{${properties.tableName}}</tableName>
+        <consistentRead>{${properties.consistentRead}}</consistentRead>
+        <key>{${properties.key}}</key>
+        <expressionAttributeNames>{${properties.expressionAttributeNames}}</expressionAttributeNames>
+        <projectionExpression>{${properties.projectionExpression}}</projectionExpression>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity> 
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.getItem> 
@@ -680,16 +680,16 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.putItem>
-        <expected>{$ctx:expected}</expected>
-        <tableName>{$ctx:tableName}</tableName>
-        <item>{$ctx:item}</item>
-        <returnValues>{$ctx:returnValues}</returnValues>
-        <returnItemCollectionMetrics>{$ctx:returnItemCollectionMetrics}</returnItemCollectionMetrics>
-        <conditionalOperator>{$ctx:conditionalOperator}</conditionalOperator>
-        <conditionExpression>{$ctx:conditionExpression}</conditionExpression>
-        <expressionAttributeNames>{$ctx:expressionAttributeNames}</expressionAttributeNames>
-        <expressionAttributeValues>{$ctx:expressionAttributeValues}</expressionAttributeValues>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
+        <expected>{${properties.expected}}</expected>
+        <tableName>{${properties.tableName}}</tableName>
+        <item>{${properties.item}}</item>
+        <returnValues>{${properties.returnValues}}</returnValues>
+        <returnItemCollectionMetrics>{${properties.returnItemCollectionMetrics}}</returnItemCollectionMetrics>
+        <conditionalOperator>{${properties.conditionalOperator}}</conditionalOperator>
+        <conditionExpression>{${properties.conditionExpression}}</conditionExpression>
+        <expressionAttributeNames>{${properties.expressionAttributeNames}}</expressionAttributeNames>
+        <expressionAttributeValues>{${properties.expressionAttributeValues}}</expressionAttributeValues>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.putItem> 
@@ -870,23 +870,23 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.query>
-        <limit>{$ctx:limit}</limit>
-        <exclusiveStartKey>{$ctx:exclusiveStartKey}</exclusiveStartKey>
-        <keyConditions>{$ctx:keyConditions}</keyConditions>
-        <attributesToGet>{$ctx:attributesToGet}</attributesToGet>
-        <tableName>{$ctx:tableName}</tableName>
-        <select>{$ctx:select}</select>
-        <scanIndexForward>{$ctx:scanIndexForward}</scanIndexForward>
-        <queryFilter>{$ctx:queryFilter}</queryFilter>
-        <consistentRead>{$ctx:consistentRead}</consistentRead>
-        <indexName>{$ctx:indexName}</indexName>
-        <conditionalOperator>{$ctx:conditionalOperator}</conditionalOperator>
-        <expressionAttributeNames>{$ctx:expressionAttributeNames}</expressionAttributeNames>
-        <expressionAttributeValues>{$ctx:expressionAttributeValues}</expressionAttributeValues>
-        <filterExpression>{$ctx:filterExpression}</filterExpression>
-        <keyConditionExpression>{$ctx:keyConditionExpression}</keyConditionExpression>
-        <projectionExpression>{$ctx:projectionExpression}</projectionExpression>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
+        <limit>{${properties.limit}}</limit>
+        <exclusiveStartKey>{${properties.exclusiveStartKey}}</exclusiveStartKey>
+        <keyConditions>{${properties.keyConditions}}</keyConditions>
+        <attributesToGet>{${properties.attributesToGet}}</attributesToGet>
+        <tableName>{${properties.tableName}}</tableName>
+        <select>{${properties.select}}</select>
+        <scanIndexForward>{${properties.scanIndexForward}}</scanIndexForward>
+        <queryFilter>{${properties.queryFilter}}</queryFilter>
+        <consistentRead>{${properties.consistentRead}}</consistentRead>
+        <indexName>{${properties.indexName}}</indexName>
+        <conditionalOperator>{${properties.conditionalOperator}}</conditionalOperator>
+        <expressionAttributeNames>{${properties.expressionAttributeNames}}</expressionAttributeNames>
+        <expressionAttributeValues>{${properties.expressionAttributeValues}}</expressionAttributeValues>
+        <filterExpression>{${properties.filterExpression}}</filterExpression>
+        <keyConditionExpression>{${properties.keyConditionExpression}}</keyConditionExpression>
+        <projectionExpression>{${properties.projectionExpression}}</projectionExpression>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.query> 
@@ -1045,22 +1045,22 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.scan>
-        <limit>{$ctx:limit}</limit>
-        <totalSegments>{$ctx:totalSegments}</totalSegments>
-        <exclusiveStartKey>{$ctx:exclusiveStartKey}</exclusiveStartKey>
-        <attributesToGet>{$ctx:attributesToGet}</attributesToGet>
-        <select>{$ctx:select}</select>
-        <segment>{$ctx:segment}</segment>
-        <tableName>{$ctx:tableName}</tableName>
-        <scanFilter>{$ctx:scanFilter}</scanFilter>
-        <conditionalOperator>{$ctx:conditionalOperator}</conditionalOperator>
-        <consistentRead>{$ctx:consistentRead}</consistentRead>
-        <expressionAttributeNames>{$ctx:expressionAttributeNames}</expressionAttributeNames>
-        <expressionAttributeValues>{$ctx:expressionAttributeValues}</expressionAttributeValues>
-        <filterExpression>{$ctx:filterExpression}</filterExpression>
-        <indexName>{$ctx:indexName}</indexName>
-        <projectionExpression>{$ctx:projectionExpression}</projectionExpression>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
+        <limit>{${properties.limit}}</limit>
+        <totalSegments>{${properties.totalSegments}}</totalSegments>
+        <exclusiveStartKey>{${properties.exclusiveStartKey}}</exclusiveStartKey>
+        <attributesToGet>{${properties.attributesToGet}}</attributesToGet>
+        <select>{${properties.select}}</select>
+        <segment>{${properties.segment}}</segment>
+        <tableName>{${properties.tableName}}</tableName>
+        <scanFilter>{${properties.scanFilter}}</scanFilter>
+        <conditionalOperator>{${properties.conditionalOperator}}</conditionalOperator>
+        <consistentRead>{${properties.consistentRead}}</consistentRead>
+        <expressionAttributeNames>{${properties.expressionAttributeNames}}</expressionAttributeNames>
+        <expressionAttributeValues>{${properties.expressionAttributeValues}}</expressionAttributeValues>
+        <filterExpression>{${properties.filterExpression}}</filterExpression>
+        <indexName>{${properties.indexName}}</indexName>
+        <projectionExpression>{${properties.projectionExpression}}</projectionExpression>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.scan> 
@@ -1262,18 +1262,18 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.updateItem>
-        <expected>{$ctx:expected}</expected>
-        <tableName>{$ctx:tableName}</tableName>
-        <returnValues>{$ctx:returnValues}</returnValues>
-        <returnItemCollectionMetrics>{$ctx:returnItemCollectionMetrics}</returnItemCollectionMetrics>
-        <conditionalOperator>{$ctx:conditionalOperator}</conditionalOperator>
-        <attributeUpdates>{$ctx:attributeUpdates}</attributeUpdates>
-        <key>{$ctx:key}</key>
-        <conditionExpression>{$ctx:conditionExpression}</conditionExpression>
-        <expressionAttributeNames>{$ctx:expressionAttributeNames}</expressionAttributeNames>
-        <expressionAttributeValues>{$ctx:expressionAttributeValues}</expressionAttributeValues>
-        <returnConsumedCapacity>{$ctx:returnConsumedCapacity}</returnConsumedCapacity>
-        <updateExpression>{$ctx:updateExpression}</updateExpression>
+        <expected>{${properties.expected}}</expected>
+        <tableName>{${properties.tableName}}</tableName>
+        <returnValues>{${properties.returnValues}}</returnValues>
+        <returnItemCollectionMetrics>{${properties.returnItemCollectionMetrics}}</returnItemCollectionMetrics>
+        <conditionalOperator>{${properties.conditionalOperator}}</conditionalOperator>
+        <attributeUpdates>{${properties.attributeUpdates}}</attributeUpdates>
+        <key>{${properties.key}}</key>
+        <conditionExpression>{${properties.conditionExpression}}</conditionExpression>
+        <expressionAttributeNames>{${properties.expressionAttributeNames}}</expressionAttributeNames>
+        <expressionAttributeValues>{${properties.expressionAttributeValues}}</expressionAttributeValues>
+        <returnConsumedCapacity>{${properties.returnConsumedCapacity}}</returnConsumedCapacity>
+        <updateExpression>{${properties.updateExpression}}</updateExpression>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.updateItem> 
@@ -1456,13 +1456,13 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.createTable>
-        <attributeDefinitions>{$ctx:attributeDefinitions}</attributeDefinitions>
-        <tableName>{$ctx:tableName}</tableName>
-        <keySchema>{$ctx:keySchema}</keySchema>
-        <localSecondaryIndexes>{$ctx:localSecondaryIndexes}</localSecondaryIndexes>
-        <provisionedThroughput>{$ctx:provisionedThroughput}</provisionedThroughput>
-        <StreamSpecification>{$ctx:StreamSpecification}</StreamSpecification>
-        <globalSecondaryIndexes>{$ctx:globalSecondaryIndexes}</globalSecondaryIndexes>
+        <attributeDefinitions>{${properties.attributeDefinitions}}</attributeDefinitions>
+        <tableName>{${properties.tableName}}</tableName>
+        <keySchema>{${properties.keySchema}}</keySchema>
+        <localSecondaryIndexes>{${properties.localSecondaryIndexes}}</localSecondaryIndexes>
+        <provisionedThroughput>{${properties.provisionedThroughput}}</provisionedThroughput>
+        <StreamSpecification>{${properties.StreamSpecification}}</StreamSpecification>
+        <globalSecondaryIndexes>{${properties.globalSecondaryIndexes}}</globalSecondaryIndexes>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.createTable> 
@@ -1620,7 +1620,7 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.deleteTable>
-        <tableName>{$ctx:tableName}</tableName>
+        <tableName>{${properties.tableName}}</tableName>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.deleteTable> 
@@ -1686,7 +1686,7 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.describeTable>
-        <tableName>{$ctx:tableName}</tableName>
+        <tableName>{${properties.tableName}}</tableName>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.describeTable> 
@@ -1803,8 +1803,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.listTables>
-        <exclusiveStartTableName>{$ctx:exclusiveStartTableName}</exclusiveStartTableName>
-        <limit>{$ctx:limit}</limit>
+        <exclusiveStartTableName>{${properties.exclusiveStartTableName}}</exclusiveStartTableName>
+        <limit>{${properties.limit}}</limit>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.listTables> 
@@ -1898,11 +1898,11 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```xml
     <amazondynamodb.updateTable>
-        <tableName>{$ctx:tableName}</tableName>
-        <attributeDefinitions>{$ctx:attributeDefinitions}</attributeDefinitions>
-        <globalSecondaryIndexUpdates>{$ctx:globalSecondaryIndexUpdates}</globalSecondaryIndexUpdates>
-        <StreamSpecification>{$ctx:StreamSpecification}</StreamSpecification>
-        <provisionedThroughput>{$ctx:provisionedThroughput}</provisionedThroughput>
+        <tableName>{${properties.tableName}}</tableName>
+        <attributeDefinitions>{${properties.attributeDefinitions}}</attributeDefinitions>
+        <globalSecondaryIndexUpdates>{${properties.globalSecondaryIndexUpdates}}</globalSecondaryIndexUpdates>
+        <StreamSpecification>{${properties.StreamSpecification}}</StreamSpecification>
+        <provisionedThroughput>{${properties.provisionedThroughput}}</provisionedThroughput>
         <responseVariable>amazondynamodb_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazondynamodb.updateTable> 

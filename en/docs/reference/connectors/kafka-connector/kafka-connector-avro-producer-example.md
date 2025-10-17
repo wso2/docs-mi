@@ -41,16 +41,16 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST" uri-template="/">
             <inSequence>
-                <property name="valueSchema" expression="json-eval($.test)" scope="default" type="STRING"/>
-                <property name="value" expression="json-eval($.value)" scope="default" type="STRING"/>
-                <property name="key" expression="json-eval($.key)" scope="default" type="STRING"/>
-                <property name="topic" expression="json-eval($.topic)" scope="default" type="STRING"/>
+                <property name="valueSchema" expression="${payload.test}" scope="default" type="STRING"/>
+                <property name="value" expression="${payload.value}" scope="default" type="STRING"/>
+                <property name="key" expression="${payload.key}" scope="default" type="STRING"/>
+                <property name="topic" expression="${payload.topic}" scope="default" type="STRING"/>
                 <kafkaTransport.publishMessages configKey="Sample_Kafka">
-                    <topic>{$ctx:topic}</topic>
+                    <topic>{${properties.topic}}</topic>
                     <partitionNo>0</partitionNo>
-                    <key>{$ctx:key}</key>
-                    <value>{$ctx:value}</value>
-                    <valueSchema>{$ctx:valueSchema}</valueSchema>
+                    <key>{${properties.key}}</key>
+                    <value>{${properties.value}}</value>
+                    <valueSchema>{${properties.valueSchema}}</valueSchema>
                     <keySchemaSoftDeleted>false</keySchemaSoftDeleted>
                     <valueSchemaSoftDeleted>false</valueSchemaSoftDeleted>
                 </kafkaTransport.publishMessages>

@@ -91,8 +91,8 @@ The <strong>Target Configuration</strong> properties of the Data Service Call me
 You can define dynamic property names when the target type is defined as a property:
 
 ```java
-<property name="{get-property('propertyName')}" />
-<property name="{$ctx:propertyName}" />
+<property name="{${properties.propertyName}}" />
+<property name="{${properties.propertyName}}" />
 <property name="{json-eval(propertyName)}" />
 ```
 
@@ -511,7 +511,7 @@ In this example, an inline single request is configured and sent to the `DSSCall
                 <target type="property" name="responseValue"/>
             </dataServiceCall>
    <log level="custom">
-      <property name="responseValue" expression="$ctx:responseValue"/>
+      <property name="responseValue" expression="${properties.responseValue}"/>
    </log>
             <respond/>
         </inSequence>

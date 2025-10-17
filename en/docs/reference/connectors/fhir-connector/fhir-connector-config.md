@@ -29,7 +29,7 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.init>
-        <base>{$ctx:base}</base>
+        <base>{${properties.base}}</base>
     <fhir.init>
     ```
 
@@ -66,17 +66,17 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.getConformance>
-        <base>{$ctx:base}</base>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.getConformance>
     ```
 
@@ -129,9 +129,9 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.create>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <format>{$ctx:format}</format>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <format>{${properties.format}}</format>
     </fhir.create>
     ```
 
@@ -179,10 +179,10 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.update>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <idToUpdate>{$ctx:idToUpdate}</idToUpdate>
-        <format>{$ctx:format}</format>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <idToUpdate>{${properties.idToUpdate}}</idToUpdate>
+        <format>{${properties.format}}</format>
     </fhir.update>
     ```
 
@@ -231,18 +231,18 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.conditionalUpdate>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.conditionalUpdate>
     ```
 
@@ -294,9 +294,9 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.delete>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <idToDelete>{$ctx:idToDelete}</idToDelete>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <idToDelete>{${properties.idToDelete}}</idToDelete>
     </fhir.delete>
     ```
 
@@ -345,18 +345,18 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.conditionalDelete>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.conditionalDelete>
     ```
 
@@ -408,9 +408,9 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.readResource>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <format>{$ctx:format}</format>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <format>{${properties.format}}</format>
     </fhir.readResource>
     ```
 
@@ -463,11 +463,11 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.readSpecificResourceById>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <id>{$ctx:id}</id>
-        <format>{$ctx:format}</format>
-        <summary>{$ctx:summary}</summary> 
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <id>{${properties.id}}</id>
+        <format>{${properties.format}}</format>
+        <summary>{${properties.summary}}</summary> 
     </fhir.readSpecificResourceById>
     ```
 
@@ -522,11 +522,11 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.vReadResource>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <logicalId>{$ctx:logicalId}</logicalId>
-        <versionId>{$ctx:versionId}</versionId>
-        <format>{$ctx:format}</format>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <logicalId>{${properties.logicalId}}</logicalId>
+        <versionId>{${properties.versionId}}</versionId>
+        <format>{${properties.format}}</format>
     </fhir.vReadResource>
     ```
 
@@ -583,19 +583,19 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.history>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <idForHistory>{$ctx:idForHistory}</idForHistory>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <idForHistory>{${properties.idForHistory}}</idForHistory>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.history>
     ```
 
@@ -648,17 +648,17 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.historyAll>
-        <base>{$ctx:base}</base>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.historyAll>
     ```
 
@@ -714,18 +714,18 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.historyType>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.historyType>
     ```
 
@@ -784,18 +784,18 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.search>
-        <base>{$ctx:base}</base>
-        <type>{$ctx:type}</type>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <type>{${properties.type}}</type>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.search>
     ```
 
@@ -852,17 +852,17 @@ For more information on authentication/security of the FHIR REST API, see http:/
 
     ```xml
     <fhir.historyAll>
-        <base>{$ctx:base}</base>
-        <format>{$ctx:format}</format>
-        <id>{$ctx:id}</id>
-        <content>{$ctx:content}</content>
-        <lastUpdated>{$ctx:lastUpdated}</lastUpdated>
-        <profile>{$ctx:profile}</profile>
-        <query>{$ctx:query}</query>
-        <security>{$ctx:security}</security>
-        <tag>{$ctx:tag}</tag>
-        <text>{$ctx:text}</text>
-        <filter>{$ctx:filter}</filter>
+        <base>{${properties.base}}</base>
+        <format>{${properties.format}}</format>
+        <id>{${properties.id}}</id>
+        <content>{${properties.content}}</content>
+        <lastUpdated>{${properties.lastUpdated}}</lastUpdated>
+        <profile>{${properties.profile}}</profile>
+        <query>{${properties.query}}</query>
+        <security>{${properties.security}}</security>
+        <tag>{${properties.tag}}</tag>
+        <text>{${properties.text}}</text>
+        <filter>{${properties.filter}}</filter>
     </fhir.historyAll>
     ```
 

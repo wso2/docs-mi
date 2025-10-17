@@ -53,11 +53,11 @@ To use the Twitter connector, add the `<twitter.init>` element in your configura
 
     ```xml
     <twitter.init>
-        <clientId>{$ctx:clientId}</clientId>
-        <accessToken>{$ctx:accessToken}</accessToken>
-        <refreshToken>{$ctx:refreshToken}</refreshToken>
-        <apiUrl>{$ctx:apiUrl}</apiUrl>
-        <timeout>{$ctx:timeout}</timeout>
+        <clientId>{${properties.clientId}}</clientId>
+        <accessToken>{${properties.accessToken}}</accessToken>
+        <refreshToken>{${properties.refreshToken}}</refreshToken>
+        <apiUrl>{${properties.apiUrl}}</apiUrl>
+        <timeout>{${properties.timeout}}</timeout>
     </twitter.init>
     ```
 
@@ -145,15 +145,15 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.createTweet>
-        <text>{$ctx:text}</text>
-        <direct_message_deep_link>{$ctx:direct_message_deep_link}</direct_message_deep_link>
-        <for_super_followers_only>{$ctx:for_super_followers_only}</for_super_followers_only>
-        <geo>{$ctx:geo}</geo>
-        <media>{$ctx:media}</media>
-        <poll>{$ctx:poll}</poll>
-        <quote_tweet_id>{$ctx:quote_tweet_id}</quote_tweet_id>
-        <reply>{$ctx:reply}</reply>
-        <reply_settings>{$ctx:reply_settings}</reply_settings>
+        <text>{${properties.text}}</text>
+        <direct_message_deep_link>{${properties.direct_message_deep_link}}</direct_message_deep_link>
+        <for_super_followers_only>{${properties.for_super_followers_only}}</for_super_followers_only>
+        <geo>{${properties.geo}}</geo>
+        <media>{${properties.media}}</media>
+        <poll>{${properties.poll}}</poll>
+        <quote_tweet_id>{${properties.quote_tweet_id}}</quote_tweet_id>
+        <reply>{${properties.reply}}</reply>
+        <reply_settings>{${properties.reply_settings}}</reply_settings>
     </twitter.createTweet>
     ```
 
@@ -207,7 +207,7 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.deleteTweet>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </twitter.deleteTweet>
 
     ```
@@ -291,13 +291,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getTweetById>
-        <id>{$ctx:id}</id>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getTweetById>
     ```
 
@@ -395,13 +395,13 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getTweetsLookup>
-        <ids>{$ctx:ids}</ids>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <ids>{${properties.ids}}</ids>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getTweetsLookup>
 
     ```
@@ -550,20 +550,20 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.searchTweets>
-        <query>{$ctx:query}</query>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <next_token>{$ctx:next_token}</next_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <query>{${properties.query}}</query>
+        <start_time>{${properties.start_time}}</start_time>
+        <end_time>{${properties.end_time}}</end_time>
+        <since_id>{${properties.since_id}}</since_id>
+        <until_id>{${properties.until_id}}</until_id>
+        <sort_order>{${properties.sort_order}}</sort_order>
+        <max_results>{${properties.max_results}}</max_results>
+        <next_token>{${properties.next_token}}</next_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.searchTweets>
     ```
 
@@ -630,8 +630,8 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.likeTweet>
-        <user_id>{$ctx:user_id}</user_id>
-        <tweet_id>{$ctx:tweet_id}</tweet_id>
+        <user_id>{${properties.user_id}}</user_id>
+        <tweet_id>{${properties.tweet_id}}</tweet_id>
     </twitter.likeTweet>
 
     ```
@@ -687,8 +687,8 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.unlikeTweet>
-        <user_id>{$ctx:user_id}</user_id>
-        <tweet_id>{$ctx:tweet_id}</tweet_id>
+        <user_id>{${properties.user_id}}</user_id>
+        <tweet_id>{${properties.tweet_id}}</tweet_id>
     </twitter.unlikeTweet>
     ```
 
@@ -785,15 +785,15 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getLikedTweetsList>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getLikedTweetsList>
     ```
 
@@ -871,8 +871,8 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.createRetweet>
-        <user_id>{$ctx:user_id}</user_id>
-        <tweet_id>{$ctx:tweet_id}</tweet_id>
+        <user_id>{${properties.user_id}}</user_id>
+        <tweet_id>{${properties.tweet_id}}</tweet_id>
     </twitter.createRetweet>
     ```
 
@@ -1004,21 +1004,21 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getUserHomeTimeline>
-        <id>{$ctx:id}</id>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <exclude>{$ctx:exclude}</exclude>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <start_time>{${properties.start_time}}</start_time>
+        <end_time>{${properties.end_time}}</end_time>
+        <since_id>{${properties.since_id}}</since_id>
+        <until_id>{${properties.until_id}}</until_id>
+        <sort_order>{${properties.sort_order}}</sort_order>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <exclude>{${properties.exclude}}</exclude>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getUserHomeTimeline>
     ```
 
@@ -1206,20 +1206,20 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getUserMentionsTimeline>
-        <id>{$ctx:id}</id>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <start_time>{${properties.start_time}}</start_time>
+        <end_time>{${properties.end_time}}</end_time>
+        <since_id>{${properties.since_id}}</since_id>
+        <until_id>{${properties.until_id}}</until_id>
+        <sort_order>{${properties.sort_order}}</sort_order>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getUserMentionsTimeline>
     ```
 
@@ -1426,20 +1426,20 @@ The following operations allow you to work with tweets. To be authorized for the
     
     ```xml
     <twitter.getUserTweetsTimeline>
-        <id>{$ctx:id}</id>
-        <start_time>{$ctx:start_time}</start_time>
-        <end_time>{$ctx:end_time}</end_time>
-        <since_id>{$ctx:since_id}</since_id>
-        <until_id>{$ctx:until_id}</until_id>
-        <sort_order>{$ctx:sort_order}</sort_order>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <place_fields>{$ctx:place_fields}</place_fields>
-        <poll_fields>{$ctx:poll_fields}</poll_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <start_time>{${properties.start_time}}</start_time>
+        <end_time>{${properties.end_time}}</end_time>
+        <since_id>{${properties.since_id}}</since_id>
+        <until_id>{${properties.until_id}}</until_id>
+        <sort_order>{${properties.sort_order}}</sort_order>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <place_fields>{${properties.place_fields}}</place_fields>
+        <poll_fields>{${properties.poll_fields}}</poll_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getUserTweetsTimeline>
     ```
 
@@ -1545,9 +1545,9 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getMe>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getMe>
     ```
 
@@ -1636,10 +1636,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getUserById>
-        <id>{$ctx:id}</id>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getUserById>
     ```
 
@@ -1728,10 +1728,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getUserByUsername>
-        <username>{$ctx:username}</username>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <username>{${properties.username}}</username>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getUserByUsername>
     ```
 
@@ -1820,10 +1820,10 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getUsersLookup>
-        <ids>{$ctx:ids}</ids>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <ids>{${properties.ids}}</ids>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getUsersLookup>
     ```
 
@@ -1900,8 +1900,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.followUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{${properties.id}}</id>
+        <target_user_id>{${properties.target_user_id}}</target_user_id>
     </twitter.followUser>
     ```
 
@@ -1980,12 +1980,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getFollowingUsers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getFollowingUsers>
     ```
 
@@ -2117,12 +2117,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getFollowers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getFollowers>
     ```
 
@@ -2230,8 +2230,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.unfollowUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{${properties.id}}</id>
+        <target_user_id>{${properties.target_user_id}}</target_user_id>
     </twitter.unfollowUser>
     ```
 
@@ -2285,8 +2285,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.blockUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{${properties.id}}</id>
+        <target_user_id>{${properties.target_user_id}}</target_user_id>
     </twitter.blockUser>
     ```
 
@@ -2364,12 +2364,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getBlockedUsers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getBlockedUsers>
     ```
 
@@ -2477,8 +2477,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.unblockUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{${properties.id}}</id>
+        <target_user_id>{${properties.target_user_id}}</target_user_id>
     </twitter.unblockUser>
     ```
 
@@ -2532,8 +2532,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.muteUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{${properties.id}}</id>
+        <target_user_id>{${properties.target_user_id}}</target_user_id>
     </twitter.muteUser>
     ```
 
@@ -2611,12 +2611,12 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.getMutedUsers>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getMutedUsers>
     ```
 
@@ -2724,8 +2724,8 @@ The following operations allow you to work with users in Twitter. To be authoriz
     
     ```xml
     <twitter.unmuteUser>
-        <id>{$ctx:id}</id>
-        <target_user_id>{$ctx:target_user_id}</target_user_id>
+        <id>{${properties.id}}</id>
+        <target_user_id>{${properties.target_user_id}}</target_user_id>
     </twitter.unmuteUser>
     ```
 
@@ -2790,9 +2790,9 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.createList>
-        <name>{$ctx:name}</name>
-        <description>{$ctx:description}</description>
-        <private>{$ctx:private}</private>
+        <name>{${properties.name}}</name>
+        <description>{${properties.description}}</description>
+        <private>{${properties.private}}</private>
     </twitter.createList>
     ```
 
@@ -2860,10 +2860,10 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.updateList>
-        <id>{$ctx:id}</id>
-        <name>{$ctx:name}</name>
-        <description>{$ctx:description}</description>
-        <private>{$ctx:private}</private>
+        <id>{${properties.id}}</id>
+        <name>{${properties.name}}</name>
+        <description>{${properties.description}}</description>
+        <private>{${properties.private}}</private>
     </twitter.updateList>
     ```
 
@@ -2912,7 +2912,7 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.deleteList>
-        <id>{$ctx:id}</id>
+        <id>{${properties.id}}</id>
     </twitter.deleteList>
     ```
 
@@ -2977,10 +2977,10 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.getListById>
-        <id>{$ctx:id}</id>
-        <expansions>{$ctx:expansions}</expansions>
-        <list_fields>{$ctx:list_fields}</list_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <expansions>{${properties.expansions}}</expansions>
+        <list_fields>{${properties.list_fields}}</list_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getListById>
     ```
 
@@ -3068,12 +3068,12 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.getFollowingLists>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <list_fields>{$ctx:list_fields}</list_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <list_fields>{${properties.list_fields}}</list_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getFollowingLists>
     ```
 
@@ -3169,12 +3169,12 @@ The following operations allow you to work with lists in Twitter. To be authoriz
     
     ```xml
     <twitter.getListsMemberships>
-        <id>{$ctx:id}</id>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <list_fields>{$ctx:list_fields}</list_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <id>{${properties.id}}</id>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <list_fields>{${properties.list_fields}}</list_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getListsMemberships>
     ```
 
@@ -3257,9 +3257,9 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     ```xml
     <twitter.sendNewDirectMessage>
-        <participant_id>{$ctx:participant_id}</participant_id>
-        <attachments>{$ctx:attachments}</attachments>
-        <text>{$ctx:text}</text>
+        <participant_id>{${properties.participant_id}}</participant_id>
+        <attachments>{${properties.attachments}}</attachments>
+        <text>{${properties.text}}</text>
     </twitter.sendNewDirectMessage>
     ```
 
@@ -3320,9 +3320,9 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     ```xml
     <twitter.addDirectMessage>
-        <dm_conversation_id>{$ctx:dm_conversation_id}</dm_conversation_id>
-        <attachments>{$ctx:attachments}</attachments>
-        <text>{$ctx:text}</text>
+        <dm_conversation_id>{${properties.dm_conversation_id}}</dm_conversation_id>
+        <attachments>{${properties.attachments}}</attachments>
+        <text>{${properties.text}}</text>
     </twitter.addDirectMessage>
     ```
 
@@ -3413,14 +3413,14 @@ The following operations allow you to work with direct messages in Twitter. To b
     
     ```xml
     <twitter.getDirectMessages>
-        <event_types>{$ctx:event_types}</event_types>
-        <max_results>{$ctx:max_results}</max_results>
-        <pagination_token>{$ctx:pagination_token}</pagination_token>
-        <expansions>{$ctx:expansions}</expansions>
-        <dm_event_fields>{$ctx:dm_event_fields}</dm_event_fields>
-        <media_fields>{$ctx:media_fields}</media_fields>
-        <tweet_fields>{$ctx:tweet_fields}</tweet_fields>
-        <user_fields>{$ctx:user_fields}</user_fields>
+        <event_types>{${properties.event_types}}</event_types>
+        <max_results>{${properties.max_results}}</max_results>
+        <pagination_token>{${properties.pagination_token}}</pagination_token>
+        <expansions>{${properties.expansions}}</expansions>
+        <dm_event_fields>{${properties.dm_event_fields}}</dm_event_fields>
+        <media_fields>{${properties.media_fields}}</media_fields>
+        <tweet_fields>{${properties.tweet_fields}}</tweet_fields>
+        <user_fields>{${properties.user_fields}}</user_fields>
     </twitter.getDirectMessages>
     ```
 

@@ -18,7 +18,7 @@ The **local registry** acts as a memory registry where you can store static cont
     <localEntry key="xslt-key-req" src="file:repository/samples/resources/transform/transform.xslt" xmlns="http://ws.apache.org/ns/synapse"/>
     ```
 
-This is useful for the type of static content often found in XSLT files, WSDL files, URLs, etc. Local entries can be referenced from mediators in the WSO2 Integrator: MI mediation flows and resolved at runtime. These entries are top-level entries and are globally visible within the entire system. Values of these entries can be retrieved via the extension XPath function `synapse:get-property(prop-name)`, and the keys of these entries could be specified wherever a registry key is expected within the configuration. A local entry shadows any entry with the same name from a remote Registry.
+This is useful for the type of static content often found in XSLT files, WSDL files, URLs, etc. Local entries can be referenced from mediators in the WSO2 Integrator: MI mediation flows and resolved at runtime. These entries are top-level entries and are globally visible within the entire system. Values of these entries can be retrieved via the extension XPath function `synapse:${properties.prop-name}`, and the keys of these entries could be specified wherever a registry key is expected within the configuration. A local entry shadows any entry with the same name from a remote Registry.
 
 Follow these steps to create a local entry artifact.
 

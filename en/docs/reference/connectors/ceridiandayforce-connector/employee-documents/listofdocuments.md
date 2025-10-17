@@ -18,7 +18,7 @@ We can use GET a List of Documents operation with required parameters to get the
 **GET a List of Documents**
 ```xml
 <ceridiandayforce.getAListOfDocuments>
-    <employeeXRefCode>{$ctx:xRefCode}</employeeXRefCode>
+    <employeeXRefCode>{${properties.xRefCode}}</employeeXRefCode>
 </ceridiandayforce.getAListOfDocuments>
 ```
 
@@ -95,19 +95,19 @@ Following example illustrates how to connect to Dayforce with the init operation
    <target>
       <inSequence>
          <log level="full" separator=","/>
-         <property expression="json-eval($.username)" name="username"/>
-         <property expression="json-eval($.password)" name="password"/>
-         <property expression="json-eval($.clientNamespace)" name="clientNamespace"/>
-         <property expression="json-eval($.apiVersion)" name="apiVersion"/>
-         <property expression="json-eval($.xRefCode)" name="xRefCode"/>
+         <property expression="${payload.username}" name="username"/>
+         <property expression="${payload.password}" name="password"/>
+         <property expression="${payload.clientNamespace}" name="clientNamespace"/>
+         <property expression="${payload.apiVersion}" name="apiVersion"/>
+         <property expression="${payload.xRefCode}" name="xRefCode"/>
          <ceridiandayforce.init>
-            <username>{$ctx:username}</username>
-            <password>{$ctx:password}</password>
-            <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-            <apiVersion>{$ctx:apiVersion}</apiVersion>
+            <username>{${properties.username}}</username>
+            <password>{${properties.password}}</password>
+            <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+            <apiVersion>{${properties.apiVersion}}</apiVersion>
          </ceridiandayforce.init>
          <ceridiandayforce.patchEmployeeRoles>
-            <employeeXRefCode>{$ctx:xRefCode}</employeeXRefCode>
+            <employeeXRefCode>{${properties.xRefCode}}</employeeXRefCode>
          </ceridiandayforce.patchEmployeeRoles>
          <send/>
       </inSequence>

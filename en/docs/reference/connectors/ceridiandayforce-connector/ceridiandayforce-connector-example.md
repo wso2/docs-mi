@@ -62,13 +62,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Property name            | Property value (as expression)      |
     |--------------------------|-------------------------------------|
-    | **username**             | `json-eval($.username)`             |
-    | **password**             | `json-eval($.password)`             |
-    | **clientNamespace**      | `json-eval($.clientNamespace)`      |
-    | **apiVersion**           | `json-eval($.apiVersion)`           |
-    | **contextDateRangeFrom** | `json-eval($.contextDateRangeFrom)` |
-    | **contextDateRangeTo**   | `json-eval($.contextDateRangeTo)`   |
-    | **xRefCode**             | `json-eval($.xRefCode)`             |
+    | **username**             | `${payload.username}`             |
+    | **password**             | `${payload.password}`             |
+    | **clientNamespace**      | `${payload.clientNamespace}`      |
+    | **apiVersion**           | `${payload.apiVersion}`           |
+    | **contextDateRangeFrom** | `${payload.contextDateRangeFrom}` |
+    | **contextDateRangeTo**   | `${payload.contextDateRangeTo}`   |
+    | **xRefCode**             | `${payload.xRefCode}`             |
 
     You can add these properties by clicking on the **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the **EX** button to specify the value types as expressions.
 
@@ -82,10 +82,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name      | Parameter value (as expression)   |
     |---------------------|-----------------------------------|
-    | **username**        | `$ctx:username`                   |
-    | **password**        | `$ctx:password`                   |
-    | **clientNamespace** | `$ctx:clientNamespace`            |
-    | **apiVersion**      | `$ctx:apiVersion`                 |
+    | **username**        | `${properties.username}`                   |
+    | **password**        | `${properties.password}`                   |
+    | **clientNamespace** | `${properties.clientNamespace}`            |
+    | **apiVersion**      | `${properties.apiVersion}`                 |
 
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/add-dayforce-init-param.png" title="Add Parameters to Dayforce Init" width="800" alt="Add Parameters to Dayforce Init"/>
 
@@ -99,10 +99,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name           | Parameter value (as expression)   |
     |--------------------------|-----------------------------------|
-    | **xRefCode**             | `$ctx:xRefCode`                   |
-    | **contextDate**          | `$ctx:contextDate`                |
-    | **contextDateRangeFrom** | `$ctx:contextDateRangeFrom`       |
-    | **contextDateRangeTo**   | `$ctx:contextDateRangeTo`         |
+    | **xRefCode**             | `${properties.xRefCode}`                   |
+    | **contextDate**          | `${properties.contextDate}`                |
+    | **contextDateRangeFrom** | `${properties.contextDateRangeFrom}`       |
+    | **contextDateRangeTo**   | `${properties.contextDateRangeTo}`         |
 
     Click on **Submit** to save the configurations.
 
@@ -135,13 +135,13 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Property name       | Property value (as expression)      |
     |---------------------|-------------------------------------|
-    | **username**        | `json-eval($.username)`             |
-    | **password**        | `json-eval($.password)`             |
-    | **clientNamespace** | `json-eval($.clientNamespace)`      |
-    | **apiVersion**      | `json-eval($.apiVersion)`           |
-    | **isValidateOnly**  | `json-eval($.isValidateOnly)`       |
-    | **fieldAndValue**   | `json-eval($.fieldAndValue)`        |
-    | **xRefCode**        | `json-eval($.xRefCode)`             |
+    | **username**        | `${payload.username}`             |
+    | **password**        | `${payload.password}`             |
+    | **clientNamespace** | `${payload.clientNamespace}`      |
+    | **apiVersion**      | `${payload.apiVersion}`           |
+    | **isValidateOnly**  | `${payload.isValidateOnly}`       |
+    | **fieldAndValue**   | `${payload.fieldAndValue}`        |
+    | **xRefCode**        | `${payload.xRefCode}`             |
 
     You can add these properties by clicking on **Add Parameter** of the **Property Group** tab. When entering the `Property Value` fields, make sure to select the **EX** button to specify the value types as expressions.
 
@@ -153,10 +153,10 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name      | Parameter value (as expression)   |
     |---------------------|-----------------------------------|
-    | **username**        | `$ctx:username`                   |
-    | **password**        | `$ctx:password`                   |
-    | **clientNamespace** | `$ctx:clientNamespace`            |
-    | **apiVersion**      | `$ctx:apiVersion`                 |
+    | **username**        | `${properties.username}`                   |
+    | **password**        | `${properties.password}`                   |
+    | **clientNamespace** | `${properties.clientNamespace}`            |
+    | **apiVersion**      | `${properties.apiVersion}`                 |
 
     Click on **Submit** to save the configurations.
 
@@ -168,9 +168,9 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
     | Parameter name     | Parameter value (as expression)   |
     |--------------------|-----------------------------------|
-    | **xRefCode**       | `$ctx:xRefCode`                   |
-    | **isValidateOnly** | `$ctx:isValidateOnly`             |
-    | **fieldAndValue**  | `$ctx:fieldAndValue`              |
+    | **xRefCode**       | `${properties.xRefCode}`                   |
+    | **isValidateOnly** | `${properties.isValidateOnly}`             |
+    | **fieldAndValue**  | `${properties.fieldAndValue}`              |
 
     Click on **Submit** to save the configurations.
 
@@ -185,25 +185,25 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
             <inSequence>
                 <log category="INFO" level="full" separator=","/>
 			    <propertyGroup>
-				    <property name="username" scope="default" type="STRING" expression="json-eval($.username)"/>
-				    <property name="password" scope="default" type="STRING" expression="json-eval($.password)"/>
-				    <property name="clientNamespace" scope="default" type="STRING" expression="json-eval($.clientNamespace)"/>
-				    <property name="apiVersion" scope="default" type="STRING" expression="json-eval($.apiVersion)"/>
-				    <property name="contextDateRangeFrom" scope="default" type="STRING" expression="json-eval($.contextDateRangeFrom)"/>
-				    <property name="contextDateRangeTo" scope="default" type="STRING" expression="json-eval($.contextDateRangeTo)"/>
-				    <property name="xRefCode" scope="default" type="STRING" expression="json-eval($.xRefCode)"/>
+				    <property name="username" scope="default" type="STRING" expression="${payload.username}"/>
+				    <property name="password" scope="default" type="STRING" expression="${payload.password}"/>
+				    <property name="clientNamespace" scope="default" type="STRING" expression="${payload.clientNamespace}"/>
+				    <property name="apiVersion" scope="default" type="STRING" expression="${payload.apiVersion}"/>
+				    <property name="contextDateRangeFrom" scope="default" type="STRING" expression="${payload.contextDateRangeFrom}"/>
+				    <property name="contextDateRangeTo" scope="default" type="STRING" expression="${payload.contextDateRangeTo}"/>
+				    <property name="xRefCode" scope="default" type="STRING" expression="${payload.xRefCode}"/>
 			    </propertyGroup>
 			    <ceridiandayforce.init>
-				    <username>{$ctx:username}</username>
-				    <password>{$ctx:password}</password>
-				    <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-				    <apiVersion>{$ctx:apiVersion}</apiVersion>
+				    <username>{${properties.username}}</username>
+				    <password>{${properties.password}}</password>
+				    <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+				    <apiVersion>{${properties.apiVersion}}</apiVersion>
 			    </ceridiandayforce.init>
 			    <ceridiandayforce.getEmployeeAddresses>
-				    <xRefCode>{$ctx:xRefCode}</xRefCode>
-				    <contextDate>{$ctx:contextDate}</contextDate>
-				    <contextDateRangeFrom>{$ctx:contextDateRangeFrom}</contextDateRangeFrom>
-				    <contextDateRangeTo>{$ctx:contextDateRangeTo}</contextDateRangeTo>
+				    <xRefCode>{${properties.xRefCode}}</xRefCode>
+				    <contextDate>{${properties.contextDate}}</contextDate>
+				    <contextDateRangeFrom>{${properties.contextDateRangeFrom}}</contextDateRangeFrom>
+				    <contextDateRangeTo>{${properties.contextDateRangeTo}}</contextDateRangeTo>
 			    </ceridiandayforce.getEmployeeAddresses>
 			    <respond/>
 		    </inSequence>
@@ -214,24 +214,24 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 		    <inSequence>
 			    <log category="INFO" level="full" separator=","/>
 			    <propertyGroup>
-				    <property name="username" scope="default" type="STRING" expression="json-eval($.username)"/>
-				    <property name="password" scope="default" type="STRING" expression="json-eval($.password)"/>
-				    <property name="clientNamespace" scope="default" type="STRING" expression="json-eval($.clientNamespace)"/>
-				    <property name="apiVersion" scope="default" type="STRING" expression="json-eval($.apiVersion)"/>
-				    <property name="isValidateOnly" scope="default" type="STRING" expression="json-eval($.isValidateOnly)"/>
-				    <property name="fieldAndValue" scope="default" type="STRING" expression="json-eval($.fieldAndValue)"/>
-				    <property name="xRefCode" scope="default" type="STRING" expression="json-eval($.xRefCode)"/>
+				    <property name="username" scope="default" type="STRING" expression="${payload.username}"/>
+				    <property name="password" scope="default" type="STRING" expression="${payload.password}"/>
+				    <property name="clientNamespace" scope="default" type="STRING" expression="${payload.clientNamespace}"/>
+				    <property name="apiVersion" scope="default" type="STRING" expression="${payload.apiVersion}"/>
+				    <property name="isValidateOnly" scope="default" type="STRING" expression="${payload.isValidateOnly}"/>
+				    <property name="fieldAndValue" scope="default" type="STRING" expression="${payload.fieldAndValue}"/>
+				    <property name="xRefCode" scope="default" type="STRING" expression="${payload.xRefCode}"/>
 			    </propertyGroup>
 			    <ceridiandayforce.init>
-				    <username>{$ctx:username}</username>
-				    <password>{$ctx:password}</password>
-				    <clientNamespace>{$ctx:clientNamespace}</clientNamespace>
-				    <apiVersion>{$ctx:apiVersion}</apiVersion>
+				    <username>{${properties.username}}</username>
+				    <password>{${properties.password}}</password>
+				    <clientNamespace>{${properties.clientNamespace}}</clientNamespace>
+				    <apiVersion>{${properties.apiVersion}}</apiVersion>
 			    </ceridiandayforce.init>
 			    <ceridiandayforce.postEmployeeContacts>
-				    <xRefCode>{$ctx:xRefCode}</xRefCode>
-				    <isValidateOnly>{$ctx:isValidateOnly}</isValidateOnly>
-				    <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
+				    <xRefCode>{${properties.xRefCode}}</xRefCode>
+				    <isValidateOnly>{${properties.isValidateOnly}}</isValidateOnly>
+				    <fieldAndValue>{${properties.fieldAndValue}}</fieldAndValue>
 			    </ceridiandayforce.postEmployeeContacts>
 			    <respond/>
 		    </inSequence>

@@ -71,9 +71,9 @@ The connection is used to establish a connection to the LDAP instance. The LDAP 
     **Sample configuration**
     ```xml
     <ldap.init>
-        <providerUrl>{$ctx:providerUrl}</providerUrl>
-        <securityPrincipal>{$ctx:securityPrincipal}</securityPrincipal>
-        <securityCredentials>{$ctx:securityCredentials}</securityCredentials>
+        <providerUrl>{${properties.providerUrl}}</providerUrl>
+        <securityPrincipal>{${properties.securityPrincipal}}</securityPrincipal>
+        <securityCredentials>{${properties.securityCredentials}}</securityCredentials>
     </ldap.init>
     ```
 
@@ -129,8 +129,8 @@ and using Secure Vault.
 
     ```xml
     <ldap.authenticate>
-        <dn>{$ctx:dn}</dn>
-        <password>{$ctx:password}</password>
+        <dn>{${properties.dn}}</dn>
+        <password>{${properties.password}}</password>
     </ldap.authenticate>
     ```
     
@@ -174,9 +174,9 @@ and using Secure Vault.
 
     ```xml
     <ldap.addEntry>
-        <objectClass>{$ctx:objectClass}</objectClass>
-        <dn>{$ctx:dn}</dn>
-        <attributes>{$ctx:attributes}</attributes>
+        <objectClass>{${properties.objectClass}}</objectClass>
+        <dn>{${properties.dn}}</dn>
+        <attributes>{${properties.attributes}}</attributes>
     </ldap.addEntry>
     ```
     
@@ -245,10 +245,10 @@ and using Secure Vault.
 
     ```xml
     <ldap.searchEntry>
-        <objectClass>{$ctx:objectClass}</objectClass>
-        <dn>{$ctx:dn}</dn>
-        <filters>{$ctx:filters}</filters>
-        <attributes>{$ctx:attributes}</attributes>
+        <objectClass>{${properties.objectClass}}</objectClass>
+        <dn>{${properties.dn}}</dn>
+        <filters>{${properties.filters}}</filters>
+        <attributes>{${properties.attributes}}</attributes>
     </ldap.searchEntry>
     ```
     
@@ -300,9 +300,9 @@ and using Secure Vault.
 
     ```xml
     <ldap.searchEntry>
-        <dn>{$ctx:dn}</dn>
-        <mode>{$ctx:mode}</mode>
-        <attributes>{$ctx:attributes}</attributes>
+        <dn>{${properties.dn}}</dn>
+        <mode>{${properties.mode}}</mode>
+        <attributes>{${properties.attributes}}</attributes>
     </ldap.searchEntry>
     ```
     
@@ -335,7 +335,7 @@ and using Secure Vault.
 
     ```xml
     <ldap.deleteEntry>
-        <dn>{$ctx:dn}</dn>
+        <dn>{${properties.dn}}</dn>
     </ldap.deleteEntry>
     ```
     
@@ -371,8 +371,8 @@ and using Secure Vault.
 
     ```xml
     <ldap.updateName>
-        <oldName>{$ctx:oldName}</oldName>
-        <newName>{$ctx:newName}</newName>
+        <oldName>{${properties.oldName}}</oldName>
+        <newName>{${properties.newName}}</newName>
     </ldap.updateName>
     ```
     

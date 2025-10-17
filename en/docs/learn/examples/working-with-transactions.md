@@ -293,13 +293,13 @@ entire transaction should be rolled back.
               <inSequence>
                  <property name="OUT_ONLY" value="true"/>
                  <log level="custom">
-                    <property name="MESSAGE_ID_A" expression="get-property('MessageID')"/>
+                    <property name="MESSAGE_ID_A" expression="${properties.MessageID}"/>
                  </log>
                  <log level="custom">
                     <property name="BEFORE" expression="$body"/>
                  </log>
                  <property name="MESSAGE_ID_B"
-                           expression="get-property('MessageID')"
+                           expression="${properties.MessageID}"
                            scope="operation"
                            type="STRING"/>
                  <property name="failureResultProperty"
@@ -308,7 +308,7 @@ entire transaction should be rolled back.
                     <result xmlns="">failure</result>
                  </property>
                  <enrich>
-                    <source clone="true" xpath="$ctx:failureResultProperty"/>
+                    <source clone="true" xpath="${properties.failureResultProperty}"/>
                     <target type="body"/>
                  </enrich>
                  <log level="custom">
@@ -461,7 +461,7 @@ depicted as follows.
                            </serviceResponse>
                         </format>
                         <args>
-                           <arg evaluator="xml" expression="$ctx:routingKey"/>
+                           <arg evaluator="xml" expression="${properties.routingKey}"/>
                         </args>
                      </payloadFactory>
                      <property name="HTTP_SC" value="200" scope="axis2" type="STRING"/>
@@ -481,7 +481,7 @@ depicted as follows.
                            </serviceResponse>
                         </format>
                         <args>
-                           <arg evaluator="xml" expression="$ctx:routingKey"/>
+                           <arg evaluator="xml" expression="${properties.routingKey}"/>
                         </args>
                      </payloadFactory>
                      <property name="HTTP_SC" value="500" scope="axis2" type="STRING"/>
