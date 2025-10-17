@@ -13,7 +13,7 @@ The Test Message EIP ensures the health of message processing components by prev
 
 ## Sample scenario
 
-This sample scenario demonstrates how to send a test message and determine the availability of a service. You can also see how the Scheduled Tasks in WSO2 ESB are used.
+This sample scenario demonstrates how to send a test message and determine the availability of a service. You can also see how the Scheduled triggers in WSO2 ESB are used.
 
 The diagram below depicts how to simulate the sample scenario using the WSO2 ESB.
 
