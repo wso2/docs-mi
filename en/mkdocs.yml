@@ -1033,6 +1033,7 @@ nav:
       - Endpoints: reference/synapse-properties/endpoint-properties.md
       - Transport Configurations:
           - VFS Parameters: reference/synapse-properties/transport-parameters/vfs-transport-parameters.md
+          - File Parameters: reference/synapse-properties/transport-parameters/file-parameters.md
           - JMS Parameters: reference/synapse-properties/transport-parameters/jms-transport-parameters.md
           - RabbitMQ Parameters: reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters.md
           - HL7 Parameters: reference/synapse-properties/transport-parameters/hl7-transport-parameters.md
