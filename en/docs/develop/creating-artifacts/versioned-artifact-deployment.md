@@ -9,22 +9,22 @@ With versioned artifact deployment, artifacts are deployed using fully qualified
 !!!Note
     - By default, services such as **APIs**, **Proxy services**, and **Data services** are not exposed as versioned services, even when versioned artifact deployment is enabled at the project level.
     To expose versioned services, you must configure WSO2 Integrator: MI to allow it. See [Expose versioned services](#expose-versioned-services) for more information.
-    - **Inbound endpoints and versioning**:
-        - **Port bound inbounds** (for example, HTTP/HTTPS) do **not** support versioned exposure. Only one inbound can bind to a given port at a time.
-        - **Non port bound inbounds** (for example, JMS/Kafka/AMQP) are deployed using the fully qualified name. However, if multiple versioned inbounds target the **same** broker destination/consumer group, only one may actively consume messages, depending on the broker configuration.
+    - **Inbound Endpoints** do **not** support versioning because a single inbound listener can bind only to one consumer instance at a time.
 
 ## Enable versioned deployment
+
+!!! Warning
+    - The [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) and WSO2 Integrator: MI use double underscores (`__`) to construct fully qualified names from a project's `groupId`, `artifactId`, and `version`.  
+      Therefore, avoid using double underscores (`__`) in **artifact names** or **registry resource names**, as this can lead to incorrect name resolution or deployment conflicts.
 
 You can enable artifact versioning from the project setting in VS Code.
 
 1. Open the **Project Overview** in your integration project.
 2. In the **Build Details** section, enable or disable versioned artifact deployment for the project.
 
-By default, versioned deployment is enabled for newly created projects.
-
 <a href="{{base_path}}/assets/img/develop/create-artifacts/versioned-artifact-deployment-for-the-project.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/versioned-artifact-deployment-for-the-project.png" alt="Enable or disable versioned artifact deployment for the project" width="80%"></a>
 
-When this option is enabled, all artifacts in the project except services are deployed using their fully qualified names.
+When this option is enabled, all artifacts in the project except services and inbound endpoints are deployed using their fully qualified names.
 
 ## Expose versioned services
 
@@ -126,3 +126,48 @@ com.microintegrator.project__payment__1.0.1__sequence_in_call
       ```
       If you use the [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/), the references will be automatically listed in this format, so no manual changes are necessary. The version of the referenced artifacts will be resolved from the dependent project details defined in the `pom.xml`.
     - The [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) lists services by their simple names. If you have enabled versioned service exposure in WSO2 Integrator: MI, make sure to update the service references in your project accordingly.
+
+### Dynamically accessing registry resources with versioned artifact deployment
+
+When you create a registry resource and access it from a mediator (for example, a **Script mediator** that references a JavaScript file stored in the registry as described in [Use a script saved in the registry]({{base_path}}/reference/mediators/script-mediator/#use-a-script-saved-in-the-registry)), both the [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) and WSO2 Integrator: MI automatically update references to use fully qualified names—no manual changes are required.
+
+However, if you use an **expression** to [access a registry resource]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/#registry-functions), you must use the fully qualified artifact name explicitly.  
+For example, if you created a registry resource as:
+
+```
+resources:json/custom/input-data.json
+```
+
+To access `input-data.json` from an expression, you must use the following syntax:
+
+```
+${registry('resources:<path_to_resource_directory>/<groupId>__<artifactId>__<version>__<respurceName>')}
+```
+
+**Example**
+
+```
+${registry('resources:json/custom/com.microintegrator.projects__beta1__1.0.0__input-data.json')}
+```
+
+If you need to access a registry resource from a **Class mediator**, you must also use the fully qualified name.  
+When the Class mediator and the registry resource are packaged in the **same CApp**, you can dynamically construct the fully qualified name using the `getArtifactIdentifier()` method, as shown below:
+
+```java
+String artifactIdentifier = getArtifactIdentifier();
+if (StringUtils.isNotBlank(artifactIdentifier)) {
+    // Use the fully qualified schema name if this is a versioned artifact
+    schemaName = artifactIdentifier + "__" + schemaName;
+}
+```
+
+!!! Note
+    The `getArtifactIdentifier()` method is available from **WSO2 Integrator: MI 4.5.0** onwards. This method returns the fully qualified artifact identifier of the current deployment artifact in the format:
+
+    ```
+    <groupId>__<artifactId>__<version>
+    ```
+
+    If your **Class mediator** and the **registry resources** are packaged within the **same CApp**, you can use this identifier to dynamically construct fully qualified resource names at runtime. This ensures the correct versioned resource is referenced, even when multiple versions of the same CApp are deployed.
+
+    If you use this method in earlier versions (for example, MI 4.4.0), a `NoSuchMethodError` will be thrown at runtime because the method is not defined in those versions.
