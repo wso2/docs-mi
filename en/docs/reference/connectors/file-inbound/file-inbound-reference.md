@@ -1,4 +1,4 @@
-# VFS Parameters for File Inbound Endpoint
+# File Inbound Endpoint Reference 
 
 ## Service-Level parameters
 

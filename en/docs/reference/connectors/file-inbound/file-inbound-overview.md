@@ -5,9 +5,7 @@ The file inbound protocol is an alternative to the VFS transport. It uses the <
 
 ## Parameters
 
-See the list of [VFS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/file
--parameters) that can be used with both inbound endpoints and [proxy services]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport
--parameters).
+See the list of  [VFS parameters]({{base_path}}/reference/connectors/file-inbound/file-inbound-reference)  that can be used with inbound endpoints.
 
 ## Processing Sub Directories
 
