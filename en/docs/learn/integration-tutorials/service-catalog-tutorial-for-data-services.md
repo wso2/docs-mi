@@ -2,9 +2,9 @@
 
 Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs.
 
-This guide explains how to create a Data Service that exposes data from a relational database or another data source through WSO2 Micro Integrator, generate the relevant metadata for the corresponding Data Service, publish the WSDL/WADL or OpenAPI definition in the WSO2 API Manager Service Catalog, and then create a managed API (for example, a REST API) in WSO2 API Manager based on that Data Service.
+This guide explains how to create a Data Service that exposes data from a relational database or another data source through WSO2 Integrator: MI, generate the relevant metadata for the corresponding Data Service, publish the WSDL/WADL or OpenAPI definition in the WSO2 API Manager Service Catalog, and then create a managed API (for example, a REST API) in WSO2 API Manager based on that Data Service.
 
-It also demonstrates how the integration components (WSO2 Micro Integrator) and the API management components (WSO2 API Manager) work together to enable API-led data integration, providing a seamless mechanism to expose, secure, and manage data-driven APIs.
+It also demonstrates how the integration components (WSO2 Integrator: MI) and the API management components (WSO2 API Manager) work together to enable API-led data integration, providing a seamless mechanism to expose, secure, and manage data-driven APIs.
 
 ## Let's get started!
 
