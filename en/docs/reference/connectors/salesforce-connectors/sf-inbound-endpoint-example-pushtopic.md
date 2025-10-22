@@ -88,7 +88,7 @@ The [PushTopic](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_stre
     * **User Name**: `<USERNAME>`
     * **Password**: `<SALESFORCE_PASSWORD><SECURITY_TOKEN>`
     * **Login Endpoint**: https://login.salesforce.com
-    * **SOAP API Version**: 22.0
+    * **SOAP API Version**: 58.0
     * **Wait Time**: 5000
     * **Connection Timeout**: 20000
     * **Execute sequentially** and **Coordination**: select
