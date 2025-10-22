@@ -911,6 +911,9 @@ nav:
           - Apache Pulsar Inbound Endpoint:
               - Apache Pulsar Inbound Endpoint Example: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-example.md
               - Apache Pulsar Inbound Endpoint Reference: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-reference.md
+          - File Inbound Endpoint:
+              - File Inbound Endpoint Overview: reference/connectors/file-inbound/file-inbound-overview.md
+              - File Inbound Endpoint Reference: reference/connectors/file-inbound/file-inbound-reference.md
           - ISO8583 Inbound Endpoint:
               - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
               - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
@@ -935,7 +938,6 @@ nav:
               - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
               - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
               - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
-              - File Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
               - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
               - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
               - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
@@ -1198,6 +1200,7 @@ plugins:
               'reference/connectors/csv-module/csv-module-config.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/csv-module/2.x/csv-module-config.md'
               'reference/connectors/amazons3-connector/amazons3-connector-example.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
               'reference/connectors/amazons3-connector/amazons3-connector-reference.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
+              'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/file-inbound/file-inbound-overview.md'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
