@@ -83,7 +83,7 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 1. Attach your email template/message, send classification, and target audience.
 2. Define scheduling options or decide on an immediate send.
 
-> Note: You can use the WSO2 Micro Integrator (MI) "Create Email Send Definition" operation to programmatically create the send-definition.
+> Note: You can use the WSO2 Integrator: MI "Create Email Send Definition" operation to programmatically create the send-definition.
 
 ### Step 8: Test Your Email
 
@@ -97,4 +97,4 @@ To ensure reliable email delivery and avoid bounces, it's important to properly 
 
 After a successful test send and verification of all settings, proceed with the full email send to your entire target audience.
 
-> Note: You can use the WSO2 Micro Integrator (MI) "Send Email Message" operation to programmatically trigger the full email send.
+> Note: You can use the WSO2 Integrator: MI "Send Email Message" operation to programmatically trigger the full email send.

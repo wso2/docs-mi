@@ -101,7 +101,7 @@ Adjust these parameters according to your deployment requirements to balance per
 
 ## Performance test results
 
-All the testing was conducted in a c5.xlarge local environment with a 500 byte message using the default Micro Integrator distribution.
+All the testing was conducted in a c5.xlarge local environment with a 500 byte message using the default WSO2 Integrator:MI distribution.
 
 ### Fire and forget (out-only)
 

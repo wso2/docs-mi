@@ -2,7 +2,7 @@
 
 ##### Integrate with a Pet Store API using OpenAPI Connector Generator
 
-This example demonstrates how you can use the WSO2 Micro Integrator OpenAPI Connector Generator to easily integrate with an external PetStore REST API.
+This example demonstrates how you can use the WSO2 Integrator: MI OpenAPI Connector Generator to easily integrate with an external PetStore REST API.
 
 It covers generating the connector from an OpenAPI spec, importing into your integration project, and wiring it up to create and retrieve pets details.
 
@@ -15,7 +15,7 @@ It covers generating the connector from an OpenAPI spec, importing into your int
 
 ## Set up the integration project
 
-**Step 01:** Create a new integration project in WSO2 Micro Integrator for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
+**Step 01:** Create a new integration project in WSO2 Integrator: MI for VS Code, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
 ## Create for integration with generated connector
 
