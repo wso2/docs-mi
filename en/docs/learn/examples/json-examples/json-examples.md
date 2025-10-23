@@ -362,7 +362,7 @@ You can use JSON path expressions with following mediators:
 <div class="codeContent panelContent pdl">
 <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;log&gt;
     &lt;property name=&quot;location&quot; 
-              expression=&quot;json-eval($.coordinates.location[0].name)&quot;/&gt;
+              expression=&quot;$.coordinates.location[0].name&quot;/&gt;
 &lt;/log&gt;</code></pre>
 </div>
 </div>
@@ -375,7 +375,7 @@ You can use JSON path expressions with following mediators:
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;property name=&quot;location&quot; 
-              expression=&quot;json-eval($.coordinates.location[0].name)&quot;/&gt;</code></pre>
+              expression=&quot;$.coordinates.location[0].name&quot;/&gt;</code></pre>
 </div>
 </div>
 </div></td>
@@ -403,7 +403,7 @@ You can use JSON path expressions with following mediators:
 <p>As the switch source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;switch source=&quot;json-eval($.coordinates.location[0].name)&quot;&gt;</code></pre>
+<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;switch source=&quot;$.coordinates.location[0].name&quot;&gt;</code></pre>
 </div>
 </div>
 </div></td>
@@ -414,7 +414,7 @@ You can use JSON path expressions with following mediators:
 <p>As the filter source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;filter source=&quot;json-eval($.coordinates.location[0].name)&quot; 
+<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;filter source=&quot;$.coordinates.location[0].name&quot; 
         regex=&quot;Eiffel.*&quot;&gt;</code></pre>
 </div>
 </div>
