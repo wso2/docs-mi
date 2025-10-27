@@ -112,7 +112,7 @@ Following are example commands to deploy MI and ICP:
     --set wso2.deployment.image.tag="<DOCKER_IMAGE_TAG>" \
     --set wso2.deployment.apparmor.enabled="false" \
     --set wso2.deployment.securityContext.enableRunAsUser="false" \
-   --set wso2.deployment.securityContext.enableRunAsGroup="false" \
+    --set wso2.deployment.securityContext.enableRunAsGroup="false" \
     --set wso2.deployment.configMaps.entryPoint.defaultMode=0457
     ```
 
