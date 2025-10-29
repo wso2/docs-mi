@@ -7,6 +7,8 @@ search:
 
 The following operations allow you to work with the Salesforce Connector. Click an operation name to see parameter details and sample usage.
 
+> **Note:** This version of the Salesforce Connector was tested using Salesforce API version v60.0.
+
 ---
 ## Initialize the connector
 
