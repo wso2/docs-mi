@@ -383,7 +383,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
                 <tr>
                     <td><code>preservePayload="true|false"</code></td>
                     <td><code>update-original="true|false"</code></td>
-                    <td>For details on output aggregation and related options, see <a href="{{base_path}}/reference/mediators/foreach-mediator/#output-configurations">ForEach mediator output configurations</a>.</td>
+                    <td>For details on output aggregation and related options, see [ForEach mediator output configurations]({{base_path}}/reference/mediators/foreach-mediator/#output-configurations).</td>
                 </tr>
                 <tr>
                     <td><code>attachPath="true|false"</code></td>
