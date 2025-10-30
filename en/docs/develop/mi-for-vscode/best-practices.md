@@ -552,7 +552,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
                 <tr>
                     <td><code>id="123"</code></td>
                     <td>N/A</td>
-                    <td>This is not applicable as the cloned message responsed are aggregated in the Scatter Gather mediator itself.</td>
+                    <td>This is not applicable as the cloned message responses are aggregated in the Scatter Gather mediator itself.</td>
                 </tr>
                 <tr>
                     <td><code>sequential="true|false"</code></td>
