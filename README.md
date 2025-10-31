@@ -201,12 +201,17 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
 - <a id="formatting-help"></a>**Formatting Help**
   - Refer to the [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for styling your content
 
+...
+## Running the Project Locally
+## 🛠️ Troubleshooting
+---
 ## Legal
+### **Contributor License Agreement (CLA)** ### **License** ```
 
-### **Contributor License Agreement (CLA)**
-
-You'll be prompted to sign the CLA via GitHub when submitting your first PR. For any changes to be accepted, the CLA must be signed.
-
+Would you like to move on to refining the content of the "Legal" section, or should we continue reviewing the contribution steps?
 ### **License**
 
 This project is licensed under the [Apache License, Version 2.0](LICENSE).
+
+...
+
