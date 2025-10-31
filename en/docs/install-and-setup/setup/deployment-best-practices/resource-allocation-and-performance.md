@@ -9,7 +9,7 @@ Performance testing was conducted within the WSO2 Choreo Private Data Plane (PDP
 ### Key environment details
 
 - **Deployment model**: Containers running on Choreo Private Data Plane.
-- **Backend service**: Netty HTTP ccho service.
+- **Backend service**: Netty HTTP echo service.
 - **Load generation**: Apache JMeter 5.6.3.
 - **Message sizes tested**: 1 KB, 10 KB, 100 KB, 500 KB, and 1 MB.
 - **Concurrent users**: 50, 100, 500, and 1000.
