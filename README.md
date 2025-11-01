@@ -199,7 +199,7 @@ When adding new content, check [Image and Page Updates](#when-adding-new-images-
   3. Revert this change before submitting your PR
 
 - <a id="formatting-help"></a>**Formatting Help**
-  - Refer to the [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for styling your content
+  - Refer to the [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for styling your content.
 
 ## Legal
 
