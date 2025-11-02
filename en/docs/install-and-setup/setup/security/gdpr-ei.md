@@ -52,11 +52,11 @@ The WSO2 Integrator: MI can persist PII in various log files (carbon logs, audit
 
 ## Tools for removing PII in WSO2 Integrator: MI
 
-- The **Forget-Me Tool** , which can anonymize
+- The **Forget-Me Tool**, which can anonymize
     a user's PII in log files and RDBMSs by replacing all occurrences of
     the deleted user with either a randomly generated UUID value or a
     specified pseudonym. You can download the tool from this [link](https://github.com/wso2-docs/WSO2_EI/raw/master/Forget-Me-Tool/org.wso2.carbon.privacy.forgetme.tool-1.3.1.zip).
-    . Find out about all the capabilities of the Forget-Me tool
+    Find out about all the capabilities of the Forget-Me tool
     from [here]({{base_path}}/install-and-setup/setup/security/about-forgetme-tool).
 
     !!! Important 
