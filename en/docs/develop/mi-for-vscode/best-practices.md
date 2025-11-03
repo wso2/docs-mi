@@ -237,13 +237,19 @@ For future implementations, adopt the newer mediators and connectors (for exampl
 
         === "Legacy Configuration"
             ```xml
-            <api context="/HelloWorld" name="HelloWorld" xmlns="http://ws.apache.org/ns/synapse">
-                <resource methods="GET">
+            <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET" uri-template="/?city={city}">
                     <inSequence>
                         <payloadFactory media-type="json" template-type="default">
-                            <format>{"Hello":"World"}</format>
+                            <format>{city: "$1", "apiKey": "$2"}</format>
+                            <args>
+                                <arg value="get-property('query.param.city')" evaluator="xml" />
+                                <arg value="wso2:vault-lookup('weather_api_key')" evaluator="xml" />
+                            </args>
                         </payloadFactory>
-                        <loopback/>
+                        <send>
+                            <endpoint key="WeatherAPI"/>
+                        </send>
                     </inSequence>
                     <outSequence>
                         <respond/>
