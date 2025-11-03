@@ -388,7 +388,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
                 <tr>
                     <td><code>attachPath="true|false"</code></td>
                     <td>N/A</td>
-                    <td>Attach path is no longer supported. Please use [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator/) instead.</td>
+                    <td>Attach path is no longer supported. Please use [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator/) after the foreach mediator.</td>
                 </tr>
             </tbody>
         </table>
@@ -521,7 +521,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
         === "New Configuration"
 
             ```xml
-            <foreach collection="${payload}" parallel-execution="false" update-original="true" continue-without-aggregation="false">
+            <foreach collection="${payload}" parallel-execution="false" update-original="false" continue-without-aggregation="true">
                 <sequence>
                     <payloadFactory media-type="json" template-type="default">
                         <format>{
@@ -561,8 +561,8 @@ For future implementations, adopt the newer mediators and connectors (for exampl
                 </tr>
                 <tr>
                     <td><code>continueParent="true|false"</code></td>
-                    <td><code>continue-without-aggregation="false|true"</code></td>
-                    <td>Set <code>continue-without-aggregation="true"</code> to maintain legacy behavior.</td>
+                    <td>N/A</td>
+                    <td>This is not applicable as all cloned messages are aggregated in the Scatter Gather mediator itself.</td>
                 </tr>
             </tbody>
         </table>
@@ -608,11 +608,6 @@ For future implementations, adopt the newer mediators and connectors (for exampl
                     <td><code>&lt;correlateOn expression="xpath | json-eval(JSON-Path)" /&gt;</code></td>
                     <td><code>condition="expression"</code></td>
                     <td>Convert JSONPath/XPath evaluated expression to [Synapse expression]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/).</td>
-                </tr>
-                <tr>
-                    <td><code>continueParent="true|false"</code></td>
-                    <td><code>continue-without-aggregation="false|true"</code></td>
-                    <td>Set <code>continue-without-aggregation="true"</code> to maintain legacy behavior.</td>
                 </tr>
             </tbody>
         </table>
