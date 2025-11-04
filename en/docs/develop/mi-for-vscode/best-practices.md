@@ -749,7 +749,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
         === "New Configuration"
 
             ```xml
-            <log category="INFO" logMessageID="false" logFullPayload="false">
+            <log category="INFO" logMessageID="true" logFullPayload="false">
                 <property name="Name" expression="$ctx:name"/>
             </log>
             ```
