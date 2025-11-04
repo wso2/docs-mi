@@ -730,3 +730,26 @@ For future implementations, adopt the newer mediators and connectors (for exampl
                     }</format>
             </payloadFactory>
             ```
+
+- Use the new [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) which has been enhanced with templating support.
+
+    ??? "Log Mediator Migration"
+
+        The `level` attribute is removed from the new log mediator. Set <code>logFullPayload="true"</code> to achieve the same behavior as <code>level="full"</code>.
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <log category="INFO" level="simple">
+                <property name="Name" expression="$ctx:name"/>
+            </log>
+            ```
+        === "New Configuration"
+
+            ```xml
+            <log category="INFO" logMessageID="true" logFullPayload="false">
+                <property name="Name" expression="$ctx:name"/>
+            </log>
+            ```
