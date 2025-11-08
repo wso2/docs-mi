@@ -1,4 +1,4 @@
-# Create a Scheduled trigger
+# Create a Scheduled trigger (Task)
 
 Follow the instructions below to create a Scheduled trigger in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension.
 

@@ -1,4 +1,4 @@
-# Scheduled triggers
+# Scheduled triggers (Tasks)
 ## Introduction
 
 WSO2 Integrator: MI can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Integrator: MI, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.

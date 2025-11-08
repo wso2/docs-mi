@@ -1,4 +1,4 @@
-# Periodical Scheduled triggers Sample
+# Periodical Scheduled triggers (Tasks) Sample
 
 This sample demonstrates the task scheduling capabilities of the WSO2 Integrator: MI.
 
