@@ -208,12 +208,15 @@ nav:
           - "WSO2 Integrator: MI for VSCode Overview":  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
           - MI Copilot: develop/mi-for-vscode/mi-copilot.md
+          - Best Practices Guide: develop/mi-for-vscode/best-practices.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Integration Projects:
           - Create a Project: develop/create-integration-project.md
           - Open a Project: develop/opening-projects.md
+          - Manage Dependent Projects: develop/integration-project-dependencies.md
       - Integration Artifacts:
           - Integration Artifacts Overview: develop/creating-artifacts/creating-artifacts-overview.md
+          - Versioned Artifact Deployment: develop/creating-artifacts/versioned-artifact-deployment.md
           - Create Artifacts:
               - Create a REST API: develop/creating-artifacts/creating-an-api.md
               - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
@@ -247,12 +250,14 @@ nav:
               - Apply Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
               - Apply Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
               - Apply Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
+      - Validate Artifacts: develop/validating-artifacts.md
       - Deploy Artifacts: develop/deploy-artifacts.md
       - Test Integrations:
           - "Use a Remote WSO2 Integrator: MI": develop/using-remote-micro-integrator.md
           # - Hot Deploying Artifacts: develop/hot-deployment.md
           - Create a Unit Test Suite: develop/creating-unit-test-suite.md
           - Generate Docker Images: develop/generate-docker-image.md
+          - Configure Kubernetes Deployment: develop/configure-kubernetes.md
       - Debug Integrations:
           - Mediation Debugging: develop/debugging-mediation.md
           - Mediator Tryout: develop/mediator-tryout.md
@@ -420,7 +425,10 @@ nav:
                 - How to Mediate HL7 Messages: learn/examples/hl7-examples/hl7-proxy-service.md
                 - How to Acknowledge HL7 Messages: learn/examples/hl7-examples/acknowledge-hl7-messages.md
                 - How to Use HL7 Messages with File Systems: learn/examples/hl7-examples/file-transfer-using-hl7.md
-      - How to Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
+      - Service Catalog:
+        - How to Expose an Integration Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial.md
+        - How to Expose a Soap Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
+        - How to Expose a Data Service as a Managed API: learn/integration-tutorials/service-catalog-tutorial-for-data-services.md
       - How to work with transactions: learn/examples/working-with-transactions.md
       - How to Work with JSON Message Payloads: learn/examples/json-examples/json-examples.md
       - How to Integrate MI with SI: learn/examples/integrating-mi-with-si.md
@@ -545,6 +553,7 @@ nav:
               - Generate a New Connector:
                   - REST Connector:
                       - Steps to Generate: reference/connectors/connector-tools/rest/rest-connector-overview.md
+                      - Examples: reference/connectors/connector-tools/rest/openapi-examples.md
                   - gRPC Connector:
                       - Steps to Generate: reference/connectors/connector-tools/grpc/grpc-connector-overview.md
                       - Examples: reference/connectors/connector-tools/grpc/grpc-examples.md
@@ -571,16 +580,21 @@ nav:
                   - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/1.x/amazonlambda-connector-1.x-config.md
           - Amazon S3 Connector:
               - AmazonS3 Overview: reference/connectors/amazons3-connector/amazons3-connector-overview.md
+              - Set up Amazon S3: reference/connectors/amazons3-connector/amazons3-connector-config.md
+              - 3.x:
+                  - AmazonS3 Example: reference/connectors/amazons3-connector/3.x/amazons3-connector-example.md
+                  - AmazonS3 Reference: reference/connectors/amazons3-connector/3.x/amazons3-connector-reference.md
               - 2.x:
-                  - Set up Amazon S3: reference/connectors/amazons3-connector/amazons3-connector-config.md
-                  - AmazonS3 Example: reference/connectors/amazons3-connector/amazons3-connector-example.md
-                  - AmazonS3 Reference: reference/connectors/amazons3-connector/amazons3-connector-reference.md
+                  - AmazonS3 Example: reference/connectors/amazons3-connector/2.x/amazons3-connector-example.md
+                  - AmazonS3 Reference: reference/connectors/amazons3-connector/2.x/amazons3-connector-reference.md
               - 1.x:
-                  - Set up Amazon S3: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md
                   - AmazonS3 Example: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md
                   - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
           - Amazon SQS Connector:
               - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
+              - 3.x:
+                  - Amazon SQS Example: reference/connectors/amazonsqs-connector/3.x/amazonsqs-connector-3.x-example.md
+                  - Amazon SQS Reference: reference/connectors/amazonsqs-connector/3.x/amazonsqs-connector-3.x-reference.md
               - 2.x:
                   - Amazon SQS Example: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example.md
                   - Amazon SQS Reference: reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference.md
@@ -671,7 +685,10 @@ nav:
                       - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                       - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
           - CSV Module:
-              - CSV Module Reference: reference/connectors/csv-module/csv-module-config.md
+              - 3.x:
+                  - reference/connectors/csv-module/3.x/csv-module-config.md
+              - 2.x:
+                  - reference/connectors/csv-module/2.x/csv-module-config.md
           - Email Connector:
               - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
               - 2.x:
@@ -709,6 +726,9 @@ nav:
               - FHIR Reference: reference/connectors/fhir-connector/fhir-connector-config.md
           - File Connector:
               - File Connector Overview: reference/connectors/file-connector/file-connector-overview.md
+              - 6.x:
+                  - File Connector Example: reference/connectors/file-connector/6.x/file-connector-example.md
+                  - File Connector Reference: reference/connectors/file-connector/6.x/file-connector-config.md
               - 5.x:
                   - File Connector Example: reference/connectors/file-connector/5.x/file-connector-example.md
                   - File Connector Reference: reference/connectors/file-connector/5.x/file-connector-config.md
@@ -891,6 +911,9 @@ nav:
           - Apache Pulsar Inbound Endpoint:
               - Apache Pulsar Inbound Endpoint Example: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-example.md
               - Apache Pulsar Inbound Endpoint Reference: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-reference.md
+          - File Inbound Endpoint:
+              - File Inbound Endpoint Overview: reference/connectors/file-inbound/file-inbound-overview.md
+              - File Inbound Endpoint Reference: reference/connectors/file-inbound/file-inbound-reference.md
           - ISO8583 Inbound Endpoint:
               - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
               - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
@@ -915,7 +938,6 @@ nav:
               - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
               - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
               - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
-              - File Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
               - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
               - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
               - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
@@ -1175,11 +1197,16 @@ plugins:
               'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config'
               'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example'
               'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference'
+              'reference/connectors/csv-module/csv-module-config.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/csv-module/2.x/csv-module-config.md'
+              'reference/connectors/amazons3-connector/amazons3-connector-example.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
+              'reference/connectors/amazons3-connector/amazons3-connector-reference.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
+              'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/file-inbound/file-inbound-overview.md'
   # Extra
 extra_css:
   # You can select a different theme for syntax highlighting by simply
   # selecting a different css file file bellow from the available list.
-  - assets/lib/highlightjs/styles/vs.min.css
+  # assets/lib/highlightjs/styles/vs.min.css
+  - assets/lib/highlightjs/styles/custom-highlight-styles.css
   # Make sure to activate only one palette at a time.
   # If all the palettes are commented out, the default material theme palette will take over
   - assets/css/blue-palette-alt1.css

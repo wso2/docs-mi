@@ -26,11 +26,11 @@ You can find the official WSO2 Integrator: MI Helm charts repository at: <a targ
     ```bash
     git clone https://github.com/wso2-enterprise/helm-mi.git
     cd helm-mi
-    git checkout 4.4.x
+    git checkout 4.5.x
     ```
 
     !!! note
-        The `4.4.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.4.0.
+        The `4.5.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.5.0.
 
 Let's refer to the root folder of the cloned repository as `<HELM_HOME>` throughout this guide.
 
@@ -52,11 +52,11 @@ This custom image ensures compatibility with OpenShift's security model while ma
     Below is a sample `Dockerfile` for building an OpenShift-compatible WSO2 Integrator: MI image:
 
     ```Docker
-    FROM wso2/wso2mi:4.4.0-alpine
+    FROM wso2/wso2mi:4.5.0-alpine
 
     USER root
     RUN chgrp -R root "$WSO2_SERVER_HOME" && chmod -R g+rwX "$WSO2_SERVER_HOME"
-    USER wso2carbon
+    USER ${USER_ID}
     ```
 
 !!! Note "Integration Control Plane Image"
@@ -64,11 +64,11 @@ This custom image ensures compatibility with OpenShift's security model while ma
     Similarly, for the Integration Control Plane, you can use the following base `Dockerfile`:
 
     ```Docker
-    FROM wso2/wso2-integration-control-plane:1.0.0-alpine
+    FROM wso2/wso2-integration-control-plane:1.2.0-alpine
 
     USER root
     RUN chgrp -R root "$WSO2_SERVER_HOME" && chmod -R g+rwX "$WSO2_SERVER_HOME"
-    USER wso2carbon
+    USER ${USER_ID}
     ```
 
 ## Step 3 - Deploy MI and ICP
@@ -80,16 +80,18 @@ To deploy WSO2 Integrator:  MI and Integration Control Plane (ICP) on OpenShift,
 ```
 --set wso2.deployment.apparmor.enabled="false" \
 --set wso2.deployment.securityContext.enableRunAsUser="false" \
+--set wso2.deployment.securityContext.enableRunAsGroup="false" \
 --set wso2.deployment.configMaps.entryPoint.defaultMode=0457
 ```
 
 - `enableRunAsUser: false` allows OpenShift to assign a random UID for the container.
+- `enableRunAsGroup: false` allows OpenShift to assign a random non-root GID for the container.
 - `apparmor.enabled: false` disables AppArmor, which is not typically required in OpenShift.
 - `configMaps.entryPoint.defaultMode: 0457` ensures the runtime user has execute permission on mounted ConfigMaps.
 
 ### Deployment Steps
 
-Following are example comamnds to deploy MI and ICP:
+Following are example commands to deploy MI and ICP:
 
 1. Create the OpenShift namespace.
 
@@ -110,6 +112,7 @@ Following are example comamnds to deploy MI and ICP:
     --set wso2.deployment.image.tag="<DOCKER_IMAGE_TAG>" \
     --set wso2.deployment.apparmor.enabled="false" \
     --set wso2.deployment.securityContext.enableRunAsUser="false" \
+    --set wso2.deployment.securityContext.enableRunAsGroup="false" \
     --set wso2.deployment.configMaps.entryPoint.defaultMode=0457
     ```
 

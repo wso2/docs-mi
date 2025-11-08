@@ -6,7 +6,7 @@ In this example, the proxy service expects to receive a signed and encrypted mes
 
 ## Prerequisites
 
-[configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the Micro Integrator and add the required users and roles.
+[configure a user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore) for the WSO2 Integrator: MI and add the required users and roles.
 
 ## Synapse configuration
 Following is a sample proxy service configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.

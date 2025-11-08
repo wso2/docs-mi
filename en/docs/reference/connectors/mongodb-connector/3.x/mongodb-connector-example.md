@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # MongoDB connector example
 
 The MongoDB Connector can be used to perform CRUD operations in the local MongoDB database as well as in MongoDB Atlas (cloud version of MongoDB).

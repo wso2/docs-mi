@@ -25,6 +25,10 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
          You can only select one sequence or API artifact per unit test suite.
 
 7. Select the artifact to which you want to write the test cases.
+
+    !!! Note
+         You can also [use AI to generate a Unit Test Suite]({{base_path}}/develop/creating-unit-test-suite/#generate-unit-test-suite-using-ai) for the selected artifact.
+
 8. To add a new test case to the test suite, click on **Add test case**.
 
     <img src="{{base_path}}/assets/img/develop/unit-tests/add-test-case.png" alt="add test case" width="700">
@@ -55,26 +59,28 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
     4. Fill the following information for each assertion.
 
          - **Assertion Type**: Type of the assertion.
-         - **Actual Expression**: Expression that you want to assert.
-             -   **$body**: assert the payload<br/>
-             -   **$ctx:<property_name>**: assert synapse property
-             -   **$axis2:<property_name>**: assert axis2 property
-             -   **$trp:<property_name>**: assert transport property
-             -   **$statusCode**: assert status code of the service
-             -   **$httpVersion**: assert http version of the service
+         - **Assertion**: Item that you want to assert.
+             -   **Payload**: assert the payload
+             -   **Status Code**: assert status code of the service
+             -   **Transport Header**: assert a transport property
 
-         - **Expected Value**: Expected value for the actual expression. Type can be a **JSON**, **XML** or a **plain text**.
+            !!! Note
+                When **Assertion** is set to Transport Header, an additional field called **Transport Header** will be displayed to enter the header name
+
+            -   **HTTP Version**: assert http version of the service
+
+         - **Expected Value**: Expected value for the assertion (only when Assertion Type is set to **Assert Equals**). Type can be a **JSON**, **XML** or a **plain text**.
          - **Error Message**: Error message to print when the assertion is failed.
-       
+
          <img src="{{base_path}}/assets/img/develop/unit-tests/new-assertion.png" alt="new assertion" width="700">
        
-    6. Once you have added at least one assertion, click on **Create** to save the unit test case.
+    6. Once you have added the properties and assertions, click on **Create** to save the unit test case.
     
         <img src="{{base_path}}/assets/img/develop/unit-tests/test-case-completed.png" alt="completed test case" width="700">
    
 10. To add a mock service to the test suite, click on **Add mock service**.
 
-     <img src="{{base_path}}/assets/img/develop/unit-tests/add-mock-service.png" alt="completed test case" width="700">
+     <img src="{{base_path}}/assets/img/develop/unit-tests/add-mock-service.png" alt="add mock service" width="700">
    
 11. You can use a mock service to simulate the actual endpoint. If you have an already created mock service, select the mock service from the list existing mock services as shown below or [create a new mock service]({{base_path}}/develop/creating-unit-test-suite/#create-mock-service).
    
@@ -86,7 +92,7 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
 
 ## Create Mock Service
 
-1. From the dropdown which has the existing list of mock services, select **Create New**.
+1. To create a new Mock Service, click **Add New**.
 
     <img src="{{base_path}}/assets/img/develop/unit-tests/new-mock-service.png" alt="add mock service" width="700">
 
@@ -125,7 +131,7 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
 
     <img src="{{base_path}}/assets/img/develop/unit-tests/mock-resource-completed.png" alt="completed mock resource" width="700">
 
-8. Review the information given and  click on **Submit** to complete the mock service creation.
+8. Review the information given and  click on **Create** to complete the mock service creation.
 
     <img src="{{base_path}}/assets/img/develop/unit-tests/mock-service-completed.png" alt="completed mock service" width="700">
 
@@ -150,13 +156,6 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
     <img src="{{base_path}}/assets/img/develop/unit-tests/run-test.png" alt="run test" width="700">
 
 !!! Note
-     Within the WSO2 MI VS Code Extension an option is given to generate the unit test suite for a selected artifact using AI.
-
-     To use this option, in the **Create New Test Suite** page click on the **Generate Unit Tests with AI** button after giving a name for the test suite and selecting the artifact to be used for the test suite. 
-    
-     <img src="{{base_path}}/assets/img/develop/unit-tests/generate-with-ai.png" alt="generate test" width="700">
-
-!!! Note
     Additionally, the tests automatically run when executing `mvn clean install`. If you want to run unit tests with your configured server, follow the steps:
 
     1. Run a separate WSO2 Integrator: MI Instance in unit testing mode. To start the server in unit testing mode, you can pass the argument `-DsynapseTest` as below. If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` argument. Default port is `9008`. It is recommended running on a new MI server without any previously deployed integrations to avoid conflicts.
@@ -166,3 +165,35 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
     2. Navigate to the integration project location and run the following command.
 
         `mvn clean install -DtestServerType=remote -DtestServerHost=localhost -DtestServerPort=9008 -P test`
+
+## Generate Unit Test Suite using AI
+
+1. In the **Create New Unit Test** page, give a test suite name, select the artifact type and the artifact to be used for the test suite.
+2. Click **Generate Unit Tests with AI** and wait until the AI service responds with the generated test suite and test cases.
+
+    <img src="{{base_path}}/assets/img/develop/unit-tests/generate-test-suite.png" alt="generate test suite" width="700">
+
+!!! Note
+    In order to use AI services, a MI Copilot account is required. You shall be prompted to login to MI Copilot if you are not already signed in.
+
+## Generate Unit Test Case using AI
+
+!!! Note
+    Adding a test case using AI, is only available for test suites that have already been created.
+
+1. In the **Update Unit Test** page, click on **Add Test Case**.
+
+    <img src="{{base_path}}/assets/img/develop/unit-tests/add-test-case-ai.png" alt="add test case AI" width="700">
+
+2. Click on **Generate Test Case with AI**. Input fields are not required to be filled.
+
+    <img src="{{base_path}}/assets/img/develop/unit-tests/generate-test-case.png" alt="generate test case" width="700">
+
+3. Fill the **Test Case Description** explaining the test case that needs to be added.
+
+4. Click on **Generate**. Wait for the AI service to respond with the generated test case.
+
+    <img src="{{base_path}}/assets/img/develop/unit-tests/generate-test-case-description.png" alt="generate test case description" width="700">
+
+!!! Note
+    The newly generated test will be added to the existing test suite as a new test case.

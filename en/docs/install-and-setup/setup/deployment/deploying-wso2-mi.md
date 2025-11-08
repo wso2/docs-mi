@@ -135,7 +135,7 @@ By default, a random UUID value will be used as the node ID. However, you can as
 -   Environment variable (`nodeId`)
 -   TOML configuration
 
-    Open the `deployment.toml` file (stored in the `<EI_HOME>/conf` directory) and add the following section:
+    Open the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory) and add the following section:
 
     ```toml
     [cluster_config]

@@ -1245,9 +1245,6 @@ The management API has multiple resources to provide information regarding the d
 
 	**Description**: Activate or deactivate a specific inbound endpoint. The status can be set to `active` or `inactive` to activate or deactivate the inbound endpoint, respectively.
 
-	!!! note
-		The activate/deactivate capability of inbound endpoints is currently supported only for the `file` inbound endpoint protocol.
-
 	**Example**:
 
 	```bash

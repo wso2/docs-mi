@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Jira Connector Reference
 
 ### Connection configuration
