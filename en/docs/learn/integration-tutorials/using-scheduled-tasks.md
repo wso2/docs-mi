@@ -9,7 +9,7 @@ The sections below demonstrate an example of a scheduled trigger (task) that inj
 - [Sequence]({{base_path}}/reference/mediation-sequences)
 - [Log Mediator]({{base_path}}/reference/mediators/log-mediator)
 - [Drop Mediator]({{base_path}}/reference/mediators/drop-mediator)
-- [Scheduled Task]({{base_path}}/reference/synapse-properties/scheduled-task-properties)
+- [Scheduled trigger]({{base_path}}/reference/synapse-properties/scheduled-task-properties)
 
 ## Let's get started!
 

@@ -1,14 +1,14 @@
-# Create a Scheduled Task
+# Create a Scheduled trigger (Task)
 
-Follow the instructions below to create a Scheduled Task in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension.
+Follow the instructions below to create a Scheduled trigger in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension.
 
-## Create a scheduled task artifact
+## Create a Scheduled trigger artifact
 
 {!includes/creating-project.md!}
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new Scheduled Task, navigate to **WSO2 Integrator: MI Project Explorer**.
+3. To add a new Scheduled trigger, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
@@ -16,11 +16,11 @@ Follow the instructions below to create a Scheduled Task in the WSO2 Integrator:
 
 5. On the **Add artifact** pane, click **Automation** under **Create an Integration** to open the **Task Form**.
 
-6. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the scheduled task.
+6. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the Scheduled trigger.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" alt="create new scheduled task" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" alt="create new Scheduled trigger" width="80%"></a>
 
-The created scheduled task will be available in **Project Overview** under **Automation**.
+The created Scheduled trigger will be available in **Project Overview** under **Automation**.
 
 !!! info
     You can switch to the default Visual Studio Code Explorer to view the folder structure.
@@ -39,24 +39,24 @@ You can later update the task configurations to specify the incoming message tha
 
 4. Click the pen icon next to the task name.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png" alt="create new scheduled task" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png" alt="create new Scheduled trigger" width="80%"></a>
 
 5. Update task configurations.
 
 6. Click **Update**.
 
 !!! info
-    See the [Scheduled Tasks Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available configurations for tasks.
+    See the [Scheduled triggers Property Catalog]({{base_path}}/reference/synapse-properties/scheduled-task-properties/) documentation for a list of all available configurations for tasks.
 
 ## Tutorials
 
-Follow our tutorial on scheduled tasks:
+Follow our tutorial on Scheduled triggers:
 
-- [Periodically execute an integration process]({{base_path}}/learn/integration-tutorials/using-scheduled-tasks) using a scheduled task
+- [Periodically execute an integration process]({{base_path}}/learn/integration-tutorials/using-scheduled-tasks) using a Scheduled trigger
 
 ## Examples
 
-Follow our examples on scheduled tasks:     
+Follow our examples on Scheduled triggers:     
 
 - [Task Scheduling using a Simple Trigger]({{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger)
 - [Inject Messages to a RESTful Endpoint]({{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)

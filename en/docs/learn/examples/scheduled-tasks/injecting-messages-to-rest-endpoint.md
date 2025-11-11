@@ -5,7 +5,7 @@ In order to use the Message Injector to inject messages to a RESTful endpoint, y
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Scheduled Task"
+=== "Scheduled trigger"
     ```xml
     <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="SampleInjectToProxyTask" xmlns="http://ws.apache.org/ns/synapse">
         <trigger count="2" interval="5"/>
@@ -55,10 +55,10 @@ Following are the integration artifacts that we can used to implement this scena
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
+3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
-The XML message you injected (i.e., This is a scheduled task of the default implementation.) will be printed in the logs of the WSO2 Integrator: MI twice, 5 seconds apart.
+The XML message you injected (i.e., This is a Scheduled trigger of the default implementation.) will be printed in the logs of the WSO2 Integrator: MI twice, 5 seconds apart.
 
 ```bash
 INFO {org.apache.synapse.mediators.builtin.LogMediator} - Which city? = London, Which country? = UK
