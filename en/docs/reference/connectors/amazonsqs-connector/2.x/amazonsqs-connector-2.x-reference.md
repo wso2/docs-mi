@@ -108,8 +108,8 @@ To use the Amazon SQS connector, first create the connection with your configura
     **Sample request**
     ```xml
         <amazonsqs.init>
-            <awsAccessKeyId>qwwewrerrtfdfd</awsAccessKeyId>
-            <awsSecretAccessKey>assdsfdgdgrer</awsSecretAccessKey>
+            <awsAccessKeyId><!-- AWS access key id--></awsAccessKeyId>
+            <awsSecretAccessKey><!-- AWS secret access key--></awsSecretAccessKey>
             <name>AMAZON_SQS_CONNECTION</name>
             <region>us-east-1</region>
         </amazonsqs.init>
