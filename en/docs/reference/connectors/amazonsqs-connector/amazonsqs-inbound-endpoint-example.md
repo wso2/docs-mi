@@ -59,8 +59,8 @@ To proceed with this scenario, ensure you have connectivity to an Amazon AWS acc
              <parameter name="coordination">true</parameter>
              <parameter name="destination">https://sqs.us-east-2.amazonaws.com/610968236798/eiconnectortestSQS</parameter>
              <parameter name="contentType">text/plain</parameter>
-             <parameter name="accessKey">AKIAY4QELOL7GF35XBW5</parameter>
-             <parameter name="secretKey">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</parameter>
+             <parameter name="accessKey"><!-- access key id --></parameter>
+             <parameter name="secretKey"><!-- secret key --></parameter>
              <parameter name="autoRemoveMessage">true</parameter>
              <parameter name="attributeNames">All</parameter>
          </parameters>
