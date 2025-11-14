@@ -1,0 +1,12 @@
+# Connector Descriptor File
+# Specifies the dependencies and repositories required for the connector.
+# The values are parameterized for customization and will be referenced during the build process from filter.properties.
+
+dependencies:
+  - groupId: "${custom.inbound.groupId}"
+    artifactId: "${custom.inbound.artifactId}"
+    version: "${custom.inbound.version}"
+
+repositories:
+  - id: "wso2-nexus"
+    url: "https://maven.wso2.org/nexus/content/groups/wso2-public/"
