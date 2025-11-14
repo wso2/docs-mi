@@ -202,6 +202,7 @@ nav:
           - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
           - Resource Allocation and Performance: install-and-setup/setup/deployment-best-practices/resource-allocation-and-performance.md
           - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
+          - AI Usage and Data Handling Guidelines: install-and-setup/setup/reference/ai-usage-and-data-handling-guidelines.md
   - Develop:
       - Develop Integration Solutions: develop/intro-integration-development.md
       - WSO2 MI for VSCode:
