@@ -12,8 +12,8 @@ The AI Copilot is integrated into the WSO2 Integrator: MI developer experience. 
 
 - **AI Copilot Code**: Delivered as a Visual Studio Code (VS Code) extension, providing in-editor assistance such as code completion, explanations, and suggestions.
 - **Language Server**: Powers intelligent features inside the IDE, including syntax awareness and integration with Copilot services.
-- **MI Intelligence Endpoint**: A lightweight intermediary service that connects the extension to Anthropic or Bedrock models. This service does not retain data.
-- **Anthropic or Bedrock Integration**: The endpoint forwards user prompts and context to the selected Large Language Model (LLM) provider for processing.
+- **MI Intelligence Endpoint**: A lightweight intermediary service that connects the extension to Anthropic model. This service does not retain data.
+- **Anthropic Integration**: The endpoint forwards user prompts and context to the selected Large Language Model (LLM) provider for processing.
 
 
 
@@ -45,11 +45,6 @@ Organizations can configure the Copilot to run using their own model provider ac
 - Copilot can connect directly to Anthropic’s public deployments.
 - Requires an Anthropic API key that you provide.
 - This setup ensures that data flows directly between your environment and Anthropic without WSO2 retaining it.
-
-### Amazon Bedrock
-- Copilot can also run using Claude models deployed on Amazon Bedrock.
-- Requires an active Claude deployment in your Amazon Bedrock environment.
-- Users must provide their own access keys for connectivity.
 
 ## MI copilot code
 
@@ -114,7 +109,7 @@ General Copilot Best Practices are as follows.
 
 | Data Type                       | Retention Period              | Notes                                              |
 |---------------------------------|-------------------------------|----------------------------------------------------|
-| Code Prompts & Responses        | Not stored by MI Intelligence | Forwarded directly to Anthropic or Bedrock         |
+| Code Prompts & Responses        | Not stored by MI Intelligence | Forwarded directly to Anthropic         |
 | User Feedback                   | 1 week                        | Retained only when explicitly provided by the user |
 | Authentication Tokens           | Session-based                 | Managed securely by Asgardeo                       |
 | Organizational Data             | Not stored                    | Zero-retention policy at MI Intelligence           |
