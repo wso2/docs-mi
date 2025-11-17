@@ -1,4 +1,4 @@
-# Deploy WSO2 Integrator (MI) on Devant
+# Deploy WSO2 Micro Integrator (MI) on Devant
 
 This guide walks you through deploying WSO2 Integrator: MI on Devant. For this guide, a simple API integration will be deployed on Devant using the WSO2 Integrator: MI VS Code extension.
 
