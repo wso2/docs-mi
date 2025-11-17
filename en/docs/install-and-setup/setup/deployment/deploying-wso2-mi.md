@@ -1,15 +1,15 @@
 # Configuring a WSO2 Integrator: MI Cluster
-See the instructions on how to set up a cluster of WSO2 Integrator: MI nodes in an on-premise VM deployment. A third-party load balancer is used for this deployment.
+Follow these instructions to set up a cluster of WSO2 Integrator: MI nodes on an on-premise VM deployment. A third-party load balancer is used for this deployment.
 
 ## The deployment pattern
 
-This deployment scenario is a two-node WSO2 Integrator: MI deployment. That is, two WSO2 Integrator: MI nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
+This deployment scenario is a two-node WSO2 Integrator: MI deployment. Two WSO2 Integrator: MI nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
 
-<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="WSO2 Integrator: MI deployment" width="60%"></a>
+![WSO2 Integrator: MI deployment](https://example.com/assets/img/integrate/mi-deployment.png)
 
 ## Install the WSO2 Integrator: MI
 
-[Download and install WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi).
+[Download and install WSO2 Integrator: MI](https://wso2.com/integrator/download)
 
 Let's set up two instances of the WSO2 Integrator: MI server.
 
@@ -40,7 +40,7 @@ See the descriptions of the [service catalog parameters]({{base_path}}/reference
 
 ## Cluster coordination
 
-Most of the integration artifacts in your deployment are stateless and don't actually require coordination when there is more than a single instance of the server running. However, the following set of artifacts require coordination among themselves when deployed in more than a single instance of the server.
+Most integration artifacts in your deployment are stateless and do not require coordination when there is more than one server instance running. However, the following set of artifacts require coordination among themselves when deployed in more than a single instance of the server.
 
 -   Scheduled triggers
 -   Message Processors
@@ -127,7 +127,7 @@ When the nodes in the cluster need to communicate with each other, the WSO2 Inte
      
 ### Node ID
 
-The node ID is a unique identifier, which is used to identify a node within the cluster. This is useful in situations where certain requests need to be routed to the server node based on the node ID. For example, <b>Scheduled triggers</b> should only run in specific nodes.
+The node ID is a unique identifier, which is used to identify a node within the cluster. This is useful in situations where certain requests need to be routed to the server node based on the node ID. For example, **Scheduled triggers** should only run in specific nodes.
 
 By default, a random UUID value will be used as the node ID. However, you can assign a specific node ID using the following methods:
 
