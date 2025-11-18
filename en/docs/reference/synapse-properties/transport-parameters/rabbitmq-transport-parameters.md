@@ -242,6 +242,12 @@ present. If set to <code>false</code>, the WSO2 Integrator: MI will assume that 
 
 In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/develop/creating-artifacts/creating-endpoints).
 
+**Format of the Address URL**:
+
+```
+rabbitmq:/<placeholder>?<query-parameter-name1>=<query-parameter-value1>&amp;<query-parameter-name2>=<query-parameter-value2>
+```
+
 **Example**:
 
 -   Design view of an endpoint in WSO2 Integration:MI VSCode extension:
@@ -265,6 +271,10 @@ In your integration solution, the following RabbitMQ send parameters can be spec
   <tr>
     <th>Parameter</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>Specifies the routing key to use when both rabbitmq.queue.name and rabbitmq.queue.routing.key query parameters are not defined. Otherwise, it serves as a placeholder.</td>
   </tr>
   <tr>
     <td>rabbitmq.server.host.name</td>
