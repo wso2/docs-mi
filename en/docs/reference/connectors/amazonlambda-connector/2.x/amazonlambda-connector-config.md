@@ -781,16 +781,16 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-        ```json
-        {
-            "secretAccessKey":"<!-- secret access key -->",
-            "accessKeyId":"<!-- access key id -->",
-            "region":"us-east-1",
-            "blocking":"false",
-            "functionName":"func",
-            "apiVersionDeleteFunction":"2015-03-31"
-        }
-        ```
+    ```json
+    {
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
+        "region":"us-east-1",
+        "blocking":"false",
+        "functionName":"func",
+        "apiVersionDeleteFunction":"2015-03-31"
+    }
+    ```
     
     **Sample response**
     
@@ -846,17 +846,17 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-        ```json
-        {
-            "secretAccessKey":"<!-- secret access key -->",
-            "accessKeyId":"<!-- access key id -->",
-            "region":"us-east-2",
-            "blocking":"false",
-            "functionName":"Fn",
-            "qualifier":"$LATEST",
-            "apiVersionGetFunction":"2015-03-31"
-        }
-        ```
+    ```json
+    {
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
+        "region":"us-east-2",
+        "blocking":"false",
+        "functionName":"Fn",
+        "qualifier":"$LATEST",
+        "apiVersionGetFunction":"2015-03-31"
+    }
+    ```
     
     **Sample response**
     
@@ -955,17 +955,17 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-        ```json
-        {
-            "secretAccessKey":"<!-- secret access key -->",
-            "accessKeyId":"<!-- access key id -->",
-            "region":"us-east-2",
-            "blocking":"false",
-            "functionName":"test",
-            "qualifier":"$LATEST",
-            "apiVersionGetFunctionConfiguration":"2015-03-31"
-        }
-        ```
+    ```json
+    {
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
+        "region":"us-east-2",
+        "blocking":"false",
+        "functionName":"test",
+        "qualifier":"$LATEST",
+        "apiVersionGetFunctionConfiguration":"2015-03-31"
+    }
+    ```
     
     **Sample response**
     
@@ -1248,17 +1248,17 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
         
-        ```json
-        {
-            "secretAccessKey":"<!-- secret access key -->",
-            "accessKeyId":"<!-- access key id -->",
-            "region":"us-east-1",
-            "blocking":"false",
-            "functionName":"Fn",
-            "permissionStatementId":"Permisssion_Added1443p",
-            "apiVersionRemovePermission":"2015-03-31"
-        }
-        ``` 
+    ```json
+    {
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
+        "region":"us-east-1",
+        "blocking":"false",
+        "functionName":"Fn",
+        "permissionStatementId":"Permisssion_Added1443p",
+        "apiVersionRemovePermission":"2015-03-31"
+    }
+    ``` 
     **Sample response**
     
     ```
@@ -1345,20 +1345,20 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-        ```json
-        {
-            "secretAccessKey":"<!-- secret access key -->",
-            "accessKeyId":"<!-- access key id -->",
-            "region":"us-east-2",
-            "blocking":"false",
-            "layerVersionNumber":"1",
-            "layerPrincipal":"*",
-            "layerStatementId":"Permisssion_Added",
-            "layerAction":"lambda:GetLayerVersion",
-            "layerName":"CustomFunction",
-            "apiVersionAddLayerVersionPermission":"2018-10-31"
-        }
-        ```
+    ```json
+    {
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
+        "region":"us-east-2",
+        "blocking":"false",
+        "layerVersionNumber":"1",
+        "layerPrincipal":"*",
+        "layerStatementId":"Permisssion_Added",
+        "layerAction":"lambda:GetLayerVersion",
+        "layerName":"CustomFunction",
+        "apiVersionAddLayerVersionPermission":"2018-10-31"
+    }
+    ```
     
     **Sample response**
     
