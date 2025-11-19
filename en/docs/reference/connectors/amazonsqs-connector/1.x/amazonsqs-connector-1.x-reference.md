@@ -162,8 +162,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.receiveMessage>
-        <accessKeyId>AKIAJXHDKJWR2ZDDVPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MdfaL7Li1P3hJu1GTdtOO7Kd7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -235,8 +235,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <amazonsqs.sendMessage>
-        <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7LikjhyhJu1GTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>

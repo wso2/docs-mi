@@ -140,8 +140,8 @@ To deploy and run the project, refer to the [Build and Run]({{base_path}}/develo
  
     ```json
     {
-        "secretAccessKey":"xxxx",
-        "accessKeyId":"xxxx",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "s3Bucket":"eiconnectortest",

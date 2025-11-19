@@ -90,8 +90,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "apiVersionGetAccountSettings": "2016-08-19"
@@ -191,8 +191,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"test",
@@ -266,8 +266,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"test",
@@ -333,8 +333,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"test",
@@ -429,8 +429,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-1",
         "blocking":"false",
         "functionName":"test",
@@ -527,8 +527,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M55z8I*****************",
-        "accessKeyId":"AKIAJHJX************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"testFunction",
@@ -689,8 +689,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M55z8I*****************",
-        "accessKeyId":"AKIAJHJX************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-2",
         "blocking":"false",
         "s3Bucket":"ajbuck8",
@@ -781,16 +781,16 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-    ```json
-    {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJX************",
-      "region":"us-east-1",
-      "blocking":"false",
-      "functionName":"func",
-      "apiVersionDeleteFunction":"2015-03-31"
-    }
-    ```
+        ```json
+        {
+            "secretAccessKey":"<!-- secret access key -->",
+            "accessKeyId":"<!-- access key id -->",
+            "region":"us-east-1",
+            "blocking":"false",
+            "functionName":"func",
+            "apiVersionDeleteFunction":"2015-03-31"
+        }
+        ```
     
     **Sample response**
     
@@ -846,17 +846,17 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-    ```json
-    {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
-      "region":"us-east-2",
-      "blocking":"false",
-      "functionName":"Fn",
-      "qualifier":"$LATEST",
-      "apiVersionGetFunction":"2015-03-31"
-    }
-    ```
+        ```json
+        {
+            "secretAccessKey":"<!-- secret access key -->",
+            "accessKeyId":"<!-- access key id -->",
+            "region":"us-east-2",
+            "blocking":"false",
+            "functionName":"Fn",
+            "qualifier":"$LATEST",
+            "apiVersionGetFunction":"2015-03-31"
+        }
+        ```
     
     **Sample response**
     
@@ -955,17 +955,17 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-    ```json
-    {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
-      "region":"us-east-2",
-      "blocking":"false",
-      "functionName":"test",
-      "qualifier":"$LATEST",
-      "apiVersionGetFunctionConfiguration":"2015-03-31"
-    }
-    ```
+        ```json
+        {
+            "secretAccessKey":"<!-- secret access key -->",
+            "accessKeyId":"<!-- access key id -->",
+            "region":"us-east-2",
+            "blocking":"false",
+            "functionName":"test",
+            "qualifier":"$LATEST",
+            "apiVersionGetFunctionConfiguration":"2015-03-31"
+        }
+        ```
     
     **Sample response**
     
@@ -1092,8 +1092,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-    	"secretAccessKey":"0b+fcboKq87Nf7m****************",
-    	"accessKeyId":"AKIAJHJXWUY*********",
+    	"secretAccessKey":"<!-- secret access key -->",
+    	"accessKeyId":"<!-- access key id -->",
     	"region":"us-east-1",
     	"blocking":"false",
     	"functionName":"LambdawithLayer",
@@ -1175,8 +1175,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
         
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"<!-- secret access key -->",
+        "accessKeyId":"<!-- access key id -->",
         "region":"us-east-1",
         "blocking":"false",
         "functionVersion":"ALL",
@@ -1248,17 +1248,17 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
         
-    ```json
-    {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
-      "region":"us-east-1",
-      "blocking":"false",
-      "functionName":"Fn",
-      "permissionStatementId":"Permisssion_Added1443p",
-      "apiVersionRemovePermission":"2015-03-31"
-    }
-    ``` 
+        ```json
+        {
+            "secretAccessKey":"<!-- secret access key -->",
+            "accessKeyId":"<!-- access key id -->",
+            "region":"us-east-1",
+            "blocking":"false",
+            "functionName":"Fn",
+            "permissionStatementId":"Permisssion_Added1443p",
+            "apiVersionRemovePermission":"2015-03-31"
+        }
+        ``` 
     **Sample response**
     
     ```
@@ -1345,20 +1345,20 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     **Sample request**
     
-    ```json
-    {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
-      "region":"us-east-2",
-      "blocking":"false",
-      "layerVersionNumber":"1",
-      "layerPrincipal":"*",
-      "layerStatementId":"Permisssion_Added",
-      "layerAction":"lambda:GetLayerVersion",
-      "layerName":"CustomFunction",
-      "apiVersionAddLayerVersionPermission":"2018-10-31"
-    }
-    ```
+        ```json
+        {
+            "secretAccessKey":"<!-- secret access key -->",
+            "accessKeyId":"<!-- access key id -->",
+            "region":"us-east-2",
+            "blocking":"false",
+            "layerVersionNumber":"1",
+            "layerPrincipal":"*",
+            "layerStatementId":"Permisssion_Added",
+            "layerAction":"lambda:GetLayerVersion",
+            "layerName":"CustomFunction",
+            "apiVersionAddLayerVersionPermission":"2018-10-31"
+        }
+        ```
     
     **Sample response**
     
@@ -1431,8 +1431,8 @@ To use the Amazon Lambda connector, create the `AmazonLambda` connection before 
     
     ```json
     {
-    	"secretAccessKey":"ZvLiOJbh/Gm5o/wE9l7+kAVtjDRg414a/Ev8sF0M",
-    	"accessKeyId":"AKIAIZCDHDKX7DBMEKSA",
+    	"secretAccessKey":"<!-- secret access key -->",
+    	"accessKeyId":"<!-- access key id -->",
     	"region":"us-east-2",
     	"blocking":"false",
     	"layerVersionNumber":"1",
