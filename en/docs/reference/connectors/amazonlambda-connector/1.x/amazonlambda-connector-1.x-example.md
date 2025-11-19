@@ -189,9 +189,9 @@ You can further refer to the application deployed through the CLI tool. See the 
 1. Invoke the API using a CURL command or sample client.
    ``` 
    curl -v POST -d 
-   '{
-     "secretAccessKey":"xxxx",
-     "accessKeyId":"xxxx",
+    '{
+     "secretAccessKey":"<!-- secret access key -->",
+     "accessKeyId":"<!-- access key id -->",
      "region":"us-east-2",
      "blocking":"false",
      "s3Bucket":"eiconnectortest",

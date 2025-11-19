@@ -502,8 +502,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```json
     {
-        "accessKeyId": "AKXXXXXXXXX5EAS",
-        "secretAccessKey": "qHXXXXXXNMDYadDdsQMnAOj+3XXXXPs",
+        "accessKeyId": "<!-- access key id -->",
+        "secretAccessKey": "<!-- secret access key -->",
         "region":"us-east-2",
         "methodType": "PUT",
         "contentType": "application/json",

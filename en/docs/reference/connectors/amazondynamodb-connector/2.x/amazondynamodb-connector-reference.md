@@ -122,8 +122,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "requestItems": {
@@ -242,8 +242,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "requestItems": {
@@ -405,8 +405,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -533,8 +533,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -699,8 +699,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -896,8 +896,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -1070,8 +1070,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -1283,8 +1283,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -1472,8 +1472,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "attributeDefinitions": [
@@ -1630,8 +1630,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "TestTable"
@@ -1696,8 +1696,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "TestTable"
@@ -1814,8 +1814,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "exclusiveStartTableName":"Music",
@@ -1912,8 +1912,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName":"Thread",
@@ -2024,8 +2024,8 @@ To use the Amazon DynamoDB connector, create the `AmazonDynamoDB` connection bef
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false"
     }
