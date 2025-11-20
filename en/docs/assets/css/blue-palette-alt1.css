@@ -70,10 +70,16 @@
     color: var( --md-hjs-color);
 }
 .banner-link {
-    width: 480px;
+    width: 800px;
     height: 363px;
-    margin-left: 50px;
-    margin-right: 200px;
+}
+@media (min-width: 768px){
+    .banner-link {
+        width: 480px;
+        height: 363px;
+        margin-left: 50px;
+        margin-right: 200px;
+    }
 }
 .md-header__button {
     color: var(--md-primary-heder-fg-color);
