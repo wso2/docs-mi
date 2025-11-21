@@ -31,8 +31,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-2",
         "blocking":"false",
         "apiVersionGetAccountSettings": "2016-08-19"
@@ -120,8 +120,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"test",
@@ -183,8 +183,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"test",
@@ -238,8 +238,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"test",
@@ -322,8 +322,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-1",
         "blocking":"false",
         "functionName":"test",
@@ -408,8 +408,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M55z8I*****************",
-        "accessKeyId":"AKIAJHJX************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-2",
         "blocking":"false",
         "functionName":"testFunction",
@@ -558,8 +558,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M55z8I*****************",
-        "accessKeyId":"AKIAJHJX************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-2",
         "blocking":"false",
         "s3Bucket":"ajbuck8",
@@ -640,8 +640,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJX************",
+      "secretAccessKey":"your secret access key",
+      "accessKeyId":"your access key id",
       "region":"us-east-1",
       "blocking":"false",
       "functionName":"func",
@@ -693,8 +693,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
+      "secretAccessKey":"your secret access key",
+      "accessKeyId":"your access key id",
       "region":"us-east-2",
       "blocking":"false",
       "functionName":"Fn",
@@ -708,7 +708,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     ```json
     {
         "Code": {
-            "Location": "https://awslambda-us-east-2-tasks.s3.us-east-2.amazonaws.com/snapshots/1*****6/test-9f25e193-f604-4d9e-83f1-1254f57e92bc?versionId=wGTdzzK2xtmCGZdt_kgFyy4dlBV8qr1N&X-Amz-Security-Token=FQoGZXIvYXdzEFoaDGu12sbFFNlw0JI6rCK3A6sbM%2FoxC7a2gKuwHXuKoacmpYJa0L%2FtR%2B52PUf9Pbxh2K4OOg5iffmAhfRV%2BpdhyLs32zWlkiYXRpZseDeZPAbofXMZSoLDWhtLVB0EmLTwz33gX8EQfrsvAJa2xWyM9bsebmNwHe9jTa56DvfaQzPEEa4QXpzWEKH8i5%2FSz9iNCrQhbRP%2B5dvclV%2FULql2gMPlxbwPIZNIYdF1xZuddIGcZInkrEHL3956%2B0kHag%2FL%2FoWzN81IGkySbjKNgRFeLxlDEn9ZpDiC%2FdrnNqJ%2FuBdgben7T1ZV3ck5ra0aT7XKaZhDtEN4jHv0sw3O9rORxvlne50TZ56aVePW%2FpUekHjTUiMgrwG%2B2J4uXl2ht2lTJQW3heAFFCoo1DawPlSG%2Fszht8Mt%2BhkHOrE7Re2GRTlnj0jEzEtqgp3JjuaYZU7dtbU4PhbvavF2LtxWFin9p0hWGkcMjKWuWDTaHLdj%2FzTSkS3qifkD9k34B6P%2BaQE1liduGSwK4CgNGNIP5PISt%2Fyoq2Gii1A3yIKyFgeL1W3cJ%2FuhVL9iC%2FsAN6AMkGMsNNjO%2BxvlclQ0YNK10sGhsc7A0z0Cvsgo0O344wU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190305T090047Z&X-Amz-SignedHeaders=host&X-Amz-Expires=599&X-Amz-Credential=ASIARQRML75E7CY33SUO%2F20190305%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=e82c9ea475e1ba363b6e061c2eebeded0dfd8f275ad8313e16f42430a4f4819b",
+            "Location": "https://awslambda-us-east-2-tasks.s3.us-east-2.amazonaws.com/snapshots/1*****6/test-9f25e193-f604-4d9e-83f1-1254f57e92bc?versionId=wGTdzzK2xtmCGZdt_kgFyy4dlBV8qr1N&X-Amz-Security-Token=<TOKEN_REDACTED>",
             "RepositoryType": "S3"
         },
         "Concurrency": null,
@@ -790,8 +790,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
+      "secretAccessKey":"your secret access key",
+      "accessKeyId":"your access key id",
       "region":"us-east-2",
       "blocking":"false",
       "functionName":"test",
@@ -913,8 +913,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-    	"secretAccessKey":"0b+fcboKq87Nf7m****************",
-    	"accessKeyId":"AKIAJHJXWUY*********",
+    	"secretAccessKey":"your secret access key",
+    	"accessKeyId":"your access key id",
     	"region":"us-east-1",
     	"blocking":"false",
     	"functionName":"LambdawithLayer",
@@ -984,8 +984,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
         
     ```json
     {
-        "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-        "accessKeyId":"AKIAJHJ*************",
+        "secretAccessKey":"your secret access key",
+        "accessKeyId":"your access key id",
         "region":"us-east-1",
         "blocking":"false",
         "functionVersion":"ALL",
@@ -1047,8 +1047,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
         
     ```json
     {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
+      "secretAccessKey":"your secret access key",
+      "accessKeyId":"your access key id",
       "region":"us-east-1",
       "blocking":"false",
       "functionName":"Fn",
@@ -1132,8 +1132,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-      "secretAccessKey":"0b+fcboKq87Nf7mH6M**********************",
-      "accessKeyId":"AKIAJHJ*************",
+      "secretAccessKey":"your access key id",
+      "accessKeyId":"your secret access key",
       "region":"us-east-2",
       "blocking":"false",
       "layerVersionNumber":"1",
@@ -1204,8 +1204,8 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     
     ```json
     {
-    	"secretAccessKey":"ZvLiOJbh/Gm5o/wE9l7+kAVtjDRg414a/Ev8sF0M",
-    	"accessKeyId":"AKIAIZCDHDKX7DBMEKSA",
+    	"secretAccessKey":"your secret access key",
+    	"accessKeyId":"your access key id",
     	"region":"us-east-2",
     	"blocking":"false",
     	"layerVersionNumber":"1",

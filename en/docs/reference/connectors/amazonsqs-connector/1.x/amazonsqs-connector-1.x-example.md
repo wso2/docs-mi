@@ -64,8 +64,8 @@ If you do not want to configure this yourself, you can simply [get the project](
         <amazonsqs.init>
             <connectionType>amazonsqs</connectionType>
             <name>AMAZON_SQS_CONNECTION</name>
-            <accessKeyId>access-key-id</accessKeyId>
-            <secretAccessKey>secret-access-key</secretAccessKey>
+            <accessKeyId><!-- access key id --></accessKeyId>
+            <secretAccessKey><!-- secret access key --></secretAccessKey>
             <region>us-east-2</region>
             <version>2009-02-01</version>
             <blocking>false</blocking>
