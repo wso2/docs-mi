@@ -177,11 +177,11 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 <?xml version="1.0" encoding="UTF-8"?>
 <localEntry key="AMAZON_S3_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
     <amazons3.init>
-        <awsAccessKeyId>replace_with_access_key</awsAccessKeyId>
+        <awsAccessKeyId><!-- replace_with_access_key --></awsAccessKeyId>
         <name>AMAZON_S3_CONNECTION_1</name>
         <region>us-east-2</region>
         <connectionType>amazons3</connectionType>
-        <awsSecretAccessKey>replace_with_secret_access_key</awsSecretAccessKey>
+        <awsSecretAccessKey><!-- replace_with_secret_access_key --></awsSecretAccessKey>
     </amazons3.init>
 </localEntry>
 

@@ -4833,11 +4833,11 @@ components:
         consumerKey:
           type: string
           description: Consumer key of the application
-          example: oYhwZu4P2ThDmiDprBk6c0YfjR8a
+          example: your consumer key
         consumerSecret:
           type: string
           description: Consumer secret of the application
-          example: ondWGtFTCOVM4sfPyOfZ7fel610a
+          example: your consumer secret
         keyManager:
           type: string
           description: Key Manager Name

@@ -82,14 +82,14 @@ To use the Amazon SQS connector, first create the connection with your configura
     
         === "Linux, macOS, or Unix"
             ```    
-            export AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
-            export AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
+            export AWS_ACCESS_KEY_ID=your access key id
+            export AWS_SECRET_ACCESS_KEY=your secret access key
             ```  
     
         === "Windows"
             ```    
-            set AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
-            set AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
+            set AWS_ACCESS_KEY_ID=your access key id
+            set AWS_SECRET_ACCESS_KEY=your secret access key
             ```
     
     !!! note 
@@ -108,8 +108,8 @@ To use the Amazon SQS connector, first create the connection with your configura
     **Sample request**
     ```xml
         <amazonsqs.init>
-            <awsAccessKeyId>qwwewrerrtfdfd</awsAccessKeyId>
-            <awsSecretAccessKey>assdsfdgdgrer</awsSecretAccessKey>
+            <awsAccessKeyId><!-- access key id --></awsAccessKeyId>
+            <awsSecretAccessKey><!-- secret access key --></awsSecretAccessKey>
             <name>AMAZON_SQS_CONNECTION</name>
             <region>us-east-1</region>
         </amazonsqs.init>
