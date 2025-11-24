@@ -297,8 +297,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBuckets>
-        <accessKeyId>AKIAXXXXXXXXXXQM7G5EA</accessKeyId>
-        <secretAccessKey>qHZBBzXXXXXXXXXXDYQc4oMQMnAOj+34XXXXXXXXXXO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>GET</methodType>
         <contentLength></contentLength>
         <contentType>application/xml</contentType>
@@ -346,8 +346,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketWebsiteConfiguration>
-        <accessKeyId>AKIXXXXXXXXXXA</accessKeyId>
-        <secretAccessKey>qHZXXXXXXQc4oMQMnAOj+340XXxO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentLength>256</contentLength>
@@ -423,8 +423,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketWebsiteConfiguration>
-        <accessKeyId>AKIXXXXXXXXXXA</accessKeyId>
-        <secretAccessKey>qHZXXXXXXQc4oMQMnAOj+340XXxO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentLength>256</contentLength>
@@ -502,8 +502,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```json
     {
-        "accessKeyId": "AKXXXXXXXXX5EAS",
-        "secretAccessKey": "qHXXXXXXNMDYadDdsQMnAOj+3XXXXPs",
+        "accessKeyId": "<!-- access key id -->",
+        "secretAccessKey": "<!-- secret access key -->",
         "region":"us-east-2",
         "methodType": "PUT",
         "contentType": "application/json",
@@ -589,8 +589,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketACL>
-        <accessKeyId>AKIXXXXXXXXXG5EA</accessKeyId>
-        <secretAccessKey>qHZXXXXXXXDYQc4oMQXXXOj+340pXXX23s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
         <addCharset>false</addCharset>
@@ -679,8 +679,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketLifecycle>
-        <accessKeyId>AKXXXXXXXXXXX5EA</accessKeyId>
-        <secretAccessKey>qHXXXXXXXXXXXqQc4oMQMnAOj+33XXXXXDPO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
@@ -774,8 +774,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketReplication>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
@@ -849,8 +849,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketTagging>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
@@ -914,8 +914,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketRequestPayment>
-        <accessKeyId>AKXXXXXXXXXXX5EA</accessKeyId>
-        <secretAccessKey>qHXXXXXXXXXXXqQc4oMQMnAOj+33XXXXXDPO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
@@ -976,8 +976,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketVersioning>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
@@ -1026,8 +1026,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucket>
-        <accessKeyId>AKIAIGURZM7SDFGJ7TRO6KSFSQ</accessKeyId>
-        <secretAccessKey>asAX8CJoDKzeOgfdgd0Ve5dMCFk4STUFDdfgdgRHkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>DELETE</methodType>
         <region>us-east-2</region>
         <contentLength></contentLength>
@@ -1069,8 +1069,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucketPolicy>
-        <accessKeyId>AKIAQEIGURZSDFDM7GJ7TRO6KQ</accessKeyId>
-        <secretAccessKey>asAX8CJoDvcvKzeOd0Ve5dMjkjCFk4STUFDRHkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>DELETE</methodType>
         <contentType>application/xml</contentType>
         <contentLength>256</contentLength>
@@ -1112,8 +1112,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucketCors>
-        <accessKeyId>AKIAIGURZMSDFD7GJ7TRO6KQDFD</accessKeyId>
-        <secretAccessKey>asAX8CJoDKzeOd0Ve5dfgdgdfMCFk4STUFDRHSFSDkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
         <isXAmzDate>true</isXAmzDate>
@@ -1161,8 +1161,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucketLifecycle>
-        <accessKeyId>AKIAIGURZMSDFD7GJ7TRO6KQDFD</accessKeyId>
-        <secretAccessKey>asAX8CJoDKzeOd0Ve5dfgdgdfMCFk4STUFDRHSFSDkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
         <isXAmzDate>true</isXAmzDate>
@@ -1210,8 +1210,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucketReplication>
-        <accessKeyId>AKIAIGURZMSDFD7GJ7TRO6KQDFD</accessKeyId>
-        <secretAccessKey>asAX8CJoDKzeOd0Ve5dfgdgdfMCFk4STUFDRHSFSDkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
         <isXAmzDate>true</isXAmzDate>
@@ -1259,8 +1259,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucketTagging>
-        <accessKeyId>AKIAIGURZMSDFD7GJ7TRO6KQDFD</accessKeyId>
-        <secretAccessKey>asAX8CJoDKzeOd0Ve5dfgdgdfMCFk4STUFDRHSFSDkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>PUT</methodType>
         <contentType>application/xml</contentType>
         <isXAmzDate>true</isXAmzDate>
@@ -1308,8 +1308,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <deleteBucketWebsiteConfiguration>
-        <accessKeyId>AKIAIGURZM7GDFDJ7TRO6KQDFD</accessKeyId>
-        <secretAccessKey>asAdfsX8CJoDKzeOd0Ve5dMCdfsdFk4STUFDRHkdsfGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>DELETE</methodType>
         <contentType>application/xml</contentType>
         <contentLength></contentLength>
@@ -1381,8 +1381,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getObjectsInBucket>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1430,8 +1430,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketLifeCycle>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1479,8 +1479,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketCors>
-        <accessKeyId>AKXXXXXXXXXXX5EA</accessKeyId>
-        <secretAccessKey>qHXXXXXXXXXXXqQc4oMQMnAOj+33XXXXXDPO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentLength>256</contentLength>
@@ -1529,8 +1529,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketCors>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1572,8 +1572,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketLocation>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1615,8 +1615,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketLogging>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1658,8 +1658,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketNotification>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1701,8 +1701,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketTagging>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1744,8 +1744,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketReplication>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -1787,8 +1787,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBucketPolicy>
-        <accessKeyId>AKIXXXXXHXQXXG5XX</accessKeyId>
-        <secretAccessKey>qHXXBXXXXASYQc4oMCEOj+343HD82s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>GET</methodType>
         <contentType>application/xml</contentType>
@@ -2890,8 +2890,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createObjectACL>
-        <accessKeyId>AKIAIGURZMDFG7TRO6KQ</accessKeyId>
-        <secretAccessKey>asAX8CJoDKzdfg0Ve5dMCFk4STUFDRHkGX6m0CcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>PUT</methodType>
         <contentLength>256</contentLength>
         <contentType>application/xml</contentType>
@@ -3301,8 +3301,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <amazons3.init>
-        <accessKeyId>AKIAIGUASDRZM7GJ7TRO6KQAD</accessKeyId>
-        <secretAccessKey>asAX8CJoDKsdfzeOd0Ve5dMCFk4STUFDRHkGX6m0CSLKcY</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <isXAmzDate>true</isXAmzDate>
         <contentType>text/plain</contentType>
         <methodType>PUT</methodType>
@@ -3314,7 +3314,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     <!-- Use the following for the uploading part method -->
 
-    http://localhost:8889/services/multipart?objectName=testFile1.txt&uploadId=VSMdi3EgFYBq_DpBv6G0LWXydidqO9WIw90UIp81EripQrJNuxOo.jf3tkA.23aURwTOZPBD4iCfcogwtMc8_A--&partNumber=1&bucketUrl=http://sinhala.com.s3-us-west-2.amazonaws.com&accessKeyId=AKIAIGUASDRZM7GJ7TRO6KQAD&secretAccessKey=asAX8CJoDKsdfzeOd0Ve5dMCFk4STUFDRHkGX6m0CSLKcY&bucketName=sinhala.com&isXAmzDate=true&methodType=PUT
+    http://localhost:8889/services/multipart?objectName=testFile1.txt&uploadId=VSMdi3EgFYBq_DpBv6G0LWXydidqO9WIw90UIp81EripQrJNuxOo.jf3tkA.23aURwTOZPBD4iCfcogwtMc8_A--&partNumber=1&bucketUrl=http://sinhala.com.s3-us-west-2.amazonaws.com&accessKeyId=<!-- access key id -->&secretAccessKey=<!-- secret access key -->&bucketName=sinhala.com&isXAmzDate=true&methodType=PUT
     ```
     
 ??? note "completeMultipartUpload"
