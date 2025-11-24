@@ -186,8 +186,8 @@ You can further refer the application deployed through the CLI tool. See the ins
    ``` 
    curl -v POST -d 
    '{
-     "secretAccessKey":"xxxx",
-     "accessKeyId":"xxxx",
+     "secretAccessKey":"<!-- secret access key -->",
+     "accessKeyId":"<!-- access key id -->",
      "region":"us-east-2",
      "blocking":"false",
      "s3Bucket":"eiconnectortest",
