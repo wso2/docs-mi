@@ -72,8 +72,8 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
         <amazonsqs.init>
             <connectionType>amazonsqs</connectionType>
             <name>AMAZON_SQS_CONNECTION</name>
-            <accessKeyId>access-key-id</accessKeyId>
-            <secretAccessKey>secret-access-key</secretAccessKey>
+            <accessKeyId><!-- access key id --></accessKeyId>
+            <secretAccessKey><!-- secret access key --></secretAccessKey>
             <region>us-east-2</region>
         </amazonsqs.init>
     </localEntry>
