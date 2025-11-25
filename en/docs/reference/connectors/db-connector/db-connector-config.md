@@ -25,7 +25,7 @@ Common parameters for configuring a database connection:
     </tr>
     <tr>
     <td>JDBC Driver Class</td>
-    <td>The fully qualified name of the JDBC driver class (e.g., <code>com.mysql.cj.jdbc.Driver</code>, <code>org.postgresql.Driver</code>).Standard driver classes are supported.</td>
+    <td>The fully qualified name of the JDBC driver class (e.g., <code>com.mysql.cj.jdbc.Driver</code>, <code>org.postgresql.Driver</code>). Standard driver classes are supported.</td>
     <td>Yes</td>
     </tr>
     <tr>
@@ -155,10 +155,10 @@ Operations use the `configKey` attribute to reference a pre-defined connection c
     <tr><td>Table Columns</td><td>A comma-separated list of column names to be returned in the result set.</td><td>Optional</td></tr>
     <tr><td>Response Columns</td><td>A comma-separated list of data types for the columns (e.g., VARCHAR, INTEGER, DOUBLE).</td><td>Optional</td></tr>
     <tr><td>Order By</td><td>The column name to order the result set by.</td><td>Optional</td></tr>
-    <tr><td>Limit</td><td>The column name to order the result set by.</td><td>Optional</td></tr>
-    <tr><td>Offset</td><td>The column name to order the result set by.</td><td>Optional</td></tr>
-    <tr><td>Fetch Size</td><td>The maximum time in milliseconds to wait for the query to execute.</td><td>Optional</td></tr>
-    <tr><td>Max Rows</td><td>The maximum time in milliseconds to wait for the query to execute.</td><td>Optional</td></tr>
+    <tr><td>Limit</td><td>The maximum number of rows to return from the result set.</td><td>Optional</td></tr>
+    <tr><td>Offset</td><td>The number of rows to skip before starting to return results.</td><td>Optional</td></tr>
+    <tr><td>Fetch Size</td><td>The number of rows to fetch at a time from the database.</td><td>Optional</td></tr>
+    <tr><td>Max Rows</td><td>The upper limit on the number of rows returned/affected by a query, regardless of the total number of rows in the table.</td><td>Optional</td></tr>
     <tr><td>Query Timeout</td><td>The maximum time in milliseconds to wait for the query to execute.</td><td>Optional</td></tr>
     <tr><td>Output Variable Name</td><td>If specified, the result set is stored in this context variable.</td><td>Optional</td></tr>
     <tr><td>Overwrite Message Body</td><td>If 'true' (default), the result set overwrites the payload. Set to 'false' if using 'responseVariable'.</td><td>Optional</td></tr>
@@ -230,7 +230,7 @@ Operations use the `configKey` attribute to reference a pre-defined connection c
 
     ```xml
     <db.insert configKey="DBCon11">
-        <query>INSERT INTO `orders` (customer_id`, `order_date`, `total_amount`) VALUES (${params.queryParams.customerId}, ${vars.db_select_1.payload.rows[0].price * params.queryParams.quantity})</query>
+        <query>INSERT INTO `orders` (`customer_id`, `total_amount`) VALUES (${params.queryParams.customerId}, ${vars.db_select_1.payload.rows[0].price * params.queryParams.quantity})</query>
         <columnNames>customerid, totalamount</columnNames>
         <columnTypes>INT, DECIMAL</columnTypes>
         <format>json</format>
@@ -260,8 +260,8 @@ Operations use the `configKey` attribute to reference a pre-defined connection c
     <table>
     <tr><th>Parameter Name</th><th>Description</th><th>Required</th></tr>
     <tr><td>Query</td><td>The Raw SQL DELETE statement</td><td>Yes</td></tr>
-    <tr><td>Table Name</td><td>The name of the table to be inserted into.</td><td>Optional</td></tr>
-    <tr><td>Table Columns</td><td>A comma-separated list of column names to be inserted.</td><td>Optional</td></tr>
+    <tr><td>Table Name</td><td>The name of the table to be deleted from.</td><td>Optional</td></tr>
+    <tr><td>Table Columns</td><td>A comma-separated list of column names involved in the WHERE clause.</td><td>Optional</td></tr>
     <tr><td>Query Timeout</td><td>The maximum time in milliseconds to wait for the query to execute.</td><td>Optional</td></tr>
     <tr><td>Output Variable Name</td><td>If specified, the result set is stored in this context variable.</td><td>Optional</td></tr>
     <tr><td>Overwrite Message Body</td><td>If 'true' (default), the result set overwrites the payload. Set to 'false' if using 'responseVariable'.</td><td>Optional</td></tr>
@@ -336,7 +336,7 @@ Operations use the `configKey` attribute to reference a pre-defined connection c
 
 ??? note "executeQuery"
 
-    Executes an arbitrary SQL statement. Use when you need to execute complex queries. Paramters can be passed in the SQL statement using the `?` placeholder. The parameters are passed in the order they appear in the SQL statement.
+    Executes an arbitrary SQL statement. Use when you need to execute complex queries. Parameters can be passed in the SQL statement using the `?` placeholder. The parameters are passed in the order they appear in the SQL statement.
     Prepared statement support is currently available only for executeQuery operation.
     <table>
     <tr><th>Parameter Name</th><th>Description</th><th>Required</th></tr>
@@ -354,7 +354,7 @@ Operations use the `configKey` attribute to reference a pre-defined connection c
     **Sample configuration**
     ```xml
     <db.executeQuery configKey="DBCon1">
-        <sql>SELECT o.order_id, o.order_date, o.status, o.total_amount, c.customer_name, c.email, oi.product_id,, p.name AS product_name, oi.quantity, oi.unit_price FROM Orders o JOIN Customers c ON o.customer_id = c.customer_id JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Products p ON oi.product_id = p.product_id WHERE o.order_id = ?</sql>
+        <sql>SELECT o.order_id, o.order_date, o.status, o.total_amount, c.customer_name, c.email, oi.product_id, p.name AS product_name, oi.quantity, oi.unit_price FROM Orders o JOIN Customers c ON o.customer_id = c.customer_id JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Products p ON oi.product_id = p.product_id WHERE o.order_id = ?</sql>
         <columns>[[1,"INTEGER"]]</columns>  
         <isPreparedStatement>true</isPreparedStatement>
         <isResultSet>true</isResultSet> 

@@ -95,7 +95,7 @@ INSERT INTO Customers (customer_id, customer_name, email) VALUES
     *   **JDBC URL**: `jdbc:mysql://localhost:3306/your_database_name`
     *   **Username**: `your_db_username`
     *   **Password**: `your_db_password`
-    *   **JDBC Driver Select Options**: If you want to use your own driver, select "Select Local Driver" or "Add Maven Dependancy" options. For this example let's use the default driver.
+    *   **JDBC Driver Select Options**: If you want to use your own driver, select "Select Local Driver" or "Add Maven Dependency" options. For this example let's use the default driver.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/db/add-connection-details.png" title="Add Connection Details" width="800" alt="Add Connection Details"/>
 
@@ -231,7 +231,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ### Place a new order
 
-1.  Use a tool like `curl` or Postman to send a POST request:
+1.  Use a tool like `curl` or Postman to send a GET request:
     ```bash
     curl -X GET "http://localhost:8290/ordermgmt/place_order?customerId=101&productId=PROD001&quantity=2"
     ```
