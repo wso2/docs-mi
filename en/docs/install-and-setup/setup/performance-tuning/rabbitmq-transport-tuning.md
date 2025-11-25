@@ -19,6 +19,27 @@ parameter.retry_count = 5
 parameter.connection_pool_size = 25
 ```
 
+## Tune RabbitMQ Connection Pool Parameters
+
+Fine-tuning the connection pool parameters can help optimize resource usage and improve throughput for RabbitMQ transport. You can configure these parameters in the `deployment.toml` file under the sender configuration:
+
+```toml
+[[transport.rabbitmq.sender]]
+parameter.connection_pool_size = 250
+parameter.'rabbitmq.max.idle.per.key' = 100
+parameter.'rabbitmq.max.wait.millis' = 10000
+```
+
+**Parameter descriptions:**
+
+- `parameter.connection_pool_size`: This parameter determines the connection pool size.
+- `parameter.'rabbitmq.max.idle.per.key'`: This parameter sets the maximum number of idle objects allowed in the pool per key (connection factory). If the number of idle objects for a key exceeds this limit (100 in this case), the excess objects are subject to eviction.
+- `parameter.'rabbitmq.max.wait.millis'`: This parameter determines the maximum amount of time (in milliseconds) that the borrowObject method will block when waiting for an object to become available, should the pool be exhausted. Here, it's set to 10,000 milliseconds (10 seconds).
+
+
+Adjust these parameters according to your deployment requirements to balance performance and resource consumption.
+
+
 ## Increase the member count
 
 If you set the following parameter to `false` in the deployment.toml file (stored in the `MI_HOME/conf` directory), it sets the configuration to handle the acknowledgement in the application level: 
