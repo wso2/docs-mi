@@ -145,7 +145,7 @@ By following these steps, you can generate a fully functional gRPC connector fro
     The gRPC Connector Generator does **not** yet handle:
 
     - **Streaming RPCs** : server, client, or bidirectional streams
-    - **Custom `.proto` options**:  e.g., `deadline`, multiple `package` imports, or any other non-standard option fields
-    - **Specific data types**: `oneof` unions, `enum` values, `map` fields, and deeply nested complex structures
+    - **Custom `.proto` options**:  e.g., `deadline`, any other non-standard option fields
+    - **Specific data types**: `oneof` unions and deeply nested complex structures
     
     > For the full list of features the tool *does* support, see the [gRPC generator tool specification guide](https://github.com/wso2-extensions/esb-connector-tooling/blob/master/docs/grpc-spec.md).
