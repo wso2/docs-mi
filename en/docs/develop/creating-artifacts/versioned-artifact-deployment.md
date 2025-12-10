@@ -16,6 +16,7 @@ With versioned artifact deployment, artifacts are deployed using fully qualified
 !!! Warning
     - The [WSO2 Integrator: MI extension for VS Code]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/) and WSO2 Integrator: MI use double underscores (`__`) to construct fully qualified names from a project's `groupId`, `artifactId`, and `version`.  
       Therefore, avoid using double underscores (`__`) in **artifact names** or **registry resource names**, as this can lead to incorrect name resolution or deployment conflicts.
+    - Enabling this setting for **existing integration projects** may not work as expected if you have referenced artifacts from other projects without following the steps outlined in the [Manage Dependent Integration Projects]({{base_path}}/develop/integration-project-dependencies/) guide. Make sure to import dependent integration projects properly. Once dependencies are configured correctly, the WSO2 Integrator: MI extension for VS Code will automatically detect and display **versioned cross project references**. However, if your project already contains cross project references, you must update those references to align with the versioned structure.
 
 You can enable artifact versioning from the project setting in VS Code.
 
@@ -141,7 +142,7 @@ resources:json/custom/input-data.json
 To access `input-data.json` from an expression, you must use the following syntax:
 
 ```
-${registry('resources:<path_to_resource_directory>/<groupId>__<artifactId>__<version>__<respurceName>')}
+${registry('resources:<path_to_resource_directory>/<groupId>__<artifactId>__<version>__<resourceName>')}
 ```
 
 **Example**
