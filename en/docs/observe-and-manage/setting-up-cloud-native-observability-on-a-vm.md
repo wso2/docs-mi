@@ -118,6 +118,22 @@ After applying the above change, you can start the Micro Integrator with the fol
 -DenablePrometheusApi=true
 ```
 
+From WSO2 MI 4.4.0.32 onwards, you can enable the new Prometheus client API version 1.x using the following JVM property:
+```
+-DusePrometheusV1Api=true
+```
+
+Depending on the client API version you are going to use, you have to choose the matching Grafana dashboard revisions as follows.
+
+| Dashboard name                   | API version 1.x | API version 0.x | 
+|----------------------------------|-----------------|-----------------|
+| WSO2 API Metrics                 | Revision 3      | Revision 2      |
+| WSO2 Inbound Endpoint Metrics    | Revision 2      | Revision 1      |
+| WSO2 Integration Cluster Metrics | Revision 2      | Revision 1      |
+| WSO2 Integration Node Metrics    | Revision 3      | Revision 2      |
+| WSO2 Proxy Service Metrics       | Revision 2      | Revision 1      |
+
+
 ## Step 2 - Optionally, integrate the Log Processing add-on
 
 Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the log processing add-on to process logs. To achieve this, you can use Grafana Loki-based logging stack.
