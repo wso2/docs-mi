@@ -32,3 +32,4 @@ node_modules
 
 # generated docs
 en/site
+venv/
