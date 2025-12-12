@@ -739,7 +739,7 @@ To prevent the `Current Params` from being printed in the logs, add the followin
 -Ddss.disable.current.params=true
 ```
 
-## Using Custom Log appenders
+## Using custom log appenders
 
 Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storages.
 
@@ -812,6 +812,6 @@ However, since WSO2 Integrator: MI works in an OSGi environment, such Log4j2 ext
 
 6. Restart the server.
 
-## What's Next?
+## What's next?
 
 Once you have configured the logs, you can start [monitoring and analyzing logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs) to troubleshoot issues and observe runtime behavior.

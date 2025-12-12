@@ -388,7 +388,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 Congratulations!
 You have now learned how to create an API resource, use the HTTP connector, work with expressions, and test mediators using Mediator TryOut.
 
-## What's Next?  
+## What's next?  
 
 So far, you have learned how to route and transform the payload efficiently. Next, you'll explore how to connect to a SaaS service to send an email.
 

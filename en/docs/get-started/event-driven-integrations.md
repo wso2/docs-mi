@@ -57,9 +57,9 @@ docker run --rm --name kafka -p 9092:9092 apache/kafka:3.7.2
 
 You should see a message like `Kafka Server started` indicating that the broker is up and running.
 
-### Create the Topics
+### Create the topics
 
-Kafka uses **topics** to organize and group related messages. In this tutorial, we’ll create a topic named `bank-transactions`, which the Kafka listener in WSO2 Integrator: MI will subscribe to, and a topic named `bank-audit`, to which the WSO2 Integrator: MI will publish the transformed messages.
+Kafka uses **topics** to organize and group related messages. In this tutorial, we'll create a topic named `bank-transactions`, which the Kafka listener in WSO2 Integrator: MI will subscribe to, and a topic named `bank-audit`, to which the WSO2 Integrator: MI will publish the transformed messages.
 
 1. Open a new command line prompt on your machine and run the following command to create the `bank-transactions` topic.
 
@@ -409,7 +409,7 @@ Once the WSO2 Integrator: MI runtime is up and running, follow the steps below t
 
 Congratulations! You’ve now learned how to create an event-driven integration using Kafka and apply message transformation using WSO2 Integrator: MI. This is a powerful pattern for building scalable, real-time systems.
 
-## What's Next?
+## What's next?
 
 Now that you’ve built your first event-driven flow, you can explore how to improve the integration by,
 

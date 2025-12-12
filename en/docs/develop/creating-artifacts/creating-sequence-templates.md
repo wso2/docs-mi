@@ -4,7 +4,7 @@ Follow the instructions below to create a new Sequence Template in the WSO2 Inte
 
 ## Instructions
 
-### Create the Sequence Template artifact
+### Create the sequence template artifact
 
 {!includes/creating-project.md!}
 
