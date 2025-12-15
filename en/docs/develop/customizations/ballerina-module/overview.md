@@ -75,11 +75,90 @@ For example,
 ```ballerina
 @mi:Operation {}
 public function gpa(xml rawMarks, xml credits) returns xml {
-   // Your logic to calculate the GPA
+    // Your logic to calculate the GPA
 }
 ```
 
 Ballerina function that contains `@mi:Operation` annotation maps with an operation in the Ballerina module.
+
+### Supported Data Types
+
+When you use the `@mi:Operation` annotation from the `wso2/mi` module, only a specific set of Ballerina types are supported. The compiler plugin (`@ballerina-module-wso2-mi`) enforces these at **compile time**, and the MI module generation tool (`@ballerina-mi-module-gen-tool`) maps them to MI connector parameters at **runtime**.
+
+#### Compile-time validation (`@mi:Operation`)
+
+The compiler plugin checks the parameter and return types of every function annotated with `@mi:Operation`. The allowed kinds are:
+
+| **Context**      | **Supported Ballerina types**                                                                                 |
+|------------------|--------------------------------------------------------------------------------------------------------------|
+| **Parameters**   | **Primitives:** `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured:** `xml`, `json`, `record { ... }`, `map<...>`, `T[]` |
+| **Return types** | **Primitives:** `()` (nil), `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured / other:** `xml`, `json`, `any`, `record { ... }`, `map<...>`, `T[]` |
+
+If a parameter or return type is not in these categories, the build fails with diagnostics such as **"unsupported parameter type found"** or **"unsupported return type found"**.
+
+**Examples**
+
+```ballerina
+import wso2/mi;
+
+// Primitive example
+@mi:Operation
+public function addInt(int a, int b) returns int {
+    return a + b;
+}
+
+// JSON/XML example
+@mi:Operation
+public function mergeJson(json left, json right) returns json {
+    json|error merged = left.mergeJson(right);
+    if merged is error {
+        return { "status": "error" };
+    }
+    return merged;
+}
+
+// Record example
+type Student record {|
+    string name;
+    int age;
+|};
+
+@mi:Operation
+public function transformStudent(Student student) returns Student {
+    return { name: student.name.toUpperAscii(), age: student.age };
+}
+```
+
+#### Runtime mapping in MI (`mi-module-gen` tool)
+
+When you run the `bal mi-module-gen` tool, it inspects your Ballerina module and generates an MI connector. Supported Ballerina types are converted into connector metadata and UI elements as follows:
+
+- **Primitive types**: `string`, `int`, `float`, `decimal`, `boolean`
+- **Structured types**: `json`, `xml`, `record { ... }`, `map<...>`, `T[]`
+
+At runtime:
+
+- **Function parameters** become connector **query/path/config parameters** and corresponding UI fields in the WSO2 MI VS Code extension.
+- **Return types** are written to the configured response variable (for example, `result`) based on the generated `returnType` value in `functions/*.xml`.
+
+**Runtime example**
+
+```ballerina
+remote function addIntegers(int first, int second) returns int|error {
+    return first + second;
+}
+```
+
+After running:
+
+```bash
+bal mi-module-gen -i <path_to_ballerina_project>
+```
+
+the generated connector will:
+
+- Expose `first` and `second` as integer input fields in the connector configuration.
+- Set the operation `returnType` to `int`, so the result of `addIntegers` is written to the specified response variable in the MI mediation flow.
 
 #### Generate the module
 
