@@ -141,7 +141,7 @@ At runtime:
 - **Function parameters** become connector **query/path/config parameters** and corresponding UI fields in the WSO2 MI VS Code extension.
 - **Return types** are written to the configured response variable (for example, `result`) based on the generated `returnType` value in `functions/*.xml`.
 
-**Runtime example**
+##### Runtime example
 
 ```ballerina
 remote function addIntegers(int first, int second) returns int|error {
