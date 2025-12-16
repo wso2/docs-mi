@@ -91,8 +91,8 @@ The compiler plugin checks the parameter and return types of every function anno
 
 | **Context**      | **Supported Ballerina types**                                                                                 |
 |------------------|--------------------------------------------------------------------------------------------------------------|
-| **Parameters**   | **Primitives:** `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured:** `xml`, `json`, `record { ... }`, `map<...>`, `T[]` |
-| **Return types** | **Primitives:** `()` (nil), `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured / other:** `xml`, `json`, `any`, `record { ... }`, `map<...>`, `T[]` |
+| **Parameters**   | **Primitives:** `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured:** `xml`, `json`, `record {  }`, `map<any>` |
+| **Return types** | **Primitives:** `()` (nil), `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured / other:** `xml`, `json`, `any`, `record { }`, `map<any>` |
 
 If a parameter or return type is not in these categories, the build fails with diagnostics such as **"unsupported parameter type found"** or **"unsupported return type found"**.
 
@@ -134,7 +134,7 @@ public function transformStudent(Student student) returns Student {
 When you run the `bal mi-module-gen` tool, it inspects your Ballerina module and generates an MI connector. Supported Ballerina types are converted into connector metadata and UI elements as follows:
 
 - **Primitive types**: `string`, `int`, `float`, `decimal`, `boolean`
-- **Structured types**: `json`, `xml`, `record { ... }`, `map<...>`, `T[]`
+- **Structured types**: `json`, `xml`, `record { }`, `map<any>`, `T[]`
 
 At runtime:
 
