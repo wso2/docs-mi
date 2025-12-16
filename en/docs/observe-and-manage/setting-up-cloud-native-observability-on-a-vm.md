@@ -108,6 +108,14 @@ In a clustered deployment, you can view the list of WSO2 Integrator: MI instance
 
 To enable observability for the WSO2 Integrator: MI servers, add the following Synapse handler to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder).
 
+### Step 1.5 - Enable XML Declaration in Payloads
+
+If you want your outgoing messages to include the XML declaration, add the following Axis2 property to your Synapse configuration:
+
+```xml
+<property name="WRITE_XML_DECLARATION" scope="axis2" value="true"/>
+
+
 ```toml
 [[synapse_handlers]]
 name="CustomObservabilityHandler"
