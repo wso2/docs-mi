@@ -50,7 +50,7 @@ There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 #### Pull `mi-module-gen` tool
 
-First, you need to pull the `mi-module-gen` tool which is used to create the WSO2 MI module.
+First, you need to pull the `mi-module-gen` tool which is used to create the WSO2 MI module. The tool is available on [Ballerina Central](https://central.ballerina.io/wso2/mi_module_gen/0.4.3).
 
 ```bash
 bal tool pull mi-module-gen
@@ -63,7 +63,7 @@ bal tool pull mi-module-gen
 #### Write Ballerina transformation
 
 Create a new Ballerina project using `bal new projectName` or use an existing one and write your transformation logic.
-Import the module `wso2/mi` in your Ballerina program.
+Import the module `wso2/mi` in your Ballerina program. The module is available on [Ballerina Central](https://central.ballerina.io/wso2/mi/0.4.0).
 
 ```ballerina
 import wso2/mi;
@@ -83,7 +83,7 @@ Ballerina function that contains `@mi:Operation` annotation maps with an operati
 
 ### Supported Data Types
 
-When you use the `@mi:Operation` annotation from the `wso2/mi` module, only a specific set of Ballerina types are supported. The compiler plugin (`@ballerina-module-wso2-mi`) enforces these at **compile time**, and the MI module generation tool (`@ballerina-mi-module-gen-tool`) maps them to MI connector parameters at **runtime**.
+When you use the `@mi:Operation` annotation from the `wso2/mi` module, only a specific set of Ballerina types are supported. The [compiler plugin](https://central.ballerina.io/wso2/mi/0.4.0) enforces these at **compile time**, and the [MI module generation tool](https://central.ballerina.io/wso2/mi_module_gen/0.4.3) maps them to MI connector parameters at **runtime**.
 
 #### Compile-time validation (`@mi:Operation`)
 
