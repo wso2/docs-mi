@@ -96,7 +96,7 @@ The compiler plugin checks the parameter and return types of every function anno
 
 If a parameter or return type is not in these categories, the build fails with diagnostics such as **"unsupported parameter type found"** or **"unsupported return type found"**.
 
-**Examples**
+##### Examples
 
 ```ballerina
 import wso2/mi;
