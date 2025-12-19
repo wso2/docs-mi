@@ -129,10 +129,11 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-        config:
-            synapseHandlers:
-            - name: MetricHandler
-              class: org.wso2.micro.integrator.observability.metric.handler.MetricHandler
+  config:
+    synapseHandlers:
+      - name: MetricHandler
+        class: org.wso2.micro_integrator.observability.metric.handler.MetricHandler
+
     ``` 
 
     For details, refer to the [Configure Helm charts for WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
