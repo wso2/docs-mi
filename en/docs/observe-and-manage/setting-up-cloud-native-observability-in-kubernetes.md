@@ -144,9 +144,10 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-        deployment:
-            envs:
-                JAVA_OPTS: "-DenablePrometheusApi=true"
+  deployment:
+    envs:
+      JAVA_OPTS: "-DenablePrometheusApi=true"
+
     ```
 
     This enables the `/metric-service/metrics` endpoint exposed by WSO2 Integrator: MI for Prometheus scraping.
