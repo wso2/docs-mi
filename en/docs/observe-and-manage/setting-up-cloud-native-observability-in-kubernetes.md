@@ -237,10 +237,8 @@ To deploy the Prometheus Agent in your Kubernetes cluster, you need to create a 
       prometheus.yml: |
         global:
           scrape_interval: 15s
-
         remote_write:
           - url: "http://host.docker.internal:9090/api/v1/write"
-
         scrape_configs:
           - job_name: 'kubernetes-pods-wso2-integration'
             kubernetes_sd_configs:
@@ -456,7 +454,7 @@ config:
     [PARSER]
         Name        mi_log
         Format      regex
-        Regex       ^\[(?<time>[^\]]+)\] \[\] : mi :\s+(?<level>\w+)\s+\{(?<class>[^\}]+)\} - (?<message>.*)
+        Regex       ^\[(?<time>[^\]]+)\] \[\] : mi :\s+(?<level>\w+)\s+\{(?<class>[^\}]+)\} - (<message>.*)
         Time_Key    time
         Time_Format %Y-%m-%d %H:%M:%S,%L
 
