@@ -129,10 +129,11 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-  config:
-    synapseHandlers:
-      - name: MetricHandler
-        class: org.wso2.micro_integrator.observability.metric.handler.MetricHandler
+      config:
+        synapseHandlers:
+          - name: MetricHandler
+            class: org.wso2.micro_integrator.observability.metric.handler.MetricHandler
+
 
     ``` 
 
@@ -144,9 +145,9 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-  deployment:
-    envs:
-      JAVA_OPTS: "-DenablePrometheusApi=true"
+     deployment:
+       envs:
+         JAVA_OPTS: "-DenablePrometheusApi=true"
 
     ```
 
@@ -158,11 +159,11 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-  deployment:
-    annotations:
-      prometheus.io/wso2-path: "/metric-service/metrics"
-      prometheus.io/wso2-port: "9201"
-      prometheus.io/wso2-scrape: "true"
+      deployment:
+        annotations:
+          prometheus.io/wso2-path: "/metric-service/metrics"
+          prometheus.io/wso2-port: "9201"
+          prometheus.io/wso2-scrape: "true"
 
     ```
 
