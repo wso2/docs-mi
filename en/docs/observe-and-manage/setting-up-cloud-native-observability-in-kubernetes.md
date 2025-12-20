@@ -158,11 +158,12 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-        deployment:
-            annotations:
-                prometheus.io/wso2-path: "/metric-service/metrics"
-                prometheus.io/wso2-port: "9201"
-                prometheus.io/wso2-scrape: "true"
+  deployment:
+    annotations:
+      prometheus.io/wso2-path: "/metric-service/metrics"
+      prometheus.io/wso2-port: "9201"
+      prometheus.io/wso2-scrape: "true"
+
     ```
 
 ### Set up the Prometheus Agent
@@ -200,11 +201,7 @@ To deploy the Prometheus Agent in your Kubernetes cluster, you need to create a 
       name: prometheus-agent
     rules:
       - apiGroups: [""]
-        resources:
-        - pods
-        - nodes
-        - services
-        - endpoints
+        resources: ["pods", "nodes", "services", "endpoints"]
         verbs: ["get", "list", "watch"]
     ---
     apiVersion: rbac.authorization.k8s.io/v1
