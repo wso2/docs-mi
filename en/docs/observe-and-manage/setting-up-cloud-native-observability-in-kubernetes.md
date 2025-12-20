@@ -132,8 +132,7 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
       config:
         synapseHandlers:
           - name: MetricHandler
-            class: org.wso2.micro_integrator.observability.metric.handler.MetricHandler
-
+            class: org.wso2.micro.integrator.observability.metric.handler.MetricHandler
 
     ``` 
 
@@ -145,9 +144,10 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-     deployment:
-       envs:
-         JAVA_OPTS: "-DenablePrometheusApi=true"
+      deployment:
+        envs:
+          JAVA_OPTS: "-DenablePrometheusApi=true"
+
 
     ```
 
@@ -455,7 +455,7 @@ config:
     [PARSER]
         Name        mi_log
         Format      regex
-        Regex       ^\[(?<time>[^\]]+)\] \[\] : mi :\s+(?<level>\w+)\s+\{(?<class>[^\}]+)\} - (<message>.*)
+        Regex       ^\[(?<time>[^\]]+)\] \[\] : mi :\s+(?<level>\w+)\s+\{(?<class>[^\}]+)\} - (?<message>.*)
         Time_Key    time
         Time_Format %Y-%m-%d %H:%M:%S,%L
 
