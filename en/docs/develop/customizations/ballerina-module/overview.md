@@ -50,7 +50,7 @@ There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 #### Pull `mi-module-gen` tool
 
-First, you need to pull the `mi-module-gen` tool which is used to create the WSO2 MI module. The tool is available on [Ballerina Central](https://central.ballerina.io/wso2/mi_module_gen/0.4.3).
+First, you need to pull the `mi-module-gen` tool, which is used to create the WSO2 MI module. The tool is available on [Ballerina Central](https://central.ballerina.io/wso2/mi_module_gen/latest).
 
 ```bash
 bal tool pull mi-module-gen
