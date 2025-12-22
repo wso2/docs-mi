@@ -63,7 +63,7 @@ bal tool pull mi-module-gen
 #### Write Ballerina transformation
 
 Create a new Ballerina project using `bal new projectName` or use an existing one and write your transformation logic.
-Import the module `wso2/mi` in your Ballerina program. The module is available on [Ballerina Central](https://central.ballerina.io/wso2/mi/0.4.0).
+Import the module `wso2/mi` in your Ballerina program. The module is available on [Ballerina Central](https://central.ballerina.io/wso2/mi/latest).
 
 ```ballerina
 import wso2/mi;
