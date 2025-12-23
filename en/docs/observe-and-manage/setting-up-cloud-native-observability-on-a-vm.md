@@ -118,7 +118,7 @@ After applying the above change, you can start the WSO2 Integrator: MI with the 
 -DenablePrometheusApi=true
 ```
 
-From WSO2 MI 4.5.0.2 onwards, you can enable the new Prometheus client API version 1.x using the following JVM property:
+You can enable the new Prometheus client API version 1.x using the following JVM property:
 ```
 -DusePrometheusV1Api=true
 ```
