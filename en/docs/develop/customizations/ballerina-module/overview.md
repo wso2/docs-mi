@@ -133,7 +133,6 @@ public function transformStudent(Student student) returns Student {
 
 When you run the `bal mi-module-gen` tool, it inspects your Ballerina module and generates an MI connector. Supported Ballerina types are converted into connector metadata and UI elements as follows:
 
-- **Primitive types**: `string`, `int`, `float`, `decimal`, `boolean`
 - **Structured types**: `json`, `xml`, `record { }`, `map<any>`, `T[]`
 
 At runtime:
