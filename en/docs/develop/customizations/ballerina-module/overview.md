@@ -83,7 +83,7 @@ Ballerina function that contains `@mi:Operation` annotation maps with an operati
 
 ### Supported Data Types
 
-When you use the `@mi:Operation` annotation from the `wso2/mi` module, only a specific set of Ballerina types are supported. The [compiler plugin](https://central.ballerina.io/wso2/mi/0.4.0) enforces these at **compile time**, and the [MI module generation tool](https://central.ballerina.io/wso2/mi_module_gen/0.4.3) maps them to MI connector parameters at **runtime**.
+When you use the `@mi:Operation` annotation from the `wso2/mi` module, a defined set of Ballerina data types is supported. The [compiler plugin](https://central.ballerina.io/wso2/mi/latest) enforces these at **compile time**, and the [MI module generation tool](https://central.ballerina.io/wso2/mi_module_gen/latest) maps them to MI connector parameters at **runtime**.
 
 #### Compile-time validation (`@mi:Operation`)
 
