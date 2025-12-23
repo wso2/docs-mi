@@ -14,15 +14,15 @@ Create a Maven project using the following information.
     **Group Id** : `org.wso2.task`  
     **Artifact Id** : `StockQuoteTaskMavenProject`
 
-### Create the Java Package
+### Create the Java package
 
-Create a Java Package inside the Maven Project using the following name: `org.wso2.task.stockquote.v1`
+Create a Java Package inside the Maven Project using the following name: `org.wso2.task.stockquote.v1`
 
 ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130467.png)
 
-### Create the Java Class
+### Create the Java class
 
-1.  Create a Java Class named `StockQuoteTaskV1` inside the Maven Project.  
+1.  Create a Java Class named `StockQuoteTaskV1` inside the Maven Project.
 
 2.  In the **Project Explorer**, double-click on the **StockQuoteTaskV1.java** file and replace its source with the below content.  
 

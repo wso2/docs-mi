@@ -23,7 +23,7 @@ Through this tutorial series, you will acquire practical skills in:
 - **Creating an AI Agent** – Design a customer service agent for a banking application that delivers personalized and accurate responses to user inquiries.
 
 
-## Get Started
+## Get started
 
 Ready to build your first integration? Click **Start** to begin the tutorial series.
 
