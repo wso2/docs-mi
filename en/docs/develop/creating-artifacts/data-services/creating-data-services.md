@@ -170,10 +170,7 @@ You can configure input parameters for the query using this section.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-input-mapping.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-input-mapping.png" width="80%"></a>  
 
-2.	There are two  ways to create the mapping:
-
-	- You can use the default configurations to automatically generate the input mappings from the SQL query.
-    - If you want to add a new input mapping:
+2.	To add a new input mapping:
     
 
     	1. Click **+ Add Parameter**.  
@@ -239,10 +236,7 @@ You can configure output result parameters for the query using this section.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png" width="80%"></a>
 
-2. There are two ways to create the output mapping:
-
-	- You can use the default configurations to automatically generate the output mappings from the SQL query. 
-	- Alternatively, you can manually add the mappings:
+2. To manually add the output mappings:
 
       	1. Click **+ Add Parameter**.
 
