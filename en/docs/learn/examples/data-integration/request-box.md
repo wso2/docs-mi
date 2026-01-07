@@ -109,7 +109,7 @@ Given below is the data service configuration you need to build. See the instruc
 
     After adding or updating this file, restart WSO2 Micro Integrator to ensure the updated transaction timeout configuration is applied.
 
-    You can adjust the `default_jta_timeout` value to control how long DSS operations are allowed to run before timing out. Modify this based on the expected processing time and traffic patterns in your environment.
+    You can adjust the `default_jta_timeout` value to control how long dataservice operations are allowed to run before timing out. Modify this based on the expected processing time and traffic patterns in your environment.
 
 ## Build and run
 
