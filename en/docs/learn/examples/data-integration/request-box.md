@@ -99,7 +99,7 @@ Given below is the data service configuration you need to build. See the instruc
 !!!Note
     WSO2 Micro Integrator uses Atomikos 3.8 for transaction management. You can refer to the official [Atomikos documentation](https://www.atomikos.com/Documentation/JtaProperties) for the supported transaction configuration properties.
 
-    To configure DSS transaction timeouts (including Request Box use cases), add the following Atomikos properties in a file named `transactions.properties` in the `<MI_HOME>/wso2/lib/` directory. If this file does not already exist in your product pack, create it.
+    To configure dataservice transaction timeouts (including Request Box use cases), add the following Atomikos properties in a file named `transactions.properties` in the `<MI_HOME>/wso2/lib/` directory. If this file does not already exist in your product pack, create it.
 
         com.atomikos.icatch.service=com.atomikos.icatch.standalone.UserTransactionServiceFactory
         com.atomikos.icatch.log_base_dir=repository/data
