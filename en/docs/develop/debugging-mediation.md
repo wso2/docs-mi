@@ -4,7 +4,7 @@
 
 1. [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI server and on your computer.
 
-2. Launch Visual Studio Code with the [WSO2 Integrator: MI Extension installed]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode).
+2. Launch Visual Studio Code with the [WSO2 Integrator: MI Extension]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) installed.
 
 3. Select the artifact that requires debugging from the **Project Overview** page.
 
@@ -45,6 +45,84 @@
 Then the server will start up in debug mode and the server logs can be viewed in the Output alongside with the Debug Console.
 
 <img src="{{base_path}}/assets/img/develop/debugger/terminal-view.png" alt="terminal view" width="700">
+
+??? note "Remote Server Debugging"
+    Follow the steps below to connect to and debug a remote WSO2 Integrator: MI server.
+
+    1. Click **Create a launch.json file**.
+
+        <img src="{{base_path}}/assets/img/develop/debugger/create-launch-json.png" alt="debugger selection" width="700">
+
+    2. Select **MI: Run and Debug** as the debugger.
+
+        <img src="{{base_path}}/assets/img/develop/debugger/select-debugger.png" alt="debugger selection" width="700">
+
+    3. Below content will be generated and added to the launch.json file with the default values. Update the configurations in the **MI: Remote Server Run and Debug** section accordingly to connect to the remote server.
+
+        ```json
+        {
+            "version": "0.2.0",
+            "configurations": [
+                {
+                    "type": "mi",
+                    "name": "MI: Local Server Run and Debug",
+                    "request": "launch",
+                    "internalConsoleOptions": "openOnSessionStart",
+                    "vmArgs": [],
+                    "properties": {
+                        "type": "local"
+                    }
+                },
+                {
+                    "type": "mi",
+                    "name": "MI: Remote Server Run and Debug",
+                    "request": "launch",
+                    "internalConsoleOptions": "openOnSessionStart",
+                    "vmArgs": [],
+                    "properties": {
+                        "type": "remote",
+                        "commandPort": 9005,
+                        "eventPort": 9006,
+                        "serverHost": "localhost",
+                        "serverPort": 8290,
+                        "serverReadinessPort": 9201,
+                        "managementPort": 9164,
+                        "managementUsername": "admin",
+                        "managementPassword": "admin",
+                        "connectionTimeoutInSecs": 10
+                    }
+                }
+            ]
+        }
+        ```
+
+    | **Property**                    |   **Description**                                        |
+    |---------------------------------|----------------------------------------------------------|
+    | type                            | Debug type - **local** or **remote**                     |
+    | commandPort                     | Debug command port                                       |
+    | eventPort                       | Debug event port                                         |
+    | serverHost                      | Host of the remote server                                |
+    | serverPort                      | Remote server port for HTTP Passthrough transport.       |
+    | serverReadinessPort             | HTTP port of the Management API of the remote server     |
+    | managementPort                  | HTTPS port of the Management API of the remote server    |
+    | managementUsername              | Username to access Management APIs                       |
+    | managementPassword              | Password to access Management APIs                       |
+    | connectionTimeoutInSecs         | Remote server connection timeout                         |
+
+    4. Start the remote server in debug mode.
+
+        === "On macOS/Linux"
+        ```bash
+        sh micro-integrator.sh -Desb.debug=true
+        ```
+        === "On Windows"
+        ```bash
+        micro-integrator.bat -Desb.debug=true
+        ```
+
+    5. Select the remote server debugger option to connect with the remote server and debug the flow.
+
+        <img src="{{base_path}}/assets/img/develop/debugger/remote-debug.png" alt="debugger selection" width="700">
 
 Once the server is up, send a request to the WSO2 Integrator: MI and start debugging the flow.
 
