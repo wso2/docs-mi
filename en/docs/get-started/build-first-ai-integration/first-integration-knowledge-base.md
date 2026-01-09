@@ -318,7 +318,7 @@ Let us retrieve the information available in the knowledge base about the saving
 Congratulations!  
 You have successfully created your first Knowledge Base Integration API, enabling seamless interaction with a knowledge base.
 
-## What's Next?  
+## What's next?  
 So far, you have built a knowledge base and exposed it through an API. In the next tutorial, you will learn how to integrate this knowledge base with a Large Language Model (LLM) to enable Retrieval-Augmented Generation (RAG). This will allow you to create more advanced, context-aware integrations for enhanced user experiences.
 
 Click on the **Next** button below to continue to the next tutorial.

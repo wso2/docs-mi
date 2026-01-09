@@ -104,7 +104,7 @@ The Grafana based observability solution is based on proven projects from the **
 | Logging       | Log4j2, Fluent-Bit, and Grafana Loki |
 | Tracing       | Jaeger                      |
 
-## What's Next?
+## What's next?
 
 -	Set up <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm">Grafana based observability on a VM</a>.
 -	Set up <a href="{{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes/">Grafana based observability on Kubernetes</a>.
