@@ -114,8 +114,6 @@ If you want your outgoing messages to include the XML declaration, add the follo
 
 ```xml
 <property name="WRITE_XML_DECLARATION" scope="axis2" value="true"/>
-
-
 ```toml
 [[synapse_handlers]]
 name="CustomObservabilityHandler"
