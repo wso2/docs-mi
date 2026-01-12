@@ -1,4 +1,4 @@
-\# Common Mediator Attributes
+# Common Mediator Attributes
 
 
 
@@ -6,7 +6,7 @@ Some attributes are common to all mediators in WSO2 Integrator: MI. These attrib
 
 
 
-\## description
+## description
 
 
 
@@ -14,17 +14,17 @@ The `description` attribute can be used with any mediator to provide a human-rea
 
 
 
-\### Purpose
+### Purpose
 
-\- Improves readability of mediation flows
+- Improves readability of mediation flows
 
-\- Helps developers and operators understand configurations easily
+- Helps developers and operators understand configurations easily
 
-\- Does not affect runtime behavior
+- Does not affect runtime behavior
 
 
 
-\### Usage example
+### Usage example
 
 
 

@@ -1,4 +1,4 @@
-\# Mediators
+# Mediators
 
 
 
@@ -6,7 +6,7 @@ This section contains documentation for all WSO2 Micro Integrator mediators.
 
 
 
-\## Common Attributes
+## Common Attributes
 
 
 
@@ -16,7 +16,7 @@ documentation and readability purposes.
 
 
 
-\- \[Common Mediator Attributes](common-mediator-attributes.md)
+- [Common Mediator Attributes](common-mediator-attributes.md)
 
 
 
