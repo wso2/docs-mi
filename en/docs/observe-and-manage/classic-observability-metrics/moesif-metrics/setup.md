@@ -24,7 +24,7 @@ Account → API Keys → Collector Application Id
 To enable operational analytics, you must first update the deployment.toml file with the required configurations.
 
 
-### Enable Statistics for Artifacts
+### Enable statistics for artifacts
 
 If you want to collect statistics for all your integration artifacts, be sure to add the `flow.statistics.capture_all` parameter to the `deployment.toml` file. You can also enable statistics for the integration artifacts you wish to monitor individually.
 
@@ -34,7 +34,7 @@ flow.statistics.enable=true
 flow.statistics.capture_all=true
 ```
 
-### Enable Analytics
+### Enable analytics
 
 Add the following configurations to the deployment.toml file to enable analytics, which includes custom analytics.
 
@@ -69,7 +69,7 @@ inbound_endpoint_analytics.enabled = true
 |enabled|bool|FALSE|If set to true, analytics service will be enabled|
 |id|string|hostname|An identifier that will be published with the analytic|
 
-### Creating a Log Appender
+### Creating a log appender
 
 Open the `<MI_HOME>/conf` directory and edit the `log4j2.properties` file following the instructions given below.
 

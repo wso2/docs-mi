@@ -1,6 +1,6 @@
 # Moesif Dashboards for WSO2 Integrator: MI
 
-## Import MI Dashboards to Moesif
+## Import MI dashboards to Moesif
 
 1. Download the <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboards_template.json" download="dashboards_template.json">dashboards_template.json</a> file to download the template dashboards for MI.
 2. On the Moesif UI, click on **Create New** → **Dashboard Templates** → **Import JSON Template** and provide the JSON template downloaded above. 
@@ -11,7 +11,7 @@ The new dashboards will be visible under your Saved Dashboards along with the de
 
 ## Dashboards
 
-### Overall Dashboard
+### Overall dashboard
 
 This dashboard provides an overview of overall analytics.
 
@@ -31,7 +31,7 @@ This dashboard provides an overview of overall analytics.
 |Top Endpoints by Request Count|Top Endpoints that served the highest number of requests
 |Top Inbound Endpoints by Request Count|Top Inbound Endpoints that served the highest number of requests
 
-### API Dashboard
+### API dashboard
 
 This dashboard provides an overview of API analytics.
 
@@ -52,9 +52,9 @@ This dashboard provides an overview of API analytics.
 |Average Latency by API|Average latency by each API
 |Maximum Latency|Maximum latency recorded by a single request
 
-### Endpoints Dashboard
+### Endpoints dashboard
 
-This dashboard provides an overview of the Endpoints analytics.
+This dashboard provides an overview of the endpoints analytics.
 
 <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ep.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ep.png" width="70%" alt="Endpoints Dashboard"></a>
 
@@ -73,9 +73,9 @@ This dashboard provides an overview of the Endpoints analytics.
 |Average Latency by Endpoint|Average latency by each Endpoint
 |Maximum Latency|Maximum latency recorded by a single request
 
-### Inbound Endpoints Dashboard
+### Inbound endpoints dashboard
 
-This dashboard provides an overview of Inbound Endpoints analytics.
+This dashboard provides an overview of inbound endpoints analytics.
 
 <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_iep.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_iep.png" width="70%" alt="Inbound Endpoints Dashboard"></a>
 
@@ -94,9 +94,9 @@ This dashboard provides an overview of Inbound Endpoints analytics.
 |Average Latency by Inbound Endpoint|Average latency by each Inbound Endpoint
 |Maximum Latency|Maximum latency recorded by a single request
 
-### Sequences Dashboard
+### Sequences dashboard
 
-This dashboard provides an overview of Sequences analytics.
+This dashboard provides an overview of sequences analytics.
 
 <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_seq.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_seq.png" width="70%" alt="Sequences Dashboard"></a>
 
@@ -115,9 +115,9 @@ This dashboard provides an overview of Sequences analytics.
 |Average Latency by Sequence|Average latency by each Sequence
 |Maximum Latency|Maximum latency recorded by a single request
 
-### Proxy Services Dashboard
+### Proxy services dashboard
 
-This dashboard provides an overview of Proxy Services analytics.
+This dashboard provides an overview of proxy services analytics.
 
 <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ps.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ps.png" width="70%" alt="Proxy Services Dashboard"></a>
 
