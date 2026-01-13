@@ -100,7 +100,7 @@ appender.SYNAPSE_ANALYTICS_APPENDER.strategy.max = 10
 
 According to the above configurations, the `synapse-analytics.log` file is rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only ten revisions will be kept, and older revisions will be deleted automatically. You can change this behaviour by changing the configurations above.
 
-3. Add SyanpseAnalytics to the loggers list:
+3. Add SynapseAnalytics to the loggers list:
 
 ```
 loggers = SynapseAnalytics, ...(list of other available loggers)
@@ -150,7 +150,7 @@ services:
       # Mount the configuration files
       - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
       - ./metrics-parsers.conf:/fluent-bit/etc/metrics-parsers.conf:ro
-      - ./metrics_transform.lua:/fluent-bit/etc/metrics_transform.lua:ro
+      - ./metrics-transform.lua:/fluent-bit/etc/metrics-transform.lua:ro
       # Fluent Bit database for tracking file positions
       - fluent-bit-db:/var/log
     environment:
@@ -236,7 +236,7 @@ MOESIF_HOST=api.moesif.net
 [FILTER]
     Name   lua
     Match  moesif.metrics
-    script metrics_transform.lua
+    script metrics-transform.lua
     call   transform_moesif_metrics
 
 [OUTPUT]

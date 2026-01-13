@@ -2,7 +2,7 @@
 
 ## Import MI Dashboards to Moesif
 
-1. Download the <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboards_template_1.json" download="dashboard_templates.json">dashboard_templates.json</a> file to download the template dashboards for MI.
+1. Download the <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboards_template.json" download="dashboards_template.json">dashboards_template.json</a> file to download the template dashboards for MI.
 2. On the Moesif UI, click on **Create New** → **Dashboard Templates** → **Import JSON Template** and provide the JSON template downloaded above. 
 
 <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png" width="70%" alt="Moesif Dashboard Templates"></a>
