@@ -151,8 +151,3 @@ allow an empty (no) namespace for a query result, use the
     </result>
 </query>
 ```
-
-<div class="admonition note">
-    <p class="admonition-title">Note</p>
-    <p>Requires Micro Integrator version 4.4.0.32 (U2) or later to use this parameter.</p>
-</div>
