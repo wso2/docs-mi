@@ -1063,13 +1063,21 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-	```bash
-	curl -X POST \
-	 "https://localhost:9164/management/tasks" \
-	 -H "Content-Type: application/json" \
-	 -H "Authorization: Bearer TOKEN" \
-	 -d '{"name": "HelloScheduledTask", "status": "inactive"}'
-	```
+    === "Request"
+        ```bash  
+		curl -X POST \
+		  https://localhost:9164/management/tasks \
+		  -H 'authorization: Bearer TOKEN' \
+		  -H 'content-type: application/json' \
+		  -d '{
+			"name": "HelloScheduledTask",
+			"status": "inactive"
+		}' -k -i
+	    ```
+    === "Response"          
+	    ```bash  
+		{"message":"HelloScheduledTask : is deactivated"}
+	    ```
 
 ### GET MESSAGE STORES
 
