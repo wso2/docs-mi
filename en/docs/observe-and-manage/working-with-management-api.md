@@ -1059,7 +1059,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/tasks`
 
-	**Description**: Activate, deactivate, or tigger a specific task. The status can be set to `active`, `inactive`, or `trigger` to activate, deactivate, or trigger the task, respectively. When a task is triggered, it is executed immediately as a one-time execution.
+	**Description**: Activate, deactivate, or trigger a specific task. The status can be set to `active`, `inactive`, or `trigger` to activate, deactivate, or trigger the task, respectively. When a task is triggered, it is executed immediately as a one-time execution.
 
 	**Example**:
 
