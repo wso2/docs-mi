@@ -1055,6 +1055,22 @@ The management API has multiple resources to provide information regarding the d
 
 	**Description**: Retrieves information related to a specified task.
 
+### ACTIVATE/DEACTIVATE/TRIGGER TASKS
+
+-	**Resource**: `/tasks`
+
+	**Description**: Activate, deactivate, or tigger a specific task. The status can be set to `active`, `inactive`, or `trigger` to activate, deactivate, or trigger the task, respectively. When a task is triggered, it is executed immediately as a one-time execution.
+
+	**Example**:
+
+	```bash
+	curl -X POST \
+	 "https://localhost:9164/management/tasks" \
+	 -H "Content-Type: application/json" \
+	 -H "Authorization: Bearer TOKEN" \
+	 -d '{"name": "HelloScheduledTask", "status": "inactive"}'
+	```
+
 ### GET MESSAGE STORES
 
 -	**Resource**: `/message-stores`
