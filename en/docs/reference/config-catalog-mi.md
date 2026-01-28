@@ -10852,13 +10852,13 @@ inbound.max_threads = 100</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>flow.statistics.enable</code> </span>
+                                  <span class="param-name-wrap"> <code>flow.statistics.capture_all</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
