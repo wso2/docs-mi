@@ -16,8 +16,8 @@ Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/
 
 Let's setup a MySQL database:
 
-1.  Manually set up the database.
-2.  Create a table named `info` in your schema. You
+1.  Manually set up the database. Create a database named `mi`.
+2.  Create a table named `info` in the `mi` database. You
     can run the following commands to do this.
 
     ```java
