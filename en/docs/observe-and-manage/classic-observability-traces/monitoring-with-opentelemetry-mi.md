@@ -160,35 +160,34 @@ OpenTelemetry protocol(OTLP) is a general-purpose telemetry data delivery protoc
         name = "api-key"
         value = "<your-insight-insert-key>" 
         ```
+With the above configuration, OTLP uses the gRPC transport by default for exchanging data. This behavior can be changed by setting the value of the configuration `protocol` to `http`.
 
-With the above configuration, OTLP uses the gRPC transport by default for exchanging data. This behaviour can be changed by setting the value of the configuration `protocol` to `http`.
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "otlp"
+        protocol = "http"
+        url = "endpoint-url"
 
-=== "Format"
-    ```toml
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "otlp"
-    protocol = "http"
-    url = "endpoint-url"
-
-    [[opentelemetry.properties]]
-    name = "name-of-the-header"
-    value = "key-value-of-the-header" 
-    ```
-=== "Example"
-    ```toml
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "otlp"
-    protocol = "http"
-    url = "https://otlp.nr-data.net:4318/v1/traces"
-
-    [[opentelemetry.properties]]
-    name = "api-key"
-    value = "<your-insight-insert-key>" 
-    ```
+        [[opentelemetry.properties]]
+        name = "name-of-the-header"
+        value = "key-value-of-the-header" 
+        ```
+    === "Example"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "otlp"
+        protocol = "http"
+        url = "https://otlp.nr-data.net:4318/v1/traces"
+    
+        [[opentelemetry.properties]]
+        name = "api-key"
+        value = "<your-insight-insert-key>" 
+        ```
 
     !!! note 
         Above example illustrates the OpenTelemetry configurations for NewRelic APM.
