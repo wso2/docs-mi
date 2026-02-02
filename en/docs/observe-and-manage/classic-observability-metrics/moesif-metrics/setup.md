@@ -28,7 +28,7 @@ To enable operational analytics, you must first update the deployment.toml file 
 
 If you want to collect statistics for all your integration artifacts, be sure to add the `flow.statistics.capture_all` parameter to the `deployment.toml` file. You can also enable statistics for the integration artifacts you wish to monitor individually.
 
-```
+```toml
 [mediation]
 flow.statistics.enable=true
 flow.statistics.capture_all=true
@@ -38,14 +38,14 @@ flow.statistics.capture_all=true
 
 Add the following configurations to the deployment.toml file to enable analytics, which includes custom analytics.
 
-```
+```toml
 [analytics]
 enabled=true
 ```
 
 You can have more control over the analytics data with the following additional configurations.
 
-```
+```toml
 [analytics]
 enabled = true
 publisher = "log"
@@ -65,7 +65,7 @@ inbound_endpoint_analytics.enabled = true
 |sequence_analytics.enabled|bool|TRUE|If set to false, analytics for Sequences will not be published|
 |endpoint_analytics.enabled|bool|TRUE|If set to false, analytics for Endpoints will not be published|
 |inbound_endpoint_analytics.enabled|bool|TRUE|If set to false, analytics for Inbound Endpoints will not be published|
-|prefix|string|SYNAPSE_ANALYTICS_DATA|This string will be used as a prefix when Synapse analytics are being published. The purpose of this prefix is to distinguish log lines that hold analytics data from others. If you override this default value, you will have to update the Logstash and Filebeat configuration files accordingly.|
+|prefix|string|SYNAPSE_ANALYTICS_DATA|This string will be used as a prefix when Synapse analytics are being published. The purpose of this prefix is to distinguish log lines that hold analytics data from others. If you override this default value, you will have to update the Fluent Bit configuration files accordingly.|
 |enabled|bool|FALSE|If set to true, analytics service will be enabled|
 |id|string|hostname|An identifier that will be published with the analytic|
 
@@ -75,13 +75,13 @@ Open the `<MI_HOME>/conf` directory and edit the `log4j2.properties` file follow
 
 1. Add `SYNAPSE_ANALYTICS_APPENDER` to the appenders list.
 
-```
+```properties
 appenders = SYNAPSE_ANALYTICS_APPENDER,.... (list of other available appenders)
 ```
 
 2. Add the following configurations after the appenders:
 
-```
+```properties
 appender.SYNAPSE_ANALYTICS_APPENDER.type = RollingFile
 appender.SYNAPSE_ANALYTICS_APPENDER.name = SYNAPSE_ANALYTICS_APPENDER
 appender.SYNAPSE_ANALYTICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/synapse-analytics.log
@@ -98,17 +98,17 @@ appender.SYNAPSE_ANALYTICS_APPENDER.strategy.type = DefaultRolloverStrategy
 appender.SYNAPSE_ANALYTICS_APPENDER.strategy.max = 10
 ```
 
-According to the above configurations, the `synapse-analytics.log` file is rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only ten revisions will be kept, and older revisions will be deleted automatically. You can change this behaviour by changing the configurations above.
+According to the above configurations, the `synapse-analytics.log` file is rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only ten revisions will be kept, and older revisions will be deleted automatically. You can change this behavior by changing the configurations above.
 
 3. Add SynapseAnalytics to the loggers list:
 
-```
+```properties
 loggers = SynapseAnalytics, ...(list of other available loggers)
 ```
 
 4. Add the following configurations after the loggers.
 
-```
+```properties
 logger.SynapseAnalytics.name = org.wso2.micro.integrator.analytics.messageflow.data.publisher.publish.elasticsearch.ElasticStatisticsPublisher
 logger.SynapseAnalytics.level = INFO
 logger.SynapseAnalytics.additivity = false
@@ -139,7 +139,7 @@ You can refer to the [official installation guide](https://docs.fluentbit.io/man
 
 ### docker-compose.yaml
 
-```
+```yaml
 services:
   fluent-bit:
     image: fluent/fluent-bit:3.0

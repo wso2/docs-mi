@@ -2,7 +2,7 @@
 
 ## Import MI dashboards to Moesif
 
-1. Download the <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboards_template.json" download="dashboards_template.json">dashboards_template.json</a> file to download the template dashboards for MI.
+1. Download the <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboards_template.json" download="dashboards_template.json">dashboards_template.json</a> file containing the template dashboards for MI.
 2. On the Moesif UI, click on **Create New** → **Dashboard Templates** → **Import JSON Template** and provide the JSON template downloaded above. 
 
 <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png" width="70%" alt="Moesif Dashboard Templates"></a>
@@ -21,9 +21,9 @@ This dashboard provides an overview of overall analytics.
 |:----|:----|
 |Distribution by Component Type|Distribution of the different components
 |Total Requests|Total number of requests handled by WSO2 Integrator: MI
-|Fault Responses|Total Number of fault responses.
+|Fault Responses|Total number of fault responses
 |Overall Message Count over Time|Total number of requests received over a selected time span
-|Success Requests|Total Number of successful requests
+|Success Requests|Total number of successful requests
 |Failure Rate|Percentage of requests by failure
 |Top APIs by Request Count|Top APIs that served the highest number of requests
 |Top Proxy Services by Request Count|Top Proxy services that served the highest number of requests
@@ -42,12 +42,12 @@ This dashboard provides an overview of API analytics.
 |Total Requests|Total number of requests handled by the APIs
 |API Message Count|API requests received over time
 |Top APIs by Message Count|Top APIs that served the highest number of requests
-|Fault Responses|Total Number of fault responses.
-|Success Requests|Total Number of successful requests
+|Fault Responses|Total number of fault responses
+|Success Requests|Total number of successful requests
 |Failure Request Rate|Percentage of requests by failure
 |Success Rate by API|Successful requests received for each API
 |Fault Response Rate|Percentage of requests by fault response
-|Message Latency|Maximum, Minimum and Average latency for the messages in the time span
+|Message Latency|Maximum, minimum and average latency for the messages in the time span
 |Average Latency|Average latency for a request
 |Average Latency by API|Average latency by each API
 |Maximum Latency|Maximum latency recorded by a single request
@@ -63,12 +63,12 @@ This dashboard provides an overview of the endpoints analytics.
 |Total Requests|Total number of requests handled by the Endpoints
 |Endpoint Message Count|Requests received over time
 |Top Endpoints by Message Count|Top Endpoints that served the highest number of requests
-|Fault Responses|Total Number of fault responses.
-|Success Requests|Total Number of successful requests
+|Fault Responses|Total number of fault responses
+|Success Requests|Total number of successful requests
 |Failure Request Rate|Percentage of requests by failure
 |Success Rate by Endpoint|Successful requests received for each Endpoint
 |Fault Response Rate|Percentage of requests by fault response
-|Message Latency|Maximum, Minimum and Average latency for the messages in the time span
+|Message Latency|Maximum, minimum and average latency for the messages in the time span
 |Average Latency|Average latency for a request
 |Average Latency by Endpoint|Average latency by each Endpoint
 |Maximum Latency|Maximum latency recorded by a single request
@@ -84,12 +84,12 @@ This dashboard provides an overview of inbound endpoints analytics.
 |Total Requests|Total number of requests handled by the Inbound Endpoints
 |Inbound Endpoint Message Count|Requests received over time
 |Top Inbound Endpoints by Message Count|Top Inbound Endpoints that served the highest number of requests
-|Fault Responses|Total Number of fault responses.
-|Success Requests|Total Number of successful requests
+|Fault Responses|Total number of fault responses
+|Success Requests|Total number of successful requests
 |Failure Request Rate|Percentage of requests by failure
 |Success Rate by Inbound Endpoint|Successful requests received for each Inbound Endpoint
 |Fault Response Rate|Percentage of requests by fault response
-|Message Latency|Maximum, Minimum and Average latency for the messages in the time span
+|Message Latency|Maximum, minimum and average latency for the messages in the time span
 |Average Latency|Average latency for a request
 |Average Latency by Inbound Endpoint|Average latency by each Inbound Endpoint
 |Maximum Latency|Maximum latency recorded by a single request
@@ -105,12 +105,12 @@ This dashboard provides an overview of sequences analytics.
 |Total Requests|Total number of requests handled by the Sequences
 |Sequences Message Count|Requests received over time
 |Top Sequences by Message Count|Top Sequences that served the highest number of requests
-|Fault Responses|Total Number of fault responses.
-|Success Requests|Total Number of successful requests
+|Fault Responses|Total number of fault responses
+|Success Requests|Total number of successful requests
 |Failure Request Rate|Percentage of requests by failure
 |Success Rate by Sequences|Successful requests received for each sequence
 |Fault Response Rate|Percentage of requests by fault response
-|Message Latency|Maximum, Minimum and Average latency for the messages in the time span
+|Message Latency|Maximum, minimum and average latency for the messages in the time span
 |Average Latency|Average latency for a request
 |Average Latency by Sequence|Average latency by each Sequence
 |Maximum Latency|Maximum latency recorded by a single request
@@ -126,12 +126,12 @@ This dashboard provides an overview of proxy services analytics.
 |Total Requests|Total number of requests handled by the Proxy Services
 |Proxy Services Message Count|Requests received over time
 |Top Proxy Services by Message Count|Top Proxy Services that served the highest number of requests
-|Fault Responses|Total Number of fault responses.
-|Success Requests|Total Number of successful requests
+|Fault Responses|Total number of fault responses
+|Success Requests|Total number of successful requests
 |Failure Request Rate|Percentage of requests by failure
 |Success Rate by Proxy Service|Successful requests received for each Proxy Service
 |Fault Response Rate|Percentage of requests by fault response
-|Message Latency|Maximum, Minimum and Average latency for the messages in the time span
+|Message Latency|Maximum, minimum and average latency for the messages in the time span
 |Average Latency|Average latency for a request
 |Average Latency by Proxy Service|Average latency by each Proxy Service
 |Maximum Latency|Maximum latency recorded by a single request
