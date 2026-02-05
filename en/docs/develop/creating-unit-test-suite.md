@@ -166,6 +166,20 @@ Once you have developed an integration solution, WSO2 Integrator: MI VS Code Ext
 
         `mvn clean install -DtestServerType=remote -DtestServerHost=localhost -DtestServerPort=9008 -P test`
 
+## View Unit Test Coverage
+
+After running unit tests, the framework automatically calculates and displays **line coverage** based on the mediators executed during test execution. The coverage percentage indicates the proportion of mediators in your integration artifacts (APIs, sequences, templates) that were executed at least once during the test run.
+
+When you run unit tests, a coverage summary is displayed in the console output showing:
+
+- **Test Suite Coverage**: Overall coverage percentage for the main artifact being tested
+- **Supportive Artifact Coverage**: Individual coverage percentages for any supportive artifacts used (sequences, templates, registry resources)
+
+For a detailed coverage report, review the JSON report generated at `<project-name>/target/unit-test-report.json`. This detailed report provides granular information about which specific mediators were covered and which were not, helping you identify gaps in your test coverage.
+
+!!! Tip
+    Aim for high coverage percentages to ensure your integration logic is thoroughly tested. If you notice low coverage for certain artifacts, consider adding additional test cases to exercise untested mediators.
+
 ## Generate Unit Test Suite using AI
 
 1. In the **Create New Unit Test** page, give a test suite name, select the artifact type and the artifact to be used for the test suite.
