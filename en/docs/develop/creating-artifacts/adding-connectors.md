@@ -1,51 +1,70 @@
-# Adding Connectors
+# Add connectors
 
-You can develop configurations with connectors, and deploy the configurations and connectors as composite application archive (CAR) files in WSO2 Micro Integrator using WSO2 Integration Studio.
-
-!!! Info
-    In addition to the below methods, you can enable a connector by creating a configuration file in the `MI_HOME/repository/deployment/server/synapse-configs/default/imports` directory with the following configurations. Replace the value of the `name` property with the name of your connector, and name the configuration file `{org.wso2.carbon.connector}<CONNECTOR_NAME>.xml` (e.g., `{org.wso2.carbon.connector}salesforce.xml`).
-    ```xml
-    <import xmlns="http://ws.apache.org/ns/synapse"
-            name="salesforce"
-            package="org.wso2.carbon.connector"
-            status="enabled"/>
-    ```
+You can develop configurations with connectors and deploy the configurations and connectors as composite application archive (CAR) files in WSO2 Micro Integrator.
 
 ## Instructions
 
-See the topics given below.
+This section describes the different methods to add connectors to your integration project.
 
-### Importing Connectors
+### Add connectors to your integration flow
 
-Follow the steps below to import connectors into WSO2 Integration Studio:
+The recommended method to use connectors is to add them directly through the mediator palette while designing your integration flow.
 
-1.  If you have already created an [ESB Config project]({{base_path}}/develop/create-integration-project/#esb-config-project), right click the ESB Config project where you want to use the connector and click **Add or Remove Connector/Module**.
-2.  On the wizard that appears, select **Add Connector/module** and click **Next**.
-    -   If you have not downloaded the connector, search on the required connector in **WSO2 Connector Store** view, and click on the download icon to import the connector into the workspace. Then, click on **Finish**.
-    -   If you have already downloaded the connectors, select the **Add from File System** option and browse to the connector file from the file system. Click **Finish**. The connector is imported into the workspace and available for use with all the projects in the workspace.
-3.  After importing the connectors into WSO2 Integration Studio, the connector operations are available in the tool palette. You can drag and drop connector operations into your sequences and proxy services.
+1. Open the **Resource View** or **Sequence View** where you want to add the connector operation.
 
-### Packaging Connectors
+2. Click the **+** icon on the canvas to open the palette.
 
-Follow the steps below to create a composite application archive (CAR) file containing the connectors:
+3. In the palette, navigate to **Mediators** and locate the connector category you need (for example, **HTTP**, **Salesforce**, **Gmail**).
 
-1.  Click **File > New > Other** and select **Connector Exporter Project** under **WSO2 > Extensions > Project Types** and click **Next**. 
-2.  If you are using a maven multi module project right click on the project and select **New > Connector Exporter**.
-3.  Enter a project name and click **Finish**.
-4.  Right-click on the created connector exporter project, point to **New** and then click **Add/Remove Connectors**.
-5.  Select **Add Connector/module** and click **Next**. Then, click on the **Workspace** option. This will list down the connectors that have been imported into WSO2 Integration Studio.
-6.  Select the connector and click **OK** and then click **Finish**.
+4. Select the desired connector operation from the list.
 
-You can export this connector file as a CAR file just as other ESB artifacts. See [exporting artifacts]({{base_path}}/develop/exporting-artifacts) for instructions.
+5. Configure the connector operation by providing the required parameters and connection details.
 
-### Removing Connectors
+    <a href="{{base_path}}/assets/img/integrate/connectors/import-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/import-connector.png" alt="import connector" width="80%"></a>
 
-Follow the steps below to remove connectors from WSO2 Integration Studio:
+This method automatically adds the connector dependency to your project when you use a connector operation.
 
-1.  Right-click on the relevant ESB Config project and click **Add or Remove Connector/Module**.
-2.  On the wizard that appears, select **Remove Connector/module** and click **Next**.
-3.  Select the connectors you want to remove and click **Finish**.
+### Import connectors using the connector importer
+
+You can import custom connectors or connectors from external sources using the connector importer.
+
+1. Navigate to the **Project Overview** page.
+
+2. Click **Add artifact**.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
+
+3. Click **+ View More** under **Create an Integration**.
+
+4. Select **Connections** under **Other Artifacts**.
+
+5. Click the **Import Connector** button.
+
+    <a href="{{base_path}}/assets/img/integrate/connectors/new-import-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/new-import-connector.png" alt="import connector" width="80%"></a>
+
+6. Choose one of the following options:
+    - Select **Import Using OpenAPI** to import a connector using an OpenAPI definition.
+    - Select **Upload Connector ZIP file** to import a connector using a ZIP file.
+
+    <a href="{{base_path}}/assets/img/integrate/connectors/import-connector-options.png"><img src="{{base_path}}/assets/img/integrate/connectors/import-connector-options.png" alt="import connector options" width="80%"></a>
+
+### Manually add connector files to the project
+
+If you have already downloaded the connector, you can manually add the connector file to the directory `<PROJECT_HOME>/src/main/wso2mi/resources/connectors` in your project file structure.
+
+### Remove connectors
+
+You can manually remove the connectors added to the `<PROJECT_HOME>/src/main/wso2mi/resources/connectors` directory by deleting them.
+
+!!! Info
+    In addition to the above methods, you can enable a connector by creating a configuration file in the `<MI_HOME>/repository/deployment/server/synapse-configs/default/imports` directory with the following configurations. Replace the value of the `name` property with the name of your connector, and name the configuration file `{org.wso2.carbon.connector}<CONNECTOR_NAME>.xml` (for example, `{org.wso2.carbon.connector}salesforce.xml`).
+    ```xml
+        <import xmlns="http://ws.apache.org/ns/synapse"
+        name="salesforce"
+        package="org.wso2.carbon.connector"
+        status="enabled"/>
+    ```
 
 ## Tutorials
 
--	See the tutorial on [Connecting Web APIs/Cloud Services]({{base_path}}/learn/integration-tutorials/using-the-gmail-connector/#importing-the-email-connector-into-wso2-integration-studio).
+- See the tutorial on [Connecting Web APIs/Cloud Services]({{base_path}}/learn/integration-tutorials/using-the-gmail-connector/#importing-the-email-connector-into-wso2-integration-studio).
