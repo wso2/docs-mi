@@ -39,6 +39,9 @@ enclosed in the `         then        ` element. The messages that do
 not match the filter criteria will be mediated using the set of
 mediators enclosed in the `         else        ` element.
 
+!!! Note
+    If you use [legacy XPath expressions]({{base_path}}/reference/synapse-properties/xpath-expressions/) for numeric conditions, XPath evaluation represents all numeric values as Double. As a result, comparisons involving properties of type `INTEGER`, `FLOAT`, or `LONG` may not behave as expected. However, when the property type is `STRING`, the underlying XPath evaluation library first casts the value to a Double and then performs the comparison.
+
 ## Configuration
 
 The parameters available for configuring the If Else mediator are as
