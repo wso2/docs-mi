@@ -129,10 +129,11 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-        config:
-            synapseHandlers:
-            - name: MetricHandler
-              class: org.wso2.micro.integrator.observability.metric.handler.MetricHandler
+      config:
+        synapseHandlers:
+          - name: MetricHandler
+            class: org.wso2.micro.integrator.observability.metric.handler.MetricHandler
+
     ``` 
 
     For details, refer to the [Configure Helm charts for WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/) guide.
@@ -143,9 +144,11 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-        deployment:
-            envs:
-                JAVA_OPTS: "-DenablePrometheusApi=true"
+      deployment:
+        envs:
+          JAVA_OPTS: "-DenablePrometheusApi=true"
+
+
     ```
 
     This enables the `/metric-service/metrics` endpoint exposed by WSO2 Integrator: MI for Prometheus scraping.
@@ -156,11 +159,12 @@ To expose metrics for Prometheus scraping, update your WSO2 Integrator: MI Helm 
 
     ```yaml
     wso2:
-        deployment:
-            annotations:
-                prometheus.io/wso2-path: "/metric-service/metrics"
-                prometheus.io/wso2-port: "9201"
-                prometheus.io/wso2-scrape: "true"
+      deployment:
+        annotations:
+          prometheus.io/wso2-path: "/metric-service/metrics"
+          prometheus.io/wso2-port: "9201"
+          prometheus.io/wso2-scrape: "true"
+
     ```
 
 ### Set up the Prometheus Agent
@@ -198,11 +202,7 @@ To deploy the Prometheus Agent in your Kubernetes cluster, you need to create a 
       name: prometheus-agent
     rules:
       - apiGroups: [""]
-        resources:
-        - pods
-        - nodes
-        - services
-        - endpoints
+        resources: ["pods", "nodes", "services", "endpoints"]
         verbs: ["get", "list", "watch"]
     ---
     apiVersion: rbac.authorization.k8s.io/v1
@@ -238,10 +238,8 @@ To deploy the Prometheus Agent in your Kubernetes cluster, you need to create a 
       prometheus.yml: |
         global:
           scrape_interval: 15s
-
         remote_write:
           - url: "http://host.docker.internal:9090/api/v1/write"
-
         scrape_configs:
           - job_name: 'kubernetes-pods-wso2-integration'
             kubernetes_sd_configs:
