@@ -62,7 +62,7 @@ Follow these instructions to create a [Proxy Service]({{base_path}}/reference/sy
 
    See the complete list of [service-level properties and parameters]({{base_path}}/reference/synapse-properties/proxy-service-properties) that you can configure.
 
-## Source View
+## Source view
 
 Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the proxy service.
 

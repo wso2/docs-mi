@@ -46,7 +46,7 @@ Following are the integration artifacts that we can used to implement this scena
     </endpoint>
     ```
 
-## Build and Run
+## Build and run
 
 Create the artifacts:
 

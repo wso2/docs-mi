@@ -9,14 +9,14 @@ The WSO2 Integrator: MI module for Ballerina enables integration developers to l
 - Ballerina VS Code extensions installed
 - Ballerina Integrator VS Code extensions installed
 
-## Get Started with Ballerina Module for MI
+## Get started with Ballerina module for MI
 
 There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 1. Using the WSO2 MI VS Code Extension
 2. Using the Command Line Interface (CLI)
 
-### Method 1: Use WSO2 MI VS Code Extension
+### Method 1: Use WSO2 MI VS Code extension
 
 1. Install the [WSO2 Integrator: MI VSCode Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/).
 2. [Create](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) a new integration project or open an existing project.
