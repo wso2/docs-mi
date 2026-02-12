@@ -1752,7 +1752,7 @@ The following operations allow you to work with the MongoDB connector. Click an 
     ```
 
 ??? note "aggregate"
-    Runs an aggregation pipeline on a collection (or view) and returns the computed results. Aggregation pipelines allow you to filter, transform, group, and compute data using stages such as `$match`, `$project`, `$group`, `$sort`, `$lookup`, etc. See the related [aggregation documentation](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) for more information.
+    Runs an aggregation pipeline on a collection (or view) and returns the computed results. Aggregation pipelines allow you to filter, transform, group, and compute data using stages such as `$match`, `$project`, `$group`, `$sort`, `$lookup`, etc. See the related [aggregation documentation](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) for more information. **Note**: This operation is available from connector version 2.0.2 onwards.
     <table>
     <tr>
     <th>Parameter Name</th>
