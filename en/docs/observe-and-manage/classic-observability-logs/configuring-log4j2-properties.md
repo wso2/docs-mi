@@ -716,7 +716,7 @@ Here,
 - `%ex` logs the exception (if any)
 - `%n` adds a new line
 
-### Configuring Mediator ID in Log Patterns
+### Configuring mediator ID in log patterns
 
 Starting from MI 4.6.0, the **Mediator ID** is automatically included in error logs (`wso2error.log`) for mediation-related errors. You can also configure other log appenders to include the mediator ID by updating their layout pattern.
 
@@ -740,7 +740,7 @@ Where:
 - `sequence:FilterTestSequence/2.Filter/then/2.Property[status]`
 - `template:TestTemplate/1.Log`
 
-#### Adding Mediator ID to an Appender
+#### Adding mediator ID to an appender
 
 The mediator ID is available via Log4j2's ThreadContext (MDC concept) under the key `MediatorId`. To include it in your log pattern, use the {% raw %}`%X{MediatorId}`{% endraw %} or {% raw %}`%notEmpty{ {%X{MediatorId}}}`{% endraw %} syntax.
 
