@@ -718,7 +718,7 @@ Here,
 
 ### Configuring mediator ID in log patterns
 
-Starting from MI 4.6.0, the **Mediator ID** is automatically included in error logs (`wso2error.log`) for mediation-related errors. You can also configure other log appenders to include the mediator ID by updating their layout pattern.
+The **Mediator ID** is automatically included in error logs (`wso2error.log`) for mediation-related errors. You can also configure other log appenders to include the mediator ID by updating their layout pattern.
 
 The mediator ID follows a hierarchical format that identifies the exact location of the mediator in your integration flow:
 

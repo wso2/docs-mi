@@ -121,7 +121,7 @@ Below is an example of a server error entry recorded in the error log file.
 
 ### Mediator ID in error logs
 
-Starting from MI 4.6.0, the `wso2error.log` file automatically includes the **Mediator ID** for mediation-related errors. This identifier helps you quickly pinpoint the exact mediator in your integration flow that caused the error, significantly improving debugging efficiency.
+The `wso2error.log` file automatically includes the **Mediator ID** for mediation-related errors. This identifier helps you quickly pinpoint the exact mediator in your integration flow that caused the error, significantly improving debugging efficiency.
 
 The mediator ID follows a hierarchical format:
 
