@@ -33,7 +33,7 @@ tar -xf rabbitmq-server-generic-unix-4.2.3.tar.xz
 Install the Erlang distribution as required by RabbitMQ. For detailed installation instructions, refer to the [RabbitMQ Erlang documentation](https://www.rabbitmq.com/docs/install-debian#erlang-repositories).
 
 !!! tip "macOS users"
-On macOS, you can install RabbitMQ directly using Homebrew, then proceed with the remaining steps to start the broker.
+    On macOS, you can install RabbitMQ directly using Homebrew, then proceed with the remaining steps to start the broker.
 
 ### Step 4: Start the RabbitMQ server
 
