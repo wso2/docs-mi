@@ -63,7 +63,7 @@ To connect with RabbitMQ Broker using the WSO2 Integrator: MI RabbitMQ (AMQP 1.0
         * **Event Integration Name**: `RabbitMQInboundEP`
         * **Injecting Sequence Name**: `successSeq`
         * **Error Sequence Name**: `errorSeq`
-        * **Execute Sequentially": `true`
+        * **Execute Sequentially**: `true`
         * **Coordination**: `true`
       * **Basic :**
         * **Server Hosts**: `localhost`
