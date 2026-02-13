@@ -275,12 +275,6 @@ To deploy and run the project, refer to the [build and run]({{base_path}}/develo
     ```
 **Expected Response**:
 You should get a 'success' response as below along with the messageId.
-```
-{
-    "success": "true",
-    "messageId": "urn:uuid:a40ec122-e3eb-4915-aafe-5686f90871eb"
-}
-``` 
 
 ## What's next
 
