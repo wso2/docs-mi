@@ -187,7 +187,7 @@ In this operation, we are going to receive the following inputs from the user.
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI" alt="RabbitMQ Publish Message API" width="70%"></a>
+        <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" alt="RabbitMQ Publish Message API" width="70%"></a>
 
     === "Source View"
         ```yaml
