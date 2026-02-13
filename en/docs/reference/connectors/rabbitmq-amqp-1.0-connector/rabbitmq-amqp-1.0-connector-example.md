@@ -20,7 +20,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ### Setup RabbitMQ Broker
 
-To connect with RabbitMQ using the WSO2 Integrator: MI RabbitMQ Connector, you need to first set up a running RabbitMQ Broker instance locally or on a server. In this example, we will use an RabbitMQ standalone server. Set up RabbitMQ Broker by following the instructions in [Set up RabbitMQ Broker]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-setup/).
+To connect with RabbitMQ using the WSO2 Integrator: MI RabbitMQ Connector, you need to first set up a running RabbitMQ Broker instance locally or on a server. In this example, we will use a RabbitMQ standalone server. Set up RabbitMQ Broker by following the instructions in [Set up RabbitMQ Broker]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-setup/).
 
 ## Develop the integration logic
 
