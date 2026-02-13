@@ -7,8 +7,8 @@ The RabbitMQ (AMQP 1.0) Inbound Endpoint allows you to connect to RabbitMQ Broke
 By following this tutorial, you will gain hands-on experience in:
 
 - Configuring the RabbitMQ (AMQP 1.0) Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
-- Consuming and processing messages from an RabbitMQ queue.
-- Run and test the integration to receive real-time notifications.
+- Consuming and processing messages from a RabbitMQ queue.
+- Running and testing the integration to receive real-time notifications.
 
 The inbound endpoint acts as a message receiver and injects those messages into an integration sequence. In this section, we will demonstrate how to configure the inbound endpoint to establish a connection with the RabbitMQ Broker. In this example, we will simply log the message. However, you can extend the flow to perform complex mediation tasks using [mediators]({{base_path}}/reference/mediators/about-mediators/).
 
