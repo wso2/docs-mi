@@ -73,7 +73,7 @@ In this operation, we are going to receive the following inputs from the user.
     ```
   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="40%" alt="Adding the API request."/></a>
 
-#### Add Pulsar Connector to the Project
+#### Add RabbitMQ Connector to the Project
 
 1. Now we will add the `publishMessage` operation of the RabbitMQ Connector to the integration flow. To do this, we need to add the RabbitMQ Connector to the integration project first.
    For that, open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette** and search for `RabbitMQ` in the **Mediators** section. Then, select the **RabbitMQ** connector and click on the **Download** button.
