@@ -81,7 +81,7 @@ RabbitMQ supports OAuth 2.0 authentication to provide secure access control. To 
 
 When you move your RabbitMQ deployment to production, be sure to follow the instructions and guidelines specified in the official [RabbitMQ Documentation](https://www.rabbitmq.com/docs/download.html).
 
-!!!Note
-   For **high availability** in your RabbitMQ deployment, note the following:
-   RabbitMQ servers need to be clustered. Refer the [RabbitMQ Clustering Guide](https://www.rabbitmq.com/clustering.html).
-   The minimum of three nodes are recommended for a RabbitMQ cluster. This is because RabbitMQ uses [Quorum-based distributed consensus](https://www.rabbitmq.com/clustering.html#node-count).
+!!! note
+    For **high availability** in your RabbitMQ deployment, note the following:
+    RabbitMQ servers need to be clustered. Refer to the [RabbitMQ Clustering Guide](https://www.rabbitmq.com/clustering.html).
+    A minimum of three nodes is recommended for a RabbitMQ cluster. This is because RabbitMQ uses [Quorum-based distributed consensus](https://www.rabbitmq.com/clustering.html#node-count).
