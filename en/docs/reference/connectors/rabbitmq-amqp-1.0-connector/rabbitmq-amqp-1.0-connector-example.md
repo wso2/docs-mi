@@ -190,7 +190,7 @@ In this operation, we are going to receive the following inputs from the user.
         <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" alt="RabbitMQ Publish Message API" width="70%"></a>
 
     === "Source View"
-        ```yaml
+        ```xml
         <?xml version="1.0" encoding="UTF-8"?>
         <api context="/publishmessage" name="PublishMessage"
 	xmlns="http://ws.apache.org/ns/synapse">
