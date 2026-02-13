@@ -146,11 +146,11 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Run the Integration
 
-In order to deploy and run the project, refer the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide or simply use the **Run** button in the Visual Studio Code extension to run the integration.
+To deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide or simply use the **Run** button in the Visual Studio Code extension to run the integration.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/deploy-run.png" title="Deploy and Run the Integration" width="500" alt="Deploy and Run the Integration"/>
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
+You can further refer to the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 
 
 ## Testing the Integration
