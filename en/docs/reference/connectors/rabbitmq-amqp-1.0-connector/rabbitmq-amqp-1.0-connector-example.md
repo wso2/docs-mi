@@ -131,11 +131,11 @@ In this operation, we are going to receive the following inputs from the user.
 
    This will open a new pop-up window where you can select the `payload.message` parameter from the request payload. <br/>
 
-   <a href=<img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png" title="Adding the send parameters." width="70%" alt="Configuring publishMessage operation."/>
+   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png" title="Adding the send parameters." width="70%" alt="Configuring publishMessage operation."/></a>
 
    Next, do the same for the `Request Body` field. <br/>
 
-   <a href=<img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png" title="Adding the send parameters." width="40%" alt="PublishMessage operation pane."/>
+   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png" title="Adding the send parameters." width="40%" alt="PublishMessage operation pane."/></a>
 
 4. Click the **+** icon located immediately after the **Publish Message** operation to open the **Mediator Palette**. Add an [If Else Mediator]({{base_path}}/reference/mediators/filter-mediator) to verify the acknowledgment status from the RabbitMQ broker and proceed with the integration accordingly.
 
