@@ -1077,7 +1077,6 @@ to a maximum duration.
             <div class="admonition note">
                 <p class="admonition-title">Note</p>
                 <p>This value can be globally configured using the <code>synapse.global_endpoint_suspend_duration</code> property under <code>[synapse_properties]</code> in the <code>MI_Home/conf/deployment.toml</code> file. This configuration will apply to all endpoints unless overridden at the endpoint level.</p>
-                <p>Requires Micro Integrator version 4.5.0.3 (U2) or later to use this global parameter.</p>
             </div>
          </td>
       </tr>
@@ -1100,7 +1099,6 @@ to a maximum duration.
             <div class="admonition note">
                 <p class="admonition-title">Note</p>
                 <p>This value can be globally configured using the <code>synapse.global_endpoint_suspend_progression_factor</code> property under <code>[synapse_properties]</code> in the <code>MI_Home/conf/deployment.toml</code> file. This configuration will apply to all endpoints unless overridden at the endpoint level.</p>
-                <p>Requires Micro Integrator version 4.5.0.3 (U2) or later to use this global parameter.</p>
             </div>
          </td>
       </tr>

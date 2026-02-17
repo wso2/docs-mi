@@ -118,9 +118,9 @@ After applying the above change, you can start the WSO2 Integrator: MI with the 
 -DenablePrometheusApi=true
 ```
 
-You can enable the new Prometheus client API version 1.x using the following JVM property:
+From WSO2 MI versions after 4.5.0, the new Prometheus client API version 1.x is enabled by default. You can switch back to the old client API 0.x using the following JVM property:
 ```
--DusePrometheusV1Api=true
+-DusePrometheusLegacyApi=true
 ```
 
 Depending on the client API version you are going to use, you have to choose the matching Grafana dashboard revisions as follows.
