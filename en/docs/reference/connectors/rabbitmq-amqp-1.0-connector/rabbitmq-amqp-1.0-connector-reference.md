@@ -4,7 +4,7 @@ This documentation provides a reference guide for the RabbitMQ Connector. The Ra
 
 ## Connection Configurations
 
-<img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQConnection.png" title="RabbitMQ Connection" width="700" alt="RabbitMQ Connection"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQConnection.png" title="RabbitMQ Connection" width="40%" alt="RabbitMQ Connection"/>
 
 The WSO2 RabbitMQ Connector allows you to establish connections to the RabbitMQ broker using either SSL or non-SSL protocols.
 
@@ -329,8 +329,8 @@ The following operations allows you to send messages to RabbitMQ queues or excha
 ??? note "Publish Message"
     The publishMessage operation allows you to publish messages to the RabbitMQ brokers.
 
-        <table>
-        <tr>
+    <table>
+    <tr>
             <th>Parameter Name</th>
             <th>Display Name</th>
             <th>Description</th>
@@ -746,12 +746,12 @@ The following operations allows you to send messages to RabbitMQ queues or excha
             <td>Yes</td>
             <td>rabbitmq_response_variable1</td>
         </tr>
-        </table>
+     </table>
     
-        **Sample configuration**
-    
-        ```xml
-        <rabbitmq.publishMessage configKey="RabbitMQConnection">
+    **Sample configuration**
+
+    ```xml
+    <rabbitmq.publishMessage configKey="RabbitMQConnection">
                     <queue>{${payload.queue}}</queue>
                     <queueAutoDeclare>true</queueAutoDeclare>
                     <queueType>QUORUM</queueType>
@@ -774,23 +774,22 @@ The following operations allows you to send messages to RabbitMQ queues or excha
                     <requestCharSet></requestCharSet>
                     <responseVariable>rabbitmq_publishMessage_1</responseVariable>
                     <overwriteBody>false</overwriteBody>
-        </rabbitmq.publishMessage>
-        ```
+     </rabbitmq.publishMessage>
+    ```
     
-        The following properties will be set to a new variable upon receiving a successful acknowledgment (Accept) from the RabbitMQ broker.
-    
-        ```
-        {
+     The following properties will be set to a new variable upon receiving a successful acknowledgment (Accept) from the RabbitMQ broker.
+     ```json
+     {
             "success": "true"
             "msgid: "urn:uuid:a40ec122-e3eb-4915-aafe-5686f90871eb"
-        }
-        ```
+     }
+     ```
     
 ??? note "Send RPC Request"
     The sendRpc operation allows you to send an RPC request to the RabbitMQ broker. This is a synchronous operation that waits for the response from the broker before proceeding. This is the operation that initiates the dual-channel scenario.
         
-        <table>
-        <tr>
+    <table>
+    <tr>
             <th>Parameter Name</th>
             <th>Display Name</th>
             <th>Description</th>
@@ -1465,7 +1464,7 @@ The following operations can be used with the RabbitMQ inbound endpoint to handl
                 <overwriteBody>false</overwriteBody>
     </rabbitmq.requeue>
     ```
-    This operation will acknowledge the message as released, indicating to the RabbitMQ broker that the message was not processed and that the broker can requeue it for delivery to the same or a different consumer. The response from the acknowledgment operation will be stored in a new variable named rabbitmq_requeue_1.
+    This operation will acknowledge the message as released, indicating to the RabbitMQ broker that the message was not processed and that the broker can requeue it for delivery to the same or a different consumer. The response from the acknowledgment operation will be stored in a new variable named `rabbitmq_requeue_1`.
 
 ??? note "Discard Message"
     The discard operation allows you to reject the message with the AMQP 1.0 'Rejected' outcome. This indicates the message is invalid, and the broker can either discard it or move it to a dead-letter queue if configured.
@@ -1498,4 +1497,4 @@ The following operations can be used with the RabbitMQ inbound endpoint to handl
                 <overwriteBody>false</overwriteBody>
     </rabbitmq.discard>
     ```
-    This operation will acknowledge the message as discarded, indicating that the message is invalid. The broker can either discard it or move it to a dead-letter queue if configured. The response from the acknowledgment operation will be stored in a new variable named rabbitmq_discard_1.
+    This operation will acknowledge the message as discarded, indicating that the message is invalid. The broker can either discard it or move it to a dead-letter queue if configured. The response from the acknowledgment operation will be stored in a new variable named `rabbitmq_discard_1`.

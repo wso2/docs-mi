@@ -65,13 +65,15 @@ In this operation, we are going to receive the following inputs from the user.
 - **message** - The content of the message to be published.
 
     Therefore, provide the following JSON payload to the request.
-   ```json
+
+    ```json
     {
         "queue": "TestQueue",
         "message": "Hello World!"
     }
     ```
-  <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="40%" alt="Adding the API request."/></a>
+  
+   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="40%" alt="Adding the API request."/></a>
 
 #### Add RabbitMQ Connector to the Project
 
@@ -86,11 +88,9 @@ In this operation, we are going to receive the following inputs from the user.
 
 1. Create a new connection by clicking on the '+ Add new connection' button as shown below. It will open a new pop-up window.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection.png" title="Creating a new Connection" width="60%" alt="Creating a new Connection"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" title="Creating a new Connection" width="60%" alt="Creating a new Connection"/></a>
 
 2. Click on the **RabbitMQ** tile under the RabbitMQ Connector.
-
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" title="Creating a new Connection" width="60%" alt="Creating a new Connection"/></a>
 
 3. Enter the connection name as `RabbitMQConnection` and provide the following details in the **RabbitMQ Connection** configuration pane.
 
@@ -149,7 +149,7 @@ In this operation, we are going to receive the following inputs from the user.
 
 7. Select **Variables** → **rabbitmq_publishMessage_1** → **payload** → **success** to extract the RabbitMQ broker acknowledgment status from the Publish Message response.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png" alt="Add if else Mediator" width="80%"></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png" alt="Add if else Mediator" width="40%"></a>
 
 8. Finally, click **Add** to insert the **If Else** mediator into the integration flow.
 
@@ -159,15 +159,15 @@ In this operation, we are going to receive the following inputs from the user.
 
 10. Under **Mediators**, select the **Log** mediator to log the successful message publishing response from the RabbitMQ broker.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator1.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator1.png" title="Adding Log Mediator" width="80%" alt="Adding Log Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" title="Adding Log Mediator" width="40%" alt="Adding Log Mediator"/></a>
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" title="Adding Log Mediator" width="80%" alt="Adding Log Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" title="Adding Log Mediator" width="40%" alt="Adding Log Mediator"/></a>
     
 11. Then select the **Payload** mediator from the **Mediator Palette** to create a custom response payload to be sent back to the client application.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" title="Adding Payload Mediator" width="80%" alt="Adding Payload Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" title="Adding Payload Mediator" width="40%" alt="Adding Payload Mediator"/></a>
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" title="Adding Payload Mediator" width="80%" alt="Adding Payload Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" title="Adding Payload Mediator" width="40%" alt="Adding Payload Mediator"/></a>
 
 
 12. Repeat the same steps for the **Else** branch as well. Add the **Log** mediator to log the failure message, the **Payload** mediator to create a custom error response payload.
@@ -179,7 +179,7 @@ In this operation, we are going to receive the following inputs from the user.
 
 13. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response of the `publishMessage` operation as shown below.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddRespondMediator.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddRespondMediator.png" title="Adding the respond mediator." width="80%" alt="Adding the respond mediator."/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddRespondMediator.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" title="Adding the respond mediator." width="80%" alt="Adding the respond mediator."/></a>
 
 ??? "RabbitMQ Publish Message API"
 
@@ -187,63 +187,65 @@ In this operation, we are going to receive the following inputs from the user.
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" alt="RabbitMQ Publish Message API" width="70%"></a>
+         <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" alt="RabbitMQ Publish Message API" width="70%"></a>
 
     === "Source View"
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/publishmessage" name="PublishMessage"
-	xmlns="http://ws.apache.org/ns/synapse">
-	<resource methods="POST" uri-template="/">
-		<inSequence>
-			<rabbitmq.publishMessage configKey="RabbitMQConnection">
-				<headers>[]</headers>
-				<requestBodyType>TEXT</requestBodyType>
-				<requestBodyText>${payload.message}</requestBodyText>
-				<requestCharSet></requestCharSet>
-				<queue>{${payload.queue}}</queue>
-				<queueAutoDeclare>true</queueAutoDeclare>
-				<queueType>QUORUM</queueType>
-				<queueArguments></queueArguments>
-				<deliveryLimit></deliveryLimit>
-				<deadLetterStrategy></deadLetterStrategy>
-				<queueAutoDelete>false</queueAutoDelete>
-				<queueOverflowStrategy>DROP_HEAD</queueOverflowStrategy>
-				<exchange></exchange>
-				<exchangeAutoDeclare>false</exchangeAutoDeclare>
-				<exchangeType>DIRECT</exchangeType>
-				<routingKey></routingKey>
-				<exchangeArguments></exchangeArguments>
-				<exchangeAutoDelete>false</exchangeAutoDelete>
-				<publishTimeout>60000</publishTimeout>
-				<publisherConfirms>true</publisherConfirms>
-				<responseVariable>rabbitmq_publishMessage_1</responseVariable>
-				<overwriteBody>false</overwriteBody>
-			</rabbitmq.publishMessage>
-			<filter xpath="${vars.rabbitmq_publishMessage_1.payload.success}">
-				<then>
-					<log category="INFO" logMessageID="false" logFullPayload="false">
-						<message>Published message Successfully with message ID: ${vars.rabbitmq_publishMessage_1.payload.messageId}</message>
-					</log>
-					<payloadFactory media-type="json" template-type="default">
-						<format>${vars.rabbitmq_publishMessage_1.payload}</format>
-					</payloadFactory>
-				</then>
-				<else>
-					<log category="INFO" logMessageID="false" logFullPayload="false">
-						<message>Failed to Publish Message with message ID: ${vars.rabbitmq_publishMessage_1.payload.messageId}</message>
-					</log>
-					<payloadFactory media-type="json" template-type="default">
-						<format>${vars.rabbitmq_publishMessage_1.payload}</format>
-					</payloadFactory>
-				</else>
-			</filter>
-			<respond/>
-		</inSequence>
-		<faultSequence></faultSequence>
-	  </resource>
-    </api>
-        ```
+        
+           ```xml
+
+            <?xml version="1.0" encoding="UTF-8"?>
+            <api context="/publishmessage" name="PublishMessage"
+            xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="POST" uri-template="/">
+                <inSequence>
+                    <rabbitmq.publishMessage configKey="RabbitMQConnection">
+                        <headers>[]</headers>
+                        <requestBodyType>TEXT</requestBodyType>
+                        <requestBodyText>${payload.message}</requestBodyText>
+                        <requestCharSet></requestCharSet>
+                        <queue>{${payload.queue}}</queue>
+                        <queueAutoDeclare>true</queueAutoDeclare>
+                        <queueType>QUORUM</queueType>
+                        <queueArguments></queueArguments>
+                        <deliveryLimit></deliveryLimit>
+                        <deadLetterStrategy></deadLetterStrategy>
+                        <queueAutoDelete>false</queueAutoDelete>
+                        <queueOverflowStrategy>DROP_HEAD</queueOverflowStrategy>
+                        <exchange></exchange>
+                        <exchangeAutoDeclare>false</exchangeAutoDeclare>
+                        <exchangeType>DIRECT</exchangeType>
+                        <routingKey></routingKey>
+                        <exchangeArguments></exchangeArguments>
+                        <exchangeAutoDelete>false</exchangeAutoDelete>
+                        <publishTimeout>60000</publishTimeout>
+                        <publisherConfirms>true</publisherConfirms>
+                        <responseVariable>rabbitmq_publishMessage_1</responseVariable>
+                        <overwriteBody>false</overwriteBody>
+                    </rabbitmq.publishMessage>
+                    <filter xpath="${vars.rabbitmq_publishMessage_1.payload.success}">
+                        <then>
+                            <log category="INFO" logMessageID="false" logFullPayload="false">
+                                <message>Published message Successfully with message ID: ${vars.rabbitmq_publishMessage_1.payload.messageId}</message>
+                            </log>
+                            <payloadFactory media-type="json" template-type="default">
+                                <format>${vars.rabbitmq_publishMessage_1.payload}</format>
+                            </payloadFactory>
+                        </then>
+                        <else>
+                            <log category="INFO" logMessageID="false" logFullPayload="false">
+                                <message>Failed to Publish Message with message ID: ${vars.rabbitmq_publishMessage_1.payload.messageId}</message>
+                            </log>
+                            <payloadFactory media-type="json" template-type="default">
+                                <format>${vars.rabbitmq_publishMessage_1.payload}</format>
+                            </payloadFactory>
+                        </else>
+                    </filter>
+                    <respond/>
+                </inSequence>
+                <faultSequence></faultSequence>
+              </resource>
+            </api>
+           ```
 
 ## Export the integration project as a carbon application
 To export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
@@ -267,7 +269,7 @@ To deploy and run the project, refer to the [build and run]({{base_path}}/develo
     {
         "queue": "TestQueue",
         "message": "Hello World!"
-   }
+    }
     ```
 2. Use the following `curl` command to invoke the API.
     ```bash
