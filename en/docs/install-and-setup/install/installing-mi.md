@@ -9,7 +9,7 @@ Java Development Kit (JDK) is essential to run the product.
 
 ## Installing the WSO2 Integrator: MI
 
-1.  Go to the [WSO2 Integrator: MI releases page](https://github.com/wso2/micro-integrator/releases) and download the latest WSO2 Integrator: MI distribution as a ZIP file.
+1.  Go to the [WSO2 Integrator: MI Downloads page](https://wso2.com/micro-integrator/previous-releases) and download the latest WSO2 Integrator: MI distribution as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the WSO2 Integrator: MI, which will hereafter be referred to as `<MI_HOME>`.
 
 ## Setting up JAVA_HOME
