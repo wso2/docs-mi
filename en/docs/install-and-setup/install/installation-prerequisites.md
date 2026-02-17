@@ -58,7 +58,7 @@ Prior to installing WSO2 Integrator: MI, make sure that the appropriate prerequi
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Integrator: MI 4.5.0 runtimes are given below.
+The details of the tested environments for the WSO2 Integrator: MI 4.6.0 runtimes are given below.
 
 ### Tested operating systems
 
