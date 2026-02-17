@@ -116,11 +116,11 @@ In this operation, we are going to receive the following inputs from the user.
         - **Content Type**: TEXT
         - **Request Body**: `${payload.message}`
 
-   - Publisher Client Settings
-     - **Publisher Confirms**: true
-     - **Publish Timeout (MS)**: 60000
+    - Publisher Client Settings
+      - **Publisher Confirms**: true
+      - **Publish Timeout (MS)**: 60000
 
-   - Output Section
+    - Output Section
        - **Output Variable Name**: rabbitmq_publishMessage_1
 
 3. To do this, click on the `Expression` icon in the Message field and select the `Payload` option.
