@@ -53,7 +53,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
    <br/> 
    This will create a new API resource with the context `/publishmessage` and the method `POST`.
 
-#### Create Sample Request Payload
+#### Create sample request payload
 
 To map elements from the request payload to the configuration parameters, you can define a sample request payload. To do this, follow the steps below:
 
