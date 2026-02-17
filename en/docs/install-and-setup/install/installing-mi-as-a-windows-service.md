@@ -4,7 +4,7 @@ Follow the instructions given below to run the Micro Integrator as a Windows ser
 
 ## Prerequisites
 
--	Go to the [WSO2 Micro Integrator releases page](https://github.com/wso2/micro-integrator/releases) and download the product distribution as a ZIP file.
+-	Go to the [WSO2 Micro Integrator Downloads page](https://wso2.com/micro-integrator/previous-releases) and download the product distribution as a ZIP file.
 
 -	Extract the downloaded ZIP file to a location on your computer. The <b>micro-integrator</b> folder inside the extracted ZIP file will be your <b>MI_HOME</b> directory.
 
