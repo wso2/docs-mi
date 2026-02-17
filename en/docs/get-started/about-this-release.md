@@ -2,7 +2,7 @@
 
 ## What's new in this release?
 
-The following features and improvements were introduced with **WSO2 Integrator: MI 4.5.0**.
+The following features and improvements were introduced with **WSO2 Integrator: MI 4.6.0**.
 
 ??? note "JDK 25 Support"
     Full compatibility with JDK 25 lets you leverage the latest Java platform features. Comprehensive testing and validation ensure smooth runtime operations on the new JDK version.
