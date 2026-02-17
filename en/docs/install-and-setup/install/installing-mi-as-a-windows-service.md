@@ -4,7 +4,7 @@ Follow the instructions given below to run the WSO2 Integrator: MI as a Windows 
 
 ## Prerequisites
 
--	Go to the [product page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
+-	Go to the [WSO2 Integrator: MI Downloads page](https://wso2.com/products/downloads?product=wso2integrator&package=mi) and download the product distribution as a ZIP file.
 
 -	Extract the downloaded ZIP file to a location on your computer. The <b>micro-integrator</b> folder inside the extracted ZIP file will be your <b>MI_HOME</b> directory.
 
