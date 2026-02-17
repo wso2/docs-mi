@@ -4,7 +4,7 @@ name: Weekly Sync from branch '4.5.0' to 'main'
 on:
   schedule:
     - cron: '0 5 * * 5'
-
+  workflow_dispatch:
 jobs:
   sync_pr:
     runs-on: ubuntu-latest
