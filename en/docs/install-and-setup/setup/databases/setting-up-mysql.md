@@ -64,6 +64,10 @@ Create the databases and then create the DB tables by pointing to the relevant M
 	-	For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look: `mysql> create database <DATABASE_NAME> character set latin1;`
 	-	For users of other operating systems, the standard database creation commands will suffice. For these operating systems, the following is how your database creation command should look: `mysql> create database <DATABASE_NAME>;`
 
+## Creating database users and granting permissions
+
+After setting up the MySQL server, create a new MySQL user and assign the necessary privileges to connect to the database and perform operations such as creating tables, and inserting, indexing, selecting, updating, and deleting data. These are the minimum required permissions for the WSO2 Micro Integrator to function properly with the configured databases. Ensure that the required privileges are granted for each database created for cluster coordination or user store configurations.
+
 ## Setting up the JDBC driver
 
 1. Download the [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/).
