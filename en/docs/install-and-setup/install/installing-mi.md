@@ -9,7 +9,7 @@ Java Development Kit (JDK) is essential to run the product.
 
 ## Installing the Micro Integrator
 
-1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+1.  Go to the [WSO2 Micro Integrator Downloads page](https://wso2.com/integrator/mi) and download the Micro Integrator distribution as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the Micro Integrator, which will hereafter be referred to as `<MI_HOME>`.
 
 ## Setting up JAVA_HOME
