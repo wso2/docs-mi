@@ -5,10 +5,10 @@
 The following features and improvements were introduced with **WSO2 Integrator: MI 4.6.0**.
 
 ??? note "JDK 25 Support"
-    Full compatibility with JDK 25 lets you leverage the latest Java platform features. Comprehensive testing and validation ensure smooth runtime operations on the new JDK version.
+    With JDK 25 support, WSO2 Integrator: MI stays aligned with the latest Java platform releases, offering a future-ready and fully validated runtime environment.
 
 ??? note "Post-Quantum Secure Runtime"
-    Strengthen runtime security with post-quantum-ready cryptography, improving resilience against emerging threats. This is especially useful for security-sensitive deployments that require long-term cryptographic assurance.
+    Strengthen runtime security with post-quantum-ready cryptography, safeguards your integrations against emerging quantum threats, ensuring long-term data protection and cryptographic resilience.
 
 ??? note "Bouncy Castle FIPS Crypto Provider Support"
     Run MI with the Bouncy Castle FIPS crypto provider to meet stricter cryptographic requirements in regulated environments. This improves compliance readiness and enables deployments that rely on FIPS-capable crypto modules.
@@ -17,14 +17,14 @@ The following features and improvements were introduced with **WSO2 Integrator: 
     Secure REST APIs with an OAuth 2.0 (JWT) authentication handler for token-based access control, adding a zero-trust layer to API access.
 
 ??? note "Management API Enhancements"
-    - Enable/disable scheduled tasks at runtime
+    - Enable/disable/trigger scheduled tasks at runtime
     - Enable/disable statistics at runtime
 
 ??? note "Enhanced Logging with Mediator ID"
     Include mediator IDs in runtime logs for faster troubleshooting and clearer correlation between log entries and mediation flow components. This makes debugging easier, especially in complex integration flows.
 
 ??? note "Observability Features/Improvements"
-    - Prometheus 3.5.0 compatibility
+    - Support Prometheus API 1.x
     - Support publishing observability data to Moesif
     - OpenTelemetry-based observability in Data Services
     - OpenTelemetry support for traces and logs
