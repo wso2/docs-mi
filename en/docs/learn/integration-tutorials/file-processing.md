@@ -16,8 +16,8 @@ Install the [Micro Integrator VS Code](https://marketplace.visualstudio.com/item
 
 Let's setup a MySQL database:
 
-1.  Manually set up the database.
-2.  Create a table named `info` in your schema. You
+1.  Create a database named `mi`.
+2.  Create a table named `info` in the `mi` database. You
     can run the following commands to do this.
 
     ```java
