@@ -334,7 +334,8 @@ Note that we have used the [Property mediator]({{base_path}}/reference/mediators
 
 There are two ways to access the content of a JSON payload within the MI.
 
--   JSONPath expressions (with `json-eval()` method)
+-  Synapse expressions
+-  JSONPath expressions (with `json-eval()` method)
 -   XPath expressions
 
 JSONPath allows you to access fields of JSON payloads with faster
