@@ -51,7 +51,7 @@ You can use the ICP server to perform the following administration tasks related
 
     This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/user-stores/managing-users). You can also add new users to the specified cluster/group.
 
-## Using the integration control plane
+## Using the Integration Control Plane
 
 Follow the steps given below to get started with the WSO2 Integration Control Plane.
 
