@@ -19,7 +19,7 @@ There are four main components in the tool:
 The tool is packaged inside the product distribution with default configurations. The configurations can be customized based on user requirements. By default, the diagnostic tool is enabled.
 
 !!! note
-    All the configurations described in this section should be added to the `config.toml` file located at `<WSO2_HOME>/diagnostics-tool/conf/config.toml`. These configurations are specific to the Runtime Diagnostic Tool and should not be added to the Micro Integrator's `deployment.toml` file.
+    All the configurations described in this section should be added to the `<MI_HOME>/conf/deployment.toml` file.
 
 ### Server Configurations
 
