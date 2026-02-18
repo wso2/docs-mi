@@ -432,6 +432,6 @@ Once Grafana is successfully configured to visualize statistics, you should be c
     
 [![jaeger ui]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png){: style="width:40%"}]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png)
 
-## What's Next?
+## What's next?
 
 If you have successfully set up your Grafana based observability deployment, see the instructions on [Viewing Grafana Dashboard]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).

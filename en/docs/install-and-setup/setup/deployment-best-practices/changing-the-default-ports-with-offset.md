@@ -72,6 +72,6 @@ The default port offset in the WSO2 Integrator: MI runtime is `10`. Use one of t
             micro-integrator.bat -DportOffset=3
             ```
 
-## What's Next?
+## What's next?
 
 You need to restart the server for these changes to take effect.
