@@ -8,7 +8,7 @@ The following features and improvements were introduced with **WSO2 Integrator: 
     With JDK 25 support, WSO2 Integrator: MI stays aligned with the latest Java platform releases, offering a future-ready and fully validated runtime environment.
 
 ??? note "Post-Quantum Secure Runtime"
-    Strengthen runtime security with post-quantum-ready cryptography, safeguards your integrations against emerging quantum threats, ensuring long-term data protection and cryptographic resilience.
+    Strengthens runtime security with post-quantum-ready cryptography, safeguards your integrations against emerging quantum threats, ensuring long-term data protection and cryptographic resilience.
 
 ??? note "Bouncy Castle FIPS Crypto Provider Support"
     Run MI with the Bouncy Castle FIPS crypto provider to meet stricter cryptographic requirements in regulated environments. This improves compliance readiness and enables deployments that rely on FIPS-capable crypto modules.
@@ -43,7 +43,7 @@ The following features and improvements were introduced with **WSO2 Integrator: 
 ??? note "Connector Enhancements"
     - AMQP 1.0 protocol support
     - gRPC connector with import support
-    - Importing Ballerina connectors in MI
+    - MI connector generation from Ballerina connectors
 
 ## Fixed issues
 
