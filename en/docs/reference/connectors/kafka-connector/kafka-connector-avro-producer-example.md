@@ -32,7 +32,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 3. In the Connection Configuration pane, enter the following required information:
     - **Connection Name** - Sample_Kafka
     - **Connection Type** - kafka
-    - **Boostrap Servers** - localhost:9092
+    - **Bootstrap Servers** - localhost:9092
     - **Key Serializer Class** - io.confluent.kafka.serializers.KafkaAvroSerializer
     - **Value Serializer Class** - io.confluent.kafka.serializers.KafkaAvroSerializer
     - **Schema Registry URL** - http://localhost:8081

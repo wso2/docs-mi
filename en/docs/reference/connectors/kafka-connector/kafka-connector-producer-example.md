@@ -37,7 +37,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 3. In the Connection Configuration pane, enter the following required information:
     - **Connection Name** - KafkaConnection
     - **Connection Type** - kafka
-    - **Boostrap Servers** - localhost:9092
+    - **Bootstrap Servers** - localhost:9092
     - **Key Serializer Class** - org.apache.kafka.common.serialization.StringSerializer
     - **Value Serializer Class** - org.apache.kafka.common.serialization.StringSerializer
     - **Pooling Enabled** - false
