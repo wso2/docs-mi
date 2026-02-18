@@ -362,9 +362,10 @@ The HL7 transport allows you to handle Health Level 7 International (HL7) messag
 
 ### Adding the transport
 
-HL7 is not shipped by default in the pack. To make the transport available, download the [HL7_ZIP](https://github
-.com/wso2-docs/WSO2_EI/raw/master/micro-integrator-resources/hl7/1.2.0/wso2mi-hl7-1.2.0.zip), extract it, and copy both
- the .jar files inside it to the `<MI_HOME>/dropins` folder.
+HL7 is not shipped by default in the pack. To make the transport available, you must manually add the required JAR files as follows.
+
+1. Download [org.wso2.micro.integrator.business.messaging.hl7-4.4.0.jar](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/ei/org.wso2.micro.integrator.business.messaging.hl7/4.4.0/org.wso2.micro.integrator.business.messaging.hl7-4.4.0.jar) and copy it to the `<MI_HOME>/dropins` directory.
+2. Download [openjpa-all-2.2.2.wso2v2.jar](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/orbit/org/apache/openjpa/openjpa-all/2.2.2.wso2v2/openjpa-all-2.2.2.wso2v2.jar) and copy it to the `<MI_HOME>/lib` directory.
 
 ### Enabling the transport
 
