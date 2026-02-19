@@ -42,7 +42,7 @@ MI VS Code Extension is the tooling or IDE developers use to code their integrat
 
 Operations of the WSO2 connector that you import are listed on the right-side panel. Developers can click and select connector operations to construct the integration logic. Input parameters to the operations can be provided as static values or expressions using the operation add form that appears when the connector operation is clicked. 
 
-## What's Next?
+## What's next?
 
 * [Learn how to write a connector from scratch]({{base_path}}/develop/customizations/creating-new-connector/)
 * [Connector best practices and MI VS Code Extension]({{base_path}}/reference/connectors/connector-usage/) 

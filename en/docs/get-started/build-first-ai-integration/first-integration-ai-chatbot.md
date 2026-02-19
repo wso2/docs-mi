@@ -282,7 +282,7 @@ The AI's response is located in the `content` section of the API response. This 
 Congratulations!
 Now, you have created your first AI Integration API.
 
-## What's Next?  
+## What's next?  
 
 So far, you have used the LLM (OpenAI API in this case) to process client requests and generate responses. In the next tutorial, you will learn how to build a knowledge base. This will serve as a foundation for enhancing your chatbot's capabilities in future integrations.
 
