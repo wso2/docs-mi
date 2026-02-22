@@ -52,13 +52,13 @@ Prior to installing WSO2 Integrator: MI, make sure that the appropriate prerequi
 
 ## Environment compatibility
 
-- Install a JDK version that is [compatible with this product version]({{base_path}}/install-and-setup/setup/reference/product-compatibility/).
+- Install a JDK version that is compatible with this product version. See [Tested JDKs](#tested-jdks).
 - It is not recommended to use Apache DS in a production environment due to scalability issues. Instead, use an LDAP like OpenLDAP as your user store.
 - If you have difficulty in setting up the WSO2 Integrator: MI in a specific platform or database, [contact us](https://wso2.com/contact/).
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Integrator: MI 4.5.0 runtimes are given below.
+The details of the tested environments for the WSO2 Integrator: MI 4.6.0 runtimes are given below.
 
 ### Tested operating systems
 
@@ -77,12 +77,12 @@ The WSO2 Integrator: MI runtime is tested with the following operating systems:
 
 The WSO2 Integrator: MI runtime is tested with the following JDKs:
 
-| JDK         |Versions|
-|-------------|--------|
-| CorrettoJDK | 11, 17, 21 |
-| AdoptOpenJDK | 11, 17, 21 |
-| OpenJDK     | 11, 17, 21 |
-| Oracle JDK  | 11, 17, 21 |
+| JDK          | Versions |
+|--------------|----------|
+| CorrettoJDK  | 21, 25   |
+| AdoptOpenJDK | 21, 25   |
+| OpenJDK      | 21, 25   |
+| Oracle JDK   | 21, 25   |
 
 ### Tested DBMSs
 
