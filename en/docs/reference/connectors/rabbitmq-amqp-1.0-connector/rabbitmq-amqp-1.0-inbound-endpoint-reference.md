@@ -229,7 +229,12 @@ This reference page documents all the configuration parameters supported by the 
     <tr>
         <td>rabbitmq.connection.oauth2.token.endpoint</td>
         <td>Token Endpoint</td>
-        <td>Defines the Identity Provider/Token Service token endpoint URL to generate the access token.</td>
+        <td>Defines the Identity Provider/Token Service token endpoint URL to generate the access token.
+          <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p> Provide the HTTPS URL for the token endpoint and import the Identity Provider's public certificate into the WSO2 MI <code>client-truststore.jks</code>. See <a href="{{base_path}}/install-and-setup/setup/security/importing-ssl-certificate/#importing-ssl-certificates-to-a-truststore">importing SSL certificates to a truststore</a> for instructions on importing the certificate into <code>client-truststore.jks</code>.</p>
+        </div>
+        </td>
         <td>No</td>
         <td> - </td>
     </tr>

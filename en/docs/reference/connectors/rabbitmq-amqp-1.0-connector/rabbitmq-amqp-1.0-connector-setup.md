@@ -77,6 +77,10 @@ RabbitMQ supports OAuth 2.0 authentication to provide secure access control. To 
 - **JWKS URI** - The JSON Web Key Set endpoint for token verification
 - **Resource server ID** - The identifier for RabbitMQ as a resource server
 
+!!! note
+    When configuring the OAuth2 Token Endpoint with the RabbitMQ Connector and Inbound Endpoint, ensure that the HTTPS URL of the token endpoint is provided. Additionally, the public certificate of the Identity Provider must be imported into the WSO2 Micro Integrator `client-truststore.jks` file to establish a secure connection over HTTPS. You may refer to the [import the CA-signed public key certificate to the trust store]({{base_path}}/install-and-setup/setup/security/importing-ssl-certificate/#importing-ssl-certificates-to-a-truststore) section for instructions on how to import the certificate.
+
+
 ## Using RabbitMQ in production
 
 When you move your RabbitMQ deployment to production, be sure to follow the instructions and guidelines specified in the official [RabbitMQ Documentation](https://www.rabbitmq.com/docs/download.html).
