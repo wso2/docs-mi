@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    {% if "material/search" in config.plugins %}
+    {% if "material/search" in config.plugins and not page.is_homepage %}
     <label class="md-header__button md-icon" for="__search">
       {% include ".icons/material/magnify.svg" %}
     </label>
