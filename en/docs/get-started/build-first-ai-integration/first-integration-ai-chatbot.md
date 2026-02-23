@@ -53,7 +53,7 @@ To develop the above scenario, let us get started with creating an integration p
 !!! note
     You need the following to work with the MI for VS Code extension.
 
-    - Java Development Kit (JDK) version 21
+    - Java Development Kit (JDK) version 25
     - WSO2 Integrator:  MI 4.6.0 runtime
 
     If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the WSO2 Integrator: MI for VS Code extension during the project creation step:

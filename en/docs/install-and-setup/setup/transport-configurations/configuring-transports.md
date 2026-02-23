@@ -108,6 +108,24 @@ listener.preferred_ciphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_
 
     $ java -jar testsslserver.jar localhost 8253
 
+### Configure post-quantum TLS
+
+As quantum computing becomes a reality, traditional public key algorithms like RSA and ECC grow increasingly vulnerable. WSO2 Integrator:MI mitigates this issue by supporting **Post-Quantum Cryptography (PQC)** through hybrid key exchange algorithms.
+
+A hybrid key agreement algorithm combines a classical algorithm with a post-quantum algorithm to establish a shared secret. This approach keeps communication secure even if one algorithm is compromised, helping systems transition seamlessly to post-quantum cryptography.
+
+WSO2 Integrator:MI supports post-quantum security for both Inbound connections (Between clients  and the server) and Outbound connections (Between the server and other external services). 
+
+To enable post-quantum security, update the following properties in the deployment.toml file:
+
+```toml
+[jsse_provider]
+provider_name = "BC"
+
+[transport.http]
+listener.secured_protocols="TLSv1.3" # TLSv1.3 must be added to the list of enabled protocols to use post-quantum key exchange algorithms
+```
+
 ## Configuring the VFS transport
 
 This transport is used to process files in a specified source directory. After processing the files, the files are moved to a specified location or deleted. Note that files cannot remain in the source directory after processing because they will be processed again. Therefore, if you need to maintain these files or keep track of which files have been processed, specify the option to move them instead of deleting them after processing. If you want to move files into a database, use the VFS transport and the [DBReport Mediator]({{base_path}}/reference/mediators/db-report-mediator).

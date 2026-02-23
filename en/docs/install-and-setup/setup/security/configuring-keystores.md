@@ -30,14 +30,27 @@ If you want to change the [default primary keystore](#the-default-keystore-confi
 
 3. Open the `deployment.toml` file and add the relevant configurations as described below.
 
-    ```toml
-    [keystore.primary]
-    file_name="repository/resources/security/wso2carbon.jks"
-    type="JKS"
-    password="wso2carbon"
-    alias="wso2carbon"
-    key_password="wso2carbon"
-    ```
+    === "JKS"
+
+        ```toml
+        [keystore.primary]
+        file_name="repository/resources/security/wso2carbon.jks"
+        type="JKS"
+        password="wso2carbon"
+        alias="wso2carbon"
+        key_password="wso2carbon"
+        ```
+
+    === "PKCS12"
+
+        ```toml
+        [keystore.primary]
+        file_name="repository/resources/security/wso2carbon.p12"
+        type="PKCS12"
+        password="wso2carbon"
+        alias="wso2carbon"
+        key_password="wso2carbon"
+        ```
 
     Find more details about [keystore parameters]({{base_path}}/reference/config-catalog-mi/#primary-keystore).
     
@@ -62,14 +75,27 @@ Follow the steps given below to separate the keystore that is used for encryptin
 
 3.  Open the `deployment.toml` file and add the relevant configurations as described below.
 
-    ```toml
-    [keystore.internal]
-    file_name="repository/resources/security/wso2carbon.jks"
-    type="JKS"
-    password="wso2carbon"
-    alias="wso2carbon"
-    key_password="wso2carbon"
-    ```
+    === "JKS"
+
+        ```toml
+        [keystore.internal]
+        file_name="repository/resources/security/wso2carbon.jks"
+        type="JKS"
+        password="wso2carbon"
+        alias="wso2carbon"
+        key_password="wso2carbon"
+        ```
+
+    === "PKCS12"
+
+        ```toml
+        [keystore.internal]
+        file_name="repository/resources/security/wso2carbon.p12"
+        type="PKCS12"
+        password="wso2carbon"
+        alias="wso2carbon"
+        key_password="wso2carbon"
+        ```
 
     Find more details about [internal keystore parameters]({{base_path}}/reference/config-catalog-mi/#internal-keystore).
             

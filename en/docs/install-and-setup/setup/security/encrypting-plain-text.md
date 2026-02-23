@@ -50,6 +50,9 @@ Dynamic secrets are specified in configurations as environment variables, system
 
 Running the Cipher Tool will first encrypt any [static secrets](#static-secrets) defined in the `[secrets]` section, and then enable all the secrets (static as well as dynamic) in the environment.
 
+!!! Note
+    While you are able to encrypt passwords using symmetric or asymmetric encryption, it is recommended to use symmetric encryption due to its greater resilience towards emerging post-quantum threats. Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities.
+
 ### In a VM environment
 
 In a <b>VM environment</b>, you need to manually run the Cipher Tool as follows:
@@ -60,14 +63,20 @@ In a <b>VM environment</b>, you need to manually run the Cipher Tool as follows:
 1.  Open a terminal, navigate to the `<MI_HOME>/bin/` directory.
 2.  Execute the `-Dconfigure` command with the cipher tool script as shown below.
 
-    === "On Linux"
-        ```bash 
-        ./ciphertool.sh -Dconfigure
-        ```
-    === "On Windows"
-        ```bash 
-        ./ciphertool.bat -Dconfigure
-        ```
+    === "Asymmetric encryption"
+        !!! Warning
+             Asymmetric encryption methods like RSA are not recommended due to their vulnerability to post-quantum threats.
+
+        - For Linux: `./ciphertool.sh -Dconfigure`
+        - For Windows: `ciphertool.bat -Dconfigure`
+
+    === "Symmetric encryption"
+        !!! Note
+            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions here to add one.
+
+        - For Linux: `./ciphertool.sh -Dconfigure -Dsymmetric`
+        - For Windows: `ciphertool.bat -Dconfigure -Dsymmetric`
+
 
 ### In Docker/Kubernetes environments
 

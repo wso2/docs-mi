@@ -12,7 +12,7 @@ This page explains how to install the WSO2 Integrator: MI for VS Code extension.
 
 <!--
 - Java Development Kit (JDK)
-    1. Download and install Java SE Development Kit (JDK) version 11 or 17. See [Tested JDKs]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) for more information.
+    1. Download and install Java SE Development Kit (JDK) version 21 or 25. See [Tested JDKs]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-jdks) for more information.
     2. Set the `JAVA_HOME` environment variable in the [system settings]({{base_path}}/install-and-setup/install/installing-mi/#setting-up-java_home).
 
 - Apache Maven

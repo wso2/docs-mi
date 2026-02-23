@@ -77,12 +77,12 @@ The WSO2 Integrator: MI runtime is tested with the following operating systems:
 
 The WSO2 Integrator: MI runtime is tested with the following JDKs:
 
-| JDK         |Versions|
-|-------------|--------|
-| CorrettoJDK | 11, 17, 21 |
-| AdoptOpenJDK | 11, 17, 21 |
-| OpenJDK     | 11, 17, 21 |
-| Oracle JDK  | 11, 17, 21 |
+| JDK         | Versions   |
+|-------------|------------|
+| CorrettoJDK | 21, 25     |
+| AdoptOpenJDK | 21, 25     |
+| OpenJDK     | 21, 25 |
+| Oracle JDK  | 21, 25 |
 
 ### Tested DBMSs
 
