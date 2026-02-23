@@ -56,7 +56,6 @@ theme:
        - navigation.path
        - navigation.top
        - navigation.footer
-       - navigation.instant
        - navigation.instant.progress
        - content.code.copy
        - content.action.edit
