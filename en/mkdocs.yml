@@ -1081,6 +1081,7 @@ nav:
               - Overview: observe-and-manage/cloud-native-observability-overview.md
               - Configure for VM based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
               - Configure for K8s based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+              - Configure with OpenTelemetry: observe-and-manage/setting-up-opentelemetry-metrics.md
               - Access the Dashboard: observe-and-manage/viewing-cloud-native-observability-statistics.md
       - Analytics:
           - ELK Based Analytics:
