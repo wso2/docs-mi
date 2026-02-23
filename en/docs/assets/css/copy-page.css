@@ -1,0 +1,179 @@
+/* Copy Page Feature CSS - Styled to match React implementation */
+
+.copy-page-container {
+    display: inline-block;
+    position: relative;
+    float: right;
+    margin-left: 0.5rem;
+}
+
+/* Main button - behaves like md-content__button */
+.copy-page-button {
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--md-default-fg-color--light);
+    transition: color 0.25s;
+}
+
+.copy-page-button:hover {
+    color: var(--md-default-fg-color);
+}
+
+/* Hide text span if any remains, though we will remove it in JS */
+.copy-page-button span:not(.md-icon) {
+    display: none;
+}
+
+/* Dropdown menu */
+.copy-page-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    /* Open downwards */
+    bottom: auto;
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    min-width: 240px;
+    padding: 0.5rem;
+    background-color: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lighter);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 101;
+    display: none;
+}
+
+.copy-page-menu.active {
+    display: block;
+}
+
+/* Dropdown items */
+.copy-page-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.625rem;
+    font-size: 0.75rem;
+    color: var(--md-default-fg-color);
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.copy-page-item:hover {
+    background-color: var(--md-default-bg-color--lighter);
+}
+
+.copy-page-item svg:first-child {
+    flex-shrink: 0;
+    color: var(--md-default-fg-color--light);
+}
+
+.copy-page-item-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.copy-page-item-title {
+    font-weight: 500;
+    color: var(--md-default-fg-color);
+}
+
+.copy-page-item-desc {
+    font-size: 0.65rem;
+    color: var(--md-default-fg-color--light);
+    margin-top: 0.125rem;
+}
+
+.copy-page-external-icon {
+    flex-shrink: 0;
+    color: var(--md-default-fg-color--lighter);
+    margin-left: auto;
+}
+
+.copy-page-divider {
+    height: 1px;
+    background-color: var(--md-default-fg-color--lighter);
+    margin: 0.5rem 0;
+    opacity: 0.5;
+}
+
+/* Chevron rotation */
+.copy-page-chevron-icon {
+    transition: transform 0.2s;
+}
+
+.copy-page-button[aria-expanded="true"] .copy-page-chevron-icon {
+    transform: rotate(180deg);
+}
+
+/* Mobile Backdrop */
+.copy-page-backdrop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .copy-page-container {
+        position: fixed;
+        float: none;
+        top: auto;
+        bottom: 1rem;
+        left: 0.5rem;
+        right: auto;
+        z-index: 100;
+    }
+
+    .copy-page-button {
+        width: 3rem;
+        height: 3rem;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .copy-page-button span,
+    .copy-page-chevron-icon {
+        display: none;
+    }
+
+    .copy-page-backdrop.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .copy-page-menu.active {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0 !important;
+        right: 0 !important;
+        min-width: unset;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        max-height: 70vh;
+        overflow-y: auto;
+        padding: 1rem;
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        z-index: 1000;
+    }
+
+    .copy-page-item {
+        padding: 0.875rem 1rem;
+    }
+}
