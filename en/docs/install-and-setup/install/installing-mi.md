@@ -9,7 +9,7 @@ Java Development Kit (JDK) is essential to run the product.
 
 ## Installing the WSO2 Integrator: MI
 
-1.  Go to the [WSO2 Integrator: MI web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the WSO2 Integrator: MI distribution as a ZIP file.
+1.  Go to the [WSO2 Integrator: MI Downloads page](https://wso2.com/products/downloads?product=wso2integrator&package=mi) and download the latest WSO2 Integrator: MI distribution as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the WSO2 Integrator: MI, which will hereafter be referred to as `<MI_HOME>`.
 
 ## Setting up JAVA_HOME
@@ -117,7 +117,7 @@ If you need to set additional system properties when the server starts, you can 
 
     When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost`.
 
-## What's Next?
+## What's next?
 
 -   [Running the MI Runtime]({{base_path}}/install-and-setup/install/running-the-mi).
 

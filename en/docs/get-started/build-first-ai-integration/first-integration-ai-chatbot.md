@@ -40,7 +40,7 @@ To develop the above scenario, let us get started with creating an integration p
 
 4. In the **Project Creation Form**, enter `BankIntegration` as the **Project Name**.
 
-5. Ensure `4.5.0` is selected as the **WSO2 Integrator: MI runtime version**.
+5. Ensure `4.6.0` is selected as the **WSO2 Integrator: MI runtime version**.
 
 6. Provide a location for the integration project under **Project Directory**.
 
@@ -54,7 +54,7 @@ To develop the above scenario, let us get started with creating an integration p
     You need the following to work with the MI for VS Code extension.
 
     - Java Development Kit (JDK) version 21
-    - WSO2 Integrator:  MI 4.5.0 runtime
+    - WSO2 Integrator:  MI 4.6.0 runtime
 
     If you don't have them installed on your local machine, these will be automatically prompted for downloading and configured by the WSO2 Integrator: MI for VS Code extension during the project creation step:
 
@@ -282,7 +282,7 @@ The AI's response is located in the `content` section of the API response. This 
 Congratulations!
 Now, you have created your first AI Integration API.
 
-## What's Next?  
+## What's next?  
 
 So far, you have used the LLM (OpenAI API in this case) to process client requests and generate responses. In the next tutorial, you will learn how to build a knowledge base. This will serve as a foundation for enhancing your chatbot's capabilities in future integrations.
 
