@@ -58,13 +58,26 @@ Follow the steps given below to import the CA-signed public key certificate into
 
 1. Get a copy of the trust store file from the `MI_HOME/repository/resources/security/` directory.
 2. Export the public key from your .jks file using the following command.
-    ```bash
-    keytool -export -alias certalias -keystore newkeystore.jks -file <public key name>.pem
-    ```
+
+    === "JKS"
+        ```bash
+        keytool -export -alias certalias -keystore newkeystore.jks -file <public key name>.pem
+        ```
+    === "PKCS12"
+        ```bash
+        keytool -export -alias certalias -keystore newkeystore.p12 -storetype PKCS12 -file <public key name>.pem
+        ```
+
 3. Import the public key you extracted in the previous step to your trust store using the following command.
-    ```bash
-    keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
-    ```
+
+    === "JKS"
+        ```bash
+        keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
+        ```
+    === "PKCS12"
+        ```bash
+        keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.p12 -storetype PKCS12 -storepass wso2carbon
+        ```
 
 ## What's next?
 
