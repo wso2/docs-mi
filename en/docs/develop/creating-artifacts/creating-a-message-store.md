@@ -44,7 +44,7 @@ The message store is created in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/me
 
 To add a message store to the integration sequence, use the [Store Mediator]({{base_path}}/reference/mediators/store-mediator):
 
-1. Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
+1. Open the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 
 2. Add **Store Message** from the **Palette** under **Mediators** > **Generic** to the relevant position in the mediation sequence.
 

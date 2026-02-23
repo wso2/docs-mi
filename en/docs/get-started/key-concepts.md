@@ -4,7 +4,7 @@ WSO2 Integrator: MI is a comprehensive integration solution that streamlines the
 
 ![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts-overall.png)
 
-##WSO2 Integrator: MI Runtime
+## WSO2 Integrator: MI Runtime
 
 Listed below are the key concepts of the WSO2 Integrator: MI runtime.
 
@@ -122,7 +122,7 @@ See the [Message Builders and Formatters]({{base_path}}/install-and-setup/setup/
 
 ## Development Tool
 
-###WSO2 Integrator: MI for VS Code
+### WSO2 Integrator: MI for VS Code
 
 WSO2 Integrator: MI Visual Studio Code extension (MI for VS Code) is a comprehensive integration solution that simplifies your digital transformation journey. It streamlines your integration development workflow using a user-friendly low-code graphical designing experience. This leverages AI to assist developers throughout the integration development process which elevates the integration experience to new heights.
 
@@ -140,7 +140,7 @@ The WSO2 Integration Control Plane (ICP) can be used to monitor the WSO2 Integra
 
 See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) documentation for more information.
 
-###WSO2 Integrator: MI CLI
+### WSO2 Integrator: MI CLI
 
 The WSO2 Integrator: MI CLI allows you to monitor the Synapse artifacts (deployed in a specified WSO2 Integrator: MI server) and perform various management and administration tasks from the command line.
 

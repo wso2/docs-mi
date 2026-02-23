@@ -8,7 +8,7 @@ A custom mediator is a Class mediator that you can create to implement custom me
 
 Follow the steps below to create a custom mediator artifact:
 
-1. [Create a new integration project]({{base_path}}/develop/create-integration-project/#datasource-project) or select an existing one.  
+1. [Create a new integration project]({{base_path}}/develop/create-integration-project/) or select an existing one.  
 2. Navigate to **MI Project Explorer** and click on **Add artifact**.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
@@ -18,11 +18,11 @@ Follow the steps below to create a custom mediator artifact:
 
     <a href="{{base_path}}/assets/img/integrate/create_project/select_class.png"><img src="{{base_path}}/assets/img/integrate/create_project/select_class.png" alt="class mediator artifact" width="80%"></a>
 
-3. Enter the package name and class name of your mediator project.
+5. Enter the package name and class name of your mediator project.
 
     <a href="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png"><img src="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png" alt="class mediator form" width="80%"></a>
 
-4. Click <b>Create</b> and see that the project is now listed in the project explorer.  
+6. Click <b>Create</b> and see that the project is now listed in the project explorer.  
 
 A new mediator class that extends `org.apache.synapse.mediators.AbstractMediator` is now added to the integration project. You can now add your custom mediation logic to this class.
 
