@@ -8,7 +8,8 @@ To support such scenarios, you can write your own custom inbound endpoint by ext
 
 ### Step 1: Develop the custom inbound endpoint
 
-You can use the sample custom inbound endpoint projects as a template to develop your custom inbound endpoint. Kindly focus on the relevant method descriptions in implementation.
+To develop your custom inbound endpoint, you can start by using the provided samples as a template. Ensure you thoroughly read the Javadoc for the methods provided in the template before proceeding with concrete implementation.
+
 Depending on the type of inbound endpoint you want to create, download the relevant maven artifact from the links given below:
 
 -   To create a **custom listening inbound endpoint**, download the maven artifact used in the [sample custom listening inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/custom_inbound_listening).
@@ -29,9 +30,9 @@ Depending on the type of inbound endpoint you want to create, download the relev
 
     *What to modify:*
 
-    - `component name`: Give a preferred name to your inbound endpoint
-    - `package`: Update to match your Java package structure
-    - `description`: Provide a meaningful description of your inbound endpoint
+    - `component name`: Give a preferred name to your inbound endpoint.
+    - `package`: Update to match your Java package structure.
+    - `description`: Provide a meaningful description of your inbound endpoint.
 
     *Example:*
 
@@ -50,7 +51,7 @@ Depending on the type of inbound endpoint you want to create, download the relev
     *What to modify:*
 
     - Parameters are inherited from `filter.properties` using placeholders.
-    - Add additional dependencies if your inbound endpoint requires external libraries
+    - Add additional dependencies if your inbound endpoint requires external libraries.
 
     *Example:*
 
@@ -74,8 +75,8 @@ Depending on the type of inbound endpoint you want to create, download the relev
 
     *What to modify:*
 
-    - Default properties reference Maven project properties (usually keep as-is)
-    - Add any custom parameters defined in `descriptor.yml`
+    - Default properties reference Maven project properties (usually keep as-is).
+    - Add any custom parameters defined in `descriptor.yml`.
 
     *Example:*
 
@@ -92,7 +93,7 @@ Depending on the type of inbound endpoint you want to create, download the relev
 
     **4. uischema.json**
 
-    *Purpose:* Defines the UI schema for the Integration Studio graphical editor.
+    *Purpose:* Defines the UI schema for the WSO2 Integrator: MI VS Code extension.
 
     **a. Basic Identifiers**
 
@@ -171,34 +172,35 @@ Depending on the type of inbound endpoint you want to create, download the relev
     ```
 
     !!! Tip
-        - Use `hidden: true` for attributes that shouldn't appear in the UI
-        - Use `enableCondition` to show/hide fields based on other field values
+        - Use `hidden: true` for attributes that shouldn't appear in the UI.
+        - Use `enableCondition` to show/hide fields based on other field values.
 
     **d. Input Types Available**
 
     The following input types are available for form fields:
 
-    - `string`: Text input field
-    - `checkbox`: Boolean checkbox
-    - `keyOrExpression`: Dropdown for sequences/keys
+    - `string`: Text input field.
+    - `checkbox`: Boolean checkbox.
+    - `keyOrExpression`: Dropdown for sequences/keys.
 
     You can also add validation attributes to any field:
 
-    - `required`: Mark field as mandatory
-    - `defaultValue`: Set a default value
-    - `hidden`: Hide field from UI
+    - `required`: Mark field as mandatory.
+    - `defaultValue`: Set a default value.
+    - `hidden`: Hide field from UI.
     - `enableCondition`: Show/hide field based on other field values
 
     ---
 
     **5. zip-assembly.xml**
 
-    *Purpose:* Defines how the connector package is assembled.
+    *Purpose:* 
+    - Defines how the connector package is assembled.
+    - Usually no changes needed unless you have additional resources.
 
     *What to modify:*
 
-    - Usually no changes needed unless you have additional resources
-    - Add custom resource files if required
+    - Add custom resource files (if required).
 
     *Example:*
 
@@ -212,8 +214,7 @@ Depending on the type of inbound endpoint you want to create, download the relev
 
 ### Step 2: Build the custom inbound endpoint
 
-You need to build the developed custom inbound endpoint using Maven to generate the inbound zip file. 
-The following command builds the project and creates the zip file in the `/target` folder.
+Build your custom inbound endpoint using **Maven** to create the required inbound zip file. Run the following command from the project's root directory. It will build and place the resulting zip file in the project's `/target` folder.
 
 ```bash
   mvn clean install
