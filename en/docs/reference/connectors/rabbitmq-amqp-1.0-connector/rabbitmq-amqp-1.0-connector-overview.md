@@ -13,7 +13,7 @@ AMQP 1.0 follows a layered architecture, and its specification is organized into
 - Part 4 – Transactions: Describes how messaging interactions can be grouped into atomic transactions.
 - Part 5 – Security: Defines security layers such as authentication and encryption.
 
-The **WSO2 RabbitMQ connector** allows WSO2 Micro Integrator (MI) to seamlessly interact with RabbitMQ message brokers. It supports reliable, asynchronous communication by enabling message publishing to queues or exchanges, implementing Remote Procedure Call (RPC) patterns, and managing message acknowledgments through accept, discard, or requeue operations. Additionally, it allows external systems to send messages over HTTP/HTTPS without requiring native RabbitMQ client integrations.
+The **WSO2 RabbitMQ connector** allows WSO2 Micro Integrator: MI to seamlessly interact with RabbitMQ message brokers. It supports reliable, asynchronous communication by enabling message publishing to queues or exchanges, implementing Remote Procedure Call (RPC) patterns, and managing message acknowledgments through accept, discard, or requeue operations. Additionally, it allows external systems to send messages over HTTP/HTTPS without requiring native RabbitMQ client integrations.
 
 ## Features
 
