@@ -25,7 +25,7 @@
   --md-header-link-opacity: 1;
   --md-header-link-icon-size: 20px;
   --md-header-tabs-mobile-breakpoint: 70.1875em;
-  --md-header-links-vertical-spacing: 15px;
+  --md-header-links-vertical-spacing: 2px;
 }
 
 .md-header {
@@ -42,7 +42,6 @@
   font-size: .8rem;
   position: relative;
   top: -2px;
-  left: -8px;
   transform: none !important;
   opacity: 1 !important;
 }
@@ -51,7 +50,6 @@
   font-weight: 400;
   display: block !important;
   position: relative !important;
-  left: -8px;
 }
 
 /* Hide the page title topic to keep site name always visible */
@@ -63,9 +61,13 @@
   overflow: visible !important;
 }
 
+.md-header__title {
+  margin-left: 0;
+}
+
 /* Search */
 .md-header .md-search {
-  margin: 0 var(--md-header-links-vertical-spacing);
+  margin: 0 0;
 }
 
 /* Links  */
@@ -77,7 +79,7 @@
 }
 
 [data-md-color-scheme=default] .md-header,
-[data-md-color-scheme=default] .md-tabs  {
+[data-md-color-scheme=default] .md-tabs {
   background-color: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
 }
@@ -145,7 +147,6 @@
 
 .md-header__extra {
   display: flex;
-  margin-right: 0.6rem;
 }
 
 .md-header__extra .md-header__links {
@@ -155,7 +156,6 @@
 }
 
 .md-header__extra:before {
-  margin: 10px 15px;
   width: 1px;
   background-color: var(--md-divider-color);
   content: "";
@@ -165,20 +165,19 @@
   margin-right: var(--md-header-links-vertical-spacing);
 }
 
-@media screen and (max-width: 90.1875em) {
-  .md-button.md-button--asgardeo, .md-button.md-button--discord {
-    display: none;
-  }
-
-  .md-button.md-button--asgardeo-mini, .md-button.md-button--discord-mini {
-    display: block;
-  }
+/* Always use mini icon buttons for social links */
+.md-button.md-button--asgardeo,
+.md-button.md-button--discord,
+.md-button.md-button--linkedin,
+.md-button.md-button--youtube,
+.md-button.md-button--twitter {
+  display: none;
 }
 
-@media screen and (min-width: 90.1875em) {
-  .md-icon.md-button--asgardeo-mini, .md-icon.md-button--discord-mini {
-    display: none;
-  }
+.md-icon.md-button--asgardeo-mini,
+.md-icon.md-button--discord-mini,
+.md-header__button.md-button--asgardeo-mini {
+  display: block;
 }
 
 /* Version Dropdown */
@@ -240,18 +239,43 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  /* Reduce spacing variables so icons fit on narrow screens */
+  :root {
+    --md-header-links-vertical-spacing: 4px;
+  }
+
   .md-header__topic {
     left: 0;
     top: 0;
   }
 
+  /* Tighten overall header padding */
   .md-header__inner {
-    padding: 0 0.5rem;
+    padding: 0 0.25rem;
   }
 
-  /* Ensure logo and menu integration is smooth */
+  /* Reduce per-button right margin */
+  .md-header__button {
+    margin-right: 2px;
+  }
+
+  /* Let the title shrink so right-side icons have room */
+  .md-header__title {
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Compact the logo */
   .md-header__button.md-logo img,
   .md-header__button.md-logo svg {
     height: 1.2rem;
+  }
+
+  /* Keep the search label tightly spaced */
+  .md-header__button.md-icon[for="__search"],
+  label[for="__search"].md-header__button {
+    margin-right: 0;
   }
 }
