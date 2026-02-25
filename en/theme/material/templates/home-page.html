@@ -51,7 +51,7 @@
 
     {{ page.content }}
 
-    <a href="{{base_path}}/get-started/build-first-integration/" rel="noopener" class="quickstart-cta">
+    <a href="{{base_path}}/en/latest/get-started/build-first-integration/" rel="noopener" class="quickstart-cta">
 
       <div class="cta-icon">
         {{ home_card_icon("octicons/rocket-16") }}
@@ -70,7 +70,7 @@
         <div>
           <div class="components-section-header">
             <h2>Get Started</h2>
-            <p>Learn the basics and build your first AI integration.</p>
+            <p>Learn the basics and build your first integration.</p>
           </div>
           <div class="components-card">
             <div>
@@ -83,15 +83,14 @@
               </div>
             </div>
             <div class="components-card-footer">
-              <a href="{{base_path}}/get-started/introduction/" rel="noopener" class="components-resource-link">
+              <a href="{{base_path}}/en/latest/get-started/introduction/" rel="noopener" class="components-resource-link">
                 Introduction <span>&rarr;</span>
               </a>
-              <a href="{{base_path}}/get-started/key-concepts/" rel="noopener" class="components-resource-link">
+              <a href="{{base_path}}/en/latest/get-started/key-concepts/" rel="noopener" class="components-resource-link">
                 Key Concepts <span>&rarr;</span>
               </a>
-              <a href="{{base_path}}/get-started/build-first-ai-integration/" rel="noopener"
-                class="components-resource-link">
-                Build your first AI Integration <span>&rarr;</span>
+              <a href="{{base_path}}/en/latest/get-started/build-first-ai-integration/" rel="noopener" class="components-resource-link">
+                Build your first Integration <span>&rarr;</span>
               </a>
             </div>
           </div>
@@ -113,15 +112,15 @@
               </div>
             </div>
             <div class="components-card-footer">
-              <a href="{{base_path}}/install-and-setup/install/installing-mi/" rel="noopener"
+              <a href="{{base_path}}/en/latest/install-and-setup/install-and-setup-overview/" rel="noopener"
+                class="components-resource-link">
+                Overview <span>&rarr;</span>
+              </a>
+              <a href="{{base_path}}/en/latest/install-and-setup/install/installing-mi/" rel="noopener"
                 class="components-resource-link">
                 Install WSO2 Integrator: MI <span>&rarr;</span>
               </a>
-              <a href="{{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/" rel="noopener"
-                class="components-resource-link">
-                VS Code extension for MI <span>&rarr;</span>
-              </a>
-              <a href="{{base_path}}/install-and-setup/install/installing-integration-control-plane/" rel="noopener"
+              <a href="{{base_path}}/en/latest/install-and-setup/install/installing-integration-control-plane/" rel="noopener"
                 class="components-resource-link">
                 Integration Control Plane <span>&rarr;</span>
               </a>
@@ -136,54 +135,6 @@
       </div>
 
       <div class="components-grid-3">
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/workflow-16") }}
-            </div>
-            <h3>Core Capabilities</h3>
-            <div class="components-card-content">
-              Learn how to route, transform, and orchestrate services.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/learn/integration-use-case/message-routing-overview/" rel="noopener"
-              class="components-resource-link">
-              Routing and Transformation <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/learn/integration-use-case/service-orchestration-overview/" rel="noopener"
-              class="components-resource-link">
-              Service Orchestration <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/learn/integration-use-case/asynchronous-message-overview/" rel="noopener"
-              class="components-resource-link">
-              Asynchronous Messaging <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/file-16") }}
-            </div>
-            <h3>Data & Files</h3>
-            <div class="components-card-content">
-              Integrate with file systems and perform data integration.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/learn/integration-use-case/file-processing-overview/" rel="noopener"
-              class="components-resource-link">
-              File Processing <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/learn/integration-use-case/data-integration-overview/" rel="noopener"
-              class="components-resource-link">
-              Data Integration <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
         <div class="components-card">
           <div>
             <div class="md-column-grid-item-header-icon icon-color-4">
@@ -208,11 +159,58 @@
             </a>
           </div>
         </div>
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/workflow-16") }}
+            </div>
+            <h3>Core Capabilities</h3>
+            <div class="components-card-content">
+              Learn how to route, transform, and orchestrate services.
+            </div>
+          </div>
+          <div class="components-card-footer">
+            <a href="{{base_path}}/en/latest/learn/integration-use-case/message-routing-overview/" rel="noopener"
+              class="components-resource-link">
+              Routing and Transformation <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/latest/learn/integration-use-case/service-orchestration-overview/" rel="noopener"
+              class="components-resource-link">
+              Service Orchestration <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/latest/learn/integration-use-case/asynchronous-message-overview/" rel="noopener"
+              class="components-resource-link">
+              Asynchronous Messaging <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/file-16") }}
+            </div>
+            <h3>Data & Files</h3>
+            <div class="components-card-content">
+              Integrate with file systems and perform data integration.
+            </div>
+          </div>
+          <div class="components-card-footer">
+            <a href="{{base_path}}/en/latest/learn/integration-use-case/file-processing-overview/" rel="noopener"
+              class="components-resource-link">
+              File Processing <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/latest/learn/integration-use-case/data-integration-overview/" rel="noopener"
+              class="components-resource-link">
+              Data Integration <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="components-section-header">
-        <h2>References & Community</h2>
-        <p>Reference catalogs and open-source community support.</p>
+        <h2>References</h2>
+        <p>Reference catalogs.</p>
       </div>
 
       <div class="components-grid-split">
@@ -227,44 +225,20 @@
             </div>
           </div>
           <div class="components-card-footer">
-            <a href="{{base_path}}/reference/config-catalog-mi/" rel="noopener" class="components-resource-link">
+            <a href="{{base_path}}/en/latest/reference/config-catalog-mi/" rel="noopener" class="components-resource-link">
               Product Configurations <span>&rarr;</span>
             </a>
-            <a href="{{base_path}}/reference/mediators/property-reference/generic-properties/" rel="noopener"
+            <a href="{{base_path}}/en/latest/reference/mediators/property-reference/generic-properties/" rel="noopener"
               class="components-resource-link">
               Integration Properties <span>&rarr;</span>
             </a>
-            <a href="{{base_path}}/reference/mediators/about-mediators/" rel="noopener"
+            <a href="{{base_path}}/en/latest/reference/mediators/about-mediators/" rel="noopener"
               class="components-resource-link">
               Mediators <span>&rarr;</span>
             </a>
-            <a href="{{base_path}}/reference/connectors/connectors-overview/" rel="noopener"
+            <a href="{{base_path}}/en/latest/reference/connectors/connectors-overview/" rel="noopener"
               class="components-resource-link">
               Connectors <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/comment-discussion-16") }}
-            </div>
-            <h3>Community & Support</h3>
-            <div class="components-card-content">
-              Join the community on Discord, report issues on GitHub, or get enterprise support.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="https://github.com/wso2/product-micro-integrator/issues" target="_blank" rel="noopener"
-              class="components-resource-link">
-              GitHub <span>&rarr;</span>
-            </a>
-            <a href="https://discord.com/invite/wso2" target="_blank" rel="noopener" class="components-resource-link">
-              Discord <span>&rarr;</span>
-            </a>
-            <a href="https://wso2.com/subscription/" target="_blank" rel="noopener" class="components-resource-link">
-              Enterprise Support <span>&rarr;</span>
             </a>
           </div>
         </div>
