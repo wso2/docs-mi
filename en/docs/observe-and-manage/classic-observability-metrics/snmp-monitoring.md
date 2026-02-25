@@ -5,18 +5,15 @@ Simple Network Management Protocol (SNMP) is an Internet-standard protocol for
 ## Enabling SNMP
 
 1.  Download the following jar files from [http://www.snmp4j.org](http://www.snmp4j.org/) and add them to the
-    `<MI_HOME>/lib` directory. 
-    
-     -  **snmp4j-2.1.0.jar**
-     -  **snmp4j-agent-2.0.6.jar**
-  
-2.  Enable SNMP in the `ei.toml` file, stored in the `<MI_HOME>/conf/` file by
-    adding the following entry: 
-    
-     ```toml
-     [synapse_properties]
-     'synapse.snmp.enabled'=true
-     ``` 
+    `<MI_HOME>/lib` directory.
+
+    !!! note
+        SNMP4J version 3.x and above is recommended for Java 8 and later. Use version 2.x only if you are on an older Java version.
+
+     -  **snmp4j-3.8.0.jar** (or the latest 3.x version)
+     -  **snmp4j-agent-3.1.2.jar** (or the latest 3.x version)
+
+Once the jar files are added to the `<MI_HOME>/lib` directory, restart the WSO2 MI server to activate SNMP monitoring.
 
 The WSO2 Integrator: MI can now monitor MBeans with SNMP. For example:
 
