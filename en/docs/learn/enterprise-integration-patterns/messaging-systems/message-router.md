@@ -46,7 +46,7 @@ When you unzip the ZIP file you download below in Step 4 when simulating the sam
      ```
      <?xml version="1.0" encoding="UTF-8"?>
      <sequence name="MessageRoute" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-         <property name="Hospital" scope="default" type="STRING" expression="json-eval($.hospital)" />
+         <property name="Hospital" scope="default" type="STRING" expression="${payload.hospital}" />
          <switch source="get-property('Hospital')">
              <case regex="grand oak community hospital">
                  <call>
