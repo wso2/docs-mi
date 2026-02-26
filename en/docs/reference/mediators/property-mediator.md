@@ -158,7 +158,7 @@ The Property mediator can be used to set the HTTP status code for responses. In 
 
 ### Extract JSON property values
 
-The Property mediator can extract values from JSON payloads using JSONPath expressions. In MI 4.4.0 and later, use the direct JSONPath syntax without the `json-eval()` function wrapper.
+The Property mediator can extract values from JSON payloads using JSONPath expressions. In MI 4.4.0 and later, use synapse expressions.
 
 ```xml
 <!-- Correct syntax for MI 4.4.0+ -->
