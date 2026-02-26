@@ -156,11 +156,11 @@ nav_item_icon.level == level %}
   {% for behavior_config in config.extra.nav_behaviors.auto_collapse %}
   {% if behavior_config.title == nav_item.title %}
   {% if page and page.url %}
-  {% set base_path = config.extra.base_path if config.extra.base_path is defined else 'docs-apim/' %}
+  {% set base_path = config.extra.base_path if config.extra.base_path is defined else 'docs' %}
   {% set current_url = page.url.lstrip('/') %}
   {% set normalized_base_path = base_path.lstrip('/').rstrip('/') ~ '/' %}
   {% if current_url.startswith(normalized_base_path) %}
-  {% set current_url = current_url[len(normalized_base_path):] %}
+  {% set current_url = current_url[(normalized_base_path|length):] %}
   {% endif %}
   {% set current_page = page.file.src_path %}
   {% if behavior_config.stay_expanded_when_url_starts_with %}

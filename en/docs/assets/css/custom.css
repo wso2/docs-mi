@@ -34,7 +34,7 @@
     border: 1px solid gray;
 }
 
-th, td {
+.md-typeset th, .md-typeset td {
     border: 1px solid var(--md-typeset-table-color);
     border-spacing: 0;
     border-bottom: none;

@@ -40,8 +40,8 @@
           {% for version in config.extra.versions.all if version.name == current_version %} 
             <tr>
               <th>{{ version.name }}</th>
-              <td><a href="{{ version.doc }}" target="_blank">Documentation</a></td>
-              <td><a href="{{ version.notes }}" target="_blank">Release Notes</a></td>
+              <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+              <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
             </tr>
           {% endfor %}
         </tbody>
@@ -59,8 +59,8 @@
             {% if version.name != current_version %}
               <tr>
                 <th>{{ version.name }}</th>
-                <td><a href="{{ version.doc }}" target="_blank">Documentation</a></td>
-                <td><a href="{{ version.notes }}" target="_blank">Release Notes</a></td>
+                <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+                <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
               </tr>
             {% endif %}
           {% endfor %}
