@@ -155,18 +155,3 @@ The Property mediator can be used to set the HTTP status code for responses. In 
 ```xml
 <property name="HTTP_SC" value="500" scope="axis2"/>
 ```
-
-### Extract JSON property values
-
-The Property mediator can extract values from JSON payloads using JSONPath expressions. In MI 4.4.0 and later, use synapse expressions.
-
-```xml
-<!-- Correct syntax for MI 4.4.0+ -->
-<property name="hospitalId" expression="$.hospital_id" scope="default"/>
-
-<!-- Incorrect syntax (legacy) - will cause errors in MI 4.4.0+ -->
-<!-- <property name="hospitalId" expression="json-eval($.hospital_id)" scope="default"/> -->
-```
-
-!!! Note
-    In MI 4.4.0 and later versions, JSONPath expressions like `$.hospital_id` should be used directly without wrapping them in `json-eval()`. The `json-eval()` function is only needed when using JSONPath expressions within other expression contexts.
