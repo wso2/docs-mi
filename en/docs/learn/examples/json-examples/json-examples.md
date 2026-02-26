@@ -404,7 +404,7 @@ You can use JSON path expressions with following mediators:
 <p>As the switch source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;switch source=&quot;$.coordinates.location[0].name&quot;&gt;</code></pre>
+<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;switch source=&quot;${payload.coordinates.location[0].name}&quot;&gt;</code></pre>
 </div>
 </div>
 </div></td>
