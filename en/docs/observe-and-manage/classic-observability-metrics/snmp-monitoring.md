@@ -1,24 +1,40 @@
 # SNMP Monitoring
 
-Simple Network Management Protocol (SNMP) is an Internet-standard protocol for managing devices on IP networks. Follow the instructions given below to configure SNMP in the WSO2 Integrator: MI, which exposes various MBeans via SNMP.
+Simple Network Management Protocol (SNMP) is an Internet-standard protocol for managing devices on IP networks. Follow the instructions given below to configure SNMP monitoring in the WSO2 Micro Integrator, which exposes various MBeans via SNMP.
+
+!!! Info "Java Version Compatibility"
+    - For Java 8 and later versions, use SNMP4J version 3.x and above
+    - For older Java versions (Java 7 and below), SNMP4J version 2.x may be used
+    - Always refer to the [official SNMP4J documentation](https://www.snmp4j.org/) for the latest compatibility information
 
 ## Enabling SNMP
 
-1.  Download the following jar files from [http://www.snmp4j.org](http://www.snmp4j.org/) and add them to the
+1.  Download the following jar files from [https://www.snmp4j.org](https://www.snmp4j.org/) and add them to the
     `<MI_HOME>/lib` directory. 
     
-     -  **snmp4j-2.1.0.jar**
-     -  **snmp4j-agent-2.0.6.jar**
+     !!! Info
+         For Java 8 and later versions, it is recommended to use SNMP4J version 3.x and above as per the [official SNMP4J documentation](https://www.snmp4j.org/).
+    
+     -  **snmp4j-3.8.0.jar** (or latest 3.x version)
+     -  **snmp4j-agent-3.1.2.jar** (or latest 3.x version)
   
-2.  Enable SNMP in the `ei.toml` file, stored in the `<MI_HOME>/conf/` file by
-    adding the following entry: 
+2.  Enable SNMP monitoring by adding the required JAR files to the classpath. 
+    
+    !!! Warning "Configuration Note"
+        The previously documented `synapse.snmp.enabled` property may not be recognized by the current Micro Integrator implementation. SNMP monitoring is typically enabled by the presence of the SNMP4J libraries in the classpath. If SNMP monitoring is not working with just the JAR files, please consult the latest WSO2 Micro Integrator documentation or contact WSO2 support for the correct configuration properties.
+    
+    Alternatively, you can try adding the following configuration to the `deployment.toml` file in the `<MI_HOME>/conf/` directory:
     
      ```toml
      [synapse_properties]
      'synapse.snmp.enabled'=true
-     ``` 
+     ```
+     
+     Note: If the above property doesn't work, SNMP monitoring might be automatically enabled when the SNMP4J libraries are detected in the classpath.
 
-The WSO2 Integrator: MI can now monitor MBeans with SNMP. For example:
+3.  **Verification**: Restart the WSO2 Micro Integrator after adding the JAR files and configuration. Check the server logs for any SNMP-related messages to confirm that SNMP monitoring is properly initialized.
+
+The WSO2 Micro Integrator can now monitor MBeans with SNMP. For example:
 
 ``` java
 Monitoring Info : OID branch "1.3.6.1.4.1.18060.14" with the following sub-branches:
@@ -33,6 +49,11 @@ Monitoring Info : OID branch "1.3.6.1.4.1.18060.14" with the following sub-branc
 ## MBean OID mappings
 
 Following are the OID equivalents of the server manager and transport MBeans, which are described in [JMX Monitoring]({{base_path}}/observe-and-manage/classic-observability-metrics/jmx-monitoring):
+
+!!! Note "Downloading SNMP4J Libraries"
+    - Download the latest compatible versions from the [SNMP4J Downloads page](https://www.snmp4j.org/html/download.html)
+    - Ensure you download both the core SNMP4J library and the SNMP4J Agent library
+    - The version numbers mentioned above are examples; always use the latest stable versions compatible with your Java version
 
 ```
 Name=ServerManager@ServerState as OID: 
