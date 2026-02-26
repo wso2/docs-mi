@@ -14,11 +14,11 @@ Follow the steps given below to start the server.
 
       <table>
             <tr>
-                  <th>On <b>Linux/macOS</b></td>
+                  <th>On <b>Linux/macOS</b></th>
                   <td>Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window.</td>
             </tr>
             <tr>
-                  <th>On <b>Windows</b></td>
+                  <th>On <b>Windows</b></th>
                   <td>Click <b>Start &gt;Run</b>, type <b>cmd</b> at the prompt, and then press <b>Enter</b>.</td>
             </tr>
       </table>     
@@ -39,7 +39,7 @@ Follow the steps given below to start the server.
             
     -       To start the server in background mode:
 
-        === ""On macOS/Linux"              
+        === "On macOS/Linux"              
             ```bash 
             sh micro-integrator.sh start
             ```

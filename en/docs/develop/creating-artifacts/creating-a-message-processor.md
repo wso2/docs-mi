@@ -16,7 +16,7 @@ Follow the instructions below to create a new [Message Processor]({{base_path}}/
 
 5. Click **+ View More** under **Create an Integration**.
 
-6. Click **Message Processor** under **Other Artifacts** to open the **Message Store Form**.
+6. Click **Message Processor** under **Other Artifacts** to open the **Message Processor Form**.
 
 7. Select the type of message processor you are creating.
 

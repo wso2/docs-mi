@@ -264,7 +264,7 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
     appender.AUDIT_LOGFILE.filter.threshold.level = INFO
     ```
 
-### Correlations Logs
+### Correlation logs
 
 This logger generates correlation logs for monitoring individual HTTP requests from the point that a message is received by the WSO2 Integrator: MI until the corresponding response message is sent back to the original message sender. It refers to the details in the `CORRELATION` appender and prints logs to the `<MI_HOME>/repository/logs/correlation.log` file.
 
@@ -556,7 +556,7 @@ You can customize the format of this access log by changing the following proper
 </tr>
 <tr class="odd">
 <td><pre><code>%S</code></pre></td>
-<td><p>Accept Chatset</p></td>
+<td><p>Accept Charset</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%t</code></pre></td>
