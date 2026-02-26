@@ -415,7 +415,7 @@ You can use JSON path expressions with following mediators:
 <p>As the filter source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;filter source=&quot;$.coordinates.location[0].name&quot; 
+<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;filter source=&quot;${payload.coordinates.location[0].name}&quot; 
         regex=&quot;Eiffel.*&quot;&gt;</code></pre>
 </div>
 </div>
