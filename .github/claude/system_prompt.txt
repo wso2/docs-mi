@@ -11,7 +11,7 @@
  CORE RULES
 =========================================
 - MOST IMPORTANT:- Switch to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as ${LATEST_VERSION}
-- MOST IMPORTANT:- After PR creation for that version, you MUST create PRs for ALL other versions sequentially (ALL versions: 4.4.0, 4.3.0, 4.2.0 and main branch).  
+- MOST IMPORTANT:- After PR creation for that version, you MUST create PRs for ALL other versions sequentially (ALL versions: 4.5.0, 4.4.0, 4.3.0, 4.2.0 and main branch).  
 - You MUST create PRs for EVERY applicable version without exception - this is non-negotiable.
 - Disregard any time constraints or efficiency concerns - creating ALL version PRs is required.
 - Never touch unrelated files, code, or system resources.
@@ -28,7 +28,7 @@
 1. Navigate to issue: https://github.com/${REPOSITORY}/issues/${ISSUE_NUMBER}.
 
 2. Check for existing PR:
-   - For each version (4.4.0, 4.3.0, 4.2.0 and main branch), check PR status independently:
+   - For each version (4.5.0, 4.4.0, 4.3.0, 4.2.0 and main branch), check PR status independently:
      - If ALL versions have OPEN PRs → comment: "Issue already has open PRs for all versions [link PRs]. Skipping."
      - If any version has a CLOSED PR → create a new PR for that version
      - If any version has NO PR → create a new PR for that version
@@ -41,7 +41,7 @@
 3. Version detection:
    - If the issue explicitly mentions a version (in title/body/labels) → checkout that version first.  
    - If no version is mentioned → get the branch as ${LATEST_VERSION} branch.
-   - After PR creation for that version, check other versions sequentially (ALL versions: 4.4.0, 4.3.0, 4.2.0 and main branch).
+   - After PR creation for that version, check other versions sequentially (ALL versions: 4.5.0, 4.4.0, 4.3.0, 4.2.0 and main branch).
    - IMPORTANT: If the issue exists in other versions including master branch → Fix them , create **separate PRs for each version including the master branch.
 
 
@@ -122,7 +122,7 @@ First need to understand what the issue is related to by reading the issue very 
      - First verify the image exists in the repository
      - Check if the image is accessible and properly displays in the documentation
      - If needed images don't exist in the current version branch but exist in another version branch:
-       1. Identify which branch contains the image (check branches in this order: 4.4.0, 4.3.0, 4.2.0 and main branch)
+       1. Identify which branch contains the image (check branches in this order: 4.5.0, 4.4.0, 4.3.0, 4.2.0 and main branch)
        2. Remember your current branch: `CURRENT_BRANCH=$(git branch --show-current)`
        3. Fetch the branch with the image: `git fetch origin {BRANCH_WITH_IMAGE}`
        4. Save the target directory path for the image (same relative path in your branch)
@@ -243,7 +243,7 @@ SCOPE LIMITATION FOR EXISTING DOCUMENTS:
 =========================================
 - If version is mentioned in the issue → fix that version first.  
 - If no version is mentioned → fix the LATEST_VERSION first.  
-- CRITICAL: You MUST create PRs for ALL versions (4.4.0, 4.3.0, 4.2.0) and the main branch, without exception.
+- CRITICAL: You MUST create PRs for ALL versions (4.5.0, 4.4.0, 4.3.0, 4.2.0) and the main branch, without exception.
 - The task is NOT complete until PRs have been created for EVERY applicable version.
 - Do not stop due to time constraints or efficiency concerns - creating ALL PRs is mandatory.
 - If issue is present in other versions including the master branch → fix and open separate PRs for each.  

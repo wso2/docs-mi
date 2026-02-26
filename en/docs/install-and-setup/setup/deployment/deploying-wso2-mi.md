@@ -42,7 +42,7 @@ See the descriptions of the [service catalog parameters]({{base_path}}/reference
 
 Most of the integration artifacts in your deployment are stateless and don't actually require coordination when there is more than a single instance of the server running. However, the following set of artifacts require coordination among themselves when deployed in more than a single instance of the server.
 
--   Scheduled Tasks
+-   Scheduled triggers
 -   Message Processors
 -   Polling Inbound Endpoints
 -   Event-Based Inbound Endpoints
@@ -127,7 +127,7 @@ When the nodes in the cluster need to communicate with each other, the WSO2 Inte
      
 ### Node ID
 
-The node ID is a unique identifier, which is used to identify a node within the cluster. This is useful in situations where certain requests need to be routed to the server node based on the node ID. For example, <b>scheduled tasks</b> should only run in specific nodes.
+The node ID is a unique identifier, which is used to identify a node within the cluster. This is useful in situations where certain requests need to be routed to the server node based on the node ID. For example, <b>Scheduled triggers</b> should only run in specific nodes.
 
 By default, a random UUID value will be used as the node ID. However, you can assign a specific node ID using the following methods:
 
@@ -146,7 +146,7 @@ If the node ID is specified using multiple methods, the applicable node ID will 
 
 ### Task resolver
 
-When you have scheduled tasks in your integration deployment, each task should only run in one node of the cluster. The task resolver configuration in your server nodes specifies the logic for allocating tasks to the server nodes.
+When you have Scheduled triggers in your integration deployment, each task should only run in one node of the cluster. The task resolver configuration in your server nodes specifies the logic for allocating tasks to the server nodes.
 
 -   Default resolver
 
@@ -249,9 +249,9 @@ See [deployment synchronization]({{base_path}}/install-and-setup/setup/deploymen
 ## Registry synchronization (sharing)
 
 !!! Note
-    Registry sharing is only required if you have Message Processors in your deployment.
+    Registry sharing is only required if you have Message Processors or inbound endpoints in your deployment.
 
-The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor artifact. This ensures that the same state is maintained for Message Processor in all the WSO2 Integrator: MI nodes of the cluster.
+The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor/inbound endpoint artifact. This ensures that the same state is maintained for Message Processor/inbound endpoint in all the WSO2 Integrator: MI nodes of the cluster.
 
 1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) for a two-node deployment of the WSO2 Integrator: MI.
 2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment-synchronization).
@@ -299,7 +299,7 @@ You could observe the following member removal log in other servers when one nod
 
 ##  Testing task coordination
 
-Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+Create a simple Scheduled trigger using WSO2 Integration Studio and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

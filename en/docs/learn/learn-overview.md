@@ -286,7 +286,7 @@ Learn how to implement various integration use cases, deploy them in the WSO2 In
                         <li><a href="{{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-with-registry">How to use an Inbound Endpoints with Registry</a></li>
                     </ul>
                 </li>
-                <li>Scheduled Tasks 
+                <li>Scheduled triggers 
                     <ul>
                         <li><a href="{{base_path}}/learn/examples/scheduled-tasks/task-scheduling-simple-trigger">How to schedule tasks using a simple trigger</a></li>
                         <li><a href="{{base_path}}/learn/examples/scheduled-tasks/injecting-messages-to-rest-endpoint">How to inject messages to a RESTful endpoint</a></li>

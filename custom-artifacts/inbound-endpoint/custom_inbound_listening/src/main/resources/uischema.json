@@ -1,0 +1,153 @@
+{
+  "id": "org.wso2.carbon.inbound.custom.listen.SampleListeningInboundEndpoint",
+  "name": "SampleListenerInbound",
+  "type": "event-integration",
+  "title": "SampleListenerInbound",
+  "help": "Configuration of Sample Listener Inbound Endpoint",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Generic",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "name",
+              "displayName": "Event Integration Name",
+              "inputType": "string",
+              "required": true,
+              "helpTip": "Unique identifier for the Listener event integration."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "class",
+              "displayName": "Class Name",
+              "inputType": "string",
+              "required": true,
+              "hidden": true,
+              "defaultValue": "org.wso2.carbon.inbound.custom.listen.SampleListeningInboundEndpoint"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "generateSequences",
+              "displayName": "Automatically generate sequences",
+              "inputType": "checkbox",
+              "defaultValue": true
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "sequence",
+              "displayName": "Injecting Sequence Name",
+              "inputType": "keyOrExpression",
+              "keyType": "sequence",
+              "required": true,
+              "enableCondition": [{"generateSequences":false}],
+              "helpTip": "Sequence to inject the SMS message"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "onError",
+              "displayName": "Error Sequence Name",
+              "inputType": "keyOrExpression",
+              "keyType": "sequence",
+              "required": false,
+              "enableCondition": [{"generateSequences":false}],
+              "helpTip": "Error sequence to invoke on fault"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Inbound Functional",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "inbound.behavior",
+              "displayName": "Inbound behavior",
+              "hidden": true,
+              "inputType": "string",
+              "defaultValue": "listening",
+              "required": true,
+              "helpTip": "Inbound behavior"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "sequential",
+              "displayName": "Execute sequentially",
+              "inputType": "checkbox",
+              "defaultValue": true,
+              "required": false,
+              "helpTip": "The behaviour when executing the given sequence."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "coordination",
+              "displayName": "Coordination",
+              "inputType": "checkbox",
+              "defaultValue": true,
+              "required": false,
+              "helpTip": "In a clustered setup, this will run the inbound only in a single worker node."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "suspend",
+              "displayName": "Suspend Inbound",
+              "inputType": "checkbox",
+              "defaultValue": false,
+              "hidden": false,
+              "required": false,
+              "helpTip": "Enable this option to suspend the inbound endpoint immediately after deployment."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Configuration Group 01",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "config1",
+              "displayName": "Sample Listener Inbound configuration 1",
+              "inputType": "string",
+              "required": true,
+              "helpTip": "Unique identifier for the Sample listener configuration."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "config2",
+              "displayName": "Sample Listener Inbound configuration 2",
+              "inputType": "string",
+              "required": false,
+              "helpTip": "Unique identifier for the Sample listener configuration."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

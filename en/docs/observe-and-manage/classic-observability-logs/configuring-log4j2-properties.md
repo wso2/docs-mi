@@ -716,6 +716,50 @@ Here,
 - `%ex` logs the exception (if any)
 - `%n` adds a new line
 
+### Configuring mediator ID in log patterns
+
+The **Mediator ID** is automatically included in error logs (`wso2error.log`) for mediation-related errors. You can also configure other log appenders to include the mediator ID by updating their layout pattern.
+
+The mediator ID follows a hierarchical format that identifies the exact location of the mediator in your integration flow:
+
+`<ArtifactType>:<ArtifactName>/<SequencePath>/<position>.<MediatorType>[<context>]`
+
+Where:
+
+- ArtifactType: The type of integration artifact (e.g., `api`, `proxy`, `sequence`)
+- ArtifactName: The name of the artifact (e.g., `petStore`)
+- SequencePath: The path to the sequence within the artifact (for APIs: `<method>[<resource>]/<sequence-type>`, for proxies: `<sequence-type>`)
+- Position: The hierarchical position of the mediator in the mediation flow
+- MediatorType: The type of mediator (e.g., `Log`, `Call`, `PayloadFactory`)
+- Context: Additional context information, such as property name if applicable
+
+**Examples:**
+
+- `api:TestAPI/GET[/users/{id}]/in/2.Property[requestType]`
+- `proxy:TestProxy/fault/2.Drop`
+- `sequence:FilterTestSequence/2.Filter/then/2.Property[status]`
+- `template:TestTemplate/1.Log`
+
+#### Adding mediator ID to an appender
+
+The mediator ID is available via Log4j2's ThreadContext (MDC concept) under the key `MediatorId`. To include it in your log pattern, use the {% raw %}`%X{MediatorId}`{% endraw %} or {% raw %}`%notEmpty{ {%X{MediatorId}}}`{% endraw %} syntax.
+
+To include the mediator ID in any appender (such as `CARBON_LOGFILE`, `SERVICE_LOGFILE`, or `API_LOGFILE`), update the `layout.pattern` property as follows:
+
+```xml
+appender.CARBON_LOGFILE.layout.pattern = {% raw %}[%d] %5p {%c}%notEmpty{ {%X{MediatorId}}} - %m%ex%n{% endraw %}
+```
+
+This pattern will:
+
+- Display the mediator ID when it's available
+- Automatically hide the mediator ID section when it's not available (using {% raw %}`%notEmpty`{% endraw %})
+
+!!! note
+    - The mediator ID is context-specific and will only appear in logs for errors that occur during message mediation.
+    - For error logs related to mediation, the mediator ID is automatically included without any configuration changes.
+    - Using {% raw %}`%notEmpty{ {%X{MediatorId}}}`{% endraw %} ensures clean log output when the mediator ID is not available.
+
 ## Hide current parameters in the printed log
 
 By default, when an error occurs while invoking a data service, the WSO2 Integrator: MI logs a set of details including the parameters used in the request in the error message.
@@ -739,7 +783,7 @@ To prevent the `Current Params` from being printed in the logs, add the followin
 -Ddss.disable.current.params=true
 ```
 
-## Using Custom Log appenders
+## Using custom log appenders
 
 Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storages.
 
@@ -812,6 +856,6 @@ However, since WSO2 Integrator: MI works in an OSGi environment, such Log4j2 ext
 
 6. Restart the server.
 
-## What's Next?
+## What's next?
 
 Once you have configured the logs, you can start [monitoring and analyzing logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs) to troubleshoot issues and observe runtime behavior.

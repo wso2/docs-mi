@@ -114,8 +114,8 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### HTTP Connector
 
-- Prefer using the HTTP connector for outbound HTTP calls instead of combining endpoints with Call or Send mediators. The HTTP connector provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. This reduces complexity, improves performance, and ensures better alignment with WSO2 MI best practices.
-- Always use the latest version of the HTTP connector to take advantage of performance improvements and new features.
+- Prefer using the HTTP connector for outbound HTTP calls instead of combining endpoints with Call or Send mediators. The HTTP connector provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. This reduces complexity, and ensures better alignment with WSO2 MI best practices.
+- Always use the latest version of the HTTP connector to take advantage of new features.
 
 <!-- TODO: Add Scatter Gather Mediator best practices -->
 <!-- ### Scatter Gather Mediator -->
@@ -150,7 +150,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Expression & data handling
 
-- Prefer the **Synapse Expression Language** for all JSON data manipulation and transformation tasks. It offers improved performance, enhanced flexibility, and broader feature support compared to legacy `XPath` and `JSONPath` expressions.
+- Prefer the [Synapse Expression Language]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) for all JSON data manipulation and transformation tasks. It offers enhanced flexibility, and broader feature support compared to legacy `XPath` and `JSONPath` expressions.
 - Use legacy expressions only when maintaining existing integrations that depend on them, or if a required feature is unavailable in the Synapse Expression Language.
 - Regularly review and refactor older integrations to migrate to Synapse Expression Language where feasible, ensuring consistency and maintainability across your projects.
 - Document any use of legacy expressions, noting the reason for their inclusion and any limitations, to aid future maintenance and upgrades.
@@ -227,12 +227,546 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ## Migration Best Practices
 
-If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), note that your existing configurations will continue to work. However, it is recommended to migrate to the newer configurations for improved maintainability, performance, and alignment with current best practices.
+If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Migration is optional, only perform it if you want to take advantage of usability and maintainability improvements. If your current mediators meet your requirements and you are satisfied with their behavior, you may continue using them without changes.
 
-- The [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) in APIs and Proxies is deprecated from version 4.4.0 onwards. Migrate any existing `Out Sequence` logic to the `In Sequence`.  
+For future implementations, adopt the newer mediators and connectors (for example, HTTP Connector, new ForEach, Scatter‑Gather, and the new PayloadFactory) to benefit from improved usability and maintainability.
+
+- The [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) in APIs and Proxies are not created by MI VS Code extension by default from version 4.4.0 onwards. Implement the necessary logic in the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to handle outgoing messages.
+
+    ??? "OutSequence Migration Sample"
+
+        === "Legacy Configuration"
+            ```xml
+            <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET" uri-template="/?city={city}">
+                    <inSequence>
+                        <payloadFactory media-type="json" template-type="default">
+                            <format>{city: "$1", "apiKey": "$2"}</format>
+                            <args>
+                                <arg value="get-property('query.param.city')" evaluator="xml" />
+                                <arg value="wso2:vault-lookup('weather_api_key')" evaluator="xml" />
+                            </args>
+                        </payloadFactory>
+                        <send>
+                            <endpoint key="WeatherAPI"/>
+                        </send>
+                    </inSequence>
+                    <outSequence>
+                        <respond/>
+                    </outSequence>
+                    <faultSequence/>
+                </resource>
+            </api>
+            ```
+
+        === "New Configuration"
+            ```xml
+            <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET" uri-template="/?city={city}">
+                    <inSequence>
+                        <payloadFactory media-type="json" template-type="default">
+                            <format>{city: "$1", "apiKey": "$2"}</format>
+                            <args>
+                                <arg value="get-property('query.param.city')" evaluator="xml" />
+                                <arg value="wso2:vault-lookup('weather_api_key')" evaluator="xml" />
+                            </args>
+                        </payloadFactory>
+                        <http.post configKey="WeatherAPIConnection">
+                            <relativePath></relativePath>
+                            <headers>[]</headers>
+                            <requestBodyType>JSON</requestBodyType>
+                            <requestBodyJson>${payload}</requestBodyJson>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>false</noKeepAlive>
+                            <forcePostPutNobody>false</forcePostPutNobody>
+                            <responseVariable>http_post_1</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.post>
+                        <respond/>
+                    </inSequence>
+                    <faultSequence/>
+                </resource>
+            </api>
+            ```
+
 - [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer recommended.
-- The use of [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) and [Endpoint]({{base_path}}/reference/endpoints/) for invoking external HTTP services is no longer recommended. Instead, adopt the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) which offers enhanced configuration options, better performance, and improved maintainability. Reserve the use of endpoints for non-HTTP protocols or legacy scenarios where connectors are not applicable.
-- The [Iterate Mediator]({{base_path}}/reference/mediators/iterate-mediator/) is deprecated. Use the enhanced [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) (version 2) for all scenarios previously handled by the Iterate or ForEach (version 1) mediators. The updated ForEach mediator provides improved performance, supports parallel processing, enables external service calls, and offers more flexible configuration options. It is the recommended approach for iterating over message elements in integration flows.
-- The [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/) are no longer recommended. Instead of that, use [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/).
-- The [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) has been enhanced with new features and improved performance. Migrate any existing `PayloadFactory` configurations to take advantage of these enhancements.
+- Use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to invoke external HTTP services instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/). The HTTP Connector provides richer configuration options, and better maintainability. Reserve [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/) for non-HTTP protocols (such as VFS, RabbitMQ, JMS etc.) or legacy scenarios where connectors are not applicable.
 
+    ??? "Call Endpoint to HTTP Connector Migration"
+
+        - The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) exposes built‑in configuration options that replace many values previously set using the Property mediator.
+        - Set these options on the connector operation itself (for example: headers, noKeepAlive etc.), since applying them via Property mediators for HTTP connector is not supported.
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET">
+                    <inSequence>
+                        <property name="NO_KEEPALIVE" value="true" scope="axis2"/>
+                        <call>
+                            <endpoint key="WeatherEndpoint"/>
+                        </call>
+                    </inSequence>
+                    <faultSequence/>
+                </resource>
+            </api>
+            ```
+
+            ```xml
+            <endpoint name="WeatherEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+                <http method="get" uri-template="http://weatherapi.com/v1/current.json?key=YOUR_API_KEY&amp;q=London">
+                    <suspendOnFailure>
+                        <initialDuration>-1</initialDuration>
+                        <progressionFactor>1</progressionFactor>
+                    </suspendOnFailure>
+                    <markForSuspension>
+                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                    </markForSuspension>
+                </http>
+            </endpoint>
+            ```
+
+        === "New Configuration"
+
+            ```xml
+            <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
+                <resource methods="GET">
+                    <inSequence>
+                        <http.get configKey="WeatherAPIConnection">
+                            <relativePath>/</relativePath>
+                            <headers>[]</headers>
+                            <forceScAccepted>false</forceScAccepted>
+                            <disableChunking>false</disableChunking>
+                            <forceHttp10>false</forceHttp10>
+                            <noKeepAlive>true</noKeepAlive>
+                            <responseVariable>http_get_1</responseVariable>
+                            <overwriteBody>true</overwriteBody>
+                        </http.get>
+                        <respond />
+                    </inSequence>
+                    <faultSequence/>
+                </resource>
+            </api>
+            ```
+
+            ```xml
+            <localEntry key="WeatherAPIConnection" xmlns="http://ws.apache.org/ns/synapse">
+                <http.init>
+                    <connectionType>HTTP</connectionType>
+                    <baseUrl>http://weatherapi.com/v1/current.json?key=YOUR_API_KEY&amp;q=London</baseUrl>
+                    <authType>None</authType>
+                    <timeoutAction>Never</timeoutAction>
+                    <retryCount>0</retryCount>
+                    <retryDelay>0</retryDelay>
+                    <suspendInitialDuration>-1</suspendInitialDuration>
+                    <suspendProgressionFactor>1</suspendProgressionFactor>
+                    <name>WeatherAPIConnection</name>
+                </http.init>
+            </localEntry>
+            ```
+
+- Use the new [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) for all scenarios previously handled by the Iterate Mediator or older ForEach. It supports parallel execution, enables external service calls, and offers more flexible configuration.
+
+    ??? "Iterate to ForEach Migration"
+        Map Iterate mediator attributes to new ForEach mediator equivalents as follows:
+        <table>
+            <thead>
+                <tr>
+                    <th>Iterate attribute / element</th>
+                    <th>Foreach attribute / element mapping</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id="123"</code></td>
+                    <td>Not needed anymore.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>expression="json-eval(\$.)"</code></td>
+                    <td><code>collection="${payload}"</code></td>
+                    <td>Convert JSONPath/XPath evaluated expression to [Synapse expression]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) referencing the iteration collection.</td>
+                </tr>
+                <tr>
+                    <td><code>sequential="true|false"</code></td>
+                    <td><code>parallel-execution="true|false"</code></td>
+                    <td>Map sequential to parallel-execution (set <code>parallel-execution="true"</code> when <code>sequential="false"</code> to enable concurrent processing; set <code>parallel-execution="false"</code> when <code>sequential="true"</code> to preserve ordering).</td>
+                </tr>
+                <tr>
+                    <td><code>continueParent="true|false"</code></td>
+                    <td>N/A</td>
+                    <td>This is not applicable as all iterations are aggregated in the foreach mediator itself.</td>
+                </tr>
+                <tr>
+                    <td><code>preservePayload="true|false"</code></td>
+                    <td><code>update-original="true|false"</code></td>
+                    <td>For details on output aggregation and related options, see [ForEach mediator output configurations]({{base_path}}/reference/mediators/foreach-mediator/#output-configurations).</td>
+                </tr>
+                <tr>
+                    <td><code>attachPath="true|false"</code></td>
+                    <td>N/A</td>
+                    <td>Attach path is no longer supported. Please use [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator/) after the foreach mediator.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <iterate expression="json-eval($.)">
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint key="PlaceOrderEndpoint"/>
+                        </call>
+                    </sequence>
+                </target>
+            </iterate>
+            ```
+
+            ```xml
+            <endpoint name="PlaceOrderEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+                <http method="get" uri-template="http://localhost:8290/orderapi/placeOrder">
+                    <suspendOnFailure>
+                        <initialDuration>-1</initialDuration>
+                        <progressionFactor>1</progressionFactor>
+                    </suspendOnFailure>
+                    <markForSuspension>
+                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                    </markForSuspension>
+                </http>
+            </endpoint>
+            ```
+        
+        === "New Configuration"
+
+            ```xml
+            <foreach collection="${payload}" parallel-execution="false" update-original="true" continue-without-aggregation="false">
+                <sequence>
+                    <http.get configKey="OrderAPIConnection">
+                        <relativePath>/placeOrder</relativePath>
+                        <headers>[]</headers>
+                        <forceScAccepted>false</forceScAccepted>
+                        <disableChunking>false</disableChunking>
+                        <forceHttp10>false</forceHttp10>
+                        <noKeepAlive>false</noKeepAlive>
+                        <responseVariable>http_get_1</responseVariable>
+                        <overwriteBody>true</overwriteBody>
+                    </http.get>
+                </sequence>
+            </foreach>
+            ```
+
+            ```xml
+            <localEntry key="OrderAPIConnection" xmlns="http://ws.apache.org/ns/synapse">
+            <http.init>
+                <connectionType>HTTP</connectionType>
+                <baseUrl>http://localhost:8290/orderapi</baseUrl>
+                <authType>None</authType>
+                <timeoutAction>Never</timeoutAction>
+                <retryCount>0</retryCount>
+                <retryDelay>0</retryDelay>
+                <suspendInitialDuration>-1</suspendInitialDuration>
+                <suspendProgressionFactor>1</suspendProgressionFactor>
+                <name>OrderAPIConnection</name>
+            </http.init>
+            </localEntry>
+            ```
+
+    ??? "Legacy Foreach to New Foreach Migration"
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Legacy attribute / element</th>
+                    <th>New attribute / element</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id="123"</code></td>
+                    <td>Not needed anymore.</td>
+                    <td>The [current iteration number]({{base_path}}/reference/mediators/foreach-mediator/#advanced-configurations) can be accessed using a variable in the new foreach mediator.</td>
+                </tr>
+                <tr>
+                    <td><code>expression="json-eval(\$.items)"</code></td>
+                    <td><code>collection="\${payload.items}"</code></td>
+                    <td>Convert JSONPath/XPath evaluated expression to [Synapse expression]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) referencing the iteration collection.</td>
+                </tr>
+                <tr>
+                    <td>N/A</td>
+                    <td><code>parallel-execution="false|true"</code></td>
+                    <td>Set <code>parallel-execution="false"</code> when migrating from legacy sequential processing.</td>
+                </tr>
+                <tr>
+                    <td>N/A</td>
+                    <td><code>continue-without-aggregation="false|true"</code></td>
+                    <td>Set <code>continue-without-aggregation="true"</code> to maintain legacy behavior.</td>
+                </tr>
+                <tr>
+                    <td>N/A</td>
+                    <td><code>update-original="true|false"</code></td>
+                    <td>Set <code>update-original="false"</code> to maintain legacy behavior.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <foreach expression="json-eval($.)">
+                <sequence>
+                    <payloadFactory media-type="json" template-type="default">
+                        <format>{
+                            "id": "$1",
+                            "count": "$2"
+                            }</format>
+                        <args>
+                            <arg expression="json-eval($.id)" evaluator="json"/>
+                            <arg expression="json-eval($.count)" evaluator="json"/>
+                        </args>
+                    </payloadFactory>
+                </sequence>
+            </foreach>
+            ```
+
+        === "New Configuration"
+
+            ```xml
+            <foreach collection="${payload}" parallel-execution="false" update-original="false" continue-without-aggregation="true">
+                <sequence>
+                    <payloadFactory media-type="json" template-type="default">
+                        <format>{
+                            "id": "${payload.id}",
+                            "count": "${payload.count}"
+                            }</format>
+                    </payloadFactory>
+                </sequence>
+            </foreach>
+            ```
+
+- Use the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/) instead of the [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and the [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/), which are no longer recommended.
+
+    ??? "Clone & Aggregate to Scatter Gather Migration Sample"
+
+        The Scatter Gather mediator replaces the need for separate Clone and Aggregate mediators.
+
+        The table below maps Clone mediator attributes to their corresponding Scatter Gather mediator attributes.
+        <table>
+            <thead>
+                <tr>
+                    <th>Legacy Clone mediator attribute</th>
+                    <th>Scatter Gather mediator attribute</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id="123"</code></td>
+                    <td>N/A</td>
+                    <td>This is not applicable as the cloned message responses are aggregated in the Scatter Gather mediator itself.</td>
+                </tr>
+                <tr>
+                    <td><code>sequential="true|false"</code></td>
+                    <td><code>parallel-execution="true|false"</code></td>
+                    <td>Set <code>parallel-execution="false"</code> when migrating from legacy sequential processing.</td>
+                </tr>
+                <tr>
+                    <td><code>continueParent="true|false"</code></td>
+                    <td>N/A</td>
+                    <td>This is not applicable as all cloned messages are aggregated in the Scatter Gather mediator itself.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        The table below maps Aggregate mediator attributes to their corresponding Scatter Gather mediator attributes.
+        <table>
+            <thead>
+                <tr>
+                    <th>Legacy Aggregate mediator attribute</th>
+                    <th>Scatter Gather mediator attribute</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <tr>
+                        <td><code>id="123"</code></td>
+                        <td>N/A</td>
+                        <td>Scatter Gather mediator aggregates responses internally, so an explicit id for aggregation is unnecessary.</td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td><code>&lt;onComplete expression="json-eval(\$)" /&gt;</code></td>
+                    <td><code>&lt;aggregation expression="\${payload}"&gt;</code></td>
+                    <td>Convert JSONPath/XPath evaluated expression to [Synapse expression]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/).</td>
+                </tr>
+                <tr>
+                    <td><code>timeout</code></td>
+                    <td><code>timeout</code></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Message Count: <code>min</code></td>
+                    <td><code>min-messages</code></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Message Count: <code>max</code></td>
+                    <td><code>max-messages</code></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;correlateOn expression="xpath | json-eval(JSON-Path)" /&gt;</code></td>
+                    <td><code>condition="expression"</code></td>
+                    <td>Convert JSONPath/XPath evaluated expression to [Synapse expression]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <clone>
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint key="vendorA"/>
+                        </call>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint key="vendorB"/>
+                        </call>
+                    </sequence>
+                </target>
+            </clone>
+            ```
+
+            ```xml
+            <aggregate>
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" expression="json-eval($)">
+                    <enrich description="">
+                        <source clone="true" type="custom" xpath="$body//jsonArray/jsonElement[not(last &gt; $body//jsonArray/jsonElement/last)]"/>
+                        <target action="replace" type="property" property="enrichedres"/>
+                    </enrich>
+                    <payloadFactory media-type="json">
+                        <format>$1</format>
+                        <args>
+                            <arg expression="get-property('enrichedres')" evaluator="xml"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </onComplete>
+            </aggregate>
+            ```
+
+        === "New Configuration"
+
+            ```xml
+            <scatter-gather parallel-execution="false" target="Body" result-content-type="JSON">
+                <aggregation expression="${payload}"/>
+                <sequence>
+                    <http.get configKey="VendorA_Connection">
+                        <relativePath>/getQuote</relativePath>
+                        <headers>[]</headers>
+                        <forceScAccepted>false</forceScAccepted>
+                        <disableChunking>false</disableChunking>
+                        <forceHttp10>false</forceHttp10>
+                        <noKeepAlive>false</noKeepAlive>
+                        <responseVariable>http_get_1</responseVariable>
+                        <overwriteBody>true</overwriteBody>
+                    </http.get>
+                </sequence>
+                <sequence>
+                    <http.get configKey="VendorB_Connection">
+                        <relativePath>/getQuote</relativePath>
+                        <headers>[]</headers>
+                        <forceScAccepted>false</forceScAccepted>
+                        <disableChunking>false</disableChunking>
+                        <forceHttp10>false</forceHttp10>
+                        <noKeepAlive>false</noKeepAlive>
+                        <responseVariable>http_get_1</responseVariable>
+                        <overwriteBody>true</overwriteBody>
+                    </http.get>
+                </sequence>
+            </scatter-gather>
+            <payloadFactory media-type="json" template-type="default">
+                <format xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">${xpath("$body//jsonArray/jsonElement[not(last &gt; $body//jsonArray/jsonElement/last)]")}</format>
+            </payloadFactory>
+            <respond/>
+            ```
+
+- Use the new [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) which has been enhanced with templating support.
+
+    ??? "Payload Factory Migration"
+
+        The new PayloadFactory mediator supports inline templating. You can insert [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) directly in the format string (for example, `${payload.id}`) and remove the `<args>` block and `$1/$2` placeholders. This simplifies templates, improves readability, and avoids the need to define separate `args` entries when converting legacy payloads to the new templating style.
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <payloadFactory media-type="json" template-type="default">
+                <format>{
+                    "id": "$1",
+                    "count": "$2"
+                    }</format>
+                <args>
+                    <arg expression="$ctx:id" evaluator="xml"/>
+                    <arg expression="$ctx:count" evaluator="xml"/>
+                </args>
+            </payloadFactory>
+            ```
+        === "New Configuration"
+
+            ```xml
+            <payloadFactory media-type="json" template-type="default">
+                <format>{
+                    "id": "${payload.id}",
+                    "count":"${payload.count}"
+                    }</format>
+            </payloadFactory>
+            ```
+
+- Use the new [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) which has been enhanced with templating support.
+
+    ??? "Log Mediator Migration"
+
+        The `level` attribute is removed from the new log mediator. Set <code>logFullPayload="true"</code> to achieve the same behavior as <code>level="full"</code>.
+
+        See the example migration below.
+
+        === "Legacy Configuration"
+
+            ```xml
+            <log category="INFO" level="simple">
+                <property name="Name" expression="$ctx:name"/>
+            </log>
+            ```
+        === "New Configuration"
+
+            ```xml
+            <log category="INFO" logMessageID="true" logFullPayload="false">
+                <property name="Name" expression="$ctx:name"/>
+            </log>
+            ```

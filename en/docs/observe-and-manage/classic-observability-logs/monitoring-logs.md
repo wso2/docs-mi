@@ -119,6 +119,41 @@ Below is an example of a server error entry recorded in the error log file.
     at java.lang.Thread.run(Thread.java:748)
 ```
 
+### Mediator ID in error logs
+
+The `wso2error.log` file automatically includes the **Mediator ID** for mediation-related errors. This identifier helps you quickly pinpoint the exact mediator in your integration flow that caused the error, significantly improving debugging efficiency.
+
+The mediator ID follows a hierarchical format:
+
+`<ArtifactType>:<ArtifactName>/<SequencePath>/<position>.<MediatorType>[<context>]`
+
+Where:
+
+- ArtifactType: The type of integration artifact (e.g., `api`, `proxy`, `sequence`)
+- ArtifactName: The name of the artifact (e.g., `petStore`)
+- SequencePath: The path to the sequence within the artifact (for APIs: `<method>[<resource>]/<sequence-type>`, for proxies: `<sequence-type>`)
+- Position: The hierarchical position of the mediator in the mediation flow
+- MediatorType: The type of mediator (e.g., `Log`, `Call`, `PayloadFactory`)
+- Context: Additional context information, such as property name if applicable
+
+**Examples:**
+
+- `api:TestAPI/GET[/users/{id}]/in/2.Property[requestType]`
+- `proxy:TestProxy/fault/2.Drop`
+- `sequence:FilterTestSequence/2.Filter/then/2.Property[status]`
+- `template:TestTemplate/1.Log`
+
+Below is an example showing how the mediator ID is included in error logs:
+
+```bash
+[2026-02-10 10:08:48,552] ERROR {org.apache.synapse.mediators.base.SequenceMediator} {api:petStore/GET[/pet]/in/2.CallSequence} - {api:petStore} Sequence named Value {name ='null', keyValue ='sample-sequence'} cannot be found
+```
+
+!!! tip "Adding Mediator ID to Other Log Files"
+    While mediator IDs are automatically included in error logs, you can also add them to other log files (such as `wso2carbon.log`, `wso2-mi-service.log`, or `wso2-mi-api.log`) by updating the log pattern in the `log4j2.properties` file. 
+    
+    See [Configuring Mediator ID in Log Patterns]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#configuring-mediator-id-in-log-patterns) for instructions.
+
 ## Monitor Audit Logs
 
 Audit logs track the sequence of actions performed on the server, providing visibility into operations that affect system behavior or configuration.

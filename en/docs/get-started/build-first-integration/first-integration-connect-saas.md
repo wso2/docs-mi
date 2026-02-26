@@ -325,7 +325,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 Congratulations!
 You have now learned how to integrate with an email SaaS provider using connectors to send emails as part of your integration flow.
 
-## What's Next?  
+## What's next?  
 
 You have now completed this tutorial series, where you learned how to build a complete integration flow step by step. Throughout this journey, you have explored how to create Integration APIs, route and transform messages, connect to external SaaS and B2B systems.
 

@@ -201,7 +201,7 @@ Let us test a scenario where a customer wants to know about the interest rate, m
 Congratulations!  
 You have now learned how to create a Retrieval-Augmented Generation (RAG) application by integrating a knowledge base with a Large Language Model (LLM) to enhance your integration flow.
 
-## What's Next?  
+## What's next?  
 
 So far, you have learned to create a RAG application by integrating the knowledge base with the LLM. In the next tutorial, you will learn how to create an AI assistant that can automate tasks, further enhancing your integration capabilities.
 

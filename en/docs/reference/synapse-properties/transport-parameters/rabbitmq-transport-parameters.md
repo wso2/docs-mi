@@ -231,7 +231,8 @@ present. If set to <code>false</code>, the WSO2 Integrator: MI will assume that 
       <tr>
          <td>rabbitmq.message.content.type</td>
          <td>
-            The content type of the consumer. <b>Note</b>: If the content type is specified in the message, this parameter does not override the specified content type. The default value is <code>text/xml</code>.
+            The content type of the consumer. <b>Note</b>: If the content type is specified in the message, this parameter does not override the specified content type. The default value is <code>text/xml</code>. <br><br>
+            <b>Note:</b> If you are consuming SOAP messages, set this parameter to <code>application/soap+xml</code> or <code>text/xml</code>. For other XML messages, set this parameter to <code>application/xml</code>.
          </td>
       </tr>            
    </tbody>
@@ -240,6 +241,12 @@ present. If set to <code>false</code>, the WSO2 Integrator: MI will assume that 
 ## Service-Level parameters (sending messages)
 
 In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/develop/creating-artifacts/creating-endpoints).
+
+**Format of the Address URL**:
+
+```
+rabbitmq:/<placeholder>?<query-parameter-name1>=<query-parameter-value1>&amp;<query-parameter-name2>=<query-parameter-value2>
+```
 
 **Example**:
 
@@ -264,6 +271,10 @@ In your integration solution, the following RabbitMQ send parameters can be spec
   <tr>
     <th>Parameter</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>Specifies the routing key to use when both rabbitmq.queue.name and rabbitmq.queue.routing.key query parameters are not defined. If both parameters are provided, this path value is not used for routing and can be omitted from the URI.</td>
   </tr>
   <tr>
     <td>rabbitmq.server.host.name</td>
@@ -344,16 +355,6 @@ In your integration solution, the following RabbitMQ send parameters can be spec
   <tr>
     <td>rabbitmq.exchange.autodeclare</td>
     <td>Whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to <code>false</code> improves RabbitMQ transport performance.</td>
-  </tr>
-  <tr>
-    <td>rabbitmq.message.correlation.id</td>
-    <td>
-      The correlation ID is required to identify a message that comes through one queue and requires a response back via another queue. This ID helps you map the messages and is unique for every request.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.message.id</td>
-    <td>Every message has its own unique message ID.</td>
   </tr>
   <tr>
     <td>CachedRabbitMQConnectionFactory</td>
@@ -493,4 +494,66 @@ When using a connection factory defined in the `deployment.toml` file, reference
 
 ### Mediator properties
 
-In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/).
+In addition to the parameters described above, you can define the following RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/).
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.timestamp</code></td>
+    <td>
+      Specifies the timestamp of the message. This value is used to set the <code>timestamp</code> property of the outgoing RabbitMQ message. The value must be provided in the <code>yyyy-MM-dd HH:mm:ss</code> format.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.expiration</code></td>
+    <td>
+      Specifies the expiration time (TTL) of the message in milliseconds. This value is used to set the <code>expiration</code> property of the outgoing RabbitMQ message.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.priority</code></td>
+    <td>
+      Specifies the priority of the message. This property is effective only if the destination queue is configured to support message priorities.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.correlation.id</code></td>
+    <td>
+      Specifies the correlation identifier of the message. If this property is not explicitly set, the message ID is used as the correlation ID.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.user.id</code></td>
+    <td>
+      Specifies the user ID associated with the message.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.app.id</code></td>
+    <td>
+      Specifies the application ID of the message producer.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>rabbitmq.message.cluster.id</code></td>
+    <td>
+      Specifies the cluster ID associated with the message.
+    </td>
+  </tr>
+</table>
+
+Example:
+
+```xml
+<property name="rabbitmq.message.expiration" value="30000" scope="axis2"/>
+```

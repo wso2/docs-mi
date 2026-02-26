@@ -287,7 +287,7 @@ wso2:
 
 ## Coordination configurations
 
-This is an **optional configuration**, required only if you plan to deploy stateful artifacts such as Scheduled Tasks, Message Processors, or Polling and Event-based Inbound Endpoints across multiple replicas. These artifacts require coordination to prevent duplicate executions and ensure consistent behavior across the cluster.
+This is an **optional configuration**, required only if you plan to deploy stateful artifacts such as Scheduled triggers, Message Processors, or Polling and Event-based Inbound Endpoints across multiple replicas. These artifacts require coordination to prevent duplicate executions and ensure consistent behavior across the cluster.
 
 Update the following values in your `values.yaml` file.
 

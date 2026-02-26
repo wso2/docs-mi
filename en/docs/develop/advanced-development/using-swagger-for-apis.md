@@ -35,6 +35,9 @@ If your REST API is deployed, copy the following URLs (with your API details) to
     http://localhost:8290/HealthcareAPI?swagger.yaml
     ```
 
+!!! Note
+    -   If you are using a versioned API, include the version in the `<API_NAME>` parameter. For example, if the API name is `HealthcareAPI` and the version is `1.0.0`, use `HealthcareAPI:v1.0.0` as the `<API_NAME>`. Eg: `http://localhost:8290/HealthcareAPI:v1.0.0?swagger.json`
+
 !!! Tip
     -   Replace `<MI_HOST>` with `localhost`. If you are using a public IP, the respective IP address or domain needs to be specified. 
     -   Replace `<API_NAME>` with your API's name. The API name is case sensitive.

@@ -14,14 +14,12 @@ If you want to change the default locations of the registry folders, uncomment a
 <registry xmlns="http://ws.apache.org/ns/synapse" provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
     <parameter name="cachableDuration">15000</parameter>
     <!--
-        Uncomment below parameters (ConfigRegRoot, GovRegRoot, LocalRegRoot) to configure registry root paths
-        Default : <MI_HOME>/registry/{governance | config | local}
-        Example : <parameter name="GovRegRoot">file:///Users/JohnDoe/registry/governance</parameter>
+        Uncomment below parameter "RegRoot" to configure registry root path
+        Default : <MI_HOME>/registry
+        Example : <parameter name="RegRoot">file:///Users/JohnDoe/registry</parameter>
     -->
     <!--
-    <parameter name="ConfigRegRoot">{Root directory path for configuration Registry}</parameter>
-    <parameter name="GovRegRoot">{Root directory path for governance Registry}</parameter>
-    <parameter name="LocalRegRoot">{Root directory path for local Registry}</parameter>
+    <parameter name="RegRoot">file:///tmp/registry</parameter>
     -->
 </registry>
 ```

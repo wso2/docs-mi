@@ -28,7 +28,7 @@ By default, the `text/csv` message formatter and message builder are not configu
 
 Consider the root of the WSO2 Integrator: MI/ Enterprise Integrator as `<PRODUCT_HOME>`.
 
-If you are using the **WSO2 Integrator: MI 4.4.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
+If you are using the **WSO2 Integrator: MI 4.4.0** or above, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
 
 ```toml
 [[custom_message_formatters]]

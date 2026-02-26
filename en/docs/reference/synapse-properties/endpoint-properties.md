@@ -1073,7 +1073,11 @@ to a maximum duration.
          </td>
          <td>
             The time duration (in miliseconds) for which the endpoint will be suspended when one or more suspend error codes are received from it for the first time. After an endpoint gets "Suspended", it will wait for this amount of time before trying to send the messages coming to it. All the messages coming during this time period will result in fault sequence activation.</br>
-            Default: 30000.
+            Default: 30000.</br></br>
+            <div class="admonition note">
+                <p class="admonition-title">Note</p>
+                <p>This value can be globally configured using the <code>synapse.global_endpoint_suspend_duration</code> property under <code>[synapse_properties]</code> in the <code>MI_Home/conf/deployment.toml</code> file. This configuration will apply to all endpoints unless overridden at the endpoint level.</p>
+            </div>
          </td>
       </tr>
       <tr>
@@ -1091,7 +1095,11 @@ to a maximum duration.
          <td>
             The progression factor for the geometric series. The duration to suspend can vary from the first time suspension to the subsequent time. The factor value decides the suspend duration variance between subsequent suspensions.</br>
             The endpoint will try to send the messages after the <code>initialDuration</code>. If it still fails, the next duration is calculated as:<code>Min(current suspension duration * progressionFactor, maximumDuration)</code>.</br>
-            Default: 1.
+            Default: 1.</br></br>
+            <div class="admonition note">
+                <p class="admonition-title">Note</p>
+                <p>This value can be globally configured using the <code>synapse.global_endpoint_suspend_progression_factor</code> property under <code>[synapse_properties]</code> in the <code>MI_Home/conf/deployment.toml</code> file. This configuration will apply to all endpoints unless overridden at the endpoint level.</p>
+            </div>
          </td>
       </tr>
     </tbody>

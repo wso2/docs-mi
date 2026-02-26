@@ -108,8 +108,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"access key id here",
+        "secretAccessKey":"secret access key here",
         "region":"us-east-1",
         "blocking":"false",
         "requestItems": {
@@ -216,8 +216,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"access key id here",
+        "secretAccessKey":"secret access key here",
         "region":"us-east-1",
         "blocking":"false",
         "requestItems": {

@@ -364,7 +364,7 @@ You can view details and update <b>tracing</b> for each sequence as shown below.
 
 ### Tasks
 
-Select this option to manage scheduled tasks deployed in the WSO2 Integrator: MI instance.
+Select this option to manage Scheduled triggers deployed in the WSO2 Integrator: MI instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-task-1.png">
 

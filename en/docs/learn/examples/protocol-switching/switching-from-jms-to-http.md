@@ -37,7 +37,7 @@ Following are the integration artifacts (proxy service) that we can use to imple
     </endpoint>
     ```
 
-## Build and Run
+## Build and run
 
 Create the artifacts:
 

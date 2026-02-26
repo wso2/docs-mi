@@ -123,7 +123,7 @@ Gives you an idea about Proxy Services analytics.
 |Message Count|Total number of requests received within the time span|
 
 
-## Creating Advanced Dashboards
+## Creating advanced dashboards
 
 This section will help you to setup advanced dashboards using custom metadata. Use [this documentation](https://www.elastic.co/kibana/kibana-dashboard) by Elastic to explore what kind of dashboard widgets you can create.
   

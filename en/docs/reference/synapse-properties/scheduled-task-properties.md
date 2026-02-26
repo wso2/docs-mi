@@ -1,4 +1,4 @@
-# Scheduled Tasks
+# Scheduled triggers (Tasks)
 ## Introduction
 
 WSO2 Integrator: MI can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Integrator: MI, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.
@@ -12,16 +12,16 @@ You can schedule a task to run after a time interval of 't' for an 'n' number of
     -   See the instructions on how to configure task scheduling for the WSO2 Integrator: MI.
     -   You can also configure the task handling behaviour at task-level, by specifying the Pinned Servers for a task. Note that this setting overrides the server-level configuration.
 
-    Also, note that a scheduled task will only run on one of the nodes (at a given time) in a clustered environment. The task will fail over to another node only if the first node fails.
+    Also, note that a Scheduled trigger will only run on one of the nodes (at a given time) in a clustered environment. The task will fail over to another node only if the first node fails.
 -->
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when you [create a Scheduled Task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+See the topics given below for the list of properties that can be configured when you [create a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ### Required Properties
 
-The following properties are required when [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+The following properties are required when [creating a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 <table>
    <thead>
@@ -33,7 +33,7 @@ The following properties are required when [creating a scheduled task]({{base_pa
    <tbody>
       <tr class="odd">
          <td>Task Name</td>
-         <td>Name of a scheduled task.</td>
+         <td>Name of a Scheduled trigger.</td>
       </tr>
       <tr class="even">
          <td>Task Group</td>
@@ -131,7 +131,7 @@ The following properties are required when [creating a scheduled task]({{base_pa
 
 ### Task Implementation Properties
 
-Listed below are the optional task implementation properties you can use when [creating a scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+Listed below are the optional task implementation properties you can use when [creating a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 <table>
    <thead>
@@ -159,7 +159,7 @@ Listed below are the optional task implementation properties you can use when [c
          <td>to</td>
          <td>
             <div class="content-wrapper">
-               <p>If the task should send the message directly to the endpoint through the <strong>main</strong> sequence, the endpoint address should be specified. For example, if the address of the endpoint is <a href="http://localhost:9000/services/SimpleStockQuoteService">http://localhost:9000/services/SimpleStockQuoteService</a> , the Synapse configuration of the scheduled task will be as follows:</p>
+               <p>If the task should send the message directly to the endpoint through the <strong>main</strong> sequence, the endpoint address should be specified. For example, if the address of the endpoint is <a href="http://localhost:9000/services/SimpleStockQuoteService">http://localhost:9000/services/SimpleStockQuoteService</a> , the Synapse configuration of the Scheduled trigger will be as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -188,7 +188,7 @@ Listed below are the optional task implementation properties you can use when [c
          <td>sequenceName</td>
          <td>
             <div class="content-wrapper">
-               <p>If the task should inject the message to a sequence ( <strong>injectTo</strong> parameter is <strong>sequence</strong> ), enter the name of the sequence. For example, if the name of the sequence is 'SampleSequence', the synapse configuration of the scheduled task will be as follows:</p>
+               <p>If the task should inject the message to a sequence ( <strong>injectTo</strong> parameter is <strong>sequence</strong> ), enter the name of the sequence. For example, if the name of the sequence is 'SampleSequence', the synapse configuration of the Scheduled trigger will be as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -239,7 +239,7 @@ Listed below are the optional task implementation properties you can use when [c
          <td>proxyName</td>
          <td>
             <div class="content-wrapper">
-               <p>If the task should inject the message to a proxy service ( <strong>injectTo</strong> parameter is <strong>proxy</strong> ), enter the name of the proxy service. For example, if the name of the proxy service is 'SampleProxy', the synapse configuration of the scheduled task will be as follows:</p>
+               <p>If the task should inject the message to a proxy service ( <strong>injectTo</strong> parameter is <strong>proxy</strong> ), enter the name of the proxy service. For example, if the name of the proxy service is 'SampleProxy', the synapse configuration of the Scheduled trigger will be as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">

@@ -30,7 +30,7 @@ You can find the official WSO2 Integrator: MI Helm charts repository at: <a targ
     ```
 
     !!! note
-        The `4.5.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.5.0.
+        The `4.6.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.6.0.
 
 Let's refer to the root folder of the cloned repository as `<HELM_HOME>` throughout this guide.
 
@@ -52,7 +52,7 @@ This custom image ensures compatibility with OpenShift's security model while ma
     Below is a sample `Dockerfile` for building an OpenShift-compatible WSO2 Integrator: MI image:
 
     ```Docker
-    FROM wso2/wso2mi:4.5.0-alpine
+    FROM wso2/wso2mi:4.6.0-alpine
 
     USER root
     RUN chgrp -R root "$WSO2_SERVER_HOME" && chmod -R g+rwX "$WSO2_SERVER_HOME"
@@ -112,7 +112,7 @@ Following are example commands to deploy MI and ICP:
     --set wso2.deployment.image.tag="<DOCKER_IMAGE_TAG>" \
     --set wso2.deployment.apparmor.enabled="false" \
     --set wso2.deployment.securityContext.enableRunAsUser="false" \
-   --set wso2.deployment.securityContext.enableRunAsGroup="false" \
+    --set wso2.deployment.securityContext.enableRunAsGroup="false" \
     --set wso2.deployment.configMaps.entryPoint.defaultMode=0457
     ```
 

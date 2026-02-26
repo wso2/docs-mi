@@ -62,8 +62,8 @@ within a specified duration. This is done by evaluating the hash value of the in
 
 The **Cache type** specifies whether the Cache mediator should be in the incoming path (to check the request) or the outgoing path (to cache the response). Possible values are as follows:
 
-- **Finder** : If this is selected, the Cache mediator is used to search for the request hash of incoming messages.
-- **Collector** : If this is selected, the Cache mediator is used to collect response messages in the cache.
+- **Finder** : If this is selected, the Cache mediator is used to search for the request hash of incoming messages. In the XML configuration, this corresponds to `collector="false"`.
+- **Collector** : If this is selected, the Cache mediator is used to collect response messages in the cache. In the XML configuration, this corresponds to `collector="true"`.
 
 If the finder is selected as the cache type following parameters can be configured.
 

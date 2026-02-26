@@ -20,7 +20,7 @@ By following this series, you will gain hands-on experience in:
 - Routing and Transforming Messages – Process and modify data dynamically.
 - Connecting to SaaS or B2B Systems – Integrate with external platforms like Gmail.
 
-## Get Started
+## Get started
 
 Ready to build your first integration? Click **Start** to begin the tutorial series.
 

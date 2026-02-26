@@ -1,6 +1,6 @@
 1. Launch Visual Studio Code with the WSO2 Integrator: MI for VS Code extension (MI for VS Code) installed.
 
     !!! info
-        Follow the [Install WSO2 Integrator: MI for VS Code](https://mi.docs.wso2.com/en/4.5.0/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code](https://mi.docs.wso2.com/en/4.6.0/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
-2. Create an [integration project](https://mi.docs.wso2.com/en/4.5.0/develop/create-integration-project/).
+2. Create an [integration project](https://mi.docs.wso2.com/en/4.6.0/develop/create-integration-project/).

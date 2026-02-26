@@ -2,61 +2,53 @@
 
 ## What's new in this release?
 
-The following features and improvements were introduced with **WSO2 Integrator: MI 4.5.0**.
+The following features and improvements were introduced with **WSO2 Integrator: MI 4.6.0**.
 
-??? note "Versioned Artifacts"
-    MI 4.5.0 introduces support for versioned artifact deployment, letting users deploy multiple versions of the same integration logic concurrently and cleanly manage version lifecycles.
+??? note "JDK 25 Support"
+    With JDK 25 support, WSO2 Integrator: MI stays aligned with the latest Java platform releases, offering a future-ready and fully validated runtime environment.
 
-??? note "Per API CORS Configuration Support"
-    Enable per-API CORS configuration for enhanced security and cross-origin resource sharing control.
+??? note "Post-Quantum Secure Runtime"
+    Strengthens runtime security with post-quantum-ready cryptography, safeguards your integrations against emerging quantum threats, ensuring long-term data protection and cryptographic resilience.
 
-??? note "Enable/ Disable Capability for Inbound Endpoints"
-    Inbound endpoints can now be dynamically activated/deactivated using the Management API, giving operational flexibility for handling pipelines, scheduled flows, or incident recovery.
+??? note "Bouncy Castle FIPS Crypto Provider Support"
+    Run MI with the Bouncy Castle FIPS crypto provider to meet stricter cryptographic requirements in regulated environments. This improves compliance readiness and enables deployments that rely on FIPS-capable crypto modules.
 
-??? note "Graceful Transport Shutdown"
-    Graceful shutdown has been extended to transport-level tasks, allowing you to restart or terminate instances with confidence—without losing in-flight data or interrupting operations.
+??? note "OAuth 2.0 (JWT) Authentication for REST APIs"
+    Secure REST APIs with an OAuth 2.0 (JWT) authentication handler for token-based access control, adding a zero-trust layer to API access.
 
-??? note "Manage Dependencies Across Integration Projects"
-    New dependency management allows seamless handling of shared artifacts across multiple integration projects. This ensures consistency, reduces duplication, and improves project maintainability.
+??? note "Management API Enhancements"
+    - Enable/disable/trigger scheduled tasks at runtime
+    - Enable/disable statistics at runtime
 
-??? note "Multi-Project Support"
-    Organize your integrations into multiple modules and manage them in a single workspace. MI 4.5.0 includes support for migrating complex multi-module Maven projects previously developed in WSO2 Integration Studio to VS Code.
+??? note "Enhanced Logging with Mediator ID"
+    Include mediator IDs in runtime logs for faster troubleshooting and clearer correlation between log entries and mediation flow components. This makes debugging easier, especially in complex integration flows.
 
-??? note "MI Copilot / AI-Assisted Development Experience Enhancements"
-    - Syntax validation of generated code
-    - "Thinking mode" that suggests improvements
-    - Automatic migration of old data mapper content
-    - Feedback and rating support for AI output
+??? note "Observability Features/Improvements"
+    - Support Prometheus API 1.x
+    - Support publishing observability data to Moesif
+    - OpenTelemetry-based observability in Data Services
+    - OpenTelemetry support for traces and logs
+    - OpenTelemetry span filtering support for mediators
+    - Show connector/module operations as a single span in traces
 
-??? note "Improved Unit Testing UI"
-    A smoother and more intuitive interface for writing and executing unit tests within the VS Code extension.
+??? note "VS Code Extension Features/Improvements"
+    - Remote debugging
+    - Unit test coverage for Synapse artifacts
 
-??? note "Kubernetes Configuration Support"
-    Easily generate K8s deployment files from the VS Code extension.
+??? note "AI Features"
+    - MCP tool support for agents in the AI connector
+    - Agent memory trim and summarization support
+    - Agent mode in MI Copilot
 
-??? note "Support for New Connectors / Protocols"
-    - Jakarta Messaging 3.1 Support
-    - gRPC support
-    - Salesforce Marketing Cloud
-    - Apache Pulsar
-    - Intelligent Document Processing (IDP)
-    - Salesforce PubSub
-
-??? note "Enhanced Connectors"
-    **Kafka:**
-    Error tracing via callbacks.
-    Publish custom headers dynamically.
-    
-    **File Connector & Listener:** 
-    The Connector and the Inbound Listener have been enhanced to offer more reliable and flexible file event handling
-    
-    **Facebook & Google Ads:** 
-    Hashing support added
+??? note "Connector Enhancements"
+    - AMQP 1.0 protocol support
+    - gRPC connector with import support
+    - MI connector generation from Ballerina connectors
 
 ## Fixed issues
 
-- [WSO2 Integrator: MI Issues](https://github.com/wso2/product-micro-integrator/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-02-20..2025-10-21)
-- [MI for VS Code Issues](https://github.com/wso2/mi-vscode/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-02-20..2025-10-21)
+- [WSO2 Integrator: MI Issues](https://github.com/wso2/product-micro-integrator/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-10-28..2026-03-27)
+- [MI for VS Code Issues](https://github.com/wso2/mi-vscode/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-10-28..2026-03-27)
 
 ## Known issues
 

@@ -118,6 +118,22 @@ After applying the above change, you can start the WSO2 Integrator: MI with the 
 -DenablePrometheusApi=true
 ```
 
+From WSO2 MI versions after 4.5.0, the new Prometheus client API version 1.x is enabled by default. You can switch back to the old client API 0.x using the following JVM property:
+```
+-DusePrometheusLegacyApi=true
+```
+
+Depending on the client API version you are going to use, you have to choose the matching Grafana dashboard revisions as follows.
+
+| Dashboard name                   | API version 1.x | API version 0.x | 
+|----------------------------------|-----------------|-----------------|
+| WSO2 API Metrics                 | Revision 3      | Revision 2      |
+| WSO2 Inbound Endpoint Metrics    | Revision 2      | Revision 1      |
+| WSO2 Integration Cluster Metrics | Revision 2      | Revision 1      |
+| WSO2 Integration Node Metrics    | Revision 3      | Revision 2      |
+| WSO2 Proxy Service Metrics       | Revision 2      | Revision 1      |
+
+
 ## Step 2 - Optionally, integrate the Log Processing add-on
 
 Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the log processing add-on to process logs. To achieve this, you can use Grafana Loki-based logging stack.
@@ -416,6 +432,6 @@ Once Grafana is successfully configured to visualize statistics, you should be c
     
 [![jaeger ui]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png){: style="width:40%"}]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png)
 
-## What's Next?
+## What's next?
 
 If you have successfully set up your Grafana based observability deployment, see the instructions on [Viewing Grafana Dashboard]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).

@@ -46,7 +46,7 @@ You can add the [artifacts]({{base_path}}/develop/creating-artifacts/creating-ar
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/explorer-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/explorer-view.png" alt="explorer view" width="80%"></a>
 
-## Project Overview
+## Project overview
 
 The Project Overview in MI for VS Code extension provides an overview of your integration project. You can view, add, build, and export artifacts from here.
 

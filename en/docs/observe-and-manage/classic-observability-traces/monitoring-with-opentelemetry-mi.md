@@ -160,6 +160,34 @@ OpenTelemetry protocol(OTLP) is a general-purpose telemetry data delivery protoc
         name = "api-key"
         value = "<your-insight-insert-key>" 
         ```
+With the above configuration, OTLP uses the gRPC transport by default for exchanging data. This behavior can be changed by setting the value of the configuration `protocol` to `http`.
+
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "otlp"
+        protocol = "http"
+        url = "endpoint-url"
+
+        [[opentelemetry.properties]]
+        name = "name-of-the-header"
+        value = "key-value-of-the-header" 
+        ```
+    === "Example"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "otlp"
+        protocol = "http"
+        url = "https://otlp.nr-data.net:4318/v1/traces"
+    
+        [[opentelemetry.properties]]
+        name = "api-key"
+        value = "<your-insight-insert-key>" 
+        ```
 
     !!! note 
         Above example illustrates the OpenTelemetry configurations for NewRelic APM.
@@ -185,7 +213,7 @@ It is recommended to use OTLP to view the traces through NewRelic APM. But still
         For other vendors, please consult the respective documentations.
 
 
-## Using the Custom Tracer Implementation
+## Using the custom tracer implementation
 
 By using a custom tracer implementation in WSO2 MI, you can publish tracing data from WSO2 MI to any tracing server. Let's implement a custom tracer which simply prints the logs via the System.out in WSO2 MI using the instructions given below:
 

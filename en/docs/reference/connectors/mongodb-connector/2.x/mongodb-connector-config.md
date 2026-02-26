@@ -1750,3 +1750,71 @@ The following operations allow you to work with the MongoDB connector. Click an 
         }
     }
     ```
+
+??? note "aggregate"
+    Runs an aggregation pipeline on a collection (or view) and returns the computed results. Aggregation pipelines allow you to filter, transform, group, and compute data using stages such as `$match`, `$project`, `$group`, `$sort`, `$lookup`, etc. See the related [aggregation documentation](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) for more information. **Note**: This operation is available from connector version 2.0.2 onwards.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Stages
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Aggregation pipeline [stages](https://www.mongodb.com/docs/manual/reference/mql/aggregation-stages/#std-label-aggregation-pipeline-operator-reference) as an array.
+    </td>
+    <td>
+    -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    </table>
+    
+    **Sample Configuration**
+
+    ```xml
+    <mongodb.aggregate configKey="connectionURI">
+        <collection>{json-eval($.collection)}</collection>
+        <stages>{json-eval($.stages)}</stages>
+    </mongodb.aggregate>
+    ```
+
+    **Sample Request**
+
+    ```json
+    {
+        "collection": "posts",
+        "stages": [
+            { "$match": { "stars": { "$gt": 1 } } },
+            {
+                "$group": { "_id": "$category", "totalStars": { "$sum": "$stars" } }
+            }
+        ]
+    }
+    ```

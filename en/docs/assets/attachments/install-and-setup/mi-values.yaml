@@ -46,7 +46,7 @@ wso2:
     # -- Hostname of the Micro Integrator deployment
     hostname: "mi.wso2.com"
     # -- Build version of the Micro Integrator
-    BuildVersion: "4.5.0"
+    BuildVersion: "4.6.0"
     image:
       # -- Container image repository name
       repository: "currencyconverter"

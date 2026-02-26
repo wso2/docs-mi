@@ -49,7 +49,7 @@ Most of the integration solutions that you develop can be deployed using a singl
 
 However, the following integration artifacts are **stateful** and require coordination when deployed across multiple WSO2 Integrator: MI instances.
 
--   Scheduled Tasks
+-   Scheduled triggers
 -   Message Processors
 -   Polling Inbound Endpoints
     -   File Inbound Endpoint
@@ -74,6 +74,6 @@ You can still deploy these stateful artifacts in multiple replicas as long as co
 
 ### High availability
 
-When stateful artifacts are deployed with coordination enabled across multiple WSO2 Integrator: MI replicas, each artifact such as scheduled tasks or message processors is executed by only one MI instance at a time. By default, these artifacts are automatically assigned to available nodes in the cluster, ensuring consistent and conflict free execution.
+When stateful artifacts are deployed with coordination enabled across multiple WSO2 Integrator: MI replicas, each artifact such as Scheduled triggers or message processors is executed by only one MI instance at a time. By default, these artifacts are automatically assigned to available nodes in the cluster, ensuring consistent and conflict free execution.
 
 If the MI instance currently executing a particular artifact becomes unavailable, another node will seamlessly take over its execution. This ensures high availability and avoids service interruptions by enabling automatic failover of stateful tasks.

@@ -662,6 +662,6 @@ Once this configuration is complete, clicking on response time widgets within a 
 
 <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png" style="width:40%"></a>
 
-## What's Next?
+## What's next?
 
 If you have successfully set up your Grafana based observability setup, see the instructions on [Viewing Grafana Dashboard]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).

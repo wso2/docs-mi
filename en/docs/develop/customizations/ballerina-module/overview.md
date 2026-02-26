@@ -9,14 +9,14 @@ The WSO2 Integrator: MI module for Ballerina enables integration developers to l
 - Ballerina VS Code extensions installed
 - Ballerina Integrator VS Code extensions installed
 
-## Get Started with Ballerina Module for MI
+## Get started with Ballerina module for MI
 
 There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 1. Using the WSO2 MI VS Code Extension
 2. Using the Command Line Interface (CLI)
 
-### Method 1: Use WSO2 MI VS Code Extension
+### Method 1: Use WSO2 MI VS Code extension
 
 1. Install the [WSO2 Integrator: MI VSCode Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/).
 2. [Create](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/) a new integration project or open an existing project.
@@ -50,7 +50,7 @@ There are two ways to use the Ballerina module in your WSO2 MI projects:
 
 #### Pull `mi-module-gen` tool
 
-First, you need to pull the `mi-module-gen` tool which is used to create the WSO2 MI module.
+First, you need to pull the `mi-module-gen` tool, which is used to create the WSO2 MI module. The tool is available on [Ballerina Central](https://central.ballerina.io/wso2/mi_module_gen/latest).
 
 ```bash
 bal tool pull mi-module-gen
@@ -63,7 +63,7 @@ bal tool pull mi-module-gen
 #### Write Ballerina transformation
 
 Create a new Ballerina project using `bal new projectName` or use an existing one and write your transformation logic.
-Import the module `wso2/mi` in your Ballerina program.
+Import the module `wso2/mi` in your Ballerina program. The module is available on [Ballerina Central](https://central.ballerina.io/wso2/mi/latest).
 
 ```ballerina
 import wso2/mi;
@@ -75,11 +75,88 @@ For example,
 ```ballerina
 @mi:Operation {}
 public function gpa(xml rawMarks, xml credits) returns xml {
-   // Your logic to calculate the GPA
+    // Your logic to calculate the GPA
 }
 ```
 
 Ballerina function that contains `@mi:Operation` annotation maps with an operation in the Ballerina module.
+
+### Supported Data Types
+
+When you use the `@mi:Operation` annotation from the `wso2/mi` module, a defined set of Ballerina data types is supported. The [compiler plugin](https://central.ballerina.io/wso2/mi/latest) enforces these at **compile time**, and the [MI module generation tool](https://central.ballerina.io/wso2/mi_module_gen/latest) maps them to MI connector parameters at **runtime**.
+
+#### Compile-time validation (`@mi:Operation`)
+
+The compiler plugin checks the parameter and return types of every function annotated with `@mi:Operation`. The allowed kinds are:
+
+| **Context**      | **Supported Ballerina types**                                                                                 |
+|------------------|--------------------------------------------------------------------------------------------------------------|
+| **Parameters**   | **Primitives:** `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured:** `xml`, `json`, `record {  }`, `map<any>` |
+| **Return types** | **Primitives:** `()` (nil), `boolean`, `int`, `float`, `decimal`, `string`  <br> **Structured / other:** `xml`, `json`, `any`, `record { }`, `map<any>` |
+
+If a parameter or return type is not in these categories, the build fails with diagnostics such as **"unsupported parameter type found"** or **"unsupported return type found"**.
+
+##### Examples
+
+```ballerina
+import wso2/mi;
+
+// Primitive example
+@mi:Operation
+public function addInt(int a, int b) returns int {
+    return a + b;
+}
+
+// JSON/XML example
+@mi:Operation
+public function mergeJson(json left, json right) returns json {
+    json|error merged = left.mergeJson(right);
+    if merged is error {
+        return { "status": "error" };
+    }
+    return merged;
+}
+
+// Record example
+type Student record {|
+    string name;
+    int age;
+|};
+
+@mi:Operation
+public function transformStudent(Student student) returns Student {
+    return { name: student.name.toUpperAscii(), age: student.age };
+}
+```
+
+#### Runtime mapping in MI (`mi-module-gen` tool)
+
+When you run the `bal mi-module-gen` tool, it inspects your Ballerina module and generates an MI connector. Supported Ballerina types are converted into connector metadata and UI elements as follows:
+
+
+At runtime:
+
+- **Function parameters** become connector **query/path/config parameters** and corresponding UI fields in the WSO2 MI VS Code extension.
+- **Return types** are written to the configured response variable (for example, `result`) based on the generated `returnType` value in `functions/*.xml`.
+
+##### Runtime example
+
+```ballerina
+remote function addIntegers(int first, int second) returns int|error {
+    return first + second;
+}
+```
+
+After running:
+
+```bash
+bal mi-module-gen -i <path_to_ballerina_project>
+```
+
+the generated connector will:
+
+- Expose `first` and `second` as integer input fields in the connector configuration.
+- Set the operation `returnType` to `int`, so the result of `addIntegers` is written to the specified response variable in the MI mediation flow.
 
 #### Generate the module
 

@@ -38,9 +38,6 @@ The parameters available to configure the property mediator are as follows:
     <li>
       <code>property name="{$ctx:propertyName}"</code>
     </li>
-    <li>
-      <code>property name="{json-eval({$ctx:propertyName})}"</code>
-    </li>
   </ul>
 <p>For names of the generic properties that come by default, see <a href="{{base_path}}/reference/mediators/property-reference/generic-properties">Generic Properties</a>.</p>
 </div></td>
@@ -85,7 +82,7 @@ The parameters available to configure the property mediator are as follows:
 
   Example 2 : Creating a property with a JSON object via expression evaluation.</br>
 
-  <code>&lt;property name="studentObject" expression="json-eval($.student)" type="JSON"/&gt;</code>
+  <code>&lt;property name="studentObject" expression="$.student" type="JSON"/&gt;</code>
 
 </p>
 </div>
