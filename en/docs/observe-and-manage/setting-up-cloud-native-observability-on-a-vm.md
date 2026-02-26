@@ -176,43 +176,44 @@ Follow the instructions below to set up Fluent Bit:
 
         ```
         [PARSER]
-                Name        observability
-                Format      json
-                Time_Key    time
-                Time_Format %Y-%m-%dT%H:%M:%S.%L
+            Name        observability
+            Format      json
+            Time_Key    time
+            Time_Format %Y-%m-%dT%H:%M:%S.%L
         [PARSER]
-                Name        wso2
-                Format      regex
-                Regex       \[(?<date>\d{2,4}\-\d{2,4}\-\d{2,4} \d{2,4}\:\d{2,4}\:\d{2,4}\,\d{1,6})\]  (?<log_level>[^\s]+) \{(?<class>[\s\S]*)\} ([-]) (?<service>\{[\s\S]*\})?(?<message>.*)
-                Time_Key    date
-                    Time_Format %Y-%m-%d %H:%M:%S,%L
+            Name        wso2
+            Format      regex
+            Regex       \[(?<date>\d{2,4}\-\d{2,4}\-\d{2,4} \d{2,4}\:\d{2,4}\:\d{2,4}\,\d{1,6})\]  (?<log_level>[^\s]+) \{(?<class>[\s\S]*)\} ([-]) (?<service>\{[\s\S]*\})?(?<message>.*)
+            Time_Key    date
+            Time_Format %Y-%m-%d %H:%M:%S,%L
         ```
     
     - **`fluentBit.conf`** file
-    
+
         ```
         [SERVICE]
             Flush        1
             Daemon       Off
             Log_Level    info
             Parsers_File <Location/parsers.conf>
-        
+
         [INPUT]
             Name tail
             Path <MI_HOME>/repository/logs/*.log
             Mem_Buf_Limit  500MB
             Parser wso2
-        
+
         [OUTPUT]
             Name loki
             Match *
             Url http://localhost:3100/loki/api/v1/push
-            BatchWait 1
-            BatchSize 30720
             Labels {job="fluent-bit"}
-            LineFormat json
-            LabelMapPath <Location/labelmap.json>
+            line_format json
+            label_map_path <Location/labelmap.json>
         ```
+
+        !!! note
+            The above configuration is compatible with Fluent Bit v3.0 and later versions. If you are using an older version of Fluent Bit (v2.x or earlier), you may need to use the legacy configuration parameters `LineFormat` instead of `line_format`, `LabelMapPath` instead of `label_map_path`, and include `BatchWait` and `BatchSize` parameters.
       
 4. Follow the instructions below to build the Fluent Bit output plugin before starting Fluent Bit:
 
