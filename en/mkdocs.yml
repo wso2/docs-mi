@@ -820,6 +820,10 @@ nav:
               - 1.x:
                   # - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
+          - DB Connector:
+              - DB Connector Overview: reference/connectors/db-connector/db-connector-overview.md
+              - DB Connector Example: reference/connectors/db-connector/db-connector-example.md
+              - DB Connector Reference: reference/connectors/db-connector/db-connector-config.md
           - MongoDB Connector:
               - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
               - 3.x:
