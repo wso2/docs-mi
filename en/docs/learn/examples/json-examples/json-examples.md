@@ -338,7 +338,7 @@ There are two ways to access the content of a JSON payload within the MI.
 -   JSONPath expressions (with `json-eval()` method)
 -   XPath expressions
 
-JSONPath allows you to access fields of JSON payloads with faster
+Synapse expressions allow you to access fields of JSON payloads with faster
 results and less processing overhead. Although it is possible to
 evaluate XPath expressions on JSON payloads by assuming the XML
 representation of the JSON payload, we recommend that you use Synapse expression
