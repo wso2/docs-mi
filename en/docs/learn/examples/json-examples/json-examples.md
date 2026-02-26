@@ -363,7 +363,7 @@ You can use JSON path expressions with following mediators:
 <div class="codeContent panelContent pdl">
 <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;log&gt;
     &lt;property name=&quot;location&quot; 
-              expression=&quot;$.coordinates.location[0].name&quot;/&gt;
+              expression=&quot;${payload.coordinates.location[0].name}&quot;/&gt;
 &lt;/log&gt;</code></pre>
 </div>
 </div>
