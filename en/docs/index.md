@@ -60,7 +60,7 @@
 <div class="homePage">
     <div class="description-section">
         <div>
-            WSO2 Integrator: MI is a comprehensive integration solution. It simplifies your digital-transformation journey by streamlining connectivity among applications, services, data, and the cloud. With a user-friendly, low-code graphical design experience, it supports both microservices and ESB deployment styles for greater flexibility.
+            WSO2 Integrator: MI is a comprehensive integration solution. It simplifies your digital-transformation journey by streamlining connectivity among applications, services, data, and the cloud. With a user-friendly, low-code graphical design experience, it supports both microservices and ESB styles for greater flexibility.
         </div>
         <div>
             <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>
