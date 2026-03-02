@@ -2,40 +2,20 @@
 
 ## Crypto provider
 
-A **Crypto Provider** (short for *cryptographic provider*) is a software module or library that implements cryptographic algorithms and makes them available to applications through a standard API.
+Java Cryptographic Service Providers (Crypto Providers) are software modules that implement cryptographic algorithms and security services for Java applications.
 
-In Java, this concept comes from the **Java Cryptography Architecture (JCA)** and **Java Cryptography Extension (JCE)**. A provider **plugs in** and supplies implementations of cryptographic primitives, such as:
-
-- Message digests (e.g., SHA-256, SHA-512)
-- Encryption/decryption algorithms (e.g., AES, RSA, ChaCha20)
-- Digital signatures (e.g., SHA256withRSA, ECDSA)
-- Key generation (e.g., RSA keypairs, AES keys)
-- Secure random number generation (e.g., DRBG, SHA1PRNG, NativePRNG)
-
-#### Examples of crypto providers
-
-- **SUN** – built-in JDK provider with common algorithms
-- **SunJCE** – JCE provider for symmetric crypto, padding, etc.
-- **SunEC** – Elliptic curve cryptography
-- **BC** – Bouncy Castle standard provider
-- **BCFIPS** – Bouncy Castle FIPS-compliant provider (for FIPS 140-2/140-3 use)
-- **PKCS11 providers** – hardware-backed crypto via HSMs, smartcards
-
-## Why configure a custom crypto provider?
-
-By default, Java applications use the built-in providers that come with the JDK. However, there are several reasons why you might want to configure a custom crypto provider:
-
-- **Enhanced Security**: Some third-party providers offer stronger or more modern algorithms and implementations that may be more secure than the default ones.
-- **Compliance Requirements**: Certain industries or regulations may require the use of specific cryptographic standards or FIPS-compliant providers.
-- **Performance**: Some providers are optimized for performance and can offer faster cryptographic operations.
-- **Additional Features**: Third-party providers may offer additional features or algorithms not available in the default providers.
-- **Flexibility**: Configuring a custom provider allows you to tailor the cryptographic capabilities of your application to meet specific needs.
+They provide implementations for operations such as encryption, decryption, digital signatures, hashing, key generation, key management, and secure random number generation. These providers integrate with the Java Cryptography Architecture (JCA), enabling applications to access cryptographic functionality through a consistent and standardized API.
 
 ## Guidelines for using BC and BCFIPS providers
 
-When using **BC** or **BCFIPS** provider, ensure that you do not use any algorithms or modes that are not supported by the selected provider. Otherwise, the operation may fall back to the default provider (SUN).
+When using the **Bouncy Castle (BC)** or **Bouncy Castle FIPS (BCFIPS)** provider, ensure that only algorithms and modes supported by the selected provider are used. If an unsupported algorithm is requested, the operation may fall back to the default SUN provider, which can lead to unexpected behavior or non-compliant execution.
 
-Additionally, the JKS format uses weaker algorithms and is not a supported keystore type for **BC** or **BCFIPS**. You must use a supported keystore and truststore type (such as BCFKS or PKCS12), or convert your existing JKS keystore and truststore to one of these supported formats. After conversion, update the corresponding paths in the `<MI_HOME>/conf/deployment.toml` file.
+Additionally, the **JKS** keystore format uses legacy algorithms and is not supported when operating in BCFIPS mode. Therefore, you must use a supported keystore and truststore type such as:
+
+- BCFKS (recommended for BCFIPS)
+- PKCS12
+
+If you currently use JKS, convert the keystore and truststore to a supported format and update the corresponding paths in `<MI_HOME>/conf/deployment.toml`.
 
 - Convert **JKS** to **BCFKS**
 
@@ -55,7 +35,7 @@ Additionally, the JKS format uses weaker algorithms and is not a supported keyst
       -noprompt
     ```
 
-- Update the Deployment Configuration.
+- Update the deployment configuration.
 
     After creating the `.bcfks` keystore and truststore files, copy them to the `<MI_HOME>/repository/resources/security` directory and update the `<MI_HOME>/conf/deployment.toml` file as shown below:
     ```toml
@@ -100,7 +80,7 @@ MI includes the JAR files required for BC. By default, the **BC** environment is
 The **BCFIPS** provider enforces FIPS 140-2/140-3 approved algorithms and modes only.
 Use this provider if your environment requires FIPS compliance or operates under strict security regulations.
 
-#### Step 1: Set up
+#### Step 1: Set up FIPS dependencies
 
 Before enabling **BCFIPS**, you must add the required FIPS-compliant JARs to the MI runtime.
 Use the provided script in the `<MI_HOME>/bin` directory:
@@ -137,7 +117,7 @@ To verify that the required changes were applied successfully:
 
 The script will check for the presence of required JARs and confirm whether the product is FIPS dependency-complete.
 
-#### Step 3: Enable the BCFIPS provider
+#### Step 3: Enable BCFIPS 
 
 Once the prerequisites are in place, start the server with:
 
@@ -171,7 +151,7 @@ If you want to revert from BCFIPS back to the default or BC provider:
     fips.bat DISABLE
     ```
 
-## Encrypting data Using custom providers
+## Encrypting data using custom providers
 
 To encrypt data using the **BC**/**BCFIPS** provider, run the following command based on your operating system:
 

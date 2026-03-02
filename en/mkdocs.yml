@@ -136,6 +136,7 @@ nav:
                   - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
                   - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
               - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
+              - Configure Crypto Providers: install-and-setup/setup/security/configuring-the-crypto-provider.md
           - Message Brokers:
               - AMQP (RabbitMQ):
                   - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
@@ -161,7 +162,6 @@ nav:
           - Message Builders and Formatters: install-and-setup/setup/message-builders-formatters/message-builders-and-formatters.md
           - Message Relay: install-and-setup/setup/message-builders-formatters/message-relay.md
           - Manage Configurations across Environments: install-and-setup/setup/dynamic-server-configurations.md
-          - Configure Crypto Providers: install-and-setup/setup/crypto-provider-configurations/configuring-the-crypto-provider.md
           - Load Balancer and Proxy Server:
               - Load Balancing: install-and-setup/setup/deployment/setting-up-lb.md
               - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
@@ -1245,6 +1245,6 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.6.0
-  #base_path: http://localhost:8000/en/latest
-  base_path: https://mi.docs.wso2.com/en/4.6.0
+  base_path: http://localhost:8000/en/latest
+#  base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
