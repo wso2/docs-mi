@@ -64,7 +64,7 @@ You can configure a custom crypto provider by passing JVM arguments when startin
 
 MI includes the JAR files required for BC. By default, the **BC** environment is disabled. To enable **BC** as the cryptographic provider, start the server using the following command:
 
-=== "Linux/Mac OS"
+=== "Linux/macOS"
     ```
     cd <MI_HOME>/bin/
     sh micro-integrator.sh -Dsecurity.jce.provider=BC
@@ -121,7 +121,7 @@ The script will check for the presence of required JARs and confirm whether the 
 
 Once the prerequisites are in place, start the server with:
 
-=== "Linux/Mac OS"
+=== "Linux/macOS"
     ```
     cd <MI_HOME>/bin/
     sh micro-integrator.sh -Dsecurity.jce.provider=BCFIPS
@@ -129,7 +129,7 @@ Once the prerequisites are in place, start the server with:
 === "Windows"
     ```
     cd <MI_HOME>\bin\
-    micro-integrator.bat -Dsecurity.jce.provider=BCFIPSE
+    micro-integrator.bat -Dsecurity.jce.provider=BCFIPS
     ```
 
 ### Disable BCFIPS
@@ -140,7 +140,7 @@ If you want to revert from BCFIPS back to the default or BC provider:
 
 - Run the fips script:
 
-=== "Linux/Mac OS"
+=== "Linux/macOS"
     ```
     cd <MI_HOME>/bin/
     sh fips.sh DISABLE
@@ -155,7 +155,7 @@ If you want to revert from BCFIPS back to the default or BC provider:
 
 To encrypt data using the **BC**/**BCFIPS** provider, run the following command based on your operating system:
 
-=== "Linux/Mac OS"
+=== "Linux/macOS"
     ```
     cd <MI_HOME>/bin/
     sh ciphertool.sh -Dsecurity.jce.provider=<PROVIDER>
