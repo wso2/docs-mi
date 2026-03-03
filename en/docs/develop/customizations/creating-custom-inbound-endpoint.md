@@ -12,11 +12,11 @@ To develop your custom inbound endpoint, you can start by using the provided sam
 
 Depending on the type of inbound endpoint you want to create, download the relevant maven artifact from the links given below:
 
--   To create a **custom listening inbound endpoint**, download the maven artifact used in the [sample custom listening inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/custom_inbound_listening).
+-   To create a **custom listening inbound endpoint**, download the maven artifact used in the [sample custom listening inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/en/docs/develop/customizations/custom-artifacts/inbound-endpoint/custom_inbound_listening).
 
--   To create a **custom polling inbound endpoint**, download the maven artifact used in the [sample custom polling inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/custom_inbound_polling).
+-   To create a **custom polling inbound endpoint**, download the maven artifact used in the [sample custom polling inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/en/docs/develop/customizations/custom-artifacts/inbound-endpoint/custom_inbound_polling).
 
--   To create a **custom event-based inbound endpoint**, download the maven artifact used in the [sample custom event-based inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/custom_inbound_event_based).
+-   To create a **custom event-based inbound endpoint**, download the maven artifact used in the [sample custom event-based inbound endpoint configuration](https://github.com/wso2/docs-mi/tree/main/en/docs/develop/customizations/custom-artifacts/inbound-endpoint/custom_inbound_event_based).
 
 !!! note "Files to Modify"
 
