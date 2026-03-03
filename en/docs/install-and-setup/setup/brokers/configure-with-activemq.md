@@ -78,8 +78,12 @@ Follow the instructions below to set up and configure.
     !!! Note
         - When configuring the JMS transport with ActiveMQ, you can append [ActiveMQ-specific properties](http://activemq.apache.org/connection-configuration-uri.html) to the value of the `parameter.provider_url` property. For example, you can set the `redeliveryDelay` and `initialRedeliveryDelay` properties when configuring a JMS inbound endpoint as follows:
           ```toml
-          parameter.provider_url = "tcp://localhost:61616?jms.redeliveryPolicy.redeliveryDelay=10000&amp;jms.redeliveryPolicy.initialRedeliveryDelay=10000"
+          parameter.provider_url = "tcp://localhost:61616?jms.redeliveryPolicy.redeliveryDelay=10000&jms.redeliveryPolicy.initialRedeliveryDelay=10000"
           ```
+        - **Important**: When specifying URL parameters, use the appropriate character encoding based on the context:
+            - In **TOML configuration files** (deployment.toml): use `&` (ampersand) to separate URL parameters.
+            - In **XML configuration files** (proxy services, endpoints): use `&amp;` (HTML entity) to separate URL parameters.
+            - In **VS Code UI/low-code approach**: use `&` (ampersand) when entering URLs in form fields or property panels.
         - The above configurations do not address the problem of transient failures of the ActiveMQ message broker.
           For example, if the ActiveMQ goes down and becomes active again after a while, the Micro Integrator will not reconnect to ActiveMQ. Instead, an error will be thrown until the Micro Integrator is restarted.</br>
           To avoid this problem, you need to add the following value as the `parameter.provider_url`: `failover:tcp://localhost:61616`. This simply makes sure that reconnection takes place. The `failover` prefix is associated with the [Failover transport of ActiveMQ](http://activemq.apache.org/failover-transport-reference.html).
