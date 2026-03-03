@@ -150,8 +150,8 @@ Follow the steps below to set up Fluent Bit and Grafana Loki:
 
 Follow the instructions below to set up Fluent Bit:
 
-1. Download [Fluent Bit](https://fluentbit.io/download/).
-
+1. Download [Fluent Bit](https://fluentbit.io/download/). We have tested the setup with **fluentBit version 4.2.3**.
+   
 2. Extract the downloaded file. 
 
     !!! Tip
@@ -216,7 +216,7 @@ Follow the instructions below to set up Fluent Bit:
 4. Open a new terminal and navigate to the `<FluentBit_Home>` directory. 
 5. Execute the following command:
 
-     `fluent-bit -c <fluentbit.conf file path>`
+     `fluent-bit -c <fluentBit.conf file path>`
      
      When Fluent Bit is successfully installed, you will see a log message.
     
@@ -226,7 +226,7 @@ Grafana Loki aggregates and processes the logs from Fluent Bit.
 
 Follow the instructions below to set up Grafana Loki:
 
-1. Download Loki (Tested with v3.6.6) from the [`grafana/loki` Git repository](https://github.com/grafana/loki/releases).
+1. Download Loki from the [`grafana/loki` Git repository](https://github.com/grafana/loki/releases). We have tested the setup with **Loki version 3.6.6.**
 
     !!! tip
         Be sure to select the appropriate OS version before downloading.
@@ -237,7 +237,7 @@ Follow the instructions below to set up Grafana Loki:
         - You can use a text editor of your choice for this purpose.
         - You can change the given parameter values based on your requirement.
         
-    ``` 
+    ```yaml
     auth_enabled: false
 
     server:

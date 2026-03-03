@@ -90,7 +90,7 @@ Then, add the configurations for the specific type of tracing in order to enable
         port = 9411
     
         # or
-        url = "http://localhost:9411"
+        url = "http://localhost:9411/api/v2/spans"
         ```
 
 2. Start the server. Once that is done, Download Zipkin and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from Zipkin UI via `http://localhost:9411`. 
