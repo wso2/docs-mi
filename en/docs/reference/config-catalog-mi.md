@@ -11179,7 +11179,6 @@ logs = false
 type = "otlp"
 host = "localhost"
 port = 4318
-url = "http://localhost:4318"
 protocol = "http"
 
 [[opentelemetry.properties]]
