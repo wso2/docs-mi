@@ -11194,7 +11194,7 @@ value = "your-api-key"
                             <code>[opentelemetry]</code>
 
                             <p>
-                                This configuration header groups the parameters used for enabling and configuring OpenTelemetry tracing in the WSO2 Integrator: MI. OpenTelemetry allows distributed tracing for debugging, observing, and identifying bottlenecks in message flows. For more information, see <a href="{{base_path}}/observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi">Monitoring with OpenTelemetry</a>.
+                                This configuration header groups the parameters used for enabling and configuring OpenTelemetry tracing in the WSO2 Integrator: MI. OpenTelemetry allows distributed tracing for debugging, observing, and identifying bottlenecks in message flows. 
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -11251,7 +11251,7 @@ value = "your-api-key"
 
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>jaeger</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>"jaeger", "zipkin", "log", "otlp", or custom type name</code></span>
@@ -11272,7 +11272,7 @@ value = "your-api-key"
 
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>localhost</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>Valid hostname or IP address</code></span>
@@ -11293,7 +11293,7 @@ value = "your-api-key"
 
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>14250</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>Valid port number</code></span>
@@ -11322,27 +11322,6 @@ value = "your-api-key"
                                     </div>
                                     <div class="param-description">
                                         <p>The complete URL of the tracing backend endpoint. This parameter can be used instead of specifying separate host and port parameters. Example: http://localhost:4318 for OTLP.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>protocol</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>"grpc"</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>"http" or "grpc"</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the transport protocol to use for OTLP exporters. The default is gRPC. Set this to http to use HTTP transport for OTLP traces. This parameter is only applicable when type is set to otlp.</p>
                                     </div>
                                 </div>
                             </div>
