@@ -10960,7 +10960,6 @@ logs = false
 type = "otlp"
 host = "localhost"
 port = 4318
-protocol = "http"
 
 [[opentelemetry.properties]]
 name = "api-key"
