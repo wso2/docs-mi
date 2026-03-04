@@ -3,11 +3,11 @@
 This documentation provides a reference guide for the DB Connector.
 The DB Connector allows you to connect to relational databases via JDBC and perform various operations including executing queries, modifying data, calling stored procedures, and managing transactions.
 
-## Connection Configurations
+## Connection configurations
 
 The DB Connector utilizes connection pooling for efficient database interaction. You need to configure a connection before using the connector operations.
 
-### Connection Parameters
+### Connection parameters
 Common parameters for configuring a database connection:
 
 ??? note "Connection Parameters"

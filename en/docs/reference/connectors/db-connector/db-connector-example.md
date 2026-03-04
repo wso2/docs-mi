@@ -248,6 +248,7 @@ You can download the ZIP file and extract the contents to get the project code.
 ```
 3.  Check your database to verify that the order has been created and the product stock has been updated.
 4.  You can also check the `Orders` and `OrderItems` tables to see the inserted records.
+
 ## What's next
 *   Explore the [DB Connector Reference]({{base_path}}/reference/connectors/db-connector/db-connector-config/) for details on all operations and connection parameters.
 *   Learn about error handling strategies in WSO2 MI.

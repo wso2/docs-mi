@@ -20,7 +20,7 @@ The DB Connector allows you to connect and interact with various relational data
 			1.0.0 (latest)
 		</td>
 		<td>
-			MI 4.4.0, MI 4.5.0
+			MI 4.4.0, MI 4.5.0, MI 4.6.0
 		</td>
 	</tr>
 </table>
