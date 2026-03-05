@@ -11224,6 +11224,256 @@ inbound.max_threads = 100</code></pre>
     </section>
 </div>
 
+## Observability - OpenTelemetry
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="56" type="checkbox" id="_tab_56">
+                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[opentelemetry]
+enable = false
+logs = false
+type = "otlp"
+host = "localhost"
+port = 4318
+
+[[opentelemetry.properties]]
+name = "api-key"
+value = "your-api-key"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[opentelemetry]</code>
+
+                            <p>
+                                This configuration header groups the parameters used for enabling and configuring OpenTelemetry tracing in the WSO2 Integrator: MI. OpenTelemetry allows distributed tracing for debugging, observing, and identifying bottlenecks in message flows.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>"true" or "false"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables or disables OpenTelemetry tracing for the MI server. Set this to true to enable distributed tracing capabilities.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>logs</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>"true" or "false"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables or disables logging for OpenTelemetry traces. When enabled, tracing information is logged for debugging purposes.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>jaeger</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>"jaeger", "zipkin", "log", "otlp", or custom type name</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the type of OpenTelemetry exporter to use. Options include jaeger (Jaeger tracing), zipkin (Zipkin tracing), log (log-based tracing), otlp (OpenTelemetry Protocol for APMs like NewRelic, Elastic), or a custom exporter type.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>host</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>localhost</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Valid hostname or IP address</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The hostname or IP address of the tracing backend endpoint. This parameter is optional if the url parameter is specified. Used with Jaeger, Zipkin, or OTLP exporters.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>14250</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Valid port number</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The port number of the tracing backend endpoint. This parameter is optional if the url parameter is specified. Common ports: 14250 for Jaeger, 9411 for Zipkin, 4318 for OTLP HTTP, 4317 for OTLP gRPC.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Valid URL</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The complete URL of the tracing backend endpoint. This parameter can be used instead of specifying separate host and port parameters. Example: http://localhost:4318 for OTLP.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+Additional custom properties can be configured using the `[[opentelemetry.properties]]` array configuration:
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="57" type="checkbox" id="_tab_57">
+                <label class="tab-selector" for="_tab_57"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[[opentelemetry.properties]]
+name = "api-key"
+value = "your-api-key-value"
+
+[[opentelemetry.properties]]
+name = "custom-header"
+value = "custom-value"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[[opentelemetry.properties]]</code>
+
+                            <p>
+                                This configuration allows you to specify custom headers and properties for OpenTelemetry exporters. This is particularly useful when connecting to APM providers that require authentication headers or other custom metadata. You can define multiple property entries by repeating the <code>[[opentelemetry.properties]]</code> section.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Property or header name</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the custom property or header to be sent with OpenTelemetry traces. For example, api-key for authentication headers.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>value</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Property or header value</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The value of the custom property or header. For example, the API key value for authentication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 ## Synapse Handlers
 
