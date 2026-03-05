@@ -181,7 +181,7 @@ Select `BankAPI` that you have developed and test the resource.
 Congratulations!
 Now, you have created your first Integration API.
 
-## What's Next?  
+## What's next?  
 
 So far, you have responded to the client with a mock payload. Next, you will explore how to route and transform the payload effectively.
 

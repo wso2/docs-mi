@@ -90,7 +90,7 @@ Then, add the configurations for the specific type of tracing in order to enable
         port = 9411
     
         # or
-        url = "http://localhost:9411"
+        url = "http://localhost:9411/api/v2/spans"
         ```
 
 2. Start the server. Once that is done, Download Zipkin and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from Zipkin UI via `http://localhost:9411`. 
@@ -213,7 +213,7 @@ It is recommended to use OTLP to view the traces through NewRelic APM. But still
         For other vendors, please consult the respective documentations.
 
 
-## Using the Custom Tracer Implementation
+## Using the custom tracer implementation
 
 By using a custom tracer implementation in WSO2 MI, you can publish tracing data from WSO2 MI to any tracing server. Let's implement a custom tracer which simply prints the logs via the System.out in WSO2 MI using the instructions given below:
 

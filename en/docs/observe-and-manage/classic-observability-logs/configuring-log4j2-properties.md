@@ -264,7 +264,7 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
     appender.AUDIT_LOGFILE.filter.threshold.level = INFO
     ```
 
-### Correlations Logs
+### Correlation logs
 
 This logger generates correlation logs for monitoring individual HTTP requests from the point that a message is received by the WSO2 Integrator: MI until the corresponding response message is sent back to the original message sender. It refers to the details in the `CORRELATION` appender and prints logs to the `<MI_HOME>/repository/logs/correlation.log` file.
 
@@ -556,7 +556,7 @@ You can customize the format of this access log by changing the following proper
 </tr>
 <tr class="odd">
 <td><pre><code>%S</code></pre></td>
-<td><p>Accept Chatset</p></td>
+<td><p>Accept Charset</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%t</code></pre></td>
@@ -783,7 +783,7 @@ To prevent the `Current Params` from being printed in the logs, add the followin
 -Ddss.disable.current.params=true
 ```
 
-## Using Custom Log appenders
+## Using custom log appenders
 
 Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storages.
 
@@ -856,6 +856,6 @@ However, since WSO2 Integrator: MI works in an OSGi environment, such Log4j2 ext
 
 6. Restart the server.
 
-## What's Next?
+## What's next?
 
 Once you have configured the logs, you can start [monitoring and analyzing logs]({{base_path}}/observe-and-manage/classic-observability-logs/monitoring-logs) to troubleshoot issues and observe runtime behavior.

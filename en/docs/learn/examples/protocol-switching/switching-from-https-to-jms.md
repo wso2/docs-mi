@@ -35,7 +35,7 @@ Example JMS connection URL for WSO2 MB
 ```xml
 jms:/Queue1?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.wso2.andes.jndi.PropertiesFileInitialContextFactory&amp;java.naming.provider.url=conf/jndi.properties&amp;transport.jms.DestinationType=queue
 ```
-## Build and Run
+## Build and run
 
 Create the artifacts:
 

@@ -429,7 +429,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 You have now learned how to create an AI agent to enhance your integration flow with automating tasks using AI.
 
-## What's Next?  
+## What's next?  
 
 You have now completed this tutorial series, where you learned how to build a complete integration flow step by step. Throughout this journey, you have explored how to create AI chatbot, build a knowledge base, build RAG application, and develop an AI agent to enhance your integration flow.
 

@@ -156,13 +156,13 @@ Follow the steps below to generate the gRPC connector:
 For macOS/Linux:
 
 ```bash
-./generator /path/to/order-service.proto /path/to/output-directory 4.5.0
+./generator /path/to/order-service.proto /path/to/output-directory 4.6.0
 ```
 
 For Windows:
 
 ```bash
-generator.bat C:\path\to\order-service.proto C:\path\to\output-directory 4.5.0
+generator.bat C:\path\to\order-service.proto C:\path\to\output-directory 4.6.0
 ```
 
 By following these steps, you can generate a fully functional gRPC connector from a `.proto` file, enabling seamless integration with gRPC-based services in WSO2 Integrator: MI.

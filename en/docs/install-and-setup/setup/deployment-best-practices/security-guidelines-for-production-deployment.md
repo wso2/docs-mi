@@ -12,7 +12,7 @@ In addition, see the [production deployment checklist]({{base_path}}/install-and
 
 Given below are the security guidelines for the WSO2 Integrator: MI runtimes. Note that some of these guidelines are common to both runtimes, whereas some guidelines are runtime-specific.
 
-###WSO2 Integrator: MI runtime security
+### WSO2 Integrator: MI runtime security
 
 Given below are the security guidelines for the WSO2 Integrator: MI runtime.
 
@@ -133,7 +133,7 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
             <p>Remove weak ciphers for PassThrough transport</p>
          </td>
          <td>
-            <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployement.toml</code> file.
+            <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployment.toml</code> file.
             <p>See <a href="{{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
          </td>
       </tr>
@@ -399,7 +399,7 @@ This section provides a list of security guidelines for configuring the network
 </tr>
 <tr class="even">
 <td>
-<p><strong>Note:</strong>This security guideline is applicable to the MI runtime.</p>
+<p><strong>Note:</strong> This security guideline is applicable to the MI runtime.</p>
 <p>Block the <code>/services</code> and <code>/carbon</code> contexts from the DMZ</p></td>
 <td><p>Access to the &quot;/services&quot; and &quot;/carbon&quot; contexts should be blocked from the DMZ level (i.e., from the proxy server, load balancer and/or firewall).</p>
 <ul>

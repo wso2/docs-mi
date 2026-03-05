@@ -129,7 +129,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
             - All the generated REST services are not production-ready and require manual review and necessary edits using MI for VS Code.
             - Additionally, since using a dot `.` in XML element names is not considered a best practice, you may need to manually modify the generated SOAP payload to remove or adjust the dot notation.
 
-6. Once you complete the **API Form**, click **Create**.
+7. Once you complete the **API Form**, click **Create**.
 
 !!! info
     You can switch to the default Visual Studio Code **Explorer** to view the folder structure.

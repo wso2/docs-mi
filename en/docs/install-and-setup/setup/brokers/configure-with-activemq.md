@@ -123,7 +123,7 @@ When the WSO2 Integrator: MI is configured to consume messages from an ActiveMQ 
       <parameter name="transport.jms.CacheLevel">consumer</parameter>
       ```
 
-      -   `redeliveryPolicy.maximumRedeliveries`: Maximum number of retries for delivering the message. If set to `-1` ActiveMQ will retry inifinitely.
+      -   `redeliveryPolicy.maximumRedeliveries`: Maximum number of retries for delivering the message. If set to `-1` ActiveMQ will retry infinitely.
       -   `transport.jms.SessionTransacted`: When set to `true`, this enables the JMS session transaction for the proxy service.
       -   `redeliveryPolicy.redeliveryDelay`: Delay time in milliseconds between retries.
       -   `transport.jms.CacheLevel`: This needs to be set to `consumer` for the ActiveMQ redelivery mechanism to work.
@@ -226,7 +226,7 @@ Simple Authentication: ActiveMQ comes with an authentication plugin, which provi
 
 ### Authorization
 
-ActiveMQ provides authorization schemes using simple XML configurations, which you can apply to the users defined in the [authentication plugin](#authentication). To setup authorization, ensure you have the following configuration in the `ACTIVEMQ_HOME/conf/activemq-sequrity.xml` file.
+ActiveMQ provides authorization schemes using simple XML configurations, which you can apply to the users defined in the [authentication plugin](#authentication). To setup authorization, ensure you have the following configuration in the `ACTIVEMQ_HOME/conf/activemq-security.xml` file.
 
 ```xml
 <authorizationPlugin>

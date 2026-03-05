@@ -820,6 +820,10 @@ nav:
               - 1.x:
                   # - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
+          - DB Connector:
+              - DB Connector Overview: reference/connectors/db-connector/db-connector-overview.md
+              - DB Connector Example: reference/connectors/db-connector/db-connector-example.md
+              - DB Connector Reference: reference/connectors/db-connector/db-connector-config.md
           - MongoDB Connector:
               - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
               - 3.x:
@@ -828,6 +832,11 @@ nav:
               - 2.x:
                 - MongoDB Connector Example: reference/connectors/mongodb-connector/2.x/mongodb-connector-example.md
                 - MongoDB Connector Reference: reference/connectors/mongodb-connector/2.x/mongodb-connector-config.md
+          - RabbitMQ (AMQP 1.0) Connector:
+              - RabbitMQ (AMQP 1.0) Connector Overview: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-overview.md
+              - Set up RabbitMQ Broker: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-setup.md
+              - RabbitMQ (AMQP 1.0) Connector Example: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example.md
+              - RabbitMQ (AMQP 1.0) Connector Reference: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-reference.md
           - Redis Connector:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -931,6 +940,9 @@ nav:
           - Google Pub/Sub Inbound Endpoint:
                 - Google Pub/Sub Inbound Endpoint Example: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-example.md
                 - Google Pub/Sub Inbound Endpoint Reference: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-reference.md
+          - RabbitMQ (AMQP 1.0) Inbound Endpoint:
+              - RabbitMQ (AMQP 1.0) Inbound Endpoint Example: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example.md
+              - RabbitMQ (AMQP 1.0) Inbound Endpoint Reference: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md

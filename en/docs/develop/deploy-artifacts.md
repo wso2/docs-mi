@@ -2,7 +2,7 @@
 
 Now that you have developed an integration using the WSO2 Integrator: MI Visual Studio Code plugin, you have several options to deploy that integration to the WSO2 Integrator: MI server runtime.
 
-## Build and Run
+## Build and run
 
 1.	[Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI server on your local machine.
 2.  Follow these steps to add the server to the VS Code extension if it has not been added yet.

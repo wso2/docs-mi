@@ -1,6 +1,6 @@
 # Apply Security to a Proxy Service
 
-Follow the instructions below to apply security to a proxy service via WSO2 Integration Studio:
+Follow the instructions below to apply security to a proxy service via the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code):
 
 ## Prerequisites
 
