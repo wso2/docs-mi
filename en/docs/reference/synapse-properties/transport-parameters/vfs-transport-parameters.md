@@ -508,6 +508,14 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
            When a file read/write location is a bind mount volume, this property needs to be set to <code>true</code>.
          </td>
       </tr>   
+      <tr>
+         <td>
+           fileNameEncoding
+         </td>
+         <td>
+           Encoding of the file names in the file host. This is required when the file names are in different encoding than UTF-8 ex: ISO-8859-1.
+         </td>
+      </tr>
    </tbody>
 </table>
 
