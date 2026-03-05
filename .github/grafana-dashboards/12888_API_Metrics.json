@@ -463,7 +463,7 @@
       },
       "targets": [
         {
-          "expr": "sum((max_over_time(wso2_integration_proxy_request_count_error_total{service_name=~\"[[service]]\"}[$__range]))-(min_over_time(wso2_integration_proxy_request_count_error_total{service_name=~\"[[service]]\"}[$__range])))/sum((max_over_time(wso2_integration_proxy_request_count_total{service_name=~\"[[service]]\"}[$__range]))-(min_over_time(wso2_integration_proxy_request_count_total{service_name=~\"[[service]]\"}[$__range])))",
+          "expr": "sum((max_over_time(wso2_integration_api_request_count_error_total{service_name=~\"[[service]]\"}[$__range]))-(min_over_time(wso2_integration_api_request_count_error_total{service_name=~\"[[service]]\"}[$__range])))/sum((max_over_time(wso2_integration_api_request_count_total{service_name=~\"[[service]]\"}[$__range]))-(min_over_time(wso2_integration_api_request_count_total{service_name=~\"[[service]]\"}[$__range])))",
           "interval": "30s",
           "legendFormat": "Current",
           "refId": "A"
@@ -828,7 +828,7 @@
       },
       "targets": [
         {
-          "expr": "{service=\"{proxy:[[service]]}\"}",
+          "expr": "{service=\"{api:[[service]]}\"}",
           "refId": "A"
         }
       ],
