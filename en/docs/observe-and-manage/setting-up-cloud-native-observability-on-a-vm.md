@@ -134,7 +134,7 @@ Follow the steps below to set up Fluent Bit and Grafana Loki:
 
 Follow the instructions below to set up Fluent Bit:
 
-1. Download [Fluent Bit](https://fluentbit.io/download/).
+1. Download [Fluent Bit](https://fluentbit.io/download/). We have tested the setup with **fluentBit version 4.2.3**.
 
 2. Extract the downloaded file. 
 
@@ -169,7 +169,8 @@ Follow the instructions below to set up Fluent Bit:
                 Format      regex
                 Regex       \[(?<date>\d{2,4}\-\d{2,4}\-\d{2,4} \d{2,4}\:\d{2,4}\:\d{2,4}\,\d{1,6})\]  (?<log_level>[^\s]+) \{(?<class>[\s\S]*)\} ([-]) (?<service>\{[\s\S]*\})?(?<message>.*)
                 Time_Key    date
-                    Time_Format %Y-%m-%d %H:%M:%S,%L
+                Time_Format %Y-%m-%d %H:%M:%S,%L
+                Time_System_Timezone On
         ```
     
     - **`fluentBit.conf`** file
@@ -190,32 +191,16 @@ Follow the instructions below to set up Fluent Bit:
         [OUTPUT]
             Name loki
             Match *
-            Url http://localhost:3100/loki/api/v1/push
-            BatchWait 1
-            BatchSize 30720
-            Labels {job="fluent-bit"}
-            LineFormat json
-            LabelMapPath <Location/labelmap.json>
+            uri http://localhost:3100/loki/api/v1/push
+            labels {job="fluent-bit"}
+            line_format json
+            label_map_path <Location/labelmap.json>
         ```
-      
-4. Follow the instructions below to build the Fluent Bit output plugin before starting Fluent Bit:
 
-    1. Clone the [grafana/loki git repository](https://github.com/grafana/loki).
-    2. To build the Fluent Bit plugin, execute the following command.
-    
-        `make fluent-bit-plugin`
-        
-        For more details, see [Fluent Bit Output Plugin readme file](https://github.com/grafana/loki/blob/main/clients/cmd/fluent-bit/README.md#fluent-bit-output-plugin).
-        
-    3. Copy and save the path of the `out_loki.so` file. 
-   
-5. Open a new terminal and navigate to the `<FluentBit_Home>` directory. 
-6. Execute the following command:
+4. Open a new terminal and navigate to the `<FluentBit_Home>` directory.
+5. Execute the following command:
 
-    !!! tip
-        Replace `<location of out_loki.so file>` with the path that you copied and saved in the previous step.
-
-     `fluent-bit -e <location of out_loki.so file> -c <fluentbit.conf file path>`
+     `fluent-bit -c <fluentBit.conf file path>`
      
      When Fluent Bit is successfully installed, you will see a log message.
     
@@ -225,7 +210,7 @@ Grafana Loki aggregates and processes the logs from Fluent Bit.
 
 Follow the instructions below to set up Grafana Loki:
 
-1. Download Loki v1.6.1 from the [`grafana/loki` Git repository](https://github.com/grafana/loki/blob/v1.5.0/docs/installation/local.md).
+1. Download Loki from the [`grafana/loki` Git repository](https://github.com/grafana/loki/releases). We have tested the setup with **Loki version 3.6.6.**
 
     !!! tip
         Be sure to select the appropriate OS version before downloading.
@@ -235,53 +220,38 @@ Follow the instructions below to set up Grafana Loki:
     !!! tip
         - You can use a text editor of your choice for this purpose.
         - You can change the given parameter values based on your requirement.
-        
-    ```
+
+    ```yaml
     auth_enabled: false
-    
+
     server:
       http_listen_port: 3100
-    
-    ingester:
-      lifecycler:
-        address: 127.0.0.1
-        ring:
-          kvstore:
-            store: inmemory
-          replication_factor: 1
-        final_sleep: 0s
-      chunk_idle_period: 5m
-      chunk_retain_period: 30s
-      max_transfer_retries: 0
-    
+
+    common:
+      ring:
+        instance_addr: 127.0.0.1
+        kvstore:
+          store: inmemory
+      replication_factor: 1
+      path_prefix: /tmp/loki
+
     schema_config:
       configs:
-        - from: 2018-04-15
-          store: boltdb
+        - from: 2025-01-01
+          store: tsdb
           object_store: filesystem
-          schema: v11
+          schema: v13
           index:
             prefix: index_
-            period: 168h
-    
+            period: 24h
+
     storage_config:
-      boltdb:
-        directory: /tmp/loki/index
-    
       filesystem:
         directory: /tmp/loki/chunks
-    
+
     limits_config:
-      enforce_metric_name: false
       reject_old_samples: true
       reject_old_samples_max_age: 168h
-    
-    chunk_store_config:
-      max_look_back_period: 0s
-    
-    table_manager:
-      retention_deletes_enabled: false
-      retention_period: 0s
     ```
    
  1. Unzip the file you downloaded in step 1. 
