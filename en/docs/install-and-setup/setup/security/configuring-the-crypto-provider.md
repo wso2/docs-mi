@@ -15,7 +15,7 @@ Additionally, the **JKS** keystore format uses legacy algorithms and is not supp
 - BCFKS (recommended for BCFIPS)
 - PKCS12
 
-If you currently use JKS, convert the keystore and truststore to a supported format and update the corresponding paths in `<MI_HOME>/conf/deployment.toml`.
+If you currently use JKS, convert the keystore and truststore to a supported format and update the keystore and truststore configurations in `<MI_HOME>/conf/deployment.toml`.
 
 - Convert **JKS** to **BCFKS**
 
@@ -56,9 +56,9 @@ If you currently use JKS, convert the keystore and truststore to a supported for
 
 ## Providers supported in MI
 
-MI uses the **SUN provider** as the default crypto provider. It also supports the **Bouncy Castle (BC)** and **Bouncy Castle FIPS (BCFIPS)** providers.
+MI uses the SUN provider as the default crypto provider. It also supports other crypto providers such as Bouncy Castle (BC) and Bouncy Castle FIPS (BCFIPS).
 
-You can configure a custom crypto provider by passing JVM arguments when starting the server.
+If you need to use a crypto provider other than the default one, you can configure it by passing the required JVM arguments when starting the server.
 
 ### Enable BC
 
