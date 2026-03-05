@@ -110,7 +110,7 @@ To verify that the required changes were applied successfully:
     ```
 
 === "Windows"
-    ```bash
+    ```
     cd <MI_HOME>\bin\
     fips.bat VERIFY
     ```
