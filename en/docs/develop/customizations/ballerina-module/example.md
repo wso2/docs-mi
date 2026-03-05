@@ -46,151 +46,157 @@ If you do not want to configure this yourself, you can simply [get the project](
     
     ??? note "Ballerina Implementation for All Three Examples"
 
-        import wso2/mi;
+            import wso2/mi;
 
-        // Patient Mapping Logic
+            // Patient Mapping Logic
 
-        type Patient record {
-            string patientType;
-            string patientId;
-            string version;
-            string lastUpdatedOn;
-            string originSource;
-            Description description;
-            Identifier[] identifiers;
-            string firstName;
-            string lastName;
-            string gender;
-            LocationDetail[] locationDetail;
-        };
-
-        type Identifier record {
-            IdType id_type;
-            string id_value;
-        };
-
-        type IdType record {
-            Code[] codes;
-        };
-
-        type Code record {
-            string system_source;
-            string identifier_code;
-        };
-
-        type Description record {
-            string status;
-            string details?;
-        };
-
-        type LocationDetail record {
-            string nation?;
-            string town?;
-            string region?;
-            string zipCode?;
-            string identifier?;
-            string province?;
-        };
-
-        @mi:Operation
-        public function mapPatient(json payload) returns json {
-            Patient|error patient = payload.cloneWithType();
-            if patient is error {
-                return { error: "Could not convert payload to Patient record" };
-            }
-
-            return {
-                name: [
-                    {
-                        given: [patient.firstName],
-                        family: patient.lastName
-                    }
-                ],
-                meta: {
-                    versionId: patient.version,
-                    lastUpdated: patient.lastUpdatedOn,
-                    source: patient.originSource
-                },
-                text: {
-                    div: patient.description.details ?: "",
-                    status: patient.description.status
-                },
-                gender: patient.gender,
-                identifier: [
-                    {
-                        system: patient.identifiers[0].id_type.codes[0].system_source,
-                        value: patient.identifiers[0].id_value
-                    }
-                ],
-                address: from var {nation, town, region, province, zipCode, identifier} in patient.locationDetail
-                    select {
-                        country: nation,
-                        city: town,
-                        district: region,
-                        state: province,
-                        postalCode: zipCode,
-                        id: identifier
-                    },
-                id: patient.patientId
+            type Patient record {
+                string patientType;
+                string patientId;
+                string version;
+                string lastUpdatedOn;
+                string originSource;
+                Description description;
+                Identifier[] identifiers;
+                string firstName;
+                string lastName;
+                string gender;
+                LocationDetail[] locationDetail;
             };
-        }
 
-        // Price Calculation Logic
+            type Identifier record {
+                IdType id_type;
+                string id_value;
+            };
 
-        @mi:Operation
-        public function calculateTotal(xml invoice) returns xml {
-            xml<xml:Element> prices = invoice/**/<price>;
-            int total = from xml:Element element in prices
-                let int|error price = int:fromString(element.data())
-                where price is int
-                collect sum(price);
-            return xml `<total>${total}</total>`;
-        }
+            type IdType record {
+                Code[] codes;
+            };
 
-        // Type Processing Logic
+            type Code record {
+                string system_source;
+                string identifier_code;
+            };
 
-        @mi:Operation
-        public function invertBoolean(boolean b) returns boolean => !b;
+            type Description record {
+                string status;
+                string details?;
+            };
 
-        @mi:Operation
-        public function doubleInt(int n) returns int => n * 2;
+            type LocationDetail record {
+                string nation?;
+                string town?;
+                string region?;
+                string zipCode?;
+                string identifier?;
+                string province?;
+            };
 
-        @mi:Operation
-        public function reciprocalFloat(float f) returns float {
-            if f == 0.0 {
-                return 1;
+            @mi:Operation
+            public function mapPatient(json payload) returns json {
+                Patient|error patient = payload.cloneWithType();
+            if patient is error {
+                return {
+                    "error": "Could not convert payload to Patient record"
+                };
+                
             }
-            return 1.0 / f;
-        }
 
-        @mi:Operation
-        public function addConstantToDecimal(decimal d) returns decimal => d + 10;
+                return {
+                    name: [
+                        {
+                            given: [patient.firstName],
+                            family: patient.lastName
+                        }
+                    ],
+                    meta: {
+                        versionId: patient.version,
+                        lastUpdated: patient.lastUpdatedOn,
+            "source": patient.originSource
+                    },
+                    text: {
+                        div: patient.description.details ?: "",
+                        status: patient.description.status
+                    },
+                    gender: patient.gender,
+                    identifier: [
+                        {
+                            system: patient.identifiers[0].id_type.codes[0].system_source,
+                            value: patient.identifiers[0].id_value
+                        }
+                    ],
+                    address: from var {nation, town, region, province, zipCode, identifier} in patient.locationDetail
+                        select {
+                            country: nation,
+                            city: town,
+                            district: region,
+                            state: province,
+                            postalCode: zipCode,
+                            id: identifier
+                        },
+                    id: patient.patientId
+                };
+            }
 
-        @mi:Operation
-        public function doubleString(string s) returns string => s + s;
+            // Price Calculation Logic
 
-        @mi:Operation
-        public function getJsonNameProperty(json j) returns json {
-            json jsn = j;
-            if jsn is string {
-                json|error je = jsn.fromJsonString();
-                if je is error {
-                    return { err: je.message() };
+            @mi:Operation
+            public function calculateTotal(xml invoice) returns xml {
+                xml<xml:Element> prices = invoice/**/<price>;
+
+                int total = from xml:Element element in prices
+                    let int|error price = int:fromString(element.data())
+                    where price is int
+                    collect sum(price);
+
+                return xml `<total>${total}</total>`;
+            }
+
+            // Type Processing Logic
+
+            @mi:Operation
+            public function invertBoolean(boolean b) returns boolean => !b;
+
+            @mi:Operation
+            public function doubleInt(int n) returns int => n * 2;
+
+            @mi:Operation
+            public function reciprocalFloat(float f) returns float {
+                if f == 0.0 {
+                    return 1;
                 }
-                jsn = je;
+                return 1.0 / f;
             }
-            json|error val = jsn.name;
-            if val is error {
-                return { err: val.message() };
-            }
-            return { val };
-        }
 
-        @mi:Operation
-        public function getXmlNameElement(xml x) returns xml {
-            xml y = x/<name>;
-            return xml `<result>${y}</result>`;
-        }
+            @mi:Operation
+            public function addConstantToDecimal(decimal d) returns decimal => d + 10;
+
+            @mi:Operation
+            public function doubleString(string s) returns string => s + s;
+
+            @mi:Operation
+            public function getJsonNameProperty(json j) returns json {
+                json jsn = j;
+                if jsn is string {
+                    json|error je = jsn.fromJsonString();
+                    if je is error {
+                        return {err: je.message()};
+                    }
+                    jsn = je;
+                }
+                json|error val = jsn.name;
+                if val is error {
+                    return {err: val.message()};
+                }
+                return {val};
+            }
+
+            @mi:Operation
+            public function getXmlNameElement(xml x) returns xml {
+                xml y = x/<name>;
+
+                return xml `<result>${y}</result>`;
+            }
 
 4. Click the **Build Ballerina Module** icon.
 
