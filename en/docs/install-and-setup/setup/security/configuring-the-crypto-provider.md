@@ -85,7 +85,7 @@ Use this provider if your environment requires FIPS compliance or operates under
 Before enabling **BCFIPS**, you must add the required FIPS-compliant JARs to the MI runtime.
 Use the provided script in the `<MI_HOME>/bin` directory:
 
-=== "Linux / macOS"
+=== "Linux/macOS"
     ```
     cd <MI_HOME>/bin/
     sh fips.sh
@@ -103,7 +103,7 @@ This downloads and installs the required **bc-fips**, **bcpkix-fips**, **bctls-f
 
 To verify that the required changes were applied successfully:
 
-=== "Linux / macOS"
+=== "Linux/macOS"
     ```
     cd <MI_HOME>/bin/
     sh fips.sh VERIFY
@@ -115,9 +115,9 @@ To verify that the required changes were applied successfully:
     fips.bat VERIFY
     ```
 
-The script will check for the presence of required JARs and confirm whether the product is FIPS dependency-complete.
+The script will check for the presence of required JARs and confirm whether the product has all required FIPS dependencies.
 
-#### Step 3: Enable BCFIPS 
+#### Step 3: Enable BCFIPS
 
 Once the prerequisites are in place, start the server with:
 
