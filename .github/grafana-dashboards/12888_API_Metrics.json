@@ -828,7 +828,7 @@
       },
       "targets": [
         {
-          "expr": "{service=\"{api:[[service]]}\"}",
+          "expr": "{service=~\"\\\\{api:${service}( .*)?\\\\}\"}",
           "refId": "A"
         }
       ],
