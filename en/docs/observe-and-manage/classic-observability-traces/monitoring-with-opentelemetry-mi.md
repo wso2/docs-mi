@@ -1,4 +1,4 @@
-# Monitoring with OpenTelemetry
+# Trace with OpenTelemetry
 
 Tracing a message in MI is important to debug, observe, and identify possible bottlenecks in a message path. This is known as distributed tracing. OpenTelemetry allows you to enable distributed tracing for WSO2 MI.
 

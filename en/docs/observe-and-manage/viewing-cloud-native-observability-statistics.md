@@ -13,6 +13,7 @@ See the following topics for information and instructions:
 
 -	Setting up [Grafana based observability for a VM environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-on-a-vm).
 -	Setting up [Grafana based observability for a Kubernetes environment]({{base_path}}/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes).
+-   Setting up [Grafana based observability Using OpenTelemetry]({{base_path}}/observe-and-manage/setting-up-opentelemetry-observability).
 
 ## Cluster dashboard
 
