@@ -105,7 +105,7 @@ and removed from the queue.
 
 If the value is **false**:
 
--   If the queue is configured with a **Dead Letter Exchange**, the
+-   If the proxy is configured with a **Dead Letter Exchange**, the
     message will be routed to the DLQ.
 -   Otherwise the message will be **requeued**.
 
