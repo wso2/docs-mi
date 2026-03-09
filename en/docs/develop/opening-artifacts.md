@@ -19,7 +19,7 @@ Follow the instructions given below to open an already-created integration artif
 
     For example, if you want to import an API, paste the copied XML file in the `<PROJECT_NAME>/src/main/wso2mi/artifacts/apis/` directory.
 
-6. Refresh the **Micro Integrator Project Explorer** to ensure that the files are visible in the project structure.
+6. Refresh the **WSO2 Integrator: MI Project Explorer** to ensure that the files are visible in the project structure.
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/refresh-project-explorer.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/refresh-project-explorer.png" alt="refresh project explorer" width="30%"></a>
 

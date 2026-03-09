@@ -12,7 +12,7 @@ In this tutorial, instead of sending the request directly to the back-end servic
 
 {!includes/setting-up-workspace-for-mi-for-vscode.md!}
 
-- **RabbitMQ:** Install and [setup Micro Integrator]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) with RabbitMQ.
+- **RabbitMQ:** Install and [setup WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) with RabbitMQ.
 
 ### Step 2: Develop the integration artifacts
 
@@ -107,7 +107,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 Now, let's create a message store artifact that connects to the RabbitMQ broker to store the messages.
 
 !!! Tip "What is a Message Store?"
-    A **Message Store** in WSO2 Micro Integrator (WSO2 MI) is a persistence layer used to temporarily hold messages for later processing. It acts as a buffer between message producers and consumers, enabling asynchronous message handling, retries, and reliable delivery. To learn more, see the [Message Stores and Processors]({{base_path}}/reference/synapse-properties/about-message-stores-processors/) documentation.
+    A **Message Store** in WSO2 Integrator: MI (WSO2 MI) is a persistence layer used to temporarily hold messages for later processing. It acts as a buffer between message producers and consumers, enabling asynchronous message handling, retries, and reliable delivery. To learn more, see the [Message Stores and Processors]({{base_path}}/reference/synapse-properties/about-message-stores-processors/) documentation.
 
 1. In the **MI Project Explorer** click on **+ Add artifact**.
 
@@ -272,7 +272,7 @@ In the next step, you will create a [Message Processor]({{base_path}}/reference/
 You need to create a **Message Sampling Processor**, which will retrieve messages from the **Message Store** and forward them to a specified sequence. In this tutorial, the messages will be dispatched to the `HospitalServiceSequence` created in the [previous step](#create-a-sequence).
 
 !!! Tip "What is a Message Processor?"
-    A **Message Processor** in WSO2 Micro Integrator (WSO2 MI) is a background task that retrieves messages from a **Message Store** and forwards them to a defined sequence for processing. It supports scheduled, asynchronous, and reliable message delivery which is useful for store-and-forward patterns and retry mechanisms. To learn more, see the [Message Stores and Processors]({{base_path}}/reference/synapse-properties/about-message-stores-processors/) documentation.
+    A **Message Processor** in WSO2 Integrator: MI (WSO2 MI) is a background task that retrieves messages from a **Message Store** and forwards them to a defined sequence for processing. It supports scheduled, asynchronous, and reliable message delivery which is useful for store-and-forward patterns and retry mechanisms. To learn more, see the [Message Stores and Processors]({{base_path}}/reference/synapse-properties/about-message-stores-processors/) documentation.
 
 1. In the **MI Project Explorer** click on **+ Add artifact**.
 
@@ -315,13 +315,13 @@ You have now completed creating all the required artifacts for this integration.
 
 ### Step 3: Start the RabbitMQ Broker
     
-Be sure to install and start a RabbitMQ server instance before starting the Micro Integrator.
+Be sure to install and start a RabbitMQ server instance before starting the WSO2 Integrator: MI.
 
 See the [RabbitMQ documentation](https://www.rabbitmq.com/download.html) for more information on how to install and run the product.
 
 ### Step 4: Build and run the artifacts
 
-Now that you have developed an integration using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed an integration using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
@@ -448,4 +448,4 @@ Now, check the **Output** tab in VS Code. You should see a message similar to th
 
 This message is printed by the <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator">Log mediator</a> in the integration flow that is executed when the Message Processor retrieves a message from the Message Store.
 
-You have now explored how WSO2 Micro Integrator can implement store-and-forward messaging using a [RabbitMQ Message Store]({{base_path}}/reference/synapse-properties/message-stores/rabbitmq-msg-store-properties/), a [Message Processor]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties/), and the [Store mediator]({{base_path}}/reference/mediators/store-mediator/).
+You have now explored how WSO2 Integrator: MI can implement store-and-forward messaging using a [RabbitMQ Message Store]({{base_path}}/reference/synapse-properties/message-stores/rabbitmq-msg-store-properties/), a [Message Processor]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties/), and the [Store mediator]({{base_path}}/reference/mediators/store-mediator/).

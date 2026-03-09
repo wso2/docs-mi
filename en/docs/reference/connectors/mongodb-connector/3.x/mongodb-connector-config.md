@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # MongoDB Connector Reference
 
 This documentation provides a reference guide for the MongoDB Connector.
@@ -356,7 +361,7 @@ The supported connection URI types and connection options are listed in the [Mon
                 String
             </td>
             <td>
-                When this option used, the Micro Integrator requests an acknowledgement from MongoDB that the write operation has been written to the journal. This applies when the write concern is set to 'j'.
+                When this option used, the WSO2 Integrator: MI requests an acknowledgement from MongoDB that the write operation has been written to the journal. This applies when the write concern is set to 'j'.
             </td>
             <td>
                 -
@@ -1977,5 +1982,109 @@ The following operations allow you to work with the MongoDB connector. Click an 
         "query": {
             "name": "John Doe"
         }
+    }
+    ```
+
+??? note "aggregate"
+    Runs an aggregation pipeline on a collection (or view) and returns the computed results. Aggregation pipelines allow you to filter, transform, group, and compute data using stages such as `$match`, `$project`, `$group`, `$sort`, `$lookup`, etc. See the related [aggregation documentation](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) for more information. **Note**: This operation is available from connector version 3.0.3 onwards.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Stages
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Aggregation pipeline [stages](https://www.mongodb.com/docs/manual/reference/mql/aggregation-stages/#std-label-aggregation-pipeline-operator-reference) as an array.
+    </td>
+    <td>
+    -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+        <td>
+            Output Variable Name
+        </td>
+        <td>
+            responseVariable
+        </td>
+        <td>
+            Name of the variable to which the output of the operation should be assigned
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overwrite Message Body
+        </td>
+        <td>
+            overwriteBody
+        </td>
+        <td>
+            Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    </table>
+    
+    **Sample Configuration**
+
+    ```xml
+    <mongodb.aggregate configKey="connectionURI">
+        <collection>{${payload.collection}}</collection>
+        <stages>{${payload.stages}}</stages>
+        <responseVariable>mongodb_aggregate_1</responseVariable>
+        <overwriteBody>true</overwriteBody>
+    </mongodb.aggregate>
+    ```
+
+    **Sample Request**
+
+    ```json
+    {
+        "collection": "posts",
+        "stages": [
+            { "$match": { "stars": { "$gt": 1 } } },
+            {
+                "$group": { "_id": "$category", "totalStars": { "$sum": "$stars" } }
+            }
+        ]
     }
     ```

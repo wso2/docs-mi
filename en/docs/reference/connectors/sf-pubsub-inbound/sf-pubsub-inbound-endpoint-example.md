@@ -20,7 +20,7 @@ This guide walks you through the process of setting up a Salesforce Pub/Sub Inbo
 You will:
 
 1. Create an Order Event using Salesforce Developer Console
-2. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+2. Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 3. Run and test the integration to receive real-time notifications.
 
 This example demonstrates how to utilise the Salesforce inbound feature to retrieve events from the Salesforce server.
@@ -35,11 +35,11 @@ In Salesforce, go to Setup, search for Platform Events, and click New Platform E
 - City__c (Text, 50 characters)
 - Amount__c (Number, 16 digits, 2 decimal places)
 
-#### **Step 02: Add the Salesforce Pub/Sub connector to your WSO2 Micro Integrator project.**
+#### **Step 02: Add the Salesforce Pub/Sub connector to your WSO2 Integrator: MI project.**
 In MI, create a new project and add the Salesforce Pub/Sub connector to the project.
 
-1. [Create a new project]({{base_path}}/develop/create-integration-project/) in WSO2 Micro Integrator (MI).
-2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Micro Integrator.
+1. [Create a new project]({{base_path}}/develop/create-integration-project/) in WSO2 Integrator:  MI.
+2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Integrator: MI.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/sf-pubsub-inb-2.png" title="Salesforce Pub/Sub Inbound Endpoint Example" width="80%" alt="Event Integration"/>
 
@@ -67,7 +67,7 @@ In MI, create a new project and add the Salesforce Pub/Sub connector to the proj
 #### **Step 03: Deploy, Run and Test the Integration**
 
 In order to deploy and run the project, refer the [build and run](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/) guide or simply use the Run button in the Visual Studio Code extension to run the integration.
-Once you have published the event to your Order Event in Salesforce, you can check the logs in the WSO2 Micro Integrator server to see the incoming messages.
+Once you have published the event to your Order Event in Salesforce, you can check the logs in the WSO2 Integrator: MI server to see the incoming messages.
 You can publish an event using the Salesforce Developer Console by executing the following code in the Execute Anonymous window:
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sf-pubsub-inbound/sf-pubsub-inb-output.png" title="Salesforce Pub/Sub Inbound User Scenario" alt="Order Notification" width="90%" height="50%"/>

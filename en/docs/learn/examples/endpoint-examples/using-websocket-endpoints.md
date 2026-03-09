@@ -1,6 +1,6 @@
 # How to Use a WebSocket Endpoint
 
-WebSocket is a protocol that provides full-duplex communication channels over a single TCP connection. This can be used by any client or server application. The WSO2 Micro Integrator (MI) provides WebSocket support via the [WebSocket Transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport) and the [WebSocket Inbound Protocol]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket).
+WebSocket is a protocol that provides full-duplex communication channels over a single TCP connection. This can be used by any client or server application. The WSO2 Integrator:  MI provides WebSocket support via the [WebSocket Transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport) and the [WebSocket Inbound Protocol]({{base_path}}/learn/examples/inbound-endpoint-examples/inbound-endpoint-secured-websocket).
 
 ## Example 1: Send a message from a WebSocket client to a WebSocket endpoint
 
@@ -14,7 +14,7 @@ If you analyze the log, you will see that a connection from the WebSocket client
 
 ## Example 2: Send a message from an HTTP client to a WebSocket endpoint
 
-If you need to send a message from an HTTP client to a WebSocket endpoint via the Micro Integrator, you need to establish a persistent WebSocket connection from WSO2 MI to the WebSocket backend.
+If you need to send a message from an HTTP client to a WebSocket endpoint via the WSO2 Integrator: MI, you need to establish a persistent WebSocket connection from WSO2 MI to the WebSocket backend.
 
 To demonstrate this scenario, you need to create two dispatching sequences: one for the client to back-end mediation, and another for the back-end to client mediation. Then you need to create a proxy service to call the created sequences.
 
@@ -73,7 +73,7 @@ Create the artifacts:
 {!includes/build-and-run.md!}
     
     !!! Note
-        The Websocket sender functionality of the Micro Integrator is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf/` directory and add the following: 
+        The Websocket sender functionality of the WSO2 Integrator: MI is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf/` directory and add the following: 
 
         ```toml
         [transport.ws]
@@ -83,7 +83,7 @@ Create the artifacts:
 
 3. Create the [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Starting the WebSocket server:
 

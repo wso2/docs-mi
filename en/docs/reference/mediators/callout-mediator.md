@@ -24,7 +24,7 @@ The Callout mediator is not affected by the [DISABLE_CHUNKING property]({{base_p
 sender.transfer_encoding = "chunked"
 ```
 
-This will disable chunking for all Callout mediators present in the Micro Integrator.
+This will disable chunking for all Callout mediators present in the WSO2 Integrator: MI.
 
 If you want to disable chunking for only a single Callout mediator instance, create a new `axis2.xml` file by copying the `MI_HOME/conf/axis2/axis2_blocking_client.xml` file, set the `Transfer-Encoding` parameter as shown, and then configure that Callout mediator to use this new `axis2.xml` file as described below.
 

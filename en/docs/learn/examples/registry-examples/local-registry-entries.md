@@ -46,7 +46,7 @@ Create the artifacts:
 1. {!includes/build-and-run.md!}
 2. Create sequence `stockquote` and endpoint `simple` as [local entries]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries) with the configurations given above.
 3. Also, create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) `MainProxy` with the configuration given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -64,7 +64,7 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-Use the following request and payload to invoke the service and analyze the mediation log on the Micro Integrator's start-up console.
+Use the following request and payload to invoke the service and analyze the mediation log on the WSO2 Integrator: MI's start-up console.
 
 ```xml
 POST /services/MainProxy HTTP/1.1

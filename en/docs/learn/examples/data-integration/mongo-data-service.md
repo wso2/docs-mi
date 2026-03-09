@@ -70,7 +70,7 @@ Create the artifacts:
 {!includes/build-and-run.md!}
 
 2. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI. 
 
 Let's try out this sample by invoking the `find` resource in the data service to GET data. Shown below is the [curl](http://curl.haxx.se/) command to send the GET request:
 

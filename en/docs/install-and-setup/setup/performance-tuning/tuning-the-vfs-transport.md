@@ -1,10 +1,10 @@
 # Tuning the VFS Transport
 
-When you work with the [VFS transport]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters), you might have a scenario where you need to send large files to a destination. If you use the normal VFS configuration, the memory consumption will be very high since WSO2 Micro Integrator builds the files that are within. The Micro Integrator provides VFS file streaming support to overcome this issue. With VFS file streaming, only the stream is
+When you work with the [VFS transport]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters), you might have a scenario where you need to send large files to a destination. If you use the normal VFS configuration, the memory consumption will be very high since WSO2 Integrator: MI builds the files that are within. The WSO2 Integrator: MI provides VFS file streaming support to overcome this issue. With VFS file streaming, only the stream is
 passed and therefore memory consumption is less.
 
 !!! Tip
-    When you transfer a file to a remote FTP location via VFS, the Micro Integrator tries to detect the FTP location by navigating from the root folder first. If the Micro Integrator does not have **at least list permission** to the root (/), the file transfer fails.
+    When you transfer a file to a remote FTP location via VFS, the WSO2 Integrator: MI tries to detect the FTP location by navigating from the root folder first. If the WSO2 Integrator: MI does not have **at least list permission** to the root (/), the file transfer fails.
 
 To use the streaming mode with the VFS transport, see the following instructions:
 

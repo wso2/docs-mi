@@ -4,7 +4,7 @@ This example demonstrates message routing to a set of dynamic endpoints and aggr
 The sample configuration routes a cloned copy of a message
 to each recipient defined within the dynamic recipient list, and
 each recipient responds with a stock quote. When all the responses
-reach the Micro Integrator, the responses are aggregated to form the final response,
+reach the WSO2 Integrator: MI, the responses are aggregated to form the final response,
 which will be sent back to the client.
 
 If you sent the client request through a TCP-based conversation
@@ -72,7 +72,7 @@ Following are the integration artifacts you can use to implement this scenario.
 <!--
 Set up the back-end service.
 
-Invoke the Micro Integrator:
+Invoke the WSO2 Integrator: MI:
 
 ```bash
 ant stockquote -Dtrpurl=http://localhost:8280/

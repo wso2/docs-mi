@@ -9,8 +9,8 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 ## Compatibility
 
 | Connector version | Supported product versions |
-| ------------- |------------- |
-|  1.0.0        |  MI 4.4.0 |
+|-------------------|----------------------------|
+| 1.0.0             | MI 4.4.0+                  |
 
 ## Microsoft Azure Data Lake Storage Connector documentation
 

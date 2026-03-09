@@ -1,6 +1,6 @@
 # How to Use Distributed Transactions in Data Services
 
-The data integration feature in WSO2 Micro Integrator supports data
+The data integration feature in WSO2 Integrator: MI supports data
 federation, which means that a single data service can expose data from
 multiple datasources. However, if you have multiple RDBMSs connected to
 your data service, and if you need to perform IN-ONLY operations
@@ -112,7 +112,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Invoke the **request box** operation and see that the data is successfully inserted into the two databases. Go to the MySQL terminal and run the following commands:  
 

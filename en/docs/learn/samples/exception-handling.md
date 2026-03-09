@@ -1,6 +1,6 @@
 # Exception Handling Sample
 
-This sample demonstrates the exception handling capabilities of the Micro Integrator.
+This sample demonstrates the exception handling capabilities of the WSO2 Integrator: MI.
 
 This sample consists of an API called `TimeoutAPI`, an endpoint called `DelayHttpEP`, and a sequence called `TimeoutFailureSeq`.
 
@@ -10,7 +10,7 @@ The backend service takes around 60 seconds to respond back. The endpoint timeou
 
 1.  Open the sample by clicking on the **Exception Handling** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

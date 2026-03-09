@@ -1,9 +1,9 @@
 # Setting up a MySQL Database
 
-Follow the steps given below to set up the required MySQL databases for your Micro Integrator.
+Follow the steps given below to set up the required MySQL databases for your WSO2 Integrator: MI.
 
 !!! Tip
-	WSO2 Micro Integrator requires databases for the following scenarios: 
+	WSO2 Integrator: MI requires databases for the following scenarios: 
 
 	-	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi#cluster-coordination'>cluster coordination</a>
     -	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
@@ -23,7 +23,7 @@ To set up MySQL:
 
 ## Creating the databases
 
-The following MySQL scripts are stored in the `<MI_HOME>/dbscripts/mysql` directory of your Micro Integrator. First, select the scripts that are required for your deployment.
+The following MySQL scripts are stored in the `<MI_HOME>/dbscripts/mysql` directory of your WSO2 Integrator: MI. First, select the scripts that are required for your deployment.
 
 You can run the scripts on one database instance or set up separate instances for each requirement. For convenience, it is recommended to set up separate databases for each use case.
 
@@ -64,14 +64,18 @@ Create the databases and then create the DB tables by pointing to the relevant M
 	-	For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look: `mysql> create database <DATABASE_NAME> character set latin1;`
 	-	For users of other operating systems, the standard database creation commands will suffice. For these operating systems, the following is how your database creation command should look: `mysql> create database <DATABASE_NAME>;`
 
+## Creating database users and granting permissions
+
+After setting up the MySQL server, create a new MySQL user and assign the necessary privileges to connect to the database and perform operations such as creating tables, and inserting, indexing, selecting, updating, and deleting data. These are the minimum required permissions for the WSO2 Micro Integrator to function properly with the configured databases. Ensure that the required privileges are granted for each database created for cluster coordination or user store configurations.
+
 ## Setting up the JDBC driver
 
 1. Download the [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/).
-2. Unzip the downloaded MySQL driver and copy the JAR (mysql-connector-java-x.x.xx-bin.jar) to the `<MI_HOME>/lib/` directory of your Micro Integrator.
+2. Unzip the downloaded MySQL driver and copy the JAR (mysql-connector-java-x.x.xx-bin.jar) to the `<MI_HOME>/lib/` directory of your WSO2 Integrator: MI.
 
 ## Connecting the database to the server
 
-Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
+Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the WSO2 Integrator: MI and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
 
 === "Cluster Coordination Connection"
     ```toml 

@@ -1,9 +1,9 @@
 #  How to Implement Dual Channel Scenario with RabbitMQ
 
-This sample demonstrates how you can implement the <b>request-reply</b> messaging scenario (dual-channel scenario) using the RabbitMQ broker and WSO2 Micro Integrator. 
+This sample demonstrates how you can implement the <b>request-reply</b> messaging scenario (dual-channel scenario) using the RabbitMQ broker and WSO2 Integrator: MI. 
 
-As shown below, the `OrderRequest` proxy service in the Micro Integrator receives an HTTP
-request, which it publishes to a RabbitMQ queue. This message is consumed and processed by the `OrderProcessing` proxy service in the Micro Integrator, and the response is sent back to the client over HTTP.
+As shown below, the `OrderRequest` proxy service in the WSO2 Integrator: MI receives an HTTP
+request, which it publishes to a RabbitMQ queue. This message is consumed and processed by the `OrderProcessing` proxy service in the WSO2 Integrator: MI, and the response is sent back to the client over HTTP.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-request-response.png">
 
@@ -103,7 +103,7 @@ We can use the below synapse configurations to act as the mock backend called by
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 6. Make sure you have a RabbitMQ broker instance running.
 7. Send a message to the `Order Request Proxy Service` with the following payload. 
 

@@ -18,6 +18,9 @@ There are four main components in the tool:
 
 The tool is packaged inside the product distribution with default configurations. The configurations can be customized based on user requirements. By default, the diagnostic tool is enabled.
 
+!!! note
+    All the configurations described in this section should be added to the `<MI_HOME>/conf/deployment.toml` file.
+
 ### Server Configurations
 
 The table given below describes the server configurations.
@@ -34,7 +37,7 @@ The table given below describes the server configurations.
 | `server_name` | Name of the WSO2 server.                            |
 | `server_version` | Version of the WSO2 server.                         |
 
-Given below is a sample configuration for the WSO2 Micro Integrator.
+Given below is a sample configuration for the WSO2 Integrator: MI.
 
 ```toml
 [server_configuration]
@@ -45,7 +48,7 @@ updates_config_path = "../updates/config.json"
 diagnostic_log_file_path = "logs/diagnostics.log"
 carbon_log_file_path = "../repository/logs/wso2error.log"
 process_id_path = "../wso2carbon.pid"
-server_name = "WSO2 Micro Integrator"
+server_name = "WSO2 Integrator: MI"
 server_version = "#.#.#"
 ```
 

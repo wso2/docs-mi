@@ -31,7 +31,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 ### Add integration logic
 
-First create an API to configure the integration logic. Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforce-soap-API` and API context as `/salesforce`.
+First create an API to configure the integration logic. Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. Specify the API name as `salesforce-soap-API` and API context as `/salesforce`.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sf-soap/adding-an-api.png" title="Adding a Rest API" alt="Adding a Rest API"/>
 

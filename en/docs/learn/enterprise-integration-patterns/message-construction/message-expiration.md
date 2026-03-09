@@ -1,6 +1,6 @@
 # Message Expiration
 
-This page explains how you can implement a sample scenario of Message Expiration using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Message Expiration using WSO2 Integrator: MI.
 
 ## Introduction to Message Expiration
 
@@ -98,7 +98,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample
 
-Send a request like the following to the Micro Integrator.
+Send a request like the following to the WSO2 Integrator: MI.
 
 ```xml
 POST /services/MessageExpirationProxy HTTP/1.1

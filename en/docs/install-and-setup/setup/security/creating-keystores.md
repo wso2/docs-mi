@@ -1,6 +1,6 @@
 # Creating New keystores
 
-There are two ways to create new [keystores for the Micro Integrator]({{base_path}}/reference/mi-security-reference/using-keystores): 
+There are two ways to create new [keystores for the WSO2 Integrator: MI]({{base_path}}/reference/mi-security-reference/using-keystores): 
 
 * Create  the keystore with a new (self-signed) public key certificate.
 * Generate a keystore using an already existing [CA-signed]({{base_path}}/reference/mi-security-reference/using-keystores) public key certificate.
@@ -14,18 +14,30 @@ You can follow the steps in this section to create a new keystore with a private
 1. Open a command prompt and go to the `MI_HOME/repository/resources/security/` directory.
 2. Create the keystore that includes the private key by executing the following command:
 
-    ```bash
-    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=<testdomain.org>, OU=Home,O=Home,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
-    ```
-    This command will create a keystore with the following details:
+    === "JKS"
+        ```bash
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=<testdomain.org>, OU=Home,O=Home,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
+        ```
+        This command will create a keystore with the following details:
 
-    * Keystore name: `newkeystore.jks`
-    * Alias of public certificate: `newcert`
-    * Keystore password: `mypassword`
-    * Private key password: `mypassword` (this is required to be the same as the keystore password)
+        * Keystore name: `newkeystore.jks`
+        * Alias of public certificate: `newcert`
+        * Keystore password: `mypassword`
+        * Private key password: `mypassword` (this is required to be the same as the keystore password)
 
-    !!! Note
-        If you did not specify values for the '-keypass' and the '-storepass' in the above command, you will be asked to give a value for the '-storepass' (password of the keystore). As a best practice, use a password generator to generate a strong password. You will then be asked to enter a value for -keypass. Click **Enter** because we need the same password for both the keystore and the key. Also, if you did not specify values for -dname, you will be asked to provide those details individually.
+    === "PKCS12"
+        ```bash
+        keytool -genkeypair -alias newcert -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore newkeystore.p12 -dname "CN=<testdomain.org>, OU=Home,O=Home,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
+        ```
+        This command will create a keystore with the following details:
+
+        * Keystore name: `newkeystore.p12`
+        * Alias of public certificate: `newcert`
+        * Keystore password: `mypassword`
+        * Private key password: `mypassword` (this is required to be the same as the keystore password)
+
+  !!! Note
+      If you did not specify values for the '-keypass' and the '-storepass' in the above command, you will be asked to give a value for the '-storepass' (password of the keystore). As a best practice, use a password generator to generate a strong password. You will then be asked to enter a value for -keypass. Click **Enter** because we need the same password for both the keystore and the key. Also, if you did not specify values for -dname, you will be asked to provide those details individually.
 
 3. Open the `MI_HOME/repository/resources/security/` directory and check if the new keystore file is created. Make a backup of it and move it to a secure location. This is important as it is the only place with your private key.
 
@@ -49,6 +61,6 @@ You can use an already existing CA-signed certificate to generate your keystore 
     ```
 
 ## What's next?
-- [Configure the Micro Integrator]({{base_path}}/install-and-setup/setup/security/configuring-keystores) to use new keystores.
+- [Configure the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/security/configuring-keystores) to use new keystores.
 - If required, [add SSL certificates]({{base_path}}/install-and-setup/setup/security/importing-ssl-certificate) to your keystore.
 - If required, [renew the CA-signed certificate]({{base_path}}/install-and-setup/setup/security/renewing-ca-signed-certificate-in-keystore) in your keystore.

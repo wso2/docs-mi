@@ -1,15 +1,15 @@
 # Connecting to WSO2 MB
 
-This section describes how to configure WSO2 Micro Integrator to connect with WSO2 Message Broker.
+This section describes how to configure WSO2 Integrator: MI to connect with WSO2 Message Broker.
 
-## Setting up the Micro Integrator with WSO2 MB
+## Setting up the WSO2 Integrator: MI with WSO2 MB
 
 1.  Copy the following jars to <MI_HOME>/lib folder from <WSO2_MB>/client-lib folder.
     - andes-client-3.2.19.jar                 
     - org.wso2.securevault-1.0.0-wso2v2.jar
     - geronimo-jms_1.1_spec-1.1.0.wso2v1.jar
   
-2.  If you want the Micro Integrator to receive messages from a WSO2 MB instance, or to send messages to a WSO2 MB instance, you need to update the deployment.toml file with the relevant connection parameters.
+2.  If you want the WSO2 Integrator: MI to receive messages from a WSO2 MB instance, or to send messages to a WSO2 MB instance, you need to update the deployment.toml file with the relevant connection parameters.
 
     - Add the following configurations to enable the JMS listener with WSO2 MB connection parameters.
         ```toml
@@ -46,14 +46,14 @@ This section describes how to configure WSO2 Micro Integrator to connect with WS
         topic_jndi_name = "topic_name"
         ```
 
-3.  Start WSO2 Message Broker before starting the Micro Integrator.
-4.  Start WSO2 Micro Integrator.
+3.  Start WSO2 Message Broker before starting the WSO2 Integrator: MI.
+4.  Start WSO2 Integrator: MI.
 
-Now, you have both WSO2 Message Broker and the Micro Integrator configured and running.
+Now, you have both WSO2 Message Broker and the WSO2 Integrator: MI configured and running.
 
 ## Securing the WSO2 MB server
 
-JMS is an integral part of enterprise integration solutions that are highly-reliable, loosely-coupled, and asynchronous. As a result, implementing proper security to your JMS deployments is vital. The below sections discuss some of the best practices of an effective JMS security implementation when used in combination with WSO2 Micro Integrator.
+JMS is an integral part of enterprise integration solutions that are highly-reliable, loosely-coupled, and asynchronous. As a result, implementing proper security to your JMS deployments is vital. The below sections discuss some of the best practices of an effective JMS security implementation when used in combination with WSO2 Integrator: MI.
 
 Let's see how some of the key concepts of system security such as authentication, authorization, and availability are implemented in different types of brokers. Given below is an overview of how some common security concepts are implemented in WSO2 MB.
 
@@ -71,7 +71,7 @@ Given below is an overview of how some common security concepts are implemented 
 
 Let's see how each concept in the table above is implemented in WSO2 MB.
 
-After setting up WSO2 MB with the Micro Integrator, open `MI_HOME/wso2/broker/conf/advanced/qpid-config.xml` file and add the following line as a child element of `<tuning\>`.
+After setting up WSO2 MB with the WSO2 Integrator: MI, open `MI_HOME/wso2/broker/conf/advanced/qpid-config.xml` file and add the following line as a child element of `<tuning\>`.
 
 ```xml
 <messageBatchSizeForBrowserSubscriptions>100000</messageBatchSizeForBrowserSubscriptions>
@@ -91,7 +91,7 @@ runtime. This is plain text authentication.
 'connectionfactory.QueueConnectionFactory' = "amqp://admin:admin@clientID/carbon?brokerlist='tcp://localhost:5675'"
 ```
 
-In the WSO2 Micro Integrator authentication example below, we send a request to the proxy service named **testJMSProxy**, which adds a message to the **example.MyQueue** queue.
+In the WSO2 Integrator: MI authentication example below, we send a request to the proxy service named **testJMSProxy**, which adds a message to the **example.MyQueue** queue.
 
 ```xml
   <proxy xmlns="http://ws.apache.org/ns/synapse" name="testJMSProxy"
@@ -130,7 +130,7 @@ ERROR - AMQConnection Throwable Received but no listener set: org.wso2.andes.AMQ
 
 ### Authentication: Encrypted
 
-In the [previous authentication example](#authentication-plain-text), the user names and passwords are stored in plain text inside the Micro Integrator's jndi.properties file. These credentials can be stored in an encrypted manner for added security.
+In the [previous authentication example](#authentication-plain-text), the user names and passwords are stored in plain text inside the WSO2 Integrator: MI's jndi.properties file. These credentials can be stored in an encrypted manner for added security.
 
 ### Authorization
 

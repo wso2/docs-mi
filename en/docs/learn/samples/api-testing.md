@@ -10,7 +10,7 @@ This sample contains a simple REST API called `RESTApi`. And it's respective tes
 
 1.  Open the sample by clicking on the **API Testing** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

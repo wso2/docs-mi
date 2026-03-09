@@ -5,14 +5,14 @@ multiple nodes in your cluster, which enables better fault tolerance in your dep
 
 ## Introduction
 
-Let's consider the two-node Micro Integrator cluster and set up the load balancer. The HTTP and HTTPS URLs for accessing the two nodes are as follows:
+Let's consider the two-node WSO2 Integrator: MI cluster and set up the load balancer. The HTTP and HTTPS URLs for accessing the two nodes are as follows:
 
 -	HTTP URL: `http://<Ip_Address>:<HttpPort>`
 -	HTTPS URL: `http://<Ip_Address>:<HttpsPort>`
 
 Note that `HttpPort`= 8280 + offset and `HttpsPort`= 8243 + offset.
 
-The load balancer directs requests to the server on a round robin basis. For example, the load balancer will direct requests to node 1 (xxx.xxx.xxx.xx1) of the Micro Integrator cluster as follows:
+The load balancer directs requests to the server on a round robin basis. For example, the load balancer will direct requests to node 1 (xxx.xxx.xxx.xx1) of the WSO2 Integrator: MI cluster as follows:
 
 -   HTTP requests will be directed to node 1 using the `http://xxx.xxx.xxx.xx1/<service>` URL via HTTP 80 port.
 -   HTTPS requests will be directed to node 1 using the `https://xxx.xxx.xxx.xx1/<service>` URL via HTTPS 443 port.
@@ -29,7 +29,7 @@ community](http://nginx.org/) version 1.9.2 as the load balancer.
     network.
 2.  Create a **VHost** file named `ei.http.conf` in the `/etc/nginx/conf.d` directory and add the
     following configurations. This configures NGINX Plus to direct the HTTP requests to the two
-    Micro Integrator nodes (xxx.xxx.xxx.xx1 and xxx.xxx.xxx.xx2) via the HTTP 80 port using
+   WSO2 Integrator: MI nodes (xxx.xxx.xxx.xx1 and xxx.xxx.xxx.xx2) via the HTTP 80 port using
     the `http://ei.wso2.com/` URL. If you are setting up NGINX on a Mac OS, you will not have the `conf.d` directory.
 
     !!! Note
@@ -61,7 +61,7 @@ community](http://nginx.org/) version 1.9.2 as the load balancer.
 	     }
 	 ```
 
-3. Create a VHost file (`ei.https.conf`) in the `nginx/conf.d` directory or in the `nginx/conf` directory if you are on a MacOS and add the following configurations. This configures NGINX Plus to direct the HTTPS requests to the two Micro Integrator nodes (xxx.xxx.xxx.xx1 and xxx.xxx.xxx.xx2) via the HTTPS 443 port using the `https://ei.wso2.com/` URL.
+3. Create a VHost file (`ei.https.conf`) in the `nginx/conf.d` directory or in the `nginx/conf` directory if you are on a MacOS and add the following configurations. This configures NGINX Plus to direct the HTTPS requests to the two WSO2 Integrator: MI nodes (xxx.xxx.xxx.xx1 and xxx.xxx.xxx.xx2) via the HTTPS 443 port using the `https://ei.wso2.com/` URL.
 	 -	NGINX Community version
 			```java
 			upstream ssl.wso2.ei.com {
@@ -121,7 +121,7 @@ community](http://nginx.org/) version 1.9.2 as the load balancer.
 			```
 
 4. Create a directory named `ssl` inside the `nginx` directory.
-5. Follow the instructions below to create SSL certificates for both Micro Integrator nodes.
+5. Follow the instructions below to create SSL certificates for both WSO2 Integrator: MI nodes.
 
 	 1. Execute the following command to create the Server Key:
 

@@ -10,11 +10,11 @@ There are two distinct types of service orchestration:
 - Synchronous service orchestration
 - Asynchronous service orchestration
 
-In both the above orchestration approaches, the WSO2 Micro Integrator can interact with services using two different patterns (depending on the use case):
+In both the above orchestration approaches, the WSO2 Integrator: MI can interact with services using two different patterns (depending on the use case):
 
 **Service chaining**
 
-Multiple services that need to be orchestrated are invoked one after the other in a synchronous manner. The input to one service is dependant on the output of another service. Invocation of services and input-output mapping is handled by the service orchestration layer (which is the WSO2 Micro Integrator). 
+Multiple services that need to be orchestrated are invoked one after the other in a synchronous manner. The input to one service is dependant on the output of another service. Invocation of services and input-output mapping is handled by the service orchestration layer (which is the WSO2 Integrator: MI). 
 
 **Parallel service invocations**
 

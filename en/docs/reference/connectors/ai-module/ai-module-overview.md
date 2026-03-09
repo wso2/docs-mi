@@ -9,8 +9,8 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-module-ge
 ## Compatibility
 
 | Connector version | Supported product versions |
-| ------------- |------------- |
-|  [0.1.4](https://github.com/wso2-extensions/mi-module-generative-ai/tree/v0.1.4)        |  MI 4.4.0 |
+| ------------- |----------------------------|
+|  [0.1.4](https://github.com/wso2-extensions/mi-module-generative-ai/tree/v0.1.4)        | MI 4.4.0+                  |
 
 ## Generative AI Module documentation
 

@@ -1,12 +1,12 @@
 # Database Polling Sample
 
-This sample demonstrates database polling capability in the Micro Integrator.
+This sample demonstrates database polling capability in the WSO2 Integrator: MI.
 
-Four modules get created with this sample which are; a scheduled task called `DoctorsRecordsSyncTask`, a sequence called `DoctorsRecordsSyncSeq`, an endpoint called `DoctorsDataServiceEP` and a data service called `DoctorsDataService`.
+Four modules get created with this sample which are; a Scheduled trigger called `DoctorsRecordsSyncTask`, a sequence called `DoctorsRecordsSyncSeq`, an endpoint called `DoctorsDataServiceEP` and a data service called `DoctorsDataService`.
 
 The data service module exposes three database operations; `ReadDoctors`, `UpdateDoctorsSyncStatus`, and `ReadDoctorsNotSync`.
 
-The scheduled task runs periodically and injects a dummy payload to the sequence to initiate the messaging flow. The first payload is constructed to invoke the data service operation `ReadDoctors` and to retrieve the doctor records that are not synchronized. The second payload is constructed to update the not synchronized doctor records as a transaction. There is a special type of operation called request_box in the data service. The `ReadDoctorsNotSync` and `UpdateDoctorsSyncStatus` operations are wrapped with the request_box in order to run them in transactional manner.
+The Scheduled trigger runs periodically and injects a dummy payload to the sequence to initiate the messaging flow. The first payload is constructed to invoke the data service operation `ReadDoctors` and to retrieve the doctor records that are not synchronized. The second payload is constructed to update the not synchronized doctor records as a transaction. There is a special type of operation called request_box in the data service. The `ReadDoctorsNotSync` and `UpdateDoctorsSyncStatus` operations are wrapped with the request_box in order to run them in transactional manner.
 
 ## Setup database to run the sample
 
@@ -58,8 +58,8 @@ The scheduled task runs periodically and injects a dummy payload to the sequence
 1. Open the sample by clicking on the **Database Polling** card.
 2. Give a folder location to save the sample.
 3. Open the `DoctorsDataService` data service artifact and update the RDBMS datasource in it by replacing the `URL`, `Username` and `Password` values with your database credentials.
-4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 
-A scheduled task will be executed after the carbon application is deployed in the server and that task will log data in the MI server console.
+A Scheduled trigger will be executed after the carbon application is deployed in the server and that task will log data in the MI server console.

@@ -20,11 +20,11 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ### Setup Apache Pulsar
 
-To connect with Apache Pulsar using the WSO2 Micro Integrator Apache Pulsar Connector, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
+To connect with Apache Pulsar using the WSO2 Integrator: MI Apache Pulsar Connector, you need to first set up a running Pulsar instance locally or on a server. In this example, we will use an Apache Pulsar standalone server. Set up Apache Pulsar by following the instructions in [Set up Apache Pulsar]({{base_path}}/reference/connectors/pulsar-connector/pulsar-connector-setup/).
 
 ## Develop the integration logic
 
-Follow these steps to set up the Integration Project using the WSO2 Micro Integrator Visual Studio Code extension.
+Follow these steps to set up the Integration Project using the WSO2 Integrator: MI Visual Studio Code extension.
 
 ### Create a new project
 

@@ -2,9 +2,9 @@
 
 ## Introduction
 
-WSO2 Micro Integrator provides the capability to publish custom analytics data with the existing event schema. This guide explains the steps required to achieve this.
+WSO2 Integrator: MI provides the capability to publish custom analytics data with the existing event schema. This guide explains the steps required to achieve this.
 
-This section outlines the process of creating a sample and configuring it with WSO2 Micro Integrator.
+This section outlines the process of creating a sample and configuring it with WSO2 Integrator: MI.
 
 ## Create a sample
 
@@ -55,7 +55,7 @@ Add the following dependencies.
 ```
 
 !!! info
-    The versions for `${wso2.mi.version}` and `${synapse.version}` can be found in the JAR versions available in the current Micro Integrator package.
+    The versions for `${wso2.mi.version}` and `${synapse.version}` can be found in the JAR versions available in the current WSO2 Integrator: MI package.
 
 ### Implement required class
 
@@ -87,7 +87,7 @@ To build the project, run the following command:
 
 ## Configure the sample
 
-This section outlines the steps required to configure WSO2 Micro Integrator for the sample created above.
+This section outlines the steps required to configure WSO2 Integrator: MI for the sample created above.
 
 After building the project, copy the created `.jar` file into the `<MI_HOME>/lib` directory.
 
@@ -101,8 +101,8 @@ Edit the `analytics` configuration in the `deployment.toml` file, located inside
 
 This configuration ensures that the custom data provider class is engaged.
 
-Enable statistics for Micro Integrator following the instructions [here]({{base_path}}/mi-analytics/mi-elk-installation-guide/#enabling-statistics-for-artifacts).
+Enable statistics for WSO2 Integrator: MI following the instructions [here]({{base_path}}/mi-analytics/mi-elk-installation-guide/#enabling-statistics-for-artifacts).
 
 Create a log appender following the instructions [here]({{base_path}}/mi-analytics/mi-elk-installation-guide/#creating-log-appender).
 
-Now, trigger an event and check the `<MI_HOME>/repository/logs/synapse-analytics.log` to verify the event data being published by WSO2 Micro Integrator.
+Now, trigger an event and check the `<MI_HOME>/repository/logs/synapse-analytics.log` to verify the event data being published by WSO2 Integrator: MI.

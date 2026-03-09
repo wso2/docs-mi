@@ -1,6 +1,6 @@
 # WSO2 MB Message Store
 ## Introduction
-WSO2 Message Broker is used as the <b>message store</b> for the Micro Integrator.
+WSO2 Message Broker is used as the <b>message store</b> for the WSO2 Integrator: MI.
 
 ## Properties
 

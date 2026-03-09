@@ -1,6 +1,6 @@
 # Message Filtering Sample
 
-This sample demonstrates how message filtering can be achieved using the Micro Integrator (MI) based on a request path parameter. The scenario revolves around a verification service that checks the validity of phone numbers.
+This sample demonstrates how message filtering can be achieved using the WSO2 Integrator: MI based on a request path parameter. The scenario revolves around a verification service that checks the validity of phone numbers.
 
 The sample includes a REST API called `PhoneVerifyAPI` and an endpoint named `PhoneVerifyEP`. The API resource is configured with a URI template that is parameterized to fetch the phone number. Within this setup, the If Else mediator acts as an IF-ELSE programming construct. It validates whether the phone number contains 10 digits. If the condition evaluates to true, the request is sent to the backend. Otherwise, an error message is constructed and sent back to the client.
 
@@ -8,7 +8,7 @@ The sample includes a REST API called `PhoneVerifyAPI` and an endpoint named `Ph
 
 1.  Open the sample by clicking on the **Message Filtering** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

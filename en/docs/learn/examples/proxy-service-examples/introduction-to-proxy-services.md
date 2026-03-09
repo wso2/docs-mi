@@ -35,9 +35,9 @@ Create the artifacts:
         Download the wsdl file (`sample_proxy_1.wsdl`) from [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl).
         The wsdl uri in the proxy service needs to be updated with the path to this `sample_proxy_1.wsdl` file.
 
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
-When the Micro Integrator starts, you could go to the following URL and view the WSDL generated for the proxy service defined in the configuration. 
+When the WSO2 Integrator: MI starts, you could go to the following URL and view the WSDL generated for the proxy service defined in the configuration. 
 
 ```bash
 http://localhost:8290/services/StockQuoteProxy?wsdl

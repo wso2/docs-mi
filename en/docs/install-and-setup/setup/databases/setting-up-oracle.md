@@ -1,16 +1,16 @@
 # Setting up an Oracle Database
 
-Follow the steps given below to set up the required Oracle databases for your Micro Integrator.
+Follow the steps given below to set up the required Oracle databases for your WSO2 Integrator: MI.
 
 !!! Tip
-    WSO2 Micro Integrator requires databases for the following scenarios:
+    WSO2 Integrator: MI requires databases for the following scenarios:
 
     -	<a href='{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi#cluster-coordination'>cluster coordination</a>
     -	<a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore'>using an RDBMS user store</a>
 
 ## Setting up the database and users
 
-The following Oracle scripts are stored in the `<MI_HOME>/dbscripts/oracle` directory of your Micro Integrator. First, select the scripts that are required for your deployment.
+The following Oracle scripts are stored in the `<MI_HOME>/dbscripts/oracle` directory of your WSO2 Integrator: MI. First, select the scripts that are required for your deployment.
 
 You can run the scripts on one database instance or set up separate instances for each requirement. For convenience, it is recommended to set up separate databases for each use case.
 
@@ -84,11 +84,11 @@ Follow the steps below to set up an Oracle database.
     directory.
 
 !!! Tip
-    If you get a "`timezone region not found"` error when using the `ojdbc6.jar` file with the Micro Integrator, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"` the value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `micro-integrator.sh        ` as a new `JAVA_OPT` property.
+    If you get a "`timezone region not found"` error when using the `ojdbc6.jar` file with the WSO2 Integrator: MI, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"` the value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `micro-integrator.sh        ` as a new `JAVA_OPT` property.
 
 ## Connecting the database to the server
 
-Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
+Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the WSO2 Integrator: MI and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb` and `userdb`).
 
 === "Cluster DB Connection"
     ```toml 

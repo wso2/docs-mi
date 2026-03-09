@@ -94,9 +94,9 @@ Note that the optional properties related to defining a **queue** should contain
 and the optional properties related to defining an **exchange** should contain the `rabbitmq.exchange.optional.` prefix.
 
 !!! Tip
-    Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator (using the `rabbitmq.connection.ssl.enabled` parameter).
+    Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the WSO2 Integrator: MI (using the `rabbitmq.connection.ssl.enabled` parameter).
 
-    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the Micro Integrator.
+    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the WSO2 Integrator: MI.
 
     Shown below is an example of the config file where `fail_if_no_peer_cert` is set to `false`:
     ```
@@ -247,8 +247,8 @@ and the optional properties related to defining an **exchange** should contain t
            rabbitmq.queue.autodeclare
          </td>
          <td>
-           Whether or not to declare the queue. If set to <code>true</code>, the Micro Integrator creates queues if they are not already
-present. If set to <code>false</code>, the Micro Integrator will assume that a queue is already available. However, you should set this parameter to true only if queues are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
+           Whether or not to declare the queue. If set to <code>true</code>, the WSO2 Integrator: MI creates queues if they are not already
+present. If set to <code>false</code>, the WSO2 Integrator: MI will assume that a queue is already available. However, you should set this parameter to true only if queues are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
          </td>
       </tr>
       <tr>
@@ -274,7 +274,7 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
             rabbitmq.exchange.autodeclare
          </td>
          <td>
-            Whether or not to declare the exchange. If set to <code>true</code>, the Micro Integrator creates exchanges. If set to <code>false</code>, the Micro Integrator will assume that an exchange is already available. However, you should set this parameter to true only if exchanges are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
+            Whether or not to declare the exchange. If set to <code>true</code>, the WSO2 Integrator: MI creates exchanges. If set to <code>false</code>, the WSO2 Integrator: MI will assume that an exchange is already available. However, you should set this parameter to true only if exchanges are not already declared in the RabbitMQ server. Setting this parameter to false in the publish URL improves RabbitMQ transport performance.
           </td>
       </tr>
       <tr>
@@ -326,7 +326,7 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
 
 ### Connection Recovery Properties
 
-In case of a network failure or broker shutdown, the Micro Integrator can try to
+In case of a network failure or broker shutdown, the WSO2 Integrator: MI can try to
 recreate the connection.
 
 If you want to enable connection recovery, you should configure the
@@ -340,7 +340,7 @@ following parameters in the inbound endpoint:
 If the parameters are configured with sample values as given above, the
 server makes 5 retry attempts with a time interval of 10000 milliseconds between each
 retry attempt to reconnect when the connection is lost. If reconnecting
-fails after 5 retry attempts, the Micro Integrator terminates the connection.
+fails after 5 retry attempts, the WSO2 Integrator: MI terminates the connection.
 
 ### Mediator Properties
 

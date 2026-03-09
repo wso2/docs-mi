@@ -132,7 +132,7 @@ which the rewrite rule is applied and the target where the result URL is
 set. This configuration is typically used when the address URL of a
 request contains the context `         soap        ` which needs to be
 converted since all the services are deployed under a context named
-`         services        ` in the Micro Integrator. Thus, the URL
+`         services        ` in the WSO2 Integrator: MI. Thus, the URL
 `                   http://localhost:8280/soap/StockQuoteProxy1                 `
 is rewritten as
 `         http://localhost:8280/                   services                 `

@@ -153,7 +153,7 @@ All changes are autosaved. You can close the window at any time.
 
 To edit a saved schema later:
 
-- Go to **Micro Integrator Project Explorer**.
+- Go to **WSO2 Integrator: MI Project Explorer**.
 - Under **idp-schemas**, find your schema.
 - Click to edit again.
 

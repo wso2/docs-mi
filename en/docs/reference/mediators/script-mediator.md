@@ -46,7 +46,7 @@ when using JavaScript `         getPayloadXML        ` and
 and when using Ruby, REXML documents.
 
 !!! Note
-    The Micro Integrator uses GraalVM JS by default. If you have specified the language as `rhinoJs`, Rhino engine will be used to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65,536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
+    The WSO2 Integrator: MI uses GraalVM JS by default. If you have specified the language as `rhinoJs`, Rhino engine will be used to execute JavaScript. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65,536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
 
     -   Achieve the same functionality via a [Class mediator]({{base_path}}/reference/mediators/class-mediator).
     -   If the original message consists of repetitive sections, you can use the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator/) to generate a relatively
@@ -77,13 +77,14 @@ JavaScript, Groovy, or Ruby.
     </tr>
     <tr class="odd">
     <td>JavaScript</td>
-    <td>The JavaScript based on GraalVM JS is enabled by default in the Micro Integrator and ready for use.</td>
+    <td>The JavaScript based on GraalVM JS is enabled by default in the WSO2 Integrator: MI and ready for use.</td>
     </tr>
     </tbody>
     </table>
 
     !!! Note
-         The `nashornJs` language is deprecated in JDK 15 and above. If you are using JDK 15 or above, you need to manually copy the [nashorn-core](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.4) and [asm-util](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.5) JAR files to the <code>&lt;MI_HOME&gt;/lib</code> directory since Nashorn was [removed](https://openjdk.org/jeps/372) from the JDK.
+         - The `nashornJs` language is deprecated in JDK 15 and above. If you are using JDK 15 or above, you need to manually copy the [nashorn-core](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.4) and [asm-util](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.5) JAR files to the <code>&lt;MI_HOME&gt;/lib</code> directory since Nashorn was [removed](https://openjdk.org/jeps/372) from the JDK.
+         - From MI 4.5.0 onward, access to the classes <code>java.lang</code>, <code>java.io</code>, <code>java.nio</code>, and <code>java.net</code> from the script mediator is revoked by default. For more details, see the [Security Guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment).
 
 ## Syntax
 

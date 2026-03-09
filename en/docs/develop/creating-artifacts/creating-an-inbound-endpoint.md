@@ -1,6 +1,6 @@
 # Create an Inbound Endpoint
 
-Follow these instructions to create an [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow these instructions to create an [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) artifact in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ### Create an inbound endpoint artifact
 
@@ -8,7 +8,7 @@ Follow these instructions to create an [Inbound Endpoint]({{base_path}}/referenc
 
     Hereafter, this project will be referred to as `<PROJECT_NAME>`.
 
-3. To add a new Inbound Endpoint, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Inbound Endpoint, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
@@ -77,7 +77,7 @@ See the following links for the list of parameters for each inbound endpoint typ
 - [RabbitMQ Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties)
 - [MQTT Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties)
 
-### Source View
+### Source view
 
 Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the inbound endpoint using this view.
 

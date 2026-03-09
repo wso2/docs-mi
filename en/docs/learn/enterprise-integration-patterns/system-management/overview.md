@@ -2,7 +2,7 @@
 
 System Management patterns aim to monitor the number of messages sent and their processing times without analyzing the message data, except for some fields in the message header in selected patterns. This is in contrast to Business Activity Monitoring, which directly analyzes the payload data contained in a message.
 
-This section introduces various system management patterns and how they can be simulated using the WSO2 Micro Integrator.
+This section introduces various system management patterns and how they can be simulated using the WSO2 Integrator: MI.
 
 <table>
     <tr>

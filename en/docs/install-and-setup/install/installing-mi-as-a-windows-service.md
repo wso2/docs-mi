@@ -1,14 +1,14 @@
-# Running the Micro Integrator as a Windows Service
+# Running the WSO2 Integrator: MI as a Windows Service
 
-Follow the instructions given below to run the Micro Integrator as a Windows service.
+Follow the instructions given below to run the WSO2 Integrator: MI as a Windows service.
 
 ## Prerequisites
 
--	Go to the [product page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
+-	Go to the [WSO2 Integrator: MI Downloads page](https://wso2.com/products/downloads?product=wso2integrator&package=mi) and download the product distribution as a ZIP file.
 
 -	Extract the downloaded ZIP file to a location on your computer. The <b>micro-integrator</b> folder inside the extracted ZIP file will be your <b>MI_HOME</b> directory.
 
--	Set up a [JDK that is compatible with the Micro Integrator]({{base_path}}/install-and-setup/install/installation-prerequisites/#environment-compatibility) and point the `java_home` variable to your JDK instance. 
+-	Set up a [JDK that is compatible with the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installation-prerequisites/#environment-compatibility) and point the `java_home` variable to your JDK instance. 
  
 -	Point the `wso2mi_home` environment variable to the `MI_HOME` directory.
 
@@ -17,7 +17,7 @@ Follow the instructions given below to run the Micro Integrator as a Windows ser
   
 ## Setting up the YAJSW wrapper 
 
-YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` file to wrap Java applications. Replace the contents of this file with the configurations that are relevant to the Micro Integrator instance that you want to run as a service. Use the **wrapper.conf** file available in `<MI_HOME>/bin/yajsw` folder to get the relevant configurations.
+YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` file to wrap Java applications. Replace the contents of this file with the configurations that are relevant to the WSO2 Integrator: MI instance that you want to run as a service. Use the **wrapper.conf** file available in `<MI_HOME>/bin/yajsw` folder to get the relevant configurations.
 
 !!! Info
     WSO2 recommends Yet Another Java Service Wrapper (YAJSW) version 13.05. If you are running on JDK 11 or JDK 17, previous versions of YAJSW will not be compatible.

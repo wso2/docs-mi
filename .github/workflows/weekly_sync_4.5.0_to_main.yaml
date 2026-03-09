@@ -1,0 +1,49 @@
+name: Weekly Sync from branch '4.5.0' to 'main'
+
+# Schedule to run weekly on Friday at 5:00 AM UTC
+on:
+  schedule:
+    - cron: '0 5 * * 5'
+  workflow_dispatch:
+jobs:
+  sync_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Fetch branches
+        run: |
+          git fetch origin
+      - name: Ensure port-4.5.0 exists
+        run: |
+          if git show-ref --verify --quiet refs/remotes/origin/port-4.5.0; then
+            git checkout -B port-4.5.0 origin/port-4.5.0
+          else
+            git checkout -B port-4.5.0 origin/4.5.0
+            git push origin port-4.5.0
+          fi
+      - name: Merge 4.5.0 into port-4.5.0
+        run: |
+          git merge --no-ff origin/4.5.0 -m "Merge branch '4.5.0' into port-4.5.0" || exit 1
+          git push origin port-4.5.0
+      - name: Check if there are changes vs main
+        id: diff
+        run: |
+          git fetch origin main
+          if git diff --quiet origin/main..HEAD; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Create pull request
+        if: steps.diff.outputs.has_changes == 'true'
+        run: gh pr create -B main -H port-4.5.0 --title 'Sync main branch with 4.5.0 branch' --body 'This PR is to sync the main branch with the 4.5.0 branch.'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

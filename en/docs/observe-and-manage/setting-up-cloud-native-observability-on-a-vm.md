@@ -1,12 +1,12 @@
 # Setting up Grafana based Observability on a VM
 
-Follow the instructions given below to set up a Grafana based observability solution for your Micro Integrator (MI) deployment in a VM environment.
+Follow the instructions given below to set up a Grafana based observability solution for your WSO2 Integrator: MI deployment in a VM environment.
 
 You need to start with the [minimum deployment](#step-1-set-up-the-minimum-deployment), which enables metric monitoring. Once you have set up the minimum deployment, you can add [log processing](#step-2-optionally-integrate-the-log-processing-add-on) and [message tracing](#step-3-optionally-integrate-the-message-tracing-add-on) capabilities to your solution.
 
 ## Step 1 - Set up the minimum deployment
 
-The minimum Grafana based observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
+The minimum Grafana based observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The WSO2 Integrator: MI uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
 
 ### Step 1.1 - Set up Prometheus
 
@@ -41,7 +41,7 @@ Follow the instructions below to set up the Prometheus server:
    
     !!! note
         - Do not add or remove spaces when you copy the above configuration to the `prometheus.ymal` file.
-        - In the `targets` section, you need to add your IP address and the port in which you are running the Micro Integrator server.
+        - In the `targets` section, you need to add your IP address and the port in which you are running the WSO2 Integrator: MI server.
         
 4. To start the Prometheus server, open a terminal, navigate to `<PROMETHEUS_HOME>`, and execute the following command:
 
@@ -70,14 +70,14 @@ Follow the instructions below to set up the Grafana server:
 
 ### Step 1.3 - Import dashboards to Grafana
 
-The Micro Integrator provides pre-configured Grafana dashboards in which you can visualize MI statistics.
+The WSO2 Integrator: MI provides pre-configured Grafana dashboards in which you can visualize MI statistics.
 
 You can directly import the required dashboards to Grafana using the <b>dashboard ID</b>:
 
 1.  Go to [Grafana labs](https://grafana.com/orgs/wso2/dashboards).
 2.  Select the required dashboard and copy the dashboard ID.
 3.  Provide this ID to Grafana and import the dashboard.
-4.  Repeat the above steps to import all other Micro Integrator dashboards.
+4.  Repeat the above steps to import all other WSO2 Integrator: MI dashboards.
 
 These dashboards are provided as JSON files that can be manually imported to Grafana. To import the dashboards as JSON files:
 
@@ -101,22 +101,38 @@ In a [clustered deployment]({{base_path}}/install-and-setup/setup/deployment/dep
 
 ### Scaling Grafana
 
-In a clustered deployment, you can view the list of Micro Integrator instances in your Micro Integrator cluster under **MI Nodes** in the **WSO2 Node Metrics** dashboard.
+In a clustered deployment, you can view the list of WSO2 Integrator: MI instances in your WSO2 Integrator: MI cluster under **MI Nodes** in the **WSO2 Node Metrics** dashboard.
 -->
 
-### Step 1.4 - Set up the Micro Integrator
+### Step 1.4 - Set up the WSO2 Integrator: MI
 
-To enable observability for the Micro Integrator servers, add the following Synapse handler to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder).
+To enable observability for the WSO2 Integrator: MI servers, add the following Synapse handler to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder).
 
 ```toml
 [[synapse_handlers]]
 name="CustomObservabilityHandler"
 class="org.wso2.micro.integrator.observability.metric.handler.MetricHandler"
 ```
-After applying the above change, you can start the Micro Integrator with the following JVM property: 
+After applying the above change, you can start the WSO2 Integrator: MI with the following JVM property: 
 ```
 -DenablePrometheusApi=true
 ```
+
+From WSO2 MI versions after 4.5.0, the new Prometheus client API version 1.x is enabled by default. You can switch back to the old client API 0.x using the following JVM property:
+```
+-DusePrometheusLegacyApi=true
+```
+
+Depending on the client API version you are going to use, you have to choose the matching Grafana dashboard revisions as follows.
+
+| Dashboard name                   | API version 1.x | API version 0.x | 
+|----------------------------------|-----------------|-----------------|
+| WSO2 API Metrics                 | Revision 3      | Revision 2      |
+| WSO2 Inbound Endpoint Metrics    | Revision 2      | Revision 1      |
+| WSO2 Integration Cluster Metrics | Revision 2      | Revision 1      |
+| WSO2 Integration Node Metrics    | Revision 3      | Revision 2      |
+| WSO2 Proxy Service Metrics       | Revision 2      | Revision 1      |
+
 
 ## Step 2 - Optionally, integrate the Log Processing add-on
 
@@ -134,8 +150,8 @@ Follow the steps below to set up Fluent Bit and Grafana Loki:
 
 Follow the instructions below to set up Fluent Bit:
 
-1. Download [Fluent Bit](https://fluentbit.io/download/).
-
+1. Download [Fluent Bit](https://fluentbit.io/download/). We have tested the setup with **fluentBit version 4.2.3**.
+   
 2. Extract the downloaded file. 
 
     !!! Tip
@@ -169,7 +185,8 @@ Follow the instructions below to set up Fluent Bit:
                 Format      regex
                 Regex       \[(?<date>\d{2,4}\-\d{2,4}\-\d{2,4} \d{2,4}\:\d{2,4}\:\d{2,4}\,\d{1,6})\]  (?<log_level>[^\s]+) \{(?<class>[\s\S]*)\} ([-]) (?<service>\{[\s\S]*\})?(?<message>.*)
                 Time_Key    date
-                    Time_Format %Y-%m-%d %H:%M:%S,%L
+                Time_Format %Y-%m-%d %H:%M:%S,%L
+                Time_System_Timezone On
         ```
     
     - **`fluentBit.conf`** file
@@ -190,32 +207,16 @@ Follow the instructions below to set up Fluent Bit:
         [OUTPUT]
             Name loki
             Match *
-            Url http://localhost:3100/loki/api/v1/push
-            BatchWait 1
-            BatchSize 30720
-            Labels {job="fluent-bit"}
-            LineFormat json
-            LabelMapPath <Location/labelmap.json>
+            uri http://localhost:3100/loki/api/v1/push
+            labels {job="fluent-bit"}
+            line_format json
+            label_map_path <Location/labelmap.json>
         ```
-      
-4. Follow the instructions below to build the Fluent Bit output plugin before starting Fluent Bit:
 
-    1. Clone the [grafana/loki git repository](https://github.com/grafana/loki).
-    2. To build the Fluent Bit plugin, execute the following command.
-    
-        `make fluent-bit-plugin`
-        
-        For more details, see [Fluent Bit Output Plugin readme file](https://github.com/grafana/loki/blob/main/clients/cmd/fluent-bit/README.md#fluent-bit-output-plugin).
-        
-    3. Copy and save the path of the `out_loki.so` file. 
-   
-5. Open a new terminal and navigate to the `<FluentBit_Home>` directory. 
-6. Execute the following command:
+4. Open a new terminal and navigate to the `<FluentBit_Home>` directory. 
+5. Execute the following command:
 
-    !!! tip
-        Replace `<location of out_loki.so file>` with the path that you copied and saved in the previous step.
-
-     `fluent-bit -e <location of out_loki.so file> -c <fluentbit.conf file path>`
+     `fluent-bit -c <fluentBit.conf file path>`
      
      When Fluent Bit is successfully installed, you will see a log message.
     
@@ -225,7 +226,7 @@ Grafana Loki aggregates and processes the logs from Fluent Bit.
 
 Follow the instructions below to set up Grafana Loki:
 
-1. Download Loki v1.6.1 from the [`grafana/loki` Git repository](https://github.com/grafana/loki/blob/v1.5.0/docs/installation/local.md).
+1. Download Loki from the [`grafana/loki` Git repository](https://github.com/grafana/loki/releases). We have tested the setup with **Loki version 3.6.6.**
 
     !!! tip
         Be sure to select the appropriate OS version before downloading.
@@ -236,52 +237,37 @@ Follow the instructions below to set up Grafana Loki:
         - You can use a text editor of your choice for this purpose.
         - You can change the given parameter values based on your requirement.
         
-    ```
+    ```yaml
     auth_enabled: false
-    
+
     server:
       http_listen_port: 3100
-    
-    ingester:
-      lifecycler:
-        address: 127.0.0.1
-        ring:
-          kvstore:
-            store: inmemory
-          replication_factor: 1
-        final_sleep: 0s
-      chunk_idle_period: 5m
-      chunk_retain_period: 30s
-      max_transfer_retries: 0
-    
+
+    common:
+      ring:
+        instance_addr: 127.0.0.1
+        kvstore:
+          store: inmemory
+      replication_factor: 1
+      path_prefix: /tmp/loki
+
     schema_config:
       configs:
-        - from: 2018-04-15
-          store: boltdb
+        - from: 2025-01-01
+          store: tsdb
           object_store: filesystem
-          schema: v11
+          schema: v13
           index:
             prefix: index_
-            period: 168h
-    
+            period: 24h
+
     storage_config:
-      boltdb:
-        directory: /tmp/loki/index
-    
       filesystem:
         directory: /tmp/loki/chunks
-    
+
     limits_config:
-      enforce_metric_name: false
       reject_old_samples: true
       reject_old_samples_max_age: 168h
-    
-    chunk_store_config:
-      max_look_back_period: 0s
-    
-    table_manager:
-      retention_deletes_enabled: false
-      retention_period: 0s
     ```
    
  1. Unzip the file you downloaded in step 1. 
@@ -332,9 +318,9 @@ Download and install [Jaeger](https://www.jaegertracing.io/download/).
     - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.
     - In general, before including tracing in production deployments, it is essential to look into performance tests and scaling requirements. For details on how to achieve better performance, see the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/). 
 
-### Step 3.2 - Set up the Micro Integrator
+### Step 3.2 - Set up the WSO2 Integrator: MI
 
-Follow the instructions below to configure the Micro Integrator to publish tracing information:
+Follow the instructions below to configure the WSO2 Integrator: MI to publish tracing information:
 
 1. Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf/`).
 
@@ -416,6 +402,6 @@ Once Grafana is successfully configured to visualize statistics, you should be c
     
 [![jaeger ui]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png){: style="width:40%"}]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png)
 
-## What's Next?
+## What's next?
 
 If you have successfully set up your Grafana based observability deployment, see the instructions on [Viewing Grafana Dashboard]({{base_path}}/observe-and-manage/viewing-cloud-native-observability-statistics/).

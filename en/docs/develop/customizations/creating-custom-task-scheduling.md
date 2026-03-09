@@ -2,7 +2,7 @@
 
 When you create a task using the default task implementation, the task can inject messages to a proxy service, or to a sequence. If you have a specific task-handling requirement, you can write your own task-handling implementation by creating a custom Java Class that implements the `org.apache.synapse.startup.Task` interface.
 
-For example, the below sections demonstrate how you can create and schedule a task to receive stock quotes by invoking a back-end service, which exposes stock quotes. The scheduled task will read stock order information from a text file, and print the stock quotes.
+For example, the below sections demonstrate how you can create and schedule a task to receive stock quotes by invoking a back-end service, which exposes stock quotes. The Scheduled trigger will read stock order information from a text file, and print the stock quotes.
 
 ## Create the custom Task implementation
 
@@ -14,15 +14,15 @@ Create a Maven project using the following information.
     **Group Id** : `org.wso2.task`  
     **Artifact Id** : `StockQuoteTaskMavenProject`
 
-### Create the Java Package
+### Create the Java package
 
-Create a Java Package inside the Maven Project using the following name: `org.wso2.task.stockquote.v1`
+Create a Java Package inside the Maven Project using the following name: `org.wso2.task.stockquote.v1`
 
 ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130467.png)
 
-### Create the Java Class
+### Create the Java class
 
-1.  Create a Java Class named `StockQuoteTaskV1` inside the Maven Project.  
+1.  Create a Java Class named `StockQuoteTaskV1` inside the Maven Project.
 
 2.  In the **Project Explorer**, double-click on the **StockQuoteTaskV1.java** file and replace its source with the below content.  
 
@@ -235,7 +235,7 @@ This is a bean implementing three properties: StockFile, InjectTo and Sequence.�
 
 **Implementing `ManagedLifecycle` for Initialization and Clean-up**
 
-Since a task implements `ManagedLifecyle` interface, the Micro Integrator will call the `init()` method at the initialization of a `Task` object and `destroy()` method when a `Task` object is destroyed:
+Since a task implements `ManagedLifecyle` interface, the WSO2 Integrator: MI will call the `init()` method at the initialization of a `Task` object and `destroy()` method when a `Task` object is destroyed:
 
 ```java
 public interface ManagedLifecycle {
@@ -279,7 +279,7 @@ For example, the following properties in the `Task` class are initialized with
 <syn:property xmlns="http://ws.apache.org/ns/synapse" name="stockFile" value="/path/to/stock.txt"/>
 ```
 
-For those properties given as XML elements, properties need to be defined within the `Task` class using the format given below. OMElement comes from [Apache AXIOM](http://ws.apache.org/commons/axiom/), which is used by the Micro Integrator. AXIOM is an object model similar to DOM. To learn more about AXIOM, see the tutorial in the [AXIOM user guide](http://ws.apache.org/axiom/userguide/userguide.html).
+For those properties given as XML elements, properties need to be defined within the `Task` class using the format given below. OMElement comes from [Apache AXIOM](http://ws.apache.org/commons/axiom/), which is used by the WSO2 Integrator: MI. AXIOM is an object model similar to DOM. To learn more about AXIOM, see the tutorial in the [AXIOM user guide](http://ws.apache.org/axiom/userguide/userguide.html).
 
 ```java
 public void setMessage(OMElement elem) {
@@ -317,7 +317,7 @@ Follow the steps below to create the task and schedule it.
 
     The below is the complete source configuration of the Sequence (i.e., the `PrintStockQuoteSequence.xml` file):
  
-6. [Create a Scheduled Task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) using the following information:
+6. [Create a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) using the following information:
     <table>
         <tr>
             <th>Task Property</th>
@@ -449,7 +449,7 @@ In order to deploy and run the project, refer the [build and run]({{base_path}}/
 
 ### Create the text file
 
-Create a text file named `stockfile.txt` with the following content and save it to a preferred location on your machine. This will include the information to be read by the scheduled task to pass to the backend service.
+Create a text file named `stockfile.txt` with the following content and save it to a preferred location on your machine. This will include the information to be read by the Scheduled trigger to pass to the backend service.
 
 **stockfile.txt**
 
@@ -470,7 +470,7 @@ The text file will then be tagged as processed to include a system time stamp. T
 
 ### View the output
 
-You will view the stock quotes sent by the backend service printed every 5 seconds by the scheduled task in the below format.
+You will view the stock quotes sent by the backend service printed every 5 seconds by the Scheduled trigger in the below format.
 
 ```bash
 INFO - StockQuoteTask placed order symbol:IBM quantity:100 price:120.50

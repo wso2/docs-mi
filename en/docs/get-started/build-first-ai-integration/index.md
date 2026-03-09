@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-Modern businesses rely on seamless integration between applications, cloud platforms, and enterprise systems. WSO2 Micro Integrator (MI) provides a powerful, low-code environment to design, deploy, and manage integrations efficiently.
+Modern businesses rely on seamless integration between applications, cloud platforms, and enterprise systems. WSO2 Integrator:  MI provides a powerful, low-code environment to design, deploy, and manage integrations efficiently.
 
 In this tutorial series, you will progressively build a complete integration flow. You will learn how to create a chatbot, set up a knowledge base, and develop agent applications using the Generative AI Module, all through step-by-step guidance.
 
@@ -23,7 +23,7 @@ Through this tutorial series, you will acquire practical skills in:
 - **Creating an AI Agent** – Design a customer service agent for a banking application that delivers personalized and accurate responses to user inquiries.
 
 
-## Get Started
+## Get started
 
 Ready to build your first integration? Click **Start** to begin the tutorial series.
 

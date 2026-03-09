@@ -1,6 +1,6 @@
 # How to Implement JMS Synchronous Invocations - Quad Channel JMS-to-JMS
 
-The example demonstrates how WSO2 Micro Integrator handles quad-channel JMS synchronous invocations.
+The example demonstrates how WSO2 Integrator: MI handles quad-channel JMS synchronous invocations.
 
 ## Synapse configuration 
 
@@ -36,7 +36,7 @@ The message flow handled by the sample configuration is as follows:
 
 1.  The **JMSReplyTo** property of the JMS message is set to **ClientRes** . Therefore, the client sends a JMS message to the
     **ClientReq** queue.  
-2.  The **transport.jms.ReplyDestination** value is set to **BERes**. This enables the Micro Integrator proxy to pick messages from the **ClientReq** queue and send to the **BEReq** queue.  
+2.  The **transport.jms.ReplyDestination** value is set to **BERes**. This enables the WSO2 Integrator: MI proxy to pick messages from the **ClientReq** queue and send to the **BEReq** queue.  
 3.  The back-end picks messages from the **BEReq** queue, processes and places response messages to the **BERes** queue.  
 4.  Once a response is available in **BERes** queue, the proxy service picks the response message, and sends it back to the **ClientRes** queue.  
 5.  The client the message as the response message.  
@@ -94,13 +94,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use Active MQ for this example.
 2.  Start the broker.
-3.  Start the Micro Integrator (after starting the broker).
+3.  Start the WSO2 Integrator: MI (after starting the broker).
 
 Set up the backend service:
 

@@ -1,6 +1,6 @@
 # Point-to-Point Channel
 
-This page explains how you can implement a sample scenario of Point-to-Point Channel EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Point-to-Point Channel EIP using WSO2 Integrator: MI.
 
 ## Introduction to Point-to-Point Channel
 

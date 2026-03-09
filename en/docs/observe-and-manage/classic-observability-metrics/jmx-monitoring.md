@@ -7,11 +7,11 @@ title: JMX Monitoring
 Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors or protocol adaptors.
 
 !!! note
-    Prometheus-based monitoring is recommended for remote monitoring in more recent versions of the Micro Integrator.
+    Prometheus-based monitoring is recommended for remote monitoring in more recent versions of the WSO2 Integrator: MI.
 
-## Configuring JMX in Micro Integrator
+## Configuring JMX in WSO2 Integrator: MI
 
-With [**JConsole**](#monitoring-with-jconsole), you can attach the Micro Integrator as a local process and monitor the MBeans that are provided. There is nothing explicitly enable. 
+With [**JConsole**](#monitoring-with-jconsole), you can attach the WSO2 Integrator: MI as a local process and monitor the MBeans that are provided. There is nothing explicitly enable. 
 
 ## Monitoring with JConsole
 
@@ -27,7 +27,7 @@ Once the **product server is started**, you can start the `JConsole` tool as fol
     
      [![jconsole_process]({{base_path}}/assets/img/integrate/jmx/jconsole-new-connection.png){: style="width:50%")}]({{base_path}}/assets/img/integrate/jmx/jconsole-new-connection.png)
 
-3.  Click on the  `org.wso2.micro.integrator.bootstrap.Bootstrap` process (which is the Micro Integrator) under the Local Process.
+3.  Click on the  `org.wso2.micro.integrator.bootstrap.Bootstrap` process (which is the WSO2 Integrator: MI) under the Local Process.
 4.  Click **Connect** to open the **Java Monitoring & Management Console**. 
      
      See the **Oracle** documentation on [using
@@ -57,7 +57,7 @@ Once the **product server is started**, you can start the `JConsole` tool as fol
         
          [![jconsole MBeans]({{base_path}}/assets/img/integrate/jmx/jconsole-mbeans.png){: style="width:90%")}]({{base_path}}/assets/img/integrate/jmx/jconsole-mbeans.png)
 
-See the list of [Micro Integrator MBeans](#mbeans-for-the-micro-integrator) that you can monitor.
+See the list of [WSO2 Integrator: MI MBeans](#mbeans-for-the-micro-integrator) that you can monitor.
 
 ## Monitoring a WSO2 product with Jolokia
 
@@ -101,14 +101,14 @@ Follow the steps below to use Jolokia to monitor a WSO2 product using OSGi Agent
 
     - Reading Heap Memory: `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
 
-## MBeans for the Micro Integrator
+## MBeans for the WSO2 Integrator: MI
 
-When JMX is enabled, the Micro Integrator exposes a number of management resources as
+When JMX is enabled, the WSO2 Integrator: MI exposes a number of management resources as
 JMX Management Beans (MBeans) that can be used for managing and
 monitoring the running server.  When you start JConsole, you can monitor
 these MBeans from the **MBeans** tab. Most of the MBeans are exposed from the underlying Synapse mediation engine.
 
-[![micro integrator mbeans]({{base_path}}/assets/img/integrate/jmx/mi-mbeans.png){: style="width:90%")}]({{base_path}}/assets/img/integrate/jmx/mi-mbeans.png)
+[![WSO2 Integrator: MI mbeans]({{base_path}}/assets/img/integrate/jmx/mi-mbeans.png){: style="width:90%")}]({{base_path}}/assets/img/integrate/jmx/mi-mbeans.png)
 
 The following section summarizes the common MBeans for all WSO2 products:
 
@@ -168,7 +168,7 @@ You can view the following Latency MBeans:
 
 ### Transport MBeans
 
-For each transport listener and sender enabled in the Micro Integrator, there will be an MBean under the `org.apache.axis2/Transport` domain.
+For each transport listener and sender enabled in the WSO2 Integrator: MI, there will be an MBean under the `org.apache.axis2/Transport` domain.
 For example, when the JMS transport is enabled, the following MBean will be exposed:
 
 -   `org.apache.axis2/Transport/jms-sender-n`
@@ -221,7 +221,7 @@ You can also view the following Transport MBeans:
 Dumping JMX threads is an expensive operation that affects the CPU
 consumption when many threads are being processed at the same time.
 
-The Micro Integrator has enabled thread dumping by default. Therefore, to avoid
+The WSO2 Integrator: MI has enabled thread dumping by default. Therefore, to avoid
 dumping all the threads
 [here](https://github.com/wso2/wso2-synapse/blob/master/modules/commons/src/main/java/org/apache/synapse/commons/jmx/ThreadingView.java#L268), you can configure the property given below.
 

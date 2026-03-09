@@ -1,6 +1,6 @@
 # Invalid Message Channel
 
-This page explains how you can implement a sample scenario of an Invalid Message Channel using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of an Invalid Message Channel using WSO2 Integrator: MI.
 
 ## Introduction to Invalid Message Channel
 

@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # File Connector Reference
 
 The following configurations allow you to work with the File Connector version 5.
@@ -773,7 +778,7 @@ There are different connection configurations that can be used for the above pro
 
     !!!note
         - The WSO2 File Connector uses connection pooling for enhanced performance. It uses the Apache Commons Pool as the base framework for connection pooling. For detailed information on the pooling mechanism, refer to the [Apache Commons Pool documentation](https://javadoc.io/doc/commons-pool/commons-pool/1.5.6/org/apache/commons/pool/impl/GenericObjectPool.html). The following parameters can be used to fine-tune the connection pool according to your requirements.
-        - SMB2 servers will close idle connections forcefully based on their configurations. In such cases, the Micro Integrator may throw connection errors. To avoid these errors, you can fine-tune the connection eviction configurations to remove idle connections from the pool.
+        - SMB2 servers will close idle connections forcefully based on their configurations. In such cases, the WSO2 Integrator: MI may throw connection errors. To avoid these errors, you can fine-tune the connection eviction configurations to remove idle connections from the pool.
         
     <table>
         <tr>
@@ -1228,7 +1233,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -1686,7 +1691,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -2012,7 +2017,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -2533,7 +2538,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -2754,7 +2759,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -2971,7 +2976,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -3173,6 +3178,26 @@ The following operations allow you to work with the File Connector. Click an ope
             </td>
             <td>
                 Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                File Name Encoding
+            </td>
+            <td>
+                fileNameEncoding
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                 The character encoding to interpret the file names inside the ZIP archive.
+            </td>
+            <td>
+                UTF-8
+            </td>
+            <td>
+                No
             </td>
         </tr>
     </table>
@@ -3391,7 +3416,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -3694,7 +3719,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -4068,7 +4093,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>
@@ -4456,7 +4481,7 @@ The following operations allow you to work with the File Connector. Click an ope
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.4.0.7 (U2) or later.</p>
+                    <p>Requires WSO2 Integrator: MI version 4.4.0.7 (U2) or later.</p>
                 </div>
             </td>
             <td>

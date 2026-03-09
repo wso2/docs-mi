@@ -1,6 +1,6 @@
 # How to Switch between FIX Versions
 
-This sample demonstrates how you can use WSO2 Micro Integrator to accept FIX input via the FIX transport layer and dispatch to another FIX acceptor that accept messages in a different FIX version. Here you will see how the Micro Integrator receives FIX 4.0 messages and simply forwards it to the FIX 4.1 endpoint.
+This sample demonstrates how you can use WSO2 Integrator: MI to accept FIX input via the FIX transport layer and dispatch to another FIX acceptor that accept messages in a different FIX version. Here you will see how the WSO2 Integrator: MI receives FIX 4.0 messages and simply forwards it to the FIX 4.1 endpoint.
 
 ## Synapse configuration
 
@@ -30,8 +30,8 @@ Following are the integration artifacts (proxy service) that we can used to impl
 <!--
 ## Build and run
 
--   To configure the Micro Integrator to use the FIX transport, see [Configure the ESB to use the FIX transport](https://docs.wso2.com/display/EI650/Setting+Up+the+ESB+Samples#SettingUptheESBSamples-FIX).
--   You will need the two sample FIX applications (*Banzai* and *Executor*) that are provided with Quickfix/J. Configure the two applications to establish sessions with the Micro Integrator.
+-   To configure the WSO2 Integrator: MI to use the FIX transport, see [Configure the ESB to use the FIX transport](https://docs.wso2.com/display/EI650/Setting+Up+the+ESB+Samples#SettingUptheESBSamples-FIX).
+-   You will need the two sample FIX applications (*Banzai* and *Executor*) that are provided with Quickfix/J. Configure the two applications to establish sessions with the WSO2 Integrator: MI.
 -   Add the following line to the `fix-synapse-m40.cfg` and `synapse-sender-m.cfg` configuration files.
 
     ```java
@@ -72,10 +72,10 @@ Following are the integration artifacts (proxy service) that we can used to impl
     points to the `           synapse-sender-m.cfg          ` file.
 
     !!! Note
-        The Micro Integrator creates a new FIX session with *Banzai* at this point.
+        The WSO2 Integrator: MI creates a new FIX session with *Banzai* at this point.
 
 
-Send an order request from *Banzai* to the Micro Integrator. For example, Buy DELL 1000 @ MKT.
+Send an order request from *Banzai* to the WSO2 Integrator: MI. For example, Buy DELL 1000 @ MKT.
 
-You will see that the Micro Integrator forwards the FIX4.0 order request to the *Executor* that accepts FIX4.1 messages, and that the *Executor* processes the request and sends a response back to *Banzai*.
+You will see that the WSO2 Integrator: MI forwards the FIX4.0 order request to the *Executor* that accepts FIX4.1 messages, and that the *Executor* processes the request and sends a response back to *Banzai*.
 -->

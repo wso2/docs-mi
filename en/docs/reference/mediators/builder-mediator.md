@@ -1,6 +1,6 @@
 # Builder Mediator
 
-The **Builder Mediator** can be used to build the actual SOAP message from a message coming into the Micro Integrator through the Binary Relay. One usage is to use this before trying to log the actual message in case of an error. Also the Builder Mediator in the Micro Integrator can be configured to build some of the messages while passing the others along.
+The **Builder Mediator** can be used to build the actual SOAP message from a message coming into the WSO2 Integrator: MI through the Binary Relay. One usage is to use this before trying to log the actual message in case of an error. Also the Builder Mediator in the WSO2 Integrator: MI can be configured to build some of the messages while passing the others along.
 
 !!! Info
     In order to use the Builder mediator, `BinaryRealyBuilder` should be specified as the message builder in the `MI_HOME/conf/ei.toml` file for at least one content type. The message formatter specified for the same content types should be `ExpandingMessageFormatter`. Unlike other message builders, the BinaryRelayBuilder works by passing through a binary stream of the received content. The Builder mediator is used in conjunction with the BinaryRelayBuilder when we require to build the binary stream into a particular content type during mediation. We can specify the message builder that should be used to build the binary stream using the Builder mediator.

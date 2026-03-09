@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Jira Connector Example
 
 The Jira REST API enables you to interact with Jira programmatically. The WSO2 JIRA Connector allows you to access the REST resources available in Jira Cloud [API Version v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/) from an integration sequence.
@@ -18,7 +23,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the integration project
 
-Follow the steps below to set up the integration project using the WSO2 Micro Integrator Visual Studio Code extension.
+Follow the steps below to set up the integration project using the WSO2 Integrator: MI Visual Studio Code extension.
 
 ### Create a new project
 

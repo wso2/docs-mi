@@ -1,8 +1,8 @@
 # How to Switch from FIX to HTTP
 
-This example demonstrates how WSO2 Micro Integrator receives messages through FIX and forwards them through HTTP.
+This example demonstrates how WSO2 Integrator: MI receives messages through FIX and forwards them through HTTP.
 
-The Micro Integrator will forward the order request to a one-way `placeOrder` operation in the back-end service. Micro Integrator uses a simple XSLT Mediator to transform the incoming FIX to a SOAP message.
+The WSO2 Integrator: MI will forward the order request to a one-way `placeOrder` operation in the back-end service.WSO2 Integrator: MI uses a simple XSLT Mediator to transform the incoming FIX to a SOAP message.
 
 ## Synapse configuration
 
@@ -78,7 +78,7 @@ Create the artifacts:
 4. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 5. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location.
 6. Change the `{reg_path}` with the XSLT registry location. 
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 [Enable the FIX transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
 

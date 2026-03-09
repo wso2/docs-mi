@@ -63,7 +63,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/operation-parameters.png" title="Configure Process Documents" width="700" alt="Configure Process Documents"/>
 
 5. Once you submit the document, the **IDP Connector Schema Generator** form will automatically pop up.  
-   You can also access it later from **Micro Integrator Project Explorer** under `resources/idp_schemas/schema_1`.
+   You can also access it later from **WSO2 Integrator: MI Project Explorer** under `resources/idp_schemas/schema_1`.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/idp/schema-generator-view.png" title="Schema Generator Form" width="700" alt="Schema Generator Form"/>
 

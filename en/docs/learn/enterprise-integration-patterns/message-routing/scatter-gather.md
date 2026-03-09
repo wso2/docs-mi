@@ -1,6 +1,6 @@
 # Scatter-Gather
 
-This page explains how you can implement a sample scenario of the Scatter-Gather EIP using the WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of the Scatter-Gather EIP using the WSO2 Integrator: MI.
 
 ## Introduction to Scatter-Gather
 

@@ -4,9 +4,9 @@ Before you start configuring the Twitter connector, you need to configure the in
 
 ## Adding message builders
 
-Consider the root of the Micro Integrator/ Enterprise Integrator as `<PRODUCT_HOME>`.
+Consider the root of the WSO2 Integrator: MI/ Enterprise Integrator as `<PRODUCT_HOME>`.
 
-If you are using the **Micro Integrator 4.2.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
+If you are using the **WSO2 Integrator: MI 4.2.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer to the [Working with Message Builders and Formatters]({{base_path}}/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
 
 ```toml
 [[custom_message_builders]]

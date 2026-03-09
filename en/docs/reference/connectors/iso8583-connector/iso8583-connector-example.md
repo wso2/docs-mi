@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # ISO8583 Connector Example
 
 Given below is a sample scenario that demonstrates how the WSO2 ISO8583 Connector sends an ISO8583 message to financial networks using the integration runtime of WSO2.

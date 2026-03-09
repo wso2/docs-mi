@@ -1,8 +1,8 @@
 # How to Route Requests Based on Message Headers
 
-This example scenario uses an inventory of stocks as the back-end service. A proxy service is configured in the Micro Integrator to use separate mediation sequences for processing request messages with different **message headers**. 
+This example scenario uses an inventory of stocks as the back-end service. A proxy service is configured in the WSO2 Integrator: MI to use separate mediation sequences for processing request messages with different **message headers**. 
 
-When a stock quote request is received, the Micro Integrator will read the **request header** and then route the message to the relevant mediation sequence for processing. The relevant sequence will forward the message to the backend, receive the response, process it, and return it to the client.
+When a stock quote request is received, the WSO2 Integrator: MI will read the **request header** and then route the message to the relevant mediation sequence for processing. The relevant sequence will forward the message to the backend, receive the response, process it, and return it to the client.
     
 ## Synapse configuration
     
@@ -97,7 +97,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) and [mediation sequences]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

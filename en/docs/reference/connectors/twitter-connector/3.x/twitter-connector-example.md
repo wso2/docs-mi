@@ -18,7 +18,7 @@ The user calls the Twitter REST API. It invokes the **createTweet** sequence and
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
+1. Select the WSO2 Integrator: MI Extension and click on `+` in APIs to create a REST API.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/twitter-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 

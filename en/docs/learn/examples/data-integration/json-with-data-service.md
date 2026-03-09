@@ -1,6 +1,6 @@
 # How to Expose Data in JSON Format
 
-You can send and receive JSON messages by default via WSO2 Micro Integrator. See the topics given below to
+You can send and receive JSON messages by default via WSO2 Integrator: MI. See the topics given below to
 understand how data can be exposed in the JSON format, and how data can be changed by sending JSON payloads. In this example, you will use a data service that exposes RDBMS data.
 
 A data service can expose data in one of the following formats: XML,
@@ -192,7 +192,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ### GET data in JSON
 

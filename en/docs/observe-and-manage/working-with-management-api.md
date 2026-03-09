@@ -1,6 +1,6 @@
 # Using the Management API
 
-The Management API of the Micro Integrator is an internal REST API, which was introduced to substitute
+The Management API of the WSO2 Integrator: MI is an internal REST API, which was introduced to substitute
 the **admin services** that were available in WSO2 EI 6.x.x.
 
 The [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) communicates with this service to
@@ -532,6 +532,30 @@ The management API has multiple resources to provide information regarding the d
         {"message":"Enabled tracing for ('HelloWorld')"}
 	    ```
 
+### ENABLE/DISABLE MESSAGE STATISTICS for PROXY SERVICES
+
+-	**Resource**: `/proxy-services`
+
+	**Description**: Enable or disable message statistics for a specified proxy service.
+
+	**Example**:
+    
+    === "Request"
+	    ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/proxy-services \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HelloWorld",
+        		"statistics": "enable"
+        	}' -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+        {"message":"Enabled statistics for ('HelloWorld')"}
+	    ```
+
 ### GET CARBON APPLICATIONS
 
 -	**Resource**: `/applications`
@@ -779,6 +803,29 @@ The management API has multiple resources to provide information regarding the d
 	    ```bash 
         {"message":"Enabled tracing for ('HTTPEP')"}
 	    ```
+
+### ENABLE/DISABLE MESSAGE STATISTICS for ENDPOINTS
+
+-	**Resource**: `/endpoints`
+
+	**Description**: Enable or disable message statistics for a specified endpoint.
+	**Example**:
+	
+    === "Request"
+        ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/endpoints \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HTTPEP",
+        		"statistics": "enable"
+        	}' -k -i
+	    ```
+    === "Response"    
+	    ```bash 
+        {"message":"Enabled statistics for ('HTTPEP')"}
+	    ```
 	
 ### GET APIs
 
@@ -857,7 +904,30 @@ The management API has multiple resources to provide information regarding the d
 	    ```bash 
         {"message":"Enabled tracing for ('helloApi')"}
 	    ```
-	
+
+### ENABLE/DISABLE MESSAGE STATISTICS for APIs
+
+-	**Resource**: `/apis`
+
+	**Description**: Enable or disable message statistics for a specified API.
+	**Example**:
+    
+    === "Request"
+        ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/apis \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "helloApi",
+        		"statistics": "enable"
+        	}' -k -i
+	    ```
+    === "Response"
+	    ```bash 
+        {"message":"Enabled statistics for ('helloApi')"}
+	    ```
+
 ### GET SEQUENCES
 
 -	**Resource**: `/sequences`
@@ -950,6 +1020,30 @@ The management API has multiple resources to provide information regarding the d
         {"message":"Enabled tracing for ('helloSequence')"}
 	    ```
 	
+
+### ENABLE/DISABLE MESSAGE STATISTICS for SEQUENCES
+
+-	**Resource**: `/sequences`
+
+	**Description**: Enable or disable message statistics for a specified sequence.
+	**Example**:
+    
+    === "Request"
+        ```bash  
+	    	curl -X POST \
+        	  https://localhost:9164/management/sequences \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "helloSequence",
+        		"statistics": "enable"
+        	}' -k -i
+	    ```
+    === "Response" 
+	    ```bash  
+        {"message":"Enabled statistics for ('helloSequence')"}
+	    ```
+
 ### GET LOCAL ENTRIES
 
 -	**Resource**: `/local-entries`
@@ -1054,6 +1148,30 @@ The management API has multiple resources to provide information regarding the d
 -	**Resource**: `/tasks?taskName={taskName}`
 
 	**Description**: Retrieves information related to a specified task.
+
+### ACTIVATE/DEACTIVATE/TRIGGER TASKS
+
+-	**Resource**: `/tasks`
+
+	**Description**: Activate, deactivate, or trigger a specific task. The status can be set to `active`, `inactive`, or `trigger` to activate, deactivate, or trigger the task, respectively. When a task is triggered, it is executed immediately as a one-time execution.
+
+	**Example**:
+
+    === "Request"
+        ```bash  
+		curl -X POST \
+		  https://localhost:9164/management/tasks \
+		  -H 'authorization: Bearer TOKEN' \
+		  -H 'content-type: application/json' \
+		  -d '{
+			"name": "HelloScheduledTask",
+			"status": "inactive"
+		}' -k -i
+	    ```
+    === "Response"          
+	    ```bash  
+		{"message":"HelloScheduledTask : is deactivated"}
+	    ```
 
 ### GET MESSAGE STORES
 
@@ -1245,9 +1363,6 @@ The management API has multiple resources to provide information regarding the d
 
 	**Description**: Activate or deactivate a specific inbound endpoint. The status can be set to `active` or `inactive` to activate or deactivate the inbound endpoint, respectively.
 
-	!!! note
-		The activate/deactivate capability of inbound endpoints is currently supported only for the `file` inbound endpoint protocol.
-
 	**Example**:
 
 	```bash
@@ -1280,6 +1395,29 @@ The management API has multiple resources to provide information regarding the d
     === "Response"          
 	    ```bash  
         {"message":"Enabled tracing for ('HTTPIEP')"}
+	    ```
+	
+### ENABLE/DISABLE MESSAGE STATISTICS for INBOUND ENDPOINTS
+
+-	**Resource**: `/inbound-endpoints`
+
+	**Description**: Enable or disable message statistics for a specified inbound-endpoint.
+	**Example**:
+    
+    === "Request"
+        ```bash  
+	    	curl -X POST \
+        	  https://localhost:9164/management/inbound-endpoints \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "HTTPIEP",
+        		"statistics": "enable"
+        	}' -k -i
+	    ```
+    === "Response"          
+	    ```bash  
+        {"message":"Enabled statistics for ('HTTPIEP')"}
 	    ```
 	
 ### GET CONNECTORS
@@ -1459,11 +1597,36 @@ The management API has multiple resources to provide information regarding the d
         {"message":"Enabled tracing for ('testSequenceTemplate')"}
 	    ```
 	
+
+### ENABLE/DISABLE MESSAGE STATISTICS for SEQUENCE TEMPLATES
+
+-	**Resource**: `/templates`
+
+	**Description**: Enable or disable message statistics for a specified sequence template.
+	**Example**:
+    
+    === "Request"
+        ```bash 
+	    	curl -X POST \
+        	  https://localhost:9164/management/templates \
+        	  -H 'authorization: Bearer TOKEN' \
+        	  -H 'content-type: application/json' \
+        	  -d '{
+        		"name": "testSequenceTemplate",
+        		"type": "sequence",
+        		"statistics": "enable"
+        	}' -k -i
+	    ```
+    === "Response"        
+	    ```bash 
+        {"message":"Enabled statistics for ('testSequenceTemplate')"}
+	    ```
+	
 ### GET SERVER INFORMATION
 
 -	**Resource**: `/server`
 
-	**Description**: Retrieves information related to the micro integrator server instance.
+	**Description**: Retrieves information related to the WSO2 Integrator: MI server instance.
 
 	**Example**:
     
@@ -1482,7 +1645,7 @@ The management API has multiple resources to provide information regarding the d
 	        "carbonHome": "/Users/Sachith/IdeaProjects/micro-integrator-public/distribution/target/wso2mi-1.1.0-SNAPSHOT",
 	        "javaVendor": "Oracle Corporation",
 	        "osName": "Mac OS X",
-	        "productName": "WSO2 Micro Integrator",
+	        "productName": "WSO2 Integrator: MI",
 	        "javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre"
 	    }
 	    ```
@@ -1491,7 +1654,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Shutdown the micro integrator server instance forcefully.
+	**Description**: Shutdown the WSO2 Integrator: MI server instance forcefully.
 
 	**Example**:
     
@@ -1516,7 +1679,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Shutdown the micro integrator server instance gracefully.
+	**Description**: Shutdown the WSO2 Integrator: MI server instance gracefully.
 
 	**Example**:
 
@@ -1541,7 +1704,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Restart the micro integrator server instance forcefully.
+	**Description**: Restart the WSO2 Integrator: MI server instance forcefully.
 
 	**Example**:
  
@@ -1566,7 +1729,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/server`
 
-	**Description**: Restart the micro integrator server instance gracefully.
+	**Description**: Restart the WSO2 Integrator: MI server instance gracefully.
 
 	**Example**:
      

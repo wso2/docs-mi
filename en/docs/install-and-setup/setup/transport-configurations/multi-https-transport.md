@@ -1,6 +1,6 @@
 # Multi-HTTPS Transport
 
-You can [enable dynamic SSL profiles](#enabling-dynamic-ssl-profiles) for the Micro Integrator by updating the `deployment.toml` file with the required SSL
+You can [enable dynamic SSL profiles](#enabling-dynamic-ssl-profiles) for the WSO2 Integrator: MI by updating the `deployment.toml` file with the required SSL
 profile configurations. Also, you can [dynamically load the SSL profiles](#loading-ssl-profiles-at-runtime) at
 runtime using a periodic schedule or JMX invocation. That is, instead of reloading the entire `deployment.toml` at runtime, you can
 reload the new configuration files that contain only the custom profile
@@ -201,12 +201,12 @@ You can either use a periodic schedule or a JMX invocation to apply
 custom profiles at runtime. The following section describes the two
 options in detail:
 
--   **Periodic schedule**: If you use this option, the Micro Integrator will
+-   **Periodic schedule**: If you use this option, the WSO2 Integrator: MI will
     automatically check updates of the file content and apply the custom
     profiles based on the value specified in the
     `           fileReadInterval          ` parameter. For example, if
     you have set the `           fileReadInterval          ` as 1 hour,
-    The Micro Integrator will automatically check updates of the file content and
+    The WSO2 Integrator: MI will automatically check updates of the file content and
     apply the custom profile every 1 hour.
 
 -   **JMX Invocation**: If you use this option, custom profiles will be

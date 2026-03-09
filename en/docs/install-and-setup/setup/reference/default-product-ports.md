@@ -1,11 +1,11 @@
 # Default Product Ports
 
-This page describes the default ports used by WSO2 Micro Integrator.
+This page describes the default ports used by WSO2 Integrator: MI.
 
 !!! Note
     If you [change the default runtime ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset), most of the runtime ports change automatically based on the offset.
 
-By default, the Micro Integrator is **internally** configured with a port offset of 10. Listed below are the ports that are effective in the Micro Integrator by default (due to the internal port offset of 10).
+By default, the WSO2 Integrator: MI is **internally** configured with a port offset of 10. Listed below are the ports that are effective in the WSO2 Integrator: MI by default (due to the internal port offset of 10).
 
 !!! Info
     See the instructions on [changing the default MI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-mi-ports).
@@ -40,7 +40,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
             <code>9201</code>
         </td>
         <td>
-            The HTTP port of the <a href="{{base_path}}/observe-and-manage/working-with-management-api">Management API</a> of WSO2 Micro Integrator.</br></br>
+            The HTTP port of the <a href="{{base_path}}/observe-and-manage/working-with-management-api">Management API</a> of WSO2 Integrator: MI.</br></br>
             <b>Configuring the default HTTP port</b></br>
             If required, you can manually change the HTTP port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.</br></br>
             <div>
@@ -55,7 +55,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
             <code>9164</code>
         </td>
         <td>
-            The HTTPS port of the <a href="{{base_path}}/observe-and-manage/working-with-management-api">Management API</a> of WSO2 Micro Integrator.</br></br>
+            The HTTPS port of the <a href="{{base_path}}/observe-and-manage/working-with-management-api">Management API</a> of WSO2 Integrator: MI.</br></br>
             <b>Configuring the default HTTPS port</b></br>
             If required, you can manually change the HTTPS port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.</br></br>
             <div>

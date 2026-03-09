@@ -33,7 +33,7 @@ In this example, a relational database table is used to store product informatio
     );
     ``` 
 
-## Configure inbound endpoint using Micro Integrator
+## Configure inbound endpoint using WSO2 Integrator: MI
 
 {!includes/create-new-project.md!}
 
@@ -100,7 +100,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ## Test
 

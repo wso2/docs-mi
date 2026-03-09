@@ -105,7 +105,7 @@ pool_size = 15
                             <code>[heartbeat_config]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the Integration Control Plane server to listen to the Micro Integrator runtimes.
+                                This configuration header is required for the Integration Control Plane server to listen to the WSO2 Integrator: MI runtimes.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -124,7 +124,7 @@ pool_size = 15
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The Integration Control Plane uses a thread pool executor to create threads and to handle incoming requests from Micro Integrator runtimes. This parameter controls the number of threads used by the executor pool.</p>
+                                        <p>The Integration Control Plane uses a thread pool executor to create threads and to handle incoming requests from WSO2 Integrator: MI runtimes. This parameter controls the number of threads used by the executor pool.</p>
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@ password = "admin"
                             <code>[mi_super_admin]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the Integration Control Plane server to connect with the Micro Integrator instances.
+                                This configuration header is required for the Integration Control Plane server to connect with the WSO2 Integrator: MI instances.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -178,7 +178,7 @@ password = "admin"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The user name for signing in to the Micro Integrator runtimes.</p>
+                                        <p>The user name for signing in to the WSO2 Integrator: MI runtimes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +197,7 @@ password = "admin"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The user password for signing in to the Micro Integrator runtimes.</p>
+                                        <p>The user password for signing in to the WSO2 Integrator: MI runtimes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -371,7 +371,7 @@ password="wso2carbon"</code></pre>
 ## Single Sign-On
 
 !!! note
-	-	To enable this feature, upgrade the Micro Integrator Dashboard to version 4.0.1 or higher, or the Integration Control Plane to version 1.0.0 or higher.
+	-	To enable this feature, upgrade the WSO2 Integrator: MI Dashboard to version 4.0.1 or higher, or the Integration Control Plane to version 1.0.0 or higher.
 	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
 <div class="mb-config-catalog">

@@ -37,7 +37,7 @@ Example](https://docs.wso2.com/display/EI650/Transaction+Mediator+Example).
 
 In addition to the [transaction
 mediator]({{base_path}}/reference/mediators/transaction-mediator/) ,
-WSO2 Micro Integrator (WSO2 MI) also supports JMS transactions.
+WSO2 Integrator: MI (WSO2 MI) also supports JMS transactions.
 
 !!! Note
     In WSO2 MI, JMS transactions only work with either the Callout mediator or the Call mediator in blocking mode.

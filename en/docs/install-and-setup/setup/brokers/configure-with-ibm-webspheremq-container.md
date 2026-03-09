@@ -52,7 +52,7 @@
 
 3. Follow the instructions in the `README.md` file to generate the `.bindings` file.
 
-### Configuring the Micro Integrator
+### Configuring the WSO2 Integrator: MI
 
 !!! Info
     -   **If you are using Windows Operating Systems (e.g., Windows 10)** ,
@@ -106,7 +106,7 @@
 
 ### Copying IBM WebSphere MQ libraries
 
-Follow the instructions below to build and install IBM WebSphere MQ client JAR files to WSO2 Micro Integrator.
+Follow the instructions below to build and install IBM WebSphere MQ client JAR files to WSO2 Integrator: MI.
 
 !!! Info
     These instructions are tested on IBM WebSphere MQ version 9.4 However, you can follow them for other versions appropriately.
@@ -200,12 +200,12 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
     !!! Note
         This build requires Java 17 or later.
 
-5.  Stop the WSO2 Micro Integrator, if it is already running.
+5.  Stop the WSO2 Integrator: MI, if it is already running.
 6.  Remove any existing IBM MQ client JAR files from the `MI_HOME/dropins` directory and the `MI_HOME/lib` directory.
 7.  Copy the `<wmq-client>/target/wmq-client-9.4.jar`
     file to the `MI_HOME/dropins` directory.
 8.  Download the [`jta.jar` file from the maven repository](https://repo1.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.jar), and copy it to the `MI_HOME/lib` directory.
-9. Start the WSO2 Micro Integrator server.
+9. Start the WSO2 Integrator: MI server.
 
 ### Deploying JMS listener proxy service
 
@@ -244,7 +244,7 @@ Click on the **Create +** button to publish a message to the queue.
 
 ![Publish Message to Queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/publish-message.jpg)
 
-Then you will get the following log in the WSO2 Micro Integrator.
+Then you will get the following log in the WSO2 Integrator: MI.
 
 ```
 [2025-07-18 13:34:34,358]  INFO {LogMediator} - {proxy:MyJMSProxy} Received message on MyJMSProxy : {"Hello":"world"}

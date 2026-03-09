@@ -1,6 +1,6 @@
 # Connecting to Apache Artemis
 
-This section describes how to configure WSO2 Micro Integrator to connect with Apache Artemis (version 2.39.0).
+This section describes how to configure WSO2 Integrator: MI to connect with Apache Artemis (version 2.39.0).
 
 !!! NOTE
     The maximum supported Artemis client JAR version is `2.26.0` (`artemis-jms-client-all-2.26.0.jar`). This version is compatible with Apache Artemis server version `2.39.0`.
@@ -8,8 +8,8 @@ This section describes how to configure WSO2 Micro Integrator to connect with Ap
 Follow the instructions below to set up and configure.
 
 1.  Download and setup [Apache Artemis](https://activemq.apache.org/artemis/).
-2.  Download and install WSO2 Micro Integrator.
-3.  If you want the Micro Integrator to receive messages from an Artemis instance, or to send messages to an Artemis instance, you need to update the deployment.toml file with the relevant connection parameters.
+2.  Download and install WSO2 Integrator: MI.
+3.  If you want the WSO2 Integrator: MI to receive messages from an Artemis instance, or to send messages to an Artemis instance, you need to update the deployment.toml file with the relevant connection parameters.
 
     - Add the following configurations to enable the JMS listener with ActiveMQ connection parameters.
         ```toml
@@ -65,6 +65,6 @@ Follow the instructions below to set up and configure.
 4.  Remove any existing Apache ActiveMQ client JAR files from the `MI_HOME/dropins/` and `MI_HOME/lib/` directories.  
 5.  Download the [artemis-jms-client-all-2.26.0.jar](https://mvnrepository.com/artifact/org.apache.activemq/artemis-jms-client-all/2.26.0) file and copy it to the `<MI_HOME>/lib/` directory.
 6.  Start Apache Artemis. For instructions, see the [Apache Artemis Documentation](https://activemq.apache.org/components/artemis/documentation/latest/using-server.html).
-7.  Start the Micro Integrator.
+7.  Start the WSO2 Integrator: MI.
 
-Now you have configured instances of Apache Artemis and WSO2 Micro Integrator.
+Now you have configured instances of Apache Artemis and WSO2 Integrator: MI.

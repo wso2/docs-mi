@@ -5,9 +5,9 @@
 In this tutorial, you will create a [Data Service]({{base_path}}/reference/synapse-properties/data-services/) that exposes an RDBMS data source as a RESTful API.
 
 !!! Tip "What is a Data Service?"
-    A Data Service in WSO2 Micro Integrator allows you to expose data from relational databases, CSV files, or other data sources as RESTful or SOAP APIs. It simplifies integration by handling database queries, input/output mappings, and data transformation without writing custom code. To explore Data Services in detail, see the [Data Services]({{base_path}}/reference/synapse-properties/data-services/) documentation.
+    A Data Service in WSO2 Integrator: MI allows you to expose data from relational databases, CSV files, or other data sources as RESTful or SOAP APIs. It simplifies integration by handling database queries, input/output mappings, and data transformation without writing custom code. To explore Data Services in detail, see the [Data Services]({{base_path}}/reference/synapse-properties/data-services/) documentation.
 
-When a client sends a request to the Micro Integrator, the employee number will be extracted from the request, used in a SQL query to retrieve employee information, and the result will be returned in JSON format.
+When a client sends a request to the WSO2 Integrator: MI, the employee number will be extracted from the request, used in a SQL query to retrieve employee information, and the result will be returned in JSON format.
 
 ## Let's get started!
 
@@ -44,7 +44,7 @@ Follow the steps below to set up the MySQL server.
     INSERT INTO Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values (3, "Edgar", "Code", "edgar@rdbms.com", 100000);
     ```
 
-6. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). Make sure to download a version that is compatible with your MySQL server version. You will need this driver when configuring the MySQL server with the Micro Integrator.
+6. Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/). Make sure to download a version that is compatible with your MySQL server version. You will need this driver when configuring the MySQL server with the WSO2 Integrator: MI.
 
 ### Step 2: Create a data service
 
@@ -306,7 +306,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
 ### Step 3: Build and run the artifacts
 
-Now that you have developed the data service using the Micro Integrator for the Visual Studio Code plugin, it's time to deploy the integration to the Micro Integrator server runtime.
+Now that you have developed the data service using the WSO2 Integrator: MI for the Visual Studio Code plugin, it's time to deploy the integration to the WSO2 Integrator: MI server runtime.
 
 !!! Note
     If you didn’t select a driver JAR file in the [Create a Data Service with a Data Source](#create-a-data-service-with-a-data-source) step, make sure you have added the JAR file to the `<Project_Path>/deployment/libs` directory, or copied it to the `<MI_HOME>/lib` directory.

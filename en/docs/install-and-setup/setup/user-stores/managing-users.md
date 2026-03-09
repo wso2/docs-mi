@@ -1,16 +1,16 @@
 # Manage Users and Roles
 
-The WSO2 Micro Integrator has limited role support without fine-grained permission tree support as in the Enterprise Integrator. In Micro Integrator, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
+The WSO2 Integrator: MI has limited role support without fine-grained permission tree support as in the Enterprise Integrator. In WSO2 Integrator: MI, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
 
-See the topics given below to understand **user management** in the Micro Integrator.
+See the topics given below to understand **user management** in the WSO2 Integrator: MI.
 
 ## User credentials in the MI
 
-WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i> and <i>authorization</i> purposes:
+WSO2 Integrator: MI requires <b>user</b> credentials for <i>authentication</i> and <i>authorization</i> purposes:
 
 -	[Authentication]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authentication-jwt) for internal APIs
 
-	Users accessing the management API and related tools (Micro Integrator ICP/Micro Integrator CLI) for administration tasks should be authenticated.
+	Users accessing the management API and related tools (WSO2 Integrator: MI ICP/WSO2 Integrator: MI CLI) for administration tasks should be authenticated.
 
 -	Authentication for integration use cases
 
@@ -24,16 +24,16 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 
 ### Admin users
 
-Micro Integrator users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store) user store that is connected to the Micro Integrator server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
+WSO2 Integrator: MI users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store) user store that is connected to the WSO2 Integrator: MI server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
 
 !!! Tip
-	Admin users can basically access any resource (of the Micro Integrator's management API) that has <b>authorization</b> privileges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
+	Admin users can basically access any resource (of the WSO2 Integrator: MI's management API) that has <b>authorization</b> privileges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
 
 	Read more about about [authorization in the management API]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authorization).
 
-If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the Micro Integrator's [management API]({{base_path}}/observe-and-manage/working-with-management-api) for the first time. That is, when you log in to the Micro Integrator server from the <b>CLI tool</b>/<b>ICP server</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
+If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the WSO2 Integrator: MI's [management API]({{base_path}}/observe-and-manage/working-with-management-api) for the first time. That is, when you log in to the WSO2 Integrator: MI server from the <b>CLI tool</b>/<b>ICP server</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
 
-An existing admin user can log in to the Micro Integrator server from the CLI tool or the ICP server to add new users with admin privileges. An admin user can only be removed by the creator.
+An existing admin user can log in to the WSO2 Integrator: MI server from the CLI tool or the ICP server to add new users with admin privileges. An admin user can only be removed by the creator.
 
 ### Non-admin users
 
@@ -47,7 +47,7 @@ For more information, see [Manage Users]({{base_path}}/observe-and-manage/managi
 
 ## Manage users and roles from the Integration Control Plane 
 
-See the [Micro Integrator ICP documentation]({{base_path}}/observe-and-manage/working-with-integration-control-plane) to set up the ICP server. Be sure to log in to the Micro Integrator server (from the ICP server) with your admin user name and password.
+See the [WSO2 Integrator: MI ICP documentation]({{base_path}}/observe-and-manage/working-with-integration-control-plane) to set up the ICP server. Be sure to log in to the WSO2 Integrator: MI server (from the ICP server) with your admin user name and password.
 
 Select <b>Users</b> in the left-hand navigator to view the list of existing users.
 

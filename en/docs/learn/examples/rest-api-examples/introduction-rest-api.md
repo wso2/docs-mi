@@ -1,6 +1,6 @@
 # How to Use a Simple REST API
 
-You can configure REST endpoints in the Micro Integrator by directly specifying HTTP verbs, URL patterns, URI templates, HTTP media types, and other related headers. You can define REST APIs and the associated resources by combining REST APIs with mediation features provided by the underlying messaging framework.
+You can configure REST endpoints in the WSO2 Integrator: MI by directly specifying HTTP verbs, URL patterns, URI templates, HTTP media types, and other related headers. You can define REST APIs and the associated resources by combining REST APIs with mediation features provided by the underlying messaging framework.
 
 ## Synapse configuration
 
@@ -58,7 +58,7 @@ Create the artifacts:
 {!includes/build-and-run.md!}
 3. [Create the rest API]({{base_path}}/develop/creating-artifacts/creating-an-api) with the API configurations given above.
 4. [Create the endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoints/) with the endpoint configurations given above.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -80,13 +80,13 @@ Invoke the sample API:
 
 -   Sending a GET request.
    
-      Open a terminal and execute the following command. This sends a simple GET request to the Micro Integrator.
+      Open a terminal and execute the following command. This sends a simple GET request to the WSO2 Integrator: MI.
         
       ```bash
       curl http://127.0.0.1:8290/stockquote/view/IBM
       ```
     
-      The Micro Integrator returns the following response to the client.
+      The WSO2 Integrator: MI returns the following response to the client.
 
       ```xml
       <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://services.samples" xmlns:ax21="http://services.samples/xsd">
@@ -123,13 +123,13 @@ Invoke the sample API:
         </placeOrder>
         ```
     
-    2.  Open a terminal, navigate to the location of your `placeorder.xml` file, and execute the following command. This posts a simple XML request to the Micro Integrator.
+    2.  Open a terminal, navigate to the location of your `placeorder.xml` file, and execute the following command. This posts a simple XML request to the WSO2 Integrator: MI.
     
         ```bash
         curl -v -d @placeorder.xml -H "Content-type: application/xml" http://127.0.0.1:8290/stockquote/order/
         ```
     
-        The Micro Integrator returns the 202 response back to the client.
+        The WSO2 Integrator: MI returns the 202 response back to the client.
     
         ```xml
         < HTTP/1.1 202 Accepted

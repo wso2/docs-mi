@@ -1,6 +1,6 @@
 # Service Activator
 
-This page explains how you can implement a sample scenario of Service Activator EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Service Activator EIP using WSO2 Integrator: MI.
 
 ## Introduction to Service Activator
 

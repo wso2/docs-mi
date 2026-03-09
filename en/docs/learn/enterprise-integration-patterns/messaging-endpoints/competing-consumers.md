@@ -1,6 +1,6 @@
 # Competing Consumers
 
-This page explains how you can implement a sample scenario of Competing Consumers EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Competing Consumers EIP using WSO2 Integrator: MI.
 
 ## Introduction to Competing Consumers
 

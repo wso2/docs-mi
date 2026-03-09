@@ -120,7 +120,7 @@ The Payload mediator supports [FreeMarker Templates](https://freemarker.apache.o
 
 !!! Note
     -   FreeMarker version 2.3.30 is tested with WSO2 MI 4.x.x.
-    -   The CDATA will be added automatically when configuring the payload using WSO2 Micro Integrator VSCode extension.
+    -   The CDATA will be added automatically when configuring the payload using WSO2 Integrator: MI VSCode extension.
 
 ```xml
 <variable name="customer_id" type="STRING" value="43672343"/>
@@ -1002,14 +1002,14 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 #### Build and run
 
-1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+1. Launch Visual Studio Code with the WSO2 Integrator: MI for VS Code extension (MI for VS Code) installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 3. Create the artifacts (proxy service, registry resource) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 5. Send a POST request to the <code>xml-to-edi-proxy</code> with the above given payload.
 	
 -   Output Payload

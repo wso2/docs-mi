@@ -9,7 +9,7 @@ This example demonstrates how a custom Swagger definition is published for a RES
 Following is a sample REST API configuration with a custom Swagger definition. See the instructions on how to [build and run](#build-and-run) this example.
 
 !!! Note
-    The custom Swagger file that you use for generating the API is saved to the Micro Integrator's registry. The `publishSwagger` element in the REST API configuration specifies the registry path. In this example, we are storing the Swagger definition in the <b>governance</b> registry as shown below.
+    The custom Swagger file that you use for generating the API is saved to the WSO2 Integrator: MI's registry. The `publishSwagger` element in the REST API configuration specifies the registry path. In this example, we are storing the Swagger definition in the <b>governance</b> registry as shown below.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,7 +50,7 @@ Create the artifacts:
     - Download the Swagger file: [simple_petstore.yaml](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-rest-apis/simple_petstore.yaml).
     - Follow the instructions on [creating a REST API]({{base_path}}/develop/creating-artifacts/creating-an-api).
 
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Copy the following URLs to your browser to see the Swagger documents of your API:
 

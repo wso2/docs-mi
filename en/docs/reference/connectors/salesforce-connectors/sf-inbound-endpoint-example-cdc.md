@@ -4,7 +4,7 @@
 
 Change Data Capture (CDC) in Salesforce allows you to receive real-time changes of Salesforce records, including record creation, updates, deletions, and undeletions. Unlike PushTopics, CDC supports a broader set of standard and custom objects, and it's more scalable and recommended for enterprise-grade integrations.
 
-CDC events are published to event channels in the format: `/data/<ObjectName>ChangeEvent`. These events can be consumed by WSO2 Micro Integrator through a Salesforce Inbound Endpoint.
+CDC events are published to event channels in the format: `/data/<ObjectName>ChangeEvent`. These events can be consumed by WSO2 Integrator: MI through a Salesforce Inbound Endpoint.
 
 ## What you'll build
 
@@ -14,10 +14,10 @@ You will:
 
 1. Enable CDC for a Salesforce object.
 2. Reset the security token to authenticate with the Salesforce API.
-3. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+3. Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 4. Run and test the integration to receive real-time events.
 
-The inbound endpoint captures CDC events and injects them into a mediation sequence. In this example, we simply log the message, but you can extend it with any logic using [WSO2 Micro Integrator mediators]({{base_path}}/reference/mediators/about-mediators/).
+The inbound endpoint captures CDC events and injects them into a mediation sequence. In this example, we simply log the message, but you can extend it with any logic using [WSO2 Integrator: MI mediators]({{base_path}}/reference/mediators/about-mediators/).
 
 <a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram-cdc.png" title="Salesforce CDC Integration" alt="Salesforce CDC Integration"/></a>
 
@@ -107,7 +107,7 @@ Select any account and click on **edit** to update the account details.
 
 ### Expected Output
 
-After updating an account, you should see logs like the following in the Micro Integrator console:
+After updating an account, you should see logs like the following in the WSO2 Integrator: MI console:
 
 ```
 To: , MessageID: urn:uuid:56B8EFA309A76212999999737229929, Direction: request, Payload: {"event":{"replayId":6,"createdDate":"2024-12-01T14:21:45.458Z"},"payload":{"ChangeEventHeader":{"entityName":"Account","changeType":"UPDATE"},"Name":"Updated Account","Id":"0012x000005Xc9ZAAS"}}

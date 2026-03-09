@@ -1,13 +1,13 @@
-# Running the Micro Integrator in Automation Mode
+# Running the WSO2 Integrator: MI in Automation Mode
 
-The WSO2 Micro Integrator (MI) runtime has introduced a new automation mode that triggers, runs, and stops an integration job on demand. Paired with the latest capabilities of WSO2 Micro Integrator Visual Studio Code extension (MI for VS Code), this new mode provides developers with a more efficient way to handle integration tasks, especially in cloud-native environments. This documentation outlines how to utilize the automation mode in MI using the WSO2 Micro Integrator Visual Studio Code extension (MI for VS Code).
+The WSO2 Integrator: MI runtime has introduced a new automation mode that triggers, runs, and stops an integration job on demand. Paired with the latest capabilities of WSO2 Integrator: MI Visual Studio Code extension (MI for VS Code), this new mode provides developers with a more efficient way to handle integration tasks, especially in cloud-native environments. This documentation outlines how to utilize the automation mode in MI using the WSO2 Integrator: MI Visual Studio Code extension (MI for VS Code).
 
 ## Automation mode in MI runtime
 
-WSO2 Micro Integrator runtime offers two operational modes:
+WSO2 Integrator: MI runtime offers two operational modes:
 
 - Server Mode: This is the standard operational mode where the WSO2 MI runs as an active integration server, processing incoming requests, and executing mediation sequences.
-- Automation Mode: Introduced to cater to the demands of evolving cloud environments, this mode is geared toward short-lived processes, where the Micro Integrator performs tasks without functioning as a continuously running server.
+- Automation Mode: Introduced to cater to the demands of evolving cloud environments, this mode is geared toward short-lived processes, where the WSO2 Integrator: MI performs tasks without functioning as a continuously running server.
 
 In Automation mode, MI executes the specified automation sequence from start to finish, allowing for efficient task executions without the need for a persistent server process.
 
@@ -15,11 +15,11 @@ In Automation mode, MI executes the specified automation sequence from start to 
 
 Before you try out the steps in this guide, complete the following:
 
-- [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the latest Micro Integrator.
-- Launch Visual Studio Code with the Micro Integrator extension installed.
+- [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the latest WSO2 Integrator: MI.
+- Launch Visual Studio Code with the WSO2 Integrator: MI extension installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 
 ## Design the integration
@@ -35,9 +35,9 @@ The automation sequence is essential in the automation mode. It serves as the co
       
     <a href="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png"><img src="{{base_path}}/assets/img/setup-and-install/configure-main-sequence.png" alt="Add automation sequence"></a>
 
-    This sequence, designated as the automation sequence, plays a crucial role in guiding the task's operational flow. While Micro Integrator Visual Studio Code extension provides various mediators for assistance, prioritize clarity and efficiency in your logic.
+    This sequence, designated as the automation sequence, plays a crucial role in guiding the task's operational flow. While WSO2 Integrator: MI Visual Studio Code extension provides various mediators for assistance, prioritize clarity and efficiency in your logic.
 
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ## Starting the MI in automation mode
 

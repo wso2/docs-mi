@@ -22,10 +22,10 @@ However, the recommended approach to use connectors for integration logic develo
 
 **To import a connector**:
 
-1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+1. Launch Visual Studio Code with the WSO2 Integrator: MI for VS Code extension (MI for VS Code) installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 
@@ -155,4 +155,4 @@ Start the server with `./integrator.sh -debug <port>` and connect to that port f
 
 Click on the **Report Issue** button on the connector store page for the connector. You will get diverted to the GitHub repository of the connector. Please report your issues there. 
 
-It is preferable to create another issue in the WSO2 Micro Integrator project repository and link that issue. Specify the title of the issue as `[Connector]<title>`.
+It is preferable to create another issue in the WSO2 Integrator: MI project repository and link that issue. Specify the title of the issue as `[Connector]<title>`.

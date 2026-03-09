@@ -1,6 +1,6 @@
 # Running the Integration Control Plane
 
-Follow the steps given below to run the WSO2 Micro Integrator runtime and the Integration Control Plane.
+Follow the steps given below to run the WSO2 Integrator: MI runtime and the Integration Control Plane.
 
 ## Before you begin
 
@@ -9,11 +9,11 @@ Follow the steps given below before you start.
 1.  Download and install the servers:
 
     -     [Download and install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) the Integration Control Plane.
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the Micro Integrator.
+    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI.
 
-2.  Set up the Micro Integrator:
+2.  Set up the WSO2 Integrator: MI:
 
-    1.  Open the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of the Micro Integrator, and add the following configuration.
+    1.  Open the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of the WSO2 Integrator: MI, and add the following configuration.
 
            ```toml
            [dashboard_config]
@@ -36,7 +36,7 @@ Follow the steps given below before you start.
     !!! Info
         See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane/#step-2-configure-the-mi-servers) for more information.
 
-3.  [Start the Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi).
+3.  [Start the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/running-the-mi).
 
 ## Configuring Single Sign-on with OpenID Connect
 
@@ -170,7 +170,7 @@ Once you have [started the ICP server](#starting-the-dashboard-server):
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
+                <b>Note</b>: This should be a valid username that is saved in the WSO2 Integrator: MI server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
                 See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">configuring user stores</a> for information.
             </td>
         </tr>
@@ -184,7 +184,7 @@ Once you have [started the ICP server](#starting-the-dashboard-server):
         </tr>
     </table>
 
-2.  Be sure that the Micro Integrator servers are [already configured and started](#before-you-begin) before you sign in.
+2.  Be sure that the WSO2 Integrator: MI servers are [already configured and started](#before-you-begin) before you sign in.
 
 See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) documentation for information on the control plane's capabilities and how to use them.
 

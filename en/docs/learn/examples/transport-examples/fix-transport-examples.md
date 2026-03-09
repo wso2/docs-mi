@@ -4,7 +4,7 @@ This example demonstrates the usage of the FIX (Financial Information eXchange) 
 
 ## Synapse configuration
 
-WSO2 Micro Integrator will create a session with an Executor and forward the order request. The responses coming from the Executor will be sent back to
+WSO2 Integrator: MI will create a session with an Executor and forward the order request. The responses coming from the Executor will be sent back to
 Banzai.
 
 ```xml
@@ -32,7 +32,7 @@ Banzai.
 
 -   You will need the two sample FIX applications that come with
     Quickfix/J (Banzai and Executor). [Configure the two applications]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport) to
-    establish sessions with the Micro Integrator and enable the FIX transport in the Micro-Integrator.
+    establish sessions with the WSO2 Integrator: MI and enable the FIX transport in the Micro-Integrator.
 -   Start the Micro-Integrator.
 -   Be sure that the
     `           transport.fix.AcceptorConfigURL          ` property
@@ -43,12 +43,12 @@ Banzai.
     created.
 
     !!! Note
-        The Micro Integrator creates a new FIX session with Banzai at this point.
+        The WSO2 Integrator: MI creates a new FIX session with Banzai at this point.
         
 -   Start Banzai and Executor.
--   Send an order request from Banzai to the Micro Integrator.
+-   Send an order request from Banzai to the WSO2 Integrator: MI.
 
-### Configuring the Micro Integrator for FIX Samples
+### Configuring the WSO2 Integrator: MI for FIX Samples
 
 Create the FIX configuration files as specified below. The `FileStorePath` property in the following two files should point to two directories in your local file system. Once the samples are executed, Synapse will create FIX message stores in these two directories.
 
