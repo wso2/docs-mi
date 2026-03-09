@@ -241,6 +241,9 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 20. Click on the **+** icon located inside the **Agent** operation to open the **Mediator Palette** to add a `Tool`.
 
+    !!! Info
+        See the [Adding MCP Tools]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) section to learn how to add MCP tools to the agent.
+
 21. Select `POST` from the **HTTP** category in the **Mediator Palette**.
 
 22. Let's configure the tool with the following details.
@@ -428,6 +431,32 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     This demonstrates how the agent can assist users in creating investment accounts and provide real-time updates on the status of their requests.
 
 You have now learned how to create an AI agent to enhance your integration flow with automating tasks using AI.
+
+## Adding MCP Tools 
+
+1. Click on the **+** icon located inside the **Agent** operation to open the **Mediator Palette** to add a `Tool`.
+
+2. Click on **Add MCP Tools** on the **Mediator Palette**.
+
+    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/agent/add_mcp_tools.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_tools.jpeg" alt="Create New Project" width="80%"></a>
+
+3. If a `MCP Connection` already exists in your project, you can select it from the **Connection** dropdown. If not, click on **+ Add New Connection**.
+
+    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/agent/add_new_connection_mcp.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_connection_mcp.jpeg" alt="Create New Project" width="80%"></a>
+
+4. Choose **MCP** as the `Connection Type`.
+
+    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/agent/connection_type_mcp.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/connection_type_mcp.jpeg" alt="Create New Project" width="80%"></a>
+
+4. Fill in the required parameters including the Connection Name, URL of the MCP Server and Auth Configurations(if exists). Click on **Add**.
+
+    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/agent/add_mcp_connection.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_connection.jpeg" alt="Create New Project" width="80%"></a>
+
+4. Select the connection you just created from the `Connection` dropdown. Given that all parameters of the connection are correct, the palette should list all available tools in the selected MCP Server.
+
+5. Click the checkboxes of the tools you wish to add to the agent and click on **Add**.
+
+    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/agent/select_mcp_tools.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_mcp_tools.jpeg" alt="Create New Project" width="80%"></a>
 
 ## What's Next?  
 

@@ -99,7 +99,7 @@ Follow the steps below to design these operations.
         `MI_VECTOR_STORE` is a built-in vector store that comes with the AI Module. It is a simple in-memory vector store that is suitable for development and testing purposes.
 
     !!! Warning
-        The `MI_VECTOR_STORE` is not recommended for production use. For production, you can use any of the supported vector stores such as `Pinecone`, `Chroma DB`, `PGVector`.
+        The `MI_VECTOR_STORE` is not recommended for production use. For production, you can use any of the supported vector stores such as `Pinecone`, `Chroma DB`, `PGVector`, `Weaviate`, `Milvus`.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_vector_store_type.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_vector_store_type.png" alt="Add Chat Operation" width="40%"></a>
 
