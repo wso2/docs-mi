@@ -445,6 +445,50 @@ The connection configuration parameters are used to establish a connection with 
         </tr>
     </table>
 
+    The following OAuth2 authentication configurations can be used for IMAP and IMAPS connections. **Note**: These configurations are available from Email connector version 1.1.0 and above.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>enableOAuth2</td>
+            <td>Whether to enable OAuth2 authentication. Possible values are <code>true</code> or <code>false</code>.</td>
+            <td>Default value is <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td>grantType</td>
+            <td>The OAuth2 grant type. For example: <code>AUTHORIZATION_CODE</code>, <code>CLIENT_CREDENTIALS</code>.</td>
+            <td>Required if <code>enableOAuth2</code> is <code>true</code>.</td>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>The Client ID obtained when registering your application.</td>
+            <td>Required if <code>enableOAuth2</code> is <code>true</code>.</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>The Client Secret obtained when registering your application.</td>
+            <td>Required if <code>enableOAuth2</code> is <code>true</code>.</td>
+        </tr>
+        <tr>
+            <td>tokenUrl</td>
+            <td>The token endpoint URL used to generate the access token.</td>
+            <td>Required if <code>enableOAuth2</code> is <code>true</code>.</td>
+        </tr>
+        <tr>
+            <td>scope</td>
+            <td>The scope for the OAuth2 connection.</td>
+            <td>Required if the <code>grantType</code> is <code>CLIENT_CREDENTIALS</code>.</td>
+        </tr>
+        <tr>
+            <td>refreshToken</td>
+            <td>The generated refresh token.</td>
+            <td>Required if the <code>grantType</code> is <code>AUTHORIZATION_CODE</code>.</td>
+        </tr>
+        </table>
+
 ??? note "IMAPS"
     <table>
         <tr>
