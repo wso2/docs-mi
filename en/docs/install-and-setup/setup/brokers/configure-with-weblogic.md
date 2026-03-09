@@ -1,14 +1,14 @@
 # Connecting to Oracle WebLogic
 
-This section describes how to configure WSO2 Micro Integrator to connect with Oracle WebLogic v14.1.1.0.
+This section describes how to configure WSO2 Integrator: MI to connect with Oracle WebLogic v14.1.1.0.
 
-## Starting WebLogic and WSO2 Micro Integrator
+## Starting WebLogic and WSO2 Integrator: MI
 
 1.  Download and set up [Oracle WebLogic Server v14.1.1.0](http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html) using the generic installer.
 2.  Install Oracle JDK 11 and set the `JAVA_HOME` environment variable.
-3.  [Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi/).
+3.  [Download and install WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi/).
 4.  Copy `wlthint3client.jar` from the `<WebLogic_HOME>/server/lib/` directory to the `<MI_HOME>/lib/` directory.
-5.  [Start WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/running-the-mi).
+5.  [Start WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/running-the-mi).
 
 ## Configuring the WebLogic server
 
@@ -32,7 +32,7 @@ When you start the WebLogic server with the above changes, you can see the follo
 
 ## Setting up the JMS listener and Sender
 
-If you want the Micro Integrator to receive messages from the WebLogic instance, or to send messages to a WebLogic instance, you need to update the deployment.toml file with the relevant connection parameters.
+If you want the WSO2 Integrator: MI to receive messages from the WebLogic instance, or to send messages to a WebLogic instance, you need to update the deployment.toml file with the relevant connection parameters.
 
 Add the following configurations to enable the JMS sender and listener with WebLogic connection parameters.
     
@@ -80,7 +80,7 @@ Create a message store using a configuration similar to the following:
 
 ## JMS Producer Proxy Service
 
-Use the following proxy service configuration in WSO2 Micro Integrator to publish messages to the WebLogic queue:
+Use the following proxy service configuration in WSO2 Integrator: MI to publish messages to the WebLogic queue:
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
@@ -117,7 +117,7 @@ Use the following proxy service configuration in WSO2 Micro Integrator to publis
 
 ## JMS Consumer Proxy Service
 
-Use the following proxy service configuration in WSO2 Micro Integrator to read messages from the WebLogic queue:
+Use the following proxy service configuration in WSO2 Integrator: MI to read messages from the WebLogic queue:
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"

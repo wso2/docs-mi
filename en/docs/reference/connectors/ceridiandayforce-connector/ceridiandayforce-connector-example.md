@@ -30,7 +30,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 ## Create the integration logic
 
-1. Select Micro Integrator and click on `+` in APIs to create a REST API. In the form that opens, provide the API name as `DayforceConnectorTestAPI` and the context as `/dayforceconnector` and click on **Create**.  
+1. Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. In the form that opens, provide the API name as `DayforceConnectorTestAPI` and the context as `/dayforceconnector` and click on **Create**.  
     <img src="{{base_path}}/assets/img/integrate/connectors/dayforce/create-new-rest-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Click on the **Service Designer** and edit the added resource method with the following configurations as shown below. 

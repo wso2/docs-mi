@@ -297,7 +297,7 @@ Advanced query properties help define additional features when querying an RDBMS
 </tr>
 <tr class="odd">
 <td><p>Fetch Size</p></td>
-<td><p>The number of rows that should be fetched from the database when more rows are needed. If the fetch size is zero, the JDBC driver ignores the value and is free to make its own best guess as to what the fetch size should be. Note that the fetch size is set to a lower value in the Micro Integrator by default. However, if you expect a very large number of rows to be fetched, you should increase the fetch size accordingly (e.g. 1000) to improve performance.</p></td>
+<td><p>The number of rows that should be fetched from the database when more rows are needed. If the fetch size is zero, the JDBC driver ignores the value and is free to make its own best guess as to what the fetch size should be. Note that the fetch size is set to a lower value in the WSO2 Integrator: MI by default. However, if you expect a very large number of rows to be fetched, you should increase the fetch size accordingly (e.g. 1000) to improve performance.</p></td>
 </tr>
 <tr class="even">
 <td><p>Max Field Size</p></td>

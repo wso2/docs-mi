@@ -23,7 +23,7 @@ When the client invokes the proxy service, it triggers a one-way asynchronous in
     sender_enable = true
     ```
 
-5.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+5.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

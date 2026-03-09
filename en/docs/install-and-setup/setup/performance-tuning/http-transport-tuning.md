@@ -30,7 +30,7 @@ connections, but by default it only allows two simultaneous connections
 per host. So if there are more than two requests per host, the requests
 have to wait until a connection is available. Therefore if the backend
 service is slow, many requests have to wait until a connection is
-available from the `MultiThreadedHttpConnectionManager`. This can lead to a significant degrade in the performance of WSO2 Micro Integrator.
+available from the `MultiThreadedHttpConnectionManager`. This can lead to a significant degrade in the performance of WSO2 Integrator: MI.
 
 In order to overcome this issue, setting the `defaultMaxConnectionsPerHost` parameter to `100` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
 

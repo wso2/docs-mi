@@ -10,7 +10,7 @@ hosted in the Dev and QA environments respectively are as follows:
 
 -   QA environment: `http://localhost:8291/services/echo`
 
-## Creating the Endpoints
+## Creating the endpoints
 
 You need to create two Endpoint artifacts to represent the Dev and QA environments respectively. Follow the steps given below.
 
@@ -114,13 +114,13 @@ See the instructions on packaging artifacts into CApps.
         </tr>
 </table>
 
-Your CApp projects are now ready to be deployed to the Micro Integrator.
+Your CApp projects are now ready to be deployed to the WSO2 Integrator: MI.
 
-## Deploying the Dev composite application
+## Deploying the dev composite application
 
-If you have an instance of WSO2 Micro Integrator setup as your Dev environment, deploy the <b>HelloWorldDevCApp</b> CApp in the server.
+If you have an instance of WSO2 Integrator: MI setup as your Dev environment, deploy the <b>HelloWorldDevCApp</b> CApp in the server.
 
-## Testing the Dev environment
+## Testing the dev environment
 
 Use the following request body when invoking the service:
 
@@ -142,7 +142,7 @@ Follow the steps below to change the endpoint reference of the **HelloWorldProxy
     ```toml
     offset=2
     ```
-2.  Undeploy the **HelloWorldDevCApp,** deploy the **HelloWorldQACApp** and re-start the Micro Integrator.
+2.  Undeploy the **HelloWorldDevCApp,** deploy the **HelloWorldQACApp** and re-start the WSO2 Integrator: MI.
 
 ## Testing the QA environment
 

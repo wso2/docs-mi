@@ -1,6 +1,6 @@
 # Scopes
 
-In WSO2 Micro Integrator scopes refer to the different layers where the properties can be set when mediating messages. 
+In WSO2 Integrator: MI scopes refer to the different layers where the properties can be set when mediating messages. 
 
 ## `default` scope
 

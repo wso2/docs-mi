@@ -1,8 +1,8 @@
 # How to Publish Unacked Messages to Dead Letter Exchange
 
-This sample demonstrates how WSO2 Micro Integrator can ensure guaranteed delivery of messages by using the <b>Dead Letter Exchange (DLX)</b> of RabbitMQ.
+This sample demonstrates how WSO2 Integrator: MI can ensure guaranteed delivery of messages by using the <b>Dead Letter Exchange (DLX)</b> of RabbitMQ.
 
-As shown below, a proxy service in the Micro Integrator consumes messages from the RabbitMQ broker and sends it to the endpoint. If the message delivery fails, the Micro Integrator will route the message to the dead letter exchange of RabbitMQ.
+As shown below, a proxy service in the WSO2 Integrator: MI consumes messages from the RabbitMQ broker and sends it to the endpoint. If the message delivery fails, the WSO2 Integrator: MI will route the message to the dead letter exchange of RabbitMQ.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-dead-letter-exchange.png">
 
@@ -59,7 +59,7 @@ dead letter exchange for it (`orders-error-exchange`).
 7. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 8. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
  [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq) for more information.
-9. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+9. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 10. Make the `http://localhost:8290/orders` endpoint unavailable temporarily. 
 11. Publish a message to the orders queue.
 12. You will see that the failed message has been moved to the dead-letter-exchange.

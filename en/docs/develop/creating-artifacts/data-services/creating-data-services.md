@@ -2,11 +2,11 @@
 
 ### Create the data service artifact
 
-Follow the instructions given below to create a new data service artifact in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions given below to create a new data service artifact in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 {!includes/creating-project.md!}
 
-3. To add a new data service artifact, navigate to **Micro Integrator Project Explorer**.
+3. To add a new data service artifact, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

@@ -2,12 +2,12 @@
 
 Web services security, or to be more precise, SOAP message security
 identifies and provides solutions for general computer security threats
-as well as threats unique to Web services. WSO2 Micro Integrator supports WS-Security,
+as well as threats unique to Web services. WSO2 Integrator: MI supports WS-Security,
 WS-Policy, and WS-Security Policy specifications. These specifications
 define a behavioral model for Web services. 
 
 Since a requirement for one
-web service may not be valid for another, the WSO2 Micro Integrator also helps define service-specific security.
+web service may not be valid for another, the WSO2 Integrator: MI also helps define service-specific security.
 It provides 16 predefined, commonly-used security scenarios. All you
 have to do is apply the required security scenario when you define the service. You can also define a custom security
 policy. Understanding the exact security requirement is the first step
@@ -24,11 +24,11 @@ See the following resources on how to apply WS security to integration artifacts
 -	[Securing a REST API]({{base_path}}/develop/advanced-development/applying-security-to-an-api)
 
 !!! Note
-	An [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) should be configured for the Micro Integrator in order to use these security implementation.
+	An [external user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/) should be configured for the WSO2 Integrator: MI in order to use these security implementation.
 
 ## Security scenarios
 
-The topics below explain the 16 default security scenarios supported by WSO2 Micro Integrator.
+The topics below explain the 16 default security scenarios supported by WSO2 Integrator: MI.
 
 ### UsernameToken
 

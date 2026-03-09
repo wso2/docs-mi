@@ -1,6 +1,6 @@
 # Messaging Gateway
 
-This page explains how you can implement a sample scenario of the Messaging Gateway EIP using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of the Messaging Gateway EIP using WSO2 Integrator: MI.
 
 ## Introduction to Messaging Gateway
 

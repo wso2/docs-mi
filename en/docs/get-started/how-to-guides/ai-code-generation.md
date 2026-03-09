@@ -1,6 +1,6 @@
 # Generate integrations using AI
 
-Did you know that the WSO2 Micro Integrator component of WSO2 Integrator includes an AI-powered assistant to help you effortlessly generate integration flows?
+Did you know that the WSO2 Integrator: MI component of WSO2 Integrator includes an AI-powered assistant to help you effortlessly generate integration flows?
 In this guide, we are generating an API to retrieve weather information for a specified city and send it via email to a designated recipient.
 
 Check out this <a target="_blank" href="https://www.youtube.com/watch?v=XfXjwqhO9dY">video on YouTube</a> to see it in action.
@@ -9,10 +9,10 @@ Check out this <a target="_blank" href="https://www.youtube.com/watch?v=XfXjwqhO
 
 ### Prerequisites
 
-You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">Micro Integrator for VS Code</a> extension installed.
+You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator">WSO2 Integrator: MI for VS Code</a> extension installed.
 
 !!! Info
-    See the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation to learn how to install Micro Integrator for VS Code.
+    See the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation to learn how to install WSO2 Integrator: MI for VS Code.
 
 ### Step 1: Create an integration project
 
@@ -184,4 +184,4 @@ You will now see the projects listed in the **Project Explorer**.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" alt="response" width="80%"></a>
 
-Automating complex integrations has never been easier. Why spend time doing all this manually when the Micro Integrator Copilot can do it for you? Try it out today and save yourself hours of effort!
+Automating complex integrations has never been easier. Why spend time doing all this manually when the WSO2 Integrator: MI Copilot can do it for you? Try it out today and save yourself hours of effort!

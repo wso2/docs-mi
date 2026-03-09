@@ -23,7 +23,7 @@ To see the HTTP Connector, navigate to the [connector store](https://store.wso2.
 
 | Connector Version | Supported product versions |
 |-------------------|----------------------------|
-| 0.1.0             | MI 4.4.0                   |
+| 0.1.0             | MI 4.4.0+                  |
 
 ## HTTP Connector documentation
 

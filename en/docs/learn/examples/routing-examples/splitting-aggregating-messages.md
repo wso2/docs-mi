@@ -1,8 +1,8 @@
 # How to Split Messages and Aggregate Responses
 
-This example scenario uses a back-end service with two stock quote inventories (IBM and SUN). A proxy service is configured in the Micro Integrator with the **Iterate** mediator (to split the incoming message) and the **Aggregate** mediator (to aggregate the responses).
+This example scenario uses a back-end service with two stock quote inventories (IBM and SUN). A proxy service is configured in the WSO2 Integrator: MI with the **Iterate** mediator (to split the incoming message) and the **Aggregate** mediator (to aggregate the responses).
 
-When a stock quote request is received by the Micro Integrator, the proxy service will read the **message payload** and first identify the parts of the message that are intended for each of the inventories. The Iterate mediator will then split the message and route the parts to the relevant inventories in the backend. These messages will be processed asynchronously. 
+When a stock quote request is received by the WSO2 Integrator: MI, the proxy service will read the **message payload** and first identify the parts of the message that are intended for each of the inventories. The Iterate mediator will then split the message and route the parts to the relevant inventories in the backend. These messages will be processed asynchronously. 
 
 When the response messages are received from the backend, the Aggregate mediator will aggregate the responses into one and send to the client.
 
@@ -64,7 +64,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

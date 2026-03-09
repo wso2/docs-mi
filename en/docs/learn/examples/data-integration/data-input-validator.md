@@ -3,7 +3,7 @@
 Validators are added to individual input mappings in a query. Input
 validation allows data services to validate the input parameters in a
 request and stop the execution of the request if the input doesn’t meet
-the required criteria. WSO2 Micro Integrator provides a set of built-in validators for some of the most
+the required criteria. WSO2 Integrator: MI provides a set of built-in validators for some of the most
 common use cases. It also provides an extension mechanism to write
 custom validators.
 
@@ -75,7 +75,7 @@ Create the artifacts:
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Unable to load class: com.mysql.jdbc.Driver`.
 
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Let's send a request with invalid and valid data to the data service:
 

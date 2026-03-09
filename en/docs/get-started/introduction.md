@@ -1,6 +1,6 @@
 # Introduction
 
-The **WSO2 Micro Integrator** provides a comprehensive integration solution that streamlines your digital transformation
+The **WSO2 Integrator: MI** provides a comprehensive integration solution that streamlines your digital transformation
 journey. It offers a powerful configuration-driven approach, allowing developers to build integration solutions 
 graphically, with a user-friendly low-code graphical designing experience. 
 This hybrid platform supports a variety of integration architecture styles, including microservices, cloud-native, 
@@ -11,7 +11,7 @@ flexibility in connecting applications, services, data, and the cloud.
 ## Address every integration challenge with ease
 
 ### Effortlessly connect your business and partners
-The WSO2 Micro Integrator offers a streamlined approach to connect your business and partners. 
+The WSO2 Integrator: MI offers a streamlined approach to connect your business and partners. 
 It empowers you to establish seamless connections, irrespective of the communication protocol, 
 handle diverse data types, and function within a broad range of environments, encompassing virtual machines, 
 Kubernetes, on-premises infrastructure, and cloud-based systems. 
@@ -20,7 +20,7 @@ enabling you to efficiently create integration solutions.
 
 
 ### API-centric integration capabilities
-The Micro Integrator offers the ability to transform any service or data source into a reusable API. 
+The WSO2 Integrator: MI offers the ability to transform any service or data source into a reusable API. 
 You can easily expose a wide array of services, including RESTful services, SOAP web services, WebSockets, and more. 
 This empowers you to encapsulate your services, allowing you to parameterize and render them as reusable integrations. 
 This API-centric approach enhances the flexibility and reusability of your integration solutions.
@@ -35,7 +35,7 @@ and connectivity in your operations.
 
 ## Low code integration
 
-The Micro Integrator for Visual Studio Code (MI for VS Code) extension empowers developers to leverage the widely adopted 
+The WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension empowers developers to leverage the widely adopted 
 Visual Studio Code editor for integration development, elevating the integration experience to new heights. This AI-assisted 
 development environment delivers a faster, more customizable, easier-to-learn, and highly productive development experience.
 
@@ -56,11 +56,11 @@ a low-code integration approach while reaping the benefits of MSA.
 
 As shown above, if your organization is running on a decentralized cloud-native, integration architecture 
 where microservices are used for integrating the various APIs, events, and systems,
-WSO2 Micro Integrator can easily function as your Integration (micro) services and API (micro) services.
+WSO2 Integrator: MI can easily function as your Integration (micro) services and API (micro) services.
 
 ### Enterprise Service Bus
 
-If your organization utilizes an API-driven, centralized integration architecture, the Micro Integrator can serve as the central integration layer. It implements the message mediation logic that connects all systems, data, events, APIs, and other elements within your integration ecosystem.
+If your organization utilizes an API-driven, centralized integration architecture, the WSO2 Integrator: MI can serve as the central integration layer. It implements the message mediation logic that connects all systems, data, events, APIs, and other elements within your integration ecosystem.
 
 <img src="../../assets/img/get-started/mi-esb-architecture.png" alt="centralized ESB" name="centralized ESB" width="600">
 

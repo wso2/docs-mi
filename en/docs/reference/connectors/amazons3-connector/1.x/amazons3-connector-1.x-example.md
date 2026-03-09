@@ -53,8 +53,8 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
                 <property expression="//bucketRegion" name="bucketRegion" scope="default" type="STRING"/>
             </propertyGroup> 
             <amazons3.init>
-                <accessKeyId>AKICJA4J6GE6D6JSVB7B</accessKeyId>
-                <secretAccessKey>H/P/H6Tey2fQODHAU1JBbl/NhL/WpSaEkebvLlp4</secretAccessKey>
+                <accessKeyId><!-- access key id --></accessKeyId>
+                <secretAccessKey><!-- secret access key --></secretAccessKey>
                 <region>us-east-2</region>
                 <methodType>{$ctx:REST_METHOD}</methodType>
                 <addCharset>false</addCharset>
@@ -84,8 +84,8 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
                 <property expression="//objectName" name="objectName" scope="default" type="STRING"/>
             </propertyGroup> 
             <propertyGroup description="init properties">
-                <property name="accessKeyId" scope="default" type="STRING" value="AKIAJA3J6GE646JSVA7A"/>
-                <property name="secretAccessKey" scope="default" type="STRING" value="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"/>
+                <property name="accessKeyId" scope="default" type="STRING" value="access key id"/>
+                <property name="secretAccessKey" scope="default" type="STRING" value="secret access key"/>
                 <property expression="fn:concat(get-property('targetBucketName'),'.','s3.us-east-2.amazonaws.com')" name="host" scope="default" type="STRING"/>
                 <property expression="fn:concat('http://',get-property('targetBucketName'),'.s3.us-east-2.amazonaws.com')" name="bucketUrl" scope="default" type="STRING"/>
                 <property name="region" scope="default" type="STRING" value="us-east-2"/>
@@ -195,8 +195,8 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
             <property expression="fn:concat('http://',get-property('targetBucketName'),'.s3-us-east-2.amazonaws.com')" name="bucketUrl" scope="default" type="STRING"/>
             <property expression="fn:concat(get-property('targetBucketName'),'.s3-us-east-2.amazonaws.com')" name="host" scope="default" type="STRING"/>
             <amazons3.init>
-                <accessKeyId>AKIAJA3J6GE646JSVA7A</accessKeyId>
-                <secretAccessKey>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</secretAccessKey>
+                <accessKeyId><!-- access key id --></accessKeyId>
+                <secretAccessKey><!-- secret access key --></secretAccessKey>
                 <region>us-east-2</region>
                 <methodType>GET</methodType>
                 <contentType>{$ctx:contentType}</contentType>
@@ -248,9 +248,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-**Deploying on Micro Integrator**
+**Deploying on WSO2 Integrator: MI**
 
-You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
+You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server.WSO2 Integrator: MI will be started and the composite application will be deployed.
 
 You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli).
 

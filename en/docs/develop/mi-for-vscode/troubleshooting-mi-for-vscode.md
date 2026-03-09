@@ -1,6 +1,6 @@
 # Troubleshoot MI for VS Code
 
-The following are some ways to troubleshoot errors you may encounter when working with the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+The following are some ways to troubleshoot errors you may encounter when working with the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ## Resolve graphical view errors
 

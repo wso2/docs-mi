@@ -1,6 +1,6 @@
 # REST Data Service Sample
 
-This sample demonstrates the capability of the Micro Integrator to perform CRUD operations via a data service using the REST protocol.
+This sample demonstrates the capability of the WSO2 Integrator: MI to perform CRUD operations via a data service using the REST protocol.
 
 This sample contains a Data Service called `RESTDataService` that include data sources and queries required to perform the CRUD operations.
 
@@ -38,7 +38,7 @@ This sample contains a Data Service called `RESTDataService` that include data s
 1. Open the sample by clicking on the **REST Data Service** card.
 2. Give a folder location to save the sample.
 3. Open the `RESTDataService` data service artifact and update the RDBMS datasource in it by replacing the `URL`, `Username` and `Password` values with your database credentials.
-4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

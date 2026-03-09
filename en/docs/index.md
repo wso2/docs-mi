@@ -23,7 +23,7 @@
         "title": "Install & Setup",
         "icon": "⏬",
         "links": [
-            {"name": "Micro Integrator", "url": "install-and-setup/install/installing-mi/"},
+            {"name": "WSO2 Integrator: MI", "url": "install-and-setup/install/installing-mi/"},
             {"name": "VS Code extension for MI", "url": "develop/mi-for-vscode/install-wso2-mi-for-vscode/"},
             {"name": "Integration Control Plane", "url": "install-and-setup/install/installing-integration-control-plane/"}
         ]
@@ -60,7 +60,7 @@
 <div class="homePage">
     <div class="description-section">
         <div>
-            WSO2 Micro Integrator is a comprehensive integration solution that simplifies your digital transformation journey. The Micro Integrator streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.
+            WSO2 Integrator: MI is a comprehensive integration solution that simplifies your digital transformation journey. The WSO2 Integrator: MI streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code graphical design experience. Deployment options include both microservices and ESB styles for greater flexibility.
         </div>
         <div>
             <a href="https://wso2.com/micro-integrator/" class="banner-link"></a>

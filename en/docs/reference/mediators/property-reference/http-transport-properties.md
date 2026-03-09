@@ -34,7 +34,7 @@ appending a context to the target URL in RESTful invocations.
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>This property makes the request URL that is sent from the Micro Integrator a complete URL. When set to <code>              false             </code> only the context path will be included in the request URL that is sent. It is important that this property is set to <code>              true             </code> when the Micro Integrator needs to communicate with the back-end service through a proxy server.</p></td>
+<td><p>This property makes the request URL that is sent from the WSO2 Integrator: MI a complete URL. When set to <code>              false             </code> only the context path will be included in the request URL that is sent. It is important that this property is set to <code>              true             </code> when the WSO2 Integrator: MI needs to communicate with the back-end service through a proxy server.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -117,7 +117,7 @@ appending a context to the target URL in RESTful invocations.
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
 <td><div class="content-wrapper">
-<p>If you set this to true, it disables HTTP chunking for outgoing messages. Instead, the Micro Integrator builds the message to calculate the content length and then sends the particular message to the backend with the content length (e.g., <code>               Content-Length: 25              </code> ).</p>
+<p>If you set this to true, it disables HTTP chunking for outgoing messages. Instead, the WSO2 Integrator: MI builds the message to calculate the content length and then sends the particular message to the backend with the content length (e.g., <code>               Content-Length: 25              </code> ).</p>
 <p>You can use this parameter if the client sends the request with HTTP chunking (i.e., with <code>               Transfer Encoding:chunked              </code> ) although you need to send the message without HTTP chunking to the backend, or if you need to modify the message payload, which the client receives before sending it to the backend.</p></br>
 <b>Note</b>:
 <p>This property might decrease performance since the messages get built per each invocation. Also, this property does not affect Callout mediators, whose chunking must be <a href="{{base_path}}/reference/mediators/callout-mediator/#disabling-chunking">disabled separately</a>.</p>
@@ -381,7 +381,7 @@ HTTP response's Reason- Phrase that is sent by the backend. For example, if the
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>When the Micro Integrator receives a soap fault as a HTTP 500 message, the Micro Integrator will forward this fault to client with status code 200.</p></td>
+<td><p>When the WSO2 Integrator: MI receives a soap fault as a HTTP 500 message, the WSO2 Integrator: MI will forward this fault to client with status code 200.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -496,7 +496,7 @@ HTTP response's Reason- Phrase that is sent by the backend. For example, if the
 </tr>
 <tr class="odd">
 <td><p><strong>Default Behavior</strong></p></td>
-<td><p>The Micro Integrator will set hostname of target endpoint and port as the HTTP host header</p></td>
+<td><p>The WSO2 Integrator: MI will set hostname of target endpoint and port as the HTTP host header</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Scope</strong></p></td>
@@ -588,11 +588,11 @@ HTTP response's Reason- Phrase that is sent by the backend. For example, if the
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
 <td><div class="content-wrapper">
-<p>If the request sent by the client contains the ‘Content-Length’ header, this property allows the Micro Integrator to send the request with the content length (without HTTP chunking) to the back end server.</p>
+<p>If the request sent by the client contains the ‘Content-Length’ header, this property allows the WSO2 Integrator: MI to send the request with the content length (without HTTP chunking) to the back end server.</p>
 <p>You should set this to true in scenarios where the backend server is not able to accept chunked content. For example, in a scenario where a pass-through proxy is defined and the backend does not accept chunked content, this property should be used together with the <a href="{{base_path}}/reference/mediators/property-reference/http-transport-properties/#copy_content_length_from_incoming">COPY_CONTENT_LENGTH_FROM_INCOMING</a> property, to simply add the content length without chunking.</p>
 <p>When HTTP 1.1 is used, this property disables chunking and sends the content length. When HTTP 1.0 is used, the property only sends the content length.</p>
 <b>Note</b>:
-<p>This property can cause performance degradation, and thereby, you should only use it with message relay. If you set this to true, the Micro Integrator forwards the content length coming from the client request to the backend without building the message and calculating the content length. Since the message doesn’t get build, using these properties will perform better than using <a href="{{base_path}}/reference/mediators/property-reference/http-transport-properties/#disable_chunking">DISABLE_CHUNKING</a> . However, if you change the receiving payload before sending it to the backend, then having this property will result in an error due to a content length mismatch.</p>
+<p>This property can cause performance degradation, and thereby, you should only use it with message relay. If you set this to true, the WSO2 Integrator: MI forwards the content length coming from the client request to the backend without building the message and calculating the content length. Since the message doesn’t get build, using these properties will perform better than using <a href="{{base_path}}/reference/mediators/property-reference/http-transport-properties/#disable_chunking">DISABLE_CHUNKING</a> . However, if you change the receiving payload before sending it to the backend, then having this property will result in an error due to a content length mismatch.</p>
 </div></td>
 </tr>
 <tr class="even">

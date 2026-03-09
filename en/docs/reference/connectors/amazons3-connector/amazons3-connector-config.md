@@ -59,9 +59,12 @@ You can access the Amazon S3 service using the root user credentials but these c
      <img src="{{base_path}}/assets/img/integrate/connectors/download-access-key.png" title="Download access key" width="800" alt="Download access key"/>
 
 
-The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/G3Tey1fQOKPAU1GBbl/NhL/WpSaEvxbvUlp4) will be required to configure the Amazon S3 connector.  You can manage S3 buckets logging into S3 console.
+The Access Key ID and Secret Access Key will be required to configure the Amazon S3 connector.  You can manage S3 buckets logging into S3 console.
 
 ## Deploying the client libraries
+
+!!! info "Note"
+    If you are using MI 4.4.0 or later with the MI VSCode extension, you can skip this step as the required libraries are downloaded and packed automatically.
 
 Finally download and place the following client libraries in to the `<PRODUCT_HOME>/lib` directory (From S3 connector 2.0.5 and above).
 

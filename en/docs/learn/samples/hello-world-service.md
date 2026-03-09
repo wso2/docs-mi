@@ -8,7 +8,7 @@ When the API gets invoked, a simple message is generated and sent back to the cl
 
 1.  Open the sample by clicking on the **Hello World Service** card.
 2.  Give a folder location to save the sample.
-3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+3.  [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

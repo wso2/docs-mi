@@ -1,6 +1,6 @@
 # Connecting to JBossMQ
 
-This section describes how to configure WSO2 Micro Integrator to connect with [JBossMQ](https://developer.jboss.org/docs/DOC-10525). The default JMS provider in JBoss Application Server 4.2. JBossMQ was replaced by [JBoss Messaging](http://www.jboss.org/jbossmessaging) in JBoss Application Server 5.0.
+This section describes how to configure WSO2 Integrator: MI to connect with [JBossMQ](https://developer.jboss.org/docs/DOC-10525). The default JMS provider in JBoss Application Server 4.2. JBossMQ was replaced by [JBoss Messaging](http://www.jboss.org/jbossmessaging) in JBoss Application Server 5.0.
 
 To configure the JMS transport with JBossMQ:
 
@@ -8,7 +8,7 @@ To configure the JMS transport with JBossMQ:
     -   `JBOSS_HOME/lib/jboss­system.jar`
     -   `JBOSS_HOME/client/jbossall­client.jar`
 
-2.  If you want the Micro Integrator to receive messages from an JBossMQ instance, or to send messages to an ActiveMQ instance, you need to update the deployment.toml file with the relevant connection parameters.
+2.  If you want the WSO2 Integrator: MI to receive messages from an JBossMQ instance, or to send messages to an ActiveMQ instance, you need to update the deployment.toml file with the relevant connection parameters.
 
     Add the following configurations to enable the JMS sender and listener with JBossMQ connection parameters.
     
@@ -27,4 +27,4 @@ To configure the JMS transport with JBossMQ:
     !!! Info
         For details on the JMS configuration parameters used in the code segments above, see [JMS connection factory parameters]({{base_path}}/reference/config-catalog-mi/#jms-transport-listener-non-blocking-mode).
 
-4.  Start WSO2 Micro Integrator and ensure that the logs print messages indicating that the JMS listener and sender are started, and that the JMS transport is initialized.
+4.  Start WSO2 Integrator: MI and ensure that the logs print messages indicating that the JMS listener and sender are started, and that the JMS transport is initialized.

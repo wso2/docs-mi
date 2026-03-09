@@ -1,6 +1,6 @@
 # Overview
 
-This section provides an overview of the sample integration scenarios included in the Micro Integrator for Visual Studio Code (MI for VS Code).
+This section provides an overview of the sample integration scenarios included in the WSO2 Integrator: MI for Visual Studio Code (MI for VS Code).
 
 MI for VS Code offers a comprehensive set of sample projects showcasing its versatile capabilities. These samples 
 cover a wide range of integration scenarios, including data transformation, message mediation, protocol switching, and security. 

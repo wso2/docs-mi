@@ -1,7 +1,7 @@
 # About the Identity Anonymization Tool
 
 !!! info
-    WSO2 Micro Integrator is shipped with the **Forget Me** tool, which is used for anonymizing personally identifiable information (PII) that are stored in the Micro Integrator. See [GDPR Compliance in the WSO2 Micro Integrator]({{base_path}}/install-and-setup/setup/security/gdpr-ei) for instructions.
+    WSO2 Integrator: MI is shipped with the **Forget Me** tool, which is used for anonymizing personally identifiable information (PII) that are stored in the WSO2 Integrator: MI. See [GDPR Compliance in the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/security/gdpr-ei) for instructions.
 
 The following topics will guide you to use the Identity Anonymization tool in **StandAlone** mode.
 

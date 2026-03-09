@@ -1,6 +1,6 @@
 # How to Implement JMS Synchronous Invocations - Dual Channel HTTP-to-JMS
 
-A JMS synchronous invocation occurs when a JMS producer receives a response to a JMS request it produced when invoked. The WSO2 Micro Integrator uses an internal **JMS correlation ID** to correlate the request and the response. See [JMSRequest/ReplyExample](http://www.eaipatterns.com/RequestReplyJmsExample.html) for more information. JMS synchronous invocations are further explained in the following use case.
+A JMS synchronous invocation occurs when a JMS producer receives a response to a JMS request it produced when invoked. The WSO2 Integrator: MI uses an internal **JMS correlation ID** to correlate the request and the response. See [JMSRequest/ReplyExample](http://www.eaipatterns.com/RequestReplyJmsExample.html) for more information. JMS synchronous invocations are further explained in the following use case.
 
 When the proxy service `SMSSenderProxy` receives an HTTP request, it publishes that request in a JMS queue named `SMSStore`. Another proxy service named `SMSForwardProxy` subscribes to messages published in this queue and forwards them to a back-end service named `SimpleStockQuoteService`. When this back-end service returns an HTTP response, internal ESB logic is used to save that message as a JMS message in a JMS queue named `SMSReceiveNotification`. The `SMSSenderProxy` proxy service picks the response from the `SMSReceiveNotification` queue and delivers it to the client as an HTTP message using the internal mediation logic.
 
@@ -13,7 +13,7 @@ When the proxy service `SMSSenderProxy` receives an HTTP request, it publishes t
 
 ## Synapse configurations
 
-Create two proxy services with the JMS publisher configuration and JMS consumer configuration given below and then deploy the proxy service artifacts in the Micro Integrator.
+Create two proxy services with the JMS publisher configuration and JMS consumer configuration given below and then deploy the proxy service artifacts in the WSO2 Integrator: MI.
 
 See the instructions on how to [build and run](#build-and-run) this example.
 
@@ -192,13 +192,13 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create the [proxy services]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your WSO2 Integrator: MI instance. Let's use Active MQ for this example.
 2.  Start the broker.
-3.  Start the Micro Integrator (after starting the broker).
+3.  Start the WSO2 Integrator: MI (after starting the broker).
 
 Set up the backend service:
 

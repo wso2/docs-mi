@@ -94,3 +94,6 @@ included to indicate the start of the time value in the time stamp.
 
 !!! Note
     The `         TIMESTAMP        ` data type is synonymous to the `         DATETIME        ` data type. Therefore, if you are writing a query for a column of `         DATETIME        ` type , you can use `         TIMESTAMP        ` in your input/output mapping.
+
+!!! Note "Daylight saving (DST) offset handling in Data Services"
+    In WSO2 EI 6.6.0, the Daylight Saving (DST) offset was applied only for datetime values that included a timezone. However, in WSO2 Integrator: MI 4.6.0, the DST offset is also applied for datetime values without a timezone. To retain the legacy EI 6.6.0 behaviour (i.e., apply DST only when a timezone is present), you can enable the system property `-Ddss.applyLegacyDSTOffset=true`.

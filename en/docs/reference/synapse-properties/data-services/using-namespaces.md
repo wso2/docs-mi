@@ -133,3 +133,22 @@ the parent element will be overridden.
       </result>
 </query>
 ```
+
+## Allowing an empty result namespace
+
+By default, if a `<result>` element's `defaultNamespace` is omitted or
+set to an empty string, the data service applies the default namespace
+`http://ws.wso2.org/dataservice` to the result elements. To explicitly
+allow an empty (no) namespace for a query result, use the
+`enableSettingEmptyDefaultNamespace` attribute and set it to
+`"true"` on the `<result>` element. For example:
+
+```xml
+<query id="getEmployees" useConfig="default">
+    <sql>SELECT * FROM Employees</sql>
+    <result element="Employees" rowName="Employee" defaultNamespace="" enableSettingEmptyDefaultNamespace="true">
+        <element column="lastName" name="last-name" xsdType="string"/>
+        <element column="firstName" name="first-name" xsdType="string"/>
+    </result>
+</query>
+```

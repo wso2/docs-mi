@@ -1,6 +1,6 @@
 # How to Switch from FIX to JMS
 
-This example demonstrates how WSO2 Micro Integrator receives messages through FIX and forwards them through JMS.
+This example demonstrates how WSO2 Integrator: MI receives messages through FIX and forwards them through JMS.
 
 Synapse will forward the order request by binding it to a JMS message payload and sending it to the ActiveMQ consumer. The ActiveMQ consumer will send an execution back to Banzai.
 
@@ -51,7 +51,7 @@ Create the artifacts:
 3. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location.
 5. [Configure MI with the selected message broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-activemq) and start the Micro-Integrator.
-6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 [Enable the FIX transport]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
 

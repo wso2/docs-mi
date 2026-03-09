@@ -1,6 +1,6 @@
 # Configuring Secondary User Stores
 
-For user management purposes, the WSO2 Micro Integrator can connect to several secondary user stores.
+For user management purposes, the WSO2 Integrator: MI can connect to several secondary user stores.
 
 Users from the primary and secondary user store(s) can be authenticated and authorized for integration use cases after configuration.
 

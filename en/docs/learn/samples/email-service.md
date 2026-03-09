@@ -11,7 +11,7 @@ This sample contains a REST API called `EmailService` along with `smtpsconnectio
 1. Open the sample by clicking on the **Email Service** card.
 2. Give a folder location to save the sample.
 3. Open `imapsconnection` and `smtpsconnection` local entry artifacts and replace the `EMAIL_ADDRESS` and `PASSWORD` values with your email credentials.
-4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your Micro Integrator.
+4. [Build and run]({{base_path}}/develop/deploy-artifacts#build-and-run) the sample in your WSO2 Integrator: MI.
 
 ## Running the sample
 

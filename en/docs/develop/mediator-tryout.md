@@ -1,6 +1,6 @@
 # Mediator Tryout Feature
 
-The Mediator Tryout feature in the WSO2 Micro Integrator for VS Code extension (MI for VS Code) streamlines the process of testing and validating mediator behavior during the development phase. This feature enables developers to easily verify the correctness of their integration configurations without the need for extensive debugging.
+The Mediator Tryout feature in the WSO2 Integrator: MI for VS Code extension (MI for VS Code) streamlines the process of testing and validating mediator behavior during the development phase. This feature enables developers to easily verify the correctness of their integration configurations without the need for extensive debugging.
 
 The Tryout feature simplifies development workflows by allowing users to experiment with mediators in real-time, helping to ensure that mediators function as expected.
 

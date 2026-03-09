@@ -2,7 +2,7 @@
 
 Integration Connectors are extensions to the integration runtime of WSO2. They allow you to interact with SaaS applications on the cloud, databases, and popular B2B protocols. 
 
-Connectors are hosted in a [connector store](https://store.wso2.com/?page=1&product=MI+Connector) and can be added to integration flows in [Micro Integrator for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
+Connectors are hosted in a [connector store](https://store.wso2.com/?page=1&product=MI+Connector) and can be added to integration flows in [WSO2 Integrator: MI for VS Code](https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
 
 Each connector provides a set of operations you call from your proxy services, sequences, and APIs to interact with the specific third-party service.
 
@@ -67,7 +67,7 @@ Using connectors provides the following advantages:
 
 ## How to use connectors
 
-When configuring the integration logic, you need to use Micro Integrator for VS Code. When ready, you can export the project along with dependency connectors to the integration runtime. See [documentation on adding connectors]({{base_path}}/develop/creating-artifacts/adding-connectors/) for more information.
+When configuring the integration logic, you need to use WSO2 Integrator: MI for VS Code. When ready, you can export the project along with dependency connectors to the integration runtime. See [documentation on adding connectors]({{base_path}}/develop/creating-artifacts/adding-connectors/) for more information.
 
 <!-- TODO: Update with new video for VS Code Extension -->
 <!-- See the following video for a quick look at how to use connectors.
@@ -121,7 +121,7 @@ We have to be honest; we would really like to encourage developers who want to s
 
 ### Report an issue
 
-You can report issues for any connector under the [Micro Integrator repository](https://github.com/wso2/micro-integrator/issues/new). 
+You can report issues for any connector under the [WSO2 Integrator: MI repository](https://github.com/wso2/micro-integrator/issues/new). 
 
 ### Contribute to the connector project
 

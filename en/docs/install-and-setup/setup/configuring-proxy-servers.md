@@ -1,7 +1,7 @@
 # Working with Proxy Servers
 
-When using WSO2 Micro Integrator, there can be scenarios where you need to configure the Micro Integrator to route
-messages through a proxy server. For example, if the Micro Integrator is behind a
+When using WSO2 Integrator: MI, there can be scenarios where you need to configure the WSO2 Integrator: MI to route
+messages through a proxy server. For example, if the WSO2 Integrator: MI is behind a
 firewall, your proxy service might need to talk to a server through a
 proxy server.
 
@@ -11,7 +11,7 @@ See the instructions given below.
 
 ### For non-blocking service calls
 
-To configure the Micro Integrator to route messages through a proxy server
+To configure the WSO2 Integrator: MI to route messages through a proxy server
 (for non-blocking service calls), add the parameters given below to the deployment.toml file and update the
 values. This configuration ensures that all HTTP requests pass through
 the configured proxy server.
@@ -24,7 +24,7 @@ sender.proxy_port= <port>
 
 ### For blocking service calls
 
-To configure the Micro Integrator to route messages through a proxy server
+To configure the WSO2 Integrator: MI to route messages through a proxy server
 (for blocking service calls), add the parameters given below to the deployment.toml file and update the
 values. This configuration ensures that all HTTP requests pass through
 the configured proxy server.
@@ -37,7 +37,7 @@ sender.parameter.'http.proxyPort'= <port>
 
 !!! Info
     **Bypass the proxy server for blocking calls?**  
-    In the case of blocking service calls, you can apply a system property in the Micro Integrator to bypass the proxy server and route messages directly to the hosts that should receive the messages. Explained below are two methods of applying the system property:
+    In the case of blocking service calls, you can apply a system property in the WSO2 Integrator: MI to bypass the proxy server and route messages directly to the hosts that should receive the messages. Explained below are two methods of applying the system property:
 
     -  Set the system property in the product startup script that is located in the `MI_HOME/bin/          ` directory
     as shown below. Note that the list of host names are separated by the pipe symbol ('\|').
@@ -51,15 +51,15 @@ sender.parameter.'http.proxyPort'= <port>
     ```
         
 !!! Note
-    A proxy server might require HTTP basic authentication before it handles communication from the Micro Integrator.
+    A proxy server might require HTTP basic authentication before it handles communication from the WSO2 Integrator: MI.
 
 
-## Configuring proxy profiles in WSO2 Micro Integrator
+## Configuring proxy profiles in WSO2 Integrator: MI
 
-When using the Micro Integrator, there can be scenarios where you need to configure multiple proxy servers to route messages to different
+When using the WSO2 Integrator: MI, there can be scenarios where you need to configure multiple proxy servers to route messages to different
 endpoints. When you need to route messages to different endpoints through multiple proxy servers, you can configure proxy profiles.
 
-To configure proxy profiles in WSO2 Micro Integrator, open the deployment.toml file and define multiple profiles based on the number of proxy servers you need to have:
+To configure proxy profiles in WSO2 Integrator: MI, open the deployment.toml file and define multiple profiles based on the number of proxy servers you need to have:
 
 ```toml
 [[transport.http.proxy_profile]]

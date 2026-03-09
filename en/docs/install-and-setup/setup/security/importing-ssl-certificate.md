@@ -51,20 +51,33 @@ Now you have a Java keystore, which includes a CA-signed public key certificate 
 
 ## Importing SSL certificates to a truststore
 
-Follow the steps given below to import the CA-signed public key certificate into the Micro Integrator's trust store.
+Follow the steps given below to import the CA-signed public key certificate into the WSO2 Integrator: MI's trust store.
 
 !!! Note
     Be sure to update the trust store name and passwords before executing the given commands.
 
 1. Get a copy of the trust store file from the `MI_HOME/repository/resources/security/` directory.
 2. Export the public key from your .jks file using the following command.
-    ```bash
-    keytool -export -alias certalias -keystore newkeystore.jks -file <public key name>.pem
-    ```
+
+    === "JKS"
+        ```bash
+        keytool -export -alias certalias -keystore newkeystore.jks -file <public key name>.pem
+        ```
+    === "PKCS12"
+        ```bash
+        keytool -export -alias certalias -keystore newkeystore.p12 -storetype PKCS12 -file <public key name>.pem
+        ```
+
 3. Import the public key you extracted in the previous step to your trust store using the following command.
-    ```bash
-    keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
-    ```
+
+    === "JKS"
+        ```bash
+        keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
+        ```
+    === "PKCS12"
+        ```bash
+        keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.p12 -storetype PKCS12 -storepass wso2carbon
+        ```
 
 ## What's next?
 

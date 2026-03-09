@@ -1,14 +1,14 @@
 # Create a Sequence Template
 
-Follow the instructions below to create a new Sequence Template in the Micro Integrator for Visual Studio Code extension (MI for VS Code).
+Follow the instructions below to create a new Sequence Template in the WSO2 Integrator: MI for Visual Studio Code extension (MI for VS Code).
 
 ## Instructions
 
-### Create the Sequence Template artifact
+### Create the sequence template artifact
 
 {!includes/creating-project.md!}
 
-3. To add a new Sequence Template, navigate to **Micro Integrator Project Explorer**.
+3. To add a new Sequence Template, navigate to **WSO2 Integrator: MI Project Explorer**.
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 

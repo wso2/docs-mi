@@ -1,6 +1,6 @@
 # Add Connectors
 
-You can develop configurations with connectors, and deploy the configurations and connectors as composite application archive (CAR) files in WSO2 Micro Integrator.
+You can develop configurations with connectors, and deploy the configurations and connectors as composite application archive (CAR) files in WSO2 Integrator: MI.
 
 ## Instructions
 

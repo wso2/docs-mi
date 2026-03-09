@@ -92,7 +92,7 @@ The parameters available for configuring the Aggregate mediator are as follows.
 </inSequence>
 ```
 
-In this example, the mediator aggregates the responses coming into the Micro Integrator, and on completion it responds with the aggregated message using the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator.
+In this example, the mediator aggregates the responses coming into the WSO2 Integrator: MI, and on completion it responds with the aggregated message using the [Respond]({{base_path}}/reference/mediators/respond-mediator) mediator.
 
 ### Example 2 - Sending aggregated messages with the enclosing element
 

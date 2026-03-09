@@ -1,8 +1,8 @@
 # Develop Integration Solutions
 
-The contents on this page will walk you through the topics related to developing integration solutions using WSO2 Micro Integrator for Visual Studio Code extension: MI for VS Code.
+The contents on this page will walk you through the topics related to developing integration solutions using WSO2 Integrator: MI for Visual Studio Code extension: MI for VS Code.
 
-## Micro Integrator for Visual Studio Code (MI for VS Code)
+##WSO2 Integrator: MI for Visual Studio Code (MI for VS Code)
 
 MI for VS Code is the comprehensive developer tool, which you will use to <b>develop</b>, <b>build</b>, and <b>test</b> your integration solutions before the solutions are pushed to your production environments. See the topics given below for details.
 
@@ -72,7 +72,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint/">Inbound Endpoint</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/creating-artifacts/creating-scheduled-task/">Scheduled Task</a>
+                        <a href="{{base_path}}/develop/creating-artifacts/creating-scheduled-task/">Scheduled trigger</a>
                     </li>
                 </ul>
             </td>
@@ -135,7 +135,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/develop/customizations/creating-new-connector/">Custom Connector</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/develop/customizations/creating-custom-task-scheduling/">Custom Scheduled Task</a>
+                        <a href="{{base_path}}/develop/customizations/creating-custom-task-scheduling/">Custom Scheduled trigger</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/develop/customizations/creating-synapse-handlers/">Synapse Handler</a>
@@ -206,10 +206,10 @@ To start developing integration solutions, you need to first <a href="{{base_pat
             <td>
                 <ul>
                     <li>
-                        Deploy on the <a href="{{base_path}}/develop/using-embedded-micro-integrator">Embedded Micro Integrator</a>
+                        Deploy on the <a href="{{base_path}}/develop/using-embedded-micro-integrator">Embedded WSO2 Integrator: MI</a>
                     </li>
                     <li>
-                        Deploy on a <a href="{{base_path}}/develop/using-remote-micro-integrator">Remote Micro Integrator</a>
+                        Deploy on a <a href="{{base_path}}/develop/using-remote-micro-integrator">Remote WSO2 Integrator: MI</a>
                     </li>
                 </ul>
             </td>
@@ -282,7 +282,7 @@ It is recommended to use a <b>CI/CD pipeline</b> to deploy your tested integrati
             <b><a href="{{base_path}}/learn/learn-overview/#integration-use-cases">Integration Use Cases</a></b>
         </td>
         <td>
-            Read about the integration use cases supported by the Micro Integrator.
+            Read about the integration use cases supported by the WSO2 Integrator: MI.
         </td>
     </tr>
     <tr>

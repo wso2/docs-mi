@@ -38,7 +38,7 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 3. Create a [mediation sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 [Configure the RabbitMQ broker]({{base_path}}/install-and-setup/setup/brokers/configure-with-rabbitmq).
 
@@ -80,4 +80,4 @@ You will see the following Message content:
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><m:placeOrder xmlns:m="http://services.samples"><m:order><m:price>100</m:price><m:quantity>20</m:quantity><m:symbol>RMQ</m:symbol></m:order></m:placeOrder></soapenv:Body></soapenv:Envelope>
 ```
 
-The RabbitMQ inbound endpoint gets the messages from the RabbitMQ broker and logs the messages in the Micro Integrator.
+The RabbitMQ inbound endpoint gets the messages from the RabbitMQ broker and logs the messages in the WSO2 Integrator: MI.

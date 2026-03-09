@@ -5,7 +5,7 @@ This example demonstrates how CSV data can be exposed as a data service.
 ## Prerequisites
 
 !!! Info
-    Note that you can only read data from CSV files. The Micro Integrator does not support inserting, updating, or modifying data in a CSV file.
+    Note that you can only read data from CSV files. The WSO2 Integrator: MI does not support inserting, updating, or modifying data in a CSV file.
 
 [Download](https://github.com/wso2-docs/WSO2_EI/blob/master/data-service-resources/Products.csv) the `Products.csv` file.
 
@@ -53,7 +53,7 @@ Create the artifacts:
 
 2. [Create the data service]({{base_path}}/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
    **Be sure** to update the CSV datasource path.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator. 
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI. 
 
 You can send an HTTP GET request to invoke the data service using cURL
 as shown below.

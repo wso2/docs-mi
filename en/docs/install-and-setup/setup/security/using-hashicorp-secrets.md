@@ -3,7 +3,7 @@
 !!! Info
     This feature is available as a product update from 27/10/2020 onwards. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
-By default, the Micro Integrator is configured to use [WSO2 secure vault for encrypting secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text). However, you may encounter certain limitations with WSO2 secure vault if you use secrets with a large number of characters. You can overcome this issue by using HashiCorp secrets.
+By default, the WSO2 Integrator: MI is configured to use [WSO2 secure vault for encrypting secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text). However, you may encounter certain limitations with WSO2 secure vault if you use secrets with a large number of characters. You can overcome this issue by using HashiCorp secrets.
 
 !!! Note
     HashiCorp secrets are only applicable to synapse configurations. For server configurations, you need to use [WSO2 secure vault]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text).
@@ -11,7 +11,7 @@ By default, the Micro Integrator is configured to use [WSO2 secure vault for enc
 ## Before you begin
 
 -   Generate the required secrets in your HashiCorp vault. 
--   Select the server authentication method that you want to use when connecting the Micro Integrator with HashiCorp. There are three authentication methods available for HashiCorp:
+-   Select the server authentication method that you want to use when connecting the WSO2 Integrator: MI with HashiCorp. There are three authentication methods available for HashiCorp:
 
     -   [Static Token](https://learn.hashicorp.com/tutorials/vault/tokens?in=vault/auth-methods) authentication
     -   [AppRole Pull](https://learn.hashicorp.com/tutorials/vault/approle) authentication
@@ -19,16 +19,16 @@ By default, the Micro Integrator is configured to use [WSO2 secure vault for enc
 
     If you select <b>Static Token</b> authentication, you need to generate a tokenID from HashiCorp. If you select <b>AppRole Pull</b> authentication, you need to generate a secret ID and role ID. See the HashiCorp documentation for details and instructions.
 
-Copy the [vault-java-driver](https://github.com/BetterCloud/vault-java-driver) to the `lib` folder of your Micro Integrator distribution (`<MI_HOME>/lib`). 
+Copy the [vault-java-driver](https://github.com/BetterCloud/vault-java-driver) to the `lib` folder of your WSO2 Integrator: MI distribution (`<MI_HOME>/lib`). 
 
 !!! Note
-    Vault driver version 5.1.0 is tested with the Micro Integrator.
+    Vault driver version 5.1.0 is tested with the WSO2 Integrator: MI.
 
 ## Connecting MI to the HashiCorp server
 
-Once you have set up the HashiCorp server, you can configure the Micro Integrator to connect with HashiCorp.
+Once you have set up the HashiCorp server, you can configure the WSO2 Integrator: MI to connect with HashiCorp.
 
-Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf` folder) of the Micro Integrator.
+Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf` folder) of the WSO2 Integrator: MI.
 
 !!! Tip
     Be sure to apply the security tokens relevant to the [authentication method](#before-you-begin) you are using. 
@@ -95,7 +95,7 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
             rootToken
         </td>
         <td>
-            Only applicable if static token authentication is used when connecting the Micro Integrator to the HashiCorp server.</br></br>
+            Only applicable if static token authentication is used when connecting the WSO2 Integrator: MI to the HashiCorp server.</br></br>
             Use the root token generated from the HashiCorp server.</br></br> See the HashiCorp documentation for instructions on generating this token.
         </td>
     </tr>
@@ -104,7 +104,7 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
             roleId
         </td>
         <td colspan="2">
-            Only applies if <b>AppRole Pull</b> authentication is used when connecting the Micro Integrator to the HashiCorp server.</br></br> 
+            Only applies if <b>AppRole Pull</b> authentication is used when connecting the WSO2 Integrator: MI to the HashiCorp server.</br></br> 
             Instead of specifying the rootToken, specify the role ID and secret ID generated from HashiCorp. The secret ID and role ID will internally generate a token and authenticate the HashiCorp server connection.</br></br> 
             See the HashiCorp documentation for instructions on generating these values.</br></br> 
             <b>Note</b>: The secret ID you generate in HashiCorp may expire. If that happens, you can <a href="#renewing-security-token-approle-pull-authentication">renew the security token</a>. 
@@ -146,8 +146,8 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
             trustStoreFile
         </td>
         <td>
-            The keystore file (trust store) that is used to store the digital certificates that the Micro Integrator trusts for SSL communication.</br></br>
-            To use the default truststore file in the Micro Integrator, specify '&#36;{carbon.home}/repository/resources/security/client-truststore.jks' as the value.
+            The keystore file (trust store) that is used to store the digital certificates that the WSO2 Integrator: MI trusts for SSL communication.</br></br>
+            To use the default truststore file in the WSO2 Integrator: MI, specify '&#36;{carbon.home}/repository/resources/security/client-truststore.jks' as the value.
         </td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
             keyStoreFile
         </td>
         <td>
-            The keystore used for SSL handshaking when the Micro Integrator communicates with the HashiCorp server. To use the default keystore file in the Micro Integrator, specify '&#36;{carbon.home}/repository/resources/security/wso2carbon.jks' as the value.
+            The keystore used for SSL handshaking when the WSO2 Integrator: MI communicates with the HashiCorp server. To use the default keystore file in the WSO2 Integrator: MI, specify '&#36;{carbon.home}/repository/resources/security/wso2carbon.jks' as the value.
         </td>
     </tr>
     <tr>
@@ -164,7 +164,7 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
         </td>
         <td>
             The password of the keystore file that is used for SSL communication.</br></br>
-            If you are using the default keystore file in the Micro Integrator, the default password is 'wso2carbon'.
+            If you are using the default keystore file in the WSO2 Integrator: MI, the default password is 'wso2carbon'.
         </td>
     </tr>
 </table>
@@ -175,7 +175,7 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
 
 ## Accessing HashiCorp secrets in synapse configurations
 
-Once your Micro Integrator is connected to HashiCorp, you can point to the secrets stored in the HashiCorp vault from your synapse configurations.
+Once your WSO2 Integrator: MI is connected to HashiCorp, you can point to the secrets stored in the HashiCorp vault from your synapse configurations.
 
 Given below is a sample synapse property that uses a HashiCorp secret:
 
@@ -197,9 +197,9 @@ Given below is a sample synapse property to retrieve a HashiCorp secret using en
 
 When you generate the secret token from HashiCorp (for enabling AppRole Pull authentication), you have the option of limiting the number of times the secret ID token can be used. This is done using the `secret_id_num_uses` parameter in HashiCorp. In this case, the secret ID will expire after it is used for the specified number of times. 
 
-In such situations, you need to regenerate a secret token from HashiCorp and apply it to the Micro Integrator. You can directly apply the new secret token to the `deployment.toml` file and restart the Micro Integrator. However, note that there will be a downtime due to server restart. 
+In such situations, you need to regenerate a secret token from HashiCorp and apply it to the WSO2 Integrator: MI. You can directly apply the new secret token to the `deployment.toml` file and restart the WSO2 Integrator: MI. However, note that there will be a downtime due to server restart. 
 
-If you want to update the secret token dynamically without restarting the server, you can use the management API of the Micro Integrator. As shown below, you can send a request to the given URL with the new secret ID (specified in the sample payload).
+If you want to update the secret token dynamically without restarting the server, you can use the management API of the WSO2 Integrator: MI. As shown below, you can send a request to the given URL with the new secret ID (specified in the sample payload).
 
 -   Management API URL: `https://HOST:9164/management/external-vaults/hashicorp`
 -   Payload:
@@ -216,7 +216,7 @@ If you want to update the secret token dynamically without restarting the server
 
 Namespace support is available only in the Enterprise edition of HashiCorp. 
 
-You can add a global namespace value in the `deployment.toml` file. See the instructions on [connecting the Micro Integrator with HashiCorp](#connecting-mi-to-the-hashicorp-server). You can also use namespace values per request in synapse configurations as shown below.
+You can add a global namespace value in the `deployment.toml` file. See the instructions on [connecting the WSO2 Integrator: MI with HashiCorp](#connecting-mi-to-the-hashicorp-server). You can also use namespace values per request in synapse configurations as shown below.
 
 ```xml
  <property name="HashiCorpSecret" expression="hashicorp:vault-lookup('namespace', 'path-name', 'field-name') />

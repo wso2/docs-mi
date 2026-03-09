@@ -1,6 +1,6 @@
 # Drop Mediator
 
-The Drop mediator stops the processing of the current message. This mediator can be used to ensure that the message is sent only once and then dropped by the Micro Integrator. If you have any mediators defined after the `<drop/>` mediator, they will not be executed, because `<drop/>` is considered to be the end of the message flow.
+The Drop mediator stops the processing of the current message. This mediator can be used to ensure that the message is sent only once and then dropped by the WSO2 Integrator: MI. If you have any mediators defined after the `<drop/>` mediator, they will not be executed, because `<drop/>` is considered to be the end of the message flow.
 
 ## Syntax
 
@@ -10,7 +10,7 @@ The Drop mediator stops the processing of the current message. This mediator can
 
 ## Example
 
-You can use the drop mediator for messages that do not meet the filter criteria in case the client is waiting for a response to ensure the message was received by the Micro Integrator. For example:
+You can use the drop mediator for messages that do not meet the filter criteria in case the client is waiting for a response to ensure the message was received by the WSO2 Integrator: MI. For example:
 
 === "Proxy Service"
     ```xml

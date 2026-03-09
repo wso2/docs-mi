@@ -32,10 +32,10 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up the integration project
 
-1. Launch Visual Studio Code with the Micro Integrator for VS Code extension (MI for VS Code) installed.
+1. Launch Visual Studio Code with the WSO2 Integrator: MI for VS Code extension (MI for VS Code) installed.
 
     !!! info
-        Follow the [Install Micro Integrator for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
+        Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
 2. Create an [integration project]({{base_path}}/develop/create-integration-project/).
 
@@ -216,7 +216,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) guide to build and export it into a CAR file (`.car` file) using the Micro Integrator for Visual Studio Code extension.
+Follow the steps in [deploy-artifacts]({{base_path}}/develop/deploy-artifacts) guide to build and export it into a CAR file (`.car` file) using the WSO2 Integrator: MI for Visual Studio Code extension.
 
 ## Test
 

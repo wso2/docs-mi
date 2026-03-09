@@ -1,6 +1,6 @@
 # Tuning JDBC Pool Configurations
 
-If you have connected a [JDBC user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store) to the Micro Integrator, you can apply the following datasource tuning recommendations in the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
+If you have connected a [JDBC user store]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store) to the WSO2 Integrator: MI, you can apply the following datasource tuning recommendations in the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
 
 !!! Info
     The following recommendations also apply when you create a data service to expose data in an RDBMS. Find out more about [RDBMS configurations]({{base_path}}/reference/synapse-properties/data-services/datasource-configuration-parameters) in data services.

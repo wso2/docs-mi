@@ -2,9 +2,9 @@
 
 ## What you'll build
 
-When you integrate the systems in your organization, it is also necessary to integrate with third-party systems and their capabilities to enhance your services. WSO2 Micro Integrator uses **Connectors** for the purpose of referring the APIs of third-party systems.
+When you integrate the systems in your organization, it is also necessary to integrate with third-party systems and their capabilities to enhance your services. WSO2 Integrator: MI uses **Connectors** for the purpose of referring the APIs of third-party systems.
 
-**In this tutorial**, when a client sends an appointment reservation request to the Micro Integrator, the client should receive an email confirming the appointment reservation details. To build this use case, you can add an Email connector to the mediation flow.
+**In this tutorial**, when a client sends an appointment reservation request to the WSO2 Integrator: MI, the client should receive an email confirming the appointment reservation details. To build this use case, you can add an Email connector to the mediation flow.
 
 ## Let's get started!
 
@@ -458,7 +458,7 @@ We have now finished creating all the required artifacts.
 
 {!includes/build-and-run-artifacts.md!}
 
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
+The artifacts will be deployed in the embedded WSO2 Integrator: MI and the server will start.
 
 - See the startup log in the **Console** tab.
 - See the URLs of the deployed services and APIs in the **Runtime Services** tab.
@@ -602,4 +602,4 @@ Message:
     }
 ```
 
-You have now explored how to import the Email connector to the Micro Integrator and then use the connector operations to send emails.
+You have now explored how to import the Email connector to the WSO2 Integrator: MI and then use the connector operations to send emails.

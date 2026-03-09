@@ -1,6 +1,6 @@
 # Salesforce Pub/Sub Connector Examples
 
-The **Salesforce Pub/Sub Connector** lets WSO2 Micro Integrator talk directly to Salesforce’s grpc-based Pub/Sub API without you having to deal with low‑level details. With this connector, you can **publish** Platform‑Event records to any topic, look up a topic’s metadata with **getTopic**, and pull the corresponding JSON schema with **getSchema** so your flows can validate or transform events confidently. By handling authentication and protocol work under the hood, the connector drops into your integration projects like any other MI connector, making real‑time event streaming to and from Salesforce straightforward.
+The **Salesforce Pub/Sub Connector** lets WSO2 Integrator: MI talk directly to Salesforce’s grpc-based Pub/Sub API without you having to deal with low‑level details. With this connector, you can **publish** Platform‑Event records to any topic, look up a topic’s metadata with **getTopic**, and pull the corresponding JSON schema with **getSchema** so your flows can validate or transform events confidently. By handling authentication and protocol work under the hood, the connector drops into your integration projects like any other MI connector, making real‑time event streaming to and from Salesforce straightforward.
 
 ## What you'll build
 This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the
@@ -18,11 +18,11 @@ In Salesforce, go to **Setup**, search for **Platform Events**, and click **New 
 
 
 
-#### Step 02: Add the Salesforce Pub/Sub connector to your WSO2 Micro Integrator project.
+#### Step 02: Add the Salesforce Pub/Sub connector to your WSO2 Integrator: MI project.
 
 In MI, create a new project and add the Salesforce Pub/Sub connector to the project.
 
-1. Create a new project in WSO2 Micro Integrator (MI).
+1. Create a new project in WSO2 Integrator:  MI.
 2. Download the Salesforce Pub/Sub connector from [the WSO2 Connector Store](https://store.wso2.com/connector/mi-connector-salesforcepubsub) or Add the connector to your project by navigating to the "Connections" section in mediator pallet and selecting "Add New Connection", Search the Salesforce Pub/Sub connector from the list and click "Add".
 
 #### Step 03: Configure the Salesforce Pub/Sub connector.

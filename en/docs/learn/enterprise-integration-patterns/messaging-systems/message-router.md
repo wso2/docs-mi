@@ -1,6 +1,6 @@
 # Message Router
 
-This page explains how you can implement a sample scenario of Message Router using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Message Router using WSO2 Integrator: MI.
 
 ## Introduction to Message Router
 
@@ -13,7 +13,7 @@ The Message Router performs a logical function (such as an inventory check). It 
 
 ## Sample scenario
 
-The sample scenario depicts a client sending an appointment reservation request to the Micro Integrator. The message payload of the request contains the name of the hospital where the appointment needs to be confirmed. Based on the hospital name sent in the request message, the Micro Integrator should route the appointment reservation to the relevant hospital's back-end service.
+The sample scenario depicts a client sending an appointment reservation request to the WSO2 Integrator: MI. The message payload of the request contains the name of the hospital where the appointment needs to be confirmed. Based on the hospital name sent in the request message, the WSO2 Integrator: MI should route the appointment reservation to the relevant hospital's back-end service.
 
 * If the request is made to Grand Oak Community Hospital, it is routed to `GrandOakEP`.
 * If the request is made to Pine Valley Community Hospital, it is routed to `PineValleyEP`.
@@ -46,7 +46,7 @@ When you unzip the ZIP file you download below in Step 4 when simulating the sam
      ```
      <?xml version="1.0" encoding="UTF-8"?>
      <sequence name="MessageRoute" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-         <property name="Hospital" scope="default" type="STRING" expression="json-eval($.hospital)" />
+         <property name="Hospital" scope="default" type="STRING" expression="${payload.hospital}" />
          <switch source="get-property('Hospital')">
              <case regex="grand oak community hospital">
                  <call>
@@ -121,7 +121,7 @@ Follow the below instructions to simulate this sample scenario.
 
 ## Execute the sample.
 
-Send the following request to the Micro Integrator.
+Send the following request to the WSO2 Integrator: MI.
 
 ```
 POST /services/message-router-proxy HTTP/1.1

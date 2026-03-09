@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Salesforce REST API connector example
 The Salesforce connector supports REST operations which allows you to work with records in Salesforce, a web-based service that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. The connector uses the [Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm) to interact with Salesforce.
 
@@ -35,7 +40,7 @@ If you do not want to configure this yourself, you can simply [get the project](
         - **Instance URL** - Value of the instance URL.
 
 ### Add integration logic
-Select Micro Integrator and click on `+` in APIs to create a REST API. Specify the API name as `salesforcerest` and the API context as `/salesforcerest`.
+Select WSO2 Integrator: MI and click on `+` in APIs to create a REST API. Specify the API name as `salesforcerest` and the API context as `/salesforcerest`.
    
    <img src="{{base_path}}/assets/img/integrate/connectors/sf-rest-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 

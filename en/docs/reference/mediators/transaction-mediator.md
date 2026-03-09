@@ -3,11 +3,11 @@
 A transaction is a set of operations executed as a single unit. It also
 can be defined as an agreement, which is carried out between separate
 entities or objects. The **Transaction Mediator** is used to manage
-**distributed transactions** in the Micro Integrator by providing
+**distributed transactions** in the WSO2 Integrator: MI by providing
 transaction functionality for its child mediators.
 
 !!! Info
-	In addition to distributed transactions, the Micro Integrator also supports Java Message Service (JMS) transactions. For more information on transactions, see [Working with Transactions]({{base_path}}/learn/examples/working-with-transactions).
+	In addition to distributed transactions, the WSO2 Integrator: MI also supports Java Message Service (JMS) transactions. For more information on transactions, see [Working with Transactions]({{base_path}}/learn/examples/working-with-transactions).
 
 ## Syntax
 

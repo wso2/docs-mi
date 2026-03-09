@@ -1,6 +1,6 @@
 # Splitter
 
-This page explains how you can implement a sample scenario of Splitter using WSO2 Micro Integrator.
+This page explains how you can implement a sample scenario of Splitter using WSO2 Integrator: MI.
 
 ## Introduction to Splitter
 
@@ -129,5 +129,5 @@ Content-Type: text/xml
 
 ## Analyze the output
 
-The Micro Integrator returns status code 202 to the client. The request payload will be logged in the Output tab of the VS Code.
+The WSO2 Integrator: MI returns status code 202 to the client. The request payload will be logged in the Output tab of the VS Code.
 

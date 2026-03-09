@@ -24,7 +24,7 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 
 ## Create the integration logic
 
-1. Select Micro Integrator and click on **+** in APIs to create a REST API. 
+1. Select WSO2 Integrator: MI and click on **+** in APIs to create a REST API. 
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-add-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Provide the API name as `EmailConnector` and the API context as `/emailconnector`. Once we create the API there will be a default resource created and it can be deleted as given below. 

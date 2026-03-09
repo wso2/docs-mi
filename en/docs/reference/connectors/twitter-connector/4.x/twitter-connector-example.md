@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Twitter API Connector Example
 
 This example explains how to use the Twitter client to connect with the Twitter platform and perform operations. The connector uses the [Twitter API](https://developer.twitter.com/en/docs/twitter-api) to interact with Twitter.
@@ -24,7 +29,7 @@ The user calls the Twitter REST API. It invokes the **createTweet** sequence and
 
 Follow the steps in the [create integration project]({{base_path}}/develop/create-integration-project/) guide to set up the integration project.
 
-1. Select the Micro Integrator Extension and click on `+` in APIs to create a REST API.
+1. Select the WSO2 Integrator: MI Extension and click on `+` in APIs to create a REST API.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/twitter-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 

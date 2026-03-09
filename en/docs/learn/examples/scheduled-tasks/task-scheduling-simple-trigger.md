@@ -1,11 +1,11 @@
 # How to Schedule Tasks Using a Simple Trigger
-This example demonstrates the concept of tasks and how a simple trigger works. Here the `MessageInjector` class is used, which injects a specified message to the Micro Integrator environment. You can write your own task class implementing the `org.apache.synapse.startup.Task` interface and implement the `execute` method to run the task.
+This example demonstrates the concept of tasks and how a simple trigger works. Here the `MessageInjector` class is used, which injects a specified message to the WSO2 Integrator: MI environment. You can write your own task class implementing the `org.apache.synapse.startup.Task` interface and implement the `execute` method to run the task.
 
 ## Synapse configurations
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Scheduled Task"
+=== "Scheduled trigger"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="CheckPrice" xmlns="http://ws.apache.org/ns/synapse">
@@ -56,8 +56,8 @@ Following are the integration artifacts that we can used to implement this scena
 Create the artifacts:
 
 {!includes/build-and-run.md!}
-3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [scheduled task]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. Create the [main sequence]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences), [endpoint]({{base_path}}/develop/creating-artifacts/creating-endpoint-templates), and a [Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -75,4 +75,4 @@ Set up the back-end service:
           axis2server.bat
           ```
 
-When the Micro Integrator is invoked, you will see that the back-end service generates a quote every 5 seconds and that the Micro Integrator receives the stock quote response.
+When the WSO2 Integrator: MI is invoked, you will see that the back-end service generates a quote every 5 seconds and that the WSO2 Integrator: MI receives the stock quote response.

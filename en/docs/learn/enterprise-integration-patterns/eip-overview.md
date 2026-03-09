@@ -1,8 +1,8 @@
-# Enterprise Integration Patterns with WSO2 Micro Integrator
+# Enterprise Integration Patterns with WSO2 Integrator: MI
 
 Enterprise Application Integration (EAI) is key to connecting business applications with heterogeneous systems. Over the years, architects of integration solutions have invented their own blend of patterns in a variety of ways. However, most of these architectures have similarities, initiating a set of widely-accepted standards in architecting integration patterns. Most of these standards are described in the [Enterprise Integration Patterns Catalog](http://www.eaipatterns.com/toc.html).
 
-In this guide, we have shown how each pattern in the Patterns Catalog can be simulated using various constructs in WSO2 Micro Integrator (MI). Click on a topic in the list below for details.  
+In this guide, we have shown how each pattern in the Patterns Catalog can be simulated using various constructs in WSO2 Integrator:  MI. Click on a topic in the list below for details.  
 
 ## Messaging Systems
 

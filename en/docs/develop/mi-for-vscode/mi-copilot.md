@@ -1,6 +1,6 @@
 # MI Copilot
 
-The WSO2 Micro Integrator (MI) Copilot is an AI-powered tool that simplifies the process of creating integration scenarios. It allows you to specify integration requirements using natural language or by providing relevant files, such as OpenAPI specifications. MI Copilot generates the necessary integration artifacts, which can be seamlessly incorporated into your projects. You can iteratively refine your projects through conversational prompts, enabling the addition of features or modifications with ease. This approach supports incremental development, allowing you to build and enhance your integration projects over time.
+The WSO2 Integrator:  MI Copilot is an AI-powered tool that simplifies the process of creating integration scenarios. It allows you to specify integration requirements using natural language or by providing relevant files, such as OpenAPI specifications. MI Copilot generates the necessary integration artifacts, which can be seamlessly incorporated into your projects. You can iteratively refine your projects through conversational prompts, enabling the addition of features or modifications with ease. This approach supports incremental development, allowing you to build and enhance your integration projects over time.
 
 1. [Create a new integration project]({{base_path}}/develop/create-integration-project) or [open an existing integration project]({{base_path}}/develop/opening-projects).
 

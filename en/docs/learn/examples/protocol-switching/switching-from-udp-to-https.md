@@ -1,6 +1,6 @@
 # How to Switch from UDP to HTTP/S
 
-This example demonstrates how WSO2 Micro Integrator receives SOAP messages over UDP and forwards them over HTTP.
+This example demonstrates how WSO2 Integrator: MI receives SOAP messages over UDP and forwards them over HTTP.
 
 ## Synapse configuration
 
@@ -57,7 +57,7 @@ Create the artifacts:
         4. Provide artifact name, registry type, and registry path as in the figure.
         5. Create the registry resource. 
 4. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 

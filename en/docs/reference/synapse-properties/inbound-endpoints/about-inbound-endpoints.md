@@ -52,7 +52,7 @@ A listening inbound endpoint listens on a given port for requests that are comin
     <tr>
         <td>CXF WS-RM Inbound Protocol</td>
         <td>
-            WS­ReliableMessaging allows SOAP messages to be reliably delivered between distributed applications regardless of software or hardware failures. The CXF WS­-RM inbound endpoint allows a client (RM Source) to communicate with the Micro Integrator with a guarantee that a sent message will be delivered.
+            WS­ReliableMessaging allows SOAP messages to be reliably delivered between distributed applications regardless of software or hardware failures. The CXF WS­-RM inbound endpoint allows a client (RM Source) to communicate with the WSO2 Integrator: MI with a guarantee that a sent message will be delivered.
         </td>
     </tr>
     <tr>
@@ -94,7 +94,7 @@ A polling inbound endpoint polls periodically for data and, when data is availab
     <tr>
         <td>JMS Inbound Protocol</td>
         <td>
-            The JMS inbound protocol is an alternative to the JMS transport. The JMS inbound protocol implementation requires an active JMS server instance to be able to receive messages, and you need to place the client JARs for your JMS server in the Micro Integrator.
+            The JMS inbound protocol is an alternative to the JMS transport. The JMS inbound protocol implementation requires an active JMS server instance to be able to receive messages, and you need to place the client JARs for your JMS server in the WSO2 Integrator: MI.
         </td>
     </tr>
     <tr>

@@ -1,12 +1,12 @@
-# Monitor Audit Logs in Micro Integrator
+# Monitor Audit Logs in WSO2 Integrator: MI
 
 Auditing is a primary requirement when it comes to monitoring production servers. For example, DevOps needs to have a clear mechanism to identify who did what, and to filter possible system violations or breaches. Audit Logs or Audit Trails contain a set of log entries that describe a sequence of actions that occurred over a period of time. Audit Logs allow you to trace all the actions of a single user, or all the actions or changes introduced to a certain module in the system etc. over a period of time. For example, it captures all the actions of a single user from the first point of logging in to the server.
 
-By default, the Audit Logs that get created when running WSO2 Micro Integrator are stored in the `audit.log` file, which is located in the `<MI_HOME>/repository/logs` directory.
+By default, the Audit Logs that get created when running WSO2 Integrator: MI are stored in the `audit.log` file, which is located in the `<MI_HOME>/repository/logs` directory.
 
 ## Configure Audit Logs
 
-Audit logs are enabled by default in WSO2 Micro Integrator (WSO2 MI) via the following configurations, which are in the `<MI_HOME>/conf/log4j2.properties` file.
+Audit logs are enabled by default in WSO2 Integrator: MI (WSO2 MI) via the following configurations, which are in the `<MI_HOME>/conf/log4j2.properties` file.
 
 ```
 appender.AUDIT_LOGFILE.type = RollingFile
@@ -31,7 +31,7 @@ You can manage the growth of audit logs using the configurations described in th
 
 ## Audit Log actions
 
-In WSO2 Micro Integrator (WSO2 MI), audit logs are generated for actions performed through the Management API. These include operations such as adding a new user, configuring loggers, and other administrative tasks. The audit logs provide visibility into changes made to the system and help ensure accountability.
+In WSO2 Integrator: MI (WSO2 MI), audit logs are generated for actions performed through the Management API. These include operations such as adding a new user, configuring loggers, and other administrative tasks. The audit logs provide visibility into changes made to the system and help ensure accountability.
 
 | Action                   | Sample Format                                                                                                                                                                                                                                                     |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -2,7 +2,7 @@
 
 API documentation is important to guide the users on what they can do using specific APIs. 
 
-When you create a REST API artifact or a RESTful data service from the WSO2 Micro Integrator VS Code Extension, a default Swagger 3.0 (OpenAPI) definition is generated. For [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) artifacts, you can also attach an additional custom Swagger definition for the API.
+When you create a REST API artifact or a RESTful data service from the WSO2 Integrator: MI VS Code Extension, a default Swagger 3.0 (OpenAPI) definition is generated. For [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api) artifacts, you can also attach an additional custom Swagger definition for the API.
 
 ## Swagger documents of API artifacts
 
@@ -34,6 +34,9 @@ If your REST API is deployed, copy the following URLs (with your API details) to
     ```bash
     http://localhost:8290/HealthcareAPI?swagger.yaml
     ```
+
+!!! Note
+    -   If you are using a versioned API, include the version in the `<API_NAME>` parameter. For example, if the API name is `HealthcareAPI` and the version is `1.0.0`, use `HealthcareAPI:v1.0.0` as the `<API_NAME>`. Eg: `http://localhost:8290/HealthcareAPI:v1.0.0?swagger.json`
 
 !!! Tip
     -   Replace `<MI_HOST>` with `localhost`. If you are using a public IP, the respective IP address or domain needs to be specified. 

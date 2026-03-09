@@ -50,7 +50,7 @@ Create the artifacts:
 
 1. {!includes/build-and-run.md!}
 2. Create the [proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service), [registry resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources), [local entry]({{base_path}}/develop/creating-artifacts/registry/creating-local-registry-entries), [in-memory message store]({{base_path}}/develop/creating-artifacts/creating-a-message-store), and [message processor]({{base_path}}/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
-3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your Micro Integrator.
+3. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 Set up the back-end service:
 
@@ -68,10 +68,10 @@ Set up the back-end service:
         axis2server.bat
         ```
    
-The Micro Integrator is configured to enable WS-Security as per the policy specified by
-'policy_1.xml' for the outgoing messages to the secured backend. The debug logs on the Micro Integrator
+The WSO2 Integrator: MI is configured to enable WS-Security as per the policy specified by
+'policy_1.xml' for the outgoing messages to the secured backend. The debug logs on the WSO2 Integrator: MI
 shows the encrypted message flowing to the service and the encrypted
-response being received by the Micro Integrator.
+response being received by the WSO2 Integrator: MI.
 
 The security policy file `policy1.xml` can be downloaded from  [policy1.xml](https://github.com/wso2-docs/WSO2_EI/blob/master/sec-policies/policy1.xml). 
 The security policy file URI needs to be updated with the path to the policy1.xml file.
