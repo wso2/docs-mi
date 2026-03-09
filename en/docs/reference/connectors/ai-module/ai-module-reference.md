@@ -251,10 +251,10 @@ The WSO2 MI Generative AI Module supports multiple vector stores.
     Pinecone is a managed vector database service that provides high-performance and scalable storage for embeddings.
 
 - **Weaviate**  
-  Weaviate is an open-source, cloud-native vector database that supports hybrid search (vector + keyword) and is optimized for semantic search and generative AI use cases.
+    Weaviate is an open-source, cloud-native vector database that supports hybrid search (vector + keyword) and is optimized for semantic search and generative AI use cases.
 
 - **Milvus**  
-  Milvus is a high-performance, open-source vector database built for scalable similarity search, capable of handling large-scale embedding workloads efficiently.
+    Milvus is a high-performance, open-source vector database built for scalable similarity search, capable of handling large-scale embedding workloads efficiently.
 
 - **MI Vector Store**  
     MI Vector Store is an in-memory vector database offered by WSO2 MI which will persist the data in the MI resources.  
@@ -1130,11 +1130,11 @@ The connection configuration parameters are used to establish a connection with 
             <td>Whether to overwrite the message body with the response. The default is false.</td>
             <td>No</td>
         </tr>
-                <tr>
-            <td>overflowHandlingMethodc</td>
+        <tr>
+            <td>overflowHandlingMethod</td>
             <td>Overflow Handling Method</td>
             <td>The method to handle context overflow when Max History is reached. The default is Trim.</td>
-            <td>Yes</td>
+            <td>No</td>
         </tr>
         <tr>
             <td>summarizationLlmConfigKey</td>
