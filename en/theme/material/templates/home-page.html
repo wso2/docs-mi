@@ -42,10 +42,9 @@
     <div class="description-section"
       style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 30px;">
       <p>
-        WSO2 Integrator: MI is a comprehensive integration solution that simplifies your digital transformation journey.
-        It streamlines connectivity among applications, services, data, and the cloud using a user-friendly, low-code
-        graphical design experience. Deployment options include both microservices and ESB styles for greater
-        flexibility.
+        Welcome to {{ config.extra.product_name | default("WSO2 Integrator: MI") }} documentation! Within these pages,
+        you will learn how to build a seamless integration experience for your applications using
+        WSO2 Integrator: MI.
       </p>
     </div>
 
@@ -63,187 +62,117 @@
       </div>
     </a>
 
-    <div class="components-hub-container">
+    <div class="md-home-sections md-column-grid">
+      {% for columns in config.extra.home_page_cards %}
+      <div class="md-grid-column">
+        {% for column in columns.section %}
+        <div class="md-card md-column-grid-item">
+          <div class="md-column-grid-item-header-container">
+            <div class="md-column-grid-item-header-text">{{ column.title }}</div>
 
-      <div class="components-grid-split">
+            {% set header_icon_class = "md-column-grid-item-header-icon" %}
+            {% if column.icon_color %}
+            {% set header_icon_class = header_icon_class ~ " " ~ column.icon_color %}
+            {% endif %}
 
-        <div>
-          <div class="components-section-header">
-            <h2>Get Started</h2>
-            <p>Learn the basics and build your first integration.</p>
-          </div>
-          <div class="components-card">
-            <div>
-              <div class="md-column-grid-item-header-icon icon-color-4">
-                {{ home_card_icon("octicons/rocket-16") }}
-              </div>
-              <h3>WSO2 Integrator: MI Basics</h3>
-              <div class="components-card-content">
-                Introduction to the core features of WSO2 Integrator: MI, including key concepts, and AI capabilities.
-              </div>
-            </div>
-            <div class="components-card-footer">
-              <a href="{{base_path}}/en/latest/get-started/introduction/" rel="noopener" class="components-resource-link">
-                Introduction <span>&rarr;</span>
-              </a>
-              <a href="{{base_path}}/en/latest/get-started/key-concepts/" rel="noopener" class="components-resource-link">
-                Key Concepts <span>&rarr;</span>
-              </a>
-              <a href="{{base_path}}/en/latest/get-started/build-first-integration/" rel="noopener" class="components-resource-link">
-                Build your first Integration <span>&rarr;</span>
-              </a>
+            <div class="{{ header_icon_class }}">
+              {% if column.icon %}
+              {{ home_card_icon(column.icon) }}
+              {% else %}
+              {% include "assets/libs/oxygen-ui-icons/1.7.3/star-16.svg" %}
+              {% endif %}
             </div>
           </div>
+          {% for item in column.list_items %}
+          <div class="md-list-item-container">
+            <div class="md-list-item">
+
+              {% if item.url %}
+
+              {% set link = item.url %}
+
+              {% if link.startswith("http") or link.startswith("/") or link.startswith("{{base_path}}") %}
+
+              {% set link_url = item.url %}
+              {% set target = '_blank' if link.startswith("http") else '_self' %}
+
+              {% else %}
+              {% set nav_path_keys = link.split('|') %}
+
+              {% set glob = {
+              'nav_config': nav,
+              'break_loop': false,
+              'item_url': None
+              } %}
+
+              {% macro loop_children(key) %}
+
+              {% set _ = glob.update({ 'nav_config': glob.nav_config }) %}
+
+              {% if not glob.nav_config.url %}
+              {% for nav_item in glob.nav_config %}
+              {% if glob.break_loop == false %}
+              {% if nav_item.title == key %}
+
+              {% if nav_item.url %}
+              {% set _ = glob.update({ 'item_url': nav_item.url }) %}
+              {% endif %}
+
+              {% if nav_item.children %}
+              {% set _ = glob.update({ 'nav_config': nav_item.children }) %}
+
+              {% set first = nav_item.children | first %}
+              {% if first.title == 'Index' %}
+              {% set _ = glob.update({ 'item_url': first.url }) %}
+              {% endif %}
+              {% else %}
+              {% set _ = glob.update({ 'item_url': nav_item.url }) %}
+              {% set _ = glob.update({ 'nav_config': nav_item }) %}
+              {% endif %}
+
+              {% set _ = glob.update({ 'break_loop': true }) %}
+
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+
+              {% set _ = glob.update({ 'break_loop': false }) %}
+              {% else %}
+              {% set _ = glob.update({ 'item_url': glob.nav_config.url }) %}
+              {% endif %}
+
+              {% if glob.break_loop == true %}
+              {{ loop_children(key) }}
+              {% endif %}
+              {% endmacro %}
+
+              {% for key in nav_path_keys %}
+              {{ loop_children(key) }}
+              {% endfor %}
+
+              {% set link_url = glob.item_url | replace('index.md', '') | replace('.md', '/') %}
+              {% set target = '_self' %}
+
+              {% endif %}
+
+              <a href="{{ link_url }}" target="{{ target }}">
+                <div class="md-list-item-icon">
+                  <svg width="11" height="15" viewBox="0 -3 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.95801 0.0537109L10.748 4.83643L5.95801 9.62646L5.21094 8.88672L8.76318 5.36377L0.0473633 5.34912V4.33105L8.74854 4.31641L5.21094 0.793457L5.95801 0.0537109Z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="md-list-item-text">{{ item.title }}</div>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
         </div>
-
-        <div>
-          <div class="components-section-header">
-            <h2>Install & Setup</h2>
-            <p>Install and configure your environment.</p>
-          </div>
-          <div class="components-card">
-            <div>
-              <div class="md-column-grid-item-header-icon icon-color-4">
-                {{ home_card_icon("octicons/download-16") }}
-              </div>
-              <h3>Installation & Control Plane</h3>
-              <div class="components-card-content">
-                Install WSO2 Integrator: MI, VS Code extension, and the Integration Control Plane.
-              </div>
-            </div>
-            <div class="components-card-footer">
-              <a href="{{base_path}}/en/latest/install-and-setup/install-and-setup-overview/" rel="noopener"
-                class="components-resource-link">
-                Overview <span>&rarr;</span>
-              </a>
-              <a href="{{base_path}}/en/latest/install-and-setup/install/installing-mi/" rel="noopener"
-                class="components-resource-link">
-                Install WSO2 Integrator: MI <span>&rarr;</span>
-              </a>
-              <a href="{{base_path}}/en/latest/install-and-setup/install/installing-integration-control-plane/" rel="noopener"
-                class="components-resource-link">
-                Integration Control Plane <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
-
-      <div class="components-section-header">
-        <h2>Tutorials</h2>
-        <p>Explore integration use cases and patterns.</p>
-      </div>
-
-      <div class="components-grid-3">
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/globe-16") }}
-            </div>
-            <h3>Enterprise Integrations</h3>
-            <div class="components-card-content">
-              Learn SaaS, B2B, and Enterprise Integration Patterns.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/en/latest/learn/integration-use-case/connectors/" rel="noopener"
-              class="components-resource-link">
-              SaaS and B2B Integration <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/learn/enterprise-integration-patterns/eip-overview/" rel="noopener"
-              class="components-resource-link">
-              Enterprise Integration Patterns <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/learn/learn-overview/" rel="noopener" class="components-resource-link">
-              View All <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/workflow-16") }}
-            </div>
-            <h3>Core Capabilities</h3>
-            <div class="components-card-content">
-              Learn how to route, transform, and orchestrate services.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/en/latest/learn/integration-use-case/message-routing-overview/" rel="noopener"
-              class="components-resource-link">
-              Routing and Transformation <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/learn/integration-use-case/service-orchestration-overview/" rel="noopener"
-              class="components-resource-link">
-              Service Orchestration <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/learn/integration-use-case/asynchronous-message-overview/" rel="noopener"
-              class="components-resource-link">
-              Asynchronous Messaging <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/file-16") }}
-            </div>
-            <h3>Data & Files</h3>
-            <div class="components-card-content">
-              Integrate with file systems and perform data integration.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/en/latest/learn/integration-use-case/file-processing-overview/" rel="noopener"
-              class="components-resource-link">
-              File Processing <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/learn/integration-use-case/data-integration-overview/" rel="noopener"
-              class="components-resource-link">
-              Data Integration <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="components-section-header">
-        <h2>References</h2>
-        <p>Reference catalogs.</p>
-      </div>
-
-      <div class="components-grid-split">
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/book-16") }}
-            </div>
-            <h3>References</h3>
-            <div class="components-card-content">
-              Product configurations, integration properties, mediators, and connectors.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/en/latest/reference/config-catalog-mi/" rel="noopener" class="components-resource-link">
-              Product Configurations <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/reference/mediators/property-reference/generic-properties/" rel="noopener"
-              class="components-resource-link">
-              Integration Properties <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/reference/mediators/about-mediators/" rel="noopener"
-              class="components-resource-link">
-              Mediators <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/latest/reference/connectors/connectors-overview/" rel="noopener"
-              class="components-resource-link">
-              Connectors <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
+      {% endfor %}
     </div>
   </article>
 </div>

@@ -1225,6 +1225,76 @@ extra:
       options: [verticle-line]
     - title: Install and Setup
       options: [verticle-line]
+  home_page_cards:
+    - section:
+        - title: Get Started
+          icon: octicons/rocket-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Introduction
+              url: Get Started|Introduction
+            - title: Key Concepts
+              url: Get Started|Key Concepts
+            - title: Build your first Integration
+              url: Get Started|Build your first Integration|Build your first Integration
+            - title: Build your first AI Integration
+              url: Get Started|Build your first AI Integration|Build your first AI Integration
+            - title: What's New
+              url: Get Started|About this Release
+        - title: Community & Support
+          icon: octicons/light-bulb-16
+          icon_color: icon-color-2
+          list_items:
+            - title: GitHub
+              url: https://github.com/wso2/product-micro-integrator/issues
+            - title: Discord
+              url: https://discord.com/invite/wso2
+            - title: Enterprise Support
+              url: https://wso2.com/subscription/
+    - section:
+        - title: Install & Setup
+          icon: octicons/download-16
+          icon_color: icon-color-3
+          list_items:
+            - title: "Install WSO2 Integrator: MI"
+              url: "Install and Setup|Install|Install the WSO2 Integrator: MI|Install MI"
+            - title: VS Code extension for MI
+              url: "Develop|WSO2 MI for VSCode|WSO2 Integrator: MI for VSCode Overview"
+            - title: Integration Control Plane
+              url: Install and Setup|Install|Install the Integration Control Plane|Install the Integration Control Plane
+        - title: References
+          icon: octicons/gear-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Product Configurations
+              url: References|Product Configurations|MI Configuration Catalog
+            - title: Integration Properties
+              url: /en/latest/reference/mediators/property-reference/generic-properties/
+            - title: Mediators
+              url: /en/latest/reference/mediators/about-mediators/
+            - title: Connectors
+              url: References|Connectors|Connectors Overview
+    - section:
+        - title: Tutorials
+          icon: octicons/book-16
+          icon_color: icon-color-4
+          list_items:
+            - title: Routing and Transformation
+              url: Learn|Message Routing|What is Message Routing
+            - title: Service Orchestration
+              url: Learn|Service Orchestration|What is Service Orchestration
+            - title: Asynchronous Messaging
+              url: Learn|Asynchronous Message Processing|What is Asynchronous Message Processing
+            - title: File Processing
+              url: Learn|File Processing|What is File Processing
+            - title: Data Integration
+              url: Learn|Data Integration|What is Data Integration
+            - title: SaaS and B2B Integration
+              url: Learn|SaaS and B2B Connectivity|What is SaaS and B2B Connectivity
+            - title: Enterprise Integration Patterns
+              url: Learn|Enterprise Integration Patterns|Overview
+            - title: View all
+              url: Learn|Overview
   nav_icons:
     Home:
       icon: octicons/home-16
@@ -1258,6 +1328,7 @@ extra:
       link: https://www.youtube.com/user/WSO2TechFlicks
     - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/intent/follow?screen_name=wso2
+
   choreo_connect: # not applied in "includes" section, update "includes" separately
     version: 1.2.0
     envoy_version: v1.24.1 # for GA release
@@ -1268,3 +1339,4 @@ extra:
   #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+
