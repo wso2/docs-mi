@@ -20,7 +20,10 @@ Follow the instructions given below to run the WSO2 Integrator: MI as a Windows 
 YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` file to wrap Java applications. Replace the contents of this file with the configurations that are relevant to the WSO2 Integrator: MI instance that you want to run as a service. Use the **wrapper.conf** file available in `<MI_HOME>/bin/yajsw` folder to get the relevant configurations.
 
 !!! Info
-    WSO2 recommends Yet Another Java Service Wrapper (YAJSW) version 13.05. If you are running on JDK 11 or JDK 17, previous versions of YAJSW will not be compatible.
+    If you are running on JDK 11 or later, WSO2 recommends using YAJSW 13.05 or above. Earlier versions of YAJSW are incompatible because they depend on internal JVM APIs that are no longer accessible in JDK 11 and later, due to the strong encapsulation enforced by the Java Module System.
+
+!!! success "Verified"
+    WSO2 Integrator: MI 4.6.0 has been tested with YAJSW current latest version 13.18, which is compatible with JDK 11, JDK 17, JDK 21, and JDK 25.
 
 !!! tip
     You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
@@ -37,7 +40,7 @@ YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` fi
 
 ## Installing the service
 
-Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with administrative privileges, and execute the following command: 
+Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with **administrative privileges**, and execute the following command: 
 
 ```bash
 installService.bat
@@ -50,6 +53,10 @@ Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with
 ```bash
 startService.bat
 ```
+
+After starting the service, go to the Windows Services list and verify that WSO2 Integrator: MI 4.6.0 is listed and its status shows as **Running**.
+
+<a href="{{base_path}}/assets/img/setup-and-install/Windows_service_List.png"><img src="{{base_path}}/assets/img/setup-and-install/Windows_service_List.png" alt="Windows Service List" width="80%"></a>
 
 ## Stopping the service
 
