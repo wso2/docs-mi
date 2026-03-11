@@ -9,7 +9,6 @@
     --md-accent-fg-color--transparent: #0339821a;
     --md-accent-bg-color: #fff;
     --md-accent-bg-color--light: #ffffffb3;
-    --md-banner: url(../img/wso2-micro-integrator-hero-image.webp) no-repeat right top;
     --md-hjs-color: #00f;
     --md-primary-heder-fg-color: var(--md-primary-fg-color);
     --md-typeset-a-hover-color: #ff7300;
@@ -70,25 +69,17 @@
     color: var( --md-hjs-color);
 }
 .banner-link {
-    width: 800px;
+    width: 480px;
     height: 363px;
-}
-@media (min-width: 768px){
-    .banner-link {
-        width: 480px;
-        height: 363px;
-        margin-left: 50px;
-        margin-right: 200px;
-    }
+    margin-left: 50px;
+    margin-right: 200px;
 }
 .md-header__button {
     color: var(--md-primary-heder-fg-color);
     
 }
-
 .md-content a {
     color: var(--md-typeset-a-color);
-    font-weight: bold;
 }
 
 .md-content a:hover {
@@ -101,7 +92,6 @@
 
 .md-nav__link--active {
     color: var(--md-nav-link-color);
-    font-weight: bold;
 }
 
 .md-tabs__link:hover {
@@ -110,5 +100,4 @@
 
 .md-tabs__link--active {
     color: var(--md-nav-link-color);
-    font-weight: bold;
 }
