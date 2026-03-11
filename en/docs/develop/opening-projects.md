@@ -17,7 +17,13 @@ Follow the steps below to open your existing integration project:
 
 5. Click **Open MI Project**.
 
-    <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/open-mi-project.png"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/open-mi-project.png" alt="Open MI Project"></a>
+    <a href="{{base_path}}/assets/img/develop/open-project/open-project.png"><img src="{{base_path}}/assets/img/develop/open-project/open-project.png" alt="Open MI Project"></a>
+
+    !!! Note
+
+        Select the **Import from CApp** option if you want to create a project using an existing Composite Application (CApp).
+
+        <a href="{{base_path}}/assets/img/develop/open-project/import-from-capp.png"><img src="{{base_path}}/assets/img/develop/open-project/import-from-capp.png" alt="Import from CApp"></a>
 
     !!! warning "If you have an integration project created by WSO2 Integration Studio..."
     
