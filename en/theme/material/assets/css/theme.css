@@ -249,6 +249,10 @@
     color: var(--colors-white);
 }
 
+[data-md-color-scheme=default] .md-typeset .tabbed-labels>label {
+    color: var(--md-code-fg-color);
+}
+
 .md-typeset .highlighttable>tbody>tr+tr>.code>div>pre>code {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
